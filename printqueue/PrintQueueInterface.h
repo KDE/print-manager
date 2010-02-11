@@ -21,7 +21,8 @@
 #define PRINT_QUEUE_INTERFACE_H
 
 #include <QtDBus/QDBusContext>
-#include <QTimer>
+
+class QTimer;
 
 class PrintQueueUi;
 

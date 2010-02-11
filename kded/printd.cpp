@@ -28,8 +28,11 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusConnectionInterface>
+#include <QtCore/QTimer>
 
 #include <cups/cups.h>
+
+#include "PrintQueueTray.h"
 
 #define INTERVAL 5000
 

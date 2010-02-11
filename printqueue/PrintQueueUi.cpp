@@ -27,6 +27,7 @@
 #include <QSortFilterProxyModel>
 #include <QPainter>
 #include <QToolBar>
+#include <QToolButton>
 #include <QMenu>
 
 #include <KMessageBox>

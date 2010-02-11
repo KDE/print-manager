@@ -25,6 +25,7 @@
 #include <cups/cups.h>
 
 #include <QtDBus/QDBusConnection>
+#include <QtCore/QTimer>
 #include <KWindowSystem>
 
 #include <KDebug>

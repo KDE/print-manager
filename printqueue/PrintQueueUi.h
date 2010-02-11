@@ -21,12 +21,15 @@
 #ifndef PRINT_QUEUE_UI_H
 #define PRINT_QUEUE_UI_H
 
-#include <QToolButton>
-#include <QSortFilterProxyModel>
+
 
 #include "ui_PrintQueueUi.h"
 
+class QToolButton;
+class QSortFilterProxyModel;
+
 class PrintQueueModel;
+
 class PrintQueueUi : public QWidget, Ui::PrintQueueUi
 {
     Q_OBJECT

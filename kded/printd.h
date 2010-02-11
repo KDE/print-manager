@@ -22,9 +22,10 @@
 #define PRINTD_H
 
 #include <KDEDModule>
-#include <QTimer>
 
-#include "PrintQueueTray.h"
+class QTimer;
+
+class PrintQueueTray;
 
 class PrintD : public KDEDModule
 {

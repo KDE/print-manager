@@ -20,10 +20,6 @@
 
 #include "PrintQueueTray.h"
 
-#include <QMenu>
-#include <QTimer>
-#include <QTreeView>
-#include <QStandardItemModel>
 #include <KNotification>
 #include <KMessageBox>
 #include <KLocale>

@@ -21,7 +21,6 @@
 #ifndef PRINT_QUEUE_UI_H
 #define PRINT_QUEUE_UI_H
 
-#include <QWidget>
 #include <QToolButton>
 #include <QSortFilterProxyModel>
 
@@ -32,7 +31,7 @@ class PrintQueueUi : public QWidget, Ui::PrintQueueUi
 {
     Q_OBJECT
 public:
-    PrintQueueUi(const QString &destName, QWidget *parent = 0);
+    explicit PrintQueueUi(const QString &destName, QWidget *parent = 0);
     ~PrintQueueUi();
 
 signals:

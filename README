@@ -1,0 +1,23 @@
+This project aims to be a full replacement for the
+current printing management of KDE.
+
+* It should be small and fast
+* Simple and functional
+* Very well integrated
+
+printd - contains a kded module that checks for user print jobs and shows a systray icon
+ --TODO
+  - use the new knotificationItem from kde 4.4
+  - detect new printers
+printqueue - contains an application that show the printers queue
+ -- what works
+  - Hold job
+  - Resume job
+  - Cancel job
+  - Filter between Active, Completed and All jobs
+  - Move jobs between printers, by using drag'n'drop with 2 queues open
+  - Pause and Resume printer
+  - TODO
+    - context menu to move jobs, and reprint
+    - setup printer (when module is ready)
+kcmprint - configure printers in a very simple way

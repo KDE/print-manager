@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+Icon=printer
+
+X-KDE-Library=kcm_print
+X-KDE-ServiceTypes=KCModule,KCModuleInit
+X-KDE-System-Settings-Parent-Category=computer-hardware
+
+Name=Print

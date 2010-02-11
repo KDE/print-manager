@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Service
+
+X-KDE-ServiceTypes=KDEDModule
+X-KDE-Library=cupsd
+X-KDE-Kded-autoload=true
+X-KDE-Kded-phase=1
+
+Name=Print monitor
+
+Comment=Monitor printer jobs

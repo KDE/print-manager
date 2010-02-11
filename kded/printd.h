@@ -24,6 +24,8 @@
 #include <KDEDModule>
 #include <QTimer>
 
+#include "PrintQueueTray.h"
+
 class PrintD : public KDEDModule
 {
 Q_OBJECT
@@ -40,6 +42,8 @@ private slots:
 private:
     QTimer *m_jobsTimer;
     bool m_onlyMyJobs;
+
+    PrintQueueTray *m_trayIcon;
 };
 
 #endif

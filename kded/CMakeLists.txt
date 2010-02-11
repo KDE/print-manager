@@ -1,5 +1,6 @@
 set(cupsd_SRCS
-    printd.cpp)
+    printd.cpp
+    PrintQueueTray.cpp)
 
 kde4_add_plugin(kded_cupsd ${cupsd_SRCS})
 

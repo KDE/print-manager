@@ -35,8 +35,11 @@
 
 
 PrintQueueTray::PrintQueueTray(QObject *parent)
- : KSystemTrayIcon("printer", parent)
+ : KStatusNotifierItem(parent)
 {
+  setCategory(Hardware);
+  setIconByName("printer");
+  setStatus(Active);
 }
 
 PrintQueueTray::~PrintQueueTray()

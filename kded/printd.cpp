@@ -84,17 +84,7 @@ void PrintD::checkJobs()
 
     if (num_jobs > 0) {
         // Start the printer icon
-        // If something goes wrong at least kpackagekitSmartIcon
-        // will show the error
-//         QDBusMessage message;
-//         message = QDBusMessage::createMethodCall("org.kde.KPackageKitSmartIcon",
-//                                                 "/",
-//                                                 "org.kde.KPackageKitSmartIcon",
-//                                                 QLatin1String("Update"));
-//         QDBusMessage reply = QDBusConnection::sessionBus().call(message);
-//         if (reply.type() != QDBusMessage::ReplyMessage) {
-//             kWarning() << "Message did not receive a reply";
-//         }
+        m_trayIcon = new PrintQueueTray;
     }
 
     // Free the job array

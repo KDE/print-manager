@@ -21,9 +21,9 @@
 #ifndef PRINT_QUEUE_TRAY_H
 #define PRINT_QUEUE_TRAY_H
 
-#include <KSystemTrayIcon>
+#include <KStatusNotifierItem>
 
-class PrintQueueTray : public KSystemTrayIcon
+class PrintQueueTray : public KStatusNotifierItem
 {
 Q_OBJECT
 public:

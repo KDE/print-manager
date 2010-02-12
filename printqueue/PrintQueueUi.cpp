@@ -23,6 +23,7 @@
 #include "PrintQueueModel.h"
 
 #include <QCups.h>
+#include <cups/cups.h>
 
 #include <QSortFilterProxyModel>
 #include <QPainter>
@@ -76,7 +77,9 @@ PrintQueueUi::PrintQueueUi(const QString &destName, QWidget *parent)
     jobsView->setModel(m_proxyModel);
     connect(jobsView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
             this, SLOT(selectedJobs()));
- 
+    connect(jobsView, SIGNAL(customContextMenuRequested(const QPoint &)),
+            this, SLOT(showContextMenu(const QPoint &)));
+
     update();
 }
 
@@ -144,6 +147,65 @@ void PrintQueueUi::setState(const char &state)
     }
 }
 
+void PrintQueueUi::showContextMenu(const QPoint &point)
+{
+    // check if the click was actually over a job
+    if (!jobsView->indexAt(point).isValid()) {
+        return;
+    }
+
+    bool moveTo = false;
+    QItemSelection selection;
+    // we need to map the selection to source to get the real indexes
+    selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
+    // if the selection is empty the user clicked on an empty space
+    if (!selection.indexes().isEmpty()) {
+        foreach (const QModelIndex &index, selection.indexes()) {
+            if (index.column() == 0 && index.flags() & Qt::ItemIsDragEnabled) {
+                // Found a move to item
+                moveTo = true;
+                break;
+            }
+        }
+        // if we can move a job create the menu
+        if (moveTo) {
+            // context menu
+            QMenu *menu = new QMenu(this);
+            // move to menu 
+            QMenu *moveToMenu = new QMenu(i18n("Move to"), this);
+            // get printers we can move to
+            cups_dest_t *dests;
+            int num_dests = cupsGetDests(&dests);
+            cups_dest_t *dest;
+            int i;
+            const char *value;
+
+            for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
+                // If there is a printer and it's not the current one add it
+                // as a new destination
+                QString destName = QString::fromLocal8Bit(dest->name);
+                if (dest->instance == NULL && m_destName != destName) {
+                    value = cupsGetOption("printer-info", dest->num_options, dest->options);
+                    QAction *action = moveToMenu->addAction(QString::fromLocal8Bit(value));
+                    action->setData(destName);
+                }
+            }
+
+            if (!moveToMenu->isEmpty()) {
+                menu->addMenu(moveToMenu);
+                // show the menu on the right point
+                QAction *action = menu->exec(jobsView->mapToGlobal(point));
+                if (action) {
+                    // move the job
+                    modifyJob(PrintQueueModel::Move, action->data().toString());
+                }
+            }
+            // don't leak
+            cupsFreeDests(num_dests, dests);
+        }
+    }
+}
+
 void PrintQueueUi::update()
 {
 
@@ -202,7 +264,7 @@ void PrintQueueUi::selectedJobs()
     selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
-         foreach (const QModelIndex &index, selection.indexes()) {
+        foreach (const QModelIndex &index, selection.indexes()) {
             if (index.column() == 0) {
                 switch ((ipp_jstate_t) index.data(PrintQueueModel::JobState).toInt())
                 {
@@ -228,7 +290,7 @@ void PrintQueueUi::selectedJobs()
     actionResume->setEnabled(release);
 }
 
-void PrintQueueUi::modifyJob(int action)
+void PrintQueueUi::modifyJob(int action, const QString &destName)
 {
     // get all selected indexes
     QItemSelection selection;
@@ -236,7 +298,7 @@ void PrintQueueUi::modifyJob(int action)
     selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
     foreach (const QModelIndex &index, selection.indexes()) {
         if (index.column() == 0) {
-            if (!m_model->modifyJob(index.row(), (PrintQueueModel::JobAction) action)) {
+            if (!m_model->modifyJob(index.row(), (PrintQueueModel::JobAction) action, destName)) {
                 QString msg, jobName;
                 jobName = m_model->item(index.row(), (int) PrintQueueModel::ColName)->text();
                 switch (action) {
@@ -248,6 +310,9 @@ void PrintQueueUi::modifyJob(int action)
                     break;
                 case PrintQueueModel::Release:
                     msg = i18n("Failed to release '%1'", jobName);
+                    break;
+                case PrintQueueModel::Move:
+                    msg = i18n("Failed to release '%1' to '%2'", jobName, destName);
                     break;
                 }
                 KMessageBox::detailedSorry(this,
@@ -299,8 +364,6 @@ void PrintQueueUi::setActions()
     actionCancel->setIcon(KIcon("dialog-cancel"));
     actionCancel->setEnabled(false);
     toolBar->addAction(actionCancel);
-
-    toolBar->addSeparator();
 
     // hold job action
     actionHold->setIcon(KIcon("document-open-recent"));

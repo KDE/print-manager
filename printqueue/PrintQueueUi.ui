@@ -31,6 +31,22 @@
      <property name="margin">
       <number>5</number>
      </property>
+     <item row="0" column="1" colspan="2">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>13</width>
+         <height>13</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item row="0" column="0" rowspan="5">
       <widget class="QLabel" name="iconL">
        <property name="sizePolicy">
@@ -41,6 +57,30 @@
        </property>
        <property name="text">
         <string>Printer Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="2">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1" colspan="2">
+      <layout class="QHBoxLayout" name="toolBarLayout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMaximumSize</enum>
+       </property>
+      </layout>
+     </item>
+     <item row="2" column="1" colspan="2">
+      <widget class="QLabel" name="currentL">
+       <property name="text">
+        <string>Current job</string>
+       </property>
+       <property name="indent">
+        <number>15</number>
        </property>
       </widget>
      </item>
@@ -59,46 +99,6 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1" colspan="2">
-      <widget class="QLabel" name="currentL">
-       <property name="text">
-        <string>Current job</string>
-       </property>
-       <property name="indent">
-        <number>15</number>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1" colspan="2">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1" colspan="2">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Maximum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>0</width>
-         <height>0</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="4" column="1" colspan="2">
-      <layout class="QHBoxLayout" name="toolBarLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetMaximumSize</enum>
-       </property>
-      </layout>
-     </item>
     </layout>
    </item>
    <item>
@@ -108,6 +108,9 @@
        <width>640</width>
        <height>0</height>
       </size>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
      </property>
      <property name="acceptDrops">
       <bool>true</bool>
@@ -174,11 +177,6 @@
     <string>Pause printer</string>
    </property>
   </action>
-  <action name="actionConfigure">
-   <property name="text">
-    <string>Configure</string>
-   </property>
-  </action>
   <action name="actionActiveJobs">
    <property name="checkable">
     <bool>true</bool>
@@ -201,6 +199,11 @@
    </property>
    <property name="text">
     <string>All jobs</string>
+   </property>
+  </action>
+  <action name="actionConfigure">
+   <property name="text">
+    <string>Configure</string>
    </property>
   </action>
  </widget>

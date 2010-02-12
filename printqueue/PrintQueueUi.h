@@ -46,12 +46,13 @@ public slots:
 private slots:
     void selectedJobs();
     void actionTriggered(QAction *action);
+    void showContextMenu(const QPoint &point);
 
 private:
     void closeEvent(QCloseEvent *event);
     void setActions();
     void setState(const char &state);
-    void modifyJob(int action);
+    void modifyJob(int action, const QString &destName = QString());
 
     QToolButton *m_filterJobs;
     QSortFilterProxyModel *m_proxyModel;

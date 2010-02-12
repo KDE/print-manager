@@ -1,40 +1,11 @@
 [Global]
-IconName=applications-other
-Name=KPackageKit
-Comment=KPackageKit
+IconName=printer
+Name=Print manager
 
-[Event/ShowUpdates]
-Name=New updates avaliable
+[Event/NewPrinter]
+Name=A new printer was founf
 Action=Sound|Popup
 
-[Event/AutoInstallingUpdates]
-Name=Updates are being installed
-Action=Sound|Popup
-
-[Event/RestartRequired]
-Name=A System Restart is Required
-Action=Sound|Popup
-
-[Event/TransactionFailed]
-Name=A transaction failed to complete successfully
-Action=Sound|Popup
-
-[Event/UpdatesComplete]
-Name=Updates finished installing
-Action=Sound|Popup
-
-[Event/TransactionError]
-Name=A transaction error occurred
-Action=Sound|Popup
-
-[Event/DistroUpgradeAvailable]
-Name=A distribution upgrade is available
-Action=Sound|Popup
-
-[Event/DistroUpgradeFinished]
-Name=The distribution upgrade completed
-Action=Sound|Popup
-
-[Event/DistroUpgradeError]
-Name=The distribution upgrade completed with an error
+[Event/ErrorWithJob]
+Name=Your job has errors
 Action=Sound|Popup

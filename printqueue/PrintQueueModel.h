@@ -40,7 +40,8 @@ public:
     typedef enum {
         Cancel,
         Hold,
-        Release
+        Release,
+        Move
     } JobAction;
 
     typedef enum {
@@ -56,8 +57,6 @@ public:
 
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
     Qt::ItemFlags flags(const QModelIndex &index) const;
-    void setWhichJobs(int whichjobs);
-    bool modifyJob(int row, JobAction action, const QModelIndex &parent = QModelIndex());
     QStringList mimeTypes() const;
     Qt::DropActions supportedDropActions() const;
     QMimeData* mimeData(const QModelIndexList &indexes) const;
@@ -66,6 +65,9 @@ public:
                       int row,
                       int column,
                       const QModelIndex &parent);
+
+    void setWhichJobs(int whichjobs);
+    bool modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 public slots:
     void updateModel();

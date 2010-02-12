@@ -216,7 +216,7 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
     return ret;
 }
 
-bool PrintQueueModel::modifyJob(int row, JobAction action, const QModelIndex &parent)
+bool PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
 {
     Q_UNUSED(parent)
     QStandardItem *job = item(row, ColStatus);
@@ -238,6 +238,8 @@ bool PrintQueueModel::modifyJob(int row, JobAction action, const QModelIndex &pa
         return QCups::holdJob(destName.toLocal8Bit().data(), jobId);
     case Release:
         return QCups::releaseJob(destName.toLocal8Bit().data(), jobId);
+    case Move:
+        return QCups::moveJob(destName.toLocal8Bit().data(), jobId, newDestName.toLocal8Bit());
     }
     return false;
 }

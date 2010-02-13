@@ -3,7 +3,7 @@ IconName=printer
 Name=Print manager
 
 [Event/NewPrinter]
-Name=A new printer was founf
+Name=A new printer was found
 Action=Sound|Popup
 
 [Event/ErrorWithJob]

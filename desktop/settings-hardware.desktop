@@ -7,3 +7,8 @@ X-KDE-Weight=300
 Icon=preferences-system
 
 Name=Hardware
+Name[en_GB]=Hardware
+Name[pt]='Hardware'
+Name[sv]=Hårdvara
+Name[uk]=Обладнання
+Name[x-test]=xxHardwarexx

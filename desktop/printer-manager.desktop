@@ -7,3 +7,7 @@ X-KDE-ServiceTypes=KCModule,KCModuleInit
 X-KDE-System-Settings-Parent-Category=computer-hardware
 
 Name=Print
+Name[en_GB]=Print
+Name[sv]=Skriv ut
+Name[uk]=Друк
+Name[x-test]=xxPrintxx

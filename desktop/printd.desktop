@@ -7,5 +7,13 @@ X-KDE-Kded-autoload=true
 X-KDE-Kded-phase=1
 
 Name=Print monitor
+Name[en_GB]=Print monitor
+Name[sv]=Utskriftsövervakning
+Name[uk]=Монітор друку
+Name[x-test]=xxPrint monitorxx
 
 Comment=Monitor printer jobs
+Comment[en_GB]=Monitor printer jobs
+Comment[sv]=Övervaka utskriftsjobb
+Comment[uk]=Спостереження за завданнями друку
+Comment[x-test]=xxMonitor printer jobsxx

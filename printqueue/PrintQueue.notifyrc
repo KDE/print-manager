@@ -1,6 +1,9 @@
 [Global]
 IconName=printer
 Name=Print manager
+Name[pt]=Gestor de impressão
+Name[sv]=Utskriftshanterare
+Name[uk]=Керування друком
 
 [Event/NewPrinter]
 Name=A new printer was found
@@ -8,4 +11,7 @@ Action=Sound|Popup
 
 [Event/ErrorWithJob]
 Name=Your job has errors
+Name[pt]=A sua tarefa gerou erros
+Name[sv]=Jobbet innehåller fel
+Name[uk]=У вашому завданні були помилки
 Action=Sound|Popup

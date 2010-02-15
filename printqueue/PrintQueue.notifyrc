@@ -2,11 +2,18 @@
 IconName=printer
 Name=Print manager
 Name[pt]=Gestor de impressão
+Name[pt_BR]=Gerenciador de impressão
 Name[sv]=Utskriftshanterare
 Name[uk]=Керування друком
+Name[x-test]=xxPrint managerxx
 
 [Event/NewPrinter]
 Name=A new printer was found
+Name[pt]=Foi encontrada uma nova impressora
+Name[pt_BR]=Uma nova impressora foi encontrada
+Name[sv]=Ett ny skrivare hittades
+Name[uk]=Знайдено новий принтер
+Name[x-test]=xxA new printer was foundxx
 Action=Sound|Popup
 
 [Event/ErrorWithJob]
@@ -14,4 +21,5 @@ Name=Your job has errors
 Name[pt]=A sua tarefa gerou erros
 Name[sv]=Jobbet innehåller fel
 Name[uk]=У вашому завданні були помилки
+Name[x-test]=xxYour job has errorsxx
 Action=Sound|Popup

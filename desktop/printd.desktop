@@ -9,6 +9,7 @@ X-KDE-Kded-phase=1
 Name=Print monitor
 Name[en_GB]=Print monitor
 Name[pt]=Monitor de impressão
+Name[pt_BR]=Monitor de impressão
 Name[sv]=Utskriftsövervakning
 Name[uk]=Монітор друку
 Name[x-test]=xxPrint monitorxx

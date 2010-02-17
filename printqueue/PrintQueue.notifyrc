@@ -19,6 +19,7 @@ Action=Sound|Popup
 [Event/ErrorWithJob]
 Name=Your job has errors
 Name[pt]=A sua tarefa gerou erros
+Name[pt_BR]=Seu trabalho tem erros
 Name[sv]=Jobbet innehåller fel
 Name[uk]=У вашому завданні були помилки
 Name[x-test]=xxYour job has errorsxx

@@ -205,8 +205,8 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
             // failed to move one job
             // we return here to avoid more password tries
             KMessageBox::detailedSorryWId(m_parentId,
-                                          i18n("Failed to move '%1'",
-                                               displayName),
+                                          i18n("Failed to move '%1' to '%2'",
+                                               displayName, m_destName),
                                           cupsLastErrorString(),
                                           i18n("Failed"));
             return false;

@@ -25,7 +25,7 @@
 #include <QCups.h>
 #include <cups/cups.h>
 
-#include <QSortFilterProxyModel>
+#include "PrintQueueSortFilterProxyModel.h"
 #include <QPainter>
 #include <QToolBar>
 #include <QToolButton>
@@ -38,7 +38,7 @@
 #define DEST_PRINTING '4'
 #define DEST_STOPED   '5'
 
-#define PRINTER_ICON_SIZE 96
+#define PRINTER_ICON_SIZE 64
 
 PrintQueueUi::PrintQueueUi(const QString &destName, QWidget *parent)
  : QWidget(parent),
@@ -50,16 +50,16 @@ PrintQueueUi::PrintQueueUi(const QString &destName, QWidget *parent)
 
     // setup default options
     setWindowIcon(KIcon("printer").pixmap(32));
-    iconL->setPixmap(KIcon("printer").pixmap(128));
     setWindowTitle(m_destName.isNull() ? i18n("All printers") : m_destName);
 
-    setActions();
+    setupButtons();
 
     // loads the standard key icon
     m_printerIcon = KIconLoader::global()->loadIcon("printer",
                                                     KIconLoader::NoGroup,
                                                     PRINTER_ICON_SIZE, // a not so huge icon
                                                     KIconLoader::DefaultState);
+    iconL->setPixmap(m_printerIcon);
 
     m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",
                                                   KIconLoader::NoGroup,
@@ -71,12 +71,17 @@ PrintQueueUi::PrintQueueUi(const QString &destName, QWidget *parent)
 
     // setup the jobs model
     m_model = new PrintQueueModel(destName, winId(), this);
-    m_proxyModel = new QSortFilterProxyModel(this);
+    connect(m_model, SIGNAL(dataChanged( const QModelIndex &, const QModelIndex &)),
+            this, SLOT(updateButtons()));
+    m_proxyModel = new PrintQueueSortFilterProxyModel(this);
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->setDynamicSortFilter(true);
+
     jobsView->setModel(m_proxyModel);
+    // sort by status column means the jobs will be sorted by the queue order
+    jobsView->sortByColumn(PrintQueueModel::ColStatus, Qt::AscendingOrder);
     connect(jobsView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
-            this, SLOT(selectedJobs()));
+            this, SLOT(updateButtons()));
     connect(jobsView, SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(showContextMenu(const QPoint &)));
 
@@ -95,8 +100,8 @@ void PrintQueueUi::setState(const char &state)
         switch (state) {
         case DEST_IDLE :
             statusL->setText(i18n("Printer ready"));
-            actionStopStartPrinter->setText(i18n("Pause printer"));
-            actionStopStartPrinter->setIcon(KIcon("media-playback-pause"));
+            pausePrinterPB->setText(i18n("Pause printer"));
+            pausePrinterPB->setIcon(KIcon("media-playback-pause"));
             break;
         case DEST_PRINTING :
             if (!m_title.isNull()) {
@@ -116,15 +121,15 @@ void PrintQueueUi::setState(const char &state)
                 } else {
                     statusL->setText(i18n("Printing '%1'", jobTitle));
                 }
-                actionStopStartPrinter->setText(i18n("Pause printer"));
-                actionStopStartPrinter->setIcon(KIcon("media-playback-pause"));
+                pausePrinterPB->setText(i18n("Pause printer"));
+                pausePrinterPB->setIcon(KIcon("media-playback-pause"));
             }
             break;
         case DEST_STOPED :
             m_printerPaused = true;
             statusL->setText(i18n("Printer paused"));
-            actionStopStartPrinter->setText(i18n("Resume printer"));
-            actionStopStartPrinter->setIcon(KIcon("media-playback-start"));
+            pausePrinterPB->setText(i18n("Resume printer"));
+            pausePrinterPB->setIcon(KIcon("media-playback-start"));
             // create a paiter to paint the action icon over the key icon
             {
                 QPainter painter(&icon);
@@ -143,8 +148,9 @@ void PrintQueueUi::setState(const char &state)
         }
         // set the printer icon
         setWindowIcon(icon);
-        iconL->setPixmap(icon);
     }
+    // save the last state so the ui doesn't need to keep updating
+    m_lastState = state;
 }
 
 void PrintQueueUi::showContextMenu(const QPoint &point)
@@ -252,7 +258,7 @@ void PrintQueueUi::update()
     }
 }
 
-void PrintQueueUi::selectedJobs()
+void PrintQueueUi::updateButtons()
 {
 //     kDebug();
     bool cancel, hold, release;
@@ -285,9 +291,9 @@ void PrintQueueUi::selectedJobs()
         }
     }
 
-    actionCancel->setEnabled(cancel);
-    actionHold->setEnabled(hold);
-    actionResume->setEnabled(release);
+    cancelJobPB->setEnabled(cancel);
+    holdJobPB->setEnabled(hold);
+    resumeJobPB->setEnabled(release);
 }
 
 void PrintQueueUi::modifyJob(int action, const QString &destName)
@@ -312,7 +318,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
                     msg = i18n("Failed to release '%1'", jobName);
                     break;
                 case PrintQueueModel::Move:
-                    msg = i18n("Failed to release '%1' to '%2'", jobName, destName);
+                    msg = i18n("Failed to move '%1' to '%2'", jobName, destName);
                     break;
                 }
                 KMessageBox::detailedSorry(this,
@@ -325,81 +331,66 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
     }
 }
 
+void PrintQueueUi::on_pausePrinterPB_clicked()
+{
+    // STOP and RESUME printer
+    if (m_printerPaused) {
+        QCups::resumePrinter(m_destName.toLocal8Bit());
+    } else {
+        QCups::pausePrinter(m_destName.toLocal8Bit());
+    }
+}
+
+//     void PrintQueueUi::on_configurePrinterPB_clicked();
+
+void PrintQueueUi::on_cancelJobPB_clicked()
+{
+    // CANCEL a job
+    modifyJob(PrintQueueModel::Cancel);
+}
+
+void PrintQueueUi::on_holdJobPB_clicked()
+{
+    // HOLD a job
+    modifyJob(PrintQueueModel::Hold);
+}
+
+void PrintQueueUi::on_resumeJobPB_clicked()
+{
+    // RESUME a job
+    modifyJob(PrintQueueModel::Release);
+}
+
 void PrintQueueUi::actionTriggered(QAction *action)
 {
-    if (action == actionCancel) {
-        // CANCEL a job
-        modifyJob(PrintQueueModel::Cancel);
-    } else if (action == actionHold) {
-        // HOLD a job
-        modifyJob(PrintQueueModel::Hold);
-    } else if (action == actionResume) {
-        // HOLD a job
-        modifyJob(PrintQueueModel::Release);
-    } else if (action == actionStopStartPrinter) {
-        // STOP and RESUME printer
-        if (m_printerPaused) {
-            QCups::resumePrinter(m_destName.toLocal8Bit());
-        } else {
-            QCups::pausePrinter(m_destName.toLocal8Bit());
-        }
-    } else if (action == actionActiveJobs ||
-               action == actionCompletedJobs ||
-               action == actionAllJobs) {
+    if (action == actionActiveJobs ||
+        action == actionCompletedJobs ||
+        action == actionAllJobs) {
         // job filter
-        m_filterJobs->setText(action->text());
+        whichJobsTB->setText(action->text());
         m_model->setWhichJobs(action->data().toInt());
     }
 }
 
-void PrintQueueUi::setActions()
+void PrintQueueUi::setupButtons()
 {
-    // setup actions
-    // Left tool bar
-    QToolBar *toolBar = new QToolBar(this);
-    connect(toolBar, SIGNAL(actionTriggered(QAction *)), this, SLOT(actionTriggered(QAction *)));
-    toolBarLayout->addWidget(toolBar);
+    // setup jobs buttons
 
     // cancel action
-    actionCancel->setIcon(KIcon("dialog-cancel"));
-    actionCancel->setEnabled(false);
-    toolBar->addAction(actionCancel);
+    cancelJobPB->setIcon(KIcon("dialog-cancel"));
 
     // hold job action
-    actionHold->setIcon(KIcon("document-open-recent"));
-    actionHold->setEnabled(false);
-    toolBar->addAction(actionHold);
+    holdJobPB->setIcon(KIcon("document-open-recent"));
 
     // resume job action
-    actionResume->setIcon(KIcon("media-playback-play"));
-    actionResume->setEnabled(false);
-    toolBar->addAction(actionResume);
+    // TODO we need a new icon
+    resumeJobPB->setIcon(KIcon("media-playback-play"));
 
-    toolBar->addSeparator();
-
-    // stop start printer
-    actionStopStartPrinter->setIcon(KIcon("media-playback-pause"));
-    toolBar->addAction(actionStopStartPrinter);
-    toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-
-    // Adds a spacer between tool bars
-    toolBarLayout->addStretch();
-
-    // RIGHT second tool bar for view and configure
-    QToolBar *toolBar2 = new QToolBar(this);
-    toolBar2->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    toolBarLayout->addWidget(toolBar2);
-
-    // filter menu
+    // which jobs menu
     QMenu *menu = new QMenu(this);
-    // add jobs filter button
-    m_filterJobs = new QToolButton(this);
-    m_filterJobs->setMenu(menu);
-    m_filterJobs->setPopupMode(QToolButton::InstantPopup);
-    m_filterJobs->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    m_filterJobs->setIcon(KIcon("view-filter"));
-    m_filterJobs->setText(actionActiveJobs->text());
-    toolBar2->addWidget(m_filterJobs);
+    whichJobsTB->setMenu(menu);
+    whichJobsTB->setIcon(KIcon("view-filter"));
+    whichJobsTB->setText(actionActiveJobs->text());
 
     // action group to make their selection exclusive
     QActionGroup *group = new QActionGroup(this);
@@ -419,9 +410,12 @@ void PrintQueueUi::setActions()
     menu->addAction(actionAllJobs);
     group->addAction(actionAllJobs);
 
+
+    // stop start printer
+    pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+
     // configure printer
-    actionConfigure->setIcon(KIcon("configure"));
-    toolBar2->addAction(actionConfigure);
+    configurePrinterPB->setIcon(KIcon("configure"));
 }
 
 void PrintQueueUi::closeEvent(QCloseEvent *event)

@@ -44,13 +44,20 @@ public slots:
     void update();
 
 private slots:
-    void selectedJobs();
+    void on_pausePrinterPB_clicked();
+//     void on_configurePrinterPB_clicked();
+
+    void on_cancelJobPB_clicked();
+    void on_holdJobPB_clicked();
+    void on_resumeJobPB_clicked();
+
+    void updateButtons();
     void actionTriggered(QAction *action);
     void showContextMenu(const QPoint &point);
 
 private:
     void closeEvent(QCloseEvent *event);
-    void setActions();
+    void setupButtons();
     void setState(const char &state);
     void modifyJob(int action, const QString &destName = QString());
 

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>232</height>
+    <height>261</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -19,162 +19,245 @@
   <property name="windowTitle">
    <string>my printer (x jobs)</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QGridLayout" name="gridLayout">
    <property name="margin">
     <number>0</number>
    </property>
-   <item>
-    <layout class="QGridLayout" name="gridLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetMaximumSize</enum>
+   <item row="0" column="0" rowspan="4">
+    <widget class="QLabel" name="iconL">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="margin">
-      <number>5</number>
+     <property name="text">
+      <string>Printer Icon</string>
      </property>
-     <item row="0" column="1" colspan="2">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="3">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pausePrinterPB">
+       <property name="text">
+        <string>Pause printer</string>
        </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Maximum</enum>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="configurePrinterPB">
+       <property name="text">
+        <string>Configure</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>13</width>
-         <height>13</height>
+         <width>40</width>
+         <height>20</height>
         </size>
        </property>
       </spacer>
      </item>
-     <item row="0" column="0" rowspan="5">
-      <widget class="QLabel" name="iconL">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Printer Icon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1" colspan="2">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1" colspan="2">
-      <layout class="QHBoxLayout" name="toolBarLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetMaximumSize</enum>
-       </property>
-      </layout>
-     </item>
-     <item row="2" column="1" colspan="2">
-      <widget class="QLabel" name="currentL">
-       <property name="text">
-        <string>Current job</string>
-       </property>
-       <property name="indent">
-        <number>15</number>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1" colspan="2">
-      <widget class="QLabel" name="statusL">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Printer Status</string>
-       </property>
-       <property name="indent">
-        <number>5</number>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
-   <item>
-    <widget class="QTreeView" name="jobsView">
-     <property name="baseSize">
-      <size>
-       <width>640</width>
-       <height>0</height>
-      </size>
+   <item row="5" column="0" colspan="3">
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Jobs</string>
      </property>
-     <property name="contextMenuPolicy">
-      <enum>Qt::CustomContextMenu</enum>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item row="1" column="0" colspan="6">
+       <widget class="QTreeView" name="jobsView">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>130</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>640</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="contextMenuPolicy">
+         <enum>Qt::CustomContextMenu</enum>
+        </property>
+        <property name="acceptDrops">
+         <bool>true</bool>
+        </property>
+        <property name="showDropIndicator" stdset="0">
+         <bool>false</bool>
+        </property>
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="dragDropMode">
+         <enum>QAbstractItemView::DragDrop</enum>
+        </property>
+        <property name="defaultDropAction">
+         <enum>Qt::MoveAction</enum>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::ExtendedSelection</enum>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::ElideMiddle</enum>
+        </property>
+        <property name="rootIsDecorated">
+         <bool>false</bool>
+        </property>
+        <property name="itemsExpandable">
+         <bool>false</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="animated">
+         <bool>true</bool>
+        </property>
+        <property name="expandsOnDoubleClick">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="resumeJobPB">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Resume</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="holdJobPB">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Hold</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="cancelJobPB">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="5">
+       <widget class="QToolButton" name="whichJobsTB">
+        <property name="text">
+         <string>Active jobs</string>
+        </property>
+        <property name="popupMode">
+         <enum>QToolButton::InstantPopup</enum>
+        </property>
+        <property name="toolButtonStyle">
+         <enum>Qt::ToolButtonTextBesideIcon</enum>
+        </property>
+        <property name="arrowType">
+         <enum>Qt::NoArrow</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
      </property>
-     <property name="acceptDrops">
-      <bool>true</bool>
+     <property name="sizeType">
+      <enum>QSizePolicy::Ignored</enum>
      </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
+    </spacer>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLabel" name="statusL">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
-     <property name="dragEnabled">
-      <bool>true</bool>
+     <property name="text">
+      <string>Printer Status</string>
      </property>
-     <property name="dragDropMode">
-      <enum>QAbstractItemView::DragDrop</enum>
-     </property>
-     <property name="defaultDropAction">
-      <enum>Qt::MoveAction</enum>
-     </property>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="selectionMode">
-      <enum>QAbstractItemView::ExtendedSelection</enum>
-     </property>
-     <property name="textElideMode">
-      <enum>Qt::ElideMiddle</enum>
-     </property>
-     <property name="rootIsDecorated">
-      <bool>false</bool>
-     </property>
-     <property name="itemsExpandable">
-      <bool>false</bool>
-     </property>
-     <property name="sortingEnabled">
-      <bool>true</bool>
-     </property>
-     <property name="animated">
-      <bool>true</bool>
-     </property>
-     <property name="expandsOnDoubleClick">
-      <bool>false</bool>
+     <property name="indent">
+      <number>5</number>
      </property>
     </widget>
    </item>
+   <item row="2" column="1">
+    <widget class="QLabel" name="currentL">
+     <property name="text">
+      <string>Current job</string>
+     </property>
+     <property name="indent">
+      <number>15</number>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Ignored</enum>
+     </property>
+    </spacer>
+   </item>
   </layout>
-  <action name="actionCancel">
-   <property name="text">
-    <string>Cancel</string>
+  <action name="actionCompletedJobs">
+   <property name="checkable">
+    <bool>true</bool>
    </property>
-   <property name="shortcut">
-    <string>Del</string>
-   </property>
-  </action>
-  <action name="actionHold">
    <property name="text">
-    <string>Hold</string>
-   </property>
-  </action>
-  <action name="actionResume">
-   <property name="text">
-    <string>Resume</string>
-   </property>
-  </action>
-  <action name="actionStopStartPrinter">
-   <property name="text">
-    <string>Pause printer</string>
+    <string>Completed jobs</string>
    </property>
   </action>
   <action name="actionActiveJobs">
@@ -185,14 +268,6 @@
     <string>Active jobs</string>
    </property>
   </action>
-  <action name="actionCompletedJobs">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Completed jobs</string>
-   </property>
-  </action>
   <action name="actionAllJobs">
    <property name="checkable">
     <bool>true</bool>
@@ -201,12 +276,16 @@
     <string>All jobs</string>
    </property>
   </action>
-  <action name="actionConfigure">
-   <property name="text">
-    <string>Configure</string>
-   </property>
-  </action>
  </widget>
+ <tabstops>
+  <tabstop>jobsView</tabstop>
+  <tabstop>cancelJobPB</tabstop>
+  <tabstop>holdJobPB</tabstop>
+  <tabstop>resumeJobPB</tabstop>
+  <tabstop>whichJobsTB</tabstop>
+  <tabstop>pausePrinterPB</tabstop>
+  <tabstop>configurePrinterPB</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

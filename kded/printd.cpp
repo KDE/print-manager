@@ -86,8 +86,10 @@ void PrintD::checkJobs()
     num_jobs = cupsGetJobs(&jobs, NULL, m_onlyMyJobs, CUPS_WHICHJOBS_ACTIVE);
 
     if (num_jobs > 0) {
+        QString tooltipText = i18np("1 document queued", "%1 documents queued", num_jobs);
         // Start the printer icon
         m_trayIcon = new PrintQueueTray;
+        m_trayIcon->setToolTip("printer", i18n("Print Status"), tooltipText);
     }
 
     // Free the job array

@@ -16,6 +16,6 @@ include_directories(${CMAKE_SOURCE_DIR}
 )
 
 add_subdirectory(libqcups)
-add_subdirectory(kded)
-add_subdirectory(desktop)
+add_subdirectory(printkcm)
 add_subdirectory(printqueue)
+add_subdirectory(printd)

@@ -18,60 +18,31 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_QUEUE_UI_H
-#define PRINT_QUEUE_UI_H
+#include "PrintKCM.h"
 
+#include <KGenericFactory>
+#include <KAboutData>
+#include <KIcon>
 
+K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
+K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
 
-#include "ui_PrintQueueUi.h"
-
-class QToolButton;
-class QSortFilterProxyModel;
-
-class PrintQueueModel;
-
-class PrintQueueUi : public QWidget, Ui::PrintQueueUi
+PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
+    : KCModule(PrintKCMFactory::componentData(), parent, args)
 {
-    Q_OBJECT
-public:
-    explicit PrintQueueUi(const QString &destName, QWidget *parent = 0);
-    ~PrintQueueUi();
+    KAboutData *aboutData;
+    aboutData = new KAboutData("kcm_print",
+                               "kcm_print",
+                               ki18n("Print settings"),
+                               "0.1",
+                               ki18n("Print settings"),
+                               KAboutData::License_GPL,
+                               ki18n("(C) 2010 Daniel Nicoletti"));
+    setAboutData(aboutData);
+    setButtons(Help);
 
-signals:
-    void finished();
+    setupUi(this);
 
-public slots:
-    void update();
-
-private slots:
-    void on_pausePrinterPB_clicked();
-    void on_configurePrinterPB_clicked();
-
-    void on_cancelJobPB_clicked();
-    void on_holdJobPB_clicked();
-    void on_resumeJobPB_clicked();
-
-    void updateButtons();
-    void actionTriggered(QAction *action);
-    void showContextMenu(const QPoint &point);
-
-private:
-    void closeEvent(QCloseEvent *event);
-    void setupButtons();
-    void setState(const char &state);
-    void modifyJob(int action, const QString &destName = QString());
-
-    QToolButton *m_filterJobs;
-    QSortFilterProxyModel *m_proxyModel;
-    PrintQueueModel *m_model;
-    QString m_destName;
-    QString m_title;
-    QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
-    bool m_printerPaused;
-    char m_lastState;
-};
-
-#endif
+    addPB->setIcon(KIcon("list-add"));
+    removePB->setIcon(KIcon("list-remove"));
+}

@@ -214,16 +214,20 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
 
 void PrintQueueUi::update()
 {
-
     cups_dest_t *dests;
     const char *value;
     int num_dests = cupsGetDests(&dests);
     cups_dest_t *dest = cupsGetDest(m_destName.toLocal8Bit(), NULL, num_dests, dests);
 
     if (dest == NULL) {
+        // if cups stops we disable our queue
         setEnabled(false);
         return;
+    } else if (isEnabled() == false) {
+        // if cups starts agina we enable our queue
+        setEnabled(true);
     }
+
     // get printer-info
     value = cupsGetOption("printer-info", dest->num_options, dest->options);
     if (value) {
@@ -341,7 +345,9 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
     }
 }
 
-//     void PrintQueueUi::on_configurePrinterPB_clicked();
+void PrintQueueUi::on_configurePrinterPB_clicked()
+{
+}
 
 void PrintQueueUi::on_cancelJobPB_clicked()
 {
@@ -363,13 +369,9 @@ void PrintQueueUi::on_resumeJobPB_clicked()
 
 void PrintQueueUi::actionTriggered(QAction *action)
 {
-    if (action == actionActiveJobs ||
-        action == actionCompletedJobs ||
-        action == actionAllJobs) {
-        // job filter
-        whichJobsTB->setText(action->text());
-        m_model->setWhichJobs(action->data().toInt());
-    }
+    // job filter
+    whichJobsTB->setText(action->text());
+    m_model->setWhichJobs(action->data().toInt());
 }
 
 void PrintQueueUi::setupButtons()

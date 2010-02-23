@@ -11,3 +11,4 @@ target_link_libraries(kded_cupsd
 )
 
 install(TARGETS kded_cupsd DESTINATION ${PLUGIN_INSTALL_DIR})
+install(FILES printd.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)

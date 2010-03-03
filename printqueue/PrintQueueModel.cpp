@@ -302,7 +302,7 @@ void PrintQueueModel::setWhichJobs(int whichjobs)
 Qt::ItemFlags PrintQueueModel::flags(const QModelIndex &index) const
 {
     if (index.isValid()) {
-        ipp_jstate_t state = (ipp_jstate_t) item(index.row(), ColStatus)->data(JobState).toInt();
+        ipp_jstate_t state = static_cast<ipp_jstate_t>(item(index.row(), ColStatus)->data(JobState).toInt());
         if (state == IPP_JOB_PENDING ||
             state == IPP_JOB_PROCESSING) {
             return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;

@@ -276,7 +276,7 @@ void PrintQueueUi::updateButtons()
     if (!selection.indexes().isEmpty()) {
         foreach (const QModelIndex &index, selection.indexes()) {
             if (index.column() == 0) {
-                switch ((ipp_jstate_t) index.data(PrintQueueModel::JobState).toInt())
+                switch (static_cast<ipp_jstate_t>(index.data(PrintQueueModel::JobState).toInt()))
                 {
                     case IPP_JOB_CANCELED :
                     case IPP_JOB_COMPLETED :
@@ -308,9 +308,9 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
     selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
     foreach (const QModelIndex &index, selection.indexes()) {
         if (index.column() == 0) {
-            if (!m_model->modifyJob(index.row(), (PrintQueueModel::JobAction) action, destName)) {
+            if (!m_model->modifyJob(index.row(), static_cast<PrintQueueModel::JobAction>(action), destName)) {
                 QString msg, jobName;
-                jobName = m_model->item(index.row(), (int) PrintQueueModel::ColName)->text();
+                jobName = m_model->item(index.row(), static_cast<int>(PrintQueueModel::ColName))->text();
                 switch (action) {
                 case PrintQueueModel::Cancel:
                     msg = i18n("Failed to cancel '%1'", jobName);

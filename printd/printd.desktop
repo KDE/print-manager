@@ -16,6 +16,7 @@ Name[x-test]=xxPrint monitorxx
 
 Comment=Monitor printer jobs
 Comment[en_GB]=Monitor printer jobs
+Comment[es]=Monitor de trabajos de impresión
 Comment[pt]=Monitorizar as tarefas da impressora
 Comment[pt_BR]=Monitore trabalhos de impressão
 Comment[sv]=Övervaka utskriftsjobb

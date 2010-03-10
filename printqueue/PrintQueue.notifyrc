@@ -1,6 +1,7 @@
 [Global]
 IconName=printer
 Name=Print manager
+Name[es]=Gestor de impresión
 Name[pt]=Gestor de impressão
 Name[pt_BR]=Gerenciador de impressão
 Name[sv]=Utskriftshanterare
@@ -9,6 +10,7 @@ Name[x-test]=xxPrint managerxx
 
 [Event/NewPrinter]
 Name=A new printer was found
+Name[es]=Se ha detectado una nueva impresora
 Name[pt]=Foi encontrada uma nova impressora
 Name[pt_BR]=Uma nova impressora foi encontrada
 Name[sv]=Ett ny skrivare hittades

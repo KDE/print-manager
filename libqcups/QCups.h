@@ -23,6 +23,10 @@
 
 #include <kdemacros.h>
 
+#define DEST_IDLE     '3'
+#define DEST_PRINTING '4'
+#define DEST_STOPED   '5'
+
 namespace QCups
 {
     KDE_EXPORT void initialize();
@@ -32,6 +36,8 @@ namespace QCups
     KDE_EXPORT bool moveJob(const char *name, int job_id, const char *dest_name);
     KDE_EXPORT bool pausePrinter(const char *name);
     KDE_EXPORT bool resumePrinter(const char *name);
+    KDE_EXPORT bool setDefaultPrinter(const QString &name);
+    KDE_EXPORT bool deletePrinter(const QString &name);
 };
 
 #endif

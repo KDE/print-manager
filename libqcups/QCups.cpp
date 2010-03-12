@@ -115,6 +115,16 @@ bool QCups::resumePrinter(const char *name)
     RUN_ACTION(cupsPauseResumePrinter(name, false))
 }
 
+bool QCups::setDefaultPrinter(const QString &name)
+{
+    RUN_ACTION(cupsSetDefaultPrinter(name.toLocal8Bit().data()))
+}
+
+bool QCups::deletePrinter(const QString &name)
+{
+    RUN_ACTION(cupsDeletePrinter(name.toLocal8Bit().data()))
+}
+
 bool QCups::cancelJob(const char *name, int job_id)
 {
     RUN_ACTION(cupsCancelJob(name, job_id))

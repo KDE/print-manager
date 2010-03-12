@@ -34,10 +34,6 @@
 #include <KMessageBox>
 #include <KDebug>
 
-#define DEST_IDLE     '3'
-#define DEST_PRINTING '4'
-#define DEST_STOPED   '5'
-
 #define PRINTER_ICON_SIZE 64
 
 PrintQueueUi::PrintQueueUi(const QString &destName, QWidget *parent)

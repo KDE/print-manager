@@ -36,6 +36,14 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
    m_parentId(parentId)
 {
     m_showPrinterColumn = destName.isNull();
+    setHorizontalHeaderItem(ColStatus,    new QStandardItem(i18n("Status")));
+    setHorizontalHeaderItem(ColName,      new QStandardItem(i18n("Name")));
+    setHorizontalHeaderItem(ColUser,      new QStandardItem(i18n("User")));
+    setHorizontalHeaderItem(ColCreated,   new QStandardItem(i18n("Created")));
+    setHorizontalHeaderItem(ColCompleted, new QStandardItem(i18n("Completed")));
+    if (m_showPrinterColumn) {
+        setHorizontalHeaderItem(ColPrinter,   new QStandardItem(i18n("Printer")));
+    }
 }
 
 void PrintQueueModel::updateModel()
@@ -270,28 +278,6 @@ QString PrintQueueModel::jobStatus(ipp_jstate_t job_state)
     case IPP_JOB_COMPLETED  : return i18n("Completed");
   }
   return "-";
-}
-
-QVariant PrintQueueModel::headerData(int section, Qt::Orientation orientation, int role) const
-{
-    Q_UNUSED(orientation);
-    if (role == Qt::DisplayRole) {
-        switch(section) {
-            case ColStatus:
-                return i18n("Status");
-            case ColName:
-                return i18n("Name");
-            case ColUser:
-                return i18n("User");
-            case ColCreated:
-                return i18n("Created");
-            case ColCompleted:
-                return i18n("Completed");
-            case ColPrinter:
-                return i18n("Printer");
-        }
-    }
-    return QVariant();
 }
 
 void PrintQueueModel::setWhichJobs(int whichjobs)

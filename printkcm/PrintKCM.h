@@ -25,13 +25,23 @@
 
 #include "ui_PrintKCM.h"
 
+class PrinterModel;
+class PrinterDescription;
 class PrintKCM : public KCModule, public Ui::PrintKCM
 {
 Q_OBJECT
 
 public:
     PrintKCM(QWidget *parent, const QVariantList &args);
+    ~PrintKCM();
 
+private slots:
+    void update();
+    void on_removePB_clicked();
+
+private:
+    PrinterModel *m_model;
+    PrinterDescription *m_printerDesc;
 };
 
 #endif

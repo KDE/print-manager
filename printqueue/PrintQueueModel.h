@@ -55,7 +55,6 @@ public:
 
     PrintQueueModel(const QString &destName, WId parentId, QObject *parent = 0);
 
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QStringList mimeTypes() const;
     Qt::DropActions supportedDropActions() const;

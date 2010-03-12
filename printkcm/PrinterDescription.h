@@ -18,16 +18,41 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef CUPS_ACTIONS_H
-#define CUPS_ACTIONS_H
+#ifndef PRINTER_DESCRIPTION_H
+#define PRINTER_DESCRIPTION_H
 
-namespace QCups
+#include "ui_PrinterDescription.h"
+
+class QToolButton;
+class QSortFilterProxyModel;
+
+class PrintQueueModel;
+
+class PrinterDescription : public QWidget, Ui::PrinterDescription
 {
-    bool cupsMoveJob(const char *name, int job_id, const char *dest_name);
-    bool cupsPauseResumePrinter(const char *name, bool pause);
-    bool cupsSetDefaultPrinter(const char *name);
-    bool cupsDeletePrinter(const char *name);
-    bool cupsHoldReleaseJob(const char *name, int job_id, bool hold);
+    Q_OBJECT
+public:
+    explicit PrinterDescription(QWidget *parent = 0);
+    ~PrinterDescription();
+
+    void setDestName(const QString &name);
+    void setLocation(const QString &location);
+    void setStatus(const QString &status);
+    void setDescription(const QString &description);
+    void setKind(const QString &kind);
+    void setIsDefault(bool isDefault);
+    void setIsShared(bool isShared);
+
+private slots:
+    void on_openQueuePB_clicked();
+    void on_defaultCB_clicked();
+
+private:
+    QString m_destName;
+    QPixmap m_printerIcon;
+    QPixmap m_pauseIcon;
+    QPixmap m_startIcon;
+    QPixmap m_warningIcon;
 };
 
 #endif

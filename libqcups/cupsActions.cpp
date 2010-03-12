@@ -136,3 +136,65 @@ bool QCups::cupsPauseResumePrinter(const char *name, bool pause)
 
     return !cupsLastError();
 }
+
+bool QCups::cupsSetDefaultPrinter(const char *name)
+{
+    char  uri[HTTP_MAX_URI]; // printer URI
+    ipp_t *request;
+
+    // check the input data
+    if (!name) {
+        qWarning() << "Internal error, invalid input data" << name;
+        return false;
+    }
+
+    // Create a new request
+    // where we need:
+    // * printer-uri
+    // * requesting-user-name
+    request = ippNewRequest(CUPS_SET_DEFAULT);
+
+    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
+                    "localhost", ippPort(), "/printers/%s", name);
+
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
+                 NULL, uri);
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
+                 NULL, cupsUser());
+
+    // do the request deleting the response
+    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
+
+    return !cupsLastError();
+}
+
+bool QCups::cupsDeletePrinter(const char *name)
+{
+    char  uri[HTTP_MAX_URI]; // printer URI
+    ipp_t *request;
+
+    // check the input data
+    if (!name) {
+        qWarning() << "Internal error, invalid input data" << name;
+        return false;
+    }
+
+    // Create a new request
+    // where we need:
+    // * printer-uri
+    // * requesting-user-name
+    request = ippNewRequest(CUPS_DELETE_PRINTER);
+
+    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
+                    "localhost", ippPort(), "/printers/%s", name);
+
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
+                 NULL, uri);
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
+                 NULL, cupsUser());
+
+    // do the request deleting the response
+    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
+
+    return !cupsLastError();
+}

@@ -18,16 +18,59 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef CUPS_ACTIONS_H
-#define CUPS_ACTIONS_H
+#ifndef PRINTER_MODEL_H
+#define PRINTER_MODEL_H
 
-namespace QCups
+#include <QStandardItemModel>
+
+#include <cups/cups.h>
+
+class PrinterModel : public QStandardItemModel
 {
-    bool cupsMoveJob(const char *name, int job_id, const char *dest_name);
-    bool cupsPauseResumePrinter(const char *name, bool pause);
-    bool cupsSetDefaultPrinter(const char *name);
-    bool cupsDeletePrinter(const char *name);
-    bool cupsHoldReleaseJob(const char *name, int job_id, bool hold);
+    Q_OBJECT
+    Q_ENUMS(JobAction)
+    Q_ENUMS(Role)
+public:
+    typedef enum {
+        DestName = Qt::UserRole + 2,
+        DestStatus,
+        DestIsDefault,
+        DestIsShared,
+        DestLocation,
+        DestDescription,
+        DestKind
+    } Role;
+
+    typedef enum {
+        Cancel,
+        Hold,
+        Release,
+        Move
+    } JobAction;
+
+    typedef enum {
+        ColStatus = 0,
+        ColName,
+        ColUser,
+        ColCreated,
+        ColCompleted,
+        ColPrinter
+    } Columns;
+
+    PrinterModel(WId parentId, QObject *parent = 0);
+
+    Qt::ItemFlags flags(const QModelIndex &index) const;
+
+    void update();
+
+private:
+    WId m_parentId;
+
+    int destRow(const QString &destName);
+    void insertDest(int pos, cups_dest_t *dest);
+    void updateDest(QStandardItem *item, cups_dest_t *dest);
+
+    QString destStatus(const char &state, bool is_default) const;
 };
 
 #endif

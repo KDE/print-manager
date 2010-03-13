@@ -20,4 +20,4 @@ printqueue - contains an application that show the printers queue
   - TODO
     - context menu to move jobs, and reprint
     - setup printer (when module is ready)
-kcmprint - configure printers in a very simple way
+printer-manager-kcm - configure printers in a very simple way

@@ -36,5 +36,5 @@ install(TARGETS print-queue DESTINATION ${LIBEXEC_INSTALL_DIR})
 
 install(FILES PrintQueue.notifyrc DESTINATION ${DATA_INSTALL_DIR}/PrintQueue)
 
-# include(PkgConfigGetVar)
-# dbus_add_activation_service(org.kde.PrintQueue.service.in)
+include(PkgConfigGetVar)
+dbus_add_activation_service(org.kde.PrintQueue.service.in)

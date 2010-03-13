@@ -9,14 +9,14 @@ kde4_add_ui_files(kcm_print_SRCS
     PrinterDescription.ui
 )
 
-kde4_add_plugin(kcm_print ${kcm_print_SRCS})
+kde4_add_plugin(kcm_printer_manager ${kcm_print_SRCS})
 
-target_link_libraries(kcm_print
+target_link_libraries(kcm_printer_manager
     ${KDE4_KDEUI_LIBS}
     ${CUPS_LIB}
     qcupslib
 )
 
-install(TARGETS kcm_print DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_printer_manager DESTINATION ${PLUGIN_INSTALL_DIR})
 install(FILES settings-hardware.desktop DESTINATION ${SERVICES_INSTALL_DIR})
-install(FILES printer-manager.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES kcm_printer_manager.desktop DESTINATION ${SERVICES_INSTALL_DIR})

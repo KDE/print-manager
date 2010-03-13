@@ -63,7 +63,7 @@ void PrinterDescription::on_openQueuePB_clicked()
     message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
                                              "/",
                                              "org.kde.PrintQueue",
-                                                QLatin1String("ShowQueue"));
+                                             QLatin1String("ShowQueue"));
     // Use our own cached tid to avoid crashes
     message << qVariantFromValue(m_destName);
     QDBusConnection::sessionBus().call(message);

@@ -1,7 +1,8 @@
 set(kcm_print_SRCS
-    PrintKCM.cpp
-    PrinterDescription.cpp
     PrinterModel.cpp
+    PrinterDelegate.cpp
+    PrinterDescription.cpp
+    PrintKCM.cpp
 )
 
 kde4_add_ui_files(kcm_print_SRCS

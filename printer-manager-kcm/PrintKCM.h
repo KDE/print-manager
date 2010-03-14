@@ -21,6 +21,7 @@
 #ifndef PRINT_KCM_H
 #define PRINT_KCM_H
 
+#include <QTimer>
 #include <KCModule>
 
 #include "ui_PrintKCM.h"
@@ -42,6 +43,7 @@ private slots:
 private:
     PrinterModel *m_model;
     PrinterDescription *m_printerDesc;
+    QTimer *m_updateT;
 };
 
 #endif

@@ -43,18 +43,10 @@ void PrinterModel::update()
     int num_dests = cupsGetDests(&dests);
     cups_dest_t *dest;
     int i;
-//     const char *value;
 
     for (i = 0, dest = dests; i < num_dests; i++, dest++) {
         // If there is a printer and it's not the current one add it
         // as a new destination
-//         QString destName = QString::fromLocal8Bit(dest->name);
-//         if (dest->instance == NULL && m_destName != destName) {
-//             value = cupsGetOption("printer-info", dest->num_options, dest->options);
-//             QAction *action = moveToMenu->addAction(QString::fromLocal8Bit(value));
-//             action->setData(destName);
-//         }
-        // try to find the job row
         int dest_row = destRow(QString::fromLocal8Bit(dest->name));
         if (dest_row == -1) {
             // not found, insert new one
@@ -77,11 +69,8 @@ void PrinterModel::update()
     // case it either inserts or moves it.
     // so any item > num_jobs can be safely deleted
     while (rowCount() > num_dests) {
-        kDebug() << 1 << " - " << rowCount() << num_dests;
         removeRow(rowCount() - 1);
-        kDebug() << 1 << " 2 " << rowCount() << num_dests;
     }
-    
 
     // don't leak
     cupsFreeDests(num_dests, dests);
@@ -104,42 +93,61 @@ void PrinterModel::updateDest(QStandardItem *destItem, cups_dest_t *dest)
 {
     const char *value;
     // store the default value
-    destItem->setData(static_cast<bool>(dest->is_default), DestIsDefault);
+    bool isDefault = static_cast<bool>(dest->is_default);
+    if (isDefault != destItem->data(DestIsDefault).toBool()) {
+        destItem->setData(isDefault, DestIsDefault);
+    }
 
     // store the printer state
     value = cupsGetOption("printer-state", dest->num_options, dest->options);
     if (value) {
-        destItem->setData(destStatus(value[0], dest->is_default), DestStatus);
+        QString status = destStatus(value[0]);
+        if (status != destItem->data(DestStatus)){
+            destItem->setData(status, DestStatus);
+        }
     }
 
     // store if the printer is shared
     value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
     if (value) {
-        destItem->setData(value[0] == '1' ? true : false, DestIsShared);
+        bool shared = value[0] == '1';
+        if (shared != destItem->data(DestIsShared)) {
+            destItem->setData(shared, DestIsShared);
+        }
     }
 
     // store the printer location
     value = cupsGetOption("printer-location", dest->num_options, dest->options);
     if (value) {
-        destItem->setData(QString::fromLocal8Bit(value), DestLocation);
+        QString location = QString::fromLocal8Bit(value);
+        if (location != destItem->data(DestLocation).toString()) {
+            destItem->setData(location, DestLocation);
+        }
     }
 
     // store the printer description
     value = cupsGetOption("printer-info", dest->num_options, dest->options);
     if (value) {
         QString description = QString::fromLocal8Bit(value);
-        destItem->setData(description, DestDescription);
-        if (destItem->text() != description) {
-            destItem->setText(description);
+        if (description != destItem->data(DestDescription).toString()){
+            destItem->setData(description, DestDescription);
+            if (destItem->text() != description) {
+                destItem->setText(description);
+            }
         }
     } else if (destItem->data(DestName).toString() != destItem->text()){
-        destItem->setText(destItem->data(DestName).toString());
+        if (destItem->text() != destItem->data(DestName).toString()){
+            destItem->setText(destItem->data(DestName).toString());
+        }
     }
 
     // store the printer kind
     value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options);
     if (value) {
-        destItem->setData(QString::fromLocal8Bit(value), DestKind);
+        QString kind = QString::fromLocal8Bit(value);
+        if (kind != destItem->data(DestKind)) {
+            destItem->setData(kind, DestKind);
+        }
     }
 }
 
@@ -156,17 +164,17 @@ int PrinterModel::destRow(const QString &destName)
     return -1;
 }
 
-QString PrinterModel::destStatus(const char &state, bool is_default) const
+QString PrinterModel::destStatus(const char &state) const
 {
     switch (state) {
     case DEST_IDLE :
-        return is_default ? i18n("Idle, default") : i18n("Idle");
+        return i18n("Idle");
     case DEST_PRINTING :
-        return is_default ? i18n("In use, default") : i18n("In use");
+        return i18n("In use");
     case DEST_STOPED :
-        return is_default ? i18n("Paused, default") : i18n("Paused");
+        return i18n("Paused");
     default :
-        return is_default ? i18n("Unknown, default") : i18n("Unknown");
+        return i18n("Unknown");
     }
 }
 

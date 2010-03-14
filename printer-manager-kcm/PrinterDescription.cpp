@@ -29,7 +29,7 @@
 #include <QDBusConnection>
 #include <KDebug>
 
-#define PRINTER_ICON_SIZE 64
+#define PRINTER_ICON_SIZE 128
 
 PrinterDescription::PrinterDescription(QWidget *parent)
  : QWidget(parent)

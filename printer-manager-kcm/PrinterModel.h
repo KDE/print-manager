@@ -32,8 +32,8 @@ class PrinterModel : public QStandardItemModel
     Q_ENUMS(Role)
 public:
     typedef enum {
-        DestName = Qt::UserRole + 2,
-        DestStatus,
+        DestStatus = Qt::UserRole,
+        DestName,
         DestIsDefault,
         DestIsShared,
         DestLocation,
@@ -61,6 +61,7 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
+public slots:
     void update();
 
 private:
@@ -70,7 +71,7 @@ private:
     void insertDest(int pos, cups_dest_t *dest);
     void updateDest(QStandardItem *item, cups_dest_t *dest);
 
-    QString destStatus(const char &state, bool is_default) const;
+    QString destStatus(const char &state) const;
 };
 
 #endif

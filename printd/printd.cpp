@@ -88,11 +88,19 @@ void PrintD::checkJobs()
     num_jobs = cupsGetJobs(&jobs, NULL, m_onlyMyJobs, CUPS_WHICHJOBS_ACTIVE);
 
     if (num_jobs > 0) {
-        QString dest = QString::fromLocal8Bit(jobs->dest);
-        kDebug() << "Printer name: " << dest;
-        QString tooltipText = i18np("1 document queued", "%1 documents queued", num_jobs);
+        QString jobTitle;
+        QString destPrinter;
+        for (int i = 0; i < num_jobs; i++) {
+            if (jobs[i].state == IPP_JOB_PROCESSING) {
+                destPrinter = QString::fromLocal8Bit(jobs->dest);
+                jobTitle = QString::fromLocal8Bit(jobs[i].title);
+                break;
+            }
+        }
+
+        QString tooltipText = i18n("Printing: ") + jobTitle;
         m_trayIcon->show();
-        m_trayIcon->setToolTip("printer", dest, tooltipText);
+        m_trayIcon->setToolTip("printer", destPrinter, tooltipText);
     } else {
         QString tooltipText = i18n("No documents queued");
         m_trayIcon->hide();

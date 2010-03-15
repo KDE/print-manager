@@ -207,9 +207,9 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
             continue;
         }
 
-        if (!QCups::moveJob(fromDestName.toLocal8Bit().data(),
+        if (!QCups::moveJob(fromDestName,
                             jobId,
-                            m_destName.toLocal8Bit().data())) {
+                            m_destName)) {
             // failed to move one job
             // we return here to avoid more password tries
             KMessageBox::detailedSorryWId(m_parentId,
@@ -241,13 +241,13 @@ bool PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDes
 
     switch (action) {
     case Cancel:
-        return QCups::cancelJob(destName.toLocal8Bit().data(), jobId);
+        return QCups::cancelJob(destName, jobId);
     case Hold:
-        return QCups::holdJob(destName.toLocal8Bit().data(), jobId);
+        return QCups::holdJob(destName, jobId);
     case Release:
-        return QCups::releaseJob(destName.toLocal8Bit().data(), jobId);
+        return QCups::releaseJob(destName, jobId);
     case Move:
-        return QCups::moveJob(destName.toLocal8Bit().data(), jobId, newDestName.toLocal8Bit());
+        return QCups::moveJob(destName, jobId, newDestName);
     }
     return false;
 }

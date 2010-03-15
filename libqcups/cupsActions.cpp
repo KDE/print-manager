@@ -23,9 +23,28 @@
 
 #include <KDebug>
 
+// Don't forget to delete the request
+ipp_t * ippNewDefaultRequest(const char *name, ipp_op_t operation)
+{
+    char  uri[HTTP_MAX_URI]; // printer URI
+    ipp_t *request;
+
+    // Create a new request
+    // where we need:
+    // * printer-uri
+    // * requesting-user-name
+    request = ippNewRequest(operation);
+    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
+                    "localhost", ippPort(), "/printers/%s", name);
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
+                 NULL, uri);
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
+                 NULL, cupsUser());
+    return request;
+}
+
 bool QCups::cupsMoveJob(const char *name, int job_id, const char *dest_name)
 {
-    char  uri[HTTP_MAX_URI]; // Job/printer URI
     char  destUri[HTTP_MAX_URI]; // new printer URI
     ipp_t *request;
 
@@ -37,26 +56,17 @@ bool QCups::cupsMoveJob(const char *name, int job_id, const char *dest_name)
 
     // Create a new CUPS_MOVE_JOB request
     // where we need:
-    // * printer-uri
     // * job-printer-uri
     // * job-id
-    // * requesting-user-name
-    request = ippNewRequest(CUPS_MOVE_JOB);
+    request = ippNewDefaultRequest(name, CUPS_MOVE_JOB);
 
     httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri), "ipp", NULL,
                     "localhost", ippPort(), "/printers/%s", dest_name);
 
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
-                    "localhost", ippPort(), "/printers/%s", name);
-
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
-                 NULL, uri);
     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER, "job-id",
                   job_id);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "job-printer-uri",
                  NULL, destUri);
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
-                 NULL, cupsUser());
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/jobs/"));
@@ -66,7 +76,6 @@ bool QCups::cupsMoveJob(const char *name, int job_id, const char *dest_name)
 
 bool QCups::cupsHoldReleaseJob(const char *name, int job_id, bool hold)
 {
-    char  uri[HTTP_MAX_URI]; // Job/printer URI
     ipp_t *request;
 
     // check the input data
@@ -77,24 +86,15 @@ bool QCups::cupsHoldReleaseJob(const char *name, int job_id, bool hold)
 
     // Create a new CUPS_MOVE_JOB request
     // where we need:
-    // * printer-uri
     // * job-id
-    // * requesting-user-name
     if (hold) {
-        request = ippNewRequest(IPP_HOLD_JOB);
+        request = ippNewDefaultRequest(name, IPP_HOLD_JOB);
     } else {
-        request = ippNewRequest(IPP_RELEASE_JOB);
+        request = ippNewDefaultRequest(name, IPP_RELEASE_JOB);
     }
 
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
-                    "localhost", ippPort(), "/printers/%s", name);
-
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
-                 NULL, uri);
     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER, "job-id",
                   job_id);
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
-                 NULL, cupsUser());
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/jobs/"));
@@ -104,7 +104,6 @@ bool QCups::cupsHoldReleaseJob(const char *name, int job_id, bool hold)
 
 bool QCups::cupsPauseResumePrinter(const char *name, bool pause)
 {
-    char  uri[HTTP_MAX_URI]; // printer URI
     ipp_t *request;
 
     // check the input data
@@ -113,23 +112,11 @@ bool QCups::cupsPauseResumePrinter(const char *name, bool pause)
         return false;
     }
 
-    // Create a new request
-    // where we need:
-    // * printer-uri
-    // * requesting-user-name
     if (pause) {
-        request = ippNewRequest(IPP_PAUSE_PRINTER);
+        request = ippNewDefaultRequest(name, IPP_PAUSE_PRINTER);
     } else {
-        request = ippNewRequest(IPP_RESUME_PRINTER);
+        request = ippNewDefaultRequest(name, IPP_RESUME_PRINTER);
     }
-
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
-                    "localhost", ippPort(), "/printers/%s", name);
-
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
-                 NULL, uri);
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
-                 NULL, cupsUser());
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
@@ -139,7 +126,6 @@ bool QCups::cupsPauseResumePrinter(const char *name, bool pause)
 
 bool QCups::cupsSetDefaultPrinter(const char *name)
 {
-    char  uri[HTTP_MAX_URI]; // printer URI
     ipp_t *request;
 
     // check the input data
@@ -148,19 +134,7 @@ bool QCups::cupsSetDefaultPrinter(const char *name)
         return false;
     }
 
-    // Create a new request
-    // where we need:
-    // * printer-uri
-    // * requesting-user-name
-    request = ippNewRequest(CUPS_SET_DEFAULT);
-
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
-                    "localhost", ippPort(), "/printers/%s", name);
-
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
-                 NULL, uri);
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
-                 NULL, cupsUser());
+    request = ippNewDefaultRequest(name, CUPS_SET_DEFAULT);
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
@@ -170,7 +144,6 @@ bool QCups::cupsSetDefaultPrinter(const char *name)
 
 bool QCups::cupsDeletePrinter(const char *name)
 {
-    char  uri[HTTP_MAX_URI]; // printer URI
     ipp_t *request;
 
     // check the input data
@@ -179,19 +152,7 @@ bool QCups::cupsDeletePrinter(const char *name)
         return false;
     }
 
-    // Create a new request
-    // where we need:
-    // * printer-uri
-    // * requesting-user-name
-    request = ippNewRequest(CUPS_DELETE_PRINTER);
-
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
-                    "localhost", ippPort(), "/printers/%s", name);
-
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
-                 NULL, uri);
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
-                 NULL, cupsUser());
+    request = ippNewDefaultRequest(name, CUPS_DELETE_PRINTER);
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));

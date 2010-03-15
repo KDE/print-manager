@@ -335,9 +335,9 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
 {
     // STOP and RESUME printer
     if (m_printerPaused) {
-        QCups::resumePrinter(m_destName.toLocal8Bit());
+        QCups::resumePrinter(m_destName);
     } else {
-        QCups::pausePrinter(m_destName.toLocal8Bit());
+        QCups::pausePrinter(m_destName);
     }
 }
 

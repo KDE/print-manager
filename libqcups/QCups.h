@@ -30,12 +30,12 @@
 namespace QCups
 {
     KDE_EXPORT void initialize();
-    KDE_EXPORT bool cancelJob(const char *name, int job_id);
-    KDE_EXPORT bool holdJob(const char *name, int job_id);
-    KDE_EXPORT bool releaseJob(const char *name, int job_id);
-    KDE_EXPORT bool moveJob(const char *name, int job_id, const char *dest_name);
-    KDE_EXPORT bool pausePrinter(const char *name);
-    KDE_EXPORT bool resumePrinter(const char *name);
+    KDE_EXPORT bool cancelJob(const QString &name, int job_id);
+    KDE_EXPORT bool holdJob(const QString &name, int job_id);
+    KDE_EXPORT bool releaseJob(const QString &name, int job_id);
+    KDE_EXPORT bool moveJob(const QString &name, int job_id, const QString &dest_name);
+    KDE_EXPORT bool pausePrinter(const QString &name);
+    KDE_EXPORT bool resumePrinter(const QString &name);
     KDE_EXPORT bool setDefaultPrinter(const QString &name);
     KDE_EXPORT bool deletePrinter(const QString &name);
 };

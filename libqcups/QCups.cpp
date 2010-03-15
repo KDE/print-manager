@@ -100,19 +100,19 @@ void QCups::initialize()
     cupsSetPasswordCB(my_password_cb);
 }
 
-bool QCups::moveJob(const char *name, int job_id, const char *dest_name)
+bool QCups::moveJob(const QString &name, int job_id, const QString &dest_name)
 {
-    RUN_ACTION(cupsMoveJob(name, job_id, dest_name))
+    RUN_ACTION(cupsMoveJob(name.toLocal8Bit().data(), job_id, dest_name.toLocal8Bit().data()))
 }
 
-bool QCups::pausePrinter(const char *name)
+bool QCups::pausePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name, true))
+    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit().data(), true))
 }
 
-bool QCups::resumePrinter(const char *name)
+bool QCups::resumePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name, false))
+    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit().data(), false))
 }
 
 bool QCups::setDefaultPrinter(const QString &name)
@@ -125,17 +125,17 @@ bool QCups::deletePrinter(const QString &name)
     RUN_ACTION(cupsDeletePrinter(name.toLocal8Bit().data()))
 }
 
-bool QCups::cancelJob(const char *name, int job_id)
+bool QCups::cancelJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsCancelJob(name, job_id))
+    RUN_ACTION(cupsCancelJob(name.toLocal8Bit().data(), job_id))
 }
 
-bool QCups::holdJob(const char *name, int job_id)
+bool QCups::holdJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsHoldReleaseJob(name, job_id, true))
+    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit().data(), job_id, true))
 }
 
-bool QCups::releaseJob(const char *name, int job_id)
+bool QCups::releaseJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsHoldReleaseJob(name, job_id, false))
+    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit().data(), job_id, false))
 }

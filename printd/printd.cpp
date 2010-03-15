@@ -30,8 +30,6 @@
 #include <QtDBus/QDBusConnectionInterface>
 #include <QtCore/QTimer>
 
-#include <cups/cups.h>
-
 #include "PrintQueueTray.h"
 
 #define INTERVAL 5000
@@ -43,6 +41,7 @@ K_EXPORT_PLUGIN(PrintDFactory("printd"))
 
 PrintD::PrintD(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent)
+    , m_trayIcon(0)
 {
     // Read kded config
     readConfig();
@@ -54,8 +53,6 @@ PrintD::PrintD(QObject *parent, const QList<QVariant> &)
     connect(configWatch, SIGNAL(created(const QString &)), this, SLOT(readConfig()));
     connect(configWatch, SIGNAL(deleted(const QString &)), this, SLOT(readConfig()));
     configWatch->startScan();
-
-    m_trayIcon = new PrintQueueTray;
 
     m_jobsTimer = new QTimer(this);
     m_jobsTimer->setInterval(INTERVAL);
@@ -88,27 +85,18 @@ void PrintD::checkJobs()
     num_jobs = cupsGetJobs(&jobs, NULL, m_onlyMyJobs, CUPS_WHICHJOBS_ACTIVE);
 
     if (num_jobs > 0) {
-        QString jobTitle;
-        QString destPrinter;
-        QString tooltipText;
-        for (int i = 0; i < num_jobs; i++) {
-            destPrinter = QString::fromLocal8Bit(jobs->dest);
-            jobTitle = QString::fromLocal8Bit(jobs[i].title);
-            if (jobs[i].state == IPP_JOB_PROCESSING) {
-                tooltipText = i18n("Printing: ") + jobTitle;
-                break;
-            } else if (jobs[i].state == IPP_JOB_PENDING) {
-                tooltipText = i18n("Queued: ") + jobTitle;
-                break;
-            }
+        if (!m_trayIcon) {
+            m_trayIcon = new PrintQueueTray;
         }
 
-        m_trayIcon->show();
-        m_trayIcon->setToolTip("printer", destPrinter, tooltipText);
+        updateToolTip(num_jobs, jobs);
+        updateContextMenu();
+        updateAssociatedWidget();
     } else {
-        QString tooltipText = i18n("No documents queued");
-        m_trayIcon->hide();
-        m_trayIcon->setToolTip("printer", i18n("Print Status"), tooltipText);
+        if (m_trayIcon) {
+            m_trayIcon->deleteLater();
+            m_trayIcon = 0;
+        }
     }
 
     // Free the job array
@@ -128,4 +116,32 @@ void PrintD::serviceOwnerChanged(const QString &name, const QString &oldOnwer, c
     } else {
         m_jobsTimer->stop();
     }
+}
+
+void PrintD::updateToolTip(int num_jobs, const cups_job_t *jobs)
+{
+    kDebug() << "Updating tooltip";
+    QString jobTitle;
+    QString destPrinter;
+    QString tooltipText;
+    for (int i = 0; i < num_jobs; i++) {
+        destPrinter = QString::fromLocal8Bit(jobs->dest);
+        jobTitle = QString::fromLocal8Bit(jobs[i].title);
+        if (jobs[i].state == IPP_JOB_PROCESSING) {
+            tooltipText = i18n("Printing: ") + jobTitle;
+            break;
+        } else if (jobs[i].state == IPP_JOB_PENDING) {
+            tooltipText = i18n("Queued: ") + jobTitle;
+            break;
+        }
+    }
+    m_trayIcon->setToolTip("printer", destPrinter, tooltipText);
+}
+
+void PrintD::updateContextMenu()
+{
+}
+
+void PrintD::updateAssociatedWidget()
+{
 }

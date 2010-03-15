@@ -23,6 +23,8 @@
 
 #include <KDEDModule>
 
+#include <cups/cups.h>
+
 class QTimer;
 
 class PrintQueueTray;
@@ -39,6 +41,9 @@ private slots:
     void readConfig();
     void checkJobs();
     void serviceOwnerChanged(const QString &name, const QString &oldOnwer, const QString &newOwner);
+    void updateToolTip(int num_jobs, const cups_job_t *jobs);
+    void updateContextMenu();
+    void updateAssociatedWidget();
 
 private:
     QTimer *m_jobsTimer;

@@ -35,7 +35,7 @@ PrintQueueTray::PrintQueueTray(QObject *parent)
 {
   setCategory(Hardware);
   setIconByName("printer");
-  setStatus(Passive);
+  setStatus(Active);
 }
 
 PrintQueueTray::~PrintQueueTray()

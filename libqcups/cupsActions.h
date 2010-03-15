@@ -21,6 +21,9 @@
 #ifndef CUPS_ACTIONS_H
 #define CUPS_ACTIONS_H
 
+#include <QHash>
+#include <QVariant>
+
 namespace QCups
 {
     bool cupsMoveJob(const char *name, int job_id, const char *dest_name);
@@ -28,6 +31,7 @@ namespace QCups
     bool cupsSetDefaultPrinter(const char *name);
     bool cupsDeletePrinter(const char *name);
     bool cupsHoldReleaseJob(const char *name, int job_id, bool hold);
+    bool cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant> values);
 };
 
 #endif

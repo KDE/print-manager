@@ -22,6 +22,8 @@
 #define Q_CUPS_H
 
 #include <kdemacros.h>
+#include <QObject>
+#include <QHash>
 
 #define DEST_IDLE     '3'
 #define DEST_PRINTING '4'
@@ -29,6 +31,21 @@
 
 namespace QCups
 {
+    class KDE_EXPORT Printer: public QObject
+    {
+        Q_OBJECT
+    public:
+        Printer(QObject *parent = 0);
+        Printer(const QString &destName, QObject *parent = 0);
+
+        static bool setShared(const QString &destName, bool shared);
+
+    private:
+        QString m_location;
+        QString m_destName;
+        bool    m_isShared;
+    };
+
     KDE_EXPORT void initialize();
     KDE_EXPORT bool cancelJob(const QString &name, int job_id);
     KDE_EXPORT bool holdJob(const QString &name, int job_id);
@@ -38,6 +55,7 @@ namespace QCups
     KDE_EXPORT bool resumePrinter(const QString &name);
     KDE_EXPORT bool setDefaultPrinter(const QString &name);
     KDE_EXPORT bool deletePrinter(const QString &name);
+    KDE_EXPORT bool addModifyPrinter(const QString &name, const QHash<QString, QVariant> values);
 };
 
 #endif

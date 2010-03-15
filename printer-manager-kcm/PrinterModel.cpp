@@ -110,7 +110,9 @@ void PrinterModel::updateDest(QStandardItem *destItem, cups_dest_t *dest)
     // store if the printer is shared
     value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
     if (value) {
-        bool shared = value[0] == '1';
+        // Here we have a cups docs bug where the SHARED returned
+        // value is the string "true" or "false", and not '1' or '0'
+        bool shared = value[0] == 't' || value[0] == '1';
         if (shared != destItem->data(DestIsShared)) {
             destItem->setData(shared, DestIsShared);
         }

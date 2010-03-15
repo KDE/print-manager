@@ -26,6 +26,8 @@
 #include <KLocale>
 #include <KDebug>
 
+using namespace QCups;
+
 #define RUN_ACTION(blurb) \
                 password_retries = 0; \
                 do { \
@@ -138,4 +140,16 @@ bool QCups::holdJob(const QString &name, int job_id)
 bool QCups::releaseJob(const QString &name, int job_id)
 {
     RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit().data(), job_id, false))
+}
+
+bool QCups::addModifyPrinter(const QString &name, const QHash<QString, QVariant> values)
+{
+    RUN_ACTION(cupsAddModifyPrinter(name.toLocal8Bit().data(), values))
+}
+
+bool Printer::setShared(const QString &destName, bool shared)
+{
+    QHash<QString, QVariant> values;
+    values["printer-is-shared"] = shared;
+    RUN_ACTION(cupsAddModifyPrinter(destName.toLocal8Bit().data(), values))
 }

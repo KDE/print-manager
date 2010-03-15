@@ -43,6 +43,53 @@ ipp_t * ippNewDefaultRequest(const char *name, ipp_op_t operation)
     return request;
 }
 
+bool QCups::cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant> values)
+{
+    ipp_t *request;
+
+    // check the input data
+    if (!name) {
+        qWarning() << "Internal error, invalid input data" << name;
+        return false;
+    }
+
+    request = ippNewDefaultRequest(name, CUPS_ADD_MODIFY_PRINTER);
+
+    if (values.contains("printer-is-shared")) {
+        ippAddBoolean(request, IPP_TAG_OPERATION, "printer-is-shared",
+                      values["printer-is-shared"].toBool());
+    }
+
+    if (values.contains("printer-location")) {
+        ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
+                     "printer-location", NULL,
+                     values["printer-location"].toString().toLocal8Bit().data());
+    }
+
+    if (values.contains("ppd-name")) {
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
+                     "ppd-name", NULL,
+                     values["ppd-name"].toString().toLocal8Bit().data());
+    }
+
+    if (values.contains("printer-info")) {
+        ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
+                     "printer-info", NULL,
+                     values["printer-info"].toString().toLocal8Bit().data());
+    }
+
+    if (values.contains("device-uri")) {
+        ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
+                     "device-uri", NULL,
+                     values["device-uri"].toString().toLocal8Bit().data());
+    }
+
+    // do the request deleting the response
+    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
+
+    return !cupsLastError();
+}
+
 bool QCups::cupsMoveJob(const char *name, int job_id, const char *dest_name)
 {
     char  destUri[HTTP_MAX_URI]; // new printer URI

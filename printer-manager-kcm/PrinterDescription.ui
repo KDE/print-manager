@@ -64,7 +64,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Options</string>
+        <string>Configure printer</string>
        </property>
       </widget>
      </item>

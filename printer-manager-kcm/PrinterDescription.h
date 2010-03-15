@@ -46,6 +46,7 @@ public:
 private slots:
     void on_openQueuePB_clicked();
     void on_defaultCB_clicked();
+    void on_sharedCB_clicked();
 
 private:
     QString m_destName;

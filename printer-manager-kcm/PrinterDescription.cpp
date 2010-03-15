@@ -74,6 +74,11 @@ void PrinterDescription::on_defaultCB_clicked()
     setIsDefault(QCups::setDefaultPrinter(m_destName));
 }
 
+void PrinterDescription::on_sharedCB_clicked()
+{
+    setIsShared(QCups::Printer::setShared(m_destName, sharedCB->isChecked()));
+}
+
 void PrinterDescription::setDestName(const QString &name)
 {
     m_destName = name;

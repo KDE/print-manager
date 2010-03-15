@@ -90,15 +90,19 @@ void PrintD::checkJobs()
     if (num_jobs > 0) {
         QString jobTitle;
         QString destPrinter;
+        QString tooltipText;
         for (int i = 0; i < num_jobs; i++) {
+            destPrinter = QString::fromLocal8Bit(jobs->dest);
+            jobTitle = QString::fromLocal8Bit(jobs[i].title);
             if (jobs[i].state == IPP_JOB_PROCESSING) {
-                destPrinter = QString::fromLocal8Bit(jobs->dest);
-                jobTitle = QString::fromLocal8Bit(jobs[i].title);
+                tooltipText = i18n("Printing: ") + jobTitle;
+                break;
+            } else if (jobs[i].state == IPP_JOB_PENDING) {
+                tooltipText = i18n("Queued: ") + jobTitle;
                 break;
             }
         }
 
-        QString tooltipText = i18n("Printing: ") + jobTitle;
         m_trayIcon->show();
         m_trayIcon->setToolTip("printer", destPrinter, tooltipText);
     } else {

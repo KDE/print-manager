@@ -29,6 +29,9 @@ Q_OBJECT
 public:
     PrintQueueTray(QObject *parent = 0);
     ~PrintQueueTray();
+
+    void show();
+    void hide();
 };
 
 #endif

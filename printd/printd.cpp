@@ -55,6 +55,9 @@ PrintD::PrintD(QObject *parent, const QList<QVariant> &)
     connect(configWatch, SIGNAL(deleted(const QString &)), this, SLOT(readConfig()));
     configWatch->startScan();
 
+    m_trayIcon = new PrintQueueTray;
+    kDebug() << "Hi from printd";
+
     m_jobsTimer = new QTimer(this);
     m_jobsTimer->setInterval(INTERVAL);
     connect(m_jobsTimer, SIGNAL(timeout()), this, SLOT(checkJobs()));
@@ -87,8 +90,11 @@ void PrintD::checkJobs()
 
     if (num_jobs > 0) {
         QString tooltipText = i18np("1 document queued", "%1 documents queued", num_jobs);
-        // Start the printer icon
-        m_trayIcon = new PrintQueueTray;
+        m_trayIcon->show();
+        m_trayIcon->setToolTip("printer", i18n("Print Status"), tooltipText);
+    } else {
+        QString tooltipText = i18n("No documents queued");
+        m_trayIcon->hide();
         m_trayIcon->setToolTip("printer", i18n("Print Status"), tooltipText);
     }
 

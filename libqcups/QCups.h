@@ -34,8 +34,9 @@ namespace QCups
     class KDE_EXPORT Printer: public QObject
     {
         Q_OBJECT
-        Q_PROPERTY(QString description READ description WRITE setDescription USER true)
+        Q_PROPERTY(QString description READ description WRITE setDescription)
         Q_PROPERTY(QString location READ location WRITE setLocation)
+        Q_PROPERTY(QString connection READ connection WRITE setConnection)
         Q_PROPERTY(QString makeAndModel READ makeAndModel WRITE setMakeAndModel)
         Q_PROPERTY(bool shared READ shared WRITE setShared)
     public:
@@ -44,10 +45,12 @@ namespace QCups
 
         void setDescription(const QString &description);
         void setLocation(const QString &location);
+        void setConnection(const QString &connection);
         void setMakeAndModel(const QString &makeAndModel);
         void setShared(bool shared);
         QString description() const;
         QString location() const;
+        QString connection() const;
         QString makeAndModel() const;
         bool shared() const;
 
@@ -57,6 +60,12 @@ namespace QCups
 
     private:
         QString m_destName;
+        QString m_description;
+        QString m_location;
+        QString m_connection;
+        QString m_makeAndModel;
+        bool m_shared;
+        QHash<QString, QVariant> m_values;
     };
 
     KDE_EXPORT void initialize();

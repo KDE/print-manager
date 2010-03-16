@@ -41,7 +41,7 @@
      <item>
       <widget class="QPushButton" name="pausePrinterPB">
        <property name="text">
-        <string>Pause printer</string>
+        <string>Pause Printer</string>
        </property>
       </widget>
      </item>
@@ -79,7 +79,7 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item row="1" column="0" colspan="6">
+      <item row="1" column="0" colspan="7">
        <widget class="QTreeView" name="jobsView">
         <property name="minimumSize">
          <size>
@@ -180,27 +180,36 @@
         </property>
        </spacer>
       </item>
-      <item row="2" column="5">
-       <widget class="QToolButton" name="whichJobsTB">
-        <property name="text">
-         <string>Active jobs</string>
-        </property>
-        <property name="popupMode">
-         <enum>QToolButton::InstantPopup</enum>
-        </property>
-        <property name="toolButtonStyle">
-         <enum>Qt::ToolButtonTextBesideIcon</enum>
-        </property>
-        <property name="arrowType">
-         <enum>Qt::NoArrow</enum>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
        <widget class="Line" name="line">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="KComboBox" name="whichJobsCB">
+        <property name="insertPolicy">
+         <enum>QComboBox::NoInsert</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QComboBox::AdjustToContents</enum>
+        </property>
+        <item>
+         <property name="text">
+          <string>Active Jobs</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Completed Jobs</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>All Jobs</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
@@ -264,37 +273,19 @@
     </spacer>
    </item>
   </layout>
-  <action name="actionCompletedJobs">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Completed jobs</string>
-   </property>
-  </action>
-  <action name="actionActiveJobs">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Active jobs</string>
-   </property>
-  </action>
-  <action name="actionAllJobs">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>All jobs</string>
-   </property>
-  </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>jobsView</tabstop>
   <tabstop>cancelJobPB</tabstop>
   <tabstop>holdJobPB</tabstop>
   <tabstop>resumeJobPB</tabstop>
-  <tabstop>whichJobsTB</tabstop>
   <tabstop>pausePrinterPB</tabstop>
   <tabstop>configurePrinterPB</tabstop>
  </tabstops>

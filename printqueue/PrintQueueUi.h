@@ -44,6 +44,7 @@ public slots:
     void update();
 
 private slots:
+    void on_whichJobsCB_currentIndexChanged(int index);
     void on_pausePrinterPB_clicked();
     void on_configurePrinterPB_clicked();
 
@@ -52,7 +53,6 @@ private slots:
     void on_resumeJobPB_clicked();
 
     void updateButtons();
-    void actionTriggered(QAction *action);
     void showContextMenu(const QPoint &point);
 
 private:

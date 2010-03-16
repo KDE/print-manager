@@ -38,7 +38,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Open print queue</string>
+        <string>Open Print Queue</string>
        </property>
       </widget>
      </item>
@@ -64,7 +64,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Configure printer</string>
+        <string>Configure Printer</string>
        </property>
       </widget>
      </item>

@@ -96,7 +96,7 @@ void PrintQueueUi::setState(const char &state)
         switch (state) {
         case DEST_IDLE :
             statusL->setText(i18n("Printer ready"));
-            pausePrinterPB->setText(i18n("Pause printer"));
+            pausePrinterPB->setText(i18n("Pause Printer"));
             pausePrinterPB->setIcon(KIcon("media-playback-pause"));
             break;
         case DEST_PRINTING :
@@ -117,14 +117,14 @@ void PrintQueueUi::setState(const char &state)
                 } else {
                     statusL->setText(i18n("Printing '%1'", jobTitle));
                 }
-                pausePrinterPB->setText(i18n("Pause printer"));
+                pausePrinterPB->setText(i18n("Pause Printer"));
                 pausePrinterPB->setIcon(KIcon("media-playback-pause"));
             }
             break;
         case DEST_STOPED :
             m_printerPaused = true;
             statusL->setText(i18n("Printer paused"));
-            pausePrinterPB->setText(i18n("Resume printer"));
+            pausePrinterPB->setText(i18n("Resume Printer"));
             pausePrinterPB->setIcon(KIcon("media-playback-start"));
             // create a paiter to paint the action icon over the key icon
             {
@@ -249,12 +249,12 @@ void PrintQueueUi::update()
     // Set window title
     if (m_model->rowCount()) {
         if (m_title.isNull()) {
-            setWindowTitle(i18np("All printers (%1 job)", "All printers (%1 jobs)", m_model->rowCount()));
+            setWindowTitle(i18np("All Printers (%1 Job)", "All Printers (%1 Jobs)", m_model->rowCount()));
         } else {
-            setWindowTitle(i18np("%2 (%1 job)", "%2 (%1 jobs)", m_model->rowCount(), m_title));
+            setWindowTitle(i18np("%2 (%1 Job)", "%2 (%1 Jobs)", m_model->rowCount(), m_title));
         }
     } else {
-        setWindowTitle(m_title.isNull() ? i18n("All printers") : m_title);
+        setWindowTitle(m_title.isNull() ? i18n("All Printers") : m_title);
     }
 }
 
@@ -363,11 +363,21 @@ void PrintQueueUi::on_resumeJobPB_clicked()
     modifyJob(PrintQueueModel::Release);
 }
 
-void PrintQueueUi::actionTriggered(QAction *action)
+void PrintQueueUi::on_whichJobsCB_currentIndexChanged(int index)
 {
-    // job filter
-    whichJobsTB->setText(action->text());
-    m_model->setWhichJobs(action->data().toInt());
+    int whichJobs = CUPS_WHICHJOBS_ACTIVE;
+    switch (index) {
+    case 0:
+        whichJobs = CUPS_WHICHJOBS_ACTIVE;
+        break;
+    case 1:
+        whichJobs = CUPS_WHICHJOBS_COMPLETED;
+        break;
+    case 2:
+        whichJobs = CUPS_WHICHJOBS_ALL;
+        break;
+    }
+    m_model->setWhichJobs(whichJobs);
 }
 
 void PrintQueueUi::setupButtons()
@@ -384,30 +394,9 @@ void PrintQueueUi::setupButtons()
     // TODO we need a new icon
     resumeJobPB->setIcon(KIcon("media-playback-play"));
 
-    // which jobs menu
-    QMenu *menu = new QMenu(this);
-    whichJobsTB->setMenu(menu);
-    whichJobsTB->setIcon(KIcon("view-filter"));
-    whichJobsTB->setText(actionActiveJobs->text());
-
-    // action group to make their selection exclusive
-    QActionGroup *group = new QActionGroup(this);
-    // when one action is triggered it changes the model data
-    connect(group, SIGNAL(triggered(QAction *)), this, SLOT(actionTriggered(QAction *)));
-    // ACTIVE jobs
-    actionActiveJobs->setChecked(true);
-    actionActiveJobs->setData(CUPS_WHICHJOBS_ACTIVE);
-    menu->addAction(actionActiveJobs);
-    group->addAction(actionActiveJobs);
-    // COMPLETED jobs
-    actionCompletedJobs->setData(CUPS_WHICHJOBS_COMPLETED);
-    menu->addAction(actionCompletedJobs);
-    group->addAction(actionCompletedJobs);
-    // ALL jobs
-    actionAllJobs->setData(CUPS_WHICHJOBS_ALL);
-    menu->addAction(actionAllJobs);
-    group->addAction(actionAllJobs);
-
+    whichJobsCB->setItemIcon(0, KIcon("view-filter"));
+    whichJobsCB->setItemIcon(1, KIcon("view-filter"));
+    whichJobsCB->setItemIcon(2, KIcon("view-filter"));
 
     // stop start printer
     pausePrinterPB->setIcon(KIcon("media-playback-pause"));

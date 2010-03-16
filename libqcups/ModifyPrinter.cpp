@@ -35,7 +35,7 @@ ModifyPrinter::ModifyPrinter(const QString &destName, QWidget *parent)
     kDebug();
     nameLE->setText(m_printer->description());
     locationLE->setText(m_printer->location());
-//     connectionLE->setText(m_printer->connection());
+    connectionLE->setText(m_printer->connection());
 
 //     cups_dest_t *dests;
 //     const char *value;

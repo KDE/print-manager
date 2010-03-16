@@ -155,7 +155,6 @@ Printer::Printer(QObject *parent)
 Printer::Printer(const QString &destName, QObject *parent)
   : QObject(parent)
 {
-  kDebug() ;
     cups_dest_t *dests;
     const char *value;
     int num_dests = cupsGetDests(&dests);
@@ -164,86 +163,119 @@ Printer::Printer(const QString &destName, QObject *parent)
         return;
     }
     m_destName = destName;
-  kDebug() ;
-
+kDebug() << dest->num_options;
     // store if the printer is shared
     value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
     if (value) {
         // Here we have a cups docs bug where the SHARED returned
         // value is the string "true" or "false", and not '1' or '0'
-        setShared(value[0] == 't' || value[0] == '1');
+        m_shared = value[0] == 't' || value[0] == '1';
     }
-  kDebug() ;
 
     // store the printer location
     value = cupsGetOption("printer-location", dest->num_options, dest->options);
     if (value) {
-        setLocation(QString::fromLocal8Bit(value));
+        m_location = QString::fromLocal8Bit(value);
     }
 
     // store the printer description
     value = cupsGetOption("printer-info", dest->num_options, dest->options);
     if (value) {
-        setDescription(QString::fromLocal8Bit(value));
+        m_description = QString::fromLocal8Bit(value);
     }
 
     // store the printer kind
     value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options);
     if (value) {
-        setMakeAndModel(QString::fromLocal8Bit(value));
+        m_makeAndModel = QString::fromLocal8Bit(value);
     }
-kDebug() ;
+
+    // store the printer uri
+    value = cupsGetOption("device-uri", dest->num_options, dest->options);
+    if (value) {
+        m_connection = QString::fromLocal8Bit(value);
+    }
+
     cupsFreeDests(num_dests, dests);
 }
 
 void Printer::setDescription(const QString &description)
 {
-    setProperty("description", description);
+    if (m_description != description) {
+        m_values.remove("printer-info");
+    } else {
+        m_values["printer-info"] = description;
+    }
 }
 
 void Printer::setLocation(const QString &location)
 {
-    setProperty("location", location);
+    if (m_location != location) {
+        m_values.remove("printer-location");
+    } else {
+        m_values["printer-location"] = location;
+    }
+}
+
+void Printer::setConnection(const QString &connection)
+{
+    if (m_connection != connection) {
+        m_values.remove("device-uri");
+    } else {
+        m_values["device-uri"] = connection;
+    }
 }
 
 void Printer::setMakeAndModel(const QString &makeAndModel)
 {
-    setProperty("makeAndModel", makeAndModel);
+    if (m_makeAndModel != makeAndModel) {
+        m_values.remove("ppd-name");
+    } else {
+        m_values["ppd-name"] = makeAndModel;
+    }
 }
 
 void Printer::setShared(bool shared)
 {
-    setProperty("shared", shared);
+    if (m_shared != shared) {
+        m_values.remove("printer-is-shared");
+    } else {
+        m_values["printer-is-shared"] = shared;
+    }
 }
 
 QString Printer::description() const
 {
-    return property("description").toString();
+    return m_description;
 }
 
 QString Printer::location() const
 {
-    return property("location").toString();
+    return m_location;
+}
+
+QString Printer::connection() const
+{
+    return m_connection;
 }
 
 QString Printer::makeAndModel() const
 {
-    return property("makeAndModel").toString();
+    return m_makeAndModel;
 }
 
 bool Printer::shared() const
 {
-    return property("shared").toBool();
+    return m_shared;
 }
 
 bool Printer::save()
 {
-    QHash<QString, QVariant> values;
-    values["printer-location"] = location();
-    values["printer-info"] = description();
-    values["ppd-name"] = makeAndModel();
-    values["printer-is-shared"] = shared();
-    RUN_ACTION(cupsAddModifyPrinter(m_destName.toLocal8Bit(), values))
+    if (m_values.size() > 0) {
+        return false;
+    }
+
+    RUN_ACTION(cupsAddModifyPrinter(m_destName.toLocal8Bit(), m_values))
 }
 
 bool Printer::setShared(const QString &destName, bool shared)

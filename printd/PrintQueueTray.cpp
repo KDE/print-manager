@@ -42,12 +42,20 @@ PrintQueueTray::~PrintQueueTray()
 {
 }
 
-void PrintQueueTray::show()
+void PrintQueueTray::connectToLauncher(const QString &destName)
 {
-  setStatus(Active);
+    m_destName = destName;
+    connect(this, SIGNAL(activateRequested(bool, const QPoint &)), SLOT(openQueue()));
 }
 
-void PrintQueueTray::hide()
+void PrintQueueTray::openQueue()
 {
-  setStatus(Passive);
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
+                                             "/",
+                                             "org.kde.PrintQueue",
+                                             QLatin1String("ShowQueue"));
+    // Use our own cached tid to avoid crashes
+    message << qVariantFromValue(m_destName);
+    QDBusConnection::sessionBus().call(message);
 }

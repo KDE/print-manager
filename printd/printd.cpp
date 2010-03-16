@@ -90,8 +90,8 @@ void PrintD::checkJobs()
         }
 
         updateToolTip(num_jobs, jobs);
-        updateContextMenu();
-        updateAssociatedWidget();
+        updateContextMenu(num_jobs, jobs);
+        updateAssociatedWidget(num_jobs, jobs);
     } else {
         if (m_trayIcon) {
             m_trayIcon->deleteLater();
@@ -138,10 +138,21 @@ void PrintD::updateToolTip(int num_jobs, const cups_job_t *jobs)
     m_trayIcon->setToolTip("printer", destPrinter, tooltipText);
 }
 
-void PrintD::updateContextMenu()
+void PrintD::updateContextMenu(int num_jobs, const cups_job_t *jobs)
 {
 }
 
-void PrintD::updateAssociatedWidget()
+void PrintD::updateAssociatedWidget(int num_jobs, const cups_job_t *jobs)
 {
+    // This will populate a list of unique printer desitnations
+    QSet<QString> printerDests;
+    for (int i = 0; i < num_jobs; i++) {
+        printerDests << QString::fromLocal8Bit(jobs->dest);
+    }
+
+    if (printerDests.size() == 1) {
+        QList<QString> printerList = printerDests.toList();
+        QString destName = printerList.first();
+        m_trayIcon->connectToLauncher(destName);
+    }
 }

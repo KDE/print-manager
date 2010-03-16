@@ -30,8 +30,13 @@ public:
     PrintQueueTray(QObject *parent = 0);
     ~PrintQueueTray();
 
-    void show();
-    void hide();
+    void connectToLauncher(const QString &destName);
+
+private slots:
+    void openQueue();
+
+private:
+    QString m_destName;
 };
 
 #endif

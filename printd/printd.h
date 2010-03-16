@@ -42,8 +42,8 @@ private slots:
     void checkJobs();
     void serviceOwnerChanged(const QString &name, const QString &oldOnwer, const QString &newOwner);
     void updateToolTip(int num_jobs, const cups_job_t *jobs);
-    void updateContextMenu();
-    void updateAssociatedWidget();
+    void updateContextMenu(int num_jobs, const cups_job_t *jobs);
+    void updateAssociatedWidget(int num_jobs, const cups_job_t *jobs);
 
 private:
     QTimer *m_jobsTimer;

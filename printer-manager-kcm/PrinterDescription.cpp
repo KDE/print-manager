@@ -20,6 +20,8 @@
 
 #include "PrinterDescription.h"
 
+#include "ConfigureDialog.h"
+
 #include <QCups.h>
 #include <cups/cups.h>
 
@@ -77,6 +79,12 @@ void PrinterDescription::on_defaultCB_clicked()
 void PrinterDescription::on_sharedCB_clicked()
 {
     setIsShared(QCups::Printer::setShared(m_destName, sharedCB->isChecked()));
+}
+
+void PrinterDescription::on_optionsPB_clicked()
+{
+    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, this);
+    dlg->show();
 }
 
 void PrinterDescription::setDestName(const QString &name)

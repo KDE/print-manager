@@ -18,43 +18,29 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINTER_DESCRIPTION_H
-#define PRINTER_DESCRIPTION_H
+#include "ConfigureDialog.h"
 
-#include "ui_PrinterDescription.h"
+#include "ModifyPrinter.h"
 
-class QToolButton;
-class QSortFilterProxyModel;
+#include <KDebug>
 
-class PrintQueueModel;
+using namespace QCups;
 
-class PrinterDescription : public QWidget, Ui::PrinterDescription
+ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
+ : KPageDialog(parent)
 {
-    Q_OBJECT
-public:
-    explicit PrinterDescription(QWidget *parent = 0);
-    ~PrinterDescription();
+    setFaceType(List);
+kDebug();
+    ModifyPrinter *widget = new ModifyPrinter(destName, this);
+    KPageWidgetItem *page = new KPageWidgetItem(widget, i18n("Modify Printer"));
+    page->setHeader(i18n("Configure"));
+    page->setIcon(KIcon("file"));
+kDebug();
+    addPage(page);
+}
 
-    void setDestName(const QString &name);
-    void setLocation(const QString &location);
-    void setStatus(const QString &status);
-    void setDescription(const QString &description);
-    void setKind(const QString &kind);
-    void setIsDefault(bool isDefault);
-    void setIsShared(bool isShared);
+ConfigureDialog::~ConfigureDialog()
+{
+}
 
-private slots:
-    void on_openQueuePB_clicked();
-    void on_defaultCB_clicked();
-    void on_sharedCB_clicked();
-    void on_optionsPB_clicked();
-
-private:
-    QString m_destName;
-    QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
-};
-
-#endif
+#include "ConfigureDialog.moc"

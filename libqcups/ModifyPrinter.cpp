@@ -18,43 +18,34 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINTER_DESCRIPTION_H
-#define PRINTER_DESCRIPTION_H
+#include "ModifyPrinter.h"
 
-#include "ui_PrinterDescription.h"
+#include <QCups.h>
 
-class QToolButton;
-class QSortFilterProxyModel;
+#include <KDebug>
 
-class PrintQueueModel;
+using namespace QCups;
 
-class PrinterDescription : public QWidget, Ui::PrinterDescription
+ModifyPrinter::ModifyPrinter(const QString &destName, QWidget *parent)
+ : QWidget(parent)
 {
-    Q_OBJECT
-public:
-    explicit PrinterDescription(QWidget *parent = 0);
-    ~PrinterDescription();
+    setupUi(this);
 
-    void setDestName(const QString &name);
-    void setLocation(const QString &location);
-    void setStatus(const QString &status);
-    void setDescription(const QString &description);
-    void setKind(const QString &kind);
-    void setIsDefault(bool isDefault);
-    void setIsShared(bool isShared);
+    m_printer = new Printer(destName, this);
+    kDebug();
+    nameLE->setText(m_printer->description());
+    locationLE->setText(m_printer->location());
+//     connectionLE->setText(m_printer->connection());
 
-private slots:
-    void on_openQueuePB_clicked();
-    void on_defaultCB_clicked();
-    void on_sharedCB_clicked();
-    void on_optionsPB_clicked();
+//     cups_dest_t *dests;
+//     const char *value;
+//     int num_dests = cupsGetDests(&dests);
+//     cups_dest_t *dest = cupsGetDest(destName.toLocal8Bit(), NULL, num_dests, dests);
+//     cupsFreeDests(num_dests, dests);
+}
 
-private:
-    QString m_destName;
-    QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
-};
+ModifyPrinter::~ModifyPrinter()
+{
+}
 
-#endif
+#include "ModifyPrinter.moc"

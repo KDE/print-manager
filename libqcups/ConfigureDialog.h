@@ -18,43 +18,22 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINTER_DESCRIPTION_H
-#define PRINTER_DESCRIPTION_H
+#ifndef CONFIGURE_DIALOG_H
+#define CONFIGURE_DIALOG_H
 
-#include "ui_PrinterDescription.h"
+#include <KPageDialog>
 
-class QToolButton;
-class QSortFilterProxyModel;
+namespace QCups {
 
-class PrintQueueModel;
-
-class PrinterDescription : public QWidget, Ui::PrinterDescription
+class KDE_EXPORT ConfigureDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit PrinterDescription(QWidget *parent = 0);
-    ~PrinterDescription();
-
-    void setDestName(const QString &name);
-    void setLocation(const QString &location);
-    void setStatus(const QString &status);
-    void setDescription(const QString &description);
-    void setKind(const QString &kind);
-    void setIsDefault(bool isDefault);
-    void setIsShared(bool isShared);
-
-private slots:
-    void on_openQueuePB_clicked();
-    void on_defaultCB_clicked();
-    void on_sharedCB_clicked();
-    void on_optionsPB_clicked();
-
-private:
-    QString m_destName;
-    QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
+    explicit ConfigureDialog(const QString &destName, QWidget *parent = 0);
+    ~ConfigureDialog();
 };
+
+
+}
 
 #endif

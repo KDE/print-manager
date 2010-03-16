@@ -147,9 +147,110 @@ bool QCups::addModifyPrinter(const QString &name, const QHash<QString, QVariant>
     RUN_ACTION(cupsAddModifyPrinter(name.toLocal8Bit().data(), values))
 }
 
+Printer::Printer(QObject *parent)
+  : QObject(parent)
+{
+}
+
+Printer::Printer(const QString &destName, QObject *parent)
+  : QObject(parent)
+{
+  kDebug() ;
+    cups_dest_t *dests;
+    const char *value;
+    int num_dests = cupsGetDests(&dests);
+    cups_dest_t *dest = cupsGetDest(destName.toLocal8Bit(), NULL, num_dests, dests);
+    if (dest == NULL) {
+        return;
+    }
+    m_destName = destName;
+  kDebug() ;
+
+    // store if the printer is shared
+    value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
+    if (value) {
+        // Here we have a cups docs bug where the SHARED returned
+        // value is the string "true" or "false", and not '1' or '0'
+        setShared(value[0] == 't' || value[0] == '1');
+    }
+  kDebug() ;
+
+    // store the printer location
+    value = cupsGetOption("printer-location", dest->num_options, dest->options);
+    if (value) {
+        setLocation(QString::fromLocal8Bit(value));
+    }
+
+    // store the printer description
+    value = cupsGetOption("printer-info", dest->num_options, dest->options);
+    if (value) {
+        setDescription(QString::fromLocal8Bit(value));
+    }
+
+    // store the printer kind
+    value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options);
+    if (value) {
+        setMakeAndModel(QString::fromLocal8Bit(value));
+    }
+kDebug() ;
+    cupsFreeDests(num_dests, dests);
+}
+
+void Printer::setDescription(const QString &description)
+{
+    setProperty("description", description);
+}
+
+void Printer::setLocation(const QString &location)
+{
+    setProperty("location", location);
+}
+
+void Printer::setMakeAndModel(const QString &makeAndModel)
+{
+    setProperty("makeAndModel", makeAndModel);
+}
+
+void Printer::setShared(bool shared)
+{
+    setProperty("shared", shared);
+}
+
+QString Printer::description() const
+{
+    return property("description").toString();
+}
+
+QString Printer::location() const
+{
+    return property("location").toString();
+}
+
+QString Printer::makeAndModel() const
+{
+    return property("makeAndModel").toString();
+}
+
+bool Printer::shared() const
+{
+    return property("shared").toBool();
+}
+
+bool Printer::save()
+{
+    QHash<QString, QVariant> values;
+    values["printer-location"] = location();
+    values["printer-info"] = description();
+    values["ppd-name"] = makeAndModel();
+    values["printer-is-shared"] = shared();
+    RUN_ACTION(cupsAddModifyPrinter(m_destName.toLocal8Bit(), values))
+}
+
 bool Printer::setShared(const QString &destName, bool shared)
 {
     QHash<QString, QVariant> values;
     values["printer-is-shared"] = shared;
-    RUN_ACTION(cupsAddModifyPrinter(destName.toLocal8Bit().data(), values))
+    RUN_ACTION(cupsAddModifyPrinter(destName.toLocal8Bit(), values))
 }
+
+#include "QCups.moc"

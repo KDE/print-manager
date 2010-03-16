@@ -18,43 +18,28 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINTER_DESCRIPTION_H
-#define PRINTER_DESCRIPTION_H
+#ifndef MODIFY_PRINTER_H
+#define MODIFY_PRINTER_H
 
-#include "ui_PrinterDescription.h"
+#include "ui_ModifyPrinter.h"
 
-class QToolButton;
-class QSortFilterProxyModel;
+#include "QCups.h"
+#include <QWidget>
 
-class PrintQueueModel;
+namespace QCups {
 
-class PrinterDescription : public QWidget, Ui::PrinterDescription
+class ModifyPrinter : public QWidget, Ui::ModifyPrinter
 {
     Q_OBJECT
 public:
-    explicit PrinterDescription(QWidget *parent = 0);
-    ~PrinterDescription();
-
-    void setDestName(const QString &name);
-    void setLocation(const QString &location);
-    void setStatus(const QString &status);
-    void setDescription(const QString &description);
-    void setKind(const QString &kind);
-    void setIsDefault(bool isDefault);
-    void setIsShared(bool isShared);
-
-private slots:
-    void on_openQueuePB_clicked();
-    void on_defaultCB_clicked();
-    void on_sharedCB_clicked();
-    void on_optionsPB_clicked();
+    explicit ModifyPrinter(const QString &destName, QWidget *parent = 0);
+    ~ModifyPrinter();
 
 private:
-    QString m_destName;
-    QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
+    Printer *m_printer;
 };
+
+
+}
 
 #endif

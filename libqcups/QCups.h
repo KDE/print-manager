@@ -34,16 +34,29 @@ namespace QCups
     class KDE_EXPORT Printer: public QObject
     {
         Q_OBJECT
+        Q_PROPERTY(QString description READ description WRITE setDescription USER true)
+        Q_PROPERTY(QString location READ location WRITE setLocation)
+        Q_PROPERTY(QString makeAndModel READ makeAndModel WRITE setMakeAndModel)
+        Q_PROPERTY(bool shared READ shared WRITE setShared)
     public:
         Printer(QObject *parent = 0);
         Printer(const QString &destName, QObject *parent = 0);
 
+        void setDescription(const QString &description);
+        void setLocation(const QString &location);
+        void setMakeAndModel(const QString &makeAndModel);
+        void setShared(bool shared);
+        QString description() const;
+        QString location() const;
+        QString makeAndModel() const;
+        bool shared() const;
+
+        bool save();
+
         static bool setShared(const QString &destName, bool shared);
 
     private:
-        QString m_location;
         QString m_destName;
-        bool    m_isShared;
     };
 
     KDE_EXPORT void initialize();

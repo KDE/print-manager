@@ -58,7 +58,8 @@ void PrintQueueTray::connectToMenu(const QList<QString> &printerList)
     KMenu *printerMenu = new KMenu();
 
     foreach (const QString &printerName, printerList) {
-        QAction *action = new QAction(KIcon("printer"), printerName, this);
+        QAction *action = new QAction(KIcon("printer"),
+                                      QString(i18n("Queue for ") + printerName + "..."), this);
         signalMapper->setMapping(action, printerName);
         connect(action, SIGNAL(triggered()), signalMapper, SLOT(map()));
         printerMenu->addAction(action);

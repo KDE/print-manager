@@ -20,6 +20,7 @@
 
 #include "printd.h"
 
+#include <KActionCollection>
 #include <KConfigGroup>
 #include <KDirWatch>
 #include <KGenericFactory>
@@ -139,12 +140,17 @@ void PrintD::updateToolTip(int num_jobs, const cups_job_t *jobs)
 
 void PrintD::updateContextMenu(int num_jobs, const cups_job_t *jobs)
 {
-    // FIXME: For some reason the by-default application Quit action
-    // still shows up in the context menu. We don't want that because
-    // it'll quit KDED itself. :/
     KMenu *contextMenu = new KMenu();
+    contextMenu->addTitle(KIcon("printer"), i18n("Printer Status"));
 
+    // Remove standard quit action, as it would quit all of KDED
+    KActionCollection *actions = m_trayIcon->actionCollection();
+    actions->removeAction(actions->action(KStandardAction::name(KStandardAction::Quit)));
+
+    contextMenu->addSeparator();
+    // Make our own quit action, that just deletes the tray object
     QAction *quitAction = new QAction(KIcon("application-exit"), i18n("Quit"), this);
+    quitAction->setShortcut(KStandardShortcut::Quit);
     connect(quitAction, SIGNAL(triggered()), this, SLOT(destroyIcon()));
 
     contextMenu->addAction(quitAction);

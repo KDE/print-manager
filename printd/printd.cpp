@@ -144,7 +144,7 @@ void PrintD::updateContextMenu(int num_jobs, const cups_job_t *jobs)
     // it'll quit KDED itself. :/
     KMenu *contextMenu = new KMenu();
 
-    QAction *quitAction = new QAction(KIcon("quit"), i18n("Quit"), this);
+    QAction *quitAction = new QAction(KIcon("application-exit"), i18n("Quit"), this);
     connect(quitAction, SIGNAL(triggered()), this, SLOT(destroyIcon()));
 
     contextMenu->addAction(quitAction);

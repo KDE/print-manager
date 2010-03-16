@@ -127,10 +127,10 @@ void PrintD::updateToolTip(int num_jobs, const cups_job_t *jobs)
         destPrinter = QString::fromLocal8Bit(jobs->dest);
         jobTitle = QString::fromLocal8Bit(jobs[i].title);
         if (jobs[i].state == IPP_JOB_PROCESSING) {
-            tooltipText = i18n("Printing: ") + jobTitle;
+            tooltipText = i18n("Printing: %1", jobTitle);
             break;
         } else if (jobs[i].state == IPP_JOB_PENDING) {
-            tooltipText = i18n("Queued: ") + jobTitle;
+            tooltipText = i18n("Pending: %1", jobTitle) ;
             break;
         }
     }

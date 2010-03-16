@@ -33,7 +33,6 @@
 
 PrintQueueTray::PrintQueueTray(QObject *parent)
  : KStatusNotifierItem(parent)
- , m_printerMenu(0)
 {
   setCategory(Hardware);
   setIconByName("printer");
@@ -46,39 +45,29 @@ PrintQueueTray::~PrintQueueTray()
 
 void PrintQueueTray::connectToLauncher(const QString &destName)
 {
-    m_destName = destName;
-    connect(this, SIGNAL(activateRequested(bool, const QPoint &)), SLOT(openQueue()));
+    QSignalMapper *signalMapper = new QSignalMapper(this);
+    signalMapper->setMapping(this, destName);
+    connect(this, SIGNAL(activateRequested(bool, const QPoint &)), signalMapper, SLOT(map()));
+    connect(signalMapper, SIGNAL(mapped(const QString &)),
+            this, SLOT(openQueue(const QString &)));
 }
 
 void PrintQueueTray::connectToMenu(const QList<QString> &printerList)
 {
     QSignalMapper *signalMapper = new QSignalMapper(this);
-    m_printerList = printerList;
-    m_printerMenu = new KMenu();
+    KMenu *printerMenu = new KMenu();
 
     foreach (const QString &printerName, printerList) {
         QAction *action = new QAction(KIcon("printer"), printerName, this);
         signalMapper->setMapping(action, printerName);
         connect(action, SIGNAL(triggered()), signalMapper, SLOT(map()));
-        m_printerMenu->addAction(action);
+        printerMenu->addAction(action);
     }
 
     connect(signalMapper, SIGNAL(mapped(const QString &)),
             this, SLOT(openQueue(const QString &)));
 
-    setAssociatedWidget(m_printerMenu);
-}
-
-void PrintQueueTray::openQueue()
-{
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
-                                             "/",
-                                             "org.kde.PrintQueue",
-                                             QLatin1String("ShowQueue"));
-    // Use our own cached tid to avoid crashes
-    message << qVariantFromValue(m_destName);
-    QDBusConnection::sessionBus().call(message);
+    setAssociatedWidget(printerMenu);
 }
 
 void PrintQueueTray::openQueue(const QString &destName)

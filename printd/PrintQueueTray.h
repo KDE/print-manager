@@ -23,8 +23,6 @@
 
 #include <KStatusNotifierItem>
 
-class KMenu;
-
 class PrintQueueTray : public KStatusNotifierItem
 {
 Q_OBJECT
@@ -36,13 +34,7 @@ public:
     void connectToMenu(const QList<QString> &printerList);
 
 private slots:
-    void openQueue();
     void openQueue(const QString &destName);
-
-private:
-    KMenu *m_printerMenu;
-    QList<QString> m_printerList;
-    QString m_destName;
 };
 
 #endif

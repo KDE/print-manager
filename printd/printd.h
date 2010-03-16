@@ -44,6 +44,7 @@ private slots:
     void updateToolTip(int num_jobs, const cups_job_t *jobs);
     void updateContextMenu(int num_jobs, const cups_job_t *jobs);
     void updateAssociatedWidget(int num_jobs, const cups_job_t *jobs);
+    void destroyIcon();
 
 private:
     QTimer *m_jobsTimer;

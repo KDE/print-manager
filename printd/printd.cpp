@@ -20,10 +20,12 @@
 
 #include "printd.h"
 
-#include <KGenericFactory>
-#include <KStandardDirs>
 #include <KConfigGroup>
 #include <KDirWatch>
+#include <KGenericFactory>
+#include <KIcon>
+#include <KMenu>
+#include <KStandardDirs>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
@@ -93,10 +95,7 @@ void PrintD::checkJobs()
         updateContextMenu(num_jobs, jobs);
         updateAssociatedWidget(num_jobs, jobs);
     } else {
-        if (m_trayIcon) {
-            m_trayIcon->deleteLater();
-            m_trayIcon = 0;
-        }
+        destroyIcon();
     }
 
     // Free the job array
@@ -140,6 +139,17 @@ void PrintD::updateToolTip(int num_jobs, const cups_job_t *jobs)
 
 void PrintD::updateContextMenu(int num_jobs, const cups_job_t *jobs)
 {
+    // FIXME: For some reason the by-default application Quit action
+    // still shows up in the context menu. We don't want that because
+    // it'll quit KDED itself. :/
+    KMenu *contextMenu = new KMenu();
+
+    QAction *quitAction = new QAction(KIcon("quit"), i18n("Quit"), this);
+    connect(quitAction, SIGNAL(triggered()), this, SLOT(destroyIcon()));
+
+    contextMenu->addAction(quitAction);
+
+    m_trayIcon->setContextMenu(contextMenu);
 }
 
 void PrintD::updateAssociatedWidget(int num_jobs, const cups_job_t *jobs)
@@ -158,5 +168,13 @@ void PrintD::updateAssociatedWidget(int num_jobs, const cups_job_t *jobs)
         m_trayIcon->connectToLauncher(destName);
     } else {
         m_trayIcon->connectToMenu(printerList);
+    }
+}
+
+void PrintD::destroyIcon()
+{
+    if (m_trayIcon) {
+        m_trayIcon->deleteLater();
+        m_trayIcon = 0;
     }
 }

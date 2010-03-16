@@ -37,6 +37,7 @@ public:
 
 private slots:
     void openQueue();
+    void openQueue(const QString &destName);
 
 private:
     KMenu *m_printerMenu;

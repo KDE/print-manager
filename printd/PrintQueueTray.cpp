@@ -50,18 +50,6 @@ void PrintQueueTray::connectToLauncher(const QString &destName)
     connect(this, SIGNAL(activateRequested(bool, const QPoint &)), SLOT(openQueue()));
 }
 
-void PrintQueueTray::openQueue()
-{
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
-                                             "/",
-                                             "org.kde.PrintQueue",
-                                             QLatin1String("ShowQueue"));
-    // Use our own cached tid to avoid crashes
-    message << qVariantFromValue(m_destName);
-    QDBusConnection::sessionBus().call(message);
-}
-
 void PrintQueueTray::connectToMenu(const QList<QString> &printerList)
 {
     QSignalMapper *signalMapper = new QSignalMapper(this);
@@ -79,4 +67,28 @@ void PrintQueueTray::connectToMenu(const QList<QString> &printerList)
             this, SLOT(openQueue(const QString &)));
 
     setAssociatedWidget(m_printerMenu);
+}
+
+void PrintQueueTray::openQueue()
+{
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
+                                             "/",
+                                             "org.kde.PrintQueue",
+                                             QLatin1String("ShowQueue"));
+    // Use our own cached tid to avoid crashes
+    message << qVariantFromValue(m_destName);
+    QDBusConnection::sessionBus().call(message);
+}
+
+void PrintQueueTray::openQueue(const QString &destName)
+{
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
+                                             "/",
+                                             "org.kde.PrintQueue",
+                                             QLatin1String("ShowQueue"));
+    // Use our own cached tid to avoid crashes
+    message << qVariantFromValue(destName);
+    QDBusConnection::sessionBus().call(message);
 }

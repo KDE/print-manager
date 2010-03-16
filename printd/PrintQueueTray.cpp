@@ -20,10 +20,11 @@
 
 #include "PrintQueueTray.h"
 
-#include <KNotification>
-#include <KMessageBox>
+#include <KIcon>
+#include <KMenu>
 #include <KLocale>
 
+#include <QtCore/QSignalMapper>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 
@@ -32,6 +33,7 @@
 
 PrintQueueTray::PrintQueueTray(QObject *parent)
  : KStatusNotifierItem(parent)
+ , m_printerMenu(0)
 {
   setCategory(Hardware);
   setIconByName("printer");
@@ -58,4 +60,23 @@ void PrintQueueTray::openQueue()
     // Use our own cached tid to avoid crashes
     message << qVariantFromValue(m_destName);
     QDBusConnection::sessionBus().call(message);
+}
+
+void PrintQueueTray::connectToMenu(const QList<QString> &printerList)
+{
+    QSignalMapper *signalMapper = new QSignalMapper(this);
+    m_printerList = printerList;
+    m_printerMenu = new KMenu();
+
+    foreach (const QString &printerName, printerList) {
+        QAction *action = new QAction(KIcon("printer"), printerName, this);
+        signalMapper->setMapping(action, printerName);
+        connect(action, SIGNAL(triggered()), signalMapper, SLOT(map()));
+        m_printerMenu->addAction(action);
+    }
+
+    connect(signalMapper, SIGNAL(mapped(const QString &)),
+            this, SLOT(openQueue(const QString &)));
+
+    setAssociatedWidget(m_printerMenu);
 }

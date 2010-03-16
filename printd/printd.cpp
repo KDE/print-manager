@@ -149,10 +149,14 @@ void PrintD::updateAssociatedWidget(int num_jobs, const cups_job_t *jobs)
     for (int i = 0; i < num_jobs; i++) {
         printerDests << QString::fromLocal8Bit(jobs->dest);
     }
+    QList<QString> printerList = printerDests.toList();
 
-    if (printerDests.size() == 1) {
-        QList<QString> printerList = printerDests.toList();
+    if (printerList.size() == 1) {
         QString destName = printerList.first();
+        // First clear any previously-set associated widget
+        m_trayIcon->setAssociatedWidget(0);
         m_trayIcon->connectToLauncher(destName);
+    } else {
+        m_trayIcon->connectToMenu(printerList);
     }
 }

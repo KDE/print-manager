@@ -18,41 +18,9 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "ModifyPrinter.h"
+#include "PrinterPage.h"
 
-#include <QCups.h>
-
-#include <KDebug>
-
-using namespace QCups;
-
-ModifyPrinter::ModifyPrinter(const QString &destName, QWidget *parent)
- : PrinterPage(parent)
-{
-    setupUi(this);
-
-    m_printer = new Printer(destName, this);
-    kDebug();
-    nameLE->setText(m_printer->description());
-    locationLE->setText(m_printer->location());
-    connectionLE->setText(m_printer->connection());
-
-//     cups_dest_t *dests;
-//     const char *value;
-//     int num_dests = cupsGetDests(&dests);
-//     cups_dest_t *dest = cupsGetDest(destName.toLocal8Bit(), NULL, num_dests, dests);
-//     cupsFreeDests(num_dests, dests);
-}
-
-ModifyPrinter::~ModifyPrinter()
+PrinterPage::PrinterPage(QWidget *parent)
+ : QWidget(parent)
 {
 }
-
-void ModifyPrinter::save()
-{
-    kDebug();
-    m_printer->setDescription(nameLE->text());
-    m_printer->setLocation(locationLE->text());
-}
-
-#include "ModifyPrinter.moc"

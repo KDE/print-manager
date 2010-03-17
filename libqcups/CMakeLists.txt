@@ -3,6 +3,7 @@ set(libqcups_SRCS
     cupsActions.cpp
     ModifyPrinter.cpp
     ConfigureDialog.cpp
+    PrinterPage.cpp
 )
 
 kde4_add_ui_files(libqcups_SRCS

@@ -23,6 +23,7 @@
 
 #include <KPageDialog>
 
+class PrinterPage;
 namespace QCups {
 
 class KDE_EXPORT ConfigureDialog : public KPageDialog
@@ -34,6 +35,11 @@ public:
 
 private slots:
     void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
+    virtual void slotButtonClicked(int button);
+
+private:
+    // return false if the dialog was canceled
+    bool savePage(PrinterPage *page);
 };
 
 

@@ -23,19 +23,21 @@
 
 #include "ui_ModifyPrinter.h"
 
+#include "PrinterPage.h"
+
 #include "QCups.h"
 #include <QWidget>
 
 namespace QCups {
 
-class ModifyPrinter : public QWidget, Ui::ModifyPrinter
+class ModifyPrinter : public PrinterPage, Ui::ModifyPrinter
 {
     Q_OBJECT
 public:
     explicit ModifyPrinter(const QString &destName, QWidget *parent = 0);
     ~ModifyPrinter();
 
-public slots:
+public:
     void save();
 
 private:

@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "ConfigureDialog.h"
+#include "PrinterPage.h"
 
 #include "ModifyPrinter.h"
 
@@ -32,7 +33,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
 {
     setFaceType(List);
     setModal(true);
-    enableButtonApply(true);
+    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
             SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
 kDebug();
@@ -42,8 +43,6 @@ kDebug();
     page->setIcon(KIcon("file"));
 kDebug();
     addPage(page);
-
-    
 }
 
 ConfigureDialog::~ConfigureDialog()
@@ -52,9 +51,44 @@ ConfigureDialog::~ConfigureDialog()
 
 void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
 {
+    Q_UNUSED(before)
     kDebug();
-    KMessageBox::questionYesNoCancel(this,
-                                     i18n("The current page has changes, do you want to save?"));
+    PrinterPage *page = qobject_cast<PrinterPage*>(current->widget());
+    kDebug() << page;
+    if (page->hasChanges()) {
+        int ret;
+        ret = KMessageBox::questionYesNoCancel(this,
+                                               i18n("The current page has changes, "
+                                                    "do you want to save?"));
+        if (ret == KMessageBox::Yes) {
+            page->save();
+        }
+    }
+}
+
+void ConfigureDialog::slotButtonClicked(int button)
+{
+    PrinterPage *page = qobject_cast<PrinterPage*>(currentPage());
+    if (button == KDialog::Ok)
+        accept();
+    else
+        KDialog::slotButtonClicked(button);
+}
+
+bool ConfigureDialog::savePage(PrinterPage *page)
+{
+    if (page->hasChanges()) {
+        int ret;
+        ret = KMessageBox::questionYesNoCancel(this,
+                                               i18n("The current page has changes, "
+                                                    "do you want to save?"));
+        if (ret == KMessageBox::Yes) {
+            page->save();
+        } else if (ret == KMessageBox::Cancel) {
+            return false;
+        }
+    }
+    return true;
 }
 
 #include "ConfigureDialog.moc"

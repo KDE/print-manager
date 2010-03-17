@@ -31,6 +31,9 @@ class KDE_EXPORT ConfigureDialog : public KPageDialog
 public:
     explicit ConfigureDialog(const QString &destName, QWidget *parent = 0);
     ~ConfigureDialog();
+
+private slots:
+    void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
 };
 
 

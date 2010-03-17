@@ -21,6 +21,7 @@
 #include "PrintQueueUi.h"
 
 #include "PrintQueueModel.h"
+#include <ConfigureDialog.h>
 
 #include <QCups.h>
 #include <cups/cups.h>
@@ -343,6 +344,8 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
 
 void PrintQueueUi::on_configurePrinterPB_clicked()
 {
+    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, this);
+    dlg->show();
 }
 
 void PrintQueueUi::on_cancelJobPB_clicked()

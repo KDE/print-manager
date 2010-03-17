@@ -163,7 +163,7 @@ Printer::Printer(const QString &destName, QObject *parent)
         return;
     }
     m_destName = destName;
-kDebug() << dest->num_options;
+
     // store if the printer is shared
     value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
     if (value) {
@@ -173,26 +173,22 @@ kDebug() << dest->num_options;
     }
 
     // store the printer location
-    value = cupsGetOption("printer-location", dest->num_options, dest->options);
-    if (value) {
+    if (value = cupsGetOption("printer-location", dest->num_options, dest->options)) {
         m_location = QString::fromLocal8Bit(value);
     }
 
     // store the printer description
-    value = cupsGetOption("printer-info", dest->num_options, dest->options);
-    if (value) {
+    if (value = cupsGetOption("printer-info", dest->num_options, dest->options)) {
         m_description = QString::fromLocal8Bit(value);
     }
 
     // store the printer kind
-    value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options);
-    if (value) {
+    if (value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options)) {
         m_makeAndModel = QString::fromLocal8Bit(value);
     }
 
     // store the printer uri
-    value = cupsGetOption("device-uri", dest->num_options, dest->options);
-    if (value) {
+    if (value = cupsGetOption("device-uri", dest->num_options, dest->options)) {
         m_connection = QString::fromLocal8Bit(value);
     }
 

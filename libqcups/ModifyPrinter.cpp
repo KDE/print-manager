@@ -48,4 +48,11 @@ ModifyPrinter::~ModifyPrinter()
 {
 }
 
+void ModifyPrinter::save()
+{
+    kDebug();
+    m_printer->setDescription(nameLE->text());
+    m_printer->setLocation(locationLE->text());
+}
+
 #include "ModifyPrinter.moc"

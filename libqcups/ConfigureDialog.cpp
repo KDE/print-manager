@@ -22,6 +22,7 @@
 
 #include "ModifyPrinter.h"
 
+#include <KMessageBox>
 #include <KDebug>
 
 using namespace QCups;
@@ -30,6 +31,10 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
  : KPageDialog(parent)
 {
     setFaceType(List);
+    setModal(true);
+    enableButtonApply(true);
+    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
+            SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
 kDebug();
     ModifyPrinter *widget = new ModifyPrinter(destName, this);
     KPageWidgetItem *page = new KPageWidgetItem(widget, i18n("Modify Printer"));
@@ -37,10 +42,19 @@ kDebug();
     page->setIcon(KIcon("file"));
 kDebug();
     addPage(page);
+
+    
 }
 
 ConfigureDialog::~ConfigureDialog()
 {
+}
+
+void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
+{
+    kDebug();
+    KMessageBox::questionYesNoCancel(this,
+                                     i18n("The current page has changes, do you want to save?"));
 }
 
 #include "ConfigureDialog.moc"

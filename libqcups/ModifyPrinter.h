@@ -35,6 +35,9 @@ public:
     explicit ModifyPrinter(const QString &destName, QWidget *parent = 0);
     ~ModifyPrinter();
 
+public slots:
+    void save();
+
 private:
     Printer *m_printer;
 };

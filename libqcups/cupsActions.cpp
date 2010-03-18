@@ -63,25 +63,25 @@ bool QCups::cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant
     if (values.contains("printer-location")) {
         ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
                      "printer-location", NULL,
-                     values["printer-location"].toString().toLocal8Bit().data());
+                     values["printer-location"].toString().toLocal8Bit());
     }
 
     if (values.contains("ppd-name")) {
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
                      "ppd-name", NULL,
-                     values["ppd-name"].toString().toLocal8Bit().data());
+                     values["ppd-name"].toString().toLocal8Bit());
     }
 
     if (values.contains("printer-info")) {
         ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
                      "printer-info", NULL,
-                     values["printer-info"].toString().toLocal8Bit().data());
+                     values["printer-info"].toString().toLocal8Bit());
     }
 
     if (values.contains("device-uri")) {
         ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
                      "device-uri", NULL,
-                     values["device-uri"].toString().toLocal8Bit().data());
+                     values["device-uri"].toString().toLocal8Bit());
     }
 
     // do the request deleting the response

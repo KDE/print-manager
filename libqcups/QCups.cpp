@@ -56,8 +56,8 @@ const char * my_password_cb(const char *)
     }
     dlg.setUsername(QString::fromLocal8Bit(cupsUser()));
     if (dlg.exec()) {
-        cupsSetUser(dlg.username().toLocal8Bit().data());
-        return dlg.password().toLocal8Bit().data();
+        cupsSetUser(dlg.username().toLocal8Bit());
+        return dlg.password().toLocal8Bit();
     }
     // the dialog was canceled
     password_retries = -1;
@@ -104,47 +104,47 @@ void QCups::initialize()
 
 bool QCups::moveJob(const QString &name, int job_id, const QString &dest_name)
 {
-    RUN_ACTION(cupsMoveJob(name.toLocal8Bit().data(), job_id, dest_name.toLocal8Bit().data()))
+    RUN_ACTION(cupsMoveJob(name.toLocal8Bit(), job_id, dest_name.toLocal8Bit()))
 }
 
 bool QCups::pausePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit().data(), true))
+    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit(), true))
 }
 
 bool QCups::resumePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit().data(), false))
+    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit(), false))
 }
 
 bool QCups::setDefaultPrinter(const QString &name)
 {
-    RUN_ACTION(cupsSetDefaultPrinter(name.toLocal8Bit().data()))
+    RUN_ACTION(cupsSetDefaultPrinter(name.toLocal8Bit()))
 }
 
 bool QCups::deletePrinter(const QString &name)
 {
-    RUN_ACTION(cupsDeletePrinter(name.toLocal8Bit().data()))
+    RUN_ACTION(cupsDeletePrinter(name.toLocal8Bit()))
 }
 
 bool QCups::cancelJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsCancelJob(name.toLocal8Bit().data(), job_id))
+    RUN_ACTION(cupsCancelJob(name.toLocal8Bit(), job_id))
 }
 
 bool QCups::holdJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit().data(), job_id, true))
+    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit(), job_id, true))
 }
 
 bool QCups::releaseJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit().data(), job_id, false))
+    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit(), job_id, false))
 }
 
 bool QCups::addModifyPrinter(const QString &name, const QHash<QString, QVariant> values)
 {
-    RUN_ACTION(cupsAddModifyPrinter(name.toLocal8Bit().data(), values))
+    RUN_ACTION(cupsAddModifyPrinter(name.toLocal8Bit(), values))
 }
 
 Printer::Printer(QObject *parent)
@@ -156,7 +156,6 @@ Printer::Printer(const QString &destName, QObject *parent)
   : QObject(parent)
 {
     cups_dest_t *dests;
-    const char *value;
     int num_dests = cupsGetDests(&dests);
     cups_dest_t *dest = cupsGetDest(destName.toLocal8Bit(), NULL, num_dests, dests);
     if (dest == NULL) {
@@ -164,6 +163,12 @@ Printer::Printer(const QString &destName, QObject *parent)
     }
     m_destName = destName;
 
+    // store the printer values in a hash
+    for (int i = 0; i < dest->num_options; i++) {
+        m_values[dest->options[i].name] = QString::fromLocal8Bit(dest->options[i].value);
+    }
+
+/*
     // store if the printer is shared
     value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
     if (value) {
@@ -192,86 +197,24 @@ Printer::Printer(const QString &destName, QObject *parent)
         m_connection = QString::fromLocal8Bit(value);
     }
 
-    cupsFreeDests(num_dests, dests);
+    cupsFreeDests(num_dests, dests);*/
 }
 
-void Printer::setDescription(const QString &description)
+QString Printer::value(const QString &name) const
 {
-    if (m_description != description) {
-        m_values.remove("printer-info");
-    } else {
-        m_values["printer-info"] = description;
+    if (m_values.contains(name)) {
+        return m_values[name];
     }
+    return QString();
 }
 
-void Printer::setLocation(const QString &location)
+bool Printer::save(QHash<QString, QVariant> values)
 {
-    if (m_location != location) {
-        m_values.remove("printer-location");
-    } else {
-        m_values["printer-location"] = location;
-    }
-}
-
-void Printer::setConnection(const QString &connection)
-{
-    if (m_connection != connection) {
-        m_values.remove("device-uri");
-    } else {
-        m_values["device-uri"] = connection;
-    }
-}
-
-void Printer::setMakeAndModel(const QString &makeAndModel)
-{
-    if (m_makeAndModel != makeAndModel) {
-        m_values.remove("ppd-name");
-    } else {
-        m_values["ppd-name"] = makeAndModel;
-    }
-}
-
-void Printer::setShared(bool shared)
-{
-    if (m_shared != shared) {
-        m_values.remove("printer-is-shared");
-    } else {
-        m_values["printer-is-shared"] = shared;
-    }
-}
-
-QString Printer::description() const
-{
-    return m_description;
-}
-
-QString Printer::location() const
-{
-    return m_location;
-}
-
-QString Printer::connection() const
-{
-    return m_connection;
-}
-
-QString Printer::makeAndModel() const
-{
-    return m_makeAndModel;
-}
-
-bool Printer::shared() const
-{
-    return m_shared;
-}
-
-bool Printer::save()
-{
-    if (m_values.size() > 0) {
+    if (values.isEmpty()) {
         return false;
     }
 
-    RUN_ACTION(cupsAddModifyPrinter(m_destName.toLocal8Bit(), m_values))
+    RUN_ACTION(cupsAddModifyPrinter(m_destName.toLocal8Bit(), values))
 }
 
 bool Printer::setShared(const QString &destName, bool shared)

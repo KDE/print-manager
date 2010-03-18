@@ -21,6 +21,7 @@
 #ifndef CONFIGURE_DIALOG_H
 #define CONFIGURE_DIALOG_H
 
+#include <QCloseEvent>
 #include <KPageDialog>
 
 class PrinterPage;
@@ -38,6 +39,7 @@ private slots:
     virtual void slotButtonClicked(int button);
 
 private:
+    void closeEvent(QCloseEvent *event);
     // return false if the dialog was canceled
     bool savePage(PrinterPage *page);
 };

@@ -34,54 +34,68 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     setFaceType(List);
     setModal(true);
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
-    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
-            SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
-kDebug();
+    enableButtonApply(false);
+    KConfig config("print-manager");
+    KConfigGroup configureDialog(&config, "ConfigureDialog");
+    restoreDialogSize(configureDialog);
+
     ModifyPrinter *widget = new ModifyPrinter(destName, this);
     KPageWidgetItem *page = new KPageWidgetItem(widget, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
     page->setIcon(KIcon("file"));
-kDebug();
+    connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+
     addPage(page);
+    // connect this after ALL pages were added, otherwise the slot will be called
+    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
+            SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
+    restoreDialogSize(configureDialog);
 }
 
 ConfigureDialog::~ConfigureDialog()
 {
+    KConfig config("print-manager");
+    KConfigGroup configureDialog(&config, "ConfigureDialog");
+    saveDialogSize(configureDialog);
 }
 
 void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
 {
     Q_UNUSED(before)
-    kDebug();
     PrinterPage *page = qobject_cast<PrinterPage*>(current->widget());
-    kDebug() << page;
-    if (page->hasChanges()) {
-        int ret;
-        ret = KMessageBox::questionYesNoCancel(this,
-                                               i18n("The current page has changes, "
-                                                    "do you want to save?"));
-        if (ret == KMessageBox::Yes) {
-            page->save();
-        }
-    }
+    savePage(page);
 }
 
 void ConfigureDialog::slotButtonClicked(int button)
 {
-    PrinterPage *page = qobject_cast<PrinterPage*>(currentPage());
-    if (button == KDialog::Ok)
+    PrinterPage *page = qobject_cast<PrinterPage *>(currentPage()->widget());
+    if (button == KDialog::Ok) {
+        page->save();
         accept();
-    else
+    } else if (button == KDialog::Apply) {
+        page->save();
+    } else {
         KDialog::slotButtonClicked(button);
+    }
+}
+
+void ConfigureDialog::closeEvent(QCloseEvent *event)
+{
+    PrinterPage *page = qobject_cast<PrinterPage*>(currentPage()->widget());
+    if (savePage(page)) {
+        event->accept();
+    } else {
+        event->ignore();
+    }
 }
 
 bool ConfigureDialog::savePage(PrinterPage *page)
 {
     if (page->hasChanges()) {
         int ret;
-        ret = KMessageBox::questionYesNoCancel(this,
-                                               i18n("The current page has changes, "
-                                                    "do you want to save?"));
+        ret = KMessageBox::warningYesNoCancel(this,
+                                               i18n("The current page has changes.\n"
+                                                    "Do you want to save them?"));
         if (ret == KMessageBox::Yes) {
             page->save();
         } else if (ret == KMessageBox::Cancel) {

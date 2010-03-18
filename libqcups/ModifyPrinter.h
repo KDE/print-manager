@@ -37,11 +37,18 @@ public:
     explicit ModifyPrinter(const QString &destName, QWidget *parent = 0);
     ~ModifyPrinter();
 
+    bool hasChanges();
+
 public:
     void save();
 
+private slots:
+    void textChanged(const QString &text);
+
 private:
     Printer *m_printer;
+    QString m_location, m_description, m_connection;
+    int m_changes;
 };
 
 

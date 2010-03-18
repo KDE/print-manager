@@ -34,7 +34,7 @@ public:
     virtual void save() {};
 
 signals:
-    void changed();
+    void changed(bool hasChanges);
 };
 
 #endif

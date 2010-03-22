@@ -54,13 +54,19 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
 //     QStringList attr;
 //     attr << "printer-name" << "printer-uri-supported";
 
-//       static const char *pattrs[] =             /* Attributes we need for printers... */
-//                 {
-//                   "printer-name",
-//                   "printer-uri-supported",
-//                   "device-uri"
-//                 };
-//     Printer::getAttributes(destName, pattrs);
+    QStringList attr;
+    attr << "printer-info"
+         << "printer-location"
+         << "printer-uri-supported"
+         << "printer-type"
+         << "job-sheets-supported"
+         << "job-sheets-default"
+         << "printer-error-policy-supported"
+         << "printer-error-policy"
+         << "printer-op-policy-supported"
+         << "printer-op-policy";
+         
+    Printer::getAttributes(destName, attr);
 }
 
 ConfigureDialog::~ConfigureDialog()

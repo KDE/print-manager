@@ -67,7 +67,7 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
     if(!m_uis.contains(destName)) {
         cups_dest_t *dests;
         int num_dests = cupsGetDests(&dests);
-        cups_dest_t *dest = cupsGetDest(destName.toLocal8Bit(), NULL, num_dests, dests);
+        cups_dest_t *dest = cupsGetDest(destName.toUtf8(), NULL, num_dests, dests);
         if (dest == NULL) {
             kWarning() << "Printer not found" << destName;
             cupsFreeDests(num_dests, dests);

@@ -50,7 +50,7 @@ void PrintQueueModel::updateModel()
 {
     int num_jobs;
     cups_job_t *jobs;
-    num_jobs = cupsGetJobs(&jobs, m_destName.toLocal8Bit().data(), 0, m_whichjobs);
+    num_jobs = cupsGetJobs(&jobs, m_destName.toUtf8(), 0, m_whichjobs);
 
     for (int i = 0; i < num_jobs; i++) {
         // try to find the job row
@@ -90,15 +90,15 @@ void PrintQueueModel::insertJob(int pos, cups_job_s job)
     QStandardItem *stdItem = new QStandardItem(jobStatus(job.state));
     stdItem->setData(job.id, JobId);
     stdItem->setData(job.state, JobState);
-    stdItem->setData(QString::fromLocal8Bit(job.dest), DestName);
+    stdItem->setData(QString::fromUtf8(job.dest), DestName);
     row << stdItem;
 
     // job name
-    row << new QStandardItem(QString::fromLocal8Bit(job.title));
+    row << new QStandardItem(QString::fromUtf8(job.title));
 
     // owner of the job
     // try to get the full user name
-    KUser user(QString::fromLocal8Bit(job.user));
+    KUser user(QString::fromUtf8(job.user));
     if (user.isValid() && !user.property(KUser::FullName).toString().isEmpty()) {
         row << new QStandardItem(user.property(KUser::FullName).toString());
     } else {
@@ -124,7 +124,7 @@ void PrintQueueModel::insertJob(int pos, cups_job_s job)
     // if no printer queue is set we are search them all
     // so add a printer column
     if (m_showPrinterColumn) {
-        row << new QStandardItem(QString::fromLocal8Bit(job.dest));
+        row << new QStandardItem(QString::fromUtf8(job.dest));
     }
 
     // insert the whole row
@@ -143,7 +143,7 @@ void PrintQueueModel::updateJob(int pos, cups_job_s job)
     }
 
     if (m_showPrinterColumn) {
-        item(pos, ColPrinter)->setText(QString::fromLocal8Bit(job.dest));
+        item(pos, ColPrinter)->setText(QString::fromUtf8(job.dest));
     }
 }
 

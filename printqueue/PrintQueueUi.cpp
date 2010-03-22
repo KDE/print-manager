@@ -104,12 +104,12 @@ void PrintQueueUi::setState(const char &state)
             if (!m_title.isNull()) {
                 int num_jobs;
                 cups_job_t *jobs;
-                num_jobs = cupsGetJobs(&jobs, m_destName.toLocal8Bit().data(), 0, CUPS_WHICHJOBS_ACTIVE);
+                num_jobs = cupsGetJobs(&jobs, m_destName.toUtf8(), 0, CUPS_WHICHJOBS_ACTIVE);
 
                 QString jobTitle;
                 for (int i = 0; i < num_jobs; i++) {
                     if (jobs[i].state == IPP_JOB_PROCESSING) {
-                        jobTitle = QString::fromLocal8Bit(jobs[i].title);
+                        jobTitle = QString::fromUtf8(jobs[i].title);
                         break;
                     }
                 }
@@ -186,10 +186,10 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
                 // If there is a printer and it's not the current one add it
                 // as a new destination
-                QString destName = QString::fromLocal8Bit(dest->name);
+                QString destName = QString::fromUtf8(dest->name);
                 if (dest->instance == NULL && m_destName != destName) {
                     value = cupsGetOption("printer-info", dest->num_options, dest->options);
-                    QAction *action = moveToMenu->addAction(QString::fromLocal8Bit(value));
+                    QAction *action = moveToMenu->addAction(QString::fromUtf8(value));
                     action->setData(destName);
                 }
             }
@@ -214,7 +214,7 @@ void PrintQueueUi::update()
     cups_dest_t *dests;
     const char *value;
     int num_dests = cupsGetDests(&dests);
-    cups_dest_t *dest = cupsGetDest(m_destName.toLocal8Bit(), NULL, num_dests, dests);
+    cups_dest_t *dest = cupsGetDest(m_destName.toUtf8(), NULL, num_dests, dests);
 
     if (dest == NULL) {
         // if cups stops we disable our queue
@@ -228,7 +228,7 @@ void PrintQueueUi::update()
     // get printer-info
     value = cupsGetOption("printer-info", dest->num_options, dest->options);
     if (value) {
-        m_title = QString::fromLocal8Bit(value);
+        m_title = QString::fromUtf8(value);
     } else {
         m_title = m_destName;
     }

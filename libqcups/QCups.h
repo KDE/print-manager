@@ -43,7 +43,7 @@ namespace QCups
         bool save(QHash<QString, QVariant> values);
 
         static bool setShared(const QString &destName, bool shared);
-        static QStringList getAttributes(const QString &destName, const char **char_attrs);
+        static QHash<QString, QVariant> getAttributes(const QString &destName, const QStringList &requestedAttr);
 
     private:
         QString m_destName;

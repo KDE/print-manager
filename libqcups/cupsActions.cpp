@@ -35,63 +35,59 @@ ipp_t * ippNewDefaultRequest(const char *name, ipp_op_t operation)
     // * printer-uri
     // * requesting-user-name
     request = ippNewRequest(operation);
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", NULL,
+    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8",
                     "localhost", ippPort(), "/printers/%s", name);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
-                 NULL, uri);
+                 "utf-8", uri);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
-                 NULL, cupsUser());
+                 "utf-8", cupsUser());
     return request;
 }
 
-QStringList QCups::cupsGetAttributes(const char *name, const char **char_attrs)
+QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, const QStringList &requestedAttr)
 {
     ipp_t *request, *response;
-    QStringList responseSL;
-//     char **char_attrs;
     ipp_attribute_t *attr;
+    QHash<QString, QVariant> responseSL;
+    char **attributes;
 
     // check the input data
-    if (!name) {
+    if (!name || requestedAttr.size() == 0) {
         qWarning() << "Internal error, invalid input data" << name;
-        return QStringList();
+        return responseSL;
     }
 
-//     char_attrs = (char **)malloc(attrs.size() * sizeof(char *));
+    attributes = new char*[requestedAttr.size()];
+    for (int i = 0; i < requestedAttr.size(); i ++) {
+        attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
+    }
 
     request = ippNewDefaultRequest(name, IPP_GET_PRINTER_ATTRIBUTES);
 
     ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                      "requested-attributes",
-                      sizeof(char_attrs) / sizeof(char_attrs[0]),
-                      NULL, char_attrs);
+                  "requested-attributes", requestedAttr.size(),
+                  "utf-8", attributes);
 
-    // do the request deleting the response
-    response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/");
+    // do the request
+    if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/")) != NULL) {
 
-//     if (!response || cupsLastError() > IPP_OK_CONFLICT)
-//     {
-//         ippDelete(response);
-      
-kDebug() << response;
-    for (attr = response->attrs; attr; attr = attr->next) {
-        while (attr && attr->group_tag != IPP_TAG_PRINTER)
-          attr = attr->next;
+        for (attr = response->attrs; attr != NULL; attr = attr->next) {
+            QStringList values;
+            for (int i = 0; i < attr->num_values; i++) {
+                values << QString::fromUtf8(attr->values[i].string.text);
+                printf ("Attribute: %s == %d == %s\n", attr->name, attr->num_values, attr->values[i].string.text);
+            }
+            responseSL[QString::fromUtf8(attr->name)] = values;
+        }
 
-    if (!attr)
-      break;
-
-    for (; attr && attr->group_tag == IPP_TAG_PRINTER;
-         attr = attr->next) {
-      size_t namelen = strlen (attr->name);
-      int is_list = attr->num_values > 1;
-
-      printf ("Attribute: %s == %s\n", attr->name, attr->values[0]);
-    }
+        ippDelete(response);
     }
 
-    ippDelete(response);
-//     return !cupsLastError();
+    for (int i = 0; i < requestedAttr.size(); i ++) {
+        delete attributes[i];
+    }
+    delete [] attributes;
+
     return responseSL;
 }
 
@@ -114,26 +110,26 @@ bool QCups::cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant
 
     if (values.contains("printer-location")) {
         ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                     "printer-location", NULL,
-                     values["printer-location"].toString().toLocal8Bit());
+                     "printer-location", "utf-8",
+                     values["printer-location"].toString().toUtf8());
     }
 
     if (values.contains("ppd-name")) {
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                     "ppd-name", NULL,
-                     values["ppd-name"].toString().toLocal8Bit());
+                     "ppd-name", "utf-8",
+                     values["ppd-name"].toString().toUtf8());
     }
 
     if (values.contains("printer-info")) {
         ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                     "printer-info", NULL,
-                     values["printer-info"].toString().toLocal8Bit());
+                     "printer-info", "utf-8",
+                     values["printer-info"].toString().toUtf8());
     }
 
     if (values.contains("device-uri")) {
         ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                     "device-uri", NULL,
-                     values["device-uri"].toString().toLocal8Bit());
+                     "device-uri", "utf-8",
+                     values["device-uri"].toString().toUtf8());
     }
 
     // do the request deleting the response
@@ -159,13 +155,13 @@ bool QCups::cupsMoveJob(const char *name, int job_id, const char *dest_name)
     // * job-id
     request = ippNewDefaultRequest(name, CUPS_MOVE_JOB);
 
-    httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri), "ipp", NULL,
+    httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri), "ipp", "utf-8",
                     "localhost", ippPort(), "/printers/%s", dest_name);
 
     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER, "job-id",
                   job_id);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "job-printer-uri",
-                 NULL, destUri);
+                 "utf-8", destUri);
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/jobs/"));

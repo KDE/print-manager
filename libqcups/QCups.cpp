@@ -225,9 +225,9 @@ bool Printer::setShared(const QString &destName, bool shared)
     RUN_ACTION(cupsAddModifyPrinter(destName.toLocal8Bit(), values))
 }
 
-QStringList Printer::getAttributes(const QString &destName, const char **char_attrs)
+QHash<QString, QVariant> Printer::getAttributes(const QString &destName, const QStringList &requestedAttr)
 {
-    return cupsGetAttributes(destName.toLocal8Bit(), char_attrs);
+    return cupsGetAttributes(destName.toLocal8Bit(), requestedAttr);
 }
 
 #include "QCups.moc"

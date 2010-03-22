@@ -33,7 +33,7 @@ namespace QCups
     bool cupsHoldReleaseJob(const char *name, int job_id, bool hold);
     bool cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant> values);
 
-    QStringList cupsGetAttributes(const char *name, const char **char_attrs);
+    QHash<QString, QVariant> cupsGetAttributes(const char *name, const QStringList &requestedAttr);
 };
 
 #endif

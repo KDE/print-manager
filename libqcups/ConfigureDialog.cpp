@@ -42,7 +42,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     ModifyPrinter *widget = new ModifyPrinter(destName, this);
     KPageWidgetItem *page = new KPageWidgetItem(widget, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
-    page->setIcon(KIcon("file"));
+    page->setIcon(KIcon("dialog-information"));
     connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
 
     addPage(page);
@@ -50,6 +50,17 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
             SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
     restoreDialogSize(configureDialog);
+
+//     QStringList attr;
+//     attr << "printer-name" << "printer-uri-supported";
+
+//       static const char *pattrs[] =             /* Attributes we need for printers... */
+//                 {
+//                   "printer-name",
+//                   "printer-uri-supported",
+//                   "device-uri"
+//                 };
+//     Printer::getAttributes(destName, pattrs);
 }
 
 ConfigureDialog::~ConfigureDialog()

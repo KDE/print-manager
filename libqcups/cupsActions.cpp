@@ -21,6 +21,7 @@
 #include "cupsActions.h"
 #include <cups/cups.h>
 
+#include <QStringList>
 #include <KDebug>
 
 // Don't forget to delete the request
@@ -41,6 +42,57 @@ ipp_t * ippNewDefaultRequest(const char *name, ipp_op_t operation)
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
                  NULL, cupsUser());
     return request;
+}
+
+QStringList QCups::cupsGetAttributes(const char *name, const char **char_attrs)
+{
+    ipp_t *request, *response;
+    QStringList responseSL;
+//     char **char_attrs;
+    ipp_attribute_t *attr;
+
+    // check the input data
+    if (!name) {
+        qWarning() << "Internal error, invalid input data" << name;
+        return QStringList();
+    }
+
+//     char_attrs = (char **)malloc(attrs.size() * sizeof(char *));
+
+    request = ippNewDefaultRequest(name, IPP_GET_PRINTER_ATTRIBUTES);
+
+    ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
+                      "requested-attributes",
+                      sizeof(char_attrs) / sizeof(char_attrs[0]),
+                      NULL, char_attrs);
+
+    // do the request deleting the response
+    response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/");
+
+//     if (!response || cupsLastError() > IPP_OK_CONFLICT)
+//     {
+//         ippDelete(response);
+      
+kDebug() << response;
+    for (attr = response->attrs; attr; attr = attr->next) {
+        while (attr && attr->group_tag != IPP_TAG_PRINTER)
+          attr = attr->next;
+
+    if (!attr)
+      break;
+
+    for (; attr && attr->group_tag == IPP_TAG_PRINTER;
+         attr = attr->next) {
+      size_t namelen = strlen (attr->name);
+      int is_list = attr->num_values > 1;
+
+      printf ("Attribute: %s == %s\n", attr->name, attr->values[0]);
+    }
+    }
+
+    ippDelete(response);
+//     return !cupsLastError();
+    return responseSL;
 }
 
 bool QCups::cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant> values)

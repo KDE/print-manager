@@ -103,7 +103,7 @@ void PrintKCM::update()
         m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString());
         m_printerDesc->setLocation(index.data(PrinterModel::DestLocation).toString());
         m_printerDesc->setStatus(index.data(PrinterModel::DestStatus).toString());
-        m_printerDesc->setDescription(index.data(Qt::DisplayRole).toString());
+        m_printerDesc->setDescription(index.data(PrinterModel::DestDescription).toString());
         m_printerDesc->setKind(index.data(PrinterModel::DestKind).toString());
         m_printerDesc->setIsShared(index.data(PrinterModel::DestIsShared).toBool());
         m_printerDesc->setIsDefault(index.data(PrinterModel::DestIsDefault).toBool());

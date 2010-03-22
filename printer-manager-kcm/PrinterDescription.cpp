@@ -26,6 +26,7 @@
 #include <cups/cups.h>
 
 #include <QPainter>
+#include <QPointer>
 #include <QDBusMessage>
 
 #include <QDBusConnection>
@@ -83,13 +84,15 @@ void PrinterDescription::on_sharedCB_clicked()
 
 void PrinterDescription::on_optionsPB_clicked()
 {
-    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, this);
-    dlg->show();
+    QPointer<QCups::ConfigureDialog> dlg = new QCups::ConfigureDialog(m_destName, this);
+    dlg->exec();
+    delete dlg;
 }
 
 void PrinterDescription::setDestName(const QString &name)
 {
     m_destName = name;
+    printerNameL->setText(name);
 }
 
 void PrinterDescription::setLocation(const QString &location)

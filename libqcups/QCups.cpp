@@ -168,6 +168,7 @@ Printer::Printer(const QString &destName, QObject *parent)
         m_values[dest->options[i].name] = QString::fromLocal8Bit(dest->options[i].value);
     }
 
+  kDebug() << m_values;
 /*
     // store if the printer is shared
     value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
@@ -222,6 +223,11 @@ bool Printer::setShared(const QString &destName, bool shared)
     QHash<QString, QVariant> values;
     values["printer-is-shared"] = shared;
     RUN_ACTION(cupsAddModifyPrinter(destName.toLocal8Bit(), values))
+}
+
+QStringList Printer::getAttributes(const QString &destName, const char **char_attrs)
+{
+    return cupsGetAttributes(destName.toLocal8Bit(), char_attrs);
 }
 
 #include "QCups.moc"

@@ -133,8 +133,8 @@ void PrinterModel::updateDest(QStandardItem *destItem, cups_dest_t *dest)
         QString description = QString::fromLocal8Bit(value);
         if (description != destItem->data(DestDescription).toString()){
             destItem->setData(description, DestDescription);
-            if (destItem->text() != description) {
-                destItem->setText(description);
+            if (destItem->text() != (destItem->data(DestName).toString() + " - " + description)) {
+                destItem->setText(destItem->data(DestName).toString() + " - " + description);
             }
         }
     } else if (destItem->data(DestName).toString() != destItem->text()){

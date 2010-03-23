@@ -20,8 +20,6 @@
 
 #include "ModifyPrinter.h"
 
-#include <QCups.h>
-
 #include <KDebug>
 
 using namespace QCups;

@@ -18,24 +18,25 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef MODIFY_PRINTER_H
-#define MODIFY_PRINTER_H
+#ifndef PRINTER_OPTIONS_H
+#define PRINTER_OPTIONS_H
 
-#include "ui_ModifyPrinter.h"
+#include "ui_PrinterOptions.h"
 
 #include "PrinterPage.h"
 
-#include "QCups.h"
+#include <cups/ppd.h>
 #include <QWidget>
+#include <QTextCodec>
 
 namespace QCups {
 
-class ModifyPrinter : public PrinterPage, Ui::ModifyPrinter
+class PrinterOptions : public PrinterPage, Ui::PrinterOptions
 {
     Q_OBJECT
 public:
-    explicit ModifyPrinter(const QString &destName, QWidget *parent = 0);
-    ~ModifyPrinter();
+    explicit PrinterOptions(const QString &destName, QWidget *parent = 0);
+    ~PrinterOptions();
 
     bool hasChanges();
 
@@ -43,11 +44,19 @@ public:
     void save();
 
 private slots:
-    void textChanged(const QString &text);
+    void currentIndexChangedCB(int index);
 
 private:
-    Printer *m_printer;
+    ppd_file_t *m_ppd;
     int m_changes;
+    QTextCodec *m_codec;
+    QHash<QString, int> m_groupsTab;
+
+    QWidget* pickBoolean(ppd_option_t *option, QWidget *parent) const;
+    QWidget* pickMany(ppd_option_t *option, QWidget *parent) const;
+    QWidget* pickOne(ppd_option_t *option, QWidget *parent) const;
+
+    void createGroups();
 };
 
 

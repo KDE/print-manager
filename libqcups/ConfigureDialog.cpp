@@ -22,7 +22,10 @@
 #include "PrinterPage.h"
 
 #include "ModifyPrinter.h"
-#include "PrinterBehavior.h"
+// #include "PrinterBehavior.h"
+#include "PrinterOptions.h"
+
+#include <cups/cups.h>
 
 #include <KMessageBox>
 #include <KDebug>
@@ -61,15 +64,21 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     page = new KPageWidgetItem(widget, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
     page->setIcon(KIcon("dialog-information"));
+    // CONNECT this signal ONLY to the first Page
     connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
     addPage(page);
 
-    PrinterBehavior *pBW = new PrinterBehavior(destName, this);
-    pBW->setValues(values);
-    page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
-    page->setHeader(i18n("Banners, Policies and Allowed Users"));
-    page->setIcon(KIcon("feed-subscribe"));
-    connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+//     PrinterBehavior *pBW = new PrinterBehavior(destName, this);
+//     pBW->setValues(values);
+//     page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
+//     page->setHeader(i18n("Banners, Policies and Allowed Users"));
+//     page->setIcon(KIcon("feed-subscribe"));
+//     addPage(page);
+
+    PrinterOptions *pOp = new PrinterOptions(destName, this);
+    page = new KPageWidgetItem(pOp, i18n("Printer Options"));
+    page->setHeader(i18n("Set the Default Printer Options"));
+    page->setIcon(KIcon("view-pim-tasks"));
     addPage(page);
 
     
@@ -80,8 +89,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
 
 //     QStringList attr;
 //     attr << "printer-name" << "printer-uri-supported";
-
-
 }
 
 ConfigureDialog::~ConfigureDialog()
@@ -93,9 +100,18 @@ ConfigureDialog::~ConfigureDialog()
 
 void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
 {
-    Q_UNUSED(before)
-    PrinterPage *page = qobject_cast<PrinterPage*>(current->widget());
-    savePage(page);
+    PrinterPage *currentPage = qobject_cast<PrinterPage*>(current->widget());
+    PrinterPage *beforePage = qobject_cast<PrinterPage*>(before->widget());
+
+    // Check if the before page has changes
+    savePage(beforePage);
+    if (beforePage) {
+        disconnect(beforePage, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+    }
+
+    // connect the changed signal to the new page and check if it has changes
+    connect(currentPage, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+    enableButtonApply(currentPage->hasChanges());
 }
 
 void ConfigureDialog::slotButtonClicked(int button)

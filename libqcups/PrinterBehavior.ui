@@ -131,10 +131,10 @@
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="QComboBox" name="operationCB"/>
+    <widget class="QComboBox" name="operationPolicyCB"/>
    </item>
    <item row="3" column="1">
-    <widget class="QComboBox" name="errorCB"/>
+    <widget class="QComboBox" name="errorPolicyCB"/>
    </item>
    <item row="5" column="0" colspan="5">
     <spacer name="verticalSpacer">

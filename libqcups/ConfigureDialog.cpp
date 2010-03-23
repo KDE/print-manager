@@ -22,6 +22,7 @@
 #include "PrinterPage.h"
 
 #include "ModifyPrinter.h"
+#include "PrinterBehavior.h"
 
 #include <KMessageBox>
 #include <KDebug>
@@ -39,20 +40,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     KConfigGroup configureDialog(&config, "ConfigureDialog");
     restoreDialogSize(configureDialog);
 
-    ModifyPrinter *widget = new ModifyPrinter(destName, this);
-    KPageWidgetItem *page = new KPageWidgetItem(widget, i18n("Modify Printer"));
-    page->setHeader(i18n("Configure"));
-    page->setIcon(KIcon("dialog-information"));
-    connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
-
-    addPage(page);
-    // connect this after ALL pages were added, otherwise the slot will be called
-    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
-            SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
-    restoreDialogSize(configureDialog);
-
-//     QStringList attr;
-//     attr << "printer-name" << "printer-uri-supported";
 
     QStringList attr;
     attr << "printer-info"
@@ -65,8 +52,36 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
          << "printer-error-policy"
          << "printer-op-policy-supported"
          << "printer-op-policy";
-         
-    Printer::getAttributes(destName, attr);
+
+    QHash<QString, QVariant> values = Printer::getAttributes(destName, attr);
+
+    KPageWidgetItem *page;
+
+    ModifyPrinter *widget = new ModifyPrinter(destName, this);
+    page = new KPageWidgetItem(widget, i18n("Modify Printer"));
+    page->setHeader(i18n("Configure"));
+    page->setIcon(KIcon("dialog-information"));
+    connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+    addPage(page);
+
+    PrinterBehavior *pBW = new PrinterBehavior(destName, this);
+    pBW->setValues(values);
+    page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
+    page->setHeader(i18n("Banners, Policies and Allowed Users"));
+    page->setIcon(KIcon("feed-subscribe"));
+    connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+    addPage(page);
+
+    
+    // connect this after ALL pages were added, otherwise the slot will be called
+    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
+            SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
+    restoreDialogSize(configureDialog);
+
+//     QStringList attr;
+//     attr << "printer-name" << "printer-uri-supported";
+
+
 }
 
 ConfigureDialog::~ConfigureDialog()

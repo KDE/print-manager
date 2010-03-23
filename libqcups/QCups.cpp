@@ -48,16 +48,16 @@ const char * my_password_cb(const char *)
     }
     KPasswordDialog dlg(0, KPasswordDialog::ShowUsernameLine);
     dlg.setPrompt(i18n("Enter an username and a password to complete the task"));
-    dlg.setUsername(QString::fromLocal8Bit(cupsUser()));
+    dlg.setUsername(QString::fromUtf8(cupsUser()));
     // check if the password retries is more than 0 and show an error
     if (password_retries++) {
         dlg.showErrorMessage(QString(), KPasswordDialog::UsernameError);
         dlg.showErrorMessage(i18n("Wrong username or password"), KPasswordDialog::PasswordError);
     }
-    dlg.setUsername(QString::fromLocal8Bit(cupsUser()));
+    dlg.setUsername(QString::fromUtf8(cupsUser()));
     if (dlg.exec()) {
-        cupsSetUser(dlg.username().toLocal8Bit());
-        return dlg.password().toLocal8Bit();
+        cupsSetUser(dlg.username().toUtf8());
+        return dlg.password().toUtf8();
     }
     // the dialog was canceled
     password_retries = -1;
@@ -104,47 +104,47 @@ void QCups::initialize()
 
 bool QCups::moveJob(const QString &name, int job_id, const QString &dest_name)
 {
-    RUN_ACTION(cupsMoveJob(name.toLocal8Bit(), job_id, dest_name.toLocal8Bit()))
+    RUN_ACTION(cupsMoveJob(name.toUtf8(), job_id, dest_name.toUtf8()))
 }
 
 bool QCups::pausePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit(), true))
+    RUN_ACTION(cupsPauseResumePrinter(name.toUtf8(), true))
 }
 
 bool QCups::resumePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name.toLocal8Bit(), false))
+    RUN_ACTION(cupsPauseResumePrinter(name.toUtf8(), false))
 }
 
 bool QCups::setDefaultPrinter(const QString &name)
 {
-    RUN_ACTION(cupsSetDefaultPrinter(name.toLocal8Bit()))
+    RUN_ACTION(cupsSetDefaultPrinter(name.toUtf8()))
 }
 
 bool QCups::deletePrinter(const QString &name)
 {
-    RUN_ACTION(cupsDeletePrinter(name.toLocal8Bit()))
+    RUN_ACTION(cupsDeletePrinter(name.toUtf8()))
 }
 
 bool QCups::cancelJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsCancelJob(name.toLocal8Bit(), job_id))
+    RUN_ACTION(cupsCancelJob(name.toUtf8(), job_id))
 }
 
 bool QCups::holdJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit(), job_id, true))
+    RUN_ACTION(cupsHoldReleaseJob(name.toUtf8(), job_id, true))
 }
 
 bool QCups::releaseJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsHoldReleaseJob(name.toLocal8Bit(), job_id, false))
+    RUN_ACTION(cupsHoldReleaseJob(name.toUtf8(), job_id, false))
 }
 
 bool QCups::addModifyPrinter(const QString &name, const QHash<QString, QVariant> values)
 {
-    RUN_ACTION(cupsAddModifyPrinter(name.toLocal8Bit(), values))
+    RUN_ACTION(cupsAddModifyPrinter(name.toUtf8(), values))
 }
 
 Printer::Printer(QObject *parent)
@@ -157,7 +157,7 @@ Printer::Printer(const QString &destName, QObject *parent)
 {
     cups_dest_t *dests;
     int num_dests = cupsGetDests(&dests);
-    cups_dest_t *dest = cupsGetDest(destName.toLocal8Bit(), NULL, num_dests, dests);
+    cups_dest_t *dest = cupsGetDest(destName.toUtf8(), NULL, num_dests, dests);
     if (dest == NULL) {
         return;
     }
@@ -165,7 +165,7 @@ Printer::Printer(const QString &destName, QObject *parent)
 
     // store the printer values in a hash
     for (int i = 0; i < dest->num_options; i++) {
-        m_values[dest->options[i].name] = QString::fromLocal8Bit(dest->options[i].value);
+        m_values[dest->options[i].name] = QString::fromUtf8(dest->options[i].value);
     }
 
   kDebug() << m_values;
@@ -180,22 +180,22 @@ Printer::Printer(const QString &destName, QObject *parent)
 
     // store the printer location
     if (value = cupsGetOption("printer-location", dest->num_options, dest->options)) {
-        m_location = QString::fromLocal8Bit(value);
+        m_location = QString::fromUtf8(value);
     }
 
     // store the printer description
     if (value = cupsGetOption("printer-info", dest->num_options, dest->options)) {
-        m_description = QString::fromLocal8Bit(value);
+        m_description = QString::fromUtf8(value);
     }
 
     // store the printer kind
     if (value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options)) {
-        m_makeAndModel = QString::fromLocal8Bit(value);
+        m_makeAndModel = QString::fromUtf8(value);
     }
 
     // store the printer uri
     if (value = cupsGetOption("device-uri", dest->num_options, dest->options)) {
-        m_connection = QString::fromLocal8Bit(value);
+        m_connection = QString::fromUtf8(value);
     }
 
     cupsFreeDests(num_dests, dests);*/
@@ -215,19 +215,19 @@ bool Printer::save(QHash<QString, QVariant> values)
         return false;
     }
 
-    RUN_ACTION(cupsAddModifyPrinter(m_destName.toLocal8Bit(), values))
+    RUN_ACTION(cupsAddModifyPrinter(m_destName.toUtf8(), values))
 }
 
 bool Printer::setShared(const QString &destName, bool shared)
 {
     QHash<QString, QVariant> values;
     values["printer-is-shared"] = shared;
-    RUN_ACTION(cupsAddModifyPrinter(destName.toLocal8Bit(), values))
+    RUN_ACTION(cupsAddModifyPrinter(destName.toUtf8(), values))
 }
 
 QHash<QString, QVariant> Printer::getAttributes(const QString &destName, const QStringList &requestedAttr)
 {
-    return cupsGetAttributes(destName.toLocal8Bit(), requestedAttr);
+    return cupsGetAttributes(destName.toUtf8(), requestedAttr);
 }
 
 #include "QCups.moc"

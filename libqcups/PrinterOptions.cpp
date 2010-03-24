@@ -103,12 +103,12 @@ void PrinterOptions::createGroups()
         QScrollArea *scrollArea = new QScrollArea(this);
         QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
         scrollArea->setWidget(scrollAreaWidgetContents);
-        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         scrollArea->setFrameShape(QFrame::NoFrame);
 
         QFormLayout *gFormLayout = new QFormLayout(scrollAreaWidgetContents);
+        gFormLayout->setFormAlignment(Qt::AlignHCenter | Qt::AlignTop);
         scrollAreaWidgetContents->setLayout(gFormLayout);
-        gFormLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
+//         gFormLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         gFormLayout->setSizeConstraint(QLayout::SetMinimumSize);
 
         m_groupsTab[name] = optionsTW->addTab(scrollArea, text);

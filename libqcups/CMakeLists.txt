@@ -5,13 +5,13 @@ set(libqcups_SRCS
     ConfigureDialog.cpp
     PrinterPage.cpp
     PrinterOptions.cpp
-#     PrinterBehavior.cpp
+    PrinterBehavior.cpp
 )
 
 kde4_add_ui_files(libqcups_SRCS
     ModifyPrinter.ui
     PrinterOptions.ui
-#     PrinterBehavior.ui
+    PrinterBehavior.ui
 )
 
 kde4_add_library(qcupslib SHARED ${libqcups_SRCS})

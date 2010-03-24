@@ -22,7 +22,7 @@
 #include "PrinterPage.h"
 
 #include "ModifyPrinter.h"
-// #include "PrinterBehavior.h"
+#include "PrinterBehavior.h"
 #include "PrinterOptions.h"
 
 #include <cups/cups.h>
@@ -68,12 +68,12 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
     addPage(page);
 
-//     PrinterBehavior *pBW = new PrinterBehavior(destName, this);
-//     pBW->setValues(values);
-//     page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
-//     page->setHeader(i18n("Banners, Policies and Allowed Users"));
-//     page->setIcon(KIcon("feed-subscribe"));
-//     addPage(page);
+    PrinterBehavior *pBW = new PrinterBehavior(destName, this);
+    pBW->setValues(values);
+    page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
+    page->setHeader(i18n("Banners, Policies and Allowed Users"));
+    page->setIcon(KIcon("feed-subscribe"));
+    addPage(page);
 
     PrinterOptions *pOp = new PrinterOptions(destName, this);
     page = new KPageWidgetItem(pOp, i18n("Printer Options"));

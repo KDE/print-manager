@@ -47,14 +47,19 @@ private slots:
     void currentIndexChangedCB(int index);
 
 private:
+    const char  *m_filename;
     ppd_file_t *m_ppd;
     int m_changes;
     QTextCodec *m_codec;
     QHash<QString, int> m_groupsTab;
+    QHash<QString, QString> m_customValues;
 
-    QWidget* pickBoolean(ppd_option_t *option, QWidget *parent) const;
-    QWidget* pickMany(ppd_option_t *option, QWidget *parent) const;
-    QWidget* pickOne(ppd_option_t *option, QWidget *parent) const;
+    QWidget* pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    QWidget* pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    QWidget* pickOne(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    const char* getVariable(const char *name) const;
+    char * get_option_value(ppd_file_t *ppd, const char *name, char *buffer, size_t bufsize) const;
+    static double get_points(double number, const char *uval);
 
     void createGroups();
 };

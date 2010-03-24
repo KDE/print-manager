@@ -1,6 +1,9 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Daniel Nicoletti                                *
  *   dantti85-pk@yahoo.com.br                                              *
+ *   For the save PPD snipet provided as LGPL in CUPS cgi code             *
+ *   Copyright 2007-2009 by Apple Inc.                                     *
+ *   Copyright 1997-2007 by Easy Software Products.                        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,6 +24,7 @@
 #include "PrinterOptions.h"
 
 #include <cups/cups.h>
+#include <cups/file.h>
 
 #include <QScrollArea>
 #include <QFormLayout>
@@ -37,7 +41,10 @@ PrinterOptions::PrinterOptions(const QString &destName, QWidget *parent)
 {
     setupUi(this);
 
-    m_ppd = ppdOpenFile(cupsGetPPD(destName.toUtf8()));
+//     The caller "owns" the file that is created and must unlink the returned filename.
+// TODO unlink the filename
+    m_filename = cupsGetPPD(destName.toUtf8());
+    m_ppd = ppdOpenFile(m_filename);
     if (m_ppd == NULL) {
         kWarning() << "Could not open ppd file";
         return;
@@ -132,18 +139,18 @@ void PrinterOptions::createGroups()
             QWidget *optionW = 0;
             switch (option->ui) {
             case PPD_UI_BOOLEAN:
-                optionW = pickBoolean(option, scrollAreaWidgetContents);
+                optionW = pickBoolean(option, oKeyword, scrollAreaWidgetContents);
                 break;
             case PPD_UI_PICKMANY:
-                optionW = pickMany(option, scrollAreaWidgetContents);
+                optionW = pickMany(option, oKeyword, scrollAreaWidgetContents);
                 break;
             case PPD_UI_PICKONE:
-                optionW = pickOne(option, scrollAreaWidgetContents);
+                optionW = pickOne(option, oKeyword, scrollAreaWidgetContents);
                 break;
             default:
                 kWarning() << "Option type not recognized: " << option->ui;
                 // let's use the most common
-                optionW = pickOne(option, scrollAreaWidgetContents);
+                optionW = pickOne(option, oKeyword, scrollAreaWidgetContents);
                 break;
             }
 
@@ -157,8 +164,9 @@ void PrinterOptions::createGroups()
   }
 }
 
-QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, QWidget *parent) const
+QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const
 {
+    Q_UNUSED(keyword)
     QWidget *widget = new QWidget(parent);
     QHBoxLayout *layout = new QHBoxLayout(widget);
     widget->setLayout(layout);
@@ -180,8 +188,9 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, QWidget *parent) cons
     return widget;
 }
 
-QWidget* PrinterOptions::pickMany(ppd_option_t *option, QWidget *parent) const
+QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const
 {
+    Q_UNUSED(keyword)
     QListView *listView = new QListView(parent);
     QStandardItemModel *model = new QStandardItemModel(listView);
     listView->setModel(model);
@@ -208,7 +217,7 @@ QWidget* PrinterOptions::pickMany(ppd_option_t *option, QWidget *parent) const
     return qobject_cast<QWidget*>(listView);
 }
 
-QWidget* PrinterOptions::pickOne(ppd_option_t *option, QWidget *parent) const
+QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, QWidget *parent) const
 {
     int i;
     ppd_choice_t *choice;
@@ -226,6 +235,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, QWidget *parent) const
     // selects the default choice
     int defaultChoice = comboBox->findData(oDefChoice);
     comboBox->setProperty("defaultChoice", defaultChoice);
+    comboBox->setProperty("Keyword", keyword);
     comboBox->setCurrentIndex(comboBox->findData(oDefChoice));
     // connect the signal AFTER setCurrentIndex is called
     connect(comboBox, SIGNAL(currentIndexChanged(int)),
@@ -237,9 +247,25 @@ void PrinterOptions::currentIndexChangedCB(int index)
 {
     QComboBox *comboBox = qobject_cast<QComboBox*>(sender());
     bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
-    kDebug() << isDifferent << comboBox->property("different").toBool();
+//     kDebug() << isDifferent << comboBox->property("different").toBool();
+
     if (isDifferent != comboBox->property("different").toBool()) {
-        isDifferent ? m_changes++ : m_changes--;
+        QString keyword = comboBox->property("Keyword").toString();
+//         kDebug() << ppdFindMarkedChoice(m_ppd, m_codec->fromUnicode(keyword));
+        QString value = comboBox->itemData(index).toString();
+        // TODO warning about conflicts
+        ppdMarkOption(m_ppd,
+                      m_codec->fromUnicode(keyword),
+                      m_codec->fromUnicode(value));
+
+        if (isDifferent) {
+            m_customValues[keyword] = value;
+            m_changes++;
+        } else {
+            m_customValues.remove(keyword);
+            m_changes--;
+        }
+
         comboBox->setProperty("different", isDifferent);
         emit changed(m_changes);
     }
@@ -252,9 +278,377 @@ PrinterOptions::~PrinterOptions()
     }
 }
 
+const char *                            /* O - Value of variable */
+PrinterOptions::getVariable(const char *name)    const    /* I - Name of variable */
+{
+    QString keyword = m_codec->toUnicode(name);
+    if (m_customValues.contains(keyword)) {
+        return m_codec->fromUnicode(m_customValues[keyword]);
+    } else {
+        return NULL;
+    }
+}
+
+/*
+ * 'get_points()' - Get a value in points.
+ */
+double                           /* O - Number in points */
+PrinterOptions::get_points(double     number,           /* I - Original number */
+           const char *uval)            /* I - Units */
+{
+  if (!strcmp(uval, "mm"))              /* Millimeters */
+    return (number * 72.0 / 25.4);
+  else if (!strcmp(uval, "cm"))         /* Centimeters */
+    return (number * 72.0 / 2.54);
+  else if (!strcmp(uval, "in"))         /* Inches */
+    return (number * 72.0);
+  else if (!strcmp(uval, "ft"))         /* Feet */
+    return (number * 72.0 * 12.0);
+  else if (!strcmp(uval, "m"))          /* Meters */
+    return (number * 72.0 / 0.0254);
+  else                                  /* Points */
+    return (number);
+}
+
+/*
+ * 'get_option_value()' - Return the value of an option.
+ *
+ * This function also handles generation of custom option values.
+ */
+
+char *                           /* O - Value string or NULL on error */
+PrinterOptions::get_option_value(
+    ppd_file_t    *ppd,                 /* I - PPD file */
+    const char    *name,                /* I - Option name */
+    char          *buffer,              /* I - String buffer */
+    size_t        bufsize) const             /* I - Size of buffer */
+{
+  char          *bufptr,                /* Pointer into buffer */
+                *bufend;                /* End of buffer */
+  ppd_coption_t *coption;               /* Custom option */
+  ppd_cparam_t  *cparam;                /* Current custom parameter */
+  char          keyword[256];           /* Parameter name */
+  const char    *val,                   /* Parameter value */
+                *uval;                  /* Units value */
+  long          integer;                /* Integer value */
+  double        number,                 /* Number value */
+                number_points;          /* Number in points */
+
+
+ /*
+  * See if we have a custom option choice...
+  */
+
+  if ((val = getVariable(name)) == NULL)
+  {
+   /*
+    * Option not found!
+    */
+
+    return (NULL);
+  }
+  else if (strcasecmp(val, "Custom") ||
+           (coption = ppdFindCustomOption(ppd, name)) == NULL)
+  {
+   /*
+    * Not a custom choice...
+    */
+
+    qstrncpy(buffer, val, bufsize);
+    return (buffer);
+  }
+
+ /*
+  * OK, we have a custom option choice, format it...
+  */
+
+  *buffer = '\0';
+
+  if (!strcmp(coption->keyword, "PageSize"))
+  {
+    const char  *lval;                  /* Length string value */
+    double      width,                  /* Width value */
+                width_points,           /* Width in points */
+                length,                 /* Length value */
+                length_points;          /* Length in points */
+
+
+    val  = getVariable("PageSize.Width");
+    lval = getVariable("PageSize.Height");
+    uval = getVariable("PageSize.Units");
+
+    if (!val || !lval || !uval ||
+        (width = strtod(val, NULL)) == 0.0 ||
+        (length = strtod(lval, NULL)) == 0.0 ||
+        (strcmp(uval, "pt") && strcmp(uval, "in") && strcmp(uval, "ft") &&
+         strcmp(uval, "cm") && strcmp(uval, "mm") && strcmp(uval, "m")))
+      return (NULL);
+
+    width_points  = get_points(width, uval);
+    length_points = get_points(length, uval);
+
+    if (width_points < ppd->custom_min[0] ||
+        width_points > ppd->custom_max[0] ||
+        length_points < ppd->custom_min[1] ||
+        length_points > ppd->custom_max[1])
+      return (NULL);
+
+    snprintf(buffer, bufsize, "Custom.%gx%g%s", width, length, uval);
+  }
+  else if (cupsArrayCount(coption->params) == 1)
+  {
+    cparam = ppdFirstCustomParam(coption);
+    snprintf(keyword, sizeof(keyword), "%s.%s", coption->keyword, cparam->name);
+
+    if ((val = getVariable(keyword)) == NULL)
+      return (NULL);
+
+    switch (cparam->type)
+    {
+      case PPD_CUSTOM_CURVE :
+      case PPD_CUSTOM_INVCURVE :
+      case PPD_CUSTOM_REAL :
+          if ((number = strtod(val, NULL)) == 0.0 ||
+              number < cparam->minimum.custom_real ||
+              number > cparam->maximum.custom_real)
+            return (NULL);
+
+          snprintf(buffer, bufsize, "Custom.%g", number);
+          break;
+
+      case PPD_CUSTOM_INT :
+          if (!*val || (integer = strtol(val, NULL, 10)) == LONG_MIN ||
+              integer == LONG_MAX ||
+              integer < cparam->minimum.custom_int ||
+              integer > cparam->maximum.custom_int)
+            return (NULL);
+
+          snprintf(buffer, bufsize, "Custom.%ld", integer);
+          break;
+
+      case PPD_CUSTOM_POINTS :
+          snprintf(keyword, sizeof(keyword), "%s.Units", coption->keyword);
+
+          if ((number = strtod(val, NULL)) == 0.0 ||
+              (uval = getVariable(keyword)) == NULL ||
+              (strcmp(uval, "pt") && strcmp(uval, "in") && strcmp(uval, "ft") &&
+               strcmp(uval, "cm") && strcmp(uval, "mm") && strcmp(uval, "m")))
+            return (NULL);
+
+          number_points = get_points(number, uval);
+          if (number_points < cparam->minimum.custom_points ||
+              number_points > cparam->maximum.custom_points)
+            return (NULL);
+
+          snprintf(buffer, bufsize, "Custom.%g%s", number, uval);
+          break;
+
+      case PPD_CUSTOM_PASSCODE :
+          for (uval = val; *uval; uval ++)
+            if (!isdigit(*uval & 255))
+              return (NULL);
+
+      case PPD_CUSTOM_PASSWORD :
+      case PPD_CUSTOM_STRING :
+          integer = (long)strlen(val);
+          if (integer < cparam->minimum.custom_string ||
+              integer > cparam->maximum.custom_string)
+            return (NULL);
+
+          snprintf(buffer, bufsize, "Custom.%s", val);
+          break;
+    }
+  }
+  else
+  {
+    const char *prefix = "{";           /* Prefix string */
+
+
+    bufptr = buffer;
+    bufend = buffer + bufsize;
+
+    for (cparam = ppdFirstCustomParam(coption);
+         cparam;
+         cparam = ppdNextCustomParam(coption))
+    {
+      snprintf(keyword, sizeof(keyword), "%s.%s", coption->keyword,
+               cparam->name);
+
+      if ((val = getVariable(keyword)) == NULL)
+        return (NULL);
+
+      snprintf(bufptr, bufend - bufptr, "%s%s=", prefix, cparam->name);
+      bufptr += strlen(bufptr);
+      prefix = " ";
+
+      switch (cparam->type)
+      {
+        case PPD_CUSTOM_CURVE :
+        case PPD_CUSTOM_INVCURVE :
+        case PPD_CUSTOM_REAL :
+            if ((number = strtod(val, NULL)) == 0.0 ||
+                number < cparam->minimum.custom_real ||
+                number > cparam->maximum.custom_real)
+              return (NULL);
+
+            snprintf(bufptr, bufend - bufptr, "%g", number);
+            break;
+
+        case PPD_CUSTOM_INT :
+            if (!*val || (integer = strtol(val, NULL, 10)) == LONG_MIN ||
+                integer == LONG_MAX ||
+                integer < cparam->minimum.custom_int ||
+                integer > cparam->maximum.custom_int)
+              return (NULL);
+
+            snprintf(bufptr, bufend - bufptr, "%ld", integer);
+            break;
+
+        case PPD_CUSTOM_POINTS :
+            snprintf(keyword, sizeof(keyword), "%s.Units", coption->keyword);
+
+            if ((number = strtod(val, NULL)) == 0.0 ||
+                (uval = getVariable(keyword)) == NULL ||
+                (strcmp(uval, "pt") && strcmp(uval, "in") &&
+                 strcmp(uval, "ft") && strcmp(uval, "cm") &&
+                 strcmp(uval, "mm") && strcmp(uval, "m")))
+              return (NULL);
+
+            number_points = get_points(number, uval);
+            if (number_points < cparam->minimum.custom_points ||
+                number_points > cparam->maximum.custom_points)
+              return (NULL);
+
+            snprintf(bufptr, bufend - bufptr, "%g%s", number, uval);
+            break;
+
+        case PPD_CUSTOM_PASSCODE :
+            for (uval = val; *uval; uval ++)
+              if (!isdigit(*uval & 255))
+                return (NULL);
+
+        case PPD_CUSTOM_PASSWORD :
+        case PPD_CUSTOM_STRING :
+            integer = (long)strlen(val);
+            if (integer < cparam->minimum.custom_string ||
+                integer > cparam->maximum.custom_string)
+              return (NULL);
+
+            if ((bufptr + 2) > bufend)
+              return (NULL);
+
+            bufend --;
+            *bufptr++ = '\"';
+
+            while (*val && bufptr < bufend)
+            {
+              if (*val == '\\' || *val == '\"')
+              {
+                if ((bufptr + 1) >= bufend)
+                  return (NULL);
+
+                *bufptr++ = '\\';
+              }
+
+              *bufptr++ = *val++;
+            }
+
+            if (bufptr >= bufend)
+              return (NULL);
+
+            *bufptr++ = '\"';
+            *bufptr   = '\0';
+            bufend ++;
+            break;
+      }
+
+      bufptr += strlen(bufptr);
+    }
+
+    if (bufptr == buffer || (bufend - bufptr) < 2)
+      return (NULL);
+
+    strcpy(bufptr, "}");
+  }
+
+  return (buffer);
+}
+
+
 void PrinterOptions::save()
 {
+    char tempfile[1024];
+    const char  *var;
+    cups_file_t       *in,                    /* Input file */
+                *out;                   /* Output file */
+    char          line[1024],             /* Line from PPD file */
+                value[1024],            /* Option value */
+                keyword[1024],          /* Keyword from Default line */
+                *keyptr;                /* Pointer into keyword... */
     // copy cups-1.4.2/cgi-bin line 3779
+    if (m_filename)
+    {
+        out = cupsTempFile2(tempfile, sizeof(tempfile));
+        in  = cupsFileOpen(m_filename, "r");
+
+        if (!in || !out)
+        {
+    //         cgiSetVariable("ERROR", strerror(errno));
+    //         cgiStartHTML(cgiText(_("Set Printer Options")));
+    //         cgiCopyTemplateLang("error.tmpl");
+    //         cgiEndHTML();
+
+            if (in) {
+                cupsFileClose(in);
+            }
+
+            if (out) {
+                cupsFileClose(out);
+                unlink(tempfile);
+            }
+
+// TODO
+//             unlink(m_filename);
+            return;
+      }
+
+      while (cupsFileGets(in, line, sizeof(line)))
+      {
+        if (!strncmp(line, "*cupsProtocol:", 14))
+          continue;
+        else if (strncmp(line, "*Default", 8))
+          cupsFilePrintf(out, "%s\n", line);
+        else
+        {
+         /*
+          * Get default option name...
+          */
+
+          qstrncpy(keyword, line + 8, sizeof(keyword));
+
+          for (keyptr = keyword; *keyptr; keyptr ++)
+            if (*keyptr == ':' || isspace(*keyptr & 255))
+              break;
+
+          *keyptr = '\0';
+
+          if (!strcmp(keyword, "PageRegion") ||
+              !strcmp(keyword, "PaperDimension") ||
+              !strcmp(keyword, "ImageableArea"))
+            var = get_option_value(m_ppd, "PageSize", value, sizeof(value));
+          else
+            var = get_option_value(m_ppd, keyword, value, sizeof(value));
+
+          if (!var)
+            cupsFilePrintf(out, "%s\n", line);
+          else
+            cupsFilePrintf(out, "*Default%s: %s\n", keyword, var);
+        }
+      }
+
+      cupsFileClose(in);
+      cupsFileClose(out);
+    }
 //     if (m_changes) {
 //         QHash<QString, QVariant> values;
 //         if (nameLE->property("different").toBool()) {

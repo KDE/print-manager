@@ -20,6 +20,7 @@ Action=Sound|Popup
 
 [Event/ErrorWithJob]
 Name=Your job has errors
+Name[es]=Su trabajo contiene errores
 Name[pt]=A sua tarefa gerou erros
 Name[pt_BR]=Seu trabalho tem erros
 Name[sv]=Jobbet innehåller fel

@@ -54,7 +54,9 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
          << "printer-error-policy-supported"
          << "printer-error-policy"
          << "printer-op-policy-supported"
-         << "printer-op-policy";
+         << "printer-op-policy"
+         << "requesting-user-name-allowed"
+         << "requesting-user-name-denied";
 
     QHash<QString, QVariant> values = Printer::getAttributes(destName, attr);
 
@@ -68,6 +70,12 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
     addPage(page);
 
+    PrinterOptions *pOp = new PrinterOptions(destName, this);
+    page = new KPageWidgetItem(pOp, i18n("Printer Options"));
+    page->setHeader(i18n("Set the Default Printer Options"));
+    page->setIcon(KIcon("view-pim-tasks"));
+    addPage(page);
+
     PrinterBehavior *pBW = new PrinterBehavior(destName, this);
     pBW->setValues(values);
     page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
@@ -75,13 +83,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     page->setIcon(KIcon("feed-subscribe"));
     addPage(page);
 
-    PrinterOptions *pOp = new PrinterOptions(destName, this);
-    page = new KPageWidgetItem(pOp, i18n("Printer Options"));
-    page->setHeader(i18n("Set the Default Printer Options"));
-    page->setIcon(KIcon("view-pim-tasks"));
-    addPage(page);
-
-    
     // connect this after ALL pages were added, otherwise the slot will be called
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
             SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));

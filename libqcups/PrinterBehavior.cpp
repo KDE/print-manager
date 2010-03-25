@@ -27,25 +27,19 @@
 using namespace QCups;
 
 PrinterBehavior::PrinterBehavior(const QString &destName, QWidget *parent)
- : PrinterPage(parent), m_changes(0)
+ : PrinterPage(parent), m_destName(destName), m_changes(0)
 {
     setupUi(this);
 
-//     m_printer = new Printer(destName, this);
+    connect(errorPolicyCB, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(currentIndexChangedCB(int)));
+    connect(operationPolicyCB, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(currentIndexChangedCB(int)));
 
-//     makeCB->addItem(m_printer->value("printer-make-and-model"));
-//     nameLE->setText(m_printer->value("printer-info"));
-//     nameLE->setProperty("orig_text", m_printer->value("printer-info"));
-//     locationLE->setText(m_printer->value("printer-location"));
-//     locationLE->setProperty("orig_text", m_printer->value("printer-location"));
-//     connectionLE->setText(m_printer->value("device-uri"));
-//     connectionLE->setProperty("orig_text", m_printer->value("device-uri"));
-//     connect(nameLE, SIGNAL(textChanged(const QString &)),
-//             this, SLOT(textChanged(const QString &)));
-//     connect(locationLE, SIGNAL(textChanged(const QString &)),
-//             this, SLOT(textChanged(const QString &)));
-//     connect(connectionLE, SIGNAL(textChanged(const QString &)),
-//             this, SLOT(textChanged(const QString &)));
+    connect(startingBannerCB, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(currentIndexChangedCB(int)));
+    connect(endingBannerCB, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(currentIndexChangedCB(int)));
 }
 
 PrinterBehavior::~PrinterBehavior()
@@ -54,13 +48,15 @@ PrinterBehavior::~PrinterBehavior()
 
 void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
 {
+    int defaultChoice;
     foreach (const QString &value, values["printer-error-policy-supported"].value<QStringList>()) {
         errorPolicyCB->addItem(errorPolicyString(value), value);
     }
     QStringList errorPolicy = values["printer-error-policy"].value<QStringList>();
     if (!errorPolicy.isEmpty()) {
-        errorPolicyCB->setCurrentIndex(errorPolicyCB->findData(errorPolicy.first()));
-        errorPolicyCB->setProperty("printer-error-policy", errorPolicy.first());
+        defaultChoice = errorPolicyCB->findData(errorPolicy.first());
+        errorPolicyCB->setCurrentIndex(defaultChoice);
+        errorPolicyCB->setProperty("defaultChoice", defaultChoice);
     }
 
     foreach (const QString &value, values["printer-op-policy-supported"].value<QStringList>()) {
@@ -68,8 +64,9 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
     }
     QStringList operationPolicy = values["printer-op-policy"].value<QStringList>();
     if (!errorPolicy.isEmpty()) {
-        operationPolicyCB->setCurrentIndex(operationPolicyCB->findData(operationPolicy.first()));
-        operationPolicyCB->setProperty("printer-error-policy", errorPolicy.first());
+        defaultChoice = operationPolicyCB->findData(operationPolicy.first());
+        operationPolicyCB->setCurrentIndex(defaultChoice);
+        operationPolicyCB->setProperty("defaultChoice", defaultChoice);
     }
 
     foreach (const QString &value, values["job-sheets-supported"].value<QStringList>()) {
@@ -78,10 +75,61 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
     }
     QStringList bannerPolicy = values["job-sheets-default"].value<QStringList>();
     if (bannerPolicy.size() == 2) {
-        startingBannerCB->setCurrentIndex(startingBannerCB->findData(bannerPolicy.at(0)));
-        startingBannerCB->setProperty("job-sheets-supported", bannerPolicy.at(0));
-        endingBannerCB->setCurrentIndex(endingBannerCB->findData(bannerPolicy.at(1)));
-        endingBannerCB->setProperty("job-sheets-supported", bannerPolicy.at(1));
+        defaultChoice = startingBannerCB->findData(bannerPolicy.at(0));
+        startingBannerCB->setCurrentIndex(defaultChoice);
+        startingBannerCB->setProperty("defaultChoice", defaultChoice);
+        defaultChoice = endingBannerCB->findData(bannerPolicy.at(1));
+        endingBannerCB->setCurrentIndex(defaultChoice);
+        endingBannerCB->setProperty("defaultChoice", defaultChoice);
+    }
+
+    if (values.contains("requesting-user-name-allowed")) {
+        allowRB->setChecked(true);
+        usersELB->insertStringList(values["requesting-user-name-allowed"].value<QStringList>());
+    } else if (values.contains("requesting-user-name-denied")) {
+        preventRB->setChecked(true);
+        usersELB->insertStringList(values["requesting-user-name-denied"].value<QStringList>());
+    }
+
+    // Clear previous changes
+    m_changes = 0;
+    m_changedValues.clear();
+    errorPolicyCB->setProperty("different", false);
+    operationPolicyCB->setProperty("different", false);
+    startingBannerCB->setProperty("different", false);
+    endingBannerCB->setProperty("different", false);
+}
+
+void PrinterBehavior::currentIndexChangedCB(int index)
+{
+    KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
+    bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
+
+    if (isDifferent != comboBox->property("different").toBool()) {
+        // it's different from the last time so add or remove changes
+        isDifferent ? m_changes++ : m_changes--;
+
+        comboBox->setProperty("different", isDifferent);
+        emit changed(m_changes);
+    }
+
+    QString attribute = comboBox->property("AttributeName").toString();
+    QVariant value;
+    // job-sheets-default has always two values
+    if (attribute == "job-sheets-default") {
+        QStringList values;
+        values << startingBannerCB->itemData(startingBannerCB->currentIndex()).toString();
+        values << endingBannerCB->itemData(endingBannerCB->currentIndex()).toString();
+        value = values;
+    } else {
+        value = comboBox->itemData(index).toString();
+    }
+
+    // store the new values
+    if (isDifferent) {
+        m_changedValues[attribute] = value;
+    } else {
+        m_changedValues.remove(attribute);
     }
 }
 
@@ -132,20 +180,11 @@ QString PrinterBehavior::jobSheetsString(const QString &policy) const
     return policy;
 }
 
-void PrinterBehavior::textChanged(const QString &text)
-{
-//     QLineEdit *le = qobject_cast<QLineEdit *>(sender());
-//     bool isDifferent = le->property("orig_text") != text;
-//     if (isDifferent != le->property("different").toBool()) {
-//         isDifferent ? m_changes++ : m_changes--;
-//         le->setProperty("different", isDifferent);
-//         emit changed(m_changes);
-//     }
-}
-
 void PrinterBehavior::save()
 {
-//     if (m_changes) {
+    if (m_changes) {
+        kDebug() << m_changedValues;
+        QCups::Printer::setAttributes(m_destName, m_changedValues);
 //         QHash<QString, QVariant> values;
 //         if (nameLE->property("different").toBool()) {
 //             values["printer-info"] = nameLE->text();
@@ -157,7 +196,7 @@ void PrinterBehavior::save()
 //             values["device-uri"] = connectionLE->text();
 //         }
 //         m_printer->save(values);
-//     }
+    }
 }
 
 bool PrinterBehavior::hasChanges()

@@ -32,6 +32,7 @@ public:
 
 public:
     virtual void save() {};
+    virtual QHash<QString, QVariant> modifiedValues() const;
 
 signals:
     void changed(bool hasChanges);

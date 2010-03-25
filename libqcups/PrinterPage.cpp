@@ -20,7 +20,15 @@
 
 #include "PrinterPage.h"
 
+#include <QHash>
+#include <QVariant>
+
 PrinterPage::PrinterPage(QWidget *parent)
  : QWidget(parent)
 {
+}
+
+QHash<QString, QVariant> PrinterPage::modifiedValues() const
+{
+    return QHash<QString, QVariant>();
 }

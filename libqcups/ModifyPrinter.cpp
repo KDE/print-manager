@@ -20,24 +20,30 @@
 
 #include "ModifyPrinter.h"
 
+#include "QCups.h"
+
 #include <KDebug>
 
 using namespace QCups;
 
 ModifyPrinter::ModifyPrinter(const QString &destName, QWidget *parent)
- : PrinterPage(parent), m_changes(0)
+ : PrinterPage(parent), m_destName(destName), m_changes(0)
 {
     setupUi(this);
 
-    m_printer = new Printer(destName, this);
+    Printer *printer = new Printer(destName, this);
 
-    makeCB->addItem(m_printer->value("printer-make-and-model"));
-    nameLE->setText(m_printer->value("printer-info"));
-    nameLE->setProperty("orig_text", m_printer->value("printer-info"));
-    locationLE->setText(m_printer->value("printer-location"));
-    locationLE->setProperty("orig_text", m_printer->value("printer-location"));
-    connectionLE->setText(m_printer->value("device-uri"));
-    connectionLE->setProperty("orig_text", m_printer->value("device-uri"));
+    nameLE->setText(printer->value("printer-info"));
+    nameLE->setProperty("orig_text", printer->value("printer-info"));
+
+    locationLE->setText(printer->value("printer-location"));
+    locationLE->setProperty("orig_text", printer->value("printer-location"));
+
+    connectionLE->setText(printer->value("device-uri"));
+    connectionLE->setProperty("orig_text", printer->value("device-uri"));
+
+    makeCB->addItem(printer->value("printer-make-and-model"));
+
     connect(nameLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
     connect(locationLE, SIGNAL(textChanged(const QString &)),
@@ -53,29 +59,47 @@ ModifyPrinter::~ModifyPrinter()
 void ModifyPrinter::textChanged(const QString &text)
 {
     KLineEdit *le = qobject_cast<KLineEdit *>(sender());
+
     bool isDifferent = le->property("orig_text") != text;
     if (isDifferent != le->property("different").toBool()) {
+        // it's different from the last time so add or remove changes
         isDifferent ? m_changes++ : m_changes--;
+
         le->setProperty("different", isDifferent);
         emit changed(m_changes);
+    }
+
+    // store the new values
+    QString attribute = le->property("AttributeName").toString();
+    if (isDifferent) {
+        m_changedValues[attribute] = text;
+    } else {
+        m_changedValues.remove(attribute);
     }
 }
 
 void ModifyPrinter::save()
 {
     if (m_changes) {
-        QHash<QString, QVariant> values;
-        if (nameLE->property("different").toBool()) {
-            values["printer-info"] = nameLE->text();
-        }
-        if (locationLE->property("different").toBool()) {
-            values["printer-location"] = locationLE->text();
-        }
-        if (connectionLE->property("different").toBool()) {
-            values["device-uri"] = connectionLE->text();
-        }
-        m_printer->save(values);
+        kDebug() << m_changedValues;
+        QCups::Printer::setAttributes(m_destName, m_changedValues);
+//         QHash<QString, QVariant> values;
+//         if (nameLE->property("different").toBool()) {
+//             values["printer-info"] = nameLE->text();
+//         }
+//         if (locationLE->property("different").toBool()) {
+//             values["printer-location"] = locationLE->text();
+//         }
+//         if (connectionLE->property("different").toBool()) {
+//             values["device-uri"] = connectionLE->text();
+//         }
+//         printer->setAttributes(values);
     }
+}
+
+QHash<QString, QVariant> ModifyPrinter::modifiedValues() const
+{
+    return m_changedValues;
 }
 
 bool ModifyPrinter::hasChanges()

@@ -25,7 +25,6 @@
 
 #include "PrinterPage.h"
 
-#include "QCups.h"
 #include <QWidget>
 
 namespace QCups {
@@ -38,6 +37,7 @@ public:
     ~ModifyPrinter();
 
     bool hasChanges();
+    QHash<QString, QVariant> modifiedValues() const;
 
 public:
     void save();
@@ -46,7 +46,8 @@ private slots:
     void textChanged(const QString &text);
 
 private:
-    Printer *m_printer;
+    QString m_destName;
+    QHash<QString, QVariant> m_changedValues;
     int m_changes;
 };
 

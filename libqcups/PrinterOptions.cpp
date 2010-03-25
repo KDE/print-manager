@@ -247,27 +247,26 @@ void PrinterOptions::currentIndexChangedCB(int index)
 {
     KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
     bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
-//     kDebug() << isDifferent << comboBox->property("different").toBool();
 
     if (isDifferent != comboBox->property("different").toBool()) {
-        QString keyword = comboBox->property("Keyword").toString();
-//         kDebug() << ppdFindMarkedChoice(m_ppd, m_codec->fromUnicode(keyword));
-        QString value = comboBox->itemData(index).toString();
-        // TODO warning about conflicts
-        ppdMarkOption(m_ppd,
-                      m_codec->fromUnicode(keyword),
-                      m_codec->fromUnicode(value));
-
-        if (isDifferent) {
-            m_customValues[keyword] = value;
-            m_changes++;
-        } else {
-            m_customValues.remove(keyword);
-            m_changes--;
-        }
+        // it's different from the last time so add or remove changes
+        isDifferent ? m_changes++ : m_changes--;
 
         comboBox->setProperty("different", isDifferent);
         emit changed(m_changes);
+    }
+
+    QString keyword = comboBox->property("Keyword").toString();
+    QString value = comboBox->itemData(index).toString();
+    // TODO warning about conflicts
+    ppdMarkOption(m_ppd,
+                  m_codec->fromUnicode(keyword),
+                  m_codec->fromUnicode(value));
+    // store the new value
+    if (isDifferent) {
+        m_customValues[keyword] = value;
+    } else {
+        m_customValues.remove(keyword);
     }
 }
 

@@ -44,11 +44,11 @@ public:
     void save();
 
 private slots:
-    void textChanged(const QString &text);
+    void currentIndexChangedCB(int index);
 
 private:
-    Printer *m_printer;
-    QString m_location, m_description, m_connection;
+    QString m_destName;
+    QHash<QString, QVariant> m_changedValues;
     int m_changes;
 
     QString errorPolicyString(const QString &policy) const;

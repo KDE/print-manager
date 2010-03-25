@@ -103,33 +103,46 @@ bool QCups::cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant
 
     request = ippNewDefaultRequest(name, CUPS_ADD_MODIFY_PRINTER);
 
-    if (values.contains("printer-is-shared")) {
-        ippAddBoolean(request, IPP_TAG_OPERATION, "printer-is-shared",
-                      values["printer-is-shared"].toBool());
-    }
-
-    if (values.contains("printer-location")) {
-        ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                     "printer-location", "utf-8",
-                     values["printer-location"].toString().toUtf8());
-    }
-
-    if (values.contains("ppd-name")) {
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                     "ppd-name", "utf-8",
-                     values["ppd-name"].toString().toUtf8());
-    }
-
-    if (values.contains("printer-info")) {
-        ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                     "printer-info", "utf-8",
-                     values["printer-info"].toString().toUtf8());
-    }
-
-    if (values.contains("device-uri")) {
-        ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                     "device-uri", "utf-8",
-                     values["device-uri"].toString().toUtf8());
+    QHash<QString, QVariant>::const_iterator i = values.constBegin();
+    while (i != values.constEnd()) {
+        switch (i.value().type()) {
+        case QVariant::Bool:
+            ippAddBoolean(request, IPP_TAG_OPERATION, i.key().toUtf8(),
+                          i.value().toBool());
+            break;
+        case QVariant::String:
+            if (i.key() == "device-uri") {
+                // device uri has a different TAG
+                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
+                             i.key().toUtf8(), "utf-8",
+                             i.value().toString().toUtf8());
+            } else if (i.key() == "printer-op-policy" ||
+                       i.key() == "printer-error-policy") {
+                // printer-op-policy has a different TAG
+                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
+                             i.key().toUtf8(), "utf-8",
+                             i.value().toString().toUtf8());
+            } else {
+                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
+                             i.key().toUtf8(), "utf-8",
+                             i.value().toString().toUtf8());
+            }
+            break;
+        case QVariant::StringList:
+            {
+                ipp_attribute_t *attr;
+                QStringList list = i.value().value<QStringList>();
+                attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
+                                     i.key().toUtf8(), list.size(), NULL, NULL);
+                // Dump all the list values
+                for (int i = 0; i < list.size(); i++) {
+                    attr->values[i].string.text = qstrdup(list.at(i).toUtf8());
+                }
+            }
+        default:
+            kWarning() << "type NOT recognized! This will be ignored:" << i.key() << "values" << i.value();
+        }
+        ++i;
     }
 
     // do the request deleting the response

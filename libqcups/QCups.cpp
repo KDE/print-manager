@@ -214,20 +214,26 @@ QString Printer::value(const QString &name) const
     return QString();
 }
 
-bool Printer::save(QHash<QString, QVariant> values)
+bool Printer::setAttributes(const QHash<QString, QVariant> &values)
+{
+    return setAttributes(m_destName, values);
+}
+
+bool Printer::setAttributes(const QString &destName, const QHash<QString, QVariant> &values)
 {
     if (values.isEmpty()) {
         return false;
     }
 
-    RUN_ACTION(cupsAddModifyPrinter(m_destName.toUtf8(), values))
+    RUN_ACTION(cupsAddModifyPrinter(destName.toUtf8(), values))
 }
+ 
 
 bool Printer::setShared(const QString &destName, bool shared)
 {
     QHash<QString, QVariant> values;
     values["printer-is-shared"] = shared;
-    RUN_ACTION(cupsAddModifyPrinter(destName.toUtf8(), values))
+    return setAttributes(destName, values);
 }
 
 QHash<QString, QVariant> Printer::getAttributes(const QString &destName, const QStringList &requestedAttr)

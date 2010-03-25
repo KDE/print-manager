@@ -28,7 +28,7 @@
 
 #include <QScrollArea>
 #include <QFormLayout>
-#include <QComboBox>
+#include <KComboBox>
 #include <QRadioButton>
 #include <QStandardItemModel>
 #include <QListView>
@@ -222,7 +222,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
     int i;
     ppd_choice_t *choice;
     QString oDefChoice = m_codec->toUnicode(option->defchoice);
-    QComboBox *comboBox = new QComboBox(parent);
+    KComboBox *comboBox = new KComboBox(parent);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
@@ -245,7 +245,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 
 void PrinterOptions::currentIndexChangedCB(int index)
 {
-    QComboBox *comboBox = qobject_cast<QComboBox*>(sender());
+    KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
     bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
 //     kDebug() << isDifferent << comboBox->property("different").toBool();
 

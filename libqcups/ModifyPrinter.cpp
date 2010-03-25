@@ -52,7 +52,7 @@ ModifyPrinter::~ModifyPrinter()
 
 void ModifyPrinter::textChanged(const QString &text)
 {
-    QLineEdit *le = qobject_cast<QLineEdit *>(sender());
+    KLineEdit *le = qobject_cast<KLineEdit *>(sender());
     bool isDifferent = le->property("orig_text") != text;
     if (isDifferent != le->property("different").toBool()) {
         isDifferent ? m_changes++ : m_changes--;

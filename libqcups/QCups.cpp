@@ -22,6 +22,7 @@
 #include "cupsActions.h"
 #include <cups/cups.h>
 
+#include <QPointer>
 #include <KPasswordDialog>
 #include <KLocale>
 #include <KDebug>
@@ -46,19 +47,23 @@ const char * my_password_cb(const char *)
         cupsSetUser(NULL);
         return NULL;
     }
-    KPasswordDialog dlg(0, KPasswordDialog::ShowUsernameLine);
-    dlg.setPrompt(i18n("Enter an username and a password to complete the task"));
-    dlg.setUsername(QString::fromUtf8(cupsUser()));
+    QPointer<KPasswordDialog> dlg = new KPasswordDialog(0, KPasswordDialog::ShowUsernameLine);
+    dlg->setPrompt(i18n("Enter an username and a password to complete the task"));
+    dlg->setUsername(QString::fromUtf8(cupsUser()));
     // check if the password retries is more than 0 and show an error
     if (password_retries++) {
-        dlg.showErrorMessage(QString(), KPasswordDialog::UsernameError);
-        dlg.showErrorMessage(i18n("Wrong username or password"), KPasswordDialog::PasswordError);
+        dlg->showErrorMessage(QString(), KPasswordDialog::UsernameError);
+        dlg->showErrorMessage(i18n("Wrong username or password"), KPasswordDialog::PasswordError);
     }
-    dlg.setUsername(QString::fromUtf8(cupsUser()));
-    if (dlg.exec()) {
-        cupsSetUser(dlg.username().toUtf8());
-        return dlg.password().toUtf8();
+    dlg->setUsername(QString::fromUtf8(cupsUser()));
+    if (dlg->exec()) {
+        QString username = dlg->username();
+        QString password = dlg->password();
+        delete dlg;
+        cupsSetUser(username.toUtf8());
+        return password.toUtf8();
     }
+    delete dlg;
     // the dialog was canceled
     password_retries = -1;
     cupsSetUser(NULL);

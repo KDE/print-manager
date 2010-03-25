@@ -89,10 +89,10 @@
     </widget>
    </item>
    <item row="10" column="1">
-    <widget class="QComboBox" name="endingBannerCB"/>
+    <widget class="KComboBox" name="endingBannerCB"/>
    </item>
    <item row="9" column="1">
-    <widget class="QComboBox" name="startingBannerCB"/>
+    <widget class="KComboBox" name="startingBannerCB"/>
    </item>
    <item row="11" column="0" colspan="5">
     <spacer name="verticalSpacer_2">
@@ -131,10 +131,10 @@
     </widget>
    </item>
    <item row="4" column="1">
-    <widget class="QComboBox" name="operationPolicyCB"/>
+    <widget class="KComboBox" name="operationPolicyCB"/>
    </item>
    <item row="3" column="1">
-    <widget class="QComboBox" name="errorPolicyCB"/>
+    <widget class="KComboBox" name="errorPolicyCB"/>
    </item>
    <item row="5" column="0" colspan="5">
     <spacer name="verticalSpacer">

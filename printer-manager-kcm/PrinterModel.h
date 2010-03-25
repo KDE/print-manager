@@ -57,7 +57,7 @@ public:
         ColPrinter
     } Columns;
 
-    PrinterModel(WId parentId, QObject *parent = 0);
+    explicit PrinterModel(WId parentId, QObject *parent = 0);
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
 

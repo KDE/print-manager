@@ -40,6 +40,11 @@ PrinterBehavior::PrinterBehavior(const QString &destName, QWidget *parent)
             this, SLOT(currentIndexChangedCB(int)));
     connect(endingBannerCB, SIGNAL(currentIndexChanged(int)),
             this, SLOT(currentIndexChangedCB(int)));
+
+    connect(usersELB, SIGNAL(changed()),
+            this, SLOT(userListChanged()));
+    connect(allowRB, SIGNAL(toggled(bool)),
+            this, SLOT(userListChanged()));
 }
 
 PrinterBehavior::~PrinterBehavior()
@@ -84,20 +89,71 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
     }
 
     if (values.contains("requesting-user-name-allowed")) {
+        QStringList list = values["requesting-user-name-allowed"].value<QStringList>();
+        list.sort(); // sort the list here to be able to comapare it later
+        usersELB->setEnabled(true);
+        usersELB->insertStringList(list);
+        usersELB->setProperty("defaultList", list);
+        allowRB->setProperty("defaultChoice", true);
+        // Set checked AFTER the default choice was set
+        // otherwise the signal will be emmited
+        // which sets that we have a change
         allowRB->setChecked(true);
-        usersELB->insertStringList(values["requesting-user-name-allowed"].value<QStringList>());
+
     } else if (values.contains("requesting-user-name-denied")) {
+        QStringList list = values["requesting-user-name-denied"].value<QStringList>();
+        list.sort(); // sort the list here to be able to comapare it later
+        usersELB->setEnabled(true);
+        usersELB->insertStringList(list);
+        usersELB->setProperty("defaultList", list);
+        preventRB->setProperty("defaultChoice", true);
+        // Set checked AFTER the default choice was set
+        // otherwise the signal will be emmited
+        // which sets that we have a change
         preventRB->setChecked(true);
-        usersELB->insertStringList(values["requesting-user-name-denied"].value<QStringList>());
     }
 
     // Clear previous changes
     m_changes = 0;
+    emit changed(false);
     m_changedValues.clear();
     errorPolicyCB->setProperty("different", false);
     operationPolicyCB->setProperty("different", false);
     startingBannerCB->setProperty("different", false);
     endingBannerCB->setProperty("different", false);
+}
+
+void PrinterBehavior::userListChanged()
+{
+    if (usersELB->isEnabled() == false &&
+        (allowRB->isChecked() ||
+         preventRB->isChecked())) {
+        // this only happen when the list was empty
+        usersELB->setEnabled(true);
+    }
+
+    QStringList currentList, defaultList;
+    currentList = usersELB->items();
+    // sort the list so we can be sure it's different
+    currentList.sort();
+    defaultList = usersELB->property("defaultList").value<QStringList>();
+
+    bool isDifferent = currentList != defaultList;
+    if (isDifferent == false && currentList.isEmpty() == false) {
+        // if the lists are equal and not empty the user might have
+        // changed the Radio Button...
+        if (allowRB->isChecked() != allowRB->property("defaultChoice").toBool()) {
+            isDifferent = true;
+        }
+    }
+
+    if (isDifferent != usersELB->property("different").toBool()) {
+        // it's different from the last time so add or remove changes
+        isDifferent ? m_changes++ : m_changes--;
+
+        usersELB->setProperty("different", isDifferent);
+        emit changed(m_changes);
+    }
 }
 
 void PrinterBehavior::currentIndexChangedCB(int index)
@@ -183,19 +239,23 @@ QString PrinterBehavior::jobSheetsString(const QString &policy) const
 void PrinterBehavior::save()
 {
     if (m_changes) {
-        kDebug() << m_changedValues;
-        QCups::Printer::setAttributes(m_destName, m_changedValues);
-//         QHash<QString, QVariant> values;
-//         if (nameLE->property("different").toBool()) {
-//             values["printer-info"] = nameLE->text();
-//         }
-//         if (locationLE->property("different").toBool()) {
-//             values["printer-location"] = locationLE->text();
-//         }
-//         if (connectionLE->property("different").toBool()) {
-//             values["device-uri"] = connectionLE->text();
-//         }
-//         m_printer->save(values);
+        QHash<QString, QVariant> changedValues = m_changedValues;
+        // since a QStringList might be big we get it here instead
+        // of adding it at edit time.
+        if (usersELB->property("different").toBool()) {
+            QStringList list = usersELB->items();
+            if (list.isEmpty()) {
+                list << "all";
+                changedValues["requesting-user-name-allowed"] = list;
+            } else {
+                if (allowRB->isChecked()) {
+                    changedValues["requesting-user-name-allowed"] = list;
+                } else {
+                    changedValues["requesting-user-name-denied"] = list;
+                }
+            }
+        }
+        QCups::Printer::setAttributes(m_destName, changedValues);
     }
 }
 

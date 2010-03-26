@@ -83,17 +83,6 @@ void ModifyPrinter::save()
     if (m_changes) {
         kDebug() << m_changedValues;
         QCups::Printer::setAttributes(m_destName, m_changedValues);
-//         QHash<QString, QVariant> values;
-//         if (nameLE->property("different").toBool()) {
-//             values["printer-info"] = nameLE->text();
-//         }
-//         if (locationLE->property("different").toBool()) {
-//             values["printer-location"] = locationLE->text();
-//         }
-//         if (connectionLE->property("different").toBool()) {
-//             values["device-uri"] = connectionLE->text();
-//         }
-//         printer->setAttributes(values);
     }
 }
 

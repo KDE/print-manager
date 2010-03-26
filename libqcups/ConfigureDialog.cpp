@@ -59,7 +59,17 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
          << "requesting-user-name-denied";
 
     QHash<QString, QVariant> values = Printer::getAttributes(destName, attr);
-
+    kDebug() << values["printer-type"].toString();
+    kDebug() << values["printer-type"].toString().toUInt();
+ if (values["printer-type"].toString().toUInt() & CUPS_PRINTER_LOCAL) {
+     kDebug() << "CUPS_PRINTER_LOCAL";
+ }
+ if (values["printer-type"].toString().toUInt() & CUPS_PRINTER_CLASS) {
+     kDebug() << "CUPS_PRINTER_CLASS";
+ }
+ if (values["printer-type"].toString().toUInt() & CUPS_PRINTER_REMOTE) {
+     kDebug() << "CUPS_PRINTER_REMOTE";
+ }
     KPageWidgetItem *page;
 
     ModifyPrinter *widget = new ModifyPrinter(destName, this);

@@ -45,6 +45,7 @@ public:
 
 private slots:
     void currentIndexChangedCB(int index);
+    void userListChanged();
 
 private:
     QString m_destName;

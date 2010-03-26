@@ -56,6 +56,9 @@
    </item>
    <item row="17" column="0" colspan="5">
     <widget class="KEditListBox" name="usersELB">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="buttons">
       <set>KEditListBox::Add|KEditListBox::Remove</set>
      </property>

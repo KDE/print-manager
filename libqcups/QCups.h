@@ -36,7 +36,7 @@ namespace QCups
         Q_OBJECT
     public:
         Printer(QObject *parent = 0);
-        Printer(const QString &destName, QObject *parent = 0);
+        explicit Printer(const QString &destName, QObject *parent = 0);
 
         QString value(const QString &name) const;
 

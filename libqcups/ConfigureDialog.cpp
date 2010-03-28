@@ -43,6 +43,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     KConfigGroup configureDialog(&config, "ConfigureDialog");
     restoreDialogSize(configureDialog);
 
+    bool isClass = false;
 
     QStringList attr;
     attr << "printer-info"
@@ -59,20 +60,33 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
          << "requesting-user-name-denied";
 
     QHash<QString, QVariant> values = Printer::getAttributes(destName, attr);
-    kDebug() << values["printer-type"].toString();
-    kDebug() << values["printer-type"].toString().toUInt();
- if (values["printer-type"].toString().toUInt() & CUPS_PRINTER_LOCAL) {
+    kDebug() << values;
+    kDebug() << values["printer-type"];
+    kDebug() << values["printer-type"].toUInt();
+    kDebug() << CUPS_PRINTER_LOCAL << CUPS_PRINTER_CLASS << CUPS_PRINTER_REMOTE;
+ if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {
      kDebug() << "CUPS_PRINTER_LOCAL";
  }
- if (values["printer-type"].toString().toUInt() & CUPS_PRINTER_CLASS) {
+ if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
      kDebug() << "CUPS_PRINTER_CLASS";
+     isClass = true;
  }
- if (values["printer-type"].toString().toUInt() & CUPS_PRINTER_REMOTE) {
+ if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
      kDebug() << "CUPS_PRINTER_REMOTE";
  }
+ if (values["printer-type"].toUInt() & CUPS_PRINTER_BW) {
+     kDebug() << "CUPS_PRINTER_BW";
+ }
+  if (values["printer-type"].toUInt() & CUPS_PRINTER_COLOR) {
+     kDebug() << "CUPS_PRINTER_COLOR";
+ }
+  if (values["printer-type"].toUInt() & CUPS_PRINTER_MFP) {
+     kDebug() << "CUPS_PRINTER_MFP";
+ }
+ 
     KPageWidgetItem *page;
 
-    ModifyPrinter *widget = new ModifyPrinter(destName, this);
+    ModifyPrinter *widget = new ModifyPrinter(destName, isClass, this);
     page = new KPageWidgetItem(widget, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
     page->setIcon(KIcon("dialog-information"));
@@ -80,13 +94,13 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
     addPage(page);
 
-    PrinterOptions *pOp = new PrinterOptions(destName, this);
+    PrinterOptions *pOp = new PrinterOptions(destName, isClass, this);
     page = new KPageWidgetItem(pOp, i18n("Printer Options"));
     page->setHeader(i18n("Set the Default Printer Options"));
     page->setIcon(KIcon("view-pim-tasks"));
     addPage(page);
 
-    PrinterBehavior *pBW = new PrinterBehavior(destName, this);
+    PrinterBehavior *pBW = new PrinterBehavior(destName, isClass, this);
     pBW->setValues(values);
     page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
     page->setHeader(i18n("Banners, Policies and Allowed Users"));

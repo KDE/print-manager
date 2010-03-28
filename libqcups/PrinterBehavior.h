@@ -34,7 +34,7 @@ class PrinterBehavior : public PrinterPage, Ui::PrinterBehavior
 {
     Q_OBJECT
 public:
-    explicit PrinterBehavior(const QString &destName, QWidget *parent = 0);
+    explicit PrinterBehavior(const QString &destName, bool isClass, QWidget *parent = 0);
     ~PrinterBehavior();
 
     void setValues(const QHash<QString, QVariant> &values);
@@ -49,6 +49,7 @@ private slots:
 
 private:
     QString m_destName;
+    bool m_isClass;
     QHash<QString, QVariant> m_changedValues;
     int m_changes;
 

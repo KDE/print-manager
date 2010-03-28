@@ -147,9 +147,9 @@ bool QCups::releaseJob(const QString &name, int job_id)
     RUN_ACTION(cupsHoldReleaseJob(name.toUtf8(), job_id, false))
 }
 
-bool QCups::addModifyPrinter(const QString &name, const QHash<QString, QVariant> values)
+bool QCups::addModifyClassOrPrinter(const QString &name, bool isClass, const QHash<QString, QVariant> values)
 {
-    RUN_ACTION(cupsAddModifyPrinter(name.toUtf8(), values))
+    RUN_ACTION(cupsAddModifyClassOrPrinter(name.toUtf8(), isClass, values))
 }
 
 Printer::Printer(QObject *parent)
@@ -214,26 +214,26 @@ QString Printer::value(const QString &name) const
     return QString();
 }
 
-bool Printer::setAttributes(const QHash<QString, QVariant> &values)
+bool Printer::setAttributes(bool isClass, const QHash<QString, QVariant> &values)
 {
-    return setAttributes(m_destName, values);
+    return setAttributes(m_destName, isClass, values);
 }
 
-bool Printer::setAttributes(const QString &destName, const QHash<QString, QVariant> &values)
+bool Printer::setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values)
 {
     if (values.isEmpty()) {
         return false;
     }
 
-    RUN_ACTION(cupsAddModifyPrinter(destName.toUtf8(), values))
+    RUN_ACTION(cupsAddModifyClassOrPrinter(destName.toUtf8(), isClass, values))
 }
  
 
-bool Printer::setShared(const QString &destName, bool shared)
+bool Printer::setShared(const QString &destName, bool isClass, bool shared)
 {
     QHash<QString, QVariant> values;
     values["printer-is-shared"] = shared;
-    return setAttributes(destName, values);
+    return setAttributes(destName, isClass, values);
 }
 
 QHash<QString, QVariant> Printer::getAttributes(const QString &destName, const QStringList &requestedAttr)

@@ -79,7 +79,7 @@ void PrinterDescription::on_defaultCB_clicked()
 
 void PrinterDescription::on_sharedCB_clicked()
 {
-    setIsShared(QCups::Printer::setShared(m_destName, sharedCB->isChecked()));
+    setIsShared(QCups::Printer::setShared(m_destName, m_isClass, sharedCB->isChecked()));
 }
 
 void PrinterDescription::on_optionsPB_clicked()
@@ -89,9 +89,10 @@ void PrinterDescription::on_optionsPB_clicked()
     delete dlg;
 }
 
-void PrinterDescription::setDestName(const QString &name)
+void PrinterDescription::setDestName(const QString &name, bool isClass)
 {
     m_destName = name;
+    m_isClass = isClass;
     printerNameL->setText(name);
 }
 

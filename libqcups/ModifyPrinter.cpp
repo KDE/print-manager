@@ -26,10 +26,16 @@
 
 using namespace QCups;
 
-ModifyPrinter::ModifyPrinter(const QString &destName, QWidget *parent)
- : PrinterPage(parent), m_destName(destName), m_changes(0)
+ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *parent)
+ : PrinterPage(parent), m_destName(destName), m_isClass(isClass), m_changes(0)
 {
     setupUi(this);
+
+    connectionL->setVisible(!isClass);
+    connectionLE->setVisible(!isClass);
+
+    membersL->setVisible(isClass);
+    membersLV->setVisible(isClass);
 
     Printer *printer = new Printer(destName, this);
 
@@ -82,7 +88,7 @@ void ModifyPrinter::save()
 {
     if (m_changes) {
         kDebug() << m_changedValues;
-        QCups::Printer::setAttributes(m_destName, m_changedValues);
+        QCups::Printer::setAttributes(m_destName, m_isClass, m_changedValues);
     }
 }
 

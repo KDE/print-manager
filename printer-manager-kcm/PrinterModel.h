@@ -36,6 +36,7 @@ public:
         DestName,
         DestIsDefault,
         DestIsShared,
+        DestIsClass,
         DestLocation,
         DestDescription,
         DestKind

@@ -33,7 +33,7 @@ class ModifyPrinter : public PrinterPage, Ui::ModifyPrinter
 {
     Q_OBJECT
 public:
-    explicit ModifyPrinter(const QString &destName, QWidget *parent = 0);
+    explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = 0);
     ~ModifyPrinter();
 
     bool hasChanges();
@@ -47,6 +47,7 @@ private slots:
 
 private:
     QString m_destName;
+    bool m_isClass;
     QHash<QString, QVariant> m_changedValues;
     int m_changes;
 };

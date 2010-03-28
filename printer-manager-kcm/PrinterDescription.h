@@ -35,7 +35,7 @@ public:
     explicit PrinterDescription(QWidget *parent = 0);
     ~PrinterDescription();
 
-    void setDestName(const QString &name);
+    void setDestName(const QString &name, bool isClass);
     void setLocation(const QString &location);
     void setStatus(const QString &status);
     void setDescription(const QString &description);
@@ -51,6 +51,7 @@ private slots:
 
 private:
     QString m_destName;
+    bool m_isClass;
     QPixmap m_printerIcon;
     QPixmap m_pauseIcon;
     QPixmap m_startIcon;

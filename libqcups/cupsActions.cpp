@@ -24,8 +24,11 @@
 #include <QStringList>
 #include <KDebug>
 
+Q_DECLARE_METATYPE(QList<int>)
+Q_DECLARE_METATYPE(QList<bool>)
+
 // Don't forget to delete the request
-ipp_t * ippNewDefaultRequest(const char *name, ipp_op_t operation)
+ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
 {
     char  uri[HTTP_MAX_URI]; // printer URI
     ipp_t *request;
@@ -36,7 +39,8 @@ ipp_t * ippNewDefaultRequest(const char *name, ipp_op_t operation)
     // * requesting-user-name
     request = ippNewRequest(operation);
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8",
-                    "localhost", ippPort(), "/printers/%s", name);
+                     "localhost", ippPort(), isClass ? "/classes/%s" : "/printers/%s",
+                     name);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
                  "utf-8", uri);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
@@ -62,7 +66,8 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, const QStrin
         attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
     }
 
-    request = ippNewDefaultRequest(name, IPP_GET_PRINTER_ATTRIBUTES);
+    // TODO add is shared
+    request = ippNewDefaultRequest(name, false, IPP_GET_PRINTER_ATTRIBUTES);
 
     ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
                   "requested-attributes", requestedAttr.size(),
@@ -72,12 +77,32 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, const QStrin
     if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/")) != NULL) {
 
         for (attr = response->attrs; attr != NULL; attr = attr->next) {
-            QStringList values;
-            for (int i = 0; i < attr->num_values; i++) {
-                values << QString::fromUtf8(attr->values[i].string.text);
-                printf ("Attribute: %s == %d == %s\n", attr->name, attr->num_values, attr->values[i].string.text);
+            if (attr->value_tag == IPP_TAG_INTEGER || attr->value_tag == IPP_TAG_ENUM) {
+                if (attr->num_values == 1) {
+                    responseSL[QString::fromUtf8(attr->name)] = attr->values[0].integer;
+                } else {
+                    QList<int> values;
+                    for (int i = 0; i < attr->num_values; i++) {
+                        values << attr->values[i].integer;
+                        printf ("Attribute: %s == %d == %d\n", attr->name, attr->num_values, attr->values[i].integer);
+                    }
+                    responseSL[QString::fromUtf8(attr->name)] = QVariant::fromValue(values);
+                }
+            } else if (attr->value_tag == IPP_TAG_BOOLEAN ) {
+                QList<bool> values;
+                for (int i = 0; i < attr->num_values; i++) {
+                    values << attr->values[i].integer;
+                    printf ("Attribute: %s == %d == %d\n", attr->name, attr->num_values, attr->values[i].boolean);
+                }
+                responseSL[QString::fromUtf8(attr->name)] = QVariant::fromValue(values);
+            } else {
+                QStringList values;
+                for (int i = 0; i < attr->num_values; i++) {
+                    values << QString::fromUtf8(attr->values[i].string.text);
+                    printf ("Attribute: %s == %d == %s\n", attr->name, attr->num_values, attr->values[i].string.text);
+                }
+                responseSL[QString::fromUtf8(attr->name)] = values;
             }
-            responseSL[QString::fromUtf8(attr->name)] = values;
         }
 
         ippDelete(response);
@@ -91,7 +116,7 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, const QStrin
     return responseSL;
 }
 
-bool QCups::cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant> values)
+bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values)
 {
     ipp_t *request;
 
@@ -101,7 +126,9 @@ bool QCups::cupsAddModifyPrinter(const char *name, const QHash<QString, QVariant
         return false;
     }
 
-    request = ippNewDefaultRequest(name, CUPS_ADD_MODIFY_PRINTER);
+    request = ippNewDefaultRequest(name, is_class,
+                                   is_class ? CUPS_ADD_MODIFY_CLASS :
+                                              CUPS_ADD_MODIFY_PRINTER);
 
     QHash<QString, QVariant>::const_iterator i = values.constBegin();
     while (i != values.constEnd()) {
@@ -166,7 +193,8 @@ bool QCups::cupsMoveJob(const char *name, int job_id, const char *dest_name)
     // where we need:
     // * job-printer-uri
     // * job-id
-    request = ippNewDefaultRequest(name, CUPS_MOVE_JOB);
+    // TODO add class
+    request = ippNewDefaultRequest(name, false, CUPS_MOVE_JOB);
 
     httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri), "ipp", "utf-8",
                     "localhost", ippPort(), "/printers/%s", dest_name);
@@ -195,10 +223,11 @@ bool QCups::cupsHoldReleaseJob(const char *name, int job_id, bool hold)
     // Create a new CUPS_MOVE_JOB request
     // where we need:
     // * job-id
+    // TODO add class
     if (hold) {
-        request = ippNewDefaultRequest(name, IPP_HOLD_JOB);
+        request = ippNewDefaultRequest(name, false, IPP_HOLD_JOB);
     } else {
-        request = ippNewDefaultRequest(name, IPP_RELEASE_JOB);
+        request = ippNewDefaultRequest(name, false, IPP_RELEASE_JOB);
     }
 
     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER, "job-id",
@@ -220,10 +249,11 @@ bool QCups::cupsPauseResumePrinter(const char *name, bool pause)
         return false;
     }
 
+    // TODO add class
     if (pause) {
-        request = ippNewDefaultRequest(name, IPP_PAUSE_PRINTER);
+        request = ippNewDefaultRequest(name, false, IPP_PAUSE_PRINTER);
     } else {
-        request = ippNewDefaultRequest(name, IPP_RESUME_PRINTER);
+        request = ippNewDefaultRequest(name, false, IPP_RESUME_PRINTER);
     }
 
     // do the request deleting the response
@@ -242,7 +272,7 @@ bool QCups::cupsSetDefaultPrinter(const char *name)
         return false;
     }
 
-    request = ippNewDefaultRequest(name, CUPS_SET_DEFAULT);
+    request = ippNewDefaultRequest(name, false, CUPS_SET_DEFAULT);
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
@@ -260,7 +290,8 @@ bool QCups::cupsDeletePrinter(const char *name)
         return false;
     }
 
-    request = ippNewDefaultRequest(name, CUPS_DELETE_PRINTER);
+    // TODO add class
+    request = ippNewDefaultRequest(name, false, CUPS_DELETE_PRINTER);
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));

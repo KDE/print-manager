@@ -36,8 +36,8 @@
 
 using namespace QCups;
 
-PrinterOptions::PrinterOptions(const QString &destName, QWidget *parent)
- : PrinterPage(parent), m_ppd(NULL), m_changes(0)
+PrinterOptions::PrinterOptions(const QString &destName, bool isClass, QWidget *parent)
+ : PrinterPage(parent), m_isClass(isClass), m_ppd(NULL), m_changes(0)
 {
     setupUi(this);
 

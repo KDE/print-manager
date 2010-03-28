@@ -26,8 +26,8 @@
 
 using namespace QCups;
 
-PrinterBehavior::PrinterBehavior(const QString &destName, QWidget *parent)
- : PrinterPage(parent), m_destName(destName), m_changes(0)
+PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent)
+ : PrinterPage(parent), m_destName(destName), m_isClass(isClass), m_changes(0)
 {
     setupUi(this);
 
@@ -255,7 +255,7 @@ void PrinterBehavior::save()
                 }
             }
         }
-        QCups::Printer::setAttributes(m_destName, changedValues);
+        QCups::Printer::setAttributes(m_destName, m_isClass, changedValues);
     }
 }
 

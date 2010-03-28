@@ -40,10 +40,10 @@ namespace QCups
 
         QString value(const QString &name) const;
 
-        bool setAttributes(const QHash<QString, QVariant> &values);
-        static bool setAttributes(const QString &destName, const QHash<QString, QVariant> &values);
+        bool setAttributes(bool isClass, const QHash<QString, QVariant> &values);
+        static bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values);
 
-        static bool setShared(const QString &destName, bool shared);
+        static bool setShared(const QString &destName, bool isClass, bool shared);
         static QHash<QString, QVariant> getAttributes(const QString &destName, const QStringList &requestedAttr);
         static bool setAttributesFile(const QString &destName, const QStringList &requestedAttr);
 
@@ -61,7 +61,7 @@ namespace QCups
     KDE_EXPORT bool resumePrinter(const QString &name);
     KDE_EXPORT bool setDefaultPrinter(const QString &name);
     KDE_EXPORT bool deletePrinter(const QString &name);
-    KDE_EXPORT bool addModifyPrinter(const QString &name, const QHash<QString, QVariant> values);
+    KDE_EXPORT bool addModifyClassOrPrinter(const QString &name, bool isClass, const QHash<QString, QVariant> values);
 };
 
 #endif

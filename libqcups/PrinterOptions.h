@@ -35,7 +35,7 @@ class PrinterOptions : public PrinterPage, Ui::PrinterOptions
 {
     Q_OBJECT
 public:
-    explicit PrinterOptions(const QString &destName, QWidget *parent = 0);
+    explicit PrinterOptions(const QString &destName, bool isClass, QWidget *parent = 0);
     ~PrinterOptions();
 
     bool hasChanges();
@@ -47,6 +47,7 @@ private slots:
     void currentIndexChangedCB(int index);
 
 private:
+    bool m_isClass;
     const char  *m_filename;
     ppd_file_t *m_ppd;
     int m_changes;

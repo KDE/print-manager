@@ -118,6 +118,16 @@ void PrinterModel::updateDest(QStandardItem *destItem, cups_dest_t *dest)
         }
     }
 
+    // store if the printer is a class
+    value = cupsGetOption("printer-type", dest->num_options, dest->options);
+    if (value) {
+        // the printer-type param is a flag
+        bool isClass = QString::fromLocal8Bit(value).toInt() & CUPS_PRINTER_CLASS;
+        if (isClass != destItem->data(DestIsClass)) {
+            destItem->setData(isClass, DestIsClass);
+        }
+    }
+
     // store the printer location
     value = cupsGetOption("printer-location", dest->num_options, dest->options);
     if (value) {

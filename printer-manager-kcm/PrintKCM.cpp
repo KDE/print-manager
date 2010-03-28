@@ -100,7 +100,8 @@ void PrintKCM::update()
         }
         removePB->setEnabled(true);
         QModelIndex index = selection.indexes().at(0);
-        m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString());
+        m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
+                                   index.data(PrinterModel::DestIsClass).toBool());
         m_printerDesc->setLocation(index.data(PrinterModel::DestLocation).toString());
         m_printerDesc->setStatus(index.data(PrinterModel::DestStatus).toString());
         m_printerDesc->setDescription(index.data(PrinterModel::DestDescription).toString());

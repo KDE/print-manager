@@ -191,7 +191,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Allowed Users For PRinter_Foo</string>
+      <string>Allowed Users</string>
      </property>
     </widget>
    </item>

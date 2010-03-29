@@ -137,19 +137,18 @@ void PrinterModel::updateDest(QStandardItem *destItem, cups_dest_t *dest)
         }
     }
 
+    if (destItem->data(DestName).toString() != destItem->text()){
+        if (destItem->text() != destItem->data(DestName).toString()){
+            destItem->setText(destItem->data(DestName).toString());
+        }
+    }
+
     // store the printer description
     value = cupsGetOption("printer-info", dest->num_options, dest->options);
     if (value) {
         QString description = QString::fromLocal8Bit(value);
         if (description != destItem->data(DestDescription).toString()){
             destItem->setData(description, DestDescription);
-            if (destItem->text() != (destItem->data(DestName).toString() + " - " + description)) {
-                destItem->setText(destItem->data(DestName).toString() + " - " + description);
-            }
-        }
-    } else if (destItem->data(DestName).toString() != destItem->text()){
-        if (destItem->text() != destItem->data(DestName).toString()){
-            destItem->setText(destItem->data(DestName).toString());
         }
     }
 

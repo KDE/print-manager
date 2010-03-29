@@ -66,6 +66,7 @@ private:
     PrintQueueModel *m_model;
     QString m_destName;
     QString m_title;
+    bool m_isClass;
     QPixmap m_printerIcon;
     QPixmap m_pauseIcon;
     QPixmap m_startIcon;

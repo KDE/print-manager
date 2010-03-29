@@ -48,7 +48,7 @@ ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
     return request;
 }
 
-QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, const QStringList &requestedAttr)
+QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr)
 {
     ipp_t *request, *response;
     ipp_attribute_t *attr;
@@ -66,8 +66,7 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, const QStrin
         attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
     }
 
-    // TODO add is shared
-    request = ippNewDefaultRequest(name, false, IPP_GET_PRINTER_ATTRIBUTES);
+    request = ippNewDefaultRequest(name, is_class, IPP_GET_PRINTER_ATTRIBUTES);
 
     ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
                   "requested-attributes", requestedAttr.size(),
@@ -126,9 +125,14 @@ bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const Q
         return false;
     }
 
-    request = ippNewDefaultRequest(name, is_class,
-                                   is_class ? CUPS_ADD_MODIFY_CLASS :
-                                              CUPS_ADD_MODIFY_PRINTER);
+    if (is_class && values.contains("member-uris")) {
+      kDebug();
+        request = ippNewDefaultRequest(name, is_class, CUPS_ADD_CLASS);
+    } else {
+        request = ippNewDefaultRequest(name, is_class,
+                                       is_class ? CUPS_ADD_MODIFY_CLASS :
+                                                  CUPS_ADD_MODIFY_PRINTER);
+    }
 
     QHash<QString, QVariant>::const_iterator i = values.constBegin();
     while (i != values.constEnd()) {
@@ -159,8 +163,13 @@ bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const Q
             {
                 ipp_attribute_t *attr;
                 QStringList list = i.value().value<QStringList>();
-                attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
-                                     i.key().toUtf8(), list.size(), NULL, NULL);
+                if (i.key() == "member-uris") {
+                    attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_URI,
+                                         i.key().toUtf8(), list.size(), NULL, NULL);
+                } else {
+                    attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
+                                         i.key().toUtf8(), list.size(), NULL, NULL);
+                }
                 // Dump all the list values
                 for (int i = 0; i < list.size(); i++) {
                     attr->values[i].string.text = qstrdup(list.at(i).toUtf8());

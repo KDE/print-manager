@@ -32,7 +32,7 @@
 
 using namespace QCups;
 
-ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
+ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent)
  : KPageDialog(parent)
 {
     setFaceType(List);
@@ -42,8 +42,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     KConfig config("print-manager");
     KConfigGroup configureDialog(&config, "ConfigureDialog");
     restoreDialogSize(configureDialog);
-
-    bool isClass = false;
 
     QStringList attr;
     attr << "printer-info"
@@ -57,9 +55,10 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
          << "printer-op-policy-supported"
          << "printer-op-policy"
          << "requesting-user-name-allowed"
+         << "member-names"
          << "requesting-user-name-denied";
 
-    QHash<QString, QVariant> values = Printer::getAttributes(destName, attr);
+    QHash<QString, QVariant> values = Printer::getAttributes(destName, isClass, attr);
     kDebug() << values;
     kDebug() << values["printer-type"];
     kDebug() << values["printer-type"].toUInt();
@@ -69,7 +68,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
  }
  if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
      kDebug() << "CUPS_PRINTER_CLASS";
-     isClass = true;
  }
  if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
      kDebug() << "CUPS_PRINTER_REMOTE";
@@ -87,6 +85,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent)
     KPageWidgetItem *page;
 
     ModifyPrinter *widget = new ModifyPrinter(destName, isClass, this);
+    widget->setValues(values);
     page = new KPageWidgetItem(widget, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
     page->setIcon(KIcon("dialog-information"));

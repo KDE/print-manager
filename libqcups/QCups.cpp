@@ -236,9 +236,9 @@ bool Printer::setShared(const QString &destName, bool isClass, bool shared)
     return setAttributes(destName, isClass, values);
 }
 
-QHash<QString, QVariant> Printer::getAttributes(const QString &destName, const QStringList &requestedAttr)
+QHash<QString, QVariant> Printer::getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr)
 {
-    return cupsGetAttributes(destName.toUtf8(), requestedAttr);
+    return cupsGetAttributes(destName.toUtf8(), isClass, requestedAttr);
 }
 
 #include "QCups.moc"

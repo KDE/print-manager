@@ -25,6 +25,7 @@
 
 #include "PrinterPage.h"
 
+#include <QStandardItemModel>
 #include <QWidget>
 
 namespace QCups {
@@ -39,17 +40,19 @@ public:
     bool hasChanges();
     QHash<QString, QVariant> modifiedValues() const;
 
-public:
+    void setValues(const QHash<QString, QVariant> &values);
     void save();
 
 private slots:
     void textChanged(const QString &text);
+    void modelChanged();
 
 private:
     QString m_destName;
     bool m_isClass;
     QHash<QString, QVariant> m_changedValues;
     int m_changes;
+    QStandardItemModel *m_model;
 };
 
 

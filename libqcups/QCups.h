@@ -44,7 +44,7 @@ namespace QCups
         static bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values);
 
         static bool setShared(const QString &destName, bool isClass, bool shared);
-        static QHash<QString, QVariant> getAttributes(const QString &destName, const QStringList &requestedAttr);
+        static QHash<QString, QVariant> getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
         static bool setAttributesFile(const QString &destName, const QStringList &requestedAttr);
 
     private:

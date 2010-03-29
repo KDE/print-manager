@@ -84,16 +84,26 @@ void PrinterDescription::on_sharedCB_clicked()
 
 void PrinterDescription::on_optionsPB_clicked()
 {
-    QPointer<QCups::ConfigureDialog> dlg = new QCups::ConfigureDialog(m_destName, this);
+    QPointer<QCups::ConfigureDialog> dlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
     dlg->exec();
     delete dlg;
 }
 
-void PrinterDescription::setDestName(const QString &name, bool isClass)
+void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
 {
     m_destName = name;
     m_isClass = isClass;
-    printerNameL->setText(name);
+    if (m_isClass) {
+        sharedCB->setText(i18n("Share this class"));
+    } else {
+        sharedCB->setText(i18n("Share this printer"));
+    }
+
+    if (!description.isEmpty() && description != printerNameL->text()) {
+        printerNameL->setText(description);
+    } else if (name != printerNameL->text()) {
+        printerNameL->setText(name);
+    }
 }
 
 void PrinterDescription::setLocation(const QString &location)
@@ -104,11 +114,6 @@ void PrinterDescription::setLocation(const QString &location)
 void PrinterDescription::setStatus(const QString &status)
 {
     statusMsgL->setText(status);
-}
-
-void PrinterDescription::setDescription(const QString &description)
-{
-    descriptionL->setText(description);
 }
 
 void PrinterDescription::setKind(const QString &kind)

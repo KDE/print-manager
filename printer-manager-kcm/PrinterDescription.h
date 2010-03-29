@@ -35,10 +35,9 @@ public:
     explicit PrinterDescription(QWidget *parent = 0);
     ~PrinterDescription();
 
-    void setDestName(const QString &name, bool isClass);
+    void setDestName(const QString &name, const QString &description, bool isClass);
     void setLocation(const QString &location);
     void setStatus(const QString &status);
-    void setDescription(const QString &description);
     void setKind(const QString &kind);
     void setIsDefault(bool isDefault);
     void setIsShared(bool isShared);

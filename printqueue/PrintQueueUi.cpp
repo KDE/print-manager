@@ -40,6 +40,7 @@
 PrintQueueUi::PrintQueueUi(const QString &destName, QWidget *parent)
  : QWidget(parent),
    m_destName(destName),
+   m_isClass(false),
    m_lastState(NULL)
 {
     setupUi(this);
@@ -239,7 +240,14 @@ void PrintQueueUi::update()
         setState(value[0]);
     }
 
-    value = cupsGetOption("printer-state-reasons", dest->num_options, dest->options);
+    // store if the printer is a class
+    value = cupsGetOption("printer-type", dest->num_options, dest->options);
+    if (value) {
+        // the printer-type param is a flag
+        m_isClass = QString::fromLocal8Bit(value).toInt() & CUPS_PRINTER_CLASS;
+    }
+
+//     value = cupsGetOption("printer-state-reasons", dest->num_options, dest->options);
 //     printf("%s (%s)\n", dest->name, value ? value : "no description");
 
 
@@ -344,7 +352,7 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
 
 void PrintQueueUi::on_configurePrinterPB_clicked()
 {
-    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, this);
+    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
     dlg->show();
 }
 

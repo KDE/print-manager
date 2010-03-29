@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>261</height>
+    <height>272</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -239,7 +239,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Printer Status</string>
+      <string notr="true">Printer Status</string>
      </property>
      <property name="indent">
       <number>5</number>
@@ -249,7 +249,7 @@
    <item row="2" column="1">
     <widget class="QLabel" name="currentL">
      <property name="text">
-      <string>Current job</string>
+      <string notr="true">Current job</string>
      </property>
      <property name="indent">
       <number>15</number>

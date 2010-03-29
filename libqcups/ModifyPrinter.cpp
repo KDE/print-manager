@@ -21,6 +21,7 @@
 #include "ModifyPrinter.h"
 
 #include "QCups.h"
+#include <cups/cups.h>
 
 #include <KDebug>
 
@@ -37,18 +38,8 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
     membersL->setVisible(isClass);
     membersLV->setVisible(isClass);
 
-    Printer *printer = new Printer(destName, this);
-
-    nameLE->setText(printer->value("printer-info"));
-    nameLE->setProperty("orig_text", printer->value("printer-info"));
-
-    locationLE->setText(printer->value("printer-location"));
-    locationLE->setProperty("orig_text", printer->value("printer-location"));
-
-    connectionLE->setText(printer->value("device-uri"));
-    connectionLE->setProperty("orig_text", printer->value("device-uri"));
-
-    makeCB->addItem(printer->value("printer-make-and-model"));
+    m_model = new QStandardItemModel(membersLV);
+    membersLV->setModel(m_model);
 
     connect(nameLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
@@ -56,10 +47,95 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
             this, SLOT(textChanged(const QString &)));
     connect(connectionLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
+    connect(m_model, SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
+            this, SLOT(modelChanged()));
 }
 
 ModifyPrinter::~ModifyPrinter()
 {
+}
+
+void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
+{
+    cups_dest_t *dests;
+    int num_dests = cupsGetDests(&dests);
+    cups_dest_t *dest;
+    int i;
+
+    m_model->clear();
+    QStringList memberNames = values["member-names"].toStringList();
+    memberNames.sort();
+    m_model->setProperty("orig-member-names", memberNames);
+    for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
+        // If there is a printer and it's not the current one add it
+        // as a new destination
+        QString destName = QString::fromUtf8(dest->name);
+        if (m_destName != destName) {
+            QStandardItem *item = new QStandardItem(destName);
+            item->setCheckable(true);
+            item->setEditable(false);
+            if (memberNames.contains(destName)) {
+                memberNames.removeOne(destName);
+                item->setCheckState(Qt::Checked);
+            }
+            m_model->appendRow(item);
+        }
+    }
+    // If we are not allwed to print on some destination
+    // it will stay on this list
+    foreach (const QString &destName, memberNames) {
+        QStandardItem *item = new QStandardItem(destName);
+        item->setCheckable(true);
+        item->setEditable(false);
+        item->setCheckState(Qt::Checked);
+        m_model->appendRow(item);
+    }
+
+    nameLE->setText(values["printer-info"].toString());
+    nameLE->setProperty("orig_text", values["printer-info"].toString());
+
+    locationLE->setText(values["printer-location"].toString());
+    locationLE->setProperty("orig_text", values["printer-location"].toString());
+
+    connectionLE->setText(values["device-uri"].toString());
+    connectionLE->setProperty("orig_text", values["device-uri"].toString());
+
+    makeCB->addItem(values["printer-make-and-model"].toString());
+
+    // clear old values
+    m_changes = 0;
+    m_changedValues.clear();
+    emit changed(0);
+}
+
+void ModifyPrinter::modelChanged()
+{
+    kDebug()  << 1;
+
+    QStringList currentMembers;
+    for (int i = 0; i < m_model->rowCount(); i++) {
+        QStandardItem *item = m_model->item(i);
+        if (item && item->checkState() == Qt::Checked) {
+            currentMembers << item->text();
+        }
+    }
+    currentMembers.sort();
+
+    bool isDifferent = m_model->property("orig-member-names").toStringList() != currentMembers;
+    if (isDifferent != m_model->property("different").toBool()) {
+        // it's different from the last time so add or remove changes
+        isDifferent ? m_changes++ : m_changes--;
+
+        m_model->setProperty("different", isDifferent);
+        emit changed(m_changes);
+    }
+
+    // store the new values
+    if (isDifferent) {
+        m_changedValues["member-uris"] = currentMembers;
+    } else {
+        m_changedValues.remove("member-uris");
+    }
 }
 
 void ModifyPrinter::textChanged(const QString &text)

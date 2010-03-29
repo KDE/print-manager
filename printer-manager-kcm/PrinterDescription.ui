@@ -40,7 +40,7 @@
      <item row="2" column="1">
       <widget class="QLabel" name="locationMsgL">
        <property name="text">
-        <string>textLocation</string>
+        <string notr="true">textLocation</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -68,7 +68,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>kind text</string>
+        <string notr="true">kind text</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -90,7 +90,7 @@
      <item row="4" column="1">
       <widget class="QLabel" name="statusMsgL">
        <property name="text">
-        <string>status text</string>
+        <string notr="true">status text</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -104,43 +104,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QLabel" name="printerNameL">
-         <property name="font">
-          <font>
-           <pointsize>11</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Printer name</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="descriptionL">
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Description</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="iconL">
        <property name="text">
@@ -152,6 +115,18 @@
       <widget class="QCheckBox" name="defaultCB">
        <property name="text">
         <string>Default printer</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="printerNameL">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string notr="true">Printer name or description</string>
        </property>
       </widget>
      </item>

@@ -115,6 +115,51 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_clas
     return responseSL;
 }
 
+QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
+{
+    int element;
+    ipp_attribute_t *attr;
+    ipp_t *request;
+    ipp_t *response;
+    QList<QPair<QString, QString> > ret;
+    QStringList names;
+
+    request = ippNewRequest(CUPS_GET_PRINTERS);
+
+    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type",
+                  CUPS_PRINTER_LOCAL);
+    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type-mask",
+                  mask);
+
+    if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/")) != NULL) {
+        // Create a map<printer-name, printer-uri-supported>
+        for (element = 0, attr = response->attrs;
+            attr != NULL;
+            attr = attr->next) {
+            if (attr->name && !strcmp(attr->name, "printer-name")) {
+                names << QString::fromUtf8(attr->values[0].string.text);
+            }
+        }
+
+        for (element = 0, attr = response->attrs;
+            attr != NULL;
+            attr = attr->next) {
+            if (attr->name && !strcmp(attr->name, "printer-uri-supported"))
+            {
+                if (strrchr(attr->values[0].string.text, '/') != NULL) {
+                    ret << qMakePair(names.at(element),
+                                     QString::fromUtf8(attr->values[0].string.text));
+                    element ++;
+                }
+            }
+        }
+
+        ippDelete(response);
+    }
+
+    return ret;
+}
+
 bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values)
 {
     ipp_t *request;

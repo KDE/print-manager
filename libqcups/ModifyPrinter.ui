@@ -78,7 +78,7 @@
       </widget>
      </item>
      <item row="5" column="0" colspan="2">
-      <widget class="QGroupBox" name="groupBox">
+      <widget class="QGroupBox" name="makeModelCB">
        <property name="title">
         <string>Driver</string>
        </property>
@@ -114,7 +114,14 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QListView" name="membersLV"/>
+      <widget class="QListView" name="membersLV">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

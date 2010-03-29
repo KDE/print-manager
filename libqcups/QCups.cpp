@@ -152,6 +152,11 @@ bool QCups::addModifyClassOrPrinter(const QString &name, bool isClass, const QHa
     RUN_ACTION(cupsAddModifyClassOrPrinter(name.toUtf8(), isClass, values))
 }
 
+QList<QPair<QString, QString> > QCups::getDests(int mask)
+{
+    return cupsGetDests(mask);
+}
+
 Printer::Printer(QObject *parent)
   : QObject(parent)
 {

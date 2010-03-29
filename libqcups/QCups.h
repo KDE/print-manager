@@ -62,6 +62,8 @@ namespace QCups
     KDE_EXPORT bool setDefaultPrinter(const QString &name);
     KDE_EXPORT bool deletePrinter(const QString &name);
     KDE_EXPORT bool addModifyClassOrPrinter(const QString &name, bool isClass, const QHash<QString, QVariant> values);
+
+    KDE_EXPORT QList<QPair<QString, QString> > getDests(int mask);
 };
 
 #endif

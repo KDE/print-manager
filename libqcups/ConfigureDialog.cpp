@@ -81,7 +81,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
   if (values["printer-type"].toUInt() & CUPS_PRINTER_MFP) {
      kDebug() << "CUPS_PRINTER_MFP";
  }
- 
+
     KPageWidgetItem *page;
 
     ModifyPrinter *widget = new ModifyPrinter(destName, isClass, this);
@@ -93,11 +93,15 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
     addPage(page);
 
-    PrinterOptions *pOp = new PrinterOptions(destName, isClass, this);
-    page = new KPageWidgetItem(pOp, i18n("Printer Options"));
-    page->setHeader(i18n("Set the Default Printer Options"));
-    page->setIcon(KIcon("view-pim-tasks"));
-    addPage(page);
+    if (!isClass) {
+        // At least on localhost:631 modify printer does not show printer options
+        // for classes
+        PrinterOptions *pOp = new PrinterOptions(destName, isClass, this);
+        page = new KPageWidgetItem(pOp, i18n("Printer Options"));
+        page->setHeader(i18n("Set the Default Printer Options"));
+        page->setIcon(KIcon("view-pim-tasks"));
+        addPage(page);
+    }
 
     PrinterBehavior *pBW = new PrinterBehavior(destName, isClass, this);
     pBW->setValues(values);

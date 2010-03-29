@@ -31,7 +31,7 @@ namespace QCups
     bool cupsSetDefaultPrinter(const char *name);
     bool cupsDeletePrinter(const char *name);
     bool cupsHoldReleaseJob(const char *name, int job_id, bool hold);
-    bool cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values);
+    bool cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
 
     QHash<QString, QVariant> cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr);
     QList<QPair<QString, QString> > cupsGetDests(int mask);

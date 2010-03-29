@@ -92,11 +92,9 @@ void PrinterDescription::on_optionsPB_clicked()
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
 {
     m_destName = name;
-    m_isClass = isClass;
-    if (m_isClass) {
-        sharedCB->setText(i18n("Share this class"));
-    } else {
-        sharedCB->setText(i18n("Share this printer"));
+    if (m_isClass != isClass) {
+        m_isClass = isClass;
+        sharedCB->setText(m_isClass ? i18n("Share this class") : i18n("Share this printer"));
     }
 
     if (!description.isEmpty() && description != printerNameL->text()) {

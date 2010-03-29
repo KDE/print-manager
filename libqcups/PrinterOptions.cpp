@@ -25,6 +25,7 @@
 
 #include <cups/cups.h>
 #include <cups/file.h>
+#include "QCups.h"
 
 #include <QScrollArea>
 #include <QFormLayout>
@@ -37,7 +38,7 @@
 using namespace QCups;
 
 PrinterOptions::PrinterOptions(const QString &destName, bool isClass, QWidget *parent)
- : PrinterPage(parent), m_isClass(isClass), m_ppd(NULL), m_changes(0)
+ : PrinterPage(parent), m_destName(destName), m_isClass(isClass), m_ppd(NULL), m_changes(0)
 {
     setupUi(this);
 
@@ -648,6 +649,9 @@ void PrinterOptions::save()
       cupsFileClose(in);
       cupsFileClose(out);
     }
+
+    QHash<QString, QVariant> values;
+    kDebug() << QCups::Printer::setAttributes(m_destName, m_isClass, values, tempfile);
 //     if (m_changes) {
 //         QHash<QString, QVariant> values;
 //         if (nameLE->property("different").toBool()) {

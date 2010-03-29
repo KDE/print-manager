@@ -38,39 +38,34 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     setFaceType(List);
     setModal(true);
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
+    setWindowTitle(destName);
     enableButtonApply(false);
     KConfig config("print-manager");
     KConfigGroup configureDialog(&config, "ConfigureDialog");
     restoreDialogSize(configureDialog);
 
     QStringList attr;
-    attr << "printer-info"
-         << "printer-location"
-         << "printer-uri-supported"
-         << "printer-type"
-         << "job-sheets-supported"
-         << "job-sheets-default"
-         << "printer-error-policy-supported"
-         << "printer-error-policy"
-         << "printer-op-policy-supported"
-         << "printer-op-policy"
-         << "requesting-user-name-allowed"
-         << "member-names"
-         << "requesting-user-name-denied";
+    KPageWidgetItem *page;
 
+    ModifyPrinter *widget = new ModifyPrinter(destName, isClass, this);
+    PrinterBehavior *pBW = new PrinterBehavior(destName, isClass, this);
+    attr << widget->neededValues();
+    attr << pBW->neededValues();
+    attr << "printer-type"; // needed to know if it's a remote printer
+    attr.removeDuplicates();
     QHash<QString, QVariant> values = Printer::getAttributes(destName, isClass, attr);
-    kDebug() << values;
-    kDebug() << values["printer-type"];
-    kDebug() << values["printer-type"].toUInt();
-    kDebug() << CUPS_PRINTER_LOCAL << CUPS_PRINTER_CLASS << CUPS_PRINTER_REMOTE;
+
+//     kDebug() << values;
  if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {
      kDebug() << "CUPS_PRINTER_LOCAL";
  }
  if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
      kDebug() << "CUPS_PRINTER_CLASS";
  }
+ bool isRemote = false;
  if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
      kDebug() << "CUPS_PRINTER_REMOTE";
+     isRemote = true;
  }
  if (values["printer-type"].toUInt() & CUPS_PRINTER_BW) {
      kDebug() << "CUPS_PRINTER_BW";
@@ -82,9 +77,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
      kDebug() << "CUPS_PRINTER_MFP";
  }
 
-    KPageWidgetItem *page;
-
-    ModifyPrinter *widget = new ModifyPrinter(destName, isClass, this);
+    widget->setRemote(isRemote);
     widget->setValues(values);
     page = new KPageWidgetItem(widget, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
@@ -97,13 +90,16 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         // At least on localhost:631 modify printer does not show printer options
         // for classes
         PrinterOptions *pOp = new PrinterOptions(destName, isClass, this);
+        if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
+            pOp->setEnabled(false);
+        }
         page = new KPageWidgetItem(pOp, i18n("Printer Options"));
         page->setHeader(i18n("Set the Default Printer Options"));
         page->setIcon(KIcon("view-pim-tasks"));
         addPage(page);
     }
 
-    PrinterBehavior *pBW = new PrinterBehavior(destName, isClass, this);
+    pBW->setRemote(isRemote);
     pBW->setValues(values);
     page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
     page->setHeader(i18n("Banners, Policies and Allowed Users"));
@@ -114,9 +110,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
             SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
     restoreDialogSize(configureDialog);
-
-//     QStringList attr;
-//     attr << "printer-name" << "printer-uri-supported";
 }
 
 ConfigureDialog::~ConfigureDialog()

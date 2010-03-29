@@ -219,18 +219,18 @@ QString Printer::value(const QString &name) const
     return QString();
 }
 
-bool Printer::setAttributes(bool isClass, const QHash<QString, QVariant> &values)
+bool Printer::setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename)
 {
-    return setAttributes(m_destName, isClass, values);
+    return setAttributes(m_destName, isClass, values, filename);
 }
 
-bool Printer::setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values)
+bool Printer::setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename)
 {
-    if (values.isEmpty()) {
+    if (values.isEmpty() && !filename) {
         return false;
     }
 
-    RUN_ACTION(cupsAddModifyClassOrPrinter(destName.toUtf8(), isClass, values))
+    RUN_ACTION(cupsAddModifyClassOrPrinter(destName.toUtf8(), isClass, values, filename))
 }
  
 

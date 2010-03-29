@@ -47,6 +47,7 @@ private slots:
     void currentIndexChangedCB(int index);
 
 private:
+    QString m_destName;
     bool m_isClass;
     const char  *m_filename;
     ppd_file_t *m_ppd;

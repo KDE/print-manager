@@ -54,6 +54,7 @@ PrinterBehavior::~PrinterBehavior()
 void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
 {
     int defaultChoice;
+    errorPolicyCB->clear();
     foreach (const QString &value, values["printer-error-policy-supported"].value<QStringList>()) {
         errorPolicyCB->addItem(errorPolicyString(value), value);
     }
@@ -64,6 +65,7 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
         errorPolicyCB->setProperty("defaultChoice", defaultChoice);
     }
 
+    operationPolicyCB->clear();
     foreach (const QString &value, values["printer-op-policy-supported"].value<QStringList>()) {
         operationPolicyCB->addItem(operationPolicyString(value), value);
     }
@@ -74,6 +76,8 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
         operationPolicyCB->setProperty("defaultChoice", defaultChoice);
     }
 
+    startingBannerCB->clear();
+    endingBannerCB->clear();
     foreach (const QString &value, values["job-sheets-supported"].value<QStringList>()) {
         startingBannerCB->addItem(jobSheetsString(value), value);
         endingBannerCB->addItem(jobSheetsString(value), value);
@@ -92,7 +96,10 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
         QStringList list = values["requesting-user-name-allowed"].value<QStringList>();
         list.sort(); // sort the list here to be able to comapare it later
         usersELB->setEnabled(true);
-        usersELB->insertStringList(list);
+        if (list != usersELB->items()) {
+            usersELB->clear();
+            usersELB->insertStringList(list);
+        }
         usersELB->setProperty("defaultList", list);
         allowRB->setProperty("defaultChoice", true);
         // Set checked AFTER the default choice was set
@@ -104,7 +111,10 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
         QStringList list = values["requesting-user-name-denied"].value<QStringList>();
         list.sort(); // sort the list here to be able to comapare it later
         usersELB->setEnabled(true);
-        usersELB->insertStringList(list);
+        if (list != usersELB->items()) {
+            usersELB->clear();
+            usersELB->insertStringList(list);
+        }
         usersELB->setProperty("defaultList", list);
         preventRB->setProperty("defaultChoice", true);
         // Set checked AFTER the default choice was set
@@ -121,6 +131,7 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
     operationPolicyCB->setProperty("different", false);
     startingBannerCB->setProperty("different", false);
     endingBannerCB->setProperty("different", false);
+    usersELB->setProperty("different", false);
 }
 
 void PrinterBehavior::userListChanged()
@@ -255,13 +266,27 @@ void PrinterBehavior::save()
                 }
             }
         }
-        QCups::Printer::setAttributes(m_destName, m_isClass, changedValues);
+        if (QCups::Printer::setAttributes(m_destName, m_isClass, changedValues)) {
+            setValues(Printer::getAttributes(m_destName, m_isClass, neededValues()));
+        }
     }
 }
 
 bool PrinterBehavior::hasChanges()
 {
     return m_changes;
+}
+
+QStringList PrinterBehavior::neededValues() const
+{
+    return QStringList() << "job-sheets-supported"
+                         << "job-sheets-default"
+                         << "printer-error-policy-supported"
+                         << "printer-error-policy"
+                         << "printer-op-policy-supported"
+                         << "printer-op-policy"
+                         << "requesting-user-name-allowed"
+                         << "requesting-user-name-denied";
 }
 
 #include "PrinterBehavior.moc"

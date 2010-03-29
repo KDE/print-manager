@@ -83,7 +83,6 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_clas
                     QList<int> values;
                     for (int i = 0; i < attr->num_values; i++) {
                         values << attr->values[i].integer;
-                        printf ("Attribute: %s == %d == %d\n", attr->name, attr->num_values, attr->values[i].integer);
                     }
                     responseSL[QString::fromUtf8(attr->name)] = QVariant::fromValue(values);
                 }
@@ -91,16 +90,18 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_clas
                 QList<bool> values;
                 for (int i = 0; i < attr->num_values; i++) {
                     values << attr->values[i].integer;
-                    printf ("Attribute: %s == %d == %d\n", attr->name, attr->num_values, attr->values[i].boolean);
                 }
                 responseSL[QString::fromUtf8(attr->name)] = QVariant::fromValue(values);
             } else {
-                QStringList values;
-                for (int i = 0; i < attr->num_values; i++) {
-                    values << QString::fromUtf8(attr->values[i].string.text);
-                    printf ("Attribute: %s == %d == %s\n", attr->name, attr->num_values, attr->values[i].string.text);
+                if (attr->num_values == 1) {
+                    responseSL[QString::fromUtf8(attr->name)] = QString::fromUtf8(attr->values[0].string.text);
+                } else {
+                    QStringList values;
+                    for (int i = 0; i < attr->num_values; i++) {
+                        values << QString::fromUtf8(attr->values[i].string.text);
+                    }
+                    responseSL[QString::fromUtf8(attr->name)] = values;
                 }
-                responseSL[QString::fromUtf8(attr->name)] = values;
             }
         }
 
@@ -160,7 +161,7 @@ QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
     return ret;
 }
 
-bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values)
+bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename)
 {
     ipp_t *request;
 
@@ -227,7 +228,11 @@ bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const Q
     }
 
     // do the request deleting the response
-    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
+    if (filename) {
+        ippDelete(cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, "/admin/", filename));
+    } else {
+        ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
+    }
 
     return !cupsLastError();
 }

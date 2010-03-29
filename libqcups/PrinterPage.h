@@ -33,6 +33,8 @@ public:
 public:
     virtual void save() {};
     virtual QHash<QString, QVariant> modifiedValues() const;
+    virtual QStringList neededValues() const;
+    virtual void setRemote(bool remote);
 
 signals:
     void changed(bool hasChanges);

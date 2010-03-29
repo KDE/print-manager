@@ -40,7 +40,7 @@ public:
     void setValues(const QHash<QString, QVariant> &values);
     bool hasChanges();
 
-public:
+    QStringList neededValues() const;
     void save();
 
 private slots:

@@ -104,13 +104,15 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
     // clear old values
     m_changes = 0;
     m_changedValues.clear();
+    nameLE->setProperty("different", false);
+    locationLE->setProperty("different", false);
+    connectionLE->setProperty("different", false);
+    m_model->setProperty("different", false);
     emit changed(0);
 }
 
 void ModifyPrinter::modelChanged()
 {
-    kDebug()  << 1;
-
     QStringList currentMembers;
     for (int i = 0; i < m_model->rowCount(); i++) {
         QStandardItem *item = m_model->item(i);
@@ -162,8 +164,9 @@ void ModifyPrinter::textChanged(const QString &text)
 void ModifyPrinter::save()
 {
     if (m_changes) {
-        kDebug() << m_changedValues;
-        QCups::Printer::setAttributes(m_destName, m_isClass, m_changedValues);
+        if (QCups::Printer::setAttributes(m_destName, m_isClass, m_changedValues)) {
+            setValues(Printer::getAttributes(m_destName, m_isClass, neededValues()));
+        }
     }
 }
 
@@ -175,6 +178,28 @@ QHash<QString, QVariant> ModifyPrinter::modifiedValues() const
 bool ModifyPrinter::hasChanges()
 {
     return m_changes;
+}
+
+void ModifyPrinter::setRemote(bool remote)
+{
+    nameLE->setReadOnly(remote);
+    locationLE->setReadOnly(remote);
+    connectionLE->setReadOnly(remote);
+}
+
+
+QStringList ModifyPrinter::neededValues() const
+{
+    QStringList values;
+    values << "printer-info"
+           << "printer-location";
+    if (m_isClass) {
+        values << "member-names";
+    } else {
+        values << "device-uri"
+               << "printer-make-and-model";
+    }
+    return values;
 }
 
 #include "ModifyPrinter.moc"

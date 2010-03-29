@@ -39,6 +39,8 @@ public:
 
     bool hasChanges();
     QHash<QString, QVariant> modifiedValues() const;
+    QStringList neededValues() const;
+    void setRemote(bool remote);
 
     void setValues(const QHash<QString, QVariant> &values);
     void save();

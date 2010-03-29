@@ -40,12 +40,12 @@ namespace QCups
 
         QString value(const QString &name) const;
 
-        bool setAttributes(bool isClass, const QHash<QString, QVariant> &values);
-        static bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values);
+        bool setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
+        static bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
 
         static bool setShared(const QString &destName, bool isClass, bool shared);
         static QHash<QString, QVariant> getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
-        static bool setAttributesFile(const QString &destName, const QStringList &requestedAttr);
+//         static bool setAttributesFile(const QString &destName, const QStringList &requestedAttr);
 
     private:
         QString m_destName;

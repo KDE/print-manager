@@ -1,6 +1,7 @@
 [Global]
 IconName=printer
 Name=Print manager
+Name[en_GB]=Print manager
 Name[es]=Gestor de impresión
 Name[pt]=Gestor de impressão
 Name[pt_BR]=Gerenciador de impressão
@@ -10,6 +11,7 @@ Name[x-test]=xxPrint managerxx
 
 [Event/NewPrinter]
 Name=A new printer was found
+Name[en_GB]=A new printer was found
 Name[es]=Se ha detectado una nueva impresora
 Name[pt]=Foi encontrada uma nova impressora
 Name[pt_BR]=Uma nova impressora foi encontrada
@@ -20,6 +22,7 @@ Action=Sound|Popup
 
 [Event/ErrorWithJob]
 Name=Your job has errors
+Name[en_GB]=Your job has errors
 Name[es]=Su trabajo contiene errores
 Name[pt]=A sua tarefa gerou erros
 Name[pt_BR]=Seu trabalho tem erros

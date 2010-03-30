@@ -90,7 +90,7 @@ PrintQueueUi::~PrintQueueUi()
 {
 }
 
-void PrintQueueUi::setState(const char &state)
+void PrintQueueUi::setState(const char &state, const QString &message)
 {
     if (state != m_lastState) {
         QPixmap icon(m_printerIcon);
@@ -125,7 +125,11 @@ void PrintQueueUi::setState(const char &state)
             break;
         case DEST_STOPED :
             m_printerPaused = true;
-            statusL->setText(i18n("Printer paused"));
+//             if (!message.isEmpty()) {
+                statusL->setText(i18n("Printer paused, '%1'", message));
+//             } else {
+//                 statusL->setText(i18n("Printer paused"));
+//             }
             pausePrinterPB->setText(i18n("Resume Printer"));
             pausePrinterPB->setIcon(KIcon("media-playback-start"));
             // create a paiter to paint the action icon over the key icon
@@ -237,7 +241,9 @@ void PrintQueueUi::update()
     // get printer-state
     value = cupsGetOption("printer-state", dest->num_options, dest->options);
     if (value) {
-        setState(value[0]);
+        QString message;
+        message = QString::fromUtf8(cupsGetOption("printer-state-message", dest->num_options, dest->options));
+        setState(value[0], message);
     }
 
     // store if the printer is a class
@@ -247,8 +253,8 @@ void PrintQueueUi::update()
         m_isClass = QString::fromLocal8Bit(value).toInt() & CUPS_PRINTER_CLASS;
     }
 
-//     value = cupsGetOption("printer-state-reasons", dest->num_options, dest->options);
-//     printf("%s (%s)\n", dest->name, value ? value : "no description");
+    value = cupsGetOption("printer-state-message", dest->num_options, dest->options);
+    printf("%s (%s)\n", dest->name, value ? value : "no description");
 
 
     cupsFreeDests(num_dests, dests);

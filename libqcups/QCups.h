@@ -36,11 +36,16 @@ namespace QCups
         Q_OBJECT
     public:
         Printer(QObject *parent = 0);
-        explicit Printer(const QString &destName, QObject *parent = 0);
+        explicit Printer(const QString &destName,
+                         const QHash<QString, QVariant> &attributes,
+                         QObject *parent = 0);
 
-        QString value(const QString &name) const;
+        QString destName() const;
+        QHash<QString, QVariant> attributes() const;
 
-        bool setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
+        QVariant value(const QString &name) const;
+
+//         bool setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
         static bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
 
         static bool setShared(const QString &destName, bool isClass, bool shared);
@@ -49,7 +54,7 @@ namespace QCups
 
     private:
         QString m_destName;
-        QHash<QString, QString> m_values;
+        QHash<QString, QVariant> m_values;
     };
 
     KDE_EXPORT void initialize();

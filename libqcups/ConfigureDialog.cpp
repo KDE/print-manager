@@ -101,7 +101,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
 
     pBW->setRemote(isRemote);
     pBW->setValues(values);
-    page = new KPageWidgetItem(pBW, i18n("Banners, Policies and\n Allowed Users"));
+    page = new KPageWidgetItem(pBW, i18n("Banners, Policies and Allowed Users"));
     page->setHeader(i18n("Banners, Policies and Allowed Users"));
     page->setIcon(KIcon("feed-subscribe"));
     addPage(page);

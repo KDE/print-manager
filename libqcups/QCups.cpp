@@ -162,23 +162,28 @@ Printer::Printer(QObject *parent)
 {
 }
 
-Printer::Printer(const QString &destName, QObject *parent)
-  : QObject(parent)
+Printer::Printer(const QString &destName,
+                 const QHash<QString, QVariant> &attributes,
+                 QObject *parent)
+  : QObject(parent), m_destName(destName), m_values(attributes)
 {
-    cups_dest_t *dests;
-    int num_dests = cupsGetDests(&dests);
-    cups_dest_t *dest = cupsGetDest(destName.toUtf8(), NULL, num_dests, dests);
-    if (dest == NULL) {
-        return;
-    }
-    m_destName = destName;
 
-    // store the printer values in a hash
-    for (int i = 0; i < dest->num_options; i++) {
-        m_values[dest->options[i].name] = QString::fromUtf8(dest->options[i].value);
-    }
+//     if (m_values.isEmpty()) {
+//         cups_dest_t *dests;
+//         int num_dests = cupsGetDests(&dests);
+//         cups_dest_t *dest = cupsGetDest(destName.toUtf8(), NULL, num_dests, dests);
+//         if (dest == NULL) {
+//             return;
+//         }
+//         m_destName = destName;
+// 
+//         // store the printer values in a hash
+//         for (int i = 0; i < dest->num_options; i++) {
+//             m_values[dest->options[i].name] = QString::fromUtf8(dest->options[i].value);
+//         }
+//     }
 
-  kDebug() << m_values;
+    kDebug() << m_values;
 /*
     // store if the printer is shared
     value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
@@ -211,18 +216,23 @@ Printer::Printer(const QString &destName, QObject *parent)
     cupsFreeDests(num_dests, dests);*/
 }
 
-QString Printer::value(const QString &name) const
+QVariant Printer::value(const QString &name) const
 {
     if (m_values.contains(name)) {
         return m_values[name];
     }
-    return QString();
+    return QVariant();
 }
 
-bool Printer::setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename)
+QString Printer::destName() const
 {
-    return setAttributes(m_destName, isClass, values, filename);
+    return m_destName;
 }
+
+// bool Printer::setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename)
+// {
+//     return setAttributes(m_destName, isClass, values, filename);
+// }
 
 bool Printer::setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename)
 {

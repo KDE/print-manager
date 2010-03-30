@@ -58,7 +58,7 @@ private slots:
 private:
     void closeEvent(QCloseEvent *event);
     void setupButtons();
-    void setState(const char &state);
+    void setState(const char &state, const QString &message);
     void modifyJob(int action, const QString &destName = QString());
 
     QToolButton *m_filterJobs;

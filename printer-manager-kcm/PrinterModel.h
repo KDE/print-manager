@@ -24,6 +24,7 @@
 #include <QStandardItemModel>
 
 #include <cups/cups.h>
+#include "QCups.h"
 
 class PrinterModel : public QStandardItemModel
 {
@@ -69,10 +70,10 @@ private:
     WId m_parentId;
 
     int destRow(const QString &destName);
-    void insertDest(int pos, cups_dest_t *dest);
-    void updateDest(QStandardItem *item, cups_dest_t *dest);
+    void insertDest(int pos, const QCups::Destination &dest);
+    void updateDest(QStandardItem *item, const QCups::Destination &dest);
 
-    QString destStatus(const char &state) const;
+    QString destStatus(int state, const QString &message) const;
 };
 
 #endif

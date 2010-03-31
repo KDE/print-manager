@@ -21,8 +21,6 @@
 #ifndef PRINT_QUEUE_UI_H
 #define PRINT_QUEUE_UI_H
 
-
-
 #include "ui_PrintQueueUi.h"
 
 class QToolButton;
@@ -34,7 +32,7 @@ class PrintQueueUi : public QWidget, Ui::PrintQueueUi
 {
     Q_OBJECT
 public:
-    explicit PrintQueueUi(const QString &destName, QWidget *parent = 0);
+    explicit PrintQueueUi(const QString &destName, bool isClass, QWidget *parent = 0);
     ~PrintQueueUi();
 
 signals:
@@ -58,7 +56,7 @@ private slots:
 private:
     void closeEvent(QCloseEvent *event);
     void setupButtons();
-    void setState(const char &state, const QString &message);
+    void setState(int state, const QString &message);
     void modifyJob(int action, const QString &destName = QString());
 
     QToolButton *m_filterJobs;
@@ -73,6 +71,7 @@ private:
     QPixmap m_warningIcon;
     bool m_printerPaused;
     char m_lastState;
+    QString m_lastMessage;
 };
 
 #endif

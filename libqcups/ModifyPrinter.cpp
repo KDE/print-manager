@@ -59,17 +59,21 @@ ModifyPrinter::~ModifyPrinter()
 void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
 {
     if (m_isClass) {
-        QList<QPair<QString, QString> > dests;
+        QList<Destination> dests;
+        // Ask just these attributes
+        QStringList requestAttr;
+        requestAttr << "printer-uri-supported"
+                    << "printer-name";
         // Get destinations with these masks
         dests = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
-                                CUPS_PRINTER_IMPLICIT);
+                                CUPS_PRINTER_IMPLICIT, requestAttr);
         m_model->clear();
         QStringList memberNames = values["member-names"].toStringList();
         QStringList origMemberUris;
         foreach (const QString &memberUri, memberNames) {
             for (int i = 0; i < dests.size(); i++) {
-                if (dests.at(i).first == memberUri) {
-                    origMemberUris << dests.at(i).second;
+                if (dests.at(i)["printer-name"].toString() == memberUri) {
+                    origMemberUris << dests.at(i)["printer-uri-supported"].toString();
                     break;
                 }
             }
@@ -77,14 +81,15 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
         m_model->setProperty("orig-member-uris", origMemberUris);
 
         for (int i = 0; i < dests.size(); i++) {
-            if (dests.at(i).first != m_destName) {
-                QStandardItem *item = new QStandardItem(dests.at(i).first);
+            QString destName = dests.at(i)["printer-name"].toString();
+            if (destName != m_destName) {
+                QStandardItem *item = new QStandardItem(destName);
                 item->setCheckable(true);
                 item->setEditable(false);
-                if (memberNames.contains(dests.at(i).first)) {
+                if (memberNames.contains(destName)) {
                     item->setCheckState(Qt::Checked);
                 }
-                item->setData(dests.at(i).second);
+                item->setData(dests.at(i)["printer-uri-supported"].toString());
                 m_model->appendRow(item);
             }
         }
@@ -164,8 +169,8 @@ void ModifyPrinter::textChanged(const QString &text)
 void ModifyPrinter::save()
 {
     if (m_changes) {
-        if (QCups::Printer::setAttributes(m_destName, m_isClass, m_changedValues)) {
-            setValues(Printer::getAttributes(m_destName, m_isClass, neededValues()));
+        if (Dest::setAttributes(m_destName, m_isClass, m_changedValues)) {
+            setValues(Dest::getAttributes(m_destName, m_isClass, neededValues()));
         }
     }
 }

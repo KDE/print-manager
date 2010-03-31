@@ -651,7 +651,7 @@ void PrinterOptions::save()
     }
 
     QHash<QString, QVariant> values;
-    kDebug() << QCups::Printer::setAttributes(m_destName, m_isClass, values, tempfile);
+    kDebug() << Dest::setAttributes(m_destName, m_isClass, values, tempfile);
 //     if (m_changes) {
 //         QHash<QString, QVariant> values;
 //         if (nameLE->property("different").toBool()) {

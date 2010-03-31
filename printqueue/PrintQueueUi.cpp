@@ -23,7 +23,7 @@
 #include "PrintQueueModel.h"
 #include <ConfigureDialog.h>
 
-#include <QCups.h>
+#include "QCups.h"
 #include <cups/cups.h>
 
 #include "PrintQueueSortFilterProxyModel.h"
@@ -37,10 +37,10 @@
 
 #define PRINTER_ICON_SIZE 64
 
-PrintQueueUi::PrintQueueUi(const QString &destName, QWidget *parent)
+PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *parent)
  : QWidget(parent),
    m_destName(destName),
-   m_isClass(false),
+   m_isClass(isClass),
    m_lastState(NULL)
 {
     setupUi(this);
@@ -90,9 +90,15 @@ PrintQueueUi::~PrintQueueUi()
 {
 }
 
-void PrintQueueUi::setState(const char &state, const QString &message)
+void PrintQueueUi::setState(int state, const QString &message)
 {
-    if (state != m_lastState) {
+    kDebug() << message;
+    if (state != m_lastState ||
+        m_lastMessage != message) {
+        // save the last state so the ui doesn't need to keep updating
+        m_lastMessage = message;
+        m_lastState = state;
+
         QPixmap icon(m_printerIcon);
         m_printerPaused = false;
         switch (state) {
@@ -103,21 +109,21 @@ void PrintQueueUi::setState(const char &state, const QString &message)
             break;
         case DEST_PRINTING :
             if (!m_title.isNull()) {
-                int num_jobs;
-                cups_job_t *jobs;
-                num_jobs = cupsGetJobs(&jobs, m_destName.toUtf8(), 0, CUPS_WHICHJOBS_ACTIVE);
-
-                QString jobTitle;
-                for (int i = 0; i < num_jobs; i++) {
-                    if (jobs[i].state == IPP_JOB_PROCESSING) {
-                        jobTitle = QString::fromUtf8(jobs[i].title);
-                        break;
-                    }
-                }
-                if (jobTitle.isEmpty()) {
+//                 int num_jobs;
+//                 cups_job_t *jobs;
+//                 num_jobs = cupsGetJobs(&jobs, m_destName.toUtf8(), 0, CUPS_WHICHJOBS_ACTIVE);
+//
+//                 QString jobTitle;
+//                 for (int i = 0; i < num_jobs; i++) {
+//                     if (jobs[i].state == IPP_JOB_PROCESSING) {
+//                         jobTitle = QString::fromUtf8(jobs[i].title);
+//                         break;
+//                     }
+//                 }
+                if (message.isEmpty()) {
                     statusL->setText(i18n("Printing..."));
                 } else {
-                    statusL->setText(i18n("Printing '%1'", jobTitle));
+                    statusL->setText(i18n("Printing '%1'", message));
                 }
                 pausePrinterPB->setText(i18n("Pause Printer"));
                 pausePrinterPB->setIcon(KIcon("media-playback-pause"));
@@ -151,8 +157,6 @@ void PrintQueueUi::setState(const char &state, const QString &message)
         // set the printer icon
         setWindowIcon(icon);
     }
-    // save the last state so the ui doesn't need to keep updating
-    m_lastState = state;
 }
 
 void PrintQueueUi::showContextMenu(const QPoint &point)
@@ -179,7 +183,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
         if (moveTo) {
             // context menu
             QMenu *menu = new QMenu(this);
-            // move to menu 
+            // move to menu
             QMenu *moveToMenu = new QMenu(i18n("Move to"), this);
             // get printers we can move to
             cups_dest_t *dests;
@@ -216,12 +220,15 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
 
 void PrintQueueUi::update()
 {
-    cups_dest_t *dests;
-    const char *value;
-    int num_dests = cupsGetDests(&dests);
-    cups_dest_t *dest = cupsGetDest(m_destName.toUtf8(), NULL, num_dests, dests);
+    QStringList attr;
+    attr << "printer-info"
+         << "printer-type"
+         << "printer-state"
+         << "printer-state-message";
 
-    if (dest == NULL) {
+    QHash<QString, QVariant> attributes = QCups::Dest::getAttributes(m_destName, m_isClass, attr);
+
+    if (attributes.isEmpty()) {
         // if cups stops we disable our queue
         setEnabled(false);
         return;
@@ -231,33 +238,17 @@ void PrintQueueUi::update()
     }
 
     // get printer-info
-    value = cupsGetOption("printer-info", dest->num_options, dest->options);
-    if (value) {
-        m_title = QString::fromUtf8(value);
-    } else {
+    if (attributes["printer-info"].toString().isEmpty()) {
         m_title = m_destName;
+    } else {
+        m_title = attributes["printer-info"].toString();
     }
 
     // get printer-state
-    value = cupsGetOption("printer-state", dest->num_options, dest->options);
-    if (value) {
-        QString message;
-        message = QString::fromUtf8(cupsGetOption("printer-state-message", dest->num_options, dest->options));
-        setState(value[0], message);
-    }
+    setState(attributes["printer-state"].toInt(), attributes["printer-state-message"].toString());
 
     // store if the printer is a class
-    value = cupsGetOption("printer-type", dest->num_options, dest->options);
-    if (value) {
-        // the printer-type param is a flag
-        m_isClass = QString::fromLocal8Bit(value).toInt() & CUPS_PRINTER_CLASS;
-    }
-
-    value = cupsGetOption("printer-state-message", dest->num_options, dest->options);
-    printf("%s (%s)\n", dest->name, value ? value : "no description");
-
-
-    cupsFreeDests(num_dests, dests);
+    m_isClass = attributes["printer-type"].toInt() & CUPS_PRINTER_CLASS;
 
     m_model->updateModel();
 
@@ -275,7 +266,6 @@ void PrintQueueUi::update()
 
 void PrintQueueUi::updateButtons()
 {
-//     kDebug();
     bool cancel, hold, release;
     // Set all options to false
     cancel = hold = release = false;

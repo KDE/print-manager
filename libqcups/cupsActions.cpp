@@ -118,15 +118,15 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_clas
 
 static QVariant cupsMakeVariant(ipp_attribute_t *attr)
 {
-     if (attr->num_values == 1 &&
-         attr->value_tag != IPP_TAG_INTEGER &&
-         attr->value_tag != IPP_TAG_ENUM &&
-         attr->value_tag != IPP_TAG_BOOLEAN &&
-         attr->value_tag != IPP_TAG_RANGE) {
-         return QString::fromUtf8(attr->values[0].string.text);
-     }
+    if (attr->num_values == 1 &&
+        attr->value_tag != IPP_TAG_INTEGER &&
+        attr->value_tag != IPP_TAG_ENUM &&
+        attr->value_tag != IPP_TAG_BOOLEAN &&
+        attr->value_tag != IPP_TAG_RANGE) {
+        return QString::fromUtf8(attr->values[0].string.text);
+    }
 
-     if (attr->value_tag == IPP_TAG_INTEGER || attr->value_tag == IPP_TAG_ENUM) {
+    if (attr->value_tag == IPP_TAG_INTEGER || attr->value_tag == IPP_TAG_ENUM) {
         if (attr->num_values == 1) {
             return attr->values[0].integer;
         } else {
@@ -137,11 +137,15 @@ static QVariant cupsMakeVariant(ipp_attribute_t *attr)
             return QVariant::fromValue(values);
         }
     } else if (attr->value_tag == IPP_TAG_BOOLEAN ) {
-        QList<bool> values;
-        for (int i = 0; i < attr->num_values; i++) {
-            values << attr->values[i].integer;
+        if (attr->num_values == 1) {
+            return static_cast<bool>(attr->values[0].integer);
+        } else {
+            QList<bool> values;
+            for (int i = 0; i < attr->num_values; i++) {
+                values << static_cast<bool>(attr->values[i].integer);
+            }
+            return QVariant::fromValue(values);
         }
-        return QVariant::fromValue(values);
     } else if (attr->value_tag == IPP_TAG_RANGE) {
         QVariantList values;
         for (int i = 0; i < attr->num_values; i++) {
@@ -158,59 +162,35 @@ static QVariant cupsMakeVariant(ipp_attribute_t *attr)
     }
 }
 
-QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
+QList<QHash<QString, QVariant> > QCups::cupsGetDests(int mask, const QStringList &requestedAttr)
 {
-    int element;
     ipp_attribute_t *attr;
     ipp_t *request;
     ipp_t *response;
     char **attributes;
-    QList<QPair<QString, QString> > ret;
-    QStringList names;
+    QList<QHash<QString, QVariant> > ret;
 
-      char              optname[1024],          /* Option name */
-                value[2048],            /* Option value */
-                *ptr;                   /* Pointer into name/value */
-
-    QStringList requestedAttr;
-
-    attributes = new char*[requestedAttr.size()];
-    for (int i = 0; i < requestedAttr.size(); i ++) {
-        attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
-    }
+    QString defaultDest = QString::fromUtf8(cupsGetDefault());
 
     request = ippNewRequest(CUPS_GET_PRINTERS);
 
     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type",
                   CUPS_PRINTER_LOCAL);
-    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type-mask",
-                  mask);
+    if (mask >= 0){
+        ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type-mask",
+                      mask);
+    }
 
-//     ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-//                   "requested-attributes", requestedAttr.size(),
-//                   "utf-8", attributes);
+    if (!requestedAttr.isEmpty()){
+        attributes = new char*[requestedAttr.size()];
+        for (int i = 0; i < requestedAttr.size(); i ++) {
+            attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
+        }
+        ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
+                    "requested-attributes", requestedAttr.size(),
+                    "utf-8", attributes);
+    }
 
-                  // Create a map<printer-name, printer-uri-supported>
-//         for (element = 0, attr = response->attrs;
-//             attr != NULL;
-//             attr = attr->next) {
-//             if (attr->name && !strcmp(attr->name, "printer-name")) {
-//                 names << QString::fromUtf8(attr->values[0].string.text);
-//             }
-//         }
-//
-//         for (element = 0, attr = response->attrs;
-//             attr != NULL;
-//             attr = attr->next) {
-//             if (attr->name && !strcmp(attr->name, "printer-uri-supported"))
-//             {
-//                 if (strrchr(attr->values[0].string.text, '/') != NULL) {
-//                     ret << qMakePair(names.at(element),
-//                                      QString::fromUtf8(attr->values[0].string.text));
-//                     element ++;
-//                 }
-//             }
-//         }
     if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/")) != NULL) {
         for (attr = response->attrs; attr != NULL; attr = attr->next) {
             /*
@@ -226,9 +206,7 @@ QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
             * Pull the needed attributes from this printer...
             */
 
-            QString printer_name;
-            int num_options  = 0;
-            QHash<QString, QVariant> options;
+            QHash<QString, QVariant> destAttributes;
 
             for (; attr && attr->group_tag == IPP_TAG_PRINTER; attr = attr->next)
             {
@@ -244,7 +222,8 @@ QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
                     attr->value_tag != IPP_TAG_URI)
                     continue;
 
-                if (!strcmp(attr->name, "auth-info-required") ||
+                if (!strcmp(attr->name, "printer-name") ||
+                    !strcmp(attr->name, "auth-info-required") ||
                     !strcmp(attr->name, "device-uri") ||
                     !strcmp(attr->name, "marker-change-time") ||
                     !strcmp(attr->name, "marker-colors") ||
@@ -270,7 +249,7 @@ QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
                     /*
                     * Add a printer description attribute...
                     */
-                    options[QString::fromUtf8(attr->name)] = cupsMakeVariant(attr);
+                    destAttributes[QString::fromUtf8(attr->name)] = cupsMakeVariant(attr);
 //                     QString::fromUtf8(attr->values[0].string.text);
 //                     num_options = cupsAddOption(attr->name,
 //                                                 cups_make_string(attr, value,
@@ -278,9 +257,9 @@ QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
 //                                                 num_options, &options);
                 }
 
-                else if (!strcmp(attr->name, "printer-name") &&
-                        attr->value_tag == IPP_TAG_NAME)
-                printer_name = QString::fromUtf8(attr->values[0].string.text);
+//                 else if (!strcmp(attr->name, "printer-name") &&
+//                         attr->value_tag == IPP_TAG_NAME)
+//                     printer_name = QString::fromUtf8(attr->values[0].string.text);
 //                 else if (strncmp(attr->name, "notify-", 7) &&
 //                         (attr->value_tag == IPP_TAG_BOOLEAN ||
 //                         attr->value_tag == IPP_TAG_ENUM ||
@@ -309,7 +288,7 @@ QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
             * See if we have everything needed...
             */
 
-            if (printer_name.isEmpty())
+            if (destAttributes["printer-name"].toString().isEmpty())
             {
 //                 cupsFreeOptions(num_options, options);
 
@@ -318,7 +297,13 @@ QList<QPair<QString, QString> > QCups::cupsGetDests(int mask)
                 else
                     continue;
             }
-kDebug() << printer_name << options;
+
+            if (requestedAttr.contains("printer-is-default") &&
+                defaultDest == destAttributes["printer-name"].toString()) {
+                destAttributes["printer-is-default"] = true;
+            }
+
+            ret << destAttributes;
 //             if ((dest = cups_add_dest(printer_name, NULL, &num_dests, dests)) != NULL)
 //             {
 //                 dest->num_options = num_options;

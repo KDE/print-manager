@@ -53,7 +53,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr << pBW->neededValues();
     attr << "printer-type"; // needed to know if it's a remote printer
     attr.removeDuplicates();
-    QHash<QString, QVariant> values = Printer::getAttributes(destName, isClass, attr);
+    QHash<QString, QVariant> values = Dest::getAttributes(destName, isClass, attr);
 
 //     kDebug() << values;
  if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {

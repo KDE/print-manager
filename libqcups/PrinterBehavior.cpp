@@ -266,8 +266,8 @@ void PrinterBehavior::save()
                 }
             }
         }
-        if (QCups::Printer::setAttributes(m_destName, m_isClass, changedValues)) {
-            setValues(Printer::getAttributes(m_destName, m_isClass, neededValues()));
+        if (Dest::setAttributes(m_destName, m_isClass, changedValues)) {
+            setValues(Dest::getAttributes(m_destName, m_isClass, neededValues()));
         }
     }
 }

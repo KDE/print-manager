@@ -74,9 +74,18 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
             emit quit();
             return;
         }
+
+        // store if the printer is a class
+        const char *value;
+        bool isClass = false;
+        value = cupsGetOption("printer-type", dest->num_options, dest->options);
+        if (value) {
+            // the printer-type param is a flag
+            isClass = QString::fromUtf8(value).toInt() & CUPS_PRINTER_CLASS;
+        }
         cupsFreeDests(num_dests, dests);
 
-        PrintQueueUi *ui = new PrintQueueUi(destName);
+        PrintQueueUi *ui = new PrintQueueUi(destName, isClass);
         connect(m_updateUi, SIGNAL(timeout()),
                 ui, SLOT(update()));
         connect(ui, SIGNAL(finished()),

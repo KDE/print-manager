@@ -152,89 +152,12 @@ bool QCups::addModifyClassOrPrinter(const QString &name, bool isClass, const QHa
     RUN_ACTION(cupsAddModifyClassOrPrinter(name.toUtf8(), isClass, values))
 }
 
-QList<QPair<QString, QString> > QCups::getDests(int mask)
+QList<Destination> QCups::getDests(int mask, const QStringList &requestedAttr)
 {
-    return cupsGetDests(mask);
+    return cupsGetDests(mask, requestedAttr);
 }
 
-Printer::Printer(QObject *parent)
-  : QObject(parent)
-{
-}
-
-Printer::Printer(const QString &destName,
-                 const QHash<QString, QVariant> &attributes,
-                 QObject *parent)
-  : QObject(parent), m_destName(destName), m_values(attributes)
-{
-
-//     if (m_values.isEmpty()) {
-//         cups_dest_t *dests;
-//         int num_dests = cupsGetDests(&dests);
-//         cups_dest_t *dest = cupsGetDest(destName.toUtf8(), NULL, num_dests, dests);
-//         if (dest == NULL) {
-//             return;
-//         }
-//         m_destName = destName;
-// 
-//         // store the printer values in a hash
-//         for (int i = 0; i < dest->num_options; i++) {
-//             m_values[dest->options[i].name] = QString::fromUtf8(dest->options[i].value);
-//         }
-//     }
-
-    kDebug() << m_values;
-/*
-    // store if the printer is shared
-    value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
-    if (value) {
-        // Here we have a cups docs bug where the SHARED returned
-        // value is the string "true" or "false", and not '1' or '0'
-        m_shared = value[0] == 't' || value[0] == '1';
-    }
-
-    // store the printer location
-    if (value = cupsGetOption("printer-location", dest->num_options, dest->options)) {
-        m_location = QString::fromUtf8(value);
-    }
-
-    // store the printer description
-    if (value = cupsGetOption("printer-info", dest->num_options, dest->options)) {
-        m_description = QString::fromUtf8(value);
-    }
-
-    // store the printer kind
-    if (value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options)) {
-        m_makeAndModel = QString::fromUtf8(value);
-    }
-
-    // store the printer uri
-    if (value = cupsGetOption("device-uri", dest->num_options, dest->options)) {
-        m_connection = QString::fromUtf8(value);
-    }
-
-    cupsFreeDests(num_dests, dests);*/
-}
-
-QVariant Printer::value(const QString &name) const
-{
-    if (m_values.contains(name)) {
-        return m_values[name];
-    }
-    return QVariant();
-}
-
-QString Printer::destName() const
-{
-    return m_destName;
-}
-
-// bool Printer::setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename)
-// {
-//     return setAttributes(m_destName, isClass, values, filename);
-// }
-
-bool Printer::setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename)
+bool QCups::Dest::setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename)
 {
     if (values.isEmpty() && !filename) {
         return false;
@@ -242,18 +165,16 @@ bool Printer::setAttributes(const QString &destName, bool isClass, const QHash<Q
 
     RUN_ACTION(cupsAddModifyClassOrPrinter(destName.toUtf8(), isClass, values, filename))
 }
- 
 
-bool Printer::setShared(const QString &destName, bool isClass, bool shared)
+
+bool QCups::Dest::setShared(const QString &destName, bool isClass, bool shared)
 {
     QHash<QString, QVariant> values;
     values["printer-is-shared"] = shared;
     return setAttributes(destName, isClass, values);
 }
 
-QHash<QString, QVariant> Printer::getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr)
+QHash<QString, QVariant> QCups::Dest::getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr)
 {
     return cupsGetAttributes(destName.toUtf8(), isClass, requestedAttr);
 }
-
-#include "QCups.moc"

@@ -29,6 +29,8 @@
 
 #include "QCups.h"
 
+using namespace QCups;
+
 PrinterModel::PrinterModel(WId parentId, QObject *parent)
  : QStandardItemModel(parent),
    m_parentId(parentId)
@@ -39,27 +41,37 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
 
 void PrinterModel::update()
 {
-    cups_dest_t *dests;
-    int num_dests = cupsGetDests(&dests);
-    cups_dest_t *dest;
-    int i;
+    QList<Destination> dests;
+    QStringList requestAttr;
+    requestAttr << "printer-name"
+                << "printer-state"
+                << "printer-state-message"
+                << "printer-is-shared"
+                << "printer-is-default"
+                << "printer-type"
+                << "printer-location"
+                << "printer-info"
+                << "printer-make-and-model";
+    // Get destinations with these attributes
+    dests = QCups::getDests(-1, requestAttr);
 
-    for (i = 0, dest = dests; i < num_dests; i++, dest++) {
+    for (int i = 0; i < dests.size(); i++) {
+        kDebug() << dests.at(i);
         // If there is a printer and it's not the current one add it
         // as a new destination
-        int dest_row = destRow(QString::fromLocal8Bit(dest->name));
+        int dest_row = destRow(dests.at(i)["printer-name"].toString());
         if (dest_row == -1) {
             // not found, insert new one
-            insertDest(i, dest);
+            insertDest(i, dests.at(i));
         } else if (dest_row == i) {
             // update the printer
-            updateDest(item(i), dest);
+            updateDest(item(i), dests.at(i));
         } else {
             // found at wrong position
             // take it and insert on the right position
             QList<QStandardItem *> row = takeRow(dest_row);
             insertRow(i, row);
-            updateDest(item(i), dest);
+            updateDest(item(i), dests.at(i));
         }
     }
 
@@ -68,19 +80,16 @@ void PrinterModel::update()
     // dest == modelIndex(x) and if it's not the
     // case it either inserts or moves it.
     // so any item > num_jobs can be safely deleted
-    while (rowCount() > num_dests) {
+    while (rowCount() > dests.size()) {
         removeRow(rowCount() - 1);
     }
-
-    // don't leak
-    cupsFreeDests(num_dests, dests);
 }
 
-void PrinterModel::insertDest(int pos, cups_dest_t *dest)
+void PrinterModel::insertDest(int pos, const QCups::Destination &dest)
 {
     // Create the printer item
-    QStandardItem *stdItem = new QStandardItem(QString::fromLocal8Bit(dest->name));
-    stdItem->setData(QString::fromLocal8Bit(dest->name), DestName);
+    QStandardItem *stdItem = new QStandardItem(dest["printer-name"].toString());
+    stdItem->setData(dest["printer-name"].toString(), DestName);
     stdItem->setIcon(KIcon("printer"));
     // update the item
     updateDest(stdItem, dest);
@@ -89,52 +98,39 @@ void PrinterModel::insertDest(int pos, cups_dest_t *dest)
     insertRow(pos, stdItem);
 }
 
-void PrinterModel::updateDest(QStandardItem *destItem, cups_dest_t *dest)
+void PrinterModel::updateDest(QStandardItem *destItem, const QCups::Destination &dest)
 {
-    const char *value;
     // store the default value
-    bool isDefault = static_cast<bool>(dest->is_default);
+    kDebug() << dest["printer-is-default"];
+    bool isDefault = dest["printer-is-default"].toBool();
     if (isDefault != destItem->data(DestIsDefault).toBool()) {
         destItem->setData(isDefault, DestIsDefault);
     }
 
     // store the printer state
-    value = cupsGetOption("printer-state", dest->num_options, dest->options);
-    if (value) {
-        QString status = destStatus(value[0]);
-        if (status != destItem->data(DestStatus)){
-            destItem->setData(status, DestStatus);
-        }
+    QString status = destStatus(dest["printer-state"].toInt(),
+                                dest["printer-state-message"].toString());
+    if (status != destItem->data(DestStatus)) {
+        destItem->setData(status, DestStatus);
     }
 
     // store if the printer is shared
-    value = cupsGetOption("printer-is-shared", dest->num_options, dest->options);
-    if (value) {
-        // Here we have a cups docs bug where the SHARED returned
-        // value is the string "true" or "false", and not '1' or '0'
-        bool shared = value[0] == 't' || value[0] == '1';
-        if (shared != destItem->data(DestIsShared)) {
-            destItem->setData(shared, DestIsShared);
-        }
+    bool shared = dest["printer-is-shared"].toBool();
+    if (shared != destItem->data(DestIsShared)) {
+        destItem->setData(shared, DestIsShared);
     }
 
     // store if the printer is a class
-    value = cupsGetOption("printer-type", dest->num_options, dest->options);
-    if (value) {
-        // the printer-type param is a flag
-        bool isClass = QString::fromLocal8Bit(value).toInt() & CUPS_PRINTER_CLASS;
-        if (isClass != destItem->data(DestIsClass)) {
-            destItem->setData(isClass, DestIsClass);
-        }
+    // the printer-type param is a flag
+    bool isClass = dest["printer-type"].toInt() & CUPS_PRINTER_CLASS;
+    if (isClass != destItem->data(DestIsClass)) {
+        destItem->setData(isClass, DestIsClass);
     }
 
     // store the printer location
-    value = cupsGetOption("printer-location", dest->num_options, dest->options);
-    if (value) {
-        QString location = QString::fromLocal8Bit(value);
-        if (location != destItem->data(DestLocation).toString()) {
-            destItem->setData(location, DestLocation);
-        }
+    QString location = dest["printer-location"].toString();
+    if (location != destItem->data(DestLocation).toString()) {
+        destItem->setData(location, DestLocation);
     }
 
     if (destItem->data(DestName).toString() != destItem->text()){
@@ -144,21 +140,15 @@ void PrinterModel::updateDest(QStandardItem *destItem, cups_dest_t *dest)
     }
 
     // store the printer description
-    value = cupsGetOption("printer-info", dest->num_options, dest->options);
-    if (value) {
-        QString description = QString::fromLocal8Bit(value);
-        if (description != destItem->data(DestDescription).toString()){
-            destItem->setData(description, DestDescription);
-        }
+    QString description = dest["printer-info"].toString();
+    if (description != destItem->data(DestDescription).toString()){
+        destItem->setData(description, DestDescription);
     }
 
     // store the printer kind
-    value = cupsGetOption("printer-make-and-model", dest->num_options, dest->options);
-    if (value) {
-        QString kind = QString::fromLocal8Bit(value);
-        if (kind != destItem->data(DestKind)) {
-            destItem->setData(kind, DestKind);
-        }
+    QString kind = dest["printer-make-and-model"].toString();
+    if (kind != destItem->data(DestKind)) {
+        destItem->setData(kind, DestKind);
     }
 }
 
@@ -166,7 +156,7 @@ int PrinterModel::destRow(const QString &destName)
 {
     // find the position of the jobId inside the model
     for (int i = 0; i < rowCount(); i++) {
-        if (destName == item(i)->data(DestName).toString().toLocal8Bit())
+        if (destName == item(i)->data(DestName).toString())
         {
             return i;
         }
@@ -175,17 +165,33 @@ int PrinterModel::destRow(const QString &destName)
     return -1;
 }
 
-QString PrinterModel::destStatus(const char &state) const
+QString PrinterModel::destStatus(int state, const QString &message) const
 {
     switch (state) {
     case DEST_IDLE :
-        return i18n("Idle");
+        if (message.isEmpty()){
+            return i18n("Idle");
+        } else {
+            return i18n("Idle - '%1'", message);
+        }
     case DEST_PRINTING :
-        return i18n("In use");
+        if (message.isEmpty()){
+            return i18n("In use");
+        } else {
+            return i18n("In use - '%1'", message);
+        }
     case DEST_STOPED :
-        return i18n("Paused");
+        if (message.isEmpty()){
+            return i18n("Paused");
+        } else {
+            return i18n("Paused - '%1'", message);
+        }
     default :
-        return i18n("Unknown");
+        if (message.isEmpty()){
+            return i18n("Unknown");
+        } else {
+            return i18n("Unknown - '%1'", message);
+        }
     }
 }
 

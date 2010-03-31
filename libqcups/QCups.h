@@ -22,40 +22,23 @@
 #define Q_CUPS_H
 
 #include <kdemacros.h>
-#include <QObject>
+#include <QStringList>
 #include <QHash>
 
-#define DEST_IDLE     '3'
-#define DEST_PRINTING '4'
-#define DEST_STOPED   '5'
+#define DEST_IDLE     3
+#define DEST_PRINTING 4
+#define DEST_STOPED   5
 
 namespace QCups
 {
-    class KDE_EXPORT Printer: public QObject
+    // Dest Methods
+    namespace Dest
     {
-        Q_OBJECT
-    public:
-        Printer(QObject *parent = 0);
-        explicit Printer(const QString &destName,
-                         const QHash<QString, QVariant> &attributes,
-                         QObject *parent = 0);
+        KDE_EXPORT bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
 
-        QString destName() const;
-        QHash<QString, QVariant> attributes() const;
-
-        QVariant value(const QString &name) const;
-
-//         bool setAttributes(bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
-        static bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
-
-        static bool setShared(const QString &destName, bool isClass, bool shared);
-        static QHash<QString, QVariant> getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
-//         static bool setAttributesFile(const QString &destName, const QStringList &requestedAttr);
-
-    private:
-        QString m_destName;
-        QHash<QString, QVariant> m_values;
-    };
+        KDE_EXPORT bool setShared(const QString &destName, bool isClass, bool shared);
+        KDE_EXPORT QHash<QString, QVariant> getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
+    }
 
     KDE_EXPORT void initialize();
     KDE_EXPORT bool cancelJob(const QString &name, int job_id);
@@ -68,7 +51,11 @@ namespace QCups
     KDE_EXPORT bool deletePrinter(const QString &name);
     KDE_EXPORT bool addModifyClassOrPrinter(const QString &name, bool isClass, const QHash<QString, QVariant> values);
 
-    KDE_EXPORT QList<QPair<QString, QString> > getDests(int mask);
+    typedef QHash<QString, QVariant> Destination;
+    // THIS function can get the default server dest throught
+    // "printer-is-default" attribute BUT it does not get user
+    // defined default printer, see cupsGetDefault() on www.cups.org for details
+    KDE_EXPORT QList<Destination> getDests(int mask, const QStringList &requestedAttr = QStringList());
 };
 
 #endif

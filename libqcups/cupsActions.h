@@ -34,7 +34,7 @@ namespace QCups
     bool cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
 
     QHash<QString, QVariant> cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr);
-    QList<QPair<QString, QString> > cupsGetDests(int mask);
+    QList<QHash<QString, QVariant> > cupsGetDests(int mask, const QStringList &requestedAttr);
 };
 
 #endif

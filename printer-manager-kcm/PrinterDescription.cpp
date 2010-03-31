@@ -79,7 +79,7 @@ void PrinterDescription::on_defaultCB_clicked()
 
 void PrinterDescription::on_sharedCB_clicked()
 {
-    setIsShared(QCups::Printer::setShared(m_destName, m_isClass, sharedCB->isChecked()));
+    setIsShared(QCups::Dest::setShared(m_destName, m_isClass, sharedCB->isChecked()));
 }
 
 void PrinterDescription::on_optionsPB_clicked()

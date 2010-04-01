@@ -52,7 +52,11 @@ void PrintQueueModel::updateModel()
     cups_job_t *jobs;
     num_jobs = cupsGetJobs(&jobs, m_destName.toUtf8(), 0, m_whichjobs);
 
+    m_processingJob.clear();
     for (int i = 0; i < num_jobs; i++) {
+        if (jobs[i].state == IPP_JOB_PROCESSING) {
+              m_processingJob = QString::fromUtf8(jobs[i].title);
+        }
         // try to find the job row
         int job_row = jobRow(jobs[i].id);
         if (job_row == -1) {
@@ -296,6 +300,11 @@ Qt::ItemFlags PrintQueueModel::flags(const QModelIndex &index) const
         }
     }
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsDropEnabled;
+}
+
+QString PrintQueueModel::processingJob() const
+{
+    return m_processingJob;
 }
 
 #include "PrintQueueModel.moc"

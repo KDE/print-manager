@@ -54,6 +54,7 @@ public:
     } Columns;
 
     PrintQueueModel(const QString &destName, WId parentId, QObject *parent = 0);
+    QString processingJob() const;
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QStringList mimeTypes() const;
@@ -73,6 +74,7 @@ public slots:
 
 private:
     QString m_destName;
+    QString m_processingJob;
     int m_whichjobs;
     bool m_showPrinterColumn;
     WId m_parentId;

@@ -71,7 +71,6 @@ private:
     QPixmap m_warningIcon;
     bool m_printerPaused;
     char m_lastState;
-    QString m_lastMessage;
 };
 
 #endif

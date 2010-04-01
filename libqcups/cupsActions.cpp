@@ -170,8 +170,6 @@ QList<QHash<QString, QVariant> > QCups::cupsGetDests(int mask, const QStringList
     char **attributes;
     QList<QHash<QString, QVariant> > ret;
 
-    QString defaultDest = QString::fromUtf8(cupsGetDefault());
-
     request = ippNewRequest(CUPS_GET_PRINTERS);
 
     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type",
@@ -296,11 +294,6 @@ QList<QHash<QString, QVariant> > QCups::cupsGetDests(int mask, const QStringList
                     break;
                 else
                     continue;
-            }
-
-            if (requestedAttr.contains("printer-is-default") &&
-                defaultDest == destAttributes["printer-name"].toString()) {
-                destAttributes["printer-is-default"] = true;
             }
 
             ret << destAttributes;

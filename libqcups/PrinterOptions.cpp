@@ -31,14 +31,20 @@
 #include <QFormLayout>
 #include <KComboBox>
 #include <QRadioButton>
+#include <QButtonGroup>
 #include <QStandardItemModel>
 #include <QListView>
 #include <KDebug>
 
 using namespace QCups;
 
-PrinterOptions::PrinterOptions(const QString &destName, bool isClass, QWidget *parent)
- : PrinterPage(parent), m_destName(destName), m_isClass(isClass), m_ppd(NULL), m_changes(0)
+PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent)
+ : PrinterPage(parent),
+   m_destName(destName),
+   m_isClass(isClass),
+   m_isRemote(isRemote),
+   m_ppd(NULL),
+   m_changes(0)
 {
     setupUi(this);
 
@@ -78,20 +84,6 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, QWidget *p
     }
 
     createGroups();
-
-//     makeCB->addItem(m_printer->value("printer-make-and-model"));
-//     nameLE->setText(m_printer->value("printer-info"));
-//     nameLE->setProperty("orig_text", m_printer->value("printer-info"));
-//     locationLE->setText(m_printer->value("printer-location"));
-//     locationLE->setProperty("orig_text", m_printer->value("printer-location"));
-//     connectionLE->setText(m_printer->value("device-uri"));
-//     connectionLE->setProperty("orig_text", m_printer->value("device-uri"));
-//     connect(nameLE, SIGNAL(textChanged(const QString &)),
-//             this, SLOT(textChanged(const QString &)));
-//     connect(locationLE, SIGNAL(textChanged(const QString &)),
-//             this, SLOT(textChanged(const QString &)));
-//     connect(connectionLE, SIGNAL(textChanged(const QString &)),
-//             this, SLOT(textChanged(const QString &)));
 }
 
 void PrinterOptions::createGroups()
@@ -170,23 +162,62 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
     Q_UNUSED(keyword)
     QWidget *widget = new QWidget(parent);
     QHBoxLayout *layout = new QHBoxLayout(widget);
+    QButtonGroup *radioGroup = new QButtonGroup(widget);
     widget->setLayout(layout);
 
     int i;
     ppd_choice_t *choice;
-    QString oDefChoice = m_codec->toUnicode(option->defchoice);
+    QString defChoice = m_codec->toUnicode(option->defchoice);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
          i++, choice++) {
-        QString cName = m_codec->toUnicode(choice->choice);
+        QString choiceName = m_codec->toUnicode(choice->choice);
         QString cText = m_codec->toUnicode(choice->text);
 
         QRadioButton *button = new QRadioButton(cText, widget);
-        button->setChecked(oDefChoice == cName);
+        button->setChecked(defChoice == choiceName);
+        button->setProperty("choice", choiceName);
+        // if we are in looking at a remote printer we can't save it
+        button->setEnabled(!m_isRemote);
         layout->addWidget(button);
+        radioGroup->addButton(button);
     }
+    // store the default choice
+    radioGroup->setProperty("defaultChoice", defChoice);
+    radioGroup->setProperty("Keyword", keyword);
+    connect(radioGroup, SIGNAL(buttonClicked(QAbstractButton *)),
+            this, SLOT(radioBtClicked(QAbstractButton *)));
     return widget;
+}
+
+void PrinterOptions::radioBtClicked(QAbstractButton *button)
+{
+    QButtonGroup *radioGroup = qobject_cast<QButtonGroup*>(sender());
+    bool isDifferent = radioGroup->property("defaultChoice").toString() != button->property("choice");
+
+    if (isDifferent != radioGroup->property("different").toBool()) {
+        // it's different from the last time so add or remove changes
+        isDifferent ? m_changes++ : m_changes--;
+
+        radioGroup->setProperty("different", isDifferent);
+        emit changed(m_changes);
+    }
+
+    QString keyword = radioGroup->property("Keyword").toString();
+    QString choice = button->property("choice").toString();
+    radioGroup->setProperty("currentChoice", choice);
+
+    // TODO warning about conflicts
+    ppdMarkOption(m_ppd,
+                  m_codec->fromUnicode(keyword),
+                  m_codec->fromUnicode(choice));
+    // store the new value
+    if (isDifferent) {
+        m_customValues[keyword] = qobject_cast<QObject*>(radioGroup);
+    } else {
+        m_customValues.remove(keyword);
+    }
 }
 
 QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const
@@ -215,6 +246,8 @@ QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, 
         item->setCheckState(oDefChoice == cName ? Qt::Checked : Qt::Unchecked);
         model->appendRow(item);
     }
+    // if we are in looking at a remote printer we can't save it
+    listView->setEnabled(!m_isRemote);
     return qobject_cast<QWidget*>(listView);
 }
 
@@ -222,7 +255,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 {
     int i;
     ppd_choice_t *choice;
-    QString oDefChoice = m_codec->toUnicode(option->defchoice);
+    QString defChoice = m_codec->toUnicode(option->defchoice);
     KComboBox *comboBox = new KComboBox(parent);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
@@ -233,21 +266,22 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 
         comboBox->addItem(cText, cName);
     }
-    // selects the default choice
-    int defaultChoice = comboBox->findData(oDefChoice);
-    comboBox->setProperty("defaultChoice", defaultChoice);
+    // store the default choice
+    comboBox->setProperty("defaultChoice", defChoice);
     comboBox->setProperty("Keyword", keyword);
-    comboBox->setCurrentIndex(comboBox->findData(oDefChoice));
+    comboBox->setCurrentIndex(comboBox->findData(defChoice));
     // connect the signal AFTER setCurrentIndex is called
     connect(comboBox, SIGNAL(currentIndexChanged(int)),
             this, SLOT(currentIndexChangedCB(int)));
+    // if we are in looking at a remote printer we can't save it
+    comboBox->setEnabled(!m_isRemote);
     return qobject_cast<QWidget*>(comboBox);
 }
 
 void PrinterOptions::currentIndexChangedCB(int index)
 {
     KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
-    bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
+    bool isDifferent = comboBox->property("defaultChoice").toString() != comboBox->itemText(index);
 
     if (isDifferent != comboBox->property("different").toBool()) {
         // it's different from the last time so add or remove changes
@@ -259,13 +293,15 @@ void PrinterOptions::currentIndexChangedCB(int index)
 
     QString keyword = comboBox->property("Keyword").toString();
     QString value = comboBox->itemData(index).toString();
+    comboBox->setProperty("currentChoice", value);
+
     // TODO warning about conflicts
     ppdMarkOption(m_ppd,
                   m_codec->fromUnicode(keyword),
                   m_codec->fromUnicode(value));
     // store the new value
     if (isDifferent) {
-        m_customValues[keyword] = value;
+        m_customValues[keyword] = qobject_cast<QObject*>(comboBox);
     } else {
         m_customValues.remove(keyword);
     }
@@ -276,6 +312,10 @@ PrinterOptions::~PrinterOptions()
     if (m_ppd != NULL) {
         ppdClose(m_ppd);
     }
+
+    if (m_filename) {
+        unlink(m_filename);
+    }
 }
 
 const char *                            /* O - Value of variable */
@@ -283,7 +323,8 @@ PrinterOptions::getVariable(const char *name)    const    /* I - Name of variabl
 {
     QString keyword = m_codec->toUnicode(name);
     if (m_customValues.contains(keyword)) {
-        return m_codec->fromUnicode(m_customValues[keyword]);
+        QString value = m_customValues[keyword]->property("currentChoice").toString();
+        return m_codec->fromUnicode(value);
     } else {
         return NULL;
     }
@@ -579,25 +620,20 @@ void PrinterOptions::save()
 {
     char tempfile[1024];
     const char  *var;
-    cups_file_t       *in,                    /* Input file */
+    cups_file_t *in,                    /* Input file */
                 *out;                   /* Output file */
-    char          line[1024],             /* Line from PPD file */
+    char        line[1024],             /* Line from PPD file */
                 value[1024],            /* Option value */
                 keyword[1024],          /* Keyword from Default line */
                 *keyptr;                /* Pointer into keyword... */
+
     // copy cups-1.4.2/cgi-bin line 3779
-    if (m_filename)
-    {
+    if (m_filename) {
         out = cupsTempFile2(tempfile, sizeof(tempfile));
         in  = cupsFileOpen(m_filename, "r");
 
         if (!in || !out)
         {
-    //         cgiSetVariable("ERROR", strerror(errno));
-    //         cgiStartHTML(cgiText(_("Set Printer Options")));
-    //         cgiCopyTemplateLang("error.tmpl");
-    //         cgiEndHTML();
-
             if (in) {
                 cupsFileClose(in);
             }
@@ -607,64 +643,71 @@ void PrinterOptions::save()
                 unlink(tempfile);
             }
 
-// TODO
-//             unlink(m_filename);
+            // TODO add a KMessageBox::error
+
             return;
-      }
-
-      while (cupsFileGets(in, line, sizeof(line)))
-      {
-        if (!strncmp(line, "*cupsProtocol:", 14))
-          continue;
-        else if (strncmp(line, "*Default", 8))
-          cupsFilePrintf(out, "%s\n", line);
-        else
-        {
-         /*
-          * Get default option name...
-          */
-
-          qstrncpy(keyword, line + 8, sizeof(keyword));
-
-          for (keyptr = keyword; *keyptr; keyptr ++)
-            if (*keyptr == ':' || isspace(*keyptr & 255))
-              break;
-
-          *keyptr = '\0';
-
-          if (!strcmp(keyword, "PageRegion") ||
-              !strcmp(keyword, "PaperDimension") ||
-              !strcmp(keyword, "ImageableArea"))
-            var = get_option_value(m_ppd, "PageSize", value, sizeof(value));
-          else
-            var = get_option_value(m_ppd, keyword, value, sizeof(value));
-
-          if (!var)
-            cupsFilePrintf(out, "%s\n", line);
-          else
-            cupsFilePrintf(out, "*Default%s: %s\n", keyword, var);
         }
-      }
 
-      cupsFileClose(in);
-      cupsFileClose(out);
+        while (cupsFileGets(in, line, sizeof(line))) {
+            if (!strncmp(line, "*cupsProtocol:", 14)) {
+                continue;
+            } else if (strncmp(line, "*Default", 8)) {
+                cupsFilePrintf(out, "%s\n", line);
+            } else {
+                /*
+                * Get default option name...
+                */
+                qstrncpy(keyword, line + 8, sizeof(keyword));
+
+                for (keyptr = keyword; *keyptr; keyptr ++) {
+                    if (*keyptr == ':' || isspace(*keyptr & 255)) {
+                        break;
+                    }
+                }
+
+                *keyptr = '\0';
+
+                if (!strcmp(keyword, "PageRegion") ||
+                    !strcmp(keyword, "PaperDimension") ||
+                    !strcmp(keyword, "ImageableArea")) {
+                    var = get_option_value(m_ppd, "PageSize", value, sizeof(value));
+                } else {
+                    var = get_option_value(m_ppd, keyword, value, sizeof(value));
+                }
+
+                if (!var) {
+                    cupsFilePrintf(out, "%s\n", line);
+                } else {
+                    cupsFilePrintf(out, "*Default%s: %s\n", keyword, var);
+                }
+            }
+        }
+
+        cupsFileClose(in);
+        cupsFileClose(out);
     }
 
-    QHash<QString, QVariant> values;
-    kDebug() << Dest::setAttributes(m_destName, m_isClass, values, tempfile);
-//     if (m_changes) {
-//         QHash<QString, QVariant> values;
-//         if (nameLE->property("different").toBool()) {
-//             values["printer-info"] = nameLE->text();
-//         }
-//         if (locationLE->property("different").toBool()) {
-//             values["printer-location"] = locationLE->text();
-//         }
-//         if (connectionLE->property("different").toBool()) {
-//             values["device-uri"] = connectionLE->text();
-//         }
-//         m_printer->save(values);
-//     }
+    QHash<QString, QVariant> values; // we need null values
+    if (Dest::setAttributes(m_destName, m_isClass, values, tempfile)) {
+        // if we succefully save the new ppd we need now to
+        // clear our changes
+        QHash<QString, QObject*>::const_iterator i = m_customValues.constBegin();
+        while (i != m_customValues.constEnd()) {
+            QString currentChoice;
+            currentChoice = i.value()->property("currentChoice").toString();
+            // Store the current choice as the default one
+            i.value()->setProperty("defaultChoice", currentChoice);
+            i.value()->setProperty("currentChoice", QVariant());
+            i.value()->setProperty("different", false);
+            ++i;
+        }
+        m_changes = 0;
+        m_customValues.clear();
+        emit changed(false);
+    }
+
+    // unlink the file
+    unlink(tempfile);
 }
 
 bool PrinterOptions::hasChanges()

@@ -47,7 +47,6 @@ void PrinterModel::update()
                 << "printer-state"
                 << "printer-state-message"
                 << "printer-is-shared"
-                << "printer-is-default"
                 << "printer-type"
                 << "printer-location"
                 << "printer-info"
@@ -56,7 +55,6 @@ void PrinterModel::update()
     dests = QCups::getDests(-1, requestAttr);
 
     for (int i = 0; i < dests.size(); i++) {
-        kDebug() << dests.at(i);
         // If there is a printer and it's not the current one add it
         // as a new destination
         int dest_row = destRow(dests.at(i)["printer-name"].toString());
@@ -100,9 +98,8 @@ void PrinterModel::insertDest(int pos, const QCups::Destination &dest)
 
 void PrinterModel::updateDest(QStandardItem *destItem, const QCups::Destination &dest)
 {
-    // store the default value
-    kDebug() << dest["printer-is-default"];
-    bool isDefault = dest["printer-is-default"].toBool();
+    // store if the printer is the network default
+    bool isDefault = dest["printer-type"].toInt() & CUPS_PRINTER_DEFAULT;
     if (isDefault != destItem->data(DestIsDefault).toBool()) {
         destItem->setData(isDefault, DestIsDefault);
     }

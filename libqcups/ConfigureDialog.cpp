@@ -89,10 +89,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     if (!isClass) {
         // At least on localhost:631 modify printer does not show printer options
         // for classes
-        PrinterOptions *pOp = new PrinterOptions(destName, isClass, this);
-        if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
-            pOp->setEnabled(false);
-        }
+        PrinterOptions *pOp = new PrinterOptions(destName, isClass, isRemote, this);
         page = new KPageWidgetItem(pOp, i18n("Printer Options"));
         page->setHeader(i18n("Set the Default Printer Options"));
         page->setIcon(KIcon("view-pim-tasks"));

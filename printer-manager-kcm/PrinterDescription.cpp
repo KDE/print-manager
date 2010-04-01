@@ -99,7 +99,7 @@ void PrinterDescription::setDestName(const QString &name, const QString &descrip
 
     if (!description.isEmpty() && description != printerNameL->text()) {
         printerNameL->setText(description);
-    } else if (name != printerNameL->text()) {
+    } else if (description.isEmpty() && name != printerNameL->text()) {
         printerNameL->setText(name);
     }
 }

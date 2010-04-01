@@ -35,7 +35,7 @@ class PrinterOptions : public PrinterPage, Ui::PrinterOptions
 {
     Q_OBJECT
 public:
-    explicit PrinterOptions(const QString &destName, bool isClass, QWidget *parent = 0);
+    explicit PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent = 0);
     ~PrinterOptions();
 
     bool hasChanges();
@@ -45,16 +45,18 @@ public:
 
 private slots:
     void currentIndexChangedCB(int index);
+    void radioBtClicked(QAbstractButton *button);
 
 private:
     QString m_destName;
     bool m_isClass;
+    bool m_isRemote;
     const char  *m_filename;
     ppd_file_t *m_ppd;
     int m_changes;
     QTextCodec *m_codec;
     QHash<QString, int> m_groupsTab;
-    QHash<QString, QString> m_customValues;
+    QHash<QString, QObject*> m_customValues;
 
     QWidget* pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
     QWidget* pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const;

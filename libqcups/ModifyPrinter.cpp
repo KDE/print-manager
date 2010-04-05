@@ -20,9 +20,13 @@
 
 #include "ModifyPrinter.h"
 
+#include "SelectMakeModel.h"
+
 #include "QCups.h"
 #include <cups/cups.h>
 
+#include <QPointer>
+#include <KFileDialog>
 #include <KDebug>
 
 using namespace QCups;
@@ -50,14 +54,81 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
             this, SLOT(textChanged(const QString &)));
     connect(m_model, SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(modelChanged()));
+    connect(fileKUR, SIGNAL(textChanged(const QString &)),
+            fileL, SLOT(show()));
+    connect(fileKUR, SIGNAL(textChanged(const QString &)),
+            fileKUR, SLOT(show()));
 }
 
 ModifyPrinter::~ModifyPrinter()
 {
 }
 
+void ModifyPrinter::on_makeCB_activated(int index)
+{
+    bool isDifferent = true;
+    if (makeCB->itemData(index).toUInt() == PPDList) {
+        fileL->hide();
+        fileKUR->hide();
+        QPointer<KDialog> dialog = new KDialog(this);
+        dialog->setCaption("Select a Driver");
+        dialog->setButtons(KDialog::Ok | KDialog::Cancel);
+        SelectMakeModel *widget = new SelectMakeModel(m_make, m_makeAndModel, this);
+        dialog->setMainWidget(widget);
+        connect(widget, SIGNAL(changed(bool)),
+                dialog, SLOT(enableButtonOk(bool)));
+        // Call this to disable the Ok button
+        widget->checkChanged();
+
+        if (dialog->exec() == QDialog::Accepted && dialog) {
+            QString makeAndModel = widget->selectedMakeAndModel();
+            QString ppdName = widget->selectedPPDName();
+            if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
+                makeCB->insertItem(0, makeAndModel, PPDCustom);
+                makeCB->setItemData(0, ppdName, PPDName);
+                makeCB->setCurrentIndex(0);
+                // store the new value
+                m_changedValues["ppd-name"] = ppdName;
+            } else {
+                isDifferent = false;
+                makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
+            }
+        } else {
+            isDifferent = false;
+            makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
+        }
+    } else if (makeCB->itemData(index).toUInt() == PPDFile) {
+        fileKUR->fileDialog()->show();
+    } else if (makeCB->itemData(index).toUInt() == PPDDefault) {
+        isDifferent = false;
+        m_changedValues.remove("ppd-name");
+        fileL->hide();
+        fileKUR->hide();
+    } else if (makeCB->itemData(index).toUInt() == PPDCustom) {
+        fileL->hide();
+        fileKUR->hide();
+        m_changedValues["ppd-name"] = makeCB->itemData(index, PPDName).toString();
+    } else {
+        fileL->hide();
+        fileKUR->hide();
+        kWarning() << "This should not happen";
+        return;
+    }
+//     kDebug() << isDifferent << makeCB->property("different").toBool();
+
+    if (isDifferent != makeCB->property("different").toBool()) {
+        // it's different from the last time so add or remove changes
+        isDifferent ? m_changes++ : m_changes--;
+
+        makeCB->setProperty("different", isDifferent);
+        emit changed(m_changes);
+    }
+    makeCB->setProperty("lastIndex", makeCB->currentIndex());
+}
+
 void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
 {
+//     kDebug() << values;
     if (m_isClass) {
         QList<Destination> dests;
         // Ask just these attributes
@@ -93,6 +164,18 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
                 m_model->appendRow(item);
             }
         }
+    } else {
+        fileL->hide();
+        fileKUR->hide();
+        makeCB->clear();
+        makeCB->setProperty("different", false);
+        makeCB->setProperty("lastIndex", 0);
+        makeCB->insertItem(0,
+                           i18n("Current - %1", values["printer-make-and-model"].toString()),
+                           PPDDefault);
+        makeCB->insertSeparator(1);
+        makeCB->insertItem(2, i18n("Select a Driver from a List"), PPDList);
+        makeCB->insertItem(3, i18n("Provide a PPD file"), PPDFile);
     }
 
     nameLE->setText(values["printer-info"].toString());
@@ -103,8 +186,6 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
 
     connectionLE->setText(values["device-uri"].toString());
     connectionLE->setProperty("orig_text", values["device-uri"].toString());
-
-    makeCB->addItem(values["printer-make-and-model"].toString());
 
     // clear old values
     m_changes = 0;
@@ -192,6 +273,15 @@ void ModifyPrinter::setRemote(bool remote)
     connectionLE->setReadOnly(remote);
 }
 
+void ModifyPrinter::setCurrentMake(const QString &make)
+{
+    m_make = make;
+}
+
+void ModifyPrinter::setCurrentMakeAndModel(const QString &makeAndModel)
+{
+    m_makeAndModel = makeAndModel;
+}
 
 QStringList ModifyPrinter::neededValues() const
 {

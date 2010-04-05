@@ -82,7 +82,7 @@
        <property name="title">
         <string>Driver</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2">
+       <layout class="QFormLayout" name="formLayout_2">
         <item row="0" column="0">
          <widget class="QLabel" name="label_4">
           <property name="text">
@@ -100,6 +100,20 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="fileL">
+          <property name="text">
+           <string>File:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="KUrlRequester" name="fileKUR">
+          <property name="filter">
+           <string notr="true">*.ppd</string>
           </property>
          </widget>
         </item>
@@ -131,6 +145,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>KUrlRequester</class>
+   <extends>QFrame</extends>
+   <header>kurlrequester.h</header>
+  </customwidget>
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>

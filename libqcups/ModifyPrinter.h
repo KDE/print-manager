@@ -33,7 +33,15 @@ namespace QCups {
 class ModifyPrinter : public PrinterPage, Ui::ModifyPrinter
 {
     Q_OBJECT
+    Q_ENUMS(Role)
 public:
+    typedef enum {
+        PPDDefault,
+        PPDCustom,
+        PPDFile,
+        PPDList,
+        PPDName = Qt::UserRole + 1
+    } Role;
     explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = 0);
     ~ModifyPrinter();
 
@@ -43,14 +51,18 @@ public:
     void setRemote(bool remote);
 
     void setValues(const QHash<QString, QVariant> &values);
+    void setCurrentMake(const QString &make);
+    void setCurrentMakeAndModel(const QString &makeAndModel);
+
     void save();
 
 private slots:
     void textChanged(const QString &text);
+    void on_makeCB_activated(int index);
     void modelChanged();
 
 private:
-    QString m_destName;
+    QString m_destName, m_make, m_makeAndModel;
     bool m_isClass;
     QHash<QString, QVariant> m_changedValues;
     int m_changes;

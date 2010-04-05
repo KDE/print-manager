@@ -83,6 +83,14 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
         m_codec = QTextCodec::codecForName("UTF-8");
     }
 
+    if (m_ppd->manufacturer) {
+        m_make = m_codec->toUnicode(m_ppd->manufacturer);
+    }
+
+    if (m_ppd->nickname) {
+        m_makeAndModel = m_codec->toUnicode(m_ppd->nickname);
+    }
+
     createGroups();
 }
 
@@ -713,6 +721,16 @@ void PrinterOptions::save()
 bool PrinterOptions::hasChanges()
 {
     return m_changes;
+}
+
+QString PrinterOptions::currentMake() const
+{
+    return m_make;
+}
+
+QString PrinterOptions::currentMakeAndModel() const
+{
+    return m_makeAndModel;
 }
 
 #include "PrinterOptions.moc"

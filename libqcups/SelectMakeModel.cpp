@@ -19,156 +19,100 @@
  ***************************************************************************/
 
 #include "SelectMakeModel.h"
-#include "PrinterPage.h"
+#include "PPDModel.h"
 
-#include "ModifyPrinter.h"
-#include "PrinterBehavior.h"
-#include "PrinterOptions.h"
+#include "QCups.h"
 
-#include <cups/cups.h>
-
+#include <QLineEdit>
 #include <KMessageBox>
 #include <KDebug>
 
 using namespace QCups;
 
-SelectMakeModel::SelectMakeModel(const QString &destName, bool isClass, QWidget *parent)
- : KPageDialog(parent)
+SelectMakeModel::SelectMakeModel(const QString &make, const QString &makeAndModel, QWidget *parent)
+ : QWidget(parent)
 {
-    setFaceType(List);
-    setModal(true);
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
-    setWindowTitle(destName);
-    enableButtonApply(false);
-    KConfig config("print-manager");
-    KConfigGroup configureDialog(&config, "SelectMakeModel");
-    restoreDialogSize(configureDialog);
+    setupUi(this);
 
-    QStringList attr;
-    KPageWidgetItem *page;
+    QList<QHash<QString, QVariant> > ppds = QCups::getPPDS();
+    PPDModel *sourceModel = new PPDModel(ppds, this);
+    m_model = new QSortFilterProxyModel(this);
+    m_model->setSourceModel(sourceModel);
+    ppdsLV->setModel(m_model);
 
-    ModifyPrinter *widget = new ModifyPrinter(destName, isClass, this);
-    PrinterBehavior *pBW = new PrinterBehavior(destName, isClass, this);
-    attr << widget->neededValues();
-    attr << pBW->neededValues();
-    attr << "printer-type"; // needed to know if it's a remote printer
-    attr.removeDuplicates();
-    QHash<QString, QVariant> values = Dest::getAttributes(destName, isClass, attr);
+    QStringList makes;
+    for (int i = 0; i < ppds.size(); i++) {
+        makes << ppds.at(i)["ppd-make"].toString();
+    }
+    makes.sort();
+    makes.removeDuplicates();
+    makeFilterKCB->addItems(makes);
+    makeFilterKCB->setCurrentIndex(makeFilterKCB->findText(make));
 
-    kDebug() << values;
- if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {
-     kDebug() << "CUPS_PRINTER_LOCAL";
- }
- if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
-     kDebug() << "CUPS_PRINTER_CLASS";
- }
- bool isRemote = false;
- if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
-     kDebug() << "CUPS_PRINTER_REMOTE";
-     isRemote = true;
- }
- if (values["printer-type"].toUInt() & CUPS_PRINTER_BW) {
-     kDebug() << "CUPS_PRINTER_BW";
- }
-  if (values["printer-type"].toUInt() & CUPS_PRINTER_COLOR) {
-     kDebug() << "CUPS_PRINTER_COLOR";
- }
-  if (values["printer-type"].toUInt() & CUPS_PRINTER_MFP) {
-     kDebug() << "CUPS_PRINTER_MFP";
- }
-
-    widget->setRemote(isRemote);
-    widget->setValues(values);
-    page = new KPageWidgetItem(widget, i18n("Modify Printer"));
-    page->setHeader(i18n("Configure"));
-    page->setIcon(KIcon("dialog-information"));
-    // CONNECT this signal ONLY to the first Page
-    connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
-    addPage(page);
-
-    if (!isClass) {
-        // At least on localhost:631 modify printer does not show printer options
-        // for classes
-        PrinterOptions *pOp = new PrinterOptions(destName, isClass, isRemote, this);
-        page = new KPageWidgetItem(pOp, i18n("Printer Options"));
-        page->setHeader(i18n("Set the Default Printer Options"));
-        page->setIcon(KIcon("view-pim-tasks"));
-        addPage(page);
+    if (!makeAndModel.isEmpty()) {
+        // Tries to find the current PPD and select it
+        for (int i = 0; i < m_model->rowCount(); i++) {
+            QString modelMakeAndModel;
+            modelMakeAndModel = m_model->index(i, 0).data(PPDModel::PPDMakeAndModel).toString();
+            if (modelMakeAndModel == makeAndModel) {
+                ppdsLV->setCurrentIndex(m_model->index(i, 0));
+                break;
+            }
+        }
     }
 
-    pBW->setRemote(isRemote);
-    pBW->setValues(values);
-    page = new KPageWidgetItem(pBW, i18n("Banners, Policies and Allowed Users"));
-    page->setHeader(i18n("Banners, Policies and Allowed Users"));
-    page->setIcon(KIcon("feed-subscribe"));
-    addPage(page);
-
-    // connect this after ALL pages were added, otherwise the slot will be called
-    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
-            SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
-    restoreDialogSize(configureDialog);
+    connect(ppdsLV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+            this, SLOT(checkChanged()));
 }
 
 SelectMakeModel::~SelectMakeModel()
 {
-    KConfig config("print-manager");
-    KConfigGroup configureDialog(&config, "SelectMakeModel");
-    saveDialogSize(configureDialog);
 }
 
-void SelectMakeModel::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
+void SelectMakeModel::checkChanged()
 {
-    PrinterPage *currentPage = qobject_cast<PrinterPage*>(current->widget());
-    PrinterPage *beforePage = qobject_cast<PrinterPage*>(before->widget());
-
-    // Check if the before page has changes
-    savePage(beforePage);
-    if (beforePage) {
-        disconnect(beforePage, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
-    }
-
-    // connect the changed signal to the new page and check if it has changes
-    connect(currentPage, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
-    enableButtonApply(currentPage->hasChanges());
-}
-
-void SelectMakeModel::slotButtonClicked(int button)
-{
-    PrinterPage *page = qobject_cast<PrinterPage *>(currentPage()->widget());
-    if (button == KDialog::Ok) {
-        page->save();
-        accept();
-    } else if (button == KDialog::Apply) {
-        page->save();
+    QItemSelection selection;
+    // we need to map the selection to source to get the real indexes
+    selection = ppdsLV->selectionModel()->selection();
+    // enable or disable the job action buttons if something is selected
+    emit changed(!selection.indexes().isEmpty());
+    if (!selection.indexes().isEmpty()) {
+        QModelIndex index = selection.indexes().at(0);
+        m_selectedMakeAndModel = index.data(PPDModel::PPDMakeAndModel).toString();
+        m_selectedPPDName = index.data(PPDModel::PPDName).toString();
+        emit changed(true);
     } else {
-        KDialog::slotButtonClicked(button);
+        m_selectedMakeAndModel.clear();
+        m_selectedPPDName.clear();
+        emit changed(false);
     }
 }
 
-void SelectMakeModel::closeEvent(QCloseEvent *event)
+QString SelectMakeModel::selectedPPDName() const
 {
-    PrinterPage *page = qobject_cast<PrinterPage*>(currentPage()->widget());
-    if (savePage(page)) {
-        event->accept();
+    return m_selectedPPDName;
+}
+
+QString SelectMakeModel::selectedMakeAndModel() const
+{
+    return m_selectedMakeAndModel;
+}
+
+void SelectMakeModel::on_makeFilterKCB_editTextChanged(const QString &text)
+{
+    // We can't be sure if activated or current indexChanged signal
+    // will be emmited before this signal.
+    // So we check if the line edit was modified by the user to be 100% sure
+    if (makeFilterKCB->lineEdit()->isModified()) {
+        m_model->setFilterRole(Qt::DisplayRole);
+        m_model->setFilterCaseSensitivity(Qt::CaseInsensitive);
+        m_model->setFilterFixedString(text);
     } else {
-        event->ignore();
+        m_model->setFilterRole(PPDModel::PPDMake);
+        m_model->setFilterCaseSensitivity(Qt::CaseSensitive);
+        m_model->setFilterFixedString(text);
     }
 }
 
-bool SelectMakeModel::savePage(PrinterPage *page)
-{
-    if (page->hasChanges()) {
-        int ret;
-        ret = KMessageBox::warningYesNoCancel(this,
-                                               i18n("The current page has changes.\n"
-                                                    "Do you want to save them?"));
-        if (ret == KMessageBox::Yes) {
-            page->save();
-        } else if (ret == KMessageBox::Cancel) {
-            return false;
-        }
-    }
-    return true;
-}
 
 #include "SelectMakeModel.moc"

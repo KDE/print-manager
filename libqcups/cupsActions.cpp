@@ -50,10 +50,10 @@ ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
     return request;
 }
 
-QStringList QCups::cupsGetPPDS(const QString &make)
+QList<QHash<QString, QVariant> > QCups::cupsGetPPDS(const QString &make)
 {
     ipp_t *request, *response;
-    QStringList ret;
+    QList<QHash<QString, QVariant> > ret;
 
     request = ippNewRequest(CUPS_GET_PPDS);
 
@@ -64,19 +64,32 @@ QStringList QCups::cupsGetPPDS(const QString &make)
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_TEXT,
                      "ppd-make-and-model", NULL, make.toUtf8());
     } else {
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                     "requested-attributes", NULL, "ppd-make");
+//         static const char * const attrs[] =     /* Requested attributes */
+//                 {
+//                   "ppd-name",
+//                   "ppd-make",
+//                   "ppd-make-and-model",
+//                   "ppd-natural-language"
+//                 };
+//         ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
+//                   "requested-attributes",
+//                   (int)(sizeof(attrs) / sizeof(attrs[0])), NULL, attrs);
+//         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
+//                      "requested-attributes", NULL, "ppd-make");
     }
 
     if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/")) != NULL) {
-        QList<QHash<QString, QVariant> > parsed = cupsParseIPPVars(response, false);
-        for (int i = 0; i < parsed.size(); i++) {
-            if (make.isEmpty()) {
-                ret << parsed.at(i)["ppd-make"].toString();
-            } else {
-                ret << parsed.at(i)["ppd-make-and-model"].toString();
-            }
-        }
+        ret = cupsParseIPPVars(response, false);
+//         for (int i = 0; i < parsed.size(); i++) {
+//             if (make.isEmpty()) {
+// //                 ret << parsed.at(i)["ppd-make"].toString();
+//                 ret[parsed.at(i)["ppd-make"].toString()] << parsed.at(i)["ppd-make-and-model"].toString();
+//             } else {
+// //                 ret << parsed.at(i)["ppd-make-and-model"].toString();
+//             }
+// //             kDebug() << parsed.at(i);
+//         }
+//         kDebug() << ret;
 
         ippDelete(response);
     }
@@ -223,12 +236,12 @@ QList<QHash<QString, QVariant> > cupsParseIPPVars(ipp_t *response, bool needDest
 
           for (; attr && attr->group_tag == IPP_TAG_PRINTER; attr = attr->next)
           {
-            kDebug() << QString::fromUtf8(attr->name);
               if (attr->value_tag != IPP_TAG_INTEGER &&
                   attr->value_tag != IPP_TAG_ENUM &&
                   attr->value_tag != IPP_TAG_BOOLEAN &&
                   attr->value_tag != IPP_TAG_TEXT &&
                   attr->value_tag != IPP_TAG_TEXTLANG &&
+                  attr->value_tag != IPP_TAG_LANGUAGE &&
                   attr->value_tag != IPP_TAG_NAME &&
                   attr->value_tag != IPP_TAG_NAMELANG &&
                   attr->value_tag != IPP_TAG_KEYWORD &&
@@ -261,7 +274,8 @@ QList<QHash<QString, QVariant> > cupsParseIPPVars(ipp_t *response, bool needDest
                   !strcmp(attr->name, "printer-uri-supported") ||
                   !strcmp(attr->name, "ppd-name") ||
                   !strcmp(attr->name, "ppd-make") ||
-                  !strcmp(attr->name, "ppd-make-and-model"))
+                  !strcmp(attr->name, "ppd-make-and-model") ||
+                  !strcmp(attr->name, "ppd-natural-language"))
               {
                   /*
                   * Add a printer description attribute...
@@ -379,7 +393,6 @@ bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const Q
     }
 
     if (is_class && values.contains("member-uris")) {
-      kDebug();
         request = ippNewDefaultRequest(name, is_class, CUPS_ADD_CLASS);
     } else {
         request = ippNewDefaultRequest(name, is_class,
@@ -401,7 +414,8 @@ bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const Q
                              i.key().toUtf8(), "utf-8",
                              i.value().toString().toUtf8());
             } else if (i.key() == "printer-op-policy" ||
-                       i.key() == "printer-error-policy") {
+                       i.key() == "printer-error-policy" ||
+                       i.key() == "ppd-name") {
                 // printer-op-policy has a different TAG
                 ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
                              i.key().toUtf8(), "utf-8",

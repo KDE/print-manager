@@ -6,6 +6,7 @@ set(libqcups_SRCS
     PrinterPage.cpp
     PrinterOptions.cpp
     PrinterBehavior.cpp
+    PPDModel.cpp
     SelectMakeModel.cpp
 )
 

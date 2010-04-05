@@ -24,22 +24,30 @@
 #include "ui_SelectMakeModel.h"
 
 #include <QWidget>
+#include <QSortFilterProxyModel>
 
 class SelectMakeModel : public QWidget, Ui::SelectMakeModel
 {
     Q_OBJECT
 public:
-    explicit SelectMakeModel(const QString &destName, bool isClass, QWidget *parent = 0);
+    SelectMakeModel(const QString &make, const QString &makeAndModel, QWidget *parent = 0);
     ~SelectMakeModel();
 
+    QString selectedPPDName() const;
+    QString selectedMakeAndModel() const;
+
+public slots:
+    void checkChanged();
+
+signals:
+    void changed(bool);
+
 private slots:
-    void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
-    virtual void slotButtonClicked(int button);
+    void on_makeFilterKCB_editTextChanged(const QString &text);
 
 private:
-    void closeEvent(QCloseEvent *event);
-    // return false if the dialog was canceled
-    bool savePage(PrinterPage *page);
+    QString m_selectedPPDName, m_selectedMakeAndModel;
+    QSortFilterProxyModel *m_model;
 };
 
 

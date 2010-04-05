@@ -152,7 +152,7 @@ bool QCups::addModifyClassOrPrinter(const QString &name, bool isClass, const QHa
     RUN_ACTION(cupsAddModifyClassOrPrinter(name.toUtf8(), isClass, values))
 }
 
-QStringList QCups::getPPDS(const QString &make)
+QList<QHash<QString, QVariant> > QCups::getPPDS(const QString &make)
 {
     return cupsGetPPDS(make);
 }

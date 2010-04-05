@@ -27,6 +27,8 @@
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
 
+QList<QHash<QString, QVariant> > cupsParseIPPVars(ipp_t *response, bool needDestName);
+
 // Don't forget to delete the request
 ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
 {
@@ -46,6 +48,40 @@ ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
                  "utf-8", cupsUser());
     return request;
+}
+
+QStringList QCups::cupsGetPPDS(const QString &make)
+{
+    ipp_t *request, *response;
+    QStringList ret;
+
+    request = ippNewRequest(CUPS_GET_PPDS);
+
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
+                 "utf-8", "ipp://localhost/printers/");
+
+    if (!make.isEmpty()){
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_TEXT,
+                     "ppd-make-and-model", NULL, make.toUtf8());
+    } else {
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
+                     "requested-attributes", NULL, "ppd-make");
+    }
+
+    if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/")) != NULL) {
+        QList<QHash<QString, QVariant> > parsed = cupsParseIPPVars(response, false);
+        for (int i = 0; i < parsed.size(); i++) {
+            if (make.isEmpty()) {
+                ret << parsed.at(i)["ppd-make"].toString();
+            } else {
+                ret << parsed.at(i)["ppd-make-and-model"].toString();
+            }
+        }
+
+        ippDelete(response);
+    }
+
+    return ret;
 }
 
 QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr)
@@ -74,7 +110,6 @@ QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_clas
 
     // do the request
     if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/")) != NULL) {
-
         for (attr = response->attrs; attr != NULL; attr = attr->next) {
             if (attr->value_tag == IPP_TAG_INTEGER || attr->value_tag == IPP_TAG_ENUM) {
                 if (attr->num_values == 1) {
@@ -162,98 +197,82 @@ static QVariant cupsMakeVariant(ipp_attribute_t *attr)
     }
 }
 
-QList<QHash<QString, QVariant> > QCups::cupsGetDests(int mask, const QStringList &requestedAttr)
+QList<QHash<QString, QVariant> > cupsParseIPPVars(ipp_t *response, bool needDestName)
 {
     ipp_attribute_t *attr;
-    ipp_t *request;
-    ipp_t *response;
-    char **attributes;
     QList<QHash<QString, QVariant> > ret;
 
-    request = ippNewRequest(CUPS_GET_PRINTERS);
+    for (attr = response->attrs; attr != NULL; attr = attr->next) {
+          /*
+           * Skip leading attributes until we hit a printer...
+           */
 
-    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type",
-                  CUPS_PRINTER_LOCAL);
-    if (mask >= 0){
-        ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type-mask",
-                      mask);
-    }
+          while (attr != NULL && attr->group_tag != IPP_TAG_PRINTER) {
+              attr = attr->next;
+          }
 
-    if (!requestedAttr.isEmpty()){
-        attributes = new char*[requestedAttr.size()];
-        for (int i = 0; i < requestedAttr.size(); i ++) {
-            attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
-        }
-        ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                    "requested-attributes", requestedAttr.size(),
-                    "utf-8", attributes);
-    }
+          if (attr == NULL) {
+              break;
+          }
 
-    if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/")) != NULL) {
-        for (attr = response->attrs; attr != NULL; attr = attr->next) {
-            /*
-            * Skip leading attributes until we hit a printer...
-            */
+          /*
+           * Pull the needed attributes from this printer...
+           */
 
-            while (attr != NULL && attr->group_tag != IPP_TAG_PRINTER)
-                attr = attr->next;
+          QHash<QString, QVariant> destAttributes;
 
-            if (attr == NULL)
-                break;
-                /*
-            * Pull the needed attributes from this printer...
-            */
+          for (; attr && attr->group_tag == IPP_TAG_PRINTER; attr = attr->next)
+          {
+            kDebug() << QString::fromUtf8(attr->name);
+              if (attr->value_tag != IPP_TAG_INTEGER &&
+                  attr->value_tag != IPP_TAG_ENUM &&
+                  attr->value_tag != IPP_TAG_BOOLEAN &&
+                  attr->value_tag != IPP_TAG_TEXT &&
+                  attr->value_tag != IPP_TAG_TEXTLANG &&
+                  attr->value_tag != IPP_TAG_NAME &&
+                  attr->value_tag != IPP_TAG_NAMELANG &&
+                  attr->value_tag != IPP_TAG_KEYWORD &&
+                  attr->value_tag != IPP_TAG_RANGE &&
+                  attr->value_tag != IPP_TAG_URI)
+                  continue;
 
-            QHash<QString, QVariant> destAttributes;
-
-            for (; attr && attr->group_tag == IPP_TAG_PRINTER; attr = attr->next)
-            {
-                if (attr->value_tag != IPP_TAG_INTEGER &&
-                    attr->value_tag != IPP_TAG_ENUM &&
-                    attr->value_tag != IPP_TAG_BOOLEAN &&
-                    attr->value_tag != IPP_TAG_TEXT &&
-                    attr->value_tag != IPP_TAG_TEXTLANG &&
-                    attr->value_tag != IPP_TAG_NAME &&
-                    attr->value_tag != IPP_TAG_NAMELANG &&
-                    attr->value_tag != IPP_TAG_KEYWORD &&
-                    attr->value_tag != IPP_TAG_RANGE &&
-                    attr->value_tag != IPP_TAG_URI)
-                    continue;
-
-                if (!strcmp(attr->name, "printer-name") ||
-                    !strcmp(attr->name, "auth-info-required") ||
-                    !strcmp(attr->name, "device-uri") ||
-                    !strcmp(attr->name, "marker-change-time") ||
-                    !strcmp(attr->name, "marker-colors") ||
-                    !strcmp(attr->name, "marker-high-levels") ||
-                    !strcmp(attr->name, "marker-levels") ||
-                    !strcmp(attr->name, "marker-low-levels") ||
-                    !strcmp(attr->name, "marker-message") ||
-                    !strcmp(attr->name, "marker-names") ||
-                    !strcmp(attr->name, "marker-types") ||
-                    !strcmp(attr->name, "printer-commands") ||
-                    !strcmp(attr->name, "printer-info") ||
-                    !strcmp(attr->name, "printer-is-shared") ||
-                    !strcmp(attr->name, "printer-make-and-model") ||
-                    !strcmp(attr->name, "printer-state") ||
-                    !strcmp(attr->name, "printer-state-change-time") ||
-                    !strcmp(attr->name, "printer-type") ||
-                    !strcmp(attr->name, "printer-is-accepting-jobs") ||
-                    !strcmp(attr->name, "printer-location") ||
-                    !strcmp(attr->name, "printer-state-reasons") ||
-                    !strcmp(attr->name, "printer-state-message") ||
-                    !strcmp(attr->name, "printer-uri-supported"))
-                {
-                    /*
-                    * Add a printer description attribute...
-                    */
-                    destAttributes[QString::fromUtf8(attr->name)] = cupsMakeVariant(attr);
+              if (!strcmp(attr->name, "printer-name") ||
+                  !strcmp(attr->name, "auth-info-required") ||
+                  !strcmp(attr->name, "device-uri") ||
+                  !strcmp(attr->name, "marker-change-time") ||
+                  !strcmp(attr->name, "marker-colors") ||
+                  !strcmp(attr->name, "marker-high-levels") ||
+                  !strcmp(attr->name, "marker-levels") ||
+                  !strcmp(attr->name, "marker-low-levels") ||
+                  !strcmp(attr->name, "marker-message") ||
+                  !strcmp(attr->name, "marker-names") ||
+                  !strcmp(attr->name, "marker-types") ||
+                  !strcmp(attr->name, "printer-commands") ||
+                  !strcmp(attr->name, "printer-info") ||
+                  !strcmp(attr->name, "printer-is-shared") ||
+                  !strcmp(attr->name, "printer-make-and-model") ||
+                  !strcmp(attr->name, "printer-state") ||
+                  !strcmp(attr->name, "printer-state-change-time") ||
+                  !strcmp(attr->name, "printer-type") ||
+                  !strcmp(attr->name, "printer-is-accepting-jobs") ||
+                  !strcmp(attr->name, "printer-location") ||
+                  !strcmp(attr->name, "printer-state-reasons") ||
+                  !strcmp(attr->name, "printer-state-message") ||
+                  !strcmp(attr->name, "printer-uri-supported") ||
+                  !strcmp(attr->name, "ppd-name") ||
+                  !strcmp(attr->name, "ppd-make") ||
+                  !strcmp(attr->name, "ppd-make-and-model"))
+              {
+                  /*
+                  * Add a printer description attribute...
+                  */
+                  destAttributes[QString::fromUtf8(attr->name)] = cupsMakeVariant(attr);
 //                     QString::fromUtf8(attr->values[0].string.text);
 //                     num_options = cupsAddOption(attr->name,
 //                                                 cups_make_string(attr, value,
 //                                                                 sizeof(value)),
 //                                                 num_options, &options);
-                }
+              }
 
 //                 else if (!strcmp(attr->name, "printer-name") &&
 //                         attr->value_tag == IPP_TAG_NAME)
@@ -281,22 +300,22 @@ QList<QHash<QString, QVariant> > QCups::cupsGetDests(int mask, const QStringList
 //                                                                     sizeof(value)),
 //                                                     num_options, &options);
 //                 }
-            }
-            /*
-            * See if we have everything needed...
-            */
+          }
+          /*
+          * See if we have everything needed...
+          */
 
-            if (destAttributes["printer-name"].toString().isEmpty())
-            {
+          if (needDestName && destAttributes["printer-name"].toString().isEmpty())
+          {
 //                 cupsFreeOptions(num_options, options);
 
-                if (attr == NULL)
-                    break;
-                else
-                    continue;
-            }
+              if (attr == NULL)
+                  break;
+              else
+                  continue;
+          }
 
-            ret << destAttributes;
+          ret << destAttributes;
 //             if ((dest = cups_add_dest(printer_name, NULL, &num_dests, dests)) != NULL)
 //             {
 //                 dest->num_options = num_options;
@@ -305,10 +324,43 @@ QList<QHash<QString, QVariant> > QCups::cupsGetDests(int mask, const QStringList
 //             else
 //                 cupsFreeOptions(num_options, options);
 //
-            if (attr == NULL)
-                break;
+          if (attr == NULL)
+              break;
 
+      }
+      return ret;
+}
+
+
+QList<QHash<QString, QVariant> > QCups::cupsGetDests(int mask, const QStringList &requestedAttr)
+{
+    ipp_t *request;
+    ipp_t *response;
+    char **attributes;
+    QList<QHash<QString, QVariant> > ret;
+
+    request = ippNewRequest(CUPS_GET_PRINTERS);
+
+    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type",
+                  CUPS_PRINTER_LOCAL);
+    if (mask >= 0){
+        ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type-mask",
+                      mask);
+    }
+
+    if (!requestedAttr.isEmpty()){
+        attributes = new char*[requestedAttr.size()];
+        for (int i = 0; i < requestedAttr.size(); i ++) {
+            attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
         }
+        ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
+                    "requested-attributes", requestedAttr.size(),
+                    "utf-8", attributes);
+    }
+
+    if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/")) != NULL) {
+
+        ret = cupsParseIPPVars(response, true);
 
         ippDelete(response);
     }

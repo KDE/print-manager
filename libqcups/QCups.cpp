@@ -152,6 +152,11 @@ bool QCups::addModifyClassOrPrinter(const QString &name, bool isClass, const QHa
     RUN_ACTION(cupsAddModifyClassOrPrinter(name.toUtf8(), isClass, values))
 }
 
+QStringList QCups::getPPDS(const QString &make)
+{
+    return cupsGetPPDS(make);
+}
+
 QList<Destination> QCups::getDests(int mask, const QStringList &requestedAttr)
 {
     return cupsGetDests(mask, requestedAttr);

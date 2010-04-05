@@ -272,6 +272,17 @@ void PrinterBehavior::save()
     }
 }
 
+void PrinterBehavior::setRemote(bool remote)
+{
+    errorPolicyCB->setEnabled(!remote);
+    operationPolicyCB->setEnabled(!remote);
+    startingBannerCB->setEnabled(!remote);
+    endingBannerCB->setEnabled(!remote);
+    allowRB->setEnabled(!remote);
+    preventRB->setEnabled(!remote);
+    usersELB->setEnabled(!remote);
+}
+
 bool PrinterBehavior::hasChanges()
 {
     return m_changes;

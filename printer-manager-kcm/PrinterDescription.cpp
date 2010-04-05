@@ -46,6 +46,7 @@ PrinterDescription::PrinterDescription(QWidget *parent)
                                                     PRINTER_ICON_SIZE, // a not so huge icon
                                                     KIconLoader::DefaultState);
     iconL->setPixmap(m_printerIcon);
+    kDebug() << QCups::getPPDS();
 
     m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",
                                                   KIconLoader::NoGroup,

@@ -51,6 +51,8 @@ namespace QCups
     KDE_EXPORT bool deletePrinter(const QString &name);
     KDE_EXPORT bool addModifyClassOrPrinter(const QString &name, bool isClass, const QHash<QString, QVariant> values);
 
+    KDE_EXPORT QStringList getPPDS(const QString &make = QString());
+
     typedef QHash<QString, QVariant> Destination;
     // THIS function can get the default server dest throught
     // "printer-is-default" attribute BUT it does not get user

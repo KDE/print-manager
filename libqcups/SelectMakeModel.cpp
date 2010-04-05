@@ -18,7 +18,7 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "ConfigureDialog.h"
+#include "SelectMakeModel.h"
 #include "PrinterPage.h"
 
 #include "ModifyPrinter.h"
@@ -32,7 +32,7 @@
 
 using namespace QCups;
 
-ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent)
+SelectMakeModel::SelectMakeModel(const QString &destName, bool isClass, QWidget *parent)
  : KPageDialog(parent)
 {
     setFaceType(List);
@@ -41,7 +41,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     setWindowTitle(destName);
     enableButtonApply(false);
     KConfig config("print-manager");
-    KConfigGroup configureDialog(&config, "ConfigureDialog");
+    KConfigGroup configureDialog(&config, "SelectMakeModel");
     restoreDialogSize(configureDialog);
 
     QStringList attr;
@@ -109,14 +109,14 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     restoreDialogSize(configureDialog);
 }
 
-ConfigureDialog::~ConfigureDialog()
+SelectMakeModel::~SelectMakeModel()
 {
     KConfig config("print-manager");
-    KConfigGroup configureDialog(&config, "ConfigureDialog");
+    KConfigGroup configureDialog(&config, "SelectMakeModel");
     saveDialogSize(configureDialog);
 }
 
-void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
+void SelectMakeModel::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
 {
     PrinterPage *currentPage = qobject_cast<PrinterPage*>(current->widget());
     PrinterPage *beforePage = qobject_cast<PrinterPage*>(before->widget());
@@ -132,7 +132,7 @@ void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetIt
     enableButtonApply(currentPage->hasChanges());
 }
 
-void ConfigureDialog::slotButtonClicked(int button)
+void SelectMakeModel::slotButtonClicked(int button)
 {
     PrinterPage *page = qobject_cast<PrinterPage *>(currentPage()->widget());
     if (button == KDialog::Ok) {
@@ -145,7 +145,7 @@ void ConfigureDialog::slotButtonClicked(int button)
     }
 }
 
-void ConfigureDialog::closeEvent(QCloseEvent *event)
+void SelectMakeModel::closeEvent(QCloseEvent *event)
 {
     PrinterPage *page = qobject_cast<PrinterPage*>(currentPage()->widget());
     if (savePage(page)) {
@@ -155,7 +155,7 @@ void ConfigureDialog::closeEvent(QCloseEvent *event)
     }
 }
 
-bool ConfigureDialog::savePage(PrinterPage *page)
+bool SelectMakeModel::savePage(PrinterPage *page)
 {
     if (page->hasChanges()) {
         int ret;
@@ -171,4 +171,4 @@ bool ConfigureDialog::savePage(PrinterPage *page)
     return true;
 }
 
-#include "ConfigureDialog.moc"
+#include "SelectMakeModel.moc"

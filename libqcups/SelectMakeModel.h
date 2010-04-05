@@ -18,24 +18,29 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef CUPS_ACTIONS_H
-#define CUPS_ACTIONS_H
+#ifndef SELECT_MAKE_MODEL_H
+#define SELECT_MAKE_MODEL_H
 
-#include <QHash>
-#include <QVariant>
+#include "ui_SelectMakeModel.h"
 
-namespace QCups
+#include <QWidget>
+
+class SelectMakeModel : public QWidget, Ui::SelectMakeModel
 {
-    bool cupsMoveJob(const char *name, int job_id, const char *dest_name);
-    bool cupsPauseResumePrinter(const char *name, bool pause);
-    bool cupsSetDefaultPrinter(const char *name);
-    bool cupsDeletePrinter(const char *name);
-    bool cupsHoldReleaseJob(const char *name, int job_id, bool hold);
-    bool cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
+    Q_OBJECT
+public:
+    explicit SelectMakeModel(const QString &destName, bool isClass, QWidget *parent = 0);
+    ~SelectMakeModel();
 
-    QStringList cupsGetPPDS(const QString &make);
-    QHash<QString, QVariant> cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr);
-    QList<QHash<QString, QVariant> > cupsGetDests(int mask, const QStringList &requestedAttr);
+private slots:
+    void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
+    virtual void slotButtonClicked(int button);
+
+private:
+    void closeEvent(QCloseEvent *event);
+    // return false if the dialog was canceled
+    bool savePage(PrinterPage *page);
 };
+
 
 #endif

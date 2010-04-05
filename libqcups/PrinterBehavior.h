@@ -38,6 +38,7 @@ public:
     ~PrinterBehavior();
 
     void setValues(const QHash<QString, QVariant> &values);
+    void setRemote(bool remote);
     bool hasChanges();
 
     QStringList neededValues() const;

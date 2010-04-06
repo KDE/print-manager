@@ -42,6 +42,7 @@ public:
 
     QString currentMake() const;
     QString currentMakeAndModel() const;
+    void reloadPPD();
 
     void save();
 

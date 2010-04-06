@@ -54,10 +54,12 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
             this, SLOT(textChanged(const QString &)));
     connect(m_model, SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(modelChanged()));
-    connect(fileKUR, SIGNAL(textChanged(const QString &)),
-            fileL, SLOT(show()));
-    connect(fileKUR, SIGNAL(textChanged(const QString &)),
-            fileKUR, SLOT(show()));
+
+    connect(this, SIGNAL(showKUR()), fileKUR, SLOT(show()));
+    connect(this, SIGNAL(showKUR()), fileL, SLOT(show()));
+    connect(this, SIGNAL(hideKUR()), fileKUR, SLOT(clear()));
+    connect(this, SIGNAL(hideKUR()), fileKUR, SLOT(hide()));
+    connect(this, SIGNAL(hideKUR()), fileL, SLOT(hide()));
 }
 
 ModifyPrinter::~ModifyPrinter()
@@ -68,8 +70,9 @@ void ModifyPrinter::on_makeCB_activated(int index)
 {
     bool isDifferent = true;
     if (makeCB->itemData(index).toUInt() == PPDList) {
-        fileL->hide();
-        fileKUR->hide();
+        emit hideKUR();
+        KConfig config("print-manager");
+        KConfigGroup ppdDialog(&config, "PPDDialog");
         QPointer<KDialog> dialog = new KDialog(this);
         dialog->setCaption("Select a Driver");
         dialog->setButtons(KDialog::Ok | KDialog::Cancel);
@@ -80,7 +83,9 @@ void ModifyPrinter::on_makeCB_activated(int index)
         // Call this to disable the Ok button
         widget->checkChanged();
 
+        dialog->restoreDialogSize(ppdDialog);
         if (dialog->exec() == QDialog::Accepted && dialog) {
+            dialog->saveDialogSize(ppdDialog);
             QString makeAndModel = widget->selectedMakeAndModel();
             QString ppdName = widget->selectedPPDName();
             if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
@@ -90,27 +95,31 @@ void ModifyPrinter::on_makeCB_activated(int index)
                 // store the new value
                 m_changedValues["ppd-name"] = ppdName;
             } else {
-                isDifferent = false;
                 makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
+                return;
             }
         } else {
-            isDifferent = false;
             makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
+            return;
         }
     } else if (makeCB->itemData(index).toUInt() == PPDFile) {
-        fileKUR->fileDialog()->show();
+        fileKUR->button()->click();
+        if (fileKUR->url().isEmpty()) {
+            makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
+            return;
+        }
+        emit showKUR();
+        // set the QVariant type to bool makes it possible to know a file was selected
+        m_changedValues["ppd-name"] = true;
     } else if (makeCB->itemData(index).toUInt() == PPDDefault) {
         isDifferent = false;
         m_changedValues.remove("ppd-name");
-        fileL->hide();
-        fileKUR->hide();
+        emit hideKUR();
     } else if (makeCB->itemData(index).toUInt() == PPDCustom) {
-        fileL->hide();
-        fileKUR->hide();
+        emit hideKUR();
         m_changedValues["ppd-name"] = makeCB->itemData(index, PPDName).toString();
     } else {
-        fileL->hide();
-        fileKUR->hide();
+        emit hideKUR();
         kWarning() << "This should not happen";
         return;
     }
@@ -165,8 +174,7 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
             }
         }
     } else {
-        fileL->hide();
-        fileKUR->hide();
+        emit hideKUR();
         makeCB->clear();
         makeCB->setProperty("different", false);
         makeCB->setProperty("lastIndex", 0);
@@ -250,7 +258,22 @@ void ModifyPrinter::textChanged(const QString &text)
 void ModifyPrinter::save()
 {
     if (m_changes) {
-        if (Dest::setAttributes(m_destName, m_isClass, m_changedValues)) {
+        QString file;
+        if (m_changedValues.contains("ppd-name") &&
+            m_changedValues["ppd-name"].type() == QVariant::Bool) {
+            // check if it's really a local file and set the file string
+            if (fileKUR->url().isLocalFile()) {
+                file = fileKUR->url().toLocalFile();
+            }
+            m_changedValues.remove("ppd-name");
+        }
+        // if there is no file call setAttributes witout it
+        if ((file.isEmpty() && Dest::setAttributes(m_destName, m_isClass, m_changedValues)) ||
+            (!file.isEmpty() && Dest::setAttributes(m_destName, m_isClass, m_changedValues, file.toUtf8()))) {
+            if (!file.isEmpty() ||
+                (m_changedValues.contains("ppd-name") && m_changedValues["ppd-name"].type() != QVariant::Bool)) {
+                emit ppdChanged();
+            }
             setValues(Dest::getAttributes(m_destName, m_isClass, neededValues()));
         }
     }

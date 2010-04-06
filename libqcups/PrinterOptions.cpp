@@ -43,14 +43,31 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
    m_destName(destName),
    m_isClass(isClass),
    m_isRemote(isRemote),
+   m_filename(NULL),
    m_ppd(NULL),
    m_changes(0)
 {
     setupUi(this);
 
-//     The caller "owns" the file that is created and must unlink the returned filename.
-// TODO unlink the filename
-    m_filename = cupsGetPPD(destName.toUtf8());
+    reloadPPD();
+}
+
+void PrinterOptions::reloadPPD()
+{
+    //     The caller "owns" the file that is created and must unlink the returned filename.
+    if (m_filename) {
+        unlink(m_filename);
+    }
+
+    // remove the old tabs
+    while (optionsTW->count()) {
+        optionsTW->removeTab(0);
+    }
+    m_changes = 0;
+    m_customValues.clear();
+    emit changed(false);
+
+    m_filename = cupsGetPPD(m_destName.toUtf8());
     m_ppd = ppdOpenFile(m_filename);
     if (m_ppd == NULL) {
         kWarning() << "Could not open ppd file";

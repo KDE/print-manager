@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>300</height>
+    <width>331</width>
+    <height>296</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,18 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="KComboBox" name="makeFilterKCB">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>320</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="editable">
       <bool>true</bool>
      </property>
@@ -25,7 +37,20 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="QListView" name="ppdsLV"/>
+    <widget class="QListView" name="ppdsLV">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>320</width>
+       <height>260</height>
+      </size>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

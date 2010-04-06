@@ -27,6 +27,8 @@
 class PrinterPage;
 namespace QCups {
 
+class ModifyPrinter;
+class PrinterOptions;
 class KDE_EXPORT ConfigureDialog : public KPageDialog
 {
     Q_OBJECT
@@ -37,8 +39,11 @@ public:
 private slots:
     void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
     virtual void slotButtonClicked(int button);
+    void ppdChanged();
 
 private:
+    ModifyPrinter *modifyPrinter;
+    PrinterOptions *printerOptions;
     void closeEvent(QCloseEvent *event);
     // return false if the dialog was canceled
     bool savePage(PrinterPage *page);

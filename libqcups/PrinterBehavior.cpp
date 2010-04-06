@@ -116,7 +116,7 @@ void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
             usersELB->insertStringList(list);
         }
         usersELB->setProperty("defaultList", list);
-        preventRB->setProperty("defaultChoice", true);
+        allowRB->setProperty("defaultChoice", false);
         // Set checked AFTER the default choice was set
         // otherwise the signal will be emmited
         // which sets that we have a change

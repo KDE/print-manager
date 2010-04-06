@@ -442,6 +442,7 @@ bool QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const Q
                     attr->values[i].string.text = qstrdup(list.at(i).toUtf8());
                 }
             }
+            break;
         default:
             kWarning() << "type NOT recognized! This will be ignored:" << i.key() << "values" << i.value();
         }

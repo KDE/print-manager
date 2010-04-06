@@ -47,10 +47,10 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     QStringList attr;
     KPageWidgetItem *page;
 
-    ModifyPrinter *widget = new ModifyPrinter(destName, isClass, this);
-    PrinterBehavior *pBW = new PrinterBehavior(destName, isClass, this);
-    attr << widget->neededValues();
-    attr << pBW->neededValues();
+    modifyPrinter = new ModifyPrinter(destName, isClass, this);
+    PrinterBehavior *printerBehavior = new PrinterBehavior(destName, isClass, this);
+    attr << modifyPrinter->neededValues();
+    attr << printerBehavior->neededValues();
     attr << "printer-type"; // needed to know if it's a remote printer
     attr.removeDuplicates();
     QHash<QString, QVariant> values = Dest::getAttributes(destName, isClass, attr);
@@ -77,30 +77,31 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
      kDebug() << "CUPS_PRINTER_MFP";
  }
 
-    widget->setRemote(isRemote);
-    widget->setValues(values);
-    page = new KPageWidgetItem(widget, i18n("Modify Printer"));
+    modifyPrinter->setRemote(isRemote);
+    modifyPrinter->setValues(values);
+    page = new KPageWidgetItem(modifyPrinter, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
     page->setIcon(KIcon("dialog-information"));
     // CONNECT this signal ONLY to the first Page
-    connect(widget, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+    connect(modifyPrinter, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
     addPage(page);
 
     if (!isClass) {
         // At least on localhost:631 modify printer does not show printer options
         // for classes
-        PrinterOptions *pOp = new PrinterOptions(destName, isClass, isRemote, this);
-        page = new KPageWidgetItem(pOp, i18n("Printer Options"));
+        printerOptions = new PrinterOptions(destName, isClass, isRemote, this);
+        page = new KPageWidgetItem(printerOptions, i18n("Printer Options"));
         page->setHeader(i18n("Set the Default Printer Options"));
         page->setIcon(KIcon("view-pim-tasks"));
         addPage(page);
-        widget->setCurrentMake(pOp->currentMake());
-        widget->setCurrentMakeAndModel(pOp->currentMakeAndModel());
+        connect(modifyPrinter, SIGNAL(ppdChanged()), this, SLOT(ppdChanged()));
+        modifyPrinter->setCurrentMake(printerOptions->currentMake());
+        modifyPrinter->setCurrentMakeAndModel(printerOptions->currentMakeAndModel());
     }
 
-    pBW->setRemote(isRemote);
-    pBW->setValues(values);
-    page = new KPageWidgetItem(pBW, i18n("Banners, Policies and Allowed Users"));
+    printerBehavior->setRemote(isRemote);
+    printerBehavior->setValues(values);
+    page = new KPageWidgetItem(printerBehavior, i18n("Banners, Policies and Allowed Users"));
     page->setHeader(i18n("Banners, Policies and Allowed Users"));
     page->setIcon(KIcon("feed-subscribe"));
     addPage(page);
@@ -109,6 +110,13 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
             SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
     restoreDialogSize(configureDialog);
+}
+
+void ConfigureDialog::ppdChanged()
+{
+    printerOptions->reloadPPD();
+    modifyPrinter->setCurrentMake(printerOptions->currentMake());
+    modifyPrinter->setCurrentMakeAndModel(printerOptions->currentMakeAndModel());
 }
 
 ConfigureDialog::~ConfigureDialog()

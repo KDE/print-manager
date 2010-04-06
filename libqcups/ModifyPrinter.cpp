@@ -294,6 +294,7 @@ void ModifyPrinter::setRemote(bool remote)
     nameLE->setReadOnly(remote);
     locationLE->setReadOnly(remote);
     connectionLE->setReadOnly(remote);
+    makeCB->setEnabled(!remote);
 }
 
 void ModifyPrinter::setCurrentMake(const QString &make)

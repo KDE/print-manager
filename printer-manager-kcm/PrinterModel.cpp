@@ -50,11 +50,21 @@ void PrinterModel::update()
                 << "printer-type"
                 << "printer-location"
                 << "printer-info"
-                << "printer-make-and-model";
+                << "printer-make-and-model"
+                << "printer-commands"
+                << "marker-change-time"
+                << "marker-colors"
+                << "marker-high-levels"
+                << "marker-levels"
+                << "marker-low-levels"
+                << "marker-message"
+                << "marker-names"
+                << "marker-types";
     // Get destinations with these attributes
     dests = QCups::getDests(-1, requestAttr);
 
     for (int i = 0; i < dests.size(); i++) {
+//         kDebug() << dests.at(i);
         // If there is a printer and it's not the current one add it
         // as a new destination
         int dest_row = destRow(dests.at(i)["printer-name"].toString());
@@ -146,6 +156,12 @@ void PrinterModel::updateDest(QStandardItem *destItem, const QCups::Destination 
     QString kind = dest["printer-make-and-model"].toString();
     if (kind != destItem->data(DestKind)) {
         destItem->setData(kind, DestKind);
+    }
+
+    // store the printer commands
+    QStringList commands = dest["printer-commands"].toStringList();
+    if (commands != destItem->data(DestCommands)) {
+        destItem->setData(commands, DestCommands);
     }
 }
 

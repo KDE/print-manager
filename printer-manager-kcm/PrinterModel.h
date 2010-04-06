@@ -40,7 +40,8 @@ public:
         DestIsClass,
         DestLocation,
         DestDescription,
-        DestKind
+        DestKind,
+        DestCommands
     } Role;
 
     typedef enum {

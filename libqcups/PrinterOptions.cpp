@@ -67,6 +67,7 @@ void PrinterOptions::reloadPPD()
     m_customValues.clear();
     emit changed(false);
 
+    // TODO add HAVE_AUTOCONFIGURE button
     m_filename = cupsGetPPD(m_destName.toUtf8());
     m_ppd = ppdOpenFile(m_filename);
     if (m_ppd == NULL) {

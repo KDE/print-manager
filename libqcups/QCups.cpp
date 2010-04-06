@@ -171,12 +171,21 @@ bool QCups::Dest::setAttributes(const QString &destName, bool isClass, const QHa
     RUN_ACTION(cupsAddModifyClassOrPrinter(destName.toUtf8(), isClass, values, filename))
 }
 
-
 bool QCups::Dest::setShared(const QString &destName, bool isClass, bool shared)
 {
     QHash<QString, QVariant> values;
     values["printer-is-shared"] = shared;
     return setAttributes(destName, isClass, values);
+}
+
+bool QCups::Dest::printTestPage(const QString &destName, bool isClass)
+{
+    RUN_ACTION(cupsPrintTestPage(destName.toUtf8(), isClass))
+}
+
+bool QCups::Dest::printCommand(const QString &destName, const QString &command, const QString &title)
+{
+    return cupsPrintCommand(destName.toUtf8(), command.toUtf8(), title.toUtf8());
 }
 
 QHash<QString, QVariant> QCups::Dest::getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr)

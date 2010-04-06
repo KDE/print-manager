@@ -30,6 +30,7 @@
 #include <QDBusMessage>
 
 #include <QDBusConnection>
+#include <KMenu>
 #include <KDebug>
 
 #define PRINTER_ICON_SIZE 128
@@ -129,5 +130,47 @@ void PrinterDescription::setIsShared(bool isShared)
 {
     sharedCB->setChecked(isShared);
 }
+
+void PrinterDescription::setCommands(const QStringList &commands)
+{
+    if (m_commands != commands) {
+        m_commands = commands;
+
+        KMenu *menu = new KMenu(maintenanceTB);
+        menu->addAction(actionPrintTestPage);
+
+        if (commands.contains("Clean")) {
+            menu->addAction(actionCleanPrintHeads);
+        }
+
+        if (commands.contains("PrintSelfTestPage")) {
+            menu->addAction(actionPrintSelfTestPage);
+        }
+
+        if (maintenanceTB->menu()) {
+            delete maintenanceTB->menu();
+        }
+        maintenanceTB->setMenu(menu);
+    }
+}
+
+void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
+{
+    Q_UNUSED(checked)
+    QCups::Dest::printTestPage(m_destName, m_isClass);
+}
+
+void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
+{
+    Q_UNUSED(checked)
+    QCups::Dest::printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
+}
+
+void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
+{
+    Q_UNUSED(checked)
+    QCups::Dest::printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
+}
+
 
 #include "PrinterDescription.moc"

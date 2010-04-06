@@ -108,6 +108,7 @@ void PrintKCM::update()
         m_printerDesc->setKind(index.data(PrinterModel::DestKind).toString());
         m_printerDesc->setIsShared(index.data(PrinterModel::DestIsShared).toBool());
         m_printerDesc->setIsDefault(index.data(PrinterModel::DestIsDefault).toBool());
+        m_printerDesc->setCommands(index.data(PrinterModel::DestCommands).toStringList());
     } else if (!noPrinterL->isVisible()) {
         // always take the widget before setting a new one otherwise it will be deleted
         scrollArea->takeWidget();

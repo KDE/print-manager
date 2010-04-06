@@ -23,6 +23,9 @@
 
 #include <QStringList>
 #include <KDebug>
+#include <KLocale>
+
+#define CUPS_DATADIR    "/usr/share/cups"
 
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
@@ -578,4 +581,86 @@ bool QCups::cupsDeletePrinter(const char *name)
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
 
     return !cupsLastError();
+}
+
+bool QCups::cupsPrintTestPage(const char *name, bool is_class)      /* I - Destination printer/class */
+{
+    ipp_t         *request;               /* IPP request */
+    char          resource[1024],         /* POST resource path */
+                  filename[1024];         /* Test page filename */
+    const char    *datadir;               /* CUPS_DATADIR env var */
+
+    /*
+    * Locate the test page file...
+    */
+    if ((datadir = getenv("CUPS_DATADIR")) == NULL)
+        datadir = CUPS_DATADIR;
+
+    snprintf(filename, sizeof(filename), "%s/data/testprint", datadir);
+
+    /*
+    * Point to the printer/class...
+    */
+    snprintf(resource, sizeof(resource),
+             is_class ? "/classes/%s" : "/printers/%s", name);
+
+    // Build a new default request
+    request = ippNewDefaultRequest(name, is_class, IPP_PRINT_JOB);
+
+
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "job-name",
+                 "utf-8", i18n("Test Page").toUtf8());
+
+    // do the request deleting the response
+    ippDelete(cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource, filename));
+
+    return !cupsLastError();
+}
+
+bool QCups::cupsPrintCommand(const char *name,       /* I - Destination printer */
+                             const char *command,    /* I - Command to send */
+                             const char *title)      /* I - Page/job title */
+{
+    int           job_id;                 /* Command file job */
+    char          command_file[1024];     /* Command "file" */
+    http_status_t status;                 /* Document status */
+    cups_option_t hold_option;            /* job-hold-until option */
+
+
+    /*
+     * Create the CUPS command file...
+     */
+    snprintf(command_file, sizeof(command_file), "#CUPS-COMMAND\n%s\n", command);
+
+    /*
+     * Send the command file job...
+     */
+    hold_option.name  = const_cast<char*>("job-hold-until");
+    hold_option.value = const_cast<char*>("no-hold");
+
+    if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT, name, title,
+                                1, &hold_option)) < 1)
+    {
+        qWarning() << "Unable to send command to printer driver!";
+        return false;
+    }
+
+    status = cupsStartDocument(CUPS_HTTP_DEFAULT, name, job_id, NULL, CUPS_FORMAT_COMMAND, 1);
+    if (status == HTTP_CONTINUE) {
+        status = cupsWriteRequestData(CUPS_HTTP_DEFAULT, command_file,
+                                      strlen(command_file));
+    }
+
+    if (status == HTTP_CONTINUE) {
+        cupsFinishDocument(CUPS_HTTP_DEFAULT, name);
+    }
+
+    if (cupsLastError() >= IPP_REDIRECTION_OTHER_SITE)
+    {
+        qWarning() << "Unable to send command to printer driver!";
+
+        cupsCancelJob(name, job_id);
+        return false;
+    }
+    return true;
 }

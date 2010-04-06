@@ -41,6 +41,7 @@ public:
     void setKind(const QString &kind);
     void setIsDefault(bool isDefault);
     void setIsShared(bool isShared);
+    void setCommands(const QStringList &commands);
 
 private slots:
     void on_openQueuePB_clicked();
@@ -48,9 +49,14 @@ private slots:
     void on_sharedCB_clicked();
     void on_optionsPB_clicked();
 
+    void on_actionPrintTestPage_triggered(bool checked);
+    void on_actionCleanPrintHeads_triggered(bool checked);
+    void on_actionPrintSelfTestPage_triggered(bool checked);
+
 private:
     QString m_destName;
     bool m_isClass;
+    QStringList m_commands;
     QPixmap m_printerIcon;
     QPixmap m_pauseIcon;
     QPixmap m_startIcon;

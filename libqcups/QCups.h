@@ -38,6 +38,8 @@ namespace QCups
 
         KDE_EXPORT bool setShared(const QString &destName, bool isClass, bool shared);
         KDE_EXPORT QHash<QString, QVariant> getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
+        KDE_EXPORT bool printTestPage(const QString &destName, bool isClass);
+        KDE_EXPORT bool printCommand(const QString &destName, const QString &command, const QString &title);
     }
 
     KDE_EXPORT void initialize();

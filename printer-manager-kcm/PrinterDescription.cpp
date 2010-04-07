@@ -55,6 +55,14 @@ PrinterDescription::PrinterDescription(QWidget *parent)
                                                   QStringList(),
                                                   0,
                                                   true);
+
+    KMenu *menu = new KMenu(maintenancePB);
+    menu->addAction(actionPrintTestPage);
+    menu->addAction(actionCleanPrintHeads);
+    menu->addAction(actionPrintSelfTestPage);
+    actionCleanPrintHeads->setVisible(false);
+    actionPrintSelfTestPage->setVisible(false);
+    maintenancePB->setMenu(menu);
 }
 
 PrinterDescription::~PrinterDescription()
@@ -136,21 +144,8 @@ void PrinterDescription::setCommands(const QStringList &commands)
     if (m_commands != commands) {
         m_commands = commands;
 
-        KMenu *menu = new KMenu(maintenanceTB);
-        menu->addAction(actionPrintTestPage);
-
-        if (commands.contains("Clean")) {
-            menu->addAction(actionCleanPrintHeads);
-        }
-
-        if (commands.contains("PrintSelfTestPage")) {
-            menu->addAction(actionPrintSelfTestPage);
-        }
-
-        if (maintenanceTB->menu()) {
-            delete maintenanceTB->menu();
-        }
-        maintenanceTB->setMenu(menu);
+        actionCleanPrintHeads->setVisible(commands.contains("Clean"));
+        actionPrintSelfTestPage->setVisible(commands.contains("PrintSelfTestPage"));
     }
 }
 

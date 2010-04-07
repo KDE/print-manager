@@ -42,7 +42,7 @@ public:
         PPDList,
         PPDName = Qt::UserRole + 1
     } Role;
-    explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = 0);
+    explicit ModifyPrinter(const QString &destName, bool isClass, bool isModify, QWidget *parent = 0);
     ~ModifyPrinter();
 
     bool hasChanges();

@@ -22,7 +22,7 @@
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>40</height>
+       <height>20</height>
       </size>
      </property>
     </spacer>
@@ -88,7 +88,26 @@
      <property name="margin">
       <number>4</number>
      </property>
-     <item row="2" column="0">
+     <item row="0" column="0">
+      <widget class="QLabel" name="iconL">
+       <property name="text">
+        <string>Icon</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="printerNameL">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string notr="true">Printer name or description</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
       <widget class="QLabel" name="locationL">
        <property name="font">
         <font>
@@ -100,7 +119,7 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
+     <item row="1" column="1">
       <widget class="QLabel" name="locationMsgL">
        <property name="text">
         <string notr="true">textLocation</string>
@@ -110,7 +129,7 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="2" column="0">
       <widget class="QLabel" name="kindL">
        <property name="font">
         <font>
@@ -122,7 +141,7 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="2" column="1">
       <widget class="QLabel" name="kindMsgL">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -138,7 +157,7 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
+     <item row="3" column="0">
       <widget class="QLabel" name="statusL">
        <property name="font">
         <font>
@@ -150,7 +169,7 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="3" column="1">
       <widget class="QLabel" name="statusMsgL">
        <property name="text">
         <string notr="true">status text</string>
@@ -160,46 +179,30 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
+     <item row="4" column="1">
       <widget class="QCheckBox" name="sharedCB">
        <property name="text">
         <string>Share this printer</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="iconL">
-       <property name="text">
-        <string>Icon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
+     <item row="5" column="1">
       <widget class="QCheckBox" name="defaultCB">
        <property name="text">
         <string>Default printer</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="printerNameL">
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-        </font>
+     <item row="6" column="1">
+      <widget class="KPushButton" name="maintenancePB">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="text">
-        <string notr="true">Printer name or description</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QToolButton" name="maintenanceTB">
        <property name="text">
         <string>Maintenance</string>
-       </property>
-       <property name="popupMode">
-        <enum>QToolButton::InstantPopup</enum>
        </property>
       </widget>
      </item>
@@ -225,6 +228,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KPushButton</class>
+   <extends>QPushButton</extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

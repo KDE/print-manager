@@ -31,10 +31,17 @@
 
 using namespace QCups;
 
-ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *parent)
+ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModify, QWidget *parent)
  : PrinterPage(parent), m_destName(destName), m_isClass(isClass), m_changes(0)
 {
     setupUi(this);
+
+    if (isModify) {
+        // we are modifying the printer/class so
+        // the user cannot change it.
+        nameLE->setText(destName);
+        nameLE->setReadOnly(true);
+    }
 
     connectionL->setVisible(!isClass);
     connectionLE->setVisible(!isClass);
@@ -46,7 +53,7 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
     m_model = new QStandardItemModel(membersLV);
     membersLV->setModel(m_model);
 
-    connect(nameLE, SIGNAL(textChanged(const QString &)),
+    connect(descriptionLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
     connect(locationLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
@@ -186,8 +193,8 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
         makeCB->insertItem(3, i18n("Provide a PPD file"), PPDFile);
     }
 
-    nameLE->setText(values["printer-info"].toString());
-    nameLE->setProperty("orig_text", values["printer-info"].toString());
+    descriptionLE->setText(values["printer-info"].toString());
+    descriptionLE->setProperty("orig_text", values["printer-info"].toString());
 
     locationLE->setText(values["printer-location"].toString());
     locationLE->setProperty("orig_text", values["printer-location"].toString());
@@ -198,7 +205,7 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
     // clear old values
     m_changes = 0;
     m_changedValues.clear();
-    nameLE->setProperty("different", false);
+    descriptionLE->setProperty("different", false);
     locationLE->setProperty("different", false);
     connectionLE->setProperty("different", false);
     m_model->setProperty("different", false);
@@ -291,7 +298,7 @@ bool ModifyPrinter::hasChanges()
 
 void ModifyPrinter::setRemote(bool remote)
 {
-    nameLE->setReadOnly(remote);
+    descriptionLE->setReadOnly(remote);
     locationLE->setReadOnly(remote);
     connectionLE->setReadOnly(remote);
     makeCB->setEnabled(!remote);

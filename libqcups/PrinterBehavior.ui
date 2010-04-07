@@ -14,6 +14,9 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>0</number>
+   </property>
    <item row="1" column="0" rowspan="2" colspan="5">
     <widget class="Line" name="line_2">
      <property name="orientation">

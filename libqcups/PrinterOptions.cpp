@@ -52,6 +52,11 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
     reloadPPD();
 }
 
+void PrinterOptions::on_autoConfigurePB_clicked()
+{
+    QCups::Dest::printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
+}
+
 void PrinterOptions::reloadPPD()
 {
     //     The caller "owns" the file that is created and must unlink the returned filename.
@@ -107,6 +112,21 @@ void PrinterOptions::reloadPPD()
 
     if (m_ppd->nickname) {
         m_makeAndModel = m_codec->toUnicode(m_ppd->nickname);
+    }
+
+    autoConfigurePB->hide();
+    ppd_attr_t  *ppdattr;
+    if (m_ppd->num_filters == 0 ||
+        ((ppdattr = ppdFindAttr(m_ppd, "cupsCommands", NULL)) != NULL &&
+           ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
+        autoConfigurePB->show();
+    } else {
+        for (int i = 0; i < m_ppd->num_filters; i ++) {
+            if (!strncmp(m_ppd->filters[i], "application/vnd.cups-postscript", 31)) {
+              autoConfigurePB->show();
+              break;
+            }
+        }
     }
 
     createGroups();

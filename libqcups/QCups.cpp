@@ -21,6 +21,7 @@
 #include "QCups.h"
 #include "cupsActions.h"
 #include <cups/cups.h>
+#include <cups/adminutil.h>
 
 #include <QPointer>
 #include <KPasswordDialog>
@@ -151,6 +152,29 @@ bool QCups::addModifyClassOrPrinter(const QString &name, bool isClass, const QHa
 {
     RUN_ACTION(cupsAddModifyClassOrPrinter(name.toUtf8(), isClass, values))
 }
+
+QHash<QString, QString> QCups::adminGetServerSettings()
+{
+    int num_settings;
+    cups_option_t *settings;
+    QHash<QString, QString> ret;
+    cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
+    for (int i = 0; i < num_settings; i++) {
+      QString name = QString::fromUtf8(settings[i].name);
+      QString value = QString::fromUtf8(settings[i].value);
+      kDebug() << i << " : settings-name " << settings[i].name << " - settings-value : " << settings[i].value;
+      ret[name] = value;
+    }
+    cupsFreeOptions(num_settings, settings);
+
+    return ret;
+}
+
+bool QCups::adminSetServerSettings(const QHash<QString, QString> &userValues)
+{
+    RUN_ACTION(cupsAdminSetServerSettings(userValues))
+}
+
 
 QList<QHash<QString, QVariant> > QCups::getPPDS(const QString &make)
 {

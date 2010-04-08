@@ -34,6 +34,7 @@ namespace QCups
     bool cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
     bool cupsPrintTestPage(const char *name, bool is_class);
     bool cupsPrintCommand(const char *name, const char *command, const char *title);
+    bool cupsAdminSetServerSettings(const QHash<QString, QString> &userValues);
 
     QList<QHash<QString, QVariant> > cupsGetPPDS(const QString &make);
     QHash<QString, QVariant> cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr);

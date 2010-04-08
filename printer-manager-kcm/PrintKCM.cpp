@@ -23,6 +23,7 @@
 #include "PrinterModel.h"
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
+#include "SystemPreferences.h"
 
 #include <KMessageBox>
 #include <KGenericFactory>
@@ -134,4 +135,10 @@ void PrintKCM::on_removePB_clicked()
             QCups::deletePrinter(index.data(PrinterModel::DestName).toString());
         }
     }
+}
+
+void PrintKCM::on_preferencesPB_clicked()
+{
+    SystemPreferences *dlg = new SystemPreferences(this);
+    dlg->show();
 }

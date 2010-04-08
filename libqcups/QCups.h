@@ -52,6 +52,7 @@ namespace QCups
     KDE_EXPORT bool setDefaultPrinter(const QString &name);
     KDE_EXPORT bool deletePrinter(const QString &name);
     KDE_EXPORT bool addModifyClassOrPrinter(const QString &name, bool isClass, const QHash<QString, QVariant> values);
+    KDE_EXPORT bool adminSetServerSettings(const QHash<QString, QString> &userValues);
 
     KDE_EXPORT QList<QHash<QString, QVariant> > getPPDS(const QString &make = QString());
 
@@ -60,6 +61,7 @@ namespace QCups
     // "printer-is-default" attribute BUT it does not get user
     // defined default printer, see cupsGetDefault() on www.cups.org for details
     KDE_EXPORT QList<Destination> getDests(int mask, const QStringList &requestedAttr = QStringList());
+    KDE_EXPORT QHash<QString, QString> adminGetServerSettings();
 };
 
 #endif

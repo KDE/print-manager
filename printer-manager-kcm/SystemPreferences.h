@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010 by Glauber M. Dantas                               *
+ *   glauber.md@gmail.com                                                  *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,33 +18,24 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_KCM_H
-#define PRINT_KCM_H
+#ifndef SYSTEM_PREFERENCES_H
+#define SYSTEM_PREFERENCES_H
 
-#include <QTimer>
-#include <KCModule>
+#include "ui_SystemPreferences.h"
+#include <KDialog>
 
-#include "ui_PrintKCM.h"
-
-class PrinterModel;
-class PrinterDescription;
-class PrintKCM : public KCModule, public Ui::PrintKCM
+class SystemPreferences : public KDialog, Ui::SystemPreferences
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
-    PrintKCM(QWidget *parent, const QVariantList &args);
-    ~PrintKCM();
+    SystemPreferences(QWidget *parent = 0);
+    ~SystemPreferences();
 
 private slots:
-    void update();
-    void on_removePB_clicked();
-    void on_preferencesPB_clicked();
+    void save();
 
 private:
-    PrinterModel *m_model;
-    PrinterDescription *m_printerDesc;
-    QTimer *m_updateT;
+    QHash<QString, QString> m_values;
 };
 
 #endif

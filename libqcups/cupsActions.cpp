@@ -20,6 +20,7 @@
 
 #include "cupsActions.h"
 #include <cups/cups.h>
+#include <cups/adminutil.h>
 
 #include <QStringList>
 #include <KDebug>
@@ -663,4 +664,37 @@ bool QCups::cupsPrintCommand(const char *name,       /* I - Destination printer 
         return false;
     }
     return true;
+}
+
+bool QCups::cupsAdminSetServerSettings(const QHash<QString, QString> &userValues)
+{
+    bool ret = false;
+    int num_settings = 0;
+    cups_option_t *settings;
+
+    if (userValues.contains("_remote_admin")) {
+        num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ADMIN,
+                                     userValues["_remote_admin"].toUtf8(), num_settings, &settings);
+    }
+    if (userValues.contains("_remote_any")) {
+        num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ANY,
+                                     userValues["_remote_any"].toUtf8(), num_settings, &settings);
+    }
+    if (userValues.contains("_remote_printers")) {
+        num_settings = cupsAddOption(CUPS_SERVER_REMOTE_PRINTERS,
+                                     userValues["_remote_printers"].toUtf8(), num_settings, &settings);
+    }
+    if (userValues.contains("_share_printers")) {
+        num_settings = cupsAddOption(CUPS_SERVER_SHARE_PRINTERS,
+                                     userValues["_share_printers"].toUtf8(), num_settings, &settings);
+    }
+    if (userValues.contains("_user_cancel_any")) {
+        num_settings = cupsAddOption(CUPS_SERVER_USER_CANCEL_ANY,
+                                     userValues["_user_cancel_any"].toUtf8(), num_settings, &settings);
+    }
+
+    ret = cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
+    cupsFreeOptions(num_settings, settings);
+
+    return !cupsLastError();
 }

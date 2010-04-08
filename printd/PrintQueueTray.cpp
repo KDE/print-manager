@@ -20,23 +20,28 @@
 
 #include "PrintQueueTray.h"
 
-#include <KIcon>
 #include <KMenu>
 #include <KLocale>
+#include <KActionCollection>
 
-#include <QtCore/QSignalMapper>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 
 #include <KDebug>
 
-
 PrintQueueTray::PrintQueueTray(QObject *parent)
  : KStatusNotifierItem(parent)
 {
-  setCategory(Hardware);
-  setIconByName("printer");
-  setStatus(Active);
+    setCategory(Hardware);
+    setIconByName("printer");
+    setStatus(Active);
+
+    // Remove standard quit action, as it would quit all of KDED
+    KActionCollection *actions = actionCollection();
+    actions->removeAction(actions->action(KStandardAction::name(KStandardAction::Quit)));
+    connect(contextMenu(), SIGNAL(triggered(QAction *)),
+            this, SLOT(openQueue(QAction *)));
+    connect(this, SIGNAL(activateRequested(bool, const QPoint &)), this, SLOT(openDefaultQueue()));
 }
 
 PrintQueueTray::~PrintQueueTray()
@@ -45,33 +50,17 @@ PrintQueueTray::~PrintQueueTray()
 
 void PrintQueueTray::connectToLauncher(const QString &destName)
 {
-    QSignalMapper *signalMapper = new QSignalMapper(this);
-    signalMapper->setMapping(this, destName);
-    connect(this, SIGNAL(activateRequested(bool, const QPoint &)), signalMapper, SLOT(map()));
-    connect(signalMapper, SIGNAL(mapped(const QString &)),
-            this, SLOT(openQueue(const QString &)));
+    m_destName = destName;
 }
 
-void PrintQueueTray::connectToMenu(const QList<QString> &printerList)
+void PrintQueueTray::openDefaultQueue()
 {
-    QSignalMapper *signalMapper = new QSignalMapper(this);
-    KMenu *printerMenu = new KMenu();
-
-    foreach (const QString &printerName, printerList) {
-        QAction *action = new QAction(KIcon("printer"),
-                                      i18n("Queue for %1...", printerName), this);
-        signalMapper->setMapping(action, printerName);
-        connect(action, SIGNAL(triggered()), signalMapper, SLOT(map()));
-        printerMenu->addAction(action);
-    }
-
-    connect(signalMapper, SIGNAL(mapped(const QString &)),
-            this, SLOT(openQueue(const QString &)));
-
-    setAssociatedWidget(printerMenu);
+    QAction action(this);
+    action.setData(m_destName);
+    openQueue(&action);
 }
 
-void PrintQueueTray::openQueue(const QString &destName)
+void PrintQueueTray::openQueue(QAction *action)
 {
     QDBusMessage message;
     message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
@@ -79,6 +68,6 @@ void PrintQueueTray::openQueue(const QString &destName)
                                              "org.kde.PrintQueue",
                                              QLatin1String("ShowQueue"));
     // Use our own cached tid to avoid crashes
-    message << qVariantFromValue(destName);
+    message << qVariantFromValue(action->data().toString());
     QDBusConnection::sessionBus().call(message);
 }

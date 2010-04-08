@@ -22,6 +22,8 @@
 #define PRINTD_H
 
 #include <KDEDModule>
+#include <QHash>
+#include <QStringList>
 
 #include <cups/cups.h>
 
@@ -40,13 +42,14 @@ public:
 private slots:
     void readConfig();
     void checkJobs();
-    void serviceOwnerChanged(const QString &name, const QString &oldOnwer, const QString &newOwner);
-    void updateToolTip(int num_jobs, const cups_job_t *jobs);
-    void updateContextMenu(int num_jobs, const cups_job_t *jobs);
-    void updateAssociatedWidget(int num_jobs, const cups_job_t *jobs);
-    void destroyIcon();
+
+    void fillMenu();
 
 private:
+    QHash<QString, QHash<QString, QString> > destsMessages() const;
+    QString m_lastTitle, m_lastSubTitle;
+    QHash<QString, int> m_jobsPerPrinter;
+
     QTimer *m_jobsTimer;
     bool m_onlyMyJobs;
 

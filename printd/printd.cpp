@@ -20,24 +20,20 @@
 
 #include "printd.h"
 
-#include <KActionCollection>
 #include <KConfigGroup>
 #include <KDirWatch>
 #include <KGenericFactory>
 #include <KIcon>
 #include <KMenu>
 #include <KStandardDirs>
+#include <QHash>
+#include <QStringList>
 
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusConnectionInterface>
 #include <QtCore/QTimer>
 
 #include "PrintQueueTray.h"
 
-#define INTERVAL 5000
-
-#define SYSTRAY_NAME "org.kde.PrintQueue"
+#define INTERVAL 2000
 
 K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintD>();)
 K_EXPORT_PLUGIN(PrintDFactory("printd"))
@@ -61,9 +57,6 @@ PrintD::PrintD(QObject *parent, const QList<QVariant> &)
     m_jobsTimer->setInterval(INTERVAL);
     connect(m_jobsTimer, SIGNAL(timeout()), this, SLOT(checkJobs()));
     m_jobsTimer->start();
-
-    connect(QDBusConnection::sessionBus().interface(), SIGNAL(serviceOwnerChanged(const QString&, const QString&, const QString&)),
-            this, SLOT(serviceOwnerChanged(const QString&, const QString&, const QString&)));
 }
 
 PrintD::~PrintD()
@@ -80,7 +73,6 @@ void PrintD::readConfig()
 
 void PrintD::checkJobs()
 {
-    //     m_jobsTimer->stop();
     int num_jobs;
     cups_job_t *jobs;
 
@@ -89,98 +81,151 @@ void PrintD::checkJobs()
 
     if (num_jobs > 0) {
         if (!m_trayIcon) {
-            m_trayIcon = new PrintQueueTray;
+            // Create a new Tray icon that will fill the menu just
+            // when it's about to show
+            m_trayIcon = new PrintQueueTray(this);
+            connect(m_trayIcon->contextMenu(), SIGNAL(aboutToShow()),
+                    this, SLOT(fillMenu()));
         }
 
-        updateToolTip(num_jobs, jobs);
-        updateContextMenu(num_jobs, jobs);
-        updateAssociatedWidget(num_jobs, jobs);
-    } else {
-        destroyIcon();
+        m_jobsPerPrinter.clear();
+
+        // Get the number of jobs each printer has
+        for (int i = 0; i < num_jobs; i++) {
+            m_jobsPerPrinter[QString::fromUtf8(jobs[i].dest)]++;
+        }
+
+        QString title, output;
+        // If there are more than 3 printers just tell how many jobs are queued
+        if (m_jobsPerPrinter.size() > 3) {
+            title.append(i18np("One job queued", "%1 jobs queued", num_jobs));
+        } else{
+            // Get the destination messages
+            title = i18n("Printing...");
+            QHash<QString, QHash<QString, QString> > messages = destsMessages();
+            QHash<QString, int>::const_iterator i = m_jobsPerPrinter.constBegin();
+            while (i != m_jobsPerPrinter.constEnd()) {
+                if (!output.isEmpty()) {
+                    output.append("<br><br>");
+                }
+                QString destDescription = messages[i.key()]["print-message"];
+                if (destDescription.isEmpty()) {
+                    destDescription = i.key();
+                }
+                output.append(i18np("<b>One job in '%2'</b>", "<b>%1 jobs in '%2'</b>", i.value(),
+                                    destDescription));
+                QString destMessage = messages[i.key()]["printer-state-message"];
+                if (!destMessage.isEmpty()) {
+                    output.append(QString("<br>'%1'").arg(destMessage));
+                }
+
+                ++i;
+            }
+        }
+
+        if (m_lastSubTitle != output || m_lastTitle != title) {
+            m_trayIcon->setToolTip("printer", title, output);
+            m_lastSubTitle = output;
+            m_lastTitle = title;
+        }
+
+        if (m_jobsPerPrinter.size() == 1) {
+            // First clear any previously-set associated widget
+            m_trayIcon->setAssociatedWidget(0);
+            m_trayIcon->connectToLauncher(m_jobsPerPrinter.keys().first());
+        } else {
+            m_trayIcon->setAssociatedWidget(m_trayIcon->contextMenu());
+        }
+
+    } else if (m_trayIcon) {
+        // Hide the tray icon if there are no more jobs
+        m_trayIcon->deleteLater();
+        m_lastSubTitle.clear();
+        m_lastTitle.clear();
+        m_trayIcon = 0;
     }
 
     // Free the job array
     cupsFreeJobs(num_jobs, jobs);
 }
 
-void PrintD::serviceOwnerChanged(const QString &name, const QString &oldOnwer, const QString &newOwner)
+QHash<QString, QHash<QString, QString> > PrintD::destsMessages() const
 {
-    Q_UNUSED(oldOnwer)
-    if (name != SYSTRAY_NAME) {
-        return;
-    }
+    ipp_t *request, *response;
+    ipp_attribute_t *attr;
+    QHash<QString, QHash<QString, QString> > ret;
+    static const char * const attrs[] =
+                {
+                  "printer-name",
+                  "printer-state-message"
+                };
 
-    // newOwner is empty when the process exited, else it started
-    if (newOwner.isEmpty()) {
-        m_jobsTimer->start();
-    } else {
-        m_jobsTimer->stop();
-    }
-}
+    request = ippNewRequest(CUPS_GET_PRINTERS);
+    ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD, "requested-attributes",
+                  (int)(sizeof(attrs) / sizeof(attrs[0])), NULL, attrs);
+    if ((response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/")) != NULL) {
+        for (attr = response->attrs; attr != NULL; attr = attr->next) {
+            /*
+             * Skip leading attributes until we hit a printer...
+             */
+            while (attr != NULL && attr->group_tag != IPP_TAG_PRINTER) {
+                attr = attr->next;
+            }
 
-void PrintD::updateToolTip(int num_jobs, const cups_job_t *jobs)
-{
-    kDebug() << "Updating tooltip";
-    QString jobTitle;
-    QString destPrinter;
-    QString tooltipText;
-    for (int i = 0; i < num_jobs; i++) {
-        destPrinter = QString::fromLocal8Bit(jobs->dest);
-        jobTitle = QString::fromLocal8Bit(jobs[i].title);
-        if (jobs[i].state == IPP_JOB_PROCESSING) {
-            tooltipText = i18n("Printing: %1", jobTitle);
-            break;
-        } else if (jobs[i].state == IPP_JOB_PENDING) {
-            tooltipText = i18n("Pending: %1", jobTitle) ;
-            break;
+            if (attr == NULL) {
+                break;
+            }
+
+            QString destName;
+            QHash<QString, QString> attributes;
+            for (; attr && attr->group_tag == IPP_TAG_PRINTER; attr = attr->next) {
+                if (attr->value_tag != IPP_TAG_TEXT &&
+                    attr->value_tag != IPP_TAG_NAME) {
+                    continue;
+                }
+
+                if (!strcmp(attr->name, "printer-name") ||
+                    !strcmp(attr->name, "printer-state-message")) {
+                    attributes[QString::fromUtf8(attr->name)] = QString::fromUtf8(attr->values[0].string.text);
+                }
+            }
+
+            destName = attributes["printer-name"];
+            if (destName.isEmpty()) {
+                if (attr == NULL) {
+                    break;
+                } else {
+                  continue;
+                }
+            }
+
+            ret[destName] = attributes;
+
+            if (attr == NULL) {
+                break;
+            }
         }
+
+        ippDelete(response);
     }
-    m_trayIcon->setToolTip("printer", destPrinter, tooltipText);
+    return ret;
 }
 
-void PrintD::updateContextMenu(int num_jobs, const cups_job_t *jobs)
+void PrintD::fillMenu()
 {
-    KMenu *contextMenu = new KMenu();
-    contextMenu->addTitle(KIcon("printer"), i18n("Printer Status"));
-
-    // Remove standard quit action, as it would quit all of KDED
-    KActionCollection *actions = m_trayIcon->actionCollection();
-    actions->removeAction(actions->action(KStandardAction::name(KStandardAction::Quit)));
-
-    contextMenu->addSeparator();
-    // Make our own quit action, that just deletes the tray object
-    QAction *quitAction = new QAction(KIcon("application-exit"), i18n("Quit"), this);
-    quitAction->setShortcut(KStandardShortcut::Quit);
-    connect(quitAction, SIGNAL(triggered()), this, SLOT(destroyIcon()));
-
-    contextMenu->addAction(quitAction);
-
-    m_trayIcon->setContextMenu(contextMenu);
-}
-
-void PrintD::updateAssociatedWidget(int num_jobs, const cups_job_t *jobs)
-{
-    // This will populate a list of unique printer desitnations
-    QSet<QString> printerDests;
-    for (int i = 0; i < num_jobs; i++) {
-        printerDests << QString::fromLocal8Bit(jobs->dest);
-    }
-    QList<QString> printerList = printerDests.toList();
-
-    if (printerList.size() == 1) {
-        QString destName = printerList.first();
-        // First clear any previously-set associated widget
-        m_trayIcon->setAssociatedWidget(0);
-        m_trayIcon->connectToLauncher(destName);
-    } else {
-        m_trayIcon->connectToMenu(printerList);
-    }
-}
-
-void PrintD::destroyIcon()
-{
-    if (m_trayIcon) {
-        m_trayIcon->deleteLater();
-        m_trayIcon = 0;
+    KMenu *contextMenu = qobject_cast<KMenu*>(sender());
+    contextMenu->clear();
+    QStringList dests = m_jobsPerPrinter.keys();
+    dests.sort();
+    contextMenu->addTitle(KIcon("printer"), i18np("Printer", "Printers", dests.size()));
+    foreach (const QString &destName, dests) {
+        if (!contextMenu->isEmpty()) {
+            contextMenu->addSeparator();
+        }
+        contextMenu->addAction(destName)->setEnabled(false);
+        QAction *action = contextMenu->addAction(i18np("One job queued",
+                                                       "%1 jobs queued",
+                                                       m_jobsPerPrinter[destName]));
+        action->setData(destName);
     }
 }

@@ -22,6 +22,7 @@
 #define PRINT_QUEUE_TRAY_H
 
 #include <KStatusNotifierItem>
+#include <QAction>
 
 class PrintQueueTray : public KStatusNotifierItem
 {
@@ -31,10 +32,13 @@ public:
     ~PrintQueueTray();
 
     void connectToLauncher(const QString &destName);
-    void connectToMenu(const QList<QString> &printerList);
 
-private slots:
-    void openQueue(const QString &destName);
+public slots:
+    void openQueue(QAction *action);
+    void openDefaultQueue();
+
+private:
+    QString m_destName;
 };
 
 #endif

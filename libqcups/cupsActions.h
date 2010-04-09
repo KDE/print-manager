@@ -23,22 +23,47 @@
 
 #include <QHash>
 #include <QVariant>
+#include <QThread>
+#include <QMutex>
+
+#include <cups/cups.h>
 
 namespace QCups
 {
-    bool cupsMoveJob(const char *name, int job_id, const char *dest_name);
-    bool cupsPauseResumePrinter(const char *name, bool pause);
-    bool cupsSetDefaultPrinter(const char *name);
-    bool cupsDeletePrinter(const char *name);
-    bool cupsHoldReleaseJob(const char *name, int job_id, bool hold);
-    bool cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
-    bool cupsPrintTestPage(const char *name, bool is_class);
+    ipp_status_t cupsMoveJob(const char *name, int job_id, const char *dest_name);
+    ipp_status_t cupsPauseResumePrinter(const char *name, bool pause);
+    ipp_status_t cupsSetDefaultPrinter(const char *name);
+    ipp_status_t cupsDeletePrinter(const char *name);
+    ipp_status_t cupsHoldReleaseJob(const char *name, int job_id, bool hold);
+    ipp_status_t cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
+    ipp_status_t cupsPrintTestPage(const char *name, bool is_class);
     bool cupsPrintCommand(const char *name, const char *command, const char *title);
-    bool cupsAdminSetServerSettings(const QHash<QString, QString> &userValues);
+    ipp_status_t cupsAdminSetServerSettings(const QHash<QString, QString> &userValues);
 
     QList<QHash<QString, QVariant> > cupsGetPPDS(const QString &make);
     QHash<QString, QVariant> cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr);
     QList<QHash<QString, QVariant> > cupsGetDests(int mask, const QStringList &requestedAttr);
+    QHash<QString, QString> cupsAdminGetServerSettings();
+
+    class CupsThread : public QThread
+    {
+        Q_OBJECT
+    public:
+        CupsThread(ipp_t *request, const char *resource);
+        ~CupsThread();
+
+        ipp_t* execute();
+        ipp_t* response() const;
+        ipp_status_t lastError() const;
+//         QString lastErrorString() const;
+    private:
+        void run();
+        QMutex mutex;
+        ipp_t *m_request, *m_response;
+        ipp_status_t m_lastError;
+
+        const char *m_resource;
+    };
 };
 
 #endif

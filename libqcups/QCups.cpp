@@ -20,8 +20,6 @@
 
 #include "QCups.h"
 #include "cupsActions.h"
-#include <cups/cups.h>
-#include <cups/adminutil.h>
 
 #include <QPointer>
 #include <KPasswordDialog>
@@ -32,10 +30,11 @@ using namespace QCups;
 
 #define RUN_ACTION(blurb) \
                 password_retries = 0; \
+                ipp_status_t ret; \
                 do { \
-                    blurb; \
-                } while (retry()); \
-                return !cupsLastError(); \
+                    ret = blurb; \
+                } while (retry(ret)); \
+                return !static_cast<bool>(ret); \
 
 static uint password_retries = 0;
 bool retry();
@@ -71,12 +70,12 @@ const char * my_password_cb(const char *)
     return NULL;
 }
 
-bool retry()
+bool retry(ipp_status_t lastError)
 {
-//     kDebug() << "cupsLastErrorString()" << cupsLastErrorString();
-    if (cupsLastError() == IPP_FORBIDDEN ||
-        cupsLastError() == IPP_NOT_AUTHORIZED ||
-        cupsLastError() == IPP_NOT_AUTHENTICATED) {
+    kDebug() << "cupsLastErrorString()" << cupsLastErrorString();
+    if (lastError == IPP_FORBIDDEN ||
+        lastError == IPP_NOT_AUTHORIZED ||
+        lastError == IPP_NOT_AUTHENTICATED) {
         switch (password_retries) {
         case 0:
             // try to authenticate as the root user
@@ -92,6 +91,7 @@ bool retry()
         }
 
         // force authentication
+        kDebug() << "cupsDoAuthentication" << password_retries;
         if (cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", "/") == 0) {
             // tries to do the action again
             // sometimes just trying to be root works
@@ -135,7 +135,9 @@ bool QCups::deletePrinter(const QString &name)
 
 bool QCups::cancelJob(const QString &name, int job_id)
 {
-    RUN_ACTION(cupsCancelJob(name.toUtf8(), job_id))
+//     RUN_ACTION(
+// TODO put in a thread
+   return cupsCancelJob(name.toUtf8(), job_id);
 }
 
 bool QCups::holdJob(const QString &name, int job_id)
@@ -155,26 +157,13 @@ bool QCups::addModifyClassOrPrinter(const QString &name, bool isClass, const QHa
 
 QHash<QString, QString> QCups::adminGetServerSettings()
 {
-    int num_settings;
-    cups_option_t *settings;
-    QHash<QString, QString> ret;
-    cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
-    for (int i = 0; i < num_settings; i++) {
-      QString name = QString::fromUtf8(settings[i].name);
-      QString value = QString::fromUtf8(settings[i].value);
-      kDebug() << i << " : settings-name " << settings[i].name << " - settings-value : " << settings[i].value;
-      ret[name] = value;
-    }
-    cupsFreeOptions(num_settings, settings);
-
-    return ret;
+    return cupsAdminGetServerSettings();
 }
 
 bool QCups::adminSetServerSettings(const QHash<QString, QString> &userValues)
 {
     RUN_ACTION(cupsAdminSetServerSettings(userValues))
 }
-
 
 QList<QHash<QString, QVariant> > QCups::getPPDS(const QString &make)
 {

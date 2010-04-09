@@ -55,7 +55,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr.removeDuplicates();
     QHash<QString, QVariant> values = Dest::getAttributes(destName, isClass, attr);
 
-//     kDebug() << values;
+    kDebug() << values;
  if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {
      kDebug() << "CUPS_PRINTER_LOCAL";
  }

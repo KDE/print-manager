@@ -25,10 +25,14 @@
 #include <QVariant>
 #include <QThread>
 #include <QMutex>
+#include <QEventLoop>
+#include <QWaitCondition>
+#include <KPasswordDialog>
 
 #include <cups/cups.h>
-
-namespace QCups
+typedef QHash<QString, QVariant> Arguments;
+typedef QList<QHash<QString, QVariant> > ReturnArguments;
+namespace Cups
 {
     ipp_status_t cupsMoveJob(const char *name, int job_id, const char *dest_name);
     ipp_status_t cupsPauseResumePrinter(const char *name, bool pause);
@@ -45,25 +49,39 @@ namespace QCups
     QList<QHash<QString, QVariant> > cupsGetDests(int mask, const QStringList &requestedAttr);
     QHash<QString, QString> cupsAdminGetServerSettings();
 
-    class CupsThread : public QThread
+
+//     Q_DECLARE_METATYPE(Arguments);
+
+    class Request : public QObject
+        {
+        Q_OBJECT
+    public slots:
+        void request(QEventLoop *loop, ipp_op_e operation, const QString &resource, Arguments reqValues);
+        void askPass(const QString &username, bool showErrorMessage);
+
+    signals:
+        void showPasswordDlg(const QString &username, bool showErrorMessage);
+    private:
+        bool retry();
+    };
+
+    class CupsThreadRequest : public QThread
     {
         Q_OBJECT
     public:
-        CupsThread(ipp_t *request, const char *resource);
-        ~CupsThread();
+        CupsThreadRequest(QObject *parent = 0);
+        ~CupsThreadRequest();
 
-        ipp_t* execute();
-        ipp_t* response() const;
-        ipp_status_t lastError() const;
-//         QString lastErrorString() const;
+        Request *req;
+
     private:
         void run();
-        QMutex mutex;
-        ipp_t *m_request, *m_response;
-        ipp_status_t m_lastError;
 
-        const char *m_resource;
     };
 };
+
+Q_DECLARE_METATYPE(ipp_op_e);
+Q_DECLARE_METATYPE(Arguments);
+Q_DECLARE_METATYPE(ReturnArguments);
 
 #endif

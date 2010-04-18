@@ -21,13 +21,17 @@
 #ifndef Q_CUPS_H
 #define Q_CUPS_H
 
+#include "cupsActions.h"
 #include <kdemacros.h>
 #include <QStringList>
+#include <QPointer>
 #include <QHash>
 
 #define DEST_IDLE     3
 #define DEST_PRINTING 4
 #define DEST_STOPED   5
+
+using namespace Cups;
 
 namespace QCups
 {
@@ -62,6 +66,30 @@ namespace QCups
     // defined default printer, see cupsGetDefault() on www.cups.org for details
     KDE_EXPORT QList<Destination> getDests(int mask, const QStringList &requestedAttr = QStringList());
     KDE_EXPORT QHash<QString, QString> adminGetServerSettings();
+
+}
+
+class KDE_EXPORT NCups : public QObject
+{
+    Q_OBJECT
+public:
+    static NCups* instance();
+
+    QList<QCups::Destination> getDests(int mask, const QStringList &requestedAttr = QStringList());
+    bool setShared(const QString &destName, bool isClass, bool shared);
+    ~NCups();
+signals:
+    void finished();
+
+public slots:
+    void showPasswordDlg(const QString &username, bool showErrorMessage);
+
+public:
+    bool inUse;
+    NCups(QObject* parent = 0);
+    static NCups* m_instance;
+    CupsThreadRequest *m_thread;
+    QPointer<KPasswordDialog> dlg;
 };
 
 #endif

@@ -20,6 +20,8 @@
 
 #include "QCups.h"
 
+#include "cupsActions.h"
+#include "CupsPasswordDialog.h"
 
 #include <QApplication>
 #include <QPointer>
@@ -28,8 +30,31 @@
 #include <QTimer>
 #include <KDebug>
 
-Q_DECLARE_METATYPE(QEventLoop*);
-using namespace Cups;
+#include <QAbstractEventDispatcher>
+
+using namespace QCups;
+
+class NCups : public QObject
+{
+    Q_OBJECT
+public:
+    static NCups* instance();
+    ~NCups();
+
+public slots:
+    void finished();
+    void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
+
+public:
+    NCups(QObject* parent = 0);
+    static NCups* m_instance;
+    CupsThreadRequest *m_thread;
+    QList<QEventLoop*> m_events;
+
+    QEventLoop* begin();
+    void end(QEventLoop *loop);
+};
+
 
 NCups* NCups::m_instance = 0;
 NCups* NCups::instance()
@@ -43,15 +68,17 @@ NCups* NCups::instance()
 
 NCups::NCups(QObject* parent)
  : QObject(parent),
-   inUse(false),
    m_thread(new CupsThreadRequest(this))
 {
     m_thread->start();
     while (!m_thread->req) {
         usleep(1);
     }
-    connect(m_thread->req, SIGNAL(showPasswordDlg(const QString &, bool)),
-            this, SLOT(showPasswordDlg(const QString &, bool)), Qt::BlockingQueuedConnection);
+    connect(m_thread->req, SIGNAL(showPasswordDlg(QEventLoop *, const QString &, bool)),
+            this, SLOT(showPasswordDlg(QEventLoop *, const QString &, bool)), Qt::QueuedConnection);
+
+    connect(m_thread->req, SIGNAL(finished()),
+            this, SLOT(finished()), Qt::QueuedConnection);
 }
 
 NCups::~NCups()
@@ -103,10 +130,6 @@ bool retry(ipp_status_t lastError)
     }
     // the action was not forbidden
     return false;
-}
-
-void QCups::initialize()
-{
 }
 
 bool QCups::moveJob(const QString &name, int job_id, const QString &dest_name)
@@ -171,22 +194,8 @@ QList<QHash<QString, QVariant> > QCups::getPPDS(const QString &make)
     return cupsGetPPDS(make);
 }
 
-QList<QCups::Destination> QCups::getDests(int mask, const QStringList &requestedAttr)
+Result QCups::getDests(int mask, const QStringList &requestedAttr)
 {
-//     QList<QCups::Destination> ret;
-//     QHash<QString, QVariant> request;
-//     request["printer-type"] = CUPS_PRINTER_LOCAL;
-//     if (mask >= 0) {
-//         request["printer-type-mask"] = mask;
-//     }
-//     request["requested-attributes"] = requestedAttr;
-//     kDebug() << request;
-//     CupsThreadRequest *thread;
-//     thread = new CupsThreadRequest(CUPS_GET_PRINTERS, "/", request);
-//     thread->execute();
-//     ret = thread->responseValues();
-//     return ret;
-
     Arguments request;
     request["printer-type"] = CUPS_PRINTER_LOCAL;
     if (mask >= 0) {
@@ -194,7 +203,7 @@ QList<QCups::Destination> QCups::getDests(int mask, const QStringList &requested
     }
     request["requested-attributes"] = requestedAttr;
 kDebug() << "getDests BEGIN" << QThread::currentThreadId();
-    QEventLoop *loop = new QEventLoop;
+    QEventLoop *loop = NCups::instance()->begin();
 
     kDebug() << "getDests BEGIN invoke";
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
@@ -206,117 +215,53 @@ kDebug() << "getDests BEGIN" << QThread::currentThreadId();
                               Q_ARG(Arguments, request));
 
     loop->exec();
-    ReturnArguments ret = loop->property("return").value<ReturnArguments>();
-    kDebug() << "getDests END";
-    delete loop;
-    return ret;
+    // remove again after finished
+    Result result = loop->property("result").value<Result>();
+//     ReturnArguments ret = result.result();
+    NCups::instance()->end(loop);
+    return result;
 }
 
-QList<QCups::Destination> NCups::getDests(int mask, const QStringList &requestedAttr)
+void NCups::showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage)
 {
-    Arguments request;
-    request["printer-type"] = CUPS_PRINTER_LOCAL;
-    if (mask >= 0) {
-        request["printer-type-mask"] = mask;
-    }
-    request["requested-attributes"] = requestedAttr;
-kDebug() << "getDests BEGIN" << QThread::currentThreadId();
-    QEventLoop *loop = new QEventLoop;
-    while (inUse) {
-        kDebug() << "getDests wait TO EXECUTE";
-        // the thread is in use wait to not create a dead lock
-        connect(this, SIGNAL(finished()), loop, SLOT(quit()));
+    // shows a password dialog to the user
+    CupsPasswordDialog *dlg = new CupsPasswordDialog(loop, username, showErrorMessage, 0);
+    // if we use exec() and a new request creates a QEventLoop this
+    // will NEVER return
+    dlg->show();
+}
+
+QEventLoop* NCups::begin()
+{
+    // Create a new event loop to not block the UI while the
+    // request is not processed
+    QEventLoop *loop = new QEventLoop(qApp);
+    if (!m_events.isEmpty()) {
+        // There are running events
+        m_events.append(loop);
+        // Execute till the running event loop finishes
         loop->exec();
+        m_events.removeOne(loop);
     }
 
-    kDebug() << "getDests BEGIN invoke";
-    QMetaObject::invokeMethod(m_thread->req,
-                              "request",
-                              Qt::QueuedConnection,
-                              Q_ARG(QEventLoop*, loop),
-                              Q_ARG(ipp_op_e, CUPS_GET_PRINTERS),
-                              Q_ARG(QString, "/"),
-                              Q_ARG(Arguments, request));
-    inUse = true;
-    loop->exec();
-    ReturnArguments ret = loop->property("return").value<ReturnArguments>();
-    inUse = false;
-    kDebug() << "getDests END";
-    QMetaObject::invokeMethod(this, "finished", Qt::QueuedConnection);
-    
-    delete loop;
-    return ret;
+    // Add it again so another loop is blocked
+    m_events.append(loop);
+    return loop;
 }
 
-void NCups::showPasswordDlg(const QString &username, bool showErrorMessage)
+void NCups::end(QEventLoop *loop)
 {
-    kDebug() << QThread::currentThreadId() << sender();
-    dlg = new KPasswordDialog(0, KPasswordDialog::ShowUsernameLine);
-    dlg->setPrompt(i18n("Enter an username and a password to complete the task"));
-    dlg->setModal(true);
-    dlg->setUsername(username);
-    if (showErrorMessage) {
-        dlg->showErrorMessage(QString(), KPasswordDialog::UsernameError);
-        dlg->showErrorMessage(i18n("Wrong username or password"), KPasswordDialog::PasswordError);
-    }
-QEventLoop *loop = new QEventLoop;
-QTimer::singleShot(1, dlg, SLOT(show()));
-connect(dlg, SIGNAL(finished()), loop, SLOT(quit()));
-connect(dlg, SIGNAL(finished()), loop, SLOT(wakeUp()));
-loop->exec();
-    // show the dialog
-//     if (dlg->exec()) {
-//         sender()->setProperty("username", dlg->username());
-//         sender()->setProperty("password", dlg->password());
-//         sender()->setProperty("canceled", false);
-//         delete dlg;
-//         kDebug()<< "Finish1";
-//     } else {
-        // the dialog was canceled
-        delete dlg;
-        sender()->setProperty("canceled", true);
-        kDebug()<< "Password Dialog Canceled Finish2";
-//     }
+    m_events.removeOne(loop);
+    delete loop;
+    QMetaObject::invokeMethod(this, "finished", Qt::QueuedConnection);
 }
 
-bool NCups::setShared(const QString &destName, bool isClass, bool shared)
+void NCups::finished()
 {
-    QHash<QString, QVariant> request;
-    request["printer-name"] = destName;
-    request["printer-is-class"] = isClass;
-    request["printer-is-shared"] = shared;
-kDebug() << "setShared BEGIN";
-    QEventLoop *loop = new QEventLoop;
-    while (inUse) {
-        kDebug() << "setShared wait TO EXECUTE";
-        // the thread is in use wait to not create a dead lock
-        connect(this, SIGNAL(finished()), loop, SLOT(quit()));
-        loop->exec();
+    // Runs the last QEventLoop created
+    if (!m_events.isEmpty()) {
+        m_events.last()->exit();
     }
-    kDebug() << "setShared BEGIN invoke";
-    QMetaObject::invokeMethod(m_thread->req,
-                              "request",
-                              Qt::QueuedConnection,
-                              Q_ARG(QEventLoop*, loop),
-                              Q_ARG(ipp_op_e, isClass ? CUPS_ADD_MODIFY_CLASS :
-                                                        CUPS_ADD_MODIFY_PRINTER),
-                              Q_ARG(QString, "/admin/"),
-                              Q_ARG(Arguments, request));
-//      << request;
-    inUse = true;
-    loop->exec();
-    inUse = false;
-    kDebug() <<  "setShared END" << loop->property("return").value<ReturnArguments>();
-    QMetaObject::invokeMethod(this, "finished", Qt::QueuedConnection);
-    delete loop;
-    return false;
-
-//     CupsThreadRequest *thread;
-//     thread = new CupsThreadRequest(isClass ? CUPS_ADD_MODIFY_CLASS :
-//                                              CUPS_ADD_MODIFY_PRINTER,
-//                                    "/admin/", request);
-//     thread->execute();
-//     return !thread->lastError();;
 }
 
 bool QCups::Dest::setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename)
@@ -328,25 +273,15 @@ bool QCups::Dest::setAttributes(const QString &destName, bool isClass, const QHa
     RUN_ACTION(cupsAddModifyClassOrPrinter(destName.toUtf8(), isClass, values, filename))
 }
 
-bool QCups::Dest::setShared(const QString &destName, bool isClass, bool shared)
+Result QCups::Dest::setShared(const QString &destName, bool isClass, bool shared)
 {
-//     QHash<QString, QVariant> request;
-//     request["printer-name"] = destName;
-//     request["printer-is-class"] = isClass;
-//     request["printer-is-shared"] = shared;
-//     kDebug() << request;
-//     CupsThreadRequest *thread;
-//     thread = new CupsThreadRequest(isClass ? CUPS_ADD_MODIFY_CLASS :
-//                                              CUPS_ADD_MODIFY_PRINTER,
-//                                    "/admin/", request);
-//     thread->execute();
-//     return !thread->lastError();;
-
     QHash<QString, QVariant> request;
     request["printer-name"] = destName;
     request["printer-is-class"] = isClass;
     request["printer-is-shared"] = shared;
-    QEventLoop *loop = new QEventLoop;
+
+    kDebug() << "setShared BEGIN";
+    QEventLoop *loop = NCups::instance()->begin();
     kDebug() << "setShared BEGIN invoke";
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
                               "request",
@@ -358,10 +293,10 @@ bool QCups::Dest::setShared(const QString &destName, bool isClass, bool shared)
                               Q_ARG(Arguments, request));
 
     loop->exec();
-    kDebug() <<  "setShared END" << loop->property("return").value<ReturnArguments>();
-    delete loop;
-    return false;
-
+    kDebug() <<  "setShared END";
+    Result result = loop->property("result").value<Result>();
+    NCups::instance()->end(loop);
+    return result;
 }
 
 bool QCups::Dest::printTestPage(const QString &destName, bool isClass)
@@ -378,3 +313,35 @@ QHash<QString, QVariant> QCups::Dest::getAttributes(const QString &destName, boo
 {
     return cupsGetAttributes(destName.toUtf8(), isClass, requestedAttr);
 }
+
+int Result::lastError() const
+{
+    return m_error;
+}
+
+void Result::setLastError(int error)
+{
+    m_error = error;
+}
+
+QString Result::lastErrorString() const
+{
+    return m_errorString;
+}
+
+void Result::setLastErrorString(const QString &errorString)
+{
+    m_errorString = errorString;
+}
+
+ReturnArguments Result::result() const
+{
+    return m_args;
+}
+
+void Result::setResult(const ReturnArguments &args)
+{
+    m_args = args;
+}
+
+#include "QCups.moc"

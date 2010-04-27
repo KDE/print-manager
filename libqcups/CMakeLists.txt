@@ -8,6 +8,7 @@ set(libqcups_SRCS
     PrinterBehavior.cpp
     PPDModel.cpp
     SelectMakeModel.cpp
+    CupsPasswordDialog.cpp
 )
 
 kde4_add_ui_files(libqcups_SRCS

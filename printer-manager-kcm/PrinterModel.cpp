@@ -41,7 +41,7 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
 
 void PrinterModel::update()
 {
-    QList<Destination> dests;
+    ReturnArguments dests;
     QStringList requestAttr;
     requestAttr << "printer-name"
                 << "printer-state"
@@ -61,7 +61,8 @@ void PrinterModel::update()
                 << "marker-names"
                 << "marker-types";
     // Get destinations with these attributes
-    dests = QCups::getDests(-1, requestAttr);
+    Result ret = QCups::getDests(-1, requestAttr);
+    dests = ret.result();
 
     for (int i = 0; i < dests.size(); i++) {
 //         kDebug() << dests.at(i);

@@ -146,14 +146,16 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
 {
 //     kDebug() << values;
     if (m_isClass) {
-        QList<Destination> dests;
+        ReturnArguments dests;
         // Ask just these attributes
         QStringList requestAttr;
         requestAttr << "printer-uri-supported"
                     << "printer-name";
         // Get destinations with these masks
-        dests = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
-                                CUPS_PRINTER_IMPLICIT, requestAttr);
+        Result ret = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
+                                     CUPS_PRINTER_IMPLICIT, requestAttr);
+
+        dests = ret.result();
         m_model->clear();
         QStringList memberNames = values["member-names"].toStringList();
         QStringList origMemberUris;

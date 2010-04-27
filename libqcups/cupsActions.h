@@ -29,10 +29,10 @@
 #include <QWaitCondition>
 #include <KPasswordDialog>
 
+#include "QCups.h"
 #include <cups/cups.h>
-typedef QHash<QString, QVariant> Arguments;
-typedef QList<QHash<QString, QVariant> > ReturnArguments;
-namespace Cups
+
+namespace QCups
 {
     ipp_status_t cupsMoveJob(const char *name, int job_id, const char *dest_name);
     ipp_status_t cupsPauseResumePrinter(const char *name, bool pause);
@@ -49,18 +49,15 @@ namespace Cups
     QList<QHash<QString, QVariant> > cupsGetDests(int mask, const QStringList &requestedAttr);
     QHash<QString, QString> cupsAdminGetServerSettings();
 
-
-//     Q_DECLARE_METATYPE(Arguments);
-
     class Request : public QObject
         {
         Q_OBJECT
     public slots:
         void request(QEventLoop *loop, ipp_op_e operation, const QString &resource, Arguments reqValues);
-        void askPass(const QString &username, bool showErrorMessage);
 
     signals:
-        void showPasswordDlg(const QString &username, bool showErrorMessage);
+        void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
+        void finished();
     private:
         bool retry();
     };
@@ -81,7 +78,9 @@ namespace Cups
 };
 
 Q_DECLARE_METATYPE(ipp_op_e);
-Q_DECLARE_METATYPE(Arguments);
-Q_DECLARE_METATYPE(ReturnArguments);
+Q_DECLARE_METATYPE(QCups::Arguments);
+Q_DECLARE_METATYPE(QCups::ReturnArguments);
+Q_DECLARE_METATYPE(QCups::Result);
+Q_DECLARE_METATYPE(QEventLoop*);
 
 #endif

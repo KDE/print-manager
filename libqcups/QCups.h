@@ -21,7 +21,6 @@
 #ifndef Q_CUPS_H
 #define Q_CUPS_H
 
-#include "cupsActions.h"
 #include <kdemacros.h>
 #include <QStringList>
 #include <QPointer>
@@ -31,22 +30,40 @@
 #define DEST_PRINTING 4
 #define DEST_STOPED   5
 
-using namespace Cups;
-
 namespace QCups
 {
+    typedef QHash<QString, QVariant> Arguments;
+    typedef QList<QHash<QString, QVariant> > ReturnArguments;
+    class KDE_EXPORT Result
+    {
+    public:
+        int lastError() const;
+        QString lastErrorString() const;
+        ReturnArguments result() const;
+
+    protected:
+        void setLastError(int error);
+        void setLastErrorString(const QString &errorString);
+        void setResult(const ReturnArguments &args);
+
+    private:
+        int m_error;
+        QString m_errorString;
+        ReturnArguments m_args;
+        friend class Request;
+    };
+
     // Dest Methods
     namespace Dest
     {
         KDE_EXPORT bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
 
-        KDE_EXPORT bool setShared(const QString &destName, bool isClass, bool shared);
+        KDE_EXPORT Result setShared(const QString &destName, bool isClass, bool shared);
         KDE_EXPORT QHash<QString, QVariant> getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
         KDE_EXPORT bool printTestPage(const QString &destName, bool isClass);
         KDE_EXPORT bool printCommand(const QString &destName, const QString &command, const QString &title);
     }
 
-    KDE_EXPORT void initialize();
     KDE_EXPORT bool cancelJob(const QString &name, int job_id);
     KDE_EXPORT bool holdJob(const QString &name, int job_id);
     KDE_EXPORT bool releaseJob(const QString &name, int job_id);
@@ -64,32 +81,9 @@ namespace QCups
     // THIS function can get the default server dest throught
     // "printer-is-default" attribute BUT it does not get user
     // defined default printer, see cupsGetDefault() on www.cups.org for details
-    KDE_EXPORT QList<Destination> getDests(int mask, const QStringList &requestedAttr = QStringList());
+    KDE_EXPORT Result getDests(int mask, const QStringList &requestedAttr = QStringList());
     KDE_EXPORT QHash<QString, QString> adminGetServerSettings();
 
 }
-
-class KDE_EXPORT NCups : public QObject
-{
-    Q_OBJECT
-public:
-    static NCups* instance();
-
-    QList<QCups::Destination> getDests(int mask, const QStringList &requestedAttr = QStringList());
-    bool setShared(const QString &destName, bool isClass, bool shared);
-    ~NCups();
-signals:
-    void finished();
-
-public slots:
-    void showPasswordDlg(const QString &username, bool showErrorMessage);
-
-public:
-    bool inUse;
-    NCups(QObject* parent = 0);
-    static NCups* m_instance;
-    CupsThreadRequest *m_thread;
-    QPointer<KPasswordDialog> dlg;
-};
 
 #endif

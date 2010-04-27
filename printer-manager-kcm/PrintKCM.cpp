@@ -56,7 +56,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     removePB->setIcon(KIcon("list-remove"));
     preferencesPB->setIcon(KIcon("configure"));
 
-    QCups::initialize();
     m_model = new PrinterModel(winId(), this);
     printersTV->setModel(m_model);
     printersTV->setItemDelegate(new PrinterDelegate(this));

@@ -49,8 +49,6 @@ PrintQueueInterface::PrintQueueInterface(QObject *parent)
     m_updateUi = new QTimer(this);
     m_updateUi->setInterval(1000);
     m_updateUi->start();
-
-    QCups::initialize();
 }
 
 PrintQueueInterface::~PrintQueueInterface()

@@ -278,8 +278,14 @@ void ModifyPrinter::save()
             m_changedValues.remove("ppd-name");
         }
         // if there is no file call setAttributes witout it
-        if ((file.isEmpty() && Dest::setAttributes(m_destName, m_isClass, m_changedValues)) ||
-            (!file.isEmpty() && Dest::setAttributes(m_destName, m_isClass, m_changedValues, file.toUtf8()))) {
+        Result *result;
+        if (file.isEmpty()) {
+            result = Dest::setAttributes(m_destName, m_isClass, m_changedValues);
+        } else {
+            result = Dest::setAttributes(m_destName, m_isClass, m_changedValues, file.toUtf8());
+        }
+
+        if (result && !result->lastError()) {
             if (!file.isEmpty() ||
                 (m_changedValues.contains("ppd-name") && m_changedValues["ppd-name"].type() != QVariant::Bool)) {
                 emit ppdChanged();
@@ -289,7 +295,9 @@ void ModifyPrinter::save()
                 QHash<QString, QVariant> attributes = ret->result().first();
                 setValues(attributes);
             }
+            delete ret;
         }
+        delete result;
     }
 }
 

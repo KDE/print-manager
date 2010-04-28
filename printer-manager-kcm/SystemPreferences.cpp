@@ -30,7 +30,10 @@ SystemPreferences::SystemPreferences(QWidget *parent)
 {
     setupUi(mainWidget());
     connect(this,SIGNAL(okClicked()),SLOT(save()));
-    QHash<QString, QString> values = QCups::adminGetServerSettings();
+    QCups::Result *result;
+    result = QCups::adminGetServerSettings();
+    QHash<QString, QString> values = result->hashStrStr();
+    delete result;
     if(values["_remote_printers"] == "1") {
       showSharedPrintersCB->setChecked(true);
     }
@@ -96,13 +99,11 @@ void SystemPreferences::save() {
    kDebug() << m_values;
    kDebug() << (userValues == m_values);
 
-   bool setOptsSuccess = false;
-
+   QCups::Result *ret;
    if(userValues != m_values) {
-       setOptsSuccess = QCups::adminSetServerSettings(userValues);
+       ret = QCups::adminSetServerSettings(userValues);
+       delete ret;
    }
-
-   kDebug() << setOptsSuccess;
 }
 
 SystemPreferences::~SystemPreferences()

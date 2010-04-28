@@ -32,8 +32,10 @@
 
 namespace QCups
 {
-    typedef QHash<QString, QVariant> Arguments;
+    typedef QHash<QString, QVariant>         Arguments;
+    typedef QHash<QString, QString>          HashStrStr;
     typedef QList<QHash<QString, QVariant> > ReturnArguments;
+    typedef QHash<QString, QVariant>         Destination;
     class KDE_EXPORT Result
     {
     public:
@@ -41,49 +43,52 @@ namespace QCups
         int lastError() const;
         QString lastErrorString() const;
         ReturnArguments result() const;
+        HashStrStr hashStrStr() const;
 
     protected:
         void setLastError(int error);
         void setLastErrorString(const QString &errorString);
         void setResult(const ReturnArguments &args);
+        void setHashStrStr(const HashStrStr &hash);
 
     private:
         int m_error;
         QString m_errorString;
         ReturnArguments m_args;
+        HashStrStr m_hash;
         friend class Request;
     };
 
     // Dest Methods
     namespace Dest
     {
-        KDE_EXPORT bool setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
+        KDE_EXPORT Result* setAttributes(const QString &destName, bool isClass, const QHash<QString, QVariant> &values, const char *filename = NULL);
 
         KDE_EXPORT Result* setShared(const QString &destName, bool isClass, bool shared);
         KDE_EXPORT Result* getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
-        KDE_EXPORT bool printTestPage(const QString &destName, bool isClass);
-        KDE_EXPORT bool printCommand(const QString &destName, const QString &command, const QString &title);
+        KDE_EXPORT Result* printTestPage(const QString &destName, bool isClass);
+        KDE_EXPORT Result* printCommand(const QString &destName, const QString &command, const QString &title);
     }
 
-    KDE_EXPORT bool cancelJob(const QString &name, int job_id);
-    KDE_EXPORT bool holdJob(const QString &name, int job_id);
-    KDE_EXPORT bool releaseJob(const QString &name, int job_id);
-    KDE_EXPORT bool moveJob(const QString &name, int job_id, const QString &dest_name);
+    KDE_EXPORT Result* cancelJob(const QString &name, int job_id);
+    KDE_EXPORT Result* holdJob(const QString &name, int job_id);
+    KDE_EXPORT Result* releaseJob(const QString &name, int job_id);
+    KDE_EXPORT Result* moveJob(const QString &name, int job_id, const QString &dest_name);
     KDE_EXPORT Result* pausePrinter(const QString &name);
     KDE_EXPORT Result* resumePrinter(const QString &name);
     KDE_EXPORT Result* setDefaultPrinter(const QString &name);
     KDE_EXPORT Result* deletePrinter(const QString &name);
-    KDE_EXPORT bool addModifyClassOrPrinter(const QString &name, bool isClass, const QHash<QString, QVariant> values);
-    KDE_EXPORT bool adminSetServerSettings(const QHash<QString, QString> &userValues);
-
+    KDE_EXPORT Result* adminSetServerSettings(const QHash<QString, QString> &userValues);
     KDE_EXPORT Result* getPPDS(const QString &make = QString());
 
-    typedef QHash<QString, QVariant> Destination;
     // THIS function can get the default server dest throught
     // "printer-is-default" attribute BUT it does not get user
     // defined default printer, see cupsGetDefault() on www.cups.org for details
     KDE_EXPORT Result* getDests(int mask, const QStringList &requestedAttr = QStringList());
-    KDE_EXPORT QHash<QString, QString> adminGetServerSettings();
+    /*
+     The result will be in hashStrStr()
+    */
+    KDE_EXPORT Result* adminGetServerSettings();
 
 }
 

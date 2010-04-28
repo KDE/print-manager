@@ -97,9 +97,8 @@ void PrinterDescription::on_sharedCB_clicked()
 
 void PrinterDescription::on_optionsPB_clicked()
 {
-    QPointer<QCups::ConfigureDialog> dlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
-    dlg->exec();
-    delete dlg;
+    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
+    dlg->show();
 }
 
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
@@ -156,19 +155,20 @@ void PrinterDescription::setCommands(const QStringList &commands)
 void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    QCups::Dest::printTestPage(m_destName, m_isClass);
+    // TODO Show a msg box if failed
+    delete QCups::Dest::printTestPage(m_destName, m_isClass);
 }
 
 void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    QCups::Dest::printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
+    delete QCups::Dest::printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
 }
 
 void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    QCups::Dest::printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
+    delete QCups::Dest::printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
 }
 
 

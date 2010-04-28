@@ -25,6 +25,10 @@
 
 #include <cups/cups.h>
 
+namespace QCups {
+    class Result;
+}
+
 class PrintQueueModel : public QStandardItemModel
 {
     Q_OBJECT
@@ -67,7 +71,7 @@ public:
                       const QModelIndex &parent);
 
     void setWhichJobs(int whichjobs);
-    bool modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
+    QCups::Result* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 public slots:
     void updateModel();

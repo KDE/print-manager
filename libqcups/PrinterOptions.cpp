@@ -54,7 +54,7 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
 
 void PrinterOptions::on_autoConfigurePB_clicked()
 {
-    QCups::Dest::printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
+    delete QCups::Dest::printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
 }
 
 void PrinterOptions::reloadPPD()
@@ -72,7 +72,6 @@ void PrinterOptions::reloadPPD()
     m_customValues.clear();
     emit changed(false);
 
-    // TODO add HAVE_AUTOCONFIGURE button
     m_filename = cupsGetPPD(m_destName.toUtf8());
     m_ppd = ppdOpenFile(m_filename);
     if (m_ppd == NULL) {
@@ -734,7 +733,8 @@ void PrinterOptions::save()
     }
 
     QHash<QString, QVariant> values; // we need null values
-    if (Dest::setAttributes(m_destName, m_isClass, values, tempfile)) {
+    Result *result = Dest::setAttributes(m_destName, m_isClass, values, tempfile);
+    if (result->lastError()) {
         // if we succefully save the new ppd we need now to
         // clear our changes
         QHash<QString, QObject*>::const_iterator i = m_customValues.constBegin();
@@ -751,6 +751,7 @@ void PrinterOptions::save()
         m_customValues.clear();
         emit changed(false);
     }
+    delete result;
 
     // unlink the file
     unlink(tempfile);

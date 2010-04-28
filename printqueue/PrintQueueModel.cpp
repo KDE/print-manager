@@ -228,7 +228,7 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
     return ret;
 }
 
-bool PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
+QCups::Result* PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
 {
     Q_UNUSED(parent)
     QStandardItem *job = item(row, ColStatus);
@@ -240,7 +240,7 @@ bool PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDes
     if ((state == IPP_JOB_HELD && action == Hold) ||
         (state == IPP_JOB_CANCELED && action == Cancel) ||
         (state != IPP_JOB_HELD && action == Release)) {
-        return true;
+        return new QCups::Result;
     }
 
     switch (action) {
@@ -253,7 +253,7 @@ bool PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDes
     case Move:
         return QCups::moveJob(destName, jobId, newDestName);
     }
-    return false;
+    return 0;
 }
 
 int PrintQueueModel::jobRow(int jobId)

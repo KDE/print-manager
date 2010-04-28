@@ -34,24 +34,22 @@
 
 namespace QCups
 {
-    ipp_status_t cupsMoveJob(const char *name, int job_id, const char *dest_name);
-    ipp_status_t cupsHoldReleaseJob(const char *name, int job_id, bool hold);
-    ipp_status_t cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
-    ipp_status_t cupsPrintTestPage(const char *name, bool is_class);
-    bool cupsPrintCommand(const char *name, const char *command, const char *title);
-    ipp_status_t cupsAdminSetServerSettings(const QHash<QString, QString> &userValues);
-
-    QHash<QString, QString> cupsAdminGetServerSettings();
-
     class Request : public QObject
-        {
+    {
         Q_OBJECT
     public slots:
-        void request(Result *result, ipp_op_e operation, const QString &resource, Arguments reqValues);
+        void request(Result *result, ipp_op_e operation, const QString &resource,
+                     Arguments reqValues, bool needResponse);
+        void cancelJob(Result *result, const QString &destName, int jobId);
+        void cupsAdminSetServerSettings(Result *result, const HashStrStr &userValues);
+        void cupsAdminGetServerSettings(Result *result);
+        void cupsPrintCommand(Result *result, const QString &name,
+                              const QString &command, const QString &title);
 
     signals:
         void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
         void finished();
+
     private:
         bool retry();
     };
@@ -72,10 +70,10 @@ namespace QCups
 };
 
 Q_DECLARE_METATYPE(ipp_op_e);
+Q_DECLARE_METATYPE(QEventLoop*);
 Q_DECLARE_METATYPE(QCups::Arguments);
 Q_DECLARE_METATYPE(QCups::ReturnArguments);
-Q_DECLARE_METATYPE(QCups::Result);
 Q_DECLARE_METATYPE(QCups::Result*);
-Q_DECLARE_METATYPE(QEventLoop*);
+Q_DECLARE_METATYPE(QCups::HashStrStr);
 
 #endif

@@ -30,9 +30,6 @@
 #include <QEventLoop>
 #include <QMutexLocker>
 #include <QPointer>
-// #include <KPasswordDialog>
-
-#define CUPS_DATADIR    "/usr/share/cups"
 
 using namespace QCups;
 
@@ -63,8 +60,7 @@ ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
                      kDebug() << name << isClass << operation << uri;
     return request;
 }
-// QWaitCondition returnCondition;
-// QMutex mutex;
+
 static uint password_retries = 0;
 const char * thread_password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)
 {
@@ -95,11 +91,8 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
                               Q_ARG(QEventLoop*, loop),
                               Q_ARG(QString, QString::fromUtf8(cupsUser())),
                               Q_ARG(bool, showErrorMessage));
-//     emit thread->req->showPasswordDlg(loop, QString::fromUtf8(cupsUser()), showErrorMessage);
     loop->exec();
     kDebug() << "END OF THREAD EXEC";
-
-    kDebug() << "~~~~~~RELEASED";
 
     QObject *response = loop;
     if (response->property("canceled").toBool()) {
@@ -123,6 +116,7 @@ CupsThreadRequest::CupsThreadRequest(QObject *parent)
     qRegisterMetaType<Arguments>("Arguments");
     qRegisterMetaType<QEventLoop*>("QEventLoop*");
     qRegisterMetaType<Result*>("Result*");
+    qRegisterMetaType<HashStrStr>("HashStrStr");
 }
 
 CupsThreadRequest::~CupsThreadRequest()
@@ -348,7 +342,23 @@ ReturnArguments cupsParseIPPVars(ipp_t *response, bool needDestName)
       return ret;
 }
 
-void Request::request(Result *result, ipp_op_e operation, const QString &resource,  Arguments reqValues)
+void Request::cancelJob(Result *result, const QString &destName, int jobId)
+{
+    kDebug() << "BEGIN" << QThread::currentThreadId();
+    password_retries = 0;
+    do {
+        cupsCancelJob(destName.toUtf8(), jobId);
+        result->setLastError(cupsLastError());
+        result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
+    } while (retry());
+    emit finished();
+}
+
+void Request::request(Result        *result,
+                      ipp_op_e       operation,
+                      const QString &resource,
+                      Arguments      reqValues,
+                      bool           needResponse)
 {
     kDebug() << "BEGIN" << operation << resource << QThread::currentThreadId();
     password_retries = 0;
@@ -390,22 +400,38 @@ void Request::request(Result *result, ipp_op_e operation, const QString &resourc
                             i.key().toUtf8(), i.value().toBool());
                 break;
             case QVariant::Int:
-                ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
-                            i.key().toUtf8(), i.value().toInt());
+                if (i.key() == "job-id") {
+                    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                                  "job-id", i.value().toInt());
+                } else {
+                    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
+                                  i.key().toUtf8(), i.value().toInt());
+                }
                 break;
             case QVariant::String:
                 if (i.key() == "device-uri") {
                     // device uri has a different TAG
                     ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                                i.key().toUtf8(), "utf-8",
+                                "device-uri", "utf-8",
                                 i.value().toString().toUtf8());
+                } else if (i.key() == "job-printer-uri") {
+                    const char* dest_name = i.value().toString().toUtf8();
+                    char  destUri[HTTP_MAX_URI];
+                    httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri),
+                                     "ipp", "utf-8", "localhost", ippPort(),
+                                     "/printers/%s", dest_name);
+                    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
+                                 "job-printer-uri", "utf-8", destUri);
                 } else if (i.key() == "printer-op-policy" ||
-                        i.key() == "printer-error-policy" ||
-                        i.key() == "ppd-name") {
+                           i.key() == "printer-error-policy" ||
+                           i.key() == "ppd-name") {
                     // printer-op-policy has a different TAG
                     ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
                                 i.key().toUtf8(), "utf-8",
                                 i.value().toString().toUtf8());
+                } else if (i.key() == "job-name") {
+                    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
+                                 "job-name", "utf-8", i.value().toString().toUtf8());
                 } else {
                     ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
                                 i.key().toUtf8(), "utf-8",
@@ -446,295 +472,139 @@ void Request::request(Result *result, ipp_op_e operation, const QString &resourc
             response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8());
         }
 
-        if (response != NULL) {
-    //         kDebug() << "response" << response;
-            // TODO add an element to NeedDestName
-            result->setResult(cupsParseIPPVars(response, needDestName));
-
-    //         kDebug() << "m_returnedValues " << m_returnedValues;
-            ippDelete(response);
+        if (response != NULL && needResponse) {
+            ReturnArguments ret = cupsParseIPPVars(response, needDestName);
+            result->setResult(ret);
         }
+        ippDelete(response);
+
+        result->setLastError(cupsLastError());
+        result->setLastErrorString(QString::fromUtf8(NULL));
+    } while (retry());
+    emit finished();
+}
+
+void Request::cupsAdminGetServerSettings(Result *result)
+{
+    password_retries = 0;
+    do {
+        int num_settings;
+        cups_option_t *settings;
+        QHash<QString, QString> ret;
+        ::cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
+        for (int i = 0; i < num_settings; i++) {
+            QString name = QString::fromUtf8(settings[i].name);
+            QString value = QString::fromUtf8(settings[i].value);
+            ret[name] = value;
+        }
+        cupsFreeOptions(num_settings, settings);
+
+        result->setHashStrStr(ret);
         result->setLastError(cupsLastError());
         result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
-        kDebug() << QThread::currentThreadId();
     } while (retry());
     kDebug() << "END" << QThread::currentThreadId();
     emit finished();
 }
 
-ipp_status_t QCups::cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename)
+void Request::cupsAdminSetServerSettings(Result *result, const HashStrStr &userValues)
 {
-    ipp_t *request;
+    password_retries = 0;
+    do {
+        bool ret = false;
+        int num_settings = 0;
+        cups_option_t *settings;
 
-    // check the input data
-    if (!name) {
-        qWarning() << "Internal error, invalid input data" << name;
-        return IPP_OK;
-    }
-
-    if (is_class && values.contains("member-uris")) {
-        request = ippNewDefaultRequest(name, is_class, CUPS_ADD_CLASS);
-    } else {
-        request = ippNewDefaultRequest(name, is_class,
-                                    is_class ? CUPS_ADD_MODIFY_CLASS :
-                                                CUPS_ADD_MODIFY_PRINTER);
-    }
-
-    QHash<QString, QVariant>::const_iterator i = values.constBegin();
-    while (i != values.constEnd()) {
-        switch (i.value().type()) {
-        case QVariant::Bool:
-            ippAddBoolean(request, IPP_TAG_OPERATION, i.key().toUtf8(),
-                        i.value().toBool());
-            break;
-        case QVariant::String:
-            if (i.key() == "device-uri") {
-                // device uri has a different TAG
-                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                            i.key().toUtf8(), "utf-8",
-                            i.value().toString().toUtf8());
-            } else if (i.key() == "printer-op-policy" ||
-                    i.key() == "printer-error-policy" ||
-                    i.key() == "ppd-name") {
-                // printer-op-policy has a different TAG
-                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
-                            i.key().toUtf8(), "utf-8",
-                            i.value().toString().toUtf8());
-            } else {
-                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                            i.key().toUtf8(), "utf-8",
-                            i.value().toString().toUtf8());
-            }
-            break;
-        case QVariant::StringList:
-            {
-                ipp_attribute_t *attr;
-                QStringList list = i.value().value<QStringList>();
-                if (i.key() == "member-uris") {
-                    attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                                        i.key().toUtf8(), list.size(), NULL, NULL);
-                } else {
-                    attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
-                                        i.key().toUtf8(), list.size(), NULL, NULL);
-                }
-                // Dump all the list values
-                for (int i = 0; i < list.size(); i++) {
-                    attr->values[i].string.text = qstrdup(list.at(i).toUtf8());
-                }
-            }
-            break;
-        default:
-            kWarning() << "type NOT recognized! This will be ignored:" << i.key() << "values" << i.value();
+        if (userValues.contains("_remote_admin")) {
+            num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ADMIN,
+                                         userValues["_remote_admin"].toUtf8(),
+                                         num_settings, &settings);
         }
-        ++i;
-    }
+        if (userValues.contains("_remote_any")) {
+            num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ANY,
+                                         userValues["_remote_any"].toUtf8(),
+                                         num_settings, &settings);
+        }
+        if (userValues.contains("_remote_printers")) {
+            num_settings = cupsAddOption(CUPS_SERVER_REMOTE_PRINTERS,
+                                         userValues["_remote_printers"].toUtf8(),
+                                         num_settings, &settings);
+        }
+        if (userValues.contains("_share_printers")) {
+            num_settings = cupsAddOption(CUPS_SERVER_SHARE_PRINTERS,
+                                         userValues["_share_printers"].toUtf8(),
+                                         num_settings, &settings);
+        }
+        if (userValues.contains("_user_cancel_any")) {
+            num_settings = cupsAddOption(CUPS_SERVER_USER_CANCEL_ANY,
+                                         userValues["_user_cancel_any"].toUtf8(),
+                                         num_settings, &settings);
+        }
 
-ipp_status_t ret;
-    // do the request deleting the response
-    if (filename) {
-        ippDelete(cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, "/admin/", filename));
-//         ret = cupsLastError();
-    } else {
-        kDebug();
-//         CupsThreadRequest *thread = new CupsThreadRequest(request, "/admin/");
-//         thread->execute();
-//         ret = thread->lastError();
-        kDebug();
-//         delete thread;
-//         ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
-    }
-
-    return ret;
+        ret = ::cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
+        cupsFreeOptions(num_settings, settings);
+        result->setLastError(cupsLastError());
+        result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
+    } while (retry());
+    kDebug() << "END" << QThread::currentThreadId();
+    emit finished();
 }
 
-ipp_status_t QCups::cupsMoveJob(const char *name, int job_id, const char *dest_name)
+void Request::cupsPrintCommand(Result *result,
+                              const QString &name,       /* I - Destination printer */
+                              const QString &command,    /* I - Command to send */
+                              const QString &title)      /* I - Page/job title */
 {
-    char  destUri[HTTP_MAX_URI]; // new printer URI
-    ipp_t *request;
-
-    // check the input data
-    if (job_id < -1 || (!name && !dest_name && job_id == 0)) {
-        qWarning() << "Internal error, invalid input data" << job_id << name << dest_name;
-        return IPP_OK;
-    }
-
-    // Create a new CUPS_MOVE_JOB request
-    // where we need:
-    // * job-printer-uri
-    // * job-id
-    // TODO add class
-    request = ippNewDefaultRequest(name, false, CUPS_MOVE_JOB);
-
-    httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri), "ipp", "utf-8",
-                    "localhost", ippPort(), "/printers/%s", dest_name);
-
-    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER, "job-id",
-                  job_id);
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "job-printer-uri",
-                 "utf-8", destUri);
-
-    // do the request deleting the response
-    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/jobs/"));
-
-    return cupsLastError();
-}
-
-ipp_status_t QCups::cupsHoldReleaseJob(const char *name, int job_id, bool hold)
-{
-    ipp_t *request;
-
-    // check the input data
-    if (job_id < -1 || (!name && job_id == 0)) {
-        qWarning() << "Internal error, invalid input data" << job_id << name;
-        return IPP_OK;
-    }
-
-    // Create a new CUPS_MOVE_JOB request
-    // where we need:
-    // * job-id
-    // TODO add class
-    if (hold) {
-        request = ippNewDefaultRequest(name, false, IPP_HOLD_JOB);
-    } else {
-        request = ippNewDefaultRequest(name, false, IPP_RELEASE_JOB);
-    }
-
-    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER, "job-id",
-                  job_id);
-
-    // do the request deleting the response
-    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/jobs/"));
-
-    return cupsLastError();
-}
-
-ipp_status_t QCups::cupsPrintTestPage(const char *name, bool is_class)      /* I - Destination printer/class */
-{
-    ipp_t         *request;               /* IPP request */
-    char          resource[1024],         /* POST resource path */
-                  filename[1024];         /* Test page filename */
-    const char    *datadir;               /* CUPS_DATADIR env var */
-
-    /*
-    * Locate the test page file...
-    */
-    if ((datadir = getenv("CUPS_DATADIR")) == NULL)
-        datadir = CUPS_DATADIR;
-
-    snprintf(filename, sizeof(filename), "%s/data/testprint", datadir);
-
-    /*
-    * Point to the printer/class...
-    */
-    snprintf(resource, sizeof(resource),
-             is_class ? "/classes/%s" : "/printers/%s", name);
-
-    // Build a new default request
-    request = ippNewDefaultRequest(name, is_class, IPP_PRINT_JOB);
+    password_retries = 0;
+    do {
+        int           job_id;                 /* Command file job */
+        char          command_file[1024];     /* Command "file" */
+        http_status_t status;                 /* Document status */
+        cups_option_t hold_option;            /* job-hold-until option */
 
 
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "job-name",
-                 "utf-8", i18n("Test Page").toUtf8());
+        /*
+         * Create the CUPS command file...
+         */
+        snprintf(command_file, sizeof(command_file), "#CUPS-COMMAND\n%s\n", command.toUtf8().data());
 
-    // do the request deleting the response
-    ippDelete(cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource, filename));
+        /*
+         * Send the command file job...
+         */
+        hold_option.name  = const_cast<char*>("job-hold-until");
+        hold_option.value = const_cast<char*>("no-hold");
 
-    return cupsLastError();
-}
+        if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT, name.toUtf8(), title.toUtf8(),
+                                    1, &hold_option)) < 1)
+        {
+            qWarning() << "Unable to send command to printer driver!";
 
-bool QCups::cupsPrintCommand(const char *name,       /* I - Destination printer */
-                             const char *command,    /* I - Command to send */
-                             const char *title)      /* I - Page/job title */
-{
-    int           job_id;                 /* Command file job */
-    char          command_file[1024];     /* Command "file" */
-    http_status_t status;                 /* Document status */
-    cups_option_t hold_option;            /* job-hold-until option */
+            result->setLastError(IPP_NOT_POSSIBLE );
+            result->setLastErrorString(i18n("Unable to send command to printer driver!"));
+            emit finished();
+            return;
+        }
 
+        status = cupsStartDocument(CUPS_HTTP_DEFAULT, name.toUtf8(), job_id, NULL, CUPS_FORMAT_COMMAND, 1);
+        if (status == HTTP_CONTINUE) {
+            status = cupsWriteRequestData(CUPS_HTTP_DEFAULT, command_file,
+                                        strlen(command_file));
+        }
 
-    /*
-     * Create the CUPS command file...
-     */
-    snprintf(command_file, sizeof(command_file), "#CUPS-COMMAND\n%s\n", command);
+        if (status == HTTP_CONTINUE) {
+            cupsFinishDocument(CUPS_HTTP_DEFAULT, name.toUtf8());
+        }
 
-    /*
-     * Send the command file job...
-     */
-    hold_option.name  = const_cast<char*>("job-hold-until");
-    hold_option.value = const_cast<char*>("no-hold");
+        result->setLastError(cupsLastError());
+        result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
+        if (cupsLastError() >= IPP_REDIRECTION_OTHER_SITE)
+        {
+            qWarning() << "Unable to send command to printer driver!";
 
-    if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT, name, title,
-                                1, &hold_option)) < 1)
-    {
-        qWarning() << "Unable to send command to printer driver!";
-        return false;
-    }
-
-    status = cupsStartDocument(CUPS_HTTP_DEFAULT, name, job_id, NULL, CUPS_FORMAT_COMMAND, 1);
-    if (status == HTTP_CONTINUE) {
-        status = cupsWriteRequestData(CUPS_HTTP_DEFAULT, command_file,
-                                      strlen(command_file));
-    }
-
-    if (status == HTTP_CONTINUE) {
-        cupsFinishDocument(CUPS_HTTP_DEFAULT, name);
-    }
-
-    if (cupsLastError() >= IPP_REDIRECTION_OTHER_SITE)
-    {
-        qWarning() << "Unable to send command to printer driver!";
-
-        cupsCancelJob(name, job_id);
-        return false;
-    }
-    return true;
-}
-
-QHash<QString, QString>QCups::cupsAdminGetServerSettings()
-{
-    int num_settings;
-    cups_option_t *settings;
-    QHash<QString, QString> ret;
-    cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
-    for (int i = 0; i < num_settings; i++) {
-        QString name = QString::fromUtf8(settings[i].name);
-        QString value = QString::fromUtf8(settings[i].value);
-        ret[name] = value;
-    }
-    cupsFreeOptions(num_settings, settings);
-
-    return ret;
-}
-
-ipp_status_t QCups::cupsAdminSetServerSettings(const QHash<QString, QString> &userValues)
-{
-    bool ret = false;
-    int num_settings = 0;
-    cups_option_t *settings;
-
-    if (userValues.contains("_remote_admin")) {
-        num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ADMIN,
-                                     userValues["_remote_admin"].toUtf8(), num_settings, &settings);
-    }
-    if (userValues.contains("_remote_any")) {
-        num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ANY,
-                                     userValues["_remote_any"].toUtf8(), num_settings, &settings);
-    }
-    if (userValues.contains("_remote_printers")) {
-        num_settings = cupsAddOption(CUPS_SERVER_REMOTE_PRINTERS,
-                                     userValues["_remote_printers"].toUtf8(), num_settings, &settings);
-    }
-    if (userValues.contains("_share_printers")) {
-        num_settings = cupsAddOption(CUPS_SERVER_SHARE_PRINTERS,
-                                     userValues["_share_printers"].toUtf8(), num_settings, &settings);
-    }
-    if (userValues.contains("_user_cancel_any")) {
-        num_settings = cupsAddOption(CUPS_SERVER_USER_CANCEL_ANY,
-                                     userValues["_user_cancel_any"].toUtf8(), num_settings, &settings);
-    }
-
-    ret = cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
-    cupsFreeOptions(num_settings, settings);
-
-    return cupsLastError();
+            cupsCancelJob(name.toUtf8(), job_id);
+            emit finished();
+            return; // Return to avoid a new try
+        }
+    } while (retry());
+    emit finished();
 }

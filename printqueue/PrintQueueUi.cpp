@@ -304,7 +304,11 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
     selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
     foreach (const QModelIndex &index, selection.indexes()) {
         if (index.column() == 0) {
-            if (!m_model->modifyJob(index.row(), static_cast<PrintQueueModel::JobAction>(action), destName)) {
+            QCups::Result *result;
+            result = m_model->modifyJob(index.row(),
+                                        static_cast<PrintQueueModel::JobAction>(action),
+                                        destName);
+            if (result->lastError()) {
                 QString msg, jobName;
                 jobName = m_model->item(index.row(), static_cast<int>(PrintQueueModel::ColName))->text();
                 switch (action) {
@@ -323,10 +327,10 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
                 }
                 KMessageBox::detailedSorry(this,
                                            msg,
-                                           cupsLastErrorString(),
+                                           result->lastErrorString(),
                                            i18n("Failed"));
-                return;
             }
+            delete result;
         }
     }
 }

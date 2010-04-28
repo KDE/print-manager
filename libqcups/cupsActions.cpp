@@ -115,58 +115,14 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
     }
 }
 
-// void CupsThreadRequest::showPasswordDlg(bool *returnBool,
-//                                         const QString &username,
-//                                         bool showErrorMessage)
-// {
-// //     mutex.lock();
-//     kDebug() << QThread::currentThreadId();
-// //     KPasswordDialog *dlg = new KPasswordDialog(0, KPasswordDialog::ShowUsernameLine);
-//     dlg->setPrompt(i18n("Enter an username and a password to complete the task"));
-//     dlg->setUsername(username);
-//     if (showErrorMessage) {
-//         dlg->showErrorMessage(QString(), KPasswordDialog::UsernameError);
-//         dlg->showErrorMessage(i18n("Wrong username or password"), KPasswordDialog::PasswordError);
-//     }
-// //     QProgressDialog progress("Copying files...", "Abort Copy", 0, 22, 0);
-// //     progress.setWindowModality(Qt::WindowModal);
-// //     progress.exec();
-//
-//     dlg->exec();
-//     *returnBool = true;
-//     kDebug()<< "Finish2";
-// //     if (dlg->exec()) {
-// //         setProperty("username", dlg->username());
-// //         setProperty("password", dlg->password());
-// //         setProperty("canceled", false);
-// //         delete dlg;
-// //         kDebug()<< "Finish1";
-// //         returnCondition.wakeAll();
-// //     } else {
-// //         // the dialog was canceled
-// //         delete dlg;
-// //         setProperty("username", QString());
-// //         setProperty("password", QString());
-// //         setProperty("canceled", true);
-// //         kDebug()<< "Finish2";
-// //         returnCondition.wakeAll();
-// //     }
-// setProperty("username", QString("root"));
-//         setProperty("password", QString("getapan81"));
-//         setProperty("canceled", false);
-// //         returnCondition.wakeAll();
-//
-// //     mutex.unlock();
-//
-// }
-
 CupsThreadRequest::CupsThreadRequest(QObject *parent)
  : QThread(parent), req(0)
 {
-    kDebug() << qRegisterMetaType<ipp_op_e>();
+    qRegisterMetaType<ipp_op_e>("ipp_op_e");
     qRegisterMetaType<bool*>("bool*");
     qRegisterMetaType<Arguments>("Arguments");
     qRegisterMetaType<QEventLoop*>("QEventLoop*");
+    qRegisterMetaType<Result*>("Result*");
 }
 
 CupsThreadRequest::~CupsThreadRequest()
@@ -212,89 +168,6 @@ bool Request::retry()
     }
     // the action was not forbidden
     return false;
-}
-
-QList<QHash<QString, QVariant> >QCups::cupsGetPPDS(const QString &make)
-{
-    ipp_t *request/*, *response*/;
-    QList<QHash<QString, QVariant> > ret;
-
-    request = ippNewRequest(CUPS_GET_PPDS);
-
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
-                 "utf-8", "ipp://localhost/printers/");
-
-    if (!make.isEmpty()){
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_TEXT,
-                     "ppd-make-and-model", NULL, make.toUtf8());
-    } else {
-//         static const char * const attrs[] =     /* Requested attributes */
-//                 {
-//                   "ppd-name",
-//                   "ppd-make",
-//                   "ppd-make-and-model",
-//                   "ppd-natural-language"
-//                 };
-//         ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-//                   "requested-attributes",
-//                   (int)(sizeof(attrs) / sizeof(attrs[0])), NULL, attrs);
-//         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-//                      "requested-attributes", NULL, "ppd-make");
-    }
-
-//     CupsThreadRequest *thread = new CupsThreadRequest(request, "/");
-//     response = thread->execute();
-//
-//     if (response != NULL) {
-//         ret = cupsParseIPPVars(response, false);
-//     }
-//
-//     delete thread;
-    return ret;
-}
-
-QHash<QString, QVariant> QCups::cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr)
-{
-    ipp_t *request, *response;
-    QHash<QString, QVariant> responseSL;
-    char **attributes;
-
-    // check the input data
-    if (!name || requestedAttr.size() == 0) {
-        qWarning() << "Internal error, invalid input data" << name;
-        return responseSL;
-    }
-
-    attributes = new char*[requestedAttr.size()];
-    for (int i = 0; i < requestedAttr.size(); i ++) {
-        attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
-    }
-
-    request = ippNewDefaultRequest(name, is_class, IPP_GET_PRINTER_ATTRIBUTES);
-
-    ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                  "requested-attributes", requestedAttr.size(),
-                  "utf-8", attributes);
-
-    // do the request
-//     CupsThreadRequest *thread = new CupsThreadRequest(request, "/admin/");
-//     response = thread->execute();
-response= NULL;
-    if (response != NULL) {
-        QList<QHash<QString, QVariant> > ret;
-        ret = cupsParseIPPVars(response, false);
-        if (!ret.isEmpty()){
-            responseSL = ret.first();
-        }
-    }
-//     delete thread;
-
-    for (int i = 0; i < requestedAttr.size(); i ++) {
-        delete attributes[i];
-    }
-    delete [] attributes;
-
-    return responseSL;
 }
 
 static QVariant cupsMakeVariant(ipp_attribute_t *attr)
@@ -475,45 +348,7 @@ ReturnArguments cupsParseIPPVars(ipp_t *response, bool needDestName)
       return ret;
 }
 
-
-QList<QHash<QString, QVariant> >QCups::cupsGetDests(int mask, const QStringList &requestedAttr)
-{
-    ipp_t *request;
-//     ipp_t *response;
-    char **attributes;
-    QList<QHash<QString, QVariant> > ret;
-
-    request = ippNewRequest(CUPS_GET_PRINTERS);
-
-    // Request Enuns as this as UInt
-    ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type",
-                  CUPS_PRINTER_LOCAL);
-    if (mask >= 0){
-        ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM, "printer-type-mask",
-                      mask);
-    }
-
-    if (!requestedAttr.isEmpty()){
-        attributes = new char*[requestedAttr.size()];
-        for (int i = 0; i < requestedAttr.size(); i ++) {
-            attributes[i] = qstrdup(requestedAttr.at(i).toUtf8());
-        }
-        ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                    "requested-attributes", requestedAttr.size(),
-                    "utf-8", attributes);
-    }
-
-//     CupsThreadRequest *thread = new CupsThreadRequest(request, "/");
-//     response = thread->execute();
-//     if (response != NULL) {
-//         ret = cupsParseIPPVars(response, true);
-//     }
-//     delete thread;
-
-    return ret;
-}
-
-void Request::request(QEventLoop *loop, ipp_op_e operation, const QString &resource,  Arguments reqValues)
+void Request::request(Result *result, ipp_op_e operation, const QString &resource,  Arguments reqValues)
 {
     kDebug() << "BEGIN" << operation << resource << QThread::currentThreadId();
     password_retries = 0;
@@ -521,12 +356,16 @@ void Request::request(QEventLoop *loop, ipp_op_e operation, const QString &resou
         ipp_t *request;
         ipp_t *response;
         bool isClass = false;
+        bool needDestName = false;
         const char *name = NULL;
         const char *filename = NULL;
         QHash<QString, QVariant> values = reqValues;
 
         if (values.contains("printer-is-class")) {
             isClass = values.take("printer-is-class").toBool();
+        }
+        if (values.contains("need-dest-name")) {
+            needDestName = values.take("need-dest-name").toBool();
         }
         if (values.contains("printer-name")) {
             name = qstrdup(values.take("printer-name").toString().toUtf8());
@@ -607,18 +446,16 @@ void Request::request(QEventLoop *loop, ipp_op_e operation, const QString &resou
             response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8());
         }
 
-        Result result;
         if (response != NULL) {
     //         kDebug() << "response" << response;
             // TODO add an element to NeedDestName
-            result.setResult(cupsParseIPPVars(response, true));
+            result->setResult(cupsParseIPPVars(response, needDestName));
 
     //         kDebug() << "m_returnedValues " << m_returnedValues;
             ippDelete(response);
         }
-        result.setLastError(cupsLastError());
-        result.setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
-        loop->setProperty("result", QVariant::fromValue(result));
+        result->setLastError(cupsLastError());
+        result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
         kDebug() << QThread::currentThreadId();
     } while (retry());
     kDebug() << "END" << QThread::currentThreadId();
@@ -767,66 +604,6 @@ ipp_status_t QCups::cupsHoldReleaseJob(const char *name, int job_id, bool hold)
 
     // do the request deleting the response
     ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/jobs/"));
-
-    return cupsLastError();
-}
-
-ipp_status_t QCups::cupsPauseResumePrinter(const char *name, bool pause)
-{
-    ipp_t *request;
-
-    // check the input data
-    if (!name) {
-        qWarning() << "Internal error, invalid input data" << name;
-        return IPP_OK;
-    }
-
-    // TODO add class
-    if (pause) {
-        request = ippNewDefaultRequest(name, false, IPP_PAUSE_PRINTER);
-    } else {
-        request = ippNewDefaultRequest(name, false, IPP_RESUME_PRINTER);
-    }
-
-    // do the request deleting the response
-    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
-
-    return cupsLastError();
-}
-
-ipp_status_t QCups::cupsSetDefaultPrinter(const char *name)
-{
-    ipp_t *request;
-
-    // check the input data
-    if (!name) {
-        qWarning() << "Internal error, invalid input data" << name;
-        return IPP_OK;
-    }
-
-    request = ippNewDefaultRequest(name, false, CUPS_SET_DEFAULT);
-
-    // do the request deleting the response
-    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
-
-    return cupsLastError();
-}
-
-ipp_status_t QCups::cupsDeletePrinter(const char *name)
-{
-    ipp_t *request;
-
-    // check the input data
-    if (!name) {
-        qWarning() << "Internal error, invalid input data" << name;
-        return IPP_OK;
-    }
-
-    // TODO add class
-    request = ippNewDefaultRequest(name, false, CUPS_DELETE_PRINTER);
-
-    // do the request deleting the response
-    ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/admin/"));
 
     return cupsLastError();
 }

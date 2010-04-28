@@ -137,24 +137,84 @@ bool QCups::moveJob(const QString &name, int job_id, const QString &dest_name)
     RUN_ACTION(cupsMoveJob(name.toUtf8(), job_id, dest_name.toUtf8()))
 }
 
-bool QCups::pausePrinter(const QString &name)
+Result* QCups::pausePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name.toUtf8(), true))
+    QHash<QString, QVariant> request;
+    request["printer-name"] = name;
+
+    QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
+    QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
+                              "request",
+                              Qt::QueuedConnection,
+                              Q_ARG(Result*, result),
+                              Q_ARG(ipp_op_e, IPP_PAUSE_PRINTER),
+                              Q_ARG(QString, "/admin/"),
+                              Q_ARG(Arguments, request));
+
+    loop->exec();
+    NCups::instance()->end(loop);
+    return result;
 }
 
-bool QCups::resumePrinter(const QString &name)
+Result* QCups::resumePrinter(const QString &name)
 {
-    RUN_ACTION(cupsPauseResumePrinter(name.toUtf8(), false))
+    QHash<QString, QVariant> request;
+    request["printer-name"] = name;
+
+    QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
+    QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
+                              "request",
+                              Qt::QueuedConnection,
+                              Q_ARG(Result*, result),
+                              Q_ARG(ipp_op_e, IPP_RESUME_PRINTER),
+                              Q_ARG(QString, "/admin/"),
+                              Q_ARG(Arguments, request));
+
+    loop->exec();
+    NCups::instance()->end(loop);
+    return result;
 }
 
-bool QCups::setDefaultPrinter(const QString &name)
+Result* QCups::setDefaultPrinter(const QString &name)
 {
-    RUN_ACTION(cupsSetDefaultPrinter(name.toUtf8()))
+    QHash<QString, QVariant> request;
+    request["printer-name"] = name;
+
+    QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
+    QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
+                              "request",
+                              Qt::QueuedConnection,
+                              Q_ARG(Result*, result),
+                              Q_ARG(ipp_op_e, CUPS_SET_DEFAULT),
+                              Q_ARG(QString, "/admin/"),
+                              Q_ARG(Arguments, request));
+
+    loop->exec();
+    NCups::instance()->end(loop);
+    return result;
 }
 
-bool QCups::deletePrinter(const QString &name)
+Result* QCups::deletePrinter(const QString &name)
 {
-    RUN_ACTION(cupsDeletePrinter(name.toUtf8()))
+    QHash<QString, QVariant> request;
+    request["printer-name"] = name;
+
+    QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
+    QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
+                              "request",
+                              Qt::QueuedConnection,
+                              Q_ARG(Result*, result),
+                              Q_ARG(ipp_op_e, CUPS_DELETE_PRINTER),
+                              Q_ARG(QString, "/admin/"),
+                              Q_ARG(Arguments, request));
+
+    loop->exec();
+    NCups::instance()->end(loop);
+    return result;
 }
 
 bool QCups::cancelJob(const QString &name, int job_id)
@@ -189,12 +249,33 @@ bool QCups::adminSetServerSettings(const QHash<QString, QString> &userValues)
     RUN_ACTION(cupsAdminSetServerSettings(userValues))
 }
 
-QList<QHash<QString, QVariant> > QCups::getPPDS(const QString &make)
+Result* QCups::getPPDS(const QString &make)
 {
-    return cupsGetPPDS(make);
+    Arguments request;
+    if (!make.isEmpty()){
+//         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_TEXT,
+//                      "ppd-make-and-model", NULL, make.toUtf8());
+        request["ppd-make-and-model"] = make;
+    }
+    request["need-dest-name"] = false;
+    QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
+
+    QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
+                              "request",
+                              Qt::QueuedConnection,
+                              Q_ARG(Result*, result),
+                              Q_ARG(ipp_op_e, CUPS_GET_PPDS),
+                              Q_ARG(QString, "/"),
+                              Q_ARG(Arguments, request));
+
+    loop->exec();
+    // remove again after finished
+    NCups::instance()->end(loop);
+    return result;
 }
 
-Result QCups::getDests(int mask, const QStringList &requestedAttr)
+Result* QCups::getDests(int mask, const QStringList &requestedAttr)
 {
     Arguments request;
     request["printer-type"] = CUPS_PRINTER_LOCAL;
@@ -202,22 +283,20 @@ Result QCups::getDests(int mask, const QStringList &requestedAttr)
         request["printer-type-mask"] = mask;
     }
     request["requested-attributes"] = requestedAttr;
-kDebug() << "getDests BEGIN" << QThread::currentThreadId();
+    request["need-dest-name"] = true;
     QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
 
-    kDebug() << "getDests BEGIN invoke";
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
                               "request",
                               Qt::QueuedConnection,
-                              Q_ARG(QEventLoop*, loop),
+                              Q_ARG(Result*, result),
                               Q_ARG(ipp_op_e, CUPS_GET_PRINTERS),
                               Q_ARG(QString, "/"),
                               Q_ARG(Arguments, request));
 
     loop->exec();
     // remove again after finished
-    Result result = loop->property("result").value<Result>();
-//     ReturnArguments ret = result.result();
     NCups::instance()->end(loop);
     return result;
 }
@@ -273,20 +352,22 @@ bool QCups::Dest::setAttributes(const QString &destName, bool isClass, const QHa
     RUN_ACTION(cupsAddModifyClassOrPrinter(destName.toUtf8(), isClass, values, filename))
 }
 
-Result QCups::Dest::setShared(const QString &destName, bool isClass, bool shared)
+Result* QCups::Dest::setShared(const QString &destName, bool isClass, bool shared)
 {
     QHash<QString, QVariant> request;
     request["printer-name"] = destName;
     request["printer-is-class"] = isClass;
     request["printer-is-shared"] = shared;
+    request["need-dest-name"] = true;
 
     kDebug() << "setShared BEGIN";
     QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
     kDebug() << "setShared BEGIN invoke";
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
                               "request",
                               Qt::QueuedConnection,
-                              Q_ARG(QEventLoop*, loop),
+                              Q_ARG(Result*, result),
                               Q_ARG(ipp_op_e, isClass ? CUPS_ADD_MODIFY_CLASS :
                                                         CUPS_ADD_MODIFY_PRINTER),
                               Q_ARG(QString, "/admin/"),
@@ -294,7 +375,6 @@ Result QCups::Dest::setShared(const QString &destName, bool isClass, bool shared
 
     loop->exec();
     kDebug() <<  "setShared END";
-    Result result = loop->property("result").value<Result>();
     NCups::instance()->end(loop);
     return result;
 }
@@ -309,9 +389,37 @@ bool QCups::Dest::printCommand(const QString &destName, const QString &command, 
     return cupsPrintCommand(destName.toUtf8(), command.toUtf8(), title.toUtf8());
 }
 
-QHash<QString, QVariant> QCups::Dest::getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr)
+Result* QCups::Dest::getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr)
 {
-    return cupsGetAttributes(destName.toUtf8(), isClass, requestedAttr);
+    Arguments request;
+    request["printer-name"] = destName;
+    request["printer-is-class"] = isClass;
+    request["need-dest-name"] = false; // we don't need a dest name since it's a single list
+    request["requested-attributes"] = requestedAttr;
+kDebug() << "getDests BEGIN" << QThread::currentThreadId();
+    QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result;
+
+    kDebug() << "getDests BEGIN invoke";
+    QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
+                              "request",
+                              Qt::QueuedConnection,
+                              Q_ARG(Result*, result),
+                              Q_ARG(ipp_op_e, IPP_GET_PRINTER_ATTRIBUTES),
+                              Q_ARG(QString, "/admin/"),
+                              Q_ARG(Arguments, request));
+
+    loop->exec();
+    // remove again after finished
+    NCups::instance()->end(loop);
+    return result;
+    
+//     return cupsGetAttributes(destName.toUtf8(), isClass, requestedAttr);
+}
+
+Result::~Result()
+{
+    kDebug();
 }
 
 int Result::lastError() const

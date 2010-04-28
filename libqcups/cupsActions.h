@@ -35,25 +35,19 @@
 namespace QCups
 {
     ipp_status_t cupsMoveJob(const char *name, int job_id, const char *dest_name);
-    ipp_status_t cupsPauseResumePrinter(const char *name, bool pause);
-    ipp_status_t cupsSetDefaultPrinter(const char *name);
-    ipp_status_t cupsDeletePrinter(const char *name);
     ipp_status_t cupsHoldReleaseJob(const char *name, int job_id, bool hold);
     ipp_status_t cupsAddModifyClassOrPrinter(const char *name, bool is_class, const QHash<QString, QVariant> values, const char *filename = NULL);
     ipp_status_t cupsPrintTestPage(const char *name, bool is_class);
     bool cupsPrintCommand(const char *name, const char *command, const char *title);
     ipp_status_t cupsAdminSetServerSettings(const QHash<QString, QString> &userValues);
 
-    QList<QHash<QString, QVariant> > cupsGetPPDS(const QString &make);
-    QHash<QString, QVariant> cupsGetAttributes(const char *name, bool is_class, const QStringList &requestedAttr);
-    QList<QHash<QString, QVariant> > cupsGetDests(int mask, const QStringList &requestedAttr);
     QHash<QString, QString> cupsAdminGetServerSettings();
 
     class Request : public QObject
         {
         Q_OBJECT
     public slots:
-        void request(QEventLoop *loop, ipp_op_e operation, const QString &resource, Arguments reqValues);
+        void request(Result *result, ipp_op_e operation, const QString &resource, Arguments reqValues);
 
     signals:
         void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
@@ -81,6 +75,7 @@ Q_DECLARE_METATYPE(ipp_op_e);
 Q_DECLARE_METATYPE(QCups::Arguments);
 Q_DECLARE_METATYPE(QCups::ReturnArguments);
 Q_DECLARE_METATYPE(QCups::Result);
+Q_DECLARE_METATYPE(QCups::Result*);
 Q_DECLARE_METATYPE(QEventLoop*);
 
 #endif

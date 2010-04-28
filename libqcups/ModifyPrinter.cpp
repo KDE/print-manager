@@ -152,10 +152,11 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
         requestAttr << "printer-uri-supported"
                     << "printer-name";
         // Get destinations with these masks
-        Result ret = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
-                                     CUPS_PRINTER_IMPLICIT, requestAttr);
+        Result *ret = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
+                                      CUPS_PRINTER_IMPLICIT, requestAttr);
 
-        dests = ret.result();
+        dests = ret->result();
+        delete ret;
         m_model->clear();
         QStringList memberNames = values["member-names"].toStringList();
         QStringList origMemberUris;
@@ -283,7 +284,11 @@ void ModifyPrinter::save()
                 (m_changedValues.contains("ppd-name") && m_changedValues["ppd-name"].type() != QVariant::Bool)) {
                 emit ppdChanged();
             }
-            setValues(Dest::getAttributes(m_destName, m_isClass, neededValues()));
+            Result *ret = Dest::getAttributes(m_destName, m_isClass, neededValues());
+            if (!ret->result().isEmpty()){
+                QHash<QString, QVariant> attributes = ret->result().first();
+                setValues(attributes);
+            }
         }
     }
 }

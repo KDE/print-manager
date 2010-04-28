@@ -215,7 +215,12 @@ void PrintQueueUi::update()
          << "printer-state"
          << "printer-state-message";
 
-    QHash<QString, QVariant> attributes = QCups::Dest::getAttributes(m_destName, m_isClass, attr);
+    QHash<QString, QVariant> attributes;
+    QCups::Result *ret = QCups::Dest::getAttributes(m_destName, m_isClass, attr);
+    if (!ret->result().isEmpty()){
+        attributes = ret->result().first();
+    }
+    delete ret;
 
     if (attributes.isEmpty()) {
         // if cups stops we disable our queue

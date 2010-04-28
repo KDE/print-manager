@@ -89,9 +89,10 @@ void PrinterDescription::on_defaultCB_clicked()
 void PrinterDescription::on_sharedCB_clicked()
 {
     bool shared = sharedCB->isChecked();
-    QCups::Result ret = QCups::Dest::setShared(m_destName, m_isClass, shared);
-    bool sucess = !ret.lastError();
+    QCups::Result *ret = QCups::Dest::setShared(m_destName, m_isClass, shared);
+    bool sucess = !ret->lastError();
     setIsShared(sucess ? shared : !shared);
+    delete ret;
 }
 
 void PrinterDescription::on_optionsPB_clicked()

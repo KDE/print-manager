@@ -33,7 +33,7 @@
 PrintQueueInterface::PrintQueueInterface(QObject *parent)
     : QObject(parent)
 {
-    qDebug() << "Creating Helper";
+    kDebug() << "Creating Helper";
     (void) new PrintQueueAdaptor(this);
     if (!QDBusConnection::sessionBus().registerService("org.kde.PrintQueue")) {
         kDebug() << "another helper is already running";
@@ -63,33 +63,36 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
     }
 
     if(!m_uis.contains(destName)) {
-        cups_dest_t *dests;
-        int num_dests = cupsGetDests(&dests);
-        cups_dest_t *dest = cupsGetDest(destName.toUtf8(), NULL, num_dests, dests);
-        if (dest == NULL) {
-            kWarning() << "Printer not found" << destName;
-            cupsFreeDests(num_dests, dests);
-            emit quit();
+        QCups::ReturnArguments dests;
+        QStringList requestAttr;
+        requestAttr << "printer-name"
+                    << "printer-type";
+        // Get destinations with these attributes
+        QCups::Result *ret = QCups::getDests(-1, requestAttr);
+        dests = ret->result();
+        delete ret;
+
+        bool found = false;
+        bool isClass = false;
+        for (int i = 0; i < dests.size(); i++) {
+            if (dests.at(i)["printer-name"] == destName) {
+                isClass = dests.at(i)["printer-type"].toInt() & CUPS_PRINTER_CLASS;
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            PrintQueueUi *ui = new PrintQueueUi(destName, isClass);
+            connect(m_updateUi, SIGNAL(timeout()),
+                    ui, SLOT(update()));
+            connect(ui, SIGNAL(finished()),
+                    this, SLOT(RemoveQueue()));
+            ui->show();
+            m_uis[destName] = ui;
+        } else {
             return;
         }
-
-        // store if the printer is a class
-        const char *value;
-        bool isClass = false;
-        value = cupsGetOption("printer-type", dest->num_options, dest->options);
-        if (value) {
-            // the printer-type param is a flag
-            isClass = QString::fromUtf8(value).toInt() & CUPS_PRINTER_CLASS;
-        }
-        cupsFreeDests(num_dests, dests);
-
-        PrintQueueUi *ui = new PrintQueueUi(destName, isClass);
-        connect(m_updateUi, SIGNAL(timeout()),
-                ui, SLOT(update()));
-        connect(ui, SIGNAL(finished()),
-                this, SLOT(RemoveQueue()));
-        ui->show();
-        m_uis[destName] = ui;
     }
     KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
 }

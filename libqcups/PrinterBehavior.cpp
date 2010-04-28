@@ -267,7 +267,12 @@ void PrinterBehavior::save()
             }
         }
         if (Dest::setAttributes(m_destName, m_isClass, changedValues)) {
-            setValues(Dest::getAttributes(m_destName, m_isClass, neededValues()));
+            Result *ret = Dest::getAttributes(m_destName, m_isClass, neededValues());
+            if (!ret->result().isEmpty()){
+                QHash<QString, QVariant> attributes = ret->result().first();
+                setValues(attributes);
+            }
+            delete ret;
         }
     }
 }

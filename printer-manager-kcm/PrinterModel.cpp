@@ -61,8 +61,9 @@ void PrinterModel::update()
                 << "marker-names"
                 << "marker-types";
     // Get destinations with these attributes
-    Result ret = QCups::getDests(-1, requestAttr);
-    dests = ret.result();
+    Result *ret = QCups::getDests(-1, requestAttr);
+    dests = ret->result();
+    delete ret;
 
     for (int i = 0; i < dests.size(); i++) {
 //         kDebug() << dests.at(i);

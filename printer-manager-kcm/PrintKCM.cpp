@@ -64,12 +64,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     connect(printersTV->model(), SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(update()));
 
-    // setup the timer that updates the UIs
-    m_updateT = new QTimer(this);
-    m_updateT->setInterval(1000);
-    m_updateT->start();
-    connect(m_updateT, SIGNAL(timeout()),
-            m_model, SLOT(update()));
+
 
     // Create the PrinterDescription before we try to select a printer
     m_printerDesc = new PrinterDescription(this);
@@ -83,7 +78,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
 
 PrintKCM::~PrintKCM()
 {
-    m_updateT->stop();
 }
 
 void PrintKCM::update()

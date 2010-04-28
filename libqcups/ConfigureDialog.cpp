@@ -54,11 +54,15 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr << "printer-type"; // needed to know if it's a remote printer
     attr.removeDuplicates();
     QHash<QString, QVariant> values;
-//     Result *ret = Dest::getAttributes(destName, isClass, attr);
-//     if (!ret->result().isEmpty()){
-//         values = ret->result().first();
-//     }
-//     delete ret;
+    Result *ret = Dest::getAttributes(destName, isClass, attr);
+    QEventLoop loop;
+    connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
+    if (!ret->result().isEmpty()){
+        values = ret->result().first();
+    }
+    kDebug() << "DELETING" << ret;
+//     ret->deleteLater();
 
 //     kDebug() << values;
  if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {

@@ -87,11 +87,11 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
     QEventLoop *loop = new QEventLoop;
     QMetaObject::invokeMethod(thread->parent(),
                               "showPasswordDlg",
-                              Qt::QueuedConnection,
+                              Qt::BlockingQueuedConnection,
                               Q_ARG(QEventLoop*, loop),
                               Q_ARG(QString, QString::fromUtf8(cupsUser())),
                               Q_ARG(bool, showErrorMessage));
-    loop->exec();
+//     loop->exec();
     kDebug() << "END OF THREAD EXEC";
 
     QObject *response = loop;
@@ -472,16 +472,21 @@ void Request::request(Result        *result,
             response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8());
         }
 
+        int error = cupsLastError();
+        QString errorString = QString::fromUtf8(cupsLastErrorString());
+        kDebug() << error << errorString << result;
+        kDebug() << result->lastError() << result->lastErrorString();
+        result->setLastError(error);
+        result->setLastErrorString(errorString);
         if (response != NULL && needResponse) {
             ReturnArguments ret = cupsParseIPPVars(response, needDestName);
             result->setResult(ret);
         }
         ippDelete(response);
 
-        result->setLastError(cupsLastError());
-        result->setLastErrorString(QString::fromUtf8(NULL));
     } while (retry());
     emit finished();
+    QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
 void Request::cupsAdminGetServerSettings(Result *result)

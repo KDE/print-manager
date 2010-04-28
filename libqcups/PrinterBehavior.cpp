@@ -267,15 +267,19 @@ void PrinterBehavior::save()
             }
         }
         Result *result = Dest::setAttributes(m_destName, m_isClass, changedValues);
+        QEventLoop loop;
+        connect(result, SIGNAL(finished()), &loop, SLOT(quit()));
+        loop.exec();
         if (!result->lastError()) {
             Result *ret = Dest::getAttributes(m_destName, m_isClass, neededValues());
+            QEventLoop loop;
+            connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
+            loop.exec();
             if (!ret->result().isEmpty()){
                 QHash<QString, QVariant> attributes = ret->result().first();
                 setValues(attributes);
             }
-            delete ret;
         }
-        delete result;
     }
 }
 

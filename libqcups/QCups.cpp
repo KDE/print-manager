@@ -36,26 +36,6 @@
 
 using namespace QCups;
 
-class NCups : public QObject
-{
-    Q_OBJECT
-public:
-    static NCups* instance();
-    ~NCups();
-
-public slots:
-    void finished();
-    void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
-
-public:
-    NCups(QObject* parent = 0);
-    static NCups* m_instance;
-    CupsThreadRequest *m_thread;
-    QList<QEventLoop*> m_events;
-
-    QEventLoop* begin();
-    void end(QEventLoop *loop);
-};
 
 
 NCups* NCups::m_instance = 0;
@@ -281,7 +261,7 @@ Result* QCups::Dest::setAttributes(const QString &destName, bool isClass, const 
         request["filename"] = filename;
     }
 
-    QEventLoop *loop = NCups::instance()->begin();
+//     QEventLoop *loop = NCups::instance()->begin();
     Result *result = new Result;
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
                               "request",
@@ -292,8 +272,8 @@ Result* QCups::Dest::setAttributes(const QString &destName, bool isClass, const 
                               Q_ARG(Arguments, request),
                               Q_ARG(bool, false));
 
-    loop->exec();
-    NCups::instance()->end(loop);
+//     loop->exec();
+//     NCups::instance()->end(loop);
     return result;
 }
 
@@ -362,8 +342,9 @@ Result* QCups::getDests(int mask, const QStringList &requestedAttr)
     }
     request["requested-attributes"] = requestedAttr;
     request["need-dest-name"] = true;
-    QEventLoop *loop = NCups::instance()->begin();
-    Result *result = new Result;
+//     QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result(qApp);
+    result->setProperty("methodName", "getDests");
 
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
                               "request",
@@ -374,9 +355,9 @@ Result* QCups::getDests(int mask, const QStringList &requestedAttr)
                               Q_ARG(Arguments, request),
                               Q_ARG(bool, true));
 
-    loop->exec();
+//     loop->exec();
     // remove again after finished
-    NCups::instance()->end(loop);
+//     NCups::instance()->end(loop);
     return result;
 }
 
@@ -386,7 +367,7 @@ void NCups::showPasswordDlg(QEventLoop *loop, const QString &username, bool show
     CupsPasswordDialog *dlg = new CupsPasswordDialog(loop, username, showErrorMessage, 0);
     // if we use exec() and a new request creates a QEventLoop this
     // will NEVER return
-    dlg->show();
+    dlg->exec();
 }
 
 QEventLoop* NCups::begin()
@@ -430,7 +411,7 @@ Result* QCups::Dest::setShared(const QString &destName, bool isClass, bool share
     request["printer-is-shared"] = shared;
     request["need-dest-name"] = true;
 
-    QEventLoop *loop = NCups::instance()->begin();
+//     QEventLoop *loop = NCups::instance()->begin();
     Result *result = new Result;
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
                               "request",
@@ -442,8 +423,8 @@ Result* QCups::Dest::setShared(const QString &destName, bool isClass, bool share
                               Q_ARG(Arguments, request),
                               Q_ARG(bool, false));
 
-    loop->exec();
-    NCups::instance()->end(loop);
+//     loop->exec();
+//     NCups::instance()->end(loop);
     return result;
 }
 
@@ -512,8 +493,9 @@ Result* QCups::Dest::getAttributes(const QString &destName, bool isClass, const 
     request["need-dest-name"] = false; // we don't need a dest name since it's a single list
     request["requested-attributes"] = requestedAttr;
 kDebug() << "getDests BEGIN" << QThread::currentThreadId();
-    QEventLoop *loop = NCups::instance()->begin();
-    Result *result = new Result;
+//     QEventLoop *loop = NCups::instance()->begin();
+    Result *result = new Result(qApp);
+    result->setProperty("methodName", "getAttributes");
 
     kDebug() << "getDests BEGIN invoke";
     QMetaObject::invokeMethod(NCups::instance()->m_thread->req,
@@ -525,17 +507,25 @@ kDebug() << "getDests BEGIN" << QThread::currentThreadId();
                               Q_ARG(Arguments, request),
                               Q_ARG(bool, true));
 
-    loop->exec();
+//     loop->exec();
     // remove again after finished
-    NCups::instance()->end(loop);
+//     NCups::instance()->end(loop);
     return result;
 
 //     return cupsGetAttributes(destName.toUtf8(), isClass, requestedAttr);
 }
 
+Result::Result(QObject *parent)
+ : QObject(parent),
+   m_error(0)
+{
+    kDebug() << this;
+    connect(this, SIGNAL(finished()), SLOT(deleteLater()));
+}
+
 Result::~Result()
 {
-    kDebug();
+    kDebug() << property("methodName").toString() << this;
 }
 
 int Result::lastError() const

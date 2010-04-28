@@ -22,6 +22,7 @@
 #define PRINTER_MODEL_H
 
 #include <QStandardItemModel>
+#include <QTimer>
 
 #include <cups/cups.h>
 #include "QCups.h"
@@ -66,9 +67,11 @@ public:
 
 public slots:
     void update();
+    void getDestsFinished();
 
 private:
     WId m_parentId;
+    QTimer *m_updateT;
 
     int destRow(const QString &destName);
     void insertDest(int pos, const QCups::Destination &dest);

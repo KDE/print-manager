@@ -24,9 +24,7 @@
 #include <QHash>
 #include <QVariant>
 #include <QThread>
-#include <QMutex>
 #include <QEventLoop>
-#include <QWaitCondition>
 #include <KPasswordDialog>
 
 #include "QCups.h"

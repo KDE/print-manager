@@ -156,7 +156,11 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
                                       CUPS_PRINTER_IMPLICIT, requestAttr);
 
         dests = ret->result();
-        delete ret;
+        QEventLoop loop;
+        connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
+        loop.exec();
+        ret->deleteLater();
+
         m_model->clear();
         QStringList memberNames = values["member-names"].toStringList();
         QStringList origMemberUris;

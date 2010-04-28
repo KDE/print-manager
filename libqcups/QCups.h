@@ -23,7 +23,7 @@
 
 #include <kdemacros.h>
 #include <QStringList>
-#include <QPointer>
+#include <QEventLoop>
 #include <QHash>
 
 #define DEST_IDLE     3
@@ -36,14 +36,19 @@ namespace QCups
     typedef QHash<QString, QString>          HashStrStr;
     typedef QList<QHash<QString, QVariant> > ReturnArguments;
     typedef QHash<QString, QVariant>         Destination;
-    class KDE_EXPORT Result
+    class KDE_EXPORT Result : public QObject
     {
+        Q_OBJECT
     public:
+        Result(QObject *parent = 0);
         ~Result();
         int lastError() const;
         QString lastErrorString() const;
         ReturnArguments result() const;
         HashStrStr hashStrStr() const;
+
+    signals:
+        void finished();
 
     protected:
         void setLastError(int error);
@@ -90,6 +95,27 @@ namespace QCups
     */
     KDE_EXPORT Result* adminGetServerSettings();
 
+    class CupsThreadRequest;
+    class NCups : public QObject
+    {
+        Q_OBJECT
+    public:
+        static NCups* instance();
+        ~NCups();
+
+    public slots:
+        void finished();
+        void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
+
+    public:
+        NCups(QObject* parent = 0);
+        static NCups* m_instance;
+        CupsThreadRequest *m_thread;
+        QList<QEventLoop*> m_events;
+
+        QEventLoop* begin();
+        void end(QEventLoop *loop);
+    };
 }
 
 #endif

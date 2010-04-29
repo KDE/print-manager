@@ -35,6 +35,8 @@ using namespace QCups;
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
 
+static bool debug = false;
+
 ReturnArguments cupsParseIPPVars(ipp_t *response, bool needDestName);
 
 // Don't forget to delete the request
@@ -47,7 +49,6 @@ ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
     // where we need:
     // * printer-uri
     // * requesting-user-name
-
     request = ippNewRequest(operation);
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8",
                      "localhost", ippPort(), isClass ? "/classes/%s" : "/printers/%s",
@@ -91,7 +92,7 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
                               Q_ARG(QEventLoop*, loop),
                               Q_ARG(QString, QString::fromUtf8(cupsUser())),
                               Q_ARG(bool, showErrorMessage));
-//     loop->exec();
+
     kDebug() << "----------LOCK";
     thread->m_mutex->lock();
     thread->m_mutex->unlock();
@@ -215,41 +216,43 @@ static QVariant cupsMakeVariant(ipp_attribute_t *attr)
     }
 }
 
-ReturnArguments cupsParseIPPVars(ipp_t *response, bool needDestName)
+ReturnArguments cupsParseIPPVars(ipp_t *response, int group_tag, bool needDestName)
 {
     ipp_attribute_t *attr;
     ReturnArguments ret;
 
     for (attr = response->attrs; attr != NULL; attr = attr->next) {
-          /*
-           * Skip leading attributes until we hit a printer...
-           */
-          while (attr != NULL && attr->group_tag != IPP_TAG_PRINTER) {
-              attr = attr->next;
-          }
+       /*
+        * Skip leading attributes until we hit a a group which can be a printer, job...
+        */
+        while (attr != NULL && attr->group_tag != group_tag) {
+            attr = attr->next;
+        }
 
-          if (attr == NULL) {
-              break;
-          }
+        if (attr == NULL) {
+            break;
+        }
 
-          /*
-           * Pull the needed attributes from this printer...
-           */
-          QHash<QString, QVariant> destAttributes;
-          for (; attr && attr->group_tag == IPP_TAG_PRINTER; attr = attr->next)
-          {
-              if (attr->value_tag != IPP_TAG_INTEGER &&
-                  attr->value_tag != IPP_TAG_ENUM &&
-                  attr->value_tag != IPP_TAG_BOOLEAN &&
-                  attr->value_tag != IPP_TAG_TEXT &&
-                  attr->value_tag != IPP_TAG_TEXTLANG &&
-                  attr->value_tag != IPP_TAG_LANGUAGE &&
-                  attr->value_tag != IPP_TAG_NAME &&
-                  attr->value_tag != IPP_TAG_NAMELANG &&
-                  attr->value_tag != IPP_TAG_KEYWORD &&
-                  attr->value_tag != IPP_TAG_RANGE &&
-                  attr->value_tag != IPP_TAG_URI)
-                  continue;
+        /*
+         * Pull the needed attributes from this printer...
+         */
+        QHash<QString, QVariant> destAttributes;
+        for (; attr && attr->group_tag == group_tag; attr = attr->next) {
+            if (attr->value_tag != IPP_TAG_INTEGER &&
+                attr->value_tag != IPP_TAG_ENUM &&
+                attr->value_tag != IPP_TAG_BOOLEAN &&
+                attr->value_tag != IPP_TAG_TEXT &&
+                attr->value_tag != IPP_TAG_TEXTLANG &&
+                attr->value_tag != IPP_TAG_LANGUAGE &&
+                attr->value_tag != IPP_TAG_NAME &&
+                attr->value_tag != IPP_TAG_NAMELANG &&
+                attr->value_tag != IPP_TAG_KEYWORD &&
+                attr->value_tag != IPP_TAG_RANGE &&
+                attr->value_tag != IPP_TAG_URI) {
+                continue;
+            }
+            if (debug)
+    kDebug() << attr->name;
 
 //               if (!strcmp(attr->name, "printer-name") ||
 //                   !strcmp(attr->name, "auth-info-required") ||
@@ -356,8 +359,9 @@ void Request::cancelJob(Result *result, const QString &destName, int jobId)
         result->setLastError(cupsLastError());
         result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
     } while (retry());
-    emit finished();
+    QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
+
 
 void Request::request(Result        *result,
                       ipp_op_e       operation,
@@ -365,7 +369,8 @@ void Request::request(Result        *result,
                       Arguments      reqValues,
                       bool           needResponse)
 {
-    kDebug() << "BEGIN" << operation << resource << QThread::currentThreadId();
+    debug = result->property("methodName").toString() == "getJobs";
+    if (debug) kDebug() << result->property("methodName").toString() << debug;
     password_retries = 0;
     do {
         ipp_t *request;
@@ -374,6 +379,7 @@ void Request::request(Result        *result,
         bool needDestName = false;
         const char *name = NULL;
         const char *filename = NULL;
+        int group_tag = IPP_TAG_PRINTER;
         QHash<QString, QVariant> values = reqValues;
 
         if (values.contains("printer-is-class")) {
@@ -385,13 +391,17 @@ void Request::request(Result        *result,
         if (values.contains("printer-name")) {
             name = qstrdup(values.take("printer-name").toString().toUtf8());
         }
+        if (values.contains("group-tag-qt")) {
+            group_tag = values.take("group-tag-qt").toInt();
+        }
 
         if (values.contains("filename")) {
-            filename = values.take("filename").toString().toUtf8();
+            filename = qstrdup(values.take("filename").toString().toUtf8());
         }
 
         // Lets create the request
         if (name) {
+            if (debug) kDebug() << "ippNewDefaultRequest";
             request = ippNewDefaultRequest(name, isClass, operation);
         } else {
             request = ippNewRequest(operation);
@@ -427,6 +437,10 @@ void Request::request(Result        *result,
                                      "/printers/%s", dest_name);
                     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
                                  "job-printer-uri", "utf-8", destUri);
+                } else if (i.key() == "printer-uri") {
+                    // needed for getJobs
+                    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
+                                 "printer-uri", NULL, "ipp://localhost/");
                 } else if (i.key() == "printer-op-policy" ||
                            i.key() == "printer-error-policy" ||
                            i.key() == "ppd-name") {
@@ -479,18 +493,16 @@ void Request::request(Result        *result,
 
         int error = cupsLastError();
         QString errorString = QString::fromUtf8(cupsLastErrorString());
-        kDebug() << error << errorString << result;
-        kDebug() << result->lastError() << result->lastErrorString();
         result->setLastError(error);
         result->setLastErrorString(errorString);
         if (response != NULL && needResponse) {
-            ReturnArguments ret = cupsParseIPPVars(response, needDestName);
+            kDebug() << "cupsParseIPPVars";
+            ReturnArguments ret = cupsParseIPPVars(response, group_tag, needDestName);
             result->setResult(ret);
         }
         ippDelete(response);
 
     } while (retry());
-    emit finished();
     QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
@@ -514,7 +526,7 @@ void Request::cupsAdminGetServerSettings(Result *result)
         result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
     } while (retry());
     kDebug() << "END" << QThread::currentThreadId();
-    emit finished();
+    QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
 void Request::cupsAdminSetServerSettings(Result *result, const HashStrStr &userValues)
@@ -557,7 +569,7 @@ void Request::cupsAdminSetServerSettings(Result *result, const HashStrStr &userV
         result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
     } while (retry());
     kDebug() << "END" << QThread::currentThreadId();
-    emit finished();
+    QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
 void Request::cupsPrintCommand(Result *result,
@@ -591,7 +603,7 @@ void Request::cupsPrintCommand(Result *result,
 
             result->setLastError(IPP_NOT_POSSIBLE );
             result->setLastErrorString(i18n("Unable to send command to printer driver!"));
-            emit finished();
+            QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
             return;
         }
 
@@ -612,9 +624,9 @@ void Request::cupsPrintCommand(Result *result,
             qWarning() << "Unable to send command to printer driver!";
 
             cupsCancelJob(name.toUtf8(), job_id);
-            emit finished();
+            QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
             return; // Return to avoid a new try
         }
     } while (retry());
-    emit finished();
+    QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }

@@ -30,7 +30,6 @@ PPDModel::PPDModel(const QList<QHash<QString, QVariant> > &ppds, QObject *parent
  : QAbstractListModel(parent),
    m_ppds(ppds)
 {
-//     setHorizontalHeaderItem(0,    new QStandardItem(i18n("Printers")));
 }
 
 QVariant PPDModel::data(const QModelIndex &index, int role) const

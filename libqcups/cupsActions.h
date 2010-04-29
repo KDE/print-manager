@@ -44,10 +44,6 @@ namespace QCups
         void cupsPrintCommand(Result *result, const QString &name,
                               const QString &command, const QString &title);
 
-    signals:
-        void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
-        void finished();
-
     private:
         bool retry();
     };

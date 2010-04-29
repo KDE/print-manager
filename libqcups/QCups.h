@@ -43,6 +43,9 @@ namespace QCups
     public:
         Result(QObject *parent = 0);
         ~Result();
+        void waitTillFinished() const;
+
+        bool hasError() const;
         int lastError() const;
         QString lastErrorString() const;
         ReturnArguments result() const;
@@ -91,11 +94,14 @@ namespace QCups
     // "printer-is-default" attribute BUT it does not get user
     // defined default printer, see cupsGetDefault() on www.cups.org for details
     KDE_EXPORT Result* getDests(int mask, const QStringList &requestedAttr = QStringList());
+    KDE_EXPORT Result* getJobs(const QString &destName, bool myJobs, int whichJobs, const QStringList &requestedAttr = QStringList());
+
     /*
      The result will be in hashStrStr()
     */
     KDE_EXPORT Result* adminGetServerSettings();
 
+    class Request;
     class CupsThreadRequest;
     class NCups : public QObject
     {
@@ -104,18 +110,15 @@ namespace QCups
         static NCups* instance();
         ~NCups();
 
+        Request* request() const;
+
     public slots:
-        void finished();
         void showPasswordDlg(QMutex *mutex, QEventLoop *loop, const QString &username, bool showErrorMessage);
 
-    public:
+    private:
         NCups(QObject* parent = 0);
         static NCups* m_instance;
         CupsThreadRequest *m_thread;
-        QList<QEventLoop*> m_events;
-
-        QEventLoop* begin();
-        void end(QEventLoop *loop);
     };
 }
 

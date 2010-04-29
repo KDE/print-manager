@@ -24,7 +24,6 @@
 #include <QStandardItemModel>
 #include <QTimer>
 
-#include <cups/cups.h>
 #include "QCups.h"
 
 class PrinterModel : public QStandardItemModel

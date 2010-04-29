@@ -24,13 +24,13 @@
 #include <ConfigureDialog.h>
 
 #include <QCups.h>
-#include <cups/cups.h>
 
 #include "PrintQueueSortFilterProxyModel.h"
 #include <QPainter>
 #include <QToolBar>
 #include <QToolButton>
 #include <QMenu>
+#include <QByteArray>
 
 #include <KMessageBox>
 #include <KDebug>
@@ -85,11 +85,22 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
     connect(jobsView, SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(showContextMenu(const QPoint &)));
 
+    KConfig config("print-manager");
+    KConfigGroup printQueue(&config, "PrintQueue");
+    if (printQueue.hasKey("ColumnState")) {
+        // restore the header state order
+        jobsView->header()->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
+    }
+
     update();
 }
 
 PrintQueueUi::~PrintQueueUi()
 {
+    KConfig config("print-manager");
+    KConfigGroup printQueue(&config, "PrintQueue");
+    // save the header state order
+    printQueue.writeEntry("ColumnState", jobsView->header()->saveState());
 }
 
 void PrintQueueUi::setState(int state, const QString &message)
@@ -217,10 +228,11 @@ void PrintQueueUi::update()
 
     QHash<QString, QVariant> attributes;
     QCups::Result *ret = QCups::Dest::getAttributes(m_destName, m_isClass, attr);
+    ret->waitTillFinished();
     if (!ret->result().isEmpty()){
         attributes = ret->result().first();
     }
-    delete ret;
+    ret->deleteLater();
 
     if (attributes.isEmpty()) {
         // if cups stops we disable our queue
@@ -308,7 +320,13 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
             result = m_model->modifyJob(index.row(),
                                         static_cast<PrintQueueModel::JobAction>(action),
                                         destName);
-            if (result->lastError()) {
+            if (!result) {
+                // probably the job already has this state
+                // or this is an unknown action
+                continue;
+            }
+            result->waitTillFinished();
+            if (result->hasError()) {
                 QString msg, jobName;
                 jobName = m_model->item(index.row(), static_cast<int>(PrintQueueModel::ColName))->text();
                 switch (action) {
@@ -330,7 +348,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
                                            result->lastErrorString(),
                                            i18n("Failed"));
             }
-            delete result;
+            result->deleteLater();
         }
     }
 }
@@ -338,11 +356,14 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
 void PrintQueueUi::on_pausePrinterPB_clicked()
 {
     // STOP and RESUME printer
+    QCups::Result *ret;
     if (m_printerPaused) {
-        QCups::resumePrinter(m_destName);
+        ret = QCups::resumePrinter(m_destName);
     } else {
-        QCups::pausePrinter(m_destName);
+        ret = QCups::pausePrinter(m_destName);
     }
+    ret->waitTillFinished();
+    ret->deleteLater();
 }
 
 void PrintQueueUi::on_configurePrinterPB_clicked()

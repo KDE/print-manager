@@ -23,9 +23,7 @@
 #include <QtDBus/QDBusContext>
 
 class QTimer;
-
 class PrintQueueUi;
-
 class PrintQueueInterface : public QObject, protected QDBusContext
 {
     Q_OBJECT
@@ -33,8 +31,6 @@ class PrintQueueInterface : public QObject, protected QDBusContext
 public:
     PrintQueueInterface(QObject *parent = 0);
     ~PrintQueueInterface();
-
-    bool canQuit();
 
 signals:
     void quit();

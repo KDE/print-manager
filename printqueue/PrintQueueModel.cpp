@@ -48,6 +48,29 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
 
 void PrintQueueModel::updateModel()
 {
+    QStringList foo;
+    foo <<                "job-id"
+        <<    "job-priority" <<
+                  "job-k-octets"<<
+                  "job-state"<<
+                  "time-at-completed"<<
+                  "time-at-creation"<<
+                  "time-at-processing"<<
+                  "job-printer-uri"<<
+                  "job-printer-name"<<
+                  "document-format"<<
+                  "job-name"<<
+                  "job-originating-user-name"<<
+                  "job-media-sheets-completed"<<
+                  "job-printer-state-message" <<
+                  "job-preserved";
+    QCups::Result *ret = QCups::getJobs(m_destName, false, m_whichjobs, foo);
+    ret->waitTillFinished();
+//     ReturnArguments dests;
+//     Result *ret = qobject_cast<Result*>(sender());
+    kDebug() << ret->result();
+    ret->deleteLater();
+
     int num_jobs;
     cups_job_t *jobs;
     num_jobs = cupsGetJobs(&jobs, m_destName.toUtf8(), 0, m_whichjobs);
@@ -240,7 +263,7 @@ QCups::Result* PrintQueueModel::modifyJob(int row, JobAction action, const QStri
     if ((state == IPP_JOB_HELD && action == Hold) ||
         (state == IPP_JOB_CANCELED && action == Cancel) ||
         (state != IPP_JOB_HELD && action == Release)) {
-        return new QCups::Result;
+        return 0;
     }
 
     switch (action) {
@@ -253,6 +276,7 @@ QCups::Result* PrintQueueModel::modifyJob(int row, JobAction action, const QStri
     case Move:
         return QCups::moveJob(destName, jobId, newDestName);
     }
+    kWarning() << "Action unknown!!";
     return 0;
 }
 

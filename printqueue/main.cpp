@@ -21,7 +21,6 @@
 #include "PrintQueue.h"
 
 #include <KDebug>
-#include <KConfig>
 #include <KLocale>
 #include <KAboutData>
 #include <KCmdLineArgs>

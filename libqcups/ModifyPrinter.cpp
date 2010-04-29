@@ -154,11 +154,8 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
         // Get destinations with these masks
         Result *ret = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
                                       CUPS_PRINTER_IMPLICIT, requestAttr);
-
+        ret->waitTillFinished();
         dests = ret->result();
-        QEventLoop loop;
-        connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
-        loop.exec();
         ret->deleteLater();
 
         m_model->clear();
@@ -288,6 +285,7 @@ void ModifyPrinter::save()
         } else {
             result = Dest::setAttributes(m_destName, m_isClass, m_changedValues, file.toUtf8());
         }
+        result->waitTillFinished();
 
         if (result && !result->lastError()) {
             if (!file.isEmpty() ||
@@ -295,13 +293,15 @@ void ModifyPrinter::save()
                 emit ppdChanged();
             }
             Result *ret = Dest::getAttributes(m_destName, m_isClass, neededValues());
+            ret->waitTillFinished();
+
             if (!ret->result().isEmpty()){
                 QHash<QString, QVariant> attributes = ret->result().first();
                 setValues(attributes);
             }
-            delete ret;
+            ret->deleteLater();
         }
-        delete result;
+        result->deleteLater();
     }
 }
 

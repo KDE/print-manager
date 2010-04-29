@@ -21,7 +21,6 @@
 #include "SystemPreferences.h"
 
 #include <QCups.h>
-#include <cups/cups.h>
 
 #include <KDebug>
 
@@ -30,10 +29,10 @@ SystemPreferences::SystemPreferences(QWidget *parent)
 {
     setupUi(mainWidget());
     connect(this,SIGNAL(okClicked()),SLOT(save()));
-    QCups::Result *result;
-    result = QCups::adminGetServerSettings();
+    QCups::Result *result = QCups::adminGetServerSettings();
+    result->waitTillFinished();
     QHash<QString, QString> values = result->hashStrStr();
-    delete result;
+    result->deleteLater();
     if(values["_remote_printers"] == "1") {
       showSharedPrintersCB->setChecked(true);
     }
@@ -95,14 +94,14 @@ void SystemPreferences::save() {
        userValues["_user_cancel_any"] = "0";
    }
 
-   kDebug() << userValues;
-   kDebug() << m_values;
-   kDebug() << (userValues == m_values);
+//    kDebug() << userValues;
+//    kDebug() << m_values;
+//    kDebug() << (userValues == m_values);
 
-   QCups::Result *ret;
    if(userValues != m_values) {
-       ret = QCups::adminSetServerSettings(userValues);
-       delete ret;
+       QCups::Result *ret = QCups::adminSetServerSettings(userValues);
+       ret->waitTillFinished();
+       ret->deleteLater();
    }
 }
 

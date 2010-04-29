@@ -69,8 +69,9 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
                     << "printer-type";
         // Get destinations with these attributes
         QCups::Result *ret = QCups::getDests(-1, requestAttr);
+        ret->waitTillFinished();
         dests = ret->result();
-        delete ret;
+        ret->deleteLater();
 
         bool found = false;
         bool isClass = false;
@@ -90,21 +91,22 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
                     this, SLOT(RemoveQueue()));
             ui->show();
             m_uis[destName] = ui;
+
         } else {
+            // if no destination was found and we aren't showing
+            // a queue quit the app
+            if (m_uis.isEmpty()) {
+                emit quit();
+            }
             return;
         }
     }
     KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
 }
 
-bool PrintQueueInterface::canQuit()
-{
-    return m_uis.isEmpty();
-}
-
 void PrintQueueInterface::RemoveQueue()
 {
-    PrintQueueUi *ui = (PrintQueueUi*) sender();
+    PrintQueueUi *ui = qobject_cast<PrintQueueUi*>(sender());
     m_uis.remove(m_uis.key(ui));
 }
 

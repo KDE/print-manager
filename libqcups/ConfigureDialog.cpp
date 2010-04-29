@@ -55,14 +55,12 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr.removeDuplicates();
     QHash<QString, QVariant> values;
     Result *ret = Dest::getAttributes(destName, isClass, attr);
-    QEventLoop loop;
-    connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
+    ret->waitTillFinished();
     if (!ret->result().isEmpty()){
         values = ret->result().first();
     }
     kDebug() << "DELETING" << ret;
-//     ret->deleteLater();
+    ret->deleteLater();
 
 //     kDebug() << values;
  if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {

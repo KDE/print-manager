@@ -34,15 +34,8 @@ PrintQueue::PrintQueue()
 
 int PrintQueue::newInstance()
 {
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();kDebug() << args->getOption("show-queue");
-    if (args->isSet("show-queue")) {
-        kDebug() << args->getOption("show-queue");
-        m_pqInterface->ShowQueue(args->getOption("show-queue"));
-    }
-
-    if (m_pqInterface->canQuit()) {
-        quit();
-    }
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    m_pqInterface->ShowQueue(args->getOption("show-queue"));
 
     return 0;
 }

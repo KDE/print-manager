@@ -734,7 +734,14 @@ void PrinterOptions::save()
 
     QHash<QString, QVariant> values; // we need null values
     Result *result = Dest::setAttributes(m_destName, m_isClass, values, tempfile);
-    if (result->lastError()) {
+    // Disable the widget till the request is processed
+    // Otherwise the user might change something in the ui
+    // which won't be saved but the apply but when the request
+    // finishes we will set the current options as default
+    setEnabled(false);
+    result->waitTillFinished();
+    setEnabled(true);
+    if (!result->hasError()) {
         // if we succefully save the new ppd we need now to
         // clear our changes
         QHash<QString, QObject*>::const_iterator i = m_customValues.constBegin();
@@ -751,7 +758,7 @@ void PrinterOptions::save()
         m_customValues.clear();
         emit changed(false);
     }
-    delete result;
+    result->deleteLater();
 
     // unlink the file
     unlink(tempfile);

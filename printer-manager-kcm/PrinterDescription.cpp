@@ -23,7 +23,6 @@
 #include "ConfigureDialog.h"
 
 #include <QCups.h>
-#include <cups/cups.h>
 
 #include <QPainter>
 #include <QPointer>
@@ -90,11 +89,9 @@ void PrinterDescription::on_sharedCB_clicked()
 {
     bool shared = sharedCB->isChecked();
     QCups::Result *ret = QCups::Dest::setShared(m_destName, m_isClass, shared);
-    QEventLoop loop;
-    connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
-    bool sucess = !ret->lastError();
-    setIsShared(sucess ? shared : !shared);
+    ret->waitTillFinished();
+    setIsShared(ret->hasError() ? !shared : shared);
+    ret->deleteLater();
 }
 
 void PrinterDescription::on_optionsPB_clicked()
@@ -158,19 +155,25 @@ void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
     // TODO Show a msg box if failed
-    delete QCups::Dest::printTestPage(m_destName, m_isClass);
+    QCups::Result *ret = QCups::Dest::printTestPage(m_destName, m_isClass);
+    ret->waitTillFinished();
+    ret->deleteLater();
 }
 
 void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    delete QCups::Dest::printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
+    QCups::Result *ret = QCups::Dest::printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
+    ret->waitTillFinished();
+    ret->deleteLater();
 }
 
 void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    delete QCups::Dest::printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
+    QCups::Result *ret = QCups::Dest::printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
+    ret->waitTillFinished();
+    ret->deleteLater();
 }
 
 

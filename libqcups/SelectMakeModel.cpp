@@ -35,9 +35,10 @@ SelectMakeModel::SelectMakeModel(const QString &make, const QString &makeAndMode
     setupUi(this);
 
     QCups::Result *ret = QCups::getPPDS();
+    ret->waitTillFinished();
     ReturnArguments ppds = ret->result();
     PPDModel *sourceModel = new PPDModel(ppds, this);
-    delete ret;
+    ret->deleteLater();
     m_model = new QSortFilterProxyModel(this);
     m_model->setSourceModel(sourceModel);
     ppdsLV->setModel(m_model);

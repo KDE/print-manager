@@ -125,7 +125,9 @@ void PrintKCM::on_removePB_clicked()
                                                index.data(Qt::DisplayRole).toString()),
                                           i18n("Remove printer"));
         if (resp == KMessageBox::Yes) {
-            QCups::deletePrinter(index.data(PrinterModel::DestName).toString());
+            QCups::Result *ret = QCups::deletePrinter(index.data(PrinterModel::DestName).toString());
+            ret->waitTillFinished();
+            ret->deleteLater();
         }
     }
 }

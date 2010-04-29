@@ -27,9 +27,7 @@
 #include <KLocale>
 #include <KMessageBox>
 
-#include "QCups.h"
-
-using namespace QCups;
+#include <cups/cups.h>
 
 PrinterModel::PrinterModel(WId parentId, QObject *parent)
  : QStandardItemModel(parent),
@@ -47,7 +45,7 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
 void PrinterModel::getDestsFinished()
 {
 
-    
+
 }
 
 void PrinterModel::update()
@@ -72,14 +70,14 @@ void PrinterModel::update()
                 << "marker-names"
                 << "marker-types";
     // Get destinations with these attributes
-    Result *ret = QCups::getDests(-1, requestAttr);
-    QEventLoop loop;
-    connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
-    ReturnArguments dests;
+    QCups::Result *ret = QCups::getDests(-1, requestAttr);
+    ret->waitTillFinished();
+    QCups::ReturnArguments dests;
 //     Result *ret = qobject_cast<Result*>(sender());
     dests = ret->result();
-//     ret->deleteLater();
+    // TODO Inform the user when the server is Unavailable
+//     kDebug() << ret->lastError() << IPP_SERVICE_UNAVAILABLE ;
+    ret->deleteLater();
 
     for (int i = 0; i < dests.size(); i++) {
 //         kDebug() << dests.at(i);

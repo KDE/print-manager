@@ -361,13 +361,16 @@ Result* QCups::getDests(int mask, const QStringList &requestedAttr)
     return result;
 }
 
-void NCups::showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage)
+void NCups::showPasswordDlg(QMutex *mutex, QEventLoop *loop, const QString &username, bool showErrorMessage)
 {
+    kDebug() << "---------LOCK";
+    mutex->lock();
+    kDebug() << "---------LOCK2";
     // shows a password dialog to the user
-    CupsPasswordDialog *dlg = new CupsPasswordDialog(loop, username, showErrorMessage, 0);
+    CupsPasswordDialog *dlg = new CupsPasswordDialog(mutex, loop, username, showErrorMessage, 0);
     // if we use exec() and a new request creates a QEventLoop this
     // will NEVER return
-    dlg->exec();
+    dlg->show();
 }
 
 QEventLoop* NCups::begin()

@@ -28,7 +28,6 @@
 #include <KDebug>
 #include <KLocale>
 #include <QEventLoop>
-#include <QMutexLocker>
 #include <QPointer>
 
 using namespace QCups;
@@ -88,12 +87,15 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
     QMetaObject::invokeMethod(thread->parent(),
                               "showPasswordDlg",
                               Qt::BlockingQueuedConnection,
+                              Q_ARG(QMutex*, thread->m_mutex),
                               Q_ARG(QEventLoop*, loop),
                               Q_ARG(QString, QString::fromUtf8(cupsUser())),
                               Q_ARG(bool, showErrorMessage));
 //     loop->exec();
-    kDebug() << "END OF THREAD EXEC";
-
+    kDebug() << "----------LOCK";
+    thread->m_mutex->lock();
+    thread->m_mutex->unlock();
+    kDebug() << "----------LOCK RELEASED";
     QObject *response = loop;
     if (response->property("canceled").toBool()) {
         // the dialog was canceled
@@ -117,11 +119,14 @@ CupsThreadRequest::CupsThreadRequest(QObject *parent)
     qRegisterMetaType<QEventLoop*>("QEventLoop*");
     qRegisterMetaType<Result*>("Result*");
     qRegisterMetaType<HashStrStr>("HashStrStr");
+    qRegisterMetaType<QMutex*>("QMutex*");
+    m_mutex = new QMutex;
 }
 
 CupsThreadRequest::~CupsThreadRequest()
 {
     req->deleteLater();
+    delete m_mutex;
 }
 
 void CupsThreadRequest::run()

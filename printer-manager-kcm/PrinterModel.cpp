@@ -41,12 +41,43 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
     m_updateT->setInterval(1000);
     connect(m_updateT, SIGNAL(timeout()), this, SLOT(update()));
     update();
+    m_updateT->start();
 }
 
 void PrinterModel::getDestsFinished()
 {
+
+    
+}
+
+void PrinterModel::update()
+{
+        kDebug();
+    QStringList requestAttr;
+    requestAttr << "printer-name"
+                << "printer-state"
+                << "printer-state-message"
+                << "printer-is-shared"
+                << "printer-type"
+                << "printer-location"
+                << "printer-info"
+                << "printer-make-and-model"
+                << "printer-commands"
+                << "marker-change-time"
+                << "marker-colors"
+                << "marker-high-levels"
+                << "marker-levels"
+                << "marker-low-levels"
+                << "marker-message"
+                << "marker-names"
+                << "marker-types";
+    // Get destinations with these attributes
+    Result *ret = QCups::getDests(-1, requestAttr);
+    QEventLoop loop;
+    connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
+    loop.exec();
     ReturnArguments dests;
-    Result *ret = qobject_cast<Result*>(sender());
+//     Result *ret = qobject_cast<Result*>(sender());
     dests = ret->result();
 //     ret->deleteLater();
 
@@ -78,35 +109,6 @@ void PrinterModel::getDestsFinished()
     while (rowCount() > dests.size()) {
         removeRow(rowCount() - 1);
     }
-    m_updateT->start();
-}
-
-void PrinterModel::update()
-{
-    QStringList requestAttr;
-    requestAttr << "printer-name"
-                << "printer-state"
-                << "printer-state-message"
-                << "printer-is-shared"
-                << "printer-type"
-                << "printer-location"
-                << "printer-info"
-                << "printer-make-and-model"
-                << "printer-commands"
-                << "marker-change-time"
-                << "marker-colors"
-                << "marker-high-levels"
-                << "marker-levels"
-                << "marker-low-levels"
-                << "marker-message"
-                << "marker-names"
-                << "marker-types";
-    // Get destinations with these attributes
-    kDebug();
-    Result *ret = QCups::getDests(-1, requestAttr);
-    kDebug();
-    connect(ret, SIGNAL(finished()), this, SLOT(getDestsFinished()));
-    m_updateT->stop();
 }
 
 void PrinterModel::insertDest(int pos, const QCups::Destination &dest)

@@ -25,7 +25,7 @@
 #include <QVariant>
 #include <QThread>
 #include <QEventLoop>
-#include <KPasswordDialog>
+#include <QMutex>
 
 #include "QCups.h"
 #include <cups/cups.h>
@@ -60,6 +60,7 @@ namespace QCups
         ~CupsThreadRequest();
 
         Request *req;
+        QMutex *m_mutex;
 
     private:
         void run();
@@ -73,5 +74,6 @@ Q_DECLARE_METATYPE(QCups::Arguments);
 Q_DECLARE_METATYPE(QCups::ReturnArguments);
 Q_DECLARE_METATYPE(QCups::Result*);
 Q_DECLARE_METATYPE(QCups::HashStrStr);
+Q_DECLARE_METATYPE(QMutex*);
 
 #endif

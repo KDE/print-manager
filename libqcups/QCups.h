@@ -25,6 +25,7 @@
 #include <QStringList>
 #include <QEventLoop>
 #include <QHash>
+#include <QMutex>
 
 #define DEST_IDLE     3
 #define DEST_PRINTING 4
@@ -105,7 +106,7 @@ namespace QCups
 
     public slots:
         void finished();
-        void showPasswordDlg(QEventLoop *loop, const QString &username, bool showErrorMessage);
+        void showPasswordDlg(QMutex *mutex, QEventLoop *loop, const QString &username, bool showErrorMessage);
 
     public:
         NCups(QObject* parent = 0);

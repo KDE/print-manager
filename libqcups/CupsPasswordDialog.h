@@ -23,18 +23,20 @@
 
 #include <KPasswordDialog>
 #include <QEventLoop>
+#include <QMutex>
 
 class CupsPasswordDialog : public KPasswordDialog
 {
     Q_OBJECT
 public:
-    CupsPasswordDialog(QEventLoop *loop, const QString &username, bool showErrorMsg, QWidget *parent = 0);
+    CupsPasswordDialog(QMutex *mutex, QEventLoop *loop, const QString &username, bool showErrorMsg, QWidget *parent = 0);
 
 public slots:
     void slotButtonClicked(int button);
 
 private:
     QEventLoop *m_loop;
+    QMutex *m_mutex;
 };
 
 #endif

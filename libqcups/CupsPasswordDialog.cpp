@@ -23,11 +23,12 @@
 #include <KLocale>
 #include <KDebug>
 
-CupsPasswordDialog::CupsPasswordDialog(QEventLoop *loop,
+CupsPasswordDialog::CupsPasswordDialog(QMutex *mutex,
+                                       QEventLoop *loop,
                                        const QString &username,
                                        bool showErrorMsg,
                                        QWidget *parent)
- : KPasswordDialog(parent, KPasswordDialog::ShowUsernameLine), m_loop(loop)
+ : KPasswordDialog(parent, KPasswordDialog::ShowUsernameLine), m_loop(loop), m_mutex(mutex)
 {
     setModal(true);
     setPrompt(i18n("Enter an username and a password to complete the task"));
@@ -50,7 +51,7 @@ void CupsPasswordDialog::slotButtonClicked(int button)
         m_loop->setProperty("canceled", true);
         kDebug()<< "Password Dialog Canceled Finish2";
     }
-    m_loop->exit();
+    m_mutex->unlock();
     kDebug() << "END THREAD LOOP";
     KDialog::slotButtonClicked(button);
 }

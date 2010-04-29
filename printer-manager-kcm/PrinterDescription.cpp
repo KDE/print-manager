@@ -95,7 +95,6 @@ void PrinterDescription::on_sharedCB_clicked()
     loop.exec();
     bool sucess = !ret->lastError();
     setIsShared(sucess ? shared : !shared);
-    ret->deleteLater();
 }
 
 void PrinterDescription::on_optionsPB_clicked()

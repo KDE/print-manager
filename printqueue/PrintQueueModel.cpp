@@ -27,73 +27,66 @@
 #include <KLocale>
 #include <KMessageBox>
 
-#include "QCups.h"
-
 PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject *parent)
  : QStandardItemModel(parent),
    m_destName(destName),
    m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
    m_parentId(parentId)
 {
-    m_showPrinterColumn = destName.isNull();
-    setHorizontalHeaderItem(ColStatus,    new QStandardItem(i18n("Status")));
-    setHorizontalHeaderItem(ColName,      new QStandardItem(i18n("Name")));
-    setHorizontalHeaderItem(ColUser,      new QStandardItem(i18n("User")));
-    setHorizontalHeaderItem(ColCreated,   new QStandardItem(i18n("Created")));
-    setHorizontalHeaderItem(ColCompleted, new QStandardItem(i18n("Completed")));
-    if (m_showPrinterColumn) {
-        setHorizontalHeaderItem(ColPrinter,   new QStandardItem(i18n("Printer")));
-    }
+    setHorizontalHeaderItem(ColStatus,        new QStandardItem(i18n("Status")));
+    setHorizontalHeaderItem(ColName,          new QStandardItem(i18n("Name")));
+    setHorizontalHeaderItem(ColUser,          new QStandardItem(i18n("User")));
+    setHorizontalHeaderItem(ColCreated,       new QStandardItem(i18n("Created")));
+    setHorizontalHeaderItem(ColCompleted,     new QStandardItem(i18n("Completed")));
+    setHorizontalHeaderItem(ColPages,         new QStandardItem(i18n("Pages")));
+    setHorizontalHeaderItem(ColProcessed,     new QStandardItem(i18n("Processed")));
+    setHorizontalHeaderItem(ColSize,          new QStandardItem(i18n("Size")));
+    setHorizontalHeaderItem(ColStatusMessage, new QStandardItem(i18n("Status Message")));
+    setHorizontalHeaderItem(ColPrinter,       new QStandardItem(i18n("Printer")));
+    m_requestedAttr << "job-id"
+                    << "job-name"
+                    << "job-k-octets"
+                    << "job-k-octets-processed"
+                    << "job-state"
+                    << "time-at-completed"
+                    << "time-at-creation"
+                    << "time-at-processing"
+                    << "job-printer-uri"
+                    << "job-originating-user-name"
+                    << "job-media-progress"
+                    << "job-media-sheets"
+                    << "job-media-sheets-completed"
+                    << "job-printer-state-message"
+                    << "job-preserved";
 }
 
 void PrintQueueModel::updateModel()
 {
-    QStringList foo;
-    foo <<                "job-id"
-        <<    "job-priority" <<
-                  "job-k-octets"<<
-                  "job-state"<<
-                  "time-at-completed"<<
-                  "time-at-creation"<<
-                  "time-at-processing"<<
-                  "job-printer-uri"<<
-                  "job-printer-name"<<
-                  "document-format"<<
-                  "job-name"<<
-                  "job-originating-user-name"<<
-                  "job-media-sheets-completed"<<
-                  "job-printer-state-message" <<
-                  "job-preserved";
-    QCups::Result *ret = QCups::getJobs(m_destName, false, m_whichjobs, foo);
+    QCups::Result *ret = QCups::getJobs(m_destName, false, m_whichjobs, m_requestedAttr);
     ret->waitTillFinished();
-//     ReturnArguments dests;
-//     Result *ret = qobject_cast<Result*>(sender());
-    kDebug() << ret->result();
+    QCups::ReturnArguments jobs = ret->result();
     ret->deleteLater();
 
-    int num_jobs;
-    cups_job_t *jobs;
-    num_jobs = cupsGetJobs(&jobs, m_destName.toUtf8(), 0, m_whichjobs);
-
     m_processingJob.clear();
-    for (int i = 0; i < num_jobs; i++) {
-        if (jobs[i].state == IPP_JOB_PROCESSING) {
-              m_processingJob = QString::fromUtf8(jobs[i].title);
+    for (int i = 0; i < jobs.size(); i++) {
+        QCups::Arguments job = jobs.at(i);
+        if (job["job-state"].toInt() == IPP_JOB_PROCESSING) {
+              m_processingJob = job["job-name"].toString();
         }
         // try to find the job row
-        int job_row = jobRow(jobs[i].id);
+        int job_row = jobRow(job["job-id"].toInt());
         if (job_row == -1) {
             // not found, insert new one
-            insertJob(i, jobs[i]);
+            insertJob(i, job);
         } else if (job_row == i) {
             // update the job
-            updateJob(i, jobs[i]);
+            updateJob(i, job);
         } else {
             // found at wrong position
             // take it and insert on the right position
             QList<QStandardItem *> row = takeRow(job_row);
             insertRow(i, row);
-            updateJob(i, jobs[i]);
+            updateJob(i, job);
         }
     }
 
@@ -102,76 +95,128 @@ void PrintQueueModel::updateModel()
     // jobs[x] == modelIndex(x) and if it's not the
     // case it either inserts or moves it.
     // so any item > num_jobs can be safely deleted
-    while (rowCount() > num_jobs) {
+    while (rowCount() > jobs.size()) {
         removeRow(rowCount() - 1);
     }
-
-    // free the jobs list
-    cupsFreeJobs(num_jobs, jobs);
 }
 
-void PrintQueueModel::insertJob(int pos, cups_job_s job)
+void PrintQueueModel::insertJob(int pos, const QCups::Arguments &job)
 {
     // insert the first column which has the job state and id
     QList<QStandardItem*> row;
-    QStandardItem *stdItem = new QStandardItem(jobStatus(job.state));
-    stdItem->setData(job.id, JobId);
-    stdItem->setData(job.state, JobState);
-    stdItem->setData(QString::fromUtf8(job.dest), DestName);
-    row << stdItem;
-
-    // job name
-    row << new QStandardItem(QString::fromUtf8(job.title));
-
-    // owner of the job
-    // try to get the full user name
-    KUser user(QString::fromUtf8(job.user));
-    if (user.isValid() && !user.property(KUser::FullName).toString().isEmpty()) {
-        row << new QStandardItem(user.property(KUser::FullName).toString());
-    } else {
-        row << new QStandardItem(job.user);
-    }
-
-    // when it was created
-    QDateTime creationTime;
-    creationTime.setTime_t(job.creation_time);
-    stdItem = new QStandardItem();
-    stdItem->setData(creationTime, Qt::DisplayRole);
-    row << stdItem;
-
-    // when it was completed
-    stdItem = new QStandardItem();
-    if (job.completed_time != 0) {
-        QDateTime completedTime;
-        completedTime.setTime_t(job.completed_time);
-        stdItem->setData(completedTime, Qt::DisplayRole);
-    }
-    row << stdItem;
-
-    // if no printer queue is set we are search them all
-    // so add a printer column
-    if (m_showPrinterColumn) {
-        row << new QStandardItem(QString::fromUtf8(job.dest));
+    int jobState = job["job-state"].toInt();
+    QStandardItem *statusItem = new QStandardItem(jobStatus(jobState));
+    statusItem->setData(jobState, JobState);
+    statusItem->setData(job["job-id"].toInt(), JobId);
+    row << statusItem;
+    for (int i = ColName; i < LastColumn; i++) {
+        // adds all Items to the model
+        row << new QStandardItem;
     }
 
     // insert the whole row
     insertRow(pos, row);
+
+    // update the items
+    updateJob(pos, job);
 }
 
-void PrintQueueModel::updateJob(int pos, cups_job_s job)
+void PrintQueueModel::updateJob(int pos, const QCups::Arguments &job)
 {
-    item(pos)->setText(jobStatus(job.state));
-    item(pos)->setData(job.state, JobState);
-    item(pos)->setData(job.dest, DestName);
-    if (job.completed_time != 0) {
-        QDateTime completedTime;
-        completedTime.setTime_t(job.completed_time);
-        item(pos, ColCompleted)->setData(completedTime, Qt::DisplayRole);
+    // Job Status & internal data
+    int jobState = job["job-state"].toInt();
+    if (item(pos, ColStatus)->data(JobState) != jobState) {
+        item(pos, ColStatus)->setText(jobStatus(jobState));
+        item(pos, ColStatus)->setData(jobState, JobState);
     }
 
-    if (m_showPrinterColumn) {
-        item(pos, ColPrinter)->setText(QString::fromUtf8(job.dest));
+    // internal dest name & column
+    QString destName = job["job-printer-uri"].toString().section('/', -1);
+    if (item(pos, ColStatus)->data(DestName).toString() != destName) {
+        item(pos, ColStatus)->setData(destName, DestName);
+        // Column job printer Name
+        item(pos, ColPrinter)->setText(destName);
     }
+
+    // job name
+    QString jobName = job["job-name"].toString();
+    if (item(pos, ColName)->text() != jobName) {
+        item(pos, ColName)->setText(jobName);
+    }
+
+    // owner of the job
+    // try to get the full user name
+    QString userString = job["job-originating-user-name"].toString();
+    KUser user(userString);
+    if (user.isValid() && !user.property(KUser::FullName).toString().isEmpty()) {
+        userString = user.property(KUser::FullName).toString();
+    }
+
+    // user name
+    if (item(pos, ColUser)->text() != userString) {
+        item(pos, ColUser)->setText(userString);
+    }
+
+    // when it was created
+    int timeAtCreation = job["time-at-creation"].toInt();
+    if (item(pos, ColCreated)->data(Qt::UserRole) != timeAtCreation) {
+        QDateTime creationTime;
+        creationTime.setTime_t(timeAtCreation);
+        item(pos, ColCreated)->setData(creationTime, Qt::DisplayRole);
+        item(pos, ColCreated)->setData(timeAtCreation, Qt::UserRole);
+    }
+
+    // when it was completed
+    int timeAtCompleted = job["time-at-completed"].toInt();
+    if (item(pos, ColCompleted)->data(Qt::UserRole) != timeAtCompleted) {
+        if (timeAtCompleted != 0) {
+            QDateTime completedTime;
+            completedTime.setTime_t(timeAtCompleted);
+            item(pos, ColCompleted)->setData(completedTime, Qt::DisplayRole);
+            item(pos, ColCompleted)->setData(timeAtCompleted, Qt::UserRole);
+        } else {
+            // Clean the data might happen when the job is restarted
+            item(pos, ColCompleted)->setText(QString());
+            item(pos, ColCompleted)->setData(0, Qt::UserRole);
+        }
+    }
+
+    // job pages
+    int completedPages = job["job-media-sheets-completed"].toInt();
+    if (item(pos, ColPages)->data(Qt::UserRole) != completedPages) {
+        item(pos, ColPages)->setData(completedPages, Qt::UserRole);
+        item(pos, ColPages)->setText(QString::number(completedPages));
+    }
+
+    // when it was precessed
+    int timeAtProcessing = job["time-at-completed"].toInt();
+    if (item(pos, ColProcessed)->data(Qt::UserRole) != timeAtProcessing) {
+        if (timeAtCompleted != 0) {
+            QDateTime precessedTime;
+            precessedTime.setTime_t(timeAtProcessing);
+            item(pos, ColProcessed)->setData(precessedTime, Qt::DisplayRole);
+            item(pos, ColProcessed)->setData(timeAtProcessing, Qt::UserRole);
+        } else {
+            // Clean the data might happen when the job is restarted
+            item(pos, ColCompleted)->setText(QString());
+            item(pos, ColCompleted)->setData(0, Qt::UserRole);
+        }
+    }
+
+    // job size TODO use kde converter
+    int jobKOctets = job["job-k-octets"].toInt();
+    if (item(pos, ColSize)->data(Qt::UserRole) != jobKOctets) {
+        item(pos, ColSize)->setData(jobKOctets, Qt::UserRole);
+        jobKOctets *= 1024; // transform it to bytes
+        item(pos, ColSize)->setText(KGlobal::locale()->formatByteSize(jobKOctets));
+    }
+
+    // job printer state message
+    QString stateMessage = job["job-printer-state-message"].toString();
+    if (item(pos, ColStatusMessage)->text() != stateMessage) {
+        item(pos, ColStatusMessage)->setText(stateMessage);
+    }
+
 }
 
 QStringList PrintQueueModel::mimeTypes() const
@@ -234,15 +279,16 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
             continue;
         }
 
-        if (!QCups::moveJob(fromDestName,
-                            jobId,
-                            m_destName)) {
+        QCups::Result *result = QCups::moveJob(fromDestName, jobId, m_destName);
+        result->waitTillFinished();
+        result->deleteLater(); // TODO can it be deleted here?
+        if (result->hasError()) {
             // failed to move one job
             // we return here to avoid more password tries
             KMessageBox::detailedSorryWId(m_parentId,
                                           i18n("Failed to move '%1' to '%2'",
                                                displayName, m_destName),
-                                          cupsLastErrorString(),
+                                          result->lastErrorString(),
                                           i18n("Failed"));
             return false;
         }
@@ -293,7 +339,7 @@ int PrintQueueModel::jobRow(int jobId)
     return -1;
 }
 
-QString PrintQueueModel::jobStatus(ipp_jstate_t job_state)
+QString PrintQueueModel::jobStatus(int job_state)
 {
   switch (job_state)
   {

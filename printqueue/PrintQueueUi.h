@@ -52,6 +52,7 @@ private slots:
 
     void updateButtons();
     void showContextMenu(const QPoint &point);
+    void showHeaderContextMenu(const QPoint &point);
 
 private:
     void closeEvent(QCloseEvent *event);
@@ -65,6 +66,7 @@ private:
     QString m_destName;
     QString m_title;
     bool m_isClass;
+    bool m_preparingMenu;
     QPixmap m_printerIcon;
     QPixmap m_pauseIcon;
     QPixmap m_startIcon;

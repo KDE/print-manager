@@ -51,15 +51,6 @@ public:
         Move
     } JobAction;
 
-    typedef enum {
-        ColStatus = 0,
-        ColName,
-        ColUser,
-        ColCreated,
-        ColCompleted,
-        ColPrinter
-    } Columns;
-
     explicit PrinterModel(WId parentId, QObject *parent = 0);
 
     Qt::ItemFlags flags(const QModelIndex &index) const;

@@ -35,7 +35,7 @@ namespace QCups
 {
     typedef QHash<QString, QVariant>         Arguments;
     typedef QHash<QString, QString>          HashStrStr;
-    typedef QList<QHash<QString, QVariant> > ReturnArguments;
+    typedef QList<Arguments> ReturnArguments;
     typedef QHash<QString, QVariant>         Destination;
     class KDE_EXPORT Result : public QObject
     {

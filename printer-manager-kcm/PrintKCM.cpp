@@ -64,8 +64,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     connect(printersTV->model(), SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(update()));
 
-
-
     // Create the PrinterDescription before we try to select a printer
     m_printerDesc = new PrinterDescription(this);
     m_printerDesc->hide();

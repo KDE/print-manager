@@ -50,14 +50,12 @@ ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
     // * printer-uri
     // * requesting-user-name
     request = ippNewRequest(operation);
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8",
-                     "localhost", ippPort(), isClass ? "/classes/%s" : "/printers/%s",
-                     name);
+    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8", "localhost",
+                     ippPort(), isClass ? "/classes/%s" : "/printers/%s", name);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
                  "utf-8", uri);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
                  "utf-8", cupsUser());
-                     kDebug() << name << isClass << operation << uri;
     return request;
 }
 
@@ -225,7 +223,7 @@ ReturnArguments cupsParseIPPVars(ipp_t *response, int group_tag, bool needDestNa
        /*
         * Skip leading attributes until we hit a a group which can be a printer, job...
         */
-        while (attr != NULL && attr->group_tag != group_tag) {
+        while (attr && attr->group_tag != group_tag) {
             attr = attr->next;
         }
 
@@ -251,103 +249,31 @@ ReturnArguments cupsParseIPPVars(ipp_t *response, int group_tag, bool needDestNa
                 attr->value_tag != IPP_TAG_URI) {
                 continue;
             }
-            if (debug)
-    kDebug() << attr->name;
 
-//               if (!strcmp(attr->name, "printer-name") ||
-//                   !strcmp(attr->name, "auth-info-required") ||
-//                   !strcmp(attr->name, "device-uri") ||
-//                   !strcmp(attr->name, "marker-change-time") ||
-//                   !strcmp(attr->name, "marker-colors") ||
-//                   !strcmp(attr->name, "marker-high-levels") ||
-//                   !strcmp(attr->name, "marker-levels") ||
-//                   !strcmp(attr->name, "marker-low-levels") ||
-//                   !strcmp(attr->name, "marker-message") ||
-//                   !strcmp(attr->name, "marker-names") ||
-//                   !strcmp(attr->name, "marker-types") ||
-//                   !strcmp(attr->name, "printer-commands") ||
-//                   !strcmp(attr->name, "printer-info") ||
-//                   !strcmp(attr->name, "printer-is-shared") ||
-//                   !strcmp(attr->name, "printer-make-and-model") ||
-//                   !strcmp(attr->name, "printer-state") ||
-//                   !strcmp(attr->name, "printer-state-change-time") ||
-//                   !strcmp(attr->name, "printer-type") ||
-//                   !strcmp(attr->name, "printer-is-accepting-jobs") ||
-//                   !strcmp(attr->name, "printer-location") ||
-//                   !strcmp(attr->name, "printer-state-reasons") ||
-//                   !strcmp(attr->name, "printer-state-message") ||
-//                   !strcmp(attr->name, "printer-uri-supported") ||
-//                   !strcmp(attr->name, "ppd-name") ||
-//                   !strcmp(attr->name, "ppd-make") ||
-//                   !strcmp(attr->name, "ppd-make-and-model") ||
-//                   !strcmp(attr->name, "ppd-natural-language"))
-//               {
-                  /*
-                  * Add a printer description attribute...
-                  */
-                  destAttributes[QString::fromUtf8(attr->name)] = cupsMakeVariant(attr);
-//                     QString::fromUtf8(attr->values[0].string.text);
-//                     num_options = cupsAddOption(attr->name,
-//                                                 cups_make_string(attr, value,
-//                                                                 sizeof(value)),
-//                                                 num_options, &options);
-//               }
+            /*
+             * Add a printer description attribute...
+             */
+            destAttributes[QString::fromUtf8(attr->name)] = cupsMakeVariant(attr);
+        }
 
-//                 else if (!strcmp(attr->name, "printer-name") &&
-//                         attr->value_tag == IPP_TAG_NAME)
-//                     printer_name = QString::fromUtf8(attr->values[0].string.text);
-//                 else if (strncmp(attr->name, "notify-", 7) &&
-//                         (attr->value_tag == IPP_TAG_BOOLEAN ||
-//                         attr->value_tag == IPP_TAG_ENUM ||
-//                         attr->value_tag == IPP_TAG_INTEGER ||
-//                         attr->value_tag == IPP_TAG_KEYWORD ||
-//                         attr->value_tag == IPP_TAG_NAME ||
-//                         attr->value_tag == IPP_TAG_RANGE) &&
-//                         (ptr = strstr(attr->name, "-default")) != NULL)
-//                 {
-//                     /*
-//                     * Add a default option...
-//                     */
-//
-//                     strlcpy(optname, attr->name, sizeof(optname));
-//                     optname[ptr - attr->name] = '\0';
-//
-//                     if (strcasecmp(optname, "media") ||
-//                         !cupsGetOption("media", num_options, options))
-//                         num_options = cupsAddOption(optname,
-//                                                     cups_make_string(attr, value,
-//                                                                     sizeof(value)),
-//                                                     num_options, &options);
-//                 }
-          }
+        /*
+         * See if we have everything needed...
+         */
+        if (needDestName && destAttributes["printer-name"].toString().isEmpty()) {
+            if (attr == NULL) {
+                break;
+            } else {
+                continue;
+            }
+        }
 
-          /*
-          * See if we have everything needed...
-          */
-          if (needDestName && destAttributes["printer-name"].toString().isEmpty())
-          {
-//                 cupsFreeOptions(num_options, options);
+        ret << destAttributes;
 
-              if (attr == NULL)
-                  break;
-              else
-                  continue;
-          }
-
-          ret << destAttributes;
-//             if ((dest = cups_add_dest(printer_name, NULL, &num_dests, dests)) != NULL)
-//             {
-//                 dest->num_options = num_options;
-//                 dest->options     = options;
-//             }
-//             else
-//                 cupsFreeOptions(num_options, options);
-//
-          if (attr == NULL)
-              break;
-
-      }
-      return ret;
+        if (attr == NULL) {
+            break;
+        }
+    }
+    return ret;
 }
 
 void Request::cancelJob(Result *result, const QString &destName, int jobId)
@@ -451,6 +377,9 @@ void Request::request(Result        *result,
                 } else if (i.key() == "job-name") {
                     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
                                  "job-name", "utf-8", i.value().toString().toUtf8());
+                } else if (i.key() == "which-jobs") {
+                    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
+                                 "which-jobs", "utf-8", i.value().toString().toUtf8());
                 } else {
                     ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
                                 i.key().toUtf8(), "utf-8",

@@ -23,6 +23,7 @@
 
 #include <QStandardItemModel>
 
+#include <QCups.h>
 #include <cups/cups.h>
 
 namespace QCups {
@@ -54,7 +55,12 @@ public:
         ColUser,
         ColCreated,
         ColCompleted,
-        ColPrinter
+        ColPages,
+        ColProcessed,
+        ColSize,
+        ColStatusMessage,
+        ColPrinter,
+        LastColumn
     } Columns;
 
     PrintQueueModel(const QString &destName, WId parentId, QObject *parent = 0);
@@ -80,13 +86,13 @@ private:
     QString m_destName;
     QString m_processingJob;
     int m_whichjobs;
-    bool m_showPrinterColumn;
     WId m_parentId;
+    QStringList m_requestedAttr;
 
     int jobRow(int jobId);
-    void insertJob(int pos, cups_job_s job);
-    void updateJob(int pos, cups_job_s job);
-    QString jobStatus(ipp_jstate_t job_state);
+    void insertJob(int pos, const QCups::Arguments &job);
+    void updateJob(int pos, const QCups::Arguments &job);
+    QString jobStatus(int job_state);
 };
 
 #endif

@@ -21,11 +21,11 @@
 #include "PrintQueueUi.h"
 
 #include "PrintQueueModel.h"
-#include <ConfigureDialog.h>
+#include "PrintQueueSortFilterProxyModel.h"
 
+#include <ConfigureDialog.h>
 #include <QCups.h>
 
-#include "PrintQueueSortFilterProxyModel.h"
 #include <QPainter>
 #include <QToolBar>
 #include <QToolButton>
@@ -41,6 +41,7 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
  : QWidget(parent),
    m_destName(destName),
    m_isClass(isClass),
+   m_preparingMenu(false),
    m_lastState(NULL)
 {
     setupUi(this);
@@ -84,12 +85,20 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
             this, SLOT(updateButtons()));
     connect(jobsView, SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(showContextMenu(const QPoint &)));
+    jobsView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(jobsView->header(), SIGNAL(customContextMenuRequested(const QPoint &)),
+            this, SLOT(showHeaderContextMenu(const QPoint &)));
 
     KConfig config("print-manager");
     KConfigGroup printQueue(&config, "PrintQueue");
     if (printQueue.hasKey("ColumnState")) {
         // restore the header state order
         jobsView->header()->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
+    } else {
+        // Hide the sections after ColPrinter
+        for (int i = PrintQueueModel::ColPrinter + 1; i < PrintQueueModel::LastColumn; i++) {
+            jobsView->header()->hideSection(i);
+        }
     }
 
     update();
@@ -162,9 +171,10 @@ void PrintQueueUi::setState(int state, const QString &message)
 void PrintQueueUi::showContextMenu(const QPoint &point)
 {
     // check if the click was actually over a job
-    if (!jobsView->indexAt(point).isValid()) {
+    if (!jobsView->indexAt(point).isValid() || m_preparingMenu) {
         return;
     }
+    m_preparingMenu = true;
 
     bool moveTo = false;
     QItemSelection selection;
@@ -185,21 +195,19 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             QMenu *menu = new QMenu(this);
             // move to menu
             QMenu *moveToMenu = new QMenu(i18n("Move to"), this);
-            // get printers we can move to
-            cups_dest_t *dests;
-            int num_dests = cupsGetDests(&dests);
-            cups_dest_t *dest;
-            int i;
-            const char *value;
 
-            for (i = num_dests, dest = dests; i > 0; i --, dest ++) {
+            // get printers we can move to
+            QCups::Result *ret = QCups::getDests(-1, QStringList() << "printer-name" << "printer-info");
+            ret->waitTillFinished();
+            QCups::ReturnArguments dests = ret->result();
+            ret->deleteLater();
+
+            foreach (const QCups::Arguments &dest, dests) {
                 // If there is a printer and it's not the current one add it
                 // as a new destination
-                QString destName = QString::fromUtf8(dest->name);
-                if (dest->instance == NULL && m_destName != destName) {
-                    value = cupsGetOption("printer-info", dest->num_options, dest->options);
-                    QAction *action = moveToMenu->addAction(QString::fromUtf8(value));
-                    action->setData(destName);
+                if (dest["printer-name"].toString() != m_destName) {
+                    QAction *action = moveToMenu->addAction(dest["printer-info"].toString());
+                    action->setData(dest["printer-name"].toString());
                 }
             }
 
@@ -212,8 +220,33 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
                     modifyJob(PrintQueueModel::Move, action->data().toString());
                 }
             }
-            // don't leak
-            cupsFreeDests(num_dests, dests);
+        }
+    }
+    m_preparingMenu = false;
+}
+
+void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
+{
+    // Displays a menu containing the header name, and
+    // a check box to indicate if it's being shown
+    QMenu *menu = new QMenu(this);
+    for (int i = 0; i < m_proxyModel->columnCount(); i++) {
+        QAction *action;
+        QString name;
+        name = m_proxyModel->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString();
+        action = menu->addAction(name);
+        action->setCheckable(true);
+        action->setChecked(!jobsView->header()->isSectionHidden(i));
+        action->setData(i);
+    }
+
+    QAction *action = menu->exec(jobsView->header()->mapToGlobal(point));
+    if (action) {
+        int section = action->data().toInt();
+        if (action->isChecked()) {
+            jobsView->header()->showSection(section);
+        } else {
+            jobsView->header()->hideSection(section);
         }
     }
 }

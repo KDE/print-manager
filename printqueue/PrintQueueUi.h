@@ -37,6 +37,7 @@ public:
 
 signals:
     void finished();
+    void windowTitleChanged(const QString &title);
 
 public slots:
     void update();

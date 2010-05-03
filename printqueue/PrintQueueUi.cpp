@@ -48,8 +48,9 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
-    setWindowIcon(KIcon("printer").pixmap(32));
+//     setWindowIcon(KIcon("printer").pixmap(32));
     setWindowTitle(m_destName.isNull() ? i18n("All printers") : m_destName);
+    jobsView->setCornerWidget(new QWidget);
 
     setupButtons();
 
@@ -309,12 +310,12 @@ void PrintQueueUi::update()
     // Set window title
     if (m_model->rowCount()) {
         if (m_title.isNull()) {
-            setWindowTitle(i18np("All Printers (%1 Job)", "All Printers (%1 Jobs)", m_model->rowCount()));
+            emit windowTitleChanged(i18np("All Printers (%1 Job)", "All Printers (%1 Jobs)", m_model->rowCount()));
         } else {
-            setWindowTitle(i18np("%2 (%1 Job)", "%2 (%1 Jobs)", m_model->rowCount(), m_title));
+            emit windowTitleChanged(i18np("%2 (%1 Job)", "%2 (%1 Jobs)", m_model->rowCount(), m_title));
         }
     } else {
-        setWindowTitle(m_title.isNull() ? i18n("All Printers") : m_title);
+        emit windowTitleChanged(m_title.isNull() ? i18n("All Printers") : m_title);
     }
 }
 

@@ -23,7 +23,7 @@
 #include <QtDBus/QDBusContext>
 
 class QTimer;
-class PrintQueueUi;
+class QWidget;
 class PrintQueueInterface : public QObject, protected QDBusContext
 {
     Q_OBJECT
@@ -43,7 +43,7 @@ private slots:
 
 private:
     QTimer *m_updateUi;
-    QHash<QString, PrintQueueUi *> m_uis;
+    QHash<QString, QWidget *> m_uis;
 };
 
 #endif

@@ -27,6 +27,7 @@
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
 #include <KWindowSystem>
+#include <KDialog>
 
 #include <KDebug>
 
@@ -85,12 +86,22 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
 
         if (found) {
             PrintQueueUi *ui = new PrintQueueUi(destName, isClass);
+            KDialog *dlg = new KDialog;
+            dlg->setWindowIcon(KIcon("printer").pixmap(32));
+            dlg->setWindowTitle(ui->windowTitle());
+            dlg->setButtons(0);
+            dlg->setMainWidget(ui);
+            dlg->setSizeGripEnabled(true);
+            (void)dlg->minimumSizeHint(); //Force the dialog to be laid out now
+            dlg->layout()->setContentsMargins(0,0,0,0);
             connect(m_updateUi, SIGNAL(timeout()),
                     ui, SLOT(update()));
-            connect(ui, SIGNAL(finished()),
+            connect(dlg, SIGNAL(finished()),
                     this, SLOT(RemoveQueue()));
-            ui->show();
-            m_uis[destName] = ui;
+            connect(ui, SIGNAL(windowTitleChanged(const QString &)),
+                    dlg, SLOT(setWindowTitle(const QString &)));
+            dlg->show();
+            m_uis[destName] = dlg;
 
         } else {
             // if no destination was found and we aren't showing
@@ -106,7 +117,7 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
 
 void PrintQueueInterface::RemoveQueue()
 {
-    PrintQueueUi *ui = qobject_cast<PrintQueueUi*>(sender());
+    QWidget *ui = qobject_cast<QWidget*>(sender());
     m_uis.remove(m_uis.key(ui));
 }
 

@@ -18,50 +18,26 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINTER_DESCRIPTION_H
-#define PRINTER_DESCRIPTION_H
+#ifndef SUPPLY_LEVELS_H
+#define SUPPLY_LEVELS_H
 
-#include "ui_PrinterDescription.h"
+#include <KDialog>
+#include "QCups.h"
 
-class QToolButton;
-class QSortFilterProxyModel;
+namespace QCups {
 
-class PrintQueueModel;
-
-class PrinterDescription : public QWidget, Ui::PrinterDescription
+class KDE_EXPORT SupplyLevels : public KDialog
 {
     Q_OBJECT
 public:
-    explicit PrinterDescription(QWidget *parent = 0);
-    ~PrinterDescription();
+    SupplyLevels(const Arguments &args, QWidget *parent = 0);
+    ~SupplyLevels();
 
-    void setDestName(const QString &name, const QString &description, bool isClass);
-    void setLocation(const QString &location);
-    void setStatus(const QString &status);
-    void setKind(const QString &kind);
-    void setIsDefault(bool isDefault);
-    void setIsShared(bool isShared);
-    void setCommands(const QStringList &commands);
-
-private slots:
-    void on_openQueuePB_clicked();
-    void on_defaultCB_clicked();
-    void on_sharedCB_clicked();
-    void on_optionsPB_clicked();
-    void on_supplyLevelsPB_clicked();
-
-    void on_actionPrintTestPage_triggered(bool checked);
-    void on_actionCleanPrintHeads_triggered(bool checked);
-    void on_actionPrintSelfTestPage_triggered(bool checked);
-
-private:
-    QString m_destName;
-    bool m_isClass;
-    QStringList m_commands;
-    QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
 };
+
+
+}
+
+Q_DECLARE_METATYPE(QList<int>)
 
 #endif

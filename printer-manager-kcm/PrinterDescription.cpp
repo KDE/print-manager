@@ -23,6 +23,7 @@
 #include "ConfigureDialog.h"
 
 #include <QCups.h>
+#include <SupplyLevels.h>
 
 #include <QPainter>
 #include <QPointer>
@@ -100,6 +101,18 @@ void PrinterDescription::on_optionsPB_clicked()
     dlg->show();
 }
 
+void PrinterDescription::on_supplyLevelsPB_clicked()
+{
+    QCups::Arguments args;
+    args["marker-names"] = QStringList() << "Cyan" << "Yellow" << "Magenta" << "Black";
+    args["marker-colors"] = QStringList() << "#00ffff" << "#ffff00" << "#ff00ff" << "#000000";
+    args["marker-types"] = QStringList() << "inkCartridge" << "inkCartridge" << "inkCartridge" << "inkCartridge";
+    args["marker-levels"] = QVariant::fromValue(QList<int>() << 50 << 30 << 100 << 100);
+    QCups::SupplyLevels *dialog = new QCups::SupplyLevels(args, this);
+
+    dialog->show();
+}
+
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
 {
     m_destName = name;
@@ -148,6 +161,7 @@ void PrinterDescription::setCommands(const QStringList &commands)
 
         actionCleanPrintHeads->setVisible(commands.contains("Clean"));
         actionPrintSelfTestPage->setVisible(commands.contains("PrintSelfTestPage"));
+        supplyLevelsPB->setEnabled(commands.contains("ReportLevels"));
     }
 }
 

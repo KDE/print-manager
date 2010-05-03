@@ -52,6 +52,14 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr << modifyPrinter->neededValues();
     attr << printerBehavior->neededValues();
     attr << "printer-type"; // needed to know if it's a remote printer
+    attr << "marker-levels";
+    attr << "marker-colors";
+    attr << "marker-high-levels";
+    attr << "marker-low-levels";
+    attr << "marker-names";
+    attr << "marker-message";
+    attr << "marker-type";
+//     marker-low-levels
     attr.removeDuplicates();
     QHash<QString, QVariant> values;
     Result *ret = Dest::getAttributes(destName, isClass, attr);
@@ -59,7 +67,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     if (!ret->result().isEmpty()){
         values = ret->result().first();
     }
-    kDebug() << "DELETING" << ret;
+    kDebug() << "VALUES" << values;
     ret->deleteLater();
 
 //     kDebug() << values;

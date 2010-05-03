@@ -54,6 +54,13 @@ private slots:
     void showContextMenu(const QPoint &point);
     void showHeaderContextMenu(const QPoint &point);
 
+    void device(const QString &dev_class,
+                    const QString &id,
+                    const QString &info,
+                    const QString &makeAndModel,
+                    const QString &uri,
+                    const QString &location);
+
 private:
     void closeEvent(QCloseEvent *event);
     void setupButtons();

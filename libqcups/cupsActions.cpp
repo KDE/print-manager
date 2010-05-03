@@ -458,6 +458,50 @@ void Request::cupsAdminGetServerSettings(Result *result)
     QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
+/*
+ * 'choose_device_cb()' - Add a device to the device selection page.
+ */
+
+static void
+choose_device_cb(
+    const char *device_class,           /* I - Class */
+    const char *device_id,              /* I - 1284 device ID */
+    const char *device_info,            /* I - Description */
+    const char *device_make_and_model,  /* I - Make and model */
+    const char *device_uri,             /* I - Device URI */
+    const char *device_location,        /* I - Location */
+    void *user_data)                    /* I - Result object */
+{
+    /*
+     * Add the device to the array...
+     */
+    Result *result = static_cast<Result*>(user_data);
+    QMetaObject::invokeMethod(result,
+                              "device",
+                              Qt::QueuedConnection,
+                              Q_ARG(QString, QString::fromUtf8(device_class)),
+                              Q_ARG(QString, QString::fromUtf8(device_id)),
+                              Q_ARG(QString, QString::fromUtf8(device_info)),
+                              Q_ARG(QString, QString::fromUtf8(device_make_and_model)),
+                              Q_ARG(QString, QString::fromUtf8(device_uri)),
+                              Q_ARG(QString, QString::fromUtf8(device_location)));
+}
+
+void Request::cupsGetDevices(Result *result)
+{
+    password_retries = 0;
+    kDebug();
+    do {
+        // Scan for devices for 30 seconds
+        ::cupsGetDevices(CUPS_HTTP_DEFAULT, 30, CUPS_INCLUDE_ALL, CUPS_EXCLUDE_NONE,
+                         (cups_device_cb_t)choose_device_cb, result);
+        result->setLastError(cupsLastError());
+        result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));
+    } while (retry());
+    kDebug() << "END" << QThread::currentThreadId();
+    QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
+}
+
 void Request::cupsAdminSetServerSettings(Result *result, const HashStrStr &userValues)
 {
     password_retries = 0;

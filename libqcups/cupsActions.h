@@ -43,6 +43,7 @@ namespace QCups
         void cupsAdminGetServerSettings(Result *result);
         void cupsPrintCommand(Result *result, const QString &name,
                               const QString &command, const QString &title);
+        void cupsGetDevices(Result *result);
 
     private:
         bool retry();

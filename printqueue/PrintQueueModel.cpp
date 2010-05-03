@@ -357,7 +357,6 @@ QString PrintQueueModel::jobStatus(int job_state)
 void PrintQueueModel::setWhichJobs(int whichjobs)
 {
     m_whichjobs = whichjobs;
-    updateModel();
 }
 
 Qt::ItemFlags PrintQueueModel::flags(const QModelIndex &index) const

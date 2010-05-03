@@ -153,7 +153,6 @@ void PrinterOptions::createGroups()
         QFormLayout *gFormLayout = new QFormLayout(scrollAreaWidgetContents);
         gFormLayout->setFormAlignment(Qt::AlignHCenter | Qt::AlignTop);
         scrollAreaWidgetContents->setLayout(gFormLayout);
-//         gFormLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         gFormLayout->setSizeConstraint(QLayout::SetMinimumSize);
 
         m_groupsTab[name] = optionsTW->addTab(scrollArea, text);

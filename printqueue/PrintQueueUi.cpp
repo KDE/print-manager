@@ -100,8 +100,11 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
             jobsView->header()->hideSection(i);
         }
     }
+// QCups::Result *ret = QCups::getDevices();
+// connect(ret, SIGNAL(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)),
+//         this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));
 
-    update();
+//     update();
 }
 
 PrintQueueUi::~PrintQueueUi()
@@ -110,6 +113,17 @@ PrintQueueUi::~PrintQueueUi()
     KConfigGroup printQueue(&config, "PrintQueue");
     // save the header state order
     printQueue.writeEntry("ColumnState", jobsView->header()->saveState());
+}
+
+void PrintQueueUi::device(const QString &dev_class,
+                    const QString &dev_id,
+                    const QString &dev_info,
+                    const QString &dev_makeAndModel,
+                    const QString &dev_uri,
+                    const QString &dev_location)
+{
+//     PrintQueueUi::device: "direct" "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;" "Samsung SCX-4200 Series" "Samsung SCX-4200 Series" "usb://Samsung/SCX-4200%20Series" ""
+    kDebug() << dev_class << dev_id << dev_info << dev_makeAndModel << dev_uri << dev_location;
 }
 
 void PrintQueueUi::setState(int state, const QString &message)

@@ -9,6 +9,7 @@ set(libqcups_SRCS
     PPDModel.cpp
     SelectMakeModel.cpp
     CupsPasswordDialog.cpp
+    SupplyLevels.cpp
 )
 
 kde4_add_ui_files(libqcups_SRCS

@@ -63,12 +63,11 @@ void PrinterModel::update()
                 << "printer-commands"
                 << "marker-change-time"
                 << "marker-colors"
-                << "marker-high-levels"
                 << "marker-levels"
-                << "marker-low-levels"
-                << "marker-message"
                 << "marker-names"
                 << "marker-types";
+
+//                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
     // Get destinations with these attributes
     QCups::Result *ret = QCups::getDests(-1, requestAttr);
     ret->waitTillFinished();
@@ -76,7 +75,7 @@ void PrinterModel::update()
 //     Result *ret = qobject_cast<Result*>(sender());
     dests = ret->result();
     // TODO Inform the user when the server is Unavailable
-//     kDebug() << ret->lastError() << IPP_SERVICE_UNAVAILABLE ;
+//     kDebug() << dests ;
     ret->deleteLater();
 
     for (int i = 0; i < dests.size(); i++) {

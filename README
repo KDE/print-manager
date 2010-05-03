@@ -7,7 +7,6 @@ current printing management of KDE.
 
 printd - contains a kded module that checks for user print jobs and shows a systray icon
  --TODO
-  - use the new knotificationItem from kde 4.4
   - detect new printers
 printqueue - contains an application that show the printers queue
  -- what works
@@ -17,6 +16,8 @@ printqueue - contains an application that show the printers queue
   - Filter between Active, Completed and All jobs
   - Move jobs between printers, by using drag'n'drop with 2 queues open
   - Pause and Resume printer
-  - TODO
-    - setup printer (when module is ready)
+
 printer-manager-kcm - configure printers in a very simple way
+ --TODO
+  - add new printers
+  - show supply levels

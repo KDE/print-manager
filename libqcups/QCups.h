@@ -53,6 +53,12 @@ namespace QCups
 
     signals:
         void finished();
+        void device(const QString &dev_class,
+                    const QString &id,
+                    const QString &info,
+                    const QString &makeAndModel,
+                    const QString &uri,
+                    const QString &location);
 
     protected:
         void setLastError(int error);
@@ -90,6 +96,7 @@ namespace QCups
     KDE_EXPORT Result* adminSetServerSettings(const QHash<QString, QString> &userValues);
     KDE_EXPORT Result* getPPDS(const QString &make = QString());
 
+    KDE_EXPORT Result* getDevices();
     // THIS function can get the default server dest throught
     // "printer-is-default" attribute BUT it does not get user
     // defined default printer, see cupsGetDefault() on www.cups.org for details

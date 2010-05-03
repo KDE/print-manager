@@ -66,9 +66,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="supplyLevelsPB">
        <property name="text">
-        <string>Supplies</string>
+        <string>Supply Levels</string>
        </property>
       </widget>
      </item>

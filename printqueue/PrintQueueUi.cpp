@@ -42,7 +42,8 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
    m_destName(destName),
    m_isClass(isClass),
    m_preparingMenu(false),
-   m_lastState(NULL)
+   m_lastState(NULL),
+   m_cfgDlg(0)
 {
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -101,11 +102,8 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
             jobsView->header()->hideSection(i);
         }
     }
-// QCups::Result *ret = QCups::getDevices();
-// connect(ret, SIGNAL(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)),
-//         this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));
 
-//     update();
+    update();
 }
 
 PrintQueueUi::~PrintQueueUi()
@@ -114,17 +112,6 @@ PrintQueueUi::~PrintQueueUi()
     KConfigGroup printQueue(&config, "PrintQueue");
     // save the header state order
     printQueue.writeEntry("ColumnState", jobsView->header()->saveState());
-}
-
-void PrintQueueUi::device(const QString &dev_class,
-                    const QString &dev_id,
-                    const QString &dev_info,
-                    const QString &dev_makeAndModel,
-                    const QString &dev_uri,
-                    const QString &dev_location)
-{
-//     PrintQueueUi::device: "direct" "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;" "Samsung SCX-4200 Series" "Samsung SCX-4200 Series" "usb://Samsung/SCX-4200%20Series" ""
-    kDebug() << dev_class << dev_id << dev_info << dev_makeAndModel << dev_uri << dev_location;
 }
 
 void PrintQueueUi::setState(int state, const QString &message)
@@ -266,21 +253,13 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
     }
 }
 
-void PrintQueueUi::update()
+void PrintQueueUi::getAttributesFinished()
 {
-    QStringList attr;
-    attr << "printer-info"
-         << "printer-type"
-         << "printer-state"
-         << "printer-state-message";
-
+    QCups::Result *ret = qobject_cast<QCups::Result*>(sender());
     QHash<QString, QVariant> attributes;
-    QCups::Result *ret = QCups::Dest::getAttributes(m_destName, m_isClass, attr);
-    ret->waitTillFinished();
     if (!ret->result().isEmpty()){
         attributes = ret->result().first();
     }
-    ret->deleteLater();
 
     if (attributes.isEmpty()) {
         // if cups stops we disable our queue
@@ -317,6 +296,21 @@ void PrintQueueUi::update()
     } else {
         emit windowTitleChanged(m_title.isNull() ? i18n("All Printers") : m_title);
     }
+
+    ret->deleteLater();
+}
+
+void PrintQueueUi::update()
+{
+    QStringList attr;
+    attr << "printer-info"
+         << "printer-type"
+         << "printer-state"
+         << "printer-state-message";
+
+    QHash<QString, QVariant> attributes;
+    QCups::Result *ret = QCups::Dest::getAttributes(m_destName, m_isClass, attr);
+    connect(ret, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
 }
 
 void PrintQueueUi::updateButtons()
@@ -416,8 +410,12 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
 
 void PrintQueueUi::on_configurePrinterPB_clicked()
 {
-    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
-    dlg->show();
+    if (m_cfgDlg) {
+        return;
+    }
+    m_cfgDlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
+    m_cfgDlg->exec();
+    m_cfgDlg = 0;
 }
 
 void PrintQueueUi::on_cancelJobPB_clicked()

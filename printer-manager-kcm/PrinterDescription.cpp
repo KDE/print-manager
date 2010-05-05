@@ -22,7 +22,6 @@
 
 #include "ConfigureDialog.h"
 
-#include <QCups.h>
 #include <SupplyLevels.h>
 
 #include <QPainter>
@@ -36,7 +35,8 @@
 #define PRINTER_ICON_SIZE 128
 
 PrinterDescription::PrinterDescription(QWidget *parent)
- : QWidget(parent)
+ : QWidget(parent),
+   m_markerChangeTime(0)
 {
     setupUi(this);
 
@@ -103,19 +103,14 @@ void PrinterDescription::on_optionsPB_clicked()
 
 void PrinterDescription::on_supplyLevelsPB_clicked()
 {
-    QCups::Arguments args;
-    args["marker-names"] = QStringList() << "Cyan" << "Yellow" << "Magenta" << "Black";
-    args["marker-colors"] = QStringList() << "#00ffff" << "#ffff00" << "#ff00ff" << "#000000";
-    args["marker-types"] = QStringList() << "inkCartridge" << "inkCartridge" << "inkCartridge" << "inkCartridge";
-    args["marker-levels"] = QVariant::fromValue(QList<int>() << 50 << 30 << 100 << 100);
-    QCups::SupplyLevels *dialog = new QCups::SupplyLevels(args, this);
-
-    dialog->show();
+    QCups::SupplyLevels *dialog = new QCups::SupplyLevels(m_markerData, this);
+    dialog->exec();
 }
 
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
 {
     m_destName = name;
+    m_markerData.clear();
     if (m_isClass != isClass) {
         m_isClass = isClass;
         sharedCB->setText(m_isClass ? i18n("Share this class") : i18n("Share this printer"));
@@ -163,6 +158,31 @@ void PrinterDescription::setCommands(const QStringList &commands)
         actionPrintSelfTestPage->setVisible(commands.contains("PrintSelfTestPage"));
         supplyLevelsPB->setEnabled(commands.contains("ReportLevels"));
     }
+}
+
+void PrinterDescription::setMarkerLevels(const QVariant &data)
+{
+    m_markerData["marker-levels"] = data;
+}
+
+void PrinterDescription::setMarkerColors(const QVariant &data)
+{
+    m_markerData["marker-colors"] = data;
+}
+
+void PrinterDescription::setMarkerNames(const QVariant &data)
+{
+    m_markerData["marker-names"] = data;
+}
+
+void PrinterDescription::setMarkerTypes(const QVariant &data)
+{
+    m_markerData["marker-types"] = data;
+}
+
+bool PrinterDescription::needMarkerLevels(int markerChangeTime)
+{
+    return m_markerChangeTime != markerChangeTime;
 }
 
 void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)

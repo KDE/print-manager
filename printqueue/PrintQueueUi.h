@@ -26,8 +26,11 @@
 class QToolButton;
 class QSortFilterProxyModel;
 
-class PrintQueueModel;
+namespace QCups {
+    class ConfigureDialog;
+}
 
+class PrintQueueModel;
 class PrintQueueUi : public QWidget, Ui::PrintQueueUi
 {
     Q_OBJECT
@@ -54,13 +57,7 @@ private slots:
     void updateButtons();
     void showContextMenu(const QPoint &point);
     void showHeaderContextMenu(const QPoint &point);
-
-    void device(const QString &dev_class,
-                    const QString &id,
-                    const QString &info,
-                    const QString &makeAndModel,
-                    const QString &uri,
-                    const QString &location);
+    void getAttributesFinished();
 
 private:
     void closeEvent(QCloseEvent *event);
@@ -81,6 +78,7 @@ private:
     QPixmap m_warningIcon;
     bool m_printerPaused;
     char m_lastState;
+    QCups::ConfigureDialog *m_cfgDlg;
 };
 
 #endif

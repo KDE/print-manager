@@ -178,6 +178,15 @@ void PrinterModel::updateDest(QStandardItem *destItem, const QCups::Destination 
     if (commands != destItem->data(DestCommands)) {
         destItem->setData(commands, DestCommands);
     }
+
+    int markerChangeTime = dest["marker-change-time"].toInt();
+    if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
+        destItem->setData(markerChangeTime, DestMarkerChangeTime);
+        destItem->setData(dest["marker-colors"], DestMarkerColors);
+        destItem->setData(dest["marker-levels"], DestMarkerLevels);
+        destItem->setData(dest["marker-names"],  DestMarkerNames);
+        destItem->setData(dest["marker-types"],  DestMarkerTypes);
+    }
 }
 
 int PrinterModel::destRow(const QString &destName)

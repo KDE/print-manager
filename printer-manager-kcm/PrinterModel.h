@@ -41,7 +41,12 @@ public:
         DestLocation,
         DestDescription,
         DestKind,
-        DestCommands
+        DestCommands,
+        DestMarkerChangeTime,
+        DestMarkerLevels,
+        DestMarkerColors,
+        DestMarkerNames,
+        DestMarkerTypes
     } Role;
 
     typedef enum {

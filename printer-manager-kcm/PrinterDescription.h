@@ -23,11 +23,12 @@
 
 #include "ui_PrinterDescription.h"
 
+#include <QCups.h>
+
 class QToolButton;
 class QSortFilterProxyModel;
 
 class PrintQueueModel;
-
 class PrinterDescription : public QWidget, Ui::PrinterDescription
 {
     Q_OBJECT
@@ -42,6 +43,13 @@ public:
     void setIsDefault(bool isDefault);
     void setIsShared(bool isShared);
     void setCommands(const QStringList &commands);
+
+    void setMarkerLevels(const QVariant &data);
+    void setMarkerColors(const QVariant &data);
+    void setMarkerNames(const QVariant &data);
+    void setMarkerTypes(const QVariant &data);
+
+    bool needMarkerLevels(int markerChangeTime);
 
 private slots:
     void on_openQueuePB_clicked();
@@ -62,6 +70,8 @@ private:
     QPixmap m_pauseIcon;
     QPixmap m_startIcon;
     QPixmap m_warningIcon;
+    int m_markerChangeTime;
+    QCups::Arguments m_markerData;
 };
 
 #endif

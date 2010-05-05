@@ -292,9 +292,8 @@ Result* QCups::getPPDS(const QString &make)
 
 Result* QCups::getDevices()
 {
-//     kd
     Result *result = new Result(NCups::instance());
-    kDebug() << QMetaObject::invokeMethod(NCups::instance()->request(),
+    QMetaObject::invokeMethod(NCups::instance()->request(),
                               "cupsGetDevices",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result));

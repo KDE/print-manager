@@ -23,6 +23,7 @@
 #include <QCups.h>
 #include <cups/cups.h>
 
+#include <KCategorizedSortFilterProxyModel>
 #include <KDebug>
 #include <KLocale>
 #include <KMessageBox>
@@ -45,18 +46,6 @@ void DevicesModel::update()
             this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));
     connect(m_ret, SIGNAL(finished()),
             this, SLOT(finished()));
-}
-
-int DevicesModel::classRow(Kind kind)
-{
-    // find the position of the jobId inside the model
-    for (int i = 0; i < rowCount(); i++) {
-        if (kind == item(i)->data().toInt()) {
-            return i;
-        }
-    }
-    // -1 if not found
-    return -1;
 }
 
 void DevicesModel::device(const QString &devClass,
@@ -91,28 +80,28 @@ void DevicesModel::device(const QString &devClass,
         kind = Local;
     }
 
-    QStandardItem *itemClass;
-    int parentRow = classRow(kind); // Check if there is a parent row already
-    if (parentRow != -1) {
-        itemClass = item(parentRow); // if so get it's item''
-    } else {
-        if (kind == Networked) {
-            itemClass = new QStandardItem(i18n("Discovered Network Printers"));
-        } else if (kind == OtherNetworked) {
-            itemClass = new QStandardItem(i18n("Other Network Printers"));
-        } else {
-            itemClass = new QStandardItem(i18n("Local Printers"));
-        }
-        // store the data to check later
-        itemClass->setData(kind);
-        // do not allow the user to select the root item
-        // to not enable the next button
-        itemClass->setSelectable(false);
-        QFont font = itemClass->font();
-        font.setPointSize(font.pointSize() + 2);
-        itemClass->setFont(font);
-        appendRow(itemClass);
-    }
+//     QStandardItem *itemClass;
+//     int parentRow = classRow(kind); // Check if there is a parent row already
+//     if (parentRow != -1) {
+//         itemClass = item(parentRow); // if so get it's item''
+//     } else {
+//         if (kind == Networked) {
+//             itemClass = new QStandardItem(i18n("Discovered Network Printers"));
+//         } else if (kind == OtherNetworked) {
+//             itemClass = new QStandardItem(i18n("Other Network Printers"));
+//         } else {
+//             itemClass = new QStandardItem(i18n("Local Printers"));
+//         }
+//         // store the data to check later
+//         itemClass->setData(kind);
+//         // do not allow the user to select the root item
+//         // to not enable the next button
+//         itemClass->setSelectable(false);
+//         QFont font = itemClass->font();
+//         font.setPointSize(font.pointSize() + 2);
+//         itemClass->setFont(font);
+//         appendRow(itemClass);
+//     }
 
     QStandardItem *device;
     if (devMakeAndModel != "Unknown") {
@@ -123,7 +112,16 @@ void DevicesModel::device(const QString &devClass,
         device->setData(devUri);
     }
 
-    itemClass->appendRow(device);
+    device->setData(static_cast<qlonglong>(kind), KCategorizedSortFilterProxyModel::CategorySortRole);
+    if (kind == Networked) {
+        device->setData(i18n("Discovered Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+    } else if (kind == OtherNetworked) {
+        device->setData(i18n("Other Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+    } else {
+        device->setData(i18n("Local Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+    }
+    appendRow(device);
+//     itemClass->appendRow(device);
 //     kDebug() << devClass << devId << devInfo << devMakeAndModel << devUri << devLocation;
 }
 

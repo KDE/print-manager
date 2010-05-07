@@ -59,8 +59,6 @@ private slots:
                 const QString &devLocation);
 
 private:
-    int classRow(Kind kind);
-
     QCups::Result *m_ret;
     QRegExp m_rx;
 };

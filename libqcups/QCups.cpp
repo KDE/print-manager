@@ -220,17 +220,18 @@ Result* QCups::Dest::setAttributes(const QString &destName, bool isClass, const 
         return 0;
     }
 
+    QHash<QString, QVariant> request(values);
+    request["printer-name"] = destName;
+    request["printer-is-class"] = isClass;
+    if (filename) {
+        request["filename"] = filename;
+    }
+
     ipp_op_e op;
     if (isClass && values.contains("member-uris")) {
         op = CUPS_ADD_CLASS;
     } else {
         op = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
-    }
-
-    QHash<QString, QVariant> request(values);
-    request["printer-name"] = destName;
-    if (filename) {
-        request["filename"] = filename;
     }
 
     Result *result = new Result(NCups::instance());

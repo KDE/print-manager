@@ -41,6 +41,8 @@ void DevicesModel::update()
         return;
     }
 
+    // clear the model to don't duplicate items
+    clear();
     m_ret = QCups::getDevices();
     connect(m_ret, SIGNAL(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)),
             this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));

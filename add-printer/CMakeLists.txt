@@ -5,8 +5,10 @@ set(addprinter_SRCS
     AddPrinter.cpp
     DevicesModel.cpp
     AddPrinterInterface.cpp
+    GenericPage.cpp
     PageIntro.cpp
     PageDestinations.cpp
+    AddPrinterAssistant.cpp
 )
 
 kde4_add_ui_files(addprinter_SRCS

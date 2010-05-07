@@ -18,32 +18,26 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PAGE_DESTINATIONS_H
-#define PAGE_DESTINATIONS_H
+#ifndef GENERIC_PAGE_H
+#define GENERIC_PAGE_H
 
-#include "ui_PageDestinations.h"
+#include <QWidget>
 
-#include "GenericPage.h"
-
-class DevicesModel;
-class PageDestinations : public GenericPage, Ui::PageDestinations
+class GenericPage : public QWidget
 {
     Q_OBJECT
 public:
-    PageDestinations(QWidget *parent = 0);
-    ~PageDestinations();
+    GenericPage(QWidget *parent = 0);
+    virtual bool hasChanges() { return false; };
 
-public slots:
-    void load();
+public:
+    virtual void save() {};
+    virtual QHash<QString, QVariant> modifiedValues() const;
+    virtual QStringList neededValues() const;
+    virtual void setRemote(bool remote);
 
 signals:
-    void canProceed(bool value);
-
-private slots:
-    void checkSelected();
-
-private:
-    DevicesModel *m_model;
+    void changed(bool hasChanges);
 };
 
 #endif

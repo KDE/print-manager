@@ -28,7 +28,7 @@
 #include <KDebug>
 
 PageDestinations::PageDestinations(QWidget *parent)
- : QWidget(parent)
+ : GenericPage(parent)
 {
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -57,22 +57,26 @@ PageDestinations::PageDestinations(QWidget *parent)
     painter.drawPixmap(startPoint, pixmap);
     printerL->setPixmap(icon);
 
-    DevicesModel *model = new DevicesModel(this);
-    KCategorizedSortFilterProxyModel *proxy = new KCategorizedSortFilterProxyModel(model);
-    proxy->setSourceModel(model);
+    m_model = new DevicesModel(this);
+    KCategorizedSortFilterProxyModel *proxy = new KCategorizedSortFilterProxyModel(m_model);
+    proxy->setSourceModel(m_model);
     proxy->setCategorizedModel(true);
     proxy->setDynamicSortFilter(true);
     proxy->sort(0);
     KCategoryDrawerV2 *drawer = new KCategoryDrawerV2(devicesLV);
     devicesLV->setModel(proxy);
     devicesLV->setCategoryDrawer(drawer);
-    model->update();
     connect(devicesLV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
             this, SLOT(checkSelected()));
 }
 
 PageDestinations::~PageDestinations()
 {
+}
+
+void PageDestinations::load()
+{
+    m_model->update();
 }
 
 void PageDestinations::checkSelected()

@@ -18,32 +18,31 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_KCM_H
-#define PRINT_KCM_H
+#ifndef PAGE_SERIAL_H
+#define PAGE_SERIAL_H
 
-#include <KCModule>
+#include "ui_PageSerial.h"
 
-#include "ui_PrintKCM.h"
+#include "GenericPage.h"
+#include <QRegExp>
 
-class PrinterModel;
-class PrinterDescription;
-class PrintKCM : public KCModule, public Ui::PrintKCM
+class PageSerial : public GenericPage, Ui::PageSerial
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
-    PrintKCM(QWidget *parent, const QVariantList &args);
-    ~PrintKCM();
+    PageSerial(QWidget *parent = 0);
+    ~PageSerial();
 
-private slots:
-    void update();
-    void on_addPB_clicked();
-    void on_removePB_clicked();
-    void on_preferencesPB_clicked();
+    void setValues(const QHash<QString, QString> &args);
+    QHash<QString, QString> values();
+
+public slots:
+    void load();
+    bool isValid();
 
 private:
-    PrinterModel *m_model;
-    PrinterDescription *m_printerDesc;
+    QRegExp m_rx;
+    bool m_isValid;
 };
 
 #endif

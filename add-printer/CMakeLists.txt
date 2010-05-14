@@ -8,12 +8,18 @@ set(addprinter_SRCS
     GenericPage.cpp
     PageIntro.cpp
     PageDestinations.cpp
+    PageSerial.cpp
+    PageUri.cpp
+    PageAddPrinter.cpp
     AddPrinterAssistant.cpp
 )
 
 kde4_add_ui_files(addprinter_SRCS
     PageIntro.ui
     PageDestinations.ui
+    PageSerial.ui
+    PageUri.ui
+    PageAddPrinter.ui
 )
 
 qt4_add_dbus_adaptor(addprinter_dbus_SRCS

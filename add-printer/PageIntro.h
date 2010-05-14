@@ -23,12 +23,17 @@
 
 #include "ui_PageIntro.h"
 
-class PageIntro : public QWidget, Ui::PageIntro
+#include "GenericPage.h"
+
+class PageIntro : public GenericPage, Ui::PageIntro
 {
     Q_OBJECT
 public:
     PageIntro(QWidget *parent = 0);
     ~PageIntro();
+
+    bool hasChanges();
+    QHash<QString, QString> values();
 };
 
 #endif

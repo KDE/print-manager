@@ -18,32 +18,29 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_KCM_H
-#define PRINT_KCM_H
+#ifndef PAGE_ADD_PRINTER_H
+#define PAGE_ADD_PRINTER_H
 
-#include <KCModule>
+#include "ui_PageAddPrinter.h"
 
-#include "ui_PrintKCM.h"
+#include "GenericPage.h"
+#include <QRegExp>
 
-class PrinterModel;
-class PrinterDescription;
-class PrintKCM : public KCModule, public Ui::PrintKCM
+class PageAddPrinter : public GenericPage, Ui::PageAddPrinter
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
-    PrintKCM(QWidget *parent, const QVariantList &args);
-    ~PrintKCM();
+    PageAddPrinter(QWidget *parent = 0);
+    ~PageAddPrinter();
+
+    void setValues(const QHash<QString, QString> &args);
+
+public slots:
+    void load();
 
 private slots:
-    void update();
-    void on_addPB_clicked();
-    void on_removePB_clicked();
-    void on_preferencesPB_clicked();
+    void checkSelected();
 
-private:
-    PrinterModel *m_model;
-    PrinterDescription *m_printerDesc;
 };
 
 #endif

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageDestinations</class>
- <widget class="QWidget" name="PageDestinations">
+ <class>PageAddPrinter</class>
+ <widget class="QWidget" name="PageAddPrinter">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -77,28 +77,56 @@
     </widget>
    </item>
    <item row="0" column="3">
-    <widget class="KCategorizedView" name="devicesLV">
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
+    <layout class="QFormLayout" name="formLayout">
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::ExpandingFieldsGrow</enum>
      </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="resizeMode">
-      <enum>QListView::Adjust</enum>
-     </property>
-    </widget>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Name:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="KLineEdit" name="nameLE"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Description:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="KLineEdit" name="descriptionLE"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Location:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="KLineEdit" name="locationLE"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QCheckBox" name="shareCB">
+       <property name="text">
+        <string>Share this printer</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KCategorizedView</class>
-   <extends>QListView</extends>
-   <header>kcategorizedview.h</header>
+   <class>KLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>klineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

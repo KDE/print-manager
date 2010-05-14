@@ -22,22 +22,24 @@
 #define GENERIC_PAGE_H
 
 #include <QWidget>
+#include <QHash>
 
 class GenericPage : public QWidget
 {
     Q_OBJECT
 public:
     GenericPage(QWidget *parent = 0);
+    virtual bool canProceed() { return true; };
     virtual bool hasChanges() { return false; };
-
-public:
-    virtual void save() {};
-    virtual QHash<QString, QVariant> modifiedValues() const;
-    virtual QStringList neededValues() const;
-    virtual void setRemote(bool remote);
+    virtual bool isValid() { return true; };
+    virtual void setValues(const QHash<QString, QString> &args);
+    virtual QHash<QString, QString> values();
 
 signals:
-    void changed(bool hasChanges);
+    void allowProceed(bool allow);
+
+protected:
+    QHash<QString, QString> m_args;
 };
 
 #endif

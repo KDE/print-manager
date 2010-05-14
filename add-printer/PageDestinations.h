@@ -33,11 +33,11 @@ public:
     PageDestinations(QWidget *parent = 0);
     ~PageDestinations();
 
-public slots:
-    void load();
-
-signals:
-    void canProceed(bool value);
+    bool hasChanges();
+    bool canProceed();
+    void setValues(const QHash<QString, QString> &args);
+    QHash<QString, QString> values();
+//     bool isValid() {return true;};
 
 private slots:
     void checkSelected();

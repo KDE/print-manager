@@ -108,11 +108,13 @@ void DevicesModel::device(const QString &devClass,
     QStandardItem *device;
     if (devMakeAndModel != "Unknown") {
         device = new QStandardItem(devInfo + " (" + devMakeAndModel + ")");
-        device->setData(devUri + "|" + devMakeAndModel);
+        device->setData(devUri + "|" + devMakeAndModel, DeviceURI);
+        device->setData(devMakeAndModel, DeviceMakeAndModel);
     } else {
         device = new QStandardItem(devInfo);
-        device->setData(devUri);
+        device->setData(devUri, DeviceURI);
     }
+    device->setData(devInfo, DeviceInfo);
 
     device->setData(static_cast<qlonglong>(kind), KCategorizedSortFilterProxyModel::CategorySortRole);
     if (kind == Networked) {

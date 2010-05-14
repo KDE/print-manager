@@ -31,6 +31,8 @@
 #include <KIcon>
 
 #include <QTimer>
+#include <QDBusMessage>
+#include <QDBusConnection>
 #include <QCups.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
@@ -113,6 +115,18 @@ void PrintKCM::update()
         scrollArea->setWidget(noPrinterL);
         removePB->setEnabled(false);
     }
+}
+
+void PrintKCM::on_addPB_clicked()
+{
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.AddPrinter",
+                                             "/",
+                                             "org.kde.AddPrinter",
+                                             QLatin1String("AddPrinter"));
+    // Use our own cached tid to avoid crashes
+    message << qVariantFromValue(QString());
+    QDBusConnection::sessionBus().call(message);
 }
 
 void PrintKCM::on_removePB_clicked()

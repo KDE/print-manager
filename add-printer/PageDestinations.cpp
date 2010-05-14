@@ -27,6 +27,10 @@
 #include <KCategoryDrawer>
 #include <KDebug>
 
+
+// TODO KPixmapSequence KPixmapSequenceWidget
+// gwenview floater, jockey proprietary dirvers
+// system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
 PageDestinations::PageDestinations(QWidget *parent)
  : GenericPage(parent)
 {
@@ -44,7 +48,7 @@ PageDestinations::PageDestinations(QWidget *parent)
     QPixmap icon(pixmap);
     QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon("page-zoom.png",
+    pixmap = KIconLoader::global()->loadIcon("page-zoom",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeLarge, // a not so huge icon
                                              KIconLoader::DefaultState);
@@ -74,14 +78,44 @@ PageDestinations::~PageDestinations()
 {
 }
 
-void PageDestinations::load()
+void PageDestinations::setValues(const QHash<QString, QString> &args)
 {
+    m_args = args;
     m_model->update();
+}
+
+bool PageDestinations::hasChanges()
+{
+    QString deviceURI;
+    if (canProceed()) {
+        deviceURI = devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
+    }
+    return deviceURI != m_args["device-uri"];
+}
+
+QHash<QString, QString> PageDestinations::values()
+{
+    if (canProceed()) {
+        QModelIndex index = devicesLV->selectionModel()->selectedIndexes().first();
+        kDebug() << index.data(DevicesModel::DeviceURI).toString();
+        m_args["device-uri"] = index.data(DevicesModel::DeviceURI).toString();
+        m_args["device-make-and-model"] = index.data(DevicesModel::DeviceMakeAndModel).toString();
+        m_args["device-info"] = index.data(DevicesModel::DeviceInfo).toString();
+    }
+    return m_args;
+}
+
+bool PageDestinations::canProceed()
+{
+    // It can proceed if one and JUST one item is selected
+    // (if the user clicks on the category all items in it get selected)
+    return (!devicesLV->selectionModel()->selectedIndexes().isEmpty() &&
+             devicesLV->selectionModel()->selectedIndexes().size() == 1);
 }
 
 void PageDestinations::checkSelected()
 {
-    emit canProceed(!devicesLV->selectionModel()->selection().isEmpty());
+    emit allowProceed(canProceed());
 }
 
 #include "PageDestinations.moc"

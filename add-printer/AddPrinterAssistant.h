@@ -31,11 +31,19 @@ public:
     virtual ~AddPrinterAssistant();
 
 public slots:
+    void back();
     void next();
+    void enableNextButton(bool enable);
+    void enableFinishButton(bool enable);
 
 private:
-    QWidget* createIntroPage();
-    QWidget* createRegistrationPage();
+    void next(KPageWidgetItem *currentPage);
+    void setCurrentPage(KPageWidgetItem *page);
+    KPageWidgetItem *m_introPage;
+    KPageWidgetItem *m_devicesPage;
+    KPageWidgetItem *m_uriPage;
+    KPageWidgetItem *m_serialPage;
+    KPageWidgetItem *m_addPrinterPage;
 };
 
 #endif

@@ -18,34 +18,34 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PageIntro.h"
+#include "PageAddPrinter.h"
 
 #include <QPainter>
-
+#include <KCategorizedSortFilterProxyModel>
+#include <KCategoryDrawer>
 #include <KDebug>
 
-PageIntro::PageIntro(QWidget *parent)
+PageAddPrinter::PageAddPrinter(QWidget *parent)
  : GenericPage(parent)
 {
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
-    setWindowTitle(i18n("Welcome to the add printer wizard"));
+    setWindowTitle(i18n("Select a Printer to Add"));
     // loads the standard key icon
     QPixmap pixmap;
-    pixmap = KIconLoader::global()->loadIcon("computer",
+    pixmap = KIconLoader::global()->loadIcon("printer",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeEnormous, // a not so huge icon
                                              KIconLoader::DefaultState);
     QPixmap icon(pixmap);
     QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon("applications-other.png",
+    pixmap = KIconLoader::global()->loadIcon("dialog-information",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeLarge, // a not so huge icon
                                              KIconLoader::DefaultState);
-
     // the the emblem icon to size 32
     int overlaySize = KIconLoader::SizeLarge;
     QPoint startPoint;
@@ -53,43 +53,31 @@ PageIntro::PageIntro(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    computerL->setPixmap(icon);
-//     softwareL->setPixmap(pixmap);
-
-    pixmap = KIconLoader::global()->loadIcon("printer",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeEnormous, // a not so huge icon
-                                             KIconLoader::DefaultState);
-
-    QPixmap icon2(pixmap);
-    pixmap = KIconLoader::global()->loadIcon("tools-wizard",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeLarge, // a not so huge icon
-                                             KIconLoader::DefaultState);
-    QPainter painter2(&icon2);
-    // the the emblem icon to size 32
-//      overlaySize = KIconLoader::SizeLarge;
-//     QPoint startPoint;
-    // bottom right corner
-    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-                        KIconLoader::SizeEnormous - overlaySize - 2);
-    painter2.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon2);
+    printerL->setPixmap(icon);
 }
 
-PageIntro::~PageIntro()
+PageAddPrinter::~PageAddPrinter()
 {
 }
 
-bool PageIntro::hasChanges()
+void PageAddPrinter::setValues(const QHash<QString, QString> &args)
 {
-    return (m_args["add-new-printer"] == "1") != addNewPrinterCB->isChecked();
+    m_args = args;
+    QString name = args["device-info"];
+    name.replace(' ', '_');
+    nameLE->setText(name);
+    descriptionLE->setText(args["device-info"]);
+    locationLE->clear();
+    shareCB->setChecked(true);
 }
 
-QHash<QString, QString> PageIntro::values()
+void PageAddPrinter::load()
 {
-    m_args["add-new-printer"] = addNewPrinterCB->isChecked() ? "1" : "0";
-    return m_args;
 }
 
-#include "PageIntro.moc"
+void PageAddPrinter::checkSelected()
+{
+//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+}
+
+#include "PageAddPrinter.moc"

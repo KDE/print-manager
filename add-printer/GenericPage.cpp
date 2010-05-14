@@ -21,23 +21,19 @@
 #include "GenericPage.h"
 
 #include <QHash>
-#include <QVariant>
+#include <QString>
 
 GenericPage::GenericPage(QWidget *parent)
  : QWidget(parent)
 {
 }
 
-QHash<QString, QVariant> GenericPage::modifiedValues() const
+QHash<QString, QString> GenericPage::values()
 {
-    return QHash<QString, QVariant>();
+    return QHash<QString, QString>();
 }
 
-QStringList GenericPage::neededValues() const
+void GenericPage::setValues(const QHash<QString, QString> &args)
 {
-    return QStringList();
-}
-
-void GenericPage::setRemote(bool)
-{
+    Q_UNUSED(args)
 }

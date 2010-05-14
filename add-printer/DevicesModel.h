@@ -33,9 +33,9 @@ class DevicesModel : public QStandardItemModel
     Q_ENUMS(Role)
 public:
     typedef enum {
-        JobId = Qt::UserRole + 2,
-        JobState,
-        DestName
+        DeviceURI = Qt::UserRole + 2,
+        DeviceMakeAndModel,
+        DeviceInfo
     } Role;
 
     typedef enum {

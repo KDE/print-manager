@@ -22,7 +22,8 @@
 #define PRINT_QUEUE_TRAY_H
 
 #include <KStatusNotifierItem>
-#include <QAction>
+
+class QAction;
 
 class PrintQueueTray : public KStatusNotifierItem
 {

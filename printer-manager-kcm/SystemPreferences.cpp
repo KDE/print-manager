@@ -64,34 +64,34 @@ SystemPreferences::SystemPreferences(QWidget *parent)
 void SystemPreferences::save() {
    QHash<QString, QString> userValues;
    if(showSharedPrintersCB->isChecked()) {
-       userValues["_remote_printers"] = "1";
+       userValues["_remote_printers"] = '1';
    } else {
-       userValues["_remote_printers"] = "0";
+       userValues["_remote_printers"] = '0';
    }
    if(shareConnectedPrintersCB->isChecked()) {
-       userValues["_share_printers"] = "1";
+       userValues["_share_printers"] = '1';
    } else {
-       userValues["_share_printers"] = "0";
+       userValues["_share_printers"] = '0';
    }
    if(allowFromInternetCB->isChecked()) {
-       userValues["_remote_any"] = "1";
+       userValues["_remote_any"] = '1';
    } else {
-       userValues["_remote_any"] = "0";
+       userValues["_remote_any"] = '0';
    }
    if(allowRemoteAdminCB->isChecked()) {
-       userValues["_remote_admin"] = "1";
+       userValues["_remote_admin"] = '1';
    } else {
-       userValues["_remote_admin"] = "0";
+       userValues["_remote_admin"] = '0';
    }
 //   if(useKRBAuthCB->isChecked()) {
-//       userValues["DefaultAuthType"] = "1";
+//       userValues["DefaultAuthType"] = '1';
 //   } else {
-//       userValues["DefaultAuthType"] = "0";
+//       userValues["DefaultAuthType"] = '0';
 //   }
    if(allowUsrCancelCB->isChecked()) {
-       userValues["_user_cancel_any"] = "1";
+       userValues["_user_cancel_any"] = '1';
    } else {
-       userValues["_user_cancel_any"] = "0";
+       userValues["_user_cancel_any"] = '0';
    }
 
 //    kDebug() << userValues;

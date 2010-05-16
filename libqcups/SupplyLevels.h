@@ -30,7 +30,7 @@ class KDE_EXPORT SupplyLevels : public KDialog
 {
     Q_OBJECT
 public:
-    SupplyLevels(const Arguments &args, QWidget *parent = 0);
+    explicit SupplyLevels(const Arguments &args, QWidget *parent = 0);
     ~SupplyLevels();
 
 };

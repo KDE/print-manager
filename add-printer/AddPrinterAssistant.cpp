@@ -101,7 +101,7 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
 
         if (!args["device-uri"].contains('/')) {
             setCurrentPage(m_uriPage);
-        } else if (args["device-uri"].startsWith("serial:")) {
+        } else if (args["device-uri"].startsWith(QLatin1String("serial:"))) {
             setCurrentPage(m_serialPage);
         } else {
             setCurrentPage(m_addPrinterPage);

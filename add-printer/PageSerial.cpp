@@ -79,7 +79,7 @@ bool PageSerial::isValid()
 void PageSerial::setValues(const QHash<QString, QString> &args)
 {
     m_args = args;
-    if (!args["device-uri"].startsWith("serial:")) {
+    if (!args["device-uri"].startsWith(QLatin1String("serial:"))) {
         m_isValid = false;
         return;
     }

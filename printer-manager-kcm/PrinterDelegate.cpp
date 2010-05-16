@@ -23,7 +23,7 @@
 
 #include <cmath>
 
-#include <QtCore/QtCore>
+#include <QtGui/QPainter>
 
 #include <KDebug>
 #include <KIconLoader>

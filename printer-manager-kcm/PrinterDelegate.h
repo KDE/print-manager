@@ -21,9 +21,10 @@
 #ifndef PRINTER_DELEGATE_H
 #define PRINTER_DELEGATE_H
 
-#include <QtCore/QtCore>
-#include <QtGui/QtGui>
-#include <QStyledItemDelegate>
+#include <QApplication>
+#include <QtGui/QStyledItemDelegate>
+
+class QPainter;
 
 /**
  * Delegate for displaying the printers

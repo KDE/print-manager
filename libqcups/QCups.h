@@ -97,7 +97,7 @@ namespace QCups
     KDE_EXPORT Result* getPPDS(const QString &make = QString());
 
     KDE_EXPORT Result* getDevices();
-    // THIS function can get the default server dest throught
+    // THIS function can get the default server dest through the
     // "printer-is-default" attribute BUT it does not get user
     // defined default printer, see cupsGetDefault() on www.cups.org for details
     KDE_EXPORT Result* getDests(int mask, const QStringList &requestedAttr = QStringList());

@@ -107,8 +107,8 @@ void DevicesModel::device(const QString &devClass,
 
     QStandardItem *device;
     if (devMakeAndModel != "Unknown") {
-        device = new QStandardItem(devInfo + " (" + devMakeAndModel + ")");
-        device->setData(devUri + "|" + devMakeAndModel, DeviceURI);
+        device = new QStandardItem(devInfo + " (" + devMakeAndModel + ')');
+        device->setData(devUri + '|' + devMakeAndModel, DeviceURI);
         device->setData(devMakeAndModel, DeviceMakeAndModel);
     } else {
         device = new QStandardItem(devInfo);

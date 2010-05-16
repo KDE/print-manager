@@ -23,7 +23,6 @@
 
 #include <KDEDModule>
 #include <QHash>
-#include <QStringList>
 
 #include <cups/cups.h>
 

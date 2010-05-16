@@ -27,8 +27,6 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 
-#include <KDebug>
-
 PrintQueueTray::PrintQueueTray(QObject *parent)
  : KStatusNotifierItem(parent)
 {

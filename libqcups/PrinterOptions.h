@@ -26,7 +26,6 @@
 #include "PrinterPage.h"
 
 #include <cups/ppd.h>
-#include <QWidget>
 #include <QTextCodec>
 
 namespace QCups {
@@ -59,7 +58,6 @@ private:
     ppd_file_t *m_ppd;
     int m_changes;
     QTextCodec *m_codec;
-    QHash<QString, int> m_groupsTab;
     QHash<QString, QObject*> m_customValues;
     QString m_make, m_makeAndModel;
 

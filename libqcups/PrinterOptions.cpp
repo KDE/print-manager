@@ -24,16 +24,16 @@
 #include "PrinterOptions.h"
 
 #include <cups/cups.h>
-#include <cups/file.h>
 #include "QCups.h"
 
-#include <QScrollArea>
 #include <QFormLayout>
 #include <KComboBox>
 #include <QRadioButton>
 #include <QButtonGroup>
 #include <QStandardItemModel>
 #include <QListView>
+#include <QGroupBox>
+
 #include <KDebug>
 
 using namespace QCups;
@@ -54,7 +54,10 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
 
 void PrinterOptions::on_autoConfigurePB_clicked()
 {
-    delete QCups::Dest::printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
+    QCups::Result *result;
+    result = QCups::Dest::printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
+    result->waitTillFinished();
+    result->deleteLater();
 }
 
 void PrinterOptions::reloadPPD()
@@ -64,9 +67,9 @@ void PrinterOptions::reloadPPD()
         unlink(m_filename);
     }
 
-    // remove the old tabs
-    while (optionsTW->count()) {
-        optionsTW->removeTab(0);
+    // remove all the options
+    while (verticalLayout->count()) {
+        verticalLayout->removeItem(verticalLayout->itemAt(0));
     }
     m_changes = 0;
     m_customValues.clear();
@@ -144,18 +147,13 @@ void PrinterOptions::createGroups()
         // The humman name of the group
         QString text = m_codec->toUnicode(group->text);
 
-        // Create the ScrollArea to put options in
-        QScrollArea *scrollArea = new QScrollArea(this);
-        QWidget *scrollAreaWidgetContents = new QWidget(scrollArea);
-        scrollArea->setWidget(scrollAreaWidgetContents);
-        scrollArea->setFrameShape(QFrame::NoFrame);
+        // Create the form layout to put options in
+        QFormLayout *gFormLayout = new QFormLayout(this);
+        gFormLayout->setFormAlignment(Qt::AlignCenter);
 
-        QFormLayout *gFormLayout = new QFormLayout(scrollAreaWidgetContents);
-        gFormLayout->setFormAlignment(Qt::AlignHCenter | Qt::AlignTop);
-        scrollAreaWidgetContents->setLayout(gFormLayout);
-        gFormLayout->setSizeConstraint(QLayout::SetMinimumSize);
-
-        m_groupsTab[name] = optionsTW->addTab(scrollArea, text);
+        QGroupBox *groupBox = new QGroupBox(text, scrollArea);
+        groupBox->setLayout(gFormLayout);
+        verticalLayout->addWidget(groupBox);
 
         int j;
         ppd_option_t *option;

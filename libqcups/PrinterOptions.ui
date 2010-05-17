@@ -28,7 +28,32 @@
     </widget>
    </item>
    <item row="1" column="0">
-    <widget class="KTabWidget" name="optionsTW"/>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignHCenter|Qt::AlignTop</set>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>484</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
@@ -37,12 +62,6 @@
    <class>KPushButton</class>
    <extends>QPushButton</extends>
    <header>kpushbutton.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KTabWidget</class>
-   <extends>QTabWidget</extends>
-   <header>ktabwidget.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

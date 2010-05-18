@@ -144,14 +144,16 @@ void PrinterOptions::createGroups()
          i++, group++) {
         // The name of the group
         QString name = m_codec->toUnicode(group->name);
+
         // The humman name of the group
         QString text = m_codec->toUnicode(group->text);
 
-        // Create the form layout to put options in
-        QFormLayout *gFormLayout = new QFormLayout(this);
-        gFormLayout->setFormAlignment(Qt::AlignCenter);
-
+        // The group box were the options will be laid out
         QGroupBox *groupBox = new QGroupBox(text, scrollArea);
+
+        // Create the form layout to put options in
+        QFormLayout *gFormLayout = new QFormLayout(groupBox);
+        gFormLayout->setFormAlignment(Qt::AlignCenter);
         groupBox->setLayout(gFormLayout);
         verticalLayout->addWidget(groupBox);
 
@@ -193,10 +195,8 @@ void PrinterOptions::createGroups()
                 // insert the option widget
                 gFormLayout->addRow(oText, optionW);
             }
-//         kDebug() << oKeyword << oText << option->ui << oDefChoice;
         }
-//         kDebug() << name << text;
-  }
+    }
 }
 
 QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const
@@ -251,9 +251,9 @@ void PrinterOptions::radioBtClicked(QAbstractButton *button)
     radioGroup->setProperty("currentChoice", choice);
 
     // TODO warning about conflicts
-    ppdMarkOption(m_ppd,
-                  m_codec->fromUnicode(keyword),
-                  m_codec->fromUnicode(choice));
+//     ppdMarkOption(m_ppd,
+//                   m_codec->fromUnicode(keyword),
+//                   m_codec->fromUnicode(choice));
     // store the new value
     if (isDifferent) {
         m_customValues[keyword] = qobject_cast<QObject*>(radioGroup);
@@ -338,9 +338,9 @@ void PrinterOptions::currentIndexChangedCB(int index)
     comboBox->setProperty("currentChoice", value);
 
     // TODO warning about conflicts
-    ppdMarkOption(m_ppd,
-                  m_codec->fromUnicode(keyword),
-                  m_codec->fromUnicode(value));
+//     ppdMarkOption(m_ppd,
+//                   m_codec->fromUnicode(keyword),
+//                   m_codec->fromUnicode(value));
     // store the new value
     if (isDifferent) {
         m_customValues[keyword] = qobject_cast<QObject*>(comboBox);

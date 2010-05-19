@@ -5,6 +5,7 @@ Icon=printer
 X-KDE-Library=kcm_printer_manager
 X-KDE-ServiceTypes=KCModule,KCModuleInit
 X-KDE-System-Settings-Parent-Category=computer-hardware
+X-KDE-System-Settings-Parent-Category-V2=hardware
 
 Name=Printers
 Name[cs]=Tiskárny

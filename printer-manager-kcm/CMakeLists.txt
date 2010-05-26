@@ -21,5 +21,4 @@ target_link_libraries(kcm_printer_manager
 )
 
 install(TARGETS kcm_printer_manager DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES settings-hardware.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 install(FILES kcm_printer_manager.desktop DESTINATION ${SERVICES_INSTALL_DIR})

@@ -37,10 +37,9 @@
 
 #define PRINTER_ICON_SIZE 92
 
-PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *parent)
+PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *parent)
  : QWidget(parent),
    m_destName(destName),
-   m_isClass(isClass),
    m_preparingMenu(false),
    m_lastState(NULL),
    m_cfgDlg(0)
@@ -48,18 +47,17 @@ PrintQueueUi::PrintQueueUi(const QString &destName, bool isClass, QWidget *paren
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
+    m_isClass = printerType & CUPS_PRINTER_CLASS;
+
     // setup default options
-//     setWindowIcon(KIcon("printer").pixmap(32));
     setWindowTitle(m_destName.isNull() ? i18n("All printers") : m_destName);
     jobsView->setCornerWidget(new QWidget);
 
     setupButtons();
 
     // loads the standard key icon
-    m_printerIcon = KIconLoader::global()->loadIcon("printer",
-                                                    KIconLoader::NoGroup,
-                                                    PRINTER_ICON_SIZE, // a not so huge icon
-                                                    KIconLoader::DefaultState);
+    m_printerIcon = QCups::Dest::icon(m_destName, printerType).pixmap(PRINTER_ICON_SIZE,
+                                                                      PRINTER_ICON_SIZE);
     iconL->setPixmap(m_printerIcon);
 
     m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",

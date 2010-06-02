@@ -541,4 +541,17 @@ void Result::setHashStrStr(const HashStrStr &hash)
     m_hash = hash;
 }
 
+KIcon QCups::Dest::icon(const QString &destName, int printerType)
+{
+    // TODO get the ppd or something to get the real printer icon
+    Q_UNUSED(destName)
+
+    if (!(printerType & CUPS_PRINTER_COLOR)) {
+        // If the printer is not color it is probably a laser one
+        return KIcon("printer-laser");
+    } else {
+        return KIcon("printer");
+    }
+}
+
 #include "QCups.moc"

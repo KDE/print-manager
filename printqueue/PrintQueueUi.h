@@ -35,7 +35,7 @@ class PrintQueueUi : public QWidget, Ui::PrintQueueUi
 {
     Q_OBJECT
 public:
-    explicit PrintQueueUi(const QString &destName, bool isClass, QWidget *parent = 0);
+    explicit PrintQueueUi(const QString &destName, int printerType, QWidget *parent = 0);
     ~PrintQueueUi();
 
 signals:

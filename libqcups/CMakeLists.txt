@@ -1,6 +1,7 @@
 set(libqcups_SRCS
     cupsActions.cpp
     QCups.cpp
+    ClassListWidget.cpp
     ModifyPrinter.cpp
     ConfigureDialog.cpp
     PrinterPage.cpp

@@ -20,8 +20,6 @@
 
 #include "PrinterDescription.h"
 
-#include "ConfigureDialog.h"
-
 #include <SupplyLevels.h>
 
 #include <QPainter>
@@ -83,7 +81,11 @@ void PrinterDescription::on_openQueuePB_clicked()
 
 void PrinterDescription::on_defaultCB_clicked()
 {
-    setIsDefault(QCups::setDefaultPrinter(m_destName));
+    bool isDefault = defaultCB->isChecked();
+    QCups::Result *ret = QCups::setDefaultPrinter(m_destName);
+    ret->waitTillFinished();
+    setIsDefault(ret->hasError() ? !isDefault : isDefault);
+    ret->deleteLater();
 }
 
 void PrinterDescription::on_sharedCB_clicked()
@@ -95,21 +97,22 @@ void PrinterDescription::on_sharedCB_clicked()
     ret->deleteLater();
 }
 
-void PrinterDescription::on_optionsPB_clicked()
-{
-    QCups::ConfigureDialog *dlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
-    dlg->show();
-}
-
 void PrinterDescription::on_supplyLevelsPB_clicked()
 {
     QCups::SupplyLevels *dialog = new QCups::SupplyLevels(m_markerData, this);
     dialog->exec();
 }
 
+void PrinterDescription::setPrinterIcon(const QIcon &icon)
+{
+    iconL->setPixmap(icon.pixmap(PRINTER_ICON_SIZE, PRINTER_ICON_SIZE));
+}
+
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
 {
+    m_isClass = isClass;
     m_destName = name;
+
     m_markerData.clear();
     if (m_isClass != isClass) {
         m_isClass = isClass;
@@ -208,6 +211,11 @@ void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
     QCups::Result *ret = QCups::Dest::printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
     ret->waitTillFinished();
     ret->deleteLater();
+}
+
+QString PrinterDescription::destName() const
+{
+    return m_destName;
 }
 
 

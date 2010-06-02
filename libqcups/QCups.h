@@ -22,6 +22,7 @@
 #define Q_CUPS_H
 
 #include <kdemacros.h>
+#include <KIcon>
 #include <QStringList>
 #include <QEventLoop>
 #include <QHash>
@@ -83,6 +84,7 @@ namespace QCups
         KDE_EXPORT Result* getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
         KDE_EXPORT Result* printTestPage(const QString &destName, bool isClass);
         KDE_EXPORT Result* printCommand(const QString &destName, const QString &command, const QString &title);
+        KDE_EXPORT KIcon icon(const QString &destName, int printerType);
     }
 
     KDE_EXPORT Result* cancelJob(const QString &name, int job_id);

@@ -75,19 +75,19 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
         ret->deleteLater();
 
         bool found = false;
-        bool isClass = false;
+        int printerType;
         for (int i = 0; i < dests.size(); i++) {
             if (dests.at(i)["printer-name"] == destName) {
-                isClass = dests.at(i)["printer-type"].toInt() & CUPS_PRINTER_CLASS;
+                printerType = dests.at(i)["printer-type"].toInt();
                 found = true;
                 break;
             }
         }
 
         if (found) {
-            PrintQueueUi *ui = new PrintQueueUi(destName, isClass);
+            PrintQueueUi *ui = new PrintQueueUi(destName, printerType);
             KDialog *dlg = new KDialog;
-            dlg->setWindowIcon(KIcon("printer").pixmap(32));
+            dlg->setWindowIcon(QCups::Dest::icon(destName, printerType));
             dlg->setWindowTitle(ui->windowTitle());
             dlg->setButtons(0);
             dlg->setMainWidget(ui);

@@ -24,6 +24,7 @@
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
 #include "SystemPreferences.h"
+#include "ConfigureDialog.h"
 
 #include <KMessageBox>
 #include <KGenericFactory>
@@ -57,6 +58,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     addPB->setIcon(KIcon("list-add"));
     removePB->setIcon(KIcon("list-remove"));
     preferencesPB->setIcon(KIcon("configure"));
+    configurePrinterPB->setIcon(KIcon("configure"));
 
     m_model = new PrinterModel(winId(), this);
     printersTV->setModel(m_model);
@@ -67,7 +69,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
             this, SLOT(update()));
 
     // Create the PrinterDescription before we try to select a printer
-    m_printerDesc = new PrinterDescription(this);
+    m_printerDesc = new PrinterDescription(scrollArea);
     m_printerDesc->hide();
 
     // select the first printer if there are printers
@@ -91,9 +93,14 @@ void PrintKCM::update()
             // always take the widget before setting a new one otherwise it will be deleted
             scrollArea->takeWidget();
             scrollArea->setWidget(m_printerDesc);
+            m_printerDesc->setAutoFillBackground(false);
         }
         removePB->setEnabled(true);
         QModelIndex index = selection.indexes().at(0);
+        QString destName = index.data(PrinterModel::DestName).toString();
+        if (m_printerDesc->destName() != destName) {
+            m_printerDesc->setPrinterIcon(index.data(Qt::DecorationRole).value<QIcon>());
+        }
         m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                    index.data(PrinterModel::DestDescription).toString(),
                                    index.data(PrinterModel::DestIsClass).toBool());
@@ -138,15 +145,38 @@ void PrintKCM::on_removePB_clicked()
     if (!selection.indexes().isEmpty()) {
         QModelIndex index = selection.indexes().at(0);
         int resp;
-        resp = KMessageBox::questionYesNo(this,
-                                          i18n("Are you sure you want to remove the printer '%1'?",
-                                               index.data(Qt::DisplayRole).toString()),
-                                          i18n("Remove printer"));
+        QString msg, title;
+        if (index.data(PrinterModel::DestIsClass).toBool()) {
+            title = i18n("Remove class");
+            msg = i18n("Are you sure you want to remove the class '%1'?",
+                       index.data(Qt::DisplayRole).toString());
+        } else {
+            title = i18n("Remove printer");
+            msg = i18n("Are you sure you want to remove the printer '%1'?",
+                       index.data(Qt::DisplayRole).toString());
+        }
+        resp = KMessageBox::questionYesNo(this, msg, title);
         if (resp == KMessageBox::Yes) {
             QCups::Result *ret = QCups::deletePrinter(index.data(PrinterModel::DestName).toString());
             ret->waitTillFinished();
             ret->deleteLater();
         }
+    }
+}
+
+void PrintKCM::on_configurePrinterPB_clicked()
+{
+    QItemSelection selection;
+    // we need to map the selection to source to get the real indexes
+    selection = printersTV->selectionModel()->selection();
+    // enable or disable the job action buttons if something is selected
+    if (!selection.indexes().isEmpty()) {
+        QModelIndex index = selection.indexes().at(0);
+        QCups::ConfigureDialog *dlg;
+        dlg= new QCups::ConfigureDialog(index.data(PrinterModel::DestName).toString(),
+                                        index.data(PrinterModel::DestIsClass).toBool(),
+                                        this);
+        dlg->show();
     }
 }
 

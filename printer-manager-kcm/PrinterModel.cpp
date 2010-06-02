@@ -111,9 +111,10 @@ void PrinterModel::update()
 void PrinterModel::insertDest(int pos, const QCups::Destination &dest)
 {
     // Create the printer item
-    QStandardItem *stdItem = new QStandardItem(dest["printer-name"].toString());
-    stdItem->setData(dest["printer-name"].toString(), DestName);
-    stdItem->setIcon(KIcon("printer"));
+    QString destName = dest["printer-name"].toString();
+    QStandardItem *stdItem = new QStandardItem(destName);
+    stdItem->setData(destName, DestName);
+    stdItem->setIcon(QCups::Dest::icon(destName, dest["printer-type"].toInt()));
     // update the item
     updateDest(stdItem, dest);
 

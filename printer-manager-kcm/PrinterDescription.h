@@ -36,6 +36,7 @@ public:
     explicit PrinterDescription(QWidget *parent = 0);
     ~PrinterDescription();
 
+    void setPrinterIcon(const QIcon &icon);
     void setDestName(const QString &name, const QString &description, bool isClass);
     void setLocation(const QString &location);
     void setStatus(const QString &status);
@@ -51,11 +52,12 @@ public:
 
     bool needMarkerLevels(int markerChangeTime);
 
+    QString destName() const;
+
 private slots:
     void on_openQueuePB_clicked();
     void on_defaultCB_clicked();
     void on_sharedCB_clicked();
-    void on_optionsPB_clicked();
     void on_supplyLevelsPB_clicked();
 
     void on_actionPrintTestPage_triggered(bool checked);

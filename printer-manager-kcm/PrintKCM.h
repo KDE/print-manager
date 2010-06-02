@@ -39,6 +39,7 @@ private slots:
     void update();
     void on_addPB_clicked();
     void on_removePB_clicked();
+    void on_configurePrinterPB_clicked();
     void on_preferencesPB_clicked();
 
 private:

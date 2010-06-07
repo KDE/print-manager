@@ -54,25 +54,56 @@ PageAddPrinter::PageAddPrinter(QWidget *parent)
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
     printerL->setPixmap(icon);
+
+    // May contain any printable characters except "/", "#", and space
+    QRegExp rx("[^/#\\ ]*");
+    QValidator *validator = new QRegExpValidator(rx, this);
+    nameLE->setValidator(validator);
 }
 
 PageAddPrinter::~PageAddPrinter()
 {
 }
 
-void PageAddPrinter::setValues(const QHash<QString, QString> &args)
+void PageAddPrinter::setValues(const QHash<QString, QVariant> &args)
 {
-    m_args = args;
-    QString name = args["device-info"];
-    name.replace(' ', '_');
-    nameLE->setText(name);
-    descriptionLE->setText(args["device-info"]);
-    locationLE->clear();
-    shareCB->setChecked(true);
+    if (m_args != args) {
+        QString name = args["device-info"].toString();
+        name.replace(' ', '_');
+        nameLE->setText(name);
+        descriptionLE->setText(args["device-info"].toString());
+        locationLE->clear();
+        shareCB->setChecked(true);
+        shareCB->setVisible(args["add-new-printer"].toBool());
+
+        m_args = args;
+    }
 }
 
 void PageAddPrinter::load()
 {
+}
+
+bool PageAddPrinter::canProceed() const
+{
+    return !nameLE->text().isEmpty();
+}
+
+QHash<QString, QVariant> PageAddPrinter::values() const
+{
+    QHash<QString, QVariant> ret = m_args;
+    ret["printer-name"] = nameLE->text();
+    ret["printer-location"] = locationLE->text();
+    ret["printer-info"] = descriptionLE->text();
+//     if (ret["add-new-printer"].toBool()) {
+        // shareCB
+//     }
+    return ret;
+}
+
+void PageAddPrinter::on_nameLE_textChanged(const QString &text)
+{
+    emit allowProceed(!text.isEmpty());
 }
 
 void PageAddPrinter::checkSelected()

@@ -23,23 +23,24 @@
 
 #include <QWidget>
 #include <QHash>
+#include <QVariant>
 
 class GenericPage : public QWidget
 {
     Q_OBJECT
 public:
     GenericPage(QWidget *parent = 0);
-    virtual bool canProceed() { return true; };
-    virtual bool hasChanges() { return false; };
-    virtual bool isValid() { return true; };
-    virtual void setValues(const QHash<QString, QString> &args);
-    virtual QHash<QString, QString> values();
+    virtual bool canProceed() const { return true; };
+    virtual bool hasChanges() const { return false; };
+    virtual bool isValid() const { return true; };
+    virtual void setValues(const QHash<QString, QVariant> &args);
+    virtual QHash<QString, QVariant> values() const;
 
 signals:
     void allowProceed(bool allow);
 
 protected:
-    QHash<QString, QString> m_args;
+    QHash<QString, QVariant> m_args;
 };
 
 #endif

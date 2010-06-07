@@ -18,19 +18,33 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
+#ifndef CHOOSE_SAMBA_H
+#define CHOOSE_SAMBA_H
+
+#include "ui_ChooseSamba.h"
+
 #include "GenericPage.h"
+#include <QRegExp>
 
-GenericPage::GenericPage(QWidget *parent)
- : QWidget(parent)
+class ChooseSamba : public GenericPage, Ui::ChooseSamba
 {
-}
+    Q_OBJECT
+public:
+    ChooseSamba(QWidget *parent = 0);
+    ~ChooseSamba();
 
-QHash<QString, QVariant> GenericPage::values() const
-{
-    return QHash<QString, QVariant>();
-}
+    void setValues(const QHash<QString, QVariant> &args);
+    bool isValid() const;
 
-void GenericPage::setValues(const QHash<QString, QVariant> &args)
-{
-    Q_UNUSED(args)
-}
+public slots:
+    void load();
+    void on_detectPB_clicked();
+
+private slots:
+    void checkSelected();
+
+private:
+    bool m_isValid;
+};
+
+#endif

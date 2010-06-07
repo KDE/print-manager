@@ -33,17 +33,18 @@ public:
     PageDestinations(QWidget *parent = 0);
     ~PageDestinations();
 
-    bool hasChanges();
-    bool canProceed();
-    void setValues(const QHash<QString, QString> &args);
-    QHash<QString, QString> values();
-//     bool isValid() {return true;};
+    bool hasChanges() const;
+    bool canProceed() const;
+    void setValues(const QHash<QString, QVariant> &args);
+    QHash<QString, QVariant> values() const;
+    bool isValid() const;
 
 private slots:
     void checkSelected();
 
 private:
     DevicesModel *m_model;
+    bool m_isValid;
 };
 
 #endif

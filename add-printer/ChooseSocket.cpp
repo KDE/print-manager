@@ -18,34 +18,31 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PageIntro.h"
+#include "ChooseSocket.h"
 
 #include <QPainter>
-
 #include <KDebug>
 
-PageIntro::PageIntro(QWidget *parent)
- : GenericPage(parent)
+ChooseSocket::ChooseSocket(QWidget *parent)
+ : GenericPage(parent), m_isValid(false)
 {
     setupUi(this);
-    setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
-    setWindowTitle(i18n("Welcome to the add printer wizard"));
+    setWindowTitle(i18n("Select a Printer to Add"));
     // loads the standard key icon
     QPixmap pixmap;
-    pixmap = KIconLoader::global()->loadIcon("computer",
+    pixmap = KIconLoader::global()->loadIcon("printer",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeEnormous, // a not so huge icon
                                              KIconLoader::DefaultState);
     QPixmap icon(pixmap);
     QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon("applications-other.png",
+    pixmap = KIconLoader::global()->loadIcon("network-wired",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeLarge, // a not so huge icon
                                              KIconLoader::DefaultState);
-
     // the the emblem icon to size 32
     int overlaySize = KIconLoader::SizeLarge;
     QPoint startPoint;
@@ -53,44 +50,47 @@ PageIntro::PageIntro(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    computerL->setPixmap(icon);
-//     softwareL->setPixmap(pixmap);
-
-    pixmap = KIconLoader::global()->loadIcon("printer",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeEnormous, // a not so huge icon
-                                             KIconLoader::DefaultState);
-
-    QPixmap icon2(pixmap);
-    pixmap = KIconLoader::global()->loadIcon("tools-wizard",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeLarge, // a not so huge icon
-                                             KIconLoader::DefaultState);
-    QPainter painter2(&icon2);
-    // the the emblem icon to size 32
-//      overlaySize = KIconLoader::SizeLarge;
-//     QPoint startPoint;
-    // bottom right corner
-    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-                        KIconLoader::SizeEnormous - overlaySize - 2);
-    painter2.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon2);
+    printerL->setPixmap(icon);
 }
 
-PageIntro::~PageIntro()
+ChooseSocket::~ChooseSocket()
 {
 }
 
-bool PageIntro::hasChanges() const
+void ChooseSocket::setValues(const QHash<QString, QVariant> &args)
 {
-    return (m_args["add-new-printer"] == "1") != addNewPrinterCB->isChecked();
+    if (m_args != args) {
+        return;
+    }
+
+    m_args = args;
+    addressLE->clear();
+    portISB->setValue(9100);
+    QString deviceUri = args["device-uri"].toString();
+    QUrl url = deviceUri;
+    if (url.scheme() == "socket") {
+        addressLE->setText(url.host());
+        portISB->setValue(url.port(9100));
+    }
+    m_isValid = true;
 }
 
-QHash<QString, QVariant> PageIntro::values() const
+bool ChooseSocket::isValid() const
 {
-    QHash<QString, QVariant> ret = m_args;
-    ret["add-new-printer"] = addNewPrinterCB->isChecked();
-    return ret;
+    return m_isValid;
 }
 
-#include "PageIntro.moc"
+void ChooseSocket::load()
+{
+}
+
+void ChooseSocket::on_detectPB_clicked()
+{
+}
+
+void ChooseSocket::checkSelected()
+{
+//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+}
+
+#include "ChooseSocket.moc"

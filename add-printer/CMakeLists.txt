@@ -8,8 +8,14 @@ set(addprinter_SRCS
     GenericPage.cpp
     PageIntro.cpp
     PageDestinations.cpp
-    PageSerial.cpp
-    PageUri.cpp
+    ChooseIpp.cpp
+    ChooseLpd.cpp
+    ChoosePrinters.cpp
+    ChooseSamba.cpp
+    ChooseSerial.cpp
+    ChooseSocket.cpp
+    ChooseUri.cpp
+    PageChoose.cpp
     PageAddPrinter.cpp
     AddPrinterAssistant.cpp
 )
@@ -17,8 +23,13 @@ set(addprinter_SRCS
 kde4_add_ui_files(addprinter_SRCS
     PageIntro.ui
     PageDestinations.ui
-    PageSerial.ui
-    PageUri.ui
+    ChooseIpp.ui
+    ChooseLpd.ui
+    ChoosePrinters.ui
+    ChooseSamba.ui
+    ChooseSerial.ui
+    ChooseSocket.ui
+    ChooseUri.ui
     PageAddPrinter.ui
 )
 

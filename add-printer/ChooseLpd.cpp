@@ -18,18 +18,15 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PageUri.h"
+#include "ChooseLpd.h"
 
 #include <QPainter>
-#include <KCategorizedSortFilterProxyModel>
-#include <KCategoryDrawer>
 #include <KDebug>
 
-PageUri::PageUri(QWidget *parent)
+ChooseLpd::ChooseLpd(QWidget *parent)
  : GenericPage(parent), m_isValid(false)
 {
     setupUi(this);
-    setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
     setWindowTitle(i18n("Select a Printer to Add"));
@@ -56,34 +53,39 @@ PageUri::PageUri(QWidget *parent)
     printerL->setPixmap(icon);
 }
 
-PageUri::~PageUri()
+ChooseLpd::~ChooseLpd()
 {
 }
 
-void PageUri::setValues(const QHash<QString, QString> &args)
+void ChooseLpd::setValues(const QHash<QString, QVariant> &args)
 {
     m_args = args;
-    if (args["device-uri"].contains('/')) {
+    QString deviceUri = args["device-uri"].toString();
+    if (deviceUri.contains('/')) {
         m_isValid = false;
         return;
     }
     m_isValid = true;
 
-    connectionLE->setText(args["device-uri"]);
+    addressLE->setText(deviceUri);
 }
 
-bool PageUri::isValid()
+bool ChooseLpd::isValid() const
 {
     return m_isValid;
 }
 
-void PageUri::load()
+void ChooseLpd::load()
 {
 }
 
-void PageUri::checkSelected()
+void ChooseLpd::on_detectPB_clicked()
+{
+}
+
+void ChooseLpd::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
 
-#include "PageUri.moc"
+#include "ChooseLpd.moc"

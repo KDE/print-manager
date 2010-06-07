@@ -18,19 +18,31 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
+#ifndef CHOOSE_SERIAL_H
+#define CHOOSE_SERIAL_H
+
+#include "ui_ChooseSerial.h"
+
 #include "GenericPage.h"
+#include <QRegExp>
 
-GenericPage::GenericPage(QWidget *parent)
- : QWidget(parent)
+class ChooseSerial : public GenericPage, Ui::ChooseSerial
 {
-}
+    Q_OBJECT
+public:
+    ChooseSerial(QWidget *parent = 0);
+    ~ChooseSerial();
 
-QHash<QString, QVariant> GenericPage::values() const
-{
-    return QHash<QString, QVariant>();
-}
+    void setValues(const QHash<QString, QVariant> &args);
+    QHash<QString, QVariant> values() const;
+    bool isValid() const;
 
-void GenericPage::setValues(const QHash<QString, QVariant> &args)
-{
-    Q_UNUSED(args)
-}
+public slots:
+    void load();
+
+private:
+    QRegExp m_rx;
+    bool m_isValid;
+};
+
+#endif

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageSerial</class>
- <widget class="QWidget" name="PageSerial">
+ <class>ChoosePrinters</class>
+ <widget class="QWidget" name="ChoosePrinters">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -77,72 +77,23 @@
     </widget>
    </item>
    <item row="0" column="3">
-    <layout class="QFormLayout" name="formLayout">
-     <property name="fieldGrowthPolicy">
-      <enum>QFormLayout::ExpandingFieldsGrow</enum>
-     </property>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
+    <layout class="QVBoxLayout" name="vertLayout">
+     <item>
+      <widget class="QLabel" name="label">
        <property name="text">
-        <string>Baud Rate:</string>
-       </property>
-       <property name="buddy">
-        <cstring>baudRateCB</cstring>
+        <string>Members:</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Parity:</string>
+     <item>
+      <widget class="QCups::ClassListWidget" name="membersLV">
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
        </property>
-       <property name="buddy">
-        <cstring>parityCB</cstring>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="KComboBox" name="parityCB"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Data Bits:</string>
-       </property>
-       <property name="buddy">
-        <cstring>bitsCB</cstring>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
        </property>
       </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="KComboBox" name="bitsCB">
-       <item>
-        <property name="text">
-         <string notr="true">8</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string notr="true">7</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Flow Control:</string>
-       </property>
-       <property name="buddy">
-        <cstring>flowCB</cstring>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="KComboBox" name="flowCB"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="KComboBox" name="baudRateCB"/>
      </item>
     </layout>
    </item>
@@ -150,9 +101,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
+   <class>QCups::ClassListWidget</class>
+   <extends>QListView</extends>
+   <header>ClassListWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

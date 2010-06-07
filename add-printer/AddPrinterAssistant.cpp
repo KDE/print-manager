@@ -22,12 +22,12 @@
 
 #include "PageIntro.h"
 #include "PageDestinations.h"
-#include "PageUri.h"
-#include "PageSerial.h"
+#include "PageChoose.h"
 #include "PageAddPrinter.h"
 
-#include <QLabel>
-#include <QVBoxLayout>
+#include <QCups.h>
+
+#include <KMessageBox>
 
 #include <KDebug>
 
@@ -44,11 +44,11 @@ AddPrinterAssistant::AddPrinterAssistant()
     m_devicesPage = new KPageWidgetItem(new PageDestinations, i18n("Select a Printer to Add"));
     addPage(m_devicesPage);
 
-    m_uriPage = new KPageWidgetItem(new PageUri, i18n("Configure your connection"));
-    addPage(m_uriPage);
+    m_choosePage = new KPageWidgetItem(new PageChoose, i18n("Configure your connection"));
+    addPage(m_choosePage);
 
-    m_serialPage = new KPageWidgetItem(new PageSerial, i18n("Select a Printer to Add"));
-    addPage(m_serialPage);
+//     m_serialPage = new KPageWidgetItem(new PageSerial, i18n("Select a Printer to Add"));
+//     addPage(m_serialPage);
 
     m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18n("Please describe you printer"));
     addPage(m_addPrinterPage);
@@ -84,35 +84,16 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // And if it hasChanges() we get it's values and
     // pass it to the next page so it "clans up" and
     // start as it was the first time
-    bool currentChanged = qobject_cast<GenericPage*>(currentPage->widget())->hasChanges();
-    QHash<QString, QString> args = qobject_cast<GenericPage*>(currentPage->widget())->values();
+    QHash<QString, QVariant> args = qobject_cast<GenericPage*>(currentPage->widget())->values();
     if (currentPage == m_introPage) {
-        if (args["add-new-printer"] == "1") {
-            qobject_cast<GenericPage*>(m_devicesPage->widget())->setValues(args);
-            setCurrentPage(m_devicesPage);
-        } else {
-        }
+        qobject_cast<GenericPage*>(m_devicesPage->widget())->setValues(args);
+        setCurrentPage(m_devicesPage);
     } else if (currentPage == m_devicesPage) {
-        if (currentChanged) {
-            qobject_cast<GenericPage*>(m_serialPage->widget())->setValues(args);
-            qobject_cast<GenericPage*>(m_uriPage->widget())->setValues(args);
-            qobject_cast<GenericPage*>(m_addPrinterPage->widget())->setValues(args);
-        }
-
-        if (!args["device-uri"].contains('/')) {
-            setCurrentPage(m_uriPage);
-        } else if (args["device-uri"].startsWith(QLatin1String("serial:"))) {
-            setCurrentPage(m_serialPage);
-        } else {
-            setCurrentPage(m_addPrinterPage);
-        }
-    } else if (currentPage == m_uriPage ||
-               currentPage == m_serialPage) {
-
+        qobject_cast<GenericPage*>(m_choosePage->widget())->setValues(args);
+        setCurrentPage(m_choosePage);
+    } else if (currentPage == m_choosePage) {
         //TODO the serial page will provite the connection that the uri provides
-        if (currentChanged) {
-            qobject_cast<GenericPage*>(m_addPrinterPage->widget())->setValues(args);
-        }
+        qobject_cast<GenericPage*>(m_addPrinterPage->widget())->setValues(args);
         setCurrentPage(m_addPrinterPage);
     }
 }
@@ -136,6 +117,34 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         }
     } else {
         next(page);
+    }
+}
+
+void AddPrinterAssistant::slotButtonClicked(int button)
+{
+    if (button == KDialog::User1) {
+        QHash<QString, QVariant> args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
+        kDebug() << args;
+        QCups::Result *result;
+        bool isClass = !args.take("add-new-printer").toBool();
+        if (isClass) {
+            result = QCups::addClass(args);
+        } else {
+            return;
+        }
+        result->waitTillFinished();
+        if (result->hasError()) {
+            kDebug() << result->lastError();
+            KMessageBox::detailedSorry(this,
+                                       isClass ? i18n("Failed to add class") : i18n("Failed to add printer"),
+                                       result->lastErrorString(),
+                                       i18n("Failed"));
+        } else {
+            KAssistantDialog::slotButtonClicked(button);
+        }
+        result->deleteLater();
+    } else {
+        KAssistantDialog::slotButtonClicked(button);
     }
 }
 

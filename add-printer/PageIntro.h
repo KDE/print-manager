@@ -32,8 +32,8 @@ public:
     PageIntro(QWidget *parent = 0);
     ~PageIntro();
 
-    bool hasChanges();
-    QHash<QString, QString> values();
+    bool hasChanges() const;
+    QHash<QString, QVariant> values() const;
 };
 
 #endif

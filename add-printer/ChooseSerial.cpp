@@ -18,34 +18,31 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PageIntro.h"
+#include "ChooseSerial.h"
 
 #include <QPainter>
-
 #include <KDebug>
 
-PageIntro::PageIntro(QWidget *parent)
- : GenericPage(parent)
+ChooseSerial::ChooseSerial(QWidget *parent)
+ : GenericPage(parent), m_rx("?baud=(\\d+)"), m_isValid(false)
 {
     setupUi(this);
-    setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
-    setWindowTitle(i18n("Welcome to the add printer wizard"));
+    setWindowTitle(i18n("Select a Printer to Add"));
     // loads the standard key icon
     QPixmap pixmap;
-    pixmap = KIconLoader::global()->loadIcon("computer",
+    pixmap = KIconLoader::global()->loadIcon("printer",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeEnormous, // a not so huge icon
                                              KIconLoader::DefaultState);
     QPixmap icon(pixmap);
     QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon("applications-other.png",
+    pixmap = KIconLoader::global()->loadIcon("preferences-other",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeLarge, // a not so huge icon
                                              KIconLoader::DefaultState);
-
     // the the emblem icon to size 32
     int overlaySize = KIconLoader::SizeLarge;
     QPoint startPoint;
@@ -53,44 +50,85 @@ PageIntro::PageIntro(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    computerL->setPixmap(icon);
-//     softwareL->setPixmap(pixmap);
+    printerL->setPixmap(icon);
 
-    pixmap = KIconLoader::global()->loadIcon("printer",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeEnormous, // a not so huge icon
-                                             KIconLoader::DefaultState);
+    parityCB->addItem(i18n("None"), "none");
+    parityCB->addItem(i18n("Even"), "even");
+    parityCB->addItem(i18n("Odd"),  "odd");
 
-    QPixmap icon2(pixmap);
-    pixmap = KIconLoader::global()->loadIcon("tools-wizard",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeLarge, // a not so huge icon
-                                             KIconLoader::DefaultState);
-    QPainter painter2(&icon2);
-    // the the emblem icon to size 32
-//      overlaySize = KIconLoader::SizeLarge;
-//     QPoint startPoint;
-    // bottom right corner
-    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-                        KIconLoader::SizeEnormous - overlaySize - 2);
-    painter2.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon2);
+    flowCB->addItem(i18n("None"), "none");
+    flowCB->addItem(i18n("XON/XOFF (Software)"), "soft");
+    flowCB->addItem(i18n("RTS/CTS (Hardware)"),  "hard");
+    flowCB->addItem(i18n("DTR/DSR (Hardware)"),  "dtrdsr");
 }
 
-PageIntro::~PageIntro()
+ChooseSerial::~ChooseSerial()
 {
 }
 
-bool PageIntro::hasChanges() const
+bool ChooseSerial::isValid() const
 {
-    return (m_args["add-new-printer"] == "1") != addNewPrinterCB->isChecked();
+    return m_isValid;
+};
+
+void ChooseSerial::setValues(const QHash<QString, QVariant> &args)
+{
+    m_args = args;
+    QString deviceUri = args["device-uri"].toString();
+    if (!deviceUri.startsWith(QLatin1String("serial:"))) {
+        m_isValid = false;
+        return;
+    }
+    m_isValid = true;
+
+    static int    baudrates[] =       /* Baud rates */
+    {
+        1200,
+        2400,
+        4800,
+        9600,
+        19200,
+        38400,
+        57600,
+        115200,
+        230400,
+        460800
+    };
+
+    int maxrate;
+    if (m_rx.indexIn(deviceUri) != -1) {
+        maxrate = m_rx.cap(1).toInt();
+    } else {
+        maxrate = 19200;
+    }
+
+    baudRateCB->clear();
+    for (int i = 0; i < 10; i ++) {
+        if (baudrates[i] > maxrate) {
+            break;
+        } else {
+            baudRateCB->addItem(QString::number(baudrates[i]));
+        }
+    }
 }
 
-QHash<QString, QVariant> PageIntro::values() const
+void ChooseSerial::load()
+{
+}
+
+QHash<QString, QVariant> ChooseSerial::values() const
 {
     QHash<QString, QVariant> ret = m_args;
-    ret["add-new-printer"] = addNewPrinterCB->isChecked();
+    QString deviceUri = m_args["device-uri"].toString();
+    int pos = deviceUri.indexOf('?');
+    QString baudRate = baudRateCB->currentText();
+    QString bits = bitsCB->currentText();
+    QString parity = baudRateCB->itemData(baudRateCB->currentIndex()).toString();
+    QString flow = flowCB->itemData(flowCB->currentIndex()).toString();
+    QString replace = QString("?baud=%1+bits=%2+parity=%3+flow=%4").arg(baudRate).arg(bits).arg(parity).arg(flow);
+    deviceUri.replace(pos, deviceUri.size() - pos, replace);
+    ret["device-uri"] = deviceUri;
     return ret;
 }
 
-#include "PageIntro.moc"
+#include "ChooseSerial.moc"

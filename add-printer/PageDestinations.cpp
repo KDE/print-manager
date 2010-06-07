@@ -32,7 +32,8 @@
 // gwenview floater, jockey proprietary dirvers
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
 PageDestinations::PageDestinations(QWidget *parent)
- : GenericPage(parent)
+ : GenericPage(parent),
+   m_isValid(false)
 {
     setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -78,13 +79,23 @@ PageDestinations::~PageDestinations()
 {
 }
 
-void PageDestinations::setValues(const QHash<QString, QString> &args)
+void PageDestinations::setValues(const QHash<QString, QVariant> &args)
 {
     m_args = args;
-    m_model->update();
+    if (args["add-new-printer"].toBool()) {
+        m_isValid = true;
+        m_model->update();
+    } else {
+        m_isValid = false;
+    }
 }
 
-bool PageDestinations::hasChanges()
+bool PageDestinations::isValid() const
+{
+    return m_isValid;
+}
+
+bool PageDestinations::hasChanges() const
 {
     QString deviceURI;
     if (canProceed()) {
@@ -93,19 +104,20 @@ bool PageDestinations::hasChanges()
     return deviceURI != m_args["device-uri"];
 }
 
-QHash<QString, QString> PageDestinations::values()
+QHash<QString, QVariant> PageDestinations::values() const
 {
+    QHash<QString, QVariant> ret = m_args;
     if (canProceed()) {
         QModelIndex index = devicesLV->selectionModel()->selectedIndexes().first();
         kDebug() << index.data(DevicesModel::DeviceURI).toString();
-        m_args["device-uri"] = index.data(DevicesModel::DeviceURI).toString();
-        m_args["device-make-and-model"] = index.data(DevicesModel::DeviceMakeAndModel).toString();
-        m_args["device-info"] = index.data(DevicesModel::DeviceInfo).toString();
+        ret["device-uri"] = index.data(DevicesModel::DeviceURI).toString();
+        ret["device-make-and-model"] = index.data(DevicesModel::DeviceMakeAndModel).toString();
+        ret["device-info"] = index.data(DevicesModel::DeviceInfo).toString();
     }
-    return m_args;
+    return ret;
 }
 
-bool PageDestinations::canProceed()
+bool PageDestinations::canProceed() const
 {
     // It can proceed if one and JUST one item is selected
     // (if the user clicks on the category all items in it get selected)

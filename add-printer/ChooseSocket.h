@@ -18,19 +18,33 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
+#ifndef CHOOSE_SOCKET_H
+#define CHOOSE_SOCKET_H
+
+#include "ui_ChooseSocket.h"
+
 #include "GenericPage.h"
+#include <QRegExp>
 
-GenericPage::GenericPage(QWidget *parent)
- : QWidget(parent)
+class ChooseSocket : public GenericPage, Ui::ChooseSocket
 {
-}
+    Q_OBJECT
+public:
+    ChooseSocket(QWidget *parent = 0);
+    ~ChooseSocket();
 
-QHash<QString, QVariant> GenericPage::values() const
-{
-    return QHash<QString, QVariant>();
-}
+    void setValues(const QHash<QString, QVariant> &args);
+    bool isValid() const;
 
-void GenericPage::setValues(const QHash<QString, QVariant> &args)
-{
-    Q_UNUSED(args)
-}
+public slots:
+    void load();
+    void on_detectPB_clicked();
+
+private slots:
+    void checkSelected();
+
+private:
+    bool m_isValid;
+};
+
+#endif

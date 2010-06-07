@@ -108,11 +108,31 @@ void DevicesModel::device(const QString &devClass,
     QStandardItem *device;
     if (devMakeAndModel != "Unknown") {
         device = new QStandardItem(devInfo + " (" + devMakeAndModel + ')');
-        device->setData(devUri + '|' + devMakeAndModel, DeviceURI);
+        device->setData(devUri, DeviceURI);
         device->setData(devMakeAndModel, DeviceMakeAndModel);
     } else {
         device = new QStandardItem(devInfo);
         device->setData(devUri, DeviceURI);
+    }
+
+    if (devUri.startsWith("parallel")) {
+        device->setToolTip(i18n("A printer connected to the parallel port"));
+    } else if (devUri.startsWith("usb")) {
+        device->setToolTip(i18n("A printer connected to a USB port"));
+    } else if (devUri.startsWith("bluetooth")) {
+        device->setToolTip(i18n("A printer connected via Bluetooth"));
+    } else if (devUri.startsWith("hal")) {
+        device->setToolTip(i18n("Local printer detected by the "
+                                "Hardware Abstraction Layer (HAL)"));
+    } else if (devUri.startsWith("hp")) {
+        device->setToolTip(i18n("HPLIP software driving a printer, "
+                                "or the printer function of a multi-function device"));
+    } else if (devUri.startsWith("hpfax")) {
+        device->setToolTip(i18n("HPLIP software driving a fax machine, "
+                                "or the fax function of a multi-function device"));
+    } else if (devUri.startsWith("dnssd") ||
+               devUri.startsWith("mdns")) {
+        device->setToolTip(i18n("Remote CUPS printer via DNS-SD"));
     }
     device->setData(devInfo, DeviceInfo);
 

@@ -1,0 +1,133 @@
+/***************************************************************************
+ *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   dantti85-pk@yahoo.com.br                                              *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; see the file COPYING. If not, write to       *
+ *   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,  *
+ *   Boston, MA 02110-1301, USA.                                           *
+ ***************************************************************************/
+
+#include "PageChoose.h"
+
+#include "ChooseIpp.h"
+#include "ChooseLpd.h"
+#include "ChoosePrinters.h"
+#include "ChooseSamba.h"
+#include "ChooseSerial.h"
+#include "ChooseSocket.h"
+#include "ChooseUri.h"
+
+#include <KDebug>
+
+PageChoose::PageChoose(QWidget *parent)
+ : GenericPage(parent)
+{
+    m_chooseIpp      = new ChooseIpp(this);
+    m_chooseLpd      = new ChooseLpd(this);
+    m_choosePrinters = new ChoosePrinters(this);
+    m_chooseSamba    = new ChooseSamba(this);
+    m_chooseSerial   = new ChooseSerial(this);
+    m_chooseSocket   = new ChooseSocket(this);
+    m_chooseUri      = new ChooseUri(this);
+
+    m_layout = new QStackedLayout(this);
+    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->addWidget(m_chooseIpp);
+    m_layout->addWidget(m_chooseLpd);
+    m_layout->addWidget(m_choosePrinters);
+    m_layout->addWidget(m_chooseSamba);
+    m_layout->addWidget(m_chooseSerial);
+    m_layout->addWidget(m_chooseSocket);
+    m_layout->addWidget(m_chooseUri);
+
+    setLayout(m_layout);
+}
+
+PageChoose::~PageChoose()
+{
+}
+
+void PageChoose::setValues(const QHash<QString, QVariant> &args)
+{
+    kDebug() << args;
+    if (m_args == args) {
+        return;
+    }
+
+    m_isValid = true;
+    m_args = args;
+    if (args["add-new-printer"].toBool()) {
+        QString deviceUri = args["device-uri"].toString();
+        if (deviceUri.startsWith("parallel") ||
+            deviceUri.startsWith("usb") ||
+            deviceUri.startsWith("bluetooth") ||
+            deviceUri.startsWith("hal") ||
+            deviceUri.startsWith("beh") ||
+            deviceUri.startsWith("hp") ||
+            deviceUri.startsWith("hpfax") ||
+            deviceUri.startsWith("dnssd")) {
+            // Set as false to jump to the next page
+            m_isValid = false;
+        } else if (deviceUri.startsWith("socket")) {
+            m_layout->setCurrentWidget(m_chooseSocket);
+        } else if (deviceUri.startsWith("ipp") ||
+                   deviceUri.startsWith("http") ||
+                   deviceUri.startsWith("https")) {
+            m_layout->setCurrentWidget(m_chooseIpp);
+        } else if (deviceUri.startsWith("lpd")) {
+            m_layout->setCurrentWidget(m_chooseLpd);
+        } else if (deviceUri.startsWith("scsi")) {
+            // TODO
+            m_layout->setCurrentWidget(m_chooseUri);
+        } else if (deviceUri.startsWith("serial:")) {
+            m_layout->setCurrentWidget(m_chooseSerial);
+        } else if (deviceUri.startsWith("smb")) {
+            m_layout->setCurrentWidget(m_chooseSamba);
+        } else if (deviceUri.startsWith("network")) {
+            m_layout->setCurrentWidget(m_chooseUri);
+        } else {
+            m_layout->setCurrentWidget(m_chooseUri);
+        }
+    } else {
+        kDebug() << "adding a class";
+        // we are adding a class
+        m_layout->setCurrentWidget(m_choosePrinters);
+    }
+    qobject_cast<GenericPage *>(m_layout->currentWidget())->setValues(args);
+}
+
+bool PageChoose::isValid() const
+{
+    return m_isValid;
+}
+
+void PageChoose::load()
+{
+}
+
+QHash<QString, QVariant> PageChoose::values() const
+{
+    if (m_isValid) {
+        return qobject_cast<GenericPage *>(m_layout->currentWidget())->values();
+    } else {
+        return m_args;
+    }
+}
+
+void PageChoose::checkSelected()
+{
+//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+}
+
+#include "PageChoose.moc"

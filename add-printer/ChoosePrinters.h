@@ -18,30 +18,30 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PAGE_SERIAL_H
-#define PAGE_SERIAL_H
+#ifndef CHOOSE_PRINTERS_H
+#define CHOOSE_PRINTERS_H
 
-#include "ui_PageSerial.h"
+#include "ui_ChoosePrinters.h"
 
 #include "GenericPage.h"
-#include <QRegExp>
-
-class PageSerial : public GenericPage, Ui::PageSerial
+namespace QCups {
+    class ClassListWidget;
+}
+class ChoosePrinters : public GenericPage, Ui::ChoosePrinters
 {
     Q_OBJECT
 public:
-    PageSerial(QWidget *parent = 0);
-    ~PageSerial();
+    ChoosePrinters(QWidget *parent = 0);
+    ~ChoosePrinters();
 
-    void setValues(const QHash<QString, QString> &args);
-    QHash<QString, QString> values();
+    void setValues(const QHash<QString, QVariant> &args);
+    QHash<QString, QVariant> values() const;
+    bool isValid() const;
 
 public slots:
     void load();
-    bool isValid();
 
 private:
-    QRegExp m_rx;
     bool m_isValid;
 };
 

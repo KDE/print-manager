@@ -18,25 +18,25 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PAGE_URI_H
-#define PAGE_URI_H
+#ifndef CHOOSE_URI_H
+#define CHOOSE_URI_H
 
-#include "ui_PageUri.h"
+#include "ui_ChooseUri.h"
 
 #include "GenericPage.h"
 #include <QRegExp>
 
-class PageUri : public GenericPage, Ui::PageUri
+class ChooseUri : public GenericPage, Ui::ChooseUri
 {
     Q_OBJECT
 public:
-    PageUri(QWidget *parent = 0);
-    ~PageUri();
+    ChooseUri(QWidget *parent = 0);
+    ~ChooseUri();
 
-    void setValues(const QHash<QString, QString> &args);
+    void setValues(const QHash<QString, QVariant> &args);
+    bool isValid() const;
 
 public slots:
-    bool isValid();
     void load();
 
 private slots:

@@ -18,19 +18,50 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
+#ifndef PAGE_CHOOSE_H
+#define PAGE_CHOOSE_H
+
 #include "GenericPage.h"
 
-GenericPage::GenericPage(QWidget *parent)
- : QWidget(parent)
-{
-}
+#include <QStackedLayout>
 
-QHash<QString, QVariant> GenericPage::values() const
-{
-    return QHash<QString, QVariant>();
-}
 
-void GenericPage::setValues(const QHash<QString, QVariant> &args)
+class ChooseIpp;
+class ChooseLpd;
+class ChoosePrinters;
+class ChooseSamba;
+class ChooseSerial;
+class ChooseSocket;
+class ChooseUri;
+class PageChoose : public GenericPage
 {
-    Q_UNUSED(args)
-}
+    Q_OBJECT
+public:
+    PageChoose(QWidget *parent = 0);
+    ~PageChoose();
+
+    void setValues(const QHash<QString, QVariant> &args);
+    bool isValid() const;
+    QHash<QString, QVariant> values() const;
+
+public slots:
+    void load();
+
+private slots:
+    void checkSelected();
+
+private:
+    bool m_isValid;
+    QHash<QString, QVariant> m_args;
+    QStackedLayout *m_layout;
+    GenericPage    *m_currentPage;
+    ChooseIpp      *m_chooseIpp;
+    ChooseLpd      *m_chooseLpd;
+    ChoosePrinters *m_choosePrinters;
+    ChooseSamba    *m_chooseSamba;
+    ChooseSerial   *m_chooseSerial;
+    ChooseSocket   *m_chooseSocket;
+    ChooseUri      *m_chooseUri;
+};
+
+#endif

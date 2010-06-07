@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageUri</class>
- <widget class="QWidget" name="PageUri">
+ <class>ChooseSerial</class>
+ <widget class="QWidget" name="ChooseSerial">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -84,42 +84,65 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Connection:</string>
+        <string>Baud Rate:</string>
+       </property>
+       <property name="buddy">
+        <cstring>baudRateCB</cstring>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="KLineEdit" name="connectionLE"/>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Parity:</string>
+       </property>
+       <property name="buddy">
+        <cstring>parityCB</cstring>
+       </property>
+      </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLabel" name="label">
+      <widget class="KComboBox" name="parityCB"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>&lt;TABLE&gt;
-&lt;TR&gt;
-&lt;TD&gt;Examples:
-&lt;PRE&gt;
-    http://hostname:631/ipp/
-    http://hostname:631/ipp/port1
-
-    ipp://hostname/ipp/
-    ipp://hostname/ipp/port1
-
-    lpd://hostname/queue
-
-    socket://hostname
-    socket://hostname:9100
-&lt;/PRE&gt;
-
-&lt;P&gt;See &lt;A HREF=&quot;/help/network.html&quot; TARGET=&quot;_blank&quot;&gt;&quot;Network
-Printers&quot;&lt;/A&gt; for the correct URI to use with your printer.&lt;/P&gt;
-&lt;/TD&gt;
-&lt;/TR&gt;
-&lt;/TABLE&gt;</string>
+        <string>Data Bits:</string>
        </property>
-       <property name="wordWrap">
-        <bool>true</bool>
+       <property name="buddy">
+        <cstring>bitsCB</cstring>
        </property>
       </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="KComboBox" name="bitsCB">
+       <item>
+        <property name="text">
+         <string notr="true">8</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string notr="true">7</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Flow Control:</string>
+       </property>
+       <property name="buddy">
+        <cstring>flowCB</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="KComboBox" name="flowCB"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="KComboBox" name="baudRateCB"/>
      </item>
     </layout>
    </item>
@@ -127,9 +150,9 @@ Printers&quot;&lt;/A&gt; for the correct URI to use with your printer.&lt;/P&gt;
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

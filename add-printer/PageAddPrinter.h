@@ -33,14 +33,16 @@ public:
     PageAddPrinter(QWidget *parent = 0);
     ~PageAddPrinter();
 
-    void setValues(const QHash<QString, QString> &args);
+    void setValues(const QHash<QString, QVariant> &args);
+    QHash<QString, QVariant> values() const;
+    bool canProceed() const;
 
 public slots:
     void load();
 
 private slots:
     void checkSelected();
-
+    void on_nameLE_textChanged(const QString &text);
 };
 
 #endif

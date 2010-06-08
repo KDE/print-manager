@@ -59,7 +59,7 @@ ipp_t * ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
     return request;
 }
 
-static uint password_retries = 0;
+static int password_retries = 0;
 const char * thread_password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)
 {
     Q_UNUSED(prompt)
@@ -70,14 +70,14 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
     kDebug() << QThread::currentThreadId()
              << "-----------thread_password_cb------"<< "password_retries" << password_retries;
 
-    if (password_retries == 3) {
+    if (++password_retries > 3) {
         // cancel the authentication
         cupsSetUser(NULL);
         return NULL;
     }
 
     bool showErrorMessage = false;
-    if (password_retries) {
+    if (password_retries > 1) {
         showErrorMessage = true;
     }
 
@@ -98,7 +98,7 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
     QObject *response = loop;
     if (response->property("canceled").toBool()) {
         // the dialog was canceled
-        password_retries = 3;
+        password_retries = -1;
         cupsSetUser(NULL);
         return NULL;
     } else {
@@ -138,16 +138,14 @@ void CupsThreadRequest::run()
 
 bool Request::retry()
 {
-//     http_t     *http = CUPS_HTTP_DEFAULT;
     kDebug() << "cupsLastErrorString()" << cupsLastErrorString() << cupsLastError() << IPP_FORBIDDEN;
-//     kDebug() << http->digest_tries;
     if (cupsLastError() == IPP_FORBIDDEN ||
         cupsLastError() == IPP_NOT_AUTHORIZED ||
         cupsLastError() == IPP_NOT_AUTHENTICATED) {
         if (password_retries == 0) {
             // try to authenticate as the root user
             cupsSetUser("root");
-        } else if (password_retries >= 3) {
+        } else if (password_retries > 3 || password_retries == -1) {
             // the authentication failed 3 times
             // OR the dialog was canceld (-1)
             // reset to 0 and quit the do-while loop
@@ -157,9 +155,7 @@ bool Request::retry()
 
         // force authentication
         kDebug() << "cupsDoAuthentication" << password_retries;
-        if (cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", "/") == -1) {
-        }
-        password_retries++;
+        cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", "/");
         // tries to do the action again
         // sometimes just trying to be root works
         return true;
@@ -337,13 +333,20 @@ void Request::request(Result        *result,
         while (i != values.constEnd()) {
             switch (i.value().type()) {
             case QVariant::Bool:
-                ippAddBoolean(request, IPP_TAG_OPERATION,
-                            i.key().toUtf8(), i.value().toBool());
+                if (i.key() == "printer-is-accepting-jobs") {
+                    ippAddBoolean(request, IPP_TAG_PRINTER, "printer-is-accepting-jobs", i.value().toBool());
+                } else {
+                    ippAddBoolean(request, IPP_TAG_OPERATION,
+                                  i.key().toUtf8(), i.value().toBool());
+                }
                 break;
             case QVariant::Int:
                 if (i.key() == "job-id") {
                     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
                                   "job-id", i.value().toInt());
+                } else if (i.key() == "printer-state") {
+                    ippAddInteger(request, IPP_TAG_PRINTER, IPP_TAG_ENUM,
+                                  "printer-state", IPP_PRINTER_IDLE);
                 } else {
                     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
                                   i.key().toUtf8(), i.value().toInt());

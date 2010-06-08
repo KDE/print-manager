@@ -34,11 +34,11 @@
 
 PrinterDescription::PrinterDescription(QWidget *parent)
  : QWidget(parent),
-   m_markerChangeTime(0)
+   m_markerChangeTime(0),
+   m_isClass(false)
 {
     setupUi(this);
 
-//     // setup default options
     // loads the standard key icon
     m_printerIcon = KIconLoader::global()->loadIcon("printer",
                                                     KIconLoader::NoGroup,
@@ -110,7 +110,6 @@ void PrinterDescription::setPrinterIcon(const QIcon &icon)
 
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
 {
-    m_isClass = isClass;
     m_destName = name;
 
     m_markerData.clear();

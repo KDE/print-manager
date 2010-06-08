@@ -23,20 +23,21 @@
 
 #include <QStandardItemModel>
 #include <QListView>
+#include <kdemacros.h>
 
 namespace QCups {
 
-class ClassListWidget : public QListView
+class KDE_EXPORT ClassListWidget : public QListView
 {
     Q_OBJECT
 public:
-    explicit ClassListWidget(const QString &destName, QWidget *parent = 0);
+    explicit ClassListWidget(QWidget *parent = 0);
     ~ClassListWidget();
 
     bool hasChanges();
     QStringList selectedDests() const;
 
-    void reload(const QStringList &memberNames);
+    void reload(const QString &destName, const QStringList &memberNames = QStringList());
 
 signals:
     void changed(bool changed);
@@ -44,7 +45,6 @@ private slots:
     void modelChanged();
 
 private:
-    QString m_destName;
     QStringList m_selectedDests;
     bool m_changed;
     QStandardItemModel *m_model;

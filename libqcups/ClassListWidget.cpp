@@ -31,8 +31,8 @@
 
 using namespace QCups;
 
-ClassListWidget::ClassListWidget(const QString &destName, QWidget *parent)
- : QListView(parent), m_destName(destName)
+ClassListWidget::ClassListWidget(QWidget *parent)
+ : QListView(parent)
 {
     m_model = new QStandardItemModel(this);
     setModel(m_model);
@@ -45,7 +45,7 @@ ClassListWidget::~ClassListWidget()
 {
 }
 
-void ClassListWidget::reload(const QStringList &memberNames)
+void ClassListWidget::reload(const QString &m_destName, const QStringList &memberNames)
 {
     ReturnArguments dests;
     // Ask just these attributes

@@ -105,6 +105,8 @@ namespace QCups
     KDE_EXPORT Result* getDests(int mask, const QStringList &requestedAttr = QStringList());
     KDE_EXPORT Result* getJobs(const QString &destName, bool myJobs, int whichJobs, const QStringList &requestedAttr = QStringList());
 
+    KDE_EXPORT Result* addClass(const QHash<QString, QVariant> &values);
+
     /*
      The result will be in hashStrStr()
     */

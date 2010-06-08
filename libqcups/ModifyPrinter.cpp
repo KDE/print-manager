@@ -50,6 +50,7 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModif
     membersL->setVisible(isClass);
     membersLV->setVisible(isClass);
 
+    // TODO remove this member code and use the class list widget
     m_model = new QStandardItemModel(membersLV);
     membersLV->setModel(m_model);
 

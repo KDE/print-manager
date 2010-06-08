@@ -5,6 +5,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/mod
 find_package(KDE4 REQUIRED)
 find_package(CUPS "1.4" REQUIRED)
 
+include(FindPkgConfig)
 include(KDE4Defaults)
 
 add_definitions(${QT_DEFINITIONS} ${KDE_DEFINITIONS})

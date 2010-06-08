@@ -228,6 +228,7 @@ Result* QCups::Dest::setAttributes(const QString &destName, bool isClass, const 
     }
 
     ipp_op_e op;
+    // TODO this seems weird now.. review this code..
     if (isClass && values.contains("member-uris")) {
         op = CUPS_ADD_CLASS;
     } else {
@@ -451,6 +452,37 @@ Result* QCups::Dest::printCommand(const QString &destName, const QString &comman
                               Q_ARG(QString, destName),
                               Q_ARG(QString, command),
                               Q_ARG(QString, title));
+
+    return result;
+}
+
+Result* QCups::addClass(const QHash<QString, QVariant> &values)
+{
+    if (values.isEmpty()) {
+        return 0;
+    }
+
+    QHash<QString, QVariant> request(values);
+    request["printer-is-class"] = true;
+    request["printer-is-accepting-jobs"] = true;
+    request["printer-state"] = IPP_PRINTER_IDLE;
+
+    ipp_op_e op = CUPS_ADD_CLASS;;
+//     if (isClass && values.contains("member-uris")) {
+//         op = CUPS_ADD_CLASS;
+//     } else {
+//         op = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
+//     }
+
+    Result *result = new Result(NCups::instance());
+    QMetaObject::invokeMethod(NCups::instance()->request(),
+                              "request",
+                              Qt::QueuedConnection,
+                              Q_ARG(Result*, result),
+                              Q_ARG(ipp_op_e, op),
+                              Q_ARG(QString, "/admin/"),
+                              Q_ARG(Arguments, request),
+                              Q_ARG(bool, false));
 
     return result;
 }

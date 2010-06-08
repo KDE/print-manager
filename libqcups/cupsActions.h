@@ -61,7 +61,6 @@ namespace QCups
 
     private:
         void run();
-
     };
 };
 

@@ -22,6 +22,8 @@
 #define PRINT_KCM_H
 
 #include <KCModule>
+#include <KTitleWidget>
+#include <QStackedLayout>
 
 #include "ui_PrintKCM.h"
 
@@ -42,9 +44,16 @@ private slots:
     void on_configurePrinterPB_clicked();
     void on_preferencesPB_clicked();
 
+    void error(bool hasError, const QString &errorTitle, const QString &errorMsg);
+
 private:
     PrinterModel *m_model;
+    QStackedLayout *m_stackedLayout;
     PrinterDescription *m_printerDesc;
+    QWidget *m_noPrinter;
+    QWidget *m_serverError;
+    KTitleWidget *m_serverErrorW;
+    bool m_hasError;
 };
 
 #endif

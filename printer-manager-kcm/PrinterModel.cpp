@@ -27,30 +27,34 @@
 #include <KLocale>
 #include <KMessageBox>
 
+#include <QCupsStrings.h>
 #include <cups/cups.h>
 
 PrinterModel::PrinterModel(WId parentId, QObject *parent)
  : QStandardItemModel(parent),
    m_parentId(parentId)
 {
-    setHorizontalHeaderItem(0,    new QStandardItem(i18n("Printers")));
     // setup the timer that updates the UIs
     m_updateT = new QTimer(this);
     m_updateT->setInterval(1000);
     connect(m_updateT, SIGNAL(timeout()), this, SLOT(update()));
-    update();
     m_updateT->start();
 }
 
 void PrinterModel::getDestsFinished()
 {
+}
 
-
+QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    if (section == 0 && orientation == Qt::Horizontal && role == Qt::DisplayRole) {
+        return i18n("Printers");
+    }
+    return QVariant();
 }
 
 void PrinterModel::update()
 {
-        kDebug();
     QStringList requestAttr;
     requestAttr << "printer-name"
                 << "printer-state"
@@ -71,15 +75,20 @@ void PrinterModel::update()
     // Get destinations with these attributes
     QCups::Result *ret = QCups::getDests(-1, requestAttr);
     ret->waitTillFinished();
+    if (ret->hasError()) {
+        emit error(true, QCups::serverError(ret->lastError()), ret->lastErrorString());
+        // clear the model after so that the proper widget can be shown
+        clear();
+        return;
+    }
+
     QCups::ReturnArguments dests;
 //     Result *ret = qobject_cast<Result*>(sender());
     dests = ret->result();
     // TODO Inform the user when the server is Unavailable
-//     kDebug() << dests ;
     ret->deleteLater();
 
     for (int i = 0; i < dests.size(); i++) {
-//         kDebug() << dests.at(i);
         // If there is a printer and it's not the current one add it
         // as a new destination
         int dest_row = destRow(dests.at(i)["printer-name"].toString());
@@ -106,6 +115,8 @@ void PrinterModel::update()
     while (rowCount() > dests.size()) {
         removeRow(rowCount() - 1);
     }
+
+    emit error(false, QString(), QString());
 }
 
 void PrinterModel::insertDest(int pos, const QCups::Destination &dest)
@@ -148,6 +159,13 @@ void PrinterModel::updateDest(QStandardItem *destItem, const QCups::Destination 
     bool isClass = dest["printer-type"].toInt() & CUPS_PRINTER_CLASS;
     if (isClass != destItem->data(DestIsClass)) {
         destItem->setData(isClass, DestIsClass);
+    }
+
+    // store if the printer type
+    // the printer-type param is a flag
+    int printerType = dest["printer-type"].toInt();
+    if (printerType != destItem->data(DestType)) {
+        destItem->setData(printerType, DestType);
     }
 
     // store the printer location

@@ -581,6 +581,8 @@ KIcon QCups::Dest::icon(const QString &destName, int printerType)
     if (!(printerType & CUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one
         return KIcon("printer-laser");
+    } else if (printerType & CUPS_PRINTER_SCANNER) {
+        return KIcon("scanner");
     } else {
         return KIcon("printer");
     }

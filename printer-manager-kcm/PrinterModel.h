@@ -41,6 +41,7 @@ public:
         DestLocation,
         DestDescription,
         DestKind,
+        DestType,
         DestCommands,
         DestMarkerChangeTime,
         DestMarkerLevels,
@@ -59,10 +60,14 @@ public:
     explicit PrinterModel(WId parentId, QObject *parent = 0);
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
 
 public slots:
     void update();
     void getDestsFinished();
+
+signals:
+    void error(bool hasError, const QString &errorTitle, const QString &errorMsg);
 
 private:
     WId m_parentId;

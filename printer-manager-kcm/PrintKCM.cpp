@@ -29,18 +29,22 @@
 #include <KMessageBox>
 #include <KGenericFactory>
 #include <KAboutData>
+#include <KTitleWidget>
 #include <KIcon>
 
 #include <QTimer>
 #include <QDBusMessage>
 #include <QDBusConnection>
+#include <QVBoxLayout>
 #include <QCups.h>
+#include <cups/cups.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
-    : KCModule(PrintKCMFactory::componentData(), parent, args)
+    : KCModule(PrintKCMFactory::componentData(), parent, args),
+      m_hasError(true)
 {
     KAboutData *aboutData;
     aboutData = new KAboutData("kcm_print",
@@ -67,14 +71,68 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
             this, SLOT(update()));
     connect(printersTV->model(), SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(update()));
+    connect(printersTV->model(), SIGNAL(error(bool, const QString &, const QString &)),
+            this, SLOT(error(bool, const QString &, const QString &)));
 
     // Create the PrinterDescription before we try to select a printer
-    m_printerDesc = new PrinterDescription(scrollArea);
+    m_printerDesc = new PrinterDescription(scrollAreaWidgetContents);
     m_printerDesc->hide();
 
+    // widget for when we don't have a printer
+    m_noPrinter = new QWidget(scrollAreaWidgetContents);
+    KTitleWidget *widget = new KTitleWidget(m_noPrinter);
+    widget->setText(i18n("You have no printers"),
+                         KTitleWidget::InfoMessage);
+    widget->setComment(i18n("If you want to add one just click on the plus sign below the list"));
+
+    QVBoxLayout *vertLayout = new QVBoxLayout(m_noPrinter);
+    vertLayout->addStretch();
+    vertLayout->addWidget(widget);
+    vertLayout->addStretch();
+
+    // if we get an error from the server we use this widget
+    m_serverError = new QWidget(scrollAreaWidgetContents);
+    m_serverErrorW = new KTitleWidget(m_serverError);
+    vertLayout = new QVBoxLayout(m_serverError);
+    vertLayout->addStretch();
+    vertLayout->addWidget(m_serverErrorW);
+    vertLayout->addStretch();
+
+    // the stacked layout allow us to chose which widget to show
+    m_stackedLayout = new QStackedLayout(scrollAreaWidgetContents);
+    m_stackedLayout->addWidget(m_serverError);
+    m_stackedLayout->addWidget(m_noPrinter);
+    m_stackedLayout->addWidget(m_printerDesc);
+    scrollAreaWidgetContents->setLayout(m_stackedLayout);
+
+    // Force the model update AFTER we setup the error signal
+    m_model->update();
+
     // select the first printer if there are printers
-    if (m_model->rowCount() > 0) {
+    if (m_model->rowCount()) {
         printersTV->selectionModel()->select(m_model->index(0, 0), QItemSelectionModel::Select);
+    }
+}
+
+void PrintKCM::error(bool hasError, const QString &errorTitle, const QString &errorMsg)
+{
+    if (hasError) {
+        m_serverErrorW->setText(errorTitle, KTitleWidget::ErrorMessage);
+        m_serverErrorW->setComment(errorMsg);
+        if (m_stackedLayout->widget() != m_serverError) {
+            m_stackedLayout->setCurrentWidget(m_serverError);
+        }
+    }
+
+    if (m_hasError != hasError) {
+        addPB->setEnabled(!hasError);
+        removePB->setEnabled(false);
+        configurePrinterPB->setEnabled(false);
+        preferencesPB->setEnabled(!hasError);
+        printersTV->setEnabled(!hasError);
+        m_hasError = hasError;
+        // Force an update
+        update();
     }
 }
 
@@ -84,22 +142,29 @@ PrintKCM::~PrintKCM()
 
 void PrintKCM::update()
 {
-    QItemSelection selection;
-    // we need to map the selection to source to get the real indexes
-    selection = printersTV->selectionModel()->selection();
-    // enable or disable the job action buttons if something is selected
-    if (!selection.indexes().isEmpty()) {
-        if (scrollArea->widget() != m_printerDesc) {
-            // always take the widget before setting a new one otherwise it will be deleted
-            scrollArea->takeWidget();
-            scrollArea->setWidget(m_printerDesc);
-            m_printerDesc->setAutoFillBackground(false);
+    if (m_model->rowCount()) {
+        if (m_stackedLayout->widget() != m_printerDesc) {
+            m_stackedLayout->setCurrentWidget(m_printerDesc);
         }
-        removePB->setEnabled(true);
-        QModelIndex index = selection.indexes().at(0);
+
+        QItemSelection selection;
+        // we need to map the selection to source to get the real indexes
+        selection = printersTV->selectionModel()->selection();
+        // select the first printer if there are printers
+        if (selection.indexes().isEmpty()) {
+            printersTV->selectionModel()->select(m_model->index(0, 0), QItemSelectionModel::Select);
+            return;
+        }
+
+        QModelIndex index = selection.indexes().first();
         QString destName = index.data(PrinterModel::DestName).toString();
         if (m_printerDesc->destName() != destName) {
             m_printerDesc->setPrinterIcon(index.data(Qt::DecorationRole).value<QIcon>());
+            int type = index.data(PrinterModel::DestType).toInt();
+            // If we remove discovered printers, they will come
+            // back to hunt us a bit later
+            removePB->setEnabled(!(type & CUPS_PRINTER_DISCOVERED));
+            configurePrinterPB->setEnabled(true);
         }
         m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                    index.data(PrinterModel::DestDescription).toString(),
@@ -116,11 +181,12 @@ void PrintKCM::update()
             m_printerDesc->setMarkerNames(index.data(PrinterModel::DestMarkerNames));
             m_printerDesc->setMarkerTypes(index.data(PrinterModel::DestMarkerTypes));
         }
-    } else if (!noPrinterL->isVisible()) {
-        // always take the widget before setting a new one otherwise it will be deleted
-        scrollArea->takeWidget();
-        scrollArea->setWidget(noPrinterL);
+    } else if (m_stackedLayout->widget() != m_noPrinter) {
+        // the model is empty and no problem happened
+        m_stackedLayout->setCurrentWidget(m_noPrinter);
+        // disable the printer action buttons if there is nothing to selected
         removePB->setEnabled(false);
+        configurePrinterPB->setEnabled(false);
     }
 }
 
@@ -143,7 +209,7 @@ void PrintKCM::on_removePB_clicked()
     selection = printersTV->selectionModel()->selection();
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
-        QModelIndex index = selection.indexes().at(0);
+        QModelIndex index = selection.indexes().first();
         int resp;
         QString msg, title;
         if (index.data(PrinterModel::DestIsClass).toBool()) {

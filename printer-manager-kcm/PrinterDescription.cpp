@@ -34,8 +34,8 @@
 
 PrinterDescription::PrinterDescription(QWidget *parent)
  : QWidget(parent),
-   m_markerChangeTime(0),
-   m_isClass(false)
+   m_isClass(false),
+   m_markerChangeTime(0)
 {
     setupUi(this);
 

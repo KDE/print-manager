@@ -23,6 +23,8 @@
 
 #include "PrinterOptions.h"
 
+#include <cctype>
+
 #include <cups/cups.h>
 #include "QCups.h"
 

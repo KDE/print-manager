@@ -8,6 +8,7 @@ X-KDE-Kded-phase=1
 
 Name=Print monitor
 Name[en_GB]=Print monitor
+Name[ja]=印刷モニタ
 Name[km]=ត្រួត​ពិនិត្យ​ការ​បោះពុម្ព
 Name[mai]=छपाइ मानिटर
 Name[pt]=Monitor de impressão
@@ -19,6 +20,7 @@ Name[x-test]=xxPrint monitorxx
 Comment=Monitor printer jobs
 Comment[en_GB]=Monitor printer jobs
 Comment[es]=Monitor de trabajos de impresión
+Comment[ja]=印刷ジョブを監視
 Comment[km]=ត្រួតពិនិត្យ​ការ​ងារ​របស់​ម៉ាស៊ីន​បោះពុម្ព
 Comment[pt]=Monitorizar as tarefas da impressora
 Comment[pt_BR]=Monitore trabalhos de impressão

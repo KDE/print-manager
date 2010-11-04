@@ -76,7 +76,7 @@ void PrinterModel::update()
     QCups::Result *ret = QCups::getDests(-1, requestAttr);
     ret->waitTillFinished();
     if (ret->hasError()) {
-        emit error(true, QCups::serverError(ret->lastError()), ret->lastErrorString());
+        emit error(ret->lastError(), QCups::serverError(ret->lastError()), ret->lastErrorString());
         // clear the model after so that the proper widget can be shown
         clear();
         return;
@@ -116,7 +116,7 @@ void PrinterModel::update()
         removeRow(rowCount() - 1);
     }
 
-    emit error(false, QString(), QString());
+    emit error(IPP_OK, QString(), QString());
 }
 
 void PrinterModel::insertDest(int pos, const QCups::Destination &dest)

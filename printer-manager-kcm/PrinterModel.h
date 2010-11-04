@@ -67,7 +67,7 @@ public slots:
     void getDestsFinished();
 
 signals:
-    void error(bool hasError, const QString &errorTitle, const QString &errorMsg);
+    void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
 private:
     WId m_parentId;

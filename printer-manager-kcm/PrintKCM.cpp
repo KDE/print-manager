@@ -44,7 +44,7 @@ K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     : KCModule(PrintKCMFactory::componentData(), parent, args),
-      m_hasError(true)
+      m_lastError(0)
 {
     KAboutData *aboutData;
     aboutData = new KAboutData("kcm_print",
@@ -71,8 +71,8 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
             this, SLOT(update()));
     connect(printersTV->model(), SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(update()));
-    connect(printersTV->model(), SIGNAL(error(bool, const QString &, const QString &)),
-            this, SLOT(error(bool, const QString &, const QString &)));
+    connect(printersTV->model(), SIGNAL(error(int, const QString &, const QString &)),
+            this, SLOT(error(int, const QString &, const QString &)));
 
     // Create the PrinterDescription before we try to select a printer
     m_printerDesc = new PrinterDescription(scrollAreaWidgetContents);
@@ -114,23 +114,39 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     }
 }
 
-void PrintKCM::error(bool hasError, const QString &errorTitle, const QString &errorMsg)
+void PrintKCM::error(int lastError, const QString &errorTitle, const QString &errorMsg)
 {
-    if (hasError) {
-        m_serverErrorW->setText(errorTitle, KTitleWidget::ErrorMessage);
-        m_serverErrorW->setComment(errorMsg);
+    if (lastError) {
+        // The user has no printer
+        // point him how to add a new one
+        if (lastError == IPP_NOT_FOUND) {
+            m_serverErrorW->setText(i18n("You have no printers"), KTitleWidget::InfoMessage);
+            m_serverErrorW->setComment(i18n("If you want to add one just click on the plus sign below the list"));
+        } else {
+            m_serverErrorW->setText(errorTitle, KTitleWidget::ErrorMessage);
+            m_serverErrorW->setComment(errorMsg);
+        }
+
         if (m_stackedLayout->widget() != m_serverError) {
             m_stackedLayout->setCurrentWidget(m_serverError);
         }
     }
 
-    if (m_hasError != hasError) {
-        addPB->setEnabled(!hasError);
+    if (m_lastError != lastError) {
+        // if no printer was found the server
+        // is still working
+        if (lastError == IPP_NOT_FOUND) {
+            addPB->setEnabled(true);
+            preferencesPB->setEnabled(true);
+        } else {
+            addPB->setEnabled(!lastError);
+            preferencesPB->setEnabled(!lastError);
+        }
+
         removePB->setEnabled(false);
         configurePrinterPB->setEnabled(false);
-        preferencesPB->setEnabled(!hasError);
-        printersTV->setEnabled(!hasError);
-        m_hasError = hasError;
+        printersTV->setEnabled(!lastError);
+        m_lastError = lastError;
         // Force an update
         update();
     }

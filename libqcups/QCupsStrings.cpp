@@ -29,6 +29,8 @@ QString QCups::serverError(int error)
     switch (error) {
     case IPP_SERVICE_UNAVAILABLE:
         return i18n("Service is unavailable");
+    case IPP_NOT_FOUND :
+        return i18n("Not found");
     default : // In this case we don't want to map all enums
         kWarning() << "status unrecognised: " << error;
         return QString();

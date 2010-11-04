@@ -44,7 +44,7 @@ private slots:
     void on_configurePrinterPB_clicked();
     void on_preferencesPB_clicked();
 
-    void error(bool hasError, const QString &errorTitle, const QString &errorMsg);
+    void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
 private:
     PrinterModel *m_model;
@@ -53,7 +53,7 @@ private:
     QWidget *m_noPrinter;
     QWidget *m_serverError;
     KTitleWidget *m_serverErrorW;
-    bool m_hasError;
+    int m_lastError;
 };
 
 #endif

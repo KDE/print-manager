@@ -25,7 +25,6 @@
 
 #include <QStackedLayout>
 
-
 class ChooseIpp;
 class ChooseLpd;
 class ChoosePrinters;

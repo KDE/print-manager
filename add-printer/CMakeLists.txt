@@ -16,6 +16,7 @@ set(addprinter_SRCS
     ChooseSocket.cpp
     ChooseUri.cpp
     PageChoose.cpp
+    PageChoosePPD.cpp
     PageAddPrinter.cpp
     AddPrinterAssistant.cpp
 )
@@ -30,6 +31,7 @@ kde4_add_ui_files(addprinter_SRCS
     ChooseSerial.ui
     ChooseSocket.ui
     ChooseUri.ui
+    PageChoosePPD.ui
     PageAddPrinter.ui
 )
 

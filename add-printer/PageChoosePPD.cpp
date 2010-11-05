@@ -18,17 +18,23 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "ChooseSerial.h"
+#include "PageChoosePPD.h"
+
+#include "DevicesModel.h"
+#include <SelectMakeModel.h>
 
 #include <QPainter>
+#include <KCategorizedSortFilterProxyModel>
+#include <KCategoryDrawer>
 #include <KDebug>
+#include <KPixmapSequence>
 
-ChooseSerial::ChooseSerial(QWidget *parent)
+PageChoosePPD::PageChoosePPD(QWidget *parent)
  : GenericPage(parent),
-   m_rx("\\?baud=(\\d+)"),
    m_isValid(false)
 {
     setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
     setWindowTitle(i18n("Select a Printer to Add"));
@@ -41,7 +47,7 @@ ChooseSerial::ChooseSerial(QWidget *parent)
     QPixmap icon(pixmap);
     QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon("preferences-other",
+    pixmap = KIconLoader::global()->loadIcon("page-zoom",
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeLarge, // a not so huge icon
                                              KIconLoader::DefaultState);
@@ -54,86 +60,83 @@ ChooseSerial::ChooseSerial(QWidget *parent)
     painter.drawPixmap(startPoint, pixmap);
     printerL->setPixmap(icon);
 
-    parityCB->addItem(i18n("None"), "none");
-    parityCB->addItem(i18n("Even"), "even");
-    parityCB->addItem(i18n("Odd"),  "odd");
 
-    flowCB->addItem(i18n("None"), "none");
-    flowCB->addItem(i18n("XON/XOFF (Software)"), "soft");
-    flowCB->addItem(i18n("RTS/CTS (Hardware)"),  "hard");
-    flowCB->addItem(i18n("DTR/DSR (Hardware)"),  "dtrdsr");
+    m_layout = new QStackedLayout;
+    m_layout->setContentsMargins(0, 0, 0, 0);
+    gridLayout->addLayout(m_layout, 1, 3);
+    SelectMakeModel *widget = new SelectMakeModel(this);
+//     widget->setMakeModel(QString(), QString());
+    m_layout->addWidget(widget);
+
+    // Setup the busy cursor
+    m_busySeq = new KPixmapSequenceOverlayPainter(this);
+    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+//     m_busySeq->setWidget(devicesLV->viewport());
 }
 
-ChooseSerial::~ChooseSerial()
+PageChoosePPD::~PageChoosePPD()
 {
 }
 
-bool ChooseSerial::isValid() const
-{
-    return m_isValid;
-};
-
-void ChooseSerial::setValues(const QHash<QString, QVariant> &args)
+void PageChoosePPD::setValues(const QHash<QString, QVariant> &args)
 {
     m_args = args;
-    QString deviceUri = args["device-uri"].toString();
-    if (!deviceUri.startsWith(QLatin1String("serial:"))) {
-        m_isValid = false;
-        return;
-    }
-    m_isValid = true;
-
-    static int    baudrates[] =       /* Baud rates */
-    {
-        1200,
-        2400,
-        4800,
-        9600,
-        19200,
-        38400,
-        57600,
-        115200,
-        230400,
-        460800
-    };
-
-    // Find out the max baud rate
-    int maxrate;
-    if (m_rx.indexIn(deviceUri) != -1) {
-        maxrate = m_rx.cap(1).toInt();
+    if (args["add-new-printer"].toBool()) {
+        m_isValid = true;
+//         m_busySeq->start();
     } else {
-        maxrate = 19200;
+        m_isValid = false;
     }
-
-    baudRateCB->clear();
-    for (int i = 0; i < 10; i ++) {
-        if (baudrates[i] > maxrate) {
-            break;
-        } else {
-            baudRateCB->addItem(QString::number(baudrates[i]));
-        }
-    }
-    // Set the current index to the maxrate
-    baudRateCB->setCurrentIndex(baudRateCB->count() - 1);
 }
 
-void ChooseSerial::load()
+bool PageChoosePPD::isValid() const
 {
+    return m_isValid;
 }
 
-QHash<QString, QVariant> ChooseSerial::values() const
+bool PageChoosePPD::hasChanges() const
 {
+    if (!isValid()) {
+        return false;
+    }
+
+    QString deviceURI;
+    if (canProceed()) {
+//         deviceURI = devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
+    }
+    return deviceURI != m_args["device-uri"];
+}
+
+QHash<QString, QVariant> PageChoosePPD::values() const
+{
+    if (!isValid()) {
+        return m_args;
+    }
+
     QHash<QString, QVariant> ret = m_args;
-    QString deviceUri = m_args["device-uri"].toString();
-    int pos = deviceUri.indexOf('?');
-    QString baudRate = baudRateCB->currentText();
-    QString bits = bitsCB->currentText();
-    QString parity = baudRateCB->itemData(baudRateCB->currentIndex()).toString();
-    QString flow = flowCB->itemData(flowCB->currentIndex()).toString();
-    QString replace = QString("?baud=%1+bits=%2+parity=%3+flow=%4").arg(baudRate).arg(bits).arg(parity).arg(flow);
-    deviceUri.replace(pos, deviceUri.size() - pos, replace);
-    ret["device-uri"] = deviceUri;
+    if (canProceed()) {
+//         QModelIndex index = devicesLV->selectionModel()->selectedIndexes().first();
+//         kDebug() << index.data(DevicesModel::DeviceURI).toString();
+//         ret["device-uri"] = index.data(DevicesModel::DeviceURI).toString();
+//         ret["device-make-and-model"] = index.data(DevicesModel::DeviceMakeAndModel).toString();
+//         ret["device-info"] = index.data(DevicesModel::DeviceInfo).toString();
+    }
     return ret;
 }
 
-#include "ChooseSerial.moc"
+bool PageChoosePPD::canProceed() const
+{
+    // It can proceed if one and JUST one item is selected
+    // (if the user clicks on the category all items in it get selected)
+//     return (!devicesLV->selectionModel()->selectedIndexes().isEmpty() &&
+//              devicesLV->selectionModel()->selectedIndexes().size() == 1);
+return false;
+}
+
+void PageChoosePPD::checkSelected()
+{
+    emit allowProceed(canProceed());
+}
+
+#include "PageChoosePPD.moc"

@@ -84,7 +84,8 @@ void ModifyPrinter::on_makeCB_activated(int index)
         QPointer<KDialog> dialog = new KDialog(this);
         dialog->setCaption("Select a Driver");
         dialog->setButtons(KDialog::Ok | KDialog::Cancel);
-        SelectMakeModel *widget = new SelectMakeModel(m_make, m_makeAndModel, this);
+        SelectMakeModel *widget = new SelectMakeModel(this);
+        widget->setMakeModel(m_make, m_makeAndModel);
         dialog->setMainWidget(widget);
         connect(widget, SIGNAL(changed(bool)),
                 dialog, SLOT(enableButtonOk(bool)));

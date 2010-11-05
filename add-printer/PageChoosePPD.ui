@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PageDestinations</class>
- <widget class="QWidget" name="PageDestinations">
+ <class>PageChoosePPD</class>
+ <widget class="QWidget" name="PageChoosePPD">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,11 +17,24 @@
    </sizepolicy>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="1">
+   <item row="0" column="1" rowspan="2">
     <layout class="QVBoxLayout" name="verticalLayout">
      <property name="sizeConstraint">
       <enum>QLayout::SetMinimumSize</enum>
      </property>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item>
       <widget class="QLabel" name="printerL">
        <property name="sizePolicy">
@@ -41,9 +54,22 @@
        </property>
       </widget>
      </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
    </item>
-   <item row="0" column="2">
+   <item row="0" column="2" rowspan="2">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -51,33 +77,27 @@
     </widget>
    </item>
    <item row="0" column="3">
-    <widget class="KCategorizedView" name="devicesLV">
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
+    <widget class="QComboBox" name="comboBox">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="editTriggers">
-      <set>QAbstractItemView::NoEditTriggers</set>
-     </property>
-     <property name="showDropIndicator" stdset="0">
-      <bool>false</bool>
-     </property>
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="resizeMode">
-      <enum>QListView::Adjust</enum>
-     </property>
+     <item>
+      <property name="text">
+       <string>Choose a Driver from Installed List</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Provide a Driver from file</string>
+      </property>
+     </item>
     </widget>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KCategorizedView</class>
-   <extends>QListView</extends>
-   <header>kcategorizedview.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

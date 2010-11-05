@@ -75,8 +75,8 @@ PageDestinations::PageDestinations(QWidget *parent)
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
     m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
-    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-    m_busySeq->setWidget(devicesLV->viewport());
+    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
+    m_busySeq->setWidget(printerL);
     connect(m_model, SIGNAL(loaded()), m_busySeq, SLOT(stop()));
 }
 

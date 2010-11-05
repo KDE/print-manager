@@ -18,50 +18,36 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef SELECT_MAKE_MODEL_H
-#define SELECT_MAKE_MODEL_H
+#ifndef PAGE_CHOOSE_PPD_H
+#define PAGE_CHOOSE_PPD_H
 
-#include <QWidget>
-#include <QSortFilterProxyModel>
+#include "ui_PageChoosePPD.h"
 
-#include <kdemacros.h>
+#include "GenericPage.h"
 
-namespace Ui {
-    class SelectMakeModel;
-};
+#include <KPixmapSequenceOverlayPainter>
+#include <QStackedLayout>
 
-namespace QCups {
-    class Result;
-};
-
-class KDE_EXPORT SelectMakeModel : public QWidget
+class PageChoosePPD : public GenericPage, Ui::PageChoosePPD
 {
     Q_OBJECT
 public:
-    SelectMakeModel(QWidget *parent = 0);
-    ~SelectMakeModel();
+    PageChoosePPD(QWidget *parent = 0);
+    ~PageChoosePPD();
 
-    void setMakeModel(const QString &make, const QString &makeAndModel);
-    QString selectedPPDName() const;
-    QString selectedMakeAndModel() const;
-
-public slots:
-    void checkChanged();
-    void ppdsLoaded();
-
-signals:
-    void changed(bool);
+    bool hasChanges() const;
+    bool canProceed() const;
+    void setValues(const QHash<QString, QVariant> &args);
+    QHash<QString, QVariant> values() const;
+    bool isValid() const;
 
 private slots:
-    void on_makeFilterKCB_editTextChanged(const QString &text);
+    void checkSelected();
 
 private:
-    Ui::SelectMakeModel *ui;
-    QCups::Result *m_result;
-    QString m_selectedPPDName, m_selectedMakeAndModel;
-    QString m_make, m_makeAndModel;
-    QSortFilterProxyModel *m_model;
+    KPixmapSequenceOverlayPainter *m_busySeq;
+    bool m_isValid;
+    QStackedLayout *m_layout;
 };
-
 
 #endif

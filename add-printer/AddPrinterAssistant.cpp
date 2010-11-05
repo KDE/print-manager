@@ -23,6 +23,7 @@
 #include "PageIntro.h"
 #include "PageDestinations.h"
 #include "PageChoose.h"
+#include "PageChoosePPD.h"
 #include "PageAddPrinter.h"
 
 #include <QCups.h>
@@ -47,8 +48,8 @@ AddPrinterAssistant::AddPrinterAssistant()
     m_choosePage = new KPageWidgetItem(new PageChoose, i18n("Configure your connection"));
     addPage(m_choosePage);
 
-//     m_serialPage = new KPageWidgetItem(new PageSerial, i18n("Select a Printer to Add"));
-//     addPage(m_serialPage);
+    m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18n("Pick a Driver"));
+    addPage(m_choosePPDPage);
 
     m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18n("Please describe you printer"));
     addPage(m_addPrinterPage);
@@ -92,7 +93,9 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
         qobject_cast<GenericPage*>(m_choosePage->widget())->setValues(args);
         setCurrentPage(m_choosePage);
     } else if (currentPage == m_choosePage) {
-        //TODO the serial page will provite the connection that the uri provides
+        qobject_cast<GenericPage*>(m_choosePPDPage->widget())->setValues(args);
+        setCurrentPage(m_choosePPDPage);
+    } else if (currentPage == m_choosePPDPage) {
         qobject_cast<GenericPage*>(m_addPrinterPage->widget())->setValues(args);
         setCurrentPage(m_addPrinterPage);
     }

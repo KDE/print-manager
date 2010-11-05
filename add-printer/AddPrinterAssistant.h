@@ -43,6 +43,7 @@ private:
     KPageWidgetItem *m_introPage;
     KPageWidgetItem *m_devicesPage;
     KPageWidgetItem *m_choosePage;
+    KPageWidgetItem *m_choosePPDPage;
     KPageWidgetItem *m_addPrinterPage;
 };
 

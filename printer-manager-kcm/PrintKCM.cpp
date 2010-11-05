@@ -44,7 +44,7 @@ K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     : KCModule(PrintKCMFactory::componentData(), parent, args),
-      m_lastError(0)
+      m_lastError(-1) // Force the error to run on the first time
 {
     KAboutData *aboutData;
     aboutData = new KAboutData("kcm_print",

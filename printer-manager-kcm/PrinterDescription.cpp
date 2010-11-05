@@ -60,6 +60,7 @@ PrinterDescription::PrinterDescription(QWidget *parent)
     menu->addAction(actionPrintSelfTestPage);
     actionCleanPrintHeads->setVisible(false);
     actionPrintSelfTestPage->setVisible(false);
+    supplyLevelsPB->setEnabled(false);
     maintenancePB->setMenu(menu);
 }
 
@@ -153,6 +154,9 @@ void PrinterDescription::setIsShared(bool isShared)
 
 void PrinterDescription::setCommands(const QStringList &commands)
 {
+    // On the first time this method runs the list
+    // can be empty, so keep all objects initilized on the
+    // constructor
     if (m_commands != commands) {
         m_commands = commands;
 

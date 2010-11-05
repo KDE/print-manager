@@ -25,6 +25,10 @@
 #include <QListView>
 #include <kdemacros.h>
 
+#include <KPixmapSequenceOverlayPainter>
+
+#include "QCups.h"
+
 namespace QCups {
 
 class KDE_EXPORT ClassListWidget : public QListView
@@ -41,10 +45,14 @@ public:
 
 signals:
     void changed(bool changed);
+
 private slots:
+    void loadFinished();
     void modelChanged();
 
 private:
+    KPixmapSequenceOverlayPainter *m_busySeq;
+    Result *m_request;
     QStringList m_selectedDests;
     bool m_changed;
     QStandardItemModel *m_model;

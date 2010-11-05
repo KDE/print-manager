@@ -26,7 +26,8 @@
 #include <KDebug>
 
 ChoosePrinters::ChoosePrinters(QWidget *parent)
- : GenericPage(parent), m_isValid(false)
+ : GenericPage(parent),
+   m_isValid(false)
 {
     setupUi(this);
 
@@ -53,6 +54,8 @@ ChoosePrinters::ChoosePrinters(QWidget *parent)
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
     printerL->setPixmap(icon);
+
+    connect(membersLV, SIGNAL(changed(bool)), this, SIGNAL(allowProceed(bool)));
 }
 
 ChoosePrinters::~ChoosePrinters()
@@ -81,6 +84,11 @@ QHash<QString, QVariant> ChoosePrinters::values() const
     QHash<QString, QVariant> ret = m_args;
     ret["member-uris"] = membersLV->selectedDests();
     return ret;
+}
+
+bool ChoosePrinters::canProceed() const
+{
+    return membersLV->selectedDests().count() > 0;
 }
 
 #include "ChoosePrinters.moc"

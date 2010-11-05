@@ -18,8 +18,8 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_QUEUE_MODEL_H
-#define PRINT_QUEUE_MODEL_H
+#ifndef DEVICES_MODEL_H
+#define DEVICES_MODEL_H
 
 #include <QStandardItemModel>
 
@@ -45,6 +45,9 @@ public:
     } Kind;
 
     DevicesModel(QObject *parent = 0);
+
+signals:
+    void loaded();
 
 public slots:
     void update();

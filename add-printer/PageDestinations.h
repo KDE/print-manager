@@ -25,6 +25,8 @@
 
 #include "GenericPage.h"
 
+#include <KPixmapSequenceOverlayPainter>
+
 class DevicesModel;
 class PageDestinations : public GenericPage, Ui::PageDestinations
 {
@@ -43,6 +45,7 @@ private slots:
     void checkSelected();
 
 private:
+    KPixmapSequenceOverlayPainter *m_busySeq;
     DevicesModel *m_model;
     bool m_isValid;
 };

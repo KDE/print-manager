@@ -116,6 +116,7 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
             enableNextButton(nextPage->canProceed());
         }
     } else {
+        // In case page is not valid try the next one
         next(page);
     }
 }

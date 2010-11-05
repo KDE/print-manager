@@ -90,6 +90,7 @@ QHash<QString, QVariant> PageIntro::values() const
 {
     QHash<QString, QVariant> ret = m_args;
     ret["add-new-printer"] = addNewPrinterCB->isChecked();
+    kDebug() << ret;
     return ret;
 }
 

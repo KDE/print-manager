@@ -22,20 +22,28 @@
 
 #include "SelectMakeModel.h"
 
-#include "QCups.h"
 #include <cups/cups.h>
 
 #include <QPointer>
 #include <KFileDialog>
 #include <KDebug>
 
+#include <KPixmapSequence>
+
 using namespace QCups;
 
 ClassListWidget::ClassListWidget(QWidget *parent)
- : QListView(parent)
+ : QListView(parent),
+   m_request(0)
 {
     m_model = new QStandardItemModel(this);
     setModel(m_model);
+
+    // Setup the busy cursor
+    m_busySeq = new KPixmapSequenceOverlayPainter(this);
+    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    m_busySeq->setWidget(viewport());
 
     connect(m_model, SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(modelChanged()));
@@ -45,19 +53,41 @@ ClassListWidget::~ClassListWidget()
 {
 }
 
-void ClassListWidget::reload(const QString &m_destName, const QStringList &memberNames)
+void ClassListWidget::reload(const QString &reqDestName, const QStringList &memberNames)
 {
-    ReturnArguments dests;
+    // If we have an old request running discard it's result and get a new one
+    if (m_request) {
+        connect(m_request, SIGNAL(finished()), this, SLOT(deleteLater()));
+        disconnect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
+    }
+
     // Ask just these attributes
     QStringList requestAttr;
     requestAttr << "printer-uri-supported"
                 << "printer-name";
+
     // Get destinations with these masks
-    Result *ret = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
+    m_request = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
                                     CUPS_PRINTER_IMPLICIT, requestAttr);
-    ret->waitTillFinished();
-    dests = ret->result();
-    ret->deleteLater();
+    m_request->setProperty("reqDestName", reqDestName);
+    m_request->setProperty("memberNames", memberNames);
+    connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
+
+    m_busySeq->start(); // Start spining
+}
+
+void ClassListWidget::loadFinished()
+{
+    m_busySeq->stop(); // Stop spining
+
+    ReturnArguments dests;
+    QString reqDestName;
+    QStringList memberNames;
+    dests       = m_request->result();
+    reqDestName = m_request->property("reqDestName").toString();
+    memberNames = m_request->property("memberNames").toStringList();
+    m_request->deleteLater();
+    m_request = 0;
 
     m_model->clear();
     QStringList origMemberUris;
@@ -74,7 +104,7 @@ void ClassListWidget::reload(const QString &m_destName, const QStringList &membe
 
     for (int i = 0; i < dests.size(); i++) {
         QString destName = dests.at(i)["printer-name"].toString();
-        if (destName != m_destName) {
+        if (destName != reqDestName) {
             QStandardItem *item = new QStandardItem(destName);
             item->setCheckable(true);
             item->setEditable(false);

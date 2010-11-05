@@ -37,6 +37,7 @@ public:
     void setValues(const QHash<QString, QVariant> &args);
     QHash<QString, QVariant> values() const;
     bool isValid() const;
+    bool canProceed() const;
 
 public slots:
     void load();

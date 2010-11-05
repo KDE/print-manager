@@ -65,6 +65,10 @@ void PageChoose::setValues(const QHash<QString, QVariant> &args)
         return;
     }
 
+    // Disconnect old SIGNAL
+    GenericPage *oldPage = qobject_cast<GenericPage *>(m_layout->currentWidget());
+    disconnect(oldPage, SIGNAL(allowProceed(bool)), this, SIGNAL(allowProceed(bool)));
+
     m_isValid = true;
     m_args = args;
     if (args["add-new-printer"].toBool()) {
@@ -100,15 +104,19 @@ void PageChoose::setValues(const QHash<QString, QVariant> &args)
             m_layout->setCurrentWidget(m_chooseUri);
         }
     } else {
-        kDebug() << "adding a class";
+        kDebug() << "adding a class" << args;
         // we are adding a class
         m_layout->setCurrentWidget(m_choosePrinters);
     }
-    qobject_cast<GenericPage *>(m_layout->currentWidget())->setValues(args);
+    GenericPage *page = qobject_cast<GenericPage *>(m_layout->currentWidget());
+    page->setValues(args);
+    emit allowProceed(page->canProceed());
+    connect(page, SIGNAL(allowProceed(bool)), this, SIGNAL(allowProceed(bool)));
 }
 
 bool PageChoose::isValid() const
 {
+    // If we have a valid widget return that the page is valid
     return m_isValid;
 }
 
@@ -122,6 +130,15 @@ QHash<QString, QVariant> PageChoose::values() const
         return qobject_cast<GenericPage *>(m_layout->currentWidget())->values();
     } else {
         return m_args;
+    }
+}
+
+bool PageChoose::canProceed() const
+{
+    if (m_isValid) {
+        return qobject_cast<GenericPage *>(m_layout->currentWidget())->canProceed();
+    } else {
+        return false;
     }
 }
 

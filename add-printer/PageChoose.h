@@ -42,6 +42,7 @@ public:
 
     void setValues(const QHash<QString, QVariant> &args);
     bool isValid() const;
+    bool canProceed() const;
     QHash<QString, QVariant> values() const;
 
 public slots:

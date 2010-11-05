@@ -46,8 +46,8 @@ void DevicesModel::update()
     m_ret = QCups::getDevices();
     connect(m_ret, SIGNAL(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)),
             this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));
-    connect(m_ret, SIGNAL(finished()),
-            this, SLOT(finished()));
+    connect(m_ret, SIGNAL(finished()), this, SLOT(finished()));
+    connect(m_ret, SIGNAL(finished()), this, SIGNAL(loaded()));
 }
 
 void DevicesModel::device(const QString &devClass,

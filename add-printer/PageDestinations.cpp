@@ -26,10 +26,8 @@
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
 #include <KDebug>
+#include <KPixmapSequence>
 
-
-// TODO KPixmapSequence KPixmapSequenceWidget
-// gwenview floater, jockey proprietary dirvers
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
 PageDestinations::PageDestinations(QWidget *parent)
  : GenericPage(parent),
@@ -73,6 +71,13 @@ PageDestinations::PageDestinations(QWidget *parent)
     devicesLV->setCategoryDrawer(drawer);
     connect(devicesLV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
             this, SLOT(checkSelected()));
+
+    // Setup the busy cursor
+    m_busySeq = new KPixmapSequenceOverlayPainter(this);
+    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    m_busySeq->setWidget(devicesLV->viewport());
+    connect(m_model, SIGNAL(loaded()), m_busySeq, SLOT(stop()));
 }
 
 PageDestinations::~PageDestinations()
@@ -85,6 +90,7 @@ void PageDestinations::setValues(const QHash<QString, QVariant> &args)
     if (args["add-new-printer"].toBool()) {
         m_isValid = true;
         m_model->update();
+        m_busySeq->start();
     } else {
         m_isValid = false;
     }
@@ -97,6 +103,10 @@ bool PageDestinations::isValid() const
 
 bool PageDestinations::hasChanges() const
 {
+    if (!isValid()) {
+        return false;
+    }
+
     QString deviceURI;
     if (canProceed()) {
         deviceURI = devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
@@ -106,6 +116,10 @@ bool PageDestinations::hasChanges() const
 
 QHash<QString, QVariant> PageDestinations::values() const
 {
+    if (!isValid()) {
+        return m_args;
+    }
+
     QHash<QString, QVariant> ret = m_args;
     if (canProceed()) {
         QModelIndex index = devicesLV->selectionModel()->selectedIndexes().first();

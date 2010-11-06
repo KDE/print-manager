@@ -27,10 +27,10 @@ GenericPage::GenericPage(QWidget *parent)
 
 QHash<QString, QVariant> GenericPage::values() const
 {
-    return QHash<QString, QVariant>();
+    return m_args;
 }
 
 void GenericPage::setValues(const QHash<QString, QVariant> &args)
 {
-    Q_UNUSED(args)
+    m_args = args;
 }

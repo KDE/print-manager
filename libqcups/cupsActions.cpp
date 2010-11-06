@@ -496,7 +496,8 @@ void Request::cupsGetDevices(Result *result)
     kDebug();
     do {
         // Scan for devices for 30 seconds
-        ::cupsGetDevices(CUPS_HTTP_DEFAULT, 30, CUPS_INCLUDE_ALL, CUPS_EXCLUDE_NONE,
+        // TODO change back to 30
+        ::cupsGetDevices(CUPS_HTTP_DEFAULT, 5, CUPS_INCLUDE_ALL, CUPS_EXCLUDE_NONE,
                          (cups_device_cb_t)choose_device_cb, result);
         result->setLastError(cupsLastError());
         result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));

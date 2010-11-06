@@ -89,7 +89,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="KLineEdit" name="connectionLE"/>
+      <widget class="KLineEdit" name="addressLE"/>
      </item>
      <item row="1" column="1">
       <widget class="QLabel" name="label">

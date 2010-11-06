@@ -70,6 +70,23 @@ void ChooseLpd::setValues(const QHash<QString, QVariant> &args)
     addressLE->setText(deviceUri);
 }
 
+QHash<QString, QVariant> ChooseLpd::values() const
+{
+    QHash<QString, QVariant> ret = m_args;
+    ret["device-uri"] = "lpd://" + addressLE->text();
+    return ret;
+}
+
+bool ChooseLpd::canProceed() const
+{
+    bool allow = false;
+    if (!addressLE->text().isEmpty()) {
+        QUrl url = QUrl("lpd://" + addressLE->text());
+        allow = url.isValid();
+    }
+    return allow;
+}
+
 bool ChooseLpd::isValid() const
 {
     return m_isValid;

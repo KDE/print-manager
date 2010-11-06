@@ -134,7 +134,8 @@ void AddPrinterAssistant::slotButtonClicked(int button)
         if (isClass) {
             result = QCups::addClass(args);
         } else {
-            return;
+            QString destName = args["printer-name"].toString();
+            result = QCups::Dest::setAttributes(destName, false, args);
         }
         result->waitTillFinished();
         if (result->hasError()) {

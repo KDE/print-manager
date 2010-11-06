@@ -70,6 +70,8 @@ void PageAddPrinter::setValues(const QHash<QString, QVariant> &args)
     if (m_args != args) {
         QString name = args["device-info"].toString();
         name.replace(' ', '_');
+        name.replace('/', '-');
+        name.replace('#', '=');
         nameLE->setText(name);
         descriptionLE->setText(args["device-info"].toString());
         locationLE->clear();

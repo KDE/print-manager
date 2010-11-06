@@ -41,9 +41,21 @@ QVariant PPDModel::data(const QModelIndex &index, int role) const
     int row = index.row();
     switch (role) {
     case Qt::DisplayRole:
-        return QString("%1 (%2)")
-               .arg(m_ppds.at(row)["ppd-make-and-model"].toString())
+        if (m_make.isEmpty()) {
+            return QString("%1 (%2)")
+                .arg(m_ppds.at(row)["ppd-make-and-model"].toString())
+                .arg(m_ppds.at(row)["ppd-natural-language"].toString());
+        } else {
+            QString first = m_ppds.at(row)["ppd-make-and-model"].toString();
+            // We are only looking at printers of X brand, so remove the
+            // brand name from the list
+            if (first.startsWith(m_make + ' ', Qt::CaseInsensitive)) {
+                first.remove(0, m_make.size() + 1);
+            }
+            return QString("%1 (%2)")
+               .arg(first)
                .arg(m_ppds.at(row)["ppd-natural-language"].toString());
+        }
     case PPDMake:
         return m_ppds.at(row)["ppd-make"].toString();
     case PPDName:
@@ -53,6 +65,11 @@ QVariant PPDModel::data(const QModelIndex &index, int role) const
     default:
         return QVariant();
     }
+}
+
+void PPDModel::setMake(const QString &make)
+{
+    m_make = make;
 }
 
 int PPDModel::rowCount(const QModelIndex &parent) const

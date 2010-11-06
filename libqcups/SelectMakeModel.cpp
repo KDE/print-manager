@@ -26,6 +26,7 @@
 
 #include <QLineEdit>
 #include <KMessageBox>
+#include <KPixmapSequence>
 #include <KDebug>
 
 using namespace QCups;
@@ -36,6 +37,11 @@ SelectMakeModel::SelectMakeModel(QWidget *parent)
 {
     ui = new Ui::SelectMakeModel;
     ui->setupUi(this);
+
+    m_busySeq = new KPixmapSequenceOverlayPainter(this);
+    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    m_busySeq->setWidget(ui->ppdsLV->viewport());
 }
 
 SelectMakeModel::~SelectMakeModel()
@@ -45,12 +51,14 @@ SelectMakeModel::~SelectMakeModel()
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)
 {
-    if (m_result) {
+    if (!m_result) {
         m_result = QCups::getPPDS();
         connect(m_result, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
         m_make = make;
         m_makeAndModel = makeAndModel;
+        m_busySeq->start();
     } else {
+        m_busySeq->stop();
         ui->makeFilterKCB->setCurrentIndex(ui->makeFilterKCB->findText(make));
         if (!makeAndModel.isEmpty()) {
             // Tries to find the current PPD and select it
@@ -100,7 +108,7 @@ void SelectMakeModel::checkChanged()
         QModelIndex index = selection.indexes().at(0);
         m_selectedMakeAndModel = index.data(PPDModel::PPDMakeAndModel).toString();
         m_selectedPPDName = index.data(PPDModel::PPDName).toString();
-        emit changed(true);
+        emit changed(m_makeAndModel != m_selectedMakeAndModel);
     } else {
         m_selectedMakeAndModel.clear();
         m_selectedPPDName.clear();
@@ -123,11 +131,14 @@ void SelectMakeModel::on_makeFilterKCB_editTextChanged(const QString &text)
     // We can't be sure if activated or current indexChanged signal
     // will be emmited before this signal.
     // So we check if the line edit was modified by the user to be 100% sure
+    PPDModel *sourceModel = qobject_cast<PPDModel *>(m_model->sourceModel());
     if (ui->makeFilterKCB->lineEdit()->isModified()) {
+        sourceModel->setMake(QString());
         m_model->setFilterRole(Qt::DisplayRole);
         m_model->setFilterCaseSensitivity(Qt::CaseInsensitive);
         m_model->setFilterFixedString(text);
     } else {
+        sourceModel->setMake(text);
         m_model->setFilterRole(PPDModel::PPDMake);
         m_model->setFilterCaseSensitivity(Qt::CaseSensitive);
         m_model->setFilterFixedString(text);

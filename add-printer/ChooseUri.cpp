@@ -67,12 +67,30 @@ void ChooseUri::setValues(const QHash<QString, QVariant> &args)
     }
     m_isValid = true;
 
-    connectionLE->setText(deviceUri);
+    addressLE->setText(deviceUri);
+}
+
+QHash<QString, QVariant> ChooseUri::values() const
+{
+    QHash<QString, QVariant> ret = m_args;
+    // URI might be scsi, network on anything that doesn't match before
+    ret["device-uri"] = ret["device-uri"].toString() + addressLE->text();
+    return ret;
 }
 
 bool ChooseUri::isValid() const
 {
     return m_isValid;
+}
+
+bool ChooseUri::canProceed() const
+{
+    bool allow = false;
+    if (!addressLE->text().isEmpty()) {
+        QUrl url = QUrl("lpd://" + addressLE->text());
+        allow = url.isValid();
+    }
+    return allow;
 }
 
 void ChooseUri::load()

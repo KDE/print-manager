@@ -44,8 +44,11 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
+    void setMake(const QString &make);
+
 private:
     QList<QHash<QString, QVariant> > m_ppds;
+    QString m_make;
 };
 
 #endif

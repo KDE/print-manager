@@ -23,9 +23,9 @@
 
 #include "ui_PageChoosePPD.h"
 
+#include <SelectMakeModel.h>
 #include "GenericPage.h"
 
-#include <KPixmapSequenceOverlayPainter>
 #include <QStackedLayout>
 
 class PageChoosePPD : public GenericPage, Ui::PageChoosePPD
@@ -45,8 +45,8 @@ private slots:
     void checkSelected();
 
 private:
-    KPixmapSequenceOverlayPainter *m_busySeq;
     bool m_isValid;
+    SelectMakeModel *m_selectMM;
     QStackedLayout *m_layout;
 };
 

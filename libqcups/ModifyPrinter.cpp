@@ -50,17 +50,13 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModif
     membersL->setVisible(isClass);
     membersLV->setVisible(isClass);
 
-    // TODO remove this member code and use the class list widget
-    m_model = new QStandardItemModel(membersLV);
-    membersLV->setModel(m_model);
-
     connect(descriptionLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
     connect(locationLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
     connect(connectionLE, SIGNAL(textChanged(const QString &)),
             this, SLOT(textChanged(const QString &)));
-    connect(m_model, SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
+    connect(membersLV, SIGNAL(changed(bool)),
             this, SLOT(modelChanged()));
 
     connect(this, SIGNAL(showKUR()), fileKUR, SLOT(show()));
@@ -81,17 +77,17 @@ void ModifyPrinter::on_makeCB_activated(int index)
         emit hideKUR();
         KConfig config("print-manager");
         KConfigGroup ppdDialog(&config, "PPDDialog");
+
+        SelectMakeModel *widget = new SelectMakeModel(this);
+        widget->setMakeModel(m_make, m_makeAndModel);
+
         QPointer<KDialog> dialog = new KDialog(this);
         dialog->setCaption("Select a Driver");
         dialog->setButtons(KDialog::Ok | KDialog::Cancel);
-        SelectMakeModel *widget = new SelectMakeModel(this);
-        widget->setMakeModel(m_make, m_makeAndModel);
         dialog->setMainWidget(widget);
         connect(widget, SIGNAL(changed(bool)),
                 dialog, SLOT(enableButtonOk(bool)));
-        // Call this to disable the Ok button
-        widget->checkChanged();
-
+        dialog->enableButtonOk(false);
         dialog->restoreDialogSize(ppdDialog);
         if (dialog->exec() == QDialog::Accepted && dialog) {
             dialog->saveDialogSize(ppdDialog);
@@ -132,7 +128,6 @@ void ModifyPrinter::on_makeCB_activated(int index)
         kWarning() << "This should not happen";
         return;
     }
-//     kDebug() << isDifferent << makeCB->property("different").toBool();
 
     if (isDifferent != makeCB->property("different").toBool()) {
         // it's different from the last time so add or remove changes
@@ -148,44 +143,7 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
 {
 //     kDebug() << values;
     if (m_isClass) {
-        ReturnArguments dests;
-        // Ask just these attributes
-        QStringList requestAttr;
-        requestAttr << "printer-uri-supported"
-                    << "printer-name";
-        // Get destinations with these masks
-        Result *ret = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
-                                      CUPS_PRINTER_IMPLICIT, requestAttr);
-        ret->waitTillFinished();
-        dests = ret->result();
-        ret->deleteLater();
-
-        m_model->clear();
-        QStringList memberNames = values["member-names"].toStringList();
-        QStringList origMemberUris;
-        foreach (const QString &memberUri, memberNames) {
-            for (int i = 0; i < dests.size(); i++) {
-                if (dests.at(i)["printer-name"].toString() == memberUri) {
-                    origMemberUris << dests.at(i)["printer-uri-supported"].toString();
-                    break;
-                }
-            }
-        }
-        m_model->setProperty("orig-member-uris", origMemberUris);
-
-        for (int i = 0; i < dests.size(); i++) {
-            QString destName = dests.at(i)["printer-name"].toString();
-            if (destName != m_destName) {
-                QStandardItem *item = new QStandardItem(destName);
-                item->setCheckable(true);
-                item->setEditable(false);
-                if (memberNames.contains(destName)) {
-                    item->setCheckState(Qt::Checked);
-                }
-                item->setData(dests.at(i)["printer-uri-supported"].toString());
-                m_model->appendRow(item);
-            }
-        }
+        membersLV->reload(m_destName, values["member-names"].toStringList());
     } else {
         emit hideKUR();
         makeCB->clear();
@@ -214,33 +172,24 @@ void ModifyPrinter::setValues(const QHash<QString, QVariant> &values)
     descriptionLE->setProperty("different", false);
     locationLE->setProperty("different", false);
     connectionLE->setProperty("different", false);
-    m_model->setProperty("different", false);
+    membersLV->setProperty("different", false);
     emit changed(0);
 }
 
 void ModifyPrinter::modelChanged()
 {
-    QStringList currentMembers;
-    for (int i = 0; i < m_model->rowCount(); i++) {
-        QStandardItem *item = m_model->item(i);
-        if (item && item->checkState() == Qt::Checked) {
-            currentMembers << item->data().toString();
-        }
-    }
-    currentMembers.sort();
-
-    bool isDifferent = m_model->property("orig-member-uris").toStringList() != currentMembers;
-    if (isDifferent != m_model->property("different").toBool()) {
+    bool isDifferent = membersLV->hasChanges();
+    if (isDifferent != membersLV->property("different").toBool()) {
         // it's different from the last time so add or remove changes
         isDifferent ? m_changes++ : m_changes--;
 
-        m_model->setProperty("different", isDifferent);
+        membersLV->setProperty("different", isDifferent);
         emit changed(m_changes);
     }
 
     // store the new values
     if (isDifferent) {
-        m_changedValues["member-uris"] = currentMembers;
+        m_changedValues["member-uris"] = membersLV->selectedDests();
     } else {
         m_changedValues.remove("member-uris");
     }
@@ -283,6 +232,7 @@ void ModifyPrinter::save()
         // if there is no file call setAttributes witout it
         Result *result;
         if (file.isEmpty()) {
+            kDebug() << m_changedValues;
             result = Dest::setAttributes(m_destName, m_isClass, m_changedValues);
         } else {
             result = Dest::setAttributes(m_destName, m_isClass, m_changedValues, file.toUtf8());

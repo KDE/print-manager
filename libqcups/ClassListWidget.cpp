@@ -131,11 +131,11 @@ void ClassListWidget::modelChanged()
     }
     currentMembers.sort();
 
-    m_changed = m_model->property("orig-member-uris").toStringList() != currentMembers;
-    emit changed(m_changed);
-
     // store the new values
     m_selectedDests = currentMembers;
+
+    m_changed = m_model->property("orig-member-uris").toStringList() != currentMembers;
+    emit changed(m_changed);
 }
 
 bool ClassListWidget::hasChanges()

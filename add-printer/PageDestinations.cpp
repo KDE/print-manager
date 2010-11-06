@@ -66,7 +66,7 @@ PageDestinations::PageDestinations(QWidget *parent)
     proxy->setCategorizedModel(true);
     proxy->setDynamicSortFilter(true);
     proxy->sort(0);
-    KCategoryDrawerV2 *drawer = new KCategoryDrawerV2(devicesLV);
+    KCategoryDrawerV3 *drawer = new KCategoryDrawerV3(devicesLV);
     devicesLV->setModel(proxy);
     devicesLV->setCategoryDrawer(drawer);
     connect(devicesLV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),

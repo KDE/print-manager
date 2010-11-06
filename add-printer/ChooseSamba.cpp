@@ -70,9 +70,26 @@ void ChooseSamba::setValues(const QHash<QString, QVariant> &args)
     addressLE->setText(deviceUri);
 }
 
+QHash<QString, QVariant> ChooseSamba::values() const
+{
+    QHash<QString, QVariant> ret = m_args;
+    ret["device-uri"] = "smb://" + addressLE->text();
+    return ret;
+}
+
 bool ChooseSamba::isValid() const
 {
     return m_isValid;
+}
+
+bool ChooseSamba::canProceed() const
+{
+    bool allow = false;
+    if (!addressLE->text().isEmpty()) {
+        QUrl url = QUrl("smb://" + addressLE->text());
+        allow = url.isValid();
+    }
+    return allow;
 }
 
 void ChooseSamba::load()

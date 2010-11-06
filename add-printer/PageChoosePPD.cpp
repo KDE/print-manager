@@ -21,13 +21,9 @@
 #include "PageChoosePPD.h"
 
 #include "DevicesModel.h"
-#include <SelectMakeModel.h>
 
 #include <QPainter>
-#include <KCategorizedSortFilterProxyModel>
-#include <KCategoryDrawer>
 #include <KDebug>
-#include <KPixmapSequence>
 
 PageChoosePPD::PageChoosePPD(QWidget *parent)
  : GenericPage(parent),
@@ -64,15 +60,9 @@ PageChoosePPD::PageChoosePPD(QWidget *parent)
     m_layout = new QStackedLayout;
     m_layout->setContentsMargins(0, 0, 0, 0);
     gridLayout->addLayout(m_layout, 1, 3);
-    SelectMakeModel *widget = new SelectMakeModel(this);
-//     widget->setMakeModel(QString(), QString());
-    m_layout->addWidget(widget);
+    m_selectMM = new SelectMakeModel(this);
+    m_layout->addWidget(m_selectMM);
 
-    // Setup the busy cursor
-    m_busySeq = new KPixmapSequenceOverlayPainter(this);
-    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
-    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-//     m_busySeq->setWidget(devicesLV->viewport());
 }
 
 PageChoosePPD::~PageChoosePPD()
@@ -82,9 +72,12 @@ PageChoosePPD::~PageChoosePPD()
 void PageChoosePPD::setValues(const QHash<QString, QVariant> &args)
 {
     m_args = args;
+    kDebug() << args;
     if (args["add-new-printer"].toBool()) {
+        connect(m_selectMM, SIGNAL(changed(bool)),
+                this, SLOT(checkSelected()));
+        m_selectMM->setMakeModel(QString(), QString());
         m_isValid = true;
-//         m_busySeq->start();
     } else {
         m_isValid = false;
     }
@@ -116,22 +109,39 @@ QHash<QString, QVariant> PageChoosePPD::values() const
 
     QHash<QString, QVariant> ret = m_args;
     if (canProceed()) {
-//         QModelIndex index = devicesLV->selectionModel()->selectedIndexes().first();
-//         kDebug() << index.data(DevicesModel::DeviceURI).toString();
-//         ret["device-uri"] = index.data(DevicesModel::DeviceURI).toString();
-//         ret["device-make-and-model"] = index.data(DevicesModel::DeviceMakeAndModel).toString();
-//         ret["device-info"] = index.data(DevicesModel::DeviceInfo).toString();
+        if (originCB->currentIndex() == 0) {
+            QString makeAndModel = m_selectMM->selectedMakeAndModel();
+            QString ppdName = m_selectMM->selectedPPDName();
+            if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
+                ret["ppd-name"] = ppdName;
+            }
+        }
     }
     return ret;
 }
 
 bool PageChoosePPD::canProceed() const
 {
-    // It can proceed if one and JUST one item is selected
-    // (if the user clicks on the category all items in it get selected)
-//     return (!devicesLV->selectionModel()->selectedIndexes().isEmpty() &&
-//              devicesLV->selectionModel()->selectedIndexes().size() == 1);
-return false;
+    // It can proceed if a PPD file (local or not) is provided    bool changed = false;
+    bool allow = false;
+    if (originCB->currentIndex() == 0) {
+        QString makeAndModel = m_selectMM->selectedMakeAndModel();
+        QString ppdName = m_selectMM->selectedPPDName();
+        kDebug() << ppdName << makeAndModel;
+        if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
+            allow = true;
+        }
+    } else if (originCB->currentIndex() == 0) {
+//         fileKUR->button()->click();
+//         if (fileKUR->url().isEmpty()) {
+//             makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
+//             return;
+//         }
+//         emit showKUR();
+//         // set the QVariant type to bool makes it possible to know a file was selected
+//         m_changedValues["ppd-name"] = true;
+    }
+    return allow;
 }
 
 void PageChoosePPD::checkSelected()

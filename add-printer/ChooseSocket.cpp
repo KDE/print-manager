@@ -75,9 +75,26 @@ void ChooseSocket::setValues(const QHash<QString, QVariant> &args)
     m_isValid = true;
 }
 
+QHash<QString, QVariant> ChooseSocket::values() const
+{
+    QHash<QString, QVariant> ret = m_args;
+    ret["device-uri"] = "socket://" + addressLE->text();
+    return ret;
+}
+
 bool ChooseSocket::isValid() const
 {
     return m_isValid;
+}
+
+bool ChooseSocket::canProceed() const
+{
+    bool allow = false;
+    if (!addressLE->text().isEmpty()) {
+        QUrl url = QUrl("socket://" + addressLE->text());
+        allow = url.isValid();
+    }
+    return allow;
 }
 
 void ChooseSocket::load()

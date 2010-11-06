@@ -81,9 +81,27 @@ void ChooseIpp::setValues(const QHash<QString, QVariant> &args)
     m_isValid = true;
 }
 
+QHash<QString, QVariant> ChooseIpp::values() const
+{
+    QHash<QString, QVariant> ret = m_args;
+    // Ipp can be ipp, http and https
+    ret["device-uri"] = ret["device-uri"].toString() + addressLE->text();
+    return ret;
+}
+
 bool ChooseIpp::isValid() const
 {
     return m_isValid;
+}
+
+bool ChooseIpp::canProceed() const
+{
+    bool allow = false;
+    if (!addressLE->text().isEmpty()) {
+        QUrl url = QUrl("lpd://" + addressLE->text());
+        allow = url.isValid();
+    }
+    return allow;
 }
 
 void ChooseIpp::load()

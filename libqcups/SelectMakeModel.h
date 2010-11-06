@@ -24,6 +24,7 @@
 #include <QWidget>
 #include <QSortFilterProxyModel>
 
+#include <KPixmapSequenceOverlayPainter>
 #include <kdemacros.h>
 
 namespace Ui {
@@ -58,6 +59,7 @@ private slots:
 private:
     Ui::SelectMakeModel *ui;
     QCups::Result *m_result;
+    KPixmapSequenceOverlayPainter *m_busySeq;
     QString m_selectedPPDName, m_selectedMakeAndModel;
     QString m_make, m_makeAndModel;
     QSortFilterProxyModel *m_model;

@@ -55,7 +55,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
                                KAboutData::License_GPL,
                                ki18n("(C) 2010 Daniel Nicoletti"));
     setAboutData(aboutData);
-    setButtons(Help);
+    setButtons(NoAdditionalButton);
 
     setupUi(this);
 

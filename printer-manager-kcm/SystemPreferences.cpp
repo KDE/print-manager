@@ -107,7 +107,6 @@ void SystemPreferences::save() {
 
 SystemPreferences::~SystemPreferences()
 {
-  // Destrutor
 }
 
 #include "SystemPreferences.moc"

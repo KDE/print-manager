@@ -73,32 +73,32 @@ void PageChoose::setValues(const QHash<QString, QVariant> &args)
     m_args = args;
     if (args["add-new-printer"].toBool()) {
         QString deviceUri = args["device-uri"].toString();
-        if (deviceUri.startsWith("parallel") ||
-            deviceUri.startsWith("usb") ||
-            deviceUri.startsWith("bluetooth") ||
-            deviceUri.startsWith("hal") ||
-            deviceUri.startsWith("beh") ||
-            deviceUri.startsWith("hp") ||
-            deviceUri.startsWith("hpfax") ||
-            deviceUri.startsWith("dnssd")) {
+        if (deviceUri.startsWith(QLatin1String("parallel")) ||
+            deviceUri.startsWith(QLatin1String("usb")) ||
+            deviceUri.startsWith(QLatin1String("bluetooth")) ||
+            deviceUri.startsWith(QLatin1String("hal")) ||
+            deviceUri.startsWith(QLatin1String("beh")) ||
+            deviceUri.startsWith(QLatin1String("hp")) ||
+            deviceUri.startsWith(QLatin1String("hpfax")) ||
+            deviceUri.startsWith(QLatin1String("dnssd"))) {
             // Set as false to jump to the next page
             m_isValid = false;
-        } else if (deviceUri.startsWith("socket")) {
+        } else if (deviceUri.startsWith(QLatin1String("socket"))) {
             m_layout->setCurrentWidget(m_chooseSocket);
-        } else if (deviceUri.startsWith("ipp") ||
-                   deviceUri.startsWith("http") ||
-                   deviceUri.startsWith("https")) {
+        } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
+                   deviceUri.startsWith(QLatin1String("http")) ||
+                   deviceUri.startsWith(QLatin1String("https"))) {
             m_layout->setCurrentWidget(m_chooseIpp);
-        } else if (deviceUri.startsWith("lpd")) {
+        } else if (deviceUri.startsWith(QLatin1String("lpd"))) {
             m_layout->setCurrentWidget(m_chooseLpd);
-        } else if (deviceUri.startsWith("scsi")) {
+        } else if (deviceUri.startsWith(QLatin1String("scsi"))) {
             // TODO
             m_layout->setCurrentWidget(m_chooseUri);
-        } else if (deviceUri.startsWith("serial:")) {
+        } else if (deviceUri.startsWith(QLatin1String("serial"))) {
             m_layout->setCurrentWidget(m_chooseSerial);
-        } else if (deviceUri.startsWith("smb")) {
+        } else if (deviceUri.startsWith(QLatin1String("smb"))) {
             m_layout->setCurrentWidget(m_chooseSamba);
-        } else if (deviceUri.startsWith("network")) {
+        } else if (deviceUri.startsWith(QLatin1String("network"))) {
             m_layout->setCurrentWidget(m_chooseUri);
         } else {
             m_layout->setCurrentWidget(m_chooseUri);

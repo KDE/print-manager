@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef PRINT_QUEUE_INTERFACE_H
-#define PRINT_QUEUE_INTERFACE_H
+#ifndef ADD_PRINTER_INTERFACE_H
+#define ADD_PRINTER_INTERFACE_H
 
 #include <QtDBus/QDBusContext>
 

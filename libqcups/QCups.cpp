@@ -30,8 +30,6 @@
 #include <QTimer>
 #include <KDebug>
 
-#include <QAbstractEventDispatcher>
-
 #define CUPS_DATADIR    "/usr/share/cups"
 
 using namespace QCups;
@@ -415,7 +413,7 @@ Result* QCups::Dest::printTestPage(const QString &destName, bool isClass)
     /*
      * Locate the test page file...
      */
-    if ((datadir = getenv("CUPS_DATADIR")) == NULL){
+    if ((datadir = qgetenv("CUPS_DATADIR")) == NULL){
         datadir = CUPS_DATADIR;
     }
     snprintf(filename, sizeof(filename), "%s/data/testprint", datadir);

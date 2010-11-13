@@ -115,23 +115,23 @@ void DevicesModel::device(const QString &devClass,
         device->setData(devUri, DeviceURI);
     }
 
-    if (devUri.startsWith("parallel")) {
+    if (devUri.startsWith(QLatin1String("parallel"))) {
         device->setToolTip(i18n("A printer connected to the parallel port"));
-    } else if (devUri.startsWith("usb")) {
+    } else if (devUri.startsWith(QLatin1String("usb"))) {
         device->setToolTip(i18n("A printer connected to a USB port"));
-    } else if (devUri.startsWith("bluetooth")) {
+    } else if (devUri.startsWith(QLatin1String("bluetooth"))) {
         device->setToolTip(i18n("A printer connected via Bluetooth"));
-    } else if (devUri.startsWith("hal")) {
+    } else if (devUri.startsWith(QLatin1String("hal"))) {
         device->setToolTip(i18n("Local printer detected by the "
                                 "Hardware Abstraction Layer (HAL)"));
-    } else if (devUri.startsWith("hp")) {
+    } else if (devUri.startsWith(QLatin1String("hp"))) {
         device->setToolTip(i18n("HPLIP software driving a printer, "
                                 "or the printer function of a multi-function device"));
-    } else if (devUri.startsWith("hpfax")) {
+    } else if (devUri.startsWith(QLatin1String("hpfax"))) {
         device->setToolTip(i18n("HPLIP software driving a fax machine, "
                                 "or the fax function of a multi-function device"));
-    } else if (devUri.startsWith("dnssd") ||
-               devUri.startsWith("mdns")) {
+    } else if (devUri.startsWith(QLatin1String("dnssd")) ||
+               devUri.startsWith(QLatin1String("mdns"))) {
         device->setToolTip(i18n("Remote CUPS printer via DNS-SD"));
     }
     device->setData(devInfo, DeviceInfo);

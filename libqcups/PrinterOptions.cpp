@@ -304,7 +304,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
-         i++, choice++) {
+         ++i, ++choice) {
         QString cName = m_codec->toUnicode(choice->choice);
         QString cText = m_codec->toUnicode(choice->text);
 

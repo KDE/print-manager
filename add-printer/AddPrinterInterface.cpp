@@ -20,8 +20,7 @@
 #include "AddPrinterInterface.h"
 #include "addprinteradaptor.h"
 
-// #include "AddPrinterUi.h"
-#include "QCups.h"
+#include <QCups.h>
 #include <cups/cups.h>
 
 #include <QtDBus/QDBusConnection>
@@ -58,6 +57,7 @@ AddPrinterInterface::~AddPrinterInterface()
 
 void AddPrinterInterface::AddPrinter(const QString &destName)
 {
+    Q_UNUSED(destName)
 //     if (destName.isEmpty()) {
 // //         emit quit();
 //         return;

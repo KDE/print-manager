@@ -54,6 +54,7 @@ AddPrinterAssistant::AddPrinterAssistant()
     m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18n("Please describe you printer"));
     addPage(m_addPrinterPage);
 
+    showButton(KDialog::Help, false);
     setDefaultButton(KDialog::User2); // next
     setDefaultButton(KDialog::User1); // finished
     QSize size = minimumSizeHint();

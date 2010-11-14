@@ -78,7 +78,6 @@ void AddPrinterAssistant::next()
 
 void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
 {
-    kDebug() <<  "next!!";
     // Each page has all it's settings and previous pages
     // settings stored, so when going backwards
     // we don't set (or even unset values),

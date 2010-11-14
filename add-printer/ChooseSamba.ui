@@ -44,7 +44,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>printer</string>
+        <string notr="true">printer</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -81,7 +81,7 @@
      <item row="0" column="0" colspan="2">
       <widget class="QGroupBox" name="groupBox_2">
        <property name="title">
-        <string>Windows Printer via SAMBA</string>
+        <string comment="@title:group">Windows Printer via SAMBA</string>
        </property>
        <layout class="QFormLayout" name="formLayout">
         <property name="fieldGrowthPolicy">
@@ -90,7 +90,7 @@
         <item row="0" column="0">
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>smb://</string>
+           <string notr="true">smb://</string>
           </property>
           <property name="buddy">
            <cstring>addressLE</cstring>
@@ -105,7 +105,7 @@
           <item>
            <widget class="QPushButton" name="browsePB">
             <property name="text">
-             <string>Browse</string>
+             <string comment="@action:button">Browse</string>
             </property>
            </widget>
           </item>
@@ -114,14 +114,14 @@
         <item row="1" column="0">
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>smb://</string>
+           <string notr="true">smb://</string>
           </property>
          </widget>
         </item>
         <item row="1" column="1">
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>[workgroup/]server[:port]/printer</string>
+           <string comment="@label samba URL markup example, this is preceeded by a label containing smb://">[workgroup/]server[:port]/printer</string>
           </property>
          </widget>
         </item>
@@ -131,7 +131,7 @@
      <item row="1" column="0" colspan="2">
       <widget class="QGroupBox" name="groupBox_3">
        <property name="title">
-        <string>Authentication</string>
+        <string comment="@title:group">Authentication</string>
        </property>
        <layout class="QFormLayout" name="formLayout_2">
         <item row="2" column="0">
@@ -140,7 +140,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Username:</string>
+           <string comment="@label:textbox">Username:</string>
           </property>
           <property name="buddy">
            <cstring>usernameLE</cstring>
@@ -153,7 +153,7 @@
            <bool>false</bool>
           </property>
           <property name="text">
-           <string>Password</string>
+           <string comment="@label:textbox">Password</string>
           </property>
           <property name="buddy">
            <cstring>passwordLE</cstring>
@@ -177,7 +177,7 @@
         <item row="0" column="0" colspan="2">
          <widget class="QRadioButton" name="radioButton">
           <property name="text">
-           <string>Prompt user if password is required</string>
+           <string comment="@option:radio">Prompt user if password is required</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -187,7 +187,7 @@
         <item row="1" column="0" colspan="2">
          <widget class="QRadioButton" name="authenticationCB">
           <property name="text">
-           <string>Set authentication details now</string>
+           <string comment="@option:radio">Set authentication details now</string>
           </property>
          </widget>
         </item>
@@ -216,7 +216,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Verify</string>
+        <string comment="@action:button">Verify</string>
        </property>
       </widget>
      </item>

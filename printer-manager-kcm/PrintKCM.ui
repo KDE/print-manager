@@ -53,7 +53,7 @@
         <x>0</x>
         <y>0</y>
         <width>217</width>
-        <height>345</height>
+        <height>343</height>
        </rect>
       </property>
      </widget>
@@ -156,7 +156,7 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>System Preferences</string>
+      <string comment="@action:button">System Preferences</string>
      </property>
     </widget>
    </item>

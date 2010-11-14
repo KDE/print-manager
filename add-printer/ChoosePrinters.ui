@@ -44,7 +44,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>printer</string>
+        <string notr="true">printer</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -81,7 +81,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Members:</string>
+        <string comment="@label:listbox">Members:</string>
        </property>
       </widget>
      </item>

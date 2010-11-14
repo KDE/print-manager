@@ -54,14 +54,14 @@ ChooseSerial::ChooseSerial(QWidget *parent)
     painter.drawPixmap(startPoint, pixmap);
     printerL->setPixmap(icon);
 
-    parityCB->addItem(i18n("None"), "none");
-    parityCB->addItem(i18n("Even"), "even");
-    parityCB->addItem(i18n("Odd"),  "odd");
+    parityCB->addItem(i18nc("@label:listbox", "None"), "none");
+    parityCB->addItem(i18nc("@label:listbox", "Even"), "even");
+    parityCB->addItem(i18nc("@label:listbox", "Odd"),  "odd");
 
-    flowCB->addItem(i18n("None"), "none");
-    flowCB->addItem(i18n("XON/XOFF (Software)"), "soft");
-    flowCB->addItem(i18n("RTS/CTS (Hardware)"),  "hard");
-    flowCB->addItem(i18n("DTR/DSR (Hardware)"),  "dtrdsr");
+    flowCB->addItem(i18nc("@label:listbox", "None"), "none");
+    flowCB->addItem(i18nc("@label:listbox", "XON/XOFF (Software)"), "soft");
+    flowCB->addItem(i18nc("@label:listbox", "RTS/CTS (Hardware)"),  "hard");
+    flowCB->addItem(i18nc("@label:listbox", "DTR/DSR (Hardware)"),  "dtrdsr");
 }
 
 ChooseSerial::~ChooseSerial()

@@ -116,33 +116,33 @@ void DevicesModel::device(const QString &devClass,
     }
 
     if (devUri.startsWith(QLatin1String("parallel"))) {
-        device->setToolTip(i18n("A printer connected to the parallel port"));
+        device->setToolTip(i18nc("@info:tooltip", "A printer connected to the parallel port"));
     } else if (devUri.startsWith(QLatin1String("usb"))) {
-        device->setToolTip(i18n("A printer connected to a USB port"));
+        device->setToolTip(i18nc("@info:tooltip", "A printer connected to a USB port"));
     } else if (devUri.startsWith(QLatin1String("bluetooth"))) {
-        device->setToolTip(i18n("A printer connected via Bluetooth"));
+        device->setToolTip(i18nc("@info:tooltip", "A printer connected via Bluetooth"));
     } else if (devUri.startsWith(QLatin1String("hal"))) {
-        device->setToolTip(i18n("Local printer detected by the "
+        device->setToolTip(i18nc("@info:tooltip", "Local printer detected by the "
                                 "Hardware Abstraction Layer (HAL)"));
     } else if (devUri.startsWith(QLatin1String("hp"))) {
-        device->setToolTip(i18n("HPLIP software driving a printer, "
+        device->setToolTip(i18nc("@info:tooltip", "HPLIP software driving a printer, "
                                 "or the printer function of a multi-function device"));
     } else if (devUri.startsWith(QLatin1String("hpfax"))) {
-        device->setToolTip(i18n("HPLIP software driving a fax machine, "
+        device->setToolTip(i18nc("@info:tooltip", "HPLIP software driving a fax machine, "
                                 "or the fax function of a multi-function device"));
     } else if (devUri.startsWith(QLatin1String("dnssd")) ||
                devUri.startsWith(QLatin1String("mdns"))) {
-        device->setToolTip(i18n("Remote CUPS printer via DNS-SD"));
+        device->setToolTip(i18nc("@info:tooltip", "Remote CUPS printer via DNS-SD"));
     }
     device->setData(devInfo, DeviceInfo);
 
     device->setData(static_cast<qlonglong>(kind), KCategorizedSortFilterProxyModel::CategorySortRole);
     if (kind == Networked) {
-        device->setData(i18n("Discovered Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        device->setData(i18nc("@item", "Discovered Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
     } else if (kind == OtherNetworked) {
-        device->setData(i18n("Other Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        device->setData(i18nc("@item", "Other Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
     } else {
-        device->setData(i18n("Local Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        device->setData(i18nc("@item", "Local Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
     }
     appendRow(device);
 //     itemClass->appendRow(device);

@@ -35,23 +35,23 @@
 AddPrinterAssistant::AddPrinterAssistant()
  : KAssistantDialog()
 {
-    setWindowTitle(i18n("Add a New Printer"));
+    setWindowTitle(i18nc("@title:window", "Add a New Printer"));
     setWindowIcon(KIcon("printer"));
     showButton(KDialog::Cancel, false);
 
-    m_introPage = new KPageWidgetItem(new PageIntro, i18n("Welcome to the Add New Printer Assistant"));
+    m_introPage = new KPageWidgetItem(new PageIntro, i18nc("@title:window", "Welcome to the Add New Printer Assistant"));
     addPage(m_introPage);
 
-    m_devicesPage = new KPageWidgetItem(new PageDestinations, i18n("Select a Printer to Add"));
+    m_devicesPage = new KPageWidgetItem(new PageDestinations, i18nc("@title:window", "Select a Printer to Add"));
     addPage(m_devicesPage);
 
-    m_choosePage = new KPageWidgetItem(new PageChoose, i18n("Configure your connection"));
+    m_choosePage = new KPageWidgetItem(new PageChoose, i18nc("@title:window", "Configure your connection"));
     addPage(m_choosePage);
 
-    m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18n("Pick a Driver"));
+    m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
     addPage(m_choosePPDPage);
 
-    m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18n("Please describe you printer"));
+    m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe you printer"));
     addPage(m_addPrinterPage);
 
     showButton(KDialog::Help, false);
@@ -142,9 +142,10 @@ void AddPrinterAssistant::slotButtonClicked(int button)
         if (result->hasError()) {
             kDebug() << result->lastError();
             KMessageBox::detailedSorry(this,
-                                       isClass ? i18n("Failed to add class") : i18n("Failed to add printer"),
+                                       isClass ? i18nc("@info", "Failed to add class") :
+                                                 i18nc("@info", "Failed to add printer"),
                                        result->lastErrorString(),
-                                       i18n("Failed"));
+                                       i18nc("@title:window", "Failed"));
         } else {
             KAssistantDialog::slotButtonClicked(button);
         }

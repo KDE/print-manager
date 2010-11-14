@@ -44,7 +44,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>printer</string>
+        <string notr="true">printer</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -84,7 +84,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Address:</string>
+        <string comment="@label:textbox">Address:</string>
        </property>
       </widget>
      </item>
@@ -94,7 +94,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Queue:</string>
+        <string comment="@label:textbox">Queue:</string>
        </property>
       </widget>
      </item>
@@ -106,7 +106,7 @@
        <item>
         <widget class="QPushButton" name="detectPB">
          <property name="text">
-          <string>Find Queue</string>
+          <string comment="@action:button">Find Queue</string>
          </property>
         </widget>
        </item>
@@ -115,7 +115,7 @@
      <item row="2" column="1">
       <widget class="QPushButton" name="verifyPB">
        <property name="text">
-        <string>Verify</string>
+        <string comment="@action:button">Verify</string>
        </property>
       </widget>
      </item>

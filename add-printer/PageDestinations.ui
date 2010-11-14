@@ -31,7 +31,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>printer</string>
+        <string notr="true">printer</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

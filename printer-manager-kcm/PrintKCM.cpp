@@ -59,13 +59,16 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
 
     setupUi(this);
 
-    m_addAction = toolBar->addAction(KIcon("list-add"), "Add Printer",
-                                            this, SLOT(on_addPB_clicked()));
-    m_removeAction = toolBar->addAction(KIcon("list-remove"), "Remove Printer",
-                                          this, SLOT(on_removePB_clicked()));
+    m_addAction = toolBar->addAction(KIcon("list-add"),
+                                     i18nc("@action:intoolbar", "Add Printer"),
+                                     this, SLOT(on_addPB_clicked()));
+    m_removeAction = toolBar->addAction(KIcon("list-remove"),
+                                        i18nc("@action:intoolbar", "Remove Printer"),
+                                        this, SLOT(on_removePB_clicked()));
     toolBar->addSeparator();
-    m_configureAction = toolBar->addAction(KIcon("configure"), "Configure Printer",
-                                             this, SLOT(on_configurePrinterPB_clicked()));
+    m_configureAction = toolBar->addAction(KIcon("configure"),
+                                           i18nc("@action:intoolbar", "Configure Printer"),
+                                           this, SLOT(on_configurePrinterPB_clicked()));
 
     preferencesPB->setIcon(KIcon("configure"));
 

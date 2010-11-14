@@ -33,7 +33,7 @@ PageChoosePPD::PageChoosePPD(QWidget *parent)
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
-    setWindowTitle(i18n("Select a Printer to Add"));
+    setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
     // loads the standard key icon
     QPixmap pixmap;
     pixmap = KIconLoader::global()->loadIcon("printer",

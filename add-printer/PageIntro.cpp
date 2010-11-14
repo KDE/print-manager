@@ -31,7 +31,7 @@ PageIntro::PageIntro(QWidget *parent)
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
-    setWindowTitle(i18n("Welcome to the add printer wizard"));
+    setWindowTitle(i18nc("@title:window", "Welcome to the add printer wizard"));
     // loads the standard key icon
     QPixmap pixmap;
     pixmap = KIconLoader::global()->loadIcon("computer",

@@ -67,7 +67,7 @@ void ChooseSocket::setValues(const QHash<QString, QVariant> &args)
     addressLE->clear();
     portISB->setValue(9100);
     QString deviceUri = args["device-uri"].toString();
-    QUrl url = deviceUri;
+    KUrl url = deviceUri;
     if (url.scheme() == "socket") {
         addressLE->setText(url.host());
         portISB->setValue(url.port(9100));
@@ -91,7 +91,7 @@ bool ChooseSocket::canProceed() const
 {
     bool allow = false;
     if (!addressLE->text().isEmpty()) {
-        QUrl url = QUrl("socket://" + addressLE->text());
+        KUrl url = KUrl("socket://" + addressLE->text());
         allow = url.isValid();
     }
     return allow;

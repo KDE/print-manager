@@ -67,7 +67,7 @@ void ChooseIpp::setValues(const QHash<QString, QVariant> &args)
     QString deviceUri = args["device-uri"].toString();
     if (deviceUri.contains('/')) {
         kDebug() << deviceUri;
-        QUrl url = deviceUri;
+        KUrl url = deviceUri;
         addressLE->setText(url.authority());
         queueLE->setText(url.path());
     } else {
@@ -98,7 +98,7 @@ bool ChooseIpp::canProceed() const
 {
     bool allow = false;
     if (!addressLE->text().isEmpty()) {
-        QUrl url = QUrl("lpd://" + addressLE->text());
+        KUrl url = KUrl("lpd://" + addressLE->text());
         allow = url.isValid();
     }
     return allow;

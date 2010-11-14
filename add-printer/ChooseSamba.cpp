@@ -86,7 +86,7 @@ bool ChooseSamba::canProceed() const
 {
     bool allow = false;
     if (!addressLE->text().isEmpty()) {
-        QUrl url = QUrl("smb://" + addressLE->text());
+        KUrl url = KUrl("smb://" + addressLE->text());
         allow = url.isValid();
     }
     return allow;

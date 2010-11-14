@@ -87,7 +87,7 @@ bool ChooseUri::canProceed() const
 {
     bool allow = false;
     if (!addressLE->text().isEmpty()) {
-        QUrl url = QUrl("lpd://" + addressLE->text());
+        KUrl url = KUrl("lpd://" + addressLE->text());
         allow = url.isValid();
     }
     return allow;

@@ -20,14 +20,14 @@
    <item row="0" column="0" colspan="2">
     <widget class="QCheckBox" name="showSharedPrintersCB">
      <property name="text">
-      <string>Show printers shared by other systems</string>
+      <string comment="@option:check">Show printers shared by other systems</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QCheckBox" name="shareConnectedPrintersCB">
      <property name="text">
-      <string>Share printers connected to this system</string>
+      <string comment="@option:check">Share printers connected to this system</string>
      </property>
     </widget>
    </item>
@@ -37,14 +37,14 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>Allow printing from the Internet</string>
+      <string comment="@option:check">Allow printing from the Internet</string>
      </property>
     </widget>
    </item>
    <item row="3" column="0" colspan="2">
     <widget class="QCheckBox" name="allowRemoteAdminCB">
      <property name="text">
-      <string>Allow remote administration</string>
+      <string comment="@option:check">Allow remote administration</string>
      </property>
     </widget>
    </item>
@@ -54,14 +54,14 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>Use Kerberos authentication</string>
+      <string comment="@option:check">Use Kerberos authentication</string>
      </property>
     </widget>
    </item>
    <item row="5" column="0" colspan="2">
     <widget class="QCheckBox" name="allowUsrCancelCB">
      <property name="text">
-      <string>Allow users to cancel any job (not just their own)</string>
+      <string comment="@option:check">Allow users to cancel any job (not just their own)</string>
      </property>
     </widget>
    </item>

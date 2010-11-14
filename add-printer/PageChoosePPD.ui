@@ -44,7 +44,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>printer</string>
+        <string notr="true">printer</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -86,18 +86,25 @@
      </property>
      <item>
       <property name="text">
-       <string>Select a Driver from Current Installed List</string>
+       <string comment="@item:inlistbox">Select a Driver from Current Installed List</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Provide a Driver from a File</string>
+       <string comment="@item:inlistbox">Provide a Driver from a File</string>
       </property>
      </item>
     </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

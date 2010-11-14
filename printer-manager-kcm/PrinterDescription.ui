@@ -25,7 +25,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Icon</string>
+        <string notr="true">Icon</string>
        </property>
       </widget>
      </item>
@@ -40,7 +40,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string notr="true">Printer name or description</string>
+          <string comment="@title">Printer name or description</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -53,14 +53,14 @@
        <item>
         <widget class="QCheckBox" name="defaultCB">
          <property name="text">
-          <string>Default printer</string>
+          <string comment="@option:check">Default printer</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="sharedCB">
          <property name="text">
-          <string>Share this printer</string>
+          <string comment="@option:check">Share this printer</string>
          </property>
         </widget>
        </item>
@@ -69,7 +69,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="locationL">
        <property name="text">
-        <string>Location:</string>
+        <string comment="@label location of printer">Location:</string>
        </property>
       </widget>
      </item>
@@ -92,7 +92,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="kindL">
        <property name="text">
-        <string>Kind:</string>
+        <string comment="@label kind of printer, could be driver name or &quot;local raw socket&quot;">Kind:</string>
        </property>
       </widget>
      </item>
@@ -115,7 +115,7 @@
      <item row="3" column="0">
       <widget class="QLabel" name="statusL">
        <property name="text">
-        <string>Status:</string>
+        <string comment="@label current status of the printer">Status:</string>
        </property>
       </widget>
      </item>
@@ -146,7 +146,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Open Print Queue</string>
+          <string comment="@action:button">Open Print Queue</string>
          </property>
         </widget>
        </item>
@@ -159,7 +159,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Maintenance</string>
+          <string comment="@action:button">Maintenance</string>
          </property>
         </widget>
        </item>
@@ -172,7 +172,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Supply Levels</string>
+          <string comment="@action:button">Supply Levels</string>
          </property>
         </widget>
        </item>

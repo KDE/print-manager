@@ -54,6 +54,10 @@ private:
     QWidget *m_serverError;
     KTitleWidget *m_serverErrorW;
     int m_lastError;
+
+    QAction *m_addAction;
+    QAction *m_removeAction;
+    QAction *m_configureAction;
 };
 
 #endif

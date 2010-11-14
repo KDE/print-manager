@@ -11,7 +11,7 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="5">
+   <item row="0" column="0" colspan="2">
     <widget class="QTreeView" name="printersTV">
      <property name="enabled">
       <bool>false</bool>
@@ -39,7 +39,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="5" colspan="2">
+   <item row="0" column="2" colspan="2">
     <widget class="QScrollArea" name="scrollArea">
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -59,79 +59,40 @@
      </widget>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QToolButton" name="addPB">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="toolTip">
-      <string>Add</string>
-     </property>
-     <property name="text">
-      <string notr="true">Add</string>
-     </property>
-     <property name="autoRaise">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QToolButton" name="removePB">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="toolTip">
-      <string>Remove</string>
-     </property>
-     <property name="text">
-      <string notr="true">Remove</string>
-     </property>
-     <property name="autoRaise">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
-    <widget class="Line" name="line_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="3">
-    <widget class="QToolButton" name="configurePrinterPB">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="toolTip">
-      <string>Configure</string>
-     </property>
-     <property name="text">
-      <string notr="true">Configure</string>
-     </property>
-     <property name="autoRaise">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="0" colspan="7">
+   <item row="4" column="0" colspan="4">
     <widget class="Line" name="line">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="2" column="6">
+   <item row="2" column="2">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>180</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="3">
     <widget class="QPushButton" name="preferencesPB">
      <property name="enabled">
       <bool>false</bool>
      </property>
      <property name="text">
-      <string comment="@action:button">System Preferences</string>
+      <string>System Preferences</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="4" colspan="2">
+   <item row="2" column="0">
+    <widget class="KToolBar" name="toolBar"/>
+   </item>
+   <item row="2" column="1">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -149,6 +110,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KToolBar</class>
+   <extends>QToolBar</extends>
+   <header location="global">KToolBar</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -59,10 +59,15 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
 
     setupUi(this);
 
-    addPB->setIcon(KIcon("list-add"));
-    removePB->setIcon(KIcon("list-remove"));
+    m_addAction = toolBar->addAction(KIcon("list-add"), "Add Printer",
+                                            this, SLOT(on_addPB_clicked()));
+    m_removeAction = toolBar->addAction(KIcon("list-remove"), "Remove Printer",
+                                          this, SLOT(on_removePB_clicked()));
+    toolBar->addSeparator();
+    m_configureAction = toolBar->addAction(KIcon("configure"), "Configure Printer",
+                                             this, SLOT(on_configurePrinterPB_clicked()));
+
     preferencesPB->setIcon(KIcon("configure"));
-    configurePrinterPB->setIcon(KIcon("configure"));
 
     m_model = new PrinterModel(winId(), this);
     printersTV->setModel(m_model);
@@ -136,15 +141,15 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // if no printer was found the server
         // is still working
         if (lastError == IPP_NOT_FOUND) {
-            addPB->setEnabled(true);
+            m_addAction->setEnabled(true);
             preferencesPB->setEnabled(true);
         } else {
-            addPB->setEnabled(!lastError);
+            m_addAction->setEnabled(!lastError);
             preferencesPB->setEnabled(!lastError);
         }
 
-        removePB->setEnabled(false);
-        configurePrinterPB->setEnabled(false);
+        m_removeAction->setEnabled(false);
+        m_configureAction->setEnabled(false);
         printersTV->setEnabled(!lastError);
         m_lastError = lastError;
         // Force an update
@@ -179,8 +184,8 @@ void PrintKCM::update()
             int type = index.data(PrinterModel::DestType).toInt();
             // If we remove discovered printers, they will come
             // back to hunt us a bit later
-            removePB->setEnabled(!(type & CUPS_PRINTER_DISCOVERED));
-            configurePrinterPB->setEnabled(true);
+            m_removeAction->setEnabled(!(type & CUPS_PRINTER_DISCOVERED));
+            m_configureAction->setEnabled(true);
         }
         m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                    index.data(PrinterModel::DestDescription).toString(),
@@ -201,8 +206,8 @@ void PrintKCM::update()
         // the model is empty and no problem happened
         m_stackedLayout->setCurrentWidget(m_noPrinter);
         // disable the printer action buttons if there is nothing to selected
-        removePB->setEnabled(false);
-        configurePrinterPB->setEnabled(false);
+        m_removeAction->setEnabled(false);
+        m_configureAction->setEnabled(false);
     }
 }
 

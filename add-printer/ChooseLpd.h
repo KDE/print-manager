@@ -39,8 +39,7 @@ public:
     bool canProceed() const;
 
 public slots:
-    void load();
-    void on_detectPB_clicked();
+    void on_addressLE_textChanged(const QString &text);
 
 private slots:
     void checkSelected();

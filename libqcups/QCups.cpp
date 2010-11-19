@@ -34,35 +34,36 @@
 
 using namespace QCups;
 
-NCups* NCups::m_instance = 0;
-NCups* NCups::instance()
+QCupsConnection* QCupsConnection::m_instance = 0;
+QCupsConnection* QCupsConnection::instance()
 {
     if (!m_instance) {
-        m_instance = new NCups(qApp);
+        m_instance = new QCupsConnection(qApp);
     }
 
     return m_instance;
 }
 
-NCups::NCups(QObject* parent)
+QCupsConnection::QCupsConnection(QObject* parent)
  : QObject(parent),
-   m_thread(new CupsThreadRequest(this))
+   m_thread(new CupsThreadRequest)
 {
+    m_thread->moveToThread(m_thread);
     m_thread->start();
-    while (!m_thread->req) {
+    while (!m_thread->isRunning()) {
         usleep(1);
     }
 }
 
-NCups::~NCups()
+QCupsConnection::~QCupsConnection()
 {
     m_thread->quit();
     m_thread->wait();
 }
 
-Request* NCups::request() const
+CupsThreadRequest* QCupsConnection::request() const
 {
-    return m_thread->req;
+    return m_thread;
 }
 
 Result* QCups::pausePrinter(const QString &name)
@@ -70,8 +71,8 @@ Result* QCups::pausePrinter(const QString &name)
     QHash<QString, QVariant> request;
     request["printer-name"] = name;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -88,8 +89,8 @@ Result* QCups::resumePrinter(const QString &name)
     QHash<QString, QVariant> request;
     request["printer-name"] = name;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -106,8 +107,8 @@ Result* QCups::setDefaultPrinter(const QString &name)
     QHash<QString, QVariant> request;
     request["printer-name"] = name;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -124,8 +125,8 @@ Result* QCups::deletePrinter(const QString &name)
     QHash<QString, QVariant> request;
     request["printer-name"] = name;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -139,8 +140,8 @@ Result* QCups::deletePrinter(const QString &name)
 
 Result* QCups::cancelJob(const QString &name, int job_id)
 {
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "cancelJob",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -156,8 +157,8 @@ Result* QCups::holdJob(const QString &name, int job_id)
     request["printer-name"] = name;
     request["job-id"] = job_id;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -175,8 +176,8 @@ Result* QCups::releaseJob(const QString &name, int job_id)
     request["printer-name"] = name;
     request["job-id"] = job_id;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -199,8 +200,8 @@ Result* QCups::moveJob(const QString &name, int job_id, const QString &dest_name
     request["job-id"] = job_id;
     request["job-printer-uri"] = dest_name;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -233,8 +234,8 @@ Result* QCups::Dest::setAttributes(const QString &destName, bool isClass, const 
         op = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
     }
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -248,8 +249,8 @@ Result* QCups::Dest::setAttributes(const QString &destName, bool isClass, const 
 
 Result* QCups::adminGetServerSettings()
 {
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "cupsAdminGetServerSettings",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result));
@@ -259,8 +260,8 @@ Result* QCups::adminGetServerSettings()
 
 Result* QCups::adminSetServerSettings(const QHash<QString, QString> &userValues)
 {
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "cupsAdminSetServerSettings",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -276,9 +277,9 @@ Result* QCups::getPPDS(const QString &make)
         request["ppd-make-and-model"] = make;
     }
     request["need-dest-name"] = false;
-    Result *result = new Result(NCups::instance());
+    Result *result = new Result(QCupsConnection::instance());
 
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -292,8 +293,8 @@ Result* QCups::getPPDS(const QString &make)
 
 Result* QCups::getDevices()
 {
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "cupsGetDevices",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result));
@@ -310,10 +311,10 @@ Result* QCups::getDests(int mask, const QStringList &requestedAttr)
     }
     request["requested-attributes"] = requestedAttr;
     request["need-dest-name"] = true;
-    Result *result = new Result(NCups::instance());
+    Result *result = new Result(QCupsConnection::instance());
     result->setProperty("methodName", "getDests");
 
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -352,9 +353,9 @@ Result* QCups::getJobs(const QString &destName,
     }
     request["group-tag-qt"] = IPP_TAG_JOB;
 
-    Result *result = new Result(NCups::instance());
+    Result *result = new Result(QCupsConnection::instance());
     result->setProperty("methodName", "getJobs");
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -366,7 +367,7 @@ Result* QCups::getJobs(const QString &destName,
     return result;
 }
 
-void NCups::showPasswordDlg(QMutex *mutex, QEventLoop *loop, const QString &username, bool showErrorMessage)
+void QCupsConnection::showPasswordDlg(QMutex *mutex, QEventLoop *loop, const QString &username, bool showErrorMessage)
 {
     kDebug() << "---------LOCK";
     mutex->lock();
@@ -386,8 +387,8 @@ Result* QCups::Dest::setShared(const QString &destName, bool isClass, bool share
     request["printer-is-shared"] = shared;
     request["need-dest-name"] = true;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -425,10 +426,10 @@ Result* QCups::Dest::printTestPage(const QString &destName, bool isClass)
     snprintf(resource, sizeof(resource),
              isClass ? "/classes/%s" : "/printers/%s", destName.toUtf8().data());
 
-    Result *result = new Result(NCups::instance());
+    Result *result = new Result(QCupsConnection::instance());
     result->setProperty("methodName", "printTestPage");
 
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*,   result),
@@ -442,8 +443,8 @@ Result* QCups::Dest::printTestPage(const QString &destName, bool isClass)
 
 Result* QCups::Dest::printCommand(const QString &destName, const QString &command, const QString &title)
 {
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "cupsPrintCommand",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -472,8 +473,8 @@ Result* QCups::addClass(const QHash<QString, QVariant> &values)
 //         op = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
 //     }
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),
@@ -493,8 +494,8 @@ Result* QCups::Dest::getAttributes(const QString &destName, bool isClass, const 
     request["need-dest-name"] = false; // we don't need a dest name since it's a single list
     request["requested-attributes"] = requestedAttr;
 
-    Result *result = new Result(NCups::instance());
-    QMetaObject::invokeMethod(NCups::instance()->request(),
+    Result *result = new Result(QCupsConnection::instance());
+    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
                               "request",
                               Qt::QueuedConnection,
                               Q_ARG(Result*, result),

@@ -48,6 +48,14 @@ void DevicesModel::update()
             this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));
     connect(m_ret, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_ret, SIGNAL(finished()), this, SIGNAL(loaded()));
+
+    // Adds the other device which is meant for manual URI input
+    device(QString(),
+           QString(),
+           i18nc("@item", "Manual URI"),
+           QString(),
+           "other",
+           QString());
 }
 
 void DevicesModel::device(const QString &devClass,
@@ -66,6 +74,19 @@ void DevicesModel::device(const QString &devClass,
     // "Samsung SCX-4200 Series"
     // "usb://Samsung/SCX-4200%20Series"
     // ""
+
+    QStringList blacklistedURI;
+    blacklistedURI << "hp";
+    blacklistedURI << "hpfax";
+    blacklistedURI << "hal";
+    blacklistedURI << "beh";
+    blacklistedURI << "scsi";
+    blacklistedURI << "http";
+    blacklistedURI << "delete";
+    if (blacklistedURI.contains(devUri)) {
+        // ignore black listed uri's
+        return;
+    }
 
     Kind kind;
     // Store the kind of the device
@@ -106,7 +127,8 @@ void DevicesModel::device(const QString &devClass,
 //     }
 
     QStandardItem *device;
-    if (devMakeAndModel != "Unknown") {
+    if (devMakeAndModel.compare(QLatin1String("unknown"), Qt::CaseInsensitive) != 0
+    && !devMakeAndModel.isEmpty()) {
         device = new QStandardItem(devInfo + " (" + devMakeAndModel + ')');
         device->setData(devUri, DeviceURI);
         device->setData(devMakeAndModel, DeviceMakeAndModel);

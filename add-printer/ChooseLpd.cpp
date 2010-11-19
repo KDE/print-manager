@@ -57,10 +57,16 @@ ChooseLpd::~ChooseLpd()
 {
 }
 
+void ChooseLpd::on_addressLE_textChanged(const QString &text)
+{
+    kDebug() << text;
+}
+
 void ChooseLpd::setValues(const QHash<QString, QVariant> &args)
 {
     m_args = args;
     QString deviceUri = args["device-uri"].toString();
+    kDebug() << deviceUri;
     if (deviceUri.contains('/')) {
         m_isValid = false;
         return;
@@ -90,14 +96,6 @@ bool ChooseLpd::canProceed() const
 bool ChooseLpd::isValid() const
 {
     return m_isValid;
-}
-
-void ChooseLpd::load()
-{
-}
-
-void ChooseLpd::on_detectPB_clicked()
-{
 }
 
 void ChooseLpd::checkSelected()

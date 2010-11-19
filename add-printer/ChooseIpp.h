@@ -38,14 +38,12 @@ public:
     bool isValid() const;
     bool canProceed() const;
 
-public slots:
-    void load();
-    void on_detectPB_clicked();
-
 private slots:
-    void checkSelected();
+    void verifyURL();
 
 private:
+    QString uri() const;
+
     bool m_isValid;
 };
 

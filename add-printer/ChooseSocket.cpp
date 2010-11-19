@@ -59,7 +59,7 @@ ChooseSocket::~ChooseSocket()
 
 void ChooseSocket::setValues(const QHash<QString, QVariant> &args)
 {
-    if (m_args != args) {
+    if (m_args == args) {
         return;
     }
 
@@ -78,7 +78,9 @@ void ChooseSocket::setValues(const QHash<QString, QVariant> &args)
 QHash<QString, QVariant> ChooseSocket::values() const
 {
     QHash<QString, QVariant> ret = m_args;
-    ret["device-uri"] = "socket://" + addressLE->text();
+    KUrl url = KUrl("socket://" + addressLE->text());
+    url.setPort(portISB->value());
+    ret["device-uri"] = url.prettyUrl();
     return ret;
 }
 
@@ -89,25 +91,13 @@ bool ChooseSocket::isValid() const
 
 bool ChooseSocket::canProceed() const
 {
-    bool allow = false;
-    if (!addressLE->text().isEmpty()) {
-        KUrl url = KUrl("socket://" + addressLE->text());
-        allow = url.isValid();
-    }
-    return allow;
+    return !addressLE->text().isEmpty();
 }
 
-void ChooseSocket::load()
+void ChooseSocket::on_addressLE_textChanged(const QString &text)
 {
-}
-
-void ChooseSocket::on_detectPB_clicked()
-{
-}
-
-void ChooseSocket::checkSelected()
-{
-//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+    Q_UNUSED(text)
+    emit allowProceed(canProceed());
 }
 
 #include "ChooseSocket.moc"

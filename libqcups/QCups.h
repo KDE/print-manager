@@ -72,7 +72,7 @@ namespace QCups
         QString m_errorString;
         ReturnArguments m_args;
         HashStrStr m_hash;
-        friend class Request;
+        friend class CupsThreadRequest;
     };
 
     // Dest Methods
@@ -114,21 +114,21 @@ namespace QCups
 
     class Request;
     class CupsThreadRequest;
-    class NCups : public QObject
+    class QCupsConnection : public QObject
     {
         Q_OBJECT
     public:
-        static NCups* instance();
-        ~NCups();
+        static QCupsConnection* instance();
+        ~QCupsConnection();
 
-        Request* request() const;
+        CupsThreadRequest* request() const;
 
     public slots:
         void showPasswordDlg(QMutex *mutex, QEventLoop *loop, const QString &username, bool showErrorMessage);
 
     private:
-        NCups(QObject* parent = 0);
-        static NCups* m_instance;
+        QCupsConnection(QObject* parent = 0);
+        static QCupsConnection* m_instance;
         CupsThreadRequest *m_thread;
     };
 }

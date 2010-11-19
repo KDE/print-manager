@@ -109,8 +109,7 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
     }
 }
 
-CupsThreadRequest::CupsThreadRequest(QObject *parent)
- : QThread(parent), req(0)
+CupsThreadRequest::CupsThreadRequest()
 {
     qRegisterMetaType<ipp_op_e>("ipp_op_e");
     qRegisterMetaType<bool*>("bool*");
@@ -124,19 +123,18 @@ CupsThreadRequest::CupsThreadRequest(QObject *parent)
 
 CupsThreadRequest::~CupsThreadRequest()
 {
-    req->deleteLater();
     delete m_mutex;
 }
 
 void CupsThreadRequest::run()
 {
     kDebug() << QThread::currentThreadId();
+
     cupsSetPasswordCB2(thread_password_cb, this);
-    req = new Request();
     exec();
 }
 
-bool Request::retry()
+bool CupsThreadRequest::retry()
 {
     kDebug() << "cupsLastErrorString()" << cupsLastErrorString() << cupsLastError() << IPP_FORBIDDEN;
     if (cupsLastError() == IPP_FORBIDDEN ||
@@ -272,7 +270,7 @@ ReturnArguments cupsParseIPPVars(ipp_t *response, int group_tag, bool needDestNa
     return ret;
 }
 
-void Request::cancelJob(Result *result, const QString &destName, int jobId)
+void CupsThreadRequest::cancelJob(Result *result, const QString &destName, int jobId)
 {
     kDebug() << "BEGIN" << QThread::currentThreadId();
     password_retries = 0;
@@ -285,7 +283,7 @@ void Request::cancelJob(Result *result, const QString &destName, int jobId)
 }
 
 
-void Request::request(Result        *result,
+void CupsThreadRequest::request(Result        *result,
                       ipp_op_e       operation,
                       const QString &resource,
                       Arguments      reqValues,
@@ -438,7 +436,7 @@ void Request::request(Result        *result,
     QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
-void Request::cupsAdminGetServerSettings(Result *result)
+void CupsThreadRequest::cupsAdminGetServerSettings(Result *result)
 {
     password_retries = 0;
     do {
@@ -490,7 +488,7 @@ choose_device_cb(
                               Q_ARG(QString, QString::fromUtf8(device_location)));
 }
 
-void Request::cupsGetDevices(Result *result)
+void CupsThreadRequest::cupsGetDevices(Result *result)
 {
     password_retries = 0;
     kDebug();
@@ -506,7 +504,7 @@ void Request::cupsGetDevices(Result *result)
     QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
-void Request::cupsAdminSetServerSettings(Result *result, const HashStrStr &userValues)
+void CupsThreadRequest::cupsAdminSetServerSettings(Result *result, const HashStrStr &userValues)
 {
     password_retries = 0;
     do {
@@ -549,7 +547,7 @@ void Request::cupsAdminSetServerSettings(Result *result, const HashStrStr &userV
     QMetaObject::invokeMethod(result, "finished", Qt::QueuedConnection);
 }
 
-void Request::cupsPrintCommand(Result *result,
+void CupsThreadRequest::cupsPrintCommand(Result *result,
                               const QString &name,       /* I - Destination printer */
                               const QString &command,    /* I - Command to send */
                               const QString &title)      /* I - Page/job title */

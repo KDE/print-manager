@@ -38,12 +38,8 @@ public:
     bool isValid() const;
     bool canProceed() const;
 
-public slots:
-    void load();
-    void on_detectPB_clicked();
-
 private slots:
-    void checkSelected();
+    void on_addressLE_textChanged(const QString &text);
 
 private:
     bool m_isValid;

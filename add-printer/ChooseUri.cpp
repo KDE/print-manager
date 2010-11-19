@@ -67,7 +67,11 @@ void ChooseUri::setValues(const QHash<QString, QVariant> &args)
     }
     m_isValid = true;
 
-    addressLE->setText(deviceUri);
+    if (deviceUri.compare(QLatin1String("other"))) {
+        addressLE->setText(deviceUri);
+    } else {
+        addressLE->clear();
+    }
 }
 
 QHash<QString, QVariant> ChooseUri::values() const

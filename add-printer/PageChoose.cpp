@@ -84,6 +84,7 @@ void PageChoose::setValues(const QHash<QString, QVariant> &args)
             // Set as false to jump to the next page
             m_isValid = false;
         } else if (deviceUri.startsWith(QLatin1String("socket"))) {
+                kDebug() << "SOCKET";
             m_layout->setCurrentWidget(m_chooseSocket);
         } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
                    deviceUri.startsWith(QLatin1String("http")) ||

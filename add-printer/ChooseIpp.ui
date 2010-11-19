@@ -81,6 +81,9 @@
      <property name="fieldGrowthPolicy">
       <enum>QFormLayout::ExpandingFieldsGrow</enum>
      </property>
+     <property name="formAlignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
      <item row="0" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
@@ -103,19 +106,12 @@
        <item>
         <widget class="KLineEdit" name="queueLE"/>
        </item>
-       <item>
-        <widget class="QPushButton" name="detectPB">
-         <property name="text">
-          <string comment="@action:button">Find Queue</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="verifyPB">
+      <widget class="QLabel" name="uriL">
        <property name="text">
-        <string comment="@action:button">Verify</string>
+        <string notr="true">ipp://...</string>
        </property>
       </widget>
      </item>

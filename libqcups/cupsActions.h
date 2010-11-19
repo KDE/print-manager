@@ -32,9 +32,15 @@
 
 namespace QCups
 {
-    class Request : public QObject
+    class CupsThreadRequest : public QThread
     {
         Q_OBJECT
+    public:
+        CupsThreadRequest();
+        ~CupsThreadRequest();
+
+        QMutex *m_mutex;
+
     public slots:
         void request(Result *result, ipp_op_e operation, const QString &resource,
                      Arguments reqValues, bool needResponse);
@@ -46,21 +52,8 @@ namespace QCups
         void cupsGetDevices(Result *result);
 
     private:
-        bool retry();
-    };
-
-    class CupsThreadRequest : public QThread
-    {
-        Q_OBJECT
-    public:
-        CupsThreadRequest(QObject *parent = 0);
-        ~CupsThreadRequest();
-
-        Request *req;
-        QMutex *m_mutex;
-
-    private:
         void run();
+        bool retry();
     };
 };
 

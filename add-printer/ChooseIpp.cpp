@@ -51,6 +51,9 @@ ChooseIpp::ChooseIpp(QWidget *parent)
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
     printerL->setPixmap(icon);
+
+    connect(addressLE, SIGNAL(textChanged(const QString &)), this, SLOT(verifyURL()));
+    connect(queueLE, SIGNAL(textChanged(const QString &)), this, SLOT(verifyURL()));
 }
 
 ChooseIpp::~ChooseIpp()
@@ -74,10 +77,7 @@ void ChooseIpp::setValues(const QHash<QString, QVariant> &args)
         addressLE->clear();
         queueLE->setText("/printers/");
     }
-//     if (deviceUri.contains('/')) {
-//         m_isValid = false;
-//         return;
-//     }
+
     m_isValid = true;
 }
 
@@ -85,7 +85,7 @@ QHash<QString, QVariant> ChooseIpp::values() const
 {
     QHash<QString, QVariant> ret = m_args;
     // Ipp can be ipp, http and https
-    ret["device-uri"] = ret["device-uri"].toString() + addressLE->text();
+    ret["device-uri"] = uri();
     return ret;
 }
 
@@ -94,27 +94,33 @@ bool ChooseIpp::isValid() const
     return m_isValid;
 }
 
+QString ChooseIpp::uri() const
+{
+    QString ret;
+    if (!addressLE->text().isEmpty() && queueLE->text() != "/printers/") {
+        QString queue = queueLE->text();
+        if (!queue.startsWith('/')) {
+            queue.prepend('/');
+        }
+        ret = QString("%1://%2%3")
+              .arg(m_args["device-uri"].toString())
+              .arg(addressLE->text())
+              .arg(queue);
+    }
+    return ret;
+}
+
 bool ChooseIpp::canProceed() const
 {
-    bool allow = false;
-    if (!addressLE->text().isEmpty()) {
-        KUrl url = KUrl("lpd://" + addressLE->text());
-        allow = url.isValid();
-    }
-    return allow;
+    return !uri().isEmpty();
 }
 
-void ChooseIpp::load()
+void ChooseIpp::verifyURL()
 {
-}
-
-void ChooseIpp::on_detectPB_clicked()
-{
-}
-
-void ChooseIpp::checkSelected()
-{
-//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+    bool allow = canProceed();
+    uriL->setText(uri());
+    uriL->setVisible(allow);
+    emit allowProceed(allow);
 }
 
 #include "ChooseIpp.moc"

@@ -414,9 +414,7 @@ Result* QCups::Dest::printTestPage(const QString &destName, bool isClass)
     /*
      * Locate the test page file...
      */
-    if ((datadir = qgetenv("CUPS_DATADIR")) == NULL){
-        datadir = CUPS_DATADIR;
-    }
+    datadir = qgetenv("CUPS_DATADIR").isEmpty() ? CUPS_DATADIR : qgetenv("CUPS_DATADIR") ;
     snprintf(filename, sizeof(filename), "%s/data/testprint", datadir);
     request["filename"] = filename;
 

@@ -83,7 +83,7 @@ const char * thread_password_cb(const char *prompt, http_t *http, const char *me
 
     CupsThreadRequest *thread = static_cast<CupsThreadRequest*>(user_data);
     QEventLoop *loop = new QEventLoop;
-    QMetaObject::invokeMethod(thread->parent(),
+    QMetaObject::invokeMethod(QCupsConnection::instance(),
                               "showPasswordDlg",
                               Qt::BlockingQueuedConnection,
                               Q_ARG(QMutex*, thread->m_mutex),

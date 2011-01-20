@@ -9,6 +9,7 @@ X-KDE-System-Settings-Parent-Category-V2=hardware
 
 Name=Printers
 Name[cs]=Tiskárny
+Name[da]=Printere
 Name[de]=Drucker
 Name[el]=Εκτυπωτές
 Name[en_GB]=Printers
@@ -35,9 +36,11 @@ Name[uk]=Принтери
 Name[x-test]=xxPrintersxx
 
 Comment=Configure your printers
+Comment[da]=Indstil dine printere
 Comment[en_GB]=Configure your printers
 Comment[es]=Configure sus impresoras
 Comment[et]=Printerite seadistamine
+Comment[fr]=Configure vos imprimantes
 Comment[km]=កំណត់​រចនា​សម្ព័ន្ធ​ម៉ាស៊ីន​បោះ​ពុម្ព​របស់​អ្នក
 Comment[nl]=Uw printers configureren
 Comment[pt]=Configurar as suas impressoras

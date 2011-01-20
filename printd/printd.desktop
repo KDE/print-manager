@@ -7,8 +7,10 @@ X-KDE-Kded-autoload=true
 X-KDE-Kded-phase=1
 
 Name=Print monitor
+Name[da]=Udskriftsovervågning
 Name[en_GB]=Print monitor
 Name[es]=Monitor de impresión
+Name[fr]=Moniteur d'impression
 Name[km]=ត្រួត​ពិនិត្យ​ការ​បោះពុម្ព
 Name[mai]=छपाइ मानिटर
 Name[nl]=Afdrukmonitor
@@ -19,8 +21,10 @@ Name[uk]=Монітор друку
 Name[x-test]=xxPrint monitorxx
 
 Comment=Monitor printer jobs
+Comment[da]=Overvåg udskriftsjobs
 Comment[en_GB]=Monitor printer jobs
 Comment[es]=Monitor de trabajos de impresión
+Comment[fr]=Surveille les travaux d'impression
 Comment[km]=ត្រួតពិនិត្យ​ការ​ងារ​របស់​ម៉ាស៊ីន​បោះពុម្ព
 Comment[nds]=Druckopgaven
 Comment[nl]=Monitor van printertaken

@@ -20,6 +20,8 @@
 
 #include "PrintQueueModel.h"
 
+#include <KCupsRequestJobs.h>
+
 #include <QDateTime>
 #include <QMimeData>
 #include <KUser>
@@ -312,9 +314,14 @@ QCups::Result* PrintQueueModel::modifyJob(int row, JobAction action, const QStri
         return 0;
     }
 
+    KCupsRequestJobs *request = new KCupsRequestJobs;
     switch (action) {
     case Cancel:
-        return QCups::cancelJob(destName, jobId);
+        request->cancelJob(destName, jobId);
+        request->waitTillFinished();
+        kDebug() << "JOB Canceled using new class!!!" << request->hasError();
+        return 0;
+//        return QCups::cancelJob(destName, jobId);
     case Hold:
         return QCups::holdJob(destName, jobId);
     case Release:

@@ -421,9 +421,8 @@ void CupsThreadRequest::request(Result        *result,
             response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8());
         }
 
-        int error = cupsLastError();
         QString errorString = QString::fromUtf8(cupsLastErrorString());
-        result->setLastError(error);
+        result->setLastError(cupsLastError());
         result->setLastErrorString(errorString);
         if (response != NULL && needResponse) {
             kDebug() << "cupsParseIPPVars";
@@ -508,7 +507,6 @@ void CupsThreadRequest::cupsAdminSetServerSettings(Result *result, const HashStr
 {
     password_retries = 0;
     do {
-        bool ret = false;
         int num_settings = 0;
         cups_option_t *settings;
 
@@ -538,7 +536,7 @@ void CupsThreadRequest::cupsAdminSetServerSettings(Result *result, const HashStr
                                          num_settings, &settings);
         }
 
-        ret = ::cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
+        ::cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
         cupsFreeOptions(num_settings, settings);
         result->setLastError(cupsLastError());
         result->setLastErrorString(QString::fromUtf8(cupsLastErrorString()));

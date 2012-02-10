@@ -1,5 +1,10 @@
 set(libqcups_SRCS
     cupsActions.cpp
+    KCupsConnection.cpp
+    KCupsRequestInterface.cpp
+    KCupsRequestJobs.cpp
+    KCupsRequestPrinters.cpp
+    KCupsRequestServer.cpp
     QCups.cpp
     QCupsStrings.cpp
     ClassListWidget.cpp

@@ -1,6 +1,8 @@
 set(libqcups_SRCS
     cupsActions.cpp
     KCupsConnection.cpp
+    KCupsJob.cpp
+    KCupsPrinter.cpp
     KCupsRequestInterface.cpp
     KCupsRequestJobs.cpp
     KCupsRequestPrinters.cpp

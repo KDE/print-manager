@@ -29,7 +29,7 @@ KCupsRequestPrinters::KCupsRequestPrinters()
 {
 }
 
-void KCupsRequestPrinters::setAttributes(const QString &destName, bool isClass, const Arguments &values, const char *filename)
+void KCupsRequestPrinters::setAttributes(const QString &printer, bool isClass, const Arguments &values, const char *filename)
 {
     if (values.isEmpty() && !filename) {
         setFinished();
@@ -38,7 +38,7 @@ void KCupsRequestPrinters::setAttributes(const QString &destName, bool isClass, 
 
     if (KCupsConnection::readyToStart()) {
         Arguments request = values;
-        request["printer-name"] = destName;
+        request["printer-name"] = printer;
         request["printer-is-class"] = isClass;
         if (filename) {
             request["filename"] = filename;
@@ -61,15 +61,15 @@ void KCupsRequestPrinters::setAttributes(const QString &destName, bool isClass, 
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("setAttributes", destName, isClass, values, filename);
+        invokeMethod("setAttributes", printer, isClass, values, filename);
     }
 }
 
-void KCupsRequestPrinters::setShared(const QString &destName, bool isClass, bool shared)
+void KCupsRequestPrinters::setShared(const QString &printer, bool isClass, bool shared)
 {
     if (KCupsConnection::readyToStart()) {
         Arguments request;
-        request["printer-name"] = destName;
+        request["printer-name"] = printer;
         request["printer-is-class"] = isClass;
         request["printer-is-shared"] = shared;
         request["need-dest-name"] = true;
@@ -84,15 +84,15 @@ void KCupsRequestPrinters::setShared(const QString &destName, bool isClass, bool
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("setShared", destName, isClass, shared);
+        invokeMethod("setShared", printer, isClass, shared);
     }
 }
 
-void KCupsRequestPrinters::getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr)
+void KCupsRequestPrinters::getAttributes(const QString &printer, bool isClass, const QStringList &requestedAttr)
 {
     if (KCupsConnection::readyToStart()) {
         Arguments request;
-        request["printer-name"] = destName;
+        request["printer-name"] = printer;
         request["printer-is-class"] = isClass;
         request["need-dest-name"] = false; // we don't need a dest name since it's a single list
         request["requested-attributes"] = requestedAttr;
@@ -105,15 +105,15 @@ void KCupsRequestPrinters::getAttributes(const QString &destName, bool isClass, 
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getAttributes", destName, isClass, requestedAttr);
+        invokeMethod("getAttributes", printer, isClass, requestedAttr);
     }
 }
 
-void KCupsRequestPrinters::printTestPage(const QString &destName, bool isClass)
+void KCupsRequestPrinters::printTestPage(const QString &printer, bool isClass)
 {
     if (KCupsConnection::readyToStart()) {
         Arguments request;
-        request["printer-name"] = destName;
+        request["printer-name"] = printer;
         request["printer-is-class"] = isClass;
         request["job-name"] = i18n("Test Page");
         char          resource[1024], /* POST resource path */
@@ -131,23 +131,21 @@ void KCupsRequestPrinters::printTestPage(const QString &destName, bool isClass)
          * Point to the printer/class...
          */
         snprintf(resource, sizeof(resource),
-                 isClass ? "/classes/%s" : "/printers/%s", destName.toUtf8().data());
+                 isClass ? "/classes/%s" : "/printers/%s", printer.toUtf8().data());
 
         m_retArguments = KCupsConnection::request(IPP_PRINT_JOB,
                                                   resource,
                                                   request,
                                                   false);
-        // TODO old code..
-//        result->setProperty("methodName", "printTestPage");
 
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("printTestPage", destName, isClass);
+        invokeMethod("printTestPage", printer, isClass);
     }
 }
 
-void KCupsRequestPrinters::printCommand(const QString &destName, const QString &command, const QString &title)
+void KCupsRequestPrinters::printCommand(const QString &printer, const QString &command, const QString &title)
 {
     if (KCupsConnection::readyToStart()) {
         do {
@@ -168,7 +166,7 @@ void KCupsRequestPrinters::printCommand(const QString &destName, const QString &
             hold_option.value = const_cast<char*>("no-hold");
 
             if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT,
-                                        destName.toUtf8(),
+                                        printer.toUtf8(),
                                         title.toUtf8(),
                                         1,
                                         &hold_option)) < 1) {
@@ -180,7 +178,7 @@ void KCupsRequestPrinters::printCommand(const QString &destName, const QString &
             }
 
             status = cupsStartDocument(CUPS_HTTP_DEFAULT,
-                                       destName.toUtf8(),
+                                       printer.toUtf8(),
                                        job_id,
                                        NULL,
                                        CUPS_FORMAT_COMMAND,
@@ -191,14 +189,14 @@ void KCupsRequestPrinters::printCommand(const QString &destName, const QString &
             }
 
             if (status == HTTP_CONTINUE) {
-                cupsFinishDocument(CUPS_HTTP_DEFAULT, destName.toUtf8());
+                cupsFinishDocument(CUPS_HTTP_DEFAULT, printer.toUtf8());
             }
 
             setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
             if (cupsLastError() >= IPP_REDIRECTION_OTHER_SITE) {
                 qWarning() << "Unable to send command to printer driver!";
 
-                cupsCancelJob(destName.toUtf8(), job_id);
+                cupsCancelJob(printer.toUtf8(), job_id);
                 setFinished();
                 return; // Return to avoid a new try
             }
@@ -206,14 +204,14 @@ void KCupsRequestPrinters::printCommand(const QString &destName, const QString &
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("printCommand", destName, command, title);
+        invokeMethod("printCommand", printer, command, title);
     }
 }
 
-KIcon KCupsRequestPrinters::icon(const QString &destName, int printerType)
+KIcon KCupsRequestPrinters::icon(const QString &printer, int printerType)
 {
     // TODO get the ppd or something to get the real printer icon
-    Q_UNUSED(destName)
+    Q_UNUSED(printer)
 
     if (!(printerType & CUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one

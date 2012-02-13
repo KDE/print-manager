@@ -25,6 +25,7 @@
 #include <QTimer>
 
 #include "QCups.h"
+#include <KCupsPrinter.h>
 
 class PrinterModel : public QStandardItemModel
 {
@@ -69,13 +70,16 @@ public slots:
 signals:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
+private slots:
+    void printer(int pos, const KCupsPrinter &printer);
+
 private:
     WId m_parentId;
     QTimer *m_updateT;
 
     int destRow(const QString &destName);
-    void insertDest(int pos, const QCups::Destination &dest);
-    void updateDest(QStandardItem *item, const QCups::Destination &dest);
+    void insertDest(int pos, const KCupsPrinter &printer);
+    void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
     QString destStatus(int state, const QString &message) const;
 };

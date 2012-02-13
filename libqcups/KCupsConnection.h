@@ -83,4 +83,8 @@ private:
     KPasswordDialog *m_passwordDialog;
 };
 
+Q_DECLARE_METATYPE(HashStrStr)
+Q_DECLARE_METATYPE(Arguments)
+//Q_DECLARE_METATYPE(ReturnArguments)
+
 #endif // KCUPSCONNECTION_H

@@ -28,6 +28,9 @@
 #include <KMessageBox>
 
 #include <QCupsStrings.h>
+
+#include <KCupsRequestServer.h>
+
 #include <cups/cups.h>
 
 PrinterModel::PrinterModel(WId parentId, QObject *parent)
@@ -43,6 +46,28 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
 
 void PrinterModel::getDestsFinished()
 {
+    KCupsRequestServer *request = qobject_cast<KCupsRequestServer *>(sender());
+    if (request) {
+        if (request->hasError()) {
+            emit error(request->error(), QCups::serverError(request->error()), request->errorMsg());
+            // clear the model after so that the proper widget can be shown
+            clear();
+        } else {
+            // remove old printers
+            // The above code starts from 0 and make sure
+            // dest == modelIndex(x) and if it's not the
+            // case it either inserts or moves it.
+            // so any item > num_jobs can be safely deleted
+            while (rowCount() > request->hashStrStr().size()) {
+                removeRow(rowCount() - 1);
+            }
+kWarning() << request->hashStrStr().size();
+            request->deleteLater();
+            emit error(IPP_OK, QString(), QString());
+        }
+    } else {
+        kWarning() << "Should not be called from a non KCupsRequestServer class" << sender();
+    }
 }
 
 QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -73,103 +98,82 @@ void PrinterModel::update()
 
 //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
     // Get destinations with these attributes
-    QCups::Result *ret = QCups::getDests(-1, requestAttr);
-    ret->waitTillFinished();
-    if (ret->hasError()) {
-        emit error(ret->lastError(), QCups::serverError(ret->lastError()), ret->lastErrorString());
-        // clear the model after so that the proper widget can be shown
-        clear();
-        return;
-    }
-
-    QCups::ReturnArguments dests;
-//     Result *ret = qobject_cast<Result*>(sender());
-    dests = ret->result();
-    // TODO Inform the user when the server is Unavailable
-    ret->deleteLater();
-
-    for (int i = 0; i < dests.size(); i++) {
-        // If there is a printer and it's not the current one add it
-        // as a new destination
-        int dest_row = destRow(dests.at(i)["printer-name"].toString());
-        if (dest_row == -1) {
-            // not found, insert new one
-            insertDest(i, dests.at(i));
-        } else if (dest_row == i) {
-            // update the printer
-            updateDest(item(i), dests.at(i));
-        } else {
-            // found at wrong position
-            // take it and insert on the right position
-            QList<QStandardItem *> row = takeRow(dest_row);
-            insertRow(i, row);
-            updateDest(item(i), dests.at(i));
-        }
-    }
-
-    // remove old printers
-    // The above code starts from 0 and make sure
-    // dest == modelIndex(x) and if it's not the
-    // case it either inserts or moves it.
-    // so any item > num_jobs can be safely deleted
-    while (rowCount() > dests.size()) {
-        removeRow(rowCount() - 1);
-    }
-
-    emit error(IPP_OK, QString(), QString());
+    KCupsRequestServer *request = new KCupsRequestServer;
+    connect(request, SIGNAL(printer(int,KCupsPrinter)), this, SLOT(printer(int,KCupsPrinter)));
+    connect(request, SIGNAL(finished()), this, SLOT(getDestsFinished()));
+    request->getPrinters(requestAttr);
 }
 
-void PrinterModel::insertDest(int pos, const QCups::Destination &dest)
+void PrinterModel::printer(int pos, const KCupsPrinter &printer)
+{
+    // If there is a printer and it's not the current one add it
+    // as a new destination
+    int dest_row = destRow(printer.name());
+    if (dest_row == -1) {
+        // not found, insert new one
+        insertDest(pos, printer);
+    } else if (dest_row == pos) {
+        // update the printer
+        updateDest(item(pos), printer);
+    } else {
+        // found at wrong position
+        // take it and insert on the right position
+        QList<QStandardItem *> row = takeRow(dest_row);
+        insertRow(pos, row);
+        updateDest(item(pos), printer);
+    }
+}
+
+void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
 {
     // Create the printer item
-    QString destName = dest["printer-name"].toString();
-    QStandardItem *stdItem = new QStandardItem(destName);
-    stdItem->setData(destName, DestName);
-    stdItem->setIcon(QCups::Dest::icon(destName, dest["printer-type"].toInt()));
+    QString destName = printer.name();
+    QStandardItem *stdItem = new QStandardItem(printer.name());
+    stdItem->setData(printer.name(), DestName);
+    stdItem->setIcon(QCups::Dest::icon(destName, printer.type()));
     // update the item
-    updateDest(stdItem, dest);
+    updateDest(stdItem, printer);
 
     // insert the printer Item
     insertRow(pos, stdItem);
 }
 
-void PrinterModel::updateDest(QStandardItem *destItem, const QCups::Destination &dest)
+void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &printer)
 {
     // store if the printer is the network default
-    bool isDefault = dest["printer-type"].toInt() & CUPS_PRINTER_DEFAULT;
+    bool isDefault = printer.isDefault();
     if (isDefault != destItem->data(DestIsDefault).toBool()) {
         destItem->setData(isDefault, DestIsDefault);
     }
 
     // store the printer state
-    QString status = destStatus(dest["printer-state"].toInt(),
-                                dest["printer-state-message"].toString());
+    QString status = destStatus(printer.state(), printer.stateMsg());
     if (status != destItem->data(DestStatus)) {
         destItem->setData(status, DestStatus);
     }
 
     // store if the printer is shared
-    bool shared = dest["printer-is-shared"].toBool();
+    bool shared = printer.isShared();
     if (shared != destItem->data(DestIsShared)) {
         destItem->setData(shared, DestIsShared);
     }
 
     // store if the printer is a class
     // the printer-type param is a flag
-    bool isClass = dest["printer-type"].toInt() & CUPS_PRINTER_CLASS;
+    bool isClass = printer.isClass();
     if (isClass != destItem->data(DestIsClass)) {
         destItem->setData(isClass, DestIsClass);
     }
 
     // store if the printer type
     // the printer-type param is a flag
-    int printerType = dest["printer-type"].toInt();
+    uint printerType = printer.type();
     if (printerType != destItem->data(DestType)) {
         destItem->setData(printerType, DestType);
     }
 
     // store the printer location
-    QString location = dest["printer-location"].toString();
+    QString location = printer.location();
     if (location != destItem->data(DestLocation).toString()) {
         destItem->setData(location, DestLocation);
     }
@@ -181,30 +185,30 @@ void PrinterModel::updateDest(QStandardItem *destItem, const QCups::Destination 
     }
 
     // store the printer description
-    QString description = dest["printer-info"].toString();
+    QString description = printer.description();
     if (description != destItem->data(DestDescription).toString()){
         destItem->setData(description, DestDescription);
     }
 
     // store the printer kind
-    QString kind = dest["printer-make-and-model"].toString();
+    QString kind = printer.makeAndModel();
     if (kind != destItem->data(DestKind)) {
         destItem->setData(kind, DestKind);
     }
 
     // store the printer commands
-    QStringList commands = dest["printer-commands"].toStringList();
+    QStringList commands = printer.commands();
     if (commands != destItem->data(DestCommands)) {
         destItem->setData(commands, DestCommands);
     }
 
-    int markerChangeTime = dest["marker-change-time"].toInt();
+    int markerChangeTime = printer.markerChangeTime();
     if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
         destItem->setData(markerChangeTime, DestMarkerChangeTime);
-        destItem->setData(dest["marker-colors"], DestMarkerColors);
-        destItem->setData(dest["marker-levels"], DestMarkerLevels);
-        destItem->setData(dest["marker-names"],  DestMarkerNames);
-        destItem->setData(dest["marker-types"],  DestMarkerTypes);
+        destItem->setData(printer.argument("marker-colors"), DestMarkerColors);
+        destItem->setData(printer.argument("marker-levels"), DestMarkerLevels);
+        destItem->setData(printer.argument("marker-names"),  DestMarkerNames);
+        destItem->setData(printer.argument("marker-types"),  DestMarkerTypes);
     }
 }
 

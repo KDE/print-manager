@@ -57,12 +57,12 @@ namespace QCups
     };
 };
 
-Q_DECLARE_METATYPE(ipp_op_e);
-Q_DECLARE_METATYPE(QEventLoop*);
-Q_DECLARE_METATYPE(QCups::Arguments);
-Q_DECLARE_METATYPE(QCups::ReturnArguments);
-Q_DECLARE_METATYPE(QCups::Result*);
-Q_DECLARE_METATYPE(QCups::HashStrStr);
-Q_DECLARE_METATYPE(QMutex*);
+Q_DECLARE_METATYPE(ipp_op_e)
+Q_DECLARE_METATYPE(QEventLoop*)
+//Q_DECLARE_METATYPE(QCups::Arguments)
+Q_DECLARE_METATYPE(QCups::ReturnArguments)
+Q_DECLARE_METATYPE(QCups::Result*)
+//Q_DECLARE_METATYPE(QCups::HashStrStr)
+Q_DECLARE_METATYPE(QMutex*)
 
 #endif

@@ -20,71 +20,235 @@
 
 #include "KCupsRequestServer.h"
 
-KCupsRequestServer::KCupsRequestServer(QObject *parent) :
-    KCupsRequestInterface(parent)
+#include "KCupsPrinter.h"
+
+#include <cups/adminutil.h>
+
+KCupsRequestServer::KCupsRequestServer()
 {
+    qRegisterMetaType<HashStrStr>("HashStrStr");
+    qRegisterMetaType<KCupsPrinter>("KCupsPrinter");
 }
 
-void KCupsRequestServer::adminSetServerSettings(const HashStrStr &userValues);
-void KCupsRequestServer::getPPDS(const QString &make = QString());
-
-void KCupsRequestServer::getDevices();
-// THIS function can get the default server dest through the
-// "printer-is-default" attribute BUT it does not get user
-// defined default printer, see cupsGetDefault() on www.cups.org for details
-void KCupsRequestServer::getDests(int mask, const QStringList &requestedAttr = QStringList());
-void KCupsRequestServer::getJobs(const QString &destName, bool myJobs, int whichJobs, const QStringList &requestedAttr = QStringList());
-
-void KCupsRequestServer::addClass(const QHash<QString, QVariant> &values)
-{
-    if (values.isEmpty()) {
-        return 0;
-    }
-
-    QHash<QString, QVariant> request(values);
-    request["printer-is-class"] = true;
-    request["printer-is-accepting-jobs"] = true;
-    request["printer-state"] = IPP_PRINTER_IDLE;
-
-    ipp_op_e op = CUPS_ADD_CLASS;;
-//     if (isClass && values.contains("member-uris")) {
-//         op = CUPS_ADD_CLASS;
-//     } else {
-//         op = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
-//     }
-
-    Result *result = new Result(QCupsConnection::instance());
-    QMetaObject::invokeMethod(QCupsConnection::instance()->request(),
-                              "request",
-                              Qt::QueuedConnection,
-                              Q_ARG(Result*, result),
-                              Q_ARG(ipp_op_e, op),
-                              Q_ARG(QString, "/admin/"),
-                              Q_ARG(Arguments, request),
-                              Q_ARG(bool, false));
-
-    return result;
-}
-
-void KCupsRequestServer::adminGetServerSettings()
+void KCupsRequestServer::getPPDS(const QString &make)
 {
     if (KCupsConnection::readyToStart()) {
-        int num_settings;
-        cups_option_t *settings;
-        QHash<QString, QString> ret;
-        cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
-        for (int i = 0; i < num_settings; i++) {
-            QString name = QString::fromUtf8(settings[i].name);
-            QString value = QString::fromUtf8(settings[i].value);
-            ret[name] = value;
+        Arguments request;
+        if (!make.isEmpty()){
+            request["ppd-make-and-model"] = make;
         }
-        cupsFreeOptions(num_settings, settings);
+        request["need-dest-name"] = false;
 
-        setHashStrStr(ret);
-
+        m_retArguments = KCupsConnection::request(CUPS_GET_PPDS,
+                                                  "/",
+                                                  request,
+                                                  true);
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("adminGetServerSettings");
+        invokeMethod("getDevices");
+    }
+}
+
+static void
+choose_device_cb(
+    const char *device_class,           /* I - Class */
+    const char *device_id,              /* I - 1284 device ID */
+    const char *device_info,            /* I - Description */
+    const char *device_make_and_model,  /* I - Make and model */
+    const char *device_uri,             /* I - Device URI */
+    const char *device_location,        /* I - Location */
+    void *user_data)                    /* I - Result object */
+{
+    /*
+     * Add the device to the array...
+     */
+    KCupsRequestServer *request = static_cast<KCupsRequestServer*>(user_data);
+    QMetaObject::invokeMethod(request,
+                              "device",
+                              Qt::QueuedConnection,
+                              Q_ARG(QString, QString::fromUtf8(device_class)),
+                              Q_ARG(QString, QString::fromUtf8(device_id)),
+                              Q_ARG(QString, QString::fromUtf8(device_info)),
+                              Q_ARG(QString, QString::fromUtf8(device_make_and_model)),
+                              Q_ARG(QString, QString::fromUtf8(device_uri)),
+                              Q_ARG(QString, QString::fromUtf8(device_location)));
+}
+
+void KCupsRequestServer::getDevices()
+{
+    if (KCupsConnection::readyToStart()) {
+        do {
+            // Scan for devices for 30 seconds
+            // TODO change back to 30
+            cupsGetDevices(CUPS_HTTP_DEFAULT,
+                           5,
+                           CUPS_INCLUDE_ALL,
+                           CUPS_EXCLUDE_NONE,
+                           (cups_device_cb_t) choose_device_cb,
+                           this);
+        } while (KCupsConnection::retryIfForbidden());
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getDevices");
+    }
+}
+
+// THIS function can get the default server dest through the
+// "printer-is-default" attribute BUT it does not get user
+// defined default printer, see cupsGetDefault() on www.cups.org for details
+void KCupsRequestServer::getPrinters(const QStringList &requestedAttr)
+{
+    if (KCupsConnection::readyToStart()) {
+        Arguments request;
+        request["printer-type"] = CUPS_PRINTER_LOCAL;
+//        if (mask >= 0) {
+//        cups_ptype_e mask,
+//            request["printer-type-mask"] = mask;
+//        }
+        request["requested-attributes"] = requestedAttr;
+        request["need-dest-name"] = true;
+
+        ReturnArguments dests;
+        dests = KCupsConnection::request(CUPS_GET_PRINTERS,
+                                                  "/",
+                                                  request,
+                                                  true);
+
+        for (int i = 0; i < dests.size(); i++) {
+            emit printer(i, KCupsPrinter(dests.at(i)));
+        }
+
+        m_retArguments = dests;
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getPrinters", requestedAttr);
+    }
+}
+
+void KCupsRequestServer::getJobs(const QString &printer, bool myJobs, int whichJobs, const QStringList &requestedAttr)
+{
+    if (KCupsConnection::readyToStart()) {
+        Arguments request;
+        if (printer.isEmpty()) {
+            request["printer-uri"] = printer;
+        } else {
+            request["printer-name"] = printer;
+        }
+
+        if (myJobs) {
+            request["my-jobs"] = myJobs;
+        }
+
+        if (whichJobs == CUPS_WHICHJOBS_COMPLETED) {
+            request["which-jobs"] = "completed";
+        } else if (whichJobs == CUPS_WHICHJOBS_ALL) {
+            request["which-jobs"] = "all";
+        }
+
+        if (!requestedAttr.isEmpty()) {
+            request["requested-attributes"] = requestedAttr;
+        }
+        request["group-tag-qt"] = IPP_TAG_JOB;
+
+        m_retArguments = KCupsConnection::request(IPP_GET_JOBS,
+                                                  "/",
+                                                  request,
+                                                  true);
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getJobs", printer, myJobs, whichJobs, requestedAttr);
+    }
+}
+
+void KCupsRequestServer::addClass(const QHash<QString, QVariant> &values)
+{
+//    if (values.isEmpty()) {
+//        return 0;
+//    }
+
+    if (KCupsConnection::readyToStart()) {
+        Arguments request = values;
+        request["printer-is-class"] = true;
+        request["printer-is-accepting-jobs"] = true;
+        request["printer-state"] = IPP_PRINTER_IDLE;
+        m_retArguments = KCupsConnection::request(CUPS_ADD_MODIFY_CLASS,
+                                                  "/admin/",
+                                                  request,
+                                                  false);
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("addClass", values);
+    }
+}
+
+void KCupsRequestServer::getServerSettings()
+{
+    if (KCupsConnection::readyToStart()) {
+        do {
+            int num_settings;
+            cups_option_t *settings;
+            HashStrStr ret;
+            cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
+            for (int i = 0; i < num_settings; ++i) {
+                QString name = QString::fromUtf8(settings[i].name);
+                QString value = QString::fromUtf8(settings[i].value);
+                ret[name] = value;
+            }
+            cupsFreeOptions(num_settings, settings);
+
+            setHashStrStr(ret);
+        } while (KCupsConnection::retryIfForbidden());
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getServerSettings");
+    }
+}
+
+void KCupsRequestServer::setServerSettings(const HashStrStr &userValues)
+{
+    if (KCupsConnection::readyToStart()) {
+        do {
+            int num_settings = 0;
+            cups_option_t *settings;
+
+            if (userValues.contains("_remote_admin")) {
+                num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ADMIN,
+                                             userValues["_remote_admin"].toUtf8(),
+                                             num_settings, &settings);
+            }
+            if (userValues.contains("_remote_any")) {
+                num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ANY,
+                                             userValues["_remote_any"].toUtf8(),
+                                             num_settings, &settings);
+            }
+            if (userValues.contains("_remote_printers")) {
+                num_settings = cupsAddOption(CUPS_SERVER_REMOTE_PRINTERS,
+                                             userValues["_remote_printers"].toUtf8(),
+                                             num_settings, &settings);
+            }
+            if (userValues.contains("_share_printers")) {
+                num_settings = cupsAddOption(CUPS_SERVER_SHARE_PRINTERS,
+                                             userValues["_share_printers"].toUtf8(),
+                                             num_settings, &settings);
+            }
+            if (userValues.contains("_user_cancel_any")) {
+                num_settings = cupsAddOption(CUPS_SERVER_USER_CANCEL_ANY,
+                                             userValues["_user_cancel_any"].toUtf8(),
+                                             num_settings, &settings);
+            }
+
+            cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
+            cupsFreeOptions(num_settings, settings);
+        } while (KCupsConnection::retryIfForbidden());
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("setServerSettings", qVariantFromValue(userValues));
     }
 }

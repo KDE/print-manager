@@ -30,17 +30,51 @@ class KDE_EXPORT KCupsRequestPrinters : public KCupsRequestInterface
 public:
     explicit KCupsRequestPrinters();
 
-    void setAttributes(const QString &destName, bool isClass, const Arguments &values, const char *filename = NULL);
-    void setShared(const QString &destName, bool isClass, bool shared);
-    void getAttributes(const QString &destName, bool isClass, const QStringList &requestedAttr);
-    void printTestPage(const QString &destName, bool isClass);
-    void printCommand(const QString &destName, const QString &command, const QString &title);
-    KIcon icon(const QString &destName, int printerType);
+    /**
+     * Set the Printer attributes
+     * @param printer The printer to apply the change
+     * @param isClass True it is a printer class
+     * @param attributes The new attributes of the printer
+     * @param filename The file name in case of changing the PPD
+     */
+    void setAttributes(const QString &printer, bool isClass, const Arguments &attributes, const char *filename = NULL);
 
-signals:
+    /**
+     * Set is a given printer should be shared among other cups
+     * @param printer The printer to apply the change
+     * @param isClass True it is a printer class
+     * @param shared True if it should be shared
+     */
+    void setShared(const QString &printer, bool isClass, bool shared);
 
-public slots:
+    /**
+     * Get attributes from a given printer
+     * @param printer The printer to apply the change
+     * @param isClass True it is a printer class
+     * @param requestedAttr The attributes you are requesting
+     */
+    void getAttributes(const QString &printer, bool isClass, const QStringList &requestedAttr);
 
+    /**
+     * Print a test page
+     * @param printer The printer where the test should be done
+     * @param isClass True it is a printer class
+     */
+    void printTestPage(const QString &printer, bool isClass);
+
+    /**
+     * Print a command test
+     * @param printer The printer where the test should be done
+     * @param command The command to print
+     * @param title The title of the command
+     */
+    void printCommand(const QString &printer, const QString &command, const QString &title);
+
+    /**
+     * The icon for the given printer
+     * @param printerType which icon it should be using
+     */
+    KIcon icon(const QString &printer, int printerType);
 };
 
 #endif // KCUPSREQUESTPRINTERS_H

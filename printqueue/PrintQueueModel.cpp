@@ -21,6 +21,7 @@
 #include "PrintQueueModel.h"
 
 #include <KCupsRequestJobs.h>
+#include <KCupsPrinter.h>
 
 #include <QDateTime>
 #include <QMimeData>
@@ -31,6 +32,7 @@
 
 PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject *parent)
  : QStandardItemModel(parent),
+   m_printer(new KCupsPrinter(destName)),
    m_destName(destName),
    m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
    m_parentId(parentId)
@@ -106,7 +108,7 @@ void PrintQueueModel::insertJob(int pos, const QCups::Arguments &job)
 {
     // insert the first column which has the job state and id
     QList<QStandardItem*> row;
-    int jobState = job["job-state"].toInt();
+    ipp_jstate_e jobState = static_cast<ipp_jstate_e>(job["job-state"].toUInt());
     QStandardItem *statusItem = new QStandardItem(jobStatus(jobState));
     statusItem->setData(jobState, JobState);
     statusItem->setData(job["job-id"].toInt(), JobId);
@@ -126,7 +128,7 @@ void PrintQueueModel::insertJob(int pos, const QCups::Arguments &job)
 void PrintQueueModel::updateJob(int pos, const QCups::Arguments &job)
 {
     // Job Status & internal data
-    int jobState = job["job-state"].toInt();
+    ipp_jstate_e jobState = static_cast<ipp_jstate_e>(job["job-state"].toUInt());
     if (item(pos, ColStatus)->data(JobState) != jobState) {
         item(pos, ColStatus)->setText(jobStatus(jobState));
         item(pos, ColStatus)->setData(jobState, JobState);
@@ -346,7 +348,7 @@ int PrintQueueModel::jobRow(int jobId)
     return -1;
 }
 
-QString PrintQueueModel::jobStatus(int job_state)
+QString PrintQueueModel::jobStatus(ipp_jstate_e job_state)
 {
   switch (job_state)
   {

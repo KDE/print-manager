@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,48 +18,46 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_KCM_H
-#define PRINT_KCM_H
+#ifndef KCUPSSERVER_H
+#define KCUPSSERVER_H
 
-#include <KCModule>
-#include <KTitleWidget>
-#include <QStackedLayout>
+#include <QString>
+#include <KCupsConnection.h>
 
-namespace Ui {
-    class PrintKCM;
-}
-class PrinterModel;
-class PrinterDescription;
-class PrintKCM : public KCModule
+class KCupsRequestServer;
+class KDE_EXPORT KCupsServer
 {
-Q_OBJECT
-
 public:
-    PrintKCM(QWidget *parent, const QVariantList &args);
-    ~PrintKCM();
+    KCupsServer();
 
-private slots:
-    void update();
-    void on_addPB_clicked();
-    void on_removePB_clicked();
-    void on_configurePrinterPB_clicked();
-    void on_preferencesPB_clicked();
+    KCupsRequestServer* commit() const;
 
-    void error(int lastError, const QString &errorTitle, const QString &errorMsg);
+    bool allowRemoteAdmin() const;
+    void setAllowRemoteAdmin(bool allow);
+
+    bool allowUserCancelAnyJobs() const;
+    void setAllowUserCancelAnyJobs(bool allow);
+
+    bool showSharedPrinters() const;
+    void setShowSharedPrinters(bool show);
+
+    bool sharePrinters() const;
+    void setSharePrinters(bool share);
+
+    bool allowPrintingFromInternet() const;
+    void setAllowPrintingFromInternet(bool allow);
+
+    Arguments arguments() const;
+
+protected:
+    KCupsServer(const Arguments &arguments);
 
 private:
-    Ui::PrintKCM *ui;
-    PrinterModel *m_model;
-    QStackedLayout *m_stackedLayout;
-    PrinterDescription *m_printerDesc;
-    QWidget *m_noPrinter;
-    QWidget *m_serverError;
-    KTitleWidget *m_serverErrorW;
-    int m_lastError;
+    friend class KCupsRequestServer;
 
-    QAction *m_addAction;
-    QAction *m_removeAction;
-    QAction *m_configureAction;
+    Arguments m_arguments;
 };
 
-#endif
+Q_DECLARE_METATYPE(KCupsServer)
+
+#endif // KCUPSSERVER_H

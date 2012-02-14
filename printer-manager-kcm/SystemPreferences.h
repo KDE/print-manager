@@ -1,6 +1,8 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Glauber M. Dantas                               *
  *   glauber.md@gmail.com                                                  *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,10 +23,13 @@
 #ifndef SYSTEM_PREFERENCES_H
 #define SYSTEM_PREFERENCES_H
 
-#include "ui_SystemPreferences.h"
 #include <KDialog>
 
-class SystemPreferences : public KDialog, Ui::SystemPreferences
+namespace Ui {
+    class SystemPreferences;
+}
+class KCupsServer;
+class SystemPreferences : public KDialog
 {
     Q_OBJECT
 public:
@@ -32,10 +37,12 @@ public:
     ~SystemPreferences();
 
 private slots:
+    void server(const KCupsServer &server);
+    void saveFinished();
     void save();
 
 private:
-    QHash<QString, QString> m_values;
+    Ui::SystemPreferences *ui;
 };
 
 #endif

@@ -27,8 +27,6 @@
 #include <KLocale>
 #include <KMessageBox>
 
-#include <QCupsStrings.h>
-
 #include <KCupsRequestServer.h>
 
 #include <cups/cups.h>
@@ -49,7 +47,7 @@ void PrinterModel::getDestsFinished()
     KCupsRequestServer *request = qobject_cast<KCupsRequestServer *>(sender());
     if (request) {
         if (request->hasError()) {
-            emit error(request->error(), QCups::serverError(request->error()), request->errorMsg());
+            emit error(request->error(), request->serverError(), request->errorMsg());
             // clear the model after so that the proper widget can be shown
             clear();
         } else {
@@ -224,22 +222,22 @@ int PrinterModel::destRow(const QString &destName)
     return -1;
 }
 
-QString PrinterModel::destStatus(int state, const QString &message) const
+QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &message) const
 {
     switch (state) {
-    case DEST_IDLE :
+    case KCupsPrinter::Idle:
         if (message.isEmpty()){
             return i18n("Idle");
         } else {
             return i18n("Idle - '%1'", message);
         }
-    case DEST_PRINTING :
+    case KCupsPrinter::Printing:
         if (message.isEmpty()){
             return i18n("In use");
         } else {
             return i18n("In use - '%1'", message);
         }
-    case DEST_STOPED :
+    case KCupsPrinter::Stoped:
         if (message.isEmpty()){
             return i18n("Paused");
         } else {

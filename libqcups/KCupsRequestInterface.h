@@ -36,7 +36,6 @@ public:
     int error() const;
     QString errorMsg() const;
     ReturnArguments result() const;
-    HashStrStr hashStrStr() const;
 
 signals:
     void finished();
@@ -52,7 +51,6 @@ protected:
                       const QVariant &arg6 = QVariant(),
                       const QVariant &arg7 = QVariant(),
                       const QVariant &arg8 = QVariant());
-    void setHashStrStr(const HashStrStr &hash);
     void setError(int error, const QString &errorMsg);
     void setFinished();
 
@@ -60,7 +58,6 @@ protected:
     bool m_finished;
     int m_error;
     QString m_errorMsg;
-    HashStrStr m_hash;
     ReturnArguments m_retArguments;
 };
 

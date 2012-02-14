@@ -67,16 +67,6 @@ ReturnArguments KCupsRequestInterface::result() const
     return m_retArguments;
 }
 
-HashStrStr KCupsRequestInterface::hashStrStr() const
-{
-    return m_hash;
-}
-
-void KCupsRequestInterface::setHashStrStr(const HashStrStr &hash)
-{
-    m_hash = hash;
-}
-
 void KCupsRequestInterface::waitTillFinished()
 {
     if (m_finished) {

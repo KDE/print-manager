@@ -27,7 +27,6 @@
 
 #include <cups/cups.h>
 
-typedef QHash<QString, QString> HashStrStr;
 typedef QHash<QString, QVariant> Arguments;
 typedef QList<Arguments> ReturnArguments;
 class KCupsConnection : public QThread
@@ -83,7 +82,6 @@ private:
     KPasswordDialog *m_passwordDialog;
 };
 
-Q_DECLARE_METATYPE(HashStrStr)
 Q_DECLARE_METATYPE(Arguments)
 //Q_DECLARE_METATYPE(ReturnArguments)
 

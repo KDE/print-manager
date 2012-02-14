@@ -1,6 +1,8 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Glauber M. Dantas                               *
  *   glauber.md@gmail.com                                                  *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,94 +21,61 @@
  ***************************************************************************/
 
 #include "SystemPreferences.h"
+#include "ui_SystemPreferences.h"
 
-#include <QCups.h>
+#include <KCupsRequestServer.h>
+#include <KCupsServer.h>
 
 #include <KDebug>
 
-SystemPreferences::SystemPreferences(QWidget *parent)
- : KDialog(parent)
+SystemPreferences::SystemPreferences(QWidget *parent) :
+    KDialog(parent),
+    ui(new Ui::SystemPreferences)
 {
-    setupUi(mainWidget());
-    connect(this,SIGNAL(okClicked()),SLOT(save()));
-    QCups::Result *result = QCups::adminGetServerSettings();
-    result->waitTillFinished();
-    QHash<QString, QString> values = result->hashStrStr();
-    result->deleteLater();
-    if(values["_remote_printers"] == "1") {
-      showSharedPrintersCB->setChecked(true);
-    }
-    m_values["_remote_printers"] = values["_remote_printers"];
-    if (values["_share_printers"] == "1") {
-      shareConnectedPrintersCB->setChecked(true);
-    }
-    m_values["_share_printers"] = values["_share_printers"];
-    if (values["_remote_any"] == "1") {
-      allowFromInternetCB->setChecked(true);
-    }
-    m_values["_remote_any"] = values["_remote_any"];
-    if (values["_remote_admin"] == "1") {
-      allowRemoteAdminCB->setChecked(true);
-    }
-    m_values["_remote_admin"] = values["_remote_admin"];
-    // TODO Need to read Cups FAQ regarding Kerberos Auth
-    // (Negotiate, Basic, etc)
-    if (values["DefaultAuthType"] != "Basic") {
-      useKRBAuthCB->setChecked(true);
-    }
-    // m_values["DefaultAuthType"] = values["DefaultAuthType"];
-    if (values["_user_cancel_any"] == "1") {
-      allowUsrCancelCB->setChecked(true);
-    }
-    m_values["_user_cancel_any"] = values["_user_cancel_any"];
-}
+    ui->setupUi(mainWidget());
+    connect(this, SIGNAL(okClicked()), SLOT(save()));
 
-void SystemPreferences::save() {
-   QHash<QString, QString> userValues;
-   if(showSharedPrintersCB->isChecked()) {
-       userValues["_remote_printers"] = '1';
-   } else {
-       userValues["_remote_printers"] = '0';
-   }
-   if(shareConnectedPrintersCB->isChecked()) {
-       userValues["_share_printers"] = '1';
-   } else {
-       userValues["_share_printers"] = '0';
-   }
-   if(allowFromInternetCB->isChecked()) {
-       userValues["_remote_any"] = '1';
-   } else {
-       userValues["_remote_any"] = '0';
-   }
-   if(allowRemoteAdminCB->isChecked()) {
-       userValues["_remote_admin"] = '1';
-   } else {
-       userValues["_remote_admin"] = '0';
-   }
-//   if(useKRBAuthCB->isChecked()) {
-//       userValues["DefaultAuthType"] = '1';
-//   } else {
-//       userValues["DefaultAuthType"] = '0';
-//   }
-   if(allowUsrCancelCB->isChecked()) {
-       userValues["_user_cancel_any"] = '1';
-   } else {
-       userValues["_user_cancel_any"] = '0';
-   }
-
-//    kDebug() << userValues;
-//    kDebug() << m_values;
-//    kDebug() << (userValues == m_values);
-
-   if(userValues != m_values) {
-       QCups::Result *ret = QCups::adminSetServerSettings(userValues);
-       ret->waitTillFinished();
-       ret->deleteLater();
-   }
+    KCupsRequestServer *request = new KCupsRequestServer;
+    connect(request, SIGNAL(server(KCupsServer)), this, SLOT(server(KCupsServer)));
+    request->getServerSettings();
 }
 
 SystemPreferences::~SystemPreferences()
 {
+    delete ui;
+}
+
+void SystemPreferences::server(const KCupsServer &server)
+{
+    KCupsRequestServer *request = qobject_cast<KCupsRequestServer *>(sender());
+    request->deleteLater();
+
+    ui->showSharedPrintersCB->setChecked(server.showSharedPrinters());
+    ui->shareConnectedPrintersCB->setChecked(server.sharePrinters());
+    ui->allowFromInternetCB->setChecked(server.allowPrintingFromInternet());
+    ui->allowRemoteAdminCB->setChecked(server.allowRemoteAdmin());
+    ui->allowUsrCancelCB->setChecked(server.allowUserCancelAnyJobs());
+}
+
+void SystemPreferences::saveFinished()
+{
+    KCupsRequestServer *request = qobject_cast<KCupsRequestServer *>(sender());
+    if (request->hasError()) {
+        qWarning() << "Failed to set server settings" << request->errorMsg();
+    }
+    request->deleteLater();
+}
+
+void SystemPreferences::save()
+{
+    KCupsServer server;
+    server.setShowSharedPrinters(ui->showSharedPrintersCB->isChecked());
+    server.setSharePrinters(ui->shareConnectedPrintersCB->isChecked());
+    server.setAllowPrintingFromInternet(ui->allowFromInternetCB->isChecked());
+    server.setAllowRemoteAdmin(ui->allowRemoteAdminCB->isChecked());
+    server.setAllowUserCancelAnyJobs(ui->allowUsrCancelCB->isChecked());
+    KCupsRequestServer *request = server.commit();
+    connect(request, SIGNAL(finished()), this, SLOT(saveFinished()));
 }
 
 #include "SystemPreferences.moc"

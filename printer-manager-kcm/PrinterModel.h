@@ -24,7 +24,6 @@
 #include <QStandardItemModel>
 #include <QTimer>
 
-#include "QCups.h"
 #include <KCupsPrinter.h>
 
 class PrinterModel : public QStandardItemModel
@@ -81,7 +80,7 @@ private:
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
-    QString destStatus(int state, const QString &message) const;
+    QString destStatus(KCupsPrinter::Status state, const QString &message) const;
 };
 
 #endif

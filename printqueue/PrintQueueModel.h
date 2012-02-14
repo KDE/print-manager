@@ -30,6 +30,7 @@ namespace QCups {
     class Result;
 }
 
+class KCupsPrinter;
 class PrintQueueModel : public QStandardItemModel
 {
     Q_OBJECT
@@ -83,6 +84,7 @@ public slots:
     void updateModel();
 
 private:
+    KCupsPrinter *m_printer;
     QString m_destName;
     QString m_processingJob;
     int m_whichjobs;
@@ -92,7 +94,7 @@ private:
     int jobRow(int jobId);
     void insertJob(int pos, const QCups::Arguments &job);
     void updateJob(int pos, const QCups::Arguments &job);
-    QString jobStatus(int job_state);
+    QString jobStatus(ipp_jstate_e job_state);
 };
 
 #endif

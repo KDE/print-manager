@@ -21,15 +21,18 @@
 #ifndef PRINTER_DESCRIPTION_H
 #define PRINTER_DESCRIPTION_H
 
-#include "ui_PrinterDescription.h"
+#include <QWidget>
 
-#include <QCups.h>
+#include <KCupsRequestPrinters.h>
 
 class QToolButton;
 class QSortFilterProxyModel;
 
+namespace Ui {
+    class PrinterDescription;
+}
 class PrintQueueModel;
-class PrinterDescription : public QWidget, Ui::PrinterDescription
+class PrinterDescription : public QWidget
 {
     Q_OBJECT
 public:
@@ -65,6 +68,7 @@ private slots:
     void on_actionPrintSelfTestPage_triggered(bool checked);
 
 private:
+    Ui::PrinterDescription *ui;
     QString m_destName;
     bool m_isClass;
     QStringList m_commands;
@@ -73,7 +77,7 @@ private:
     QPixmap m_startIcon;
     QPixmap m_warningIcon;
     int m_markerChangeTime;
-    QCups::Arguments m_markerData;
+    Arguments m_markerData;
 };
 
 #endif

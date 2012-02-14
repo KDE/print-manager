@@ -27,8 +27,13 @@
 class KDE_EXPORT KCupsPrinter
 {
 public:
+    typedef enum {
+        Idle = 3,
+        Printing,
+        Stoped
+    } Status;
     KCupsPrinter();
-    KCupsPrinter(const QString &printer, bool isClass);
+    KCupsPrinter(const QString &printer, bool isClass = false);
 
     QString name() const;
     bool isClass() const;
@@ -40,7 +45,7 @@ public:
     QString makeAndModel() const;
     QStringList commands() const;
 
-    int state() const;
+    Status state() const;
     QString stateMsg() const;
     int markerChangeTime() const;
     QVariant argument(const QString &name) const;

@@ -21,13 +21,30 @@
 #include "KCupsRequestServer.h"
 
 #include "KCupsPrinter.h"
+#include "KCupsServer.h"
+
+#include <KLocale>
+#include <KDebug>
 
 #include <cups/adminutil.h>
 
 KCupsRequestServer::KCupsRequestServer()
 {
-    qRegisterMetaType<HashStrStr>("HashStrStr");
     qRegisterMetaType<KCupsPrinter>("KCupsPrinter");
+    qRegisterMetaType<KCupsServer>("KCupsServer");
+}
+
+QString KCupsRequestServer::serverError() const
+{
+    switch (error()) {
+    case IPP_SERVICE_UNAVAILABLE:
+        return i18n("Service is unavailable");
+    case IPP_NOT_FOUND :
+        return i18n("Not found");
+    default : // In this case we don't want to map all enums
+        kWarning() << "status unrecognised: " << error();
+        return QString();
+    }
 }
 
 void KCupsRequestServer::getPPDS(const QString &make)
@@ -192,16 +209,16 @@ void KCupsRequestServer::getServerSettings()
         do {
             int num_settings;
             cups_option_t *settings;
-            HashStrStr ret;
+            Arguments arguments;
             cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
             for (int i = 0; i < num_settings; ++i) {
                 QString name = QString::fromUtf8(settings[i].name);
                 QString value = QString::fromUtf8(settings[i].value);
-                ret[name] = value;
+                arguments[name] = value;
             }
             cupsFreeOptions(num_settings, settings);
 
-            setHashStrStr(ret);
+            emit server(KCupsServer(arguments));
         } while (KCupsConnection::retryIfForbidden());
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
@@ -210,37 +227,21 @@ void KCupsRequestServer::getServerSettings()
     }
 }
 
-void KCupsRequestServer::setServerSettings(const HashStrStr &userValues)
+void KCupsRequestServer::setServerSettings(const KCupsServer &server)
 {
     if (KCupsConnection::readyToStart()) {
         do {
+            Arguments args = server.arguments();
             int num_settings = 0;
             cups_option_t *settings;
 
-            if (userValues.contains("_remote_admin")) {
-                num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ADMIN,
-                                             userValues["_remote_admin"].toUtf8(),
-                                             num_settings, &settings);
-            }
-            if (userValues.contains("_remote_any")) {
-                num_settings = cupsAddOption(CUPS_SERVER_REMOTE_ANY,
-                                             userValues["_remote_any"].toUtf8(),
-                                             num_settings, &settings);
-            }
-            if (userValues.contains("_remote_printers")) {
-                num_settings = cupsAddOption(CUPS_SERVER_REMOTE_PRINTERS,
-                                             userValues["_remote_printers"].toUtf8(),
-                                             num_settings, &settings);
-            }
-            if (userValues.contains("_share_printers")) {
-                num_settings = cupsAddOption(CUPS_SERVER_SHARE_PRINTERS,
-                                             userValues["_share_printers"].toUtf8(),
-                                             num_settings, &settings);
-            }
-            if (userValues.contains("_user_cancel_any")) {
-                num_settings = cupsAddOption(CUPS_SERVER_USER_CANCEL_ANY,
-                                             userValues["_user_cancel_any"].toUtf8(),
-                                             num_settings, &settings);
+            Arguments::const_iterator i = args.constBegin();
+            while (i != args.constEnd()) {
+                num_settings = cupsAddOption(i.key().toUtf8(),
+                                             i.value().toString().toUtf8(),
+                                             num_settings,
+                                             &settings);
+                ++i;
             }
 
             cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
@@ -249,6 +250,6 @@ void KCupsRequestServer::setServerSettings(const HashStrStr &userValues)
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("setServerSettings", qVariantFromValue(userValues));
+        invokeMethod("setServerSettings", qVariantFromValue(server));
     }
 }

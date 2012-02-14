@@ -20,6 +20,8 @@
 
 #include "PrinterDescription.h"
 
+#include "ui_PrinterDescription.h"
+
 #include <KCupsRequestPrinters.h>
 #include <KCupsPrinter.h>
 #include <SupplyLevels.h>
@@ -36,17 +38,18 @@
 
 PrinterDescription::PrinterDescription(QWidget *parent)
  : QWidget(parent),
+   ui(new Ui::PrinterDescription),
    m_isClass(false),
    m_markerChangeTime(0)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // loads the standard key icon
     m_printerIcon = KIconLoader::global()->loadIcon("printer",
                                                     KIconLoader::NoGroup,
                                                     PRINTER_ICON_SIZE, // a not so huge icon
                                                     KIconLoader::DefaultState);
-    iconL->setPixmap(m_printerIcon);
+    ui->iconL->setPixmap(m_printerIcon);
 
     m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",
                                                   KIconLoader::NoGroup,
@@ -56,18 +59,19 @@ PrinterDescription::PrinterDescription(QWidget *parent)
                                                   0,
                                                   true);
 
-    KMenu *menu = new KMenu(maintenancePB);
-    menu->addAction(actionPrintTestPage);
-    menu->addAction(actionCleanPrintHeads);
-    menu->addAction(actionPrintSelfTestPage);
-    actionCleanPrintHeads->setVisible(false);
-    actionPrintSelfTestPage->setVisible(false);
-    supplyLevelsPB->setEnabled(false);
-    maintenancePB->setMenu(menu);
+    KMenu *menu = new KMenu(ui->maintenancePB);
+    menu->addAction(ui->actionPrintTestPage);
+    menu->addAction(ui->actionCleanPrintHeads);
+    menu->addAction(ui->actionPrintSelfTestPage);
+    ui->actionCleanPrintHeads->setVisible(false);
+    ui->actionPrintSelfTestPage->setVisible(false);
+    ui->supplyLevelsPB->setEnabled(false);
+    ui->maintenancePB->setMenu(menu);
 }
 
 PrinterDescription::~PrinterDescription()
 {
+    delete ui;
 }
 
 void PrinterDescription::on_openQueuePB_clicked()
@@ -79,12 +83,12 @@ void PrinterDescription::on_openQueuePB_clicked()
                                              QLatin1String("ShowQueue"));
     // Use our own cached tid to avoid crashes
     message << qVariantFromValue(m_destName);
-    QDBusConnection::sessionBus().call(message);
+    QDBusConnection::sessionBus().send(message);
 }
 
 void PrinterDescription::on_defaultCB_clicked()
 {
-    bool isDefault = defaultCB->isChecked();
+    bool isDefault = ui->defaultCB->isChecked();
     KCupsRequestPrinters *request = new KCupsRequestPrinters;
     request->setDefaultPrinter(m_destName);
     request->waitTillFinished();
@@ -94,7 +98,7 @@ void PrinterDescription::on_defaultCB_clicked()
 
 void PrinterDescription::on_sharedCB_clicked()
 {
-    bool shared = sharedCB->isChecked();
+    bool shared = ui->sharedCB->isChecked();
     KCupsRequestPrinters *request = new KCupsRequestPrinters;
     request->setShared(m_destName, m_isClass, shared);
     request->waitTillFinished();
@@ -110,7 +114,7 @@ void PrinterDescription::on_supplyLevelsPB_clicked()
 
 void PrinterDescription::setPrinterIcon(const QIcon &icon)
 {
-    iconL->setPixmap(icon.pixmap(PRINTER_ICON_SIZE, PRINTER_ICON_SIZE));
+    ui->iconL->setPixmap(icon.pixmap(PRINTER_ICON_SIZE, PRINTER_ICON_SIZE));
 }
 
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
@@ -120,40 +124,40 @@ void PrinterDescription::setDestName(const QString &name, const QString &descrip
     m_markerData.clear();
     if (m_isClass != isClass) {
         m_isClass = isClass;
-        sharedCB->setText(m_isClass ? i18n("Share this class") : i18n("Share this printer"));
+        ui->sharedCB->setText(m_isClass ? i18n("Share this class") : i18n("Share this printer"));
     }
 
-    if (!description.isEmpty() && description != printerNameL->text()) {
-        printerNameL->setText(description);
-    } else if (description.isEmpty() && name != printerNameL->text()) {
-        printerNameL->setText(name);
+    if (!description.isEmpty() && description != ui->printerNameL->text()) {
+        ui->printerNameL->setText(description);
+    } else if (description.isEmpty() && name != ui->printerNameL->text()) {
+        ui->printerNameL->setText(name);
     }
 }
 
 void PrinterDescription::setLocation(const QString &location)
 {
-    locationMsgL->setText(location);
+    ui->locationMsgL->setText(location);
 }
 
 void PrinterDescription::setStatus(const QString &status)
 {
-    statusMsgL->setText(status);
+    ui->statusMsgL->setText(status);
 }
 
 void PrinterDescription::setKind(const QString &kind)
 {
-    kindMsgL->setText(kind);
+    ui->kindMsgL->setText(kind);
 }
 
 void PrinterDescription::setIsDefault(bool isDefault)
 {
-    defaultCB->setEnabled(!isDefault);
-    defaultCB->setChecked(isDefault);
+    ui->defaultCB->setEnabled(!isDefault);
+    ui->defaultCB->setChecked(isDefault);
 }
 
 void PrinterDescription::setIsShared(bool isShared)
 {
-    sharedCB->setChecked(isShared);
+    ui->sharedCB->setChecked(isShared);
 }
 
 void PrinterDescription::setCommands(const QStringList &commands)
@@ -164,9 +168,9 @@ void PrinterDescription::setCommands(const QStringList &commands)
     if (m_commands != commands) {
         m_commands = commands;
 
-        actionCleanPrintHeads->setVisible(commands.contains("Clean"));
-        actionPrintSelfTestPage->setVisible(commands.contains("PrintSelfTestPage"));
-        supplyLevelsPB->setEnabled(commands.contains("ReportLevels"));
+        ui->actionCleanPrintHeads->setVisible(commands.contains("Clean"));
+        ui->actionPrintSelfTestPage->setVisible(commands.contains("PrintSelfTestPage"));
+        ui->supplyLevelsPB->setEnabled(commands.contains("ReportLevels"));
     }
 }
 

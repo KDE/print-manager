@@ -20,6 +20,8 @@
 
 #include "PrintKCM.h"
 
+#include "ui_PrintKCM.h"
+
 #include "PrinterModel.h"
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
@@ -42,9 +44,10 @@
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
 
-PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
-    : KCModule(PrintKCMFactory::componentData(), parent, args),
-      m_lastError(-1) // Force the error to run on the first time
+PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
+    KCModule(PrintKCMFactory::componentData(), parent, args),
+    ui(new Ui::PrintKCM),
+    m_lastError(-1) // Force the error to run on the first time
 {
     KAboutData *aboutData;
     aboutData = new KAboutData("kcm_print",
@@ -57,37 +60,37 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
 
-    setupUi(this);
+    ui->setupUi(this);
 
-    m_addAction = toolBar->addAction(KIcon("list-add"),
-                                     i18nc("@action:intoolbar", "Add Printer"),
-                                     this, SLOT(on_addPB_clicked()));
-    m_removeAction = toolBar->addAction(KIcon("list-remove"),
-                                        i18nc("@action:intoolbar", "Remove Printer"),
-                                        this, SLOT(on_removePB_clicked()));
-    toolBar->addSeparator();
-    m_configureAction = toolBar->addAction(KIcon("configure"),
-                                           i18nc("@action:intoolbar", "Configure Printer"),
-                                           this, SLOT(on_configurePrinterPB_clicked()));
+    m_addAction = ui->toolBar->addAction(KIcon("list-add"),
+                                         i18nc("@action:intoolbar", "Add Printer"),
+                                         this, SLOT(on_addPB_clicked()));
+    m_removeAction = ui->toolBar->addAction(KIcon("list-remove"),
+                                            i18nc("@action:intoolbar", "Remove Printer"),
+                                            this, SLOT(on_removePB_clicked()));
+    ui->toolBar->addSeparator();
+    m_configureAction = ui->toolBar->addAction(KIcon("configure"),
+                                               i18nc("@action:intoolbar", "Configure Printer"),
+                                               this, SLOT(on_configurePrinterPB_clicked()));
 
-    preferencesPB->setIcon(KIcon("configure"));
+    ui->preferencesPB->setIcon(KIcon("configure"));
 
     m_model = new PrinterModel(winId(), this);
-    printersTV->setModel(m_model);
-    printersTV->setItemDelegate(new PrinterDelegate(this));
-    connect(printersTV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+    ui->printersTV->setModel(m_model);
+    ui->printersTV->setItemDelegate(new PrinterDelegate(this));
+    connect(ui->printersTV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
             this, SLOT(update()));
-    connect(printersTV->model(), SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
+    connect(ui->printersTV->model(), SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
             this, SLOT(update()));
-    connect(printersTV->model(), SIGNAL(error(int, const QString &, const QString &)),
+    connect(ui->printersTV->model(), SIGNAL(error(int, const QString &, const QString &)),
             this, SLOT(error(int, const QString &, const QString &)));
 
     // Create the PrinterDescription before we try to select a printer
-    m_printerDesc = new PrinterDescription(scrollAreaWidgetContents);
+    m_printerDesc = new PrinterDescription(ui->scrollAreaWidgetContents);
     m_printerDesc->hide();
 
     // widget for when we don't have a printer
-    m_noPrinter = new QWidget(scrollAreaWidgetContents);
+    m_noPrinter = new QWidget(ui->scrollAreaWidgetContents);
     KTitleWidget *widget = new KTitleWidget(m_noPrinter);
     widget->setText(i18n("You have no printers"),
                          KTitleWidget::InfoMessage);
@@ -99,7 +102,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     vertLayout->addStretch();
 
     // if we get an error from the server we use this widget
-    m_serverError = new QWidget(scrollAreaWidgetContents);
+    m_serverError = new QWidget(ui->scrollAreaWidgetContents);
     m_serverErrorW = new KTitleWidget(m_serverError);
     vertLayout = new QVBoxLayout(m_serverError);
     vertLayout->addStretch();
@@ -107,18 +110,18 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args)
     vertLayout->addStretch();
 
     // the stacked layout allow us to chose which widget to show
-    m_stackedLayout = new QStackedLayout(scrollAreaWidgetContents);
+    m_stackedLayout = new QStackedLayout(ui->scrollAreaWidgetContents);
     m_stackedLayout->addWidget(m_serverError);
     m_stackedLayout->addWidget(m_noPrinter);
     m_stackedLayout->addWidget(m_printerDesc);
-    scrollAreaWidgetContents->setLayout(m_stackedLayout);
+    ui->scrollAreaWidgetContents->setLayout(m_stackedLayout);
 
     // Force the model update AFTER we setup the error signal
     m_model->update();
 
     // select the first printer if there are printers
     if (m_model->rowCount()) {
-        printersTV->selectionModel()->select(m_model->index(0, 0), QItemSelectionModel::Select);
+        ui->printersTV->selectionModel()->select(m_model->index(0, 0), QItemSelectionModel::Select);
     }
 }
 
@@ -145,15 +148,15 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // is still working
         if (lastError == IPP_NOT_FOUND) {
             m_addAction->setEnabled(true);
-            preferencesPB->setEnabled(true);
+            ui->preferencesPB->setEnabled(true);
         } else {
             m_addAction->setEnabled(!lastError);
-            preferencesPB->setEnabled(!lastError);
+            ui->preferencesPB->setEnabled(!lastError);
         }
 
         m_removeAction->setEnabled(false);
         m_configureAction->setEnabled(false);
-        printersTV->setEnabled(!lastError);
+        ui->printersTV->setEnabled(!lastError);
         m_lastError = lastError;
         // Force an update
         update();
@@ -173,10 +176,10 @@ void PrintKCM::update()
 
         QItemSelection selection;
         // we need to map the selection to source to get the real indexes
-        selection = printersTV->selectionModel()->selection();
+        selection = ui->printersTV->selectionModel()->selection();
         // select the first printer if there are printers
         if (selection.indexes().isEmpty()) {
-            printersTV->selectionModel()->select(m_model->index(0, 0), QItemSelectionModel::Select);
+            ui->printersTV->selectionModel()->select(m_model->index(0, 0), QItemSelectionModel::Select);
             return;
         }
 
@@ -230,7 +233,7 @@ void PrintKCM::on_removePB_clicked()
 {
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
-    selection = printersTV->selectionModel()->selection();
+    selection = ui->printersTV->selectionModel()->selection();
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
         QModelIndex index = selection.indexes().first();
@@ -258,7 +261,7 @@ void PrintKCM::on_configurePrinterPB_clicked()
 {
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
-    selection = printersTV->selectionModel()->selection();
+    selection = ui->printersTV->selectionModel()->selection();
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
         QModelIndex index = selection.indexes().at(0);

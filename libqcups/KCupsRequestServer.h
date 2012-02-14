@@ -24,11 +24,14 @@
 #include "KCupsRequestInterface.h"
 
 class KCupsPrinter;
+class KCupsServer;
 class KDE_EXPORT KCupsRequestServer : public KCupsRequestInterface
 {
     Q_OBJECT
 public:
     explicit KCupsRequestServer();
+
+    QString serverError() const;
 
 public slots:
     /**
@@ -80,7 +83,7 @@ public slots:
      * Get the CUPS server settings
      * @param userValues the new server settings
      */
-    void setServerSettings(const HashStrStr &userValues);
+    void setServerSettings(const KCupsServer &server);
 
 signals:
     /**
@@ -89,6 +92,7 @@ signals:
      * @param printer The printer found
      */
     void printer(int position, const KCupsPrinter &printer);
+    void server(const KCupsServer &server);
     void device(const QString &dev_class,
                 const QString &id,
                 const QString &info,

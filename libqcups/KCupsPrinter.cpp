@@ -83,9 +83,9 @@ QStringList KCupsPrinter::commands() const
     return m_arguments["printer-commands"].toStringList();
 }
 
-int KCupsPrinter::state() const
+KCupsPrinter::Status KCupsPrinter::state() const
 {
-    return m_arguments["printer-state"].toInt();
+    return static_cast<Status>(m_arguments["printer-state"].toUInt());
 }
 
 QString KCupsPrinter::stateMsg() const

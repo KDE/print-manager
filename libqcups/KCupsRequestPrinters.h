@@ -69,12 +69,6 @@ public:
      * @param title The title of the command
      */
     void printCommand(const QString &printer, const QString &command, const QString &title);
-
-    /**
-     * The icon for the given printer
-     * @param printerType which icon it should be using
-     */
-    KIcon icon(const QString &printer, int printerType);
 };
 
 #endif // KCUPSREQUESTPRINTERS_H

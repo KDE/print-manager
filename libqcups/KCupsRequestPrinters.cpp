@@ -207,18 +207,3 @@ void KCupsRequestPrinters::printCommand(const QString &printer, const QString &c
         invokeMethod("printCommand", printer, command, title);
     }
 }
-
-KIcon KCupsRequestPrinters::icon(const QString &printer, int printerType)
-{
-    // TODO get the ppd or something to get the real printer icon
-    Q_UNUSED(printer)
-
-    if (!(printerType & CUPS_PRINTER_COLOR)) {
-        // If the printer is not color it is probably a laser one
-        return KIcon("printer-laser");
-    } else if (printerType & CUPS_PRINTER_SCANNER) {
-        return KIcon("scanner");
-    } else {
-        return KIcon("printer");
-    }
-}

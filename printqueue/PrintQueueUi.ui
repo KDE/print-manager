@@ -185,9 +185,6 @@
      <property name="rootIsDecorated">
       <bool>false</bool>
      </property>
-     <property name="itemsExpandable">
-      <bool>false</bool>
-     </property>
      <property name="sortingEnabled">
       <bool>true</bool>
      </property>
@@ -208,30 +205,16 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Jobs</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="Line" name="line_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
    <item row="2" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="leftMargin">
+      <number>4</number>
+     </property>
+     <property name="rightMargin">
+      <number>4</number>
+     </property>
      <item>
       <widget class="QPushButton" name="cancelJobPB">
        <property name="enabled">
@@ -239,6 +222,9 @@
        </property>
        <property name="text">
         <string>Cancel</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -257,6 +243,9 @@
        <property name="text">
         <string>Hold</string>
        </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -266,6 +255,9 @@
        </property>
        <property name="text">
         <string>Resume</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -289,6 +281,9 @@
        </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::AdjustToContents</enum>
+       </property>
+       <property name="frame">
+        <bool>false</bool>
        </property>
        <item>
         <property name="text">

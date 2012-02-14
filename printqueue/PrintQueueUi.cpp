@@ -41,7 +41,7 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
  : QWidget(parent),
    m_destName(destName),
    m_preparingMenu(false),
-   m_lastState(NULL),
+   m_lastState(0),
    m_cfgDlg(0)
 {
     setupUi(this);
@@ -89,16 +89,31 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
     connect(jobsView->header(), SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(showHeaderContextMenu(const QPoint &)));
 
+    QHeaderView *header = jobsView->header();
+    header->setResizeMode(QHeaderView::Interactive);
+    header->setStretchLastSection(false);
+    header->setResizeMode(PrintQueueModel::ColStatus,        QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColName,          QHeaderView::Stretch);
+    header->setResizeMode(PrintQueueModel::ColUser,          QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColCreated,       QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColCompleted,     QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColPages,         QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColProcessed,     QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColSize,          QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColStatusMessage, QHeaderView::ResizeToContents);
+    header->setResizeMode(PrintQueueModel::ColPrinter,       QHeaderView::ResizeToContents);
+
     KConfig config("print-manager");
     KConfigGroup printQueue(&config, "PrintQueue");
     if (printQueue.hasKey("ColumnState")) {
         // restore the header state order
-        jobsView->header()->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
+        header->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
     } else {
-        // Hide the sections after ColPrinter
-        for (int i = PrintQueueModel::ColPrinter + 1; i < PrintQueueModel::LastColumn; i++) {
-            jobsView->header()->hideSection(i);
-        }
+        // Hide some columns ColPrinter
+        header->hideSection(PrintQueueModel::ColPrinter);
+        header->hideSection(PrintQueueModel::ColUser);
+        header->hideSection(PrintQueueModel::ColCompleted);
+        header->hideSection(PrintQueueModel::ColSize);
     }
 
     update();
@@ -110,6 +125,14 @@ PrintQueueUi::~PrintQueueUi()
     KConfigGroup printQueue(&config, "PrintQueue");
     // save the header state order
     printQueue.writeEntry("ColumnState", jobsView->header()->saveState());
+}
+
+int PrintQueueUi::columnCount(const QModelIndex &parent) const
+{
+    if (!parent.isValid()) {
+        return PrintQueueModel::LastColumn;
+    }
+    return 0;
 }
 
 void PrintQueueUi::setState(int state, const QString &message)

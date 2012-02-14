@@ -58,10 +58,10 @@ void PrinterModel::getDestsFinished()
             // dest == modelIndex(x) and if it's not the
             // case it either inserts or moves it.
             // so any item > num_jobs can be safely deleted
-            while (rowCount() > request->hashStrStr().size()) {
+            while (rowCount() > request->result().size()) {
                 removeRow(rowCount() - 1);
             }
-kWarning() << request->hashStrStr().size();
+
             request->deleteLater();
             emit error(IPP_OK, QString(), QString());
         }
@@ -127,10 +127,9 @@ void PrinterModel::printer(int pos, const KCupsPrinter &printer)
 void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
 {
     // Create the printer item
-    QString destName = printer.name();
     QStandardItem *stdItem = new QStandardItem(printer.name());
     stdItem->setData(printer.name(), DestName);
-    stdItem->setIcon(QCups::Dest::icon(destName, printer.type()));
+    stdItem->setIcon(printer.icon());
     // update the item
     updateDest(stdItem, printer);
 

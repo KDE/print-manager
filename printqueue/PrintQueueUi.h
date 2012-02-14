@@ -54,6 +54,7 @@ private slots:
     void on_holdJobPB_clicked();
     void on_resumeJobPB_clicked();
 
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     void updateButtons();
     void showContextMenu(const QPoint &point);
     void showHeaderContextMenu(const QPoint &point);

@@ -62,6 +62,11 @@ void KCupsRequestInterface::invokeMethod(const char *method,
     }
 }
 
+ReturnArguments KCupsRequestInterface::result() const
+{
+    return m_retArguments;
+}
+
 HashStrStr KCupsRequestInterface::hashStrStr() const
 {
     return m_hash;

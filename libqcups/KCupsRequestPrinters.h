@@ -30,6 +30,7 @@ class KDE_EXPORT KCupsRequestPrinters : public KCupsRequestInterface
 public:
     explicit KCupsRequestPrinters();
 
+public slots:
     /**
      * Set the Printer attributes
      * @param printer The printer to apply the change
@@ -40,12 +41,37 @@ public:
     void setAttributes(const QString &printer, bool isClass, const Arguments &attributes, const char *filename = NULL);
 
     /**
-     * Set is a given printer should be shared among other cups
+     * Set if a given printer should be shared among other cups
      * @param printer The printer to apply the change
      * @param isClass True it is a printer class
      * @param shared True if it should be shared
      */
     void setShared(const QString &printer, bool isClass, bool shared);
+
+    /**
+     * Set if a given printer should be the default one among others
+     * @param printer The printer to apply the change
+     */
+    void setDefaultPrinter(const QString &name);
+
+    /**
+     * Pause the given printer from receiving jobs
+     * @param printer The printer to apply the change
+     */
+    void pausePrinter(const QString &name);
+
+    /**
+     * Resume the given printer from receiving jobs
+     * @param printer The printer to apply the change
+     */
+    void resumePrinter(const QString &name);
+
+    /**
+     * Delete the given printer, if it's not local it's not
+     * possible to delete it
+     * @param printer The printer to apply the change
+     */
+    void deletePrinter(const QString &name);
 
     /**
      * Get attributes from a given printer

@@ -22,6 +22,7 @@
 
 #include "PrintQueueUi.h"
 #include "QCups.h"
+#include <KCupsRequestServer.h>
 #include <cups/cups.h>
 
 #include <QtDBus/QDBusConnection>
@@ -69,10 +70,11 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
         requestAttr << "printer-name"
                     << "printer-type";
         // Get destinations with these attributes
-        QCups::Result *ret = QCups::getDests(-1, requestAttr);
-        ret->waitTillFinished();
-        dests = ret->result();
-        ret->deleteLater();
+        KCupsRequestServer *request = new KCupsRequestServer;
+        request->getPrinters(requestAttr);
+        request->waitTillFinished();
+        dests = request->result();
+        request->deleteLater();
 
         bool found = false;
         int printerType;

@@ -20,6 +20,8 @@
 
 #include "PrinterDescription.h"
 
+#include <KCupsRequestPrinters.h>
+#include <KCupsPrinter.h>
 #include <SupplyLevels.h>
 
 #include <QPainter>
@@ -83,19 +85,21 @@ void PrinterDescription::on_openQueuePB_clicked()
 void PrinterDescription::on_defaultCB_clicked()
 {
     bool isDefault = defaultCB->isChecked();
-    QCups::Result *ret = QCups::setDefaultPrinter(m_destName);
-    ret->waitTillFinished();
-    setIsDefault(ret->hasError() ? !isDefault : isDefault);
-    ret->deleteLater();
+    KCupsRequestPrinters *request = new KCupsRequestPrinters;
+    request->setDefaultPrinter(m_destName);
+    request->waitTillFinished();
+    setIsDefault(request->hasError() ? !isDefault : isDefault);
+    request->deleteLater();
 }
 
 void PrinterDescription::on_sharedCB_clicked()
 {
     bool shared = sharedCB->isChecked();
-    QCups::Result *ret = QCups::Dest::setShared(m_destName, m_isClass, shared);
-    ret->waitTillFinished();
-    setIsShared(ret->hasError() ? !shared : shared);
-    ret->deleteLater();
+    KCupsRequestPrinters *request = new KCupsRequestPrinters;
+    request->setShared(m_destName, m_isClass, shared);
+    request->waitTillFinished();
+    setIsShared(request->hasError() ? !shared : shared);
+    request->deleteLater();
 }
 
 void PrinterDescription::on_supplyLevelsPB_clicked()
@@ -195,6 +199,7 @@ void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
     // TODO Show a msg box if failed
+
     QCups::Result *ret = QCups::Dest::printTestPage(m_destName, m_isClass);
     ret->waitTillFinished();
     ret->deleteLater();

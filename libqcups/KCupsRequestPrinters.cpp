@@ -88,6 +88,78 @@ void KCupsRequestPrinters::setShared(const QString &printer, bool isClass, bool 
     }
 }
 
+void KCupsRequestPrinters::pausePrinter(const QString &name)
+{
+    if (KCupsConnection::readyToStart()) {
+        Arguments request;
+        request["printer-name"] = name;
+
+        KCupsConnection::request(IPP_PAUSE_PRINTER,
+                                 "/admin/",
+                                 request,
+                                 false);
+
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("pausePrinter", name);
+    }
+}
+
+void KCupsRequestPrinters::resumePrinter(const QString &name)
+{
+    if (KCupsConnection::readyToStart()) {
+        Arguments request;
+        request["printer-name"] = name;
+
+        KCupsConnection::request(IPP_RESUME_PRINTER,
+                                 "/admin/",
+                                 request,
+                                 false);
+
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("resumePrinter", name);
+    }
+}
+
+void KCupsRequestPrinters::setDefaultPrinter(const QString &name)
+{
+    if (KCupsConnection::readyToStart()) {
+        Arguments request;
+        request["printer-name"] = name;
+
+        KCupsConnection::request(CUPS_SET_DEFAULT,
+                                 "/admin/",
+                                 request,
+                                 false);
+
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("setDefaultPrinter", name);
+    }
+}
+
+void KCupsRequestPrinters::deletePrinter(const QString &name)
+{
+    if (KCupsConnection::readyToStart()) {
+        Arguments request;
+        request["printer-name"] = name;
+
+        KCupsConnection::request(CUPS_DELETE_PRINTER,
+                                 "/admin/",
+                                 request,
+                                 false);
+
+        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("deletePrinter", name);
+    }
+}
+
 void KCupsRequestPrinters::getAttributes(const QString &printer, bool isClass, const QStringList &requestedAttr)
 {
     if (KCupsConnection::readyToStart()) {

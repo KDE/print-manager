@@ -27,8 +27,7 @@
 
 #include <cups/cups.h>
 
-typedef QHash<QString, QVariant> Arguments;
-typedef QList<Arguments> ReturnArguments;
+typedef QList<QVariantHash> ReturnArguments;
 class KCupsConnection : public QThread
 {
     Q_OBJECT
@@ -56,16 +55,14 @@ public:
     ~KCupsConnection();
 
 protected:
-    friend class KCupsRequestServer;
-    friend class KCupsRequestPrinters;
-    friend class KCupsRequestJobs;
+    friend class KCupsRequest;
 
     virtual void run();
     static bool readyToStart();
     static bool retryIfForbidden();
     static ReturnArguments request(ipp_op_e       operation,
                                    const QString &resource,
-                                   Arguments      reqValues,
+                                   QVariantHash   reqValues,
                                    bool           needResponse);
     static ReturnArguments parseIPPVars(ipp_t *response,
                                         int group_tag,
@@ -81,8 +78,5 @@ private:
     bool m_inited;
     KPasswordDialog *m_passwordDialog;
 };
-
-Q_DECLARE_METATYPE(Arguments)
-//Q_DECLARE_METATYPE(ReturnArguments)
 
 #endif // KCUPSCONNECTION_H

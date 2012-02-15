@@ -29,12 +29,9 @@
 
 namespace Ui {
     class SelectMakeModel;
-};
+}
 
-namespace QCups {
-    class Result;
-};
-
+class KCupsRequest;
 class KDE_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
@@ -58,7 +55,7 @@ private slots:
 
 private:
     Ui::SelectMakeModel *ui;
-    QCups::Result *m_result;
+    KCupsRequest *m_request;
     KPixmapSequenceOverlayPainter *m_busySeq;
     QString m_selectedPPDName, m_selectedMakeAndModel;
     QString m_make, m_makeAndModel;

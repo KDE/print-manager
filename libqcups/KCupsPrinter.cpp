@@ -31,7 +31,7 @@ KCupsPrinter::KCupsPrinter(const QString &printer, bool isClass) :
 {
 }
 
-KCupsPrinter::KCupsPrinter(const Arguments &arguments) :
+KCupsPrinter::KCupsPrinter(const QVariantHash &arguments) :
     m_arguments(arguments)
 {
     m_printer = arguments["printer-name"].toString();
@@ -105,13 +105,18 @@ QVariant KCupsPrinter::argument(const QString &name) const
 
 KIcon KCupsPrinter::icon() const
 {
+    return icon(type());
+}
+
+KIcon KCupsPrinter::icon(cups_ptype_e type)
+{
     // TODO get the ppd or something to get the real printer icon
 //    Q_UNUSED(printer)
 
-    if (!(type() & CUPS_PRINTER_COLOR)) {
+    if (!(type & CUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one
         return KIcon("printer-laser");
-    } else if (type() & CUPS_PRINTER_SCANNER) {
+    } else if (type & CUPS_PRINTER_SCANNER) {
         return KIcon("scanner");
     } else {
         return KIcon("printer");

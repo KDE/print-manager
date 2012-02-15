@@ -25,8 +25,6 @@
 #include <KPageDialog>
 
 class PrinterPage;
-namespace QCups {
-
 class ModifyPrinter;
 class PrinterOptions;
 class KDE_EXPORT ConfigureDialog : public KPageDialog
@@ -48,8 +46,5 @@ private:
     // return false if the dialog was canceled
     bool savePage(PrinterPage *page);
 };
-
-
-}
 
 #endif

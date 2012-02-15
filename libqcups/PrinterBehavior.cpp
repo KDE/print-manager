@@ -19,150 +19,153 @@
  ***************************************************************************/
 
 #include "PrinterBehavior.h"
+#include "ui_PrinterBehavior.h"
 
-#include <QCups.h>
-
+#include <KComboBox>
 #include <KDebug>
 
-using namespace QCups;
-
-PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent)
- : PrinterPage(parent), m_destName(destName), m_isClass(isClass), m_changes(0)
+PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent) :
+    PrinterPage(parent),
+    ui(new Ui::PrinterBehavior),
+    m_destName(destName),
+    m_isClass(isClass),
+    m_changes(0)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
-    connect(errorPolicyCB, SIGNAL(currentIndexChanged(int)),
+    connect(ui->errorPolicyCB, SIGNAL(currentIndexChanged(int)),
             this, SLOT(currentIndexChangedCB(int)));
-    connect(operationPolicyCB, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(currentIndexChangedCB(int)));
-
-    connect(startingBannerCB, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(currentIndexChangedCB(int)));
-    connect(endingBannerCB, SIGNAL(currentIndexChanged(int)),
+    connect(ui->operationPolicyCB, SIGNAL(currentIndexChanged(int)),
             this, SLOT(currentIndexChangedCB(int)));
 
-    connect(usersELB, SIGNAL(changed()),
+    connect(ui->startingBannerCB, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(currentIndexChangedCB(int)));
+    connect(ui->endingBannerCB, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(currentIndexChangedCB(int)));
+
+    connect(ui->usersELB, SIGNAL(changed()),
             this, SLOT(userListChanged()));
-    connect(allowRB, SIGNAL(toggled(bool)),
+    connect(ui->allowRB, SIGNAL(toggled(bool)),
             this, SLOT(userListChanged()));
 }
 
 PrinterBehavior::~PrinterBehavior()
 {
+    delete ui;
 }
 
-void PrinterBehavior::setValues(const QHash<QString, QVariant> &values)
+void PrinterBehavior::setValues(const QVariantHash &values)
 {
     int defaultChoice;
-    errorPolicyCB->clear();
+    ui->errorPolicyCB->clear();
     foreach (const QString &value, values["printer-error-policy-supported"].value<QStringList>()) {
-        errorPolicyCB->addItem(errorPolicyString(value), value);
+        ui->errorPolicyCB->addItem(errorPolicyString(value), value);
     }
     QStringList errorPolicy = values["printer-error-policy"].value<QStringList>();
     if (!errorPolicy.isEmpty()) {
-        defaultChoice = errorPolicyCB->findData(errorPolicy.first());
-        errorPolicyCB->setCurrentIndex(defaultChoice);
-        errorPolicyCB->setProperty("defaultChoice", defaultChoice);
+        defaultChoice = ui->errorPolicyCB->findData(errorPolicy.first());
+        ui->errorPolicyCB->setCurrentIndex(defaultChoice);
+        ui->errorPolicyCB->setProperty("defaultChoice", defaultChoice);
     }
 
-    operationPolicyCB->clear();
+    ui->operationPolicyCB->clear();
     foreach (const QString &value, values["printer-op-policy-supported"].value<QStringList>()) {
-        operationPolicyCB->addItem(operationPolicyString(value), value);
+        ui->operationPolicyCB->addItem(operationPolicyString(value), value);
     }
     QStringList operationPolicy = values["printer-op-policy"].value<QStringList>();
     if (!errorPolicy.isEmpty()) {
-        defaultChoice = operationPolicyCB->findData(operationPolicy.first());
-        operationPolicyCB->setCurrentIndex(defaultChoice);
-        operationPolicyCB->setProperty("defaultChoice", defaultChoice);
+        defaultChoice = ui->operationPolicyCB->findData(operationPolicy.first());
+        ui->operationPolicyCB->setCurrentIndex(defaultChoice);
+        ui->operationPolicyCB->setProperty("defaultChoice", defaultChoice);
     }
 
-    startingBannerCB->clear();
-    endingBannerCB->clear();
+    ui->startingBannerCB->clear();
+    ui->endingBannerCB->clear();
     foreach (const QString &value, values["job-sheets-supported"].value<QStringList>()) {
-        startingBannerCB->addItem(jobSheetsString(value), value);
-        endingBannerCB->addItem(jobSheetsString(value), value);
+        ui->startingBannerCB->addItem(jobSheetsString(value), value);
+        ui->endingBannerCB->addItem(jobSheetsString(value), value);
     }
     QStringList bannerPolicy = values["job-sheets-default"].value<QStringList>();
     if (bannerPolicy.size() == 2) {
-        defaultChoice = startingBannerCB->findData(bannerPolicy.at(0));
-        startingBannerCB->setCurrentIndex(defaultChoice);
-        startingBannerCB->setProperty("defaultChoice", defaultChoice);
-        defaultChoice = endingBannerCB->findData(bannerPolicy.at(1));
-        endingBannerCB->setCurrentIndex(defaultChoice);
-        endingBannerCB->setProperty("defaultChoice", defaultChoice);
+        defaultChoice = ui->startingBannerCB->findData(bannerPolicy.at(0));
+        ui->startingBannerCB->setCurrentIndex(defaultChoice);
+        ui->startingBannerCB->setProperty("defaultChoice", defaultChoice);
+        defaultChoice = ui->endingBannerCB->findData(bannerPolicy.at(1));
+        ui->endingBannerCB->setCurrentIndex(defaultChoice);
+        ui->endingBannerCB->setProperty("defaultChoice", defaultChoice);
     }
 
     if (values.contains("requesting-user-name-allowed")) {
         QStringList list = values["requesting-user-name-allowed"].value<QStringList>();
         list.sort(); // sort the list here to be able to comapare it later
-        usersELB->setEnabled(true);
-        if (list != usersELB->items()) {
-            usersELB->clear();
-            usersELB->insertStringList(list);
+        ui->usersELB->setEnabled(true);
+        if (list != ui->usersELB->items()) {
+            ui->usersELB->clear();
+            ui->usersELB->insertStringList(list);
         }
-        usersELB->setProperty("defaultList", list);
-        allowRB->setProperty("defaultChoice", true);
+        ui->usersELB->setProperty("defaultList", list);
+        ui->allowRB->setProperty("defaultChoice", true);
         // Set checked AFTER the default choice was set
         // otherwise the signal will be emmited
         // which sets that we have a change
-        allowRB->setChecked(true);
+        ui->allowRB->setChecked(true);
 
     } else if (values.contains("requesting-user-name-denied")) {
         QStringList list = values["requesting-user-name-denied"].value<QStringList>();
         list.sort(); // sort the list here to be able to comapare it later
-        usersELB->setEnabled(true);
-        if (list != usersELB->items()) {
-            usersELB->clear();
-            usersELB->insertStringList(list);
+        ui->usersELB->setEnabled(true);
+        if (list != ui->usersELB->items()) {
+            ui->usersELB->clear();
+            ui->usersELB->insertStringList(list);
         }
-        usersELB->setProperty("defaultList", list);
-        allowRB->setProperty("defaultChoice", false);
+        ui->usersELB->setProperty("defaultList", list);
+        ui->allowRB->setProperty("defaultChoice", false);
         // Set checked AFTER the default choice was set
         // otherwise the signal will be emmited
         // which sets that we have a change
-        preventRB->setChecked(true);
+        ui->preventRB->setChecked(true);
     }
 
     // Clear previous changes
     m_changes = 0;
     emit changed(false);
     m_changedValues.clear();
-    errorPolicyCB->setProperty("different", false);
-    operationPolicyCB->setProperty("different", false);
-    startingBannerCB->setProperty("different", false);
-    endingBannerCB->setProperty("different", false);
-    usersELB->setProperty("different", false);
+    ui->errorPolicyCB->setProperty("different", false);
+    ui->operationPolicyCB->setProperty("different", false);
+    ui->startingBannerCB->setProperty("different", false);
+    ui->endingBannerCB->setProperty("different", false);
+    ui->usersELB->setProperty("different", false);
 }
 
 void PrinterBehavior::userListChanged()
 {
-    if (usersELB->isEnabled() == false &&
-        (allowRB->isChecked() ||
-         preventRB->isChecked())) {
+    if (ui->usersELB->isEnabled() == false &&
+        (ui->allowRB->isChecked() ||
+         ui->preventRB->isChecked())) {
         // this only happen when the list was empty
-        usersELB->setEnabled(true);
+       ui-> usersELB->setEnabled(true);
     }
 
     QStringList currentList, defaultList;
-    currentList = usersELB->items();
+    currentList = ui->usersELB->items();
     // sort the list so we can be sure it's different
     currentList.sort();
-    defaultList = usersELB->property("defaultList").value<QStringList>();
+    defaultList = ui->usersELB->property("defaultList").value<QStringList>();
 
     bool isDifferent = currentList != defaultList;
     if (isDifferent == false && currentList.isEmpty() == false) {
         // if the lists are equal and not empty the user might have
         // changed the Radio Button...
-        if (allowRB->isChecked() != allowRB->property("defaultChoice").toBool()) {
+        if (ui->allowRB->isChecked() != ui->allowRB->property("defaultChoice").toBool()) {
             isDifferent = true;
         }
     }
 
-    if (isDifferent != usersELB->property("different").toBool()) {
+    if (isDifferent != ui->usersELB->property("different").toBool()) {
         // it's different from the last time so add or remove changes
         isDifferent ? m_changes++ : m_changes--;
 
-        usersELB->setProperty("different", isDifferent);
+        ui->usersELB->setProperty("different", isDifferent);
         emit changed(m_changes);
     }
 }
@@ -185,8 +188,8 @@ void PrinterBehavior::currentIndexChangedCB(int index)
     // job-sheets-default has always two values
     if (attribute == "job-sheets-default") {
         QStringList values;
-        values << startingBannerCB->itemData(startingBannerCB->currentIndex()).toString();
-        values << endingBannerCB->itemData(endingBannerCB->currentIndex()).toString();
+        values << ui->startingBannerCB->itemData(ui->startingBannerCB->currentIndex()).toString();
+        values << ui->endingBannerCB->itemData(ui->endingBannerCB->currentIndex()).toString();
         value = values;
     } else {
         value = comboBox->itemData(index).toString();
@@ -250,48 +253,46 @@ QString PrinterBehavior::jobSheetsString(const QString &policy) const
 void PrinterBehavior::save()
 {
     if (m_changes) {
-        QHash<QString, QVariant> changedValues = m_changedValues;
+        QVariantHash changedValues = m_changedValues;
         // since a QStringList might be big we get it here instead
         // of adding it at edit time.
-        if (usersELB->property("different").toBool()) {
-            QStringList list = usersELB->items();
+        if (ui->usersELB->property("different").toBool()) {
+            QStringList list = ui->usersELB->items();
             if (list.isEmpty()) {
                 list << "all";
                 changedValues["requesting-user-name-allowed"] = list;
             } else {
-                if (allowRB->isChecked()) {
+                if (ui->allowRB->isChecked()) {
                     changedValues["requesting-user-name-allowed"] = list;
                 } else {
                     changedValues["requesting-user-name-denied"] = list;
                 }
             }
         }
-        Result *result = Dest::setAttributes(m_destName, m_isClass, changedValues);
-        QEventLoop loop;
-        connect(result, SIGNAL(finished()), &loop, SLOT(quit()));
-        loop.exec();
-        if (!result->lastError()) {
-            Result *ret = Dest::getAttributes(m_destName, m_isClass, neededValues());
-            QEventLoop loop;
-            connect(ret, SIGNAL(finished()), &loop, SLOT(quit()));
-            loop.exec();
-            if (!ret->result().isEmpty()){
-                QHash<QString, QVariant> attributes = ret->result().first();
+        KCupsRequest *request = new KCupsRequest;
+        request->setAttributes(m_destName, m_isClass, changedValues);
+        request->waitTillFinished();
+        if (!request->hasError()) {
+            request->getAttributes(m_destName, m_isClass, neededValues());
+            request->waitTillFinished();
+            if (!request->result().isEmpty()){
+                QVariantHash attributes = request->result().first();
                 setValues(attributes);
             }
         }
+        request->deleteLater();
     }
 }
 
 void PrinterBehavior::setRemote(bool remote)
 {
-    errorPolicyCB->setEnabled(!remote);
-    operationPolicyCB->setEnabled(!remote);
-    startingBannerCB->setEnabled(!remote);
-    endingBannerCB->setEnabled(!remote);
-    allowRB->setEnabled(!remote);
-    preventRB->setEnabled(!remote);
-    usersELB->setEnabled(!remote);
+    ui->errorPolicyCB->setEnabled(!remote);
+    ui->operationPolicyCB->setEnabled(!remote);
+    ui->startingBannerCB->setEnabled(!remote);
+    ui->endingBannerCB->setEnabled(!remote);
+    ui->allowRB->setEnabled(!remote);
+    ui->preventRB->setEnabled(!remote);
+    ui->usersELB->setEnabled(!remote);
 }
 
 bool PrinterBehavior::hasChanges()

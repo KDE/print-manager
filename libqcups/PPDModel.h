@@ -23,9 +23,6 @@
 
 #include <QAbstractListModel>
 
-#include <cups/cups.h>
-#include "QCups.h"
-
 class PPDModel : public QAbstractListModel
 {
     Q_OBJECT

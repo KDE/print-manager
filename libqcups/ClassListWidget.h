@@ -23,14 +23,10 @@
 
 #include <QStandardItemModel>
 #include <QListView>
-#include <kdemacros.h>
 
 #include <KPixmapSequenceOverlayPainter>
 
-#include "QCups.h"
-
-namespace QCups {
-
+class KCupsRequest;
 class KDE_EXPORT ClassListWidget : public QListView
 {
     Q_OBJECT
@@ -52,13 +48,10 @@ private slots:
 
 private:
     KPixmapSequenceOverlayPainter *m_busySeq;
-    Result *m_request;
+    KCupsRequest *m_request;
     QStringList m_selectedDests;
     bool m_changed;
     QStandardItemModel *m_model;
 };
-
-
-}
 
 #endif

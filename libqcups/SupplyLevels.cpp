@@ -35,9 +35,7 @@
 // ("marker-levels",  QVariant(QList<int>, ))
 // ("marker-types",  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge")))
 
-using namespace QCups;
-
-SupplyLevels::SupplyLevels(const Arguments &args, QWidget *parent)
+SupplyLevels::SupplyLevels(const QVariantHash &args, QWidget *parent)
  : KDialog(parent)
 {
     setModal(true);

@@ -20,8 +20,8 @@
 
 #include "PrintQueueModel.h"
 
-#include <KCupsRequestServer.h>
-#include <KCupsRequestJobs.h>
+#include <KCupsRequest.h>
+#include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 #include <KCupsJob.h>
 
@@ -35,7 +35,7 @@
 PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject *parent)
  : QStandardItemModel(parent),
    m_printer(new KCupsPrinter(destName)),
-   m_server(0),
+   m_jobRequest(0),
    m_destName(destName),
    m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
    m_parentId(parentId)
@@ -93,7 +93,7 @@ void PrintQueueModel::job(int position, const KCupsJob &job)
 
 void PrintQueueModel::getJobFinished()
 {
-    KCupsRequestServer *request = static_cast<KCupsRequestServer *>(sender());
+    KCupsRequest *request = static_cast<KCupsRequest *>(sender());
     if (request) {
         if (request->hasError()) {
 //            emit error(request->error(), request->serverError(), request->errorMsg());
@@ -111,23 +111,23 @@ void PrintQueueModel::getJobFinished()
         }
         request->deleteLater();
     } else {
-        kWarning() << "Should not be called from a non KCupsRequestServer class" << sender();
+        kWarning() << "Should not be called from a non KCupsRequest class" << sender();
     }
-    m_server = 0;
+    m_jobRequest = 0;
 }
 
 void PrintQueueModel::updateModel()
 {
-    kDebug() << m_server;
-    if (m_server) {
+    kDebug() << m_jobRequest;
+    if (m_jobRequest) {
         return;
     }
 
-    m_server = new KCupsRequestServer;
-    connect(m_server, SIGNAL(finished()), this, SLOT(getJobFinished()));
-    connect(m_server, SIGNAL(job(int,KCupsJob)), this, SLOT(job(int,KCupsJob)));
+    m_jobRequest = new KCupsRequest;
+    connect(m_jobRequest, SIGNAL(finished()), this, SLOT(getJobFinished()));
+    connect(m_jobRequest, SIGNAL(job(int,KCupsJob)), this, SLOT(job(int,KCupsJob)));
 
-    m_server->getJobs(m_destName, false, m_whichjobs, m_requestedAttr);
+    m_jobRequest->getJobs(m_destName, false, m_whichjobs, m_requestedAttr);
 
     m_processingJob.clear();
 }
@@ -298,16 +298,17 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
             continue;
         }
 
-        QCups::Result *result = QCups::moveJob(fromDestName, jobId, m_destName);
-        result->waitTillFinished();
-        result->deleteLater(); // TODO can it be deleted here?
-        if (result->hasError()) {
+        KCupsRequest *request = new KCupsRequest;
+        request->moveJob(fromDestName, jobId, m_destName);
+        request->waitTillFinished();
+        request->deleteLater(); // TODO can it be deleted here?
+        if (request->hasError()) {
             // failed to move one job
             // we return here to avoid more password tries
             KMessageBox::detailedSorryWId(m_parentId,
                                           i18n("Failed to move '%1' to '%2'",
                                                displayName, m_destName),
-                                          result->lastErrorString(),
+                                          request->errorMsg(),
                                           i18n("Failed"));
             return false;
         }
@@ -316,7 +317,7 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
     return ret;
 }
 
-QCups::Result* PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
+KCupsRequest* PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
 {
     Q_UNUSED(parent)
     QStandardItem *job = item(row, ColStatus);
@@ -331,23 +332,26 @@ QCups::Result* PrintQueueModel::modifyJob(int row, JobAction action, const QStri
         return 0;
     }
 
-    KCupsRequestJobs *request = new KCupsRequestJobs;
+    KCupsRequest *request = new KCupsRequest;
     switch (action) {
     case Cancel:
         request->cancelJob(destName, jobId);
-        request->waitTillFinished();
-        kDebug() << "JOB Canceled using new class!!!" << request->hasError();
-        return 0;
-//        return QCups::cancelJob(destName, jobId);
+        break;
     case Hold:
-        return QCups::holdJob(destName, jobId);
+        request->holdJob(destName, jobId);
+        break;
     case Release:
-        return QCups::releaseJob(destName, jobId);
+        request->releaseJob(destName, jobId);
+        break;
     case Move:
-        return QCups::moveJob(destName, jobId, newDestName);
+        request->moveJob(destName, jobId, newDestName);
+        break;
+    default:
+        kWarning() << "Unknown ACTION called!!!" << action;
+        return 0;
     }
     kWarning() << "Action unknown!!";
-    return 0;
+    return request;
 }
 
 int PrintQueueModel::jobRow(int jobId)

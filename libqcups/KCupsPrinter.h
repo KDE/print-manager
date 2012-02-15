@@ -49,17 +49,18 @@ public:
     QString stateMsg() const;
     int markerChangeTime() const;
     QVariant argument(const QString &name) const;
+    static KIcon icon(cups_ptype_e type);
     KIcon icon() const;
 
 protected:
-    KCupsPrinter(const Arguments &arguments);
+    KCupsPrinter(const QVariantHash &arguments);
 
 private:
-    friend class KCupsRequestServer;
+    friend class KCupsRequest;
 
     QString m_printer;
     bool    m_isClass;
-    Arguments m_arguments;
+    QVariantHash m_arguments;
 };
 
 #endif // KCUPSPRINTER_H

@@ -21,16 +21,18 @@
 #ifndef PRINTER_OPTIONS_H
 #define PRINTER_OPTIONS_H
 
-#include "ui_PrinterOptions.h"
-
 #include "PrinterPage.h"
 
 #include <cups/ppd.h>
 #include <QTextCodec>
+#include <QAbstractButton>
+#include <QHash>
 
-namespace QCups {
+namespace Ui {
+    class PrinterOptions;
+}
 
-class PrinterOptions : public PrinterPage, Ui::PrinterOptions
+class PrinterOptions : public PrinterPage
 {
     Q_OBJECT
 public:
@@ -51,6 +53,16 @@ private slots:
     void radioBtClicked(QAbstractButton *button);
 
 private:
+    QWidget* pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    QWidget* pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    QWidget* pickOne(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    const char* getVariable(const char *name) const;
+    char * get_option_value(ppd_file_t *ppd, const char *name, char *buffer, size_t bufsize) const;
+    static double get_points(double number, const char *uval);
+
+    void createGroups();
+
+    Ui::PrinterOptions *ui;
     QString m_destName;
     bool m_isClass;
     bool m_isRemote;
@@ -60,18 +72,6 @@ private:
     QTextCodec *m_codec;
     QHash<QString, QObject*> m_customValues;
     QString m_make, m_makeAndModel;
-
-    QWidget* pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
-    QWidget* pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
-    QWidget* pickOne(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
-    const char* getVariable(const char *name) const;
-    char * get_option_value(ppd_file_t *ppd, const char *name, char *buffer, size_t bufsize) const;
-    static double get_points(double number, const char *uval);
-
-    void createGroups();
 };
-
-
-}
 
 #endif

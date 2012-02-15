@@ -23,7 +23,7 @@
 #include "SystemPreferences.h"
 #include "ui_SystemPreferences.h"
 
-#include <KCupsRequestServer.h>
+#include <KCupsRequest.h>
 #include <KCupsServer.h>
 
 #include <KDebug>
@@ -35,7 +35,7 @@ SystemPreferences::SystemPreferences(QWidget *parent) :
     ui->setupUi(mainWidget());
     connect(this, SIGNAL(okClicked()), SLOT(save()));
 
-    KCupsRequestServer *request = new KCupsRequestServer;
+    KCupsRequest *request = new KCupsRequest;
     connect(request, SIGNAL(server(KCupsServer)), this, SLOT(server(KCupsServer)));
     request->getServerSettings();
 }
@@ -47,7 +47,7 @@ SystemPreferences::~SystemPreferences()
 
 void SystemPreferences::server(const KCupsServer &server)
 {
-    KCupsRequestServer *request = qobject_cast<KCupsRequestServer *>(sender());
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     request->deleteLater();
 
     ui->showSharedPrintersCB->setChecked(server.showSharedPrinters());
@@ -59,7 +59,7 @@ void SystemPreferences::server(const KCupsServer &server)
 
 void SystemPreferences::saveFinished()
 {
-    KCupsRequestServer *request = qobject_cast<KCupsRequestServer *>(sender());
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     if (request->hasError()) {
         qWarning() << "Failed to set server settings" << request->errorMsg();
     }
@@ -74,7 +74,7 @@ void SystemPreferences::save()
     server.setAllowPrintingFromInternet(ui->allowFromInternetCB->isChecked());
     server.setAllowRemoteAdmin(ui->allowRemoteAdminCB->isChecked());
     server.setAllowUserCancelAnyJobs(ui->allowUsrCancelCB->isChecked());
-    KCupsRequestServer *request = server.commit();
+    KCupsRequest *request = server.commit();
     connect(request, SIGNAL(finished()), this, SLOT(saveFinished()));
 }
 

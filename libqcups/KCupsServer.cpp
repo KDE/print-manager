@@ -19,7 +19,7 @@
  ***************************************************************************/
 
 #include "KCupsServer.h"
-#include "KCupsRequestServer.h"
+#include "KCupsRequest.h"
 
 #include <cups/adminutil.h>
 
@@ -27,14 +27,14 @@ KCupsServer::KCupsServer()
 {
 }
 
-KCupsServer::KCupsServer(const Arguments &arguments)
+KCupsServer::KCupsServer(const QVariantHash &arguments)
 {
     m_arguments = arguments;
 }
 
-KCupsRequestServer* KCupsServer::commit() const
+KCupsRequest* KCupsServer::commit() const
 {
-    KCupsRequestServer *request = new KCupsRequestServer;
+    KCupsRequest *request = new KCupsRequest;
     request->setServerSettings(*this);
     return request;
 }
@@ -89,7 +89,7 @@ void KCupsServer::setAllowPrintingFromInternet(bool allow)
     m_arguments[CUPS_SERVER_REMOTE_ANY] = allow ? QLatin1String("1") : QLatin1String("0");
 }
 
-Arguments KCupsServer::arguments() const
+QVariantHash KCupsServer::arguments() const
 {
     return m_arguments;
 }

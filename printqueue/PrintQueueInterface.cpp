@@ -21,12 +21,12 @@
 #include "printqueueadaptor.h"
 
 #include "PrintQueueUi.h"
-#include "QCups.h"
-#include <KCupsRequestServer.h>
-#include <cups/cups.h>
+#include <KCupsRequest.h>
+#include <KCupsPrinter.h>
 
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
+#include <QtGui/QLayout>
 #include <KWindowSystem>
 #include <KDialog>
 
@@ -65,12 +65,12 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
     }
 
     if(!m_uis.contains(destName)) {
-        QCups::ReturnArguments dests;
+        ReturnArguments dests;
         QStringList requestAttr;
         requestAttr << "printer-name"
                     << "printer-type";
         // Get destinations with these attributes
-        KCupsRequestServer *request = new KCupsRequestServer;
+        KCupsRequest *request = new KCupsRequest;
         request->getPrinters(requestAttr);
         request->waitTillFinished();
         dests = request->result();
@@ -89,7 +89,7 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
         if (found) {
             PrintQueueUi *ui = new PrintQueueUi(destName, printerType);
             KDialog *dlg = new KDialog;
-            dlg->setWindowIcon(QCups::Dest::icon(destName, printerType));
+            dlg->setWindowIcon(KCupsPrinter::icon(static_cast<cups_ptype_e>(printerType)));
             dlg->setWindowTitle(ui->windowTitle());
             dlg->setButtons(0);
             dlg->setMainWidget(ui);

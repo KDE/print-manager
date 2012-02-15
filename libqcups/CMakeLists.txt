@@ -1,24 +1,17 @@
 set(libqcups_SRCS
-    cupsActions.cpp
     KCupsConnection.cpp
     KCupsJob.cpp
     KCupsPrinter.cpp
     KCupsServer.cpp
-    KCupsRequestInterface.cpp
-    KCupsRequestJobs.cpp
-    KCupsRequestPrinters.cpp
-    KCupsRequestServer.cpp
-    QCups.cpp
-    QCupsStrings.cpp
+    KCupsRequest.cpp
     ClassListWidget.cpp
     ModifyPrinter.cpp
-    ConfigureDialog.cpp
     PrinterPage.cpp
     PrinterOptions.cpp
     PrinterBehavior.cpp
     PPDModel.cpp
     SelectMakeModel.cpp
-    CupsPasswordDialog.cpp
+    ConfigureDialog.cpp
     SupplyLevels.cpp
 )
 

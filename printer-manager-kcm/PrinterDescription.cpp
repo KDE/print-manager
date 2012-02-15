@@ -22,7 +22,6 @@
 
 #include "ui_PrinterDescription.h"
 
-#include <KCupsRequestPrinters.h>
 #include <KCupsPrinter.h>
 #include <SupplyLevels.h>
 
@@ -89,7 +88,7 @@ void PrinterDescription::on_openQueuePB_clicked()
 void PrinterDescription::on_defaultCB_clicked()
 {
     bool isDefault = ui->defaultCB->isChecked();
-    KCupsRequestPrinters *request = new KCupsRequestPrinters;
+    KCupsRequest *request = new KCupsRequest;
     request->setDefaultPrinter(m_destName);
     request->waitTillFinished();
     setIsDefault(request->hasError() ? !isDefault : isDefault);
@@ -99,7 +98,7 @@ void PrinterDescription::on_defaultCB_clicked()
 void PrinterDescription::on_sharedCB_clicked()
 {
     bool shared = ui->sharedCB->isChecked();
-    KCupsRequestPrinters *request = new KCupsRequestPrinters;
+    KCupsRequest *request = new KCupsRequest;
     request->setShared(m_destName, m_isClass, shared);
     request->waitTillFinished();
     setIsShared(request->hasError() ? !shared : shared);
@@ -108,7 +107,7 @@ void PrinterDescription::on_sharedCB_clicked()
 
 void PrinterDescription::on_supplyLevelsPB_clicked()
 {
-    QCups::SupplyLevels *dialog = new QCups::SupplyLevels(m_markerData, this);
+    SupplyLevels *dialog = new SupplyLevels(m_markerData, this);
     dialog->exec();
 }
 
@@ -204,31 +203,33 @@ void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
     Q_UNUSED(checked)
     // TODO Show a msg box if failed
 
-    QCups::Result *ret = QCups::Dest::printTestPage(m_destName, m_isClass);
-    ret->waitTillFinished();
-    ret->deleteLater();
+    KCupsRequest *request = new KCupsRequest;
+    request->printTestPage(m_destName, m_isClass);
+    request->waitTillFinished();
+    request->deleteLater();
 }
 
 void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    QCups::Result *ret = QCups::Dest::printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
-    ret->waitTillFinished();
-    ret->deleteLater();
+    KCupsRequest *request = new KCupsRequest;
+    request->printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
+    request->waitTillFinished();
+    request->deleteLater();
 }
 
 void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    QCups::Result *ret = QCups::Dest::printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
-    ret->waitTillFinished();
-    ret->deleteLater();
+    KCupsRequest *request = new KCupsRequest;
+    request->printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
+    request->waitTillFinished();
+    request->deleteLater();
 }
 
 QString PrinterDescription::destName() const
 {
     return m_destName;
 }
-
 
 #include "PrinterDescription.moc"

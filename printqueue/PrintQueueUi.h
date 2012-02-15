@@ -21,17 +21,18 @@
 #ifndef PRINT_QUEUE_UI_H
 #define PRINT_QUEUE_UI_H
 
-#include "ui_PrintQueueUi.h"
+#include <QWidget>
+#include <QModelIndex>
+#include <QToolButton>
 
-class QToolButton;
-class QSortFilterProxyModel;
-
-namespace QCups {
-    class ConfigureDialog;
+namespace Ui {
+    class PrintQueueUi;
 }
 
+class PrintQueueSortFilterProxyModel;
+class ConfigureDialog;
 class PrintQueueModel;
-class PrintQueueUi : public QWidget, Ui::PrintQueueUi
+class PrintQueueUi : public QWidget
 {
     Q_OBJECT
 public:
@@ -66,8 +67,9 @@ private:
     void setState(int state, const QString &message);
     void modifyJob(int action, const QString &destName = QString());
 
+    Ui::PrintQueueUi *ui;
     QToolButton *m_filterJobs;
-    QSortFilterProxyModel *m_proxyModel;
+    PrintQueueSortFilterProxyModel *m_proxyModel;
     PrintQueueModel *m_model;
     QString m_destName;
     QString m_title;
@@ -79,7 +81,7 @@ private:
     QPixmap m_warningIcon;
     bool m_printerPaused;
     char m_lastState;
-    QCups::ConfigureDialog *m_cfgDlg;
+    ConfigureDialog *m_cfgDlg;
 };
 
 #endif

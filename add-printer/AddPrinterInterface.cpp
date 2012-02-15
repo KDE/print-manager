@@ -20,9 +20,6 @@
 #include "AddPrinterInterface.h"
 #include "addprinteradaptor.h"
 
-#include <QCups.h>
-#include <cups/cups.h>
-
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
 #include <KWindowSystem>

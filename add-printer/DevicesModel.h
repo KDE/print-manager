@@ -23,10 +23,7 @@
 
 #include <QStandardItemModel>
 
-namespace QCups {
-    class Result;
-}
-
+class KCupsRequest;
 class DevicesModel : public QStandardItemModel
 {
     Q_OBJECT
@@ -62,7 +59,7 @@ private slots:
                 const QString &devLocation);
 
 private:
-    QCups::Result *m_ret;
+    KCupsRequest *m_request;
     QRegExp m_rx;
 };
 

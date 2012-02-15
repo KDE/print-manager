@@ -38,8 +38,7 @@
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QVBoxLayout>
-#include <QCups.h>
-#include <cups/cups.h>
+#include <KCupsRequest.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
@@ -64,14 +63,14 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     m_addAction = ui->toolBar->addAction(KIcon("list-add"),
                                          i18nc("@action:intoolbar", "Add Printer"),
-                                         this, SLOT(on_addPB_clicked()));
+                                         this, SLOT(addPrinter()));
     m_removeAction = ui->toolBar->addAction(KIcon("list-remove"),
                                             i18nc("@action:intoolbar", "Remove Printer"),
-                                            this, SLOT(on_removePB_clicked()));
+                                            this, SLOT(removePrinter()));
     ui->toolBar->addSeparator();
     m_configureAction = ui->toolBar->addAction(KIcon("configure"),
                                                i18nc("@action:intoolbar", "Configure Printer"),
-                                               this, SLOT(on_configurePrinterPB_clicked()));
+                                               this, SLOT(configurePrinter()));
 
     ui->preferencesPB->setIcon(KIcon("configure"));
 
@@ -165,6 +164,7 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
 
 PrintKCM::~PrintKCM()
 {
+    delete ui;
 }
 
 void PrintKCM::update()
@@ -217,7 +217,7 @@ void PrintKCM::update()
     }
 }
 
-void PrintKCM::on_addPB_clicked()
+void PrintKCM::addPrinter()
 {
     QDBusMessage message;
     message = QDBusMessage::createMethodCall("org.kde.AddPrinter",
@@ -229,7 +229,7 @@ void PrintKCM::on_addPB_clicked()
     QDBusConnection::sessionBus().call(message);
 }
 
-void PrintKCM::on_removePB_clicked()
+void PrintKCM::removePrinter()
 {
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
@@ -250,14 +250,15 @@ void PrintKCM::on_removePB_clicked()
         }
         resp = KMessageBox::questionYesNo(this, msg, title);
         if (resp == KMessageBox::Yes) {
-            QCups::Result *ret = QCups::deletePrinter(index.data(PrinterModel::DestName).toString());
-            ret->waitTillFinished();
-            ret->deleteLater();
+            KCupsRequest *request = new KCupsRequest;
+            request->deletePrinter(index.data(PrinterModel::DestName).toString());
+            request->waitTillFinished();
+            request->deleteLater();
         }
     }
 }
 
-void PrintKCM::on_configurePrinterPB_clicked()
+void PrintKCM::configurePrinter()
 {
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
@@ -265,10 +266,10 @@ void PrintKCM::on_configurePrinterPB_clicked()
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
         QModelIndex index = selection.indexes().at(0);
-        QCups::ConfigureDialog *dlg;
-        dlg= new QCups::ConfigureDialog(index.data(PrinterModel::DestName).toString(),
-                                        index.data(PrinterModel::DestIsClass).toBool(),
-                                        this);
+        ConfigureDialog *dlg;
+        dlg = new ConfigureDialog(index.data(PrinterModel::DestName).toString(),
+                                  index.data(PrinterModel::DestIsClass).toBool(),
+                                  this);
         dlg->show();
     }
 }

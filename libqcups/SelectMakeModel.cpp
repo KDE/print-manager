@@ -20,20 +20,19 @@
 
 #include "SelectMakeModel.h"
 #include "ui_SelectMakeModel.h"
+
 #include "PPDModel.h"
 
-#include "QCups.h"
+#include "KCupsRequest.h"
 
 #include <QLineEdit>
 #include <KMessageBox>
 #include <KPixmapSequence>
 #include <KDebug>
 
-using namespace QCups;
-
-SelectMakeModel::SelectMakeModel(QWidget *parent)
- : QWidget(parent),
-   m_result(0)
+SelectMakeModel::SelectMakeModel(QWidget *parent) :
+    QWidget(parent),
+    m_request(0)
 {
     ui = new Ui::SelectMakeModel;
     ui->setupUi(this);
@@ -51,9 +50,10 @@ SelectMakeModel::~SelectMakeModel()
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)
 {
-    if (!m_result) {
-        m_result = QCups::getPPDS();
-        connect(m_result, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
+    if (!m_request) {
+        m_request = new KCupsRequest;
+        m_request->getPPDS();
+        connect(m_request, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
         m_make = make;
         m_makeAndModel = makeAndModel;
         m_busySeq->start();
@@ -76,9 +76,9 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
 
 void SelectMakeModel::ppdsLoaded()
 {
-    ReturnArguments ppds = m_result->result();
+    ReturnArguments ppds = m_request->result();
     PPDModel *sourceModel = new PPDModel(ppds, this);
-    m_result->deleteLater(); // Do not make it be 0 since it takes long to load
+    m_request->deleteLater(); // Do not make it be 0 since it takes a lot to load
     m_model = new QSortFilterProxyModel(this);
     m_model->setSourceModel(sourceModel);
     ui->ppdsLV->setModel(m_model);

@@ -26,7 +26,7 @@
 #include "PageChoosePPD.h"
 #include "PageAddPrinter.h"
 
-#include <QCups.h>
+#include <KCupsRequest.h>
 
 #include <KMessageBox>
 
@@ -130,26 +130,26 @@ void AddPrinterAssistant::slotButtonClicked(int button)
     if (button == KDialog::User1) {
         QHash<QString, QVariant> args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
         kDebug() << args;
-        QCups::Result *result;
+        KCupsRequest *request = new KCupsRequest;
         bool isClass = !args.take("add-new-printer").toBool();
         if (isClass) {
-            result = QCups::addClass(args);
+            request->addClass(args);
         } else {
             QString destName = args["printer-name"].toString();
-            result = QCups::Dest::setAttributes(destName, false, args);
+            request->setAttributes(destName, false, args);
         }
-        result->waitTillFinished();
-        if (result->hasError()) {
-            kDebug() << result->lastError();
+        request->waitTillFinished();
+        if (request->hasError()) {
+            kDebug() << request->error() << request->errorMsg();
             KMessageBox::detailedSorry(this,
                                        isClass ? i18nc("@info", "Failed to add class") :
                                                  i18nc("@info", "Failed to add printer"),
-                                       result->lastErrorString(),
+                                       request->errorMsg(),
                                        i18nc("@title:window", "Failed"));
         } else {
             KAssistantDialog::slotButtonClicked(button);
         }
-        result->deleteLater();
+        request->deleteLater();
     } else {
         KAssistantDialog::slotButtonClicked(button);
     }

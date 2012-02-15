@@ -23,16 +23,11 @@
 
 #include <QStandardItemModel>
 
-#include <QCups.h>
 #include <cups/cups.h>
-
-namespace QCups {
-    class Result;
-}
 
 class KCupsJob;
 class KCupsPrinter;
-class KCupsRequestServer;
+class KCupsRequest;
 class PrintQueueModel : public QStandardItemModel
 {
     Q_OBJECT
@@ -80,7 +75,7 @@ public:
                       const QModelIndex &parent);
 
     void setWhichJobs(int whichjobs);
-    QCups::Result* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
+    KCupsRequest* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 public slots:
     void job(int position, const KCupsJob &job);
@@ -89,7 +84,7 @@ public slots:
 
 private:
     KCupsPrinter *m_printer;
-    KCupsRequestServer *m_server;
+    KCupsRequest *m_jobRequest;
     QString m_destName;
     QString m_processingJob;
     int m_whichjobs;

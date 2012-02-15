@@ -20,8 +20,7 @@
 
 #include "DevicesModel.h"
 
-#include <QCups.h>
-#include <cups/cups.h>
+#include <KCupsRequest.h>
 
 #include <KCategorizedSortFilterProxyModel>
 #include <KDebug>
@@ -30,24 +29,25 @@
 
 DevicesModel::DevicesModel(QObject *parent)
  : QStandardItemModel(parent),
-   m_ret(0),
+   m_request(0),
    m_rx("[a-z]+://?")
 {
 }
 
 void DevicesModel::update()
 {
-    if (m_ret) {
+    if (m_request) {
         return;
     }
 
     // clear the model to don't duplicate items
     clear();
-    m_ret = QCups::getDevices();
-    connect(m_ret, SIGNAL(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)),
+    m_request = new KCupsRequest;
+    connect(m_request, SIGNAL(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)),
             this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));
-    connect(m_ret, SIGNAL(finished()), this, SLOT(finished()));
-    connect(m_ret, SIGNAL(finished()), this, SIGNAL(loaded()));
+    connect(m_request, SIGNAL(finished()), this, SLOT(finished()));
+    connect(m_request, SIGNAL(finished()), this, SIGNAL(loaded()));
+    m_request->getDevices();
 
     // Adds the other device which is meant for manual URI input
     device(QString(),
@@ -173,8 +173,8 @@ void DevicesModel::device(const QString &devClass,
 
 void DevicesModel::finished()
 {
-    m_ret->deleteLater();
-    m_ret = 0;
+    m_request->deleteLater();
+    m_request = 0;
 }
 
 

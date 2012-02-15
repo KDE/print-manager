@@ -86,7 +86,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QCups::ClassListWidget" name="membersLV">
+      <widget class="ClassListWidget" name="membersLV">
        <property name="editTriggers">
         <set>QAbstractItemView::NoEditTriggers</set>
        </property>
@@ -101,7 +101,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QCups::ClassListWidget</class>
+   <class>ClassListWidget</class>
    <extends>QListView</extends>
    <header>ClassListWidget.h</header>
   </customwidget>

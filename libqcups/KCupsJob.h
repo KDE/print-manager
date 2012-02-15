@@ -27,6 +27,7 @@
 class KDE_EXPORT KCupsJob
 {
 public:
+    KCupsJob();
     KCupsJob(int jobId, const QString &printer);
 
     int id() const;
@@ -41,17 +42,18 @@ public:
 
     ipp_jstate_e state() const;
     QString stateMsg() const;
-    int markerChangeTime() const;
 
 protected:
-    KCupsJob(const Arguments &arguments);
+    KCupsJob(const QVariantHash &arguments);
 
 private:
-    friend class KCupsRequestServer;
+    friend class KCupsRequest;
 
     int     m_jobId;
     QString m_printer;
-    Arguments m_arguments;
+    QVariantHash m_arguments;
 };
+
+Q_DECLARE_METATYPE(KCupsJob)
 
 #endif // KCUPSJOB_H

@@ -21,13 +21,14 @@
 #ifndef CHOOSE_PRINTERS_H
 #define CHOOSE_PRINTERS_H
 
-#include "ui_ChoosePrinters.h"
-
 #include "GenericPage.h"
-namespace QCups {
-    class ClassListWidget;
+
+namespace Ui {
+    class ChoosePrinters;
 }
-class ChoosePrinters : public GenericPage, Ui::ChoosePrinters
+
+class ClassListWidget;
+class ChoosePrinters : public GenericPage
 {
     Q_OBJECT
 public:
@@ -43,6 +44,7 @@ public slots:
     void load();
 
 private:
+    Ui::ChoosePrinters *ui;
     bool m_isValid;
 };
 

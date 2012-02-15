@@ -128,7 +128,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QCups::ClassListWidget" name="membersLV"/>
+      <widget class="ClassListWidget" name="membersLV"/>
      </item>
      <item row="6" column="0" colspan="2">
       <widget class="QGroupBox" name="makeModelCB">
@@ -179,9 +179,9 @@ p, li { white-space: pre-wrap; }
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KUrlRequester</class>
-   <extends>QFrame</extends>
-   <header>kurlrequester.h</header>
+   <class>KComboBox</class>
+   <extends>QComboBox</extends>
+   <header>kcombobox.h</header>
   </customwidget>
   <customwidget>
    <class>KLineEdit</class>
@@ -189,12 +189,12 @@ p, li { white-space: pre-wrap; }
    <header>klineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
+   <class>KUrlRequester</class>
+   <extends>QFrame</extends>
+   <header>kurlrequester.h</header>
   </customwidget>
   <customwidget>
-   <class>QCups::ClassListWidget</class>
+   <class>ClassListWidget</class>
    <extends>QListView</extends>
    <header>ClassListWidget.h</header>
   </customwidget>

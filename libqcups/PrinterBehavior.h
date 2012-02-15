@@ -21,23 +21,23 @@
 #ifndef PRINTER_BEHAVIOR_H
 #define PRINTER_BEHAVIOR_H
 
-#include "ui_PrinterBehavior.h"
-
 #include "PrinterPage.h"
 
-#include "QCups.h"
+#include "KCupsRequest.h"
 #include <QWidget>
 
-namespace QCups {
+namespace Ui {
+    class PrinterBehavior;
+}
 
-class PrinterBehavior : public PrinterPage, Ui::PrinterBehavior
+class PrinterBehavior : public PrinterPage
 {
     Q_OBJECT
 public:
     explicit PrinterBehavior(const QString &destName, bool isClass, QWidget *parent = 0);
     ~PrinterBehavior();
 
-    void setValues(const QHash<QString, QVariant> &values);
+    void setValues(const QVariantHash &values);
     void setRemote(bool remote);
     bool hasChanges();
 
@@ -49,17 +49,15 @@ private slots:
     void userListChanged();
 
 private:
-    QString m_destName;
-    bool m_isClass;
-    QHash<QString, QVariant> m_changedValues;
-    int m_changes;
-
     QString errorPolicyString(const QString &policy) const;
     QString operationPolicyString(const QString &policy) const;
     QString jobSheetsString(const QString &policy) const;
+
+    Ui::PrinterBehavior *ui;
+    QString m_destName;
+    bool m_isClass;
+    QVariantHash m_changedValues;
+    int m_changes;
 };
-
-
-}
 
 #endif

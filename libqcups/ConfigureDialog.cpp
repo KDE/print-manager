@@ -25,15 +25,15 @@
 #include "PrinterBehavior.h"
 #include "PrinterOptions.h"
 
-#include <cups/cups.h>
+#include "KCupsRequest.h"
 
+#include <KConfig>
+#include <KLocale>
 #include <KMessageBox>
 #include <KDebug>
 
-using namespace QCups;
-
-ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent)
- : KPageDialog(parent)
+ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent) :
+    KPageDialog(parent)
 {
     setFaceType(List);
     setModal(true);
@@ -61,36 +61,37 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr << "marker-type";
 //     marker-low-levels
     attr.removeDuplicates();
-    QHash<QString, QVariant> values;
-    Result *ret = Dest::getAttributes(destName, isClass, attr);
-    ret->waitTillFinished();
-    if (!ret->result().isEmpty()){
-        values = ret->result().first();
+    QVariantHash values;
+    KCupsRequest *request = new KCupsRequest;
+    request->getAttributes(destName, isClass, attr);
+    request->waitTillFinished();
+    if (!request->result().isEmpty()){
+        values = request->result().first();
     }
     kDebug() << "VALUES" << values;
-    ret->deleteLater();
+    request->deleteLater();
 
-//     kDebug() << values;
- if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {
-     kDebug() << "CUPS_PRINTER_LOCAL";
- }
- if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
-     kDebug() << "CUPS_PRINTER_CLASS";
- }
- bool isRemote = false;
- if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
-     kDebug() << "CUPS_PRINTER_REMOTE";
-     isRemote = true;
- }
- if (values["printer-type"].toUInt() & CUPS_PRINTER_BW) {
-     kDebug() << "CUPS_PRINTER_BW";
- }
-  if (values["printer-type"].toUInt() & CUPS_PRINTER_COLOR) {
-     kDebug() << "CUPS_PRINTER_COLOR";
- }
-  if (values["printer-type"].toUInt() & CUPS_PRINTER_MFP) {
-     kDebug() << "CUPS_PRINTER_MFP";
- }
+    //     kDebug() << values;
+    if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {
+        kDebug() << "CUPS_PRINTER_LOCAL";
+    }
+    if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
+        kDebug() << "CUPS_PRINTER_CLASS";
+    }
+    bool isRemote = false;
+    if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
+        kDebug() << "CUPS_PRINTER_REMOTE";
+        isRemote = true;
+    }
+    if (values["printer-type"].toUInt() & CUPS_PRINTER_BW) {
+        kDebug() << "CUPS_PRINTER_BW";
+    }
+    if (values["printer-type"].toUInt() & CUPS_PRINTER_COLOR) {
+        kDebug() << "CUPS_PRINTER_COLOR";
+    }
+    if (values["printer-type"].toUInt() & CUPS_PRINTER_MFP) {
+        kDebug() << "CUPS_PRINTER_MFP";
+    }
 
     modifyPrinter->setRemote(isRemote);
     modifyPrinter->setValues(values);

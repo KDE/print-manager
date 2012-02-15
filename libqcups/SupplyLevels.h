@@ -22,21 +22,16 @@
 #define SUPPLY_LEVELS_H
 
 #include <KDialog>
-#include "QCups.h"
-
-namespace QCups {
+#include "KCupsRequest.h"
 
 class KDE_EXPORT SupplyLevels : public KDialog
 {
     Q_OBJECT
 public:
-    explicit SupplyLevels(const Arguments &args, QWidget *parent = 0);
+    explicit SupplyLevels(const QVariantHash &args, QWidget *parent = 0);
     ~SupplyLevels();
 
 };
-
-
-}
 
 Q_DECLARE_METATYPE(QList<int>)
 

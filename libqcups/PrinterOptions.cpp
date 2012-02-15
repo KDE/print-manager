@@ -23,10 +23,9 @@
 
 #include "PrinterOptions.h"
 
-#include <cctype>
+#include "ui_PrinterOptions.h"
 
-#include <cups/cups.h>
-#include "QCups.h"
+#include "KCupsRequest.h"
 
 #include <QFormLayout>
 #include <KComboBox>
@@ -38,28 +37,27 @@
 
 #include <KDebug>
 
-using namespace QCups;
-
-PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent)
- : PrinterPage(parent),
-   m_destName(destName),
-   m_isClass(isClass),
-   m_isRemote(isRemote),
-   m_filename(NULL),
-   m_ppd(NULL),
-   m_changes(0)
+PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent) :
+    PrinterPage(parent),
+    ui(new Ui::PrinterOptions),
+    m_destName(destName),
+    m_isClass(isClass),
+    m_isRemote(isRemote),
+    m_filename(NULL),
+    m_ppd(NULL),
+    m_changes(0)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     reloadPPD();
 }
 
 void PrinterOptions::on_autoConfigurePB_clicked()
 {
-    QCups::Result *result;
-    result = QCups::Dest::printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
-    result->waitTillFinished();
-    result->deleteLater();
+    KCupsRequest *request = new KCupsRequest;
+    request->printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
+    request->waitTillFinished();
+    request->deleteLater();
 }
 
 void PrinterOptions::reloadPPD()
@@ -70,8 +68,8 @@ void PrinterOptions::reloadPPD()
     }
 
     // remove all the options
-    while (verticalLayout->count()) {
-        verticalLayout->removeItem(verticalLayout->itemAt(0));
+    while (ui->verticalLayout->count()) {
+        ui->verticalLayout->removeItem(ui->verticalLayout->itemAt(0));
     }
     m_changes = 0;
     m_customValues.clear();
@@ -118,16 +116,16 @@ void PrinterOptions::reloadPPD()
         m_makeAndModel = m_codec->toUnicode(m_ppd->nickname);
     }
 
-    autoConfigurePB->hide();
+    ui->autoConfigurePB->hide();
     ppd_attr_t  *ppdattr;
     if (m_ppd->num_filters == 0 ||
         ((ppdattr = ppdFindAttr(m_ppd, "cupsCommands", NULL)) != NULL &&
            ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
-        autoConfigurePB->show();
+        ui->autoConfigurePB->show();
     } else {
         for (int i = 0; i < m_ppd->num_filters; i ++) {
             if (!strncmp(m_ppd->filters[i], "application/vnd.cups-postscript", 31)) {
-              autoConfigurePB->show();
+              ui->autoConfigurePB->show();
               break;
             }
         }
@@ -151,13 +149,13 @@ void PrinterOptions::createGroups()
         QString text = m_codec->toUnicode(group->text);
 
         // The group box were the options will be laid out
-        QGroupBox *groupBox = new QGroupBox(text, scrollArea);
+        QGroupBox *groupBox = new QGroupBox(text, ui->scrollArea);
 
         // Create the form layout to put options in
         QFormLayout *gFormLayout = new QFormLayout(groupBox);
         gFormLayout->setFormAlignment(Qt::AlignCenter);
         groupBox->setLayout(gFormLayout);
-        verticalLayout->addWidget(groupBox);
+        ui->verticalLayout->addWidget(groupBox);
 
         int j;
         ppd_option_t *option;
@@ -178,18 +176,18 @@ void PrinterOptions::createGroups()
             QWidget *optionW = 0;
             switch (option->ui) {
             case PPD_UI_BOOLEAN:
-                optionW = pickBoolean(option, oKeyword, scrollAreaWidgetContents);
+                optionW = pickBoolean(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;
             case PPD_UI_PICKMANY:
-                optionW = pickMany(option, oKeyword, scrollAreaWidgetContents);
+                optionW = pickMany(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;
             case PPD_UI_PICKONE:
-                optionW = pickOne(option, oKeyword, scrollAreaWidgetContents);
+                optionW = pickOne(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;
             default:
                 kWarning() << "Option type not recognized: " << option->ui;
                 // let's use the most common
-                optionW = pickOne(option, oKeyword, scrollAreaWidgetContents);
+                optionW = pickOne(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;
             }
 
@@ -360,6 +358,8 @@ PrinterOptions::~PrinterOptions()
     if (m_filename) {
         unlink(m_filename);
     }
+
+    delete ui;
 }
 
 const char *                            /* O - Value of variable */
@@ -731,16 +731,17 @@ void PrinterOptions::save()
         cupsFileClose(out);
     }
 
-    QHash<QString, QVariant> values; // we need null values
-    Result *result = Dest::setAttributes(m_destName, m_isClass, values, tempfile);
+    QVariantHash values; // we need null values
+    KCupsRequest *request = new KCupsRequest;
+    request->setAttributes(m_destName, m_isClass, values, tempfile);
     // Disable the widget till the request is processed
     // Otherwise the user might change something in the ui
     // which won't be saved but the apply but when the request
     // finishes we will set the current options as default
     setEnabled(false);
-    result->waitTillFinished();
+    request->waitTillFinished();
     setEnabled(true);
-    if (!result->hasError()) {
+    if (!request->hasError()) {
         // if we succefully save the new ppd we need now to
         // clear our changes
         QHash<QString, QObject*>::const_iterator i = m_customValues.constBegin();
@@ -757,7 +758,7 @@ void PrinterOptions::save()
         m_customValues.clear();
         emit changed(false);
     }
-    result->deleteLater();
+    request->deleteLater();
 
     // unlink the file
     unlink(tempfile);

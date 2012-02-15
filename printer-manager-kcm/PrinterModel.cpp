@@ -27,7 +27,7 @@
 #include <KLocale>
 #include <KMessageBox>
 
-#include <KCupsRequestServer.h>
+#include <KCupsRequest.h>
 
 #include <cups/cups.h>
 
@@ -44,7 +44,7 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
 
 void PrinterModel::getDestsFinished()
 {
-    KCupsRequestServer *request = qobject_cast<KCupsRequestServer *>(sender());
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     if (request) {
         if (request->hasError()) {
             emit error(request->error(), request->serverError(), request->errorMsg());
@@ -64,7 +64,7 @@ void PrinterModel::getDestsFinished()
         }
         request->deleteLater();
     } else {
-        kWarning() << "Should not be called from a non KCupsRequestServer class" << sender();
+        kWarning() << "Should not be called from a non KCupsRequest class" << sender();
     }
 }
 
@@ -96,7 +96,7 @@ void PrinterModel::update()
 
 //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
     // Get destinations with these attributes
-    KCupsRequestServer *request = new KCupsRequestServer;
+    KCupsRequest *request = new KCupsRequest;
     connect(request, SIGNAL(printer(int,KCupsPrinter)), this, SLOT(printer(int,KCupsPrinter)));
     connect(request, SIGNAL(finished()), this, SLOT(getDestsFinished()));
     request->getPrinters(requestAttr);

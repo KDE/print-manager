@@ -22,10 +22,6 @@
 
 #include <KDebug>
 
-#include "QCups.h"
-
-using namespace QCups;
-
 PPDModel::PPDModel(const QList<QHash<QString, QVariant> > &ppds, QObject *parent)
  : QAbstractListModel(parent),
    m_ppds(ppds)

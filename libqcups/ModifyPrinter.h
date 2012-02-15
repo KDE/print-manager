@@ -21,15 +21,17 @@
 #ifndef MODIFY_PRINTER_H
 #define MODIFY_PRINTER_H
 
-#include "ui_ModifyPrinter.h"
-
 #include "PrinterPage.h"
+
+#include "KCupsRequest.h"
 
 #include <QWidget>
 
-namespace QCups {
+namespace Ui {
+    class ModifyPrinter;
+}
 
-class ModifyPrinter : public PrinterPage, Ui::ModifyPrinter
+class ModifyPrinter : public PrinterPage
 {
     Q_OBJECT
     Q_ENUMS(Role)
@@ -45,11 +47,11 @@ public:
     ~ModifyPrinter();
 
     bool hasChanges();
-    QHash<QString, QVariant> modifiedValues() const;
+    QVariantHash modifiedValues() const;
     QStringList neededValues() const;
     void setRemote(bool remote);
 
-    void setValues(const QHash<QString, QVariant> &values);
+    void setValues(const QVariantHash &values);
     void setCurrentMake(const QString &make);
     void setCurrentMakeAndModel(const QString &makeAndModel);
 
@@ -66,13 +68,11 @@ private slots:
     void modelChanged();
 
 private:
+    Ui::ModifyPrinter *ui;
     QString m_destName, m_make, m_makeAndModel;
     bool m_isClass;
-    QHash<QString, QVariant> m_changedValues;
+    QVariantHash m_changedValues;
     int m_changes;
 };
-
-
-}
 
 #endif

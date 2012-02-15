@@ -22,6 +22,7 @@
 
 #include "SelectMakeModel.h"
 
+#include "KCupsRequest.h"
 #include <cups/cups.h>
 
 #include <QPointer>
@@ -30,7 +31,6 @@
 
 #include <KPixmapSequence>
 
-using namespace QCups;
 
 ClassListWidget::ClassListWidget(QWidget *parent)
  : QListView(parent),
@@ -67,8 +67,9 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
                 << "printer-name";
 
     // Get destinations with these masks
-    m_request = QCups::getDests(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE |
-                                    CUPS_PRINTER_IMPLICIT, requestAttr);
+    m_request = new KCupsRequest;
+    m_request->getPrinters(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT,
+                           requestAttr);
     m_request->setProperty("reqDestName", reqDestName);
     m_request->setProperty("memberNames", memberNames);
     connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));

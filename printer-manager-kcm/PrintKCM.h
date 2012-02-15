@@ -40,9 +40,9 @@ public:
 
 private slots:
     void update();
-    void on_addPB_clicked();
-    void on_removePB_clicked();
-    void on_configurePrinterPB_clicked();
+    void addPrinter();
+    void removePrinter();
+    void configurePrinter();
     void on_preferencesPB_clicked();
 
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);

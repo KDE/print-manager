@@ -19,16 +19,17 @@
  ***************************************************************************/
 
 #include "PrintQueueUi.h"
+#include "ui_PrintQueueUi.h"
 
 #include "PrintQueueModel.h"
 #include "PrintQueueSortFilterProxyModel.h"
 
 #include <ConfigureDialog.h>
-#include <QCups.h>
+#include <KCupsRequest.h>
+#include <KCupsPrinter.h>
 
 #include <QPainter>
 #include <QToolBar>
-#include <QToolButton>
 #include <QMenu>
 #include <QByteArray>
 
@@ -39,26 +40,27 @@
 
 PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *parent)
  : QWidget(parent),
+   ui(new Ui::PrintQueueUi),
    m_destName(destName),
    m_preparingMenu(false),
    m_lastState(0),
    m_cfgDlg(0)
 {
-    setupUi(this);
+    ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
     m_isClass = printerType & CUPS_PRINTER_CLASS;
 
     // setup default options
     setWindowTitle(m_destName.isNull() ? i18n("All printers") : m_destName);
-    jobsView->setCornerWidget(new QWidget);
+    ui->jobsView->setCornerWidget(new QWidget);
 
     setupButtons();
 
     // loads the standard key icon
-    m_printerIcon = QCups::Dest::icon(m_destName, printerType).pixmap(PRINTER_ICON_SIZE,
-                                                                      PRINTER_ICON_SIZE);
-    iconL->setPixmap(m_printerIcon);
+    m_printerIcon = KCupsPrinter::icon(static_cast<cups_ptype_e>(printerType)).pixmap(PRINTER_ICON_SIZE,
+                                                                                      PRINTER_ICON_SIZE);
+    ui->iconL->setPixmap(m_printerIcon);
 
     m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",
                                                   KIconLoader::NoGroup,
@@ -68,7 +70,7 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
                                                   0,
                                                   true);
 
-    printerStatusMsgL->setText(QString());
+    ui->printerStatusMsgL->setText(QString());
 
     // setup the jobs model
     m_model = new PrintQueueModel(destName, winId(), this);
@@ -78,18 +80,18 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->setDynamicSortFilter(true);
 
-    jobsView->setModel(m_proxyModel);
+    ui->jobsView->setModel(m_proxyModel);
     // sort by status column means the jobs will be sorted by the queue order
-    jobsView->sortByColumn(PrintQueueModel::ColStatus, Qt::AscendingOrder);
-    connect(jobsView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+    ui->jobsView->sortByColumn(PrintQueueModel::ColStatus, Qt::AscendingOrder);
+    connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
             this, SLOT(updateButtons()));
-    connect(jobsView, SIGNAL(customContextMenuRequested(const QPoint &)),
+    connect(ui->jobsView, SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(showContextMenu(const QPoint &)));
-    jobsView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(jobsView->header(), SIGNAL(customContextMenuRequested(const QPoint &)),
+    ui->jobsView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->jobsView->header(), SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(showHeaderContextMenu(const QPoint &)));
 
-    QHeaderView *header = jobsView->header();
+    QHeaderView *header = ui->jobsView->header();
     header->setResizeMode(QHeaderView::Interactive);
     header->setStretchLastSection(false);
     header->setResizeMode(PrintQueueModel::ColStatus,        QHeaderView::ResizeToContents);
@@ -124,7 +126,7 @@ PrintQueueUi::~PrintQueueUi()
     KConfig config("print-manager");
     KConfigGroup printQueue(&config, "PrintQueue");
     // save the header state order
-    printQueue.writeEntry("ColumnState", jobsView->header()->saveState());
+    printQueue.writeEntry("ColumnState", ui->jobsView->header()->saveState());
 }
 
 int PrintQueueUi::columnCount(const QModelIndex &parent) const
@@ -138,38 +140,38 @@ int PrintQueueUi::columnCount(const QModelIndex &parent) const
 void PrintQueueUi::setState(int state, const QString &message)
 {
     if (state != m_lastState ||
-        printerStatusMsgL->text() != message) {
+        ui->printerStatusMsgL->text() != message) {
         // save the last state so the ui doesn't need to keep updating
-        if (printerStatusMsgL->text() != message) {
-            printerStatusMsgL->setText(message);
+        if (ui->printerStatusMsgL->text() != message) {
+            ui->printerStatusMsgL->setText(message);
         }
         m_lastState = state;
 
         QPixmap icon(m_printerIcon);
         m_printerPaused = false;
         switch (state) {
-        case DEST_IDLE :
-            statusL->setText(i18n("Printer ready"));
-            pausePrinterPB->setText(i18n("Pause Printer"));
-            pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+        case KCupsPrinter::Idle:
+            ui->statusL->setText(i18n("Printer ready"));
+            ui->pausePrinterPB->setText(i18n("Pause Printer"));
+            ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
             break;
-        case DEST_PRINTING :
+        case KCupsPrinter::Printing:
             if (!m_title.isNull()) {
                 QString jobTitle = m_model->processingJob();
                 if (jobTitle.isEmpty()) {
-                    statusL->setText(i18n("Printing..."));
+                    ui->statusL->setText(i18n("Printing..."));
                 } else {
-                    statusL->setText(i18n("Printing '%1'", jobTitle));
+                    ui->statusL->setText(i18n("Printing '%1'", jobTitle));
                 }
-                pausePrinterPB->setText(i18n("Pause Printer"));
-                pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+                ui->pausePrinterPB->setText(i18n("Pause Printer"));
+                ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
             }
             break;
-        case DEST_STOPED :
+        case KCupsPrinter::Stoped:
             m_printerPaused = true;
-            statusL->setText(i18n("Printer paused"));
-            pausePrinterPB->setText(i18n("Resume Printer"));
-            pausePrinterPB->setIcon(KIcon("media-playback-start"));
+            ui->statusL->setText(i18n("Printer paused"));
+            ui->pausePrinterPB->setText(i18n("Resume Printer"));
+            ui->pausePrinterPB->setIcon(KIcon("media-playback-start"));
             // create a paiter to paint the action icon over the key icon
             {
                 QPainter painter(&icon);
@@ -183,7 +185,7 @@ void PrintQueueUi::setState(int state, const QString &message)
             }
             break;
         default :
-            statusL->setText(i18n("Printer state unknown"));
+            ui->statusL->setText(i18n("Printer state unknown"));
             break;
         }
         // set the printer icon
@@ -194,7 +196,7 @@ void PrintQueueUi::setState(int state, const QString &message)
 void PrintQueueUi::showContextMenu(const QPoint &point)
 {
     // check if the click was actually over a job
-    if (!jobsView->indexAt(point).isValid() || m_preparingMenu) {
+    if (!ui->jobsView->indexAt(point).isValid() || m_preparingMenu) {
         return;
     }
     m_preparingMenu = true;
@@ -202,7 +204,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
     bool moveTo = false;
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
-    selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
+    selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
     // if the selection is empty the user clicked on an empty space
     if (!selection.indexes().isEmpty()) {
         foreach (const QModelIndex &index, selection.indexes()) {
@@ -220,12 +222,13 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             QMenu *moveToMenu = new QMenu(i18n("Move to"), this);
 
             // get printers we can move to
-            QCups::Result *ret = QCups::getDests(-1, QStringList() << "printer-name" << "printer-info");
-            ret->waitTillFinished();
-            QCups::ReturnArguments dests = ret->result();
-            ret->deleteLater();
+            KCupsRequest *request = new KCupsRequest;
+            request->getPrinters(QStringList() << "printer-name" << "printer-info");
+            request->waitTillFinished();
+            ReturnArguments dests = request->result();
+            request->deleteLater();
 
-            foreach (const QCups::Arguments &dest, dests) {
+            foreach (const QVariantHash &dest, dests) {
                 // If there is a printer and it's not the current one add it
                 // as a new destination
                 if (dest["printer-name"].toString() != m_destName) {
@@ -237,7 +240,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             if (!moveToMenu->isEmpty()) {
                 menu->addMenu(moveToMenu);
                 // show the menu on the right point
-                QAction *action = menu->exec(jobsView->mapToGlobal(point));
+                QAction *action = menu->exec(ui->jobsView->mapToGlobal(point));
                 if (action) {
                     // move the job
                     modifyJob(PrintQueueModel::Move, action->data().toString());
@@ -259,27 +262,27 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
         name = m_proxyModel->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString();
         action = menu->addAction(name);
         action->setCheckable(true);
-        action->setChecked(!jobsView->header()->isSectionHidden(i));
+        action->setChecked(!ui->jobsView->header()->isSectionHidden(i));
         action->setData(i);
     }
 
-    QAction *action = menu->exec(jobsView->header()->mapToGlobal(point));
+    QAction *action = menu->exec(ui->jobsView->header()->mapToGlobal(point));
     if (action) {
         int section = action->data().toInt();
         if (action->isChecked()) {
-            jobsView->header()->showSection(section);
+            ui->jobsView->header()->showSection(section);
         } else {
-            jobsView->header()->hideSection(section);
+            ui->jobsView->header()->hideSection(section);
         }
     }
 }
 
 void PrintQueueUi::getAttributesFinished()
 {
-    QCups::Result *ret = qobject_cast<QCups::Result*>(sender());
-    QHash<QString, QVariant> attributes;
-    if (!ret->result().isEmpty()){
-        attributes = ret->result().first();
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    QVariantHash attributes;
+    if (!request->result().isEmpty()){
+        attributes = request->result().first();
     }
 
     if (attributes.isEmpty()) {
@@ -318,7 +321,7 @@ void PrintQueueUi::getAttributesFinished()
         emit windowTitleChanged(m_title.isNull() ? i18n("All Printers") : m_title);
     }
 
-    ret->deleteLater();
+    request->deleteLater();
 }
 
 void PrintQueueUi::update()
@@ -329,9 +332,10 @@ void PrintQueueUi::update()
          << "printer-state"
          << "printer-state-message";
 
-    QHash<QString, QVariant> attributes;
-    QCups::Result *ret = QCups::Dest::getAttributes(m_destName, m_isClass, attr);
-    connect(ret, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
+//    QHash<QString, QVariant> attributes;
+    KCupsRequest *request = new KCupsRequest;
+    request->getAttributes(m_destName, m_isClass, attr);
+    connect(request, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
 }
 
 void PrintQueueUi::updateButtons()
@@ -342,7 +346,7 @@ void PrintQueueUi::updateButtons()
 
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
-    selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
+    selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
         foreach (const QModelIndex &index, selection.indexes()) {
@@ -366,9 +370,9 @@ void PrintQueueUi::updateButtons()
         }
     }
 
-    cancelJobPB->setEnabled(cancel);
-    holdJobPB->setEnabled(hold);
-    resumeJobPB->setEnabled(release);
+    ui->cancelJobPB->setEnabled(cancel);
+    ui->holdJobPB->setEnabled(hold);
+    ui->resumeJobPB->setEnabled(release);
 }
 
 void PrintQueueUi::modifyJob(int action, const QString &destName)
@@ -376,20 +380,20 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
     // get all selected indexes
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
-    selection = m_proxyModel->mapSelectionToSource(jobsView->selectionModel()->selection());
+    selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
     foreach (const QModelIndex &index, selection.indexes()) {
         if (index.column() == 0) {
-            QCups::Result *result;
-            result = m_model->modifyJob(index.row(),
+            KCupsRequest *request;
+            request = m_model->modifyJob(index.row(),
                                         static_cast<PrintQueueModel::JobAction>(action),
                                         destName);
-            if (!result) {
+            if (!request) {
                 // probably the job already has this state
                 // or this is an unknown action
                 continue;
             }
-            result->waitTillFinished();
-            if (result->hasError()) {
+            request->waitTillFinished();
+            if (request->hasError()) {
                 QString msg, jobName;
                 jobName = m_model->item(index.row(), static_cast<int>(PrintQueueModel::ColName))->text();
                 switch (action) {
@@ -408,10 +412,10 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
                 }
                 KMessageBox::detailedSorry(this,
                                            msg,
-                                           result->lastErrorString(),
+                                           request->errorMsg(),
                                            i18n("Failed"));
             }
-            result->deleteLater();
+            request->deleteLater();
         }
     }
 }
@@ -419,14 +423,14 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
 void PrintQueueUi::on_pausePrinterPB_clicked()
 {
     // STOP and RESUME printer
-    QCups::Result *ret;
+    KCupsRequest *request = new KCupsRequest;
     if (m_printerPaused) {
-        ret = QCups::resumePrinter(m_destName);
+        request->resumePrinter(m_destName);
     } else {
-        ret = QCups::pausePrinter(m_destName);
+        request->pausePrinter(m_destName);
     }
-    ret->waitTillFinished();
-    ret->deleteLater();
+    request->waitTillFinished();
+    request->deleteLater();
 }
 
 void PrintQueueUi::on_configurePrinterPB_clicked()
@@ -434,7 +438,8 @@ void PrintQueueUi::on_configurePrinterPB_clicked()
     if (m_cfgDlg) {
         return;
     }
-    m_cfgDlg = new QCups::ConfigureDialog(m_destName, m_isClass, this);
+
+    m_cfgDlg = new ConfigureDialog(m_destName, m_isClass, this);
     m_cfgDlg->exec();
     m_cfgDlg = 0;
 }
@@ -479,24 +484,24 @@ void PrintQueueUi::setupButtons()
     // setup jobs buttons
 
     // cancel action
-    cancelJobPB->setIcon(KIcon("dialog-cancel"));
+    ui->cancelJobPB->setIcon(KIcon("dialog-cancel"));
 
     // hold job action
-    holdJobPB->setIcon(KIcon("document-open-recent"));
+    ui->holdJobPB->setIcon(KIcon("document-open-recent"));
 
     // resume job action
     // TODO we need a new icon
-    resumeJobPB->setIcon(KIcon("media-playback-play"));
+    ui->resumeJobPB->setIcon(KIcon("media-playback-play"));
 
-    whichJobsCB->setItemIcon(0, KIcon("view-filter"));
-    whichJobsCB->setItemIcon(1, KIcon("view-filter"));
-    whichJobsCB->setItemIcon(2, KIcon("view-filter"));
+    ui->whichJobsCB->setItemIcon(0, KIcon("view-filter"));
+    ui->whichJobsCB->setItemIcon(1, KIcon("view-filter"));
+    ui->whichJobsCB->setItemIcon(2, KIcon("view-filter"));
 
     // stop start printer
-    pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+    ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
 
     // configure printer
-    configurePrinterPB->setIcon(KIcon("configure"));
+    ui->configurePrinterPB->setIcon(KIcon("configure"));
 }
 
 void PrintQueueUi::closeEvent(QCloseEvent *event)

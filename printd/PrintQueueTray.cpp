@@ -67,5 +67,5 @@ void PrintQueueTray::openQueue(QAction *action)
                                              QLatin1String("ShowQueue"));
     // Use our own cached tid to avoid crashes
     message << qVariantFromValue(action->data().toString());
-    QDBusConnection::sessionBus().call(message);
+    QDBusConnection::sessionBus().send(message);
 }

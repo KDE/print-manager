@@ -20,16 +20,19 @@
 
 #include "ChoosePrinters.h"
 
+#include "ui_ChoosePrinters.h"
+
 #include <ClassListWidget.h>
 
 #include <QPainter>
 #include <KDebug>
 
-ChoosePrinters::ChoosePrinters(QWidget *parent)
- : GenericPage(parent),
-   m_isValid(false)
+ChoosePrinters::ChoosePrinters(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::ChoosePrinters),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
@@ -53,13 +56,14 @@ ChoosePrinters::ChoosePrinters(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 
-    connect(membersLV, SIGNAL(changed(bool)), this, SIGNAL(allowProceed(bool)));
+    connect(ui->membersLV, SIGNAL(changed(bool)), this, SIGNAL(allowProceed(bool)));
 }
 
 ChoosePrinters::~ChoosePrinters()
 {
+    delete ui;
 }
 
 bool ChoosePrinters::isValid() const
@@ -70,7 +74,7 @@ bool ChoosePrinters::isValid() const
 void ChoosePrinters::setValues(const QHash<QString, QVariant> &args)
 {
     if (m_args != args) {
-        membersLV->reload(QString());
+        ui->membersLV->reload(QString());
         m_args = args;
     }
 }
@@ -82,13 +86,13 @@ void ChoosePrinters::load()
 QHash<QString, QVariant> ChoosePrinters::values() const
 {
     QHash<QString, QVariant> ret = m_args;
-    ret["member-uris"] = membersLV->selectedDests();
+    ret["member-uris"] = ui->membersLV->selectedDests();
     return ret;
 }
 
 bool ChoosePrinters::canProceed() const
 {
-    return membersLV->selectedDests().count() > 0;
+    return ui->membersLV->selectedDests().count() > 0;
 }
 
 #include "ChoosePrinters.moc"

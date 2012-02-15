@@ -20,13 +20,20 @@
 
 #include "KCupsJob.h"
 
+#include <KDebug>
+
+KCupsJob::KCupsJob() :
+    m_jobId(0)
+{
+}
+
 KCupsJob::KCupsJob(int jobId, const QString &printer) :
     m_jobId(jobId),
     m_printer(printer)
 {
 }
 
-KCupsJob::KCupsJob(const Arguments &arguments) :
+KCupsJob::KCupsJob(const QVariantHash &arguments) :
     m_arguments(arguments)
 {
     m_jobId = arguments["job-id"].toInt();
@@ -96,5 +103,3 @@ QString KCupsJob::stateMsg() const
 {
     return m_arguments["job-printer-state-message"].toString();
 }
-
-//int KCupsJob::markerChangeTime() const;

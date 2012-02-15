@@ -58,7 +58,8 @@ KCupsConnection::KCupsConnection(QObject *parent) :
 
 KCupsConnection::~KCupsConnection()
 {
-    kDebug();
+    quit();
+    wait();
 }
 
 void KCupsConnection::run()
@@ -77,10 +78,6 @@ void KCupsConnection::run()
 bool KCupsConnection::readyToStart()
 {
     if (QThread::currentThread() == KCupsConnection::global()) {
-        kDebug() << "we are in the KCupsConnection thread"
-                 << QThread::currentThread()
-                 << KCupsConnection::global()
-                 << KCupsConnection::global()->thread();
         password_retries = 0;
         return true;
     }
@@ -89,7 +86,7 @@ bool KCupsConnection::readyToStart()
 
 ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                                          const QString &resource,
-                                         Arguments      reqValues,
+                                         QVariantHash   reqValues,
                                          bool           needResponse)
 {
     ReturnArguments ret;
@@ -106,7 +103,7 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
         bool isClass = false;
         const char *name = NULL;
         const char *filename = NULL;
-        QHash<QString, QVariant> values = reqValues;
+        QVariantHash values = reqValues;
 
         ippDelete(response);
 
@@ -134,7 +131,7 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
             request = ippNewRequest(operation);
         }
 
-        QHash<QString, QVariant>::const_iterator i = values.constBegin();
+        QVariantHash::const_iterator i = values.constBegin();
         while (i != values.constEnd()) {
             switch (i.value().type()) {
             case QVariant::Bool:
@@ -259,7 +256,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
         /*
          * Pull the needed attributes from this printer...
          */
-        QHash<QString, QVariant> destAttributes;
+        QVariantHash destAttributes;
         for (; attr && attr->group_tag == group_tag; attr = attr->next) {
             if (attr->value_tag != IPP_TAG_INTEGER &&
                 attr->value_tag != IPP_TAG_ENUM &&

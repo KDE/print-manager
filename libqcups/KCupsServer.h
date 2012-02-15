@@ -24,13 +24,13 @@
 #include <QString>
 #include <KCupsConnection.h>
 
-class KCupsRequestServer;
+class KCupsRequest;
 class KDE_EXPORT KCupsServer
 {
 public:
     KCupsServer();
 
-    KCupsRequestServer* commit() const;
+    KCupsRequest* commit() const;
 
     bool allowRemoteAdmin() const;
     void setAllowRemoteAdmin(bool allow);
@@ -47,15 +47,15 @@ public:
     bool allowPrintingFromInternet() const;
     void setAllowPrintingFromInternet(bool allow);
 
-    Arguments arguments() const;
+    QVariantHash arguments() const;
 
 protected:
-    KCupsServer(const Arguments &arguments);
+    KCupsServer(const QVariantHash &arguments);
 
 private:
-    friend class KCupsRequestServer;
+    friend class KCupsRequest;
 
-    Arguments m_arguments;
+    QVariantHash m_arguments;
 };
 
 Q_DECLARE_METATYPE(KCupsServer)

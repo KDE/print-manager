@@ -23,7 +23,7 @@
 
 #include <QWidget>
 
-#include <KCupsRequestPrinters.h>
+#include <KCupsRequest.h>
 
 class QToolButton;
 class QSortFilterProxyModel;
@@ -77,7 +77,7 @@ private:
     QPixmap m_startIcon;
     QPixmap m_warningIcon;
     int m_markerChangeTime;
-    Arguments m_markerData;
+    QVariantHash m_markerData;
 };
 
 #endif

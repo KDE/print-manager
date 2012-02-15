@@ -30,7 +30,9 @@ namespace QCups {
     class Result;
 }
 
+class KCupsJob;
 class KCupsPrinter;
+class KCupsRequestServer;
 class PrintQueueModel : public QStandardItemModel
 {
     Q_OBJECT
@@ -81,10 +83,13 @@ public:
     QCups::Result* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 public slots:
+    void job(int position, const KCupsJob &job);
+    void getJobFinished();
     void updateModel();
 
 private:
     KCupsPrinter *m_printer;
+    KCupsRequestServer *m_server;
     QString m_destName;
     QString m_processingJob;
     int m_whichjobs;
@@ -92,8 +97,8 @@ private:
     QStringList m_requestedAttr;
 
     int jobRow(int jobId);
-    void insertJob(int pos, const QCups::Arguments &job);
-    void updateJob(int pos, const QCups::Arguments &job);
+    void insertJob(int pos, const KCupsJob &job);
+    void updateJob(int pos, const KCupsJob &job);
     QString jobStatus(ipp_jstate_e job_state);
 };
 

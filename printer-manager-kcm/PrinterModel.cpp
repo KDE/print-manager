@@ -60,9 +60,9 @@ void PrinterModel::getDestsFinished()
                 removeRow(rowCount() - 1);
             }
 
-            request->deleteLater();
             emit error(IPP_OK, QString(), QString());
         }
+        request->deleteLater();
     } else {
         kWarning() << "Should not be called from a non KCupsRequestServer class" << sender();
     }

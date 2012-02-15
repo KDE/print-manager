@@ -20,6 +20,7 @@
 
 #include "KCupsRequestServer.h"
 
+#include "KCupsJob.h"
 #include "KCupsPrinter.h"
 #include "KCupsServer.h"
 
@@ -30,6 +31,7 @@
 
 KCupsRequestServer::KCupsRequestServer()
 {
+    qRegisterMetaType<KCupsPrinter>("KCupsJob");
     qRegisterMetaType<KCupsPrinter>("KCupsPrinter");
     qRegisterMetaType<KCupsServer>("KCupsServer");
 }
@@ -174,6 +176,11 @@ void KCupsRequestServer::getJobs(const QString &printer, bool myJobs, int whichJ
                                                   "/",
                                                   request,
                                                   true);
+        ReturnArguments jobs = m_retArguments;
+        for (int i = 0; i < jobs.size(); i++) {
+            emit job(i, KCupsJob(jobs.at(i)));
+        }
+
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {

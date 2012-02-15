@@ -23,6 +23,7 @@
 
 #include "KCupsRequestInterface.h"
 
+class KCupsJob;
 class KCupsPrinter;
 class KCupsServer;
 class KDE_EXPORT KCupsRequestServer : public KCupsRequestInterface
@@ -86,6 +87,13 @@ public slots:
     void setServerSettings(const KCupsServer &server);
 
 signals:
+    /**
+     * Emited when getJobs is called
+     * @param position The position found on the list
+     * @param job The printer found
+     */
+    void job(int position, const KCupsJob &job);
+
     /**
      * Emited when getPrinters is called
      * @param position The position found on the list

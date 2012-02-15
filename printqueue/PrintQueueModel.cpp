@@ -20,8 +20,10 @@
 
 #include "PrintQueueModel.h"
 
+#include <KCupsRequestServer.h>
 #include <KCupsRequestJobs.h>
 #include <KCupsPrinter.h>
+#include <KCupsJob.h>
 
 #include <QDateTime>
 #include <QMimeData>
@@ -33,6 +35,7 @@
 PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject *parent)
  : QStandardItemModel(parent),
    m_printer(new KCupsPrinter(destName)),
+   m_server(0),
    m_destName(destName),
    m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
    m_parentId(parentId)
@@ -64,54 +67,79 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
                     << "job-preserved";
 }
 
-void PrintQueueModel::updateModel()
+void PrintQueueModel::job(int position, const KCupsJob &job)
 {
-    QCups::Result *ret = QCups::getJobs(m_destName, false, m_whichjobs, m_requestedAttr);
-    ret->waitTillFinished();
-    QCups::ReturnArguments jobs = ret->result();
-    ret->deleteLater();
-
-    m_processingJob.clear();
-    for (int i = 0; i < jobs.size(); i++) {
-        QCups::Arguments job = jobs.at(i);
-        if (job["job-state"].toInt() == IPP_JOB_PROCESSING) {
-              m_processingJob = job["job-name"].toString();
-        }
-        // try to find the job row
-        int job_row = jobRow(job["job-id"].toInt());
-        if (job_row == -1) {
-            // not found, insert new one
-            insertJob(i, job);
-        } else if (job_row == i) {
-            // update the job
-            updateJob(i, job);
-        } else {
-            // found at wrong position
-            // take it and insert on the right position
-            QList<QStandardItem *> row = takeRow(job_row);
-            insertRow(i, row);
-            updateJob(i, job);
-        }
+//    QCups::Arguments job = jobs.at(position);
+    if (job.state() == IPP_JOB_PROCESSING) {
+        m_processingJob = job.name();
     }
 
-    // remove old jobs
-    // The above code starts from 0 and make sure
-    // jobs[x] == modelIndex(x) and if it's not the
-    // case it either inserts or moves it.
-    // so any item > num_jobs can be safely deleted
-    while (rowCount() > jobs.size()) {
-        removeRow(rowCount() - 1);
+    // try to find the job row
+    int job_row = jobRow(job.id());
+    if (job_row == -1) {
+        // not found, insert new one
+        insertJob(position, job);
+    } else if (job_row == position) {
+        // update the job
+        updateJob(position, job);
+    } else {
+        // found at wrong position
+        // take it and insert on the right position
+        QList<QStandardItem *> row = takeRow(job_row);
+        insertRow(position, row);
+        updateJob(position, job);
     }
 }
 
-void PrintQueueModel::insertJob(int pos, const QCups::Arguments &job)
+void PrintQueueModel::getJobFinished()
+{
+    KCupsRequestServer *request = static_cast<KCupsRequestServer *>(sender());
+    if (request) {
+        if (request->hasError()) {
+//            emit error(request->error(), request->serverError(), request->errorMsg());
+            // clear the model after so that the proper widget can be shown
+//            clear();// TODO remove also in printerModel
+        } else {
+            // remove old printers
+            // The above code starts from 0 and make sure
+            // dest == modelIndex(x) and if it's not the
+            // case it either inserts or moves it.
+            // so any item > num_jobs can be safely deleted
+            while (rowCount() > request->result().size()) {
+                removeRow(rowCount() - 1);
+            }
+        }
+        request->deleteLater();
+    } else {
+        kWarning() << "Should not be called from a non KCupsRequestServer class" << sender();
+    }
+    m_server = 0;
+}
+
+void PrintQueueModel::updateModel()
+{
+    kDebug() << m_server;
+    if (m_server) {
+        return;
+    }
+
+    m_server = new KCupsRequestServer;
+    connect(m_server, SIGNAL(finished()), this, SLOT(getJobFinished()));
+    connect(m_server, SIGNAL(job(int,KCupsJob)), this, SLOT(job(int,KCupsJob)));
+
+    m_server->getJobs(m_destName, false, m_whichjobs, m_requestedAttr);
+
+    m_processingJob.clear();
+}
+
+void PrintQueueModel::insertJob(int pos, const KCupsJob &job)
 {
     // insert the first column which has the job state and id
     QList<QStandardItem*> row;
-    ipp_jstate_e jobState = static_cast<ipp_jstate_e>(job["job-state"].toUInt());
+    ipp_jstate_e jobState = job.state();
     QStandardItem *statusItem = new QStandardItem(jobStatus(jobState));
     statusItem->setData(jobState, JobState);
-    statusItem->setData(job["job-id"].toInt(), JobId);
+    statusItem->setData(job.id(), JobId);
     row << statusItem;
     for (int i = ColName; i < LastColumn; i++) {
         // adds all Items to the model
@@ -125,17 +153,17 @@ void PrintQueueModel::insertJob(int pos, const QCups::Arguments &job)
     updateJob(pos, job);
 }
 
-void PrintQueueModel::updateJob(int pos, const QCups::Arguments &job)
+void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
 {
-    // Job Status & internal data
-    ipp_jstate_e jobState = static_cast<ipp_jstate_e>(job["job-state"].toUInt());
-    if (item(pos, ColStatus)->data(JobState) != jobState) {
+    // Job Status & internal dataipp_jstate_e
+    ipp_jstate_e jobState = job.state();
+    if (item(pos, ColStatus)->data(JobState).toInt() != jobState) {
         item(pos, ColStatus)->setText(jobStatus(jobState));
-        item(pos, ColStatus)->setData(jobState, JobState);
+        item(pos, ColStatus)->setData(static_cast<int>(jobState), JobState);
     }
 
     // internal dest name & column
-    QString destName = job["job-printer-uri"].toString().section('/', -1);
+    QString destName = job.printer();
     if (item(pos, ColStatus)->data(DestName).toString() != destName) {
         item(pos, ColStatus)->setData(destName, DestName);
         // Column job printer Name
@@ -143,14 +171,14 @@ void PrintQueueModel::updateJob(int pos, const QCups::Arguments &job)
     }
 
     // job name
-    QString jobName = job["job-name"].toString();
+    QString jobName = job.name();
     if (item(pos, ColName)->text() != jobName) {
         item(pos, ColName)->setText(jobName);
     }
 
     // owner of the job
     // try to get the full user name
-    QString userString = job["job-originating-user-name"].toString();
+    QString userString = job.ownerName();
     KUser user(userString);
     if (user.isValid() && !user.property(KUser::FullName).toString().isEmpty()) {
         userString = user.property(KUser::FullName).toString();
@@ -162,65 +190,52 @@ void PrintQueueModel::updateJob(int pos, const QCups::Arguments &job)
     }
 
     // when it was created
-    int timeAtCreation = job["time-at-creation"].toInt();
-    if (item(pos, ColCreated)->data(Qt::UserRole) != timeAtCreation) {
-        QDateTime creationTime;
-        creationTime.setTime_t(timeAtCreation);
-        item(pos, ColCreated)->setData(creationTime, Qt::DisplayRole);
-        item(pos, ColCreated)->setData(timeAtCreation, Qt::UserRole);
+    QDateTime timeAtCreation = job.createdAt();
+    if (item(pos, ColCreated)->data(Qt::DisplayRole).toDateTime() != timeAtCreation) {
+        item(pos, ColCreated)->setData(timeAtCreation, Qt::DisplayRole);
     }
 
     // when it was completed
-    int timeAtCompleted = job["time-at-completed"].toInt();
-    if (item(pos, ColCompleted)->data(Qt::UserRole) != timeAtCompleted) {
-        if (timeAtCompleted != 0) {
-            QDateTime completedTime;
-            completedTime.setTime_t(timeAtCompleted);
-            item(pos, ColCompleted)->setData(completedTime, Qt::DisplayRole);
-            item(pos, ColCompleted)->setData(timeAtCompleted, Qt::UserRole);
+    QDateTime completedAt = job.completedAt();
+    if (item(pos, ColCompleted)->data(Qt::DisplayRole).toDateTime() != completedAt) {
+        if (!completedAt.isNull()) {
+            item(pos, ColCompleted)->setData(completedAt, Qt::DisplayRole);
         } else {
             // Clean the data might happen when the job is restarted
             item(pos, ColCompleted)->setText(QString());
-            item(pos, ColCompleted)->setData(0, Qt::UserRole);
         }
     }
 
     // job pages
-    int completedPages = job["job-media-sheets-completed"].toInt();
+    int completedPages = job.completedPages();
     if (item(pos, ColPages)->data(Qt::UserRole) != completedPages) {
         item(pos, ColPages)->setData(completedPages, Qt::UserRole);
         item(pos, ColPages)->setText(QString::number(completedPages));
     }
 
     // when it was precessed
-    int timeAtProcessing = job["time-at-completed"].toInt();
-    if (item(pos, ColProcessed)->data(Qt::UserRole) != timeAtProcessing) {
-        if (timeAtCompleted != 0) {
-            QDateTime precessedTime;
-            precessedTime.setTime_t(timeAtProcessing);
-            item(pos, ColProcessed)->setData(precessedTime, Qt::DisplayRole);
-            item(pos, ColProcessed)->setData(timeAtProcessing, Qt::UserRole);
+    QDateTime timeAtProcessing = job.processedAt();
+    if (item(pos, ColProcessed)->data(Qt::DisplayRole).toDateTime() != timeAtProcessing) {
+        if (!timeAtProcessing.isNull()) {
+            item(pos, ColProcessed)->setData(timeAtProcessing, Qt::DisplayRole);
         } else {
             // Clean the data might happen when the job is restarted
             item(pos, ColCompleted)->setText(QString());
-            item(pos, ColCompleted)->setData(0, Qt::UserRole);
         }
     }
 
     // job size TODO use kde converter
-    int jobKOctets = job["job-k-octets"].toInt();
-    if (item(pos, ColSize)->data(Qt::UserRole) != jobKOctets) {
-        item(pos, ColSize)->setData(jobKOctets, Qt::UserRole);
-        jobKOctets *= 1024; // transform it to bytes
-        item(pos, ColSize)->setText(KGlobal::locale()->formatByteSize(jobKOctets));
+    int jobSize = job.size();
+    if (item(pos, ColSize)->data(Qt::UserRole) != jobSize) {
+        item(pos, ColSize)->setData(jobSize, Qt::UserRole);
+        item(pos, ColSize)->setText(KGlobal::locale()->formatByteSize(jobSize));
     }
 
     // job printer state message
-    QString stateMessage = job["job-printer-state-message"].toString();
+    QString stateMessage = job.stateMsg();
     if (item(pos, ColStatusMessage)->text() != stateMessage) {
         item(pos, ColStatusMessage)->setText(stateMessage);
     }
-
 }
 
 QStringList PrintQueueModel::mimeTypes() const

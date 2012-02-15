@@ -25,3 +25,76 @@ KCupsJob::KCupsJob(int jobId, const QString &printer) :
     m_printer(printer)
 {
 }
+
+KCupsJob::KCupsJob(const Arguments &arguments) :
+    m_arguments(arguments)
+{
+    m_jobId = arguments["job-id"].toInt();
+//    m_printer = arguments["dest-name"].toString();
+    m_printer = arguments["job-printer-uri"].toString().section('/', -1);
+}
+
+int KCupsJob::id() const
+{
+    return m_jobId;
+}
+
+QString KCupsJob::name() const
+{
+    return m_arguments["job-name"].toString();
+}
+
+QString KCupsJob::ownerName() const
+{
+    return m_arguments["job-originating-user-name"].toString();
+}
+
+QString KCupsJob::printer() const
+{
+    return m_printer;
+}
+
+QDateTime KCupsJob::createdAt() const
+{
+    QDateTime ret;
+    ret.setTime_t(m_arguments["time-at-creation"].toInt());
+    return ret;
+}
+
+QDateTime KCupsJob::completedAt() const
+{
+    QDateTime ret;
+    ret.setTime_t(m_arguments["time-at-completed"].toInt());
+    return ret;
+}
+
+QDateTime KCupsJob::processedAt() const
+{
+    QDateTime ret;
+    ret.setTime_t(m_arguments["time-at-processing"].toInt());
+    return ret;
+}
+
+int KCupsJob::completedPages() const
+{
+    return m_arguments["job-media-sheets-completed"].toInt();
+}
+
+int KCupsJob::size() const
+{
+    int jobKOctets = m_arguments["job-k-octets"].toInt();
+    jobKOctets *= 1024; // transform it to bytes
+    return jobKOctets;
+}
+
+ipp_jstate_e KCupsJob::state() const
+{
+    return static_cast<ipp_jstate_e>(m_arguments["job-state"].toUInt());
+}
+
+QString KCupsJob::stateMsg() const
+{
+    return m_arguments["job-printer-state-message"].toString();
+}
+
+//int KCupsJob::markerChangeTime() const;

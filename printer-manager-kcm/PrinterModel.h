@@ -83,4 +83,4 @@ private:
     QString destStatus(KCupsPrinter::Status state, const QString &message) const;
 };
 
-#endif
+#endif // PRINTER_MODEL_H

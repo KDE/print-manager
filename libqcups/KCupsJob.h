@@ -24,19 +24,22 @@
 #include <QString>
 #include <KCupsConnection.h>
 
-class KCupsJob
+class KDE_EXPORT KCupsJob
 {
 public:
     KCupsJob(int jobId, const QString &printer);
 
-    int jobId() const;
+    int id() const;
+    QString name() const;
+    QString ownerName() const;
     QString printer() const;
-    QString location() const;
-    QString info() const;
-    QString makeAndModel() const;
-    QStringList commands() const;
+    QDateTime createdAt() const;
+    QDateTime completedAt() const;
+    QDateTime processedAt() const;
+    int completedPages() const;
+    int size() const;
 
-    int state() const;
+    ipp_jstate_e state() const;
     QString stateMsg() const;
     int markerChangeTime() const;
 

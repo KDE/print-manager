@@ -2,7 +2,7 @@
 Name=Print Manager Engine
 Comment=An Engine that provides access to CUPS data
 Type=Service
- 
+
 X-KDE-ServiceTypes=Plasma/DataEngine
 X-KDE-Library=plasma_engine_printmanager
 X-Plasma-EngineName=printmanager

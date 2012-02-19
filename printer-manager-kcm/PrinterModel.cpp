@@ -78,28 +78,28 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
 
 void PrinterModel::update()
 {
-    QStringList requestAttr;
-    requestAttr << "printer-name"
-                << "printer-state"
-                << "printer-state-message"
-                << "printer-is-shared"
-                << "printer-type"
-                << "printer-location"
-                << "printer-info"
-                << "printer-make-and-model"
-                << "printer-commands"
-                << "marker-change-time"
-                << "marker-colors"
-                << "marker-levels"
-                << "marker-names"
-                << "marker-types";
+    KCupsPrinter::Attributes attributes;
+    attributes |= KCupsPrinter::PrinterName;
+    attributes |= KCupsPrinter::PrinterState;
+    attributes |= KCupsPrinter::PrinterStateMessage;
+    attributes |= KCupsPrinter::PrinterIsShared;
+    attributes |= KCupsPrinter::PrinterType;
+    attributes |= KCupsPrinter::PrinterLocation;
+    attributes |= KCupsPrinter::PrinterInfo;
+    attributes |= KCupsPrinter::PrinterMakeAndModel;
+    attributes |= KCupsPrinter::PrinterCommands;
+    attributes |= KCupsPrinter::MarkerChangeTime;
+    attributes |= KCupsPrinter::MarkerColors;
+    attributes |= KCupsPrinter::MarkerLevels;
+    attributes |= KCupsPrinter::MarkerNames;
+    attributes |= KCupsPrinter::MarkerTypes;
 
 //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
     // Get destinations with these attributes
     KCupsRequest *request = new KCupsRequest;
     connect(request, SIGNAL(printer(int,KCupsPrinter)), this, SLOT(printer(int,KCupsPrinter)));
     connect(request, SIGNAL(finished()), this, SLOT(getDestsFinished()));
-    request->getPrinters(requestAttr);
+    request->getPrinters(attributes);
 }
 
 void PrinterModel::printer(int pos, const KCupsPrinter &printer)
@@ -182,7 +182,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     }
 
     // store the printer description
-    QString description = printer.description();
+    QString description = printer.info();
     if (description != destItem->data(DestDescription).toString()){
         destItem->setData(description, DestDescription);
     }

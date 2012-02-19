@@ -66,12 +66,12 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
 
     if(!m_uis.contains(destName)) {
         ReturnArguments dests;
-        QStringList requestAttr;
-        requestAttr << "printer-name"
-                    << "printer-type";
+        KCupsPrinter::Attributes attr;
+        attr |= KCupsPrinter::PrinterName;
+        attr |= KCupsPrinter::PrinterType;
         // Get destinations with these attributes
         KCupsRequest *request = new KCupsRequest;
-        request->getPrinters(requestAttr);
+        request->getPrinters(attr);
         request->waitTillFinished();
         dests = request->result();
         request->deleteLater();

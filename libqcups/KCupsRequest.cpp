@@ -35,7 +35,9 @@ KCupsRequest::KCupsRequest()
 {
     connect(this, SIGNAL(finished()), &m_loop, SLOT(quit()));
     qRegisterMetaType<KCupsJob>("KCupsJob");
+    qRegisterMetaType<KCupsJob::Attributes>("KCupsJob::Attributes");
     qRegisterMetaType<KCupsPrinter>("KCupsPrinter");
+    qRegisterMetaType<KCupsPrinter::Attributes>("KCupsPrinter::Attributes");
     qRegisterMetaType<KCupsServer>("KCupsServer");
 }
 
@@ -121,19 +123,19 @@ void KCupsRequest::getDevices()
 // "printer-is-default" attribute BUT it does not get user
 // defined default printer, see cupsGetDefault() on www.cups.org for details
 
-void KCupsRequest::getPrinters(cups_ptype_t mask, const QStringList &requestedAttr)
+void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, cups_ptype_t mask)
 {
     QVariantHash arguments;
     arguments["printer-type-mask"] = mask;
-    getPrinters(requestedAttr, arguments);
+    getPrinters(attributes, arguments);
 }
 
-void KCupsRequest::getPrinters(const QStringList &requestedAttr, const QVariantHash &arguments)
+void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVariantHash &arguments)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request = arguments;
         request["printer-type"] = CUPS_PRINTER_LOCAL;
-        request["requested-attributes"] = requestedAttr;
+        request["requested-attributes"] = KCupsPrinter::flags(attributes);
         request["need-dest-name"] = true;
 
         ReturnArguments dests;
@@ -150,11 +152,11 @@ void KCupsRequest::getPrinters(const QStringList &requestedAttr, const QVariantH
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getPrinters", requestedAttr, arguments);
+        invokeMethod("getPrinters", qVariantFromValue(attributes), arguments);
     }
 }
 
-void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, const QStringList &requestedAttr)
+void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, KCupsJob::Attributes attributes)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
@@ -174,8 +176,9 @@ void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, c
             request["which-jobs"] = "all";
         }
 
-        if (!requestedAttr.isEmpty()) {
-            request["requested-attributes"] = requestedAttr;
+        QStringList attributesStrList = KCupsJob::flags(attributes);
+        if (!attributesStrList.isEmpty()) {
+            request["requested-attributes"] = attributesStrList;
         }
         request["group-tag-qt"] = IPP_TAG_JOB;
 
@@ -191,7 +194,7 @@ void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, c
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getJobs", printer, myJobs, whichJobs, requestedAttr);
+        invokeMethod("getJobs", printer, myJobs, whichJobs, qVariantFromValue(attributes));
     }
 }
 

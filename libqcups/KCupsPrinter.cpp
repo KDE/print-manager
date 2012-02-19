@@ -68,7 +68,7 @@ QString KCupsPrinter::location() const
     return m_arguments["printer-location"].toString();
 }
 
-QString KCupsPrinter::description() const
+QString KCupsPrinter::info() const
 {
     return m_arguments["printer-info"].toString();
 }
@@ -123,3 +123,54 @@ KIcon KCupsPrinter::icon(cups_ptype_e type)
     }
 }
 
+QStringList KCupsPrinter::flags(const Attributes &attributes)
+{
+    QStringList ret;
+    if (attributes & PrinterName) {
+        ret << "printer-name";
+    }
+    if (attributes & PrinterState) {
+        ret << "printer-state";
+    }
+    if (attributes & PrinterStateMessage) {
+        ret << "printer-state-message";
+    }
+    if (attributes & PrinterIsShared) {
+        ret << "printer-is-shared";
+    }
+    if (attributes & PrinterType) {
+        ret << "printer-type";
+    }
+    if (attributes & PrinterLocation) {
+        ret << "printer-location";
+    }
+    if (attributes & PrinterInfo) {
+        ret << "printer-info";
+    }
+    if (attributes & PrinterMakeAndModel) {
+        ret << "printer-make-and-model";
+    }
+    if (attributes & PrinterCommands) {
+        ret << "printer-commands";
+    }
+    if (attributes & PrinterUriSupported) {
+        ret << "printer-uri-supported";
+    }
+    if (attributes & MarkerChangeTime) {
+        ret << "marker-change-time";
+    }
+    if (attributes & MarkerColors) {
+        ret << "marker-colors";
+    }
+    if (attributes & MarkerLevels) {
+        ret << "marker-levels";
+    }
+    if (attributes & MarkerNames) {
+        ret << "marker-names";
+    }
+    if (attributes & MarkerTypes) {
+        ret << "marker-types";
+    }
+
+    return ret;
+}

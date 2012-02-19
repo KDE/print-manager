@@ -50,21 +50,6 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
     setHorizontalHeaderItem(ColSize,          new QStandardItem(i18n("Size")));
     setHorizontalHeaderItem(ColStatusMessage, new QStandardItem(i18n("Status Message")));
     setHorizontalHeaderItem(ColPrinter,       new QStandardItem(i18n("Printer")));
-    m_requestedAttr << "job-id"
-                    << "job-name"
-                    << "job-k-octets"
-                    << "job-k-octets-processed"
-                    << "job-state"
-                    << "time-at-completed"
-                    << "time-at-creation"
-                    << "time-at-processing"
-                    << "job-printer-uri"
-                    << "job-originating-user-name"
-                    << "job-media-progress"
-                    << "job-media-sheets"
-                    << "job-media-sheets-completed"
-                    << "job-printer-state-message"
-                    << "job-preserved";
 }
 
 void PrintQueueModel::job(int position, const KCupsJob &job)
@@ -127,7 +112,23 @@ void PrintQueueModel::updateModel()
     connect(m_jobRequest, SIGNAL(finished()), this, SLOT(getJobFinished()));
     connect(m_jobRequest, SIGNAL(job(int,KCupsJob)), this, SLOT(job(int,KCupsJob)));
 
-    m_jobRequest->getJobs(m_destName, false, m_whichjobs, m_requestedAttr);
+    KCupsJob::Attributes attributes;
+    attributes |= KCupsJob::JobId;
+    attributes |= KCupsJob::JobName;
+    attributes |= KCupsJob::JobKOctets;
+    attributes |= KCupsJob::JobKOctetsProcessed;
+    attributes |= KCupsJob::JobState;
+    attributes |= KCupsJob::TimeAtCompleted;
+    attributes |= KCupsJob::TimeAtCreation;
+    attributes |= KCupsJob::TimeAtProcessing;
+    attributes |= KCupsJob::JobPrinterUri;
+    attributes |= KCupsJob::JobOriginatingUserName;
+    attributes |= KCupsJob::JobMediaProgress;
+    attributes |= KCupsJob::JobMediaSheets;
+    attributes |= KCupsJob::JobMediaSheetsCompleted;
+    attributes |= KCupsJob::JobPrinterStatMessage;
+    attributes |= KCupsJob::JobPreserved;
+    m_jobRequest->getJobs(m_destName, false, m_whichjobs, attributes);
 
     m_processingJob.clear();
 }

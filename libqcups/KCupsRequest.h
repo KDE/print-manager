@@ -25,9 +25,9 @@
 #include <QEventLoop>
 
 #include "KCupsConnection.h"
+#include "KCupsJob.h"
+#include "KCupsPrinter.h"
 
-class KCupsJob;
-class KCupsPrinter;
 class KCupsServer;
 class KDE_EXPORT KCupsRequest : public QObject
 {
@@ -59,18 +59,17 @@ public:
     QString errorMsg() const;
     ReturnArguments result() const;
 
-public slots:
     /**
      * Get all available PPDs from the givem make
      * @param make the maker of the printer
      */
-    void getPPDS(const QString &make = QString());
+    Q_INVOKABLE void getPPDS(const QString &make = QString());
 
     /**
      * Get all devices that could be added as a printer
      * This method emits device()
      */
-    void getDevices();
+    Q_INVOKABLE void getDevices();
 
     /**
      * Get all available printers
@@ -82,7 +81,7 @@ public slots:
      * "printer-is-default" attribute BUT it does not get user
      * defined default printer, see cupsGetDefault() on www.cups.org for details
      */
-    void getPrinters(const QStringList &requestedAttr = QStringList(), const QVariantHash &arguments = QVariantHash());
+    Q_INVOKABLE void getPrinters(KCupsPrinter::Attributes attributes, const QVariantHash &arguments = QVariantHash());
 
     /**
      * Get all available printers
@@ -94,7 +93,7 @@ public slots:
      * "printer-is-default" attribute BUT it does not get user
      * defined default printer, see cupsGetDefault() on www.cups.org for details
      */
-    void getPrinters(cups_ptype_t mask, const QStringList &requestedAttr = QStringList());
+    Q_INVOKABLE void getPrinters(KCupsPrinter::Attributes attributes, cups_ptype_t mask);
 
     /**
      * Get all jobs
@@ -105,25 +104,25 @@ public slots:
      * @param myJobs true if you only want your jobs
      * @param whichJobs which kind jobs should be sent
      */
-    void getJobs(const QString &printer, bool myJobs, int whichJobs, const QStringList &requestedAttr = QStringList());
+    Q_INVOKABLE void getJobs(const QString &printer, bool myJobs, int whichJobs, KCupsJob::Attributes attributes);
 
     /**
      * Adds a printer class
      * @param values the values required to add a class
      */
-    void addClass(const QHash<QString, QVariant> &values);
+    Q_INVOKABLE void addClass(const QHash<QString, QVariant> &values);
 
     /**
      * Get the CUPS server settings
      * This method emits server()
      */
-    void getServerSettings();
+    Q_INVOKABLE void getServerSettings();
 
     /**
      * Get the CUPS server settings
      * @param userValues the new server settings
      */
-    void setServerSettings(const KCupsServer &server);
+    Q_INVOKABLE void setServerSettings(const KCupsServer &server);
 
     // ---- Printer Methods
     /**
@@ -133,7 +132,7 @@ public slots:
      * @param attributes The new attributes of the printer
      * @param filename The file name in case of changing the PPD
      */
-    void setAttributes(const QString &printer, bool isClass, const QVariantHash &attributes, const char *filename = NULL);
+    Q_INVOKABLE void setAttributes(const QString &printer, bool isClass, const QVariantHash &attributes, const char *filename = NULL);
 
     /**
      * Set if a given printer should be shared among other cups
@@ -141,32 +140,32 @@ public slots:
      * @param isClass True it is a printer class
      * @param shared True if it should be shared
      */
-    void setShared(const QString &printer, bool isClass, bool shared);
+    Q_INVOKABLE void setShared(const QString &printer, bool isClass, bool shared);
 
     /**
      * Set if a given printer should be the default one among others
      * @param printer The printer to apply the change
      */
-    void setDefaultPrinter(const QString &name);
+    Q_INVOKABLE void setDefaultPrinter(const QString &name);
 
     /**
      * Pause the given printer from receiving jobs
      * @param printer The printer to apply the change
      */
-    void pausePrinter(const QString &name);
+    Q_INVOKABLE void pausePrinter(const QString &name);
 
     /**
      * Resume the given printer from receiving jobs
      * @param printer The printer to apply the change
      */
-    void resumePrinter(const QString &name);
+    Q_INVOKABLE void resumePrinter(const QString &name);
 
     /**
      * Delete the given printer, if it's not local it's not
      * possible to delete it
      * @param printer The printer to apply the change
      */
-    void deletePrinter(const QString &name);
+    Q_INVOKABLE void deletePrinter(const QString &name);
 
     /**
      * Get attributes from a given printer
@@ -174,14 +173,14 @@ public slots:
      * @param isClass True it is a printer class
      * @param requestedAttr The attributes you are requesting
      */
-    void getAttributes(const QString &printer, bool isClass, const QStringList &requestedAttr);
+    Q_INVOKABLE void getAttributes(const QString &printer, bool isClass, const QStringList &requestedAttr);
 
     /**
      * Print a test page
      * @param printer The printer where the test should be done
      * @param isClass True it is a printer class
      */
-    void printTestPage(const QString &printer, bool isClass);
+    Q_INVOKABLE void printTestPage(const QString &printer, bool isClass);
 
     /**
      * Print a command test
@@ -189,7 +188,7 @@ public slots:
      * @param command The command to print
      * @param title The title of the command
      */
-    void printCommand(const QString &printer, const QString &command, const QString &title);
+    Q_INVOKABLE void printCommand(const QString &printer, const QString &command, const QString &title);
 
     // Jobs methods
     /**
@@ -197,21 +196,21 @@ public slots:
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    void cancelJob(const QString &destName, int jobId);
+    Q_INVOKABLE void cancelJob(const QString &destName, int jobId);
 
     /**
      * Holds the printing of a given job
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    void holdJob(const QString &destName, int jobId);
+    Q_INVOKABLE void holdJob(const QString &destName, int jobId);
 
     /**
      * Holds the printing of a given job
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    void releaseJob(const QString &destName, int jobId);
+    Q_INVOKABLE void releaseJob(const QString &destName, int jobId);
 
     /**
      * Holds the printing of a given job
@@ -219,7 +218,7 @@ public slots:
      * @param jobId the job identification
      * @param toDestName the destination to hold the job
      */
-    void moveJob(const QString &fromDestname, int jobId, const QString &toDestName);
+    Q_INVOKABLE void moveJob(const QString &fromDestname, int jobId, const QString &toDestName);
 
 signals:
     /**
@@ -243,7 +242,6 @@ signals:
                 const QString &uri,
                 const QString &location);
 
-signals:
     void finished();
 
 private:

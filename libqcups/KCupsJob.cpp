@@ -103,3 +103,56 @@ QString KCupsJob::stateMsg() const
 {
     return m_arguments["job-printer-state-message"].toString();
 }
+
+QStringList KCupsJob::flags(const Attributes &attributes)
+{
+    QStringList ret;
+
+    if (attributes & JobId) {
+        ret << "job-id";
+    }
+    if (attributes & JobName) {
+        ret << "job-name";
+    }
+    if (attributes & JobKOctets) {
+        ret << "job-k-octets";
+    }
+    if (attributes & JobKOctetsProcessed) {
+        ret << "job-k-octets-processed";
+    }
+    if (attributes & JobState) {
+        ret << "job-state";
+    }
+    if (attributes & TimeAtCompleted) {
+        ret << "time-at-completed";
+    }
+    if (attributes & TimeAtCreation) {
+        ret << "time-at-creation";
+    }
+    if (attributes & TimeAtProcessing) {
+        ret << "time-at-processing";
+    }
+    if (attributes & JobPrinterUri) {
+        ret << "job-printer-uri";
+    }
+    if (attributes & JobOriginatingUserName) {
+        ret << "job-originating-user-name";
+    }
+    if (attributes & JobMediaProgress) {
+        ret << "job-media-progress";
+    }
+    if (attributes & JobMediaSheets) {
+        ret << "job-media-sheets";
+    }
+    if (attributes & JobMediaSheetsCompleted) {
+        ret << "job-media-sheets-completed";
+    }
+    if (attributes & JobPrinterStatMessage) {
+        ret << "job-printer-state-message";
+    }
+    if (attributes & JobPreserved) {
+        ret << "job-preserved";
+    }
+
+    return ret;
+}

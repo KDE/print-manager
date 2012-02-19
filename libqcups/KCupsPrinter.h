@@ -26,7 +26,27 @@
 
 class KDE_EXPORT KCupsPrinter
 {
+    Q_GADGET
+    Q_ENUMS(Attribute)
 public:
+    enum Attribute {
+        PrinterName         = 0x0001,
+        PrinterState        = 0x0002,
+        PrinterStateMessage = 0x0004,
+        PrinterIsShared     = 0x0008,
+        PrinterType         = 0x0010,
+        PrinterLocation     = 0x0020,
+        PrinterInfo         = 0x0040,
+        PrinterMakeAndModel = 0x0080,
+        PrinterCommands     = 0x0100,
+        PrinterUriSupported = 0x0200,
+        MarkerChangeTime    = 0x0400,
+        MarkerColors        = 0x0800,
+        MarkerLevels        = 0x01000,
+        MarkerNames         = 0x02000,
+        MarkerTypes         = 0x04000
+    };
+    Q_DECLARE_FLAGS(Attributes, Attribute)
     typedef enum {
         Idle = 3,
         Printing,
@@ -35,13 +55,15 @@ public:
     KCupsPrinter();
     KCupsPrinter(const QString &printer, bool isClass = false);
 
+    static QStringList flags(const Attributes &attributes);
+
     QString name() const;
     bool isClass() const;
     bool isDefault() const;
     bool isShared() const;
     cups_ptype_e type() const;
     QString location() const;
-    QString description() const;
+    QString info() const;
     QString makeAndModel() const;
     QStringList commands() const;
 
@@ -62,5 +84,7 @@ private:
     bool    m_isClass;
     QVariantHash m_arguments;
 };
+
+Q_DECLARE_METATYPE(KCupsPrinter::Attributes)
 
 #endif // KCUPSPRINTER_H

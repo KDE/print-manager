@@ -61,15 +61,13 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
         disconnect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
     }
 
-    // Ask just these attributes
-    QStringList requestAttr;
-    requestAttr << "printer-uri-supported"
-                << "printer-name";
-
+    KCupsPrinter::Attributes att;
+    att |= KCupsPrinter::PrinterName;
+    att |= KCupsPrinter::PrinterUriSupported;
     // Get destinations with these masks
     m_request = new KCupsRequest;
-    m_request->getPrinters(CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT,
-                           requestAttr);
+    m_request->getPrinters(att,
+                           CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT);
     m_request->setProperty("reqDestName", reqDestName);
     m_request->setProperty("memberNames", memberNames);
     connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));

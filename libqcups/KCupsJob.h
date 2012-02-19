@@ -26,9 +26,32 @@
 
 class KDE_EXPORT KCupsJob
 {
+    Q_GADGET
+    Q_ENUMS(Attribute)
 public:
+    typedef enum {
+        JobId                   = 0x0001,
+        JobName                 = 0x0002,
+        JobKOctets              = 0x0004,
+        JobKOctetsProcessed     = 0x0008,
+        JobState                = 0x0010,
+        JobPrinterUri           = 0x0020,
+        JobOriginatingUserName  = 0x0040,
+        JobMediaProgress        = 0x0080,
+        JobMediaSheets          = 0x0100,
+        JobMediaSheetsCompleted = 0x0200,
+        JobPrinterStatMessage   = 0x0400,
+        JobPreserved            = 0x0800,
+        TimeAtCreation          = 0x1000,
+        TimeAtCompleted         = 0x2000,
+        TimeAtProcessing        = 0x4000
+    } Attribute;
+    Q_DECLARE_FLAGS(Attributes, Attribute)
+
     KCupsJob();
     KCupsJob(int jobId, const QString &printer);
+
+    static QStringList flags(const Attributes &attribute);
 
     int id() const;
     QString name() const;
@@ -55,5 +78,6 @@ private:
 };
 
 Q_DECLARE_METATYPE(KCupsJob)
+Q_DECLARE_METATYPE(KCupsJob::Attributes)
 
 #endif // KCUPSJOB_H

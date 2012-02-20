@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=Print Manager Engine
+Name[nl]=Afdrukbeheerder-engine
+Name[pt]=Motor de Gestão de Impressão
+Name[pt_BR]=Mecanismo de gerenciamento de impressão
+Name[sv]=Utskrifthanteringsgränssnitt
+Name[uk]=Рушій керування друком
+Name[x-test]=xxPrint Manager Enginexx
 Comment=An Engine that provides access to CUPS data
+Comment[nl]=Een engine die toegang geeft tot CUPS-gegevens
+Comment[pt]=Um motor que fornece o acesso aos dados do CUPS
+Comment[pt_BR]=Um mecanismo que fornece acesso aos dados do CUPS
+Comment[sv]=Ett gränssnitt som ger tillgång till CUPS-data
+Comment[uk]=Рушій, який надає доступ до даних CUPS
+Comment[x-test]=xxAn Engine that provides access to CUPS dataxx
 Type=Service
 
 X-KDE-ServiceTypes=Plasma/DataEngine

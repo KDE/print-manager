@@ -71,8 +71,15 @@ public:
     QString stateMsg() const;
     int markerChangeTime() const;
     QVariant argument(const QString &name) const;
-    static KIcon icon(cups_ptype_e type);
+
+    /**
+      * Requires enum PrinterType to work properly
+      *
+      */
     KIcon icon() const;
+    static KIcon icon(cups_ptype_e type);
+    QString iconName() const;
+    static QString iconName(cups_ptype_e type);
 
 protected:
     KCupsPrinter(const QVariantHash &arguments);

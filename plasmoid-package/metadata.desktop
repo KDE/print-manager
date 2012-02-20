@@ -1,0 +1,23 @@
+[Desktop Entry]
+Name=Manage Print Jobs
+Comment=List print jobs and manage them
+
+Icon=printer
+Type=Service
+X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
+
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/printmanager.qml
+X-Plasma-DefaultSize=400,300
+X-Plasma-NotificationArea=true
+
+X-KDE-PluginInfo-Author=Daniel Nicoletti
+X-KDE-PluginInfo-Email=dantti12@gmail.com
+X-KDE-PluginInfo-Name=printmanager
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://www.kde.org
+X-KDE-PluginInfo-Category=Utilities
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+

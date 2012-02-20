@@ -86,21 +86,21 @@ void PrintManagerEngine::job(int order, const KCupsJob &job)
     QString id = QString::number(job.id());
     id.prepend(request->property("prefix").toString() + QLatin1Char('/'));
         kDebug() << id << job.id();
-    setData(id, I18N_NOOP("Order"), order);
-    setData(id, I18N_NOOP("JobName"), job.name());
-    setData(id, I18N_NOOP("JobKOctets"), job.size());
-//    setData(id, I18N_NOOP("JobKOctetsProcessed"), job.name());
-    setData(id, I18N_NOOP("JobState"), job.state());
-    setData(id, I18N_NOOP("TimeAtCompleted"), job.completedAt());
-    setData(id, I18N_NOOP("TimeAtCreation"), job.createdAt());
-    setData(id, I18N_NOOP("TimeAtProcessing"), job.processedAt());
-    setData(id, I18N_NOOP("JobPrinterUri"), job.printer());
-    setData(id, I18N_NOOP("JobOriginatingUserName"), job.ownerName());
-//    setData(id, I18N_NOOP("JobMediaProgress"), job.());
-//    setData(id, I18N_NOOP("JobMediaSheets"), job.name());
-    setData(id, I18N_NOOP("JobMediaSheetsCompleted"), job.completedPages());
-//    setData(id, I18N_NOOP("JobPrinterStatMessage"), job.name());
-//    setData(id, I18N_NOOP("JobPreserved"), job.name());
+    setData(id, I18N_NOOP("order"), order);
+    setData(id, I18N_NOOP("jobName"), job.name());
+    setData(id, I18N_NOOP("jobKOctets"), job.size());
+//    setData(id, I18N_NOOP("jobKOctetsProcessed"), job.name());
+    setData(id, I18N_NOOP("jobState"), job.state());
+    setData(id, I18N_NOOP("timeAtCompleted"), job.completedAt());
+    setData(id, I18N_NOOP("timeAtCreation"), job.createdAt());
+    setData(id, I18N_NOOP("timeAtProcessing"), job.processedAt());
+    setData(id, I18N_NOOP("jobPrinterUri"), job.printer());
+    setData(id, I18N_NOOP("jobOriginatingUserName"), job.ownerName());
+//    setData(id, I18N_NOOP("jobMediaProgress"), job.());
+//    setData(id, I18N_NOOP("jobMediaSheets"), job.name());
+    setData(id, I18N_NOOP("jobMediaSheetsCompleted"), job.completedPages());
+//    setData(id, I18N_NOOP("jobPrinterStatMessage"), job.name());
+//    setData(id, I18N_NOOP("jobPreserved"), job.name());
 }
 
 void PrintManagerEngine::printer(int order, const KCupsPrinter &printer)
@@ -109,9 +109,26 @@ void PrintManagerEngine::printer(int order, const KCupsPrinter &printer)
     QString name = printer.name();
     name.prepend(request->property("prefix").toString() + QLatin1Char('/'));
     kDebug() << order << name;
-    setData(name, I18N_NOOP("Order"), order);
-    setData(name, I18N_NOOP("Info "), printer.info());
-    setData(name, I18N_NOOP("StateMessage"), printer.stateMsg());
+    setData(name, I18N_NOOP("order"), order);
+    setData(name, I18N_NOOP("printerName"), printer.name());
+    setData(name, I18N_NOOP("info"), printer.info());
+    QString state;
+    switch (printer.state()) {
+    case KCupsPrinter::Idle:
+        state = QLatin1String("idle");
+        break;
+    case KCupsPrinter::Printing:
+        state = QLatin1String("printing");
+        break;
+    case KCupsPrinter::Stoped:
+        state = QLatin1String("stopped");
+        break;
+    default:
+        state = QLatin1String("unknown");
+    }
+    setData(name, I18N_NOOP("stateEnum"), state);
+    setData(name, I18N_NOOP("stateMessage"), printer.stateMsg());
+    setData(name, I18N_NOOP("iconName"), printer.iconName());
 }
  
 bool PrintManagerEngine::sourceRequestEvent(const QString &name)
@@ -138,6 +155,8 @@ bool PrintManagerEngine::updateSourceEvent(const QString &name)
             attr |= KCupsPrinter::PrinterInfo;
             attr |= KCupsPrinter::PrinterState;
             attr |= KCupsPrinter::PrinterStateMessage;
+            // to get proper icons
+            attr |= KCupsPrinter::PrinterType;
             request->getPrinters(attr);
     } else {
         QString printer;

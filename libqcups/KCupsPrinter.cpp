@@ -20,6 +20,8 @@
 
 #include "KCupsPrinter.h"
 
+#include <KDebug>
+
 KCupsPrinter::KCupsPrinter() :
     m_isClass(false)
 {
@@ -70,6 +72,9 @@ QString KCupsPrinter::location() const
 
 QString KCupsPrinter::info() const
 {
+    if (m_arguments["printer-info"].toString().isEmpty()) {
+        return name();
+    }
     return m_arguments["printer-info"].toString();
 }
 
@@ -110,16 +115,25 @@ KIcon KCupsPrinter::icon() const
 
 KIcon KCupsPrinter::icon(cups_ptype_e type)
 {
-    // TODO get the ppd or something to get the real printer icon
-//    Q_UNUSED(printer)
+    return KIcon(iconName(type));
+}
 
+QString KCupsPrinter::iconName() const
+{
+    kDebug() << type() << iconName(type()) << name();
+    return iconName(type());
+}
+
+QString KCupsPrinter::iconName(cups_ptype_e type)
+{
+    // TODO get the ppd or something to get the real printer icon
     if (!(type & CUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one
-        return KIcon("printer-laser");
+        return "printer-laser";
     } else if (type & CUPS_PRINTER_SCANNER) {
-        return KIcon("scanner");
+        return "scanner";
     } else {
-        return KIcon("printer");
+        return "printer";
     }
 }
 

@@ -96,6 +96,7 @@ Item {
                 top: parent.top
                 bottom: parent.bottom
             }
+
             model: PlasmaCore.DataModel {
                 id: printersModel
                 dataSource: printersSource
@@ -110,6 +111,7 @@ Item {
                 top: parent.top
                 bottom: parent.bottom
             }
+            width: parent.width/2
             model: PlasmaCore.DataModel {
                 id: jobsModel
                 dataSource: printersSource

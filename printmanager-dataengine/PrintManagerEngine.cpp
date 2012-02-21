@@ -88,11 +88,10 @@ Plasma::Service* PrintManagerEngine::serviceForSource(const QString &source)
 }
 
 
-void PrintManagerEngine::job(int order, const KCupsJob &job)
+void PrintManagerEngine::job(const QString &prefix, int order, const KCupsJob &job)
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     QString id = QString::number(job.id());
-    id.prepend(request->property("prefix").toString() + QLatin1Char('/'));
+    id.prepend(prefix + QLatin1Char('/'));
 
     Data sourceData = query(id);
     bool changed = false;
@@ -186,12 +185,10 @@ void PrintManagerEngine::requestJobsFinished()
     // TODO remove invalid sources
 }
 
-void PrintManagerEngine::printer(int order, const KCupsPrinter &printer)
+void PrintManagerEngine::printer(const QString &prefix, int order, const KCupsPrinter &printer)
 {
-    setData("Printers", Data());
-    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     QString name = printer.name();
-    name.prepend(request->property("prefix").toString() + QLatin1Char('/'));
+    name.prepend(prefix + QLatin1Char('/'));
 
     Data sourceData = query(name);
     bool changed = false;
@@ -265,8 +262,6 @@ bool PrintManagerEngine::updateSourceEvent(const QString &name)
     kDebug() << name << sender();
  
     KCupsRequest *request = new KCupsRequest;
-    request->setProperty("prefix", name);
-
     if (name == QLatin1String("Printers")) {
             KCupsPrinter::Attributes attr;
             attr |= KCupsPrinter::PrinterName;
@@ -278,7 +273,7 @@ bool PrintManagerEngine::updateSourceEvent(const QString &name)
             request->getPrinters(attr);
             request->waitTillFinished();
             for (int i = 0; i < request->printers().size(); ++i) {
-                printer(i, request->printers().at(i));
+                printer(name, i, request->printers().at(i));
             }
     } else {
         QString printer;
@@ -303,7 +298,7 @@ bool PrintManagerEngine::updateSourceEvent(const QString &name)
 
         request->waitTillFinished();
         for (int i = 0; i < request->jobs().size(); ++i) {
-            job(i, request->jobs().at(i));
+            job(name, i, request->jobs().at(i));
         }
     }
 

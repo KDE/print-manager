@@ -52,9 +52,9 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
-    void job(int order, const KCupsJob &job);
+    void job(const QString &prefix, int order, const KCupsJob &job);
     void requestJobsFinished();
-    void printer(int order, const KCupsPrinter &printer);
+    void printer(const QString &prefix, int order, const KCupsPrinter &printer);
     void requestPrintersFinished();
 
 protected:

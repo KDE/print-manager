@@ -120,7 +120,6 @@ KIcon KCupsPrinter::icon(cups_ptype_e type)
 
 QString KCupsPrinter::iconName() const
 {
-    kDebug() << type() << iconName(type()) << name();
     return iconName(type());
 }
 

@@ -25,6 +25,8 @@ Item {
     id: printmanager
     property int minimumWidth: 400
     property int minimumHeight: 300
+    
+    property string selectedPrinter: ""
 
     PlasmaCore.Theme {
         id: theme
@@ -34,18 +36,18 @@ Item {
         id: printersSource
         engine: "printmanager"
         connectedSources: ["Printers"]
-        interval: 500
+        interval: 0
         
         onSourceAdded: {
             console.debug(source);
-            var pattern = /Printers\/[^\/]+$/
+            var pattern = /Printers\/?[^\/]+$/
             if (source.match(pattern)) {
                 console.debug("Source Connected:" + source);
                 connectSource(source);
             }            
         }
         Component.onCompleted: {
-            var pattern = /Printers\/[^\/]+$/
+            var pattern = /Printers\/?[^\/]+$/
             for (var i in sources) {
                 console.debug("COMPLETED " + sources[i]);
                 if (sources[i].match(pattern)) {
@@ -60,20 +62,20 @@ Item {
         id: jobsSource
         engine: "printmanager"
         connectedSources: ["ActiveJobs"]
-        interval: 500
+        interval: 0
         property string whichJobs: "ActiveJobs"
         property string whichPrinter
         
         onSourceAdded: {
             console.debug(source);
-            var pattern = /ActiveJobs\/\d+$/
+            var pattern = /ActiveJobs\/?\d+$/
             if (source.match(pattern)) {
                 console.debug("Source Connected:" + source);
                 connectSource(source);
             }            
         }
         Component.onCompleted: {
-            var pattern = /ActiveJobs\/\d+$/
+            var pattern = /ActiveJobs\/?\d+$/
             for (var i in sources) {
                 console.debug("COMPLETED " + sources[i]);
                 if (sources[i].match(pattern)) {
@@ -85,17 +87,14 @@ Item {
     }
     
     
-//     Row {
-//         spacing: 2
-//         anchors.fill: parent
+    Row {
+        spacing: 2
+        anchors.fill: parent
         ScrollableListView {
             id: printersView
-            anchors {
-                left: parent.left
-                right: jobsView.left
-                top: parent.top
-                bottom: parent.bottom
-            }
+            signal highlight(string printer)
+            width: parent.width * 0.40
+            height: parent.height
             model: PlasmaCore.DataModel {
                 id: printersModel
                 dataSource: printersSource
@@ -103,18 +102,33 @@ Item {
             delegate: PrinterItem{}
         }
         
+        PlasmaCore.Svg {
+            id: lineSvg
+            imagePath: "widgets/line"
+        }
+        PlasmaCore.SvgItem {
+            id: headerSeparator
+            svg: lineSvg
+            elementId: "vertical-line"
+            height: parent.height
+            width: lineSvg.elementSize("vertical-line").width
+        }
+        
         ScrollableListView {
             id: jobsView
-            anchors {
-                right: parent.right
-                top: parent.top
-                bottom: parent.bottom
-            }
+            signal highlight(string printer)
+            width: parent.width * 0.60
+            height: parent.height
             model: PlasmaCore.DataModel {
                 id: jobsModel
-                dataSource: printersSource
+                dataSource: jobsSource
             }
-            delegate: PrinterItem{}
+            delegate: JobItem{}
+            
+            Component.onCompleted: {
+                console.debug("completed---------");
+                printersView.highlight.connect(highlight);
+            }
         }
-//     }
+    }
 }

@@ -33,6 +33,8 @@ class KDE_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT
 public:
+    typedef QList<KCupsPrinter> KCupsPrinters;
+    typedef QList<KCupsJob> KCupsJobs;
     /**
      * Default constructor, it takes no parent
      * because it will move to KCupsConnection thread
@@ -58,6 +60,20 @@ public:
     QString serverError() const;
     QString errorMsg() const;
     ReturnArguments result() const;
+
+    /**
+     * Non empty when getPrinters is called and finish is emited()
+     * @param position The position found on the list
+     * @param printer The printer found
+     */
+    KCupsPrinters printers() const;
+
+    /**
+     * Non empty when getJobs is called and finish is emited()
+     * @param position The it will be processed
+     * @param job The printer found
+     */
+    KCupsJobs jobs() const;
 
     /**
      * Get all available PPDs from the givem make
@@ -221,19 +237,6 @@ public:
     Q_INVOKABLE void moveJob(const QString &fromDestname, int jobId, const QString &toDestName);
 
 signals:
-    /**
-     * Emited when getJobs is called
-     * @param position The it will be processed
-     * @param job The printer found
-     */
-    void job(int position, const KCupsJob &job);
-
-    /**
-     * Emited when getPrinters is called
-     * @param position The position found on the list
-     * @param printer The printer found
-     */
-    void printer(int position, const KCupsPrinter &printer);
     void server(const KCupsServer &server);
     void device(const QString &dev_class,
                 const QString &id,
@@ -262,6 +265,8 @@ private:
     int m_error;
     QString m_errorMsg;
     ReturnArguments m_retArguments;
+    KCupsPrinters m_printers;
+    KCupsJobs m_jobs;
 };
 
 #endif // KCUPS_REQUEST_H

@@ -82,7 +82,12 @@ QDateTime KCupsJob::processedAt() const
     return ret;
 }
 
-int KCupsJob::completedPages() const
+int KCupsJob::pages() const
+{
+    return m_arguments["job-media-sheets"].toInt();
+}
+
+int KCupsJob::processedPages() const
 {
     return m_arguments["job-media-sheets-completed"].toInt();
 }

@@ -60,7 +60,8 @@ public:
     QDateTime createdAt() const;
     QDateTime completedAt() const;
     QDateTime processedAt() const;
-    int completedPages() const;
+    int pages() const;
+    int processedPages() const;
     int size() const;
 
     ipp_jstate_e state() const;

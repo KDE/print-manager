@@ -31,7 +31,9 @@
 
 #define CUPS_DATADIR    "/usr/share/cups"
 
-KCupsRequest::KCupsRequest()
+KCupsRequest::KCupsRequest() :
+    m_finished(true),
+    m_error(false)
 {
     connect(this, SIGNAL(finished()), &m_loop, SLOT(quit()));
     qRegisterMetaType<KCupsJob>("KCupsJob");
@@ -145,7 +147,7 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
                                          true);
 
         for (int i = 0; i < dests.size(); i++) {
-            emit printer(i, KCupsPrinter(dests.at(i)));
+            m_printers << KCupsPrinter(dests.at(i));
         }
 
         m_retArguments = dests;
@@ -160,11 +162,12 @@ void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, K
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
-        if (printer.isEmpty()) {
-            request["printer-uri"] = printer;
-        } else {
+        // This makes the Name of the Job and owner came blank lol
+//        if (printer.isEmpty()) {
+//            request["printer-uri"] = printer;
+//        } else {
             request["printer-name"] = printer;
-        }
+//        }
 
         if (myJobs) {
             request["my-jobs"] = myJobs;
@@ -186,9 +189,9 @@ void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, K
                                                   "/",
                                                   request,
                                                   true);
-        ReturnArguments jobs = m_retArguments;
-        for (int i = 0; i < jobs.size(); i++) {
-            emit job(i, KCupsJob(jobs.at(i)));
+
+        for (int i = 0; i < m_retArguments.size(); i++) {
+            m_jobs << KCupsJob(m_retArguments.at(i));
         }
 
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
@@ -606,6 +609,9 @@ void KCupsRequest::invokeMethod(const char *method,
 {
     m_error = false;
     m_errorMsg.clear();
+    m_printers.clear();
+    m_jobs.clear();
+    m_retArguments.clear();
 
     // If this fails we get into a infinite loop
     // Do not use global()->thread() which point
@@ -634,8 +640,20 @@ ReturnArguments KCupsRequest::result() const
     return m_retArguments;
 }
 
+KCupsRequest::KCupsPrinters KCupsRequest::printers() const
+{
+    return m_printers;
+}
+
+KCupsRequest::KCupsJobs KCupsRequest::jobs() const
+{
+    return m_jobs;
+}
+
 void KCupsRequest::waitTillFinished()
 {
+    kDebug() << QThread::currentThreadId();
+    kDebug() << m_finished;
     if (m_finished) {
         return;
     }

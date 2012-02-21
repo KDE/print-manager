@@ -37,7 +37,7 @@ PrintManagerEngine::PrintManagerEngine(QObject *parent, const QVariantList &args
     // update interval and using too much CPU.
     // In the case of a clock that only has second precision,
     // a third of a second should be more than enough.
-    setMinimumPollingInterval(333);
+    setMinimumPollingInterval(1000);
 }
 
 void PrintManagerEngine::init()
@@ -57,6 +57,14 @@ void PrintManagerEngine::init()
     m_jobAttributes |= KCupsJob::JobMediaSheetsCompleted;
     m_jobAttributes |= KCupsJob::JobPrinterStatMessage;
     m_jobAttributes |= KCupsJob::JobPreserved;
+
+    m_jobsRequest = new KCupsRequest;
+    connect(m_jobsRequest, SIGNAL(job(int,KCupsJob)), this, SLOT(job(int,KCupsJob)));
+    connect(m_jobsRequest, SIGNAL(finished()), this, SLOT(requestJobsFinished()));
+
+    m_printersRequest = new KCupsRequest;
+    connect(m_printersRequest, SIGNAL(printer(int,KCupsPrinter)), this, SLOT(printer(int,KCupsPrinter)));
+    connect(m_printersRequest, SIGNAL(finished()), this, SLOT(requestPrintersFinished()));
 }
 
 Plasma::Service* PrintManagerEngine::serviceForSource(const QString &source)
@@ -85,33 +93,121 @@ void PrintManagerEngine::job(int order, const KCupsJob &job)
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     QString id = QString::number(job.id());
     id.prepend(request->property("prefix").toString() + QLatin1Char('/'));
-        kDebug() << id << job.id();
-    setData(id, I18N_NOOP("order"), order);
-    setData(id, I18N_NOOP("jobName"), job.name());
-    setData(id, I18N_NOOP("jobKOctets"), job.size());
-//    setData(id, I18N_NOOP("jobKOctetsProcessed"), job.name());
-    setData(id, I18N_NOOP("jobState"), job.state());
-    setData(id, I18N_NOOP("timeAtCompleted"), job.completedAt());
-    setData(id, I18N_NOOP("timeAtCreation"), job.createdAt());
-    setData(id, I18N_NOOP("timeAtProcessing"), job.processedAt());
-    setData(id, I18N_NOOP("jobPrinterUri"), job.printer());
-    setData(id, I18N_NOOP("jobOriginatingUserName"), job.ownerName());
-//    setData(id, I18N_NOOP("jobMediaProgress"), job.());
-//    setData(id, I18N_NOOP("jobMediaSheets"), job.name());
-    setData(id, I18N_NOOP("jobMediaSheetsCompleted"), job.completedPages());
+
+    Data sourceData = query(id);
+    bool changed = false;
+    if (sourceData[I18N_NOOP("order")] != order) {
+        sourceData[I18N_NOOP("order")] = order;
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("jobId")] != job.id()) {
+        sourceData[I18N_NOOP("jobId")] = job.id();
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("jobName")] != job.name()) {
+        sourceData[I18N_NOOP("jobName")] = job.name();
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("jobSize")] != job.size()) {
+        sourceData[I18N_NOOP("jobSize")] = job.size();
+        changed = true;
+    }
+    QString jobState;
+    switch (job.state()){
+    case IPP_JOB_PENDING:
+        jobState = QLatin1String("pending");
+        break;
+    case IPP_JOB_HELD:
+        jobState = QLatin1String("on-hold");
+        break;
+    case IPP_JOB_PROCESSING:
+        jobState = QLatin1String("-");
+        break;
+    case IPP_JOB_STOPPED:
+        jobState = QLatin1String("stopped");
+        break;
+    case IPP_JOB_CANCELED:
+        jobState = QLatin1String("canceled");
+        break;
+    case IPP_JOB_ABORTED:
+        jobState = QLatin1String("aborted");
+        break;
+    case IPP_JOB_COMPLETED:
+        jobState = QLatin1String("completed");
+        break;
+    default:
+        jobState = QLatin1String("unknown");
+    }
+    if (sourceData[I18N_NOOP("jobState")] != jobState) {
+        sourceData[I18N_NOOP("jobState")] = jobState;
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("jobCompletedAt")] != job.completedAt()) {
+        sourceData[I18N_NOOP("jobCompletedAt")] = job.completedAt();
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("jobCreatedAt")] != job.createdAt()) {
+        sourceData[I18N_NOOP("jobCreatedAt")] = job.createdAt();
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("jobPrinter")] != job.printer()) {
+        sourceData[I18N_NOOP("jobPrinter")] = job.printer();
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("jobOwner")] != job.ownerName()) {
+        sourceData[I18N_NOOP("jobOwner")] = job.ownerName();
+        changed = true;
+    }
+    if (job.processedPages() == 0) {
+        if (sourceData[I18N_NOOP("jobPages")] != job.pages()) {
+            sourceData[I18N_NOOP("jobPages")] = job.pages();
+            changed = true;
+        }
+    } else {
+        QString pages;
+        pages = QString::number(job.processedPages());
+        pages.append(QLatin1Char('/'));
+        pages.append(QString::number(job.processedPages()));
+        if (sourceData[I18N_NOOP("jobPages")] != pages) {
+            sourceData[I18N_NOOP("jobPages")] = pages;
+            changed = true;
+        }
+    }
 //    setData(id, I18N_NOOP("jobPrinterStatMessage"), job.name());
-//    setData(id, I18N_NOOP("jobPreserved"), job.name());
+
+    if (changed) {
+        // update only if data changes to avoid uneeded updates on the views
+        setData(id, sourceData);
+    }
+}
+
+void PrintManagerEngine::requestJobsFinished()
+{
+    // TODO remove invalid sources
 }
 
 void PrintManagerEngine::printer(int order, const KCupsPrinter &printer)
 {
+    setData("Printers", Data());
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     QString name = printer.name();
     name.prepend(request->property("prefix").toString() + QLatin1Char('/'));
-    kDebug() << order << name;
-    setData(name, I18N_NOOP("order"), order);
-    setData(name, I18N_NOOP("printerName"), printer.name());
-    setData(name, I18N_NOOP("info"), printer.info());
+
+    Data sourceData = query(name);
+    bool changed = false;
+
+    if (sourceData[I18N_NOOP("order")] != order) {
+        sourceData[I18N_NOOP("order")] = order;
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("printerName")] != printer.name()) {
+        sourceData[I18N_NOOP("printerName")] = printer.name();
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("info")] != printer.info()) {
+        sourceData[I18N_NOOP("info")] = printer.info();
+        changed = true;
+    }
     QString state;
     switch (printer.state()) {
     case KCupsPrinter::Idle:
@@ -126,14 +222,38 @@ void PrintManagerEngine::printer(int order, const KCupsPrinter &printer)
     default:
         state = QLatin1String("unknown");
     }
-    setData(name, I18N_NOOP("stateEnum"), state);
-    setData(name, I18N_NOOP("stateMessage"), printer.stateMsg());
-    setData(name, I18N_NOOP("iconName"), printer.iconName());
+    if (sourceData[I18N_NOOP("stateEnum")] != state) {
+        sourceData[I18N_NOOP("stateEnum")] = state;
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("stateMessage")] != printer.stateMsg()) {
+        sourceData[I18N_NOOP("stateMessage")] = printer.stateMsg();
+        changed = true;
+    }
+    if (sourceData[I18N_NOOP("iconName")] != printer.iconName()) {
+        sourceData[I18N_NOOP("iconName")] = printer.iconName();
+        changed = true;
+    }
+
+    if (changed) {
+        // update only if data changes to avoid uneeded updates on the views
+        setData(name, sourceData);
+        kDebug() << name << sourceData;
+//        forceImmediateUpdateOfAllVisualizations();
+    }
+}
+
+void PrintManagerEngine::requestPrintersFinished()
+{
+    // TODO remove invalid sources
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    request->deleteLater();
 }
  
 bool PrintManagerEngine::sourceRequestEvent(const QString &name)
 {
     kDebug() << name;
+    setData(name, Data());
     // We do not have any special code to execute the
     // first time a source is requested, so we just call
     // updateSourceEvent().
@@ -142,14 +262,12 @@ bool PrintManagerEngine::sourceRequestEvent(const QString &name)
  
 bool PrintManagerEngine::updateSourceEvent(const QString &name)
 {
-    kDebug() << name;
+    kDebug() << name << sender();
  
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(job(int,KCupsJob)), this, SLOT(job(int,KCupsJob)));
-    connect(request, SIGNAL(printer(int,KCupsPrinter)), this, SLOT(printer(int,KCupsPrinter)));
     request->setProperty("prefix", name);
 
-    if (name == I18N_NOOP("Printers")) {
+    if (name == QLatin1String("Printers")) {
             KCupsPrinter::Attributes attr;
             attr |= KCupsPrinter::PrinterName;
             attr |= KCupsPrinter::PrinterInfo;
@@ -158,6 +276,10 @@ bool PrintManagerEngine::updateSourceEvent(const QString &name)
             // to get proper icons
             attr |= KCupsPrinter::PrinterType;
             request->getPrinters(attr);
+            request->waitTillFinished();
+            for (int i = 0; i < request->printers().size(); ++i) {
+                printer(i, request->printers().at(i));
+            }
     } else {
         QString printer;
         QString whichJob = name;
@@ -168,18 +290,25 @@ bool PrintManagerEngine::updateSourceEvent(const QString &name)
             whichJob = parts.at(2);
         }
 
-        if (whichJob == I18N_NOOP("AllJobs")) {
+        if (whichJob == QLatin1String("AllJobs")) {
             request->getJobs(printer, false, CUPS_WHICHJOBS_ALL, m_jobAttributes);
-        } else if (whichJob == I18N_NOOP("ActiveJobs")) {
+        } else if (whichJob == QLatin1String("ActiveJobs")) {
             request->getJobs(printer, false, CUPS_WHICHJOBS_ACTIVE, m_jobAttributes);
-        } else if (whichJob == I18N_NOOP("CompletedJobs")) {
+        } else if (whichJob == QLatin1String("CompletedJobs")) {
             request->getJobs(printer, false, CUPS_WHICHJOBS_COMPLETED, m_jobAttributes);
+        } else {
+            request->deleteLater();
+            return false;
+        }
+
+        request->waitTillFinished();
+        for (int i = 0; i < request->jobs().size(); ++i) {
+            job(i, request->jobs().at(i));
         }
     }
 
-    request->waitTillFinished();
     request->deleteLater();
-    return !request->hasError();
+    return true;
 }
  
 // This does the magic that allows Plasma to load

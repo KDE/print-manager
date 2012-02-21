@@ -1,3 +1,22 @@
+/*
+ *   Copyright 2012 Daniel Nicoletti <dantti12@gmail.com>
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU Library General Public License as
+ *   published by the Free Software Foundation; either version 2 or
+ *   (at your option) any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details
+ *
+ *   You should have received a copy of the GNU Library General Public
+ *   License along with this program; if not, write to the
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
 import Qt 4.7
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
@@ -13,6 +32,7 @@ Item {
         imagePath: "widgets/viewitem"
         prefix: "hover"
         opacity: 0
+        Behavior on opacity { PropertyAnimation {} }
         anchors.fill: parent
     }
     MouseArea {
@@ -26,11 +46,16 @@ Item {
         }
         hoverEnabled: true
         onEntered: {
-            printerItem.ListView.view.currentIndex = index;
-            printerItem.ListView.view.highlightItem.opacity = 0.7;
+            padding.opacity = 0.6;
+            printersView.highlight(printerName);
         }
         onExited: {
-            printerItem.ListView.view.highlightItem.opacity = 0;
+            padding.opacity = 0;
+            printersView.highlight("");
+        }
+        onClicked: {
+            printersView.highlight("");
+            printerItem.ListView.view.currentIndex = index;
         }
     
         QIconItem {
@@ -54,12 +79,16 @@ Item {
                 leftMargin: padding.margins.left
             }
             PlasmaComponents.Label {
+                anchors.left: parent.left
+                anchors.right: parent.right
                 height: paintedHeight
                 elide: Text.ElideRight
                 text: info
             }
             
             PlasmaComponents.Label {
+                anchors.left: parent.left
+                anchors.right: parent.right
                 height: paintedHeight
                 text: stateMessage
                 elide: Text.ElideRight
@@ -74,6 +103,7 @@ Item {
             width: 22
             height: 22
             opacity: 0.6
+            Behavior on opacity { PropertyAnimation {} }
             anchors {
                 right: parent.right
                 verticalCenter: printerIcon.verticalCenter
@@ -92,19 +122,11 @@ Item {
                     service.startOperationCall(operation);
                 }
                 onEntered: {
-                    parent.state = "mouseOver";
+                    parent.opacity = 1;
                 }
                 onExited: {
-                    parent.state = "";
+                    parent.opacity = 0.6;
                 }
-            }
-            
-            states: State {
-                name: "mouseOver"; when: mouseArea.containsMouse
-                PropertyChanges { target: rightAction; opacity: 1 }
-            }
-            transitions: Transition {
-                NumberAnimation { properties: "opacity"; easing.type: Easing.InOutQuad }
             }
         }
     }

@@ -208,7 +208,7 @@ void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
     }
 
     // job pages
-    int completedPages = job.completedPages();
+    int completedPages = job.processedPages();
     if (item(pos, ColPages)->data(Qt::UserRole) != completedPages) {
         item(pos, ColPages)->setData(completedPages, Qt::UserRole);
         item(pos, ColPages)->setText(QString::number(completedPages));

@@ -37,6 +37,7 @@
  * "Printers/printer_name/CompletedJobs" lists completed jobs from the printer "printer_name"
  */
 class KCupsPrinter;
+class KCupsRequest;
 class PrintManagerEngine : public Plasma::DataEngine
 {
     Q_OBJECT
@@ -52,7 +53,9 @@ public:
 
 private slots:
     void job(int order, const KCupsJob &job);
+    void requestJobsFinished();
     void printer(int order, const KCupsPrinter &printer);
+    void requestPrintersFinished();
 
 protected:
     // this virtual function is called when a new source is requested
@@ -65,6 +68,8 @@ protected:
 
 private:
     KCupsJob::Attributes m_jobAttributes;
+    KCupsRequest *m_jobsRequest;
+    KCupsRequest *m_printersRequest;
 };
  
 #endif // PRINT_MANAGER_ENGINE_H

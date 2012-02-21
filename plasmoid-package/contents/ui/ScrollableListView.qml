@@ -25,8 +25,10 @@ import org.kde.qtextracomponents 0.1
 Item {
     property alias delegate: list.delegate
     property alias model: list.model
+
     ListView {
         id: list
+        clip: true
         anchors {
             left:   parent.left
             right:  scrollBar.visible ? scrollBar.left : parent.right

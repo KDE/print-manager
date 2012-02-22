@@ -171,7 +171,13 @@ void PrintManagerEngine::updateJobs(const QString &prefix, const KCupsRequest::K
 
     // this RegExp matches all sources that start with 'prefix'
     // and are not followed by one of the printers names
-    QRegExp rx(QLatin1Char('^') + prefix + QLatin1String("/(?!") + jobsStrList.join(QLatin1String("|")) + QLatin1Char(')'));
+    QRegExp rx;
+    if (jobsStrList.isEmpty()) {
+        // we don't have any jobs remove all sources that start with our prefix
+        rx.setPattern(QLatin1Char('^') + prefix + QLatin1String("/"));
+    } else {
+        rx.setPattern(QLatin1Char('^') + prefix + QLatin1String("/(?!") + jobsStrList.join(QLatin1String("|")) + QLatin1Char(')'));
+    }
 
     foreach (const QString &source, sources().filter(rx)) {
         // Remove these as their printers or jobs are not available anymore
@@ -247,7 +253,13 @@ void PrintManagerEngine::updatePrinters(const QString &prefix, const KCupsReques
 
     // this RegExp matches all sources that start with 'Printer/'
     // and are not followed by one of the printers names
-    QRegExp rx(QLatin1String("^Printers/(?!") + printersStrList.join(QLatin1String("|")) + QLatin1Char(')'));
+    QRegExp rx;
+    if (printersStrList.isEmpty()) {
+        // if we don't have any printers remove all sources starting with 'Printer/'
+        rx.setPattern(QLatin1String("^Printers/"));
+    } else {
+        rx.setPattern(QLatin1String("^Printers/(?!") + printersStrList.join(QLatin1String("|")) + QLatin1Char(')'));
+    }
 
     foreach (const QString &source, sources().filter(rx)) {
         // Remove these as their printers are not available anymore

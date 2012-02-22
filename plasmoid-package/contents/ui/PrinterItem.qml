@@ -24,6 +24,7 @@ import org.kde.qtextracomponents 0.1
 
 Item {
     id: printerItem
+    property bool multipleItems
     width: printerItem.ListView.view.width
     height: 50
 
@@ -44,7 +45,7 @@ Item {
             rightMargin: padding.margins.right
             bottomMargin: padding.margins.bottom
         }
-        hoverEnabled: true
+        hoverEnabled: multipleItems
         onEntered: {
             padding.opacity = 0.6;
             printersView.highlight(printerName);
@@ -54,8 +55,16 @@ Item {
             printersView.highlight("");
         }
         onClicked: {
-            printersView.highlight("");
-            printerItem.ListView.view.currentIndex = index;
+            console.debug(printerItem);
+            console.debug(printerItem.ListView.view.currentIndex);
+            console.debug("multipleItems" + multipleItems);
+            if (printerItem.ListView.view.currentIndex == index) {
+                printerItem.ListView.view.currentIndex = -1;
+                printersView.highlight(printerName);
+            } else if (multipleItems) {
+                printerItem.ListView.view.currentIndex = index;
+                printersView.highlight("");
+            }
         }
     
         QIconItem {

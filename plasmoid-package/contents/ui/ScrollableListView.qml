@@ -25,6 +25,8 @@ import org.kde.qtextracomponents 0.1
 Item {
     property alias delegate: list.delegate
     property alias model: list.model
+    property alias interactive: list.interactive
+    property alias currentIndex: list.currentIndex
 
     ListView {
         id: list
@@ -36,8 +38,6 @@ Item {
             bottom: parent.bottom
         }
         highlight: highlighter
-//         highlightMoveDuration: 250
-//         highlightMoveSpeed: 1
     }
     Component {
         id: highlighter

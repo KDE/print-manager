@@ -23,10 +23,10 @@ import org.kde.plasma.components 0.1 as PlasmaComponents
 
 Item {
     id: printmanager
-    property int minimumWidth: 650
+    property int minimumWidth: horizontalLayout ? 650 : 300
     property int minimumHeight: 270
     
-    property string selectedPrinter: ""
+    property bool horizontalLayout: printersModel.count > 1
 
     PlasmaCore.Theme {
         id: theme
@@ -86,39 +86,77 @@ Item {
         }
     }
     
-    
+    Column {
+        id: columnLayout
+        spacing: 2
+        anchors.fill: parent
+        
+        state: horizontalLayout ? "horizontal" : "vertical"
+        states: [
+            State {
+                name: "vertical"
+                ParentChange { target: printersView; parent: columnLayout }
+                ParentChange { target: headerSeparator; parent: columnLayout }
+                ParentChange { target: jobsView; parent: columnLayout }
+                PropertyChanges { target: printmanager; width: printmanager.minimumWidth; height: printmanager.minimumHeight }
+                StateChangeScript {
+                    script: {
+                        plasmoid.setMinimunSize(printmanager.minimumWidth, printmanager.minimumHeight);
+                        plasmoid.resize(printmanager.minimumWidth, printmanager.minimumHeight);
+                    }
+                }
+            },
+            State {
+                name: "horizontal"
+                ParentChange { target: printersView; parent: rowLayout }
+                ParentChange { target: headerSeparator; parent: rowLayout }
+                ParentChange { target: jobsView; parent: rowLayout }
+                PropertyChanges { target: printmanager; width: printmanager.minimumWidth; height: printmanager.minimumHeight }
+                StateChangeScript {
+                    script: {
+                        plasmoid.setMinimunSize(printmanager.minimumWidth, printmanager.minimumHeight);
+                        plasmoid.resize(printmanager.minimumWidth, printmanager.minimumHeight);
+                    }
+                }
+            }
+        ]
+    }
     Row {
+        id: rowLayout
         spacing: 2
         anchors.fill: parent
         ScrollableListView {
             id: printersView
             signal highlight(string printer)
-            width: parent.width * 0.40 - headerSeparator.width
-            height: parent.height
+            width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
+            height: horizontalLayout ? parent.height : 50
+            currentIndex: -1
             model: PlasmaCore.DataModel {
                 id: printersModel
                 dataSource: printersSource
             }
-            delegate: PrinterItem{}
+            delegate: PrinterItem{
+                multipleItems: horizontalLayout
+            }
+            interactive: horizontalLayout
         }
         
-        PlasmaCore.Svg {
-            id: lineSvg
-            imagePath: "widgets/line"
-        }
         PlasmaCore.SvgItem {
             id: headerSeparator
-            svg: lineSvg
-            elementId: "vertical-line"
-            height: parent.height
-            width: lineSvg.elementSize("vertical-line").width
+            svg: PlasmaCore.Svg {
+                id: lineSvg
+                imagePath: "widgets/line"
+            }
+            elementId: horizontalLayout ? "vertical-line" : "horizontal-line"
+            height:    horizontalLayout ? parent.height : lineSvg.elementSize("horizontal-line").height
+            width:     horizontalLayout ? lineSvg.elementSize("vertical-line").width : parent.width
         }
         
         ScrollableListView {
             id: jobsView
             signal highlight(string printer)
-            width: parent.width * 0.60 - headerSeparator.width
-            height: parent.height
+            width:  horizontalLayout ? parent.width * 0.60 - headerSeparator.width : parent.width
+            height: horizontalLayout ? parent.height : parent.height - 50
             model: PlasmaCore.DataModel {
                 id: jobsModel
                 dataSource: jobsSource

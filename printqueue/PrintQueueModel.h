@@ -78,7 +78,6 @@ public:
     KCupsRequest* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 public slots:
-    void job(int position, const KCupsJob &job);
     void getJobFinished();
     void updateModel();
 

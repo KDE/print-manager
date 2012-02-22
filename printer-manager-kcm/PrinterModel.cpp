@@ -51,12 +51,32 @@ void PrinterModel::getDestsFinished()
             // clear the model after so that the proper widget can be shown
             clear();
         } else {
+            KCupsRequest::KCupsPrinters printers = request->printers();
+            for (int i = 0; i < printers.size(); ++i) {
+                // If there is a printer and it's not the current one add it
+                // as a new destination
+                int dest_row = destRow(printers.at(i).name());
+                if (dest_row == -1) {
+                    // not found, insert new one
+                    insertDest(i, printers.at(i));
+                } else if (dest_row == i) {
+                    // update the printer
+                    updateDest(item(i), printers.at(i));
+                } else {
+                    // found at wrong position
+                    // take it and insert on the right position
+                    QList<QStandardItem *> row = takeRow(dest_row);
+                    insertRow(i, row);
+                    updateDest(item(i), printers.at(i));
+                }
+            }
+
             // remove old printers
             // The above code starts from 0 and make sure
             // dest == modelIndex(x) and if it's not the
             // case it either inserts or moves it.
             // so any item > num_jobs can be safely deleted
-            while (rowCount() > request->result().size()) {
+            while (rowCount() > printers.size()) {
                 removeRow(rowCount() - 1);
             }
 
@@ -97,29 +117,8 @@ void PrinterModel::update()
 //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
     // Get destinations with these attributes
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(printer(int,KCupsPrinter)), this, SLOT(printer(int,KCupsPrinter)));
     connect(request, SIGNAL(finished()), this, SLOT(getDestsFinished()));
     request->getPrinters(attributes);
-}
-
-void PrinterModel::printer(int pos, const KCupsPrinter &printer)
-{
-    // If there is a printer and it's not the current one add it
-    // as a new destination
-    int dest_row = destRow(printer.name());
-    if (dest_row == -1) {
-        // not found, insert new one
-        insertDest(pos, printer);
-    } else if (dest_row == pos) {
-        // update the printer
-        updateDest(item(pos), printer);
-    } else {
-        // found at wrong position
-        // take it and insert on the right position
-        QList<QStandardItem *> row = takeRow(dest_row);
-        insertRow(pos, row);
-        updateDest(item(pos), printer);
-    }
 }
 
 void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)

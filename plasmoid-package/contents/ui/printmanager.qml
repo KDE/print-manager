@@ -23,8 +23,8 @@ import org.kde.plasma.components 0.1 as PlasmaComponents
 
 Item {
     id: printmanager
-    property int minimumWidth: 400
-    property int minimumHeight: 300
+    property int minimumWidth: 650
+    property int minimumHeight: 270
     
     property string selectedPrinter: ""
 
@@ -36,7 +36,7 @@ Item {
         id: printersSource
         engine: "printmanager"
         connectedSources: ["Printers"]
-        interval: 500
+        interval: 1500
         
         onSourceAdded: {
             console.debug(source);
@@ -62,7 +62,7 @@ Item {
         id: jobsSource
         engine: "printmanager"
         connectedSources: ["ActiveJobs"]
-        interval: 500
+        interval: 1500
         property string whichJobs: "ActiveJobs"
         property string whichPrinter
         
@@ -93,7 +93,7 @@ Item {
         ScrollableListView {
             id: printersView
             signal highlight(string printer)
-            width: parent.width * 0.40
+            width: parent.width * 0.40 - headerSeparator.width
             height: parent.height
             model: PlasmaCore.DataModel {
                 id: printersModel
@@ -117,7 +117,7 @@ Item {
         ScrollableListView {
             id: jobsView
             signal highlight(string printer)
-            width: parent.width * 0.60
+            width: parent.width * 0.60 - headerSeparator.width
             height: parent.height
             model: PlasmaCore.DataModel {
                 id: jobsModel
@@ -126,7 +126,6 @@ Item {
             delegate: JobItem{}
             
             Component.onCompleted: {
-                console.debug("completed---------");
                 printersView.highlight.connect(highlight);
             }
         }

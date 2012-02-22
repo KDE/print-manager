@@ -25,7 +25,8 @@
 #include <KDebug>
 
 PrintManagerService::PrintManagerService(QObject *parent, const QString &destination) :
-    Plasma::Service(parent)
+    Plasma::Service(parent),
+    m_jobId(0)
 {
     setName("printmanager");
     setDestination(destination);
@@ -40,12 +41,22 @@ PrintManagerService::PrintManagerService(QObject *parent, const QString &destina
     }
 }
 
+PrintManagerService::PrintManagerService(QObject *parent, int jobId) :
+    Plasma::Service(parent),
+    m_jobId(jobId)
+{
+    setName("printmanager");
+    setOperationEnabled("pausePrinter", false);
+    setOperationEnabled("resumePrinter", false);
+}
+
 Plasma::ServiceJob* PrintManagerService::createJob(const QString &operation, QMap<QString, QVariant> &parameters)
 {
     kDebug() << operation << parameters;
     QString dest = destination();
     if (!parameters[QLatin1String("PrinterName")].isNull()) {
         dest = parameters[QLatin1String("PrinterName")].toString();
+        parameters[QLatin1String("JobId")] = m_jobId;
     }
     return new PrintManagerServiceJob(dest, operation, parameters, this);
 }

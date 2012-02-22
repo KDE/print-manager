@@ -37,7 +37,7 @@ PrintManagerEngine::PrintManagerEngine(QObject *parent, const QVariantList &args
     // update interval and using too much CPU.
     // In the case of a clock that only has second precision,
     // a third of a second should be more than enough.
-    setMinimumPollingInterval(333);
+    setMinimumPollingInterval(800);
 }
 
 void PrintManagerEngine::init()
@@ -73,7 +73,8 @@ Plasma::Service* PrintManagerEngine::serviceForSource(const QString &source)
         if (parts.first().startsWith(QLatin1String("Printers")) && parts.size() == 2) {
             return new PrintManagerService(this, parts.at(1));
         } else {
-            return new PrintManagerService(this);
+
+            return new PrintManagerService(this, parts.last().toInt());
         }
     }
     return Plasma::DataEngine::serviceForSource(source);
@@ -99,46 +100,22 @@ void PrintManagerEngine::job(const QString &prefix, int order, const KCupsJob &j
         sourceData[QLatin1String("jobName")] = job.name();
         changed = true;
     }
-    if (sourceData[QLatin1String("jobSize")] != job.size()) {
-        sourceData[QLatin1String("jobSize")] = job.size();
+    QString size = KGlobal::locale()->formatByteSize(job.size());
+    if (sourceData[QLatin1String("jobSize")] != size) {
+        sourceData[QLatin1String("jobSize")] = size;
         changed = true;
     }
-    QString jobState;
-    switch (job.state()){
-    case IPP_JOB_PENDING:
-        jobState = QLatin1String("pending");
-        break;
-    case IPP_JOB_HELD:
-        jobState = QLatin1String("on-hold");
-        break;
-    case IPP_JOB_PROCESSING:
-        jobState = QLatin1String("-");
-        break;
-    case IPP_JOB_STOPPED:
-        jobState = QLatin1String("stopped");
-        break;
-    case IPP_JOB_CANCELED:
-        jobState = QLatin1String("canceled");
-        break;
-    case IPP_JOB_ABORTED:
-        jobState = QLatin1String("aborted");
-        break;
-    case IPP_JOB_COMPLETED:
-        jobState = QLatin1String("completed");
-        break;
-    default:
-        jobState = QLatin1String("unknown");
-    }
-    if (sourceData[QLatin1String("jobState")] != jobState) {
-        sourceData[QLatin1String("jobState")] = jobState;
+    if (sourceData[QLatin1String("jobIconName")] != job.iconName()) {
+        sourceData[QLatin1String("jobIconName")] = job.iconName();
         changed = true;
     }
     if (sourceData[QLatin1String("jobCompletedAt")] != job.completedAt()) {
         sourceData[QLatin1String("jobCompletedAt")] = job.completedAt();
         changed = true;
     }
-    if (sourceData[QLatin1String("jobCreatedAt")] != job.createdAt()) {
-        sourceData[QLatin1String("jobCreatedAt")] = job.createdAt();
+    QString createdAt = KGlobal::locale()->formatDateTime(job.createdAt());
+    if (sourceData[QLatin1String("jobCreatedAt")] != createdAt) {
+        sourceData[QLatin1String("jobCreatedAt")] = createdAt;
         changed = true;
     }
     if (sourceData[QLatin1String("jobPrinter")] != job.printer()) {
@@ -147,6 +124,18 @@ void PrintManagerEngine::job(const QString &prefix, int order, const KCupsJob &j
     }
     if (sourceData[QLatin1String("jobOwner")] != job.ownerName()) {
         sourceData[QLatin1String("jobOwner")] = job.ownerName();
+        changed = true;
+    }
+    if (sourceData[QLatin1String("jobCancelEnabled")] != job.cancelEnabled()) {
+        sourceData[QLatin1String("jobCancelEnabled")] = job.cancelEnabled();
+        changed = true;
+    }
+    if (sourceData[QLatin1String("jobHoldEnabled")] != job.holdEnabled()) {
+        sourceData[QLatin1String("jobHoldEnabled")] = job.holdEnabled();
+        changed = true;
+    }
+    if (sourceData[QLatin1String("jobReleaseEnabled")] != job.releaseEnabled()) {
+        sourceData[QLatin1String("jobReleaseEnabled")] = job.releaseEnabled();
         changed = true;
     }
     if (job.processedPages() == 0) {

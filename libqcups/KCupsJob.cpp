@@ -105,6 +105,37 @@ int KCupsJob::size() const
     return jobKOctets;
 }
 
+QString KCupsJob::iconName() const
+{
+    QString ret;
+    switch (state()){
+    case IPP_JOB_PENDING:
+        ret = QLatin1String("chronometer");
+        break;
+    case IPP_JOB_HELD:
+        ret = QLatin1String("media-playback-pause");
+        break;
+    case IPP_JOB_PROCESSING:
+        ret = QLatin1String("draw-arrow-forward");
+        break;
+    case IPP_JOB_STOPPED:
+        ret = QLatin1String("draw-rectangle");
+        break;
+    case IPP_JOB_CANCELED:
+        ret = QLatin1String("archive-remove");
+        break;
+    case IPP_JOB_ABORTED:
+        ret = QLatin1String("task-attempt");
+        break;
+    case IPP_JOB_COMPLETED:
+        ret = QLatin1String("task-complete");
+        break;
+    default:
+        ret = QLatin1String("unknown");
+    }
+    return ret;
+}
+
 ipp_jstate_e KCupsJob::state() const
 {
     return static_cast<ipp_jstate_e>(m_arguments["job-state"].toUInt());
@@ -113,6 +144,43 @@ ipp_jstate_e KCupsJob::state() const
 QString KCupsJob::stateMsg() const
 {
     return m_arguments["job-printer-state-message"].toString();
+}
+
+bool KCupsJob::cancelEnabled() const
+{
+    switch (state()) {
+    case IPP_JOB_CANCELED:
+    case IPP_JOB_COMPLETED:
+    case IPP_JOB_ABORTED:
+        return false;
+    default:
+        return true;
+    }
+}
+
+bool KCupsJob::holdEnabled() const
+{
+    switch (state()) {
+    case IPP_JOB_CANCELED:
+    case IPP_JOB_COMPLETED:
+    case IPP_JOB_ABORTED:
+    case IPP_JOB_HELD:
+    case IPP_JOB_STOPPED:
+        return false;
+    default:
+        return true;
+    }
+}
+
+bool KCupsJob::releaseEnabled() const
+{
+    switch (state()) {
+    case IPP_JOB_HELD :
+    case IPP_JOB_STOPPED :
+        return true;
+    default:
+        return false;
+    }
 }
 
 QStringList KCupsJob::flags(const Attributes &attributes)

@@ -30,9 +30,12 @@ class PrintManagerService : public Plasma::Service
     Q_OBJECT
 public:
     explicit PrintManagerService(QObject *parent, const QString &destination = QString());
+    explicit PrintManagerService(QObject *parent, int jobId);
 
 protected:
     virtual Plasma::ServiceJob* createJob(const QString &operation, QMap<QString, QVariant> &parameters);
+
+    int m_jobId;
 };
 
 #endif // PRINT_MANAGER_SERVICE_H

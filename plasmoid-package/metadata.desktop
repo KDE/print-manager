@@ -8,7 +8,7 @@ X-KDE-ServiceTypes=Plasma/Applet,Plasma/PopupApplet
 
 X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/printmanager.qml
-X-Plasma-DefaultSize=400,300
+X-Plasma-DefaultSize=650,270
 X-Plasma-NotificationArea=true
 
 X-KDE-PluginInfo-Author=Daniel Nicoletti

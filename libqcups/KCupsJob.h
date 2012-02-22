@@ -65,8 +65,13 @@ public:
     int processedPages() const;
     int size() const;
 
+    QString iconName() const;
     ipp_jstate_e state() const;
     QString stateMsg() const;
+
+    bool cancelEnabled() const;
+    bool holdEnabled() const;
+    bool releaseEnabled() const;
 
 protected:
     KCupsJob(const QVariantHash &arguments);

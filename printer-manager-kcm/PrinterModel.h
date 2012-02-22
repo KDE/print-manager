@@ -69,9 +69,6 @@ public slots:
 signals:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
-private slots:
-    void printer(int pos, const KCupsPrinter &printer);
-
 private:
     WId m_parentId;
     QTimer *m_updateT;

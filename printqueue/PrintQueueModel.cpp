@@ -52,30 +52,6 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
     setHorizontalHeaderItem(ColPrinter,       new QStandardItem(i18n("Printer")));
 }
 
-void PrintQueueModel::job(int position, const KCupsJob &job)
-{
-//    QCups::Arguments job = jobs.at(position);
-    if (job.state() == IPP_JOB_PROCESSING) {
-        m_processingJob = job.name();
-    }
-
-    // try to find the job row
-    int job_row = jobRow(job.id());
-    if (job_row == -1) {
-        // not found, insert new one
-        insertJob(position, job);
-    } else if (job_row == position) {
-        // update the job
-        updateJob(position, job);
-    } else {
-        // found at wrong position
-        // take it and insert on the right position
-        QList<QStandardItem *> row = takeRow(job_row);
-        insertRow(position, row);
-        updateJob(position, job);
-    }
-}
-
 void PrintQueueModel::getJobFinished()
 {
     KCupsRequest *request = static_cast<KCupsRequest *>(sender());
@@ -85,6 +61,29 @@ void PrintQueueModel::getJobFinished()
             // clear the model after so that the proper widget can be shown
 //            clear();// TODO remove also in printerModel
         } else {
+            KCupsRequest::KCupsJobs jobs = request->jobs();
+            for (int i = 0; i < jobs.size(); ++i) {
+                if (jobs.at(i).state() == IPP_JOB_PROCESSING) {
+                    m_processingJob = jobs.at(i).name();
+                }
+
+                // try to find the job row
+                int job_row = jobRow(jobs.at(i).id());
+                if (job_row == -1) {
+                    // not found, insert new one
+                    insertJob(i, jobs.at(i));
+                } else if (job_row == i) {
+                    // update the job
+                    updateJob(i, jobs.at(i));
+                } else {
+                    // found at wrong position
+                    // take it and insert on the right position
+                    QList<QStandardItem *> row = takeRow(job_row);
+                    insertRow(i, row);
+                    updateJob(i, jobs.at(i));
+                }
+            }
+
             // remove old printers
             // The above code starts from 0 and make sure
             // dest == modelIndex(x) and if it's not the

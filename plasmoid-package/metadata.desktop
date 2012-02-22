@@ -1,6 +1,12 @@
 [Desktop Entry]
 Name=Manage Print Jobs
+Name[nl]=Afdrukopdrachten beheren
+Name[uk]=Керування завданнями з друку
+Name[x-test]=xxManage Print Jobsxx
 Comment=List print jobs and manage them
+Comment[nl]=Een lijst maken van afdrukopdrachten en ze beheren
+Comment[uk]=Показ списку завдань і керування ними
+Comment[x-test]=xxList print jobs and manage themxx
 
 Icon=printer
 Type=Service

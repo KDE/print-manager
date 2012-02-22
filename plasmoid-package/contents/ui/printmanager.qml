@@ -26,7 +26,11 @@ Item {
     property int minimumWidth: horizontalLayout ? 650 : 300
     property int minimumHeight: 270
     
-    property bool horizontalLayout: printersModel.count > 1
+    property bool horizontalLayout: false//printersModel.count > 1
+
+    Component.onCompleted: {
+        plasmoid.aspectRatioMode = IgnoreAspectRatio
+    }
 
     PlasmaCore.Theme {
         id: theme

@@ -54,6 +54,7 @@ public:
     static QStringList flags(const Attributes &attribute);
 
     int id() const;
+    QString idStr() const;
     QString name() const;
     QString ownerName() const;
     QString printer() const;

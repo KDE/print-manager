@@ -23,7 +23,7 @@
  
 #include <Plasma/DataEngine>
 
-#include <KCupsJob.h>
+#include <KCupsRequest.h>
  
 /**
  * This engine provides all the print jobs the current server has.
@@ -52,9 +52,7 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
-    void job(const QString &prefix, int order, const KCupsJob &job);
     void requestJobsFinished();
-    void printer(const QString &prefix, int order, const KCupsPrinter &printer);
     void requestPrintersFinished();
 
 protected:
@@ -67,9 +65,15 @@ protected:
     bool updateSourceEvent(const QString &source);
 
 private:
+    void job(const QString &prefix, int order, const KCupsJob &job);
+    void updateJobs(const QString &prefix, const KCupsRequest::KCupsJobs &jobs);
+    void printer(const QString &prefix, int order, const KCupsPrinter &printer);
+    void updatePrinters(const QString &prefix, const KCupsRequest::KCupsPrinters &printers);
+
     KCupsJob::Attributes m_jobAttributes;
     KCupsRequest *m_jobsRequest;
     KCupsRequest *m_printersRequest;
+    QStringList m_validSources;
 };
  
 #endif // PRINT_MANAGER_ENGINE_H

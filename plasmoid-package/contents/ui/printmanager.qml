@@ -36,18 +36,18 @@ Item {
         id: printersSource
         engine: "printmanager"
         connectedSources: ["Printers"]
-        interval: 0
+        interval: 500
         
         onSourceAdded: {
             console.debug(source);
-            var pattern = /Printers\/?[^\/]+$/
+            var pattern = /Printers(\/[^\/]+)?$/
             if (source.match(pattern)) {
                 console.debug("Source Connected:" + source);
                 connectSource(source);
             }            
         }
         Component.onCompleted: {
-            var pattern = /Printers\/?[^\/]+$/
+            var pattern = /Printers(\/[^\/]+)?$/
             for (var i in sources) {
                 console.debug("COMPLETED " + sources[i]);
                 if (sources[i].match(pattern)) {
@@ -62,24 +62,24 @@ Item {
         id: jobsSource
         engine: "printmanager"
         connectedSources: ["ActiveJobs"]
-        interval: 0
+        interval: 500
         property string whichJobs: "ActiveJobs"
         property string whichPrinter
         
         onSourceAdded: {
-            console.debug(source);
-            var pattern = /ActiveJobs\/?\d+$/
+            console.debug("Job onSourceAdded " + source);
+            var pattern = /ActiveJobs(\/\d+)?$/
             if (source.match(pattern)) {
-                console.debug("Source Connected:" + source);
+                console.debug("Job onSourceAdded =  Source Connected:" + source);
                 connectSource(source);
             }            
         }
         Component.onCompleted: {
-            var pattern = /ActiveJobs\/?\d+$/
+            var pattern = /ActiveJobs(\/\d+)?$/
             for (var i in sources) {
-                console.debug("COMPLETED " + sources[i]);
+                console.debug("Job onCOMPLETED " + sources[i]);
                 if (sources[i].match(pattern)) {
-                    console.debug("COMPLETED Source Connected:" + sources[i]);
+                    console.debug("Job onCOMPLETED Source Connected:" + sources[i]);
                     connectSource(sources[i]);
                 }
             }

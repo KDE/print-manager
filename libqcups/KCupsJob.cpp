@@ -31,6 +31,7 @@ KCupsJob::KCupsJob(int jobId, const QString &printer) :
     m_jobId(jobId),
     m_printer(printer)
 {
+    m_arguments["job-id"] = QString::number(jobId);
 }
 
 KCupsJob::KCupsJob(const QVariantHash &arguments) :
@@ -44,6 +45,11 @@ KCupsJob::KCupsJob(const QVariantHash &arguments) :
 int KCupsJob::id() const
 {
     return m_jobId;
+}
+
+QString KCupsJob::idStr() const
+{
+    return m_arguments["job-id"].toString();
 }
 
 QString KCupsJob::name() const

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>printmanagerConfig</class>
+ <widget class="QWidget" name="printmanagerConfig">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>447</width>
+    <height>183</height>
+   </rect>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="7" column="1">
+    <widget class="QRadioButton" name="kcfg_completedJobs">
+     <property name="text">
+      <string>Show Completed Jobs</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QRadioButton" name="kcfg_allJobs">
+     <property name="text">
+      <string>Show All Jobs</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QRadioButton" name="kcfg_activeJobs">
+     <property name="text">
+      <string>Show Active Jobs</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Only Jobs from Printer:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1">
+    <widget class="QLineEdit" name="kcfg_printerName"/>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

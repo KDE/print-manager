@@ -55,9 +55,6 @@ Item {
             printersView.highlight("");
         }
         onClicked: {
-            console.debug(printerItem);
-            console.debug(printerItem.ListView.view.currentIndex);
-            console.debug("multipleItems" + multipleItems);
             if (printerItem.ListView.view.currentIndex == index) {
                 printerItem.ListView.view.currentIndex = -1;
                 printersView.highlight(printerName);

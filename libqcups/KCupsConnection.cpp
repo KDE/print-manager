@@ -64,7 +64,6 @@ KCupsConnection::~KCupsConnection()
 
 void KCupsConnection::run()
 {
-    kDebug() << QThread::currentThread();
     // This is dead cool, cups will call the thread_password_cb()
     // function when a password set is needed, as we passed the
     // password dialog pointer the functions just need to call
@@ -228,7 +227,6 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
     } while (retryIfForbidden());
 
     if (response != NULL && needResponse) {
-        kDebug() << "parseIPPVars";
         ret = parseIPPVars(response, group_tag, needDestName);
     }
     ippDelete(response);
@@ -366,7 +364,6 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 
 bool KCupsConnection::retryIfForbidden()
 {
-    kDebug() << "cupsLastErrorString()" << cupsLastErrorString() << cupsLastError() << IPP_FORBIDDEN;
     if (cupsLastError() == IPP_FORBIDDEN ||
         cupsLastError() == IPP_NOT_AUTHORIZED ||
         cupsLastError() == IPP_NOT_AUTHENTICATED) {
@@ -383,6 +380,7 @@ bool KCupsConnection::retryIfForbidden()
         }
 
         // force authentication
+        kDebug() << "cupsLastErrorString()" << cupsLastErrorString() << cupsLastError();
         kDebug() << "cupsDoAuthentication" << password_retries;
         cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", "/");
         // tries to do the action again
@@ -400,9 +398,6 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     Q_UNUSED(http)
     Q_UNUSED(method)
     Q_UNUSED(resource)
-
-    kDebug() << QThread::currentThreadId()
-             << "-----------thread_password_cb------"<< "password_retries" << password_retries;
 
     if (++password_retries > 3) {
         // cancel the authentication

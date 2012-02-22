@@ -26,14 +26,51 @@ Item {
     property int minimumWidth: horizontalLayout ? 650 : 300
     property int minimumHeight: 270
     
-    property bool horizontalLayout: false//printersModel.count > 1
-
-    Component.onCompleted: {
-        plasmoid.aspectRatioMode = IgnoreAspectRatio
-    }
+    property bool horizontalLayout: printersModel.count > 1
+    property string whichJobs
+    property string whichPrinter
 
     PlasmaCore.Theme {
         id: theme
+    }
+    
+    Component.onCompleted: {
+        // This allows the plasmoid to shrink when the layout changes
+        plasmoid.aspectRatioMode = IgnoreAspectRatio
+        plasmoid.addEventListener ('ConfigChanged', configChanged);
+        plasmoid.popupEvent.connect(popupEventSlot);
+        configChanged();
+    }
+    
+    function configChanged() {
+        var activeJobs = plasmoid.readConfig("activeJobs");
+        var allJobs = plasmoid.readConfig("allJobs");
+        var _whichJobs;
+        if (activeJobs == true) {
+            _whichJobs = "ActiveJobs";
+        } else if (allJobs == true) {
+            _whichJobs = "AllJobs";
+        } else {
+            _whichJobs = "CompletedJobs";
+        }
+        
+        if (_whichJobs != whichJobs) {
+            console.debug("--------Which JOBS Changed:" + whichJobs + " to " + _whichJobs);
+            whichJobs = _whichJobs;
+            jobsSource.connectedSources = [whichJobs];
+            jobsSource.onCompleted(sources);
+            console.debug("--------Which JOBS sources:" + jobsSource.sources);
+        }
+
+        printersView.currentIndex = -1;
+        jobsView.currentIndex = -1;
+    }
+    
+    function popupEventSlot(popped) {
+        if (!popped) {
+            printersView.currentIndex = -1;
+            jobsView.currentIndex = -1;
+        }
     }
 
     PlasmaCore.DataSource {
@@ -65,24 +102,30 @@ Item {
     PlasmaCore.DataSource {
         id: jobsSource
         engine: "printmanager"
-        connectedSources: ["ActiveJobs"]
+//         connectedSources: whichJobs
         interval: 1500
-        property string whichJobs: "ActiveJobs"
-        property string whichPrinter
         
         onSourceAdded: {
             console.debug("Job onSourceAdded " + source);
-            var pattern = /ActiveJobs(\/\d+)?$/
-            if (source.match(pattern)) {
+//             list.onCountChanged: {
+//                 if (count == 0) {
+//                     plasmoid.status = "PassiveStatus"
+//                 } else {
+//                     plasmoid.status = "PassiveStatus"
+//                 }
+//             }
+            
+            var re = new RegExp(whichJobs + "(/\\d+)?$");
+            if (source.match(re)) {
                 console.debug("Job onSourceAdded =  Source Connected:" + source);
                 connectSource(source);
             }            
         }
         Component.onCompleted: {
-            var pattern = /ActiveJobs(\/\d+)?$/
+            var re = new RegExp(whichJobs + "(/\\d+)?$")
             for (var i in sources) {
                 console.debug("Job onCOMPLETED " + sources[i]);
-                if (sources[i].match(pattern)) {
+                if (sources[i].match(re)) {
                     console.debug("Job onCOMPLETED Source Connected:" + sources[i]);
                     connectSource(sources[i]);
                 }
@@ -102,26 +145,12 @@ Item {
                 ParentChange { target: printersView; parent: columnLayout }
                 ParentChange { target: headerSeparator; parent: columnLayout }
                 ParentChange { target: jobsView; parent: columnLayout }
-                PropertyChanges { target: printmanager; width: printmanager.minimumWidth; height: printmanager.minimumHeight }
-                StateChangeScript {
-                    script: {
-                        plasmoid.setMinimunSize(printmanager.minimumWidth, printmanager.minimumHeight);
-                        plasmoid.resize(printmanager.minimumWidth, printmanager.minimumHeight);
-                    }
-                }
             },
             State {
                 name: "horizontal"
                 ParentChange { target: printersView; parent: rowLayout }
                 ParentChange { target: headerSeparator; parent: rowLayout }
                 ParentChange { target: jobsView; parent: rowLayout }
-                PropertyChanges { target: printmanager; width: printmanager.minimumWidth; height: printmanager.minimumHeight }
-                StateChangeScript {
-                    script: {
-                        plasmoid.setMinimunSize(printmanager.minimumWidth, printmanager.minimumHeight);
-                        plasmoid.resize(printmanager.minimumWidth, printmanager.minimumHeight);
-                    }
-                }
             }
         ]
     }

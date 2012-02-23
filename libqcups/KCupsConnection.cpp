@@ -100,8 +100,7 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
     do {
         ipp_t *request;
         bool isClass = false;
-        const char *name = NULL;
-        const char *filename = NULL;
+        QString filename;
         QVariantHash values = reqValues;
 
         ippDelete(response);
@@ -112,20 +111,17 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
         if (values.contains("need-dest-name")) {
             needDestName = values.take("need-dest-name").toBool();
         }
-        if (values.contains("printer-name")) {
-            name = qstrdup(values.take("printer-name").toString().toUtf8());
-        }
         if (values.contains("group-tag-qt")) {
             group_tag = values.take("group-tag-qt").toInt();
         }
 
         if (values.contains("filename")) {
-            filename = qstrdup(values.take("filename").toString().toUtf8());
+            filename = values.take("filename").toString();
         }
 
         // Lets create the request
-        if (name) {
-            request = ippNewDefaultRequest(name, isClass, operation);
+        if (values.contains("printer-name")) {
+            request = ippNewDefaultRequest(values.take("printer-name").toString(), isClass, operation);
         } else {
             request = ippNewRequest(operation);
         }
@@ -206,6 +202,7 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                     }
                     // Dump all the list values
                     for (int i = 0; i < list.size(); i++) {
+                        // TODO valgrind says this leak but it does not work calling .data()
                         attr->values[i].string.text = qstrdup(list.at(i).toUtf8());
                     }
                 }
@@ -218,10 +215,10 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
 
         // Do the request
         // do the request deleting the response
-        if (filename) {
-            response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8(), filename);
-        } else {
+        if (filename.isEmpty()) {
             response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8());
+        } else {
+            response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8(), filename.toUtf8());
         }
 
     } while (retryIfForbidden());
@@ -297,10 +294,17 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
 }
 
 // Don't forget to delete the request
-ipp_t* KCupsConnection::ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation)
+ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation)
 {
     char  uri[HTTP_MAX_URI]; // printer URI
     ipp_t *request;
+
+    QString destination;
+    if (isClass) {
+        destination = QLatin1String("/classes/") + name;
+    } else {
+        destination = QLatin1String("/printers/") + name;
+    }
 
     // Create a new request
     // where we need:
@@ -308,7 +312,7 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const char *name, bool isClass, ipp
     // * requesting-user-name
     request = ippNewRequest(operation);
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8", "localhost",
-                     ippPort(), isClass ? "/classes/%s" : "/printers/%s", name);
+                     ippPort(), destination.toUtf8());
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
                  "utf-8", uri);
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",

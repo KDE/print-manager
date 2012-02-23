@@ -67,7 +67,7 @@ protected:
     static ReturnArguments parseIPPVars(ipp_t *response,
                                         int group_tag,
                                         bool needDestName);
-    static ipp_t* ippNewDefaultRequest(const char *name, bool isClass, ipp_op_t operation);
+    static ipp_t* ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
 
 private:

@@ -288,8 +288,6 @@ bool PrintManagerEngine::sourceRequestEvent(const QString &source)
  
 bool PrintManagerEngine::updateSourceEvent(const QString &source)
 { 
-    KCupsRequest *request = new KCupsRequest;
-
     if (source != QLatin1String("Printers") &&
         source != QLatin1String("ActiveJobs") &&
         source != QLatin1String("AllJobs") &&
@@ -297,16 +295,17 @@ bool PrintManagerEngine::updateSourceEvent(const QString &source)
         return false;
     }
 
+    KCupsRequest *request = new KCupsRequest;
     if (source == QLatin1String("Printers")) {
-            request->getPrinters(m_printerAttributes);
-            request->waitTillFinished();
-            updatePrinters(source + QLatin1Char('/'), request->printers());
+        request->getPrinters(m_printerAttributes);
+        request->waitTillFinished();
+        updatePrinters(source + QLatin1Char('/'), request->printers());
     } else {
         if (source == QLatin1String("ActiveJobs")) {
             request->getJobs(QString(), false, CUPS_WHICHJOBS_ACTIVE, m_jobAttributes);
         } else if (source == QLatin1String("AllJobs")) {
             request->getJobs(QString(), false, CUPS_WHICHJOBS_ALL, m_jobAttributes);
-        } else if (source == QLatin1String("CompletedJobs")) {
+        } else {
             request->getJobs(QString(), false, CUPS_WHICHJOBS_COMPLETED, m_jobAttributes);
         }
         request->waitTillFinished();

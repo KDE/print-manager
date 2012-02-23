@@ -140,17 +140,16 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
         request["requested-attributes"] = KCupsPrinter::flags(attributes);
         request["need-dest-name"] = true;
 
-        ReturnArguments dests;
-        dests = KCupsConnection::request(CUPS_GET_PRINTERS,
-                                         "/",
-                                         request,
-                                         true);
+        ReturnArguments ret;
+        ret = KCupsConnection::request(CUPS_GET_PRINTERS,
+                                       "/",
+                                       request,
+                                       true);
 
-        for (int i = 0; i < dests.size(); i++) {
-            m_printers << KCupsPrinter(dests.at(i));
+        for (int i = 0; i < ret.size(); i++) {
+            m_printers << KCupsPrinter(ret.at(i));
         }
 
-        m_retArguments = dests;
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -185,13 +184,14 @@ void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, K
         }
         request["group-tag-qt"] = IPP_TAG_JOB;
 
-        m_retArguments = KCupsConnection::request(IPP_GET_JOBS,
-                                                  "/",
-                                                  request,
-                                                  true);
+        ReturnArguments ret;
+        ret = KCupsConnection::request(IPP_GET_JOBS,
+                                       "/",
+                                       request,
+                                       true);
 
-        for (int i = 0; i < m_retArguments.size(); i++) {
-            m_jobs << KCupsJob(m_retArguments.at(i));
+        for (int i = 0; i < ret.size(); i++) {
+            m_jobs << KCupsJob(ret.at(i));
         }
 
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));

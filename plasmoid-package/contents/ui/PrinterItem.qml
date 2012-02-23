@@ -48,19 +48,19 @@ Item {
         hoverEnabled: multipleItems
         onEntered: {
             padding.opacity = 0.6;
-            printersView.highlight(printerName);
+            highlightPrinter = printerName;
         }
         onExited: {
             padding.opacity = 0;
-            printersView.highlight("");
+            highlightPrinter = "";
         }
         onClicked: {
             if (printerItem.ListView.view.currentIndex == index) {
                 printerItem.ListView.view.currentIndex = -1;
-                printersView.highlight(printerName);
+                highlightPrinter = printerName;
             } else if (multipleItems) {
                 printerItem.ListView.view.currentIndex = index;
-                printersView.highlight("");
+                highlightPrinter = "";
             }
         }
     

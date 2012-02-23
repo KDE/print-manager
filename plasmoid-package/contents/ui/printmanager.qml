@@ -26,8 +26,8 @@ Item {
     property int minimumWidth: horizontalLayout ? 650 : 300
     property int minimumHeight: 270
     
-    property bool horizontalLayout: printersModel.count > 1
-    property string whichJobs
+    property string highlightPrinter
+    property bool horizontalLayout: printersFilterModel.count > 1
     property string whichPrinter
 
     PlasmaCore.Theme {
@@ -44,23 +44,22 @@ Item {
     
     function configChanged() {
         var activeJobs = plasmoid.readConfig("activeJobs");
-        var allJobs = plasmoid.readConfig("allJobs");
-        var _whichJobs;
+        var completedJobs = plasmoid.readConfig("completedJobs");
+        activeJobsModel.interval = 0;
+        completedJobsModel.interval = 0;
+        allJobsModel.interval = 0;
         if (activeJobs == true) {
-            _whichJobs = "ActiveJobs";
-        } else if (allJobs == true) {
-            _whichJobs = "AllJobs";
+            jobsFilterModel.sourceModel = activeJobsModel;
+            activeJobsModel.interval = 1500;
+        } else if (completedJobs == true) {
+            jobsFilterModel.sourceModel = completedJobsModel;
+            completedJobsModel.interval = 1500;
         } else {
-            _whichJobs = "CompletedJobs";
+            jobsFilterModel.sourceModel = allJobsModel;
+            allJobsModel.interval = 1500;
         }
         
-        if (_whichJobs != whichJobs) {
-            console.debug("--------Which JOBS Changed:" + whichJobs + " to " + _whichJobs);
-            whichJobs = _whichJobs;
-            jobsSource.connectedSources = [whichJobs];
-            jobsSource.onCompleted(sources);
-            console.debug("--------Which JOBS sources:" + jobsSource.sources);
-        }
+        whichPrinter = plasmoid.readConfig("printerName");
 
         printersView.currentIndex = -1;
         jobsView.currentIndex = -1;
@@ -73,64 +72,20 @@ Item {
         }
     }
 
-    PlasmaCore.DataSource {
-        id: printersSource
-        engine: "printmanager"
-        connectedSources: ["Printers"]
-        interval: 1500
-        
-        onSourceAdded: {
-            console.debug(source);
-            var pattern = /Printers(\/[^\/]+)?$/
-            if (source.match(pattern)) {
-                console.debug("Source Connected:" + source);
-                connectSource(source);
-            }            
-        }
-        Component.onCompleted: {
-            var pattern = /Printers(\/[^\/]+)?$/
-            for (var i in sources) {
-                console.debug("COMPLETED " + sources[i]);
-                if (sources[i].match(pattern)) {
-                    console.debug("COMPLETED Source Connected:" + sources[i]);
-                    connectSource(sources[i]);
-                }
-            }
-        }
+    PrintManagerDataModel {
+        id: activeJobsModel
+        connectedSources: ["ActiveJobs"]
+        filter: "ActiveJobs"
     }
-    
-    PlasmaCore.DataSource {
-        id: jobsSource
-        engine: "printmanager"
-//         connectedSources: whichJobs
-        interval: 1500
-        
-        onSourceAdded: {
-            console.debug("Job onSourceAdded " + source);
-//             list.onCountChanged: {
-//                 if (count == 0) {
-//                     plasmoid.status = "PassiveStatus"
-//                 } else {
-//                     plasmoid.status = "PassiveStatus"
-//                 }
-//             }
-            
-            var re = new RegExp(whichJobs + "(/\\d+)?$");
-            if (source.match(re)) {
-                console.debug("Job onSourceAdded =  Source Connected:" + source);
-                connectSource(source);
-            }            
-        }
-        Component.onCompleted: {
-            var re = new RegExp(whichJobs + "(/\\d+)?$")
-            for (var i in sources) {
-                console.debug("Job onCOMPLETED " + sources[i]);
-                if (sources[i].match(re)) {
-                    console.debug("Job onCOMPLETED Source Connected:" + sources[i]);
-                    connectSource(sources[i]);
-                }
-            }
-        }
+    PrintManagerDataModel {
+        id: completedJobsModel
+        connectedSources: ["CompletedJobs"]
+        filter: "CompletedJobs"
+    }
+    PrintManagerDataModel {
+        id: allJobsModel
+        connectedSources: ["AllJobs"]
+        filter: "AllJobs"
     }
     
     Column {
@@ -160,13 +115,20 @@ Item {
         anchors.fill: parent
         ScrollableListView {
             id: printersView
-            signal highlight(string printer)
             width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : 50
             currentIndex: -1
-            model: PlasmaCore.DataModel {
-                id: printersModel
-                dataSource: printersSource
+            model: PlasmaCore.SortFilterModel {
+                id: printersFilterModel
+                sourceModel: PrintManagerDataModel {
+                    interval: 1500
+                    connectedSources: ["Printers"]
+                    filter: "Printers"
+                }
+                filterRole: "printerName"
+                filterRegExp: whichPrinter
+                sortRole: "order"
+                sortOrder: Qt.DescendingOrder
             }
             delegate: PrinterItem{
                 multipleItems: horizontalLayout
@@ -187,12 +149,14 @@ Item {
         
         ScrollableListView {
             id: jobsView
-            signal highlight(string printer)
             width:  horizontalLayout ? parent.width * 0.60 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : parent.height - 50
-            model: PlasmaCore.DataModel {
-                id: jobsModel
-                dataSource: jobsSource
+            model: PlasmaCore.SortFilterModel {
+                id: jobsFilterModel
+                filterRole: "jobPrinter"
+                filterRegExp: whichPrinter
+                sortRole: "order"
+                sortOrder: Qt.DescendingOrder
             }
             delegate: JobItem{}
             

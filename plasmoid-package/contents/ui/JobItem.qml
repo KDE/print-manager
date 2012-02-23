@@ -33,21 +33,9 @@ Item {
         id: padding
         imagePath: "widgets/viewitem"
         prefix: "hover"
-        opacity: 0
+        opacity: highlightPrinter == jobPrinter ? 0.7 : 0
         Behavior on opacity { PropertyAnimation {} }
         anchors.fill: parent
-        
-        Component.onCompleted: {
-            // Try to avoid calling jobsView directly
-            jobsView.highlight.connect(highlightJobs)
-        }
-        function highlightJobs(printer) {
-            if (printer == jobPrinter) {
-                padding.opacity = 0.7;
-            } else {
-                padding.opacity = 0;
-            }
-        }
     }
     
     MouseArea {

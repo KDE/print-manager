@@ -652,8 +652,6 @@ KCupsRequest::KCupsJobs KCupsRequest::jobs() const
 
 void KCupsRequest::waitTillFinished()
 {
-    kDebug() << QThread::currentThreadId();
-    kDebug() << m_finished;
     if (m_finished) {
         return;
     }

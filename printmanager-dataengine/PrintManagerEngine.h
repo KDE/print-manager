@@ -51,13 +51,9 @@ public:
     // Get the Service class which we run operations on
     virtual Plasma::Service* serviceForSource(const QString &source);
 
-private slots:
-    void requestJobsFinished();
-    void requestPrintersFinished();
-
 protected:
     // this virtual function is called when a new source is requested
-    bool sourceRequestEvent(const QString &name);
+    bool sourceRequestEvent(const QString &source);
 
     // this virtual function is called when an automatic update
     // is triggered for an existing source (ie: when a valid update
@@ -71,9 +67,9 @@ private:
     void updatePrinters(const QString &prefix, const KCupsRequest::KCupsPrinters &printers);
 
     KCupsJob::Attributes m_jobAttributes;
+    KCupsPrinter::Attributes m_printerAttributes;
     KCupsRequest *m_jobsRequest;
     KCupsRequest *m_printersRequest;
-    QStringList m_validSources;
 };
  
 #endif // PRINT_MANAGER_ENGINE_H

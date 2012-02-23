@@ -115,7 +115,7 @@ Item {
                             text: "Cancel Job"
                             visible: jobCancelEnabled
                             onClicked: {
-                                service = printersSource.serviceForSource(DataEngineSource);
+                                service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
                                 operation = service.operationDescription("cancelJob");
                                 operation.PrinterName = jobPrinter;
                                 service.startOperationCall(operation);
@@ -128,7 +128,7 @@ Item {
                             text: jobHoldEnabled ? "Hold Job" : "Release Job"
                             visible: jobCancelEnabled
                             onClicked: {
-                                service = printersSource.serviceForSource(DataEngineSource);
+                                service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
                                 operation = service.operationDescription(jobHoldEnabled ? "holdJob" : "releaseJob");
                                 operation.PrinterName = jobPrinter;
                                 service.startOperationCall(operation);

@@ -167,7 +167,7 @@ void PrintManagerEngine::job(const QString &prefix, int order, const KCupsJob &j
     }
 }
 
-void PrintManagerEngine::updateJobs(const QString &prefix, const KCupsRequest::KCupsJobs &jobs)
+void PrintManagerEngine::updateJobs(const QString &prefix, const KCupsJobs &jobs)
 {
     QStringList jobsStrList;
     for (int i = 0; i < jobs.size(); ++i) {
@@ -244,7 +244,7 @@ void PrintManagerEngine::printer(const QString &prefix, int order, const KCupsPr
     }
 }
 
-void PrintManagerEngine::updatePrinters(const QString &prefix, const KCupsRequest::KCupsPrinters &printers)
+void PrintManagerEngine::updatePrinters(const QString &prefix, const KCupsPrinters &printers)
 {
     QStringList printersStrList;
     for (int i = 0; i < printers.size(); ++i) {

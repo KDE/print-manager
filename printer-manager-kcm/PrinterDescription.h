@@ -48,12 +48,7 @@ public:
     void setIsShared(bool isShared);
     void setCommands(const QStringList &commands);
 
-    void setMarkerLevels(const QVariant &data);
-    void setMarkerColors(const QVariant &data);
-    void setMarkerNames(const QVariant &data);
-    void setMarkerTypes(const QVariant &data);
-
-    bool needMarkerLevels(int markerChangeTime);
+    void setMarkers(const QVariantHash &data);
 
     QString destName() const;
 
@@ -61,7 +56,6 @@ private slots:
     void on_openQueuePB_clicked();
     void on_defaultCB_clicked();
     void on_sharedCB_clicked();
-    void on_supplyLevelsPB_clicked();
 
     void on_actionPrintTestPage_triggered(bool checked);
     void on_actionCleanPrintHeads_triggered(bool checked);
@@ -78,6 +72,7 @@ private:
     QPixmap m_warningIcon;
     int m_markerChangeTime;
     QVariantHash m_markerData;
+    int m_layoutEnd;
 };
 
 #endif

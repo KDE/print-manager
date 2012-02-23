@@ -62,9 +62,9 @@ protected:
 
 private:
     void job(const QString &prefix, int order, const KCupsJob &job);
-    void updateJobs(const QString &prefix, const KCupsRequest::KCupsJobs &jobs);
+    void updateJobs(const QString &prefix, const KCupsJobs &jobs);
     void printer(const QString &prefix, int order, const KCupsPrinter &printer);
-    void updatePrinters(const QString &prefix, const KCupsRequest::KCupsPrinters &printers);
+    void updatePrinters(const QString &prefix, const KCupsPrinters &printers);
 
     KCupsJob::Attributes m_jobAttributes;
     KCupsPrinter::Attributes m_printerAttributes;

@@ -38,10 +38,10 @@
 
 #define PRINTER_ICON_SIZE 92
 
-PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *parent)
+PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
  : QWidget(parent),
    ui(new Ui::PrintQueueUi),
-   m_destName(destName),
+   m_destName(printer.name()),
    m_preparingMenu(false),
    m_lastState(0),
    m_cfgDlg(0)
@@ -49,7 +49,7 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    m_isClass = printerType & CUPS_PRINTER_CLASS;
+    m_isClass = printer.isClass();
 
     // setup default options
     setWindowTitle(m_destName.isNull() ? i18n("All printers") : m_destName);
@@ -58,8 +58,7 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
     setupButtons();
 
     // loads the standard key icon
-    m_printerIcon = KCupsPrinter::icon(static_cast<cups_ptype_e>(printerType)).pixmap(PRINTER_ICON_SIZE,
-                                                                                      PRINTER_ICON_SIZE);
+    m_printerIcon = printer.icon().pixmap(PRINTER_ICON_SIZE, PRINTER_ICON_SIZE);
     ui->iconL->setPixmap(m_printerIcon);
 
     m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",
@@ -73,8 +72,8 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
     ui->printerStatusMsgL->setText(QString());
 
     // setup the jobs model
-    m_model = new PrintQueueModel(destName, winId(), this);
-    connect(m_model, SIGNAL(dataChanged( const QModelIndex &, const QModelIndex &)),
+    m_model = new PrintQueueModel(printer.name(), winId(), this);
+    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(updateButtons()));
     m_proxyModel = new PrintQueueSortFilterProxyModel(this);
     m_proxyModel->setSourceModel(m_model);
@@ -83,13 +82,13 @@ PrintQueueUi::PrintQueueUi(const QString &destName, int printerType, QWidget *pa
     ui->jobsView->setModel(m_proxyModel);
     // sort by status column means the jobs will be sorted by the queue order
     ui->jobsView->sortByColumn(PrintQueueModel::ColStatus, Qt::AscendingOrder);
-    connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+    connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(updateButtons()));
-    connect(ui->jobsView, SIGNAL(customContextMenuRequested(const QPoint &)),
-            this, SLOT(showContextMenu(const QPoint &)));
+    connect(ui->jobsView, SIGNAL(customContextMenuRequested(QPoint)),
+            this, SLOT(showContextMenu(QPoint)));
     ui->jobsView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(ui->jobsView->header(), SIGNAL(customContextMenuRequested(const QPoint &)),
-            this, SLOT(showHeaderContextMenu(const QPoint &)));
+    connect(ui->jobsView->header(), SIGNAL(customContextMenuRequested(QPoint)),
+            this, SLOT(showHeaderContextMenu(QPoint)));
 
     QHeaderView *header = ui->jobsView->header();
     header->setResizeMode(QHeaderView::Interactive);

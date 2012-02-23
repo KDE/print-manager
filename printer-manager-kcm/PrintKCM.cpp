@@ -202,12 +202,7 @@ void PrintKCM::update()
         m_printerDesc->setIsShared(index.data(PrinterModel::DestIsShared).toBool());
         m_printerDesc->setIsDefault(index.data(PrinterModel::DestIsDefault).toBool());
         m_printerDesc->setCommands(index.data(PrinterModel::DestCommands).toStringList());
-        if (m_printerDesc->needMarkerLevels(index.data(PrinterModel::DestMarkerChangeTime).toInt())) {
-            m_printerDesc->setMarkerLevels(index.data(PrinterModel::DestMarkerLevels));
-            m_printerDesc->setMarkerColors(index.data(PrinterModel::DestMarkerColors));
-            m_printerDesc->setMarkerNames(index.data(PrinterModel::DestMarkerNames));
-            m_printerDesc->setMarkerTypes(index.data(PrinterModel::DestMarkerTypes));
-        }
+        m_printerDesc->setMarkers(index.data(PrinterModel::DestMarkers).value<QVariantHash>());
     } else if (m_stackedLayout->widget() != m_noPrinter) {
         // the model is empty and no problem happened
         m_stackedLayout->setCurrentWidget(m_noPrinter);

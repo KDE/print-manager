@@ -51,7 +51,7 @@ void PrinterModel::getDestsFinished()
             // clear the model after so that the proper widget can be shown
             clear();
         } else {
-            KCupsRequest::KCupsPrinters printers = request->printers();
+            KCupsPrinters printers = request->printers();
             for (int i = 0; i < printers.size(); ++i) {
                 // If there is a printer and it's not the current one add it
                 // as a new destination
@@ -200,11 +200,14 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
 
     int markerChangeTime = printer.markerChangeTime();
     if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
-        destItem->setData(markerChangeTime, DestMarkerChangeTime);
-        destItem->setData(printer.argument("marker-colors"), DestMarkerColors);
-        destItem->setData(printer.argument("marker-levels"), DestMarkerLevels);
-        destItem->setData(printer.argument("marker-names"),  DestMarkerNames);
-        destItem->setData(printer.argument("marker-types"),  DestMarkerTypes);
+        destItem->setData(printer.markerChangeTime(), DestMarkerChangeTime);
+        QVariantHash markers;
+        markers["marker-change-time"] = printer.markerChangeTime();
+        markers["marker-colors"] = printer.argument("marker-colors");
+        markers["marker-levels"] = printer.argument("marker-levels");
+        markers["marker-names"] = printer.argument("marker-names");
+        markers["marker-types"] = printer.argument("marker-types");
+        destItem->setData(markers, DestMarkers);
     }
 }
 

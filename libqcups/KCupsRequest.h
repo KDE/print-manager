@@ -28,13 +28,14 @@
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
 
+typedef QList<KCupsPrinter> KCupsPrinters;
+typedef QList<KCupsJob> KCupsJobs;
+
 class KCupsServer;
 class KDE_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT
 public:
-    typedef QList<KCupsPrinter> KCupsPrinters;
-    typedef QList<KCupsJob> KCupsJobs;
     /**
      * Default constructor, it takes no parent
      * because it will move to KCupsConnection thread

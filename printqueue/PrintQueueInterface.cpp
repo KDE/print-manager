@@ -60,12 +60,11 @@ PrintQueueInterface::~PrintQueueInterface()
 void PrintQueueInterface::ShowQueue(const QString &destName)
 {
     if (destName.isEmpty()) {
-//         emit quit();
+        emit quit();
         return;
     }
 
     if(!m_uis.contains(destName)) {
-        ReturnArguments dests;
         KCupsPrinter::Attributes attr;
         attr |= KCupsPrinter::PrinterName;
         attr |= KCupsPrinter::PrinterType;
@@ -73,23 +72,23 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
         KCupsRequest *request = new KCupsRequest;
         request->getPrinters(attr);
         request->waitTillFinished();
-        dests = request->result();
-        request->deleteLater();
 
         bool found = false;
-        int printerType;
-        for (int i = 0; i < dests.size(); i++) {
-            if (dests.at(i)["printer-name"] == destName) {
-                printerType = dests.at(i)["printer-type"].toInt();
+        KCupsPrinter printer;
+        KCupsPrinters printers = request->printers();
+        for (int i = 0; i < printers.size(); i++) {
+            if (printers.at(i).name() == destName) {
+                printer = printers.at(i);
                 found = true;
                 break;
             }
         }
+        request->deleteLater();
 
         if (found) {
-            PrintQueueUi *ui = new PrintQueueUi(destName, printerType);
+            PrintQueueUi *ui = new PrintQueueUi(printer);
             KDialog *dlg = new KDialog;
-            dlg->setWindowIcon(KCupsPrinter::icon(static_cast<cups_ptype_e>(printerType)));
+            dlg->setWindowIcon(printer.icon());
             dlg->setWindowTitle(ui->windowTitle());
             dlg->setButtons(0);
             dlg->setMainWidget(ui);
@@ -103,13 +102,13 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
             connect(ui, SIGNAL(windowTitleChanged(const QString &)),
                     dlg, SLOT(setWindowTitle(const QString &)));
             dlg->show();
-            m_uis[destName] = dlg;
+            m_uis[printer.name()] = dlg;
 
         } else {
             // if no destination was found and we aren't showing
             // a queue quit the app
             if (m_uis.isEmpty()) {
-//                 emit quit();
+                 emit quit();
             }
             return;
         }

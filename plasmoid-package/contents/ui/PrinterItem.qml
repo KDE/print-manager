@@ -123,7 +123,7 @@ Item {
                     fill: parent
                 }
                 onClicked: {
-                    service = printersSource.serviceForSource(DataEngineSource);
+                    service = printerSource.dataSource.serviceForSource(DataEngineSource);
                     operation = service.operationDescription(stateEnum == "stopped" ? "resumePrinter" : "pausePrinter");
                     service.startOperationCall(operation);
                 }

@@ -121,6 +121,7 @@ Item {
             model: PlasmaCore.SortFilterModel {
                 id: printersFilterModel
                 sourceModel: PrintManagerDataModel {
+                    id: printerSource
                     interval: 1500
                     connectedSources: ["Printers"]
                     filter: "Printers"

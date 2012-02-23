@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -31,6 +31,9 @@
 #include <KLocale>
 #include <KMessageBox>
 #include <KDebug>
+
+#include <QList>
+Q_DECLARE_METATYPE(QList<int>)
 
 ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent) :
     KPageDialog(parent)
@@ -69,6 +72,8 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         values = request->result().first();
     }
     kDebug() << "VALUES" << values;
+    kDebug() << "marker" << values["marker-levels"].value<QList<int> >();
+
     request->deleteLater();
 
     //     kDebug() << values;

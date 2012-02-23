@@ -23,17 +23,20 @@
 #include "ui_PrinterDescription.h"
 
 #include <KCupsPrinter.h>
-#include <SupplyLevels.h>
 
 #include <QPainter>
 #include <QPointer>
 #include <QDBusMessage>
+#include <QProgressBar>
+#include <QLabel>
 
 #include <QDBusConnection>
 #include <KMenu>
 #include <KDebug>
 
 #define PRINTER_ICON_SIZE 128
+
+Q_DECLARE_METATYPE(QList<int>)
 
 PrinterDescription::PrinterDescription(QWidget *parent)
  : QWidget(parent),
@@ -42,6 +45,7 @@ PrinterDescription::PrinterDescription(QWidget *parent)
    m_markerChangeTime(0)
 {
     ui->setupUi(this);
+    m_layoutEnd = ui->formLayout->count();
 
     // loads the standard key icon
     m_printerIcon = KIconLoader::global()->loadIcon("printer",
@@ -64,7 +68,6 @@ PrinterDescription::PrinterDescription(QWidget *parent)
     menu->addAction(ui->actionPrintSelfTestPage);
     ui->actionCleanPrintHeads->setVisible(false);
     ui->actionPrintSelfTestPage->setVisible(false);
-    ui->supplyLevelsPB->setEnabled(false);
     ui->maintenancePB->setMenu(menu);
 }
 
@@ -103,12 +106,6 @@ void PrinterDescription::on_sharedCB_clicked()
     request->waitTillFinished();
     setIsShared(request->hasError() ? !shared : shared);
     request->deleteLater();
-}
-
-void PrinterDescription::on_supplyLevelsPB_clicked()
-{
-    SupplyLevels *dialog = new SupplyLevels(m_markerData, this);
-    dialog->exec();
 }
 
 void PrinterDescription::setPrinterIcon(const QIcon &icon)
@@ -169,33 +166,44 @@ void PrinterDescription::setCommands(const QStringList &commands)
 
         ui->actionCleanPrintHeads->setVisible(commands.contains("Clean"));
         ui->actionPrintSelfTestPage->setVisible(commands.contains("PrintSelfTestPage"));
-        ui->supplyLevelsPB->setEnabled(commands.contains("ReportLevels"));
+
+        // TODO if the printer supports ReportLevels
+        // we should probably probe for them
+        // commands.contains("ReportLevels")
     }
 }
 
-void PrinterDescription::setMarkerLevels(const QVariant &data)
+void PrinterDescription::setMarkers(const QVariantHash &data)
 {
-    m_markerData["marker-levels"] = data;
-}
+    // Remove old progress bars
+    while (ui->formLayout->count() > m_layoutEnd) {
+        ui->formLayout->takeAt(ui->formLayout->count() - 1)->widget()->deleteLater();
+    }
 
-void PrinterDescription::setMarkerColors(const QVariant &data)
-{
-    m_markerData["marker-colors"] = data;
-}
+    int size = data["marker-names"].toStringList().size();
+    if (size != data["marker-levels"].value<QList<int> >().size() ||
+        size != data["marker-colors"].toStringList().size() ||
+        size != data["marker-types"].toStringList().size()) {
+        return;
+    }
 
-void PrinterDescription::setMarkerNames(const QVariant &data)
-{
-    m_markerData["marker-names"] = data;
-}
-
-void PrinterDescription::setMarkerTypes(const QVariant &data)
-{
-    m_markerData["marker-types"] = data;
-}
-
-bool PrinterDescription::needMarkerLevels(int markerChangeTime)
-{
-    return m_markerChangeTime != markerChangeTime;
+    // Create a colored progress bar for each marker
+    for (int i = 0; i < size; i++) {
+        if (data["marker-types"].toStringList().at(i) == QLatin1String("unknown")) {
+            continue;
+        }
+        QProgressBar *pogressBar = new QProgressBar;
+        pogressBar->setValue(data["marker-levels"].value<QList<int> >().at(i));
+        pogressBar->setTextVisible(false);
+        pogressBar->setMaximumHeight(15);
+        QPalette palette = pogressBar->palette();
+        palette.setColor(QPalette::Active,
+                         QPalette::Highlight,
+                         QColor(data["marker-colors"].toStringList().at(i)));
+        pogressBar->setPalette(palette);
+        QLabel *label = new QLabel(data["marker-names"].toStringList().at(i), this);
+        ui->formLayout->addRow(label, pogressBar);
+    }
 }
 
 void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)

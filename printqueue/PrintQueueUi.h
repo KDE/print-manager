@@ -29,6 +29,7 @@ namespace Ui {
     class PrintQueueUi;
 }
 
+class KCupsPrinter;
 class PrintQueueSortFilterProxyModel;
 class ConfigureDialog;
 class PrintQueueModel;
@@ -36,7 +37,7 @@ class PrintQueueUi : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PrintQueueUi(const QString &destName, int printerType, QWidget *parent = 0);
+    explicit PrintQueueUi(const KCupsPrinter &printer, QWidget *parent = 0);
     ~PrintQueueUi();
 
 signals:

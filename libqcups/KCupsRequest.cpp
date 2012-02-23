@@ -640,12 +640,12 @@ ReturnArguments KCupsRequest::result() const
     return m_retArguments;
 }
 
-KCupsRequest::KCupsPrinters KCupsRequest::printers() const
+KCupsPrinters KCupsRequest::printers() const
 {
     return m_printers;
 }
 
-KCupsRequest::KCupsJobs KCupsRequest::jobs() const
+KCupsJobs KCupsRequest::jobs() const
 {
     return m_jobs;
 }

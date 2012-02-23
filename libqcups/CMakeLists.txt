@@ -12,7 +12,6 @@ set(libqcups_SRCS
     PPDModel.cpp
     SelectMakeModel.cpp
     ConfigureDialog.cpp
-    SupplyLevels.cpp
 )
 
 kde4_add_ui_files(libqcups_SRCS

@@ -61,7 +61,7 @@ void PrintQueueModel::getJobFinished()
             // clear the model after so that the proper widget can be shown
 //            clear();// TODO remove also in printerModel
         } else {
-            KCupsRequest::KCupsJobs jobs = request->jobs();
+            KCupsJobs jobs = request->jobs();
             for (int i = 0; i < jobs.size(); ++i) {
                 if (jobs.at(i).state() == IPP_JOB_PROCESSING) {
                     m_processingJob = jobs.at(i).name();
@@ -89,7 +89,7 @@ void PrintQueueModel::getJobFinished()
             // dest == modelIndex(x) and if it's not the
             // case it either inserts or moves it.
             // so any item > num_jobs can be safely deleted
-            while (rowCount() > request->result().size()) {
+            while (rowCount() > jobs.size()) {
                 removeRow(rowCount() - 1);
             }
         }
@@ -102,14 +102,12 @@ void PrintQueueModel::getJobFinished()
 
 void PrintQueueModel::updateModel()
 {
-    kDebug() << m_jobRequest;
     if (m_jobRequest) {
         return;
     }
 
     m_jobRequest = new KCupsRequest;
     connect(m_jobRequest, SIGNAL(finished()), this, SLOT(getJobFinished()));
-    connect(m_jobRequest, SIGNAL(job(int,KCupsJob)), this, SLOT(job(int,KCupsJob)));
 
     KCupsJob::Attributes attributes;
     attributes |= KCupsJob::JobId;

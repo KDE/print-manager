@@ -1,0 +1,12 @@
+[Global]
+IconName=printer
+Name=NewPrinterNotification
+Comment=Notifies when a new printer is detected
+
+[Event/GetReady]
+Name=A New Printer was detected
+Action=Sound|Popup
+
+[Event/NewPrinterNotification]
+Name=The New Printer was added
+Action=Sound|Popup

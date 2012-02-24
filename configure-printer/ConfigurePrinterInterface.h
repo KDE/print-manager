@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010 Daniel Nicoletti <dantti85-pk@yahoo.com.br>        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -13,46 +12,38 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; see the file COPYING. If not, write to       *
- *   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,  *
- *   Boston, MA 02110-1301, USA.                                           *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef PRINTD_H
-#define PRINTD_H
+#ifndef CONFIGURE_PRINTER_INTERFACE_H
+#define CONFIGURE_PRINTER_INTERFACE_H
 
-#include <KDEDModule>
-#include <QHash>
-
-#include <cups/cups.h>
+#include <QtDBus/QDBusContext>
 
 class QTimer;
-
-class PrintQueueTray;
-
-class PrintD : public KDEDModule
+class QWidget;
+class ConfigurePrinterInterface : public QObject, protected QDBusContext
 {
-Q_OBJECT
-
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.ConfigurePrinter")
 public:
-    PrintD(QObject *parent, const QList<QVariant>&);
-    ~PrintD();
+    ConfigurePrinterInterface(QObject *parent = 0);
+    ~ConfigurePrinterInterface();
+
+signals:
+    void quit();
+
+public slots:
+    void ShowQueue(const QString &destName);
 
 private slots:
-    void readConfig();
-    void checkJobs();
-
-    void fillMenu();
+    void RemoveQueue();
 
 private:
-    QHash<QString, QHash<QString, QString> > destsMessages() const;
-    QString m_lastTitle, m_lastSubTitle;
-    QHash<QString, int> m_jobsPerPrinter;
-
-    QTimer *m_jobsTimer;
-    bool m_onlyMyJobs;
-
-    PrintQueueTray *m_trayIcon;
+    QTimer *m_updateUi;
+    QHash<QString, QWidget *> m_uis;
 };
 
 #endif

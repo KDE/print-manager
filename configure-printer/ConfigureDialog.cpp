@@ -62,6 +62,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr << "marker-names";
     attr << "marker-message";
     attr << "marker-type";
+    attr << "printer-make-and-model";
 //     marker-low-levels
     attr.removeDuplicates();
     QVariantHash values;

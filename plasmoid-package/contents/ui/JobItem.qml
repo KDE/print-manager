@@ -135,59 +135,59 @@ Item {
                             }
                         }
                     }
-                    Column {
+                    Row {
                         spacing: 2
-                        Row {
+                        Column {
+                            id: column
+                            height: ownerLabel.paintedHeight
                             PlasmaComponents.Label {
                                 id: ownerLabel
                                 horizontalAlignment: "AlignRight"
                                 height: paintedHeight
-                                width: paintedWidth
+                                width: paintedWidth > column.width ? paintedWidth : column.width
                                 text: i18n("Owner: ")
                                 font.pointSize: theme.smallestFont.pointSize
                                 color: "#99"+(theme.textColor.toString().substr(1))
                             }
                             PlasmaComponents.Label {
-                                horizontalAlignment: "AlignLeft"
-                                height: paintedHeight
-                                width: paintedWidth
-                                text: jobOwner
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
-                        }
-                        Row {
-                            PlasmaComponents.Label {
                                 id: sizeLabel
                                 horizontalAlignment: "AlignRight"
-                                height: paintedHeight
-                                width: paintedWidth
+                                height: column.height
+                                width: paintedWidth > column.width ? paintedWidth : column.width
                                 text: i18n("Size: ")
                                 font.pointSize: theme.smallestFont.pointSize
                                 color: "#99"+(theme.textColor.toString().substr(1))
                             }
                             PlasmaComponents.Label {
+                                id: createdLabel
+                                horizontalAlignment: "AlignRight"
+                                height: column.height
+                                width: paintedWidth > column.width ? paintedWidth : column.width
+                                text: i18n("Created: ")
+                                font.pointSize: theme.smallestFont.pointSize
+                                color: "#99"+(theme.textColor.toString().substr(1))
+                            }
+                        }
+                        Column {
+                            PlasmaComponents.Label {
                                 horizontalAlignment: "AlignLeft"
-                                height: paintedHeight
+                                height: column.height
+                                width: paintedWidth
+                                text: jobOwner
+                                font.pointSize: theme.smallestFont.pointSize
+                                color: "#99"+(theme.textColor.toString().substr(1))
+                            }
+                            PlasmaComponents.Label {
+                                horizontalAlignment: "AlignLeft"
+                                height: column.height
                                 width: paintedWidth
                                 text: jobSize
                                 font.pointSize: theme.smallestFont.pointSize
                                 color: "#99"+(theme.textColor.toString().substr(1))
                             }
-                        }
-                        Row {
-                            PlasmaComponents.Label {
-                                id: createdLabel
-                                horizontalAlignment: "AlignRight"
-                                height: paintedHeight
-                                width: paintedWidth
-                                text: i18n("Created: ")
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
                             PlasmaComponents.Label {
                                 horizontalAlignment: "AlignLeft"
-                                height: paintedHeight
+                                height: column.height
                                 width: paintedWidth
                                 text: jobCreatedAt
                                 font.pointSize: theme.smallestFont.pointSize

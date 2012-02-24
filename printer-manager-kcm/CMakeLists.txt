@@ -16,7 +16,6 @@ kde4_add_plugin(kcm_printer_manager ${kcm_print_SRCS})
 
 target_link_libraries(kcm_printer_manager
     ${KDE4_KDEUI_LIBS}
-    ${CUPS_LIB}
     qcupslib
 )
 

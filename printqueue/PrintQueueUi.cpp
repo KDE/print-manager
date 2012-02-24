@@ -24,7 +24,6 @@
 #include "PrintQueueModel.h"
 #include "PrintQueueSortFilterProxyModel.h"
 
-#include <ConfigureDialog.h>
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 
@@ -441,9 +440,9 @@ void PrintQueueUi::on_configurePrinterPB_clicked()
         return;
     }
 
-    m_cfgDlg = new ConfigureDialog(m_destName, m_isClass, this);
-    m_cfgDlg->exec();
-    m_cfgDlg = 0;
+//    m_cfgDlg = new ConfigureDialog(m_destName, m_isClass, this);
+//    m_cfgDlg->exec();
+//    m_cfgDlg = 0;
 }
 
 void PrintQueueUi::on_cancelJobPB_clicked()

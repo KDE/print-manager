@@ -151,7 +151,7 @@ Item {
         ScrollableListView {
             id: jobsView
             width:  horizontalLayout ? parent.width * 0.60 - headerSeparator.width : parent.width
-            height: horizontalLayout ? parent.height : parent.height - 50
+            height: horizontalLayout ? parent.height : printmanager.height - headerSeparator.height - printersView.height
             model: PlasmaCore.SortFilterModel {
                 id: jobsFilterModel
                 filterRole: "jobPrinter"
@@ -159,11 +159,14 @@ Item {
                 sortRole: "order"
                 sortOrder: Qt.DescendingOrder
             }
-            delegate: JobItem{}
-            
-            Component.onCompleted: {
-                printersView.highlight.connect(highlight);
+            onCountChanged: {
+                if (jobsFilterModel.count == 0) {
+                    plasmoid.status = "PassiveStatus"
+                } else {
+                    plasmoid.status = "ActiveStatus"
+                }
             }
+            delegate: JobItem{}
         }
     }
 }

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+
+X-KDE-ServiceTypes=KDEDModule
+X-KDE-Library=newprinternotification
+X-KDE-Kded-autoload=true
+X-KDE-Kded-phase=1
+
+Name=New Printer Monitor
+Comment=Inform when a new printer is detected

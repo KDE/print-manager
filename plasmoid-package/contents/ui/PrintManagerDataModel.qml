@@ -31,18 +31,18 @@ PlasmaCore.DataModel {
         engine: "printmanager"
         onSourceAdded: {
             if (source.match("^" + filter)) {
-                console.debug(filter + " ADDED: " + source);
+//                 console.debug(filter + " ADDED: " + source);
                 connectSource(source);
             }
         }
         onSourceRemoved: {
-            console.debug(filter + " REMOVED: " + source);
+//             console.debug(filter + " REMOVED: " + source);
             disconnectSource(source);
         }
         Component.onCompleted: {
             for (var i in sources) {
                 if (sources[i].match("^" + filter)) {
-                    console.debug(filter + "onCompleted ADDED: " + sources[i]);
+//                     console.debug(filter + "onCompleted ADDED: " + sources[i]);
                     connectSource(sources[i]);
                 }
             }

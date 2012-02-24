@@ -18,28 +18,30 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_QUEUE_TRAY_H
-#define PRINT_QUEUE_TRAY_H
+#include "PrintQueue.h"
 
-#include <KStatusNotifierItem>
+#include "PrintQueueInterface.h"
 
-class QAction;
+#include <KCmdLineArgs>
+#include <KDebug>
 
-class PrintQueueTray : public KStatusNotifierItem
+PrintQueue::PrintQueue()
+ : KUniqueApplication()
 {
-Q_OBJECT
-public:
-    PrintQueueTray(QObject *parent = 0);
-    ~PrintQueueTray();
+    m_pqInterface = new PrintQueueInterface(this);
+    connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));
+}
 
-    void connectToLauncher(const QString &destName);
+int PrintQueue::newInstance()
+{
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    m_pqInterface->ShowQueue(args->getOption("show-queue"));
 
-public slots:
-    void openQueue(QAction *action);
-    void openDefaultQueue();
+    return 0;
+}
 
-private:
-    QString m_destName;
-};
+PrintQueue::~PrintQueue()
+{
+}
 
-#endif
+#include "PrintQueue.moc"

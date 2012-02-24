@@ -35,7 +35,7 @@ kde4_add_ui_files(addprinter_SRCS
     PageAddPrinter.ui
 )
 
-qt4_add_dbus_adaptor(addprinter_dbus_SRCS
+qt4_add_dbus_adaptor(addprinter_SRCS
     org.kde.AddPrinter.xml
     AddPrinterInterface.h
     AddPrinterInterface
@@ -43,14 +43,10 @@ qt4_add_dbus_adaptor(addprinter_dbus_SRCS
 
 kde4_add_executable(add-printer
     ${addprinter_SRCS}
-    ${addprinter_dbus_SRCS}
 )
 
 target_link_libraries(add-printer
     ${KDE4_KDEUI_LIBS}
-    ${KDE4_KIO_LIBS}
-    ${KDE4_SOLID_LIBS}
-    ${CUPS_LIB}
     qcupslib
 )
 

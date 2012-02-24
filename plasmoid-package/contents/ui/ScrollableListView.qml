@@ -27,6 +27,11 @@ Item {
     property alias model: list.model
     property alias interactive: list.interactive
     property alias currentIndex: list.currentIndex
+    signal countChanged()
+    
+    Component.onCompleted: {
+        list.countChanged.connect(countChanged)
+    }
 
     ListView {
         id: list

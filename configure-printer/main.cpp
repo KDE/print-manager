@@ -18,54 +18,37 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PrintQueueTray.h"
+#include "PrintQueue.h"
 
-#include <KMenu>
+#include <KDebug>
 #include <KLocale>
-#include <KActionCollection>
+#include <KAboutData>
+#include <KCmdLineArgs>
 
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusConnection>
-
-PrintQueueTray::PrintQueueTray(QObject *parent)
- : KStatusNotifierItem(parent)
+int main(int argc, char **argv)
 {
-    setCategory(Hardware);
-    setIconByName("printer");
-    setStatus(Active);
+    KAboutData about("PrintQueue",
+                     "print-queue",
+                     ki18n("PrintQueue"),
+                     "0.1",
+                     ki18n("PrintQueue"),
+                     KAboutData::License_GPL,
+                     ki18n("(C) 2009 Daniel Nicoletti"));
 
-    // Remove standard quit action, as it would quit all of KDED
-    KActionCollection *actions = actionCollection();
-    actions->removeAction(actions->action(KStandardAction::name(KStandardAction::Quit)));
-    connect(contextMenu(), SIGNAL(triggered(QAction *)),
-            this, SLOT(openQueue(QAction *)));
-    connect(this, SIGNAL(activateRequested(bool, const QPoint &)), this, SLOT(openDefaultQueue()));
-}
+    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti85-pk@yahoo.com.br");
 
-PrintQueueTray::~PrintQueueTray()
-{
-}
+    KCmdLineArgs::init(argc, argv, &about);
+    KCmdLineOptions options;
+    options.add("show-queue [queue name]", ki18n("Show printer queue"));
+    KCmdLineArgs::addCmdLineOptions(options);
 
-void PrintQueueTray::connectToLauncher(const QString &destName)
-{
-    m_destName = destName;
-}
+    PrintQueue::addCmdLineOptions();
 
-void PrintQueueTray::openDefaultQueue()
-{
-    QAction action(this);
-    action.setData(m_destName);
-    openQueue(&action);
-}
+    if (!PrintQueue::start()) {
+        //kDebug() << "PrintQueue is already running!";
+        return 0;
+    }
 
-void PrintQueueTray::openQueue(QAction *action)
-{
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
-                                             "/",
-                                             "org.kde.PrintQueue",
-                                             QLatin1String("ShowQueue"));
-    // Use our own cached tid to avoid crashes
-    message << qVariantFromValue(action->data().toString());
-    QDBusConnection::sessionBus().send(message);
+    PrintQueue app;
+    return app.exec();
 }

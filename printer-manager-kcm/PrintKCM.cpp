@@ -26,7 +26,6 @@
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
 #include "SystemPreferences.h"
-#include "ConfigureDialog.h"
 
 #include <KMessageBox>
 #include <KGenericFactory>
@@ -261,11 +260,11 @@ void PrintKCM::configurePrinter()
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
         QModelIndex index = selection.indexes().at(0);
-        ConfigureDialog *dlg;
-        dlg = new ConfigureDialog(index.data(PrinterModel::DestName).toString(),
-                                  index.data(PrinterModel::DestIsClass).toBool(),
-                                  this);
-        dlg->show();
+//        ConfigureDialog *dlg;
+//        dlg = new ConfigureDialog(index.data(PrinterModel::DestName).toString(),
+//                                  index.data(PrinterModel::DestIsClass).toBool(),
+//                                  this);
+//        dlg->show();
     }
 }
 

@@ -17,10 +17,11 @@ include_directories(${CMAKE_SOURCE_DIR}
 )
 
 add_subdirectory(libqcups)
+add_subdirectory(configure-printer)
 add_subdirectory(add-printer)
 add_subdirectory(printer-manager-kcm)
 add_subdirectory(printqueue)
-add_subdirectory(printd)
+add_subdirectory(NewPrinterNotification)
 add_subdirectory(printmanager-dataengine)
 
 install(DIRECTORY plasmoid-package/

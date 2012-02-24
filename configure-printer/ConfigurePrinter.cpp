@@ -18,30 +18,38 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PrintQueue.h"
+#include "ConfigurePrinter.h"
 
-#include "PrintQueueInterface.h"
+#include "ConfigurePrinterInterface.h"
+
+#include <QTimer>
 
 #include <KCmdLineArgs>
 #include <KDebug>
 
-PrintQueue::PrintQueue()
- : KUniqueApplication()
+ConfigurePrinter::ConfigurePrinter() :
+    KUniqueApplication()
 {
-    m_pqInterface = new PrintQueueInterface(this);
-    connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));
+    m_cpInterface = new ConfigurePrinterInterface(this);
+    connect(m_cpInterface, SIGNAL(quit()), this, SLOT(quit()));
 }
 
-int PrintQueue::newInstance()
+int ConfigurePrinter::newInstance()
 {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    m_pqInterface->ShowQueue(args->getOption("show-queue"));
+    QString printerName = args->getOption("configure-printer");
+    if (!printerName.isEmpty()) {
+        m_cpInterface->ConfigurePrinter(printerName);
+    } else {
+        // If DBus called the ui list won't be empty
+        QTimer::singleShot(500, m_cpInterface, SLOT(RemovePrinter()));
+    }
 
     return 0;
 }
 
-PrintQueue::~PrintQueue()
+ConfigurePrinter::~ConfigurePrinter()
 {
 }
 
-#include "PrintQueue.moc"
+#include "ConfigurePrinter.moc"

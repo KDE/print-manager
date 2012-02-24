@@ -33,7 +33,7 @@
 #include <QtDBus/QDBusServiceWatcher>
 
 K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<NewPrinterNotification>();)
-K_EXPORT_PLUGIN(PrintDFactory("printd"))
+K_EXPORT_PLUGIN(PrintDFactory("printmanager"))
 
 #define STATUS_SUCCESS        0
 #define STATUS_MODEL_MISMATCH 1
@@ -72,7 +72,7 @@ void NewPrinterNotification::GetReady()
     kDebug();
     // This method is all about telling the user a new printer was detected
     KNotification *notify = new KNotification("GetReady");
-    notify->setComponentData(KComponentData("NewPrinterNotification"));
+    notify->setComponentData(KComponentData("printmanager"));
     notify->setPixmap(KIcon("printer").pixmap(64, 64));
     notify->setTitle(i18n("A New Printer was detected"));
     notify->setText(i18n("Configuring new printer..."));
@@ -95,7 +95,7 @@ void NewPrinterNotification::NewPrinter(int status,
     kDebug() << status << name << mfg << mdl << des << cmd;
     // This method is all about telling the user a new printer was detected
     KNotification *notify = new KNotification("NewPrinterNotification");
-    notify->setComponentData(KComponentData("NewPrinterNotification"));
+    notify->setComponentData(KComponentData("printmanager"));
     notify->setPixmap(KIcon("printer").pixmap(64, 64));
     if (status < STATUS_GENERIC_DRIVER) {
         notify->setTitle(i18n("The New Printer was Added"));
@@ -120,6 +120,10 @@ void NewPrinterNotification::NewPrinter(int status,
         if (driver.isEmpty()) {
             notify->setText(i18n("'%1' has been added, please check it's' driver.", name));
         } else {
+            connect(notify, SIGNAL(activated(uint)), this, SLOT(configurePrinter()));
+            notify->setProperty("PrinterName", name);
+            notify->setFlags(KNotification::Persistent);
+            notify->setActions(QStringList() << i18n("Configure"));
             notify->setText(i18n("'%1' has been added, using the '%2' driver.", name, driver));
         }
     }
@@ -128,12 +132,12 @@ void NewPrinterNotification::NewPrinter(int status,
 
 bool NewPrinterNotification::registerService()
 {
-    if (!QDBusConnection::sessionBus().registerService("com.redhat.NewPrinterNotification")) {
+    if (!QDBusConnection::systemBus().registerService("com.redhat.NewPrinterNotification")) {
         kDebug() << "unable to register service to dbus";
         return false;
     }
 
-    if (!QDBusConnection::sessionBus().registerObject("/com/redhat/NewPrinterNotification", this)) {
+    if (!QDBusConnection::systemBus().registerObject("/com/redhat/NewPrinterNotification", this)) {
         kDebug() << "unable to register object to dbus";
         return false;
     }
@@ -142,12 +146,17 @@ bool NewPrinterNotification::registerService()
 
 void NewPrinterNotification::configurePrinter()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
-                                             "/",
-                                             "org.kde.ConfigurePrinter",
-                                             QLatin1String("Configure"));
-    // Use our own cached tid to avoid crashes
-    message << qVariantFromValue(QString("printerName"));
-    QDBusConnection::sessionBus().send(message);
+    if (sender()) {
+        QString printerName;
+        printerName = sender()->property("PrinterName").toString();
+        QDBusMessage message;
+        message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
+                                                 QLatin1String("/"),
+                                                 QLatin1String("org.kde.ConfigurePrinter"),
+                                                 QLatin1String("ConfigurePrinter"));
+        // Use our own cached tid to avoid crashes
+        message << qVariantFromValue(printerName);
+        QDBusConnection::sessionBus().send(message);
+        sender()->deleteLater(); // KNotification::Persistent requires this
+    }
 }

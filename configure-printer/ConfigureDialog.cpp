@@ -35,9 +35,10 @@
 #include <QList>
 Q_DECLARE_METATYPE(QList<int>)
 
-ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent) :
+ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent) :
     KPageDialog(parent)
 {
+    bool isClass = false;
     setFaceType(List);
     setModal(true);
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
@@ -82,7 +83,9 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         kDebug() << "CUPS_PRINTER_LOCAL";
     }
     if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
+
         kDebug() << "CUPS_PRINTER_CLASS";
+        isClass = true;
     }
     bool isRemote = false;
     if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {

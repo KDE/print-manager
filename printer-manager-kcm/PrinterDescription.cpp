@@ -38,11 +38,11 @@
 
 Q_DECLARE_METATYPE(QList<int>)
 
-PrinterDescription::PrinterDescription(QWidget *parent)
- : QWidget(parent),
-   ui(new Ui::PrinterDescription),
-   m_isClass(false),
-   m_markerChangeTime(0)
+PrinterDescription::PrinterDescription(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::PrinterDescription),
+    m_isClass(false),
+    m_markerChangeTime(0)
 {
     ui->setupUi(this);
     m_layoutEnd = ui->formLayout->count();

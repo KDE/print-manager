@@ -25,11 +25,11 @@ qt4_add_dbus_adaptor(configureprinter_SRCS
 
 dbus_add_activation_service(org.kde.ConfigurePrinter.service.in)
 
-kde4_add_library(configure-printer SHARED ${configureprinter_SRCS})
+kde4_add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
     ${KDE4_KIO_LIBS}
     ${CUPS_LIB}
     qcupslib
 )
 
-install(TARGETS configure-printer ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS configure-printer DESTINATION ${LIBEXEC_INSTALL_DIR})

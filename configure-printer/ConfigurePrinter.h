@@ -18,24 +18,23 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_QUEUE_H
-#define PRINT_QUEUE_H
+#ifndef CONFIGURE_PRINTER_H
+#define CONFIGURE_PRINTER_H
 
 #include <KUniqueApplication>
 
-class PrintQueueInterface;
-
-class PrintQueue : public KUniqueApplication
+class ConfigurePrinterInterface;
+class ConfigurePrinter : public KUniqueApplication
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
-    PrintQueue();
-    virtual ~PrintQueue();
+    ConfigurePrinter();
+    virtual ~ConfigurePrinter();
+
     int newInstance();
 
 private:
-    PrintQueueInterface *m_pqInterface;
+    ConfigurePrinterInterface *m_cpInterface;
 };
 
-#endif
+#endif // CONFIGURE_PRINTER_H

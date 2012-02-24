@@ -17,10 +17,10 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#include "ConfigurePrinter.h"
+#include "ConfigurePrinterInterface.h"
 #include "configureprinteradaptor.h"
 
-#include "PrintQueueUi.h"
+#include "ConfigureDialog.h"
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 
@@ -32,12 +32,12 @@
 
 #include <KDebug>
 
-ConfigurePrinter::ConfigurePrinter(QObject *parent)
+ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent)
     : QObject(parent)
 {
     kDebug() << "Creating Helper";
-    (void) new PrintQueueAdaptor(this);
-    if (!QDBusConnection::sessionBus().registerService("org.kde.PrintQueue")) {
+    (void) new ConfigurePrinterAdaptor(this);
+    if (!QDBusConnection::sessionBus().registerService("org.kde.ConfigurePrinter")) {
         kDebug() << "another helper is already running";
         return;
     }
@@ -53,18 +53,16 @@ ConfigurePrinter::ConfigurePrinter(QObject *parent)
     m_updateUi->start();
 }
 
-ConfigurePrinter::~ConfigurePrinter()
+ConfigurePrinterInterface::~ConfigurePrinterInterface()
 {
 }
 
-void ConfigurePrinter::ShowQueue(const QString &destName)
+void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 {
-    if (destName.isEmpty()) {
-        emit quit();
-        return;
-    }
+    if (!m_uis.contains(destName)) {
+        // Reserve this since the CUPS call might take a long time
+        m_uis[destName] = 0;
 
-    if(!m_uis.contains(destName)) {
         KCupsPrinter::Attributes attr;
         attr |= KCupsPrinter::PrinterName;
         attr |= KCupsPrinter::PrinterType;
@@ -86,25 +84,17 @@ void ConfigurePrinter::ShowQueue(const QString &destName)
         request->deleteLater();
 
         if (found) {
-            PrintQueueUi *ui = new PrintQueueUi(printer);
-            KDialog *dlg = new KDialog;
-            dlg->setWindowIcon(printer.icon());
-            dlg->setWindowTitle(ui->windowTitle());
-            dlg->setButtons(0);
-            dlg->setMainWidget(ui);
-            dlg->setSizeGripEnabled(true);
-            (void)dlg->minimumSizeHint(); //Force the dialog to be laid out now
-            dlg->layout()->setContentsMargins(0,0,0,0);
+            ConfigureDialog *ui = new ConfigureDialog(printer.name());
             connect(m_updateUi, SIGNAL(timeout()),
                     ui, SLOT(update()));
-            connect(dlg, SIGNAL(finished()),
-                    this, SLOT(RemoveQueue()));
-            connect(ui, SIGNAL(windowTitleChanged(const QString &)),
-                    dlg, SLOT(setWindowTitle(const QString &)));
-            dlg->show();
-            m_uis[printer.name()] = dlg;
-
+            connect(ui, SIGNAL(finished()),
+                    this, SLOT(RemovePrinter()));
+            ui->show();
+            m_uis[printer.name()] = ui;
         } else {
+            // Remove the reservation
+            m_uis.remove(destName);
+
             // if no destination was found and we aren't showing
             // a queue quit the app
             if (m_uis.isEmpty()) {
@@ -113,13 +103,25 @@ void ConfigurePrinter::ShowQueue(const QString &destName)
             return;
         }
     }
-    KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
+
+    // Check it it's not reserved
+    if (m_uis.value(destName)) {
+        KWindowSystem::forceActiveWindow(m_uis.value(destName)->winId());
+    }
 }
 
-void ConfigurePrinter::RemoveQueue()
+void ConfigurePrinterInterface::RemovePrinter()
 {
     QWidget *ui = qobject_cast<QWidget*>(sender());
-    m_uis.remove(m_uis.key(ui));
+    if (ui) {
+        m_uis.remove(m_uis.key(ui));
+    }
+
+    // if no destination was found and we aren't showing
+    // a queue quit the app
+    if (m_uis.isEmpty()) {
+         emit quit();
+    }
 }
 
-#include "ConfigurePrinter.moc"
+#include "ConfigurePrinterInterface.moc"

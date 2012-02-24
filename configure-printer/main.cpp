@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,7 +18,7 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PrintQueue.h"
+#include "ConfigurePrinter.h"
 
 #include <KDebug>
 #include <KLocale>
@@ -27,28 +27,28 @@
 
 int main(int argc, char **argv)
 {
-    KAboutData about("PrintQueue",
-                     "print-queue",
-                     ki18n("PrintQueue"),
+    KAboutData about("ConfigurePrinter",
+                     "configure-printer",
+                     ki18n("ConfigurePrinter"),
                      "0.1",
-                     ki18n("PrintQueue"),
+                     ki18n("ConfigurePrinter"),
                      KAboutData::License_GPL,
-                     ki18n("(C) 2009 Daniel Nicoletti"));
+                     ki18n("(C) 2010-2012 Daniel Nicoletti"));
 
-    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti85-pk@yahoo.com.br");
+    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;
-    options.add("show-queue [queue name]", ki18n("Show printer queue"));
+    options.add("configure-printer [printer name]", ki18n("Configure printer"));
     KCmdLineArgs::addCmdLineOptions(options);
 
-    PrintQueue::addCmdLineOptions();
+    ConfigurePrinter::addCmdLineOptions();
 
-    if (!PrintQueue::start()) {
-        //kDebug() << "PrintQueue is already running!";
+    if (!ConfigurePrinter::start()) {
+        //kDebug() << "ConfigurePrinter is already running!";
         return 0;
     }
 
-    PrintQueue app;
+    ConfigurePrinter app;
     return app.exec();
 }

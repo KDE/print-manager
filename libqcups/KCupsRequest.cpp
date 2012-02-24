@@ -274,24 +274,27 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
     }
 }
 
-void KCupsRequest::setAttributes(const QString &printer, bool isClass, const QVariantHash &values, const char *filename)
+void KCupsRequest::setAttributes(const QString &printer,
+                                 bool isClass,
+                                 const QVariantHash &attributes,
+                                 const QString &filename)
 {
-    if (values.isEmpty() && !filename) {
+    if (attributes.isEmpty()) {
         setFinished();
         return;
     }
 
     if (KCupsConnection::readyToStart()) {
-        QVariantHash request = values;
+        QVariantHash request = attributes;
         request["printer-name"] = printer;
         request["printer-is-class"] = isClass;
-        if (filename) {
+        if (!filename.isEmpty()) {
             request["filename"] = filename;
         }
 
         ipp_op_e op;
         // TODO this seems weird now.. review this code..
-        if (isClass && values.contains("member-uris")) {
+        if (isClass && request.contains("member-uris")) {
             op = CUPS_ADD_CLASS;
         } else {
             op = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
@@ -306,7 +309,7 @@ void KCupsRequest::setAttributes(const QString &printer, bool isClass, const QVa
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("setAttributes", printer, isClass, values, filename);
+        invokeMethod("setAttributes", printer, isClass, attributes, filename);
     }
 }
 

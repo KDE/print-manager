@@ -37,8 +37,6 @@ signals:
 
 public slots:
     void ShowQueue(const QString &destName);
-
-private slots:
     void RemoveQueue();
 
 private:

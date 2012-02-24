@@ -260,11 +260,13 @@ void PrintKCM::configurePrinter()
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
         QModelIndex index = selection.indexes().at(0);
-//        ConfigureDialog *dlg;
-//        dlg = new ConfigureDialog(index.data(PrinterModel::DestName).toString(),
-//                                  index.data(PrinterModel::DestIsClass).toBool(),
-//                                  this);
-//        dlg->show();
+        QDBusMessage message;
+        message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
+                                                 "/",
+                                                 "org.kde.ConfigurePrinter",
+                                                 QLatin1String("ConfigurePrinter"));
+        message << qVariantFromValue(index.data(PrinterModel::DestName).toString());
+        QDBusConnection::sessionBus().send(message);
     }
 }
 

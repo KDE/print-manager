@@ -36,10 +36,8 @@ signals:
     void quit();
 
 public slots:
-    void ShowQueue(const QString &destName);
-
-private slots:
-    void RemoveQueue();
+    void ConfigurePrinter(const QString &destName);
+    void RemovePrinter();
 
 private:
     QTimer *m_updateUi;

@@ -1,6 +1,6 @@
 [Global]
 IconName=printer
-Name=NewPrinterNotification
+Name=printmanager
 Comment=Notifies when a new printer is detected
 
 [Event/GetReady]

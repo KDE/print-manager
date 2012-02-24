@@ -31,7 +31,6 @@ namespace Ui {
 
 class KCupsPrinter;
 class PrintQueueSortFilterProxyModel;
-class ConfigureDialog;
 class PrintQueueModel;
 class PrintQueueUi : public QWidget
 {
@@ -82,7 +81,6 @@ private:
     QPixmap m_warningIcon;
     bool m_printerPaused;
     char m_lastState;
-    ConfigureDialog *m_cfgDlg;
 };
 
 #endif

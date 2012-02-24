@@ -32,6 +32,9 @@
 #include <QMenu>
 #include <QByteArray>
 
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusMessage>
+
 #include <KMessageBox>
 #include <KDebug>
 
@@ -42,8 +45,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
    ui(new Ui::PrintQueueUi),
    m_destName(printer.name()),
    m_preparingMenu(false),
-   m_lastState(0),
-   m_cfgDlg(0)
+   m_lastState(0)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -436,13 +438,13 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
 
 void PrintQueueUi::on_configurePrinterPB_clicked()
 {
-    if (m_cfgDlg) {
-        return;
-    }
-
-//    m_cfgDlg = new ConfigureDialog(m_destName, m_isClass, this);
-//    m_cfgDlg->exec();
-//    m_cfgDlg = 0;
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
+                                             "/",
+                                             "org.kde.ConfigurePrinter",
+                                             QLatin1String("ConfigurePrinter"));
+    message << qVariantFromValue(m_destName);
+    QDBusConnection::sessionBus().send(message);
 }
 
 void PrintQueueUi::on_cancelJobPB_clicked()

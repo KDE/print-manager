@@ -149,7 +149,10 @@ public:
      * @param attributes The new attributes of the printer
      * @param filename The file name in case of changing the PPD
      */
-    Q_INVOKABLE void setAttributes(const QString &printer, bool isClass, const QVariantHash &attributes, const char *filename = NULL);
+    Q_INVOKABLE void setAttributes(const QString &printer,
+                                   bool isClass,
+                                   const QVariantHash &attributes,
+                                   const QString &filename = QString());
 
     /**
      * Set if a given printer should be shared among other cups

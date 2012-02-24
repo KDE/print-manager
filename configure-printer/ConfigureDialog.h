@@ -31,7 +31,7 @@ class KDE_EXPORT ConfigureDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit ConfigureDialog(const QString &destName, bool isClass, QWidget *parent = 0);
+    explicit ConfigureDialog(const QString &destName, QWidget *parent = 0);
     ~ConfigureDialog();
 
 private slots:

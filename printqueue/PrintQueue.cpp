@@ -22,6 +22,8 @@
 
 #include "PrintQueueInterface.h"
 
+#include <QTimer>
+
 #include <KCmdLineArgs>
 #include <KDebug>
 
@@ -35,7 +37,13 @@ PrintQueue::PrintQueue()
 int PrintQueue::newInstance()
 {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    m_pqInterface->ShowQueue(args->getOption("show-queue"));
+    QString queueName = args->getOption("show-queue");
+    if (!queueName.isEmpty()) {
+        m_pqInterface->ShowQueue(queueName);
+    } else {
+        // If DBus called the ui list won't be empty
+        QTimer::singleShot(500, m_pqInterface, SLOT(RemoveQueue()));
+    }
 
     return 0;
 }

@@ -59,12 +59,11 @@ PrintQueueInterface::~PrintQueueInterface()
 
 void PrintQueueInterface::ShowQueue(const QString &destName)
 {
-    if (destName.isEmpty()) {
-        emit quit();
-        return;
-    }
+    kDebug() << destName;
+    if (!m_uis.contains(destName)) {
+        // Reserve this since the CUPS call might take a long time
+        m_uis[destName] = 0;
 
-    if(!m_uis.contains(destName)) {
         KCupsPrinter::Attributes attr;
         attr |= KCupsPrinter::PrinterName;
         attr |= KCupsPrinter::PrinterType;
@@ -103,8 +102,10 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
                     dlg, SLOT(setWindowTitle(const QString &)));
             dlg->show();
             m_uis[printer.name()] = dlg;
-
         } else {
+            // Remove the reservation
+            m_uis.remove(destName);
+
             // if no destination was found and we aren't showing
             // a queue quit the app
             if (m_uis.isEmpty()) {
@@ -113,13 +114,25 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
             return;
         }
     }
-    KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
+
+    // Check it it's not reserved
+    if (m_uis.value(destName)) {
+        KWindowSystem::forceActiveWindow(m_uis.value(destName)->winId());
+    }
 }
 
 void PrintQueueInterface::RemoveQueue()
 {
     QWidget *ui = qobject_cast<QWidget*>(sender());
-    m_uis.remove(m_uis.key(ui));
+    if (ui) {
+        m_uis.remove(m_uis.key(ui));
+    }
+
+    // if no destination was found and we aren't showing
+    // a queue quit the app
+    if (m_uis.isEmpty()) {
+         emit quit();
+    }
 }
 
 #include "PrintQueueInterface.moc"

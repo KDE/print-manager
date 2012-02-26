@@ -1,12 +1,32 @@
 [Global]
 IconName=printer
 Name=printmanager
+Name[pt]=printmanager
+Name[pt_BR]=printmanager
+Name[sv]=Utskriftshanterare
+Name[uk]=керування друком
+Name[x-test]=xxprintmanagerxx
 Comment=Notifies when a new printer is detected
+Comment[pt]=Notifica quando é detectada uma nova impressora
+Comment[pt_BR]=Notifica quando uma nova impressora é detectada
+Comment[sv]=Underrättar om när en ny skrivare detekteras
+Comment[uk]=Сповіщає про виявлення нового принтера
+Comment[x-test]=xxNotifies when a new printer is detectedxx
 
 [Event/GetReady]
 Name=A New Printer was detected
+Name[pt]=Foi detectada uma nova impressora
+Name[pt_BR]=Uma nova impressora foi detectada
+Name[sv]=En ny skrivare detekterades
+Name[uk]=Виявлено новий принтер
+Name[x-test]=xxA New Printer was detectedxx
 Action=Sound|Popup
 
 [Event/NewPrinterNotification]
 Name=The New Printer was added
+Name[pt]=Foi adicionada a impressora nova
+Name[pt_BR]=Uma nova impressora foi adicionada
+Name[sv]=Den nya skrivaren har lagts till
+Name[uk]=Додано новий принтер
+Name[x-test]=xxThe New Printer was addedxx
 Action=Sound|Popup

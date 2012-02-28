@@ -157,6 +157,5 @@ void NewPrinterNotification::configurePrinter()
         // Use our own cached tid to avoid crashes
         message << qVariantFromValue(printerName);
         QDBusConnection::sessionBus().send(message);
-        sender()->deleteLater(); // KNotification::Persistent requires this
     }
 }

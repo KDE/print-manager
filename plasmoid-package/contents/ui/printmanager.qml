@@ -40,6 +40,8 @@ Item {
         plasmoid.addEventListener ('ConfigChanged', configChanged);
         plasmoid.popupEvent.connect(popupEventSlot);
         configChanged();
+        
+        checkPlasmoidStatus();
     }
     
     function configChanged() {
@@ -65,8 +67,17 @@ Item {
         jobsView.currentIndex = -1;
     }
     
+    function checkPlasmoidStatus() {
+        if (jobsFilterModel.count == 0) {
+            plasmoid.status = "PassiveStatus"
+        } else {
+            plasmoid.status = "ActiveStatus"
+        }
+    }
+    
     function popupEventSlot(popped) {
         if (!popped) {
+            checkPlasmoidStatus();
             printersView.currentIndex = -1;
             jobsView.currentIndex = -1;
         }
@@ -160,11 +171,7 @@ Item {
                 sortOrder: Qt.DescendingOrder
             }
             onCountChanged: {
-                if (jobsFilterModel.count == 0) {
-                    plasmoid.status = "PassiveStatus"
-                } else {
-                    plasmoid.status = "ActiveStatus"
-                }
+                checkPlasmoidStatus();
             }
             delegate: JobItem{}
         }

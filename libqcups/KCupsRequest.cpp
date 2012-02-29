@@ -72,7 +72,7 @@ void KCupsRequest::getPPDS(const QString &make)
         setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getDevices");
+        invokeMethod("getPPDS", make);
     }
 }
 

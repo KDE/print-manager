@@ -1,5 +1,7 @@
 [Desktop Entry]
 Name=Print Manager Engine
+Name[da]=Motor til udskriftshåndtering
+Name[hu]=Nyomtatókezelő modul
 Name[nl]=Afdrukbeheerder-engine
 Name[pt]=Motor de Gestão de Impressão
 Name[pt_BR]=Mecanismo de gerenciamento de impressão
@@ -7,6 +9,8 @@ Name[sv]=Utskrifthanteringsgränssnitt
 Name[uk]=Рушій керування друком
 Name[x-test]=xxPrint Manager Enginexx
 Comment=An Engine that provides access to CUPS data
+Comment[da]=En motor der giver adgang til CUPS-data
+Comment[hu]=Egy modul CUPS adatokhoz való hozzáférés biztosításához
 Comment[nl]=Een engine die toegang geeft tot CUPS-gegevens
 Comment[pt]=Um motor que fornece o acesso aos dados do CUPS
 Comment[pt_BR]=Um mecanismo que fornece acesso aos dados do CUPS

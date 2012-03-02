@@ -7,6 +7,8 @@ X-KDE-Kded-autoload=true
 X-KDE-Kded-phase=1
 
 Name=Print Manager
+Name[da]=Udskriftshåndtering
+Name[hu]=Nyomtatáskezelő
 Name[nl]=Afdrukbeheerder
 Name[pt]=Gestor de Impressão
 Name[pt_BR]=Gerenciador de impressão
@@ -14,6 +16,8 @@ Name[sv]=Utskriftshanterare
 Name[uk]=Керування друком
 Name[x-test]=xxPrint Managerxx
 Comment=Inform when a new printer is detected, and print problems
+Comment[da]=Giv besked når en ny printer detekteres eller der er udskriftsproblemer
+Comment[hu]=Informálás új nyomtató észleléséről, és a problémák nyomtatása
 Comment[nl]=Een melding geven wanneer er een nieuwe printer is gedetecteerd en druk problemen af
 Comment[pt]=Informar quando detectar uma nova impressora ou erros de impressão
 Comment[pt_BR]=Informar quando uma nova impressora for detectada ou ocorrerem erros de impressão

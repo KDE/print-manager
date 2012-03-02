@@ -1,6 +1,8 @@
 [Global]
 IconName=printer
 Name=printmanager
+Name[da]=udskriftshåndtering
+Name[hu]=printmanager
 Name[nl]=afdrukbeheerder
 Name[pt]=printmanager
 Name[pt_BR]=printmanager
@@ -8,6 +10,8 @@ Name[sv]=Utskriftshanterare
 Name[uk]=керування друком
 Name[x-test]=xxprintmanagerxx
 Comment=Notifies when a new printer is detected
+Comment[da]=Bekendtgør når en ny printer detekteres
+Comment[hu]=Értesítés új nyomtató észleléséről
 Comment[nl]=Een melding geven wanneer er een nieuwe printer is gedetecteerd
 Comment[pt]=Notifica quando é detectada uma nova impressora
 Comment[pt_BR]=Notifica quando uma nova impressora é detectada
@@ -17,6 +21,8 @@ Comment[x-test]=xxNotifies when a new printer is detectedxx
 
 [Event/GetReady]
 Name=A New Printer was detected
+Name[da]=En ny printer er blevet fundet
+Name[hu]=Új nyomtató lett észlelve
 Name[nl]=Er is een nieuwe printer gedetecteerd
 Name[pt]=Foi detectada uma nova impressora
 Name[pt_BR]=Uma nova impressora foi detectada
@@ -27,6 +33,8 @@ Action=Sound|Popup
 
 [Event/NewPrinterNotification]
 Name=The New Printer was added
+Name[da]=Den ny printer er blevet tilføjet
+Name[hu]=Új nyomtató lett hozzáadva
 Name[nl]=De nieuwe printer is toegevoegd
 Name[pt]=Foi adicionada a impressora nova
 Name[pt_BR]=Uma nova impressora foi adicionada

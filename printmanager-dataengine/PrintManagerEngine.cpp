@@ -276,7 +276,7 @@ bool PrintManagerEngine::sourceRequestEvent(const QString &source)
         source == QLatin1String("CompletedJobs")) {
         // Needed so that DataSource can do polling
         // on e.g. "Printers" or "ActiveJobs"
-        setData(source, Data());
+//        setData(source, Data());
         // We do not have any special code to execute the
         // first time a source is requested, so we just call
         // updateSourceEvent().

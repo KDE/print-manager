@@ -24,6 +24,7 @@
 
 #include <KLocale>
 #include <KDebug>
+#include <QByteArray>
 
 #include <cups/cups.h>
 
@@ -188,22 +189,22 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                 break;
             case QVariant::StringList:
                 {
-                    ipp_attribute_t *attr;
                     QStringList list = i.value().value<QStringList>();
-                    if (i.key() == "member-uris") {
-                        attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                                            "member-uris", list.size(), "utf-8", NULL);
-                    } else if (i.key() == "requested-attributes") {
-                        attr = ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                                            "requested-attributes", list.size(), "utf-8", NULL);
-                    } else {
-                        attr = ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
-                                            i.key().toUtf8(), list.size(), "utf-8", NULL);
-                    }
+                    char *values[list.size()];
                     // Dump all the list values
-                    for (int i = 0; i < list.size(); i++) {
-                        // TODO valgrind says this leak but it does not work calling .data()
-                        attr->values[i].string.text = qstrdup(list.at(i).toUtf8());
+                    for (int item = 0; item < list.size(); ++item) {
+                        values[item] = list.at(item).toUtf8().data();
+                    }
+
+                    if (i.key() == "member-uris") {
+                        ippAddStrings(request, IPP_TAG_PRINTER, static_cast<ipp_tag_t>(IPP_TAG_URI | IPP_TAG_COPY),
+                                      "member-uris", list.size(), "utf-8", (const char**) values);
+                    } else if (i.key() == "requested-attributes") {
+                        ippAddStrings(request, IPP_TAG_OPERATION, static_cast<ipp_tag_t>(IPP_TAG_URI | IPP_TAG_COPY),
+                                      "requested-attributes", list.size(), "utf-8", (const char**) values);
+                    } else {
+                        ippAddStrings(request, IPP_TAG_PRINTER, static_cast<ipp_tag_t>(IPP_TAG_URI | IPP_TAG_COPY),
+                                      i.key().toUtf8(), list.size(), "utf-8", (const char**) values);
                     }
                 }
                 break;

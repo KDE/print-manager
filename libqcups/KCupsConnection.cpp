@@ -122,90 +122,94 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
 
         ippDelete(response);
 
-        if (values.contains("printer-is-class")) {
-            isClass = values.take("printer-is-class").toBool();
+        if (values.contains(QLatin1String("printer-is-class"))) {
+            isClass = values.take(QLatin1String("printer-is-class")).toBool();
         }
-        if (values.contains("need-dest-name")) {
-            needDestName = values.take("need-dest-name").toBool();
+        if (values.contains(QLatin1String("need-dest-name"))) {
+            needDestName = values.take(QLatin1String("need-dest-name")).toBool();
         }
-        if (values.contains("group-tag-qt")) {
-            group_tag = values.take("group-tag-qt").toInt();
+        if (values.contains(QLatin1String("group-tag-qt"))) {
+            group_tag = values.take(QLatin1String("group-tag-qt")).toInt();
         }
 
-        if (values.contains("filename")) {
-            filename = values.take("filename").toString();
+        if (values.contains(QLatin1String("filename"))) {
+            filename = values.take(QLatin1String("filename")).toString();
         }
 
         // Lets create the request
-        if (values.contains("printer-name")) {
-            request = ippNewDefaultRequest(values.take("printer-name").toString(), isClass, operation);
+        if (values.contains(QLatin1String("printer-name"))) {
+            request = ippNewDefaultRequest(values.take(QLatin1String("printer-name")).toString(),
+                                           isClass,
+                                           operation);
         } else {
             request = ippNewRequest(operation);
         }
 
         QVariantHash::const_iterator i = values.constBegin();
         while (i != values.constEnd()) {
-            switch (i.value().type()) {
+            QString key = i.key();
+            QVariant value = i.value();
+            switch (value.type()) {
             case QVariant::Bool:
-                if (i.key() == "printer-is-accepting-jobs") {
-                    ippAddBoolean(request, IPP_TAG_PRINTER, "printer-is-accepting-jobs", i.value().toBool());
+                if (key == QLatin1String("printer-is-accepting-jobs")) {
+                    ippAddBoolean(request, IPP_TAG_PRINTER, "printer-is-accepting-jobs", value.toBool());
                 } else {
                     ippAddBoolean(request, IPP_TAG_OPERATION,
-                                  i.key().toUtf8(), i.value().toBool());
+                                  key.toUtf8(), value.toBool());
                 }
                 break;
             case QVariant::Int:
-                if (i.key() == "job-id") {
+                if (key == QLatin1String("job-id")) {
                     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                                  "job-id", i.value().toInt());
-                } else if (i.key() == "printer-state") {
+                                  "job-id", value.toInt());
+                } else if (key == QLatin1String("printer-state")) {
                     ippAddInteger(request, IPP_TAG_PRINTER, IPP_TAG_ENUM,
                                   "printer-state", IPP_PRINTER_IDLE);
                 } else {
                     ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
-                                  i.key().toUtf8(), i.value().toInt());
+                                  key.toUtf8(), value.toInt());
                 }
                 break;
             case QVariant::String:
-                if (i.key() == "device-uri") {
+                if (key == QLatin1String("device-uri")) {
                     // device uri has a different TAG
                     ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
                                 "device-uri", "utf-8",
-                                i.value().toString().toUtf8());
-                } else if (i.key() == "job-printer-uri") {
-                    const char* dest_name = i.value().toString().toUtf8();
+                                value.toString().toUtf8());
+                } else if (key == QLatin1String("job-printer-uri")) {
+                    const char* dest_name = value.toString().toUtf8();
                     char  destUri[HTTP_MAX_URI];
                     httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri),
                                      "ipp", "utf-8", "localhost", ippPort(),
                                      "/printers/%s", dest_name);
                     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
                                  "job-printer-uri", "utf-8", destUri);
-                } else if (i.key() == "printer-uri") {
+                } else if (key == QLatin1String("printer-uri")) {
                     // needed for getJobs
                     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
                                  "printer-uri", NULL, "ipp://localhost/");
-                } else if (i.key() == "printer-op-policy" ||
-                           i.key() == "printer-error-policy" ||
-                           i.key() == "ppd-name") {
+                } else if (key == QLatin1String("printer-op-policy") ||
+                           key == QLatin1String("printer-error-policy") ||
+                           key == QLatin1String("ppd-name")) {
                     // printer-op-policy has a different TAG
                     ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
-                                i.key().toUtf8(), "utf-8",
-                                i.value().toString().toUtf8());
-                } else if (i.key() == "job-name") {
+                                key.toUtf8(), "utf-8",
+                                value.toString().toUtf8());
+                } else if (key == QLatin1String("job-name")) {
                     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                                 "job-name", "utf-8", i.value().toString().toUtf8());
-                } else if (i.key() == "which-jobs") {
+                                 "job-name", "utf-8", value.toString().toUtf8());
+                } else if (key == QLatin1String("which-jobs")) {
                     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                                 "which-jobs", "utf-8", i.value().toString().toUtf8());
+                                 "which-jobs", "utf-8", value.toString().toUtf8());
                 } else {
                     ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                                i.key().toUtf8(), "utf-8",
-                                i.value().toString().toUtf8());
+                                key.toUtf8(), "utf-8",
+                                value.toString().toUtf8());
                 }
                 break;
             case QVariant::StringList:
                 {
-                    QStringList list = i.value().value<QStringList>();
+                    QStringList list = value.value<QStringList>();
 
                     const char **values = qStringListToCharPtrPtr(list, &qbaList);
                     // Dump all the list values
@@ -217,15 +221,15 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                     }
 //                    values[list.size()] = '\0';
 
-                    if (i.key() == "member-uris") {
+                    if (key == QLatin1String("member-uris")) {
                         ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) (IPP_TAG_URI | IPP_TAG_COPY),
                                       "member-uris", list.size(), "utf-8", values);
-                    } else if (i.key() == "requested-attributes") {
+                    } else if (key == QLatin1String("requested-attributes")) {
                         ippAddStrings(request, IPP_TAG_OPERATION, static_cast<ipp_tag_t>(IPP_TAG_KEYWORD | IPP_TAG_COPY),
                                       "requested-attributes", list.size(), "utf-8", values);
                     } else {
                         ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) (IPP_TAG_NAME | IPP_TAG_COPY),
-                                      i.key().toUtf8(), list.size(), "utf-8", values);
+                                      key.toUtf8(), list.size(), "utf-8", values);
                     }
 
 //                    int i = 0;
@@ -241,7 +245,7 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                 }
                 break;
             default:
-                kWarning() << "type NOT recognized! This will be ignored:" << i.key() << "values" << i.value();
+                kWarning() << "type NOT recognized! This will be ignored:" << key << "values" << value;
             }
             ++i;
         }
@@ -309,7 +313,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
         /*
          * See if we have everything needed...
          */
-        if (needDestName && destAttributes["printer-name"].toString().isEmpty()) {
+        if (needDestName && destAttributes[QLatin1String("printer-name")].toString().isEmpty()) {
             if (attr == NULL) {
                 break;
             } else {

@@ -76,15 +76,13 @@ void KCupsRequest::getPPDS(const QString &make)
     }
 }
 
-static void
-choose_device_cb(
-    const char *device_class,           /* I - Class */
-    const char *device_id,              /* I - 1284 device ID */
-    const char *device_info,            /* I - Description */
-    const char *device_make_and_model,  /* I - Make and model */
-    const char *device_uri,             /* I - Device URI */
-    const char *device_location,        /* I - Location */
-    void *user_data)                    /* I - Result object */
+static void choose_device_cb(const char *device_class,           /* I - Class */
+                             const char *device_id,              /* I - 1284 device ID */
+                             const char *device_info,            /* I - Description */
+                             const char *device_make_and_model,  /* I - Make and model */
+                             const char *device_uri,             /* I - Device URI */
+                             const char *device_location,        /* I - Location */
+                             void *user_data)                    /* I - Result object */
 {
     /*
      * Add the device to the array...

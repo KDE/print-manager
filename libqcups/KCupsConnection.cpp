@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
+ *   Copyright (C) 2012 Harald Sitter <sitter@kde.org>                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -84,6 +85,20 @@ bool KCupsConnection::readyToStart()
     return false;
 }
 
+static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByteArray> *qbaList)
+{
+    const char **ptr = new const char *[list.size() + 1];
+    qbaList->reserve(qbaList->size() + list.size());
+    QByteArray qba;
+    for (int i = 0; i < list.size(); ++i) {
+        qba = list.at(i).toUtf8();
+        qbaList->append(qba);
+        ptr[i] = qba.constData();
+    }
+    ptr[list.size()] = 0;
+    return ptr;
+}
+
 ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                                          const QString &resource,
                                          QVariantHash   reqValues,
@@ -95,6 +110,7 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
         return ret; // This is not intended to be used in the gui thread
     }
 
+    QList <QByteArray> qbaList;
     ipp_t *response = NULL;
     bool needDestName = false;
     int group_tag = IPP_TAG_PRINTER;
@@ -190,22 +206,38 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
             case QVariant::StringList:
                 {
                     QStringList list = i.value().value<QStringList>();
-                    char *values[list.size()];
+
+                    const char **values = qStringListToCharPtrPtr(list, &qbaList);
                     // Dump all the list values
+//                    for (int item = 0; item < list.size(); ++item) {
+//                        values[item] = list.at(item).toUtf8().constData();
+//                    }
                     for (int item = 0; item < list.size(); ++item) {
-                        values[item] = list.at(item).toUtf8().data();
+                        kDebug() << item << values[item] << " == " << list.at(item);
                     }
+//                    values[list.size()] = '\0';
 
                     if (i.key() == "member-uris") {
-                        ippAddStrings(request, IPP_TAG_PRINTER, static_cast<ipp_tag_t>(IPP_TAG_URI | IPP_TAG_COPY),
-                                      "member-uris", list.size(), "utf-8", (const char**) values);
+                        ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) (IPP_TAG_URI | IPP_TAG_COPY),
+                                      "member-uris", list.size(), "utf-8", values);
                     } else if (i.key() == "requested-attributes") {
-                        ippAddStrings(request, IPP_TAG_OPERATION, static_cast<ipp_tag_t>(IPP_TAG_URI | IPP_TAG_COPY),
-                                      "requested-attributes", list.size(), "utf-8", (const char**) values);
+                        ippAddStrings(request, IPP_TAG_OPERATION, static_cast<ipp_tag_t>(IPP_TAG_KEYWORD | IPP_TAG_COPY),
+                                      "requested-attributes", list.size(), "utf-8", values);
                     } else {
-                        ippAddStrings(request, IPP_TAG_PRINTER, static_cast<ipp_tag_t>(IPP_TAG_URI | IPP_TAG_COPY),
-                                      i.key().toUtf8(), list.size(), "utf-8", (const char**) values);
+                        ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) (IPP_TAG_NAME | IPP_TAG_COPY),
+                                      i.key().toUtf8(), list.size(), "utf-8", values);
                     }
+
+//                    int i = 0;
+//                        while (values[i]) {
+//                            delete [] values[i];
+//                            i++;
+//                        }
+//                        delete [] values;
+                    // Delete the duped values
+//                    for (int item = 0; item < list.size(); ++item) {
+//                        delete [] values[item];
+//                    }
                 }
                 break;
             default:

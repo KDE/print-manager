@@ -36,6 +36,20 @@ KCupsConnection* KCupsConnection::m_instance = 0;
 static int password_retries = 0;
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data);
 
+static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByteArray> *qbaList)
+{
+    const char **ptr = new const char *[list.size() + 1];
+    qbaList->reserve(qbaList->size() + list.size());
+    QByteArray qba;
+    for (int i = 0; i < list.size(); ++i) {
+        qba = list.at(i).toUtf8();
+        qbaList->append(qba);
+        ptr[i] = qba.constData();
+    }
+    ptr[list.size()] = 0;
+    return ptr;
+}
+
 KCupsConnection* KCupsConnection::global()
 {
     if (!m_instance) {
@@ -85,20 +99,6 @@ bool KCupsConnection::readyToStart()
     return false;
 }
 
-static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByteArray> *qbaList)
-{
-    const char **ptr = new const char *[list.size() + 1];
-    qbaList->reserve(qbaList->size() + list.size());
-    QByteArray qba;
-    for (int i = 0; i < list.size(); ++i) {
-        qba = list.at(i).toUtf8();
-        qbaList->append(qba);
-        ptr[i] = qba.constData();
-    }
-    ptr[list.size()] = 0;
-    return ptr;
-}
-
 ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                                          const QString &resource,
                                          QVariantHash   reqValues,
@@ -110,7 +110,6 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
         return ret; // This is not intended to be used in the gui thread
     }
 
-    QList <QByteArray> qbaList;
     ipp_t *response = NULL;
     bool needDestName = false;
     int group_tag = IPP_TAG_PRINTER;
@@ -207,37 +206,23 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
                 {
                     QStringList list = i.value().value<QStringList>();
 
-                    const char **values = qStringListToCharPtrPtr(list, &qbaList);
-                    // Dump all the list values
-//                    for (int item = 0; item < list.size(); ++item) {
-//                        values[item] = list.at(item).toUtf8().constData();
-//                    }
-                    for (int item = 0; item < list.size(); ++item) {
-                        kDebug() << item << values[item] << " == " << list.at(item);
-                    }
-//                    values[list.size()] = '\0';
+                    QList <QByteArray> valuesQByteArrayList;
+                    const char **values = qStringListToCharPtrPtr(list, &valuesQByteArrayList);
 
                     if (i.key() == "member-uris") {
-                        ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) (IPP_TAG_URI | IPP_TAG_COPY),
+                        ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) IPP_TAG_URI,
                                       "member-uris", list.size(), "utf-8", values);
                     } else if (i.key() == "requested-attributes") {
-                        ippAddStrings(request, IPP_TAG_OPERATION, static_cast<ipp_tag_t>(IPP_TAG_KEYWORD | IPP_TAG_COPY),
+                        ippAddStrings(request, IPP_TAG_OPERATION,(ipp_tag_t) IPP_TAG_KEYWORD,
                                       "requested-attributes", list.size(), "utf-8", values);
                     } else {
-                        ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) (IPP_TAG_NAME | IPP_TAG_COPY),
+                        ippAddStrings(request, IPP_TAG_PRINTER, (ipp_tag_t) IPP_TAG_NAME,
                                       i.key().toUtf8(), list.size(), "utf-8", values);
                     }
 
-//                    int i = 0;
-//                        while (values[i]) {
-//                            delete [] values[i];
-//                            i++;
-//                        }
-//                        delete [] values;
-                    // Delete the duped values
-//                    for (int item = 0; item < list.size(); ++item) {
-//                        delete [] values[item];
-//                    }
+                    // ippAddStrings deep copies everything so we can throw away the values.
+                    // the QBAList and content is auto discarded when going out of scope.
+                    delete [] values;
                 }
                 break;
             default:
@@ -253,7 +238,6 @@ ReturnArguments KCupsConnection::request(ipp_op_e       operation,
         } else {
             response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8(), filename.toUtf8());
         }
-
     } while (retryIfForbidden());
 
     if (response != NULL && needResponse) {

@@ -35,21 +35,19 @@ public:
     /**
      * This is the main Cups class @author Daniel Nicoletti <dantti12@gmail.com>
      *
-     * By calling QCupsConnection::global() you have access to it.
+     * By calling KCupsConnection::global() you have access to it.
      * Due to cups archtecture, this class has to live on a
      * separate thread so we avoid blocking the user interface when
      * the cups call blocks.
      *
-     * It is IMPORTANT to not that we can not create several thread
+     * It is IMPORTANT that we do not create several thread
      * for each cups request, doing so is a valid but breaks our
      * authentication. We could tho store the user information an
      * set the user/password every time it was needed. But I am not
      * sure this is safe.
      *
-     * Extending this means either adding methods to the QCupsRequestxxx
-     * classes or creating a new QCupsRequest class which will move to
-     * this thread and then run. This allows to have more specialized classes
-     * that make usage easier and more maintainable.
+     * Extending this means either adding methods to the KCupsRequest
+     * class which will move to this thread and then run.
      */
     static KCupsConnection* global();
     ~KCupsConnection();
@@ -60,18 +58,19 @@ protected:
     virtual void run();
     static bool readyToStart();
     static bool retryIfForbidden();
-    static ReturnArguments request(ipp_op_e       operation,
+
+    static ReturnArguments request(ipp_op_e operation,
                                    const QString &resource,
-                                   QVariantHash   reqValues,
-                                   bool           needResponse);
+                                   const QVariantHash &reqValues,
+                                   bool needResponse);
+private:
+    KCupsConnection(QObject *parent = 0);
+    static void requestAddValues(ipp_t *request, const QVariantHash &values);
     static ReturnArguments parseIPPVars(ipp_t *response,
                                         int group_tag,
                                         bool needDestName);
     static ipp_t* ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
-
-private:
-    KCupsConnection(QObject *parent = 0);
 
     static KCupsConnection* m_instance;
 

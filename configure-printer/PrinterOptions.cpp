@@ -37,6 +37,8 @@
 
 #include <KDebug>
 
+#define DEFAULT_CHOICE "defaultChoice"
+
 PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent) :
     PrinterPage(parent),
     ui(new Ui::PrinterOptions),
@@ -213,7 +215,7 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
-         i++, choice++) {
+         ++i, ++choice) {
         QString choiceName = m_codec->toUnicode(choice->choice);
         QString cText = m_codec->toUnicode(choice->text);
 
@@ -225,8 +227,9 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
         layout->addWidget(button);
         radioGroup->addButton(button);
     }
+
     // store the default choice
-    radioGroup->setProperty("defaultChoice", defChoice);
+    radioGroup->setProperty(DEFAULT_CHOICE, defChoice);
     radioGroup->setProperty("Keyword", keyword);
     connect(radioGroup, SIGNAL(buttonClicked(QAbstractButton *)),
             this, SLOT(radioBtClicked(QAbstractButton *)));
@@ -235,8 +238,8 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
 
 void PrinterOptions::radioBtClicked(QAbstractButton *button)
 {
-    QButtonGroup *radioGroup = qobject_cast<QButtonGroup*>(sender());
-    bool isDifferent = radioGroup->property("defaultChoice").toString() != button->property("choice");
+    QObject *radioGroup = sender();
+    bool isDifferent = radioGroup->property(DEFAULT_CHOICE).toString() != button->property("choice");
 
     if (isDifferent != radioGroup->property("different").toBool()) {
         // it's different from the last time so add or remove changes
@@ -256,7 +259,7 @@ void PrinterOptions::radioBtClicked(QAbstractButton *button)
 //                   m_codec->fromUnicode(choice));
     // store the new value
     if (isDifferent) {
-        m_customValues[keyword] = qobject_cast<QObject*>(radioGroup);
+        m_customValues[keyword] = radioGroup;
     } else {
         m_customValues.remove(keyword);
     }
@@ -275,7 +278,7 @@ QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, 
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
-         i++, choice++) {
+         ++i, ++choice) {
         QString cName = m_codec->toUnicode(choice->choice);
         QString cText = m_codec->toUnicode(choice->text);
 
@@ -309,7 +312,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
         comboBox->addItem(cText, cName);
     }
     // store the default choice
-    comboBox->setProperty("defaultChoice", defChoice);
+    comboBox->setProperty(DEFAULT_CHOICE, defChoice);
     comboBox->setProperty("Keyword", keyword);
     comboBox->setCurrentIndex(comboBox->findData(defChoice));
     // connect the signal AFTER setCurrentIndex is called
@@ -323,7 +326,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 void PrinterOptions::currentIndexChangedCB(int index)
 {
     KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
-    bool isDifferent = comboBox->property("defaultChoice").toString() != comboBox->itemText(index);
+    bool isDifferent = comboBox->property(DEFAULT_CHOICE).toString() != comboBox->itemData(index);
 
     if (isDifferent != comboBox->property("different").toBool()) {
         // it's different from the last time so add or remove changes
@@ -381,18 +384,18 @@ double                           /* O - Number in points */
 PrinterOptions::get_points(double     number,           /* I - Original number */
            const char *uval)            /* I - Units */
 {
-  if (!strcmp(uval, "mm"))              /* Millimeters */
-    return (number * 72.0 / 25.4);
-  else if (!strcmp(uval, "cm"))         /* Centimeters */
-    return (number * 72.0 / 2.54);
-  else if (!strcmp(uval, "in"))         /* Inches */
-    return (number * 72.0);
-  else if (!strcmp(uval, "ft"))         /* Feet */
-    return (number * 72.0 * 12.0);
-  else if (!strcmp(uval, "m"))          /* Meters */
-    return (number * 72.0 / 0.0254);
-  else                                  /* Points */
-    return (number);
+    if (!strcmp(uval, "mm"))              /* Millimeters */
+        return (number * 72.0 / 25.4);
+    else if (!strcmp(uval, "cm"))         /* Centimeters */
+        return (number * 72.0 / 2.54);
+    else if (!strcmp(uval, "in"))         /* Inches */
+        return (number * 72.0);
+    else if (!strcmp(uval, "ft"))         /* Feet */
+        return (number * 72.0 * 12.0);
+    else if (!strcmp(uval, "m"))          /* Meters */
+        return (number * 72.0 / 0.0254);
+    else                                  /* Points */
+        return (number);
 }
 
 /*
@@ -749,7 +752,7 @@ void PrinterOptions::save()
             QString currentChoice;
             currentChoice = i.value()->property("currentChoice").toString();
             // Store the current choice as the default one
-            i.value()->setProperty("defaultChoice", currentChoice);
+            i.value()->setProperty(DEFAULT_CHOICE, currentChoice);
             i.value()->setProperty("currentChoice", QVariant());
             i.value()->setProperty("different", false);
             ++i;

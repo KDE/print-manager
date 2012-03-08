@@ -22,7 +22,6 @@
 #include "KCupsConnection.h"
 
 #include <QCoreApplication>
-#include <QStringBuilder>
 
 #include <KLocale>
 #include <KDebug>
@@ -323,9 +322,9 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, 
 
     QString destination;
     if (isClass) {
-        destination = QLatin1String("/classes/") % name;
+        destination = QLatin1String("/classes/") + name;
     } else {
-        destination = QLatin1String("/printers/") % name;
+        destination = QLatin1String("/printers/") + name;
     }
 
     // Create a new request
@@ -357,31 +356,31 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             return attr->values[0].integer;
         } else {
             QList<int> values;
-            for (int i = 0; i < attr->num_values; ++i) {
+            for (int i = 0; i < attr->num_values; i++) {
                 values << attr->values[i].integer;
             }
             return QVariant::fromValue(values);
         }
-    } else if (attr->value_tag == IPP_TAG_BOOLEAN) {
+    } else if (attr->value_tag == IPP_TAG_BOOLEAN ) {
         if (attr->num_values == 1) {
             return static_cast<bool>(attr->values[0].integer);
         } else {
             QList<bool> values;
-            for (int i = 0; i < attr->num_values; ++i) {
+            for (int i = 0; i < attr->num_values; i++) {
                 values << static_cast<bool>(attr->values[i].integer);
             }
             return QVariant::fromValue(values);
         }
     } else if (attr->value_tag == IPP_TAG_RANGE) {
         QVariantList values;
-        for (int i = 0; i < attr->num_values; ++i) {
+        for (int i = 0; i < attr->num_values; i++) {
             values << attr->values[i].range.lower;
             values << attr->values[i].range.upper;
         }
         return values;
     } else {
         QStringList values;
-        for (int i = 0; i < attr->num_values; ++i) {
+        for (int i = 0; i < attr->num_values; i++) {
             values << QString::fromUtf8(attr->values[i].string.text);
         }
         return values;

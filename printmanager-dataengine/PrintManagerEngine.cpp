@@ -23,6 +23,7 @@
 #include "PrintManagerService.h"
   
 #include <Plasma/DataContainer>
+#include <QStringBuilder>
 
 #include <KCupsRequest.h>
 #include <KCupsJob.h>
@@ -89,8 +90,7 @@ Plasma::Service* PrintManagerEngine::serviceForSource(const QString &source)
 
 void PrintManagerEngine::job(const QString &prefix, int order, const KCupsJob &job)
 {
-    QString source = prefix;
-    source.append(job.idStr());
+    QString source = prefix % job.idStr();
 
     Data sourceData = query(source);
     bool changed = false;
@@ -152,9 +152,7 @@ void PrintManagerEngine::job(const QString &prefix, int order, const KCupsJob &j
         }
     } else {
         QString pages;
-        pages = QString::number(job.processedPages());
-        pages.append(QLatin1Char('/'));
-        pages.append(QString::number(job.processedPages()));
+        pages = QString::number(job.processedPages()) % QLatin1Char('/') % QString::number(job.processedPages());
         if (sourceData[QLatin1String("jobPages")] != pages) {
             sourceData[QLatin1String("jobPages")] = pages;
             changed = true;
@@ -180,9 +178,9 @@ void PrintManagerEngine::updateJobs(const QString &prefix, const KCupsJobs &jobs
     QRegExp rx;
     if (jobsStrList.isEmpty()) {
         // we don't have any jobs remove all sources that start with our prefix
-        rx.setPattern(QLatin1Char('^') + prefix);
+        rx.setPattern(QLatin1Char('^') % prefix);
     } else {
-        rx.setPattern(QLatin1Char('^') + prefix + QLatin1String("(?!") + jobsStrList.join(QLatin1String("|")) + QLatin1Char(')'));
+        rx.setPattern(QLatin1Char('^') % prefix % QLatin1String("(?!") % jobsStrList.join(QLatin1String("|")) % QLatin1Char(')'));
     }
 
     foreach (const QString &source, sources().filter(rx)) {
@@ -259,7 +257,7 @@ void PrintManagerEngine::updatePrinters(const QString &prefix, const KCupsPrinte
         // if we don't have any printers remove all sources starting with 'Printer/'
         rx.setPattern(QLatin1String("^Printers/"));
     } else {
-        rx.setPattern(QLatin1String("^Printers/(?!") + printersStrList.join(QLatin1String("|")) + QLatin1Char(')'));
+        rx.setPattern(QLatin1String("^Printers/(?!") % printersStrList.join(QLatin1String("|")) % QLatin1Char(')'));
     }
 
     foreach (const QString &source, sources().filter(rx)) {
@@ -299,7 +297,7 @@ bool PrintManagerEngine::updateSourceEvent(const QString &source)
     if (source == QLatin1String("Printers")) {
         request->getPrinters(m_printerAttributes);
         request->waitTillFinished();
-        updatePrinters(source + QLatin1Char('/'), request->printers());
+        updatePrinters(source % QLatin1Char('/'), request->printers());
     } else {
         if (source == QLatin1String("ActiveJobs")) {
             request->getJobs(QString(), false, CUPS_WHICHJOBS_ACTIVE, m_jobAttributes);
@@ -309,7 +307,7 @@ bool PrintManagerEngine::updateSourceEvent(const QString &source)
             request->getJobs(QString(), false, CUPS_WHICHJOBS_COMPLETED, m_jobAttributes);
         }
         request->waitTillFinished();
-        updateJobs(source + QLatin1Char('/'), request->jobs());
+        updateJobs(source % QLatin1Char('/'), request->jobs());
     }
 
     request->deleteLater();

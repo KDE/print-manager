@@ -1,6 +1,7 @@
 [Global]
 IconName=printer
 Name=printmanager
+Name[cs]=printmanager
 Name[da]=udskriftshåndtering
 Name[hu]=printmanager
 Name[nl]=afdrukbeheerder

@@ -7,6 +7,7 @@ X-KDE-Kded-autoload=true
 X-KDE-Kded-phase=1
 
 Name=Print Manager
+Name[cs]=Správce tisku
 Name[da]=Udskriftshåndtering
 Name[hu]=Nyomtatáskezelő
 Name[nl]=Afdrukbeheerder

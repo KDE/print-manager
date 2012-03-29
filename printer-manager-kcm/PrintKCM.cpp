@@ -76,12 +76,12 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_model = new PrinterModel(winId(), this);
     ui->printersTV->setModel(m_model);
     ui->printersTV->setItemDelegate(new PrinterDelegate(this));
-    connect(ui->printersTV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+    connect(ui->printersTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(update()));
-    connect(ui->printersTV->model(), SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
+    connect(ui->printersTV->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(update()));
-    connect(ui->printersTV->model(), SIGNAL(error(int, const QString &, const QString &)),
-            this, SLOT(error(int, const QString &, const QString &)));
+    connect(ui->printersTV->model(), SIGNAL(error(int,QString,QString)),
+            this, SLOT(error(int,QString,QString)));
 
     // Create the PrinterDescription before we try to select a printer
     m_printerDesc = new PrinterDescription(ui->scrollAreaWidgetContents);

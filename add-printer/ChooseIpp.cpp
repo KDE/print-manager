@@ -52,8 +52,8 @@ ChooseIpp::ChooseIpp(QWidget *parent)
     painter.drawPixmap(startPoint, pixmap);
     printerL->setPixmap(icon);
 
-    connect(addressLE, SIGNAL(textChanged(const QString &)), this, SLOT(verifyURL()));
-    connect(queueLE, SIGNAL(textChanged(const QString &)), this, SLOT(verifyURL()));
+    connect(addressLE, SIGNAL(textChanged(QString)), this, SLOT(verifyURL()));
+    connect(queueLE, SIGNAL(textChanged(QString)), this, SLOT(verifyURL()));
 }
 
 ChooseIpp::~ChooseIpp()

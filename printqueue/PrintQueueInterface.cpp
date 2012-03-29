@@ -98,8 +98,8 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
                     ui, SLOT(update()));
             connect(dlg, SIGNAL(finished()),
                     this, SLOT(RemoveQueue()));
-            connect(ui, SIGNAL(windowTitleChanged(const QString &)),
-                    dlg, SLOT(setWindowTitle(const QString &)));
+            connect(ui, SIGNAL(windowTitleChanged(QString)),
+                    dlg, SLOT(setWindowTitle(QString)));
             dlg->show();
             m_uis[printer.name()] = dlg;
         } else {

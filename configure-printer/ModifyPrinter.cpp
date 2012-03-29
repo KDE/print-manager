@@ -50,12 +50,12 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModif
     ui->membersL->setVisible(isClass);
     ui->membersLV->setVisible(isClass);
 
-    connect(ui->descriptionLE, SIGNAL(textChanged(const QString &)),
-            this, SLOT(textChanged(const QString &)));
-    connect(ui->locationLE, SIGNAL(textChanged(const QString &)),
-            this, SLOT(textChanged(const QString &)));
-    connect(ui->connectionLE, SIGNAL(textChanged(const QString &)),
-            this, SLOT(textChanged(const QString &)));
+    connect(ui->descriptionLE, SIGNAL(textChanged(QString)),
+            this, SLOT(textChanged(QString)));
+    connect(ui->locationLE, SIGNAL(textChanged(QString)),
+            this, SLOT(textChanged(QString)));
+    connect(ui->connectionLE, SIGNAL(textChanged(QString)),
+            this, SLOT(textChanged(QString)));
     connect(ui->membersLV, SIGNAL(changed(bool)),
             this, SLOT(modelChanged()));
 

@@ -69,7 +69,7 @@ PageDestinations::PageDestinations(QWidget *parent)
     KCategoryDrawerV3 *drawer = new KCategoryDrawerV3(devicesLV);
     devicesLV->setModel(proxy);
     devicesLV->setCategoryDrawer(drawer);
-    connect(devicesLV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+    connect(devicesLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(checkSelected()));
 
     // Setup the busy cursor

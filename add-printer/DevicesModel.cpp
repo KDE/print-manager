@@ -43,8 +43,8 @@ void DevicesModel::update()
     // clear the model to don't duplicate items
     clear();
     m_request = new KCupsRequest;
-    connect(m_request, SIGNAL(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)),
-            this, SLOT(device(const QString &, const QString &, const QString &, const QString &, const QString &, const QString &)));
+    connect(m_request, SIGNAL(device(QString,QString,QString,QString,QString,QString)),
+            this, SLOT(device(QString,QString,QString,QString,QString,QString)));
     connect(m_request, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_request, SIGNAL(finished()), this, SIGNAL(loaded()));
     m_request->getDevices();

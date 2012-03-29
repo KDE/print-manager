@@ -45,7 +45,7 @@ ClassListWidget::ClassListWidget(QWidget *parent)
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     m_busySeq->setWidget(viewport());
 
-    connect(m_model, SIGNAL(dataChanged(const QModelIndex &, const QModelIndex &)),
+    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(modelChanged()));
 }
 

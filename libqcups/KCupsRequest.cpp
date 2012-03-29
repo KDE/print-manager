@@ -69,7 +69,7 @@ void KCupsRequest::getPPDS(const QString &make)
                                                   "/",
                                                   request,
                                                   true);
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getPPDS", make);
@@ -112,7 +112,7 @@ void KCupsRequest::getDevices()
                            (cups_device_cb_t) choose_device_cb,
                            this);
         } while (KCupsConnection::retryIfForbidden());
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getDevices");
@@ -148,7 +148,7 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
             m_printers << KCupsPrinter(ret.at(i));
         }
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getPrinters", qVariantFromValue(attributes), arguments);
@@ -192,7 +192,7 @@ void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, K
             m_jobs << KCupsJob(ret.at(i));
         }
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getJobs", printer, myJobs, whichJobs, qVariantFromValue(attributes));
@@ -214,7 +214,7 @@ void KCupsRequest::addClass(const QHash<QString, QVariant> &values)
                                                   "/admin/",
                                                   request,
                                                   false);
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("addClass", values);
@@ -238,7 +238,7 @@ void KCupsRequest::getServerSettings()
 
             emit server(KCupsServer(arguments));
         } while (KCupsConnection::retryIfForbidden());
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getServerSettings");
@@ -265,7 +265,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
             cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
             cupsFreeOptions(num_settings, settings);
         } while (KCupsConnection::retryIfForbidden());
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("setServerSettings", qVariantFromValue(server));
@@ -304,7 +304,7 @@ void KCupsRequest::setAttributes(const QString &printer,
                                                   request,
                                                   false);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("setAttributes", printer, isClass, attributes, filename);
@@ -327,7 +327,7 @@ void KCupsRequest::setShared(const QString &printer, bool isClass, bool shared)
                                                   request,
                                                   false);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("setShared", printer, isClass, shared);
@@ -345,7 +345,7 @@ void KCupsRequest::pausePrinter(const QString &name)
                                  request,
                                  false);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("pausePrinter", name);
@@ -363,7 +363,7 @@ void KCupsRequest::resumePrinter(const QString &name)
                                  request,
                                  false);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("resumePrinter", name);
@@ -381,7 +381,7 @@ void KCupsRequest::setDefaultPrinter(const QString &name)
                                  request,
                                  false);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("setDefaultPrinter", name);
@@ -399,7 +399,7 @@ void KCupsRequest::deletePrinter(const QString &name)
                                  request,
                                  false);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("deletePrinter", name);
@@ -420,7 +420,7 @@ void KCupsRequest::getAttributes(const QString &printer, bool isClass, const QSt
                                                   request,
                                                   true);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getAttributes", printer, isClass, requestedAttr);
@@ -456,7 +456,7 @@ void KCupsRequest::printTestPage(const QString &printer, bool isClass)
                                                   request,
                                                   false);
 
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("printTestPage", printer, isClass);
@@ -510,8 +510,8 @@ void KCupsRequest::printCommand(const QString &printer, const QString &command, 
                 cupsFinishDocument(CUPS_HTTP_DEFAULT, printer.toUtf8());
             }
 
-            setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
-            if (cupsLastError() >= IPP_REDIRECTION_OTHER_SITE) {
+            setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+            if (KCupsConnection::lastError() >= IPP_REDIRECTION_OTHER_SITE) {
                 qWarning() << "Unable to send command to printer driver!";
 
                 cupsCancelJob(printer.toUtf8(), job_id);
@@ -519,7 +519,7 @@ void KCupsRequest::printCommand(const QString &printer, const QString &command, 
                 return; // Return to avoid a new try
             }
         } while (KCupsConnection::retryIfForbidden());
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("printCommand", printer, command, title);
@@ -531,7 +531,7 @@ void KCupsRequest::cancelJob(const QString &destName, int jobId)
     if (KCupsConnection::readyToStart()) {
         do {
             cupsCancelJob(destName.toUtf8(), jobId);
-            setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+            setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         } while (KCupsConnection::retryIfForbidden());
         setFinished();
     } else {
@@ -549,7 +549,7 @@ void KCupsRequest::holdJob(const QString &destName, int jobId)
                                                   "/jobs/",
                                                   request,
                                                   false);
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("holdJob", destName, jobId);
@@ -566,7 +566,7 @@ void KCupsRequest::releaseJob(const QString &destName, int jobId)
                                                   "/jobs/",
                                                   request,
                                                   false);
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("releaseJob", destName, jobId);
@@ -591,7 +591,7 @@ void KCupsRequest::moveJob(const QString &fromDestname, int jobId, const QString
                                                   "/jobs/",
                                                   request,
                                                   false);
-        setError(cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("moveJob", fromDestname, jobId, toDestname);
@@ -631,7 +631,7 @@ void KCupsRequest::invokeMethod(const char *method,
                                             QGenericArgument(arg7.typeName(), arg7.data()),
                                             QGenericArgument(arg8.typeName(), arg8.data()));
     if (m_finished) {
-        setError(1, i18n("Failed to invoke method: %1").arg(method));
+        setError(1, i18n("Failed to invoke method: %1", method));
         setFinished();
     }
 }

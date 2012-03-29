@@ -132,8 +132,8 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent) :
     addPage(page);
 
     // connect this after ALL pages were added, otherwise the slot will be called
-    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)),
-            SLOT(currentPageChanged(KPageWidgetItem *, KPageWidgetItem *)));
+    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem,KPageWidgetItem)),
+            SLOT(currentPageChanged(KPageWidgetItem,KPageWidgetItem)));
     restoreDialogSize(configureDialog);
 }
 

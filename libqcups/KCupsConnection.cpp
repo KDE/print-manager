@@ -156,14 +156,6 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
         } else {
             response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8(), filename.toUtf8());
         }
-
-        // When CUPS process stops our connection
-        // with it fails and has to be re-established
-        if (cupsLastError() == IPP_INTERNAL_ERROR) {
-            // Quiting this connection thread forces it
-            // to create a new CUPS_HTTP_DEFAULT connection
-            KCupsConnection::global()->deleteLater();
-        }
     } while (retryIfForbidden());
 
     if (response != NULL && needResponse) {
@@ -404,9 +396,10 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 
 bool KCupsConnection::retryIfForbidden()
 {
-    if (cupsLastError() == IPP_FORBIDDEN ||
-        cupsLastError() == IPP_NOT_AUTHORIZED ||
-        cupsLastError() == IPP_NOT_AUTHENTICATED) {
+    ipp_status_t status = cupsLastError();
+    if (status == IPP_FORBIDDEN ||
+        status == IPP_NOT_AUTHORIZED ||
+        status == IPP_NOT_AUTHENTICATED) {
         if (password_retries == 0) {
             // Pretend to be the root user
             // Sometime seting this just works
@@ -420,7 +413,7 @@ bool KCupsConnection::retryIfForbidden()
         }
 
         // force authentication
-        kDebug() << "cupsLastErrorString()" << cupsLastErrorString() << cupsLastError();
+        kDebug() << "cupsLastErrorString()" << cupsLastErrorString() << status;
         kDebug() << "cupsDoAuthentication" << password_retries;
         cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", "/");
         // tries to do the action again
@@ -430,6 +423,21 @@ bool KCupsConnection::retryIfForbidden()
 
     // the action was not forbidden
     return false;
+}
+
+ipp_status_t KCupsConnection::lastError()
+{
+    ipp_status_t status = cupsLastError();
+
+    // When CUPS process stops our connection
+    // with it fails and has to be re-established
+    if (status == IPP_INTERNAL_ERROR) {
+        // Quiting this connection thread forces it
+        // to create a new CUPS_HTTP_DEFAULT connection
+        KCupsConnection::global()->deleteLater();
+    }
+    return status;
+
 }
 
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)

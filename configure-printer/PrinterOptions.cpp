@@ -231,8 +231,8 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
     // store the default choice
     radioGroup->setProperty(DEFAULT_CHOICE, defChoice);
     radioGroup->setProperty("Keyword", keyword);
-    connect(radioGroup, SIGNAL(buttonClicked(QAbstractButton *)),
-            this, SLOT(radioBtClicked(QAbstractButton *)));
+    connect(radioGroup, SIGNAL(buttonClicked(QAbstractButton)),
+            this, SLOT(radioBtClicked(QAbstractButton)));
     return widget;
 }
 

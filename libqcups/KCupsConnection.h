@@ -58,6 +58,14 @@ protected:
     virtual void run();
     static bool readyToStart();
     static bool retryIfForbidden();
+    /**
+      * Always use this method to get the last error
+      * because if the cups connection fails, the last
+      * error will be an internal error and we need
+      * to destroy this thread in order to recover
+      * from this error.
+      */
+    static ipp_status_t lastError();
 
     static ReturnArguments request(ipp_op_e operation,
                                    const QString &resource,

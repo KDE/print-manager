@@ -21,7 +21,6 @@
 #include "PrintQueueModel.h"
 
 #include <KCupsRequest.h>
-#include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 #include <KCupsJob.h>
 

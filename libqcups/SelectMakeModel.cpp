@@ -91,7 +91,7 @@ void SelectMakeModel::ppdsLoaded()
     makes.removeDuplicates();
     ui->makeFilterKCB->addItems(makes);
 
-    connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(const QItemSelection &, const QItemSelection &)),
+    connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(checkChanged()));
     // find the make and model desired
     setMakeModel(m_make, m_makeAndModel);

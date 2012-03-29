@@ -63,14 +63,14 @@ public:
     ReturnArguments result() const;
 
     /**
-     * Non empty when getPrinters is called and finish is emited()
+     * Non empty when getPrinters is called and finish is emitted()
      * @param position The position found on the list
      * @param printer The printer found
      */
     KCupsPrinters printers() const;
 
     /**
-     * Non empty when getJobs is called and finish is emited()
+     * Non empty when getJobs is called and finish is emitted()
      * @param position The it will be processed
      * @param job The printer found
      */
@@ -90,7 +90,7 @@ public:
 
     /**
      * Get all available printers
-     * @param mask filter the kind of printer that will be emited (-1 to no filter)
+     * @param mask filter the kind of printer that will be emitted (-1 to no filter)
      * @param requestedAttr the attibutes to retrieve from cups
      * This method emits printer()
      *
@@ -102,7 +102,7 @@ public:
 
     /**
      * Get all available printers
-     * @param mask filter the kind of printer that will be emited (-1 to no filter)
+     * @param mask filter the kind of printer that will be emitted (-1 to no filter)
      * @param requestedAttr the attibutes to retrieve from cups
      * This method emits printer()
      *

@@ -159,7 +159,7 @@ void PrinterDescription::setIsShared(bool isShared)
 void PrinterDescription::setCommands(const QStringList &commands)
 {
     // On the first time this method runs the list
-    // can be empty, so keep all objects initilized on the
+    // can be empty, so keep all objects initialized on the
     // constructor
     if (m_commands != commands) {
         m_commands = commands;

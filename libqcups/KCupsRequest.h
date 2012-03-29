@@ -127,7 +127,7 @@ public:
      * Adds a printer class
      * @param values the values required to add a class
      */
-    Q_INVOKABLE void addClass(const QHash<QString, QVariant> &values);
+    void addClass(const QVariantHash &values);
 
     /**
      * Get the CUPS server settings
@@ -149,10 +149,10 @@ public:
      * @param attributes The new attributes of the printer
      * @param filename The file name in case of changing the PPD
      */
-    Q_INVOKABLE void setAttributes(const QString &printer,
-                                   bool isClass,
-                                   const QVariantHash &attributes,
-                                   const QString &filename = QString());
+    void setAttributes(const QString &printer,
+                       bool isClass,
+                       const QVariantHash &attributes,
+                       const QString &filename = QString());
 
     /**
      * Set if a given printer should be shared among other cups
@@ -160,32 +160,32 @@ public:
      * @param isClass True it is a printer class
      * @param shared True if it should be shared
      */
-    Q_INVOKABLE void setShared(const QString &printer, bool isClass, bool shared);
+    void setShared(const QString &printer, bool isClass, bool shared);
 
     /**
      * Set if a given printer should be the default one among others
      * @param printer The printer to apply the change
      */
-    Q_INVOKABLE void setDefaultPrinter(const QString &name);
+    void setDefaultPrinter(const QString &name);
 
     /**
      * Pause the given printer from receiving jobs
      * @param printer The printer to apply the change
      */
-    Q_INVOKABLE void pausePrinter(const QString &name);
+    void pausePrinter(const QString &name);
 
     /**
      * Resume the given printer from receiving jobs
      * @param printer The printer to apply the change
      */
-    Q_INVOKABLE void resumePrinter(const QString &name);
+    void resumePrinter(const QString &name);
 
     /**
      * Delete the given printer, if it's not local it's not
      * possible to delete it
      * @param printer The printer to apply the change
      */
-    Q_INVOKABLE void deletePrinter(const QString &name);
+    void deletePrinter(const QString &name);
 
     /**
      * Get attributes from a given printer
@@ -200,7 +200,7 @@ public:
      * @param printer The printer where the test should be done
      * @param isClass True it is a printer class
      */
-    Q_INVOKABLE void printTestPage(const QString &printer, bool isClass);
+    void printTestPage(const QString &printer, bool isClass);
 
     /**
      * Print a command test
@@ -216,21 +216,21 @@ public:
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    Q_INVOKABLE void cancelJob(const QString &destName, int jobId);
+    void cancelJob(const QString &destName, int jobId);
 
     /**
      * Holds the printing of a given job
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    Q_INVOKABLE void holdJob(const QString &destName, int jobId);
+    void holdJob(const QString &destName, int jobId);
 
     /**
      * Holds the printing of a given job
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    Q_INVOKABLE void releaseJob(const QString &destName, int jobId);
+    void releaseJob(const QString &destName, int jobId);
 
     /**
      * Holds the printing of a given job
@@ -238,7 +238,7 @@ public:
      * @param jobId the job identification
      * @param toDestName the destination to hold the job
      */
-    Q_INVOKABLE void moveJob(const QString &fromDestname, int jobId, const QString &toDestName);
+    void moveJob(const QString &fromDestname, int jobId, const QString &toDestName);
 
 signals:
     void server(const KCupsServer &server);
@@ -261,6 +261,7 @@ private:
                       const QVariant &arg6 = QVariant(),
                       const QVariant &arg7 = QVariant(),
                       const QVariant &arg8 = QVariant());
+    Q_INVOKABLE void doOperation(int operation, const QString &resource, const QVariantHash &request);
     void setError(int error, const QString &errorMsg);
     void setFinished();
 

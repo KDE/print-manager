@@ -75,6 +75,7 @@ KCupsConnection::KCupsConnection(QObject *parent) :
 
 KCupsConnection::~KCupsConnection()
 {
+    m_instance = 0;
     quit();
     wait();
 }
@@ -154,6 +155,14 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
             response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8());
         } else {
             response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8(), filename.toUtf8());
+        }
+
+        // When CUPS process stops our connection
+        // with it fails and has to be re-established
+        if (cupsLastError() == IPP_INTERNAL_ERROR) {
+            // Quiting this connection thread forces it
+            // to create a new CUPS_HTTP_DEFAULT connection
+            KCupsConnection::global()->deleteLater();
         }
     } while (retryIfForbidden());
 

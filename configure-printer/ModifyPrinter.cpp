@@ -25,7 +25,6 @@
 #include "SelectMakeModel.h"
 
 #include <QPointer>
-#include <KFileDialog>
 #include <KDebug>
 
 ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModify, QWidget *parent) :

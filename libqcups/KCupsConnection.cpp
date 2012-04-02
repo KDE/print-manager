@@ -432,7 +432,7 @@ ipp_status_t KCupsConnection::lastError()
     // When CUPS process stops our connection
     // with it fails and has to be re-established
     if (status == IPP_INTERNAL_ERROR) {
-        // Quiting this connection thread forces it
+        // Deleting this connection thread forces it
         // to create a new CUPS_HTTP_DEFAULT connection
         KCupsConnection::global()->deleteLater();
     }

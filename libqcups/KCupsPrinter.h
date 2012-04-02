@@ -66,7 +66,7 @@ public:
         Stoped
     } Status;
     KCupsPrinter();
-    KCupsPrinter(const QString &printer, bool isClass = false);
+    explicit KCupsPrinter(const QString &printer, bool isClass = false);
 
     static QStringList flags(const Attributes &attributes);
 

@@ -48,62 +48,57 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent) :
     KConfigGroup configureDialog(&config, "ConfigureDialog");
     restoreDialogSize(configureDialog);
 
-    QStringList attr;
+    KCupsPrinter::Attributes attr;
     KPageWidgetItem *page;
 
     modifyPrinter = new ModifyPrinter(destName, isClass, true, this);
     PrinterBehavior *printerBehavior = new PrinterBehavior(destName, isClass, this);
-    attr << modifyPrinter->neededValues();
-    attr << printerBehavior->neededValues();
-    attr << "printer-type"; // needed to know if it's a remote printer
-    attr << "marker-levels";
-    attr << "marker-colors";
-    attr << "marker-high-levels";
-    attr << "marker-low-levels";
-    attr << "marker-names";
-    attr << "marker-message";
-    attr << "marker-type";
-    attr << "printer-make-and-model";
-//     marker-low-levels
-    attr.removeDuplicates();
-    QVariantHash values;
+    attr |= modifyPrinter->neededValues();
+    attr |= printerBehavior->neededValues();
+    attr |= KCupsPrinter::PrinterType; // needed to know if it's a remote printer
+    attr |= KCupsPrinter::MarkerLevels;
+    attr |= KCupsPrinter::MarkerColors;
+    attr |= KCupsPrinter::MarkerHighLevels;
+    attr |= KCupsPrinter::MarkerLowLevels;
+    attr |= KCupsPrinter::MarkerNames;
+    attr |= KCupsPrinter::MarkerMessage;
+    attr |= KCupsPrinter::MarkerTypes;
+    attr |= KCupsPrinter::PrinterMakeAndModel;
+
+    KCupsPrinter printer;
     KCupsRequest *request = new KCupsRequest;
-    request->getAttributes(destName, isClass, attr);
+    request->getPrinterAttributes(destName, isClass, attr);
     request->waitTillFinished();
-    if (!request->result().isEmpty()){
-        values = request->result().first();
+    if (!request->hasError() && !request->printers().isEmpty()){
+        printer = request->printers().first();
     }
-    kDebug() << "VALUES" << values;
-    kDebug() << "marker" << values["marker-levels"].value<QList<int> >();
+//    kDebug() << "VALUES" << values;
+//    kDebug() << "marker" << values["marker-levels"].value<QList<int> >();
 
     request->deleteLater();
 
     //     kDebug() << values;
-    if (values["printer-type"].toUInt() & CUPS_PRINTER_LOCAL) {
+    if (printer.type() & CUPS_PRINTER_LOCAL) {
         kDebug() << "CUPS_PRINTER_LOCAL";
     }
-    if (values["printer-type"].toUInt() & CUPS_PRINTER_CLASS) {
-
-        kDebug() << "CUPS_PRINTER_CLASS";
-        isClass = true;
-    }
+    isClass = printer.isClass();
     bool isRemote = false;
-    if (values["printer-type"].toUInt() & CUPS_PRINTER_REMOTE) {
+    if (printer.type() & CUPS_PRINTER_REMOTE) {
         kDebug() << "CUPS_PRINTER_REMOTE";
         isRemote = true;
     }
-    if (values["printer-type"].toUInt() & CUPS_PRINTER_BW) {
+    if (printer.type() & CUPS_PRINTER_BW) {
         kDebug() << "CUPS_PRINTER_BW";
     }
-    if (values["printer-type"].toUInt() & CUPS_PRINTER_COLOR) {
+    if (printer.type() & CUPS_PRINTER_COLOR) {
         kDebug() << "CUPS_PRINTER_COLOR";
     }
-    if (values["printer-type"].toUInt() & CUPS_PRINTER_MFP) {
+    if (printer.type() & CUPS_PRINTER_MFP) {
         kDebug() << "CUPS_PRINTER_MFP";
     }
 
     modifyPrinter->setRemote(isRemote);
-    modifyPrinter->setValues(values);
+    modifyPrinter->setValues(printer);
     page = new KPageWidgetItem(modifyPrinter, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
     page->setIcon(KIcon("dialog-information"));
@@ -125,7 +120,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent) :
     }
 
     printerBehavior->setRemote(isRemote);
-    printerBehavior->setValues(values);
+    printerBehavior->setValues(printer);
     page = new KPageWidgetItem(printerBehavior, i18n("Banners, Policies and Allowed Users"));
     page->setHeader(i18n("Banners, Policies and Allowed Users"));
     page->setIcon(KIcon("feed-subscribe"));

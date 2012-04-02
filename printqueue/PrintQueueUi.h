@@ -47,6 +47,7 @@ public slots:
     void update();
 
 private slots:
+    void updatePrinter(const QString &printer);
     void on_whichJobsCB_currentIndexChanged(int index);
     void on_pausePrinterPB_clicked();
     void on_configurePrinterPB_clicked();

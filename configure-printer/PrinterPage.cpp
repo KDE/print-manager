@@ -33,11 +33,6 @@ QHash<QString, QVariant> PrinterPage::modifiedValues() const
     return QHash<QString, QVariant>();
 }
 
-QStringList PrinterPage::neededValues() const
-{
-    return QStringList();
-}
-
 void PrinterPage::setRemote(bool)
 {
 }

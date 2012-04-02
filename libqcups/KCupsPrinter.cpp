@@ -88,6 +88,56 @@ QStringList KCupsPrinter::commands() const
     return m_arguments["printer-commands"].toStringList();
 }
 
+QStringList KCupsPrinter::memberNames() const
+{
+    return m_arguments["member-names"].toStringList();
+}
+
+QString KCupsPrinter::deviceUri() const
+{
+    return m_arguments["device-uri"].toString();
+}
+
+QStringList KCupsPrinter::errorPolicy() const
+{
+    return m_arguments["printer-error-policy"].toStringList();
+}
+
+QStringList KCupsPrinter::errorPolicySupported() const
+{
+    return m_arguments["printer-error-policy-supported"].toStringList();
+}
+
+QStringList KCupsPrinter::opPolicy() const
+{
+    return m_arguments["printer-op-policy"].toStringList();
+}
+
+QStringList KCupsPrinter::opPolicySupported() const
+{
+    return m_arguments["printer-op-policy-supported"].toStringList();
+}
+
+QStringList KCupsPrinter::jobSheetsDefault() const
+{
+    return m_arguments["job-sheets-default"].toStringList();
+}
+
+QStringList KCupsPrinter::jobSheetsSupported() const
+{
+    return m_arguments["job-sheets-supported"].toStringList();
+}
+
+QStringList KCupsPrinter::requestingUserNameAllowed() const
+{
+    return m_arguments["requesting-user-name-allowed"].toStringList();
+}
+
+QStringList KCupsPrinter::requestingUserNameDenied() const
+{
+    return m_arguments["requesting-user-name-denied"].toStringList();
+}
+
 KCupsPrinter::Status KCupsPrinter::state() const
 {
     return static_cast<Status>(m_arguments["printer-state"].toUInt());
@@ -178,11 +228,50 @@ QStringList KCupsPrinter::flags(const Attributes &attributes)
     if (attributes & MarkerLevels) {
         ret << "marker-levels";
     }
+    if (attributes & MarkerHighLevels) {
+        ret << "marker-high-levels";
+    }
+    if (attributes & MarkerLowLevels) {
+        ret << "marker-low-levels";
+    }
     if (attributes & MarkerNames) {
         ret << "marker-names";
     }
     if (attributes & MarkerTypes) {
         ret << "marker-types";
+    }
+    if (attributes & MarkerMessage) {
+        ret << "marker-message";
+    }
+    if (attributes & MemberNames) {
+        ret << "member-names";
+    }
+    if (attributes & DeviceUri) {
+        ret << "device-uri";
+    }
+    if (attributes & JobSheetsDefault) {
+        ret << "job-sheets-default";
+    }
+    if (attributes & JobSheetsSupported) {
+        ret << "job-sheets-supported";
+    }
+    if (attributes & PrinterErrorPolicy) {
+        ret << "printer-error-policy";
+    }
+    if (attributes & PrinterErrorPolicySupported) {
+        ret << "printer-error-policy-supported";
+    }
+    if (attributes & PrinterOpPolicy) {
+        ret << "printer-op-policy";
+    }
+    if (attributes & PrinterOpPolicySupported) {
+        ret << "printer-op-policy-supported";
+    }
+    if (attributes & RequestingUserNameAllowed) {
+        ret << "requesting-user-name-allowed";
+    }
+    if (attributes & RequestingUserNameDenied) {
+        ret << "requesting-user-name-denied";
     }
 
     return ret;

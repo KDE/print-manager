@@ -66,9 +66,14 @@ public slots:
 signals:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
+private slots:
+    void insertUpdatePrinter(const QString &printer);
+    void insertUpdatePrinterFinished();
+    void printerRemoved(const QString &printer);
+
 private:
     WId m_parentId;
-    QTimer *m_updateT;
+    KCupsPrinter::Attributes m_attributes;
 
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);

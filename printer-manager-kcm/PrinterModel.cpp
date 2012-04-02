@@ -22,6 +22,8 @@
 
 #include <QDateTime>
 #include <QMimeData>
+#include <QDBusConnection>
+
 #include <KUser>
 #include <KDebug>
 #include <KLocale>
@@ -35,11 +37,46 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
  : QStandardItemModel(parent),
    m_parentId(parentId)
 {
-    // setup the timer that updates the UIs
-    m_updateT = new QTimer(this);
-    m_updateT->setInterval(1000);
-    connect(m_updateT, SIGNAL(timeout()), this, SLOT(update()));
-    m_updateT->start();
+    m_attributes |= KCupsPrinter::PrinterName;
+    m_attributes |= KCupsPrinter::PrinterState;
+    m_attributes |= KCupsPrinter::PrinterStateMessage;
+    m_attributes |= KCupsPrinter::PrinterIsShared;
+    m_attributes |= KCupsPrinter::PrinterType;
+    m_attributes |= KCupsPrinter::PrinterLocation;
+    m_attributes |= KCupsPrinter::PrinterInfo;
+    m_attributes |= KCupsPrinter::PrinterMakeAndModel;
+    m_attributes |= KCupsPrinter::PrinterCommands;
+    m_attributes |= KCupsPrinter::MarkerChangeTime;
+    m_attributes |= KCupsPrinter::MarkerColors;
+    m_attributes |= KCupsPrinter::MarkerLevels;
+    m_attributes |= KCupsPrinter::MarkerNames;
+    m_attributes |= KCupsPrinter::MarkerTypes;
+
+    // This is emitted when a printer/queue is changed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("QueueChanged"),
+                                         this,
+                                         SLOT(insertUpdatePrinter(QString)));
+
+    // This is emitted when a printer is added
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterAdded"),
+                                         this,
+                                         SLOT(insertUpdatePrinter(QString)));
+
+    // This is emitted when a printer is removed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterRemoved"),
+                                         this,
+                                         SLOT(printerRemoved(QString)));
+
+    update();
 }
 
 void PrinterModel::getDestsFinished()
@@ -98,27 +135,11 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
 
 void PrinterModel::update()
 {
-    KCupsPrinter::Attributes attributes;
-    attributes |= KCupsPrinter::PrinterName;
-    attributes |= KCupsPrinter::PrinterState;
-    attributes |= KCupsPrinter::PrinterStateMessage;
-    attributes |= KCupsPrinter::PrinterIsShared;
-    attributes |= KCupsPrinter::PrinterType;
-    attributes |= KCupsPrinter::PrinterLocation;
-    attributes |= KCupsPrinter::PrinterInfo;
-    attributes |= KCupsPrinter::PrinterMakeAndModel;
-    attributes |= KCupsPrinter::PrinterCommands;
-    attributes |= KCupsPrinter::MarkerChangeTime;
-    attributes |= KCupsPrinter::MarkerColors;
-    attributes |= KCupsPrinter::MarkerLevels;
-    attributes |= KCupsPrinter::MarkerNames;
-    attributes |= KCupsPrinter::MarkerTypes;
-
 //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
     // Get destinations with these attributes
     KCupsRequest *request = new KCupsRequest;
     connect(request, SIGNAL(finished()), this, SLOT(getDestsFinished()));
-    request->getPrinters(attributes);
+    request->getPrinters(m_attributes);
 }
 
 void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
@@ -258,6 +279,44 @@ Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
 {
     Q_UNUSED(index)
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
+}
+
+void PrinterModel::insertUpdatePrinter(const QString &printer)
+{
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(insertUpdatePrinterFinished()));
+    // TODO how do we know if it's a class if this DBus signal
+    // does not tell us
+    request->getPrinterAttributes(printer, false, m_attributes);
+}
+
+void PrinterModel::insertUpdatePrinterFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    if (!request->hasError()) {
+        foreach (const KCupsPrinter &printer, request->printers()) {
+            // If there is a printer and it's not the current one add it
+            // as a new destination
+            int dest_row = destRow(printer.name());
+            if (dest_row == -1) {
+                // not found, insert new one
+                insertDest(0, printer);
+            } else {
+                // update the printer
+                updateDest(item(dest_row), printer);
+            }
+        }
+    }
+    request->deleteLater();
+}
+
+void PrinterModel::printerRemoved(const QString &printer)
+{
+    // Look for the removed printer
+    int dest_row = destRow(printer);
+    if (dest_row != -1) {
+        removeRows(dest_row, 1);
+    }
 }
 
 #include "PrinterModel.moc"

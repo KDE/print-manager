@@ -113,6 +113,16 @@ public:
     Q_INVOKABLE void getPrinters(KCupsPrinter::Attributes attributes, cups_ptype_t mask);
 
     /**
+     * Get attributes from a given printer
+     * @param printer The printer to apply the change
+     * @param isClass True it is a printer class
+     * @param attributes The attributes you are requesting
+     *
+     * @return The return will be stored in \sa printers()
+     */
+    Q_INVOKABLE void getPrinterAttributes(const QString &printer, bool isClass, KCupsPrinter::Attributes attributes);
+
+    /**
      * Get all jobs
      * This method emits job()
      * TODO we need to see if we authenticate as root to do some taks
@@ -186,14 +196,6 @@ public:
      * @param printer The printer to apply the change
      */
     void deletePrinter(const QString &name);
-
-    /**
-     * Get attributes from a given printer
-     * @param printer The printer to apply the change
-     * @param isClass True it is a printer class
-     * @param requestedAttr The attributes you are requesting
-     */
-    Q_INVOKABLE void getAttributes(const QString &printer, bool isClass, const QStringList &requestedAttr);
 
     /**
      * Print a test page

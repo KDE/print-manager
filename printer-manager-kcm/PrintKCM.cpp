@@ -33,7 +33,6 @@
 #include <KTitleWidget>
 #include <KIcon>
 
-#include <QTimer>
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <QVBoxLayout>

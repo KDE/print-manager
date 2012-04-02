@@ -53,7 +53,10 @@ void PrintManagerServiceJob::start()
                          parameters()[QLatin1String("DestinationPrinterName")].toString());
     }
     request->waitTillFinished();
-    setError(request->error());
-    setErrorText(request->errorMsg());
+    if (request->hasError()) {
+        setError(request->error());
+        setErrorText(request->errorMsg());
+    }
+    request->deleteLater();
     emitResult();
 }

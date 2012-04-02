@@ -139,40 +139,41 @@ void ModifyPrinter::on_makeCB_activated(int index)
     ui->makeCB->setProperty("lastIndex", ui->makeCB->currentIndex());
 }
 
-void ModifyPrinter::setValues(const QVariantHash &values)
+void ModifyPrinter::setValues(const KCupsPrinter &printer)
 {
 //     kDebug() << values;
     if (m_isClass) {
-        ui->membersLV->reload(m_destName, values["member-names"].toStringList());
+        ui->membersLV->reload(m_destName, printer.memberNames());
     } else {
         emit hideKUR();
         ui->makeCB->clear();
         ui->makeCB->setProperty("different", false);
         ui->makeCB->setProperty("lastIndex", 0);
         ui->makeCB->insertItem(0,
-                               i18n("Current - %1", values["printer-make-and-model"].toString()),
+                               i18n("Current - %1", printer.makeAndModel()),
                                PPDDefault);
         ui->makeCB->insertSeparator(1);
         ui->makeCB->insertItem(2, i18n("Select a Driver from a List"), PPDList);
         ui->makeCB->insertItem(3, i18n("Provide a PPD file"), PPDFile);
     }
+    ui->membersLV->setProperty("different", false);
 
-    ui->descriptionLE->setText(values["printer-info"].toString());
-    ui->descriptionLE->setProperty("orig_text", values["printer-info"].toString());
+    ui->descriptionLE->setText(printer.info());
+    ui->descriptionLE->setProperty("orig_text", printer.info());
+    ui->descriptionLE->setProperty("different", false);
 
-    ui->locationLE->setText(values["printer-location"].toString());
-    ui->locationLE->setProperty("orig_text", values["printer-location"].toString());
+    ui->locationLE->setText(printer.location());
+    ui->locationLE->setProperty("orig_text", printer.location());
+    ui->locationLE->setProperty("different", false);
 
-    ui->connectionLE->setText(values["device-uri"].toString());
-    ui->connectionLE->setProperty("orig_text", values["device-uri"].toString());
+    ui->connectionLE->setText(printer.deviceUri());
+    ui->connectionLE->setProperty("orig_text", printer.deviceUri());
+    ui->connectionLE->setProperty("different", false);
 
     // clear old values
     m_changes = 0;
     m_changedValues.clear();
-    ui->descriptionLE->setProperty("different", false);
-    ui->locationLE->setProperty("different", false);
-    ui->connectionLE->setProperty("different", false);
-    ui->membersLV->setProperty("different", false);
+
     emit changed(0);
 }
 
@@ -244,12 +245,12 @@ void ModifyPrinter::save()
                 (m_changedValues.contains("ppd-name") && m_changedValues["ppd-name"].type() != QVariant::Bool)) {
                 emit ppdChanged();
             }
-            request->getAttributes(m_destName, m_isClass, neededValues());
+            request->getPrinterAttributes(m_destName, m_isClass, neededValues());
             request->waitTillFinished();
 
-            if (!request->hasError() && !request->result().isEmpty()) {
-                QVariantHash attributes = request->result().first();
-                setValues(attributes);
+            if (!request->hasError() && !request->printers().isEmpty()) {
+                KCupsPrinter printer = request->printers().first();
+                setValues(printer);
             }
         }
         request->deleteLater();
@@ -284,18 +285,19 @@ void ModifyPrinter::setCurrentMakeAndModel(const QString &makeAndModel)
     m_makeAndModel = makeAndModel;
 }
 
-QStringList ModifyPrinter::neededValues() const
+KCupsPrinter::Attributes ModifyPrinter::neededValues() const
 {
-    QStringList values;
-    values << "printer-info"
-           << "printer-location";
+    KCupsPrinter::Attributes ret;
+    ret |= KCupsPrinter::PrinterInfo;
+    ret |= KCupsPrinter::PrinterLocation;
+
     if (m_isClass) {
-        values << "member-names";
+        ret |= KCupsPrinter::MemberNames;
     } else {
-        values << "device-uri"
-               << "printer-make-and-model";
+        ret |= KCupsPrinter::DeviceUri;
+        ret |= KCupsPrinter::PrinterMakeAndModel;
     }
-    return values;
+    return ret;
 }
 
 #include "ModifyPrinter.moc"

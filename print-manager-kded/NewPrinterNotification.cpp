@@ -109,10 +109,11 @@ void NewPrinterNotification::NewPrinter(int status,
     } else {
         QString driver;
         KCupsRequest *request = new KCupsRequest;
-        request->getAttributes(name, false, QStringList() << "printer-make-and-model");
+        request->getPrinterAttributes(name, false, KCupsPrinter::PrinterMakeAndModel);
         request->waitTillFinished();
-        if (!request->result().isEmpty()){
-            driver = request->result().first().value("printer-make-and-model").toString();
+        if (!request->printers().isEmpty()){
+            KCupsPrinter printer = request->printers().first();
+            driver = printer.makeAndModel();
         }
         request->deleteLater();
 

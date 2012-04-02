@@ -37,11 +37,11 @@ public:
     explicit PrinterBehavior(const QString &destName, bool isClass, QWidget *parent = 0);
     ~PrinterBehavior();
 
-    void setValues(const QVariantHash &values);
+    void setValues(const KCupsPrinter &printer);
     void setRemote(bool remote);
     bool hasChanges();
 
-    QStringList neededValues() const;
+    KCupsPrinter::Attributes neededValues() const;
     void save();
 
 private slots:

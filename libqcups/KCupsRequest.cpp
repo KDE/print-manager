@@ -156,6 +156,35 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
     }
 }
 
+void KCupsRequest::getPrinterAttributes(const QString &printer, bool isClass, KCupsPrinter::Attributes attributes)
+{
+    if (KCupsConnection::readyToStart()) {
+        QVariantHash request;
+        request["printer-name"] = printer;
+        request["printer-is-class"] = isClass;
+        request["need-dest-name"] = false; // we don't need a dest name since it's a single list
+        request["requested-attributes"] = KCupsPrinter::flags(attributes);
+
+        ReturnArguments ret;
+        ret = KCupsConnection::request(IPP_GET_PRINTER_ATTRIBUTES,
+                                       QLatin1String("/admin/"),
+                                       request,
+                                       true);
+
+        for (int i = 0; i < ret.size(); i++) {
+            QVariantHash arguments = ret.at(i);
+            // Inject the printer name back to the arguments hash
+            arguments["printer-name"] = printer;
+            m_printers << KCupsPrinter(arguments);
+        }
+
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getPrinterAttributes", printer, isClass, qVariantFromValue(attributes));
+    }
+}
+
 void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, KCupsJob::Attributes attributes)
 {
     if (KCupsConnection::readyToStart()) {
@@ -329,27 +358,6 @@ void KCupsRequest::deletePrinter(const QString &name)
     QVariantHash request;
     request["printer-name"] = name;
     doOperation(CUPS_DELETE_PRINTER, QLatin1String("/admin/"), request);
-}
-
-void KCupsRequest::getAttributes(const QString &printer, bool isClass, const QStringList &requestedAttr)
-{
-    if (KCupsConnection::readyToStart()) {
-        QVariantHash request;
-        request["printer-name"] = printer;
-        request["printer-is-class"] = isClass;
-        request["need-dest-name"] = false; // we don't need a dest name since it's a single list
-        request["requested-attributes"] = requestedAttr;
-
-        m_retArguments = KCupsConnection::request(IPP_GET_PRINTER_ATTRIBUTES,
-                                                  QLatin1String("/admin/"),
-                                                  request,
-                                                  true);
-
-        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
-        setFinished();
-    } else {
-        invokeMethod("getAttributes", printer, isClass, requestedAttr);
-    }
 }
 
 void KCupsRequest::printTestPage(const QString &printer, bool isClass)

@@ -131,15 +131,17 @@ Item {
             currentIndex: -1
             model: PlasmaCore.SortFilterModel {
                 id: printersFilterModel
-                sourceModel: PrintManagerDataModel {
-                    id: printerSource
-                    interval: 1500
-                    connectedSources: ["Printers"]
-                    filter: "Printers"
+                sourceModel: PlasmaCore.DataModel {
+                    id: printersModel
+                    dataSource: PlasmaCore.DataSource {
+                        engine: "printers"
+                        connectedSources: sources
+                        interval: 0
+                    }
                 }
                 filterRole: "printerName"
                 filterRegExp: whichPrinter
-                sortRole: "order"
+                sortRole: "info"
                 sortOrder: Qt.DescendingOrder
             }
             delegate: PrinterItem{

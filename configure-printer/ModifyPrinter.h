@@ -48,10 +48,10 @@ public:
 
     bool hasChanges();
     QVariantHash modifiedValues() const;
-    QStringList neededValues() const;
+    KCupsPrinter::Attributes neededValues() const;
     void setRemote(bool remote);
 
-    void setValues(const QVariantHash &values);
+    void setValues(const KCupsPrinter &printer);
     void setCurrentMake(const QString &make);
     void setCurrentMakeAndModel(const QString &makeAndModel);
 

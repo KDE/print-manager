@@ -22,6 +22,7 @@
 #define PRINTER_PAGE_H
 
 #include <QWidget>
+#include <KCupsPrinter.h>
 
 class PrinterPage : public QWidget
 {
@@ -33,7 +34,7 @@ public:
 public:
     virtual void save() {};
     virtual QHash<QString, QVariant> modifiedValues() const;
-    virtual QStringList neededValues() const;
+    virtual KCupsPrinter::Attributes neededValues() const = 0;
     virtual void setRemote(bool remote);
 
 signals:

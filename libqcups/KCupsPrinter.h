@@ -30,21 +30,34 @@ class KDE_EXPORT KCupsPrinter
     Q_ENUMS(Attribute)
 public:
     enum Attribute {
-        PrinterName         = 0x0001,
-        PrinterState        = 0x0002,
-        PrinterStateMessage = 0x0004,
-        PrinterIsShared     = 0x0008,
-        PrinterType         = 0x0010,
-        PrinterLocation     = 0x0020,
-        PrinterInfo         = 0x0040,
-        PrinterMakeAndModel = 0x0080,
-        PrinterCommands     = 0x0100,
-        PrinterUriSupported = 0x0200,
-        MarkerChangeTime    = 0x0400,
-        MarkerColors        = 0x0800,
-        MarkerLevels        = 0x01000,
-        MarkerNames         = 0x02000,
-        MarkerTypes         = 0x04000
+        PrinterName                 = 0x0000001,
+        PrinterState                = 0x0000002,
+        PrinterStateMessage         = 0x0000004,
+        PrinterIsShared             = 0x0000008,
+        PrinterType                 = 0x0000010,
+        PrinterLocation             = 0x0000020,
+        PrinterInfo                 = 0x0000040,
+        PrinterMakeAndModel         = 0x0000080,
+        PrinterCommands             = 0x0000100,
+        PrinterUriSupported         = 0x0000200,
+        MarkerChangeTime            = 0x0000400,
+        MarkerColors                = 0x0000800,
+        MarkerLevels                = 0x0001000,
+        MarkerHighLevels            = 0x0002000,
+        MarkerLowLevels             = 0x0004000,
+        MarkerNames                 = 0x0008000,
+        MarkerMessage               = 0x0010000,
+        MarkerTypes                 = 0x0020000,
+        MemberNames                 = 0x0040000,
+        DeviceUri                   = 0x0080000,
+        JobSheetsDefault            = 0x0100000,
+        JobSheetsSupported          = 0x0200000,
+        PrinterErrorPolicy          = 0x0400000,
+        PrinterErrorPolicySupported = 0x0800000,
+        PrinterOpPolicy             = 0x1000000,
+        PrinterOpPolicySupported    = 0x2000000,
+        RequestingUserNameAllowed   = 0x4000000,
+        RequestingUserNameDenied    = 0x8000000
     };
     Q_DECLARE_FLAGS(Attributes, Attribute)
     typedef enum {
@@ -66,6 +79,16 @@ public:
     QString info() const;
     QString makeAndModel() const;
     QStringList commands() const;
+    QStringList memberNames() const;
+    QString deviceUri() const;
+    QStringList errorPolicy() const;
+    QStringList errorPolicySupported() const;
+    QStringList opPolicy() const;
+    QStringList opPolicySupported() const;
+    QStringList jobSheetsDefault() const;
+    QStringList jobSheetsSupported() const;
+    QStringList requestingUserNameAllowed() const;
+    QStringList requestingUserNameDenied() const;
 
     Status state() const;
     QString stateMsg() const;

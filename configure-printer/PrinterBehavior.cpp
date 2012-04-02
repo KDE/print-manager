@@ -54,14 +54,14 @@ PrinterBehavior::~PrinterBehavior()
     delete ui;
 }
 
-void PrinterBehavior::setValues(const QVariantHash &values)
+void PrinterBehavior::setValues(const KCupsPrinter &printer)
 {
     int defaultChoice;
     ui->errorPolicyCB->clear();
-    foreach (const QString &value, values["printer-error-policy-supported"].value<QStringList>()) {
+    foreach (const QString &value, printer.errorPolicySupported()) {
         ui->errorPolicyCB->addItem(errorPolicyString(value), value);
     }
-    QStringList errorPolicy = values["printer-error-policy"].value<QStringList>();
+    QStringList errorPolicy = printer.errorPolicy();
     if (!errorPolicy.isEmpty()) {
         defaultChoice = ui->errorPolicyCB->findData(errorPolicy.first());
         ui->errorPolicyCB->setCurrentIndex(defaultChoice);
@@ -69,10 +69,10 @@ void PrinterBehavior::setValues(const QVariantHash &values)
     }
 
     ui->operationPolicyCB->clear();
-    foreach (const QString &value, values["printer-op-policy-supported"].value<QStringList>()) {
+    foreach (const QString &value, printer.opPolicySupported()) {
         ui->operationPolicyCB->addItem(operationPolicyString(value), value);
     }
-    QStringList operationPolicy = values["printer-op-policy"].value<QStringList>();
+    QStringList operationPolicy = printer.opPolicy();
     if (!errorPolicy.isEmpty()) {
         defaultChoice = ui->operationPolicyCB->findData(operationPolicy.first());
         ui->operationPolicyCB->setCurrentIndex(defaultChoice);
@@ -81,11 +81,11 @@ void PrinterBehavior::setValues(const QVariantHash &values)
 
     ui->startingBannerCB->clear();
     ui->endingBannerCB->clear();
-    foreach (const QString &value, values["job-sheets-supported"].value<QStringList>()) {
+    foreach (const QString &value, printer.jobSheetsSupported()) {
         ui->startingBannerCB->addItem(jobSheetsString(value), value);
         ui->endingBannerCB->addItem(jobSheetsString(value), value);
     }
-    QStringList bannerPolicy = values["job-sheets-default"].value<QStringList>();
+    QStringList bannerPolicy = printer.jobSheetsDefault();
     if (bannerPolicy.size() == 2) {
         defaultChoice = ui->startingBannerCB->findData(bannerPolicy.at(0));
         ui->startingBannerCB->setCurrentIndex(defaultChoice);
@@ -95,8 +95,8 @@ void PrinterBehavior::setValues(const QVariantHash &values)
         ui->endingBannerCB->setProperty("defaultChoice", defaultChoice);
     }
 
-    if (values.contains("requesting-user-name-allowed")) {
-        QStringList list = values["requesting-user-name-allowed"].value<QStringList>();
+    if (!printer.requestingUserNameAllowed().isEmpty()) {
+        QStringList list = printer.requestingUserNameAllowed();
         list.sort(); // sort the list here to be able to comapare it later
         ui->usersELB->setEnabled(true);
         if (list != ui->usersELB->items()) {
@@ -110,8 +110,8 @@ void PrinterBehavior::setValues(const QVariantHash &values)
         // which sets that we have a change
         ui->allowRB->setChecked(true);
 
-    } else if (values.contains("requesting-user-name-denied")) {
-        QStringList list = values["requesting-user-name-denied"].value<QStringList>();
+    } else if (!printer.requestingUserNameDenied().isEmpty()) {
+        QStringList list = printer.requestingUserNameDenied();
         list.sort(); // sort the list here to be able to comapare it later
         ui->usersELB->setEnabled(true);
         if (list != ui->usersELB->items()) {
@@ -273,11 +273,11 @@ void PrinterBehavior::save()
         request->setAttributes(m_destName, m_isClass, changedValues);
         request->waitTillFinished();
         if (!request->hasError()) {
-            request->getAttributes(m_destName, m_isClass, neededValues());
+            request->getPrinterAttributes(m_destName, m_isClass, neededValues());
             request->waitTillFinished();
-            if (!request->result().isEmpty()){
-                QVariantHash attributes = request->result().first();
-                setValues(attributes);
+            if (!request->hasError() && !request->printers().isEmpty()){
+                KCupsPrinter printer = request->printers().first();
+                setValues(printer);
             }
         }
         request->deleteLater();
@@ -300,16 +300,22 @@ bool PrinterBehavior::hasChanges()
     return m_changes;
 }
 
-QStringList PrinterBehavior::neededValues() const
+KCupsPrinter::Attributes PrinterBehavior::neededValues() const
 {
-    return QStringList() << "job-sheets-supported"
-                         << "job-sheets-default"
-                         << "printer-error-policy-supported"
-                         << "printer-error-policy"
-                         << "printer-op-policy-supported"
-                         << "printer-op-policy"
-                         << "requesting-user-name-allowed"
-                         << "requesting-user-name-denied";
+    KCupsPrinter::Attributes ret;
+    ret |= KCupsPrinter::JobSheetsDefault;
+    ret |= KCupsPrinter::JobSheetsSupported;
+
+    ret |= KCupsPrinter::PrinterErrorPolicy;
+    ret |= KCupsPrinter::PrinterErrorPolicySupported;
+
+    ret |= KCupsPrinter::PrinterOpPolicy;
+    ret |= KCupsPrinter::PrinterOpPolicySupported;
+
+    ret |= KCupsPrinter::RequestingUserNameAllowed;
+    ret |= KCupsPrinter::RequestingUserNameDenied;
+
+    return ret;
 }
 
 #include "PrinterBehavior.moc"

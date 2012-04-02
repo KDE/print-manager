@@ -118,7 +118,31 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
         header->hideSection(PrintQueueModel::ColSize);
     }
 
-    update();
+    // This is emitted when a printer/queue is changed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("QueueChanged"),
+                                         this,
+                                         SLOT(updatePrinter(QString)));
+
+    // This is emitted when a printer is added
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterAdded"),
+                                         this,
+                                         SLOT(updatePrinter(QString)));
+
+    // This is emitted when a printer is removed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterRemoved"),
+                                         this,
+                                         SLOT(updatePrinter(QString)));
+
+    updatePrinter(m_destName);
 }
 
 PrintQueueUi::~PrintQueueUi()
@@ -280,37 +304,54 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
     }
 }
 
+
+void PrintQueueUi::updatePrinter(const QString &printer)
+{
+    if (printer != m_destName) {
+        // It was another printer that changed
+        return;
+    }
+
+    KCupsPrinter::Attributes attr;
+    attr |= KCupsPrinter::PrinterInfo;
+    attr |= KCupsPrinter::PrinterType;
+    attr |= KCupsPrinter::PrinterState;
+    attr |= KCupsPrinter::PrinterStateMessage;
+
+    KCupsRequest *request = new KCupsRequest;
+    request->getPrinterAttributes(printer, m_isClass, attr);
+    connect(request, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
+}
+
 void PrintQueueUi::getAttributesFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
-    QVariantHash attributes;
-    if (!request->result().isEmpty()){
-        attributes = request->result().first();
-    }
-
-    if (attributes.isEmpty()) {
+    if (request->hasError() || request->printers().isEmpty()) {
         // if cups stops we disable our queue
         setEnabled(false);
+        request->deleteLater(); // DO not delete before using as the request is in another thread
         return;
     } else if (isEnabled() == false) {
-        // if cups starts agina we enable our queue
+        // if cups starts again we enable our queue
         setEnabled(true);
     }
 
+    KCupsPrinter printer = request->printers().first();
+
     // get printer-info
-    if (attributes["printer-info"].toString().isEmpty()) {
-        m_title = m_destName;
-    } else {
-        m_title = attributes["printer-info"].toString();
-    }
+    m_title = printer.info();
 
     // get printer-state
-    setState(attributes["printer-state"].toInt(),
-             attributes["printer-state-message"].toString());
+    setState(printer.state(), printer.stateMsg());
 
     // store if the printer is a class
-    m_isClass = attributes["printer-type"].toInt() & CUPS_PRINTER_CLASS;
+    m_isClass = printer.isClass();
 
+    request->deleteLater();
+}
+
+void PrintQueueUi::update()
+{
     m_model->updateModel();
 
     // Set window title
@@ -323,22 +364,6 @@ void PrintQueueUi::getAttributesFinished()
     } else {
         emit windowTitleChanged(m_title.isNull() ? i18n("All Printers") : m_title);
     }
-
-    request->deleteLater();
-}
-
-void PrintQueueUi::update()
-{
-    QStringList attr;
-    attr << "printer-info"
-         << "printer-type"
-         << "printer-state"
-         << "printer-state-message";
-
-//    QHash<QString, QVariant> attributes;
-    KCupsRequest *request = new KCupsRequest;
-    request->getAttributes(m_destName, m_isClass, attr);
-    connect(request, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
 }
 
 void PrintQueueUi::updateButtons()

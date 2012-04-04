@@ -26,6 +26,7 @@ PlasmaCore.DataModel {
     property alias interval: pmDataSource.interval
     property alias connectedSources: pmDataSource.connectedSources
     property string filter
+    sourceFilter: "^\w+/\d+*$"
     dataSource: PlasmaCore.DataSource {
         id: pmDataSource
         engine: "printmanager"

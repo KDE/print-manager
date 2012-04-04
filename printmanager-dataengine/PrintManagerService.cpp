@@ -25,38 +25,20 @@
 #include <KDebug>
 
 PrintManagerService::PrintManagerService(QObject *parent, const QString &destination) :
-    Plasma::Service(parent),
-    m_jobId(0)
+    Plasma::Service(parent)
 {
     setName("printmanager");
     setDestination(destination);
-    if (destination.isEmpty()) {
-        setOperationEnabled("pausePrinter", false);
-        setOperationEnabled("resumePrinter", false);
-    } else {
-        setOperationEnabled("cancelJob", false);
-        setOperationEnabled("holdJob", false);
-        setOperationEnabled("releaseJob", false);
-        setOperationEnabled("moveJob", false);
-    }
-}
-
-PrintManagerService::PrintManagerService(QObject *parent, int jobId) :
-    Plasma::Service(parent),
-    m_jobId(jobId)
-{
-    setName("printmanager");
-    setOperationEnabled("pausePrinter", false);
-    setOperationEnabled("resumePrinter", false);
 }
 
 Plasma::ServiceJob* PrintManagerService::createJob(const QString &operation, QMap<QString, QVariant> &parameters)
 {
     kDebug() << operation << parameters;
-    QString dest = destination();
-    if (!parameters[QLatin1String("PrinterName")].isNull()) {
-        dest = parameters[QLatin1String("PrinterName")].toString();
-        parameters[QLatin1String("JobId")] = m_jobId;
-    }
-    return new PrintManagerServiceJob(dest, operation, parameters, this);
+
+    // JobId was stored on the destination
+    parameters[QLatin1String("JobId")] = destination().toInt();
+    // The printer name that holds the jobs was passed as a parameter
+    QString printer = parameters[QLatin1String("PrinterName")].toString();
+
+    return new PrintManagerServiceJob(printer, operation, parameters, this);
 }

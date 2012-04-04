@@ -2,10 +2,6 @@
 <!DOCTYPE kcfg SYSTEM
     "http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
 <kcfg>
-    <group name="pausePrinter">
-    </group>
-    <group name="resumePrinter">
-    </group>
     <group name="cancelJob">
         <entry name="PrinterName" type="String">
             <label>Set the name of the printer holding the job</label>

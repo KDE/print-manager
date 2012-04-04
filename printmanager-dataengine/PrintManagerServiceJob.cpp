@@ -34,11 +34,7 @@ void PrintManagerServiceJob::start()
 {
     kDebug() << operationName() << destination();
     KCupsRequest *request = new KCupsRequest;
-    if (operationName() == QLatin1String("pausePrinter")) {
-        request->pausePrinter(destination());
-    } else if (operationName() == QLatin1String("resumePrinter")) {
-        request->resumePrinter(destination());
-    } else if (operationName() == QLatin1String("cancelJob")) {
+    if (operationName() == QLatin1String("cancelJob")) {
         request->cancelJob(destination(),
                            parameters()[QLatin1String("JobId")].toInt());
     } else if (operationName() == QLatin1String("holdJob")) {

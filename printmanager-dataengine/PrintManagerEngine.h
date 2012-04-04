@@ -31,12 +31,7 @@
  * "AllJobs" lists all jobs of all printers
  * "ActiveJobs" lists active jobs of all printers
  * "CompletedJobs" lists completed jobs of all printers
- * "Printers" lists all printers
- * "Printers/printer_name/AllJobs" lists all jobs from the printer "printer_name"
- * "Printers/printer_name/ActiveJobs" lists active jobs from the printer "printer_name"
- * "Printers/printer_name/CompletedJobs" lists completed jobs from the printer "printer_name"
  */
-class KCupsPrinter;
 class KCupsRequest;
 class PrintManagerEngine : public Plasma::DataEngine
 {
@@ -63,13 +58,9 @@ protected:
 private:
     void job(const QString &prefix, int order, const KCupsJob &job);
     void updateJobs(const QString &prefix, const KCupsJobs &jobs);
-    void printer(const QString &prefix, int order, const KCupsPrinter &printer);
-    void updatePrinters(const QString &prefix, const KCupsPrinters &printers);
 
     KCupsJob::Attributes m_jobAttributes;
-    KCupsPrinter::Attributes m_printerAttributes;
     KCupsRequest *m_jobsRequest;
-    KCupsRequest *m_printersRequest;
 };
  
 #endif // PRINT_MANAGER_ENGINE_H

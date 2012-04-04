@@ -34,15 +34,7 @@ PrintManagerEngine::PrintManagerEngine(QObject *parent, const QVariantList &args
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
 
-    // This prevents applets from setting an unnecessarily high
-    // update interval and using too much CPU.
-    // In the case of a clock that only has second precision,
-    // a third of a second should be more than enough.
-    setMinimumPollingInterval(800);
-}
-
-void PrintManagerEngine::init()
-{
+    // Setup the attributes we want from jobs
     m_jobAttributes |= KCupsJob::JobId;
     m_jobAttributes |= KCupsJob::JobName;
     m_jobAttributes |= KCupsJob::JobKOctets;
@@ -59,30 +51,23 @@ void PrintManagerEngine::init()
     m_jobAttributes |= KCupsJob::JobPrinterStatMessage;
     m_jobAttributes |= KCupsJob::JobPreserved;
 
-    m_printerAttributes |= KCupsPrinter::PrinterName;
-    m_printerAttributes |= KCupsPrinter::PrinterInfo;
-    m_printerAttributes |= KCupsPrinter::PrinterState;
-    m_printerAttributes |= KCupsPrinter::PrinterStateMessage;
-    // to get proper icons
-    m_printerAttributes |= KCupsPrinter::PrinterType;
+    // This prevents applets from setting an unnecessarily high
+    // update interval and using too much CPU.
+    // In the case of a clock that only has second precision,
+    // a third of a second should be more than enough.
+    setMinimumPollingInterval(800);
+}
+
+void PrintManagerEngine::init()
+{
 }
 
 Plasma::Service* PrintManagerEngine::serviceForSource(const QString &source)
 {
     QStringList parts = source.split(QLatin1Char('/'));
-    if (parts.size() == 2 || parts.size() == 4) {
-        // Options
-        // Printers / printer_name == 2
-        // Or
-        // Printers / printer_name / WhichJobs / job_id == 4
-        // Or
+    if (parts.size() == 2) {
         // WhichJobs / job_id == 2
-        if (parts.first().startsWith(QLatin1String("Printers")) && parts.size() == 2) {
-            return new PrintManagerService(this, parts.at(1));
-        } else {
-
-            return new PrintManagerService(this, parts.last().toInt());
-        }
+        return new PrintManagerService(this, parts.last());
     }
     return Plasma::DataEngine::serviceForSource(source);
 }
@@ -189,91 +174,13 @@ void PrintManagerEngine::updateJobs(const QString &prefix, const KCupsJobs &jobs
     }
 }
 
-void PrintManagerEngine::printer(const QString &prefix, int order, const KCupsPrinter &printer)
-{
-    QString source = prefix;
-    source.append(printer.name());
-
-    Data sourceData = query(source);
-    bool changed = false;
-
-    if (sourceData[QLatin1String("order")] != order) {
-        sourceData[QLatin1String("order")] = order;
-        changed = true;
-    }
-    if (sourceData[QLatin1String("printerName")] != printer.name()) {
-        sourceData[QLatin1String("printerName")] = printer.name();
-        changed = true;
-    }
-    if (sourceData[QLatin1String("info")] != printer.info()) {
-        sourceData[QLatin1String("info")] = printer.info();
-        changed = true;
-    }
-    QString state;
-    switch (printer.state()) {
-    case KCupsPrinter::Idle:
-        state = QLatin1String("idle");
-        break;
-    case KCupsPrinter::Printing:
-        state = QLatin1String("printing");
-        break;
-    case KCupsPrinter::Stoped:
-        state = QLatin1String("stopped");
-        break;
-    default:
-        state = QLatin1String("unknown");
-    }
-    if (sourceData[QLatin1String("stateEnum")] != state) {
-        sourceData[QLatin1String("stateEnum")] = state;
-        changed = true;
-    }
-    if (sourceData[QLatin1String("stateMessage")] != printer.stateMsg()) {
-        sourceData[QLatin1String("stateMessage")] = printer.stateMsg();
-        changed = true;
-    }
-    if (sourceData[QLatin1String("iconName")] != printer.iconName()) {
-        sourceData[QLatin1String("iconName")] = printer.iconName();
-        changed = true;
-    }
-
-    if (changed) {
-        // update only if data changes to avoid uneeded updates on the views
-        setData(source, sourceData);
-    }
-}
-
-void PrintManagerEngine::updatePrinters(const QString &prefix, const KCupsPrinters &printers)
-{
-    QStringList printersStrList;
-    for (int i = 0; i < printers.size(); ++i) {
-        printer(prefix, i, printers.at(i));
-        printersStrList << printers.at(i).name();
-    }
-
-    // this RegExp matches all sources that start with 'Printer/'
-    // and are not followed by one of the printers names
-    QRegExp rx;
-    if (printersStrList.isEmpty()) {
-        // if we don't have any printers remove all sources starting with 'Printer/'
-        rx.setPattern(QLatin1String("^Printers/"));
-    } else {
-        rx.setPattern(QLatin1String("^Printers/(?!") % printersStrList.join(QLatin1String("|")) % QLatin1Char(')'));
-    }
-
-    foreach (const QString &source, sources().filter(rx)) {
-        // Remove these as their printers are not available anymore
-        removeSource(source);
-    }
-}
-
 bool PrintManagerEngine::sourceRequestEvent(const QString &source)
 {
-    if (source == QLatin1String("Printers") ||
-        source == QLatin1String("ActiveJobs") ||
+    if (source == QLatin1String("ActiveJobs") ||
         source == QLatin1String("AllJobs") ||
         source == QLatin1String("CompletedJobs")) {
         // Needed so that DataSource can do polling
-        // on e.g. "Printers" or "ActiveJobs"
+        // on e.g. "AllJobs" or "ActiveJobs"
         setData(source, Data());
         // We do not have any special code to execute the
         // first time a source is requested, so we just call
@@ -286,31 +193,24 @@ bool PrintManagerEngine::sourceRequestEvent(const QString &source)
  
 bool PrintManagerEngine::updateSourceEvent(const QString &source)
 { 
-    if (source != QLatin1String("Printers") &&
-        source != QLatin1String("ActiveJobs") &&
+    if (source != QLatin1String("ActiveJobs") &&
         source != QLatin1String("AllJobs") &&
         source != QLatin1String("CompletedJobs")) {
         return false;
     }
 
     KCupsRequest *request = new KCupsRequest;
-    if (source == QLatin1String("Printers")) {
-        request->getPrinters(m_printerAttributes);
-        request->waitTillFinished();
-        updatePrinters(source % QLatin1Char('/'), request->printers());
+    if (source == QLatin1String("ActiveJobs")) {
+        request->getJobs(QString(), false, CUPS_WHICHJOBS_ACTIVE, m_jobAttributes);
+    } else if (source == QLatin1String("AllJobs")) {
+        request->getJobs(QString(), false, CUPS_WHICHJOBS_ALL, m_jobAttributes);
     } else {
-        if (source == QLatin1String("ActiveJobs")) {
-            request->getJobs(QString(), false, CUPS_WHICHJOBS_ACTIVE, m_jobAttributes);
-        } else if (source == QLatin1String("AllJobs")) {
-            request->getJobs(QString(), false, CUPS_WHICHJOBS_ALL, m_jobAttributes);
-        } else {
-            request->getJobs(QString(), false, CUPS_WHICHJOBS_COMPLETED, m_jobAttributes);
-        }
-        request->waitTillFinished();
-        updateJobs(source % QLatin1Char('/'), request->jobs());
+        request->getJobs(QString(), false, CUPS_WHICHJOBS_COMPLETED, m_jobAttributes);
     }
-
+    request->waitTillFinished();
+    updateJobs(source % QLatin1Char('/'), request->jobs());
     request->deleteLater();
+
     return true;
 }
  

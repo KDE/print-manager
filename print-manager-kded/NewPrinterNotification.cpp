@@ -119,7 +119,7 @@ void NewPrinterNotification::NewPrinter(int status,
 
         // The cups request might have failed
         if (driver.isEmpty()) {
-            notify->setText(i18n("'%1' has been added, please check it's' driver.", name));
+            notify->setText(i18n("'%1' has been added, please check its driver.", name));
         } else {
             connect(notify, SIGNAL(activated(uint)), this, SLOT(configurePrinter()));
             notify->setProperty("PrinterName", name);

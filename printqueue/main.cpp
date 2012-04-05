@@ -28,7 +28,7 @@
 int main(int argc, char **argv)
 {
     KAboutData about("PrintQueue",
-                     "print-queue",
+                     "print-manager",
                      ki18n("PrintQueue"),
                      "0.1",
                      ki18n("PrintQueue"),

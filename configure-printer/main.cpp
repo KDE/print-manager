@@ -28,7 +28,7 @@
 int main(int argc, char **argv)
 {
     KAboutData about("ConfigurePrinter",
-                     "configure-printer",
+                     "print-manager",
                      ki18n("ConfigurePrinter"),
                      "0.1",
                      ki18n("ConfigurePrinter"),

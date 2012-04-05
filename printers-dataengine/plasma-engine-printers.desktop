@@ -1,5 +1,7 @@
 [Desktop Entry]
 Name=Printers Engine
+Name[uk]=Рушій керування принтерами
+Name[x-test]=xxPrinters Enginexx
 Type=Service
 
 X-KDE-ServiceTypes=Plasma/DataEngine

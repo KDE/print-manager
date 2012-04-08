@@ -7,28 +7,28 @@ include_directories(
    ${CMAKE_SOURCE_DIR}
    ${CMAKE_BINARY_DIR}
    ${KDE4_INCLUDES}
-   )
+)
  
 # We add our source code here
-set(printmanager_engine_SRCS
-    PrintManagerServiceJob.cpp
-    PrintManagerService.cpp
-    PrintManagerEngine.cpp
+set(print_jobs_engine_SRCS
+    PrintJobsServiceJob.cpp
+    PrintJobsService.cpp
+    PrintJobsEngine.cpp
 )
  
 # Now make sure all files get to the right place
-kde4_add_plugin(plasma_engine_printmanager ${printmanager_engine_SRCS})
-target_link_libraries(plasma_engine_printmanager
+kde4_add_plugin(plasma_engine_printjobs ${print_jobs_engine_SRCS})
+target_link_libraries(plasma_engine_printjobs
     ${KDE4_KDECORE_LIBS}
     ${KDE4_PLASMA_LIBS}
     qcupslib
 )
  
-install(TARGETS plasma_engine_printmanager
+install(TARGETS plasma_engine_printjobs
         DESTINATION ${PLUGIN_INSTALL_DIR})
  
-install(FILES plasma-engine-printmanager.desktop
+install(FILES plasma-engine-printjobs.desktop
         DESTINATION ${SERVICES_INSTALL_DIR})
 
-install(FILES printmanager.operations
+install(FILES printjobs.operations
         DESTINATION ${DATA_INSTALL_DIR}/plasma/services)

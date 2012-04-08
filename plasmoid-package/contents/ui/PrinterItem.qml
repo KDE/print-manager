@@ -38,13 +38,7 @@ Item {
     }
     MouseArea {
         id: container
-        anchors {
-            fill: parent
-            topMargin: padding.margins.top
-            leftMargin: padding.margins.left
-            rightMargin: padding.margins.right
-            bottomMargin: padding.margins.bottom
-        }
+        anchors.fill: parent
         hoverEnabled: multipleItems
         onEntered: {
             padding.opacity = 0.6;
@@ -57,13 +51,24 @@ Item {
         onClicked: {
             if (printerItem.ListView.view.currentIndex == index) {
                 printerItem.ListView.view.currentIndex = -1;
-                highlightPrinter = printerName;
+                whichPrinter = printerName;
+                highlightPrinter = "";
             } else if (multipleItems) {
                 printerItem.ListView.view.currentIndex = index;
+                whichPrinter = "";
                 highlightPrinter = "";
             }
         }
+    }
     
+    Item {
+        anchors {
+            fill: parent
+            topMargin: padding.margins.top
+            leftMargin: padding.margins.left
+            rightMargin: padding.margins.right
+            bottomMargin: padding.margins.bottom
+        }
         QIconItem {
             id: printerIcon
             width: 32
@@ -104,35 +109,17 @@ Item {
             }
         }
         
-        QIconItem {
+        PlasmaComponents.Switch {
             id: rightAction
-            width: 22
-            height: 22
-            opacity: 0.6
-            Behavior on opacity { PropertyAnimation {} }
             anchors {
                 right: parent.right
                 verticalCenter: printerIcon.verticalCenter
             }
-            icon: stateEnum == "stopped" ? QIcon("media-playback-start") : QIcon("media-playback-pause")
-            
-            MouseArea {
-                id: mouseArea
-                hoverEnabled: true
-                anchors {
-                    fill: parent
-                }
-                onClicked: {
-                    service = printersModel.dataSource.serviceForSource(DataEngineSource);
-                    operation = service.operationDescription(stateEnum == "stopped" ? "resume" : "pause");
-                    service.startOperationCall(operation);
-                }
-                onEntered: {
-                    parent.opacity = 1;
-                }
-                onExited: {
-                    parent.opacity = 0.6;
-                }
+            checked: stateEnum == "stopped" ? false : true
+            onClicked: {
+                service = printersModel.dataSource.serviceForSource(DataEngineSource);
+                operation = service.operationDescription(checked ? "pause" : "resume");
+                service.startOperationCall(operation);
             }
         }
     }

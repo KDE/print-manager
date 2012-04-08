@@ -146,6 +146,10 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
             request = ippNewRequest(operation);
         }
 
+        // send our user name on the request too
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
+                     "requesting-user-name", NULL, cupsUser());
+
         // Add the requested values to the request
         requestAddValues(request, values);
 
@@ -164,6 +168,66 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
     ippDelete(response);
 
     return ret;
+}
+
+int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHash &reqValues)
+{
+    int subscriptionId = -1;
+
+    if (!readyToStart()) {
+        return subscriptionId; // This is not intended to be used in the gui thread
+    }
+
+    ipp_t *response = NULL;
+    do {
+        ipp_t *request;
+        int leaseDuration;
+        QVariantHash values = reqValues;
+
+        // Lets create the request
+        request = ippNewRequest(operation);
+        leaseDuration = values.take("notify-lease-duration").toInt();
+        subscriptionId = values.take("notify-subscription-id").toInt();
+
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
+                     "printer-uri", NULL, "/");
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
+                     "requesting-user-name", NULL, cupsUser());
+
+        if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
+            // Add the "notify-events" values to the request
+            requestAddValues(request, values);
+
+            ippAddString(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
+                         "notify-pull-method", NULL, "ippget");
+            ippAddString(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
+                         "notify-recipient-uri", NULL, "dbus://");
+            ippAddInteger(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
+                          "notify-lease-duration", leaseDuration);
+        } else {
+            ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                          "notify-subscription-id", subscriptionId);
+            ippAddInteger(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
+                          "notify-lease-duration", leaseDuration);
+        }
+
+        // Do the request
+        response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
+    } while (retryIfForbidden());
+
+    if (response != NULL && response->request.status.status_code <= IPP_OK_CONFLICT) {
+        ipp_attribute_t *attr = NULL;
+        if ((attr = ippFindAttribute(response, "notify-subscription-id",
+                                     IPP_TAG_INTEGER)) == NULL) {
+            kDebug() << "No notify-subscription-id in response!";
+        } else {
+            subscriptionId = attr->values[0].integer;
+        }
+    }
+
+    ippDelete(response);
+
+    return subscriptionId;
 }
 
 void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &values)
@@ -208,10 +272,6 @@ void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &value
                                  "/printers/%s", dest_name);
                 ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
                              "job-printer-uri", "utf-8", value.toString().toUtf8());
-            } else if (key == QLatin1String("printer-uri")) {
-                // needed for getJobs
-                ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
-                             "printer-uri", NULL, "ipp://localhost/");
             } else if (key == QLatin1String("printer-op-policy") ||
                        key == QLatin1String("printer-error-policy") ||
                        key == QLatin1String("ppd-name")) {
@@ -226,7 +286,7 @@ void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &value
                              "which-jobs", "utf-8", value.toString().toUtf8());
             } else {
                 ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                            key.toUtf8(), "utf-8", value.toString().toUtf8());
+                             key.toUtf8(), "utf-8", value.toString().toUtf8());
             }
             break;
         case QVariant::StringList:
@@ -242,6 +302,11 @@ void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &value
                 } else if (key == QLatin1String("requested-attributes")) {
                     ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
                                   "requested-attributes", list.size(), "utf-8", values);
+                } else if (key == QLatin1String("notify-events")) {
+                    // Used for DBus notification, the values contains
+                    // what we want to watch
+                    ippAddStrings(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
+                                  "notify-events", list.size(), NULL, values);
                 } else {
                     ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
                                   i.key().toUtf8(), list.size(), "utf-8", values);
@@ -343,8 +408,7 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, 
                      ippPort(), destination.toUtf8());
     ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
                  "utf-8", uri);
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME, "requesting-user-name",
-                 "utf-8", cupsUser());
+
     return request;
 }
 

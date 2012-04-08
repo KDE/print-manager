@@ -145,8 +145,8 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
                                        request,
                                        true);
 
-        for (int i = 0; i < ret.size(); i++) {
-            m_printers << KCupsPrinter(ret.at(i));
+        foreach (const QVariantHash &arguments, ret) {
+            m_printers << KCupsPrinter(arguments);
         }
 
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
@@ -156,13 +156,13 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
     }
 }
 
-void KCupsRequest::getPrinterAttributes(const QString &printer, bool isClass, KCupsPrinter::Attributes attributes)
+void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass, KCupsPrinter::Attributes attributes)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
-        request["printer-name"] = printer;
+        request["printer-name"] = printerName;
         request["printer-is-class"] = isClass;
-        request["need-dest-name"] = false; // we don't need a dest name since it's a single list
+        request["need-dest-name"] = false; // we don't need a dest name since it's a single item
         request["requested-attributes"] = KCupsPrinter::flags(attributes);
 
         ReturnArguments ret;
@@ -171,30 +171,26 @@ void KCupsRequest::getPrinterAttributes(const QString &printer, bool isClass, KC
                                        request,
                                        true);
 
-        for (int i = 0; i < ret.size(); i++) {
-            QVariantHash arguments = ret.at(i);
+        foreach (const QVariantHash &arguments, ret) {
             // Inject the printer name back to the arguments hash
-            arguments["printer-name"] = printer;
-            m_printers << KCupsPrinter(arguments);
+            QVariantHash args = arguments;
+            args["printer-name"] = printerName;
+            m_printers << KCupsPrinter(args);
         }
 
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getPrinterAttributes", printer, isClass, qVariantFromValue(attributes));
+        invokeMethod("getPrinterAttributes", printerName, isClass, qVariantFromValue(attributes));
     }
 }
 
-void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, KCupsJob::Attributes attributes)
+void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJobs, KCupsJob::Attributes attributes)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
-        // This makes the Name of the Job and owner came blank lol
-//        if (printer.isEmpty()) {
-//            request["printer-uri"] = printer;
-//        } else {
-            request["printer-name"] = printer;
-//        }
+        // printer-uri makes the Name of the Job and owner came blank lol
+        request["printer-name"] = printerName;
 
         if (myJobs) {
             request["my-jobs"] = myJobs;
@@ -218,14 +214,67 @@ void KCupsRequest::getJobs(const QString &printer, bool myJobs, int whichJobs, K
                                        request,
                                        true);
 
-        for (int i = 0; i < ret.size(); i++) {
-            m_jobs << KCupsJob(ret.at(i));
+        foreach (const QVariantHash &arguments, ret) {
+            m_jobs << KCupsJob(arguments);
         }
 
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getJobs", printer, myJobs, whichJobs, qVariantFromValue(attributes));
+        invokeMethod("getJobs", printerName, myJobs, whichJobs, qVariantFromValue(attributes));
+    }
+}
+
+void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, KCupsJob::Attributes attributes)
+{
+    if (KCupsConnection::readyToStart()) {
+        QVariantHash request;
+        request["job-id"] = jobId;
+        request["printer-uri"] = printerUri;
+        request["need-dest-name"] = false; // we don't need a dest name since it's a single list
+        request["requested-attributes"] = KCupsJob::flags(attributes);
+
+        ReturnArguments ret;
+        ret = KCupsConnection::request(IPP_GET_JOB_ATTRIBUTES,
+                                       QLatin1String("/admin/"),
+                                       request,
+                                       true);
+
+        foreach (const QVariantHash &arguments, ret) {
+            m_jobs << KCupsJob(arguments);
+        }
+
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getJobAttributes", jobId, printerUri, qVariantFromValue(attributes));
+    }
+}
+
+void KCupsRequest::renewDBusSubscription(const QStringList &events, int subscriptionId, int subscriptionDuration)
+{
+    if (KCupsConnection::readyToStart()) {
+        ipp_op_e operation;
+        QVariantHash request;
+        if (subscriptionId >= 0) {
+            operation = IPP_RENEW_SUBSCRIPTION;
+            request["notify-subscription-id"] = subscriptionId;
+        } else {
+            operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
+            request["notify-events"] = events;
+        }
+        request["notify-lease-duration"] = subscriptionDuration;
+
+        kDebug() << request;
+
+        int ret;
+        ret = KCupsConnection::renewDBusSubscription(operation, request);
+        kDebug() << ret;
+
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("renewDBusSubscription", events, subscriptionId, subscriptionDuration);
     }
 }
 
@@ -290,7 +339,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
     }
 }
 
-void KCupsRequest::setAttributes(const QString &printer,
+void KCupsRequest::setAttributes(const QString &printerName,
                                  bool isClass,
                                  const QVariantHash &attributes,
                                  const QString &filename)
@@ -301,7 +350,7 @@ void KCupsRequest::setAttributes(const QString &printer,
     }
 
     QVariantHash request = attributes;
-    request["printer-name"] = printer;
+    request["printer-name"] = printerName;
     request["printer-is-class"] = isClass;
     if (!filename.isEmpty()) {
         request["filename"] = filename;
@@ -318,10 +367,10 @@ void KCupsRequest::setAttributes(const QString &printer,
     doOperation(operation, QLatin1String("/admin/"), request);
 }
 
-void KCupsRequest::setShared(const QString &printer, bool isClass, bool shared)
+void KCupsRequest::setShared(const QString &printerName, bool isClass, bool shared)
 {
     QVariantHash request;
-    request["printer-name"] = printer;
+    request["printer-name"] = printerName;
     request["printer-is-class"] = isClass;
     request["printer-is-shared"] = shared;
     request["need-dest-name"] = true;
@@ -332,38 +381,52 @@ void KCupsRequest::setShared(const QString &printer, bool isClass, bool shared)
     doOperation(operation, QLatin1String("/admin/"), request);
 }
 
-void KCupsRequest::pausePrinter(const QString &name)
+void KCupsRequest::pausePrinter(const QString &printerName)
 {
     QVariantHash request;
-    request["printer-name"] = name;
+    request["printer-name"] = printerName;
     doOperation(IPP_PAUSE_PRINTER, QLatin1String("/admin/"), request);
 }
 
-void KCupsRequest::resumePrinter(const QString &name)
+void KCupsRequest::resumePrinter(const QString &printerName)
 {
     QVariantHash request;
-    request["printer-name"] = name;
+    request["printer-name"] = printerName;
     doOperation(IPP_RESUME_PRINTER, QLatin1String("/admin/"), request);
 }
 
-void KCupsRequest::setDefaultPrinter(const QString &name)
-{
-    QVariantHash request;
-    request["printer-name"] = name;
-    doOperation(CUPS_SET_DEFAULT, QLatin1String("/admin/"), request);
-}
-
-void KCupsRequest::deletePrinter(const QString &name)
-{
-    QVariantHash request;
-    request["printer-name"] = name;
-    doOperation(CUPS_DELETE_PRINTER, QLatin1String("/admin/"), request);
-}
-
-void KCupsRequest::printTestPage(const QString &printer, bool isClass)
+void KCupsRequest::rejectJobs(const QString &printer)
 {
     QVariantHash request;
     request["printer-name"] = printer;
+    doOperation(CUPS_REJECT_JOBS, QLatin1String("/admin/"), request);
+}
+
+void KCupsRequest::acceptJobs(const QString &printerName)
+{
+    QVariantHash request;
+    request["printer-name"] = printerName;
+    doOperation(CUPS_ACCEPT_JOBS, QLatin1String("/admin/"), request);
+}
+
+void KCupsRequest::setDefaultPrinter(const QString &printerName)
+{
+    QVariantHash request;
+    request["printer-name"] = printerName;
+    doOperation(CUPS_SET_DEFAULT, QLatin1String("/admin/"), request);
+}
+
+void KCupsRequest::deletePrinter(const QString &printerName)
+{
+    QVariantHash request;
+    request["printer-name"] = printerName;
+    doOperation(CUPS_DELETE_PRINTER, QLatin1String("/admin/"), request);
+}
+
+void KCupsRequest::printTestPage(const QString &printerName, bool isClass)
+{
+    QVariantHash request;
+    request["printer-name"] = printerName;
     request["printer-is-class"] = isClass;
     request["job-name"] = i18n("Test Page");
     QString resource; /* POST resource path */
@@ -384,15 +447,15 @@ void KCupsRequest::printTestPage(const QString &printer, bool isClass)
      * Point to the printer/class...
      */
     if (isClass) {
-        resource = QLatin1String("/classes/") % printer;
+        resource = QLatin1String("/classes/") % printerName;
     } else {
-        resource = QLatin1String("/printers/") % printer;
+        resource = QLatin1String("/printers/") % printerName;
     }
 
     doOperation(IPP_PRINT_JOB, resource, request);
 }
 
-void KCupsRequest::printCommand(const QString &printer, const QString &command, const QString &title)
+void KCupsRequest::printCommand(const QString &printerName, const QString &command, const QString &title)
 {
     if (KCupsConnection::readyToStart()) {
         do {
@@ -413,7 +476,7 @@ void KCupsRequest::printCommand(const QString &printer, const QString &command, 
             hold_option.value = const_cast<char*>("no-hold");
 
             if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT,
-                                        printer.toUtf8(),
+                                        printerName.toUtf8(),
                                         title.toUtf8(),
                                         1,
                                         &hold_option)) < 1) {
@@ -425,7 +488,7 @@ void KCupsRequest::printCommand(const QString &printer, const QString &command, 
             }
 
             status = cupsStartDocument(CUPS_HTTP_DEFAULT,
-                                       printer.toUtf8(),
+                                       printerName.toUtf8(),
                                        job_id,
                                        NULL,
                                        CUPS_FORMAT_COMMAND,
@@ -436,14 +499,14 @@ void KCupsRequest::printCommand(const QString &printer, const QString &command, 
             }
 
             if (status == HTTP_CONTINUE) {
-                cupsFinishDocument(CUPS_HTTP_DEFAULT, printer.toUtf8());
+                cupsFinishDocument(CUPS_HTTP_DEFAULT, printerName.toUtf8());
             }
 
             setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
             if (KCupsConnection::lastError() >= IPP_REDIRECTION_OTHER_SITE) {
                 qWarning() << "Unable to send command to printer driver!";
 
-                cupsCancelJob(printer.toUtf8(), job_id);
+                cupsCancelJob(printerName.toUtf8(), job_id);
                 setFinished();
                 return; // Return to avoid a new try
             }
@@ -451,49 +514,49 @@ void KCupsRequest::printCommand(const QString &printer, const QString &command, 
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("printCommand", printer, command, title);
+        invokeMethod("printCommand", printerName, command, title);
     }
 }
 
-void KCupsRequest::cancelJob(const QString &destName, int jobId)
+void KCupsRequest::cancelJob(const QString &printerName, int jobId)
 {
     QVariantHash request;
-    request["printer-name"] = destName;
+    request["printer-name"] = printerName;
     request["job-id"] = jobId;
 
     doOperation(IPP_CANCEL_JOB, QLatin1String("/jobs/"), request);
 }
 
-void KCupsRequest::holdJob(const QString &destName, int jobId)
+void KCupsRequest::holdJob(const QString &printerName, int jobId)
 {
     QVariantHash request;
-    request["printer-name"] = destName;
+    request["printer-name"] = printerName;
     request["job-id"] = jobId;
 
     doOperation(IPP_HOLD_JOB, QLatin1String("/jobs/"), request);
 }
 
-void KCupsRequest::releaseJob(const QString &destName, int jobId)
+void KCupsRequest::releaseJob(const QString &printerName, int jobId)
 {
     QVariantHash request;
-    request["printer-name"] = destName;
+    request["printer-name"] = printerName;
     request["job-id"] = jobId;
 
     doOperation(IPP_RELEASE_JOB, QLatin1String("/jobs/"), request);
 }
 
-void KCupsRequest::moveJob(const QString &fromDestname, int jobId, const QString &toDestname)
+void KCupsRequest::moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName)
 {
-    if (jobId < -1 || fromDestname.isEmpty() || toDestname.isEmpty() || jobId == 0) {
-        qWarning() << "Internal error, invalid input data" << jobId << fromDestname << toDestname;
+    if (jobId < -1 || fromPrinterName.isEmpty() || toPrinterName.isEmpty() || jobId == 0) {
+        qWarning() << "Internal error, invalid input data" << jobId << fromPrinterName << toPrinterName;
         setFinished();
         return;
     }
 
     QVariantHash request;
-    request["printer-name"] = fromDestname;
+    request["printer-name"] = fromPrinterName;
     request["job-id"] = jobId;
-    request["job-printer-uri"] = toDestname;
+    request["job-printer-uri"] = toPrinterName;
 
     doOperation(CUPS_MOVE_JOB, QLatin1String("/jobs/"), request);
 }

@@ -27,30 +27,35 @@ PrintersServiceJob::PrintersServiceJob(const QString &destination, const QString
                                                const QMap<QString, QVariant> &parameters, QObject *parent) :
     Plasma::ServiceJob(destination, operation, parameters, parent)
 {
-    kDebug() << destination << operation << parameters;
 }
 
 void PrintersServiceJob::start()
 {
-    kDebug() << operationName() << destination();
     KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(jobFinished()));
     if (operationName() == QLatin1String("pause")) {
         request->pausePrinter(destination());
     } else if (operationName() == QLatin1String("resume")) {
         request->resumePrinter(destination());
+    } else if (operationName() == QLatin1String("rejectJobs")) {
+        request->rejectJobs(destination());
+    } else if (operationName() == QLatin1String("acceptJobs")) {
+        request->acceptJobs(destination());
     } else {
-        setError(-1);
-        setErrorText(i18n("Invalid request: %1", operationName()));
+        kWarning() << "Operation not defined!" << operationName();
         request->deleteLater();
-        emitResult();
-        return;
+        Plasma::ServiceJob::start();
     }
-    request->waitTillFinished();
+}
 
+void PrintersServiceJob::jobFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
     if (request->hasError()) {
         setError(request->error());
         setErrorText(request->errorMsg());
     }
     request->deleteLater();
+
     emitResult();
 }

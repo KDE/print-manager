@@ -18,27 +18,21 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PrintManagerService.h"
+#ifndef PRINT_JOBS_SERVICE_H
+#define PRINT_JOBS_SERVICE_H
 
-#include "PrintManagerServiceJob.h"
+#include <Plasma/Service>
 
-#include <KDebug>
+#include <KCupsJob.h>
 
-PrintManagerService::PrintManagerService(QObject *parent, const QString &destination) :
-    Plasma::Service(parent)
+class PrintJobsService : public Plasma::Service
 {
-    setName("printmanager");
-    setDestination(destination);
-}
+    Q_OBJECT
+public:
+    explicit PrintJobsService(QObject *parent, const QString &destination = QString());
 
-Plasma::ServiceJob* PrintManagerService::createJob(const QString &operation, QMap<QString, QVariant> &parameters)
-{
-    kDebug() << operation << parameters;
+protected:
+    virtual Plasma::ServiceJob* createJob(const QString &operation, QMap<QString, QVariant> &parameters);
+};
 
-    // JobId was stored on the destination
-    parameters[QLatin1String("JobId")] = destination().toInt();
-    // The printer name that holds the jobs was passed as a parameter
-    QString printer = parameters[QLatin1String("PrinterName")].toString();
-
-    return new PrintManagerServiceJob(printer, operation, parameters, this);
-}
+#endif // PRINT_JOBS_SERVICE_H

@@ -105,10 +105,10 @@ int KCupsJob::size() const
     return jobKOctets;
 }
 
-QString KCupsJob::iconName() const
+QString KCupsJob::iconName(ipp_jstate_t state)
 {
     QString ret;
-    switch (state()){
+    switch (state){
     case IPP_JOB_PENDING:
         ret = QLatin1String("chronometer");
         break;
@@ -136,9 +136,9 @@ QString KCupsJob::iconName() const
     return ret;
 }
 
-ipp_jstate_e KCupsJob::state() const
+ipp_jstate_t KCupsJob::state() const
 {
-    return static_cast<ipp_jstate_e>(m_arguments["job-state"].toUInt());
+    return static_cast<ipp_jstate_t>(m_arguments["job-state"].toUInt());
 }
 
 QString KCupsJob::stateMsg() const
@@ -146,9 +146,9 @@ QString KCupsJob::stateMsg() const
     return m_arguments["job-printer-state-message"].toString();
 }
 
-bool KCupsJob::cancelEnabled() const
+bool KCupsJob::cancelEnabled(ipp_jstate_t state)
 {
-    switch (state()) {
+    switch (state) {
     case IPP_JOB_CANCELED:
     case IPP_JOB_COMPLETED:
     case IPP_JOB_ABORTED:
@@ -158,9 +158,9 @@ bool KCupsJob::cancelEnabled() const
     }
 }
 
-bool KCupsJob::holdEnabled() const
+bool KCupsJob::holdEnabled(ipp_jstate_t state)
 {
-    switch (state()) {
+    switch (state) {
     case IPP_JOB_CANCELED:
     case IPP_JOB_COMPLETED:
     case IPP_JOB_ABORTED:
@@ -172,9 +172,9 @@ bool KCupsJob::holdEnabled() const
     }
 }
 
-bool KCupsJob::releaseEnabled() const
+bool KCupsJob::releaseEnabled(ipp_jstate_t state)
 {
-    switch (state()) {
+    switch (state) {
     case IPP_JOB_HELD :
     case IPP_JOB_STOPPED :
         return true;

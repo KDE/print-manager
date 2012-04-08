@@ -18,21 +18,22 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_MANAGER_SERVICE_H
-#define PRINT_MANAGER_SERVICE_H
+#ifndef PRINT_JOBS_SERVICE_JOB_H
+#define PRINT_JOBS_SERVICE_JOB_H
 
-#include <Plasma/Service>
+#include <Plasma/ServiceJob>
 
-#include <KCupsJob.h>
-
-class PrintManagerService : public Plasma::Service
+class PrintJobsServiceJob : public Plasma::ServiceJob
 {
     Q_OBJECT
 public:
-    explicit PrintManagerService(QObject *parent, const QString &destination = QString());
+    explicit PrintJobsServiceJob(const QString &destination, const QString &operation,
+                                const QMap<QString, QVariant> &parameters, QObject *parent = 0);
 
-protected:
-    virtual Plasma::ServiceJob* createJob(const QString &operation, QMap<QString, QVariant> &parameters);
+    void start();
+
+private slots:
+    void jobFinished();
 };
 
-#endif // PRINT_MANAGER_SERVICE_H
+#endif // PRINT_JOBS_SERVICE_JOB_H

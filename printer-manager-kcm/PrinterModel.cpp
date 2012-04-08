@@ -23,6 +23,7 @@
 #include <QDateTime>
 #include <QMimeData>
 #include <QDBusConnection>
+#include <QtDBus/QDBusInterface>
 
 #include <KUser>
 #include <KDebug>
@@ -52,29 +53,83 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
     m_attributes |= KCupsPrinter::MarkerNames;
     m_attributes |= KCupsPrinter::MarkerTypes;
 
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("QueueChanged"),
-                                         this,
-                                         SLOT(insertUpdatePrinter(QString)));
+    KCupsRequest *request = new KCupsRequest;
+    QStringList events;
+    events << "job-state-changed";
+    events << "job-created";
+    events << "job-completed";
+    events << "job-stopped";
+    events << "job-state";
+    events << "job-config-changed";
+    events << "job-progress";
+    events << "printer-added";
+    events << "printer-deleted";
+    events << "printer-state-changed";
+    events << "printer-modified";
+    request->renewDBusSubscription(events);
 
     // This is emitted when a printer is added
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
                                          QLatin1String("PrinterAdded"),
                                          this,
-                                         SLOT(insertUpdatePrinter(QString)));
+                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is modified
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterModified"),
+                                         this,
+                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is removed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterRemoved"),
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterDeleted"),
                                          this,
-                                         SLOT(printerRemoved(QString)));
+                                         SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is removed
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterStateChanged"),
+                                         this,
+                                         SLOT(printerStateChanged(QString,QString,QString,uint,QString,bool)));
+
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterModified"),
+                                         this,
+                                         SLOT(printerModified(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is stoped
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterStopped"),
+                                         this,
+                                         SLOT(printerStopped(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is stoped
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterRestarted"),
+                                         this,
+                                         SLOT(printerRestarted(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is stoped
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterShutdown"),
+                                         this,
+                                         SLOT(printerShutdown(QString,QString,QString,uint,QString,bool)));
 
     update();
 }
@@ -281,13 +336,25 @@ Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
-void PrinterModel::insertUpdatePrinter(const QString &printer)
+void PrinterModel::insertUpdatePrinter(const QString &text,
+                                       const QString &printerUri,
+                                       const QString &printerName,
+                                       uint printerState,
+                                       const QString &printerStateReasons,
+                                       bool printerIsAcceptingJobs)
 {
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+
+    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
     KCupsRequest *request = new KCupsRequest;
     connect(request, SIGNAL(finished()), this, SLOT(insertUpdatePrinterFinished()));
     // TODO how do we know if it's a class if this DBus signal
     // does not tell us
-    request->getPrinterAttributes(printer, false, m_attributes);
+    request->getPrinterAttributes(printerName, false, m_attributes);
 }
 
 void PrinterModel::insertUpdatePrinterFinished()
@@ -310,13 +377,49 @@ void PrinterModel::insertUpdatePrinterFinished()
     request->deleteLater();
 }
 
-void PrinterModel::printerRemoved(const QString &printer)
+void PrinterModel::printerRemoved(const QString &text,
+                                  const QString &printerUri,
+                                  const QString &printerName,
+                                  uint printerState,
+                                  const QString &printerStateReasons,
+                                  bool printerIsAcceptingJobs)
 {
+    // REALLY? all these parameters just to say foo was deleted??
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+
     // Look for the removed printer
-    int dest_row = destRow(printer);
+    int dest_row = destRow(printerName);
     if (dest_row != -1) {
         removeRows(dest_row, 1);
     }
+}
+
+void PrinterModel::printerStateChanged(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+}
+void PrinterModel::printerStopped(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+}
+
+void PrinterModel::printerRestarted(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+}
+
+void PrinterModel::printerShutdown(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+}
+
+void PrinterModel::printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 }
 
 #include "PrinterModel.moc"

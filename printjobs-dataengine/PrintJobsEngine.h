@@ -18,8 +18,8 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINTERS_ENGINE_H
-#define PRINTERS_ENGINE_H
+#ifndef PRINT_JOBS_ENGINE_H
+#define PRINT_JOBS_ENGINE_H
  
 #include <Plasma/DataEngine>
 
@@ -31,12 +31,12 @@
  */
 class KCupsPrinter;
 class KCupsRequest;
-class PrintersEngine : public Plasma::DataEngine
+class PrintJobsEngine : public Plasma::DataEngine
 {
     Q_OBJECT
 public:
     // every engine needs a constructor with these arguments
-    PrintersEngine(QObject *parent, const QVariantList &args);
+    PrintJobsEngine(QObject *parent, const QVariantList &args);
 
     // Get and set all the jobs we have
     virtual void init();
@@ -45,17 +45,38 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
-    void getPrinters();
-    void getPrintersFinished();
-    void insertUpdatePrinter(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
-    void insertUpdatePrinterFinished();
-    void printerRemoved(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
+    void getJobs();
+    void getJobsFinished();
+    void jobCompleted(const QString &text,
+                      const QString &printerUri,
+                      const QString &printerName,
+                      uint printerState,
+                      const QString &printerStateReasons,
+                      bool printerIsAcceptingJobs,
+                      uint jobId,
+                      uint jobState,
+                      const QString &jobStateReasons,
+                      const QString &jobName,
+                      uint jobImpressionsCompleted);
+    void insertUpdateJob(const QString &text,
+                         const QString &printerUri,
+                         const QString &printerName,
+                         uint printerState,
+                         const QString &printerStateReasons,
+                         bool printerIsAcceptingJobs,
+                         uint jobId,
+                         uint jobState,
+                         const QString &jobStateReasons,
+                         const QString &jobName,
+                         uint jobImpressionsCompleted);
+    void insertUpdateJobFinished();
 
 private:
-    void updatePrinterSource(const KCupsPrinter &printer);
+    void updateJobSource(const KCupsJob &job);
+    bool updateJobState(Plasma::DataEngine::Data &sourceData, ipp_jstate_t jobState);
 
-    KCupsPrinter::Attributes m_printerAttributes;
-    KCupsRequest *m_printersRequest;
+    KCupsJob::Attributes m_jobAttributes;
+    KCupsRequest *m_jobRequest;
 };
  
-#endif // PRINT_MANAGER_ENGINE_H
+#endif // PRINT_JOBS_ENGINE_H

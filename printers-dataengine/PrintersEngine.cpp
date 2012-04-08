@@ -35,40 +35,40 @@ PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args)
 {
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
-}
 
-void PrintersEngine::init()
-{
     m_printerAttributes |= KCupsPrinter::PrinterName;
     m_printerAttributes |= KCupsPrinter::PrinterInfo;
     m_printerAttributes |= KCupsPrinter::PrinterState;
     m_printerAttributes |= KCupsPrinter::PrinterStateMessage;
     // to get proper icons
     m_printerAttributes |= KCupsPrinter::PrinterType;
+}
 
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("QueueChanged"),
-                                         this,
-                                         SLOT(updatePrinter(QString)));
-
+void PrintersEngine::init()
+{
     // This is emitted when a printer is added
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
                                          QLatin1String("PrinterAdded"),
                                          this,
-                                         SLOT(updatePrinter(QString)));
+                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is modified
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterModified"),
+                                         this,
+                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is removed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterRemoved"),
+    QDBusConnection::systemBus().connect(QString(),
+                                         QLatin1String("/org/cups/cupsd/Notifier"),
+                                         QLatin1String("org.cups.cupsd.Notifier"),
+                                         QLatin1String("PrinterDeleted"),
                                          this,
-                                         SLOT(removeSource(QString)));
+                                         SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
 
     // Get all available printers
     getPrinters();
@@ -89,7 +89,10 @@ void PrintersEngine::getPrinters()
 void PrintersEngine::getPrintersFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    if (!request) {
+    if (!request || request->hasError()) {
+        // in case of an error probe the server again in 1.5 seconds
+        QTimer::singleShot(1500, this, SLOT(getPrinters()));
+        request->deleteLater();;
         return;
     }
 
@@ -107,6 +110,27 @@ void PrintersEngine::getPrintersFinished()
     }
 
     request->deleteLater();
+}
+
+void PrintersEngine::insertUpdatePrinter(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    // REALLY? all these parameters just to say foo was added??
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+
+    KCupsPrinter::Attributes attr;
+    attr |= KCupsPrinter::PrinterInfo;
+    attr |= KCupsPrinter::PrinterType;
+    attr |= KCupsPrinter::PrinterState;
+    attr |= KCupsPrinter::PrinterStateMessage;
+
+    KCupsRequest *request = new KCupsRequest;
+    // TODO we set is class to false, but what if it was a class?
+    request->getPrinterAttributes(printerName, false, attr);
+    connect(request, SIGNAL(finished()), this, SLOT(insertUpdatePrinterFinished()));
 }
 
 void PrintersEngine::updatePrinterSource(const KCupsPrinter &printer)
@@ -156,28 +180,14 @@ void PrintersEngine::updatePrinterSource(const KCupsPrinter &printer)
     }
 }
 
-void PrintersEngine::updatePrinter(const QString &printer)
-{
-    KCupsPrinter::Attributes attr;
-    attr |= KCupsPrinter::PrinterInfo;
-    attr |= KCupsPrinter::PrinterType;
-    attr |= KCupsPrinter::PrinterState;
-    attr |= KCupsPrinter::PrinterStateMessage;
-
-    KCupsRequest *request = new KCupsRequest;
-    // TODO we set is class to false, but what if it was a class?
-    request->getPrinterAttributes(printer, false, attr);
-    connect(request, SIGNAL(finished()), this, SLOT(updatePrinterFinished()));
-}
-
-void PrintersEngine::updatePrinterFinished()
+void PrintersEngine::insertUpdatePrinterFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
     if (!request) {
         return;
     }
     if (request->hasError() || request->printers().isEmpty()) {
-        // In case of an error force an update
+        // In case of an error force an update of all printers
         getPrinters();
     } else {
         // Add/Update our printer
@@ -185,6 +195,25 @@ void PrintersEngine::updatePrinterFinished()
             updatePrinterSource(printer);
         }
     }
+    request->deleteLater();;
+}
+
+void PrintersEngine::printerRemoved(const QString &text,
+                                    const QString &printerUri,
+                                    const QString &printerName,
+                                    uint printerState,
+                                    const QString &printerStateReasons,
+                                    bool printerIsAcceptingJobs)
+{
+    // REALLY? all these parameters just to say foo was deleted??
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+
+    // Remove the printer source
+    removeSource(printerName);
 }
  
 // This does the magic that allows Plasma to load

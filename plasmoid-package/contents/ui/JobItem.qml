@@ -26,7 +26,7 @@ Item {
     id: jobItem
     width: jobItem.ListView.view.width
     property bool expanded: jobItem.ListView.view.currentIndex == index
-    height: expanded ? 90 : 30
+    height: (expanded ? actionRow.height + jobRow.height : jobRow.height) + padding.margins.top + padding.margins.bottom
     Behavior on height { PropertyAnimation {} }
 
     PlasmaCore.FrameSvgItem {
@@ -40,13 +40,7 @@ Item {
     
     MouseArea {
         id: container
-        anchors {
-            fill: parent
-            topMargin: padding.margins.top
-            leftMargin: padding.margins.left
-            rightMargin: padding.margins.right
-            bottomMargin: padding.margins.bottom
-        }
+        anchors.fill: parent
         hoverEnabled: true
         onEntered: {
             padding.opacity = 0.7;
@@ -61,138 +55,145 @@ Item {
         onExited: {
             padding.opacity = 0;
         }
+    }
         
-        Column {
-            spacing: 8
-            anchors.fill: parent
-            Row {
-                id: jobRow
-                spacing: 4
-                width: parent.width
-                height: jobNameLabel.paintedHeight
-
-                QIconItem {
-                    id: jobIcon
-                    width: 16
-                    height: 16
-                    icon: QIcon(jobIconName)
-                }
-                PlasmaComponents.Label {
-                    // 12 = 3 * spacing
-                    id: jobNameLabel
-                    width: parent.width - pagesLabel.width - jobIcon.width - 12
-                    height: paintedHeight
-                    elide: Text.ElideRight
-                    text: jobName
-                }
-                PlasmaComponents.Label {
-                    id: pagesLabel
-                    horizontalAlignment: "AlignRight"
-                    height: paintedHeight
-                    width: paintedWidth
-                    text: jobPages
-                    visible: jobPages != 0
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
-                }
+    Column {
+        id: items
+        spacing: 8
+        anchors {
+            fill: parent
+            topMargin: padding.margins.top
+            leftMargin: padding.margins.left
+            rightMargin: padding.margins.right
+            bottomMargin: expanded ? padding.margins.bottom : 0
+        }
+        Row {
+            id: jobRow
+            spacing: 4
+            width: parent.width
+            height: jobNameLabel.paintedHeight
+            QIconItem {
+                id: jobIcon
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                width: 16
+                height: 16
+                icon: QIcon(jobIconName)
             }
-            
-            Item {
-                id: actionRow
-                opacity: expanded ? 1 : 0
-                width: parent.width
-                height: ownerLabel.height + sizeLabel.height + createdLabel.height
-                Behavior on opacity { PropertyAnimation {} }
-                Row {
-                    spacing: 4
-                    anchors.fill: parent
-                    Column {
-                        spacing: 2
-                        PlasmaComponents.ToolButton {
-                            id: cancelButton
-                            flat: true
-                            iconSource: "dialog-cancel"
-                            text: "Cancel Job"
-                            visible: jobCancelEnabled
-                            onClicked: {
-                                service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
-                                operation = service.operationDescription("cancelJob");
-                                operation.PrinterName = jobPrinter;
-                                service.startOperationCall(operation);
-                            }
-                        }
-                        PlasmaComponents.ToolButton {
-                            id: holdButton
-                            flat: true
-                            iconSource: "document-open-recent"
-                            text: jobHoldEnabled ? "Hold Job" : "Release Job"
-                            visible: jobCancelEnabled
-                            onClicked: {
-                                service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
-                                operation = service.operationDescription(jobHoldEnabled ? "holdJob" : "releaseJob");
-                                operation.PrinterName = jobPrinter;
-                                service.startOperationCall(operation);
-                            }
+            PlasmaComponents.Label {
+                // 12 = 3 * spacing
+                id: jobNameLabel
+                width: parent.width - pagesLabel.width - jobIcon.width - 12
+                height: parent.height
+                elide: Text.ElideRight
+                text: jobName
+            }
+            PlasmaComponents.Label {
+                id: pagesLabel
+                horizontalAlignment: "AlignRight"
+                height: parent.height
+                text: jobPages
+                visible: jobPages != 0
+                font.pointSize: theme.smallestFont.pointSize
+                color: "#99"+(theme.textColor.toString().substr(1))
+            }
+        }
+        
+        Item {
+            id: actionRow
+            opacity: expanded ? 1 : 0
+            width: parent.width
+            height: cancelButton.height + holdButton.height + padding.margins.bottom
+            Behavior on opacity { PropertyAnimation {} }
+            Row {
+                spacing: 4
+                anchors.fill: parent
+                Column {
+                    spacing: 2
+                    PlasmaComponents.ToolButton {
+                        id: cancelButton
+                        flat: true
+                        iconSource: "dialog-cancel"
+                        text: "Cancel Job"
+                        visible: jobCancelEnabled
+                        onClicked: {
+                            service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
+                            operation = service.operationDescription("cancelJob");
+                            operation.PrinterName = jobPrinter;
+                            service.startOperationCall(operation);
                         }
                     }
-                    Row {
-                        spacing: 2
-                        Column {
-                            id: column
-                            height: ownerLabel.paintedHeight
-                            PlasmaComponents.Label {
-                                id: ownerLabel
-                                horizontalAlignment: "AlignRight"
-                                height: paintedHeight
-                                width: paintedWidth > column.width ? paintedWidth : column.width
-                                text: i18n("Owner: ")
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
-                            PlasmaComponents.Label {
-                                id: sizeLabel
-                                horizontalAlignment: "AlignRight"
-                                height: column.height
-                                width: paintedWidth > column.width ? paintedWidth : column.width
-                                text: i18n("Size: ")
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
-                            PlasmaComponents.Label {
-                                id: createdLabel
-                                horizontalAlignment: "AlignRight"
-                                height: column.height
-                                width: paintedWidth > column.width ? paintedWidth : column.width
-                                text: i18n("Created: ")
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
+                    PlasmaComponents.ToolButton {
+                        id: holdButton
+                        flat: true
+                        iconSource: "document-open-recent"
+                        text: jobHoldEnabled ? "Hold Job" : "Release Job"
+                        visible: jobCancelEnabled
+                        onClicked: {
+                            service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
+                            operation = service.operationDescription(jobHoldEnabled ? "holdJob" : "releaseJob");
+                            operation.PrinterName = jobPrinter;
+                            service.startOperationCall(operation);
                         }
-                        Column {
-                            PlasmaComponents.Label {
-                                horizontalAlignment: "AlignLeft"
-                                height: column.height
-                                width: paintedWidth
-                                text: jobOwner
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
-                            PlasmaComponents.Label {
-                                horizontalAlignment: "AlignLeft"
-                                height: column.height
-                                width: paintedWidth
-                                text: jobSize
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
-                            PlasmaComponents.Label {
-                                horizontalAlignment: "AlignLeft"
-                                height: column.height
-                                width: paintedWidth
-                                text: jobCreatedAt
-                                font.pointSize: theme.smallestFont.pointSize
-                                color: "#99"+(theme.textColor.toString().substr(1))
-                            }
+                    }
+                }
+                Row {
+                    spacing: 2
+                    Column {
+                        id: column
+                        height: ownerLabel.paintedHeight
+                        PlasmaComponents.Label {
+                            id: ownerLabel
+                            horizontalAlignment: "AlignRight"
+                            height: paintedHeight
+                            width: paintedWidth > column.width ? paintedWidth : column.width
+                            text: i18n("Owner: ")
+                            font.pointSize: theme.smallestFont.pointSize
+                            color: "#99"+(theme.textColor.toString().substr(1))
+                        }
+                        PlasmaComponents.Label {
+                            id: sizeLabel
+                            horizontalAlignment: "AlignRight"
+                            height: column.height
+                            width: paintedWidth > column.width ? paintedWidth : column.width
+                            text: i18n("Size: ")
+                            font.pointSize: theme.smallestFont.pointSize
+                            color: "#99"+(theme.textColor.toString().substr(1))
+                        }
+                        PlasmaComponents.Label {
+                            id: createdLabel
+                            horizontalAlignment: "AlignRight"
+                            height: column.height
+                            width: paintedWidth > column.width ? paintedWidth : column.width
+                            text: i18n("Created: ")
+                            font.pointSize: theme.smallestFont.pointSize
+                            color: "#99"+(theme.textColor.toString().substr(1))
+                        }
+                    }
+                    Column {
+                        PlasmaComponents.Label {
+                            horizontalAlignment: "AlignLeft"
+                            height: column.height
+                            width: paintedWidth
+                            text: jobOwner
+                            font.pointSize: theme.smallestFont.pointSize
+                            color: "#99"+(theme.textColor.toString().substr(1))
+                        }
+                        PlasmaComponents.Label {
+                            horizontalAlignment: "AlignLeft"
+                            height: column.height
+                            width: paintedWidth
+                            text: jobSize
+                            font.pointSize: theme.smallestFont.pointSize
+                            color: "#99"+(theme.textColor.toString().substr(1))
+                        }
+                        PlasmaComponents.Label {
+                            horizontalAlignment: "AlignLeft"
+                            height: column.height
+                            width: paintedWidth
+                            text: jobCreatedAt
+                            font.pointSize: theme.smallestFont.pointSize
+                            color: "#99"+(theme.textColor.toString().substr(1))
                         }
                     }
                 }

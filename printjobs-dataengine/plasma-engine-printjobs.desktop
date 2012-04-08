@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Print Jobs Engine
+Type=Service
+
+X-KDE-ServiceTypes=Plasma/DataEngine
+X-KDE-Library=plasma_engine_printjobs
+X-Plasma-EngineName=printjobs
+X-KDE-PluginInfo-Author=Daniel Nicoletti
+X-KDE-PluginInfo-Email=dantti12@gmail.com
+X-KDE-PluginInfo-Name=printjobs
+X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Website=http://kde.org/
+X-KDE-PluginInfo-Category=System
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true

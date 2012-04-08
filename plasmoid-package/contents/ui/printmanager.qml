@@ -45,22 +45,6 @@ Item {
     }
     
     function configChanged() {
-        var activeJobs = plasmoid.readConfig("activeJobs");
-        var completedJobs = plasmoid.readConfig("completedJobs");
-        activeJobsModel.interval = 0;
-        completedJobsModel.interval = 0;
-        allJobsModel.interval = 0;
-        if (activeJobs == true) {
-            jobsFilterModel.sourceModel = activeJobsModel;
-            activeJobsModel.interval = 1500;
-        } else if (completedJobs == true) {
-            jobsFilterModel.sourceModel = completedJobsModel;
-            completedJobsModel.interval = 1500;
-        } else {
-            jobsFilterModel.sourceModel = allJobsModel;
-            allJobsModel.interval = 1500;
-        }
-        
         whichPrinter = plasmoid.readConfig("printerName");
 
         printersView.currentIndex = -1;
@@ -81,22 +65,6 @@ Item {
             printersView.currentIndex = -1;
             jobsView.currentIndex = -1;
         }
-    }
-
-    PrintManagerDataModel {
-        id: activeJobsModel
-        connectedSources: ["ActiveJobs"]
-        filter: "ActiveJobs"
-    }
-    PrintManagerDataModel {
-        id: completedJobsModel
-        connectedSources: ["CompletedJobs"]
-        filter: "CompletedJobs"
-    }
-    PrintManagerDataModel {
-        id: allJobsModel
-        connectedSources: ["AllJobs"]
-        filter: "AllJobs"
     }
     
     Column {
@@ -142,7 +110,7 @@ Item {
                 filterRole: "printerName"
                 filterRegExp: whichPrinter
                 sortRole: "info"
-                sortOrder: Qt.DescendingOrder
+                sortOrder: Qt.AscendingOrder
             }
             delegate: PrinterItem{
                 multipleItems: horizontalLayout
@@ -167,10 +135,18 @@ Item {
             height: horizontalLayout ? parent.height : printmanager.height - headerSeparator.height - printersView.height
             model: PlasmaCore.SortFilterModel {
                 id: jobsFilterModel
+                sourceModel: PlasmaCore.DataModel {
+                    id: jobsModel
+                    dataSource: PlasmaCore.DataSource {
+                        engine: "printjobs"
+                        connectedSources: sources
+                        interval: 0
+                    }
+                }
                 filterRole: "jobPrinter"
                 filterRegExp: whichPrinter
-                sortRole: "order"
-                sortOrder: Qt.DescendingOrder
+                sortRole: "jobId"
+                sortOrder: Qt.AscendingOrder
             }
             onCountChanged: {
                 checkPlasmoidStatus();

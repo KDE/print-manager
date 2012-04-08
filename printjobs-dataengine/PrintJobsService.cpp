@@ -18,49 +18,26 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_MANAGER_ENGINE_H
-#define PRINT_MANAGER_ENGINE_H
- 
-#include <Plasma/DataEngine>
+#include "PrintJobsService.h"
 
-#include <KCupsRequest.h>
- 
-/**
- * This engine provides all the print jobs the current server has.
- *
- * "AllJobs" lists all jobs of all printers
- * "ActiveJobs" lists active jobs of all printers
- * "CompletedJobs" lists completed jobs of all printers
- */
-class KCupsRequest;
-class PrintManagerEngine : public Plasma::DataEngine
+#include "PrintJobsServiceJob.h"
+
+#include <KDebug>
+
+PrintJobsService::PrintJobsService(QObject *parent, const QString &destination) :
+    Plasma::Service(parent)
 {
-    Q_OBJECT
-public:
-    // every engine needs a constructor with these arguments
-    PrintManagerEngine(QObject *parent, const QVariantList &args);
+    setName("printjobs");
+    setDestination(destination);
+}
 
-    // Get and set all the jobs we have
-    virtual void init();
+Plasma::ServiceJob* PrintJobsService::createJob(const QString &operation, QMap<QString, QVariant> &parameters)
+{
+    // JobId was stored on the destination
+    parameters[QLatin1String("JobId")] = destination().toInt();
 
-    // Get the Service class which we run operations on
-    virtual Plasma::Service* serviceForSource(const QString &source);
+    // The printer name that holds the jobs was passed as a parameter
+    QString printer = parameters[QLatin1String("PrinterName")].toString();
 
-protected:
-    // this virtual function is called when a new source is requested
-    bool sourceRequestEvent(const QString &source);
-
-    // this virtual function is called when an automatic update
-    // is triggered for an existing source (ie: when a valid update
-    // interval is set when requesting a source)
-    bool updateSourceEvent(const QString &source);
-
-private:
-    void job(const QString &prefix, int order, const KCupsJob &job);
-    void updateJobs(const QString &prefix, const KCupsJobs &jobs);
-
-    KCupsJob::Attributes m_jobAttributes;
-    KCupsRequest *m_jobsRequest;
-};
- 
-#endif // PRINT_MANAGER_ENGINE_H
+    return new PrintJobsServiceJob(printer, operation, parameters, this);
+}

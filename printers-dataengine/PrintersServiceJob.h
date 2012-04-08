@@ -30,7 +30,10 @@ public:
     explicit PrintersServiceJob(const QString &destination, const QString &operation,
                                 const QMap<QString, QVariant> &parameters, QObject *parent = 0);
 
-    virtual void start();
+    void start();
+
+private slots:
+    void jobFinished();
 };
 
 #endif // PRINT_MANAGER_SERVICE_JOB_H

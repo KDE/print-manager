@@ -71,6 +71,14 @@ protected:
                                    const QString &resource,
                                    const QVariantHash &reqValues,
                                    bool needResponse);
+
+    /**
+     * This is the most weird cups function, the DBus API
+     * is completely messy, and if we change the order of the attributes
+     * the call just fails. This is why we have a specific method
+     */
+    static int renewDBusSubscription(ipp_op_e operation, const QVariantHash &reqValues);
+
 private:
     KCupsConnection(QObject *parent = 0);
     static void requestAddValues(ipp_t *request, const QVariantHash &values);

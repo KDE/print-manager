@@ -21,7 +21,7 @@
         <entry name="PrinterName" type="String">
             <label>Set the name of the printer holding the job</label>
         </entry>
-	<entry name="DestinationPrinterName" type="String">
+        <entry name="DestinationPrinterName" type="String">
             <label>Set the name of the printer which will be holding the job</label>
         </entry>
     </group>

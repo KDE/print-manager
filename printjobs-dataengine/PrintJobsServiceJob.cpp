@@ -18,22 +18,22 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PrintManagerServiceJob.h"
+#include "PrintJobsServiceJob.h"
 
 #include <KDebug>
 #include <KCupsRequest.h>
 
-PrintManagerServiceJob::PrintManagerServiceJob(const QString &destination, const QString &operation,
+PrintJobsServiceJob::PrintJobsServiceJob(const QString &destination, const QString &operation,
                                                const QMap<QString, QVariant> &parameters, QObject *parent) :
     Plasma::ServiceJob(destination, operation, parameters, parent)
 {
-    kDebug() << destination << operation << parameters;
 }
 
-void PrintManagerServiceJob::start()
+void PrintJobsServiceJob::start()
 {
-    kDebug() << operationName() << destination();
     KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(jobFinished()));
+
     if (operationName() == QLatin1String("cancelJob")) {
         request->cancelJob(destination(),
                            parameters()[QLatin1String("JobId")].toInt());
@@ -47,12 +47,21 @@ void PrintManagerServiceJob::start()
         request->moveJob(destination(),
                          parameters()[QLatin1String("JobId")].toInt(),
                          parameters()[QLatin1String("DestinationPrinterName")].toString());
+    } else {
+        kWarning() << "Operation not defined!" << operationName();
+        request->deleteLater();
+        Plasma::ServiceJob::start();
     }
-    request->waitTillFinished();
+}
+
+void PrintJobsServiceJob::jobFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
     if (request->hasError()) {
         setError(request->error());
         setErrorText(request->errorMsg());
     }
     request->deleteLater();
+
     emitResult();
 }

@@ -120,7 +120,7 @@ public:
      *
      * @return The return will be stored in \sa printers()
      */
-    Q_INVOKABLE void getPrinterAttributes(const QString &printer, bool isClass, KCupsPrinter::Attributes attributes);
+    Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, KCupsPrinter::Attributes attributes);
 
     /**
      * Get all jobs
@@ -131,7 +131,35 @@ public:
      * @param myJobs true if you only want your jobs
      * @param whichJobs which kind jobs should be sent
      */
-    Q_INVOKABLE void getJobs(const QString &printer, bool myJobs, int whichJobs, KCupsJob::Attributes attributes);
+    Q_INVOKABLE void getJobs(const QString &printerName, bool myJobs, int whichJobs, KCupsJob::Attributes attributes);
+
+    /**
+     * Get attributes from a given printer
+     * @param printer The printer to apply the change
+     * @param isClass True it is a printer class
+     * @param attributes The attributes you are requesting
+     *
+     * @return The return will be stored in \sa printers()
+     */
+    Q_INVOKABLE void getJobAttributes(int jobId, const QString &printerUri, KCupsJob::Attributes attributes);
+
+    /**
+     * Get all jobs
+     * This method emits job()
+     * TODO we need to see if we authenticate as root to do some taks
+     *      the myJobs will return the user's jobs or the root's jobs
+     * @param events can be:
+     * "job-created"
+     * "job-completed"
+     * "job-state-changed"
+     * "job-state"
+     * "printer-added"
+     * "printer-deleted"
+     * "printer-state-changed"
+     * @param myJobs true if you only want your jobs
+     * @param whichJobs which kind jobs should be sent
+     */
+    Q_INVOKABLE void renewDBusSubscription(const QStringList &events, int subscriptionId = -1, int subscriptionDuration = 3600);
 
     /**
      * Adds a printer class
@@ -159,7 +187,7 @@ public:
      * @param attributes The new attributes of the printer
      * @param filename The file name in case of changing the PPD
      */
-    void setAttributes(const QString &printer,
+    void setAttributes(const QString &printerName,
                        bool isClass,
                        const QVariantHash &attributes,
                        const QString &filename = QString());
@@ -170,32 +198,44 @@ public:
      * @param isClass True it is a printer class
      * @param shared True if it should be shared
      */
-    void setShared(const QString &printer, bool isClass, bool shared);
+    void setShared(const QString &printerName, bool isClass, bool shared);
 
     /**
      * Set if a given printer should be the default one among others
      * @param printer The printer to apply the change
      */
-    void setDefaultPrinter(const QString &name);
+    void setDefaultPrinter(const QString &printerName);
 
     /**
      * Pause the given printer from receiving jobs
      * @param printer The printer to apply the change
      */
-    void pausePrinter(const QString &name);
+    void pausePrinter(const QString &printerName);
 
     /**
      * Resume the given printer from receiving jobs
      * @param printer The printer to apply the change
      */
-    void resumePrinter(const QString &name);
+    void resumePrinter(const QString &printerName);
+
+    /**
+     * Allows the given printer from receiving jobs
+     * @param printer The printer to apply the change
+     */
+    void acceptJobs(const QString &printerName);
+
+    /**
+     * Prevents the given printer from receiving jobs
+     * @param printer The printer to apply the change
+     */
+    void rejectJobs(const QString &printerName);
 
     /**
      * Delete the given printer, if it's not local it's not
      * possible to delete it
      * @param printer The printer to apply the change
      */
-    void deletePrinter(const QString &name);
+    void deletePrinter(const QString &printerName);
 
     /**
      * Print a test page
@@ -210,7 +250,7 @@ public:
      * @param command The command to print
      * @param title The title of the command
      */
-    Q_INVOKABLE void printCommand(const QString &printer, const QString &command, const QString &title);
+    Q_INVOKABLE void printCommand(const QString &printerName, const QString &command, const QString &title);
 
     // Jobs methods
     /**
@@ -218,21 +258,21 @@ public:
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    void cancelJob(const QString &destName, int jobId);
+    void cancelJob(const QString &printerName, int jobId);
 
     /**
      * Holds the printing of a given job
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    void holdJob(const QString &destName, int jobId);
+    void holdJob(const QString &printerName, int jobId);
 
     /**
      * Holds the printing of a given job
      * @param destName the destination name (printer)
      * @param jobId the job identification
      */
-    void releaseJob(const QString &destName, int jobId);
+    void releaseJob(const QString &printerName, int jobId);
 
     /**
      * Holds the printing of a given job
@@ -240,7 +280,7 @@ public:
      * @param jobId the job identification
      * @param toDestName the destination to hold the job
      */
-    void moveJob(const QString &fromDestname, int jobId, const QString &toDestName);
+    void moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName);
 
 signals:
     void server(const KCupsServer &server);

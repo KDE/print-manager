@@ -37,6 +37,7 @@ class PrintersEngine : public Plasma::DataEngine
 public:
     // every engine needs a constructor with these arguments
     PrintersEngine(QObject *parent, const QVariantList &args);
+    ~PrintersEngine();
 
     // Get and set all the jobs we have
     virtual void init();
@@ -45,17 +46,30 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
+    void renewSubscription();
+    void renewSubscriptionFinished();
     void getPrinters();
     void getPrintersFinished();
-    void insertUpdatePrinter(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
+    void insertUpdatePrinter(const QString &text,
+                             const QString &printerUri,
+                             const QString &printerName,
+                             uint printerState,
+                             const QString &printerStateReasons,
+                             bool printerIsAcceptingJobs);
     void insertUpdatePrinterFinished();
-    void printerRemoved(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
+    void printerRemoved(const QString &text,
+                        const QString &printerUri,
+                        const QString &printerName,
+                        uint printerState,
+                        const QString &printerStateReasons,
+                        bool printerIsAcceptingJobs);
 
 private:
     void updatePrinterSource(const KCupsPrinter &printer);
 
     KCupsPrinter::Attributes m_printerAttributes;
     KCupsRequest *m_printersRequest;
+    int m_subscriptionId;
 };
  
 #endif // PRINT_MANAGER_ENGINE_H

@@ -37,6 +37,7 @@ class PrintJobsEngine : public Plasma::DataEngine
 public:
     // every engine needs a constructor with these arguments
     PrintJobsEngine(QObject *parent, const QVariantList &args);
+    ~PrintJobsEngine();
 
     // Get and set all the jobs we have
     virtual void init();
@@ -45,6 +46,8 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
+    void renewSubscription();
+    void renewSubscriptionFinished();
     void getJobs();
     void getJobsFinished();
     void jobCompleted(const QString &text,
@@ -77,6 +80,7 @@ private:
 
     KCupsJob::Attributes m_jobAttributes;
     KCupsRequest *m_jobRequest;
+    int m_subscriptionId;
 };
  
 #endif // PRINT_JOBS_ENGINE_H

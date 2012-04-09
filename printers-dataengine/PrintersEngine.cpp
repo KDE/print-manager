@@ -29,9 +29,13 @@
 
 #include <KCupsRequest.h>
 #include <KCupsJob.h>
+
+#define RENEW_INTERVAL        3500
+#define SUBSCRIPTION_DURATION 3600
  
-PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args)
-    : Plasma::DataEngine(parent, args)
+PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args) :
+    Plasma::DataEngine(parent, args),
+    m_subscriptionId(-1)
 {
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
@@ -42,6 +46,14 @@ PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args)
     m_printerAttributes |= KCupsPrinter::PrinterStateMessage;
     // to get proper icons
     m_printerAttributes |= KCupsPrinter::PrinterType;
+
+    renewSubscription();
+}
+
+PrintersEngine::~PrintersEngine()
+{
+    KCupsRequest *request = new KCupsRequest;
+    request->cancelDBusSubscription(m_subscriptionId);
 }
 
 void PrintersEngine::init()
@@ -77,6 +89,37 @@ void PrintersEngine::init()
 Plasma::Service* PrintersEngine::serviceForSource(const QString &source)
 {
     return new PrintersService(this, source);
+}
+
+void PrintersEngine::renewSubscription()
+{
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(renewSubscriptionFinished()));
+    QStringList events;
+    events << "printer-added";
+    events << "printer-deleted";
+    events << "printer-state-changed";
+    events << "printer-modified";
+    request->renewDBusSubscription(events, m_subscriptionId, SUBSCRIPTION_DURATION);
+}
+
+void PrintersEngine::renewSubscriptionFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
+    if (!request || request->hasError()) {
+        // in case of an error probe the server again in 1.5 seconds
+        QTimer::singleShot(1000, this, SLOT(renewSubscription()));
+        request->deleteLater();
+        m_subscriptionId = -1;
+        return;
+    }
+
+    if (request->subscriptionId() >= 0) {
+        m_subscriptionId = request->subscriptionId();
+    }
+    // Fire the renewSubscription() again but this time it will have a valid ID
+    QTimer::singleShot(RENEW_INTERVAL, this, SLOT(renewSubscription()));
+    request->deleteLater();
 }
 
 void PrintersEngine::getPrinters()

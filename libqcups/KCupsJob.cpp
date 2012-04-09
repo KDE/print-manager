@@ -183,6 +183,18 @@ bool KCupsJob::releaseEnabled(ipp_jstate_t state)
     }
 }
 
+bool KCupsJob::restartEnabled(ipp_jstate_t state)
+{
+    switch (state) {
+    case IPP_JOB_PENDING:
+    case IPP_JOB_HELD:
+    case IPP_JOB_PROCESSING:
+        return false;
+    default:
+        return true;
+    }
+}
+
 QStringList KCupsJob::flags(const Attributes &attributes)
 {
     QStringList ret;

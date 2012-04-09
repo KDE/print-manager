@@ -29,9 +29,13 @@
 
 #include <KCupsRequest.h>
 #include <KCupsJob.h>
+
+#define RENEW_INTERVAL        3500
+#define SUBSCRIPTION_DURATION 3600
  
-PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args)
-    : Plasma::DataEngine(parent, args)
+PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args) :
+    Plasma::DataEngine(parent, args),
+    m_subscriptionId(-1)
 {
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
@@ -52,6 +56,14 @@ PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args)
     m_jobAttributes |= KCupsJob::JobMediaSheetsCompleted;
     m_jobAttributes |= KCupsJob::JobPrinterStatMessage;
     m_jobAttributes |= KCupsJob::JobPreserved;
+
+    renewSubscription();
+}
+
+PrintJobsEngine::~PrintJobsEngine()
+{
+    KCupsRequest *request = new KCupsRequest;
+    request->cancelDBusSubscription(m_subscriptionId);
 }
 
 void PrintJobsEngine::init()
@@ -113,6 +125,40 @@ void PrintJobsEngine::init()
 Plasma::Service* PrintJobsEngine::serviceForSource(const QString &source)
 {
     return new PrintJobsService(this, source);
+}
+
+void PrintJobsEngine::renewSubscription()
+{
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(renewSubscriptionFinished()));
+    QStringList events;
+    events << "job-state-changed";
+    events << "job-created";
+    events << "job-completed";
+    events << "job-stopped";
+    events << "job-state";
+    events << "job-config-changed";
+    events << "job-progress";
+    request->renewDBusSubscription(events, m_subscriptionId, SUBSCRIPTION_DURATION);
+}
+
+void PrintJobsEngine::renewSubscriptionFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
+    if (!request || request->hasError()) {
+        // in case of an error probe the server again in 1.5 seconds
+        QTimer::singleShot(1000, this, SLOT(renewSubscription()));
+        request->deleteLater();
+        m_subscriptionId = -1;
+        return;
+    }
+
+    if (request->subscriptionId() >= 0) {
+        m_subscriptionId = request->subscriptionId();
+    }
+    // Fire the renewSubscription() again but this time it will have a valid ID
+    QTimer::singleShot(RENEW_INTERVAL, this, SLOT(renewSubscription()));
+    request->deleteLater();
 }
 
 void PrintJobsEngine::getJobs()
@@ -322,6 +368,10 @@ bool PrintJobsEngine::updateJobState(Plasma::DataEngine::Data &sourceData, ipp_j
     }
     if (sourceData[QLatin1String("jobReleaseEnabled")] != KCupsJob::releaseEnabled(jobState)) {
         sourceData[QLatin1String("jobReleaseEnabled")] = KCupsJob::releaseEnabled(jobState);
+        changed = true;
+    }
+    if (sourceData[QLatin1String("jobRestartEnabled")] != KCupsJob::restartEnabled(jobState)) {
+        sourceData[QLatin1String("jobRestartEnabled")] = KCupsJob::restartEnabled(jobState);
         changed = true;
     }
     return changed;

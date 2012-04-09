@@ -270,11 +270,24 @@ void KCupsRequest::renewDBusSubscription(const QStringList &events, int subscrip
         int ret;
         ret = KCupsConnection::renewDBusSubscription(operation, request);
         kDebug() << ret;
+        m_subscriptionId = ret;
 
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("renewDBusSubscription", events, subscriptionId, subscriptionDuration);
+    }
+}
+
+void KCupsRequest::cancelDBusSubscription(int subscriptionId)
+{
+    if (KCupsConnection::readyToStart()) {
+        KCupsConnection::cancelDBusSubscription(subscriptionId);
+
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("cancelDBusSubscription", subscriptionId);
     }
 }
 
@@ -545,6 +558,15 @@ void KCupsRequest::releaseJob(const QString &printerName, int jobId)
     doOperation(IPP_RELEASE_JOB, QLatin1String("/jobs/"), request);
 }
 
+void KCupsRequest::restartJob(const QString &printerName, int jobId)
+{
+    QVariantHash request;
+    request["printer-name"] = printerName;
+    request["job-id"] = jobId;
+
+    doOperation(IPP_RESTART_JOB, QLatin1String("/jobs/"), request);
+}
+
 void KCupsRequest::moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName)
 {
     if (jobId < -1 || fromPrinterName.isEmpty() || toPrinterName.isEmpty() || jobId == 0) {
@@ -576,6 +598,7 @@ void KCupsRequest::invokeMethod(const char *method,
     m_printers.clear();
     m_jobs.clear();
     m_retArguments.clear();
+    m_subscriptionId = -1;
 
     // If this fails we get into a infinite loop
     // Do not use global()->thread() which point
@@ -617,6 +640,11 @@ void KCupsRequest::doOperation(int operation, const QString &resource, const QVa
 ReturnArguments KCupsRequest::result() const
 {
     return m_retArguments;
+}
+
+int KCupsRequest::subscriptionId() const
+{
+    return m_subscriptionId;
 }
 
 KCupsPrinters KCupsRequest::printers() const

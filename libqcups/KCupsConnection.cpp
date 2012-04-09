@@ -187,7 +187,9 @@ int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHas
         // Lets create the request
         request = ippNewRequest(operation);
         leaseDuration = values.take("notify-lease-duration").toInt();
-        subscriptionId = values.take("notify-subscription-id").toInt();
+        if (values.contains("notify-subscription-id")) {
+            subscriptionId = values.take("notify-subscription-id").toInt();
+        }
 
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
                      "printer-uri", NULL, "/");
@@ -215,7 +217,9 @@ int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHas
         response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
     } while (retryIfForbidden());
 
-    if (response != NULL && response->request.status.status_code <= IPP_OK_CONFLICT) {
+    if (subscriptionId < 0 &&
+        response != NULL &&
+        response->request.status.status_code <= IPP_OK_CONFLICT) {
         ipp_attribute_t *attr = NULL;
         if ((attr = ippFindAttribute(response, "notify-subscription-id",
                                      IPP_TAG_INTEGER)) == NULL) {
@@ -228,6 +232,29 @@ int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHas
     ippDelete(response);
 
     return subscriptionId;
+}
+
+void KCupsConnection::cancelDBusSubscription(int subscriptionId)
+{
+    if (!readyToStart()) {
+        return; // This is not intended to be used in the gui thread
+    }
+
+    do {
+        ipp_t *request;
+
+        // Lets create the request
+        request = ippNewRequest(IPP_CANCEL_SUBSCRIPTION);
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
+                     "printer-uri", NULL, "/");
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
+                     "requesting-user-name", NULL, cupsUser());
+        ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                      "notify-subscription-id", subscriptionId);
+
+        // Do the request
+        ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/"));
+    } while (retryIfForbidden());
 }
 
 void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &values)

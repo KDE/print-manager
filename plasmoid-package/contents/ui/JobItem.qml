@@ -114,7 +114,7 @@ Item {
                         id: cancelButton
                         flat: true
                         iconSource: "dialog-cancel"
-                        text: "Cancel Job"
+                        text:  i18n("Cancel Job")
                         visible: jobCancelEnabled
                         onClicked: {
                             service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
@@ -127,7 +127,7 @@ Item {
                         id: holdButton
                         flat: true
                         iconSource: "document-open-recent"
-                        text: jobHoldEnabled ? "Hold Job" : "Release Job"
+                        text: jobRestartEnabled ?  i18n("Reprint Job") : (jobHoldEnabled ?  i18n("Hold Job") :  i18n("Release Job"))
                         visible: jobCancelEnabled
                         onClicked: {
                             service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);

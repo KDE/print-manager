@@ -63,6 +63,12 @@ public:
     ReturnArguments result() const;
 
     /**
+     * When renewDBusSubscription() is called the result is stored here
+     * @returns -1 when failed
+     */
+    int subscriptionId() const;
+
+    /**
      * Non empty when getPrinters is called and finish is emitted()
      * @param position The position found on the list
      * @param printer The printer found
@@ -161,6 +167,8 @@ public:
      */
     Q_INVOKABLE void renewDBusSubscription(const QStringList &events, int subscriptionId = -1, int subscriptionDuration = 3600);
 
+    Q_INVOKABLE void cancelDBusSubscription(int subscriptionId);
+
     /**
      * Adds a printer class
      * @param values the values required to add a class
@@ -239,14 +247,14 @@ public:
 
     /**
      * Print a test page
-     * @param printer The printer where the test should be done
+     * @param printerName The printer where the test should be done
      * @param isClass True it is a printer class
      */
-    void printTestPage(const QString &printer, bool isClass);
+    void printTestPage(const QString &printerName, bool isClass);
 
     /**
      * Print a command test
-     * @param printer The printer where the test should be done
+     * @param printerName The printer where the test should be done
      * @param command The command to print
      * @param title The title of the command
      */
@@ -255,24 +263,31 @@ public:
     // Jobs methods
     /**
      * Cancels tries to cancel a given job
-     * @param destName the destination name (printer)
+     * @param printerName the destination name (printer)
      * @param jobId the job identification
      */
     void cancelJob(const QString &printerName, int jobId);
 
     /**
      * Holds the printing of a given job
-     * @param destName the destination name (printer)
+     * @param printerName the destination name (printer)
      * @param jobId the job identification
      */
     void holdJob(const QString &printerName, int jobId);
 
     /**
      * Holds the printing of a given job
-     * @param destName the destination name (printer)
+     * @param printerName the destination name (printer)
      * @param jobId the job identification
      */
     void releaseJob(const QString &printerName, int jobId);
+
+    /**
+     * Restart the printing of a given job
+     * @param printerName the destination name (printer)
+     * @param jobId the job identification
+     */
+    void restartJob(const QString &printerName, int jobId);
 
     /**
      * Holds the printing of a given job
@@ -312,6 +327,7 @@ private:
     int m_error;
     QString m_errorMsg;
     ReturnArguments m_retArguments;
+    int m_subscriptionId;
     KCupsPrinters m_printers;
     KCupsJobs m_jobs;
 };

@@ -72,6 +72,7 @@ public:
     static bool cancelEnabled(ipp_jstate_t state);
     static bool holdEnabled(ipp_jstate_t state);
     static bool releaseEnabled(ipp_jstate_t state);
+    static bool restartEnabled(ipp_jstate_t state);
 
 protected:
     KCupsJob(const QVariantHash &arguments);

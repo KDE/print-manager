@@ -46,8 +46,8 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
-    void renewSubscription();
-    void renewSubscriptionFinished();
+    void createSubscription();
+    void createSubscriptionFinished();
     void getJobs();
     void getJobsFinished();
     void jobCompleted(const QString &text,

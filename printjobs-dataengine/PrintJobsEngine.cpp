@@ -29,9 +29,6 @@
 
 #include <KCupsRequest.h>
 #include <KCupsJob.h>
-
-#define RENEW_INTERVAL        3500
-#define SUBSCRIPTION_DURATION 3600
  
 PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args) :
     Plasma::DataEngine(parent, args),
@@ -57,7 +54,7 @@ PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args) :
     m_jobAttributes |= KCupsJob::JobPrinterStatMessage;
     m_jobAttributes |= KCupsJob::JobPreserved;
 
-    renewSubscription();
+    createSubscription();
 }
 
 PrintJobsEngine::~PrintJobsEngine()
@@ -69,54 +66,40 @@ PrintJobsEngine::~PrintJobsEngine()
 void PrintJobsEngine::init()
 {
     // This is emitted when a job change it's state
-    QDBusConnection systemBus = QDBusConnection::systemBus();
-    systemBus.connect(QString(),
-                      QLatin1String("/org/cups/cupsd/Notifier"),
-                      QLatin1String("org.cups.cupsd.Notifier"),
-                      QLatin1String("JobState"),
-                      this,
-                      SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(),
+            SIGNAL(jobState(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // This is emitted when a job is created
-    systemBus.connect(QString(),
-                      QLatin1String("/org/cups/cupsd/Notifier"),
-                      QLatin1String("org.cups.cupsd.Notifier"),
-                      QLatin1String("JobCreated"),
-                      this,
-                      SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(),
+            SIGNAL(jobCreated(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // This is emitted when a job is stopped
-    systemBus.connect(QString(),
-                      QLatin1String("/org/cups/cupsd/Notifier"),
-                      QLatin1String("org.cups.cupsd.Notifier"),
-                      QLatin1String("JobStopped"),
-                      this,
-                      SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(),
+            SIGNAL(jobStopped(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // This is emitted when a job has it's config changed
-    systemBus.connect(QString(),
-                      QLatin1String("/org/cups/cupsd/Notifier"),
-                      QLatin1String("org.cups.cupsd.Notifier"),
-                      QLatin1String("JobConfigChanged"),
-                      this,
-                      SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(),
+            SIGNAL(jobConfigChanged(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // This is emitted when a job change it's progress
-    systemBus.connect(QString(),
-                      QLatin1String("/org/cups/cupsd/Notifier"),
-                      QLatin1String("org.cups.cupsd.Notifier"),
-                      QLatin1String("JobProgress"),
-                      this,
-                      SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
-
+    connect(KCupsConnection::global(),
+            SIGNAL(jobProgress(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // This is emitted when a printer is removed
-    systemBus.connect(QString(),
-                      QLatin1String("/org/cups/cupsd/Notifier"),
-                      QLatin1String("org.cups.cupsd.Notifier"),
-                      QLatin1String("JobCompleted"),
-                      this,
-                      SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(),
+            SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // Get all jobs
     getJobs();
@@ -127,10 +110,10 @@ Plasma::Service* PrintJobsEngine::serviceForSource(const QString &source)
     return new PrintJobsService(this, source);
 }
 
-void PrintJobsEngine::renewSubscription()
+void PrintJobsEngine::createSubscription()
 {
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(renewSubscriptionFinished()));
+    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
     QStringList events;
     events << "job-state-changed";
     events << "job-created";
@@ -139,25 +122,21 @@ void PrintJobsEngine::renewSubscription()
     events << "job-state";
     events << "job-config-changed";
     events << "job-progress";
-    request->renewDBusSubscription(events, m_subscriptionId, SUBSCRIPTION_DURATION);
+    request->createDBusSubscription(events);
 }
 
-void PrintJobsEngine::renewSubscriptionFinished()
+void PrintJobsEngine::createSubscriptionFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    if (!request || request->hasError()) {
+    if (!request || request->hasError() || request->subscriptionId() < 0) {
         // in case of an error probe the server again in 1.5 seconds
-        QTimer::singleShot(1000, this, SLOT(renewSubscription()));
+        QTimer::singleShot(1000, this, SLOT(createSubscription()));
         request->deleteLater();
         m_subscriptionId = -1;
         return;
     }
 
-    if (request->subscriptionId() >= 0) {
-        m_subscriptionId = request->subscriptionId();
-    }
-    // Fire the renewSubscription() again but this time it will have a valid ID
-    QTimer::singleShot(RENEW_INTERVAL, this, SLOT(renewSubscription()));
+    m_subscriptionId = request->subscriptionId();
     request->deleteLater();
 }
 

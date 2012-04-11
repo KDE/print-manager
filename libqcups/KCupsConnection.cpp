@@ -23,12 +23,16 @@
 
 #include <QCoreApplication>
 #include <QStringBuilder>
+#include <QDBusConnection>
+#include <QByteArray>
 
 #include <KLocale>
 #include <KDebug>
-#include <QByteArray>
 
 #include <cups/cups.h>
+
+#define RENEW_INTERVAL        3500
+#define SUBSCRIPTION_DURATION 3600
 
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
@@ -64,10 +68,111 @@ KCupsConnection::KCupsConnection(QObject *parent) :
     QThread(parent),
     m_inited(false),
     // Creating the dialog before start() will make it run on the gui thread
-    m_passwordDialog(new KPasswordDialog(0L, KPasswordDialog::ShowUsernameLine))
+    m_passwordDialog(new KPasswordDialog(0L, KPasswordDialog::ShowUsernameLine)),
+    m_subscriptionId(-1)
 {
     m_passwordDialog->setModal(true);
     m_passwordDialog->setPrompt(i18n("Enter an username and a password to complete the task"));
+
+    // setup the DBus subscriptions
+
+    // Server related signals
+    // ServerStarted
+    notifierConnect(QLatin1String("ServerStarted"),
+                    this,
+                    SIGNAL(serverStarted(QString)));
+
+    // ServerStopped
+    notifierConnect(QLatin1String("ServerStopped"),
+                    this,
+                    SIGNAL(serverStopped(QString)));
+
+    // ServerRestarted
+    notifierConnect(QLatin1String("ServerRestarted"),
+                    this,
+                    SIGNAL(serverRestarted(QString)));
+
+    // ServerAudit
+    notifierConnect(QLatin1String("ServerAudit"),
+                    this,
+                    SIGNAL(serverAudit(QString)));
+
+    // Printer related signals
+    // PrinterAdded
+    notifierConnect(QLatin1String("PrinterAdded"),
+                    this,
+                    SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterModified
+    notifierConnect(QLatin1String("PrinterModified"),
+                    this,
+                    SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterDeleted
+    notifierConnect(QLatin1String("PrinterDeleted"),
+                    this,
+                    SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterStateChanged
+    notifierConnect(QLatin1String("PrinterStateChanged"),
+                    this,
+                    SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterStopped
+    notifierConnect(QLatin1String("PrinterStopped"),
+                    this,
+                    SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterShutdown
+    notifierConnect(QLatin1String("PrinterShutdown"),
+                    this,
+                    SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterRestarted
+    notifierConnect(QLatin1String("PrinterRestarted"),
+                    this,
+                    SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterMediaChanged
+    notifierConnect(QLatin1String("PrinterMediaChanged"),
+                    this,
+                    SIGNAL(printerMediaChanged(QString,QString,QString,uint,QString,bool)));
+
+    // PrinterFinishingsChanged
+    notifierConnect(QLatin1String("PrinterFinishingsChanged"),
+                    this,
+                    SIGNAL(PrinterFinishingsChanged(QString,QString,QString,uint,QString,bool)));
+
+    // Job related signals
+    // JobState
+    notifierConnect(QLatin1String("JobState"),
+                    this,
+                    SIGNAL(jobState(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // JobCreated
+    notifierConnect(QLatin1String("JobCreated"),
+                    this,
+                    SIGNAL(jobCreated(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // JobStopped
+    notifierConnect(QLatin1String("JobStopped"),
+                    this,
+                    SIGNAL(jobStopped(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // JobConfigChanged
+    notifierConnect(QLatin1String("JobConfigChanged"),
+                    this,
+                    SIGNAL(jobConfigChanged(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // JobProgress
+    notifierConnect(QLatin1String("JobProgress"),
+                    this,
+                    SIGNAL(jobProgress(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // JobCompleted
+    notifierConnect(QLatin1String("JobCompleted"),
+                    this,
+                    SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // Starts this thread
     start();
@@ -76,6 +181,8 @@ KCupsConnection::KCupsConnection(QObject *parent) :
 KCupsConnection::~KCupsConnection()
 {
     m_instance = 0;
+    m_renewTimer->deleteLater();
+
     quit();
     wait();
 }
@@ -87,6 +194,11 @@ void KCupsConnection::run()
     // password dialog pointer the functions just need to call
     // it on a blocking mode.
     cupsSetPasswordCB2(password_cb, m_passwordDialog);
+
+    // Creates the timer that will renew the DBus subscription
+    m_renewTimer = new QTimer;
+    m_renewTimer->setInterval(RENEW_INTERVAL);
+    connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()));
 
     m_inited = true;
     exec();
@@ -170,9 +282,78 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
     return ret;
 }
 
-int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHash &reqValues)
+int KCupsConnection::createDBusSubscription(const QStringList &events)
 {
-    int subscriptionId = -1;
+    // Build the current list
+    QStringList currentEvents;
+    foreach (const QStringList registeredEvents, m_requestedDBusEvents) {
+        currentEvents << registeredEvents;
+    }
+    currentEvents.removeDuplicates();
+
+    // Check if the requested events are already being asked
+    bool equal = true;
+    foreach (const QString &event, events) {
+        if (!currentEvents.contains(event)) {
+            equal = false;
+        }
+    }
+
+    // Store the subscription
+    int id = 1;
+    if (!m_requestedDBusEvents.isEmpty()) {
+        id = m_requestedDBusEvents.keys().last();
+        ++id;
+    }
+    m_requestedDBusEvents[id] = events;
+
+    // If the requested list is included in our request just
+    // return an ID
+    if (equal) {
+        return id;
+    }
+
+    // If we alread have a subscription lets cancel
+    // and create a new one
+    if (m_subscriptionId >= 0) {
+        cancelDBusSubscription();
+    }
+
+    currentEvents << events;
+
+    // Canculates the new events
+    renewDBusSubscription();
+
+    return id;
+}
+
+void KCupsConnection::removeDBusSubscription(int subscriptionId)
+{
+    // Collect the list of current events
+    QStringList currentEvents;
+    foreach (const QStringList registeredEvents, m_requestedDBusEvents) {
+        currentEvents << registeredEvents;
+    }
+    currentEvents.removeDuplicates();
+
+    QStringList removedEvents = m_requestedDBusEvents.take(subscriptionId);
+
+    // Check if the removed events list is the same as the list we
+    // need, if yes means we can keep renewing the same events
+    if (removedEvents == currentEvents && !m_requestedDBusEvents.isEmpty()) {
+        return;
+    } else {
+        // The requested events changed
+        cancelDBusSubscription();
+
+        // Canculates the new events
+        renewDBusSubscription();
+    }
+}
+
+int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events)
+{
+    int ret = -1;
 
     if (!readyToStart()) {
         return subscriptionId; // This is not intended to be used in the gui thread
@@ -181,16 +362,19 @@ int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHas
     ipp_t *response = NULL;
     do {
         ipp_t *request;
-        int leaseDuration;
-        QVariantHash values = reqValues;
+        ipp_op_e operation;
+        ret = subscriptionId;
+
+        // check if we have a valid subscription ID
+        if (subscriptionId >= 0) {
+            // Add the "notify-events" values to the request
+            operation = IPP_RENEW_SUBSCRIPTION;
+        } else {
+            operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
+        }
 
         // Lets create the request
         request = ippNewRequest(operation);
-        leaseDuration = values.take("notify-lease-duration").toInt();
-        if (values.contains("notify-subscription-id")) {
-            subscriptionId = values.take("notify-subscription-id").toInt();
-        }
-
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
                      "printer-uri", NULL, "/");
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
@@ -198,6 +382,8 @@ int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHas
 
         if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
             // Add the "notify-events" values to the request
+            QVariantHash values;
+            values["notify-events"] = events;
             requestAddValues(request, values);
 
             ippAddString(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
@@ -217,7 +403,7 @@ int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHas
         response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
     } while (retryIfForbidden());
 
-    if (subscriptionId < 0 &&
+    if (ret < 0 &&
         response != NULL &&
         response->request.status.status_code <= IPP_OK_CONFLICT) {
         ipp_attribute_t *attr = NULL;
@@ -225,21 +411,28 @@ int KCupsConnection::renewDBusSubscription(ipp_op_e operation, const QVariantHas
                                      IPP_TAG_INTEGER)) == NULL) {
             kDebug() << "No notify-subscription-id in response!";
         } else {
-            subscriptionId = attr->values[0].integer;
+            ret = attr->values[0].integer;
         }
     }
 
     ippDelete(response);
 
-    return subscriptionId;
+    return ret;
 }
 
-void KCupsConnection::cancelDBusSubscription(int subscriptionId)
+void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, const char *slot)
 {
-    if (!readyToStart()) {
-        return; // This is not intended to be used in the gui thread
-    }
+    QDBusConnection systemBus = QDBusConnection::systemBus();
+    systemBus.connect(QString(),
+                      QLatin1String("/org/cups/cupsd/Notifier"),
+                      QLatin1String("org.cups.cupsd.Notifier"),
+                      signal,
+                      receiver,
+                      slot);
+}
 
+void KCupsConnection::cancelDBusSubscription()
+{
     do {
         ipp_t *request;
 
@@ -250,11 +443,35 @@ void KCupsConnection::cancelDBusSubscription(int subscriptionId)
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
                      "requesting-user-name", NULL, cupsUser());
         ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                      "notify-subscription-id", subscriptionId);
+                      "notify-subscription-id", m_subscriptionId);
 
         // Do the request
         ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/"));
     } while (retryIfForbidden());
+
+    // Reset the subscription id
+    m_subscriptionId = -1;
+}
+
+void KCupsConnection::renewDBusSubscription()
+{
+    // check if we have a valid subscription ID
+    if (m_subscriptionId >= 0) {
+        renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
+    } else {
+        QStringList currentEvents;
+        foreach (const QStringList registeredEvents, m_requestedDBusEvents.values()) {
+            currentEvents << registeredEvents;
+        }
+        currentEvents.removeDuplicates();
+
+        if (!currentEvents.isEmpty()) {
+            m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION, currentEvents);
+            m_renewTimer->start();
+        } else {
+            m_renewTimer->stop();
+        }
+    }
 }
 
 void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &values)

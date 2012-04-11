@@ -46,8 +46,8 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
-    void renewSubscription();
-    void renewSubscriptionFinished();
+    void createSubscription();
+    void createSubscriptionFinished();
     void getPrinters();
     void getPrintersFinished();
     void insertUpdatePrinter(const QString &text,

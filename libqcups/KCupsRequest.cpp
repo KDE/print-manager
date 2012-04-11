@@ -251,38 +251,27 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, KCupsJ
     }
 }
 
-void KCupsRequest::renewDBusSubscription(const QStringList &events, int subscriptionId, int subscriptionDuration)
+void KCupsRequest::createDBusSubscription(const QStringList &events)
 {
     if (KCupsConnection::readyToStart()) {
-        ipp_op_e operation;
-        QVariantHash request;
-        if (subscriptionId >= 0) {
-            operation = IPP_RENEW_SUBSCRIPTION;
-            request["notify-subscription-id"] = subscriptionId;
-        } else {
-            operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
-            request["notify-events"] = events;
-        }
-        request["notify-lease-duration"] = subscriptionDuration;
-
-        kDebug() << request;
-
         int ret;
-        ret = KCupsConnection::renewDBusSubscription(operation, request);
-        kDebug() << ret;
+        ret = KCupsConnection::global()->createDBusSubscription(events);
+        kDebug() << "Got ID" << ret << events;
         m_subscriptionId = ret;
 
-        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+        if (ret < 0) {
+            setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+        }
         setFinished();
     } else {
-        invokeMethod("renewDBusSubscription", events, subscriptionId, subscriptionDuration);
+        invokeMethod("createDBusSubscription", events);
     }
 }
 
 void KCupsRequest::cancelDBusSubscription(int subscriptionId)
 {
     if (KCupsConnection::readyToStart()) {
-        KCupsConnection::cancelDBusSubscription(subscriptionId);
+        KCupsConnection::global()->removeDBusSubscription(subscriptionId);
 
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();

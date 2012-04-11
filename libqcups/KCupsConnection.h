@@ -22,13 +22,14 @@
 #define KCUPSCONNECTION_H
 
 #include <QThread>
+#include <QTimer>
 
 #include <KPasswordDialog>
 
 #include <cups/cups.h>
 
 typedef QList<QVariantHash> ReturnArguments;
-class KCupsConnection : public QThread
+class KDE_EXPORT KCupsConnection : public QThread
 {
     Q_OBJECT
 public:
@@ -52,6 +53,209 @@ public:
     static KCupsConnection* global();
     ~KCupsConnection();
 
+Q_SIGNALS:
+    /**
+     * emitted when "server-started" is registered
+     */
+    void serverStarted(const QString &text);
+
+    /**
+     * emitted when "server-stopped" is registered
+     */
+    void serverStopped(const QString &text);
+
+    /**
+     * emitted when "server-restarted" is registered
+     */
+    void serverRestarted(const QString &text);
+
+    /**
+     * emitted when "server-audit" is registered
+     */
+    void serverAudit(const QString &text);
+
+
+    /**
+     * emitted when "printer-added" is registered
+     */
+    void printerAdded(const QString &text,
+                      const QString &printerUri,
+                      const QString &printerName,
+                      uint printerState,
+                      const QString &printerStateReasons,
+                      bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-modified" is registered
+     */
+    void printerModified(const QString &text,
+                         const QString &printerUri,
+                         const QString &printerName,
+                         uint printerState,
+                         const QString &printerStateReasons,
+                         bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-deleted" is registered
+     */
+    void printerDeleted(const QString &text,
+                        const QString &printerUri,
+                        const QString &printerName,
+                        uint printerState,
+                        const QString &printerStateReasons,
+                        bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-state-changed" is registered
+     */
+    void printerStateChanged(const QString &text,
+                             const QString &printerUri,
+                             const QString &printerName,
+                             uint printerState,
+                             const QString &printerStateReasons,
+                             bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-stopped" is registered
+     */
+    void printerStopped(const QString &text,
+                        const QString &printerUri,
+                        const QString &printerName,
+                        uint printerState,
+                        const QString &printerStateReasons,
+                        bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-restarted" is registered
+     */
+    void printerRestarted(const QString &text,
+                          const QString &printerUri,
+                          const QString &printerName,
+                          uint printerState,
+                          const QString &printerStateReasons,
+                          bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-shutdown" is registered
+     */
+    void printerShutdown(const QString &text,
+                         const QString &printerUri,
+                         const QString &printerName,
+                         uint printerState,
+                         const QString &printerStateReasons,
+                         bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-media-changed" is registered
+     */
+    void printerMediaChanged(const QString &text,
+                             const QString &printerUri,
+                             const QString &printerName,
+                             uint printerState,
+                             const QString &printerStateReasons,
+                             bool printerIsAcceptingJobs);
+
+    /**
+     * emitted when "printer-finishings-changed" is registered
+     */
+    void printerFinishingsChanged(const QString &text,
+                                  const QString &printerUri,
+                                  const QString &printerName,
+                                  uint printerState,
+                                  const QString &printerStateReasons,
+                                  bool printerIsAcceptingJobs);
+
+
+    /**
+     * emitted when "job-state-changed" is registered
+     */
+    void jobState(const QString &text,
+                  const QString &printerUri,
+                  const QString &printerName,
+                  uint printerState,
+                  const QString &printerStateReasons,
+                  bool printerIsAcceptingJobs,
+                  uint jobId,
+                  uint jobState,
+                  const QString &jobStateReasons,
+                  const QString &jobName,
+                  uint jobImpressionsCompleted);
+
+    /**
+     * emitted when "job-created" is registered
+     */
+    void jobCreated(const QString &text,
+                    const QString &printerUri,
+                    const QString &printerName,
+                    uint printerState,
+                    const QString &printerStateReasons,
+                    bool printerIsAcceptingJobs,
+                    uint jobId,
+                    uint jobState,
+                    const QString &jobStateReasons,
+                    const QString &jobName,
+                    uint jobImpressionsCompleted);
+
+    /**
+     * emitted when "job-stopped" is registered
+     */
+    void jobStopped(const QString &text,
+                    const QString &printerUri,
+                    const QString &printerName,
+                    uint printerState,
+                    const QString &printerStateReasons,
+                    bool printerIsAcceptingJobs,
+                    uint jobId,
+                    uint jobState,
+                    const QString &jobStateReasons,
+                    const QString &jobName,
+                    uint jobImpressionsCompleted);
+
+    /**
+     * emitted when "job-config-changed" is registered
+     */
+    void jobConfigChanged(const QString &text,
+                          const QString &printerUri,
+                          const QString &printerName,
+                          uint printerState,
+                          const QString &printerStateReasons,
+                          bool printerIsAcceptingJobs,
+                          uint jobId,
+                          uint jobState,
+                          const QString &jobStateReasons,
+                          const QString &jobName,
+                          uint jobImpressionsCompleted);
+
+    /**
+     * emitted when "job-progress" is registered
+     */
+    void jobProgress(const QString &text,
+                     const QString &printerUri,
+                     const QString &printerName,
+                     uint printerState,
+                     const QString &printerStateReasons,
+                     bool printerIsAcceptingJobs,
+                     uint jobId,
+                     uint jobState,
+                     const QString &jobStateReasons,
+                     const QString &jobName,
+                     uint jobImpressionsCompleted);
+
+    /**
+     * emitted when "job-completed" is registered
+     */
+    void jobCompleted(const QString &text,
+                      const QString &printerUri,
+                      const QString &printerName,
+                      uint printerState,
+                      const QString &printerStateReasons,
+                      bool printerIsAcceptingJobs,
+                      uint jobId,
+                      uint jobState,
+                      const QString &jobStateReasons,
+                      const QString &jobName,
+                      uint jobImpressionsCompleted);
+
 protected:
     friend class KCupsRequest;
 
@@ -73,21 +277,33 @@ protected:
                                    bool needResponse);
 
     /**
-     * This is the most weird cups function, the DBus API
-     * is completely messy, and if we change the order of the attributes
-     * the call just fails. This is why we have a specific method
+     * Just pass the list of event and this class will
+     * worry about renewing
      */
-    static int renewDBusSubscription(ipp_op_e operation, const QVariantHash &reqValues);
+    int createDBusSubscription(const QStringList &events);
 
     /**
      * This is the most weird cups function, the DBus API
      * is completely messy, and if we change the order of the attributes
      * the call just fails. This is why we have a specific method
      */
-    static void cancelDBusSubscription(int subscriptionId);
+    void removeDBusSubscription(int subscriptionId);
+
+private slots:
+    void renewDBusSubscription();
+    void cancelDBusSubscription();
 
 private:
     KCupsConnection(QObject *parent = 0);
+    /**
+     * This is the most weird cups function, the DBus API
+     * it is completely messy, and if we change the order of the attributes
+     * the call just fails. This is why we have a specific method
+     */
+    int renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events = QStringList());
+
+    void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
+
     static void requestAddValues(ipp_t *request, const QVariantHash &values);
     static ReturnArguments parseIPPVars(ipp_t *response,
                                         int group_tag,
@@ -99,6 +315,10 @@ private:
 
     bool m_inited;
     KPasswordDialog *m_passwordDialog;
+
+    QTimer *m_renewTimer;
+    QMap<int, QStringList> m_requestedDBusEvents;
+    int m_subscriptionId;
 };
 
 #endif // KCUPSCONNECTION_H

@@ -66,70 +66,49 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
     events << "printer-deleted";
     events << "printer-state-changed";
     events << "printer-modified";
-    request->renewDBusSubscription(events);
+    request->createDBusSubscription(events);
 
     // This is emitted when a printer is added
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterAdded"),
-                                         this,
-                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(),
+            SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is modified
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterModified"),
-                                         this,
-                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(),
+            SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer has it's state changed
+    connect(KCupsConnection::global(),
+            SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is stopped
+    connect(KCupsConnection::global(),
+            SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is restarted
+    connect(KCupsConnection::global(),
+            SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is shutdown
+    connect(KCupsConnection::global(),
+            SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is removed
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterDeleted"),
-                                         this,
-                                         SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
-
-    // This is emitted when a printer is removed
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterStateChanged"),
-                                         this,
-                                         SLOT(printerStateChanged(QString,QString,QString,uint,QString,bool)));
-
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterModified"),
-                                         this,
-                                         SLOT(printerModified(QString,QString,QString,uint,QString,bool)));
-
-    // This is emitted when a printer is stoped
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterStopped"),
-                                         this,
-                                         SLOT(printerStopped(QString,QString,QString,uint,QString,bool)));
-
-    // This is emitted when a printer is stoped
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterRestarted"),
-                                         this,
-                                         SLOT(printerRestarted(QString,QString,QString,uint,QString,bool)));
-
-    // This is emitted when a printer is stoped
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterShutdown"),
-                                         this,
-                                         SLOT(printerShutdown(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(),
+            SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
 
     update();
 }

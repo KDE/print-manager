@@ -150,11 +150,8 @@ public:
     Q_INVOKABLE void getJobAttributes(int jobId, const QString &printerUri, KCupsJob::Attributes attributes);
 
     /**
-     * Get all jobs
-     * This method emits job()
-     * TODO we need to see if we authenticate as root to do some taks
-     *      the myJobs will return the user's jobs or the root's jobs
-     * @param events can be:
+     * This makes KCupsConnection emit signals to the following
+     * events:
      * "job-created"
      * "job-completed"
      * "job-state-changed"
@@ -162,10 +159,8 @@ public:
      * "printer-added"
      * "printer-deleted"
      * "printer-state-changed"
-     * @param myJobs true if you only want your jobs
-     * @param whichJobs which kind jobs should be sent
      */
-    Q_INVOKABLE void renewDBusSubscription(const QStringList &events, int subscriptionId = -1, int subscriptionDuration = 3600);
+    Q_INVOKABLE void createDBusSubscription(const QStringList &events);
 
     Q_INVOKABLE void cancelDBusSubscription(int subscriptionId);
 

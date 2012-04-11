@@ -29,9 +29,6 @@
 
 #include <KCupsRequest.h>
 #include <KCupsJob.h>
-
-#define RENEW_INTERVAL        3500
-#define SUBSCRIPTION_DURATION 3600
  
 PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args) :
     Plasma::DataEngine(parent, args),
@@ -47,7 +44,7 @@ PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args) :
     // to get proper icons
     m_printerAttributes |= KCupsPrinter::PrinterType;
 
-    renewSubscription();
+    createSubscription();
 }
 
 PrintersEngine::~PrintersEngine()
@@ -59,28 +56,46 @@ PrintersEngine::~PrintersEngine()
 void PrintersEngine::init()
 {
     // This is emitted when a printer is added
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterAdded"),
-                                         this,
-                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(),
+            SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is modified
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterModified"),
-                                         this,
-                                         SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(),
+            SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer has it's state changed
+    connect(KCupsConnection::global(),
+            SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is stopped
+    connect(KCupsConnection::global(),
+            SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is restarted
+    connect(KCupsConnection::global(),
+            SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is shutdown
+    connect(KCupsConnection::global(),
+            SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is removed
-    QDBusConnection::systemBus().connect(QString(),
-                                         QLatin1String("/org/cups/cupsd/Notifier"),
-                                         QLatin1String("org.cups.cupsd.Notifier"),
-                                         QLatin1String("PrinterDeleted"),
-                                         this,
-                                         SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(),
+            SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
 
     // Get all available printers
     getPrinters();
@@ -91,34 +106,30 @@ Plasma::Service* PrintersEngine::serviceForSource(const QString &source)
     return new PrintersService(this, source);
 }
 
-void PrintersEngine::renewSubscription()
+void PrintersEngine::createSubscription()
 {
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(renewSubscriptionFinished()));
+    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
     QStringList events;
     events << "printer-added";
     events << "printer-deleted";
     events << "printer-state-changed";
     events << "printer-modified";
-    request->renewDBusSubscription(events, m_subscriptionId, SUBSCRIPTION_DURATION);
+    request->createDBusSubscription(events);
 }
 
-void PrintersEngine::renewSubscriptionFinished()
+void PrintersEngine::createSubscriptionFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    if (!request || request->hasError()) {
+    if (!request || request->hasError() || request->subscriptionId() < 0) {
         // in case of an error probe the server again in 1.5 seconds
-        QTimer::singleShot(1000, this, SLOT(renewSubscription()));
+        QTimer::singleShot(1000, this, SLOT(createSubscription()));
         request->deleteLater();
         m_subscriptionId = -1;
         return;
     }
 
-    if (request->subscriptionId() >= 0) {
-        m_subscriptionId = request->subscriptionId();
-    }
-    // Fire the renewSubscription() again but this time it will have a valid ID
-    QTimer::singleShot(RENEW_INTERVAL, this, SLOT(renewSubscription()));
+    m_subscriptionId = request->subscriptionId();
     request->deleteLater();
 }
 

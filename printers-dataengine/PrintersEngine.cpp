@@ -174,6 +174,7 @@ void PrintersEngine::insertUpdatePrinter(const QString &text, const QString &pri
     Q_UNUSED(printerState)
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
+    kDebug() << printerName << printerStateReasons;
 
     KCupsPrinter::Attributes attr;
     attr |= KCupsPrinter::PrinterInfo;
@@ -232,6 +233,7 @@ void PrintersEngine::updatePrinterSource(const KCupsPrinter &printer)
         // update only if data changes to avoid uneeded updates on the views
         setData(source, sourceData);
     }
+    kDebug() << source << changed;
 }
 
 void PrintersEngine::insertUpdatePrinterFinished()

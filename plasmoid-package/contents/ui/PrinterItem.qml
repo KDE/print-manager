@@ -27,13 +27,13 @@ Item {
     property bool multipleItems
     width: printerItem.ListView.view.width
     height: 50
+    state: stateEnum
 
     PlasmaCore.FrameSvgItem {
         id: padding
         imagePath: "widgets/viewitem"
         prefix: "hover"
         opacity: 0
-        Behavior on opacity { PropertyAnimation {} }
         anchors.fill: parent
     }
     MouseArea {
@@ -78,6 +78,7 @@ Item {
                 left: parent.left
                 top: parent.top
             }
+            Behavior on opacity { PropertyAnimation {} }
         }
         
         Column {
@@ -86,7 +87,7 @@ Item {
             anchors {
                 top: parent.top
                 left: printerIcon.right
-                right: rightAction.left
+                right: switchAction.left
                 leftMargin: padding.margins.left
             }
             PlasmaComponents.Label {
@@ -110,7 +111,8 @@ Item {
         }
         
         PlasmaComponents.Switch {
-            id: rightAction
+            id: switchAction
+            opacity: 1
             anchors {
                 right: parent.right
                 verticalCenter: printerIcon.verticalCenter
@@ -123,5 +125,17 @@ Item {
             }
         }
     }
+    
+    states: [
+        State {
+            name: "stopped"
+            PropertyChanges { target: labelsColumn; opacity: 0.6}
+            PropertyChanges { target: printerIcon; opacity: 0.6}
+        },
+        State {
+            PropertyChanges { target: labelsColumn; opacity: 1}
+            PropertyChanges { target: printerIcon; opacity: 1}
+        }
+    ]
 }
 

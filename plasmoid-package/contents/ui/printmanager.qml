@@ -23,7 +23,7 @@ import org.kde.plasma.components 0.1 as PlasmaComponents
 
 Item {
     id: printmanager
-    property int minimumWidth: horizontalLayout ? 650 : 300
+    property int minimumWidth: horizontalLayout ? 500 : 300
     property int minimumHeight: 270
     
     property string highlightPrinter

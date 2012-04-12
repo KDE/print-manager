@@ -27,13 +27,12 @@
 PrintersService::PrintersService(QObject *parent, const QString &destination) :
     Plasma::Service(parent)
 {
-    kDebug() << destination;
     setName("printers");
     setDestination(destination);
 }
 
 Plasma::ServiceJob* PrintersService::createJob(const QString &operation, QMap<QString, QVariant> &parameters)
 {
-    kDebug() << operation << parameters;
+    kDebug() << destination() << operation;
     return new PrintersServiceJob(destination(), operation, parameters, this);
 }

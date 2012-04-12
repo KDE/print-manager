@@ -31,6 +31,7 @@ PrintersServiceJob::PrintersServiceJob(const QString &destination, const QString
 
 void PrintersServiceJob::start()
 {
+    kDebug() << destination() << operationName();
     KCupsRequest *request = new KCupsRequest;
     connect(request, SIGNAL(finished()), this, SLOT(jobFinished()));
     if (operationName() == QLatin1String("pause")) {

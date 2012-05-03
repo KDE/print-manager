@@ -19,14 +19,17 @@
  ***************************************************************************/
 
 #include "ChooseSamba.h"
+#include "ui_ChooseSamba.h"
 
 #include <QPainter>
 #include <KDebug>
 
-ChooseSamba::ChooseSamba(QWidget *parent)
- : GenericPage(parent), m_isValid(false)
+ChooseSamba::ChooseSamba(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::ChooseSamba),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
@@ -50,11 +53,12 @@ ChooseSamba::ChooseSamba(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 }
 
 ChooseSamba::~ChooseSamba()
 {
+    delete ui;
 }
 
 void ChooseSamba::setValues(const QVariantHash &args)
@@ -67,13 +71,13 @@ void ChooseSamba::setValues(const QVariantHash &args)
     }
     m_isValid = true;
 
-    addressLE->setText(deviceUri);
+    ui->addressLE->setText(deviceUri);
 }
 
 QVariantHash ChooseSamba::values() const
 {
     QVariantHash ret = m_args;
-    ret["device-uri"] = "smb://" + addressLE->text();
+    ret["device-uri"] = "smb://" + ui->addressLE->text();
     return ret;
 }
 
@@ -85,8 +89,8 @@ bool ChooseSamba::isValid() const
 bool ChooseSamba::canProceed() const
 {
     bool allow = false;
-    if (!addressLE->text().isEmpty()) {
-        KUrl url = KUrl("smb://" + addressLE->text());
+    if (!ui->addressLE->text().isEmpty()) {
+        KUrl url = KUrl("smb://" + ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;
@@ -104,5 +108,3 @@ void ChooseSamba::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
-
-#include "ChooseSamba.moc"

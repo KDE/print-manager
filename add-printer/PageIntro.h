@@ -21,8 +21,6 @@
 #ifndef PAGE_INTRO_H
 #define PAGE_INTRO_H
 
-#include "ui_PageIntro.h"
-
 #include "GenericPage.h"
 
 namespace Ui {

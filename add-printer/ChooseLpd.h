@@ -21,12 +21,12 @@
 #ifndef CHOOSE_LPD_H
 #define CHOOSE_LPD_H
 
-#include "ui_ChooseLpd.h"
-
 #include "GenericPage.h"
-#include <QRegExp>
 
-class ChooseLpd : public GenericPage, Ui::ChooseLpd
+namespace Ui {
+    class ChooseLpd;
+}
+class ChooseLpd : public GenericPage
 {
     Q_OBJECT
 public:
@@ -45,6 +45,7 @@ private slots:
     void checkSelected();
 
 private:
+    Ui::ChooseLpd *ui;
     bool m_isValid;
 };
 

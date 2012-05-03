@@ -21,12 +21,12 @@
 #ifndef CHOOSE_SAMBA_H
 #define CHOOSE_SAMBA_H
 
-#include "ui_ChooseSamba.h"
-
 #include "GenericPage.h"
-#include <QRegExp>
 
-class ChooseSamba : public GenericPage, Ui::ChooseSamba
+namespace Ui {
+    class ChooseSamba;
+}
+class ChooseSamba : public GenericPage
 {
     Q_OBJECT
 public:
@@ -46,6 +46,7 @@ private slots:
     void checkSelected();
 
 private:
+    Ui::ChooseSamba *ui;
     bool m_isValid;
 };
 

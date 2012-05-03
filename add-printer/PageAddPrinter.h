@@ -21,12 +21,13 @@
 #ifndef PAGE_ADD_PRINTER_H
 #define PAGE_ADD_PRINTER_H
 
-#include "ui_PageAddPrinter.h"
-
 #include "GenericPage.h"
-#include <QRegExp>
 
-class PageAddPrinter : public GenericPage, Ui::PageAddPrinter
+namespace Ui {
+    class PageAddPrinter;
+}
+
+class PageAddPrinter : public GenericPage
 {
     Q_OBJECT
 public:
@@ -43,6 +44,9 @@ public slots:
 private slots:
     void checkSelected();
     void on_nameLE_textChanged(const QString &text);
+
+private:
+    Ui::PageAddPrinter *ui;
 };
 
 #endif

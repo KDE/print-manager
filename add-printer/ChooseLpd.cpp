@@ -19,14 +19,17 @@
  ***************************************************************************/
 
 #include "ChooseLpd.h"
+#include "ui_ChooseLpd.h"
 
 #include <QPainter>
 #include <KDebug>
 
-ChooseLpd::ChooseLpd(QWidget *parent)
- : GenericPage(parent), m_isValid(false)
+ChooseLpd::ChooseLpd(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::ChooseLpd),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
@@ -50,11 +53,12 @@ ChooseLpd::ChooseLpd(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 }
 
 ChooseLpd::~ChooseLpd()
 {
+    delete ui;
 }
 
 void ChooseLpd::on_addressLE_textChanged(const QString &text)
@@ -73,21 +77,21 @@ void ChooseLpd::setValues(const QVariantHash &args)
     }
     m_isValid = true;
 
-    addressLE->setText(deviceUri);
+    ui->addressLE->setText(deviceUri);
 }
 
 QVariantHash ChooseLpd::values() const
 {
     QVariantHash ret = m_args;
-    ret["device-uri"] = "lpd://" + addressLE->text();
+    ret["device-uri"] = "lpd://" + ui->addressLE->text();
     return ret;
 }
 
 bool ChooseLpd::canProceed() const
 {
     bool allow = false;
-    if (!addressLE->text().isEmpty()) {
-        KUrl url = KUrl("lpd://" + addressLE->text());
+    if (!ui->addressLE->text().isEmpty()) {
+        KUrl url = KUrl("lpd://" + ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;
@@ -102,5 +106,3 @@ void ChooseLpd::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
-
-#include "ChooseLpd.moc"

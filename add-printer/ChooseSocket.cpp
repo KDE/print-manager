@@ -19,14 +19,17 @@
  ***************************************************************************/
 
 #include "ChooseSocket.h"
+#include "ui_ChooseSocket.h"
 
 #include <QPainter>
 #include <KDebug>
 
-ChooseSocket::ChooseSocket(QWidget *parent)
- : GenericPage(parent), m_isValid(false)
+ChooseSocket::ChooseSocket(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::ChooseSocket),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
@@ -50,11 +53,12 @@ ChooseSocket::ChooseSocket(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 }
 
 ChooseSocket::~ChooseSocket()
 {
+    delete ui;
 }
 
 void ChooseSocket::setValues(const QVariantHash &args)
@@ -64,13 +68,13 @@ void ChooseSocket::setValues(const QVariantHash &args)
     }
 
     m_args = args;
-    addressLE->clear();
-    portISB->setValue(9100);
+    ui->addressLE->clear();
+    ui->portISB->setValue(9100);
     QString deviceUri = args["device-uri"].toString();
     KUrl url = deviceUri;
     if (url.scheme() == "socket") {
-        addressLE->setText(url.host());
-        portISB->setValue(url.port(9100));
+        ui->addressLE->setText(url.host());
+        ui->portISB->setValue(url.port(9100));
     }
     m_isValid = true;
 }
@@ -78,8 +82,8 @@ void ChooseSocket::setValues(const QVariantHash &args)
 QVariantHash ChooseSocket::values() const
 {
     QVariantHash ret = m_args;
-    KUrl url = KUrl("socket://" + addressLE->text());
-    url.setPort(portISB->value());
+    KUrl url = KUrl("socket://" + ui->addressLE->text());
+    url.setPort(ui->portISB->value());
     ret["device-uri"] = url.prettyUrl();
     return ret;
 }
@@ -91,7 +95,7 @@ bool ChooseSocket::isValid() const
 
 bool ChooseSocket::canProceed() const
 {
-    return !addressLE->text().isEmpty();
+    return !ui->addressLE->text().isEmpty();
 }
 
 void ChooseSocket::on_addressLE_textChanged(const QString &text)
@@ -99,5 +103,3 @@ void ChooseSocket::on_addressLE_textChanged(const QString &text)
     Q_UNUSED(text)
     emit allowProceed(canProceed());
 }
-
-#include "ChooseSocket.moc"

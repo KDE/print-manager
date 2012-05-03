@@ -176,6 +176,3 @@ void DevicesModel::finished()
     m_request->deleteLater();
     m_request = 0;
 }
-
-
-#include "DevicesModel.moc"

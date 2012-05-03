@@ -19,14 +19,17 @@
  ***************************************************************************/
 
 #include "ChooseIpp.h"
+#include "ui_ChooseIpp.h"
 
 #include <QPainter>
 #include <KDebug>
 
-ChooseIpp::ChooseIpp(QWidget *parent)
- : GenericPage(parent), m_isValid(false)
+ChooseIpp::ChooseIpp(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::ChooseIpp),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
@@ -50,14 +53,15 @@ ChooseIpp::ChooseIpp(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 
-    connect(addressLE, SIGNAL(textChanged(QString)), this, SLOT(verifyURL()));
-    connect(queueLE, SIGNAL(textChanged(QString)), this, SLOT(verifyURL()));
+    connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(verifyURL()));
+    connect(ui->queueLE, SIGNAL(textChanged(QString)), this, SLOT(verifyURL()));
 }
 
 ChooseIpp::~ChooseIpp()
 {
+    delete ui;
 }
 
 void ChooseIpp::setValues(const QVariantHash &args)
@@ -71,11 +75,11 @@ void ChooseIpp::setValues(const QVariantHash &args)
     if (deviceUri.contains('/')) {
         kDebug() << deviceUri;
         KUrl url = deviceUri;
-        addressLE->setText(url.authority());
-        queueLE->setText(url.path());
+        ui->addressLE->setText(url.authority());
+        ui->queueLE->setText(url.path());
     } else {
-        addressLE->clear();
-        queueLE->setText("/printers/");
+        ui->addressLE->clear();
+        ui->queueLE->setText("/printers/");
     }
 
     m_isValid = true;
@@ -97,14 +101,14 @@ bool ChooseIpp::isValid() const
 QString ChooseIpp::uri() const
 {
     QString ret;
-    if (!addressLE->text().isEmpty() && queueLE->text() != "/printers/") {
-        QString queue = queueLE->text();
+    if (!ui->addressLE->text().isEmpty() && ui->queueLE->text() != "/printers/") {
+        QString queue = ui->queueLE->text();
         if (!queue.startsWith('/')) {
             queue.prepend('/');
         }
         ret = QString("%1://%2%3")
               .arg(m_args["device-uri"].toString())
-              .arg(addressLE->text())
+              .arg(ui->addressLE->text())
               .arg(queue);
     }
     return ret;
@@ -118,9 +122,7 @@ bool ChooseIpp::canProceed() const
 void ChooseIpp::verifyURL()
 {
     bool allow = canProceed();
-    uriL->setText(uri());
-    uriL->setVisible(allow);
+    ui->uriL->setText(uri());
+    ui->uriL->setVisible(allow);
     emit allowProceed(allow);
 }
-
-#include "ChooseIpp.moc"

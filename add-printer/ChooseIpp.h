@@ -21,12 +21,12 @@
 #ifndef CHOOSE_IPP_H
 #define CHOOSE_IPP_H
 
-#include "ui_ChooseIpp.h"
-
 #include "GenericPage.h"
-#include <QRegExp>
 
-class ChooseIpp : public GenericPage, Ui::ChooseIpp
+namespace Ui {
+    class ChooseIpp;
+}
+class ChooseIpp : public GenericPage
 {
     Q_OBJECT
 public:
@@ -44,6 +44,7 @@ private slots:
 private:
     QString uri() const;
 
+    Ui::ChooseIpp *ui;
     bool m_isValid;
 };
 

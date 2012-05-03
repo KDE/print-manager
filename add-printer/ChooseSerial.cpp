@@ -19,16 +19,18 @@
  ***************************************************************************/
 
 #include "ChooseSerial.h"
+#include "ui_ChooseSerial.h"
 
 #include <QPainter>
 #include <KDebug>
 
-ChooseSerial::ChooseSerial(QWidget *parent)
- : GenericPage(parent),
-   m_rx("\\?baud=(\\d+)"),
-   m_isValid(false)
+ChooseSerial::ChooseSerial(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::ChooseSerial),
+    m_rx("\\?baud=(\\d+)"),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
@@ -52,20 +54,21 @@ ChooseSerial::ChooseSerial(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 
-    parityCB->addItem(i18nc("@label:listbox", "None"), "none");
-    parityCB->addItem(i18nc("@label:listbox", "Even"), "even");
-    parityCB->addItem(i18nc("@label:listbox", "Odd"),  "odd");
+    ui->parityCB->addItem(i18nc("@label:listbox", "None"), "none");
+    ui->parityCB->addItem(i18nc("@label:listbox", "Even"), "even");
+    ui->parityCB->addItem(i18nc("@label:listbox", "Odd"),  "odd");
 
-    flowCB->addItem(i18nc("@label:listbox", "None"), "none");
-    flowCB->addItem(i18nc("@label:listbox", "XON/XOFF (Software)"), "soft");
-    flowCB->addItem(i18nc("@label:listbox", "RTS/CTS (Hardware)"),  "hard");
-    flowCB->addItem(i18nc("@label:listbox", "DTR/DSR (Hardware)"),  "dtrdsr");
+    ui->flowCB->addItem(i18nc("@label:listbox", "None"), "none");
+    ui->flowCB->addItem(i18nc("@label:listbox", "XON/XOFF (Software)"), "soft");
+    ui->flowCB->addItem(i18nc("@label:listbox", "RTS/CTS (Hardware)"),  "hard");
+    ui->flowCB->addItem(i18nc("@label:listbox", "DTR/DSR (Hardware)"),  "dtrdsr");
 }
 
 ChooseSerial::~ChooseSerial()
 {
+    delete ui;
 }
 
 bool ChooseSerial::isValid() const
@@ -105,16 +108,16 @@ void ChooseSerial::setValues(const QVariantHash &args)
         maxrate = 19200;
     }
 
-    baudRateCB->clear();
+    ui->baudRateCB->clear();
     for (int i = 0; i < 10; i ++) {
         if (baudrates[i] > maxrate) {
             break;
         } else {
-            baudRateCB->addItem(QString::number(baudrates[i]));
+            ui->baudRateCB->addItem(QString::number(baudrates[i]));
         }
     }
     // Set the current index to the maxrate
-    baudRateCB->setCurrentIndex(baudRateCB->count() - 1);
+    ui->baudRateCB->setCurrentIndex(ui->baudRateCB->count() - 1);
 }
 
 void ChooseSerial::load()
@@ -126,14 +129,12 @@ QVariantHash ChooseSerial::values() const
     QVariantHash ret = m_args;
     QString deviceUri = m_args["device-uri"].toString();
     int pos = deviceUri.indexOf('?');
-    QString baudRate = baudRateCB->currentText();
-    QString bits = bitsCB->currentText();
-    QString parity = baudRateCB->itemData(baudRateCB->currentIndex()).toString();
-    QString flow = flowCB->itemData(flowCB->currentIndex()).toString();
+    QString baudRate = ui->baudRateCB->currentText();
+    QString bits = ui->bitsCB->currentText();
+    QString parity = ui->baudRateCB->itemData(ui->baudRateCB->currentIndex()).toString();
+    QString flow = ui->flowCB->itemData(ui->flowCB->currentIndex()).toString();
     QString replace = QString("?baud=%1+bits=%2+parity=%3+flow=%4").arg(baudRate).arg(bits).arg(parity).arg(flow);
     deviceUri.replace(pos, deviceUri.size() - pos, replace);
     ret["device-uri"] = deviceUri;
     return ret;
 }
-
-#include "ChooseSerial.moc"

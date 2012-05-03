@@ -21,12 +21,12 @@
 #ifndef CHOOSE_SOCKET_H
 #define CHOOSE_SOCKET_H
 
-#include "ui_ChooseSocket.h"
-
 #include "GenericPage.h"
-#include <QRegExp>
 
-class ChooseSocket : public GenericPage, Ui::ChooseSocket
+namespace Ui {
+    class ChooseSocket;
+}
+class ChooseSocket : public GenericPage
 {
     Q_OBJECT
 public:
@@ -42,6 +42,7 @@ private slots:
     void on_addressLE_textChanged(const QString &text);
 
 private:
+    Ui::ChooseSocket *ui;
     bool m_isValid;
 };
 

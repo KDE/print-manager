@@ -21,14 +21,17 @@
 #ifndef PAGE_CHOOSE_PPD_H
 #define PAGE_CHOOSE_PPD_H
 
-#include "ui_PageChoosePPD.h"
 
 #include <SelectMakeModel.h>
 #include "GenericPage.h"
 
 #include <QStackedLayout>
 
-class PageChoosePPD : public GenericPage, Ui::PageChoosePPD
+namespace Ui {
+    class PageChoosePPD;
+}
+
+class PageChoosePPD : public GenericPage
 {
     Q_OBJECT
 public:
@@ -45,6 +48,7 @@ private slots:
     void checkSelected();
 
 private:
+    Ui::PageChoosePPD *ui;
     bool m_isValid;
     SelectMakeModel *m_selectMM;
     QStackedLayout *m_layout;

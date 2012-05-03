@@ -19,17 +19,21 @@
  ***************************************************************************/
 
 #include "ChooseUri.h"
+#include "ui_ChooseUri.h"
 
 #include <QPainter>
 #include <KDebug>
 
-ChooseUri::ChooseUri(QWidget *parent)
- : GenericPage(parent), m_isValid(false)
+ChooseUri::ChooseUri(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::ChooseUri),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
+
     // loads the standard key icon
     QPixmap pixmap;
     pixmap = KIconLoader::global()->loadIcon("printer",
@@ -50,11 +54,12 @@ ChooseUri::ChooseUri(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 }
 
 ChooseUri::~ChooseUri()
 {
+    delete ui;
 }
 
 void ChooseUri::setValues(const QVariantHash &args)
@@ -68,9 +73,9 @@ void ChooseUri::setValues(const QVariantHash &args)
     m_isValid = true;
 
     if (deviceUri.compare(QLatin1String("other"))) {
-        addressLE->setText(deviceUri);
+        ui->addressLE->setText(deviceUri);
     } else {
-        addressLE->clear();
+        ui->addressLE->clear();
     }
 }
 
@@ -78,7 +83,7 @@ QVariantHash ChooseUri::values() const
 {
     QVariantHash ret = m_args;
     // URI might be scsi, network on anything that doesn't match before
-    ret["device-uri"] = ret["device-uri"].toString() + addressLE->text();
+    ret["device-uri"] = ret["device-uri"].toString() + ui->addressLE->text();
     return ret;
 }
 
@@ -90,8 +95,8 @@ bool ChooseUri::isValid() const
 bool ChooseUri::canProceed() const
 {
     bool allow = false;
-    if (!addressLE->text().isEmpty()) {
-        KUrl url = KUrl("lpd://" + addressLE->text());
+    if (!ui->addressLE->text().isEmpty()) {
+        KUrl url = KUrl("lpd://" + ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;
@@ -105,5 +110,3 @@ void ChooseUri::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
-
-#include "ChooseUri.moc"

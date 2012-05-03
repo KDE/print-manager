@@ -69,7 +69,7 @@ ChoosePrinters::~ChoosePrinters()
 bool ChoosePrinters::isValid() const
 {
     return m_isValid;
-};
+}
 
 void ChoosePrinters::setValues(const QVariantHash &args)
 {
@@ -94,5 +94,3 @@ bool ChoosePrinters::canProceed() const
 {
     return ui->membersLV->selectedDests().count() > 0;
 }
-
-#include "ChoosePrinters.moc"

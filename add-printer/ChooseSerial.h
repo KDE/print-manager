@@ -21,12 +21,15 @@
 #ifndef CHOOSE_SERIAL_H
 #define CHOOSE_SERIAL_H
 
-#include "ui_ChooseSerial.h"
-
 #include "GenericPage.h"
+
 #include <QRegExp>
 
-class ChooseSerial : public GenericPage, Ui::ChooseSerial
+namespace Ui {
+    class ChooseSerial;
+}
+
+class ChooseSerial : public GenericPage
 {
     Q_OBJECT
 public:
@@ -41,6 +44,7 @@ public slots:
     void load();
 
 private:
+    Ui::ChooseSerial *ui;
     QRegExp m_rx;
     bool m_isValid;
 };

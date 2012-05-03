@@ -19,17 +19,19 @@
  ***************************************************************************/
 
 #include "PageChoosePPD.h"
+#include "ui_PageChoosePPD.h"
 
 #include "DevicesModel.h"
 
 #include <QPainter>
 #include <KDebug>
 
-PageChoosePPD::PageChoosePPD(QWidget *parent)
- : GenericPage(parent),
-   m_isValid(false)
+PageChoosePPD::PageChoosePPD(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::PageChoosePPD),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
@@ -54,12 +56,12 @@ PageChoosePPD::PageChoosePPD(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 
 
     m_layout = new QStackedLayout;
     m_layout->setContentsMargins(0, 0, 0, 0);
-    gridLayout->addLayout(m_layout, 1, 3);
+    ui->gridLayout->addLayout(m_layout, 1, 3);
     m_selectMM = new SelectMakeModel(this);
     m_layout->addWidget(m_selectMM);
 
@@ -67,6 +69,7 @@ PageChoosePPD::PageChoosePPD(QWidget *parent)
 
 PageChoosePPD::~PageChoosePPD()
 {
+    delete ui;
 }
 
 void PageChoosePPD::setValues(const QVariantHash &args)
@@ -109,7 +112,7 @@ QVariantHash PageChoosePPD::values() const
 
     QVariantHash ret = m_args;
     if (canProceed()) {
-        if (originCB->currentIndex() == 0) {
+        if (ui->originCB->currentIndex() == 0) {
             QString makeAndModel = m_selectMM->selectedMakeAndModel();
             QString ppdName = m_selectMM->selectedPPDName();
             if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
@@ -124,14 +127,14 @@ bool PageChoosePPD::canProceed() const
 {
     // It can proceed if a PPD file (local or not) is provided    bool changed = false;
     bool allow = false;
-    if (originCB->currentIndex() == 0) {
+    if (ui->originCB->currentIndex() == 0) {
         QString makeAndModel = m_selectMM->selectedMakeAndModel();
         QString ppdName = m_selectMM->selectedPPDName();
         kDebug() << ppdName << makeAndModel;
         if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
             allow = true;
         }
-    } else if (originCB->currentIndex() == 0) {
+    } else if (ui->originCB->currentIndex() == 0) {
 //         fileKUR->button()->click();
 //         if (fileKUR->url().isEmpty()) {
 //             makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
@@ -148,5 +151,3 @@ void PageChoosePPD::checkSelected()
 {
     emit allowProceed(canProceed());
 }
-
-#include "PageChoosePPD.moc"

@@ -28,6 +28,7 @@
 
 #include <KCupsRequest.h>
 
+#include <KLocale>
 #include <KMessageBox>
 
 #include <KDebug>
@@ -65,9 +66,6 @@ AddPrinterAssistant::AddPrinterAssistant() :
     size += QSize(150, 0);
     setMaximumSize(size);
     setMinimumSize(size);
-
-    // Make sure the first page is correctly set
-    setCurrentPage(m_introPage);
 }
 
 void AddPrinterAssistant::back()

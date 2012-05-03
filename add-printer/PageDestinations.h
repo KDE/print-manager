@@ -21,14 +21,16 @@
 #ifndef PAGE_DESTINATIONS_H
 #define PAGE_DESTINATIONS_H
 
-#include "ui_PageDestinations.h"
-
 #include "GenericPage.h"
 
 #include <KPixmapSequenceOverlayPainter>
 
+namespace Ui {
+    class PageDestinations;
+}
+
 class DevicesModel;
-class PageDestinations : public GenericPage, Ui::PageDestinations
+class PageDestinations : public GenericPage
 {
     Q_OBJECT
 public:
@@ -45,6 +47,7 @@ private slots:
     void checkSelected();
 
 private:
+    Ui::PageDestinations *ui;
     KPixmapSequenceOverlayPainter *m_busySeq;
     DevicesModel *m_model;
     bool m_isValid;

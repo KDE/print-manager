@@ -19,16 +19,18 @@
  ***************************************************************************/
 
 #include "PageAddPrinter.h"
+#include "ui_PageAddPrinter.h"
 
 #include <QPainter>
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
 #include <KDebug>
 
-PageAddPrinter::PageAddPrinter(QWidget *parent)
- : GenericPage(parent)
+PageAddPrinter::PageAddPrinter(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::PageAddPrinter)
 {
-    setupUi(this);
+    ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
@@ -53,16 +55,17 @@ PageAddPrinter::PageAddPrinter(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 
     // May contain any printable characters except "/", "#", and space
     QRegExp rx("[^/#\\ ]*");
     QValidator *validator = new QRegExpValidator(rx, this);
-    nameLE->setValidator(validator);
+    ui->nameLE->setValidator(validator);
 }
 
 PageAddPrinter::~PageAddPrinter()
 {
+    delete ui;
 }
 
 void PageAddPrinter::setValues(const QVariantHash &args)
@@ -72,11 +75,11 @@ void PageAddPrinter::setValues(const QVariantHash &args)
         name.replace(' ', '_');
         name.replace('/', '-');
         name.replace('#', '=');
-        nameLE->setText(name);
-        descriptionLE->setText(args["device-info"].toString());
-        locationLE->clear();
-        shareCB->setChecked(true);
-        shareCB->setVisible(args["add-new-printer"].toBool());
+        ui->nameLE->setText(name);
+        ui->descriptionLE->setText(args["device-info"].toString());
+        ui->locationLE->clear();
+        ui->shareCB->setChecked(true);
+        ui->shareCB->setVisible(args["add-new-printer"].toBool());
 
         m_args = args;
     }
@@ -88,15 +91,15 @@ void PageAddPrinter::load()
 
 bool PageAddPrinter::canProceed() const
 {
-    return !nameLE->text().isEmpty();
+    return !ui->nameLE->text().isEmpty();
 }
 
 QVariantHash PageAddPrinter::values() const
 {
     QVariantHash ret = m_args;
-    ret["printer-name"] = nameLE->text();
-    ret["printer-location"] = locationLE->text();
-    ret["printer-info"] = descriptionLE->text();
+    ret["printer-name"] = ui->nameLE->text();
+    ret["printer-location"] = ui->locationLE->text();
+    ret["printer-info"] = ui->descriptionLE->text();
 //     if (ret["add-new-printer"].toBool()) {
         // shareCB
 //     }
@@ -112,5 +115,3 @@ void PageAddPrinter::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
-
-#include "PageAddPrinter.moc"

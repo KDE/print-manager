@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "PageDestinations.h"
+#include "ui_PageDestinations.h"
 
 #include "DevicesModel.h"
 
@@ -29,11 +30,12 @@
 #include <KPixmapSequence>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
-PageDestinations::PageDestinations(QWidget *parent)
- : GenericPage(parent),
-   m_isValid(false)
+PageDestinations::PageDestinations(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::PageDestinations),
+    m_isValid(false)
 {
-    setupUi(this);
+    ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
@@ -58,7 +60,7 @@ PageDestinations::PageDestinations(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon);
+    ui->printerL->setPixmap(icon);
 
     m_model = new DevicesModel(this);
     KCategorizedSortFilterProxyModel *proxy = new KCategorizedSortFilterProxyModel(m_model);
@@ -66,22 +68,23 @@ PageDestinations::PageDestinations(QWidget *parent)
     proxy->setCategorizedModel(true);
     proxy->setDynamicSortFilter(true);
     proxy->sort(0);
-    KCategoryDrawerV3 *drawer = new KCategoryDrawerV3(devicesLV);
-    devicesLV->setModel(proxy);
-    devicesLV->setCategoryDrawer(drawer);
-    connect(devicesLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+    KCategoryDrawerV3 *drawer = new KCategoryDrawerV3(ui->devicesLV);
+    ui->devicesLV->setModel(proxy);
+    ui->devicesLV->setCategoryDrawer(drawer);
+    connect(ui->devicesLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(checkSelected()));
 
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
     m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
-    m_busySeq->setWidget(printerL);
+    m_busySeq->setWidget(ui->printerL);
     connect(m_model, SIGNAL(loaded()), m_busySeq, SLOT(stop()));
 }
 
 PageDestinations::~PageDestinations()
 {
+    delete ui;
 }
 
 void PageDestinations::setValues(const QVariantHash &args)
@@ -109,7 +112,7 @@ bool PageDestinations::hasChanges() const
 
     QString deviceURI;
     if (canProceed()) {
-        deviceURI = devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
+        deviceURI = ui->devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
     }
     return deviceURI != m_args["device-uri"];
 }
@@ -122,7 +125,7 @@ QVariantHash PageDestinations::values() const
 
     QVariantHash ret = m_args;
     if (canProceed()) {
-        QModelIndex index = devicesLV->selectionModel()->selectedIndexes().first();
+        QModelIndex index = ui->devicesLV->selectionModel()->selectedIndexes().first();
         kDebug() << index.data(DevicesModel::DeviceURI).toString();
         ret["device-uri"] = index.data(DevicesModel::DeviceURI).toString();
         ret["device-make-and-model"] = index.data(DevicesModel::DeviceMakeAndModel).toString();
@@ -135,13 +138,11 @@ bool PageDestinations::canProceed() const
 {
     // It can proceed if one and JUST one item is selected
     // (if the user clicks on the category all items in it get selected)
-    return (!devicesLV->selectionModel()->selectedIndexes().isEmpty() &&
-             devicesLV->selectionModel()->selectedIndexes().size() == 1);
+    return (!ui->devicesLV->selectionModel()->selectedIndexes().isEmpty() &&
+             ui->devicesLV->selectionModel()->selectedIndexes().size() == 1);
 }
 
 void PageDestinations::checkSelected()
 {
     emit allowProceed(canProceed());
 }
-
-#include "PageDestinations.moc"

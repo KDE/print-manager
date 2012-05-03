@@ -147,5 +147,3 @@ void PageChoose::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
-
-#include "PageChoose.moc"

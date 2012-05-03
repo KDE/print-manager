@@ -19,6 +19,7 @@
  ***************************************************************************/
 
 #include "PageIntro.h"
+#include "ui_PageIntro.h"
 
 #include <QPainter>
 

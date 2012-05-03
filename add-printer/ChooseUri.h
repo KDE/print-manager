@@ -21,12 +21,12 @@
 #ifndef CHOOSE_URI_H
 #define CHOOSE_URI_H
 
-#include "ui_ChooseUri.h"
-
 #include "GenericPage.h"
-#include <QRegExp>
 
-class ChooseUri : public GenericPage, Ui::ChooseUri
+namespace Ui {
+    class ChooseUri;
+}
+class ChooseUri : public GenericPage
 {
     Q_OBJECT
 public:
@@ -45,6 +45,7 @@ private slots:
     void checkSelected();
 
 private:
+    Ui::ChooseUri *ui;
     bool m_isValid;
 };
 

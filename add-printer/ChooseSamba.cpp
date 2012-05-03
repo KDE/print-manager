@@ -57,7 +57,7 @@ ChooseSamba::~ChooseSamba()
 {
 }
 
-void ChooseSamba::setValues(const QHash<QString, QVariant> &args)
+void ChooseSamba::setValues(const QVariantHash &args)
 {
     m_args = args;
     QString deviceUri = args["device-uri"].toString();
@@ -70,9 +70,9 @@ void ChooseSamba::setValues(const QHash<QString, QVariant> &args)
     addressLE->setText(deviceUri);
 }
 
-QHash<QString, QVariant> ChooseSamba::values() const
+QVariantHash ChooseSamba::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     ret["device-uri"] = "smb://" + addressLE->text();
     return ret;
 }

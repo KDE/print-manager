@@ -71,7 +71,7 @@ bool ChoosePrinters::isValid() const
     return m_isValid;
 };
 
-void ChoosePrinters::setValues(const QHash<QString, QVariant> &args)
+void ChoosePrinters::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
         ui->membersLV->reload(QString());
@@ -83,9 +83,9 @@ void ChoosePrinters::load()
 {
 }
 
-QHash<QString, QVariant> ChoosePrinters::values() const
+QVariantHash ChoosePrinters::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     ret["member-uris"] = ui->membersLV->selectedDests();
     return ret;
 }

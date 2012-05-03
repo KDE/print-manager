@@ -39,10 +39,10 @@ public:
     PageChoose(QWidget *parent = 0);
     ~PageChoose();
 
-    void setValues(const QHash<QString, QVariant> &args);
+    void setValues(const QVariantHash &args);
     bool isValid() const;
     bool canProceed() const;
-    QHash<QString, QVariant> values() const;
+    QVariantHash values() const;
 
 public slots:
     void load();
@@ -52,7 +52,7 @@ private slots:
 
 private:
     bool m_isValid;
-    QHash<QString, QVariant> m_args;
+    QVariantHash m_args;
     QStackedLayout *m_layout;
     GenericPage    *m_currentPage;
     ChooseIpp      *m_chooseIpp;

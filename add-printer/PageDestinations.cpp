@@ -84,7 +84,7 @@ PageDestinations::~PageDestinations()
 {
 }
 
-void PageDestinations::setValues(const QHash<QString, QVariant> &args)
+void PageDestinations::setValues(const QVariantHash &args)
 {
     m_args = args;
     if (args["add-new-printer"].toBool()) {
@@ -114,13 +114,13 @@ bool PageDestinations::hasChanges() const
     return deviceURI != m_args["device-uri"];
 }
 
-QHash<QString, QVariant> PageDestinations::values() const
+QVariantHash PageDestinations::values() const
 {
     if (!isValid()) {
         return m_args;
     }
 
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     if (canProceed()) {
         QModelIndex index = devicesLV->selectionModel()->selectedIndexes().first();
         kDebug() << index.data(DevicesModel::DeviceURI).toString();

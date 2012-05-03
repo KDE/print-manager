@@ -40,6 +40,8 @@ public slots:
 private:
     void next(KPageWidgetItem *currentPage);
     void setCurrentPage(KPageWidgetItem *page);
+    virtual void showEvent(QShowEvent * event);
+
     KPageWidgetItem *m_introPage;
     KPageWidgetItem *m_devicesPage;
     KPageWidgetItem *m_choosePage;

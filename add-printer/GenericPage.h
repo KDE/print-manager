@@ -33,8 +33,8 @@ public:
     virtual bool canProceed() const { return true; };
     virtual bool hasChanges() const { return false; };
     virtual bool isValid() const { return true; };
-    virtual void setValues(const QHash<QString, QVariant> &args);
-    virtual QHash<QString, QVariant> values() const;
+    virtual void setValues(const QVariantHash &args);
+    virtual QVariantHash values() const;
 
 signals:
     void allowProceed(bool allow);

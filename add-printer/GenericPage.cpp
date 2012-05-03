@@ -20,17 +20,17 @@
 
 #include "GenericPage.h"
 
-GenericPage::GenericPage(QWidget *parent)
- : QWidget(parent)
+GenericPage::GenericPage(QWidget *parent) :
+    QWidget(parent)
 {
 }
 
-QHash<QString, QVariant> GenericPage::values() const
+QVariantHash GenericPage::values() const
 {
     return m_args;
 }
 
-void GenericPage::setValues(const QHash<QString, QVariant> &args)
+void GenericPage::setValues(const QVariantHash &args)
 {
     m_args = args;
 }

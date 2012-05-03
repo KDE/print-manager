@@ -62,7 +62,7 @@ void ChooseLpd::on_addressLE_textChanged(const QString &text)
     kDebug() << text;
 }
 
-void ChooseLpd::setValues(const QHash<QString, QVariant> &args)
+void ChooseLpd::setValues(const QVariantHash &args)
 {
     m_args = args;
     QString deviceUri = args["device-uri"].toString();
@@ -76,9 +76,9 @@ void ChooseLpd::setValues(const QHash<QString, QVariant> &args)
     addressLE->setText(deviceUri);
 }
 
-QHash<QString, QVariant> ChooseLpd::values() const
+QVariantHash ChooseLpd::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     ret["device-uri"] = "lpd://" + addressLE->text();
     return ret;
 }

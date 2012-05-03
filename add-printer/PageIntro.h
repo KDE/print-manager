@@ -25,15 +25,31 @@
 
 #include "GenericPage.h"
 
-class PageIntro : public GenericPage, Ui::PageIntro
+namespace Ui {
+    class PageIntro;
+}
+
+class PageIntro : public GenericPage
 {
     Q_OBJECT
 public:
     PageIntro(QWidget *parent = 0);
     ~PageIntro();
 
+    bool canProceed() const;
     bool hasChanges() const;
-    QHash<QString, QVariant> values() const;
+    QVariantHash values() const;
+
+signals:
+    void next();
+
+private slots:
+    void on_addNewPrinterCB_clicked();
+    void on_addNewClassCB_clicked();
+
+private:
+    Ui::PageIntro *ui;
+    bool m_addPrinter;
 };
 
 #endif

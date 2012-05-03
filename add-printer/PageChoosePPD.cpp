@@ -69,7 +69,7 @@ PageChoosePPD::~PageChoosePPD()
 {
 }
 
-void PageChoosePPD::setValues(const QHash<QString, QVariant> &args)
+void PageChoosePPD::setValues(const QVariantHash &args)
 {
     m_args = args;
     kDebug() << args;
@@ -101,13 +101,13 @@ bool PageChoosePPD::hasChanges() const
     return deviceURI != m_args["device-uri"];
 }
 
-QHash<QString, QVariant> PageChoosePPD::values() const
+QVariantHash PageChoosePPD::values() const
 {
     if (!isValid()) {
         return m_args;
     }
 
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     if (canProceed()) {
         if (originCB->currentIndex() == 0) {
             QString makeAndModel = m_selectMM->selectedMakeAndModel();

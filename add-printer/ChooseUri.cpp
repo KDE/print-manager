@@ -57,7 +57,7 @@ ChooseUri::~ChooseUri()
 {
 }
 
-void ChooseUri::setValues(const QHash<QString, QVariant> &args)
+void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
     QString deviceUri = args["device-uri"].toString();
@@ -74,9 +74,9 @@ void ChooseUri::setValues(const QHash<QString, QVariant> &args)
     }
 }
 
-QHash<QString, QVariant> ChooseUri::values() const
+QVariantHash ChooseUri::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     // URI might be scsi, network on anything that doesn't match before
     ret["device-uri"] = ret["device-uri"].toString() + addressLE->text();
     return ret;

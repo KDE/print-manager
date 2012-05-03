@@ -60,7 +60,7 @@ ChooseIpp::~ChooseIpp()
 {
 }
 
-void ChooseIpp::setValues(const QHash<QString, QVariant> &args)
+void ChooseIpp::setValues(const QVariantHash &args)
 {
     if (m_args == args) {
         return;
@@ -81,9 +81,9 @@ void ChooseIpp::setValues(const QHash<QString, QVariant> &args)
     m_isValid = true;
 }
 
-QHash<QString, QVariant> ChooseIpp::values() const
+QVariantHash ChooseIpp::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     // Ipp can be ipp, http and https
     ret["device-uri"] = uri();
     return ret;

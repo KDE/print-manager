@@ -24,10 +24,12 @@
 
 #include <KDebug>
 
-PageIntro::PageIntro(QWidget *parent)
- : GenericPage(parent)
+PageIntro::PageIntro(QWidget *parent) :
+    GenericPage(parent),
+    ui(new Ui::PageIntro),
+    m_addPrinter(true)
 {
-    setupUi(this);
+    ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
     // setup default options
@@ -53,7 +55,7 @@ PageIntro::PageIntro(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    computerL->setPixmap(icon);
+    ui->computerL->setPixmap(icon);
 //     softwareL->setPixmap(pixmap);
 
     pixmap = KIconLoader::global()->loadIcon("printer",
@@ -74,24 +76,45 @@ PageIntro::PageIntro(QWidget *parent)
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter2.drawPixmap(startPoint, pixmap);
-    printerL->setPixmap(icon2);
+    ui->printerL->setPixmap(icon2);
+
+    connect(ui->addNewPrinterCB, SIGNAL(clicked()),
+            this, SIGNAL(next()));
+    connect(ui->addNewClassCB, SIGNAL(clicked()),
+            this, SIGNAL(next()));
 }
 
 PageIntro::~PageIntro()
 {
+    delete ui;
+}
+
+bool PageIntro::canProceed() const
+{
+    // Return false as we want the user
+    // to use the command buttons
+    return false;
 }
 
 bool PageIntro::hasChanges() const
 {
-    return (m_args["add-new-printer"] == "1") != addNewPrinterCB->isChecked();
+    return m_args["add-new-printer"].toBool() != m_addPrinter;
 }
 
-QHash<QString, QVariant> PageIntro::values() const
+QVariantHash PageIntro::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
-    ret["add-new-printer"] = addNewPrinterCB->isChecked();
+    QVariantHash ret = m_args;
+    ret["add-new-printer"] = m_addPrinter;
     kDebug() << ret;
     return ret;
 }
 
-#include "PageIntro.moc"
+void PageIntro::on_addNewPrinterCB_clicked()
+{
+    m_addPrinter = true;
+}
+
+void PageIntro::on_addNewClassCB_clicked()
+{
+    m_addPrinter = false;
+}

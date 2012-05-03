@@ -65,7 +65,7 @@ PageAddPrinter::~PageAddPrinter()
 {
 }
 
-void PageAddPrinter::setValues(const QHash<QString, QVariant> &args)
+void PageAddPrinter::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
         QString name = args["device-info"].toString();
@@ -91,9 +91,9 @@ bool PageAddPrinter::canProceed() const
     return !nameLE->text().isEmpty();
 }
 
-QHash<QString, QVariant> PageAddPrinter::values() const
+QVariantHash PageAddPrinter::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     ret["printer-name"] = nameLE->text();
     ret["printer-location"] = locationLE->text();
     ret["printer-info"] = descriptionLE->text();

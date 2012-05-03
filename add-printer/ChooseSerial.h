@@ -33,8 +33,8 @@ public:
     ChooseSerial(QWidget *parent = 0);
     ~ChooseSerial();
 
-    void setValues(const QHash<QString, QVariant> &args);
-    QHash<QString, QVariant> values() const;
+    void setValues(const QVariantHash &args);
+    QVariantHash values() const;
     bool isValid() const;
 
 public slots:

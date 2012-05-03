@@ -35,12 +35,9 @@ int main(int argc, char **argv)
                      KAboutData::License_GPL,
                      ki18n("(C) 2010 Daniel Nicoletti"));
 
-    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti85-pk@yahoo.com.br");
+    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
-    KCmdLineOptions options;
-    options.add("show-queue [queue name]", ki18n("Show printer queue"));
-    KCmdLineArgs::addCmdLineOptions(options);
 
     AddPrinter::addCmdLineOptions();
 

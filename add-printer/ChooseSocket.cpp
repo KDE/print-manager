@@ -57,7 +57,7 @@ ChooseSocket::~ChooseSocket()
 {
 }
 
-void ChooseSocket::setValues(const QHash<QString, QVariant> &args)
+void ChooseSocket::setValues(const QVariantHash &args)
 {
     if (m_args == args) {
         return;
@@ -75,9 +75,9 @@ void ChooseSocket::setValues(const QHash<QString, QVariant> &args)
     m_isValid = true;
 }
 
-QHash<QString, QVariant> ChooseSocket::values() const
+QVariantHash ChooseSocket::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     KUrl url = KUrl("socket://" + addressLE->text());
     url.setPort(portISB->value());
     ret["device-uri"] = url.prettyUrl();

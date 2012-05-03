@@ -32,14 +32,21 @@
 
 #include <KDebug>
 
-AddPrinterAssistant::AddPrinterAssistant()
- : KAssistantDialog()
+AddPrinterAssistant::AddPrinterAssistant() :
+    KAssistantDialog()
 {
+    kDebug();
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
     setWindowIcon(KIcon("printer"));
     showButton(KDialog::Cancel, false);
+    showButton(KDialog::Help, false);
+    setDefaultButton(KDialog::User2); // next
+    setDefaultButton(KDialog::User1); // finished
 
-    m_introPage = new KPageWidgetItem(new PageIntro, i18nc("@title:window", "Welcome to the Add New Printer Assistant"));
+    PageIntro *introPage = new PageIntro;
+    connect(introPage, SIGNAL(next()), this, SLOT(next()));
+
+    m_introPage = new KPageWidgetItem(introPage, i18nc("@title:window", "Welcome to the Add New Printer Assistant"));
     addPage(m_introPage);
 
     m_devicesPage = new KPageWidgetItem(new PageDestinations, i18nc("@title:window", "Select a Printer to Add"));
@@ -54,18 +61,21 @@ AddPrinterAssistant::AddPrinterAssistant()
     m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe you printer"));
     addPage(m_addPrinterPage);
 
-    showButton(KDialog::Help, false);
-    setDefaultButton(KDialog::User2); // next
-    setDefaultButton(KDialog::User1); // finished
     QSize size = minimumSizeHint();
     size += QSize(150, 0);
     setMaximumSize(size);
     setMinimumSize(size);
+
+    // Make sure the first page is correctly set
+    setCurrentPage(m_introPage);
 }
 
 void AddPrinterAssistant::back()
 {
     KAssistantDialog::back();
+    GenericPage *currPage;
+    currPage = qobject_cast<GenericPage*>(currentPage()->widget());
+    enableNextButton(currPage->canProceed());
     if (!qobject_cast<GenericPage*>(currentPage()->widget())->isValid()) {
         back();
     }
@@ -86,7 +96,7 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // And if it hasChanges() we get it's values and
     // pass it to the next page so it "clans up" and
     // start as it was the first time
-    QHash<QString, QVariant> args = qobject_cast<GenericPage*>(currentPage->widget())->values();
+    QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
     if (currentPage == m_introPage) {
         qobject_cast<GenericPage*>(m_devicesPage->widget())->setValues(args);
         setCurrentPage(m_devicesPage);
@@ -112,11 +122,13 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         GenericPage *nextPage = qobject_cast<GenericPage*>(page->widget());
         disconnect(currPage, SIGNAL(allowProceed(bool)), this, SLOT(enableNextButton(bool)));
         if (page == m_addPrinterPage) {
+            connect(nextPage, SIGNAL(allowProceed(bool)),
+                    this, SLOT(enableFinishButton(bool)));
             enableNextButton(false);
-            connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
             enableFinishButton(nextPage->canProceed());
         } else {
-            connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableNextButton(bool)));
+            connect(nextPage, SIGNAL(allowProceed(bool)),
+                    this, SLOT(enableNextButton(bool)));
             enableNextButton(nextPage->canProceed());
         }
     } else {
@@ -125,10 +137,17 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
     }
 }
 
+void AddPrinterAssistant::showEvent(QShowEvent *event)
+{
+    KAssistantDialog::showEvent(event);
+    enableNextButton(false);
+}
+
 void AddPrinterAssistant::slotButtonClicked(int button)
 {
+    // Finish Button
     if (button == KDialog::User1) {
-        QHash<QString, QVariant> args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
+        QVariantHash args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
         kDebug() << args;
         KCupsRequest *request = new KCupsRequest;
         bool isClass = !args.take("add-new-printer").toBool();
@@ -168,5 +187,3 @@ void AddPrinterAssistant::enableFinishButton(bool enable)
 AddPrinterAssistant::~AddPrinterAssistant()
 {
 }
-
-#include "AddPrinterAssistant.moc"

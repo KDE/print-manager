@@ -58,7 +58,7 @@ PageChoose::~PageChoose()
 {
 }
 
-void PageChoose::setValues(const QHash<QString, QVariant> &args)
+void PageChoose::setValues(const QVariantHash &args)
 {
     kDebug() << args;
     if (m_args == args) {
@@ -125,7 +125,7 @@ void PageChoose::load()
 {
 }
 
-QHash<QString, QVariant> PageChoose::values() const
+QVariantHash PageChoose::values() const
 {
     if (m_isValid) {
         return qobject_cast<GenericPage *>(m_layout->currentWidget())->values();

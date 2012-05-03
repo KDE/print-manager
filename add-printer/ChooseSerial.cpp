@@ -73,7 +73,7 @@ bool ChooseSerial::isValid() const
     return m_isValid;
 };
 
-void ChooseSerial::setValues(const QHash<QString, QVariant> &args)
+void ChooseSerial::setValues(const QVariantHash &args)
 {
     m_args = args;
     QString deviceUri = args["device-uri"].toString();
@@ -121,9 +121,9 @@ void ChooseSerial::load()
 {
 }
 
-QHash<QString, QVariant> ChooseSerial::values() const
+QVariantHash ChooseSerial::values() const
 {
-    QHash<QString, QVariant> ret = m_args;
+    QVariantHash ret = m_args;
     QString deviceUri = m_args["device-uri"].toString();
     int pos = deviceUri.indexOf('?');
     QString baudRate = baudRateCB->currentText();

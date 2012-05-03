@@ -6,6 +6,7 @@ X-KDE-Library=kcm_printer_manager
 X-KDE-ServiceTypes=KCModule,KCModuleInit
 X-KDE-System-Settings-Parent-Category=hardware
 X-KDE-System-Settings-Parent-Category-V2=hardware
+X-KDE-ParentApp=kcontrol
 
 Name=Printers
 Name[cs]=Tiskárny

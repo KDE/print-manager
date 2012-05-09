@@ -1,5 +1,4 @@
 find_package(KDE4Internal REQUIRED)
-include(PkgConfigGetVar)
 
 set(queuemanager_SRCS
     main.cpp
@@ -20,7 +19,8 @@ qt4_add_dbus_adaptor(queuemanager_SRCS
     PrintQueueInterface
 )
 
-dbus_add_activation_service(org.kde.PrintQueue.service.in)
+configure_file(org.kde.PrintQueue.service.in org.kde.PrintQueue.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.PrintQueue.service DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
 
 kde4_add_executable(print-queue
     ${queuemanager_SRCS}

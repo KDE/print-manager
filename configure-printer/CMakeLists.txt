@@ -1,5 +1,3 @@
-include(PkgConfigGetVar)
-
 set(configureprinter_SRCS
     ConfigurePrinterInterface.cpp
     ModifyPrinter.cpp
@@ -23,7 +21,8 @@ qt4_add_dbus_adaptor(configureprinter_SRCS
     ConfigurePrinterInterface
 )
 
-dbus_add_activation_service(org.kde.ConfigurePrinter.service.in)
+configure_file(org.kde.ConfigurePrinter.service.in org.kde.ConfigurePrinter.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.ConfigurePrinter.service DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
 
 kde4_add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer

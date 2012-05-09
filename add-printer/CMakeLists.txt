@@ -52,5 +52,5 @@ target_link_libraries(add-printer
 
 install(TARGETS add-printer DESTINATION ${LIBEXEC_INSTALL_DIR})
 
-include(PkgConfigGetVar)
-dbus_add_activation_service(org.kde.AddPrinter.service.in)
+configure_file(org.kde.AddPrinter.service.in org.kde.AddPrinter.service)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.AddPrinter.service DESTINATION ${DBUS_SERVICES_INSTALL_DIR})

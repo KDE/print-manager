@@ -27,7 +27,7 @@
 PrintJobsService::PrintJobsService(QObject *parent, const QString &destination) :
     Plasma::Service(parent)
 {
-    setName("printjobs");
+    setName("org.kde.printjobs");
     setDestination(destination);
 }
 

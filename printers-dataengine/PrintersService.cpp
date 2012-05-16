@@ -27,7 +27,7 @@
 PrintersService::PrintersService(QObject *parent, const QString &destination) :
     Plasma::Service(parent)
 {
-    setName("printers");
+    setName("org.kde.printers");
     setDestination(destination);
 }
 

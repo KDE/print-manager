@@ -30,5 +30,5 @@ install(TARGETS plasma_engine_printers
 install(FILES plasma-engine-printers.desktop
         DESTINATION ${SERVICES_INSTALL_DIR})
 
-install(FILES printers.operations
+install(FILES org.kde.printers.operations
         DESTINATION ${DATA_INSTALL_DIR}/plasma/services)

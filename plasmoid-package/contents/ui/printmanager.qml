@@ -102,7 +102,7 @@ Item {
                 sourceModel: PlasmaCore.DataModel {
                     id: printersModel
                     dataSource: PlasmaCore.DataSource {
-                        engine: "printers"
+                        engine: "org.kde.printers"
                         connectedSources: sources
                         interval: 0
                     }
@@ -138,7 +138,7 @@ Item {
                 sourceModel: PlasmaCore.DataModel {
                     id: jobsModel
                     dataSource: PlasmaCore.DataSource {
-                        engine: "printjobs"
+                        engine: "org.kde.printjobs"
                         connectedSources: sources
                         interval: 0
                     }

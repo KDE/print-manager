@@ -30,5 +30,5 @@ install(TARGETS plasma_engine_printjobs
 install(FILES plasma-engine-printjobs.desktop
         DESTINATION ${SERVICES_INSTALL_DIR})
 
-install(FILES printjobs.operations
+install(FILES org.kde.printjobs.operations
         DESTINATION ${DATA_INSTALL_DIR}/plasma/services)

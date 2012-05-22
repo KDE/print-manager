@@ -6,18 +6,18 @@ current printing management of KDE.
 * Very well integrated
 
 printd - contains a kded module that checks for user print jobs and shows a systray icon
- --TODO
-  - detect new printers
 printqueue - contains an application that show the printers queue
- -- what works
-  - Hold job
-  - Resume job
-  - Cancel job
-  - Filter between Active, Completed and All jobs
-  - Move jobs between printers, by using drag'n'drop with 2 queues open
-  - Pause and Resume printer
+ --TODO
+  - update the model to use the cups dbus registration thing
 
 printer-manager-kcm - configure printers in a very simple way
+add-printer - a wizard to add new printers
  --TODO
-  - add new printers
-  - show supply levels
+  - Search for windows printers using samba
+  - Guess the print queue for some kind of printers
+  - try to use s-c-p xml to better guess the printer best driver
+
+plasmoid
+ --TODO
+  - Move the jobs dataengine to a QML plugin
+    so we can load all jobs and still be fast

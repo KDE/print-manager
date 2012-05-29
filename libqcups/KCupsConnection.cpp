@@ -286,7 +286,7 @@ int KCupsConnection::createDBusSubscription(const QStringList &events)
 {
     // Build the current list
     QStringList currentEvents;
-    foreach (const QStringList registeredEvents, m_requestedDBusEvents) {
+    foreach (const QStringList &registeredEvents, m_requestedDBusEvents) {
         currentEvents << registeredEvents;
     }
     currentEvents.removeDuplicates();
@@ -331,7 +331,7 @@ void KCupsConnection::removeDBusSubscription(int subscriptionId)
 {
     // Collect the list of current events
     QStringList currentEvents;
-    foreach (const QStringList registeredEvents, m_requestedDBusEvents) {
+    foreach (const QStringList &registeredEvents, m_requestedDBusEvents) {
         currentEvents << registeredEvents;
     }
     currentEvents.removeDuplicates();
@@ -460,7 +460,7 @@ void KCupsConnection::renewDBusSubscription()
         renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
     } else {
         QStringList currentEvents;
-        foreach (const QStringList registeredEvents, m_requestedDBusEvents.values()) {
+        foreach (const QStringList &registeredEvents, m_requestedDBusEvents) {
             currentEvents << registeredEvents;
         }
         currentEvents.removeDuplicates();

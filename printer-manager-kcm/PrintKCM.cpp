@@ -99,11 +99,8 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_printerDesc->hide();
 
     m_serverError = new QWidget(ui->scrollAreaWidgetContents);
+    m_serverError->hide();
     serverErrorUi->setupUi(m_serverError);
-    
-
-    // Set up a nice error message and no printer available message
-    m_serverError = new QWidget(ui->scrollAreaWidgetContents);
 
     serverErrorUi->addPrinterBtn->setIcon(KIcon("list-add"));
     connect(serverErrorUi->addPrinterBtn, SIGNAL(clicked()), this, SLOT(addPrinter()));

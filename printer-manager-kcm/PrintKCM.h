@@ -51,6 +51,7 @@ private slots:
     void on_preferencesPB_clicked();
 
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
+    void noPrinters();
 
 private:
     Ui::PrintKCM *ui;

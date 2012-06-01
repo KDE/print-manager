@@ -129,10 +129,7 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // The user has no printer
         // allow him to add a new one
         if (lastError == IPP_NOT_FOUND) {
-            serverErrorUi->hugeIcon->setPixmap(KIcon("dialog-information").pixmap(128, 128));
-            serverErrorUi->errorText->setText(i18n("No printers have been configured or discovered"));
-            serverErrorUi->errorComment->hide();
-            serverErrorUi->addPrinterBtn->show();
+            noPrinters();
         } else {
             serverErrorUi->hugeIcon->setPixmap(KIcon("printer", KIconLoader::global(), QStringList() << "" << "dialog-error").pixmap(128, 128));
             serverErrorUi->errorText->setText(QString("<strong>%1</strong>").arg(errorTitle));
@@ -164,6 +161,14 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // Force an update
         update();
     }
+}
+
+void PrintKCM::noPrinters()
+{
+  serverErrorUi->hugeIcon->setPixmap(KIcon("dialog-information").pixmap(128, 128));
+  serverErrorUi->errorText->setText(i18n("No printers have been configured or discovered"));
+  serverErrorUi->errorComment->hide();
+  serverErrorUi->addPrinterBtn->show();
 }
 
 PrintKCM::~PrintKCM()
@@ -209,6 +214,7 @@ void PrintKCM::update()
         m_printerDesc->setMarkers(index.data(PrinterModel::DestMarkers).value<QVariantHash>());
     } else if (m_stackedLayout->widget() != m_serverError) {
         // the model is empty and no problem happened
+        noPrinters();
         m_stackedLayout->setCurrentWidget(m_serverError);
         // disable the printer action buttons if there is nothing to selected
         m_removeAction->setEnabled(false);

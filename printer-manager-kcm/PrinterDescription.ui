@@ -145,7 +145,7 @@
         </widget>
        </item>
        <item row="2" column="0">
-        <widget class="QPushButton" name="openQueuePB">
+        <widget class="KPushButton" name="openQueuePB">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -163,9 +163,6 @@
           <string>Configure</string>
          </property>
         </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="KSeparator" name="kseparator"/>
        </item>
       </layout>
      </item>
@@ -205,11 +202,6 @@
   </action>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KSeparator</class>
-   <extends>QFrame</extends>
-   <header>kseparator.h</header>
-  </customwidget>
   <customwidget>
    <class>KPushButton</class>
    <extends>QPushButton</extends>

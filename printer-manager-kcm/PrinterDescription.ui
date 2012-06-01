@@ -138,6 +138,19 @@
      <item row="4" column="1">
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="0">
+        <widget class="QPushButton" name="configurePB">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Configure</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
         <widget class="QPushButton" name="openQueuePB">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -162,6 +175,9 @@
           <string comment="@action:button">Maintenance</string>
          </property>
         </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="KSeparator" name="kseparator"/>
        </item>
       </layout>
      </item>
@@ -201,6 +217,11 @@
   </action>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>KSeparator</class>
+   <extends>QFrame</extends>
+   <header>kseparator.h</header>
+  </customwidget>
   <customwidget>
    <class>KPushButton</class>
    <extends>QPushButton</extends>

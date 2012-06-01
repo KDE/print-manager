@@ -74,9 +74,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->removeTB->setIcon(KIcon("list-remove"));
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
-    ui->configureTB->setIcon(KIcon("configure"));
-    ui->configureTB->setToolTip(i18n("Configure Printer"));
-
     ui->systemPreferencesTB->setIcon(KIcon("configure"));
     ui->systemPreferencesTB->setToolTip(i18n("Configure the global preferences"));
 
@@ -148,7 +145,6 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         }
 
         ui->removeTB->setEnabled(false);
-        ui->configureTB->setEnabled(false);
         ui->printersTV->setEnabled(!lastError);
         m_lastError = lastError;
         // Force an update
@@ -194,7 +190,6 @@ void PrintKCM::update()
             // If we remove discovered printers, they will come
             // back to hunt us a bit later
             ui->removeTB->setEnabled(!(type & CUPS_PRINTER_DISCOVERED));
-            ui->configureTB->setEnabled(true);
         }
         m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                    index.data(PrinterModel::DestDescription).toString(),
@@ -209,7 +204,6 @@ void PrintKCM::update()
     } else {
         // disable the printer action buttons if there is nothing to selected
         ui->removeTB->setEnabled(false);
-        ui->configureTB->setEnabled(false);
 
         if (m_stackedLayout->widget() != m_serverError) {
             // the model is empty and no problem happened
@@ -267,24 +261,6 @@ void PrintKCM::on_removeTB_clicked()
             request->waitTillFinished();
             request->deleteLater();
         }
-    }
-}
-
-void PrintKCM::on_configureTB_clicked()
-{
-    QItemSelection selection;
-    // we need to map the selection to source to get the real indexes
-    selection = ui->printersTV->selectionModel()->selection();
-    // enable or disable the job action buttons if something is selected
-    if (!selection.indexes().isEmpty()) {
-        QModelIndex index = selection.indexes().at(0);
-        QDBusMessage message;
-        message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
-                                                 "/",
-                                                 "org.kde.ConfigurePrinter",
-                                                 QLatin1String("ConfigurePrinter"));
-        message << qVariantFromValue(index.data(PrinterModel::DestName).toString());
-        QDBusConnection::sessionBus().send(message);
     }
 }
 

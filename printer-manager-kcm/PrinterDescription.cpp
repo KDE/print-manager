@@ -76,6 +76,17 @@ PrinterDescription::~PrinterDescription()
     delete ui;
 }
 
+void PrinterDescription::on_configurePB_clicked()
+{
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
+                                             "/",
+                                             "org.kde.ConfigurePrinter",
+                                             QLatin1String("ConfigurePrinter"));
+    message << qVariantFromValue(m_destName);
+    QDBusConnection::sessionBus().send(message);
+}
+
 void PrinterDescription::on_openQueuePB_clicked()
 {
     QDBusMessage message;

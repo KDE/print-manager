@@ -53,6 +53,7 @@ public:
     QString destName() const;
 
 private slots:
+    void on_configurePB_clicked();
     void on_openQueuePB_clicked();
     void on_defaultCB_clicked();
     void on_sharedCB_clicked();

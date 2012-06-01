@@ -47,7 +47,6 @@ private slots:
     void on_addTB_clicked();
     void addClass();
     void on_removeTB_clicked();
-    void on_configureTB_clicked();
     void on_systemPreferencesTB_clicked();
 
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);

@@ -42,7 +42,6 @@ public:
     void setPrinterIcon(const QIcon &icon);
     void setDestName(const QString &name, const QString &description, bool isClass);
     void setLocation(const QString &location);
-    void setStatus(const QString &status);
     void setKind(const QString &kind);
     void setIsDefault(bool isDefault);
     void setIsShared(bool isShared);

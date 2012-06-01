@@ -102,7 +102,7 @@ void PrinterDelegate::paint(QPainter *painter,
     int textInner = 2 * UNIVERSAL_PADDING + MAIN_ICON_SIZE;
     const int itemHeight = calcItemHeight(option);
 
-    QString status = index.data(Qt::UserRole).toString();
+    QString status = index.data(PrinterModel::DestStatus).toString();
     QString description = index.data(Qt::DisplayRole).toString();
 
     p.setPen(foregroundColor);

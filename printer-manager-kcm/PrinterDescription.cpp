@@ -64,8 +64,8 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
 
     KMenu *menu = new KMenu(ui->maintenancePB);
     menu->addAction(ui->actionPrintTestPage);
-    menu->addAction(ui->actionCleanPrintHeads);
     menu->addAction(ui->actionPrintSelfTestPage);
+    menu->addAction(ui->actionCleanPrintHeads);
     ui->actionCleanPrintHeads->setVisible(false);
     ui->actionPrintSelfTestPage->setVisible(false);
     ui->maintenancePB->setMenu(menu);
@@ -133,11 +133,6 @@ void PrinterDescription::setDestName(const QString &name, const QString &descrip
 void PrinterDescription::setLocation(const QString &location)
 {
     ui->locationMsgL->setText(location);
-}
-
-void PrinterDescription::setStatus(const QString &status)
-{
-    ui->statusMsgL->setText(status);
 }
 
 void PrinterDescription::setKind(const QString &kind)

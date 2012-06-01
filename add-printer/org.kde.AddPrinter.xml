@@ -2,9 +2,10 @@
 <node>
    <interface name="org.kde.AddPrinter">
        <method name="AddPrinter" >
-           <!-- IN: transaction id -->
-           <arg direction="in" type="b" name="isClass" />
-           <arg direction="in" type="s" name="destName" />
+           <arg type="u" name="wid" direction="in" />
+       </method>
+       <method name="AddClass" >
+           <arg type="u" name="wid" direction="in" />
        </method>
    </interface>
 </node>

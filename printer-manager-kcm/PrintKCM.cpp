@@ -63,26 +63,22 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_addMenu = new QMenu();
     m_addMenu->addAction(KIcon("printer"),
                          i18nc("@action:intoolbar","Printer"),
-                         this, SLOT(addPrinter()));
+                         this, SLOT(on_addTB_clicked()));
     m_addMenu->addAction(KIcon("applications-other"),
                          i18nc("@action:intoolbar","Printer Class"),
                          this, SLOT(addClass()));
-    
-    m_addAction = ui->toolBar->addAction(KIcon("list-add"),
-                                         i18nc("@action:intoolbar", "Add Printer"),
-                                         this, SLOT(addPrinter()));
-    m_addAction->setToolTip(i18n("Add a new printer or a printer class"));
-    m_addAction->setMenu(m_addMenu);
-    
-    m_removeAction = ui->toolBar->addAction(KIcon("list-remove"),
-                                            i18nc("@action:intoolbar", "Remove Printer"),
-                                            this, SLOT(removePrinter()));
-    ui->toolBar->addSeparator();
-    m_configureAction = ui->toolBar->addAction(KIcon("configure"),
-                                               i18nc("@action:intoolbar", "Configure Printer"),
-                                               this, SLOT(configurePrinter()));
+    ui->addTB->setIcon(KIcon("list-add"));
+    ui->addTB->setToolTip(i18n("Add a new printer or a printer class"));
+    ui->addTB->setMenu(m_addMenu);
 
-    ui->preferencesPB->setIcon(KIcon("configure"));
+    ui->removeTB->setIcon(KIcon("list-remove"));
+    ui->removeTB->setToolTip(i18n("Remove Printer"));
+
+    ui->configureTB->setIcon(KIcon("configure"));
+    ui->configureTB->setToolTip(i18n("Configure Printer"));
+
+    ui->systemPreferencesTB->setIcon(KIcon("configure"));
+    ui->systemPreferencesTB->setToolTip(i18n("Configure the global preferences"));
 
     m_model = new PrinterModel(winId(), this);
     ui->printersTV->setModel(m_model);
@@ -144,15 +140,15 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // if no printer was found the server
         // is still working
         if (lastError == IPP_NOT_FOUND) {
-            m_addAction->setEnabled(true);
-            ui->preferencesPB->setEnabled(true);
+            ui->addTB->setEnabled(true);
+            ui->systemPreferencesTB->setEnabled(true);
         } else {
-            m_addAction->setEnabled(!lastError);
-            ui->preferencesPB->setEnabled(!lastError);
+            ui->addTB->setEnabled(!lastError);
+            ui->systemPreferencesTB->setEnabled(!lastError);
         }
 
-        m_removeAction->setEnabled(false);
-        m_configureAction->setEnabled(false);
+        ui->removeTB->setEnabled(false);
+        ui->configureTB->setEnabled(false);
         ui->printersTV->setEnabled(!lastError);
         m_lastError = lastError;
         // Force an update
@@ -162,10 +158,10 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
 
 void PrintKCM::noPrinters()
 {
-  serverErrorUi->hugeIcon->setPixmap(KIcon("dialog-information").pixmap(128, 128));
-  serverErrorUi->errorText->setText(i18n("No printers have been configured or discovered"));
-  serverErrorUi->errorComment->hide();
-  serverErrorUi->addPrinterBtn->show();
+    serverErrorUi->hugeIcon->setPixmap(KIcon("dialog-information").pixmap(128, 128));
+    serverErrorUi->errorText->setText(i18n("No printers have been configured or discovered"));
+    serverErrorUi->errorComment->hide();
+    serverErrorUi->addPrinterBtn->show();
 }
 
 PrintKCM::~PrintKCM()
@@ -197,8 +193,8 @@ void PrintKCM::update()
             int type = index.data(PrinterModel::DestType).toInt();
             // If we remove discovered printers, they will come
             // back to hunt us a bit later
-            m_removeAction->setEnabled(!(type & CUPS_PRINTER_DISCOVERED));
-            m_configureAction->setEnabled(true);
+            ui->removeTB->setEnabled(!(type & CUPS_PRINTER_DISCOVERED));
+            ui->configureTB->setEnabled(true);
         }
         m_printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                    index.data(PrinterModel::DestDescription).toString(),
@@ -211,27 +207,26 @@ void PrintKCM::update()
         m_printerDesc->setCommands(index.data(PrinterModel::DestCommands).toStringList());
         m_printerDesc->setMarkers(index.data(PrinterModel::DestMarkers).value<QVariantHash>());
     } else {
-      // disable the printer action buttons if there is nothing to selected
-      m_removeAction->setEnabled(false);
-      m_configureAction->setEnabled(false);
+        // disable the printer action buttons if there is nothing to selected
+        ui->removeTB->setEnabled(false);
+        ui->configureTB->setEnabled(false);
 
-      if (m_stackedLayout->widget() != m_serverError) {
-        // the model is empty and no problem happened
-        noPrinters();
-        m_stackedLayout->setCurrentWidget(m_serverError);
-      }
+        if (m_stackedLayout->widget() != m_serverError) {
+            // the model is empty and no problem happened
+            noPrinters();
+            m_stackedLayout->setCurrentWidget(m_serverError);
+        }
     }
 }
 
-void PrintKCM::addPrinter()
+void PrintKCM::on_addTB_clicked()
 {
     QDBusMessage message;
     message = QDBusMessage::createMethodCall("org.kde.AddPrinter",
                                              "/",
                                              "org.kde.AddPrinter",
                                              QLatin1String("AddPrinter"));
-    // Use our own cached tid to avoid crashes
-    message << 0 << qVariantFromValue(QString());
+    message << qVariantFromValue(winId());
     QDBusConnection::sessionBus().call(message);
 }
 
@@ -241,13 +236,12 @@ void PrintKCM::addClass()
     message = QDBusMessage::createMethodCall("org.kde.AddPrinter",
                                              "/",
                                              "org.kde.AddPrinter",
-                                             QLatin1String("AddPrinter"));
-    // Use our own cached tid to avoid crashes
-    message << 1 << qVariantFromValue(QString());
+                                             QLatin1String("AddClass"));
+    message << qVariantFromValue(winId());
     QDBusConnection::sessionBus().call(message);
 }
 
-void PrintKCM::removePrinter()
+void PrintKCM::on_removeTB_clicked()
 {
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
@@ -276,7 +270,7 @@ void PrintKCM::removePrinter()
     }
 }
 
-void PrintKCM::configurePrinter()
+void PrintKCM::on_configureTB_clicked()
 {
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
@@ -294,7 +288,7 @@ void PrintKCM::configurePrinter()
     }
 }
 
-void PrintKCM::on_preferencesPB_clicked()
+void PrintKCM::on_systemPreferencesTB_clicked()
 {
     SystemPreferences *dlg = new SystemPreferences(this);
     dlg->show();

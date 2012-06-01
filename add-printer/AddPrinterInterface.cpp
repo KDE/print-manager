@@ -54,17 +54,10 @@ AddPrinterInterface::~AddPrinterInterface()
 {
 }
 
-void AddPrinterInterface::AddPrinter(const bool &isClass, const QString &destName)
+void AddPrinterInterface::AddPrinter(uint wid)
 {
     kDebug() << "hmmm";
-    if (isClass) {
-      kDebug() << "add printer class";
-    } else {
-      kDebug() << "add printer";
-    }
-    kDebug() << "nix mehr";
-  
-    Q_UNUSED(destName)
+
 //     if (destName.isEmpty()) {
 // //         emit quit();
 //         return;
@@ -119,7 +112,11 @@ void AddPrinterInterface::AddPrinter(const bool &isClass, const QString &destNam
 //             return;
 //         }
 //     }
-//     KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
+    //     KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
+}
+
+void AddPrinterInterface::AddClass(uint wid)
+{
 }
 
 void AddPrinterInterface::RemoveQueue()

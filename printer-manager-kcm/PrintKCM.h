@@ -44,11 +44,11 @@ public:
 
 private slots:
     void update();
-    void addPrinter();
+    void on_addTB_clicked();
     void addClass();
-    void removePrinter();
-    void configurePrinter();
-    void on_preferencesPB_clicked();
+    void on_removeTB_clicked();
+    void on_configureTB_clicked();
+    void on_systemPreferencesTB_clicked();
 
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void noPrinters();
@@ -65,9 +65,6 @@ private:
     int m_lastError;
 
     QMenu *m_addMenu;
-    QAction *m_addAction;
-    QAction *m_removeAction;
-    QAction *m_configureAction;
 };
 
 #endif

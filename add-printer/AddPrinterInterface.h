@@ -36,7 +36,8 @@ signals:
     void quit();
 
 public slots:
-    void AddPrinter(const bool &isClass, const QString &destName);
+    void AddPrinter(uint wid);
+    void AddClass(uint wid);
 
 private slots:
     void RemoveQueue();

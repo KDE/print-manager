@@ -22,11 +22,15 @@
 #define PRINT_KCM_H
 
 #include <KCModule>
-#include <KTitleWidget>
+
+#include <QMenu>
 #include <QStackedLayout>
+
+class QMenu;
 
 namespace Ui {
     class PrintKCM;
+    class ServerError;
 }
 class PrinterModel;
 class PrinterDescription;
@@ -41,6 +45,7 @@ public:
 private slots:
     void update();
     void addPrinter();
+    void addClass();
     void removePrinter();
     void configurePrinter();
     void on_preferencesPB_clicked();
@@ -52,11 +57,13 @@ private:
     PrinterModel *m_model;
     QStackedLayout *m_stackedLayout;
     PrinterDescription *m_printerDesc;
+
+    Ui::ServerError *serverErrorUi;
     QWidget *m_noPrinter;
     QWidget *m_serverError;
-    KTitleWidget *m_serverErrorW;
     int m_lastError;
 
+    QMenu *m_addMenu;
     QAction *m_addAction;
     QAction *m_removeAction;
     QAction *m_configureAction;

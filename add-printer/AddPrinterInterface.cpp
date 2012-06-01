@@ -20,6 +20,8 @@
 #include "AddPrinterInterface.h"
 #include "addprinteradaptor.h"
 
+#include "AddPrinterAssistant.h"
+
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
 #include <KWindowSystem>
@@ -52,8 +54,16 @@ AddPrinterInterface::~AddPrinterInterface()
 {
 }
 
-void AddPrinterInterface::AddPrinter(const QString &destName)
+void AddPrinterInterface::AddPrinter(const bool &isClass, const QString &destName)
 {
+    kDebug() << "hmmm";
+    if (isClass) {
+      kDebug() << "add printer class";
+    } else {
+      kDebug() << "add printer";
+    }
+    kDebug() << "nix mehr";
+  
     Q_UNUSED(destName)
 //     if (destName.isEmpty()) {
 // //         emit quit();

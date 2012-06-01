@@ -21,6 +21,7 @@
 #include "PrintKCM.h"
 
 #include "ui_PrintKCM.h"
+#include "ui_ServerError.h"
 
 #include "PrinterModel.h"
 #include "PrinterDelegate.h"
@@ -30,12 +31,10 @@
 #include <KMessageBox>
 #include <KGenericFactory>
 #include <KAboutData>
-#include <KTitleWidget>
 #include <KIcon>
 
 #include <QDBusMessage>
 #include <QDBusConnection>
-#include <QVBoxLayout>
 #include <KCupsRequest.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
@@ -44,6 +43,7 @@ K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(PrintKCMFactory::componentData(), parent, args),
     ui(new Ui::PrintKCM),
+    serverErrorUi(new Ui::ServerError),
     m_lastError(-1) // Force the error to run on the first time
 {
     KAboutData *aboutData;
@@ -60,9 +60,20 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     ui->setupUi(this);
 
+    m_addMenu = new QMenu();
+    m_addMenu->addAction(KIcon("printer"),
+                         i18nc("@action:intoolbar","Printer"),
+                         this, SLOT(addPrinter()));
+    m_addMenu->addAction(KIcon("applications-other"),
+                         i18nc("@action:intoolbar","Printer Class"),
+                         this, SLOT(addClass()));
+    
     m_addAction = ui->toolBar->addAction(KIcon("list-add"),
                                          i18nc("@action:intoolbar", "Add Printer"),
                                          this, SLOT(addPrinter()));
+    m_addAction->setToolTip(i18n("Add a new printer or a printer class"));
+    m_addAction->setMenu(m_addMenu);
+    
     m_removeAction = ui->toolBar->addAction(KIcon("list-remove"),
                                             i18nc("@action:intoolbar", "Remove Printer"),
                                             this, SLOT(removePrinter()));
@@ -87,30 +98,19 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_printerDesc = new PrinterDescription(ui->scrollAreaWidgetContents);
     m_printerDesc->hide();
 
-    // widget for when we don't have a printer
-    m_noPrinter = new QWidget(ui->scrollAreaWidgetContents);
-    KTitleWidget *widget = new KTitleWidget(m_noPrinter);
-    widget->setText(i18n("You have no printers"),
-                         KTitleWidget::InfoMessage);
-    widget->setComment(i18n("If you want to add one just click on the plus sign below the list"));
-
-    QVBoxLayout *vertLayout = new QVBoxLayout(m_noPrinter);
-    vertLayout->addStretch();
-    vertLayout->addWidget(widget);
-    vertLayout->addStretch();
-
-    // if we get an error from the server we use this widget
     m_serverError = new QWidget(ui->scrollAreaWidgetContents);
-    m_serverErrorW = new KTitleWidget(m_serverError);
-    vertLayout = new QVBoxLayout(m_serverError);
-    vertLayout->addStretch();
-    vertLayout->addWidget(m_serverErrorW);
-    vertLayout->addStretch();
+    serverErrorUi->setupUi(m_serverError);
+    
+
+    // Set up a nice error message and no printer available message
+    m_serverError = new QWidget(ui->scrollAreaWidgetContents);
+
+    serverErrorUi->addPrinterBtn->setIcon(KIcon("list-add"));
+    connect(serverErrorUi->addPrinterBtn, SIGNAL(clicked()), this, SLOT(addPrinter()));
 
     // the stacked layout allow us to chose which widget to show
     m_stackedLayout = new QStackedLayout(ui->scrollAreaWidgetContents);
     m_stackedLayout->addWidget(m_serverError);
-    m_stackedLayout->addWidget(m_noPrinter);
     m_stackedLayout->addWidget(m_printerDesc);
     ui->scrollAreaWidgetContents->setLayout(m_stackedLayout);
 
@@ -127,13 +127,18 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
 {
     if (lastError) {
         // The user has no printer
-        // point him how to add a new one
+        // allow him to add a new one
         if (lastError == IPP_NOT_FOUND) {
-            m_serverErrorW->setText(i18n("You have no printers"), KTitleWidget::InfoMessage);
-            m_serverErrorW->setComment(i18n("If you want to add one just click on the plus sign below the list"));
+            serverErrorUi->hugeIcon->setPixmap(KIcon("dialog-information").pixmap(128, 128));
+            serverErrorUi->errorText->setText(i18n("No printers have been configured or discovered"));
+            serverErrorUi->errorComment->hide();
+            serverErrorUi->addPrinterBtn->show();
         } else {
-            m_serverErrorW->setText(errorTitle, KTitleWidget::ErrorMessage);
-            m_serverErrorW->setComment(errorMsg);
+            serverErrorUi->hugeIcon->setPixmap(KIcon("printer", KIconLoader::global(), QStringList() << "" << "dialog-error").pixmap(128, 128));
+            serverErrorUi->errorText->setText(QString("<strong>%1</strong>").arg(errorTitle));
+            serverErrorUi->errorComment->setText(errorMsg);
+            serverErrorUi->errorComment->show();
+            serverErrorUi->addPrinterBtn->hide();
         }
 
         if (m_stackedLayout->widget() != m_serverError) {
@@ -219,7 +224,19 @@ void PrintKCM::addPrinter()
                                              "org.kde.AddPrinter",
                                              QLatin1String("AddPrinter"));
     // Use our own cached tid to avoid crashes
-    message << qVariantFromValue(QString());
+    message << 0 << qVariantFromValue(QString());
+    QDBusConnection::sessionBus().call(message);
+}
+
+void PrintKCM::addClass()
+{
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.AddPrinter",
+                                             "/",
+                                             "org.kde.AddPrinter",
+                                             QLatin1String("AddPrinter"));
+    // Use our own cached tid to avoid crashes
+    message << 1 << qVariantFromValue(QString());
     QDBusConnection::sessionBus().call(message);
 }
 

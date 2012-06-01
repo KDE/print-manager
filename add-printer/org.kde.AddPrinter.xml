@@ -3,6 +3,7 @@
    <interface name="org.kde.AddPrinter">
        <method name="AddPrinter" >
            <!-- IN: transaction id -->
+           <arg direction="in" type="b" name="isClass" />
            <arg direction="in" type="s" name="destName" />
        </method>
    </interface>

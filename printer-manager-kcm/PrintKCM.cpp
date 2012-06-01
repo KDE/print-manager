@@ -207,9 +207,9 @@ void PrintKCM::update()
         m_printerDesc->setIsDefault(index.data(PrinterModel::DestIsDefault).toBool());
         m_printerDesc->setCommands(index.data(PrinterModel::DestCommands).toStringList());
         m_printerDesc->setMarkers(index.data(PrinterModel::DestMarkers).value<QVariantHash>());
-    } else if (m_stackedLayout->widget() != m_noPrinter) {
+    } else if (m_stackedLayout->widget() != m_serverError) {
         // the model is empty and no problem happened
-        m_stackedLayout->setCurrentWidget(m_noPrinter);
+        m_stackedLayout->setCurrentWidget(m_serverError);
         // disable the printer action buttons if there is nothing to selected
         m_removeAction->setEnabled(false);
         m_configureAction->setEnabled(false);

@@ -36,8 +36,8 @@ signals:
     void quit();
 
 public slots:
-    void AddPrinter(uint wid);
-    void AddClass(uint wid);
+    void AddPrinter(qulonglong wid);
+    void AddClass(qulonglong wid);
 
 private slots:
     void RemoveQueue();

@@ -61,11 +61,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->setupUi(this);
 
     m_addMenu = new QMenu();
-    m_addMenu->addAction(KIcon("printer"),
-                         i18nc("@action:intoolbar","Printer"),
-                         this, SLOT(on_addTB_clicked()));
-    m_addMenu->addAction(KIcon("applications-other"),
-                         i18nc("@action:intoolbar","Printer Class"),
+    m_addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
                          this, SLOT(addClass()));
     ui->addTB->setIcon(KIcon("list-add"));
     ui->addTB->setToolTip(i18n("Add a new printer or a printer class"));
@@ -96,7 +92,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     serverErrorUi->setupUi(m_serverError);
 
     serverErrorUi->addPrinterBtn->setIcon(KIcon("list-add"));
-    connect(serverErrorUi->addPrinterBtn, SIGNAL(clicked()), this, SLOT(addPrinter()));
+    connect(serverErrorUi->addPrinterBtn, SIGNAL(clicked()), this, SLOT(on_addTB_clicked()));
 
     // the stacked layout allow us to chose which widget to show
     m_stackedLayout = new QStackedLayout(ui->scrollAreaWidgetContents);
@@ -220,7 +216,7 @@ void PrintKCM::on_addTB_clicked()
                                              "/",
                                              "org.kde.AddPrinter",
                                              QLatin1String("AddPrinter"));
-    message << qVariantFromValue(winId());
+    message << static_cast<qulonglong>(winId());
     QDBusConnection::sessionBus().call(message);
 }
 
@@ -231,7 +227,7 @@ void PrintKCM::addClass()
                                              "/",
                                              "org.kde.AddPrinter",
                                              QLatin1String("AddClass"));
-    message << qVariantFromValue(winId());
+    message << static_cast<qulonglong>(winId());
     QDBusConnection::sessionBus().call(message);
 }
 
@@ -269,3 +265,4 @@ void PrintKCM::on_systemPreferencesTB_clicked()
     SystemPreferences *dlg = new SystemPreferences(this);
     dlg->show();
 }
+

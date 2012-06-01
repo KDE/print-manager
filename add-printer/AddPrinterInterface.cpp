@@ -54,9 +54,11 @@ AddPrinterInterface::~AddPrinterInterface()
 {
 }
 
-void AddPrinterInterface::AddPrinter(uint wid)
+void AddPrinterInterface::AddPrinter(qulonglong wid)
 {
     kDebug() << "hmmm";
+    AddPrinterAssistant *wizard = new AddPrinterAssistant(true);
+    wizard->show();
 
 //     if (destName.isEmpty()) {
 // //         emit quit();
@@ -115,8 +117,10 @@ void AddPrinterInterface::AddPrinter(uint wid)
     //     KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
 }
 
-void AddPrinterInterface::AddClass(uint wid)
+void AddPrinterInterface::AddClass(qulonglong wid)
 {
+    AddPrinterAssistant *wizard = new AddPrinterAssistant(false);
+    wizard->show();
 }
 
 void AddPrinterInterface::RemoveQueue()

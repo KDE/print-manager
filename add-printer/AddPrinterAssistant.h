@@ -27,7 +27,7 @@ class AddPrinterAssistant : public KAssistantDialog
 {
     Q_OBJECT
 public:
-    AddPrinterAssistant();
+    AddPrinterAssistant(bool addPrinter);
     virtual ~AddPrinterAssistant();
 
 public slots:
@@ -42,7 +42,6 @@ private:
     void setCurrentPage(KPageWidgetItem *page);
     virtual void showEvent(QShowEvent * event);
 
-    KPageWidgetItem *m_introPage;
     KPageWidgetItem *m_devicesPage;
     KPageWidgetItem *m_choosePage;
     KPageWidgetItem *m_choosePPDPage;

@@ -20,7 +20,6 @@
 
 #include "AddPrinterAssistant.h"
 
-#include "PageIntro.h"
 #include "PageDestinations.h"
 #include "PageChoose.h"
 #include "PageChoosePPD.h"
@@ -33,8 +32,12 @@
 
 #include <KDebug>
 
-AddPrinterAssistant::AddPrinterAssistant() :
-    KAssistantDialog()
+AddPrinterAssistant::AddPrinterAssistant(bool addPrinter) :
+    KAssistantDialog(),
+    m_devicesPage(0),
+    m_choosePage(0),
+    m_choosePPDPage(0),
+    m_addPrinterPage(0)
 {
     kDebug();
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
@@ -44,17 +47,22 @@ AddPrinterAssistant::AddPrinterAssistant() :
     setDefaultButton(KDialog::User2); // next
     setDefaultButton(KDialog::User1); // finished
 
-    PageIntro *introPage = new PageIntro;
-    connect(introPage, SIGNAL(next()), this, SLOT(next()));
+    // setup our hash args with the information if we are
+    // adding a new printer or a class
+    QVariantHash args;
+    args["add-new-printer"] = addPrinter;
+    if (addPrinter) {
+        m_devicesPage = new KPageWidgetItem(new PageDestinations(args), i18nc("@title:window", "Select a Printer to Add"));
+        addPage(m_devicesPage);
+        setCurrentPage(m_devicesPage);
 
-    m_introPage = new KPageWidgetItem(introPage, i18nc("@title:window", "Welcome to the Add New Printer Assistant"));
-    addPage(m_introPage);
-
-    m_devicesPage = new KPageWidgetItem(new PageDestinations, i18nc("@title:window", "Select a Printer to Add"));
-    addPage(m_devicesPage);
-
-    m_choosePage = new KPageWidgetItem(new PageChoose, i18nc("@title:window", "Configure your connection"));
-    addPage(m_choosePage);
+        m_choosePage = new KPageWidgetItem(new PageChoose, i18nc("@title:window", "Configure your connection"));
+        addPage(m_choosePage);
+    } else {
+        m_choosePage = new KPageWidgetItem(new PageChoose(args), i18nc("@title:window", "Configure your connection"));
+        addPage(m_choosePage);
+        setCurrentPage(m_choosePage);
+    }
 
     m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
     addPage(m_choosePPDPage);
@@ -66,6 +74,10 @@ AddPrinterAssistant::AddPrinterAssistant() :
     size += QSize(150, 0);
     setMaximumSize(size);
     setMinimumSize(size);
+}
+
+AddPrinterAssistant::~AddPrinterAssistant()
+{
 }
 
 void AddPrinterAssistant::back()
@@ -95,10 +107,7 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // pass it to the next page so it "clans up" and
     // start as it was the first time
     QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
-    if (currentPage == m_introPage) {
-        qobject_cast<GenericPage*>(m_devicesPage->widget())->setValues(args);
-        setCurrentPage(m_devicesPage);
-    } else if (currentPage == m_devicesPage) {
+    if (currentPage == m_devicesPage) {
         qobject_cast<GenericPage*>(m_choosePage->widget())->setValues(args);
         setCurrentPage(m_choosePage);
     } else if (currentPage == m_choosePage) {
@@ -180,8 +189,4 @@ void AddPrinterAssistant::enableNextButton(bool enable)
 void AddPrinterAssistant::enableFinishButton(bool enable)
 {
     enableButton(KDialog::User1, enable);
-}
-
-AddPrinterAssistant::~AddPrinterAssistant()
-{
 }

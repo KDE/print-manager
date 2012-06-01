@@ -30,8 +30,8 @@
 
 #include <KDebug>
 
-PageChoose::PageChoose(QWidget *parent)
- : GenericPage(parent)
+PageChoose::PageChoose(const QVariantHash &args, QWidget *parent) :
+    GenericPage(parent)
 {
     m_chooseIpp      = new ChooseIpp(this);
     m_chooseLpd      = new ChooseLpd(this);
@@ -52,6 +52,11 @@ PageChoose::PageChoose(QWidget *parent)
     m_layout->addWidget(m_chooseUri);
 
     setLayout(m_layout);
+
+    // Set our args
+    if (!args.isEmpty()) {
+        setValues(args);
+    }
 }
 
 PageChoose::~PageChoose()

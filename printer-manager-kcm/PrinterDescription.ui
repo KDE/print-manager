@@ -138,19 +138,13 @@
      <item row="4" column="1">
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="0">
-        <widget class="QPushButton" name="configurePB">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+        <widget class="KPushButton" name="maintenancePB">
          <property name="text">
-          <string>Configure</string>
+          <string comment="@action:button">Maintenance</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
+       <item row="2" column="0">
         <widget class="QPushButton" name="openQueuePB">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -164,15 +158,9 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="KPushButton" name="maintenancePB">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+        <widget class="KPushButton" name="configurePB">
          <property name="text">
-          <string comment="@action:button">Maintenance</string>
+          <string>Configure</string>
          </property>
         </widget>
        </item>

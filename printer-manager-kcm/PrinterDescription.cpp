@@ -251,4 +251,15 @@ QString PrinterDescription::destName() const
     return m_destName;
 }
 
+void PrinterDescription::on_configurePB_clicked()
+{
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
+                                             "/",
+                                             "org.kde.ConfigurePrinter",
+                                             QLatin1String("ConfigurePrinter"));
+    message << m_destName;
+    QDBusConnection::sessionBus().call(message);
+}
+
 #include "PrinterDescription.moc"

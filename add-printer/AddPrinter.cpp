@@ -26,24 +26,19 @@
 #include <KCmdLineArgs>
 #include <KDebug>
 
-AddPrinter::AddPrinter()
- : KUniqueApplication()
+AddPrinter::AddPrinter() :
+    KUniqueApplication()
 {
     setQuitOnLastWindowClosed(true);
-//     m_pqInterface = new AddPrinterInterface(this);
-//     connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));
+    m_pqInterface = new AddPrinterInterface(this);
+    connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));
 }
 
 int AddPrinter::newInstance()
 {
-    AddPrinterAssistant *wizard = new AddPrinterAssistant;
-    wizard->show();
-
     return 0;
 }
 
 AddPrinter::~AddPrinter()
 {
 }
-
-#include "AddPrinter.moc"

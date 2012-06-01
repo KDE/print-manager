@@ -6,7 +6,6 @@ set(addprinter_SRCS
     DevicesModel.cpp
     AddPrinterInterface.cpp
     GenericPage.cpp
-    PageIntro.cpp
     PageDestinations.cpp
     ChooseIpp.cpp
     ChooseLpd.cpp
@@ -22,7 +21,6 @@ set(addprinter_SRCS
 )
 
 kde4_add_ui_files(addprinter_SRCS
-    PageIntro.ui
     PageDestinations.ui
     ChooseIpp.ui
     ChooseLpd.ui

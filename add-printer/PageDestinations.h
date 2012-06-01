@@ -34,7 +34,7 @@ class PageDestinations : public GenericPage
 {
     Q_OBJECT
 public:
-    PageDestinations(QWidget *parent = 0);
+    explicit PageDestinations(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
     ~PageDestinations();
 
     bool hasChanges() const;

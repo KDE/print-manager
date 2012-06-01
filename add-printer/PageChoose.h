@@ -36,7 +36,7 @@ class PageChoose : public GenericPage
 {
     Q_OBJECT
 public:
-    PageChoose(QWidget *parent = 0);
+    explicit PageChoose(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
     ~PageChoose();
 
     void setValues(const QVariantHash &args);

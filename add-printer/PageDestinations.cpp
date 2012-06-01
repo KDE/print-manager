@@ -30,7 +30,7 @@
 #include <KPixmapSequence>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
-PageDestinations::PageDestinations(QWidget *parent) :
+PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageDestinations),
     m_isValid(false)
@@ -80,6 +80,9 @@ PageDestinations::PageDestinations(QWidget *parent) :
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
     m_busySeq->setWidget(ui->printerL);
     connect(m_model, SIGNAL(loaded()), m_busySeq, SLOT(stop()));
+
+    // set our args
+    setValues(args);
 }
 
 PageDestinations::~PageDestinations()

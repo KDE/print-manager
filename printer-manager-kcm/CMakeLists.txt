@@ -10,7 +10,6 @@ kde4_add_ui_files(kcm_print_SRCS
     PrintKCM.ui
     PrinterDescription.ui
     SystemPreferences.ui
-    ServerError.ui
 )
 
 kde4_add_plugin(kcm_printer_manager ${kcm_print_SRCS})

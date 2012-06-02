@@ -35,10 +35,9 @@
 #include <QList>
 Q_DECLARE_METATYPE(QList<int>)
 
-ConfigureDialog::ConfigureDialog(const QString &destName, QWidget *parent) :
+ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent) :
     KPageDialog(parent)
 {
-    bool isClass = false;
     setFaceType(List);
     setModal(true);
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
@@ -200,5 +199,3 @@ bool ConfigureDialog::savePage(PrinterPage *page)
     }
     return true;
 }
-
-#include "ConfigureDialog.moc"

@@ -79,10 +79,10 @@ void ClassListWidget::loadFinished()
 {
     m_busySeq->stop(); // Stop spining
 
-    ReturnArguments dests;
+    KCupsPrinters printers;
     QString reqDestName;
     QStringList memberNames;
-    dests       = m_request->result();
+    printers    = m_request->printers();
     reqDestName = m_request->property("reqDestName").toString();
     memberNames = m_request->property("memberNames").toStringList();
     m_request->deleteLater();
@@ -91,9 +91,9 @@ void ClassListWidget::loadFinished()
     m_model->clear();
     QStringList origMemberUris;
     foreach (const QString &memberUri, memberNames) {
-        for (int i = 0; i < dests.size(); i++) {
-            if (dests.at(i)["printer-name"].toString() == memberUri) {
-                origMemberUris << dests.at(i)["printer-uri-supported"].toString();
+        foreach (const KCupsPrinter &printer, printers) {
+            if (printer.name() == memberUri) {
+                origMemberUris << printer.uriSupported();
                 break;
             }
         }
@@ -101,8 +101,8 @@ void ClassListWidget::loadFinished()
     m_model->setProperty("orig-member-uris", origMemberUris);
     m_selectedDests = origMemberUris;
 
-    for (int i = 0; i < dests.size(); i++) {
-        QString destName = dests.at(i)["printer-name"].toString();
+    foreach (const KCupsPrinter &printer, printers) {
+        QString destName = printer.name();
         if (destName != reqDestName) {
             QStandardItem *item = new QStandardItem(destName);
             item->setCheckable(true);
@@ -110,7 +110,7 @@ void ClassListWidget::loadFinished()
             if (memberNames.contains(destName)) {
                 item->setCheckState(Qt::Checked);
             }
-            item->setData(dests.at(i)["printer-uri-supported"].toString());
+            item->setData(printer.uriSupported());
             m_model->appendRow(item);
         }
     }

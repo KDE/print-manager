@@ -252,15 +252,15 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             attr |= KCupsPrinter::PrinterInfo;
             request->getPrinters(attr);
             request->waitTillFinished();
-            ReturnArguments dests = request->result();
+            KCupsPrinters printers = request->printers();
             request->deleteLater();
 
-            foreach (const QVariantHash &dest, dests) {
+            foreach (const KCupsPrinter &printer, printers) {
                 // If there is a printer and it's not the current one add it
                 // as a new destination
-                if (dest["printer-name"].toString() != m_destName) {
-                    QAction *action = moveToMenu->addAction(dest["printer-info"].toString());
-                    action->setData(dest["printer-name"].toString());
+                if (printer.name() != m_destName) {
+                    QAction *action = moveToMenu->addAction(printer.info());
+                    action->setData(printer.name());
                 }
             }
 
@@ -464,9 +464,9 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
 void PrintQueueUi::on_configurePrinterPB_clicked()
 {
     QDBusMessage message;
-    message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
-                                             "/",
-                                             "org.kde.ConfigurePrinter",
+    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
+                                             QLatin1String("/"),
+                                             QLatin1String("org.kde.ConfigurePrinter"),
                                              QLatin1String("ConfigurePrinter"));
     message << qVariantFromValue(m_destName);
     QDBusConnection::sessionBus().send(message);

@@ -76,7 +76,7 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
 
 void SelectMakeModel::ppdsLoaded()
 {
-    ReturnArguments ppds = m_request->result();
+    ReturnArguments ppds = m_request->ppds();
     PPDModel *sourceModel = new PPDModel(ppds, this);
     m_request->deleteLater(); // Do not make it be 0 since it takes a lot to load
     m_model = new QSortFilterProxyModel(this);

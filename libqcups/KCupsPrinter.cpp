@@ -138,6 +138,11 @@ QStringList KCupsPrinter::requestingUserNameDenied() const
     return m_arguments["requesting-user-name-denied"].toStringList();
 }
 
+QString KCupsPrinter::uriSupported() const
+{
+    return m_arguments["printer-uri-supported"].toString();
+}
+
 KCupsPrinter::Status KCupsPrinter::state() const
 {
     return static_cast<Status>(m_arguments["printer-state"].toUInt());

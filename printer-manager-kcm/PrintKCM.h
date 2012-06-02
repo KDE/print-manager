@@ -30,14 +30,11 @@ class QMenu;
 
 namespace Ui {
     class PrintKCM;
-    class ServerError;
 }
 class PrinterModel;
-class PrinterDescription;
 class PrintKCM : public KCModule
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
     PrintKCM(QWidget *parent, const QVariantList &args);
     ~PrintKCM();
@@ -55,15 +52,7 @@ private slots:
 private:
     Ui::PrintKCM *ui;
     PrinterModel *m_model;
-    QStackedLayout *m_stackedLayout;
-    PrinterDescription *m_printerDesc;
-
-    Ui::ServerError *serverErrorUi;
-    QWidget *m_noPrinter;
-    QWidget *m_serverError;
     int m_lastError;
-
-    QMenu *m_addMenu;
 };
 
 #endif

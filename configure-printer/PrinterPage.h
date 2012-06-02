@@ -29,11 +29,11 @@ class PrinterPage : public QWidget
     Q_OBJECT
 public:
     PrinterPage(QWidget *parent = 0);
-    virtual bool hasChanges() { return false; };
+    virtual bool hasChanges() { return false; }
 
 public:
-    virtual void save() {};
-    virtual QHash<QString, QVariant> modifiedValues() const;
+    virtual void save() {}
+    virtual QVariantHash modifiedValues() const;
     virtual KCupsPrinter::Attributes neededValues() const = 0;
     virtual void setRemote(bool remote);
 

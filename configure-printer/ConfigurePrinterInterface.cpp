@@ -84,7 +84,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
         request->deleteLater();
 
         if (found) {
-            ConfigureDialog *ui = new ConfigureDialog(printer.name());
+            ConfigureDialog *ui = new ConfigureDialog(printer.name(), printer.isClass());
             connect(m_updateUi, SIGNAL(timeout()),
                     ui, SLOT(update()));
             connect(ui, SIGNAL(finished()),

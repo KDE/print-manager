@@ -561,6 +561,10 @@ void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &value
                 delete [] values;
             }
             break;
+        case QVariant::UInt:
+            ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
+                          key.toUtf8(), value.toInt());
+            break;
         default:
             kWarning() << "type NOT recognized! This will be ignored:" << key << "values" << value;
         }

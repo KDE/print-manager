@@ -60,7 +60,6 @@ public:
     int error() const;
     QString serverError() const;
     QString errorMsg() const;
-    ReturnArguments result() const;
 
     /**
      * When renewDBusSubscription() is called the result is stored here
@@ -74,6 +73,11 @@ public:
      * @param printer The printer found
      */
     KCupsPrinters printers() const;
+
+    /**
+     * Non empty when getPPDs is called and finish is emitted()
+     */
+    ReturnArguments ppds() const;
 
     /**
      * Non empty when getJobs is called and finish is emitted()
@@ -321,7 +325,7 @@ private:
     bool m_finished;
     int m_error;
     QString m_errorMsg;
-    ReturnArguments m_retArguments;
+    ReturnArguments m_ppds;
     int m_subscriptionId;
     KCupsPrinters m_printers;
     KCupsJobs m_jobs;

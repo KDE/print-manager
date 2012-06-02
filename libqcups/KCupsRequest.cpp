@@ -66,10 +66,10 @@ void KCupsRequest::getPPDS(const QString &make)
         }
         request["need-dest-name"] = false;
 
-        m_retArguments = KCupsConnection::request(CUPS_GET_PPDS,
-                                                  "/",
-                                                  request,
-                                                  true);
+        m_ppds = KCupsConnection::request(CUPS_GET_PPDS,
+                                          QLatin1String("/"),
+                                          request,
+                                          true);
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -586,7 +586,7 @@ void KCupsRequest::invokeMethod(const char *method,
     m_errorMsg.clear();
     m_printers.clear();
     m_jobs.clear();
-    m_retArguments.clear();
+    m_ppds.clear();
     m_subscriptionId = -1;
 
     // If this fails we get into a infinite loop
@@ -626,9 +626,9 @@ void KCupsRequest::doOperation(int operation, const QString &resource, const QVa
     }
 }
 
-ReturnArguments KCupsRequest::result() const
+ReturnArguments KCupsRequest::ppds() const
 {
-    return m_retArguments;
+    return m_ppds;
 }
 
 int KCupsRequest::subscriptionId() const

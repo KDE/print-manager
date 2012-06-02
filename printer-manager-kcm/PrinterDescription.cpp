@@ -79,9 +79,9 @@ PrinterDescription::~PrinterDescription()
 void PrinterDescription::on_openQueuePB_clicked()
 {
     QDBusMessage message;
-    message = QDBusMessage::createMethodCall("org.kde.PrintQueue",
-                                             "/",
-                                             "org.kde.PrintQueue",
+    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.PrintQueue"),
+                                             QLatin1String("/"),
+                                             QLatin1String("org.kde.PrintQueue"),
                                              QLatin1String("ShowQueue"));
     // Use our own cached tid to avoid crashes
     message << qVariantFromValue(m_destName);
@@ -238,9 +238,9 @@ QString PrinterDescription::destName() const
 void PrinterDescription::on_configurePB_clicked()
 {
     QDBusMessage message;
-    message = QDBusMessage::createMethodCall("org.kde.ConfigurePrinter",
-                                             "/",
-                                             "org.kde.ConfigurePrinter",
+    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
+                                             QLatin1String("/"),
+                                             QLatin1String("org.kde.ConfigurePrinter"),
                                              QLatin1String("ConfigurePrinter"));
     message << m_destName;
     QDBusConnection::sessionBus().call(message);

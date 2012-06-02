@@ -89,6 +89,7 @@ public:
     QStringList jobSheetsSupported() const;
     QStringList requestingUserNameAllowed() const;
     QStringList requestingUserNameDenied() const;
+    QString uriSupported() const;
 
     Status state() const;
     QString stateMsg() const;

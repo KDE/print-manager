@@ -25,16 +25,17 @@
 #include "PrinterModel.h"
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
-#include "SystemPreferences.h"
 
 #include <KMessageBox>
 #include <KGenericFactory>
 #include <KAboutData>
 #include <KIcon>
 
+#include <QMenu>
 #include <QDBusMessage>
 #include <QDBusConnection>
 #include <KCupsRequest.h>
+#include <KCupsServer.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
@@ -68,8 +69,26 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->removeTB->setIcon(KIcon("list-remove"));
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
+    QMenu *systemMenu = new QMenu(this);
+    connect(systemMenu, SIGNAL(triggered(QAction*)), this, SLOT(systemPreferencesTriggered()));
+    m_showSharedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Show printers shared by other systems"));
+    m_showSharedPrinters->setCheckable(true);
+    systemMenu->addSeparator();
+    m_shareConnectedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Share printers connected to this system"));
+    m_shareConnectedPrinters->setCheckable(true);
+    m_allowPrintringFromInternet = systemMenu->addAction(i18nc("@action:intoolbar","Allow printing from the Internet"));
+    m_allowPrintringFromInternet->setCheckable(true);
+    m_allowPrintringFromInternet->setEnabled(false);
+    connect(m_shareConnectedPrinters, SIGNAL(toggled(bool)), m_allowPrintringFromInternet, SLOT(setEnabled(bool)));
+    systemMenu->addSeparator();
+    m_allowRemoteAdmin = systemMenu->addAction(i18nc("@action:intoolbar","Allow remote administration"));
+    m_allowRemoteAdmin->setCheckable(true);
+    m_allowUsersCancelAnyJob = systemMenu->addAction(i18nc("@action:intoolbar","Allow users to cancel any job (not just their own)"));
+    m_allowUsersCancelAnyJob->setCheckable(true);
+
     ui->systemPreferencesTB->setIcon(KIcon("configure"));
     ui->systemPreferencesTB->setToolTip(i18n("Configure the global preferences"));
+    ui->systemPreferencesTB->setMenu(systemMenu);
 
     m_model = new PrinterModel(winId(), this);
     ui->printersTV->setModel(m_model);
@@ -90,6 +109,12 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     // Force the model update AFTER we setup the error signal
     m_model->update();
+}
+
+
+PrintKCM::~PrintKCM()
+{
+    delete ui;
 }
 
 void PrintKCM::error(int lastError, const QString &errorTitle, const QString &errorMsg)
@@ -138,13 +163,12 @@ void PrintKCM::noPrinters()
     ui->addPrinterBtn->show();
 }
 
-PrintKCM::~PrintKCM()
-{
-    delete ui;
-}
-
 void PrintKCM::update()
 {
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(server(KCupsServer)), this, SLOT(updateServer(KCupsServer)));
+    request->getServerSettings();
+
     if (m_model->rowCount()) {
         if (ui->stackedWidget->currentIndex() != 0) {
             ui->stackedWidget->setCurrentIndex(0);
@@ -240,8 +264,38 @@ void PrintKCM::on_removeTB_clicked()
     }
 }
 
-void PrintKCM::on_systemPreferencesTB_clicked()
+void PrintKCM::updateServer(const KCupsServer &server)
 {
-    SystemPreferences *dlg = new SystemPreferences(this);
-    dlg->show();
+    m_showSharedPrinters->setChecked(server.showSharedPrinters());
+    m_shareConnectedPrinters->setChecked(server.sharePrinters());
+    m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
+    m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
+    m_allowUsersCancelAnyJob->setChecked(server.allowUserCancelAnyJobs());
+
+    sender()->deleteLater();
+}
+
+void PrintKCM::updateServerFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    if (request->hasError()) {
+        qWarning() << "Failed to set server settings" << request->errorMsg();
+        KMessageBox::sorry(this, request->errorMsg(), request->serverError());
+
+        // Force the settings to be retrieved again
+        update();
+    }
+    request->deleteLater();
+}
+
+void PrintKCM::systemPreferencesTriggered()
+{
+    KCupsServer server;
+    server.setShowSharedPrinters(m_showSharedPrinters->isChecked());
+    server.setSharePrinters(m_shareConnectedPrinters->isChecked());
+    server.setAllowPrintingFromInternet(m_allowPrintringFromInternet->isChecked());
+    server.setAllowRemoteAdmin(m_allowRemoteAdmin->isChecked());
+    server.setAllowUserCancelAnyJobs(m_allowUsersCancelAnyJob->isChecked());
+    KCupsRequest *request = server.commit();
+    connect(request, SIGNAL(finished()), this, SLOT(updateServerFinished()));
 }

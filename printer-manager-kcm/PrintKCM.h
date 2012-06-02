@@ -23,10 +23,9 @@
 
 #include <KCModule>
 
-#include <QMenu>
-#include <QStackedLayout>
+#include <QAction>
 
-class QMenu;
+#include <KCupsServer.h>
 
 namespace Ui {
     class PrintKCM;
@@ -44,15 +43,24 @@ private slots:
     void on_addTB_clicked();
     void addClass();
     void on_removeTB_clicked();
-    void on_systemPreferencesTB_clicked();
 
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void noPrinters();
+
+    void updateServer(const KCupsServer &server);
+    void updateServerFinished();
+    void systemPreferencesTriggered();
 
 private:
     Ui::PrintKCM *ui;
     PrinterModel *m_model;
     int m_lastError;
+
+    QAction *m_showSharedPrinters;
+    QAction *m_shareConnectedPrinters;
+    QAction *m_allowPrintringFromInternet;
+    QAction *m_allowRemoteAdmin;
+    QAction *m_allowUsersCancelAnyJob;
 };
 
 #endif

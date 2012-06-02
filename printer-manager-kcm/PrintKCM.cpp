@@ -161,6 +161,13 @@ void PrintKCM::noPrinters()
     ui->errorText->setText(i18n("No printers have been configured or discovered"));
     ui->errorComment->hide();
     ui->addPrinterBtn->show();
+
+    // Well, when there is no printer, there is nothing to add to a printer class
+    // so we can actually hide the Add button nontheless?
+    ui->addTB->hide();
+    ui->removeTB->hide();
+    ui->lineTB->hide();
+    ui->printersTV->hide();
 }
 
 void PrintKCM::update()
@@ -169,7 +176,7 @@ void PrintKCM::update()
     connect(request, SIGNAL(server(KCupsServer)), this, SLOT(updateServer(KCupsServer)));
     request->getServerSettings();
 
-    if (m_model->rowCount()) {
+    if (m_model->rowCount()) {        
         if (ui->stackedWidget->currentIndex() != 0) {
             ui->stackedWidget->setCurrentIndex(0);
         }
@@ -201,6 +208,12 @@ void PrintKCM::update()
         ui->printerDesc->setIsDefault(index.data(PrinterModel::DestIsDefault).toBool());
         ui->printerDesc->setCommands(index.data(PrinterModel::DestCommands).toStringList());
         ui->printerDesc->setMarkers(index.data(PrinterModel::DestMarkers).value<QVariantHash>());
+
+        ui->addTB->show();
+        ui->removeTB->show();
+        ui->lineTB->show();
+        // Show the printer list only if there are more than 1 printer
+        ui->printersTV->setVisible(m_model->rowCount() > 1);
     } else {
         // disable the printer action buttons if there is nothing to selected
         ui->removeTB->setEnabled(false);

@@ -20,7 +20,6 @@
 
 #include "PageChoose.h"
 
-#include "ChooseIpp.h"
 #include "ChooseLpd.h"
 #include "ChoosePrinters.h"
 #include "ChooseSamba.h"
@@ -33,7 +32,6 @@
 PageChoose::PageChoose(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent)
 {
-    m_chooseIpp      = new ChooseIpp(this);
     m_chooseLpd      = new ChooseLpd(this);
     m_choosePrinters = new ChoosePrinters(this);
     m_chooseSamba    = new ChooseSamba(this);
@@ -43,7 +41,6 @@ PageChoose::PageChoose(const QVariantHash &args, QWidget *parent) :
 
     m_layout = new QStackedLayout(this);
     m_layout->setContentsMargins(0, 0, 0, 0);
-    m_layout->addWidget(m_chooseIpp);
     m_layout->addWidget(m_chooseLpd);
     m_layout->addWidget(m_choosePrinters);
     m_layout->addWidget(m_chooseSamba);
@@ -92,9 +89,10 @@ void PageChoose::setValues(const QVariantHash &args)
                 kDebug() << "SOCKET";
             m_layout->setCurrentWidget(m_chooseSocket);
         } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
+                   deviceUri.startsWith(QLatin1String("ipps")) ||
                    deviceUri.startsWith(QLatin1String("http")) ||
                    deviceUri.startsWith(QLatin1String("https"))) {
-            m_layout->setCurrentWidget(m_chooseIpp);
+            m_layout->setCurrentWidget(m_chooseUri);
         } else if (deviceUri.startsWith(QLatin1String("lpd"))) {
             m_layout->setCurrentWidget(m_chooseLpd);
         } else if (deviceUri.startsWith(QLatin1String("scsi"))) {

@@ -21,13 +21,13 @@
 #include "ChooseUri.h"
 #include "ui_ChooseUri.h"
 
+#include <KUrl>
 #include <QPainter>
 #include <KDebug>
 
 ChooseUri::ChooseUri(QWidget *parent) :
     GenericPage(parent),
-    ui(new Ui::ChooseUri),
-    m_isValid(false)
+    ui(new Ui::ChooseUri)
 {
     ui->setupUi(this);
 
@@ -55,6 +55,8 @@ ChooseUri::ChooseUri(QWidget *parent) :
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
     ui->printerL->setPixmap(icon);
+
+    connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
 }
 
 ChooseUri::~ChooseUri()
@@ -65,15 +67,10 @@ ChooseUri::~ChooseUri()
 void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args["device-uri"].toString();
-    if (deviceUri.contains('/')) {
-        m_isValid = false;
-        return;
-    }
-    m_isValid = true;
+    QUrl url = args["device-uri"].toString();
 
-    if (deviceUri.compare(QLatin1String("other"))) {
-        ui->addressLE->setText(deviceUri);
+    if (url.toString() != QLatin1String("other") && url.isValid()) {
+        ui->addressLE->setText(url.toString());
     } else {
         ui->addressLE->clear();
     }
@@ -83,23 +80,27 @@ QVariantHash ChooseUri::values() const
 {
     QVariantHash ret = m_args;
     // URI might be scsi, network on anything that doesn't match before
-    ret["device-uri"] = ret["device-uri"].toString() + ui->addressLE->text();
+    KUrl url(ui->addressLE->text());
+    if (url.protocol().isEmpty() && ret["device-uri"].toString() != QLatin1String("other")) {
+        kDebug() << url;
+        url.setProtocol(ret["device-uri"].toString());
+        kDebug() << url;
+    }
+    ret["device-uri"] = url.url();
     return ret;
 }
 
 bool ChooseUri::isValid() const
 {
-    return m_isValid;
+    QVariantHash args = values();
+    KUrl url(args["device-uri"].toString());
+kDebug() << url;
+    return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && !url.hasHost();
 }
 
 bool ChooseUri::canProceed() const
 {
-    bool allow = false;
-    if (!ui->addressLE->text().isEmpty()) {
-        KUrl url = KUrl("lpd://" + ui->addressLE->text());
-        allow = url.isValid();
-    }
-    return allow;
+    return isValid();
 }
 
 void ChooseUri::load()
@@ -108,5 +109,5 @@ void ChooseUri::load()
 
 void ChooseUri::checkSelected()
 {
-//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+    emit allowProceed(isValid());
 }

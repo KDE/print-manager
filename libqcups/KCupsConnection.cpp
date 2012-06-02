@@ -457,6 +457,7 @@ void KCupsConnection::renewDBusSubscription()
 {
     // check if we have a valid subscription ID
     if (m_subscriptionId >= 0) {
+        kDebug() << m_subscriptionId;
         renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
     } else {
         QStringList currentEvents;
@@ -464,6 +465,7 @@ void KCupsConnection::renewDBusSubscription()
             currentEvents << registeredEvents;
         }
         currentEvents.removeDuplicates();
+        kDebug() << currentEvents;
 
         if (!currentEvents.isEmpty()) {
             m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION, currentEvents);

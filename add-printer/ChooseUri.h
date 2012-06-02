@@ -46,7 +46,6 @@ private slots:
 
 private:
     Ui::ChooseUri *ui;
-    bool m_isValid;
 };
 
 #endif

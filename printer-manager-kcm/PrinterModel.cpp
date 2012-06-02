@@ -34,9 +34,9 @@
 
 #include <cups/cups.h>
 
-PrinterModel::PrinterModel(WId parentId, QObject *parent)
- : QStandardItemModel(parent),
-   m_parentId(parentId)
+PrinterModel::PrinterModel(WId parentId, QObject *parent) :
+    QStandardItemModel(parent),
+    m_parentId(parentId)
 {
     m_attributes |= KCupsPrinter::PrinterName;
     m_attributes |= KCupsPrinter::PrinterState;
@@ -55,13 +55,6 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
 
     KCupsRequest *request = new KCupsRequest;
     QStringList events;
-    events << "job-state-changed";
-    events << "job-created";
-    events << "job-completed";
-    events << "job-stopped";
-    events << "job-state";
-    events << "job-config-changed";
-    events << "job-progress";
     events << "printer-added";
     events << "printer-deleted";
     events << "printer-state-changed";
@@ -109,6 +102,26 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent)
             SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)),
             this,
             SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
+
+    // This signal is needed since the cups registration thing
+    // doesn't emit printerAdded when we add a printer class
+    // This is emitted when a printer/queue is changed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterAdded"),
+                                         this,
+                                         SLOT(insertUpdatePrinter(QString)));
+
+    // This signal is needed since the cups registration thing
+    // doesn't emit printerRemoved when we add a printer class
+    // This is emitted when a printer/queue is changed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterRemoved"),
+                                         this,
+                                         SLOT(printerRemoved(QString)));
 
     update();
 }
@@ -315,6 +328,16 @@ Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
+
+void PrinterModel::insertUpdatePrinter(const QString &printerName)
+{
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(insertUpdatePrinterFinished()));
+    // TODO how do we know if it's a class if this DBus signal
+    // does not tell us
+    request->getPrinterAttributes(printerName, false, m_attributes);
+}
+
 void PrinterModel::insertUpdatePrinter(const QString &text,
                                        const QString &printerUri,
                                        const QString &printerName,
@@ -329,11 +352,7 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
     Q_UNUSED(printerIsAcceptingJobs)
 
     kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
-    KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(insertUpdatePrinterFinished()));
-    // TODO how do we know if it's a class if this DBus signal
-    // does not tell us
-    request->getPrinterAttributes(printerName, false, m_attributes);
+    insertUpdatePrinter(printerName);
 }
 
 void PrinterModel::insertUpdatePrinterFinished()
@@ -356,6 +375,17 @@ void PrinterModel::insertUpdatePrinterFinished()
     request->deleteLater();
 }
 
+void PrinterModel::printerRemoved(const QString &printerName)
+{
+    kDebug() << printerName;
+
+    // Look for the removed printer
+    int dest_row = destRow(printerName);
+    if (dest_row != -1) {
+        removeRows(dest_row, 1);
+    }
+}
+
 void PrinterModel::printerRemoved(const QString &text,
                                   const QString &printerUri,
                                   const QString &printerName,
@@ -369,6 +399,7 @@ void PrinterModel::printerRemoved(const QString &text,
     Q_UNUSED(printerState)
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
+    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 
     // Look for the removed printer
     int dest_row = destRow(printerName);

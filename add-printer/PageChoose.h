@@ -25,7 +25,6 @@
 
 #include <QStackedLayout>
 
-class ChooseIpp;
 class ChooseLpd;
 class ChoosePrinters;
 class ChooseSamba;
@@ -55,7 +54,6 @@ private:
     QVariantHash m_args;
     QStackedLayout *m_layout;
     GenericPage    *m_currentPage;
-    ChooseIpp      *m_chooseIpp;
     ChooseLpd      *m_chooseLpd;
     ChoosePrinters *m_choosePrinters;
     ChooseSamba    *m_chooseSamba;

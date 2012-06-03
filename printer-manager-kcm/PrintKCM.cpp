@@ -292,11 +292,17 @@ void PrintKCM::updateServerFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     if (request->hasError()) {
-        qWarning() << "Failed to set server settings" << request->errorMsg();
-        KMessageBox::sorry(this, request->errorMsg(), request->serverError());
 
-        // Force the settings to be retrieved again
-        update();
+        if (request->error() == IPP_SERVICE_UNAVAILABLE) {
+            // Server is restarting, update the settings in one second
+            QTimer::singleShot(1000, this, SLOT(update()));
+        } else {
+            qWarning() << "Failed to set server settings" << request->error() << request->errorMsg();
+            KMessageBox::sorry(this, request->errorMsg(), request->serverError());
+
+            // Force the settings to be retrieved again
+            update();
+        }
     }
     request->deleteLater();
 }

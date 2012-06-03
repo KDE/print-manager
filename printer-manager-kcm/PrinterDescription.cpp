@@ -133,6 +133,7 @@ void PrinterDescription::setDestName(const QString &name, const QString &descrip
 void PrinterDescription::setDestStatus(const QString &status)
 {
   ui->statusL->setText(status);
+  ui->statusL->setVisible(!status.isEmpty());
 }
 
 void PrinterDescription::setLocation(const QString &location)

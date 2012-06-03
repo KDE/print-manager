@@ -16,7 +16,7 @@
      <item>
       <widget class="QToolButton" name="addTB">
        <property name="text">
-        <string>Add</string>
+        <string>Add Printer</string>
        </property>
        <property name="toolButtonStyle">
         <enum>Qt::ToolButtonTextUnderIcon</enum>
@@ -29,7 +29,7 @@
      <item>
       <widget class="QToolButton" name="removeTB">
        <property name="text">
-        <string>Remove</string>
+        <string>Remove Printer</string>
        </property>
        <property name="toolButtonStyle">
         <enum>Qt::ToolButtonTextUnderIcon</enum>

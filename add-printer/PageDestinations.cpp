@@ -73,6 +73,8 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     ui->devicesLV->setCategoryDrawer(drawer);
     connect(ui->devicesLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(checkSelected()));
+    connect(ui->devicesLV, SIGNAL(activated(QModelIndex)),
+            this, SIGNAL(proceed()));
 
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);

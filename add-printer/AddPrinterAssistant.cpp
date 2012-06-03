@@ -127,15 +127,18 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         KAssistantDialog::setCurrentPage(page);
         GenericPage *currPage = qobject_cast<GenericPage*>(currentPage()->widget());
         GenericPage *nextPage = qobject_cast<GenericPage*>(page->widget());
+        // Disconnect the current page slots
         disconnect(currPage, SIGNAL(allowProceed(bool)), this, SLOT(enableNextButton(bool)));
+        disconnect(currPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
+        disconnect(currPage, SIGNAL(proceed()), this, SLOT(next()));
+
+        connect(nextPage, SIGNAL(proceed()), this, SLOT(next()));
         if (page == m_addPrinterPage) {
-            connect(nextPage, SIGNAL(allowProceed(bool)),
-                    this, SLOT(enableFinishButton(bool)));
+            connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
             enableNextButton(false);
             enableFinishButton(nextPage->canProceed());
         } else {
-            connect(nextPage, SIGNAL(allowProceed(bool)),
-                    this, SLOT(enableNextButton(bool)));
+            connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableNextButton(bool)));
             enableNextButton(nextPage->canProceed());
         }
     } else {

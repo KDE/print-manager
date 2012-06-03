@@ -52,7 +52,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
                                "0.1",
                                ki18n("Print settings"),
                                KAboutData::License_GPL,
-                               ki18n("(C) 2010 Daniel Nicoletti"));
+                               ki18n("(C) 2010-2012 Daniel Nicoletti"));
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
     KGlobal::insertCatalog(QLatin1String("kcm_print"));
@@ -292,7 +292,6 @@ void PrintKCM::updateServerFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     if (request->hasError()) {
-
         if (request->error() == IPP_SERVICE_UNAVAILABLE) {
             // Server is restarting, update the settings in one second
             QTimer::singleShot(1000, this, SLOT(update()));

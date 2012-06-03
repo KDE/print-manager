@@ -38,6 +38,7 @@ public:
 
 signals:
     void allowProceed(bool allow);
+    void proceed();
 
 protected:
     QHash<QString, QVariant> m_args;

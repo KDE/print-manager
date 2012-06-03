@@ -73,6 +73,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="statusL">
+         <property name="text">
+          <string>Current status</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="defaultCB">
          <property name="text">
           <string comment="@option:check">Default printer</string>

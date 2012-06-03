@@ -201,6 +201,11 @@ void PrintKCM::update()
         ui->printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                      index.data(PrinterModel::DestDescription).toString(),
                                      index.data(PrinterModel::DestIsClass).toBool());
+        if (m_model->rowCount() == 1) {
+          ui->printerDesc->setDestStatus(index.data(PrinterModel::DestStatus).toString());
+        } else {
+          ui->printerDesc->setDestStatus(QString());
+        }
         ui->printerDesc->setLocation(index.data(PrinterModel::DestLocation).toString());
         ui->printerDesc->setKind(index.data(PrinterModel::DestKind).toString());
         ui->printerDesc->setIsShared(index.data(PrinterModel::DestIsShared).toBool());

@@ -55,7 +55,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
                                ki18n("(C) 2010-2012 Daniel Nicoletti"));
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
-    KGlobal::insertCatalog(QLatin1String("kcm_print"));
 
     ui->setupUi(this);
 

@@ -711,11 +711,10 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 bool KCupsConnection::retryIfForbidden()
 {
     ipp_status_t status = cupsLastError();
-    kDebug() << QThread::currentThreadId() << password_retries << status;
+
     if (status == IPP_FORBIDDEN ||
         status == IPP_NOT_AUTHORIZED ||
         status == IPP_NOT_AUTHENTICATED) {
-        kDebug() << "IPP_NOT_AUTHORIZED" << status;
         if (password_retries == 0) {
             // Pretend to be the root user
             // Sometime seting this just works
@@ -724,7 +723,6 @@ bool KCupsConnection::retryIfForbidden()
             // the authentication failed 3 times
             // OR the dialog was canceld (-1)
             // reset to 0 and quit the do-while loop
-            kDebug() << "GIVE UP!!!" << status;
             password_retries = 0;
             return false;
         }
@@ -771,11 +769,7 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     }
 
     KCupsPasswordDialog *passwordDialog = static_cast<KCupsPasswordDialog *>(user_data);
-    bool wrongPassword = false;
-    if (password_retries > 1) {
-        wrongPassword = true;
-    }
-    kDebug() << password_retries;
+    bool wrongPassword = password_retries > 1;
 
     // This will block this thread until exec is not finished
     QMetaObject::invokeMethod(passwordDialog,
@@ -784,11 +778,9 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
                               Q_ARG(QString, QString::fromUtf8(cupsUser())),
                               Q_ARG(bool, wrongPassword));
 
-    kDebug() << passwordDialog->accepted() << passwordDialog->username();
     // The password dialog has just returned check the result
     // method that returns QDialog enums
     if (passwordDialog->accepted()) {
-        kDebug() << passwordDialog->username();
         cupsSetUser(passwordDialog->username().toUtf8());
         return passwordDialog->password().toUtf8();
     } else {

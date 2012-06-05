@@ -22,7 +22,6 @@
 
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
-#include "KCupsServer.h"
 
 #include <KLocale>
 #include <KDebug>
@@ -37,11 +36,8 @@ KCupsRequest::KCupsRequest() :
     m_error(false)
 {
     connect(this, SIGNAL(finished()), &m_loop, SLOT(quit()));
-    qRegisterMetaType<KCupsJob>("KCupsJob");
     qRegisterMetaType<KCupsJob::Attributes>("KCupsJob::Attributes");
-    qRegisterMetaType<KCupsPrinter>("KCupsPrinter");
     qRegisterMetaType<KCupsPrinter::Attributes>("KCupsPrinter::Attributes");
-    qRegisterMetaType<KCupsServer>("KCupsServer");
 }
 
 QString KCupsRequest::serverError() const
@@ -256,7 +252,7 @@ void KCupsRequest::createDBusSubscription(const QStringList &events)
     if (KCupsConnection::readyToStart()) {
         int ret;
         ret = KCupsConnection::global()->createDBusSubscription(events);
-        kDebug() << "Got ID" << ret << events;
+        kDebug() << "Got internal ID" << ret << events;
         m_subscriptionId = ret;
 
         if (ret < 0) {
@@ -305,7 +301,7 @@ void KCupsRequest::getServerSettings()
             }
             cupsFreeOptions(num_settings, settings);
 
-            emit server(KCupsServer(arguments));
+            m_server = KCupsServer(arguments);
         } while (KCupsConnection::retryIfForbidden());
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
@@ -629,6 +625,11 @@ void KCupsRequest::doOperation(int operation, const QString &resource, const QVa
 ReturnArguments KCupsRequest::ppds() const
 {
     return m_ppds;
+}
+
+KCupsServer KCupsRequest::serverSettings()
+{
+    return m_server;
 }
 
 int KCupsRequest::subscriptionId() const

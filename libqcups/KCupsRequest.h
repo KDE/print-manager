@@ -27,11 +27,11 @@
 #include "KCupsConnection.h"
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
+#include "KCupsServer.h"
 
 typedef QList<KCupsPrinter> KCupsPrinters;
 typedef QList<KCupsJob> KCupsJobs;
 
-class KCupsServer;
 class KDE_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT
@@ -68,19 +68,24 @@ public:
     int subscriptionId() const;
 
     /**
-     * Non empty when getPrinters is called and finish is emitted()
+     * Non empty when getPrinters is called and finish is emitted
      * @param position The position found on the list
      * @param printer The printer found
      */
     KCupsPrinters printers() const;
 
     /**
-     * Non empty when getPPDs is called and finish is emitted()
+     * Non empty when getPPDs is called and finish is emitted
      */
     ReturnArguments ppds() const;
 
     /**
-     * Non empty when getJobs is called and finish is emitted()
+     * Non empty when getServerSettings() is called and finish is emitted
+     */
+    KCupsServer serverSettings();
+
+    /**
+     * Non empty when getJobs is called and finish is emitted
      * @param position The it will be processed
      * @param job The printer found
      */
@@ -297,7 +302,6 @@ public:
     void moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName);
 
 signals:
-    void server(const KCupsServer &server);
     void device(const QString &dev_class,
                 const QString &id,
                 const QString &info,
@@ -326,6 +330,7 @@ private:
     int m_error;
     QString m_errorMsg;
     ReturnArguments m_ppds;
+    KCupsServer m_server;
     int m_subscriptionId;
     KCupsPrinters m_printers;
     KCupsJobs m_jobs;

@@ -43,7 +43,8 @@ K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(PrintKCMFactory::componentData(), parent, args),
     ui(new Ui::PrintKCM),
-    m_lastError(-1) // Force the error to run on the first time
+    m_lastError(-1), // Force the error to run on the first time
+    m_serverRequest(0)
 {
     KAboutData *aboutData;
     aboutData = new KAboutData("kcm_print",
@@ -69,6 +70,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
     QMenu *systemMenu = new QMenu(this);
+    connect(systemMenu, SIGNAL(aboutToShow()), this, SLOT(getServerSettings()));
     connect(systemMenu, SIGNAL(triggered(QAction*)), this, SLOT(systemPreferencesTriggered()));
     m_showSharedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Show printers shared by other systems"));
     m_showSharedPrinters->setCheckable(true);
@@ -171,10 +173,6 @@ void PrintKCM::noPrinters()
 
 void PrintKCM::update()
 {
-    KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(server(KCupsServer)), this, SLOT(updateServer(KCupsServer)));
-    request->getServerSettings();
-
     if (m_model->rowCount()) {        
         if (ui->stackedWidget->currentIndex() != 0) {
             ui->stackedWidget->setCurrentIndex(0);
@@ -281,15 +279,30 @@ void PrintKCM::on_removeTB_clicked()
     }
 }
 
-void PrintKCM::updateServer(const KCupsServer &server)
+void PrintKCM::getServerSettings()
 {
+    if (!m_serverRequest) {
+        m_serverRequest = new KCupsRequest;
+        connect(m_serverRequest, SIGNAL(finished()),
+                this, SLOT(getServerSettingsFinished()));
+        m_serverRequest->getServerSettings();
+    }
+}
+
+void PrintKCM::getServerSettingsFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    KCupsServer server = request->serverSettings();
+
     m_showSharedPrinters->setChecked(server.showSharedPrinters());
     m_shareConnectedPrinters->setChecked(server.sharePrinters());
     m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
     m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
     m_allowUsersCancelAnyJob->setChecked(server.allowUserCancelAnyJobs());
 
-    sender()->deleteLater();
+    request->deleteLater();
+
+    m_serverRequest = 0;
 }
 
 void PrintKCM::updateServerFinished()

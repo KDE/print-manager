@@ -30,6 +30,7 @@
 namespace Ui {
     class PrintKCM;
 }
+class KCupsRequest;
 class PrinterModel;
 class PrintKCM : public KCModule
 {
@@ -47,7 +48,8 @@ private slots:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void noPrinters();
 
-    void updateServer(const KCupsServer &server);
+    void getServerSettings();
+    void getServerSettingsFinished();
     void updateServerFinished();
     void systemPreferencesTriggered();
 
@@ -56,6 +58,7 @@ private:
     PrinterModel *m_model;
     int m_lastError;
 
+    KCupsRequest *m_serverRequest;
     QAction *m_showSharedPrinters;
     QAction *m_shareConnectedPrinters;
     QAction *m_allowPrintringFromInternet;

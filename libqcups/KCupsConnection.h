@@ -23,12 +23,15 @@
 
 #include <QThread>
 #include <QTimer>
+#include <QVariantHash>
+#include <QStringList>
 
-#include <KPasswordDialog>
+#include <kdemacros.h>
 
 #include <cups/cups.h>
 
 typedef QList<QVariantHash> ReturnArguments;
+class KCupsPasswordDialog;
 class KDE_EXPORT KCupsConnection : public QThread
 {
     Q_OBJECT
@@ -314,7 +317,7 @@ private:
     static KCupsConnection* m_instance;
 
     bool m_inited;
-    KPasswordDialog *m_passwordDialog;
+    KCupsPasswordDialog *m_passwordDialog;
 
     QTimer *m_renewTimer;
     QMap<int, QStringList> m_requestedDBusEvents;

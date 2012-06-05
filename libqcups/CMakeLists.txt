@@ -1,4 +1,5 @@
 set(libqcups_SRCS
+    KCupsPasswordDialog.cpp
     KCupsConnection.cpp
     KCupsJob.cpp
     KCupsPrinter.cpp

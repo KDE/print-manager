@@ -22,6 +22,9 @@
 #define KCUPSPRINTER_H
 
 #include <QString>
+
+#include <KIcon>
+
 #include <KCupsConnection.h>
 
 class KDE_EXPORT KCupsPrinter

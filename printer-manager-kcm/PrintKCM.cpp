@@ -296,8 +296,9 @@ void PrintKCM::updateServerFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     if (request->hasError()) {
-        if (request->error() == IPP_SERVICE_UNAVAILABLE) {
-            // Server is restarting, update the settings in one second
+        if (request->error() == IPP_SERVICE_UNAVAILABLE ||
+            request->error() == IPP_AUTHENTICATION_CANCELED) {
+            // Server is restarting, or auth was canceled, update the settings in one second
             QTimer::singleShot(1000, this, SLOT(update()));
         } else {
             qWarning() << "Failed to set server settings" << request->error() << request->errorMsg();

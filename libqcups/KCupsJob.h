@@ -22,6 +22,8 @@
 #define KCUPSJOB_H
 
 #include <QString>
+#include <QDateTime>
+
 #include <KCupsConnection.h>
 
 class KDE_EXPORT KCupsJob

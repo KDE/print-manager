@@ -21,6 +21,8 @@
 
 #include "KCupsConnection.h"
 
+#include "KCupsPasswordDialog.h"
+
 #include <QCoreApplication>
 #include <QStringBuilder>
 #include <QDBusConnection>
@@ -68,12 +70,9 @@ KCupsConnection::KCupsConnection(QObject *parent) :
     QThread(parent),
     m_inited(false),
     // Creating the dialog before start() will make it run on the gui thread
-    m_passwordDialog(new KPasswordDialog(0L, KPasswordDialog::ShowUsernameLine)),
+    m_passwordDialog(new KCupsPasswordDialog),
     m_subscriptionId(-1)
 {
-    m_passwordDialog->setModal(true);
-    m_passwordDialog->setPrompt(i18n("Enter an username and a password to complete the task"));
-
     // setup the DBus subscriptions
 
     // Server related signals
@@ -182,6 +181,7 @@ KCupsConnection::~KCupsConnection()
 {
     m_instance = 0;
     m_renewTimer->deleteLater();
+    m_passwordDialog->deleteLater();
 
     quit();
     wait();
@@ -456,8 +456,8 @@ void KCupsConnection::cancelDBusSubscription()
 void KCupsConnection::renewDBusSubscription()
 {
     // check if we have a valid subscription ID
+    kDebug() << m_subscriptionId;
     if (m_subscriptionId >= 0) {
-        kDebug() << m_subscriptionId;
         renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
     } else {
         QStringList currentEvents;
@@ -711,9 +711,11 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 bool KCupsConnection::retryIfForbidden()
 {
     ipp_status_t status = cupsLastError();
+    kDebug() << QThread::currentThreadId() << password_retries << status;
     if (status == IPP_FORBIDDEN ||
         status == IPP_NOT_AUTHORIZED ||
         status == IPP_NOT_AUTHENTICATED) {
+        kDebug() << "IPP_NOT_AUTHORIZED" << status;
         if (password_retries == 0) {
             // Pretend to be the root user
             // Sometime seting this just works
@@ -722,6 +724,7 @@ bool KCupsConnection::retryIfForbidden()
             // the authentication failed 3 times
             // OR the dialog was canceld (-1)
             // reset to 0 and quit the do-while loop
+            kDebug() << "GIVE UP!!!" << status;
             password_retries = 0;
             return false;
         }
@@ -748,10 +751,10 @@ ipp_status_t KCupsConnection::lastError()
     if (status == IPP_INTERNAL_ERROR) {
         // Deleting this connection thread forces it
         // to create a new CUPS_HTTP_DEFAULT connection
-        KCupsConnection::global()->deleteLater();
+        kDebug() << "IPP_INTERNAL_ERROR clearing cookies";
+        httpClearCookie(CUPS_HTTP_DEFAULT);
     }
     return status;
-
 }
 
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)
@@ -767,21 +770,25 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
         return NULL;
     }
 
-    KPasswordDialog *passwordDialog = static_cast<KPasswordDialog *>(user_data);
-    passwordDialog->setUsername(QString::fromUtf8(cupsUser()));
+    KCupsPasswordDialog *passwordDialog = static_cast<KCupsPasswordDialog *>(user_data);
+    bool wrongPassword = false;
     if (password_retries > 1) {
-        passwordDialog->showErrorMessage(QString(), KPasswordDialog::UsernameError);
-        passwordDialog->showErrorMessage(i18n("Wrong username or password"), KPasswordDialog::PasswordError);
+        wrongPassword = true;
     }
+    kDebug() << password_retries;
 
     // This will block this thread until exec is not finished
     QMetaObject::invokeMethod(passwordDialog,
                               "exec",
-                              Qt::BlockingQueuedConnection);
+                              Qt::BlockingQueuedConnection,
+                              Q_ARG(QString, QString::fromUtf8(cupsUser())),
+                              Q_ARG(bool, wrongPassword));
 
+    kDebug() << passwordDialog->accepted() << passwordDialog->username();
     // The password dialog has just returned check the result
     // method that returns QDialog enums
-    if (passwordDialog->result() == QDialog::Accepted) {
+    if (passwordDialog->accepted()) {
+        kDebug() << passwordDialog->username();
         cupsSetUser(passwordDialog->username().toUtf8());
         return passwordDialog->password().toUtf8();
     } else {

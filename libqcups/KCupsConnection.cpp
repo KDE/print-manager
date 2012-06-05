@@ -779,7 +779,9 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
                               "exec",
                               Qt::BlockingQueuedConnection);
 
-    if (passwordDialog->result() == KDialog::Ok) {
+    // The password dialog has just returned check the result
+    // method that returns QDialog enums
+    if (passwordDialog->result() == QDialog::Accepted) {
         cupsSetUser(passwordDialog->username().toUtf8());
         return passwordDialog->password().toUtf8();
     } else {

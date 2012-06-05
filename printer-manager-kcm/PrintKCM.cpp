@@ -318,6 +318,7 @@ void PrintKCM::systemPreferencesTriggered()
     server.setAllowPrintingFromInternet(m_allowPrintringFromInternet->isChecked());
     server.setAllowRemoteAdmin(m_allowRemoteAdmin->isChecked());
     server.setAllowUserCancelAnyJobs(m_allowUsersCancelAnyJob->isChecked());
-    KCupsRequest *request = server.commit();
+    KCupsRequest *request = new KCupsRequest;
     connect(request, SIGNAL(finished()), this, SLOT(updateServerFinished()));
+    request->setServerSettings(server);
 }

@@ -24,13 +24,10 @@
 #include <QString>
 #include <KCupsConnection.h>
 
-class KCupsRequest;
 class KDE_EXPORT KCupsServer
 {
 public:
     KCupsServer();
-
-    KCupsRequest* commit() const;
 
     bool allowRemoteAdmin() const;
     void setAllowRemoteAdmin(bool allow);

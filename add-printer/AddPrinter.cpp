@@ -38,6 +38,7 @@ AddPrinter::AddPrinter() :
 
 int AddPrinter::newInstance()
 {
+//    m_pqInterface->AddPrinter(0);
     return 0;
 }
 

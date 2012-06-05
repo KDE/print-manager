@@ -19,7 +19,6 @@
  ***************************************************************************/
 
 #include "KCupsServer.h"
-#include "KCupsRequest.h"
 
 #include <cups/adminutil.h>
 
@@ -30,13 +29,6 @@ KCupsServer::KCupsServer()
 KCupsServer::KCupsServer(const QVariantHash &arguments)
 {
     m_arguments = arguments;
-}
-
-KCupsRequest* KCupsServer::commit() const
-{
-    KCupsRequest *request = new KCupsRequest;
-    request->setServerSettings(*this);
-    return request;
 }
 
 bool KCupsServer::allowRemoteAdmin() const

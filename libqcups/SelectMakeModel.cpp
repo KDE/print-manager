@@ -37,6 +37,24 @@
 #include <KPixmapSequence>
 #include <KDebug>
 
+// Marshall the MyStructure data into a D-Bus argument
+QDBusArgument &operator<<(QDBusArgument &argument, const DriverMatch &driverMatch)
+{
+    argument.beginStructure();
+    argument << driverMatch.ppd << driverMatch.match;
+    argument.endStructure();
+    return argument;
+}
+
+// Retrieve the MyStructure data from the D-Bus argument
+const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driverMatch)
+{
+    argument.beginStructure();
+    argument >> driverMatch.ppd >> driverMatch.match;
+    argument.endStructure();
+    return argument;
+}
+
 SelectMakeModel::SelectMakeModel(QWidget *parent) :
     QWidget(parent),
     m_request(0)
@@ -44,7 +62,8 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     ui = new Ui::SelectMakeModel;
     ui->setupUi(this);
 
-    qDBusRegisterMetaType<StringStringMap>();
+    qDBusRegisterMetaType<DriverMatch>();
+    qDBusRegisterMetaType<DriverMatchList>();
 
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
     m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
@@ -70,14 +89,18 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
     message << deviceId;
     message << makeAndModel;
     message << deviceUri;
-    QDBusReply<StringStringMap> reply = QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
+    QDBusReply<DriverMatchList> reply = QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
 
-    StringStringMap metadata;
+    DriverMatchList drivers;
     if (reply.isValid()) {
-        metadata = reply.value();
+        drivers = reply.value();
     }
 
-    kDebug() << metadata << reply.error();
+    foreach (const DriverMatch &driverMatch, drivers) {
+        kDebug() << driverMatch.ppd << driverMatch.match;
+    }
+
+    kDebug() << drivers.count() << reply.error();
 }
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)

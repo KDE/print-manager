@@ -32,7 +32,12 @@ namespace Ui {
 }
 
 class KCupsRequest;
-typedef QMap<QString, QString>  StringStringMap;
+
+struct DriverMatch{
+    QString ppd;
+    QString match;
+};
+typedef QList<DriverMatch> DriverMatchList;
 class KDE_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
@@ -64,6 +69,7 @@ private:
     QSortFilterProxyModel *m_model;
 };
 
-Q_DECLARE_METATYPE(StringStringMap)
+Q_DECLARE_METATYPE(DriverMatchList)
+Q_DECLARE_METATYPE(DriverMatch)
 
 #endif

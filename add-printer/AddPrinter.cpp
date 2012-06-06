@@ -21,7 +21,6 @@
 #include "AddPrinter.h"
 
 #include "AddPrinterInterface.h"
-#include "AddPrinterAssistant.h"
 
 #include <KCmdLineArgs>
 #include <KDebug>
@@ -38,10 +37,16 @@ AddPrinter::AddPrinter() :
 
 int AddPrinter::newInstance()
 {
-//    m_pqInterface->AddPrinter(0);
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    if (args->isSet("add")) {
+        m_pqInterface->AddPrinter(0);
+    }
+    args->clear();
     return 0;
 }
 
 AddPrinter::~AddPrinter()
 {
 }
+
+#include "AddPrinter.moc"

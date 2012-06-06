@@ -22,6 +22,8 @@
 #include "ui_ChooseSamba.h"
 
 #include <QPainter>
+#include <QStringBuilder>
+
 #include <KDebug>
 
 ChooseSamba::ChooseSamba(QWidget *parent) :
@@ -64,8 +66,8 @@ ChooseSamba::~ChooseSamba()
 void ChooseSamba::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args["device-uri"].toString();
-    if (deviceUri.contains('/')) {
+    QString deviceUri = args[DEVICE_URI].toString();
+    if (deviceUri.contains(QLatin1Char('/'))) {
         m_isValid = false;
         return;
     }
@@ -77,7 +79,7 @@ void ChooseSamba::setValues(const QVariantHash &args)
 QVariantHash ChooseSamba::values() const
 {
     QVariantHash ret = m_args;
-    ret["device-uri"] = "smb://" + ui->addressLE->text();
+    ret[DEVICE_URI] = static_cast<QString>(QLatin1String("smb://") % ui->addressLE->text());
     return ret;
 }
 
@@ -90,7 +92,7 @@ bool ChooseSamba::canProceed() const
 {
     bool allow = false;
     if (!ui->addressLE->text().isEmpty()) {
-        KUrl url = KUrl("smb://" + ui->addressLE->text());
+        KUrl url = KUrl(QLatin1String("smb://") % ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;

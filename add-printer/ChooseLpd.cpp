@@ -22,6 +22,8 @@
 #include "ui_ChooseLpd.h"
 
 #include <QPainter>
+#include <QStringBuilder>
+
 #include <KDebug>
 
 ChooseLpd::ChooseLpd(QWidget *parent) :
@@ -69,9 +71,9 @@ void ChooseLpd::on_addressLE_textChanged(const QString &text)
 void ChooseLpd::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args["device-uri"].toString();
+    QString deviceUri = args[DEVICE_URI].toString();
     kDebug() << deviceUri;
-    if (deviceUri.contains('/')) {
+    if (deviceUri.contains(QLatin1Char('/'))) {
         m_isValid = false;
         return;
     }
@@ -83,7 +85,7 @@ void ChooseLpd::setValues(const QVariantHash &args)
 QVariantHash ChooseLpd::values() const
 {
     QVariantHash ret = m_args;
-    ret["device-uri"] = "lpd://" + ui->addressLE->text();
+    ret[DEVICE_URI] = static_cast<QString>(QLatin1String("lpd://") % ui->addressLE->text());
     return ret;
 }
 
@@ -91,7 +93,7 @@ bool ChooseLpd::canProceed() const
 {
     bool allow = false;
     if (!ui->addressLE->text().isEmpty()) {
-        KUrl url = KUrl("lpd://" + ui->addressLE->text());
+        KUrl url = KUrl(QLatin1String("lpd://") % ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;

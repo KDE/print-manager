@@ -67,7 +67,7 @@ ChooseUri::~ChooseUri()
 void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QUrl url = args["device-uri"].toString();
+    QUrl url = args[DEVICE_URI].toString();
 
     if (url.toString() != QLatin1String("other") && url.isValid()) {
         ui->addressLE->setText(url.toString());
@@ -81,19 +81,19 @@ QVariantHash ChooseUri::values() const
     QVariantHash ret = m_args;
     // URI might be scsi, network on anything that doesn't match before
     KUrl url(ui->addressLE->text());
-    if (url.protocol().isEmpty() && ret["device-uri"].toString() != QLatin1String("other")) {
+    if (url.protocol().isEmpty() && ret[DEVICE_URI].toString() != QLatin1String("other")) {
         kDebug() << url;
-        url.setProtocol(ret["device-uri"].toString());
+        url.setProtocol(ret[DEVICE_URI].toString());
         kDebug() << url;
     }
-    ret["device-uri"] = url.url();
+    ret[DEVICE_URI] = url.url();
     return ret;
 }
 
 bool ChooseUri::isValid() const
 {
     QVariantHash args = values();
-    KUrl url(args["device-uri"].toString());
+    KUrl url(args[DEVICE_URI].toString());
 kDebug() << url;
     return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && !url.hasHost();
 }

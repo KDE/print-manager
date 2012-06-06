@@ -25,6 +25,18 @@
 #include <QHash>
 #include <QVariant>
 
+#define DEVICE_ID         "device-id"
+#define DEVICE_URI        "device-uri"
+#define DEVICE_MAKE_MODEL "device-make-model"
+#define DEVICE_INFO       "device-info"
+#define DEVICE_LOCATION   "device-location"
+#define ADDING_PRINTER    "add-new-printer"
+#define PPD_NAME          "ppd-name"
+#define PRINTER_NAME      "printer-name"
+#define PRINTER_LOCATION  "printer-location"
+#define PRINTER_INFO      "printer-info"
+#define MEMBER_URIS       "member-uris"
+
 class GenericPage : public QWidget
 {
     Q_OBJECT

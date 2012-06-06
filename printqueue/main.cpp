@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,9 +33,9 @@ int main(int argc, char **argv)
                      "0.1",
                      ki18n("PrintQueue"),
                      KAboutData::License_GPL,
-                     ki18n("(C) 2009 Daniel Nicoletti"));
+                     ki18n("(C) 2010-2012 Daniel Nicoletti"));
 
-    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti85-pk@yahoo.com.br");
+    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;

@@ -27,8 +27,8 @@
 #include <KCmdLineArgs>
 #include <KDebug>
 
-PrintQueue::PrintQueue()
- : KUniqueApplication()
+PrintQueue::PrintQueue() :
+    KUniqueApplication()
 {
     m_pqInterface = new PrintQueueInterface(this);
     connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));

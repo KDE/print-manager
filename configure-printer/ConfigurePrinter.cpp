@@ -44,6 +44,7 @@ int ConfigurePrinter::newInstance()
         // If DBus called the ui list won't be empty
         QTimer::singleShot(500, m_cpInterface, SLOT(RemovePrinter()));
     }
+    args->clear();
 
     return 0;
 }

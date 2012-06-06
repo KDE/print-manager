@@ -71,15 +71,15 @@ PageAddPrinter::~PageAddPrinter()
 void PageAddPrinter::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
-        QString name = args["device-info"].toString();
+        QString name = args[DEVICE_INFO].toString();
         name.replace(' ', '_');
         name.replace('/', '-');
         name.replace('#', '=');
         ui->nameLE->setText(name);
-        ui->descriptionLE->setText(args["device-info"].toString());
-        ui->locationLE->clear();
+        ui->descriptionLE->setText(args[DEVICE_INFO].toString());
+        ui->descriptionLE->setText(args[DEVICE_LOCATION].toString());
         ui->shareCB->setChecked(true);
-        ui->shareCB->setVisible(args["add-new-printer"].toBool());
+        ui->shareCB->setVisible(args[ADDING_PRINTER].toBool());
 
         m_args = args;
     }
@@ -97,10 +97,10 @@ bool PageAddPrinter::canProceed() const
 QVariantHash PageAddPrinter::values() const
 {
     QVariantHash ret = m_args;
-    ret["printer-name"] = ui->nameLE->text();
-    ret["printer-location"] = ui->locationLE->text();
-    ret["printer-info"] = ui->descriptionLE->text();
-//     if (ret["add-new-printer"].toBool()) {
+    ret[PRINTER_NAME] = ui->nameLE->text();
+    ret[PRINTER_LOCATION] = ui->locationLE->text();
+    ret[PRINTER_INFO] = ui->descriptionLE->text();
+//     if (ret[ADDING_PRINTER].toBool()) {
         // shareCB
 //     }
     return ret;

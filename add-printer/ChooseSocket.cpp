@@ -70,9 +70,9 @@ void ChooseSocket::setValues(const QVariantHash &args)
     m_args = args;
     ui->addressLE->clear();
     ui->portISB->setValue(9100);
-    QString deviceUri = args["device-uri"].toString();
+    QString deviceUri = args[DEVICE_URI].toString();
     KUrl url = deviceUri;
-    if (url.scheme() == "socket") {
+    if (url.scheme() == QLatin1String("socket")) {
         ui->addressLE->setText(url.host());
         ui->portISB->setValue(url.port(9100));
     }
@@ -82,9 +82,9 @@ void ChooseSocket::setValues(const QVariantHash &args)
 QVariantHash ChooseSocket::values() const
 {
     QVariantHash ret = m_args;
-    KUrl url = KUrl("socket://" + ui->addressLE->text());
+    KUrl url = KUrl(QLatin1String("socket://") + ui->addressLE->text());
     url.setPort(ui->portISB->value());
-    ret["device-uri"] = url.prettyUrl();
+    ret[DEVICE_URI] = url.prettyUrl();
     return ret;
 }
 

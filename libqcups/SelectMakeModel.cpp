@@ -26,6 +26,11 @@
 #include "KCupsRequest.h"
 
 #include <QLineEdit>
+#include <QtDBus/QDBusMessage>
+#include <QtDBus/QDBusConnection>
+#include <QtDBus/QDBusReply>
+#include <QtDBus/QDBusMetaType>
+
 #include <KMessageBox>
 #include <KPixmapSequence>
 #include <KDebug>
@@ -37,15 +42,40 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     ui = new Ui::SelectMakeModel;
     ui->setupUi(this);
 
+    qDBusRegisterMetaType<StringStringMap>();
+
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
     m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     m_busySeq->setWidget(ui->ppdsLV->viewport());
+
 }
 
 SelectMakeModel::~SelectMakeModel()
 {
     delete ui;
+}
+
+void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri)
+{
+    kDebug() << "===================================" << deviceId;
+    // Get the best drivers
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
+                                             QLatin1String("/org/fedoraproject/Config/Printing"),
+                                             QLatin1String("org.fedoraproject.Config.Printing"),
+                                             QLatin1String("GetBestDrivers"));
+    message << deviceId;
+    message << makeAndModel;
+    message << deviceUri;
+    QDBusReply<StringStringMap> reply = QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
+
+    StringStringMap metadata;
+    if (reply.isValid()) {
+        metadata = reply.value();
+    }
+
+    kDebug() << metadata << reply.error();
 }
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)

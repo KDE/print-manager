@@ -27,6 +27,8 @@
 #include <KLocale>
 #include <KMessageBox>
 
+#include <QStringBuilder>
+
 DevicesModel::DevicesModel(QObject *parent)
  : QStandardItemModel(parent),
    m_request(0),
@@ -65,7 +67,6 @@ void DevicesModel::device(const QString &devClass,
                           const QString &devUri,
                           const QString &devLocation)
 {
-    Q_UNUSED(devId)
     Q_UNUSED(devLocation)
     // Example of data
     // "direct"
@@ -126,16 +127,19 @@ void DevicesModel::device(const QString &devClass,
 //         appendRow(itemClass);
 //     }
 
-    QStandardItem *device;
+    QStandardItem *device = new QStandardItem;
     if (devMakeAndModel.compare(QLatin1String("unknown"), Qt::CaseInsensitive) != 0
     && !devMakeAndModel.isEmpty()) {
-        device = new QStandardItem(devInfo + " (" + devMakeAndModel + ')');
-        device->setData(devUri, DeviceURI);
-        device->setData(devMakeAndModel, DeviceMakeAndModel);
+        device->setText(devInfo % QLatin1String(" (") % devMakeAndModel % QLatin1Char(')'));
     } else {
-        device = new QStandardItem(devInfo);
-        device->setData(devUri, DeviceURI);
+        device->setText(devInfo);
     }
+    device->setData(devClass, DeviceClass);
+    device->setData(devId, DeviceId);
+    device->setData(devInfo, DeviceInfo);
+    device->setData(devMakeAndModel, DeviceMakeAndModel);
+    device->setData(devUri, DeviceUri);
+    device->setData(devLocation, DeviceLocation);
 
     if (devUri.startsWith(QLatin1String("parallel"))) {
         device->setToolTip(i18nc("@info:tooltip", "A printer connected to the parallel port"));
@@ -156,7 +160,6 @@ void DevicesModel::device(const QString &devClass,
                devUri.startsWith(QLatin1String("mdns"))) {
         device->setToolTip(i18nc("@info:tooltip", "Remote CUPS printer via DNS-SD"));
     }
-    device->setData(devInfo, DeviceInfo);
 
     device->setData(static_cast<qlonglong>(kind), KCategorizedSortFilterProxyModel::CategorySortRole);
     if (kind == Networked) {

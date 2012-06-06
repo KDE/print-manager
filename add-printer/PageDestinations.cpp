@@ -95,7 +95,7 @@ PageDestinations::~PageDestinations()
 void PageDestinations::setValues(const QVariantHash &args)
 {
     m_args = args;
-    if (args["add-new-printer"].toBool()) {
+    if (args[ADDING_PRINTER].toBool()) {
         m_isValid = true;
         m_model->update();
         m_busySeq->start();
@@ -117,9 +117,9 @@ bool PageDestinations::hasChanges() const
 
     QString deviceURI;
     if (canProceed()) {
-        deviceURI = ui->devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
+        deviceURI = ui->devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceUri).toString();
     }
-    return deviceURI != m_args["device-uri"];
+    return deviceURI != m_args[DEVICE_URI];
 }
 
 QVariantHash PageDestinations::values() const
@@ -131,10 +131,12 @@ QVariantHash PageDestinations::values() const
     QVariantHash ret = m_args;
     if (canProceed()) {
         QModelIndex index = ui->devicesLV->selectionModel()->selectedIndexes().first();
-        kDebug() << index.data(DevicesModel::DeviceURI).toString();
-        ret["device-uri"] = index.data(DevicesModel::DeviceURI).toString();
-        ret["device-make-and-model"] = index.data(DevicesModel::DeviceMakeAndModel).toString();
-        ret["device-info"] = index.data(DevicesModel::DeviceInfo).toString();
+        ret[DEVICE_URI] = index.data(DevicesModel::DeviceUri).toString();
+        ret[DEVICE_ID] = index.data(DevicesModel::DeviceId).toString();
+        ret[DEVICE_MAKE_MODEL] = index.data(DevicesModel::DeviceMakeAndModel).toString();
+        ret[DEVICE_INFO] = index.data(DevicesModel::DeviceInfo).toString();
+        ret[DEVICE_LOCATION] = index.data(DevicesModel::DeviceLocation).toString();
+        kDebug() << ret;
     }
     return ret;
 }

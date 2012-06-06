@@ -18,16 +18,15 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef ADD_PRINTER_H
-#define ADD_PRINTER_H
+#ifndef ADDPRINTER_H
+#define ADDPRINTER_H
 
 #include <KUniqueApplication>
 
 class AddPrinterInterface;
 class AddPrinter : public KUniqueApplication
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
     AddPrinter();
     virtual ~AddPrinter();
@@ -37,4 +36,4 @@ private:
     AddPrinterInterface *m_pqInterface;
 };
 
-#endif
+#endif //ADDPRINTER_H

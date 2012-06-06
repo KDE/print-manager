@@ -50,7 +50,7 @@ AddPrinterAssistant::AddPrinterAssistant(bool addPrinter) :
     // setup our hash args with the information if we are
     // adding a new printer or a class
     QVariantHash args;
-    args["add-new-printer"] = addPrinter;
+    args[ADDING_PRINTER] = addPrinter;
     if (addPrinter) {
         m_devicesPage = new KPageWidgetItem(new PageDestinations(args), i18nc("@title:window", "Select a Printer to Add"));
         addPage(m_devicesPage);
@@ -160,11 +160,11 @@ void AddPrinterAssistant::slotButtonClicked(int button)
         QVariantHash args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
         kDebug() << args;
         KCupsRequest *request = new KCupsRequest;
-        bool isClass = !args.take("add-new-printer").toBool();
+        bool isClass = !args.take(ADDING_PRINTER).toBool();
         if (isClass) {
             request->addClass(args);
         } else {
-            QString destName = args["printer-name"].toString();
+            QString destName = args[PRINTER_NAME].toString();
             request->setAttributes(destName, false, args);
         }
         request->waitTillFinished();

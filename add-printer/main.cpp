@@ -27,17 +27,20 @@
 
 int main(int argc, char **argv)
 {
-    KAboutData about("AddPrinter",
+    KAboutData about("add-printer",
                      "print-manager",
                      ki18n("AddPrinter"),
                      "0.1",
-                     ki18n("AddPrinter"),
+                     ki18n("Tool for adding new printers"),
                      KAboutData::License_GPL,
-                     ki18n("(C) 2010 Daniel Nicoletti"));
+                     ki18n("(C) 2010-2012 Daniel Nicoletti"));
 
     about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
+    KCmdLineOptions options;
+    options.add("add", ki18n("A short binary option"));
+    KCmdLineArgs::addCmdLineOptions(options);
 
     AddPrinter::addCmdLineOptions();
 

@@ -75,10 +75,14 @@ PageChoosePPD::~PageChoosePPD()
 void PageChoosePPD::setValues(const QVariantHash &args)
 {
     m_args = args;
-    kDebug() << args;
-    if (args["add-new-printer"].toBool()) {
+
+    if (args[ADDING_PRINTER].toBool()) {
         connect(m_selectMM, SIGNAL(changed(bool)),
                 this, SLOT(checkSelected()));
+        kDebug() << args;
+        m_selectMM->setDeviceInfo(args[DEVICE_ID].toString(),
+                                  args[DEVICE_MAKE_MODEL].toString(),
+                                  args[DEVICE_URI].toString());
         m_selectMM->setMakeModel(QString(), QString());
         m_isValid = true;
     } else {
@@ -101,7 +105,7 @@ bool PageChoosePPD::hasChanges() const
     if (canProceed()) {
 //         deviceURI = devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
     }
-    return deviceURI != m_args["device-uri"];
+    return deviceURI != m_args[DEVICE_URI];
 }
 
 QVariantHash PageChoosePPD::values() const
@@ -116,7 +120,7 @@ QVariantHash PageChoosePPD::values() const
             QString makeAndModel = m_selectMM->selectedMakeAndModel();
             QString ppdName = m_selectMM->selectedPPDName();
             if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
-                ret["ppd-name"] = ppdName;
+                ret[PPD_NAME] = ppdName;
             }
         }
     }
@@ -142,7 +146,7 @@ bool PageChoosePPD::canProceed() const
 //         }
 //         emit showKUR();
 //         // set the QVariant type to bool makes it possible to know a file was selected
-//         m_changedValues["ppd-name"] = true;
+//         m_changedValues[PPD_NAME] = true;
     }
     return allow;
 }

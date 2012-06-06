@@ -32,6 +32,7 @@ namespace Ui {
 }
 
 class KCupsRequest;
+typedef QMap<QString, QString>  StringStringMap;
 class KDE_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
@@ -39,6 +40,7 @@ public:
     SelectMakeModel(QWidget *parent = 0);
     ~SelectMakeModel();
 
+    void setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri);
     void setMakeModel(const QString &make, const QString &makeAndModel);
     QString selectedPPDName() const;
     QString selectedMakeAndModel() const;
@@ -62,5 +64,6 @@ private:
     QSortFilterProxyModel *m_model;
 };
 
+Q_DECLARE_METATYPE(StringStringMap)
 
 #endif

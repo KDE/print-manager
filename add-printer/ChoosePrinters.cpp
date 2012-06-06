@@ -86,7 +86,7 @@ void ChoosePrinters::load()
 QVariantHash ChoosePrinters::values() const
 {
     QVariantHash ret = m_args;
-    ret["member-uris"] = ui->membersLV->selectedDests();
+    ret[MEMBER_URIS] = ui->membersLV->selectedDests();
     return ret;
 }
 

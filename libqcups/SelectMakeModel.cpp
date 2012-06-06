@@ -25,7 +25,9 @@
 
 #include "KCupsRequest.h"
 
+#include <QStandardItemModel>
 #include <QLineEdit>
+
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusReply>
@@ -120,6 +122,13 @@ void SelectMakeModel::ppdsLoaded()
     makes.sort();
     makes.removeDuplicates();
     ui->makeFilterKCB->addItems(makes);
+
+    QStandardItemModel *makeModel = new QStandardItemModel(this);
+    foreach (const QString &make, makes) {
+        QStandardItem *stdItem = new QStandardItem(make);
+        makeModel->appendRow(stdItem);
+    }
+    ui->makeView->setModel(makeModel);
 
     connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(checkChanged()));

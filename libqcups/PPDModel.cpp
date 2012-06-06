@@ -22,7 +22,7 @@
 
 #include <KDebug>
 
-PPDModel::PPDModel(const QList<QHash<QString, QVariant> > &ppds, QObject *parent)
+PPDModel::PPDModel(const QList<QVariantHash> &ppds, QObject *parent)
  : QAbstractListModel(parent),
    m_ppds(ppds)
 {

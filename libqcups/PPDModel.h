@@ -22,6 +22,7 @@
 #define PPD_MODEL_H
 
 #include <QAbstractListModel>
+#include <QVariantHash>
 
 class PPDModel : public QAbstractListModel
 {
@@ -34,7 +35,7 @@ public:
         PPDMakeAndModel
     } Role;
 
-    explicit PPDModel(const QList<QHash<QString, QVariant> > &ppds, QObject *parent = 0);
+    explicit PPDModel(const QList<QVariantHash> &ppds, QObject *parent = 0);
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
@@ -44,7 +45,7 @@ public:
     void setMake(const QString &make);
 
 private:
-    QList<QHash<QString, QVariant> > m_ppds;
+    QList<QVariantHash> m_ppds;
     QString m_make;
 };
 

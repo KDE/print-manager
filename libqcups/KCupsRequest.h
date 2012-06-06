@@ -82,7 +82,13 @@ public:
     /**
      * Non empty when getServerSettings() is called and finish is emitted
      */
-    KCupsServer serverSettings();
+    KCupsServer serverSettings() const;
+
+    /**
+     * Non empty when \sa getPrinterPPD() is called and finish is emitted
+     * \warning You must unlik the given file name
+     */
+    QString printerPPD() const;
 
     /**
      * Non empty when getJobs is called and finish is emitted
@@ -184,6 +190,12 @@ public:
      * This method emits server()
      */
     Q_INVOKABLE void getServerSettings();
+
+    /**
+     * Get the PPD associated with @arg printerName
+     * the result is stored at \sa printerPPD()
+     */
+    Q_INVOKABLE void getPrinterPPD(const QString &printerName);
 
     /**
      * Get the CUPS server settings
@@ -331,6 +343,7 @@ private:
     QString m_errorMsg;
     ReturnArguments m_ppds;
     KCupsServer m_server;
+    QString m_ppdFile;
     int m_subscriptionId;
     KCupsPrinters m_printers;
     KCupsJobs m_jobs;

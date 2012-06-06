@@ -45,7 +45,6 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
     m_destName(destName),
     m_isClass(isClass),
     m_isRemote(isRemote),
-    m_filename(NULL),
     m_ppd(NULL),
     m_changes(0)
 {
@@ -65,8 +64,8 @@ void PrinterOptions::on_autoConfigurePB_clicked()
 void PrinterOptions::reloadPPD()
 {
     //     The caller "owns" the file that is created and must unlink the returned filename.
-    if (m_filename) {
-        unlink(m_filename);
+    if (!m_filename.isNull()) {
+        unlink(m_filename.toUtf8());
     }
 
     // remove all the options
@@ -77,10 +76,15 @@ void PrinterOptions::reloadPPD()
     m_customValues.clear();
     emit changed(false);
 
-    m_filename = cupsGetPPD(m_destName.toUtf8());
-    m_ppd = ppdOpenFile(m_filename);
+    KCupsRequest *request = new KCupsRequest;
+    request->getPrinterPPD(m_destName);
+    request->waitTillFinished();
+    m_filename = request->printerPPD();
+    m_ppd = ppdOpenFile(m_filename.toUtf8());
+    request->deleteLater();
     if (m_ppd == NULL) {
-        kWarning() << "Could not open ppd file";
+        kWarning() << "Could not open ppd file:" << m_filename << request->errorMsg();
+        m_filename.clear();
         return;
     }
 
@@ -231,8 +235,8 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
     // store the default choice
     radioGroup->setProperty(DEFAULT_CHOICE, defChoice);
     radioGroup->setProperty("Keyword", keyword);
-    connect(radioGroup, SIGNAL(buttonClicked(QAbstractButton)),
-            this, SLOT(radioBtClicked(QAbstractButton)));
+    connect(radioGroup, SIGNAL(buttonClicked(QAbstractButton*)),
+            this, SLOT(radioBtClicked(QAbstractButton*)));
     return widget;
 }
 
@@ -358,8 +362,8 @@ PrinterOptions::~PrinterOptions()
         ppdClose(m_ppd);
     }
 
-    if (m_filename) {
-        unlink(m_filename);
+    if (!m_filename.isNull()) {
+        unlink(m_filename.toUtf8());
     }
 
     delete ui;
@@ -671,9 +675,9 @@ void PrinterOptions::save()
                 *keyptr;                /* Pointer into keyword... */
 
     // copy cups-1.4.2/cgi-bin line 3779
-    if (m_filename) {
+    if (!m_filename.isNull()) {
         out = cupsTempFile2(tempfile, sizeof(tempfile));
-        in  = cupsFileOpen(m_filename, "r");
+        in  = cupsFileOpen(m_filename.toUtf8(), "r");
 
         if (!in || !out)
         {

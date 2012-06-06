@@ -31,6 +31,7 @@
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusServiceWatcher>
+#include <QtDBus/QDBusReply>
 
 K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<NewPrinterNotification>();)
 K_EXPORT_PLUGIN(PrintDFactory("printmanager"))
@@ -39,6 +40,9 @@ K_EXPORT_PLUGIN(PrintDFactory("printmanager"))
 #define STATUS_MODEL_MISMATCH 1
 #define STATUS_GENERIC_DRIVER 2
 #define STATUS_NO_DRIVER      3
+
+#define PRINTER_NAME "PrinterName"
+#define DEVICE_ID "DeviceId"
 
 NewPrinterNotification::NewPrinterNotification(QObject *parent, const QVariantList &args) :
     KDEDModule(parent)
@@ -87,47 +91,109 @@ void NewPrinterNotification::GetReady()
 //cmd: LDL,MLC,PML,DYN
 void NewPrinterNotification::NewPrinter(int status,
                                         const QString &name,
-                                        const QString &mfg,
-                                        const QString &mdl,
-                                        const QString &des,
+                                        const QString &make,
+                                        const QString &model,
+                                        const QString &description,
                                         const QString &cmd)
 {
-    kDebug() << status << name << mfg << mdl << des << cmd;
+    kDebug() << status << name << make << model << description << cmd;
+    // 1
+    // "usb://Samsung/SCX-3400%20Series?serial=Z6Y1BQAC500079K&interface=1"
+    // mfg "Samsung"
+    // mdl "SCX-3400 Series" "" "SPL,FWV,PIC,BDN,EXT"
     // This method is all about telling the user a new printer was detected
     KNotification *notify = new KNotification("NewPrinterNotification");
     notify->setComponentData(KComponentData("printmanager"));
     notify->setPixmap(KIcon("printer").pixmap(64, 64));
-    if (status < STATUS_GENERIC_DRIVER) {
-        notify->setTitle(i18n("The New Printer was Added"));
-    } else {
-        notify->setTitle(i18n("The New Printer is Missing Drivers"));
-    }
+    notify->setFlags(KNotification::Persistent);
 
-    if (status == STATUS_SUCCESS) {
-        // TODO isn't mdl a better string?
-        notify->setText(i18n("'%1' is ready for printing.", name));
+    QString title;
+    QString text;
+    QString devid;
+    QStringList actions;
+    devid = QString("MFG:%1;MDL:%2;DES:%3;CMD:%4;").arg(make, model, description, cmd);
+
+    if (name.contains(QLatin1Char('/'))) {
+        // name is a URI, no queue was generated, because no suitable
+        // driver was found
+        title = i18n("Missing printer dirver");
+        if (!make.isEmpty() && !model.isEmpty()) {
+            text = i18n("No printer driver for %1 %2.", make, model);
+        } else if (!description.isEmpty()) {
+            text = i18n("No printer driver for %1.", description);
+        } else {
+            text = i18n("No driver for this printer.");
+        }
+
+        actions << i18n("Search");
+        connect(notify, SIGNAL(action1Activated()), this, SLOT(setupPrinter()));
+
+
     } else {
-        QString driver;
+        // name is the name of the queue which hal_lpadmin has set up
+        // automatically.
+
+        if (status < STATUS_GENERIC_DRIVER) {
+            title = i18n("The New Printer was Added");
+        } else {
+            title = i18n("The New Printer is Missing Drivers");
+        }
+
+        // Get the new printer attributes
         KCupsRequest *request = new KCupsRequest;
         request->getPrinterAttributes(name, false, KCupsPrinter::PrinterMakeAndModel);
         request->waitTillFinished();
+
+        QString driver;
+        // Get the new printer driver
         if (!request->printers().isEmpty()){
             KCupsPrinter printer = request->printers().first();
             driver = printer.makeAndModel();
         }
         request->deleteLater();
 
-        // The cups request might have failed
-        if (driver.isEmpty()) {
-            notify->setText(i18n("'%1' has been added, please check its driver.", name));
+        QString ppdFileName;
+        request = new KCupsRequest;
+        request->getPrinterPPD(name);
+        request->waitTillFinished();
+        ppdFileName = request->printerPPD();
+        request->deleteLater();
+
+        // Get a list of missing executables
+        QStringList missingExecutables = getMissingExecutables(ppdFileName);
+
+        if (!missingExecutables.isEmpty()) {
+            // TODO check with PackageKit about missing drivers
+            kWarning();
+        } else if (status == STATUS_SUCCESS) {
+            text = i18n("'%1' is ready for printing.", name);
+            actions << i18n("Print test page");
+            connect(notify, SIGNAL(action1Activated()), this, SLOT(printTestPage()));
+            actions << i18n("Configure");
+            connect(notify, SIGNAL(action2Activated()), this, SLOT(configurePrinter()));
         } else {
-            connect(notify, SIGNAL(activated(uint)), this, SLOT(configurePrinter()));
-            notify->setProperty("PrinterName", name);
-            notify->setFlags(KNotification::Persistent);
-            notify->setActions(QStringList() << i18n("Configure"));
-            notify->setText(i18n("'%1' has been added, using the '%2' driver.", name, driver));
+            // Model mismatch
+
+
+            // The cups request might have failed
+            if (driver.isEmpty()) {
+                text = i18n("'%1' has been added, please check its driver.", name);
+                actions << i18n("Configure");
+                connect(notify, SIGNAL(action1Activated()), this, SLOT(configurePrinter()));
+            } else {
+                text = i18n("'%1' has been added, using the '%2' driver.", name, driver);
+                actions << i18n("Print test page");
+                connect(notify, SIGNAL(action1Activated()), this, SLOT(printTestPage()));
+                actions << i18n("Find driver");
+                connect(notify, SIGNAL(action2Activated()), this, SLOT(findDriver()));
+            }
         }
     }
+    notify->setTitle(title);
+    notify->setText(text);
+    notify->setProperty(PRINTER_NAME, name);
+    notify->setProperty(DEVICE_ID, devid);
+    notify->setActions(actions);
     notify->sendEvent();
 }
 
@@ -147,16 +213,50 @@ bool NewPrinterNotification::registerService()
 
 void NewPrinterNotification::configurePrinter()
 {
-    if (sender()) {
-        QString printerName;
-        printerName = sender()->property("PrinterName").toString();
-        QDBusMessage message;
-        message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
-                                                 QLatin1String("/"),
-                                                 QLatin1String("org.kde.ConfigurePrinter"),
-                                                 QLatin1String("ConfigurePrinter"));
-        // Use our own cached tid to avoid crashes
-        message << qVariantFromValue(printerName);
-        QDBusConnection::sessionBus().send(message);
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
+                                             QLatin1String("/"),
+                                             QLatin1String("org.kde.ConfigurePrinter"),
+                                             QLatin1String("ConfigurePrinter"));
+    message << sender()->property(PRINTER_NAME);
+    QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
+}
+
+void NewPrinterNotification::searchDrivers()
+{
+}
+
+void NewPrinterNotification::printTestPage()
+{
+    KCupsRequest *request = new KCupsRequest;
+    request->printTestPage(sender()->property(PRINTER_NAME).toString(), false);
+    request->waitTillFinished();
+    request->deleteLater();
+}
+
+void NewPrinterNotification::findDriver()
+{
+}
+
+void NewPrinterNotification::installDriver()
+{
+}
+
+void NewPrinterNotification::setupPrinter()
+{
+}
+
+QStringList NewPrinterNotification::getMissingExecutables(const QString &ppdFileName) const
+{
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
+                                             QLatin1String("/org/fedoraproject/Config/Printing"),
+                                             QLatin1String("org.fedoraproject.Config.Printing"),
+                                             QLatin1String("MissingExecutables"));
+    message << ppdFileName;
+    QDBusReply<QStringList> reply = QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
+    if (!reply.isValid()) {
+        kWarning() << "Invalid reply" << reply.error();
     }
+    return reply;
 }

@@ -35,13 +35,19 @@ public:
 
 public slots:
     void GetReady();
-    void NewPrinter(int status, const QString &name, const QString &mfg, const QString &mdl, const QString &des, const QString &cmd);
+    void NewPrinter(int status, const QString &name, const QString &make, const QString &model, const QString &des, const QString &cmd);
 
 private slots:
     bool registerService();
     void configurePrinter();
+    void searchDrivers();
+    void printTestPage();
+    void findDriver();
+    void installDriver();
+    void setupPrinter();
 
 private:
+    QStringList getMissingExecutables(const QString &ppdFileName) const;
     QString m_destName;
 };
 

@@ -310,6 +310,23 @@ void KCupsRequest::getServerSettings()
     }
 }
 
+void KCupsRequest::getPrinterPPD(const QString &printerName)
+{
+    if (KCupsConnection::readyToStart()) {
+        do {
+            const char  *filename;
+            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, printerName.toUtf8());
+            kDebug() << filename;
+            m_ppdFile = filename;
+            kDebug() << m_ppdFile;
+        } while (KCupsConnection::retryIfForbidden());
+        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getPrinterPPD", printerName);
+    }
+}
+
 void KCupsRequest::setServerSettings(const KCupsServer &server)
 {
     if (KCupsConnection::readyToStart()) {
@@ -583,6 +600,7 @@ void KCupsRequest::invokeMethod(const char *method,
     m_printers.clear();
     m_jobs.clear();
     m_ppds.clear();
+    m_ppdFile.clear();
     m_subscriptionId = -1;
 
     // If this fails we get into a infinite loop
@@ -627,9 +645,14 @@ ReturnArguments KCupsRequest::ppds() const
     return m_ppds;
 }
 
-KCupsServer KCupsRequest::serverSettings()
+KCupsServer KCupsRequest::serverSettings() const
 {
     return m_server;
+}
+
+QString KCupsRequest::printerPPD() const
+{
+    return m_ppdFile;
 }
 
 int KCupsRequest::subscriptionId() const

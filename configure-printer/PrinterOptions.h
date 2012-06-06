@@ -67,7 +67,7 @@ private:
     QString m_destName;
     bool m_isClass;
     bool m_isRemote;
-    const char  *m_filename;
+    QString m_filename;
     ppd_file_t *m_ppd;
     int m_changes;
     QTextCodec *m_codec;

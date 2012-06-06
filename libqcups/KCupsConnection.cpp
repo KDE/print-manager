@@ -664,48 +664,53 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, 
 
 QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 {
-    if (attr->num_values == 1 &&
-        attr->value_tag != IPP_TAG_INTEGER &&
-        attr->value_tag != IPP_TAG_ENUM &&
-        attr->value_tag != IPP_TAG_BOOLEAN &&
-        attr->value_tag != IPP_TAG_RANGE) {
-        return QString::fromUtf8(attr->values[0].string.text);
-    }
-
-    if (attr->value_tag == IPP_TAG_INTEGER || attr->value_tag == IPP_TAG_ENUM) {
+    QVariant ret;
+    switch (attr->value_tag) {
+    case IPP_TAG_INTEGER:
+    case IPP_TAG_ENUM:
         if (attr->num_values == 1) {
-            return attr->values[0].integer;
+            ret = attr->values[0].integer;
         } else {
             QList<int> values;
             for (int i = 0; i < attr->num_values; ++i) {
                 values << attr->values[i].integer;
             }
-            return QVariant::fromValue(values);
+            ret = qVariantFromValue(values);
         }
-    } else if (attr->value_tag == IPP_TAG_BOOLEAN) {
+        break;
+    case IPP_TAG_BOOLEAN:
         if (attr->num_values == 1) {
-            return static_cast<bool>(attr->values[0].integer);
+            ret = static_cast<bool>(attr->values[0].integer);
         } else {
             QList<bool> values;
             for (int i = 0; i < attr->num_values; ++i) {
                 values << static_cast<bool>(attr->values[i].integer);
             }
-            return QVariant::fromValue(values);
+            ret = qVariantFromValue(values);
         }
-    } else if (attr->value_tag == IPP_TAG_RANGE) {
+        break;
+    case IPP_TAG_RANGE:
+    {
         QVariantList values;
         for (int i = 0; i < attr->num_values; ++i) {
             values << attr->values[i].range.lower;
             values << attr->values[i].range.upper;
         }
-        return values;
-    } else {
-        QStringList values;
-        for (int i = 0; i < attr->num_values; ++i) {
-            values << QString::fromUtf8(attr->values[i].string.text);
-        }
-        return values;
+        ret = values;
     }
+        break;
+    default:
+        if (attr->num_values == 1) {
+            ret = QString::fromUtf8(attr->values[0].string.text);
+        } else {
+            QStringList values;
+            for (int i = 0; i < attr->num_values; ++i) {
+                values << QString::fromUtf8(attr->values[i].string.text);
+            }
+            ret = values;
+        }
+    }
+    return ret;
 }
 
 bool KCupsConnection::retryIfForbidden()

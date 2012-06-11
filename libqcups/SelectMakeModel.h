@@ -23,6 +23,7 @@
 
 #include <QWidget>
 #include <QSortFilterProxyModel>
+#include <QDBusMessage>
 
 #include <KPixmapSequenceOverlayPainter>
 #include <kdemacros.h>
@@ -32,12 +33,8 @@ namespace Ui {
 }
 
 class KCupsRequest;
+class PPDModel;
 
-struct DriverMatch{
-    QString ppd;
-    QString match;
-};
-typedef QList<DriverMatch> DriverMatchList;
 class KDE_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
@@ -59,6 +56,7 @@ signals:
 
 private slots:
     void on_makeFilterKCB_editTextChanged(const QString &text);
+    void getBestDriversFinished(const QDBusMessage &message);
 
 private:
     Ui::SelectMakeModel *ui;
@@ -67,9 +65,7 @@ private:
     QString m_selectedPPDName, m_selectedMakeAndModel;
     QString m_make, m_makeAndModel;
     QSortFilterProxyModel *m_model;
+    PPDModel *m_sourceModel;
 };
-
-Q_DECLARE_METATYPE(DriverMatchList)
-Q_DECLARE_METATYPE(DriverMatch)
 
 #endif

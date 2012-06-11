@@ -6,44 +6,31 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>331</width>
-    <height>296</height>
+    <width>491</width>
+    <height>323</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Select a Driver</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetNoConstraint</enum>
+   </property>
    <property name="verticalSpacing">
     <number>0</number>
    </property>
    <property name="margin">
     <number>0</number>
    </property>
-   <item row="0" column="0">
-    <widget class="KComboBox" name="makeFilterKCB">
+   <item row="5" column="0" colspan="2">
+    <widget class="QSplitter" name="splitter">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="minimumSize">
-      <size>
-       <width>320</width>
-       <height>0</height>
-      </size>
-     </property>
-     <property name="editable">
-      <bool>true</bool>
-     </property>
-     <property name="insertPolicy">
-      <enum>QComboBox::NoInsert</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QSplitter" name="splitter">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -55,15 +42,94 @@
      </widget>
     </widget>
    </item>
+   <item row="0" column="0">
+    <widget class="QRadioButton" name="radioButton">
+     <property name="text">
+      <string>Manualy Provice a PPD File:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="KUrlRequester" name="kurlrequester">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QRadioButton" name="radioButton_2">
+     <property name="text">
+      <string>Choose the driver from the list</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
+   <class>KUrlRequester</class>
+   <extends>QFrame</extends>
+   <header>kurlrequester.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>radioButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>kurlrequester</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>134</x>
+     <y>9</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>218</x>
+     <y>11</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>splitter</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>117</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>246</x>
+     <y>68</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton</sender>
+   <signal>clicked()</signal>
+   <receiver>kurlrequester</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>78</x>
+     <y>8</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>326</x>
+     <y>13</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

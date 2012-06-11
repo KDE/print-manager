@@ -57,10 +57,27 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driv
 
 SelectMakeModel::SelectMakeModel(QWidget *parent) :
     QWidget(parent),
+    ui(new Ui::SelectMakeModel),
     m_request(0)
 {
-    ui = new Ui::SelectMakeModel;
     ui->setupUi(this);
+
+    ui->splitter->setStretchFactor(0, 1);
+    ui->splitter->setStretchFactor(0, 2);
+
+    m_sourceModel = new PPDModel(this);
+    m_model = new QSortFilterProxyModel(this);
+    m_model->setSourceModel(m_sourceModel);
+    ui->ppdsLV->setModel(m_sourceModel);
+    connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+            this, SLOT(checkChanged()));
+
+    connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+            this, SLOT(checkChanged()));
+
+    ui->makeView->setModel(m_sourceModel);
+    connect(ui->makeView, SIGNAL(clicked(QModelIndex)),
+            ui->ppdsLV, SLOT(setRootIndex(QModelIndex)));
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
@@ -89,18 +106,9 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
     message << deviceId;
     message << makeAndModel;
     message << deviceUri;
-    QDBusReply<DriverMatchList> reply = QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
-
-    DriverMatchList drivers;
-    if (reply.isValid()) {
-        drivers = reply.value();
-    }
-
-    foreach (const DriverMatch &driverMatch, drivers) {
-        kDebug() << driverMatch.ppd << driverMatch.match;
-    }
-
-    kDebug() << drivers.count() << reply.error();
+    QDBusConnection::sessionBus().callWithCallback(message,
+                                                   this,
+                                                   SLOT(getBestDriversFinished(QDBusMessage)));
 }
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)
@@ -114,7 +122,6 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
         m_busySeq->start();
     } else {
         m_busySeq->stop();
-        ui->makeFilterKCB->setCurrentIndex(ui->makeFilterKCB->findText(make));
         if (!makeAndModel.isEmpty()) {
             // Tries to find the current PPD and select it
             for (int i = 0; i < m_model->rowCount(); i++) {
@@ -132,11 +139,8 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
 void SelectMakeModel::ppdsLoaded()
 {
     ReturnArguments ppds = m_request->ppds();
-    PPDModel *sourceModel = new PPDModel(ppds, this);
+    m_sourceModel->setPPDs(ppds);
     m_request->deleteLater(); // Do not make it be 0 since it takes a lot to load
-    m_model = new QSortFilterProxyModel(this);
-    m_model->setSourceModel(sourceModel);
-    ui->ppdsLV->setModel(m_model);
 
     QStringList makes;
     for (int i = 0; i < ppds.size(); i++) {
@@ -144,17 +148,7 @@ void SelectMakeModel::ppdsLoaded()
     }
     makes.sort();
     makes.removeDuplicates();
-    ui->makeFilterKCB->addItems(makes);
 
-    QStandardItemModel *makeModel = new QStandardItemModel(this);
-    foreach (const QString &make, makes) {
-        QStandardItem *stdItem = new QStandardItem(make);
-        makeModel->appendRow(stdItem);
-    }
-    ui->makeView->setModel(makeModel);
-
-    connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(checkChanged()));
     // find the make and model desired
     setMakeModel(m_make, m_makeAndModel);
 }
@@ -164,6 +158,7 @@ void SelectMakeModel::checkChanged()
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
     selection = ui->ppdsLV->selectionModel()->selection();
+
     // enable or disable the job action buttons if something is selected
     emit changed(!selection.indexes().isEmpty());
     if (!selection.indexes().isEmpty()) {
@@ -194,18 +189,30 @@ void SelectMakeModel::on_makeFilterKCB_editTextChanged(const QString &text)
     // will be emmited before this signal.
     // So we check if the line edit was modified by the user to be 100% sure
     PPDModel *sourceModel = qobject_cast<PPDModel *>(m_model->sourceModel());
-    if (ui->makeFilterKCB->lineEdit()->isModified()) {
-        sourceModel->setMake(QString());
-        m_model->setFilterRole(Qt::DisplayRole);
-        m_model->setFilterCaseSensitivity(Qt::CaseInsensitive);
-        m_model->setFilterFixedString(text);
-    } else {
-        sourceModel->setMake(text);
-        m_model->setFilterRole(PPDModel::PPDMake);
-        m_model->setFilterCaseSensitivity(Qt::CaseSensitive);
-        m_model->setFilterFixedString(text);
-    }
+//    if (ui->makeFilterKCB->lineEdit()->isModified()) {
+//        sourceModel->setMake(QString());
+//        m_model->setFilterRole(Qt::DisplayRole);
+//        m_model->setFilterCaseSensitivity(Qt::CaseInsensitive);
+//        m_model->setFilterFixedString(text);
+//    } else {
+//        sourceModel->setMake(text);
+//        m_model->setFilterRole(PPDModel::PPDMake);
+//        m_model->setFilterCaseSensitivity(Qt::CaseSensitive);
+//        m_model->setFilterFixedString(text);
+    //    }
 }
 
+void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
+{
+    if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
+        DriverMatchList bestDrivers;
+        bestDrivers = message.arguments().first().value<DriverMatchList>();
+//        m_sourceModel->setBestPPDs()
 
-#include "SelectMakeModel.moc"
+        foreach (const DriverMatch &driverMatch, bestDrivers) {
+            kDebug() << driverMatch.ppd << driverMatch.match;
+        }
+    } else {
+        kWarning() << "Unexpected message" << message;
+    }
+}

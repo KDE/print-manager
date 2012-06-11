@@ -64,7 +64,6 @@ PageChoosePPD::PageChoosePPD(QWidget *parent) :
     ui->gridLayout->addLayout(m_layout, 1, 3);
     m_selectMM = new SelectMakeModel(this);
     m_layout->addWidget(m_selectMM);
-
 }
 
 PageChoosePPD::~PageChoosePPD()
@@ -116,13 +115,8 @@ QVariantHash PageChoosePPD::values() const
 
     QVariantHash ret = m_args;
     if (canProceed()) {
-        if (ui->originCB->currentIndex() == 0) {
-            QString makeAndModel = m_selectMM->selectedMakeAndModel();
-            QString ppdName = m_selectMM->selectedPPDName();
-            if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
-                ret[PPD_NAME] = ppdName;
-            }
-        }
+        // TODO get the PPD file name
+        ret[PPD_NAME] = m_selectMM->selectedPPDName();
     }
     return ret;
 }
@@ -131,23 +125,13 @@ bool PageChoosePPD::canProceed() const
 {
     // It can proceed if a PPD file (local or not) is provided    bool changed = false;
     bool allow = false;
-    if (ui->originCB->currentIndex() == 0) {
-        QString makeAndModel = m_selectMM->selectedMakeAndModel();
-        QString ppdName = m_selectMM->selectedPPDName();
-        kDebug() << ppdName << makeAndModel;
-        if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
-            allow = true;
-        }
-    } else if (ui->originCB->currentIndex() == 0) {
-//         fileKUR->button()->click();
-//         if (fileKUR->url().isEmpty()) {
-//             makeCB->setCurrentIndex(makeCB->property("lastIndex").toInt());
-//             return;
-//         }
-//         emit showKUR();
-//         // set the QVariant type to bool makes it possible to know a file was selected
-//         m_changedValues[PPD_NAME] = true;
+
+    // TODO check the PPD file name
+    QString ppdName = m_selectMM->selectedPPDName();
+    if (!ppdName.isEmpty()){
+        allow = true;
     }
+
     return allow;
 }
 

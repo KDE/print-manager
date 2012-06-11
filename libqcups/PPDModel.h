@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,10 +21,15 @@
 #ifndef PPD_MODEL_H
 #define PPD_MODEL_H
 
-#include <QAbstractListModel>
+#include <QStandardItemModel>
 #include <QVariantHash>
 
-class PPDModel : public QAbstractListModel
+struct DriverMatch{
+    QString ppd;
+    QString match;
+};
+typedef QList<DriverMatch> DriverMatchList;
+class PPDModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(Role)
@@ -35,18 +40,26 @@ public:
         PPDMakeAndModel
     } Role;
 
-    explicit PPDModel(const QList<QVariantHash> &ppds, QObject *parent = 0);
+    explicit PPDModel(QObject *parent = 0);
+    void setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &driverMatch = DriverMatchList());
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    void clear();
 
-    void setMake(const QString &make);
+//    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
+//    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+
+//    void setMake(const QString &make);
 
 private:
+    QStandardItem* findCreateMake(const QString &make);
+
     QList<QVariantHash> m_ppds;
-    QString m_make;
+//    QString m_make;
 };
+
+Q_DECLARE_METATYPE(DriverMatchList)
+Q_DECLARE_METATYPE(DriverMatch)
 
 #endif

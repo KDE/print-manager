@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -20,59 +20,126 @@
 
 #include "PPDModel.h"
 
+#include <QStringBuilder>
+
+#include <KLocale>
+
 #include <KDebug>
 
-PPDModel::PPDModel(const QList<QVariantHash> &ppds, QObject *parent)
- : QAbstractListModel(parent),
-   m_ppds(ppds)
+PPDModel::PPDModel(QObject *parent) :
+    QStandardItemModel(parent)
 {
 }
 
-QVariant PPDModel::data(const QModelIndex &index, int role) const
+void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &driverMatch)
 {
-    if (!index.isValid()) {
-        return QVariant();
+    clear();
+
+    QStandardItem *recommended = 0;
+    if (!driverMatch.isEmpty()) {
+        recommended = new QStandardItem;
+        recommended->setText(i18n("Recommended Drivers"));
     }
 
-    int row = index.row();
-    switch (role) {
-    case Qt::DisplayRole:
-        if (m_make.isEmpty()) {
-            return QString("%1 (%2)")
-                .arg(m_ppds.at(row)["ppd-make-and-model"].toString())
-                .arg(m_ppds.at(row)["ppd-natural-language"].toString());
-        } else {
-            QString first = m_ppds.at(row)["ppd-make-and-model"].toString();
-            // We are only looking at printers of X brand, so remove the
-            // brand name from the list
-            if (first.startsWith(m_make + ' ', Qt::CaseInsensitive)) {
-                first.remove(0, m_make.size() + 1);
-            }
-            return QString("%1 (%2)")
-               .arg(first)
-               .arg(m_ppds.at(row)["ppd-natural-language"].toString());
+    foreach (const QVariantHash &ppd, ppds) {
+        QString make = ppd["ppd-make"].toString();
+        QString makeAndModel = ppd["ppd-make-and-model"].toString();
+        QString naturalLanguage = ppd["ppd-natural-language"].toString();
+        QString ppdName = ppd["ppd-name"].toString();
+
+        QStandardItem *makeItem = findCreateMake(make);
+
+        // Removes the Make part of the string
+        if (makeAndModel.startsWith(make)) {
+            makeAndModel.remove(0, make.size() + 1);
         }
-    case PPDMake:
-        return m_ppds.at(row)["ppd-make"].toString();
-    case PPDName:
-        return m_ppds.at(row)["ppd-name"].toString();
-    case PPDMakeAndModel:
-        return m_ppds.at(row)["ppd-make-and-model"].toString();
-    default:
-        return QVariant();
+
+        // Create the PPD
+        QStandardItem *ppdItem = new QStandardItem;
+        ppdItem->setText(makeAndModel.trimmed() %
+                         QLatin1String(" (") %
+                         naturalLanguage %
+                         QLatin1Char(')'));
+        ppdItem->setData(ppdName, PPDName);
+        makeItem->appendRow(ppdItem);
+
+        // Check if the driver is not the recommended one
+        if (recommended) {
+            foreach (const DriverMatch &driver, driverMatch) {
+                if (ppdName == driver.ppd) {
+                    // Create the PPD (TODO move to a func)
+                    QStandardItem *ppdItem = new QStandardItem;
+                    ppdItem->setText(makeAndModel.trimmed() %
+                                     QLatin1String(" (") %
+                                     naturalLanguage %
+                                     QLatin1Char(')'));
+                    ppdItem->setData(ppdName, PPDName);
+                    recommended->appendRow(ppdItem);
+                }
+            }
+        }
     }
 }
 
-void PPDModel::setMake(const QString &make)
+//QVariant PPDModel::data(const QModelIndex &index, int role) const
+//{
+//    if (!index.isValid()) {
+//        return QVariant();
+//    }
+
+//    int row = index.row();
+//    switch (role) {
+//    case Qt::DisplayRole:
+//        if (m_make.isEmpty()) {
+//            return QString("%1 (%2)")
+//                .arg(m_ppds.at(row)["ppd-make-and-model"].toString())
+//                .arg(m_ppds.at(row)["ppd-natural-language"].toString());
+//        } else {
+//            QString first = m_ppds.at(row)["ppd-make-and-model"].toString();
+//            // We are only looking at printers of X brand, so remove the
+//            // brand name from the list
+//            if (first.startsWith(m_make + ' ', Qt::CaseInsensitive)) {
+//                first.remove(0, m_make.size() + 1);
+//            }
+//            return QString("%1 (%2)")
+//               .arg(first)
+//               .arg(m_ppds.at(row)["ppd-natural-language"].toString());
+//        }
+//    case PPDMake:
+//        return m_ppds.at(row)["ppd-make"].toString();
+//    case PPDName:
+//        return m_ppds.at(row)["ppd-name"].toString();
+//    case PPDMakeAndModel:
+//        return m_ppds.at(row)["ppd-make-and-model"].toString();
+//    default:
+//        return QVariant();
+//    }
+//}
+
+//void PPDModel::setMake(const QString &make)
+//{
+//    m_make = make;
+//}
+
+QStandardItem* PPDModel::findCreateMake(const QString &make)
 {
-    m_make = make;
+    for (int i = 0; i < rowCount(); ++i) {
+        QStandardItem *makeItem = item(i);
+        if (makeItem->text() == make) {
+            return makeItem;
+        }
+    }
+
+    QStandardItem *makeItem = new QStandardItem(make);
+    appendRow(makeItem);
+    return makeItem;
 }
 
-int PPDModel::rowCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent)
-    return m_ppds.size();
-}
+//int PPDModel::rowCount(const QModelIndex &parent) const
+//{
+//    Q_UNUSED(parent)
+//    return m_ppds.size();
+//}
 
 Qt::ItemFlags PPDModel::flags(const QModelIndex &index) const
 {
@@ -80,4 +147,8 @@ Qt::ItemFlags PPDModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
-#include "PPDModel.moc"
+void PPDModel::clear()
+{
+    // Remove all rows from the model
+    removeRows(0, rowCount());
+}

@@ -76,35 +76,8 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
-    <widget class="KComboBox" name="originCB">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <item>
-      <property name="text">
-       <string comment="@item:inlistbox">Select a Driver from Current Installed List</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string comment="@item:inlistbox">Provide a Driver from a File</string>
-      </property>
-     </item>
-    </widget>
-   </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

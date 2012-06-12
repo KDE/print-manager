@@ -47,16 +47,11 @@ public:
 
     void clear();
 
-//    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-//    int rowCount(const QModelIndex &parent = QModelIndex()) const;
-
-//    void setMake(const QString &make);
-
 private:
+    QStandardItem* createPPDItem(const QVariantHash &ppd);
     QStandardItem* findCreateMake(const QString &make);
 
     QList<QVariantHash> m_ppds;
-//    QString m_make;
 };
 
 Q_DECLARE_METATYPE(DriverMatchList)

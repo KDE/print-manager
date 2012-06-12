@@ -22,19 +22,19 @@
 #define SELECT_MAKE_MODEL_H
 
 #include <QWidget>
-#include <QSortFilterProxyModel>
 #include <QDBusMessage>
 
 #include <KPixmapSequenceOverlayPainter>
 #include <kdemacros.h>
+
+#include "KCupsConnection.h"
+#include "PPDModel.h"
 
 namespace Ui {
     class SelectMakeModel;
 }
 
 class KCupsRequest;
-class PPDModel;
-
 class KDE_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
@@ -55,17 +55,23 @@ signals:
     void changed(bool);
 
 private slots:
-    void on_makeFilterKCB_editTextChanged(const QString &text);
     void getBestDriversFinished(const QDBusMessage &message);
+    void getBestDriversFailed(const QDBusError &error, const QDBusMessage &message);
 
 private:
+    void setModelData();
+
     Ui::SelectMakeModel *ui;
-    KCupsRequest *m_request;
-    KPixmapSequenceOverlayPainter *m_busySeq;
-    QString m_selectedPPDName, m_selectedMakeAndModel;
-    QString m_make, m_makeAndModel;
-    QSortFilterProxyModel *m_model;
     PPDModel *m_sourceModel;
+    KCupsRequest *m_ppdRequest;
+    ReturnArguments m_ppds;
+    DriverMatchList m_driverMatchList;
+    bool m_gotBestDrivers;
+    KPixmapSequenceOverlayPainter *m_busySeq;
+    QString m_selectedPPDName;
+    QString m_selectedMakeAndModel;
+    QString m_make;
+    QString m_makeAndModel;
 };
 
 #endif

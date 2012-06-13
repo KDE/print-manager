@@ -41,6 +41,7 @@ Q_DECLARE_METATYPE(QList<bool>)
 
 KCupsConnection* KCupsConnection::m_instance = 0;
 static int password_retries = 0;
+static int internalErrorCount = 0;
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data);
 
 static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByteArray> *qbaList)
@@ -208,13 +209,14 @@ bool KCupsConnection::readyToStart()
 {
     if (QThread::currentThread() == KCupsConnection::global()) {
         password_retries = 0;
+        internalErrorCount = 0;
         return true;
     }
     return false;
 }
 
 ReturnArguments KCupsConnection::request(ipp_op_e operation,
-                                         const QString &resource,
+                                         const char *resource,
                                          const QVariantHash &reqValues,
                                          bool needResponse)
 {
@@ -268,11 +270,11 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
         // Do the request
         // do the request deleting the response
         if (filename.isEmpty()) {
-            response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8());
+            response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource);
         } else {
-            response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource.toUtf8(), filename.toUtf8());
+            response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource, filename.toUtf8());
         }
-    } while (retryIfForbidden());
+    } while (retry(resource));
 
     if (response != NULL && needResponse) {
         ret = parseIPPVars(response, group_tag, needDestName);
@@ -401,7 +403,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
 
         // Do the request
         response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
-    } while (retryIfForbidden());
+    } while (retry("/"));
 
     if (ret < 0 &&
         response != NULL &&
@@ -447,7 +449,7 @@ void KCupsConnection::cancelDBusSubscription()
 
         // Do the request
         ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/"));
-    } while (retryIfForbidden());
+    } while (retry("/"));
 
     // Reset the subscription id
     m_subscriptionId = -1;
@@ -713,18 +715,44 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
     return ret;
 }
 
-bool KCupsConnection::retryIfForbidden()
+bool KCupsConnection::retry(const char *resource)
 {
     ipp_status_t status = cupsLastError();
 
-    if (status == IPP_FORBIDDEN ||
-        status == IPP_NOT_AUTHORIZED ||
+    kDebug() << "cupsLastError():" << status << cupsLastErrorString();
+
+    // When CUPS process stops our connection
+    // with it fails and has to be re-established
+    if (status == IPP_INTERNAL_ERROR) {
+        // Deleting this connection thread forces it
+        // to create a new CUPS_HTTP_DEFAULT connection
+        kDebug() << "IPP_INTERNAL_ERROR clearing cookies";
+        httpClearCookie(CUPS_HTTP_DEFAULT);
+
+        // Server might be restarting sleep for a few ms
+        msleep(500);
+
+        // Try the request again
+        return ++internalErrorCount < 3;
+    }
+
+    bool forceAuth = false;
+    // If our user is forbidden to perform the
+    // task we try again using the root user
+    // ONLY if it was the first time
+    if (status == IPP_FORBIDDEN &&
+        password_retries == 0) {
+        // Pretend to be the root user
+        // Sometimes setting this just works
+        cupsSetUser("root");
+
+        // force authentication
+        forceAuth = true;
+    }
+
+    if (status == IPP_NOT_AUTHORIZED ||
         status == IPP_NOT_AUTHENTICATED) {
-        if (password_retries == 0) {
-            // Pretend to be the root user
-            // Sometime seting this just works
-            cupsSetUser("root");
-        } else if (password_retries > 3 || password_retries == -1) {
+        if (password_retries > 3 || password_retries == -1) {
             // the authentication failed 3 times
             // OR the dialog was canceld (-1)
             // reset to 0 and quit the do-while loop
@@ -733,12 +761,18 @@ bool KCupsConnection::retryIfForbidden()
         }
 
         // force authentication
-        kDebug() << "cupsLastErrorString()" << cupsLastErrorString() << status;
-        kDebug() << "cupsDoAuthentication" << password_retries;
-        cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", "/");
-        // tries to do the action again
+        forceAuth = true;
+    }
+
+    if (forceAuth) {
+        // force authentication
+        kDebug() << "cupsDoAuthentication() password_retries:" << password_retries;
+        int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
+        kDebug() << "cupsDoAuthentication() success:" << (ret == -1 ? true : false);
+
+        // If the authentication was succefull
         // sometimes just trying to be root works
-        return true;
+        return ret == -1 ? true : false;
     }
 
     // the action was not forbidden
@@ -749,14 +783,6 @@ ipp_status_t KCupsConnection::lastError()
 {
     ipp_status_t status = cupsLastError();
 
-    // When CUPS process stops our connection
-    // with it fails and has to be re-established
-    if (status == IPP_INTERNAL_ERROR) {
-        // Deleting this connection thread forces it
-        // to create a new CUPS_HTTP_DEFAULT connection
-        kDebug() << "IPP_INTERNAL_ERROR clearing cookies";
-        httpClearCookie(CUPS_HTTP_DEFAULT);
-    }
     return status;
 }
 

@@ -63,7 +63,7 @@ void KCupsRequest::getPPDS(const QString &make)
         request["need-dest-name"] = false;
 
         m_ppds = KCupsConnection::request(CUPS_GET_PPDS,
-                                          QLatin1String("/"),
+                                          "/",
                                           request,
                                           true);
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
@@ -108,7 +108,7 @@ void KCupsRequest::getDevices()
                            CUPS_EXCLUDE_NONE,
                            (cups_device_cb_t) choose_device_cb,
                            this);
-        } while (KCupsConnection::retryIfForbidden());
+        } while (KCupsConnection::retry("/admin/"));
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -137,7 +137,7 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
 
         ReturnArguments ret;
         ret = KCupsConnection::request(CUPS_GET_PRINTERS,
-                                       QLatin1String("/"),
+                                       "/",
                                        request,
                                        true);
 
@@ -163,7 +163,7 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
 
         ReturnArguments ret;
         ret = KCupsConnection::request(IPP_GET_PRINTER_ATTRIBUTES,
-                                       QLatin1String("/admin/"),
+                                       "/admin/",
                                        request,
                                        true);
 
@@ -206,7 +206,7 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
 
         ReturnArguments ret;
         ret = KCupsConnection::request(IPP_GET_JOBS,
-                                       QLatin1String("/"),
+                                       "/",
                                        request,
                                        true);
 
@@ -232,7 +232,7 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, KCupsJ
 
         ReturnArguments ret;
         ret = KCupsConnection::request(IPP_GET_JOB_ATTRIBUTES,
-                                       QLatin1String("/admin/"),
+                                       "/admin/",
                                        request,
                                        true);
 
@@ -283,7 +283,7 @@ void KCupsRequest::addClass(const QVariantHash &values)
     request["printer-is-accepting-jobs"] = true;
     request["printer-state"] = IPP_PRINTER_IDLE;
 
-    doOperation(CUPS_ADD_MODIFY_CLASS, QLatin1String("/admin/"), request);
+    doOperation(CUPS_ADD_MODIFY_CLASS, "/admin/", request);
 }
 
 void KCupsRequest::getServerSettings()
@@ -302,7 +302,7 @@ void KCupsRequest::getServerSettings()
             cupsFreeOptions(num_settings, settings);
 
             m_server = KCupsServer(arguments);
-        } while (KCupsConnection::retryIfForbidden());
+        } while (KCupsConnection::retry("/admin/"));
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -319,7 +319,7 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
             kDebug() << filename;
             m_ppdFile = filename;
             kDebug() << m_ppdFile;
-        } while (KCupsConnection::retryIfForbidden());
+        } while (KCupsConnection::retry("/"));
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -346,7 +346,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
 
             cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
             cupsFreeOptions(num_settings, settings);
-        } while (KCupsConnection::retryIfForbidden());
+        } while (KCupsConnection::retry("/admin/"));
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -379,7 +379,7 @@ void KCupsRequest::setAttributes(const QString &printerName,
         operation = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
     }
 
-    doOperation(operation, QLatin1String("/admin/"), request);
+    doOperation(operation, "/admin/", request);
 }
 
 void KCupsRequest::setShared(const QString &printerName, bool isClass, bool shared)
@@ -393,49 +393,49 @@ void KCupsRequest::setShared(const QString &printerName, bool isClass, bool shar
     ipp_op_e operation;
     operation = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
 
-    doOperation(operation, QLatin1String("/admin/"), request);
+    doOperation(operation, "/admin/", request);
 }
 
 void KCupsRequest::pausePrinter(const QString &printerName)
 {
     QVariantHash request;
     request["printer-name"] = printerName;
-    doOperation(IPP_PAUSE_PRINTER, QLatin1String("/admin/"), request);
+    doOperation(IPP_PAUSE_PRINTER, "/admin/", request);
 }
 
 void KCupsRequest::resumePrinter(const QString &printerName)
 {
     QVariantHash request;
     request["printer-name"] = printerName;
-    doOperation(IPP_RESUME_PRINTER, QLatin1String("/admin/"), request);
+    doOperation(IPP_RESUME_PRINTER, "/admin/", request);
 }
 
 void KCupsRequest::rejectJobs(const QString &printer)
 {
     QVariantHash request;
     request["printer-name"] = printer;
-    doOperation(CUPS_REJECT_JOBS, QLatin1String("/admin/"), request);
+    doOperation(CUPS_REJECT_JOBS, "/admin/", request);
 }
 
 void KCupsRequest::acceptJobs(const QString &printerName)
 {
     QVariantHash request;
     request["printer-name"] = printerName;
-    doOperation(CUPS_ACCEPT_JOBS, QLatin1String("/admin/"), request);
+    doOperation(CUPS_ACCEPT_JOBS, "/admin/", request);
 }
 
 void KCupsRequest::setDefaultPrinter(const QString &printerName)
 {
     QVariantHash request;
     request["printer-name"] = printerName;
-    doOperation(CUPS_SET_DEFAULT, QLatin1String("/admin/"), request);
+    doOperation(CUPS_SET_DEFAULT, "/admin/", request);
 }
 
 void KCupsRequest::deletePrinter(const QString &printerName)
 {
     QVariantHash request;
     request["printer-name"] = printerName;
-    doOperation(CUPS_DELETE_PRINTER, QLatin1String("/admin/"), request);
+    doOperation(CUPS_DELETE_PRINTER, "/admin/", request);
 }
 
 void KCupsRequest::printTestPage(const QString &printerName, bool isClass)
@@ -467,7 +467,7 @@ void KCupsRequest::printTestPage(const QString &printerName, bool isClass)
         resource = QLatin1String("/printers/") % printerName;
     }
 
-    doOperation(IPP_PRINT_JOB, resource, request);
+    doOperation(IPP_PRINT_JOB, resource.toUtf8(), request);
 }
 
 void KCupsRequest::printCommand(const QString &printerName, const QString &command, const QString &title)
@@ -525,7 +525,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
                 setFinished();
                 return; // Return to avoid a new try
             }
-        } while (KCupsConnection::retryIfForbidden());
+        } while (KCupsConnection::retry("/"));
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -539,7 +539,7 @@ void KCupsRequest::cancelJob(const QString &printerName, int jobId)
     request["printer-name"] = printerName;
     request["job-id"] = jobId;
 
-    doOperation(IPP_CANCEL_JOB, QLatin1String("/jobs/"), request);
+    doOperation(IPP_CANCEL_JOB, "/jobs/", request);
 }
 
 void KCupsRequest::holdJob(const QString &printerName, int jobId)
@@ -548,7 +548,7 @@ void KCupsRequest::holdJob(const QString &printerName, int jobId)
     request["printer-name"] = printerName;
     request["job-id"] = jobId;
 
-    doOperation(IPP_HOLD_JOB, QLatin1String("/jobs/"), request);
+    doOperation(IPP_HOLD_JOB, "/jobs/", request);
 }
 
 void KCupsRequest::releaseJob(const QString &printerName, int jobId)
@@ -557,7 +557,7 @@ void KCupsRequest::releaseJob(const QString &printerName, int jobId)
     request["printer-name"] = printerName;
     request["job-id"] = jobId;
 
-    doOperation(IPP_RELEASE_JOB, QLatin1String("/jobs/"), request);
+    doOperation(IPP_RELEASE_JOB, "/jobs/", request);
 }
 
 void KCupsRequest::restartJob(const QString &printerName, int jobId)
@@ -566,7 +566,7 @@ void KCupsRequest::restartJob(const QString &printerName, int jobId)
     request["printer-name"] = printerName;
     request["job-id"] = jobId;
 
-    doOperation(IPP_RESTART_JOB, QLatin1String("/jobs/"), request);
+    doOperation(IPP_RESTART_JOB, "/jobs/", request);
 }
 
 void KCupsRequest::moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName)
@@ -582,7 +582,7 @@ void KCupsRequest::moveJob(const QString &fromPrinterName, int jobId, const QStr
     request["job-id"] = jobId;
     request["job-printer-uri"] = toPrinterName;
 
-    doOperation(CUPS_MOVE_JOB, QLatin1String("/jobs/"), request);
+    doOperation(CUPS_MOVE_JOB, "/jobs/", request);
 }
 
 void KCupsRequest::invokeMethod(const char *method,
@@ -625,7 +625,7 @@ void KCupsRequest::invokeMethod(const char *method,
     }
 }
 
-void KCupsRequest::doOperation(int operation, const QString &resource, const QVariantHash &request)
+void KCupsRequest::doOperation(int operation, const char *resource, const QVariantHash &request)
 {
     if (KCupsConnection::readyToStart()) {
         KCupsConnection::request(static_cast<ipp_op_e>(operation),

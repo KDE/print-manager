@@ -333,7 +333,7 @@ private:
                       const QVariant &arg6 = QVariant(),
                       const QVariant &arg7 = QVariant(),
                       const QVariant &arg8 = QVariant());
-    Q_INVOKABLE void doOperation(int operation, const QString &resource, const QVariantHash &request);
+    Q_INVOKABLE void doOperation(int operation, const char *resource, const QVariantHash &request);
     void setError(int error, const QString &errorMsg);
     void setFinished();
 

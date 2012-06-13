@@ -264,7 +264,7 @@ protected:
 
     virtual void run();
     static bool readyToStart();
-    static bool retryIfForbidden();
+    static bool retry(const char *resource);
     /**
       * Always use this method to get the last error
       * because if the cups connection fails, the last
@@ -275,7 +275,7 @@ protected:
     static ipp_status_t lastError();
 
     static ReturnArguments request(ipp_op_e operation,
-                                   const QString &resource,
+                                   const char *resource,
                                    const QVariantHash &reqValues,
                                    bool needResponse);
 

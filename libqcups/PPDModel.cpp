@@ -41,7 +41,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
         foreach (const QVariantHash &ppd, ppds) {
             if (ppd["ppd-name"].toString() == driver.ppd) {
                 // Create the PPD
-                QStandardItem *ppdItem = createPPDItem(ppd);
+                QStandardItem *ppdItem = createPPDItem(ppd, true);
 
                 if (recommended == 0) {
                     recommended = new QStandardItem;
@@ -60,7 +60,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
         QStandardItem *makeItem = findCreateMake(ppd["ppd-make"].toString());
 
         // Create the PPD
-        QStandardItem *ppdItem = createPPDItem(ppd);
+        QStandardItem *ppdItem = createPPDItem(ppd, false);
         makeItem->appendRow(ppdItem);
     }
 }
@@ -91,7 +91,7 @@ void PPDModel::clear()
     removeRows(0, rowCount());
 }
 
-QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd)
+QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd, bool recommended)
 {
     QStandardItem *ret = new QStandardItem;
 
@@ -100,16 +100,25 @@ QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd)
     QString naturalLanguage = ppd["ppd-natural-language"].toString();
     QString ppdName = ppd["ppd-name"].toString();
 
-    // Removes the Make part of the string
-    if (makeAndModel.startsWith(make)) {
-        makeAndModel.remove(0, make.size() + 1);
-    }
+    QString text;
+    if (recommended) {
+        text = makeAndModel %
+                QLatin1String(" (") %
+                naturalLanguage %
+                QLatin1Char(')');
+    } else {
+        // Removes the Make part of the string
+        if (makeAndModel.startsWith(make)) {
+            makeAndModel.remove(0, make.size() + 1);
+        }
 
-    // Create the PPD
-    ret->setText(makeAndModel.trimmed() %
-                 QLatin1String(" (") %
-                 naturalLanguage %
-                 QLatin1Char(')'));
+        // Create the PPD
+        text = makeAndModel.trimmed() %
+                QLatin1String(" (") %
+                naturalLanguage %
+                QLatin1Char(')');
+    }
+    ret->setText(text);
     ret->setData(ppdName, PPDName);
 
     return ret;

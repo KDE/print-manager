@@ -105,8 +105,8 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
                                              QLatin1String("/org/fedoraproject/Config/Printing"),
                                              QLatin1String("org.fedoraproject.Config.Printing"),
                                              QLatin1String("GetBestDrivers"));
-//    message << deviceId;
-    message << "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;";
+    message << deviceId;
+//    message << "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;";
     message << makeAndModel;
     message << deviceUri;
     QDBusConnection::sessionBus().callWithCallback(message,

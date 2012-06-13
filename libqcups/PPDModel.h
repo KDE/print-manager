@@ -48,7 +48,7 @@ public:
     void clear();
 
 private:
-    QStandardItem* createPPDItem(const QVariantHash &ppd);
+    QStandardItem* createPPDItem(const QVariantHash &ppd, bool recommended);
     QStandardItem* findCreateMake(const QString &make);
 
     QList<QVariantHash> m_ppds;

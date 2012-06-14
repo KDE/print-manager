@@ -63,6 +63,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr |= KCupsPrinter::MarkerMessage;
     attr |= KCupsPrinter::MarkerTypes;
     attr |= KCupsPrinter::PrinterMakeAndModel;
+    attr |= KCupsPrinter::PPDName;
 
     KCupsPrinter printer;
     KCupsRequest *request = new KCupsRequest;
@@ -71,7 +72,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     if (!request->hasError() && !request->printers().isEmpty()){
         printer = request->printers().first();
     }
-//    kDebug() << "VALUES" << values;
+//    kDebug() << "VALUES" << printer.a rgument();
 //    kDebug() << "marker" << values["marker-levels"].value<QList<int> >();
 
     request->deleteLater();

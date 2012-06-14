@@ -26,7 +26,7 @@
 #include <QPainter>
 #include <KDebug>
 
-PageChoosePPD::PageChoosePPD(QWidget *parent) :
+PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageChoosePPD),
     m_isValid(false)
@@ -58,12 +58,16 @@ PageChoosePPD::PageChoosePPD(QWidget *parent) :
     painter.drawPixmap(startPoint, pixmap);
     ui->printerL->setPixmap(icon);
 
-
     m_layout = new QStackedLayout;
     m_layout->setContentsMargins(0, 0, 0, 0);
     ui->gridLayout->addLayout(m_layout, 1, 3);
     m_selectMM = new SelectMakeModel(this);
     m_layout->addWidget(m_selectMM);
+
+    if (!args.isEmpty()) {
+        // set our args
+        setValues(args);
+    }
 }
 
 PageChoosePPD::~PageChoosePPD()

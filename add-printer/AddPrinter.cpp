@@ -39,7 +39,8 @@ int AddPrinter::newInstance()
 {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->isSet("add")) {
-        m_pqInterface->AddPrinter(0);
+//        m_pqInterface->AddPrinter(0);
+        m_pqInterface->NewPrinterFromDevice(0, "Samsung SCX-3400 Series", "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;");
     }
     args->clear();
     return 0;
@@ -48,5 +49,3 @@ int AddPrinter::newInstance()
 AddPrinter::~AddPrinter()
 {
 }
-
-#include "AddPrinter.moc"

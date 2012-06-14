@@ -83,8 +83,10 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     m_busySeq->setWidget(ui->printerL);
     connect(m_model, SIGNAL(loaded()), m_busySeq, SLOT(stop()));
 
-    // set our args
-    setValues(args);
+    if (!args.isEmpty()) {
+        // set our args
+        setValues(args);
+    }
 }
 
 PageDestinations::~PageDestinations()

@@ -94,7 +94,11 @@ SelectMakeModel::~SelectMakeModel()
 {
     delete ui;
 }
-
+//name: PSC_1400_series
+//mfg: HP
+//mdl: PSC 1400 series
+//des:
+//cmd: LDL,MLC,PML,DYN
 void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri)
 {
     kDebug() << "===================================" << deviceId;
@@ -105,7 +109,8 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
                                              QLatin1String("/org/fedoraproject/Config/Printing"),
                                              QLatin1String("org.fedoraproject.Config.Printing"),
                                              QLatin1String("GetBestDrivers"));
-    message << deviceId;
+//    message << deviceId;
+    message << QString("MFG:%1;MDL:%2;DES:%3;CMD:%4;").arg("HP", "PSC 1400 series", "", "LDL,MLC,PML,DYN");
 //    message << "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;";
     message << makeAndModel;
     message << deviceUri;

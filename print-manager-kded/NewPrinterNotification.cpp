@@ -127,8 +127,6 @@ void NewPrinterNotification::NewPrinter(int status,
 
         actions << i18n("Search");
         connect(notify, SIGNAL(action1Activated()), this, SLOT(setupPrinter()));
-
-
     } else {
         // name is the name of the queue which hal_lpadmin has set up
         // automatically.
@@ -218,8 +216,9 @@ void NewPrinterNotification::configurePrinter()
                                              QLatin1String("/"),
                                              QLatin1String("org.kde.ConfigurePrinter"),
                                              QLatin1String("ConfigurePrinter"));
+    // TODO setup wid
     message << sender()->property(PRINTER_NAME);
-    QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
+    QDBusConnection::sessionBus().call(message);
 }
 
 void NewPrinterNotification::searchDrivers()
@@ -228,6 +227,7 @@ void NewPrinterNotification::searchDrivers()
 
 void NewPrinterNotification::printTestPage()
 {
+    kDebug();
     KCupsRequest *request = new KCupsRequest;
     request->printTestPage(sender()->property(PRINTER_NAME).toString(), false);
     request->waitTillFinished();
@@ -236,25 +236,51 @@ void NewPrinterNotification::printTestPage()
 
 void NewPrinterNotification::findDriver()
 {
+    kDebug();
+    // This function will show the PPD browser dialog
+    // to choose a better PPD to the already added printer
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.AddPrinter"),
+                                             QLatin1String("/"),
+                                             QLatin1String("org.kde.AddPrinter"),
+                                             QLatin1String("ChangePPD"));
+    message << static_cast<qulonglong>(0);
+    message << sender()->property(PRINTER_NAME);
+    QDBusConnection::sessionBus().call(message);
 }
 
 void NewPrinterNotification::installDriver()
 {
+    kDebug();
 }
 
 void NewPrinterNotification::setupPrinter()
 {
+    kDebug();
+    // This function will show the PPD browser dialog
+    // to choose a better PPD, queue name, location
+    // in this case the printer was not added
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.AddPrinter"),
+                                             QLatin1String("/"),
+                                             QLatin1String("org.kde.AddPrinter"),
+                                             QLatin1String("NewPrinterFromDevice"));
+    message << static_cast<qulonglong>(0);
+    message << sender()->property(PRINTER_NAME);
+    message << sender()->property(DEVICE_ID);
+    QDBusConnection::sessionBus().call(message);
 }
 
 QStringList NewPrinterNotification::getMissingExecutables(const QString &ppdFileName) const
 {
+    kDebug();
     QDBusMessage message;
     message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
                                              QLatin1String("/org/fedoraproject/Config/Printing"),
                                              QLatin1String("org.fedoraproject.Config.Printing"),
                                              QLatin1String("MissingExecutables"));
     message << ppdFileName;
-    QDBusReply<QStringList> reply = QDBusConnection::sessionBus().call(message, QDBus::BlockWithGui);
+    QDBusReply<QStringList> reply = QDBusConnection::sessionBus().call(message);
     if (!reply.isValid()) {
         kWarning() << "Invalid reply" << reply.error();
     }

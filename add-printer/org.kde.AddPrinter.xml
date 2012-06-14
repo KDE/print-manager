@@ -4,6 +4,15 @@
        <method name="AddPrinter" >
            <arg type="t" name="wid" direction="in" />
        </method>
+       <method name="NewPrinterFromDevice" >
+           <arg type="t" name="wid" direction="in" />
+           <arg type="s" name="name" direction="in" />
+           <arg type="s" name="device_id" direction="in" />
+       </method>
+       <method name="ChangePPD" >
+           <arg type="t" name="wid" direction="in" />
+           <arg type="s" name="name" direction="in" />
+       </method>
        <method name="AddClass" >
            <arg type="t" name="wid" direction="in" />
        </method>

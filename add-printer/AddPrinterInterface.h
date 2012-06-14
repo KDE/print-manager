@@ -32,17 +32,36 @@ public:
     AddPrinterInterface(QObject *parent = 0);
     ~AddPrinterInterface();
 
+    /**
+     * This method allows to browse discovered printers and add them
+     */
+    void AddPrinter(qulonglong wid);
+
+    /**
+     * This method allows to browse printers and create a class
+     */
+    void AddClass(qulonglong wid);
+
+    /**
+     * This method allows to change the PPD of an existing printer
+     */
+    void ChangePPD(qulonglong wid, const QString &name);
+
+    /**
+     * This method allows to browse the PPD list,
+     * and adding the printer described by device_id
+     */
+    void NewPrinterFromDevice(qulonglong wid, const QString &name, const QString &device_id);
+
 signals:
     void quit();
-
-public slots:
-    void AddPrinter(qulonglong wid);
-    void AddClass(qulonglong wid);
 
 private slots:
     void RemoveQueue();
 
 private:
+    void show(QWidget *widget, qulonglong wid) const;
+
     QTimer *m_updateUi;
     QHash<QString, QWidget *> m_uis;
 };

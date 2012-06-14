@@ -27,8 +27,12 @@ class AddPrinterAssistant : public KAssistantDialog
 {
     Q_OBJECT
 public:
-    AddPrinterAssistant(bool addPrinter);
+    AddPrinterAssistant();
     virtual ~AddPrinterAssistant();
+
+    void initAddPrinter(const QString &printer = QString(), const QString &deviceId = QString());
+    void initAddClass();
+    void initChangePPD(const QString &printer);
 
 public slots:
     void back();

@@ -56,71 +56,30 @@ AddPrinterInterface::~AddPrinterInterface()
 
 void AddPrinterInterface::AddPrinter(qulonglong wid)
 {
-    kDebug() << "hmmm";
-    AddPrinterAssistant *wizard = new AddPrinterAssistant(true);
-    wizard->show();
-
-//     if (destName.isEmpty()) {
-// //         emit quit();
-//         return;
-//     }
-// 
-//     if(!m_uis.contains(destName)) {
-//         QCups::ReturnArguments dests;
-//         QStringList requestAttr;
-//         requestAttr << "printer-name"
-//                     << "printer-type";
-//         // Get destinations with these attributes
-//         QCups::Result *ret = QCups::getDests(-1, requestAttr);
-//         ret->waitTillFinished();
-//         dests = ret->result();
-//         ret->deleteLater();
-// 
-//         bool found = false;
-//         bool isClass = false;
-//         for (int i = 0; i < dests.size(); i++) {
-//             if (dests.at(i)["printer-name"] == destName) {
-//                 isClass = dests.at(i)["printer-type"].toInt() & CUPS_PRINTER_CLASS;
-//                 found = true;
-//                 break;
-//             }
-//         }
-// 
-//         if (found) {
-//             AddPrinterUi *ui = new AddPrinterUi(destName, isClass);
-//             KDialog *dlg = new KDialog;
-//             dlg->setWindowIcon(KIcon("printer").pixmap(32));
-//             dlg->setWindowTitle(ui->windowTitle());
-//             dlg->setButtons(0);
-//             dlg->setMainWidget(ui);
-//             dlg->setSizeGripEnabled(true);
-//             (void)dlg->minimumSizeHint(); //Force the dialog to be laid out now
-//             dlg->layout()->setContentsMargins(0,0,0,0);
-//             connect(m_updateUi, SIGNAL(timeout()),
-//                     ui, SLOT(update()));
-//             connect(dlg, SIGNAL(finished()),
-//                     this, SLOT(RemoveQueue()));
-//             connect(ui, SIGNAL(windowTitleChanged(const QString &)),
-//                     dlg, SLOT(setWindowTitle(const QString &)));
-//             dlg->show();
-//             m_uis[destName] = dlg;
-// 
-//         } else {
-//             // if no destination was found and we aren't showing
-//             // a queue quit the app
-//             if (m_uis.isEmpty()) {
-// //                 emit quit();
-//             }
-//             return;
-//         }
-//     }
-    //     KWindowSystem::forceActiveWindow(m_uis[destName]->winId());
+    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    wizard->initAddPrinter();
+    show(wizard, wid);
 }
 
 void AddPrinterInterface::AddClass(qulonglong wid)
 {
-    AddPrinterAssistant *wizard = new AddPrinterAssistant(false);
-    wizard->show();
+    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    wizard->initAddClass();
+    show(wizard, wid);
+}
+
+void AddPrinterInterface::ChangePPD(qulonglong wid, const QString &name)
+{
+    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    wizard->initChangePPD(name);
+    show(wizard, wid);
+}
+
+void AddPrinterInterface::NewPrinterFromDevice(qulonglong wid, const QString &name, const QString &device_id)
+{
+    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    wizard->initAddPrinter(name, device_id);
+    show(wizard, wid);
 }
 
 void AddPrinterInterface::RemoveQueue()
@@ -129,4 +88,9 @@ void AddPrinterInterface::RemoveQueue()
     m_uis.remove(m_uis.key(ui));
 }
 
-#include "AddPrinterInterface.moc"
+void AddPrinterInterface::show(QWidget *widget, qulonglong wid) const
+{
+    widget->show();
+    KWindowSystem::forceActiveWindow(widget->winId());
+    KWindowSystem::setMainWindow(widget, wid);
+}

@@ -77,7 +77,7 @@ void PageAddPrinter::setValues(const QVariantHash &args)
         name.replace('#', '=');
         ui->nameLE->setText(name);
         ui->descriptionLE->setText(args[DEVICE_INFO].toString());
-        ui->descriptionLE->setText(args[DEVICE_LOCATION].toString());
+        ui->locationLE->setText(args[DEVICE_LOCATION].toString());
         ui->shareCB->setChecked(true);
         ui->shareCB->setVisible(args[ADDING_PRINTER].toBool());
 

@@ -56,7 +56,7 @@ PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
                         KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
-    ui->printerL->setPixmap(icon);
+//    ui->printerL->setPixmap(icon);
 
     m_layout = new QStackedLayout;
     m_layout->setContentsMargins(0, 0, 0, 0);
@@ -136,6 +136,7 @@ bool PageChoosePPD::canProceed() const
         allow = true;
     }
 
+    kDebug() << allow;
     return allow;
 }
 

@@ -25,6 +25,8 @@
 #include "PageChoosePPD.h"
 #include "PageAddPrinter.h"
 
+#include <QHostInfo>
+
 #include <KCupsRequest.h>
 
 #include <KLocale>
@@ -59,7 +61,9 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
     // adding a new printer or a class
     QVariantHash args;
     args[ADDING_PRINTER] = true;
-    if (printer.isNull() && deviceId.isNull()) {
+    args[DEVICE_LOCATION] = QHostInfo::localHostName();
+
+    if (deviceId.isNull()) {
         m_devicesPage = new KPageWidgetItem(new PageDestinations(args), i18nc("@title:window", "Select a Printer to Add"));
         addPage(m_devicesPage);
         setCurrentPage(m_devicesPage);
@@ -70,7 +74,7 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
         m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
         addPage(m_choosePPDPage);
     } else {
-        args[PRINTER_NAME] = printer;
+        args[DEVICE_INFO] = printer;
         args[DEVICE_ID] = deviceId;
 
         m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
@@ -88,6 +92,7 @@ void AddPrinterAssistant::initAddClass()
     // adding a new printer or a class
     QVariantHash args;
     args[ADDING_PRINTER] = false;
+    args[DEVICE_LOCATION] = QHostInfo::localHostName();
 
     m_chooseClassPage = new KPageWidgetItem(new PageChoose(args), i18nc("@title:window", "Configure your connection"));
     addPage(m_chooseClassPage);
@@ -103,10 +108,12 @@ void AddPrinterAssistant::initChangePPD(const QString &printer)
     // adding a new printer or a class
     QVariantHash args;
     args[ADDING_PRINTER] = true; // TODO maybe we don't need this...
-    args[PRINTER_NAME] = printer;
+    args[DEVICE_INFO] = printer;
+    args[DEVICE_LOCATION] = QHostInfo::localHostName();
 
-    m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
+    m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
     addPage(m_choosePPDPage);
+    setCurrentPage(m_choosePPDPage);
 }
 
 void AddPrinterAssistant::back()
@@ -162,7 +169,8 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         disconnect(currPage, SIGNAL(proceed()), this, SLOT(next()));
 
         connect(nextPage, SIGNAL(proceed()), this, SLOT(next()));
-        if (page == m_addPrinterPage) {
+        // In the ChangePPD case addPrinterPage is zero
+        if (page == m_addPrinterPage || m_addPrinterPage == 0) {
             connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
             enableNextButton(false);
             enableFinishButton(nextPage->canProceed());
@@ -180,6 +188,7 @@ void AddPrinterAssistant::showEvent(QShowEvent *event)
 {
     KAssistantDialog::showEvent(event);
     enableNextButton(false);
+    enableFinishButton(false);
 }
 
 void AddPrinterAssistant::slotButtonClicked(int button)

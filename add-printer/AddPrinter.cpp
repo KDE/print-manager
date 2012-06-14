@@ -37,10 +37,32 @@ AddPrinter::AddPrinter() :
 
 int AddPrinter::newInstance()
 {
+    // Example of data
+    // "direct"
+    // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
+    // "Samsung SCX-4200 Series"
+    // "Samsung SCX-4200 Series"
+    // "usb://Samsung/SCX-4200%20Series"
+    // ""
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->isSet("add")) {
+        QString printer;
+        QString deviceId;
+
+//        printer = "Samsung SCX-3400 Series";
+//        deviceId = "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;";
+
+        printer = "Samsung SCX-4200 Series";
+        deviceId = "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;";
+
+//        printer = "HP PSC 1400 series";
+//        deviceId = "MFG:HP;MDL:PSC 1400 series;DES:;CMD:LDL,MLC,PML,DYN;";
+
 //        m_pqInterface->AddPrinter(0);
-        m_pqInterface->NewPrinterFromDevice(0, "Samsung SCX-3400 Series", "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;");
+
+//        m_pqInterface->NewPrinterFromDevice(0, printer, deviceId);
+
+        m_pqInterface->ChangePPD(0, "foo");
     }
     args->clear();
     return 0;

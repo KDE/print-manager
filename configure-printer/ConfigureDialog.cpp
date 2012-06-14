@@ -63,7 +63,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr |= KCupsPrinter::MarkerMessage;
     attr |= KCupsPrinter::MarkerTypes;
     attr |= KCupsPrinter::PrinterMakeAndModel;
-    attr |= KCupsPrinter::PPDName;
 
     KCupsPrinter printer;
     KCupsRequest *request = new KCupsRequest;

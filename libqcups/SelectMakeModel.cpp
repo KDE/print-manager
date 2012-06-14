@@ -69,16 +69,22 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
 
     m_sourceModel = new PPDModel(this);
 
+    ui->makeView->setModel(m_sourceModel);
+    // Updates the PPD view to the selected Make
+    connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
+            ui->ppdsLV, SLOT(setRootIndex(QModelIndex)));
+
+    // Clear the PPD view selection, so the Next/Finish button gets disabled
+    connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
+            ui->ppdsLV->selectionModel(), SLOT(clearSelection()));
+
     ui->ppdsLV->setModel(m_sourceModel);
     connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(checkChanged()));
 
+    // Make sure we update the Next/Finish button if a PPD is selected
     connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(checkChanged()));
-
-    ui->makeView->setModel(m_sourceModel);
-    connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            ui->ppdsLV, SLOT(setRootIndex(QModelIndex)));
+            this, SLOT(checkChanged()));    
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
@@ -94,11 +100,7 @@ SelectMakeModel::~SelectMakeModel()
 {
     delete ui;
 }
-//name: PSC_1400_series
-//mfg: HP
-//mdl: PSC 1400 series
-//des:
-//cmd: LDL,MLC,PML,DYN
+
 void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri)
 {
     kDebug() << "===================================" << deviceId;
@@ -109,9 +111,7 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
                                              QLatin1String("/org/fedoraproject/Config/Printing"),
                                              QLatin1String("org.fedoraproject.Config.Printing"),
                                              QLatin1String("GetBestDrivers"));
-//    message << deviceId;
-    message << QString("MFG:%1;MDL:%2;DES:%3;CMD:%4;").arg("HP", "PSC 1400 series", "", "LDL,MLC,PML,DYN");
-//    message << "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;";
+    message << deviceId;
     message << makeAndModel;
     message << deviceUri;
     QDBusConnection::sessionBus().callWithCallback(message,

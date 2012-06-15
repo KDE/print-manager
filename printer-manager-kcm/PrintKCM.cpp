@@ -292,13 +292,20 @@ void PrintKCM::getServerSettings()
 void PrintKCM::getServerSettingsFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
-    KCupsServer server = request->serverSettings();
+    if (request->hasError()) {
+        KCupsServer server = request->serverSettings();
 
-    m_showSharedPrinters->setChecked(server.showSharedPrinters());
-    m_shareConnectedPrinters->setChecked(server.sharePrinters());
-    m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
-    m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
-    m_allowUsersCancelAnyJob->setChecked(server.allowUserCancelAnyJobs());
+        m_showSharedPrinters->setChecked(server.showSharedPrinters());
+        m_shareConnectedPrinters->setChecked(server.sharePrinters());
+        m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
+        m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
+        m_allowUsersCancelAnyJob->setChecked(server.allowUserCancelAnyJobs());
+    } else {
+        KMessageBox::detailedSorry(this,
+                                   i18nc("@info", "Failed to get server settings"),
+                                   request->errorMsg(),
+                                   i18nc("@title:window", "Failed"));
+    }
 
     request->deleteLater();
 
@@ -314,8 +321,10 @@ void PrintKCM::updateServerFinished()
             // Server is restarting, or auth was canceled, update the settings in one second
             QTimer::singleShot(1000, this, SLOT(update()));
         } else {
-            qWarning() << "Failed to set server settings" << request->error() << request->errorMsg();
-            KMessageBox::sorry(this, request->errorMsg(), request->serverError());
+            KMessageBox::detailedSorry(this,
+                                       i18nc("@info", "Failed to configure server settings"),
+                                       request->errorMsg(),
+                                       request->serverError());
 
             // Force the settings to be retrieved again
             update();

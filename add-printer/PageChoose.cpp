@@ -73,8 +73,8 @@ void PageChoose::setValues(const QVariantHash &args)
 
     m_isValid = true;
     m_args = args;
-    if (args["add-new-printer"].toBool()) {
-        QString deviceUri = args["device-uri"].toString();
+    if (args[ADDING_PRINTER].toBool()) {
+        QString deviceUri = args[DEVICE_URI].toString();
         if (deviceUri.startsWith(QLatin1String("parallel")) ||
             deviceUri.startsWith(QLatin1String("usb")) ||
             deviceUri.startsWith(QLatin1String("bluetooth")) ||

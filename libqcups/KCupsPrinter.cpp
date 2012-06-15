@@ -36,6 +36,7 @@ KCupsPrinter::KCupsPrinter(const QString &printer, bool isClass) :
 KCupsPrinter::KCupsPrinter(const QVariantHash &arguments) :
     m_arguments(arguments)
 {
+    kDebug() << arguments;
     m_printer = arguments["printer-name"].toString();
     m_isClass = arguments["printer-type"].toInt() & CUPS_PRINTER_CLASS;
 }

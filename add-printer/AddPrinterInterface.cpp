@@ -22,6 +22,8 @@
 
 #include "AddPrinterAssistant.h"
 
+#include <KCupsRequest.h>
+
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
 #include <KWindowSystem>
@@ -70,9 +72,29 @@ void AddPrinterInterface::AddClass(qulonglong wid)
 
 void AddPrinterInterface::ChangePPD(qulonglong wid, const QString &name)
 {
-    AddPrinterAssistant *wizard = new AddPrinterAssistant();
-    wizard->initChangePPD(name);
-    show(wizard, wid);
+    // Fist we need to get the printer attributes
+    KCupsRequest *request = new KCupsRequest;
+    KCupsPrinter::Attributes attr;
+    attr |= KCupsPrinter::PrinterType; // needed to know if it's a remote printer
+    attr |= KCupsPrinter::PrinterUriSupported;
+    attr |= KCupsPrinter::PrinterMakeAndModel;
+    attr |= KCupsPrinter::DeviceUri;
+    request->getPrinterAttributes(name, false, attr);
+    request->waitTillFinished();
+
+    if (!request->hasError() && request->printers().size() == 1) {
+        KCupsPrinter printer = request->printers().first();
+        if (printer.type() & CUPS_PRINTER_REMOTE) {
+            kWarning() << "Ignoring request, can not change PPD of remote printer" << name;
+        } else {
+            AddPrinterAssistant *wizard = new AddPrinterAssistant();
+            wizard->initChangePPD(name, printer.uriSupported(), printer.deviceUri(), printer.makeAndModel());
+            show(wizard, wid);
+        }
+    } else {
+        kWarning() << "Ignoring request, printer not found" << name << request->errorMsg();
+    }
+    request->deleteLater();
 }
 
 void AddPrinterInterface::NewPrinterFromDevice(qulonglong wid, const QString &name, const QString &device_id)

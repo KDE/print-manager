@@ -32,7 +32,7 @@ public:
 
     void initAddPrinter(const QString &printer = QString(), const QString &deviceId = QString());
     void initAddClass();
-    void initChangePPD(const QString &printer);
+    void initChangePPD(const QString &printer, const QString &printerUri, const QString &deviceUri, const QString &makeAndModel);
 
 public slots:
     void back();

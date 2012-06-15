@@ -55,13 +55,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr |= modifyPrinter->neededValues();
     attr |= printerBehavior->neededValues();
     attr |= KCupsPrinter::PrinterType; // needed to know if it's a remote printer
-    attr |= KCupsPrinter::MarkerLevels;
-    attr |= KCupsPrinter::MarkerColors;
-    attr |= KCupsPrinter::MarkerHighLevels;
-    attr |= KCupsPrinter::MarkerLowLevels;
-    attr |= KCupsPrinter::MarkerNames;
-    attr |= KCupsPrinter::MarkerMessage;
-    attr |= KCupsPrinter::MarkerTypes;
     attr |= KCupsPrinter::PrinterMakeAndModel;
 
     KCupsPrinter printer;

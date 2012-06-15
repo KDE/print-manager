@@ -62,7 +62,7 @@ int AddPrinter::newInstance()
 
 //        m_pqInterface->NewPrinterFromDevice(0, printer, deviceId);
 
-        m_pqInterface->ChangePPD(0, "foo");
+        m_pqInterface->ChangePPD(0, "Samsung_SCX-3400_Series");
     }
     args->clear();
     return 0;

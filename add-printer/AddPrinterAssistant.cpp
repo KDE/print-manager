@@ -102,14 +102,18 @@ void AddPrinterAssistant::initAddClass()
     addPage(m_addPrinterPage);
 }
 
-void AddPrinterAssistant::initChangePPD(const QString &printer)
+void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &printerUri, const QString &deviceUri, const QString &makeAndModel)
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
     QVariantHash args;
     args[ADDING_PRINTER] = true; // TODO maybe we don't need this...
-    args[DEVICE_INFO] = printer;
-    args[DEVICE_LOCATION] = QHostInfo::localHostName();
+//    args[DEVICE_INFO] = printer;
+    args[PRINTER_NAME] = printer;
+    args[DEVICE_URI] = deviceUri;
+//    args[uri] = ;
+    args[PRINTER_MAKE_AND_MODEL] = makeAndModel;
+    args[PRINTER_MAKE_AND_MODEL] = "WTF";
 
     m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
     addPage(m_choosePPDPage);
@@ -169,7 +173,7 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         disconnect(currPage, SIGNAL(proceed()), this, SLOT(next()));
 
         connect(nextPage, SIGNAL(proceed()), this, SLOT(next()));
-        // In the ChangePPD case addPrinterPage is zero
+        // When ChangePPD() is called addPrinterPage is zero
         if (page == m_addPrinterPage || m_addPrinterPage == 0) {
             connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
             enableNextButton(false);
@@ -199,18 +203,21 @@ void AddPrinterAssistant::slotButtonClicked(int button)
         kDebug() << args;
         KCupsRequest *request = new KCupsRequest;
         bool isClass = !args.take(ADDING_PRINTER).toBool();
-        if (isClass) {
-            request->addClass(args);
-        } else {
+
+        // Check if it's a printer or a class that we are adding
+        if (!isClass) {
             QString destName = args[PRINTER_NAME].toString();
             request->setAttributes(destName, false, args);
+        } else {
+            request->addClass(args);
         }
+
         request->waitTillFinished();
         if (request->hasError()) {
             kDebug() << request->error() << request->errorMsg();
             KMessageBox::detailedSorry(this,
                                        isClass ? i18nc("@info", "Failed to add class") :
-                                                 i18nc("@info", "Failed to add printer"),
+                                                 i18nc("@info", "Failed to configure printer"),
                                        request->errorMsg(),
                                        i18nc("@title:window", "Failed"));
         } else {

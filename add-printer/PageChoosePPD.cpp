@@ -121,6 +121,7 @@ QVariantHash PageChoosePPD::values() const
     if (canProceed()) {
         // TODO get the PPD file name
         ret[PPD_NAME] = m_selectMM->selectedPPDName();
+//        ret[FILENAME] = m_selectMM->selectedPPDFileName();
     }
     return ret;
 }

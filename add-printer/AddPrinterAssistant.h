@@ -32,7 +32,7 @@ public:
 
     void initAddPrinter(const QString &printer = QString(), const QString &deviceId = QString());
     void initAddClass();
-    void initChangePPD(const QString &printer, const QString &printerUri, const QString &deviceUri, const QString &makeAndModel);
+    void initChangePPD(const QString &printer, const QString &deviceUri, const QString &makeAndModel);
 
 public slots:
     void back();
@@ -47,7 +47,6 @@ private:
     virtual void showEvent(QShowEvent * event);
 
     KPageWidgetItem *m_devicesPage;
-    KPageWidgetItem *m_choosePage;
     KPageWidgetItem *m_chooseClassPage;
     KPageWidgetItem *m_choosePPDPage;
     KPageWidgetItem *m_addPrinterPage;

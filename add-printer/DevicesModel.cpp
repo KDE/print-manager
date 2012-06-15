@@ -22,12 +22,13 @@
 
 #include <KCupsRequest.h>
 
-#include <KCategorizedSortFilterProxyModel>
-#include <KDebug>
 #include <KLocale>
 #include <KMessageBox>
 
+#include <QHostInfo>
 #include <QStringBuilder>
+
+#include <KDebug>
 
 DevicesModel::DevicesModel(QObject *parent)
  : QStandardItemModel(parent),
@@ -139,7 +140,11 @@ void DevicesModel::device(const QString &devClass,
     device->setData(devInfo, DeviceInfo);
     device->setData(devMakeAndModel, DeviceMakeAndModel);
     device->setData(devUri, DeviceUri);
-    device->setData(devLocation, DeviceLocation);
+    if (devLocation.isEmpty() && kind == Local) {
+        device->setData(QHostInfo::localHostName(), DeviceLocation);
+    } else {
+        device->setData(devLocation, DeviceLocation);
+    }
 
     if (devUri.startsWith(QLatin1String("parallel"))) {
         device->setToolTip(i18nc("@info:tooltip", "A printer connected to the parallel port"));
@@ -161,15 +166,20 @@ void DevicesModel::device(const QString &devClass,
         device->setToolTip(i18nc("@info:tooltip", "Remote CUPS printer via DNS-SD"));
     }
 
-    device->setData(static_cast<qlonglong>(kind), KCategorizedSortFilterProxyModel::CategorySortRole);
+    QStandardItem *catItem;
+
+//    device->setData(static_cast<qlonglong>(kind), KCategorizedSortFilterProxyModel::CategorySortRole);
     if (kind == Networked) {
-        device->setData(i18nc("@item", "Discovered Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+//        device->setData(i18nc("@item", "Discovered Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        catItem = findCreateCategory(i18nc("@item", "Discovered Network Printers"));
     } else if (kind == OtherNetworked) {
-        device->setData(i18nc("@item", "Other Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+//        device->setData(i18nc("@item", "Other Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        catItem = findCreateCategory(i18nc("@item", "Other Network Printers"));
     } else {
-        device->setData(i18nc("@item", "Local Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+//        device->setData(i18nc("@item", "Local Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        catItem = findCreateCategory(i18nc("@item", "Local Printers"));
     }
-    appendRow(device);
+    catItem->appendRow(device);
 //     itemClass->appendRow(device);
 //     kDebug() << devClass << devId << devInfo << devMakeAndModel << devUri << devLocation;
 }
@@ -178,4 +188,26 @@ void DevicesModel::finished()
 {
     m_request->deleteLater();
     m_request = 0;
+}
+
+QStandardItem* DevicesModel::findCreateCategory(const QString &category)
+{
+    for (int i = 0; i < rowCount(); ++i) {
+        QStandardItem *catItem = item(i);
+        if (catItem->text() == category) {
+            return catItem;
+        }
+    }
+
+    QStandardItem *catItem = new QStandardItem(category);
+    QFont font = catItem->font();
+    font.setBold(true);
+    catItem->setFont(font);
+    catItem->setSelectable(false);
+    appendRow(catItem);
+
+    // Emit the parent so the view expand the item
+    emit parentAdded(indexFromItem(catItem));
+
+    return catItem;
 }

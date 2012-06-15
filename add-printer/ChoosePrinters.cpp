@@ -19,7 +19,6 @@
  ***************************************************************************/
 
 #include "ChoosePrinters.h"
-
 #include "ui_ChoosePrinters.h"
 
 #include <ClassListWidget.h>

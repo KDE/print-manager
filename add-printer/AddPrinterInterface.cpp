@@ -76,7 +76,6 @@ void AddPrinterInterface::ChangePPD(qulonglong wid, const QString &name)
     KCupsRequest *request = new KCupsRequest;
     KCupsPrinter::Attributes attr;
     attr |= KCupsPrinter::PrinterType; // needed to know if it's a remote printer
-    attr |= KCupsPrinter::PrinterUriSupported;
     attr |= KCupsPrinter::PrinterMakeAndModel;
     attr |= KCupsPrinter::DeviceUri;
     request->getPrinterAttributes(name, false, attr);
@@ -88,7 +87,7 @@ void AddPrinterInterface::ChangePPD(qulonglong wid, const QString &name)
             kWarning() << "Ignoring request, can not change PPD of remote printer" << name;
         } else {
             AddPrinterAssistant *wizard = new AddPrinterAssistant();
-            wizard->initChangePPD(name, printer.uriSupported(), printer.deviceUri(), printer.makeAndModel());
+            wizard->initChangePPD(name, printer.deviceUri(), printer.makeAndModel());
             show(wizard, wid);
         }
     } else {

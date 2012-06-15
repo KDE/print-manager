@@ -16,135 +16,75 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="1">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetMinimumSize</enum>
+  <layout class="QFormLayout" name="formLayout">
+   <property name="formAlignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string comment="@label:listbox">Baud Rate:</string>
      </property>
-     <item>
-      <spacer name="verticalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="printerL">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string notr="true">printer</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="margin">
-        <number>7</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer_4">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="0" column="2">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
+     <property name="buddy">
+      <cstring>baudRateCB</cstring>
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
-    <layout class="QFormLayout" name="formLayout">
-     <property name="fieldGrowthPolicy">
-      <enum>QFormLayout::ExpandingFieldsGrow</enum>
+   <item row="0" column="1">
+    <widget class="KComboBox" name="baudRateCB"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string comment="@label:listbox">Parity:</string>
      </property>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string comment="@label:listbox">Baud Rate:</string>
-       </property>
-       <property name="buddy">
-        <cstring>baudRateCB</cstring>
-       </property>
-      </widget>
+     <property name="buddy">
+      <cstring>parityCB</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="KComboBox" name="parityCB"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string comment="@label:listbox">Data Bits:</string>
+     </property>
+     <property name="buddy">
+      <cstring>bitsCB</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="KComboBox" name="bitsCB">
+     <item>
+      <property name="text">
+       <string notr="true">8</string>
+      </property>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string comment="@label:listbox">Parity:</string>
-       </property>
-       <property name="buddy">
-        <cstring>parityCB</cstring>
-       </property>
-      </widget>
+     <item>
+      <property name="text">
+       <string notr="true">7</string>
+      </property>
      </item>
-     <item row="1" column="1">
-      <widget class="KComboBox" name="parityCB"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string comment="@label:listbox">Data Bits:</string>
-       </property>
-       <property name="buddy">
-        <cstring>bitsCB</cstring>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="KComboBox" name="bitsCB">
-       <item>
-        <property name="text">
-         <string notr="true">8</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string notr="true">7</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string comment="@label:listbox">Flow Control:</string>
-       </property>
-       <property name="buddy">
-        <cstring>flowCB</cstring>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="KComboBox" name="flowCB"/>
-     </item>
-     <item row="0" column="1">
-      <widget class="KComboBox" name="baudRateCB"/>
-     </item>
-    </layout>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string comment="@label:listbox">Flow Control:</string>
+     </property>
+     <property name="buddy">
+      <cstring>flowCB</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="KComboBox" name="flowCB"/>
    </item>
   </layout>
  </widget>

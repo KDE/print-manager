@@ -64,9 +64,6 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->splitter->setStretchFactor(0, 1);
-    ui->splitter->setStretchFactor(0, 2);
-
     m_sourceModel = new PPDModel(this);
 
     ui->makeView->setModel(m_sourceModel);

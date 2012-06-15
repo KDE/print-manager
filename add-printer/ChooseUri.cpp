@@ -35,26 +35,26 @@ ChooseUri::ChooseUri(QWidget *parent) :
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
     // loads the standard key icon
-    QPixmap pixmap;
-    pixmap = KIconLoader::global()->loadIcon("printer",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeEnormous, // a not so huge icon
-                                             KIconLoader::DefaultState);
-    QPixmap icon(pixmap);
-    QPainter painter(&icon);
+//    QPixmap pixmap;
+//    pixmap = KIconLoader::global()->loadIcon("printer",
+//                                             KIconLoader::NoGroup,
+//                                             KIconLoader::SizeEnormous, // a not so huge icon
+//                                             KIconLoader::DefaultState);
+//    QPixmap icon(pixmap);
+//    QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon("network-wired",
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeLarge, // a not so huge icon
-                                             KIconLoader::DefaultState);
-    // the the emblem icon to size 32
-    int overlaySize = KIconLoader::SizeLarge;
-    QPoint startPoint;
-    // bottom right corner
-    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-                        KIconLoader::SizeEnormous - overlaySize - 2);
-    painter.drawPixmap(startPoint, pixmap);
-    ui->printerL->setPixmap(icon);
+//    pixmap = KIconLoader::global()->loadIcon("network-wired",
+//                                             KIconLoader::NoGroup,
+//                                             KIconLoader::SizeLarge, // a not so huge icon
+//                                             KIconLoader::DefaultState);
+//    // the the emblem icon to size 32
+//    int overlaySize = KIconLoader::SizeLarge;
+//    QPoint startPoint;
+//    // bottom right corner
+//    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
+//                        KIconLoader::SizeEnormous - overlaySize - 2);
+//    painter.drawPixmap(startPoint, pixmap);
+//    ui->printerL->setPixmap(icon);
 
     connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
 }
@@ -94,8 +94,8 @@ bool ChooseUri::isValid() const
 {
     QVariantHash args = values();
     KUrl url(args[DEVICE_URI].toString());
-kDebug() << url;
-    return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && !url.hasHost();
+kDebug() << url << url.isValid() << url.isEmpty() << url.protocol().isEmpty() << url.hasHost();
+    return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && url.hasHost();
 }
 
 bool ChooseUri::canProceed() const

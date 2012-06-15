@@ -48,6 +48,7 @@ public:
 
 signals:
     void loaded();
+    void parentAdded(const QModelIndex &index);
 
 public slots:
     void update();
@@ -62,6 +63,8 @@ private slots:
                 const QString &devLocation);
 
 private:
+    QStandardItem *findCreateCategory(const QString &category);
+
     KCupsRequest *m_request;
     QRegExp m_rx;
 };

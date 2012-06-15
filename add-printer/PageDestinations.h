@@ -30,6 +30,12 @@ namespace Ui {
 }
 
 class DevicesModel;
+class ChooseLpd;
+class ChoosePrinters;
+class ChooseSamba;
+class ChooseSerial;
+class ChooseSocket;
+class ChooseUri;
 class PageDestinations : public GenericPage
 {
     Q_OBJECT
@@ -47,10 +53,20 @@ private slots:
     void checkSelected();
 
 private:
+    QVariantHash selectedItemValues() const;
+    void setCurrentPage(GenericPage *page, const QVariantHash &args);
+
     Ui::PageDestinations *ui;
     KPixmapSequenceOverlayPainter *m_busySeq;
     DevicesModel *m_model;
-    bool m_isValid;
+    bool m_canProceed;
+
+    ChooseLpd      *m_chooseLpd;
+    ChoosePrinters *m_choosePrinters;
+    ChooseSamba    *m_chooseSamba;
+    ChooseSerial   *m_chooseSerial;
+    ChooseSocket   *m_chooseSocket;
+    ChooseUri      *m_chooseUri;
 };
 
 #endif

@@ -58,11 +58,12 @@ int AddPrinter::newInstance()
 //        printer = "HP PSC 1400 series";
 //        deviceId = "MFG:HP;MDL:PSC 1400 series;DES:;CMD:LDL,MLC,PML,DYN;";
 
-//        m_pqInterface->AddPrinter(0);
+        m_pqInterface->AddPrinter(0);
 
 //        m_pqInterface->NewPrinterFromDevice(0, printer, deviceId);
 
-        m_pqInterface->ChangePPD(0, "Samsung_SCX-3400_Series");
+//        m_pqInterface->ChangePPD(0, "foo");
+//        m_pqInterface->ChangePPD(0, "Samsung_SCX-3400_Series");
     }
     args->clear();
     return 0;

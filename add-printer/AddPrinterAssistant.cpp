@@ -37,7 +37,6 @@
 AddPrinterAssistant::AddPrinterAssistant() :
     KAssistantDialog(),
     m_devicesPage(0),
-    m_choosePage(0),
     m_chooseClassPage(0),
     m_choosePPDPage(0),
     m_addPrinterPage(0)
@@ -61,29 +60,30 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
     // adding a new printer or a class
     QVariantHash args;
     args[ADDING_PRINTER] = true;
-    args[DEVICE_LOCATION] = QHostInfo::localHostName();
 
+    KPageWidgetItem *currentPage;
     if (deviceId.isNull()) {
         m_devicesPage = new KPageWidgetItem(new PageDestinations(args), i18nc("@title:window", "Select a Printer to Add"));
         addPage(m_devicesPage);
-        setCurrentPage(m_devicesPage);
-
-        m_choosePage = new KPageWidgetItem(new PageChoose, i18nc("@title:window", "Configure your connection"));
-        addPage(m_choosePage);
+        currentPage = m_devicesPage;
 
         m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
         addPage(m_choosePPDPage);
     } else {
         args[DEVICE_INFO] = printer;
         args[DEVICE_ID] = deviceId;
+        args[DEVICE_LOCATION] = QHostInfo::localHostName();
 
         m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
         addPage(m_choosePPDPage);
-        setCurrentPage(m_choosePPDPage  );
+        currentPage = m_choosePPDPage;
     }
 
     m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe you printer"));
     addPage(m_addPrinterPage);
+
+    // Set this later so that all m_*Pages are created
+    setCurrentPage(currentPage);
 }
 
 void AddPrinterAssistant::initAddClass()
@@ -94,15 +94,19 @@ void AddPrinterAssistant::initAddClass()
     args[ADDING_PRINTER] = false;
     args[DEVICE_LOCATION] = QHostInfo::localHostName();
 
+    KPageWidgetItem *currentPage;
     m_chooseClassPage = new KPageWidgetItem(new PageChoose(args), i18nc("@title:window", "Configure your connection"));
     addPage(m_chooseClassPage);
-    setCurrentPage(m_chooseClassPage);
+    currentPage = m_chooseClassPage;
 
     m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe you printer"));
     addPage(m_addPrinterPage);
+
+    // Set this later so that all m_*Pages are created
+    setCurrentPage(currentPage);
 }
 
-void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &printerUri, const QString &deviceUri, const QString &makeAndModel)
+void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &deviceUri, const QString &makeAndModel)
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
@@ -148,9 +152,6 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // start as it was the first time
     QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
     if (currentPage == m_devicesPage) {
-        qobject_cast<GenericPage*>(m_choosePage->widget())->setValues(args);
-        setCurrentPage(m_choosePage);
-    } else if (currentPage == m_choosePage) {
         qobject_cast<GenericPage*>(m_choosePPDPage->widget())->setValues(args);
         setCurrentPage(m_choosePPDPage);
     } else if (currentPage == m_chooseClassPage ||currentPage == m_choosePPDPage) {

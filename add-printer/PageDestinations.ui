@@ -64,7 +64,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Please chose an item on the list</string>
+          <string>Please choose an item on the list</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>

@@ -111,13 +111,10 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
     // setup our hash args with the information if we are
     // adding a new printer or a class
     QVariantHash args;
-    args[ADDING_PRINTER] = true; // TODO maybe we don't need this...
-//    args[DEVICE_INFO] = printer;
+    args[ADDING_PRINTER] = true;
     args[PRINTER_NAME] = printer;
     args[DEVICE_URI] = deviceUri;
-//    args[uri] = ;
     args[PRINTER_MAKE_AND_MODEL] = makeAndModel;
-    args[PRINTER_MAKE_AND_MODEL] = "WTF";
 
     m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
     addPage(m_choosePPDPage);

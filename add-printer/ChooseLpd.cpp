@@ -80,6 +80,7 @@ void ChooseLpd::setValues(const QVariantHash &args)
     m_isValid = true;
 
     ui->addressLE->setText(deviceUri);
+    ui->addressLE->setFocus();
 }
 
 QVariantHash ChooseLpd::values() const

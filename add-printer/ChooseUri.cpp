@@ -22,7 +22,7 @@
 #include "ui_ChooseUri.h"
 
 #include <KUrl>
-#include <QPainter>
+#include <QStringBuilder>
 #include <KDebug>
 
 ChooseUri::ChooseUri(QWidget *parent) :
@@ -67,13 +67,14 @@ ChooseUri::~ChooseUri()
 void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QUrl url = args[DEVICE_URI].toString();
+    KUrl url = args[DEVICE_URI].toString();
 
-    if (url.toString() != QLatin1String("other") && url.isValid()) {
-        ui->addressLE->setText(url.toString());
+    if (url.url() != QLatin1String("other") && url.isValid()) {
+        ui->addressLE->setText(url.url() % QLatin1String("://"));
     } else {
         ui->addressLE->clear();
     }
+    ui->addressLE->setFocus();
 }
 
 QVariantHash ChooseUri::values() const

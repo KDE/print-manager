@@ -76,6 +76,8 @@ void ChooseSocket::setValues(const QVariantHash &args)
         ui->addressLE->setText(url.host());
         ui->portISB->setValue(url.port(9100));
     }
+    ui->addressLE->setFocus();
+
     m_isValid = true;
 }
 

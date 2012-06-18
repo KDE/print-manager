@@ -40,14 +40,12 @@ public:
 
 public slots:
     void load();
-    void on_detectPB_clicked();
 
 private slots:
     void checkSelected();
 
 private:
     Ui::ChooseSamba *ui;
-    bool m_isValid;
 };
 
 #endif

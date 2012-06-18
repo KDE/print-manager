@@ -24,12 +24,13 @@
 #include <QPainter>
 #include <QStringBuilder>
 
+#include <KUrl>
+
 #include <KDebug>
 
 ChooseSamba::ChooseSamba(QWidget *parent) :
     GenericPage(parent),
-    ui(new Ui::ChooseSamba),
-    m_isValid(false)
+    ui(new Ui::ChooseSamba)
 {
     ui->setupUi(this);
 
@@ -56,6 +57,8 @@ ChooseSamba::ChooseSamba(QWidget *parent) :
 //                        KIconLoader::SizeEnormous - overlaySize - 2);
 //    painter.drawPixmap(startPoint, pixmap);
 //    ui->printerL->setPixmap(icon);
+
+    connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
 }
 
 ChooseSamba::~ChooseSamba()
@@ -66,47 +69,69 @@ ChooseSamba::~ChooseSamba()
 void ChooseSamba::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args[DEVICE_URI].toString();
-    if (deviceUri.contains(QLatin1Char('/'))) {
-        m_isValid = false;
-        return;
-    }
-    m_isValid = true;
-
-    ui->addressLE->setText(deviceUri);
+    ui->addressLE->setFocus();
 }
 
 QVariantHash ChooseSamba::values() const
 {
     QVariantHash ret = m_args;
-    ret[DEVICE_URI] = static_cast<QString>(QLatin1String("smb://") % ui->addressLE->text());
+
+    QString address = ui->addressLE->text().trimmed();
+    KUrl url;
+    if (address.startsWith(QLatin1String("//"))) {
+        url = QLatin1String("smb:") % address;
+    } else if (address.startsWith(QLatin1String("/"))) {
+        url = QLatin1String("smb:/") % address;
+    } else if (address.startsWith(QLatin1String("://"))) {
+        url = QLatin1String("smb") % address;
+    } else if (address.startsWith(QLatin1String("smb://"))) {
+        url = address;
+    } else if (!KUrl(address).protocol().isEmpty() &&
+               KUrl(address).protocol() != QLatin1String("smb")) {
+        url = address;
+        url.setProtocol(QLatin1String("smb"));
+    } else {
+        url = QLatin1String("smb://") % address;
+    }
+
+    kDebug() << 1 << url;
+
+    kDebug() << 2 << url;
+    kDebug() << 3 << url.url();
+    kDebug() << 4 << url.fileName();
+    kDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
+    ret[DEVICE_URI] = url.url();
+    ret[DEVICE_INFO] = url.fileName();
+
+    // if there is 4 '/' means the url is like
+    // smb://group/host/printer, so the location is at a different place
+    if (url.url().count(QLatin1Char('/') == 4)) {
+        ret[DEVICE_LOCATION] = url.url().section(QLatin1Char('/'), 3, 3).toLower();
+    } else {
+        ret[DEVICE_LOCATION] = url.host();
+    }
+
     return ret;
 }
 
 bool ChooseSamba::isValid() const
 {
-    return m_isValid;
+    QVariantHash args = values();
+    KUrl url(args[DEVICE_URI].toString());
+
+    return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && url.hasHost();
 }
 
 bool ChooseSamba::canProceed() const
 {
-    bool allow = false;
-    if (!ui->addressLE->text().isEmpty()) {
-        KUrl url = KUrl(QLatin1String("smb://") % ui->addressLE->text());
-        allow = url.isValid();
-    }
-    return allow;
+    return isValid();
 }
 
 void ChooseSamba::load()
 {
 }
 
-void ChooseSamba::on_detectPB_clicked()
-{
-}
-
 void ChooseSamba::checkSelected()
 {
-//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+    emit allowProceed(isValid());
 }

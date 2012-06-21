@@ -38,6 +38,9 @@
       </item>
       <item row="0" column="1">
        <widget class="QPushButton" name="browsePB">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string comment="@action:button">Browse</string>
         </property>
@@ -52,11 +55,11 @@
       <string comment="@title:group">Authentication</string>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
-      <item row="2" column="0">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::ExpandingFieldsGrow</enum>
+      </property>
+      <item row="0" column="0">
        <widget class="QLabel" name="label">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
         <property name="text">
          <string comment="@label:textbox">Username:</string>
         </property>
@@ -65,11 +68,11 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="0" column="1">
+       <widget class="KLineEdit" name="usernameLE"/>
+      </item>
+      <item row="1" column="0">
        <widget class="QLabel" name="label_4">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
         <property name="text">
          <string comment="@label:textbox">Password</string>
         </property>
@@ -78,34 +81,10 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="KLineEdit" name="usernameLE">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
+      <item row="1" column="1">
        <widget class="KLineEdit" name="passwordLE">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="QRadioButton" name="radioButton">
-        <property name="text">
-         <string comment="@option:radio">Prompt user if password is required</string>
-        </property>
-        <property name="checked">
+        <property name="passwordMode">
          <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
-       <widget class="QRadioButton" name="authenticationCB">
-        <property name="text">
-         <string comment="@option:radio">Set authentication details now</string>
         </property>
        </widget>
       </item>
@@ -113,19 +92,6 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QPushButton" name="verifyPB">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string comment="@action:button">Verify</string>
-     </property>
-    </widget>
-   </item>
-   <item row="3" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -149,77 +115,9 @@
  </customwidgets>
  <tabstops>
   <tabstop>addressLE</tabstop>
-  <tabstop>radioButton</tabstop>
-  <tabstop>authenticationCB</tabstop>
   <tabstop>usernameLE</tabstop>
   <tabstop>passwordLE</tabstop>
-  <tabstop>verifyPB</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>authenticationCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>198</x>
-     <y>157</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>185</x>
-     <y>195</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>authenticationCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>usernameLE</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>233</x>
-     <y>166</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>233</x>
-     <y>195</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>authenticationCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>label_4</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>157</x>
-     <y>167</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>161</x>
-     <y>221</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>authenticationCB</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>passwordLE</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>356</x>
-     <y>163</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>360</x>
-     <y>222</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

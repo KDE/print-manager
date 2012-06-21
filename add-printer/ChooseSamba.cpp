@@ -59,6 +59,8 @@ ChooseSamba::ChooseSamba(QWidget *parent) :
 //    ui->printerL->setPixmap(icon);
 
     connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
+    connect(ui->usernameLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
+    connect(ui->passwordLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
 }
 
 ChooseSamba::~ChooseSamba()
@@ -95,11 +97,19 @@ QVariantHash ChooseSamba::values() const
     }
 
     kDebug() << 1 << url;
+    if (!ui->usernameLE->text().isEmpty()) {
+        url.setUser(ui->usernameLE->text());
+    }
+
+    if (!ui->passwordLE->text().isEmpty()) {
+        url.setPass(ui->passwordLE->text());
+    }
 
     kDebug() << 2 << url;
-    kDebug() << 3 << url.url();
+    kDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);
     kDebug() << 4 << url.fileName();
     kDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
+
     ret[DEVICE_URI] = url.url();
     ret[DEVICE_INFO] = url.fileName();
 
@@ -119,7 +129,13 @@ bool ChooseSamba::isValid() const
     QVariantHash args = values();
     KUrl url(args[DEVICE_URI].toString());
 
-    return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && url.hasHost();
+    return url.isValid() &&
+            !url.isEmpty() &&
+            !url.protocol().isEmpty() &&
+            url.hasHost() &&
+            url.hasPath() &&
+            !url.path().section(QLatin1Char('/'), -1, -1).isEmpty() &&
+            url.url().count(QLatin1Char('/')) <= 4;
 }
 
 bool ChooseSamba::canProceed() const

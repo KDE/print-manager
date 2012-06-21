@@ -21,7 +21,7 @@
 #include "AddPrinterAssistant.h"
 
 #include "PageDestinations.h"
-#include "PageChoose.h"
+#include "PageChoosePrinters.h"
 #include "PageChoosePPD.h"
 #include "PageAddPrinter.h"
 
@@ -95,7 +95,7 @@ void AddPrinterAssistant::initAddClass()
     args[DEVICE_LOCATION] = QHostInfo::localHostName();
 
     KPageWidgetItem *currentPage;
-    m_chooseClassPage = new KPageWidgetItem(new PageChoose(args), i18nc("@title:window", "Configure your connection"));
+    m_chooseClassPage = new KPageWidgetItem(new PageChoosePrinters(args), i18nc("@title:window", "Configure your connection"));
     addPage(m_chooseClassPage);
     currentPage = m_chooseClassPage;
 

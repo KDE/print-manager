@@ -18,48 +18,28 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PAGE_CHOOSE_H
-#define PAGE_CHOOSE_H
+#ifndef PAGE_CHOOSE_PRINTERS_H
+#define PAGE_CHOOSE_PRINTERS_H
 
 #include "GenericPage.h"
 
-#include <QStackedLayout>
+namespace Ui {
+    class PageChoosePrinters;
+}
 
-class ChooseLpd;
-class ChoosePrinters;
-class ChooseSamba;
-class ChooseSerial;
-class ChooseSocket;
-class ChooseUri;
-class PageChoose : public GenericPage
+class PageChoosePrinters : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit PageChoose(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
-    ~PageChoose();
+    PageChoosePrinters(const QVariantHash &args, QWidget *parent = 0);
+    ~PageChoosePrinters();
 
     void setValues(const QVariantHash &args);
-    bool isValid() const;
-    bool canProceed() const;
     QVariantHash values() const;
-
-public slots:
-    void load();
-
-private slots:
-    void checkSelected();
+    bool canProceed() const;
 
 private:
-    bool m_isValid;
-    QVariantHash m_args;
-    QStackedLayout *m_layout;
-    GenericPage    *m_currentPage;
-    ChooseLpd      *m_chooseLpd;
-    ChoosePrinters *m_choosePrinters;
-    ChooseSamba    *m_chooseSamba;
-    ChooseSerial   *m_chooseSerial;
-    ChooseSocket   *m_chooseSocket;
-    ChooseUri      *m_chooseUri;
+    Ui::PageChoosePrinters *ui;
 };
 
 #endif

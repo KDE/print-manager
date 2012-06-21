@@ -18,18 +18,17 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "ChoosePrinters.h"
-#include "ui_ChoosePrinters.h"
+#include "PageChoosePrinters.h"
+#include "ui_PageChoosePrinters.h"
 
 #include <ClassListWidget.h>
 
 #include <QPainter>
 #include <KDebug>
 
-ChoosePrinters::ChoosePrinters(QWidget *parent) :
+PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
-    ui(new Ui::ChoosePrinters),
-    m_isValid(false)
+    ui(new Ui::PageChoosePrinters)
 {
     ui->setupUi(this);
 
@@ -57,20 +56,20 @@ ChoosePrinters::ChoosePrinters(QWidget *parent) :
     painter.drawPixmap(startPoint, pixmap);
     ui->printerL->setPixmap(icon);
 
-    connect(ui->membersLV, SIGNAL(changed(bool)), this, SIGNAL(allowProceed(bool)));
+    connect(ui->membersLV, SIGNAL(changed(bool)),
+            this, SIGNAL(allowProceed(bool)));
+
+    if (!args.isEmpty()) {
+        setValues(args);
+    }
 }
 
-ChoosePrinters::~ChoosePrinters()
+PageChoosePrinters::~PageChoosePrinters()
 {
     delete ui;
 }
 
-bool ChoosePrinters::isValid() const
-{
-    return m_isValid;
-}
-
-void ChoosePrinters::setValues(const QVariantHash &args)
+void PageChoosePrinters::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
         ui->membersLV->reload(QString());
@@ -78,18 +77,14 @@ void ChoosePrinters::setValues(const QVariantHash &args)
     }
 }
 
-void ChoosePrinters::load()
-{
-}
-
-QVariantHash ChoosePrinters::values() const
+QVariantHash PageChoosePrinters::values() const
 {
     QVariantHash ret = m_args;
     ret[MEMBER_URIS] = ui->membersLV->selectedDests();
     return ret;
 }
 
-bool ChoosePrinters::canProceed() const
+bool PageChoosePrinters::canProceed() const
 {
     return ui->membersLV->selectedDests().count() > 0;
 }

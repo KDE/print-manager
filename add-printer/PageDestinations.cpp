@@ -24,7 +24,6 @@
 #include "DevicesModel.h"
 
 #include "ChooseLpd.h"
-#include "ChoosePrinters.h"
 #include "ChooseSamba.h"
 #include "ChooseSerial.h"
 #include "ChooseSocket.h"
@@ -40,22 +39,18 @@
 PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageDestinations),
-    m_canProceed(false),
     m_chooseLpd(new ChooseLpd(this)),
-    m_choosePrinters(new ChoosePrinters(this)),
     m_chooseSamba(new ChooseSamba(this)),
     m_chooseSerial(new ChooseSerial(this)),
     m_chooseSocket(new ChooseSocket(this)),
-    m_chooseUri(new ChooseUri(this))
+    m_chooseUri(new ChooseUri(this)),
+    m_chooseLabel(new QLabel(this))
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->stackedWidget->addWidget(m_chooseLpd);
     connect(m_chooseLpd, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
-
-    ui->stackedWidget->addWidget(m_choosePrinters);
-    connect(m_choosePrinters, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
 
     ui->stackedWidget->addWidget(m_chooseSamba);
     connect(m_chooseSamba, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
@@ -69,30 +64,10 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     ui->stackedWidget->addWidget(m_chooseUri);
     connect(m_chooseUri, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
 
+    ui->stackedWidget->addWidget(m_chooseLabel);
+
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
-    // loads the standard key icon
-//    QPixmap pixmap;
-//    pixmap = KIconLoader::global()->loadIcon("printer",
-//                                             KIconLoader::NoGroup,
-//                                             KIconLoader::SizeEnormous, // a not so huge icon
-//                                             KIconLoader::DefaultState);
-//    QPixmap icon(pixmap);
-//    QPainter painter(&icon);
-
-//    pixmap = KIconLoader::global()->loadIcon("page-zoom",
-//                                             KIconLoader::NoGroup,
-//                                             KIconLoader::SizeLarge, // a not so huge icon
-//                                             KIconLoader::DefaultState);
-//    // the the emblem icon to size 32
-//    int overlaySize = KIconLoader::SizeLarge;
-//    QPoint startPoint;
-//    // bottom right corner
-//    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-//                        KIconLoader::SizeEnormous - overlaySize - 2);
-//    painter.drawPixmap(startPoint, pixmap);
-//    ui->printerL->setPixmap(icon);
-
     m_model = new DevicesModel(this);
     ui->devicesTV->setModel(m_model);
     connect(ui->devicesTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
@@ -164,7 +139,7 @@ QVariantHash PageDestinations::values() const
 
 bool PageDestinations::canProceed() const
 {
-    bool ret = m_canProceed;
+    bool ret = ui->stackedWidget->currentIndex() != 0;
 
     GenericPage *page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
     if (page) {
@@ -180,17 +155,54 @@ void PageDestinations::checkSelected()
             ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
         // Get the selected index
         QVariantHash args = selectedItemValues();
+
+        // "beh" is excluded from the list
         QString deviceUri = args[DEVICE_URI].toString();
-        if (deviceUri.startsWith(QLatin1String("parallel")) ||
-                deviceUri.startsWith(QLatin1String("usb")) ||
-                deviceUri.startsWith(QLatin1String("bluetooth")) ||
-                deviceUri.startsWith(QLatin1String("hal")) ||
-                deviceUri.startsWith(QLatin1String("beh")) ||
-                deviceUri.startsWith(QLatin1String("hp")) ||
-                deviceUri.startsWith(QLatin1String("hpfax")) ||
-                deviceUri.startsWith(QLatin1String("dnssd"))) {
-            // Set as true to enable the Next buttom
-            m_canProceed = true;
+        if (deviceUri.startsWith(QLatin1String("parallel"))) {
+            m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
+            setCurrentPage(m_chooseLabel, args);
+        } else if (deviceUri.startsWith(QLatin1String("usb"))) {
+            m_chooseLabel->setText(i18n("A printer connected to a USB port."));
+            setCurrentPage(m_chooseLabel, args);
+        } else if (deviceUri.startsWith(QLatin1String("bluetooth"))) {
+            m_chooseLabel->setText(i18n("A printer connected via Bluetooth."));
+            setCurrentPage(m_chooseLabel, args);
+        } else if (deviceUri.startsWith(QLatin1String("hal"))) {
+            m_chooseLabel->setText(i18n("Local printer detected by the "
+                                        "Hardware Abstraction Layer (HAL)."));
+            setCurrentPage(m_chooseLabel, args);
+        } else if (deviceUri.startsWith(QLatin1String("hp"))) {
+            m_chooseLabel->setText(i18n("HPLIP software driving a printer, "
+                                        "or the printer function of a multi-function device."));
+            setCurrentPage(m_chooseLabel, args);
+        } else if (deviceUri.startsWith(QLatin1String("hpfax"))) {
+            m_chooseLabel->setText(i18n("HPLIP software driving a fax machine, "
+                                        "or the fax function of a multi-function device."));
+            setCurrentPage(m_chooseLabel, args);
+        } else if (deviceUri.startsWith(QLatin1String("dnssd")) ||
+                   deviceUri.startsWith(QLatin1String("mdns"))) {
+            // TODO this needs testing...
+            QString text;
+            if (deviceUri.contains(QLatin1String("cups"))) {
+                text = i18n("Remote CUPS printer via DNS-SD");
+            } else {
+                QString protocol;
+                if (deviceUri.contains(QLatin1String("._ipp"))) {
+                    protocol = QLatin1String("IPP");
+                } else if (deviceUri.contains(QLatin1String("._printer"))) {
+                    protocol = QLatin1String("LPD");
+                } else if (deviceUri.contains(QLatin1String("._pdl-datastream"))) {
+                    protocol = QLatin1String("AppSocket/JetDirect");
+                }
+
+                if (protocol.isNull()) {
+                    text = i18n("Network printer via DNS-SD");
+                } else {
+                    text = i18n("%1 network printer via DNS-SD", protocol);
+                }
+            }
+            m_chooseLabel->setText(text);
+            setCurrentPage(m_chooseLabel, args);
         } else if (deviceUri.startsWith(QLatin1String("socket"))) {
             kDebug() << "SOCKET";
             setCurrentPage(m_chooseSocket, args);
@@ -214,7 +226,6 @@ void PageDestinations::checkSelected()
             setCurrentPage(m_chooseUri, args);
         }
     } else {
-        m_canProceed = false;
         setCurrentPage(0, selectedItemValues());
     }
 
@@ -236,12 +247,17 @@ QVariantHash PageDestinations::selectedItemValues() const
     return ret;
 }
 
-void PageDestinations::setCurrentPage(GenericPage *page, const QVariantHash &args)
+void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
 {
+    GenericPage *page = qobject_cast<GenericPage*>(widget);
     if (page) {
         page->setValues(args);
         if (ui->stackedWidget->currentWidget() != page) {;
             ui->stackedWidget->setCurrentWidget(page);
+        }
+    } else if (qobject_cast<QLabel*>(widget)) {
+        if (ui->stackedWidget->currentWidget() != widget) {;
+            ui->stackedWidget->setCurrentWidget(widget);
         }
     } else {
         ui->stackedWidget->setCurrentIndex(0);

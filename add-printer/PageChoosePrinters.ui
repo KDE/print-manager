@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ChoosePrinters</class>
- <widget class="QWidget" name="ChoosePrinters">
+ <class>PageChoosePrinters</class>
+ <widget class="QWidget" name="PageChoosePrinters">
   <property name="geometry">
    <rect>
     <x>0</x>

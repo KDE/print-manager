@@ -24,6 +24,7 @@
 #include "GenericPage.h"
 
 #include <KPixmapSequenceOverlayPainter>
+#include <QLabel>
 
 namespace Ui {
     class PageDestinations;
@@ -54,12 +55,11 @@ private slots:
 
 private:
     QVariantHash selectedItemValues() const;
-    void setCurrentPage(GenericPage *page, const QVariantHash &args);
+    void setCurrentPage(QWidget *widget, const QVariantHash &args);
 
     Ui::PageDestinations *ui;
     KPixmapSequenceOverlayPainter *m_busySeq;
     DevicesModel *m_model;
-    bool m_canProceed;
 
     ChooseLpd      *m_chooseLpd;
     ChoosePrinters *m_choosePrinters;
@@ -67,6 +67,7 @@ private:
     ChooseSerial   *m_chooseSerial;
     ChooseSocket   *m_chooseSocket;
     ChooseUri      *m_chooseUri;
+    QLabel         *m_chooseLabel;
 };
 
 #endif

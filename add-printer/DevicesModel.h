@@ -22,6 +22,10 @@
 #define DEVICES_MODEL_H
 
 #include <QStandardItemModel>
+#include <QDBusMessage>
+
+typedef QMap<QString, QString> MapSS;
+typedef QMap<QString, MapSS> MapSMapSS;
 
 class KCupsRequest;
 class DevicesModel : public QStandardItemModel
@@ -55,18 +59,24 @@ public slots:
 
 private slots:
     void finished();
-    void device(const QString &devClass,
-                const QString &devId,
-                const QString &devInfo,
-                const QString &devMakeAndModel,
-                const QString &devUri,
-                const QString &devLocation);
+    void insertDevice(const QString &device_class,
+                      const QString &device_id,
+                      const QString &device_info,
+                      const QString &device_make_and_model,
+                      const QString &device_uri,
+                      const QString &device_location);
+    void getGroupedDevicesSuccess(const QDBusMessage &message);
+    void getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message);
 
 private:
     QStandardItem *findCreateCategory(const QString &category);
 
     KCupsRequest *m_request;
+    MapSMapSS m_mappedDevices;
     QRegExp m_rx;
 };
+
+Q_DECLARE_METATYPE(MapSS)
+Q_DECLARE_METATYPE(MapSMapSS)
 
 #endif

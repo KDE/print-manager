@@ -69,8 +69,6 @@ public:
 
     /**
      * Non empty when getPrinters is called and finish is emitted
-     * @param position The position found on the list
-     * @param printer The printer found
      */
     KCupsPrinters printers() const;
 
@@ -92,8 +90,6 @@ public:
 
     /**
      * Non empty when getJobs is called and finish is emitted
-     * @param position The it will be processed
-     * @param job The printer found
      */
     KCupsJobs jobs() const;
 
@@ -107,7 +103,7 @@ public:
      * Get all devices that could be added as a printer
      * This method emits device()
      */
-    Q_INVOKABLE void getDevices();
+    Q_INVOKABLE void getDevices(int timeout);
 
     /**
      * Get all available printers
@@ -314,12 +310,12 @@ public:
     void moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName);
 
 signals:
-    void device(const QString &dev_class,
-                const QString &id,
-                const QString &info,
-                const QString &makeAndModel,
-                const QString &uri,
-                const QString &location);
+    void device(const QString &device_class,
+                const QString &device_id,
+                const QString &device_info,
+                const QString &device_make_and_model,
+                const QString &device_uri,
+                const QString &device_location);
 
     void finished();
 

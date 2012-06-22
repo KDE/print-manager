@@ -96,14 +96,13 @@ static void choose_device_cb(const char *device_class,           /* I - Class */
                               Q_ARG(QString, QString::fromUtf8(device_location)));
 }
 
-void KCupsRequest::getDevices()
+void KCupsRequest::getDevices(int timeout)
 {
     if (KCupsConnection::readyToStart()) {
         do {
-            // Scan for devices for 30 seconds
-            // TODO change back to 30
+            // Scan for devices for "timeout" seconds
             cupsGetDevices(CUPS_HTTP_DEFAULT,
-                           5,
+                           timeout,
                            CUPS_INCLUDE_ALL,
                            CUPS_EXCLUDE_NONE,
                            (cups_device_cb_t) choose_device_cb,
@@ -112,7 +111,7 @@ void KCupsRequest::getDevices()
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getDevices");
+        invokeMethod("getDevices", timeout);
     }
 }
 

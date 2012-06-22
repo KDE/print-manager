@@ -27,6 +27,8 @@
 
 #include <QHostInfo>
 #include <QStringBuilder>
+#include <QDBusMetaType>
+#include <QDBusConnection>
 
 #include <KDebug>
 
@@ -35,6 +37,10 @@ DevicesModel::DevicesModel(QObject *parent)
    m_request(0),
    m_rx("[a-z]+://?")
 {
+    qDBusRegisterMetaType<MapSS>();
+    qDBusRegisterMetaType<MapSMapSS>();
+//    qDBusRegisterMetaType<ListS>();
+//    qDBusRegisterMetaType<ListListS>();
 }
 
 void DevicesModel::update()
@@ -47,28 +53,36 @@ void DevicesModel::update()
     clear();
     m_request = new KCupsRequest;
     connect(m_request, SIGNAL(device(QString,QString,QString,QString,QString,QString)),
-            this, SLOT(device(QString,QString,QString,QString,QString,QString)));
+            this, SLOT(insertDevice(QString,QString,QString,QString,QString,QString)));
     connect(m_request, SIGNAL(finished()), this, SLOT(finished()));
     connect(m_request, SIGNAL(finished()), this, SIGNAL(loaded()));
-    m_request->getDevices();
+
+    // Get devices with 5 seconds of timeout
+    m_request->getDevices(5);
 
     // Adds the other device which is meant for manual URI input
-    device(QString(),
-           QString(),
-           i18nc("@item", "Manual URI"),
-           QString(),
-           "other",
-           QString());
+    insertDevice(QString(),
+                 QString(),
+                 i18nc("@item", "Manual URI"),
+                 QString(),
+                 "other",
+                 QString());
 }
 
-void DevicesModel::device(const QString &devClass,
-                          const QString &devId,
-                          const QString &devInfo,
-                          const QString &devMakeAndModel,
-                          const QString &devUri,
-                          const QString &devLocation)
+void DevicesModel::insertDevice(const QString &device_class,
+                                const QString &device_id,
+                                const QString &device_info,
+                                const QString &device_make_and_model,
+                                const QString &device_uri,
+                                const QString &device_location)
 {
-    Q_UNUSED(devLocation)
+    kDebug();
+    kDebug() << device_class;
+    kDebug() << device_id;
+    kDebug() << device_info;
+    kDebug() << device_make_and_model;
+    kDebug() << device_uri;
+    kDebug() << device_location;
     // Example of data
     // "direct"
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
@@ -85,15 +99,15 @@ void DevicesModel::device(const QString &devClass,
     blacklistedURI << "scsi";
     blacklistedURI << "http";
     blacklistedURI << "delete";
-    if (blacklistedURI.contains(devUri)) {
+    if (blacklistedURI.contains(device_uri)) {
         // ignore black listed uri's
         return;
     }
 
     Kind kind;
     // Store the kind of the device
-    if (devClass == "network") {
-        if (m_rx.indexIn(devUri) > -1) {
+    if (device_uri == QLatin1String("network")) {
+        if (m_rx.indexIn(device_uri) > -1) {
             kind = Networked;
         } else {
             // other network devices looks like
@@ -105,89 +119,130 @@ void DevicesModel::device(const QString &devClass,
         kind = Local;
     }
 
-//     QStandardItem *itemClass;
-//     int parentRow = classRow(kind); // Check if there is a parent row already
-//     if (parentRow != -1) {
-//         itemClass = item(parentRow); // if so get it's item''
-//     } else {
-//         if (kind == Networked) {
-//             itemClass = new QStandardItem(i18n("Discovered Network Printers"));
-//         } else if (kind == OtherNetworked) {
-//             itemClass = new QStandardItem(i18n("Other Network Printers"));
-//         } else {
-//             itemClass = new QStandardItem(i18n("Local Printers"));
-//         }
-//         // store the data to check later
-//         itemClass->setData(kind);
-//         // do not allow the user to select the root item
-//         // to not enable the next button
-//         itemClass->setSelectable(false);
-//         QFont font = itemClass->font();
-//         font.setPointSize(font.pointSize() + 2);
-//         itemClass->setFont(font);
-//         appendRow(itemClass);
-//     }
-
-    QStandardItem *device = new QStandardItem;
-    if (devMakeAndModel.compare(QLatin1String("unknown"), Qt::CaseInsensitive) != 0
-    && !devMakeAndModel.isEmpty()) {
-        device->setText(devInfo % QLatin1String(" (") % devMakeAndModel % QLatin1Char(')'));
+    QString location;
+    if (device_location.isEmpty() && kind == Local) {
+        location = QHostInfo::localHostName();
     } else {
-        device->setText(devInfo);
+        location = device_location;
     }
-    device->setData(devClass, DeviceClass);
-    device->setData(devId, DeviceId);
-    device->setData(devInfo, DeviceInfo);
-    device->setData(devMakeAndModel, DeviceMakeAndModel);
-    device->setData(devUri, DeviceUri);
-    if (devLocation.isEmpty() && kind == Local) {
-        device->setData(QHostInfo::localHostName(), DeviceLocation);
+
+
+    MapSS mapSS;
+    mapSS["device-id"] = device_id;
+    mapSS["device-make-and-model"] = device_make_and_model;
+    mapSS["device-class"] = device_class;
+    m_mappedDevices[device_uri] = mapSS;
+
+    QString text;
+    if (device_make_and_model.compare(QLatin1String("unknown"), Qt::CaseInsensitive) != 0
+            && !device_make_and_model.isEmpty()) {
+        text = device_info % QLatin1String(" (") % device_make_and_model % QLatin1Char(')');
     } else {
-        device->setData(devLocation, DeviceLocation);
+        text = device_info;
     }
 
-    if (devUri.startsWith(QLatin1String("parallel"))) {
-        device->setToolTip(i18nc("@info:tooltip", "A printer connected to the parallel port"));
-    } else if (devUri.startsWith(QLatin1String("usb"))) {
-        device->setToolTip(i18nc("@info:tooltip", "A printer connected to a USB port"));
-    } else if (devUri.startsWith(QLatin1String("bluetooth"))) {
-        device->setToolTip(i18nc("@info:tooltip", "A printer connected via Bluetooth"));
-    } else if (devUri.startsWith(QLatin1String("hal"))) {
-        device->setToolTip(i18nc("@info:tooltip", "Local printer detected by the "
-                                "Hardware Abstraction Layer (HAL)"));
-    } else if (devUri.startsWith(QLatin1String("hp"))) {
-        device->setToolTip(i18nc("@info:tooltip", "HPLIP software driving a printer, "
-                                "or the printer function of a multi-function device"));
-    } else if (devUri.startsWith(QLatin1String("hpfax"))) {
-        device->setToolTip(i18nc("@info:tooltip", "HPLIP software driving a fax machine, "
-                                "or the fax function of a multi-function device"));
-    } else if (devUri.startsWith(QLatin1String("dnssd")) ||
-               devUri.startsWith(QLatin1String("mdns"))) {
-        device->setToolTip(i18nc("@info:tooltip", "Remote CUPS printer via DNS-SD"));
+    QString toolTip;
+    if (device_uri.startsWith(QLatin1String("parallel"))) {
+        toolTip = i18nc("@info:tooltip",
+                        "A printer connected to the parallel port");
+    } else if (device_uri.startsWith(QLatin1String("usb"))) {
+        toolTip = i18nc("@info:tooltip",
+                        "A printer connected to a USB port");
+    } else if (device_uri.startsWith(QLatin1String("bluetooth"))) {
+        toolTip = i18nc("@info:tooltip",
+                        "A printer connected via Bluetooth");
+    } else if (device_uri.startsWith(QLatin1String("hal"))) {
+        toolTip = i18nc("@info:tooltip",
+                        "Local printer detected by the "
+                        "Hardware Abstraction Layer (HAL)");
+    } else if (device_uri.startsWith(QLatin1String("hp"))) {
+        toolTip = i18nc("@info:tooltip",
+                        "HPLIP software driving a printer, "
+                        "or the printer function of a multi-function device");
+    } else if (device_uri.startsWith(QLatin1String("hpfax"))) {
+        toolTip = i18nc("@info:tooltip",
+                        "HPLIP software driving a fax machine, "
+                        "or the fax function of a multi-function device");
+    } else if (device_uri.startsWith(QLatin1String("dnssd")) ||
+               device_uri.startsWith(QLatin1String("mdns"))) {
+        toolTip = i18nc("@info:tooltip",
+                        "Remote CUPS printer via DNS-SD");
     }
 
+    QStandardItem *stdItem = new QStandardItem;
+    stdItem->setText(text);
+    stdItem->setToolTip(toolTip);
+    stdItem->setData(device_class, DeviceClass);
+    stdItem->setData(device_id, DeviceId);
+    stdItem->setData(device_info, DeviceInfo);
+    stdItem->setData(device_make_and_model, DeviceMakeAndModel);
+    stdItem->setData(device_uri, DeviceUri);
+    stdItem->setData(device_location, DeviceLocation);
+
+    // Find the proper category to our item
     QStandardItem *catItem;
-
-//    device->setData(static_cast<qlonglong>(kind), KCategorizedSortFilterProxyModel::CategorySortRole);
-    if (kind == Networked) {
-//        device->setData(i18nc("@item", "Discovered Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+    switch (kind) {
+    case Networked:
         catItem = findCreateCategory(i18nc("@item", "Discovered Network Printers"));
-    } else if (kind == OtherNetworked) {
-//        device->setData(i18nc("@item", "Other Network Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        break;
+    case OtherNetworked:
         catItem = findCreateCategory(i18nc("@item", "Other Network Printers"));
-    } else {
-//        device->setData(i18nc("@item", "Local Printers"), KCategorizedSortFilterProxyModel::CategoryDisplayRole);
+        break;
+    default:
         catItem = findCreateCategory(i18nc("@item", "Local Printers"));
     }
-    catItem->appendRow(device);
-//     itemClass->appendRow(device);
-//     kDebug() << devClass << devId << devInfo << devMakeAndModel << devUri << devLocation;
+
+    // Append the devie item to the row
+    catItem->appendRow(stdItem);
+}
+
+void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
+{
+    kDebug() << message;
+    if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
+        QDBusArgument argument = message.arguments().first().value<QDBusArgument>();
+//        kDebug() << argument.asVariant();
+        QList<QStringList> groupeDevices = qdbus_cast<QList<QStringList> >(argument);
+        foreach (const QStringList &list, groupeDevices) {
+            kDebug() << list;
+        }
+
+//        m_driverMatchList = qdbus_cast<DriverMatchList>(argument);
+
+//        foreach (const DriverMatch &driverMatch, m_driverMatchList) {
+//            kDebug() << driverMatch.ppd << driverMatch.match;
+//        }
+    } else {
+        kWarning() << "Unexpected message" << message;
+    }
+//    m_gotBestDrivers = true;
+    //    setModelData();
+}
+
+void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)
+{
+    kDebug() << error <<  message;
 }
 
 void DevicesModel::finished()
 {
     m_request->deleteLater();
     m_request = 0;
+
+    if (m_mappedDevices.isEmpty()) {
+        return;
+    }
+
+    QDBusMessage message;
+    message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
+                                             QLatin1String("/org/fedoraproject/Config/Printing"),
+                                             QLatin1String("org.fedoraproject.Config.Printing"),
+                                             QLatin1String("GroupPhysicalDevices"));
+    message << qVariantFromValue(m_mappedDevices);
+    QDBusConnection::sessionBus().callWithCallback(message,
+                                                   this,
+                                                   SLOT(getGroupedDevicesSuccess(QDBusMessage)),
+                                                   SLOT(getGroupedDevicesFailed(QDBusError,QDBusMessage)));
 }
 
 QStandardItem* DevicesModel::findCreateCategory(const QString &category)

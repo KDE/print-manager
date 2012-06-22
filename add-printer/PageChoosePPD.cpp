@@ -23,6 +23,8 @@
 
 #include "DevicesModel.h"
 
+#include <KCupsRequest.h>
+
 #include <QPainter>
 #include <KDebug>
 
@@ -83,9 +85,9 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         connect(m_selectMM, SIGNAL(changed(bool)),
                 this, SLOT(checkSelected()));
         kDebug() << args;
-        m_selectMM->setDeviceInfo(args[DEVICE_ID].toString(),
-                                  args[DEVICE_MAKE_MODEL].toString(),
-                                  args[DEVICE_URI].toString());
+        m_selectMM->setDeviceInfo(args[KCUPS_DEVICE_ID].toString(),
+                                  args[KCUPS_DEVICE_MAKE_AND_MODEL].toString(),
+                                  args[KCUPS_DEVICE_URI].toString());
         m_selectMM->setMakeModel(QString(), QString());
         m_isValid = true;
     } else {
@@ -108,7 +110,7 @@ bool PageChoosePPD::hasChanges() const
     if (canProceed()) {
 //         deviceURI = devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
     }
-    return deviceURI != m_args[DEVICE_URI];
+    return deviceURI != m_args[KCUPS_DEVICE_URI];
 }
 
 QVariantHash PageChoosePPD::values() const

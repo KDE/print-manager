@@ -38,7 +38,7 @@ public:
         DeviceId,
         DeviceInfo,
         DeviceMakeAndModel,
-        DeviceUri,
+        DeviceUris,
         DeviceLocation
     } Role;
 
@@ -58,13 +58,20 @@ public slots:
     void update();
 
 private slots:
+    void gotDevice(const QString &device_class,
+                   const QString &device_id,
+                   const QString &device_info,
+                   const QString &device_make_and_model,
+                   const QString &device_uri,
+                   const QString &device_location);
     void finished();
     void insertDevice(const QString &device_class,
                       const QString &device_id,
                       const QString &device_info,
                       const QString &device_make_and_model,
                       const QString &device_uri,
-                      const QString &device_location);
+                      const QString &device_location,
+                      const QStringList &grouped_uris = QStringList());
     void getGroupedDevicesSuccess(const QDBusMessage &message);
     void getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message);
 
@@ -74,6 +81,7 @@ private:
     KCupsRequest *m_request;
     MapSMapSS m_mappedDevices;
     QRegExp m_rx;
+    QStringList m_blacklistedURIs;
 };
 
 Q_DECLARE_METATYPE(MapSS)

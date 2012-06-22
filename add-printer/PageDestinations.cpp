@@ -29,6 +29,8 @@
 #include "ChooseSocket.h"
 #include "ChooseUri.h"
 
+#include <KCupsRequest.h>
+
 #include <QPainter>
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
@@ -120,9 +122,15 @@ bool PageDestinations::hasChanges() const
 
     QString deviceURI;
     if (canProceed()) {
-        deviceURI = ui->devicesTV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceUri).toString();
+        QVariant value;
+        value = ui->devicesTV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceUris);
+        if (value.type() == QVariant::String) {
+            deviceURI = value.toString();
+        } else {
+            // TODO get the selected value from the combo
+        }
     }
-    return deviceURI != m_args[DEVICE_URI];
+    return deviceURI != m_args[KCUPS_DEVICE_URI];
 }
 
 QVariantHash PageDestinations::values() const
@@ -157,7 +165,7 @@ void PageDestinations::checkSelected()
         QVariantHash args = selectedItemValues();
 
         // "beh" is excluded from the list
-        QString deviceUri = args[DEVICE_URI].toString();
+        QString deviceUri = args[KCUPS_DEVICE_URI].toString();
         if (deviceUri.startsWith(QLatin1String("parallel"))) {
             m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
             setCurrentPage(m_chooseLabel, args);
@@ -238,11 +246,16 @@ QVariantHash PageDestinations::selectedItemValues() const
     if (!ui->devicesTV->selectionModel()->selectedIndexes().isEmpty() &&
             ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
         QModelIndex index = ui->devicesTV->selectionModel()->selectedIndexes().first();
-        ret[DEVICE_URI]        = index.data(DevicesModel::DeviceUri);
-        ret[DEVICE_ID]         = index.data(DevicesModel::DeviceId);
-        ret[DEVICE_MAKE_MODEL] = index.data(DevicesModel::DeviceMakeAndModel);
-        ret[DEVICE_INFO]       = index.data(DevicesModel::DeviceInfo);
-        ret[DEVICE_LOCATION]   = index.data(DevicesModel::DeviceLocation);
+        QVariant uri = index.data(DevicesModel::DeviceUris);
+        if (uri.type() == QVariant::String) {
+            ret[KCUPS_DEVICE_URI]    = index.data(DevicesModel::DeviceUris);
+        } else  {
+            // TODO get device from combo
+        }
+        ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
+        ret[KCUPS_DEVICE_MAKE_AND_MODEL] = index.data(DevicesModel::DeviceMakeAndModel);
+        ret[KCUPS_DEVICE_INFO] = index.data(DevicesModel::DeviceInfo);
+        ret[KCUPS_DEVICE_LOCATION] = index.data(DevicesModel::DeviceLocation);
     }
     return ret;
 }

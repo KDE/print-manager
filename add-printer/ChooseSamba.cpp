@@ -21,6 +21,8 @@
 #include "ChooseSamba.h"
 #include "ui_ChooseSamba.h"
 
+#include <KCupsRequest.h>
+
 #include <QPainter>
 #include <QStringBuilder>
 
@@ -110,15 +112,15 @@ QVariantHash ChooseSamba::values() const
     kDebug() << 4 << url.fileName();
     kDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
 
-    ret[DEVICE_URI] = url.url();
-    ret[DEVICE_INFO] = url.fileName();
+    ret[KCUPS_DEVICE_URI] = url.url();
+    ret[KCUPS_DEVICE_INFO] = url.fileName();
 
     // if there is 4 '/' means the url is like
     // smb://group/host/printer, so the location is at a different place
     if (url.url().count(QLatin1Char('/') == 4)) {
-        ret[DEVICE_LOCATION] = url.url().section(QLatin1Char('/'), 3, 3).toLower();
+        ret[KCUPS_DEVICE_LOCATION] = url.url().section(QLatin1Char('/'), 3, 3).toLower();
     } else {
-        ret[DEVICE_LOCATION] = url.host();
+        ret[KCUPS_DEVICE_LOCATION] = url.host();
     }
 
     return ret;
@@ -127,7 +129,7 @@ QVariantHash ChooseSamba::values() const
 bool ChooseSamba::isValid() const
 {
     QVariantHash args = values();
-    KUrl url(args[DEVICE_URI].toString());
+    KUrl url(args[KCUPS_DEVICE_URI].toString());
 
     return url.isValid() &&
             !url.isEmpty() &&

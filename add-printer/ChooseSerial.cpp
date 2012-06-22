@@ -21,6 +21,8 @@
 #include "ChooseSerial.h"
 #include "ui_ChooseSerial.h"
 
+#include <KCupsRequest.h>
+
 #include <QPainter>
 #include <KDebug>
 
@@ -79,7 +81,7 @@ bool ChooseSerial::isValid() const
 void ChooseSerial::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args[DEVICE_URI].toString();
+    QString deviceUri = args[KCUPS_DEVICE_URI].toString();
     if (!deviceUri.startsWith(QLatin1String("serial:"))) {
         m_isValid = false;
         return;
@@ -127,14 +129,14 @@ void ChooseSerial::load()
 QVariantHash ChooseSerial::values() const
 {
     QVariantHash ret = m_args;
-    QString deviceUri = m_args[DEVICE_URI].toString();
-    int pos = deviceUri.indexOf('?');
+    QString deviceUri = m_args[KCUPS_DEVICE_URI].toString();
+    int pos = deviceUri.indexOf(QLatin1Char('?'));
     QString baudRate = ui->baudRateCB->currentText();
     QString bits = ui->bitsCB->currentText();
     QString parity = ui->baudRateCB->itemData(ui->baudRateCB->currentIndex()).toString();
     QString flow = ui->flowCB->itemData(ui->flowCB->currentIndex()).toString();
     QString replace = QString("?baud=%1+bits=%2+parity=%3+flow=%4").arg(baudRate, bits, parity, flow);
     deviceUri.replace(pos, deviceUri.size() - pos, replace);
-    ret[DEVICE_URI] = deviceUri;
+    ret[KCUPS_DEVICE_URI] = deviceUri;
     return ret;
 }

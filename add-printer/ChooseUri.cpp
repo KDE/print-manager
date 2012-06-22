@@ -21,8 +21,11 @@
 #include "ChooseUri.h"
 #include "ui_ChooseUri.h"
 
+#include <KCupsRequest.h>
+
 #include <KUrl>
 #include <QStringBuilder>
+
 #include <KDebug>
 
 ChooseUri::ChooseUri(QWidget *parent) :
@@ -67,7 +70,7 @@ ChooseUri::~ChooseUri()
 void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
-    KUrl url = args[DEVICE_URI].toString();
+    KUrl url = args[KCUPS_DEVICE_URI].toString();
 
     if (url.url() != QLatin1String("other") && url.isValid()) {
         ui->addressLE->setText(url.url() % QLatin1String("://"));
@@ -82,19 +85,19 @@ QVariantHash ChooseUri::values() const
     QVariantHash ret = m_args;
     // URI might be scsi, network on anything that doesn't match before
     KUrl url(ui->addressLE->text());
-    if (url.protocol().isEmpty() && ret[DEVICE_URI].toString() != QLatin1String("other")) {
+    if (url.protocol().isEmpty() && ret[KCUPS_DEVICE_URI].toString() != QLatin1String("other")) {
         kDebug() << url;
-        url.setProtocol(ret[DEVICE_URI].toString());
+        url.setProtocol(ret[KCUPS_DEVICE_URI].toString());
         kDebug() << url;
     }
-    ret[DEVICE_URI] = url.url();
+    ret[KCUPS_DEVICE_URI] = url.url();
     return ret;
 }
 
 bool ChooseUri::isValid() const
 {
     QVariantHash args = values();
-    KUrl url(args[DEVICE_URI].toString());
+    KUrl url(args[KCUPS_DEVICE_URI].toString());
 kDebug() << url << url.isValid() << url.isEmpty() << url.protocol().isEmpty() << url.hasHost();
     return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && url.hasHost();
 }

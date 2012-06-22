@@ -292,7 +292,20 @@ void PrintKCM::getServerSettings()
 void PrintKCM::getServerSettingsFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
-    if (request->hasError()) {
+
+    // This is odd, when the server settings didn't change
+    // we get IPP_SERVICE_UNAVAILABLE and a message of "Not Modified"
+    // TODO make sure the error message doesn't get localized
+    bool error;
+    error = !request->hasError() || request->errorMsg() == QLatin1String("Not Modified");
+
+    m_showSharedPrinters->setEnabled(error);
+    m_shareConnectedPrinters->setEnabled(error);
+    m_allowPrintringFromInternet->setEnabled(error);
+    m_allowRemoteAdmin->setEnabled(error);
+    m_allowUsersCancelAnyJob->setEnabled(error);
+
+    if (error) {
         KCupsServer server = request->serverSettings();
 
         m_showSharedPrinters->setChecked(server.showSharedPrinters());

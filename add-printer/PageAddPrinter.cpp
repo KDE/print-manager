@@ -21,9 +21,12 @@
 #include "PageAddPrinter.h"
 #include "ui_PageAddPrinter.h"
 
+#include <KCupsRequest.h>
+
 #include <QPainter>
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
+
 #include <KDebug>
 
 PageAddPrinter::PageAddPrinter(QWidget *parent) :
@@ -71,13 +74,13 @@ PageAddPrinter::~PageAddPrinter()
 void PageAddPrinter::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
-        QString name = args[DEVICE_INFO].toString();
-        name.replace(' ', '_');
-        name.replace('/', '-');
-        name.replace('#', '=');
+        QString name = args[KCUPS_DEVICE_INFO].toString();
+        name.replace(QLatin1Char(' '), QLatin1Char('_'));
+        name.replace(QLatin1Char('/'), QLatin1Char('-'));
+        name.replace(QLatin1Char('#'), QLatin1Char('='));
         ui->nameLE->setText(name);
-        ui->descriptionLE->setText(args[DEVICE_INFO].toString());
-        ui->locationLE->setText(args[DEVICE_LOCATION].toString());
+        ui->descriptionLE->setText(args[KCUPS_DEVICE_INFO].toString());
+        ui->locationLE->setText(args[KCUPS_DEVICE_LOCATION].toString());
         ui->shareCB->setChecked(true);
         ui->shareCB->setVisible(args[ADDING_PRINTER].toBool());
 
@@ -97,9 +100,9 @@ bool PageAddPrinter::canProceed() const
 QVariantHash PageAddPrinter::values() const
 {
     QVariantHash ret = m_args;
-    ret[PRINTER_NAME] = ui->nameLE->text();
-    ret[PRINTER_LOCATION] = ui->locationLE->text();
-    ret[PRINTER_INFO] = ui->descriptionLE->text();
+    ret[KCUPS_PRINTER_NAME] = ui->nameLE->text();
+    ret[KCUPS_PRINTER_LOCATION] = ui->locationLE->text();
+    ret[KCUPS_PRINTER_INFO] = ui->descriptionLE->text();
 //     if (ret[ADDING_PRINTER].toBool()) {
         // shareCB
 //     }

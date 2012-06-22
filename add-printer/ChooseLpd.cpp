@@ -21,6 +21,8 @@
 #include "ChooseLpd.h"
 #include "ui_ChooseLpd.h"
 
+#include <KCupsRequest.h>
+
 #include <QPainter>
 #include <QStringBuilder>
 
@@ -71,7 +73,7 @@ void ChooseLpd::on_addressLE_textChanged(const QString &text)
 void ChooseLpd::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args[DEVICE_URI].toString();
+    QString deviceUri = args[KCUPS_DEVICE_URI].toString();
     kDebug() << deviceUri;
     if (deviceUri.contains(QLatin1Char('/'))) {
         m_isValid = false;
@@ -86,7 +88,7 @@ void ChooseLpd::setValues(const QVariantHash &args)
 QVariantHash ChooseLpd::values() const
 {
     QVariantHash ret = m_args;
-    ret[DEVICE_URI] = static_cast<QString>(QLatin1String("lpd://") % ui->addressLE->text());
+    ret[KCUPS_DEVICE_URI] = static_cast<QString>(QLatin1String("lpd://") % ui->addressLE->text());
     return ret;
 }
 

@@ -23,6 +23,8 @@
 
 #include <ClassListWidget.h>
 
+#include <KCupsRequest.h>
+
 #include <QPainter>
 #include <KDebug>
 
@@ -80,7 +82,7 @@ void PageChoosePrinters::setValues(const QVariantHash &args)
 QVariantHash PageChoosePrinters::values() const
 {
     QVariantHash ret = m_args;
-    ret[MEMBER_URIS] = ui->membersLV->selectedDests();
+    ret[KCUPS_MEMBER_URIS] = ui->membersLV->selectedDests();
     return ret;
 }
 

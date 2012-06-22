@@ -70,9 +70,9 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
         m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
         addPage(m_choosePPDPage);
     } else {
-        args[DEVICE_INFO] = printer;
-        args[DEVICE_ID] = deviceId;
-        args[DEVICE_LOCATION] = QHostInfo::localHostName();
+        args[KCUPS_DEVICE_INFO] = printer;
+        args[KCUPS_DEVICE_ID] = deviceId;
+        args[KCUPS_DEVICE_LOCATION] = QHostInfo::localHostName();
 
         m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
         addPage(m_choosePPDPage);
@@ -92,7 +92,7 @@ void AddPrinterAssistant::initAddClass()
     // adding a new printer or a class
     QVariantHash args;
     args[ADDING_PRINTER] = false;
-    args[DEVICE_LOCATION] = QHostInfo::localHostName();
+    args[KCUPS_DEVICE_LOCATION] = QHostInfo::localHostName();
 
     KPageWidgetItem *currentPage;
     m_chooseClassPage = new KPageWidgetItem(new PageChoosePrinters(args), i18nc("@title:window", "Configure your connection"));
@@ -112,9 +112,9 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
     // adding a new printer or a class
     QVariantHash args;
     args[ADDING_PRINTER] = true;
-    args[PRINTER_NAME] = printer;
-    args[DEVICE_URI] = deviceUri;
-    args[PRINTER_MAKE_AND_MODEL] = makeAndModel;
+    args[KCUPS_DEVICE_URI] = deviceUri;
+    args[KCUPS_PRINTER_NAME] = printer;
+    args[KCUPS_PRINTER_MAKE_AND_MODEL] = makeAndModel;
 
     m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
     addPage(m_choosePPDPage);
@@ -204,7 +204,7 @@ void AddPrinterAssistant::slotButtonClicked(int button)
 
         // Check if it's a printer or a class that we are adding
         if (!isClass) {
-            QString destName = args[PRINTER_NAME].toString();
+            QString destName = args[KCUPS_PRINTER_NAME].toString();
             request->setAttributes(destName, false, args);
         } else {
             request->addClass(args);

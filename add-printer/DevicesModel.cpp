@@ -286,12 +286,13 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
             }
 
             kDebug() << list.first() << m_mappedDevices[list.first()];
+            QString uri = list.first();
             MapSS device = m_mappedDevices[list.first()];
             insertDevice(device[KCUPS_DEVICE_CLASS],
                          device[KCUPS_DEVICE_ID],
                          device[KCUPS_DEVICE_INFO],
                          device[KCUPS_DEVICE_MAKE_AND_MODEL],
-                         device[KCUPS_DEVICE_URI],
+                         uri,
                          device[KCUPS_DEVICE_LOCATION],
                          list);
         }

@@ -148,6 +148,7 @@ void DevicesModel::gotDevice(const QString &device_class,
         mapSS[KCUPS_DEVICE_INFO] = device_info;
         mapSS[KCUPS_DEVICE_MAKE_AND_MODEL] = device_make_and_model;
         mapSS[KCUPS_DEVICE_LOCATION] = device_location;
+//        mapSS[KCUPS_DEVICE_URI] = device_uri;
         m_mappedDevices[device_uri] = mapSS;
     }
 }
@@ -156,7 +157,7 @@ void DevicesModel::finished()
 {
     m_request->deleteLater();
     m_request = 0;
-
+    kDebug() << m_mappedDevices.isEmpty();
     if (m_mappedDevices.isEmpty()) {
         return;
     }
@@ -178,8 +179,22 @@ void DevicesModel::insertDevice(const QString &device_class,
                                 const QString &device_info,
                                 const QString &device_make_and_model,
                                 const QString &device_uri,
-                                const QString &device_location, const QStringList &grouped_uris)
+                                const QString &device_location,
+                                const QStringList &grouped_uris)
 {
+    // "direct"
+    kDebug() << device_class;
+    // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
+    kDebug() << device_id;
+    // "Samsung SCX-4200 Series"
+    kDebug() << device_info;
+    // "Samsung SCX-4200 Series"
+    kDebug() << device_make_and_model;
+    // "usb://Samsung/SCX-4200%20Series"
+    kDebug() << device_uri;
+    // ""
+    kDebug() << device_location;
+
     Kind kind;
     // Store the kind of the device
     if (device_class == QLatin1String("network")) {
@@ -277,36 +292,30 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
 {
     kDebug() << message;
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
-        QDBusArgument argument = message.arguments().first().value<QDBusArgument>();
-//        kDebug() << argument.asVariant();
-        QList<QStringList> groupeDevices = qdbus_cast<QList<QStringList> >(argument);
+        QDBusArgument argument;
+        argument = message.arguments().first().value<QDBusArgument>();
+        QList<QStringList> groupeDevices;
+        groupeDevices = qdbus_cast<QList<QStringList> >(argument);
         foreach (const QStringList &list, groupeDevices) {
             if (list.isEmpty()) {
                 continue;
             }
 
-            kDebug() << list.first() << m_mappedDevices[list.first()];
             QString uri = list.first();
-            MapSS device = m_mappedDevices[list.first()];
+            kDebug() << uri << m_mappedDevices[list.first()];
+
+            MapSS device = m_mappedDevices[uri];
             insertDevice(device[KCUPS_DEVICE_CLASS],
                          device[KCUPS_DEVICE_ID],
                          device[KCUPS_DEVICE_INFO],
                          device[KCUPS_DEVICE_MAKE_AND_MODEL],
                          uri,
                          device[KCUPS_DEVICE_LOCATION],
-                         list);
+                         list.size() > 1 ? list : QStringList());
         }
-
-//        m_driverMatchList = qdbus_cast<DriverMatchList>(argument);
-
-//        foreach (const DriverMatch &driverMatch, m_driverMatchList) {
-//            kDebug() << driverMatch.ppd << driverMatch.match;
-//        }
     } else {
         kWarning() << "Unexpected message" << message;
     }
-//    m_gotBestDrivers = true;
-    //    setModelData();
 }
 
 void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)

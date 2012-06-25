@@ -344,7 +344,7 @@ private:
                       const QVariant &arg8 = QVariant());
     Q_INVOKABLE void doOperation(int operation, const QString &resource, const QVariantHash &request);
     void setError(int error, const QString &errorMsg);
-    void setFinished();
+    void setFinished(bool delayed = false);
 
     QEventLoop m_loop;
     bool m_finished;

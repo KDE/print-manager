@@ -109,7 +109,7 @@ void KCupsRequest::getDevices(int timeout)
                            this);
         } while (KCupsConnection::retry("/admin/"));
         setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
-        setFinished();
+        setFinished(true);
     } else {
         invokeMethod("getDevices", timeout);
     }
@@ -699,8 +699,12 @@ void KCupsRequest::setError(int error, const QString &errorMsg)
     m_errorMsg = errorMsg;
 }
 
-void KCupsRequest::setFinished()
+void KCupsRequest::setFinished(bool delayed)
 {
     m_finished = true;
-    emit finished();
+    if (delayed) {
+        QTimer::singleShot(0, this, SIGNAL(finished()));
+    } else {
+        emit finished();
+    }
 }

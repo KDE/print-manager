@@ -247,8 +247,9 @@ QVariantHash PageDestinations::selectedItemValues() const
             ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
         QModelIndex index = ui->devicesTV->selectionModel()->selectedIndexes().first();
         QVariant uri = index.data(DevicesModel::DeviceUris);
+        kDebug() << uri << uri.type() << QVariant::String;
         if (uri.type() == QVariant::String) {
-            ret[KCUPS_DEVICE_URI]    = index.data(DevicesModel::DeviceUris);
+            ret[KCUPS_DEVICE_URI] = uri;
         } else  {
             // TODO get device from combo
         }

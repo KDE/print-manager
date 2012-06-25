@@ -31,7 +31,9 @@
 
 #include <KCupsRequest.h>
 
+#include <QItemSelectionModel>
 #include <QPainter>
+
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
 #include <KDebug>
@@ -73,7 +75,7 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     m_model = new DevicesModel(this);
     ui->devicesTV->setModel(m_model);
     connect(ui->devicesTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(checkSelected()));
+            this, SLOT(deviceChanged()));
 
     // Expand when a parent is added
     connect(m_model, SIGNAL(parentAdded(QModelIndex)),
@@ -157,87 +159,107 @@ bool PageDestinations::canProceed() const
     return ret;
 }
 
-void PageDestinations::checkSelected()
+void PageDestinations::deviceChanged()
 {
-    if (!ui->devicesTV->selectionModel()->selectedIndexes().isEmpty() &&
-            ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
-        // Get the selected index
-        QVariantHash args = selectedItemValues();
-
-        // "beh" is excluded from the list
-        QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-        if (deviceUri.startsWith(QLatin1String("parallel"))) {
-            m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
-            setCurrentPage(m_chooseLabel, args);
-        } else if (deviceUri.startsWith(QLatin1String("usb"))) {
-            m_chooseLabel->setText(i18n("A printer connected to a USB port."));
-            setCurrentPage(m_chooseLabel, args);
-        } else if (deviceUri.startsWith(QLatin1String("bluetooth"))) {
-            m_chooseLabel->setText(i18n("A printer connected via Bluetooth."));
-            setCurrentPage(m_chooseLabel, args);
-        } else if (deviceUri.startsWith(QLatin1String("hal"))) {
-            m_chooseLabel->setText(i18n("Local printer detected by the "
-                                        "Hardware Abstraction Layer (HAL)."));
-            setCurrentPage(m_chooseLabel, args);
-        } else if (deviceUri.startsWith(QLatin1String("hp"))) {
-            m_chooseLabel->setText(i18n("HPLIP software driving a printer, "
-                                        "or the printer function of a multi-function device."));
-            setCurrentPage(m_chooseLabel, args);
-        } else if (deviceUri.startsWith(QLatin1String("hpfax"))) {
-            m_chooseLabel->setText(i18n("HPLIP software driving a fax machine, "
-                                        "or the fax function of a multi-function device."));
-            setCurrentPage(m_chooseLabel, args);
-        } else if (deviceUri.startsWith(QLatin1String("dnssd")) ||
-                   deviceUri.startsWith(QLatin1String("mdns"))) {
-            // TODO this needs testing...
-            QString text;
-            if (deviceUri.contains(QLatin1String("cups"))) {
-                text = i18n("Remote CUPS printer via DNS-SD");
-            } else {
-                QString protocol;
-                if (deviceUri.contains(QLatin1String("._ipp"))) {
-                    protocol = QLatin1String("IPP");
-                } else if (deviceUri.contains(QLatin1String("._printer"))) {
-                    protocol = QLatin1String("LPD");
-                } else if (deviceUri.contains(QLatin1String("._pdl-datastream"))) {
-                    protocol = QLatin1String("AppSocket/JetDirect");
-                }
-
-                if (protocol.isNull()) {
-                    text = i18n("Network printer via DNS-SD");
-                } else {
-                    text = i18n("%1 network printer via DNS-SD", protocol);
-                }
+//    QString deviceUri;
+    QItemSelectionModel *selection = ui->devicesTV->selectionModel();
+    if (!selection->selectedIndexes().isEmpty() &&
+            selection->selectedIndexes().size() == 1) {
+        QModelIndex index = selection->selectedIndexes().first();
+        QVariant uri = index.data(DevicesModel::DeviceUris);
+        if (uri.type() == QVariant::String) {
+//            deviceUri = uri.toString();
+        } else  {
+            ui->conexionCB->clear();
+            foreach (const QString &uri, uri.toStringList()) {
+                KUrl url;
+                url.setEncodedUrl(uri.toAscii());
+                ui->conexionCB->addItem(uriText(url), uri);
             }
-            m_chooseLabel->setText(text);
-            setCurrentPage(m_chooseLabel, args);
-        } else if (deviceUri.startsWith(QLatin1String("socket"))) {
-            kDebug() << "SOCKET";
-            setCurrentPage(m_chooseSocket, args);
-        } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
-                   deviceUri.startsWith(QLatin1String("ipps")) ||
-                   deviceUri.startsWith(QLatin1String("http")) ||
-                   deviceUri.startsWith(QLatin1String("https"))) {
-            setCurrentPage(m_chooseUri, args);
-        } else if (deviceUri.startsWith(QLatin1String("lpd"))) {
-            setCurrentPage(m_chooseLpd, args);
-        } else if (deviceUri.startsWith(QLatin1String("scsi"))) {
-            // TODO
-            setCurrentPage(m_chooseUri, args);
-        } else if (deviceUri.startsWith(QLatin1String("serial"))) {
-            setCurrentPage(m_chooseSerial, args);
-        } else if (deviceUri.startsWith(QLatin1String("smb"))) {
-            setCurrentPage(m_chooseSamba, args);
-        } else if (deviceUri.startsWith(QLatin1String("network"))) {
-            setCurrentPage(m_chooseUri, args);
-        } else {
-            setCurrentPage(m_chooseUri, args);
         }
     } else {
         setCurrentPage(0, selectedItemValues());
+        return;
+    }
+
+    // Get the selected index
+    QVariantHash args = selectedItemValues();
+
+    // "beh" is excluded from the list
+    QString deviceUri = args[KCUPS_DEVICE_URI].toString();
+    if (deviceUri.startsWith(QLatin1String("parallel"))) {
+        m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
+        setCurrentPage(m_chooseLabel, args);
+    } else if (deviceUri.startsWith(QLatin1String("usb"))) {
+        m_chooseLabel->setText(i18n("A printer connected to a USB port."));
+        setCurrentPage(m_chooseLabel, args);
+    } else if (deviceUri.startsWith(QLatin1String("bluetooth"))) {
+        m_chooseLabel->setText(i18n("A printer connected via Bluetooth."));
+        setCurrentPage(m_chooseLabel, args);
+    } else if (deviceUri.startsWith(QLatin1String("hal"))) {
+        m_chooseLabel->setText(i18n("Local printer detected by the "
+                                    "Hardware Abstraction Layer (HAL)."));
+        setCurrentPage(m_chooseLabel, args);
+    } else if (deviceUri.startsWith(QLatin1String("hp"))) {
+        m_chooseLabel->setText(i18n("HPLIP software driving a printer, "
+                                    "or the printer function of a multi-function device."));
+        setCurrentPage(m_chooseLabel, args);
+    } else if (deviceUri.startsWith(QLatin1String("hpfax"))) {
+        m_chooseLabel->setText(i18n("HPLIP software driving a fax machine, "
+                                    "or the fax function of a multi-function device."));
+        setCurrentPage(m_chooseLabel, args);
+    } else if (deviceUri.startsWith(QLatin1String("dnssd")) ||
+               deviceUri.startsWith(QLatin1String("mdns"))) {
+        // TODO this needs testing...
+        QString text;
+        if (deviceUri.contains(QLatin1String("cups"))) {
+            text = i18n("Remote CUPS printer via DNS-SD");
+        } else {
+            QString protocol;
+            if (deviceUri.contains(QLatin1String("._ipp"))) {
+                protocol = QLatin1String("IPP");
+            } else if (deviceUri.contains(QLatin1String("._printer"))) {
+                protocol = QLatin1String("LPD");
+            } else if (deviceUri.contains(QLatin1String("._pdl-datastream"))) {
+                protocol = QLatin1String("AppSocket/JetDirect");
+            }
+
+            if (protocol.isNull()) {
+                text = i18n("Network printer via DNS-SD");
+            } else {
+                text = i18n("%1 network printer via DNS-SD", protocol);
+            }
+        }
+        m_chooseLabel->setText(text);
+        setCurrentPage(m_chooseLabel, args);
+    } else if (deviceUri.startsWith(QLatin1String("socket"))) {
+        kDebug() << "SOCKET";
+        setCurrentPage(m_chooseSocket, args);
+    } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
+               deviceUri.startsWith(QLatin1String("ipps")) ||
+               deviceUri.startsWith(QLatin1String("http")) ||
+               deviceUri.startsWith(QLatin1String("https"))) {
+        setCurrentPage(m_chooseUri, args);
+    } else if (deviceUri.startsWith(QLatin1String("lpd"))) {
+        setCurrentPage(m_chooseLpd, args);
+    } else if (deviceUri.startsWith(QLatin1String("scsi"))) {
+        // TODO
+        setCurrentPage(m_chooseUri, args);
+    } else if (deviceUri.startsWith(QLatin1String("serial"))) {
+        setCurrentPage(m_chooseSerial, args);
+    } else if (deviceUri.startsWith(QLatin1String("smb"))) {
+        setCurrentPage(m_chooseSamba, args);
+    } else if (deviceUri.startsWith(QLatin1String("network"))) {
+        setCurrentPage(m_chooseUri, args);
+    } else {
+        setCurrentPage(m_chooseUri, args);
     }
 
     emit allowProceed(canProceed());
+}
+
+void PageDestinations::deviceUriChanged()
+{
 }
 
 QVariantHash PageDestinations::selectedItemValues() const
@@ -252,6 +274,7 @@ QVariantHash PageDestinations::selectedItemValues() const
             ret[KCUPS_DEVICE_URI] = uri;
         } else  {
             // TODO get device from combo
+//            ui->conexionCB->addItems(uri.toStringList());
         }
         ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
         ret[KCUPS_DEVICE_MAKE_AND_MODEL] = index.data(DevicesModel::DeviceMakeAndModel);
@@ -276,4 +299,64 @@ void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
     } else {
         ui->stackedWidget->setCurrentIndex(0);
     }
+}
+
+QString PageDestinations::uriText(const KUrl &uri) const
+{
+    QString ret;
+    if (uri.protocol() == QLatin1String("parallel")) {
+        ret = i18n("Parallel Port");
+    } else if (uri.protocol() == QLatin1String("serial")) {
+        ret = i18n("Serial Port");
+    } else if (uri.protocol() == QLatin1String("usb")) {
+        ret = i18n("USB");
+    } else if (uri.protocol() == QLatin1String("bluetooth")) {
+        ret = i18n("Bluetooth");
+    } else if (uri.protocol() == QLatin1String("hp")) {
+        ret = i18n("HP Linux Imaging and Printing (HPLIP)");
+    } else if (uri.protocol() == QLatin1String("hpfax")) {
+        ret = i18n("Fax - HP Linux Imaging and Printing (HPLIP)");
+    } else if (uri.protocol() == QLatin1String("hal")) {
+        ret = i18n("Hardware Abstraction Layer (HAL)");
+    } else if (uri.protocol() == QLatin1String("socket")) {
+        ret = i18n("AppSocket/HP JetDirect");
+    } else if (uri.protocol() == QLatin1String("lpd")) {
+        // Check if the queue name (fileName) is defined
+        if (uri.fileName().isEmpty()) {
+            ret = i18n("LPD/LPR queue");
+        } else {
+            ret = i18n("LPD/LPR queue %1", uri.fileName());
+        }
+    } else if (uri.protocol() == QLatin1String("smb")) {
+        ret = i18n("Windows Printer via SAMBA");
+    } else if (uri.protocol() == QLatin1String("ipp")) {
+        // Check if the queue name (fileName) is defined
+        if (uri.fileName().isEmpty()) {
+            ret = i18n("IPP");
+        } else {
+            ret = i18n("IPP %1", uri.fileName());
+        }
+    } else if (uri.protocol() == QLatin1String("https")) {
+        ret = i18n("HTTP");
+    } else if (uri.protocol() == QLatin1String("dnssd") ||
+               uri.protocol() == QLatin1String("mdns")) {
+        // TODO this needs testing...
+        QString text;
+        if (uri.url().contains(QLatin1String("cups"))) {
+            text = i18n("Remote CUPS printer via DNS-SD");
+        } else {
+            if (uri.url().contains(QLatin1String("._ipp"))) {
+                ret = i18n("IPP network printer via DNS-SD");
+            } else if (uri.url().contains(QLatin1String("._printer"))) {
+                ret = i18n("LPD network printer via DNS-SD");
+            } else if (uri.url().contains(QLatin1String("._pdl-datastream"))) {
+                ret = i18n("AppSocket/JetDirect network printer via DNS-SD");
+            } else {
+                ret = i18n("Network printer via DNS-SD");
+            }
+        }
+    } else {
+        ret = uri.prettyUrl();
+    }
+    return ret;
 }

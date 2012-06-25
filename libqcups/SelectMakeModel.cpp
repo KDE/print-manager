@@ -71,13 +71,13 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
             ui->ppdsLV, SLOT(setRootIndex(QModelIndex)));
 
-    // Clear the PPD view selection, so the Next/Finish button gets disabled
-    connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            ui->ppdsLV->selectionModel(), SLOT(clearSelection()));
-
     ui->ppdsLV->setModel(m_sourceModel);
     connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(checkChanged()));
+
+    // Clear the PPD view selection, so the Next/Finish button gets disabled
+    connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
+            ui->ppdsLV->selectionModel(), SLOT(clearSelection()));
 
     // Make sure we update the Next/Finish button if a PPD is selected
     connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
@@ -90,7 +90,6 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     m_busySeq->setWidget(ui->ppdsLV->viewport());
-
 }
 
 SelectMakeModel::~SelectMakeModel()

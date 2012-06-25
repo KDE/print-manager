@@ -24,6 +24,8 @@
 #include "GenericPage.h"
 
 #include <KPixmapSequenceOverlayPainter>
+#include <KUrl>
+
 #include <QLabel>
 
 namespace Ui {
@@ -51,9 +53,11 @@ public:
     bool isValid() const;
 
 private slots:
-    void checkSelected();
+    void deviceChanged();
+    void deviceUriChanged();
 
 private:
+    QString uriText(const KUrl &uri) const;
     QVariantHash selectedItemValues() const;
     void setCurrentPage(QWidget *widget, const QVariantHash &args);
 
@@ -61,6 +65,7 @@ private:
     KPixmapSequenceOverlayPainter *m_busySeq;
     DevicesModel *m_model;
 
+    QString m_currentUri;
     ChooseLpd      *m_chooseLpd;
     ChoosePrinters *m_choosePrinters;
     ChooseSamba    *m_chooseSamba;

@@ -108,7 +108,7 @@ QVariantHash ChooseSamba::values() const
     }
 
     kDebug() << 2 << url;
-    kDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);
+    kDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);// same as url.fileName()
     kDebug() << 4 << url.fileName();
     kDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
 
@@ -136,7 +136,7 @@ bool ChooseSamba::isValid() const
             !url.protocol().isEmpty() &&
             url.hasHost() &&
             url.hasPath() &&
-            !url.path().section(QLatin1Char('/'), -1, -1).isEmpty() &&
+            !url.fileName().isEmpty() &&
             url.url().count(QLatin1Char('/')) <= 4;
 }
 

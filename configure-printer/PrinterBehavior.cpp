@@ -300,22 +300,20 @@ bool PrinterBehavior::hasChanges()
     return m_changes;
 }
 
-KCupsPrinter::Attributes PrinterBehavior::neededValues() const
+QStringList PrinterBehavior::neededValues() const
 {
-    KCupsPrinter::Attributes ret;
-    ret |= KCupsPrinter::JobSheetsDefault;
-    ret |= KCupsPrinter::JobSheetsSupported;
+    QStringList ret;
+    ret << KCUPS_JOB_SHEETS_DEFAULT;
+    ret << KCUPS_JOB_SHEETS_SUPPORTED;
 
-    ret |= KCupsPrinter::PrinterErrorPolicy;
-    ret |= KCupsPrinter::PrinterErrorPolicySupported;
+    ret << KCUPS_PRINTER_ERROR_POLICY;
+    ret << KCUPS_PRINTER_ERROR_POLICY_SUPPORTED;
 
-    ret |= KCupsPrinter::PrinterOpPolicy;
-    ret |= KCupsPrinter::PrinterOpPolicySupported;
+    ret << KCUPS_PRINTER_OP_POLICY;
+    ret << KCUPS_PRINTER_OP_POLICY_SUPPORTED;
 
-    ret |= KCupsPrinter::RequestingUserNameAllowed;
-    ret |= KCupsPrinter::RequestingUserNameDenied;
+    ret << KCUPS_REQUESTING_USER_NAME_ALLOWED;
+    ret << KCUPS_REQUESTING_USER_NAME_DENIED;
 
     return ret;
 }
-
-#include "PrinterBehavior.moc"

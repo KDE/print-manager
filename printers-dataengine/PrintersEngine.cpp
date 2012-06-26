@@ -37,12 +37,12 @@ PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args) :
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
 
-    m_printerAttributes |= KCupsPrinter::PrinterName;
-    m_printerAttributes |= KCupsPrinter::PrinterInfo;
-    m_printerAttributes |= KCupsPrinter::PrinterState;
-    m_printerAttributes |= KCupsPrinter::PrinterStateMessage;
+    m_printerAttributes << KCUPS_PRINTER_NAME;
+    m_printerAttributes << KCUPS_PRINTER_INFO;
+    m_printerAttributes << KCUPS_PRINTER_STATE;
+    m_printerAttributes << KCUPS_PRINTER_STATE_MESSAGE;
     // to get proper icons
-    m_printerAttributes |= KCupsPrinter::PrinterType;
+    m_printerAttributes << KCUPS_PRINTER_TYPE;
 
     createSubscription();
 }
@@ -176,11 +176,11 @@ void PrintersEngine::insertUpdatePrinter(const QString &text, const QString &pri
     Q_UNUSED(printerIsAcceptingJobs)
     kDebug() << printerName << printerStateReasons;
 
-    KCupsPrinter::Attributes attr;
-    attr |= KCupsPrinter::PrinterInfo;
-    attr |= KCupsPrinter::PrinterType;
-    attr |= KCupsPrinter::PrinterState;
-    attr |= KCupsPrinter::PrinterStateMessage;
+    QStringList attr;
+    attr << KCUPS_PRINTER_INFO;
+    attr << KCUPS_PRINTER_TYPE;
+    attr << KCUPS_PRINTER_STATE;
+    attr << KCUPS_PRINTER_STATE_MESSAGE;
 
     KCupsRequest *request = new KCupsRequest;
     // TODO we set is class to false, but what if it was a class?

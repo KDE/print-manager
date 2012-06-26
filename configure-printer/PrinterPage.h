@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -34,7 +34,7 @@ public:
 public:
     virtual void save() {}
     virtual QVariantHash modifiedValues() const;
-    virtual KCupsPrinter::Attributes neededValues() const = 0;
+    virtual QStringList neededValues() const { return QStringList(); }
     virtual void setRemote(bool remote);
 
 signals:

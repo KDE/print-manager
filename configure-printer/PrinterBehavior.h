@@ -41,7 +41,7 @@ public:
     void setRemote(bool remote);
     bool hasChanges();
 
-    KCupsPrinter::Attributes neededValues() const;
+    QStringList neededValues() const;
     void save();
 
 private slots:

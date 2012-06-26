@@ -261,9 +261,9 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
 
             // get printers we can move to
             KCupsRequest *request = new KCupsRequest;
-            KCupsPrinter::Attributes attr;
-            attr |= KCupsPrinter::PrinterName;
-            attr |= KCupsPrinter::PrinterInfo;
+            QStringList attr;
+            attr << KCUPS_PRINTER_NAME;
+            attr << KCUPS_PRINTER_INFO;
             request->getPrinters(attr);
             request->waitTillFinished();
             KCupsPrinters printers = request->printers();
@@ -326,11 +326,11 @@ void PrintQueueUi::updatePrinter(const QString &printer)
         return;
     }
 
-    KCupsPrinter::Attributes attr;
-    attr |= KCupsPrinter::PrinterInfo;
-    attr |= KCupsPrinter::PrinterType;
-    attr |= KCupsPrinter::PrinterState;
-    attr |= KCupsPrinter::PrinterStateMessage;
+    QStringList attr;
+    attr << KCUPS_PRINTER_INFO;
+    attr << KCUPS_PRINTER_TYPE;
+    attr << KCUPS_PRINTER_STATE;
+    attr << KCUPS_PRINTER_STATE_MESSAGE;
 
     KCupsRequest *request = new KCupsRequest;
     request->getPrinterAttributes(printer, m_isClass, attr);

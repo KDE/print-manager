@@ -37,11 +37,41 @@
 #define KCUPS_DEVICE_LOCATION       "device-location"
 #define KCUPS_DEVICE_URI            "device-uri"
 
-#define KCUPS_PRINTER_NAME           "printer-name"
-#define KCUPS_PRINTER_LOCATION       "printer-location"
-#define KCUPS_PRINTER_INFO           "printer-info"
-#define KCUPS_PRINTER_MAKE_AND_MODEL "printer-make-and-model"
-#define KCUPS_MEMBER_URIS            "member-uris"
+#define KCUPS_PRINTER_NAME                   "printer-name"
+#define KCUPS_PRINTER_LOCATION               "printer-location"
+#define KCUPS_PRINTER_INFO                   "printer-info"
+#define KCUPS_PRINTER_MAKE_AND_MODEL         "printer-make-and-model"
+#define KCUPS_PRINTER_STATE                  "printer-state"
+#define KCUPS_PRINTER_STATE_MESSAGE          "printer-state-message"
+#define KCUPS_PRINTER_IS_SHARED              "printer-is-shared"
+#define KCUPS_PRINTER_TYPE                   "printer-type"
+#define KCUPS_PRINTER_COMMANDS               "printer-commands"
+#define KCUPS_PRINTER_URI_SUPPORTED          "printer-supported"
+#define KCUPS_PRINTER_ERROR_POLICY           "printer-error-policy"
+#define KCUPS_PRINTER_ERROR_POLICY_SUPPORTED "printer-error-policy-supported"
+#define KCUPS_PRINTER_OP_POLICY              "printer-op-policy"
+#define KCUPS_PRINTER_OP_POLICY_SUPPORTED    "printer-op-policy-supported"
+
+#define KCUPS_MEMBER_URIS  "member-uris"
+#define KCUPS_MEMBER_NAMES "member-names"
+
+#define KCUPS_MARKER_CHANGE_TIME "marker-change-time"
+#define KCUPS_MARKER_COLORS      "marker-colors"
+#define KCUPS_MARKER_LEVELS      "marker-levels"
+#define KCUPS_MARKER_HIGH_LEVELS "marker-high-levels"
+#define KCUPS_MARKER_LOW_LEVELS  "marker-low-levels"
+#define KCUPS_MARKER_NAMES       "marker-names"
+#define KCUPS_MARKER_TYPES       "marker-types"
+#define KCUPS_MARKER_MESSAGE     "marker-message"
+
+#define KCUPS_JOB_SHEETS_DEFAULT   "job-sheets-default"
+#define KCUPS_JOB_SHEETS_SUPPORTED "job-sheets-supported"
+
+#define KCUPS_JOB_SHEETS_DEFAULT   "job-sheets-default"
+#define KCUPS_JOB_SHEETS_SUPPORTED "job-sheets-supported"
+
+#define KCUPS_REQUESTING_USER_NAME_ALLOWED "requesting-user-name-allowed"
+#define KCUPS_REQUESTING_USER_NAME_DENIED  "requesting-user-name-denied"
 
 typedef QList<QVariantHash> ReturnArguments;
 class KCupsPasswordDialog;

@@ -40,7 +40,6 @@ public:
     ~PrinterOptions();
 
     bool hasChanges();
-    KCupsPrinter::Attributes neededValues() const;
 
     QString currentMake() const;
     QString currentMakeAndModel() const;

@@ -115,7 +115,7 @@ public:
      * "printer-is-default" attribute BUT it does not get user
      * defined default printer, see cupsGetDefault() on www.cups.org for details
      */
-    Q_INVOKABLE void getPrinters(KCupsPrinter::Attributes attributes, const QVariantHash &arguments = QVariantHash());
+    Q_INVOKABLE void getPrinters(QStringList attributes, const QVariantHash &arguments = QVariantHash());
 
     /**
      * Get all available printers
@@ -127,7 +127,7 @@ public:
      * "printer-is-default" attribute BUT it does not get user
      * defined default printer, see cupsGetDefault() on www.cups.org for details
      */
-    Q_INVOKABLE void getPrinters(KCupsPrinter::Attributes attributes, cups_ptype_t mask);
+    Q_INVOKABLE void getPrinters(QStringList attributes, cups_ptype_t mask);
 
     /**
      * Get attributes from a given printer
@@ -137,7 +137,7 @@ public:
      *
      * @return The return will be stored in \sa printers()
      */
-    Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, KCupsPrinter::Attributes attributes);
+    Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes);
 
     /**
      * Get all jobs

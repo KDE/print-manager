@@ -36,8 +36,6 @@ KCupsRequest::KCupsRequest() :
     m_error(false)
 {
     connect(this, SIGNAL(finished()), &m_loop, SLOT(quit()));
-    qRegisterMetaType<KCupsJob::Attributes>("KCupsJob::Attributes");
-    qRegisterMetaType<KCupsPrinter::Attributes>("KCupsPrinter::Attributes");
 }
 
 QString KCupsRequest::serverError() const
@@ -119,19 +117,19 @@ void KCupsRequest::getDevices(int timeout)
 // "printer-is-default" attribute BUT it does not get user
 // defined default printer, see cupsGetDefault() on www.cups.org for details
 
-void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, cups_ptype_t mask)
+void KCupsRequest::getPrinters(QStringList attributes, cups_ptype_t mask)
 {
     QVariantHash arguments;
     arguments["printer-type-mask"] = mask;
     getPrinters(attributes, arguments);
 }
 
-void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVariantHash &arguments)
+void KCupsRequest::getPrinters(QStringList attributes, const QVariantHash &arguments)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request = arguments;
         request["printer-type"] = CUPS_PRINTER_LOCAL;
-        request["requested-attributes"] = KCupsPrinter::flags(attributes);
+        request["requested-attributes"] = attributes;
         request["need-dest-name"] = true;
 
         ReturnArguments ret;
@@ -151,14 +149,14 @@ void KCupsRequest::getPrinters(KCupsPrinter::Attributes attributes, const QVaria
     }
 }
 
-void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass, KCupsPrinter::Attributes attributes)
+void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
         request["printer-name"] = printerName;
         request["printer-is-class"] = isClass;
         request["need-dest-name"] = false; // we don't need a dest name since it's a single item
-        request["requested-attributes"] = KCupsPrinter::flags(attributes);
+        request["requested-attributes"] = attributes;
 
         ReturnArguments ret;
         ret = KCupsConnection::request(IPP_GET_PRINTER_ATTRIBUTES,

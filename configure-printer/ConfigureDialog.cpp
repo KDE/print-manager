@@ -46,15 +46,15 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
 
-    KCupsPrinter::Attributes attr;
+    QStringList attr;
     KPageWidgetItem *page;
 
     modifyPrinter = new ModifyPrinter(destName, isClass, true, this);
     PrinterBehavior *printerBehavior = new PrinterBehavior(destName, isClass, this);
-    attr |= modifyPrinter->neededValues();
-    attr |= printerBehavior->neededValues();
-    attr |= KCupsPrinter::PrinterType; // needed to know if it's a remote printer
-    attr |= KCupsPrinter::PrinterMakeAndModel;
+    attr << modifyPrinter->neededValues();
+    attr << printerBehavior->neededValues();
+    attr << KCUPS_PRINTER_TYPE; // needed to know if it's a remote printer
+    attr << KCUPS_PRINTER_MAKE_AND_MODEL;
 
     KCupsPrinter printer;
     KCupsRequest *request = new KCupsRequest;

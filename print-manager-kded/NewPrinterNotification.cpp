@@ -137,9 +137,12 @@ void NewPrinterNotification::NewPrinter(int status,
             title = i18n("The New Printer is Missing Drivers");
         }
 
+        QStringList attr;
+        attr << KCUPS_PRINTER_MAKE_AND_MODEL;
+
         // Get the new printer attributes
         KCupsRequest *request = new KCupsRequest;
-        request->getPrinterAttributes(name, false, KCupsPrinter::PrinterMakeAndModel);
+        request->getPrinterAttributes(name, false, attr);
         request->waitTillFinished();
 
         QString driver;

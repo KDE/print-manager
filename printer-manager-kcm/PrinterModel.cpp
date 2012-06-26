@@ -38,20 +38,20 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent) :
     QStandardItemModel(parent),
     m_parentId(parentId)
 {
-    m_attributes |= KCupsPrinter::PrinterName;
-    m_attributes |= KCupsPrinter::PrinterState;
-    m_attributes |= KCupsPrinter::PrinterStateMessage;
-    m_attributes |= KCupsPrinter::PrinterIsShared;
-    m_attributes |= KCupsPrinter::PrinterType;
-    m_attributes |= KCupsPrinter::PrinterLocation;
-    m_attributes |= KCupsPrinter::PrinterInfo;
-    m_attributes |= KCupsPrinter::PrinterMakeAndModel;
-    m_attributes |= KCupsPrinter::PrinterCommands;
-    m_attributes |= KCupsPrinter::MarkerChangeTime;
-    m_attributes |= KCupsPrinter::MarkerColors;
-    m_attributes |= KCupsPrinter::MarkerLevels;
-    m_attributes |= KCupsPrinter::MarkerNames;
-    m_attributes |= KCupsPrinter::MarkerTypes;
+    m_attributes << KCUPS_PRINTER_NAME;
+    m_attributes << KCUPS_PRINTER_STATE;
+    m_attributes << KCUPS_PRINTER_STATE_MESSAGE;
+    m_attributes << KCUPS_PRINTER_IS_SHARED;
+    m_attributes << KCUPS_PRINTER_TYPE;
+    m_attributes << KCUPS_PRINTER_LOCATION;
+    m_attributes << KCUPS_PRINTER_INFO;
+    m_attributes << KCUPS_PRINTER_MAKE_AND_MODEL;
+    m_attributes << KCUPS_PRINTER_COMMANDS;
+    m_attributes << KCUPS_MARKER_CHANGE_TIME;
+    m_attributes << KCUPS_MARKER_COLORS;
+    m_attributes << KCUPS_MARKER_LEVELS;
+    m_attributes << KCUPS_MARKER_NAMES;
+    m_attributes << KCUPS_MARKER_TYPES;
 
     KCupsRequest *request = new KCupsRequest;
     QStringList events;

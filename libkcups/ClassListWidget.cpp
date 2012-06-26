@@ -61,9 +61,9 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
         disconnect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
     }
 
-    KCupsPrinter::Attributes att;
-    att |= KCupsPrinter::PrinterName;
-    att |= KCupsPrinter::PrinterUriSupported;
+    QStringList att;
+    att << KCUPS_PRINTER_NAME;
+    att << KCUPS_PRINTER_URI_SUPPORTED;
     // Get destinations with these masks
     m_request = new KCupsRequest;
     m_request->getPrinters(att,

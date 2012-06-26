@@ -48,7 +48,7 @@ public:
 
     bool hasChanges();
     QVariantHash modifiedValues() const;
-    KCupsPrinter::Attributes neededValues() const;
+    QStringList neededValues() const;
     void setRemote(bool remote);
 
     void setValues(const KCupsPrinter &printer);

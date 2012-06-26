@@ -285,17 +285,17 @@ void ModifyPrinter::setCurrentMakeAndModel(const QString &makeAndModel)
     m_makeAndModel = makeAndModel;
 }
 
-KCupsPrinter::Attributes ModifyPrinter::neededValues() const
+QStringList ModifyPrinter::neededValues() const
 {
-    KCupsPrinter::Attributes ret;
-    ret |= KCupsPrinter::PrinterInfo;
-    ret |= KCupsPrinter::PrinterLocation;
+    QStringList ret;
+    ret << KCUPS_PRINTER_INFO;
+    ret << KCUPS_PRINTER_LOCATION;
 
     if (m_isClass) {
-        ret |= KCupsPrinter::MemberNames;
+        ret << KCUPS_MEMBER_NAMES;
     } else {
-        ret |= KCupsPrinter::DeviceUri;
-        ret |= KCupsPrinter::PrinterMakeAndModel;
+        ret << KCUPS_DEVICE_URI;
+        ret << KCUPS_PRINTER_MAKE_AND_MODEL;
     }
     return ret;
 }

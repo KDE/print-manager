@@ -75,10 +75,10 @@ void AddPrinterInterface::ChangePPD(qulonglong wid, const QString &name)
 {
     // Fist we need to get the printer attributes
     KCupsRequest *request = new KCupsRequest;
-    KCupsPrinter::Attributes attr;
-    attr |= KCupsPrinter::PrinterType; // needed to know if it's a remote printer
-    attr |= KCupsPrinter::PrinterMakeAndModel;
-    attr |= KCupsPrinter::DeviceUri;
+    QStringList attr;
+    attr << KCUPS_PRINTER_TYPE; // needed to know if it's a remote printer
+    attr << KCUPS_PRINTER_MAKE_AND_MODEL;
+    attr << KCUPS_DEVICE_URI;
     request->getPrinterAttributes(name, false, attr);
     request->waitTillFinished();
 

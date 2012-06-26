@@ -85,7 +85,7 @@ private slots:
 
 private:
     WId m_parentId;
-    KCupsPrinter::Attributes m_attributes;
+    QStringList m_attributes;
 
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);

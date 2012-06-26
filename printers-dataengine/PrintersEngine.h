@@ -67,7 +67,7 @@ private slots:
 private:
     void updatePrinterSource(const KCupsPrinter &printer);
 
-    KCupsPrinter::Attributes m_printerAttributes;
+    QStringList m_printerAttributes;
     KCupsRequest *m_printersRequest;
     int m_subscriptionId;
 };

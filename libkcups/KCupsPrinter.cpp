@@ -37,8 +37,8 @@ KCupsPrinter::KCupsPrinter(const QVariantHash &arguments) :
     m_arguments(arguments)
 {
     kDebug() << arguments;
-    m_printer = arguments["printer-name"].toString();
-    m_isClass = arguments["printer-type"].toInt() & CUPS_PRINTER_CLASS;
+    m_printer = arguments[KCUPS_PRINTER_NAME].toString();
+    m_isClass = arguments[KCUPS_PRINTER_TYPE].toInt() & CUPS_PRINTER_CLASS;
 }
 
 QString KCupsPrinter::name() const
@@ -53,110 +53,110 @@ bool KCupsPrinter::isClass() const
 
 bool KCupsPrinter::isDefault() const
 {
-    return m_arguments["printer-type"].toUInt() & CUPS_PRINTER_DEFAULT;
+    return m_arguments[KCUPS_PRINTER_TYPE].toUInt() & CUPS_PRINTER_DEFAULT;
 }
 
 bool KCupsPrinter::isShared() const
 {
-    return m_arguments["printer-is-shared"].toBool();
+    return m_arguments[KCUPS_PRINTER_IS_SHARED].toBool();
 }
 
 cups_ptype_e KCupsPrinter::type() const
 {
-    return static_cast<cups_ptype_e>(m_arguments["printer-type"].toUInt());
+    return static_cast<cups_ptype_e>(m_arguments[KCUPS_PRINTER_TYPE].toUInt());
 }
 
 QString KCupsPrinter::location() const
 {
-    return m_arguments["printer-location"].toString();
+    return m_arguments[KCUPS_PRINTER_LOCATION].toString();
 }
 
 QString KCupsPrinter::info() const
 {
-    if (m_arguments["printer-info"].toString().isEmpty()) {
+    if (m_arguments[KCUPS_PRINTER_INFO].toString().isEmpty()) {
         return name();
     }
-    return m_arguments["printer-info"].toString();
+    return m_arguments[KCUPS_PRINTER_INFO].toString();
 }
 
 QString KCupsPrinter::makeAndModel() const
 {
-    return m_arguments["printer-make-and-model"].toString();
+    return m_arguments[KCUPS_PRINTER_MAKE_AND_MODEL].toString();
 }
 
 QStringList KCupsPrinter::commands() const
 {
-    return m_arguments["printer-commands"].toStringList();
+    return m_arguments[KCUPS_PRINTER_COMMANDS].toStringList();
 }
 
 QStringList KCupsPrinter::memberNames() const
 {
-    return m_arguments["member-names"].toStringList();
+    return m_arguments[KCUPS_MEMBER_NAMES].toStringList();
 }
 
 QString KCupsPrinter::deviceUri() const
 {
-    return m_arguments["device-uri"].toString();
+    return m_arguments[KCUPS_DEVICE_URI].toString();
 }
 
 QStringList KCupsPrinter::errorPolicy() const
 {
-    return m_arguments["printer-error-policy"].toStringList();
+    return m_arguments[KCUPS_PRINTER_ERROR_POLICY].toStringList();
 }
 
 QStringList KCupsPrinter::errorPolicySupported() const
 {
-    return m_arguments["printer-error-policy-supported"].toStringList();
+    return m_arguments[KCUPS_PRINTER_ERROR_POLICY_SUPPORTED].toStringList();
 }
 
 QStringList KCupsPrinter::opPolicy() const
 {
-    return m_arguments["printer-op-policy"].toStringList();
+    return m_arguments[KCUPS_PRINTER_OP_POLICY].toStringList();
 }
 
 QStringList KCupsPrinter::opPolicySupported() const
 {
-    return m_arguments["printer-op-policy-supported"].toStringList();
+    return m_arguments[KCUPS_PRINTER_OP_POLICY_SUPPORTED].toStringList();
 }
 
 QStringList KCupsPrinter::jobSheetsDefault() const
 {
-    return m_arguments["job-sheets-default"].toStringList();
+    return m_arguments[KCUPS_JOB_SHEETS_DEFAULT].toStringList();
 }
 
 QStringList KCupsPrinter::jobSheetsSupported() const
 {
-    return m_arguments["job-sheets-supported"].toStringList();
+    return m_arguments[KCUPS_JOB_SHEETS_SUPPORTED].toStringList();
 }
 
 QStringList KCupsPrinter::requestingUserNameAllowed() const
 {
-    return m_arguments["requesting-user-name-allowed"].toStringList();
+    return m_arguments[KCUPS_REQUESTING_USER_NAME_ALLOWED].toStringList();
 }
 
 QStringList KCupsPrinter::requestingUserNameDenied() const
 {
-    return m_arguments["requesting-user-name-denied"].toStringList();
+    return m_arguments[KCUPS_REQUESTING_USER_NAME_DENIED].toStringList();
 }
 
 QString KCupsPrinter::uriSupported() const
 {
-    return m_arguments["printer-uri-supported"].toString();
+    return m_arguments[KCUPS_PRINTER_URI_SUPPORTED].toString();
 }
 
 KCupsPrinter::Status KCupsPrinter::state() const
 {
-    return static_cast<Status>(m_arguments["printer-state"].toUInt());
+    return static_cast<Status>(m_arguments[KCUPS_PRINTER_STATE].toUInt());
 }
 
 QString KCupsPrinter::stateMsg() const
 {
-    return m_arguments["printer-state-message"].toString();
+    return m_arguments[KCUPS_PRINTER_STATE_MESSAGE].toString();
 }
 
 int KCupsPrinter::markerChangeTime() const
 {
-    return m_arguments["marker-change-time"].toInt();
+    return m_arguments[KCUPS_MARKER_CHANGE_TIME].toInt();
 }
 
 QVariant KCupsPrinter::argument(const QString &name) const
@@ -190,95 +190,4 @@ QString KCupsPrinter::iconName(cups_ptype_e type)
     } else {
         return "printer";
     }
-}
-
-QStringList KCupsPrinter::flags(const Attributes &attributes)
-{
-    QStringList ret;
-    if (attributes & PrinterName) {
-        ret << "printer-name";
-    }
-    if (attributes & PrinterState) {
-        ret << "printer-state";
-    }
-    if (attributes & PrinterStateMessage) {
-        ret << "printer-state-message";
-    }
-    if (attributes & PrinterIsShared) {
-        ret << "printer-is-shared";
-    }
-    if (attributes & PrinterType) {
-        ret << "printer-type";
-    }
-    if (attributes & PrinterLocation) {
-        ret << "printer-location";
-    }
-    if (attributes & PrinterInfo) {
-        ret << "printer-info";
-    }
-    if (attributes & PrinterMakeAndModel) {
-        ret << "printer-make-and-model";
-    }
-    if (attributes & PrinterCommands) {
-        ret << "printer-commands";
-    }
-    if (attributes & PrinterUriSupported) {
-        ret << "printer-uri-supported";
-    }
-    if (attributes & MarkerChangeTime) {
-        ret << "marker-change-time";
-    }
-    if (attributes & MarkerColors) {
-        ret << "marker-colors";
-    }
-    if (attributes & MarkerLevels) {
-        ret << "marker-levels";
-    }
-    if (attributes & MarkerHighLevels) {
-        ret << "marker-high-levels";
-    }
-    if (attributes & MarkerLowLevels) {
-        ret << "marker-low-levels";
-    }
-    if (attributes & MarkerNames) {
-        ret << "marker-names";
-    }
-    if (attributes & MarkerTypes) {
-        ret << "marker-types";
-    }
-    if (attributes & MarkerMessage) {
-        ret << "marker-message";
-    }
-    if (attributes & MemberNames) {
-        ret << "member-names";
-    }
-    if (attributes & DeviceUri) {
-        ret << "device-uri";
-    }
-    if (attributes & JobSheetsDefault) {
-        ret << "job-sheets-default";
-    }
-    if (attributes & JobSheetsSupported) {
-        ret << "job-sheets-supported";
-    }
-    if (attributes & PrinterErrorPolicy) {
-        ret << "printer-error-policy";
-    }
-    if (attributes & PrinterErrorPolicySupported) {
-        ret << "printer-error-policy-supported";
-    }
-    if (attributes & PrinterOpPolicy) {
-        ret << "printer-op-policy";
-    }
-    if (attributes & PrinterOpPolicySupported) {
-        ret << "printer-op-policy-supported";
-    }
-    if (attributes & RequestingUserNameAllowed) {
-        ret << "requesting-user-name-allowed";
-    }
-    if (attributes & RequestingUserNameDenied) {
-        ret << "requesting-user-name-denied";
-    }
-
-    return ret;
 }

@@ -64,9 +64,9 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
         // Reserve this since the CUPS call might take a long time
         m_uis[destName] = 0;
 
-        KCupsPrinter::Attributes attr;
-        attr |= KCupsPrinter::PrinterName;
-        attr |= KCupsPrinter::PrinterType;
+        QStringList attr;
+        attr << KCUPS_PRINTER_NAME;
+        attr << KCUPS_PRINTER_TYPE;
         // Get destinations with these attributes
         KCupsRequest *request = new KCupsRequest;
         request->getPrinters(attr);
@@ -86,20 +86,10 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
 
         if (found) {
             PrintQueueUi *ui = new PrintQueueUi(printer);
-//            KDialog *dlg = new KDialog;
-//            dlg->setWindowIcon(printer.icon());
-//            dlg->setWindowTitle(ui->windowTitle());
-//            dlg->setButtons(0);
-//            dlg->setMainWidget(ui);
-//            dlg->setSizeGripEnabled(true);
-//            (void)dlg->minimumSizeHint(); //Force the dialog to be laid out now
-//            dlg->layout()->setContentsMargins(0,0,0,0);
             connect(m_updateUi, SIGNAL(timeout()),
                     ui, SLOT(update()));
             connect(ui, SIGNAL(finished()),
                     this, SLOT(RemoveQueue()));
-//            connect(ui, SIGNAL(windowTitleChanged(QString)),
-//                    dlg, SLOT(setWindowTitle(QString)));
             ui->show();
             m_uis[printer.name()] = ui;
         } else {

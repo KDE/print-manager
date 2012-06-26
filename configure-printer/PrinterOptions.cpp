@@ -772,11 +772,6 @@ bool PrinterOptions::hasChanges()
     return m_changes;
 }
 
-KCupsPrinter::Attributes PrinterOptions::neededValues() const
-{
-    return 0;
-}
-
 QString PrinterOptions::currentMake() const
 {
     return m_make;

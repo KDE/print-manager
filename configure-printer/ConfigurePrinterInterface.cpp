@@ -63,12 +63,12 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
         // Reserve this since the CUPS call might take a long time
         m_uis[destName] = 0;
 
-        KCupsPrinter::Attributes attr;
-        attr |= KCupsPrinter::PrinterName;
-        attr |= KCupsPrinter::PrinterType;
+        QStringList att;
+        att << KCUPS_PRINTER_NAME;
+        att << KCUPS_PRINTER_TYPE;
         // Get destinations with these attributes
         KCupsRequest *request = new KCupsRequest;
-        request->getPrinters(attr);
+        request->getPrinters(att);
         request->waitTillFinished();
 
         bool found = false;

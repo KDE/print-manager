@@ -178,7 +178,7 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
     }
 }
 
-void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJobs, KCupsJob::Attributes attributes)
+void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJobs, QStringList attributes)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
@@ -195,9 +195,8 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
             request["which-jobs"] = "all";
         }
 
-        QStringList attributesStrList = KCupsJob::flags(attributes);
-        if (!attributesStrList.isEmpty()) {
-            request["requested-attributes"] = attributesStrList;
+        if (!attributes.isEmpty()) {
+            request["requested-attributes"] = attributes;
         }
         request["group-tag-qt"] = IPP_TAG_JOB;
 
@@ -218,14 +217,14 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
     }
 }
 
-void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, KCupsJob::Attributes attributes)
+void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStringList attributes)
 {
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
         request["job-id"] = jobId;
         request["printer-uri"] = printerUri;
         request["need-dest-name"] = false; // we don't need a dest name since it's a single list
-        request["requested-attributes"] = KCupsJob::flags(attributes);
+        request["requested-attributes"] = attributes;
 
         ReturnArguments ret;
         ret = KCupsConnection::request(IPP_GET_JOB_ATTRIBUTES,

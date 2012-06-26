@@ -148,7 +148,7 @@ public:
      * @param myJobs true if you only want your jobs
      * @param whichJobs which kind jobs should be sent
      */
-    Q_INVOKABLE void getJobs(const QString &printerName, bool myJobs, int whichJobs, KCupsJob::Attributes attributes);
+    Q_INVOKABLE void getJobs(const QString &printerName, bool myJobs, int whichJobs, QStringList attributes);
 
     /**
      * Get attributes from a given printer
@@ -158,7 +158,7 @@ public:
      *
      * @return The return will be stored in \sa printers()
      */
-    Q_INVOKABLE void getJobAttributes(int jobId, const QString &printerUri, KCupsJob::Attributes attributes);
+    Q_INVOKABLE void getJobAttributes(int jobId, const QString &printerUri, QStringList attributes);
 
     /**
      * This makes KCupsConnection emit signals to the following

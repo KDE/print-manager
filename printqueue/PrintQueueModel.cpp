@@ -108,22 +108,21 @@ void PrintQueueModel::updateModel()
     m_jobRequest = new KCupsRequest;
     connect(m_jobRequest, SIGNAL(finished()), this, SLOT(getJobFinished()));
 
-    KCupsJob::Attributes attributes;
-    attributes |= KCupsJob::JobId;
-    attributes |= KCupsJob::JobName;
-    attributes |= KCupsJob::JobKOctets;
-    attributes |= KCupsJob::JobKOctetsProcessed;
-    attributes |= KCupsJob::JobState;
-    attributes |= KCupsJob::TimeAtCompleted;
-    attributes |= KCupsJob::TimeAtCreation;
-    attributes |= KCupsJob::TimeAtProcessing;
-    attributes |= KCupsJob::JobPrinterUri;
-    attributes |= KCupsJob::JobOriginatingUserName;
-    attributes |= KCupsJob::JobMediaProgress;
-    attributes |= KCupsJob::JobMediaSheets;
-    attributes |= KCupsJob::JobMediaSheetsCompleted;
-    attributes |= KCupsJob::JobPrinterStatMessage;
-    attributes |= KCupsJob::JobPreserved;
+    QStringList attributes;
+    attributes << KCUPS_JOB_ID;
+    attributes << KCUPS_JOB_K_OCTETS;
+    attributes << KCUPS_JOB_K_OCTETS_PROCESSED;
+    attributes << KCUPS_JOB_STATE;
+    attributes << KCUPS_TIME_AT_COMPLETED;
+    attributes << KCUPS_TIME_AT_CREATION;
+    attributes << KCUPS_TIME_AT_PROCESSING;
+    attributes << KCUPS_JOB_PRINTER_URI;
+    attributes << KCUPS_JOB_ORIGINATING_USER_NAME;
+    attributes << KCUPS_JOB_MEDIA_PROGRESS;
+    attributes << KCUPS_JOB_MEDIA_SHEETS;
+    attributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
+    attributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
+    attributes << KCUPS_JOB_PRESERVED;
     m_jobRequest->getJobs(m_destName, false, m_whichjobs, attributes);
 
     m_processingJob.clear();

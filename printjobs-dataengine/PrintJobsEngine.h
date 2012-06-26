@@ -78,7 +78,7 @@ private:
     void updateJobSource(const KCupsJob &job);
     bool updateJobState(Plasma::DataEngine::Data &sourceData, ipp_jstate_t jobState);
 
-    KCupsJob::Attributes m_jobAttributes;
+    QStringList m_jobAttributes;
     KCupsRequest *m_jobRequest;
     int m_subscriptionId;
 };

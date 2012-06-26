@@ -31,15 +31,14 @@ KCupsJob::KCupsJob(int jobId, const QString &printer) :
     m_jobId(jobId),
     m_printer(printer)
 {
-    m_arguments["job-id"] = QString::number(jobId);
+    m_arguments[KCUPS_JOB_ID] = QString::number(jobId);
 }
 
 KCupsJob::KCupsJob(const QVariantHash &arguments) :
     m_arguments(arguments)
 {
-    m_jobId = arguments["job-id"].toInt();
-//    m_printer = arguments["dest-name"].toString();
-    m_printer = arguments["job-printer-uri"].toString().section('/', -1);
+    m_jobId = arguments[KCUPS_JOB_ID].toInt();
+    m_printer = arguments[KCUPS_JOB_PRINTER_URI].toString().section('/', -1);
 }
 
 int KCupsJob::id() const
@@ -49,17 +48,17 @@ int KCupsJob::id() const
 
 QString KCupsJob::idStr() const
 {
-    return m_arguments["job-id"].toString();
+    return m_arguments[KCUPS_JOB_ID].toString();
 }
 
 QString KCupsJob::name() const
 {
-    return m_arguments["job-name"].toString();
+    return m_arguments[KCUPS_JOB_NAME].toString();
 }
 
 QString KCupsJob::ownerName() const
 {
-    return m_arguments["job-originating-user-name"].toString();
+    return m_arguments[KCUPS_JOB_ORIGINATING_USER_NAME].toString();
 }
 
 QString KCupsJob::printer() const
@@ -70,37 +69,37 @@ QString KCupsJob::printer() const
 QDateTime KCupsJob::createdAt() const
 {
     QDateTime ret;
-    ret.setTime_t(m_arguments["time-at-creation"].toInt());
+    ret.setTime_t(m_arguments[KCUPS_TIME_AT_CREATION].toInt());
     return ret;
 }
 
 QDateTime KCupsJob::completedAt() const
 {
     QDateTime ret;
-    ret.setTime_t(m_arguments["time-at-completed"].toInt());
+    ret.setTime_t(m_arguments[KCUPS_TIME_AT_COMPLETED].toInt());
     return ret;
 }
 
 QDateTime KCupsJob::processedAt() const
 {
     QDateTime ret;
-    ret.setTime_t(m_arguments["time-at-processing"].toInt());
+    ret.setTime_t(m_arguments[KCUPS_TIME_AT_PROCESSING].toInt());
     return ret;
 }
 
 int KCupsJob::pages() const
 {
-    return m_arguments["job-media-sheets"].toInt();
+    return m_arguments[KCUPS_JOB_MEDIA_SHEETS].toInt();
 }
 
 int KCupsJob::processedPages() const
 {
-    return m_arguments["job-media-sheets-completed"].toInt();
+    return m_arguments[KCUPS_JOB_MEDIA_SHEETS_COMPLETED].toInt();
 }
 
 int KCupsJob::size() const
 {
-    int jobKOctets = m_arguments["job-k-octets"].toInt();
+    int jobKOctets = m_arguments[KCUPS_JOB_K_OCTETS].toInt();
     jobKOctets *= 1024; // transform it to bytes
     return jobKOctets;
 }
@@ -138,12 +137,12 @@ QString KCupsJob::iconName(ipp_jstate_t state)
 
 ipp_jstate_t KCupsJob::state() const
 {
-    return static_cast<ipp_jstate_t>(m_arguments["job-state"].toUInt());
+    return static_cast<ipp_jstate_t>(m_arguments[KCUPS_JOB_STATE].toUInt());
 }
 
 QString KCupsJob::stateMsg() const
 {
-    return m_arguments["job-printer-state-message"].toString();
+    return m_arguments[KCUPS_JOB_PRINTER_STATE_MESSAGE].toString();
 }
 
 bool KCupsJob::cancelEnabled(ipp_jstate_t state)
@@ -193,57 +192,4 @@ bool KCupsJob::restartEnabled(ipp_jstate_t state)
     default:
         return true;
     }
-}
-
-QStringList KCupsJob::flags(const Attributes &attributes)
-{
-    QStringList ret;
-
-    if (attributes & JobId) {
-        ret << "job-id";
-    }
-    if (attributes & JobName) {
-        ret << "job-name";
-    }
-    if (attributes & JobKOctets) {
-        ret << "job-k-octets";
-    }
-    if (attributes & JobKOctetsProcessed) {
-        ret << "job-k-octets-processed";
-    }
-    if (attributes & JobState) {
-        ret << "job-state";
-    }
-    if (attributes & TimeAtCompleted) {
-        ret << "time-at-completed";
-    }
-    if (attributes & TimeAtCreation) {
-        ret << "time-at-creation";
-    }
-    if (attributes & TimeAtProcessing) {
-        ret << "time-at-processing";
-    }
-    if (attributes & JobPrinterUri) {
-        ret << "job-printer-uri";
-    }
-    if (attributes & JobOriginatingUserName) {
-        ret << "job-originating-user-name";
-    }
-    if (attributes & JobMediaProgress) {
-        ret << "job-media-progress";
-    }
-    if (attributes & JobMediaSheets) {
-        ret << "job-media-sheets";
-    }
-    if (attributes & JobMediaSheetsCompleted) {
-        ret << "job-media-sheets-completed";
-    }
-    if (attributes & JobPrinterStatMessage) {
-        ret << "job-printer-state-message";
-    }
-    if (attributes & JobPreserved) {
-        ret << "job-preserved";
-    }
-
-    return ret;
 }

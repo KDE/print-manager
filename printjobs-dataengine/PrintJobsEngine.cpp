@@ -38,21 +38,21 @@ PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args) :
     Q_UNUSED(args)
 
     // Setup the attributes we want from jobs
-    m_jobAttributes |= KCupsJob::JobId;
-    m_jobAttributes |= KCupsJob::JobName;
-    m_jobAttributes |= KCupsJob::JobKOctets;
-    m_jobAttributes |= KCupsJob::JobKOctetsProcessed;
-    m_jobAttributes |= KCupsJob::JobState;
-    m_jobAttributes |= KCupsJob::TimeAtCompleted;
-    m_jobAttributes |= KCupsJob::TimeAtCreation;
-    m_jobAttributes |= KCupsJob::TimeAtProcessing;
-    m_jobAttributes |= KCupsJob::JobPrinterUri;
-    m_jobAttributes |= KCupsJob::JobOriginatingUserName;
-    m_jobAttributes |= KCupsJob::JobMediaProgress;
-    m_jobAttributes |= KCupsJob::JobMediaSheets;
-    m_jobAttributes |= KCupsJob::JobMediaSheetsCompleted;
-    m_jobAttributes |= KCupsJob::JobPrinterStatMessage;
-    m_jobAttributes |= KCupsJob::JobPreserved;
+    m_jobAttributes << KCUPS_JOB_ID;
+    m_jobAttributes << KCUPS_JOB_NAME;
+    m_jobAttributes << KCUPS_JOB_K_OCTETS;
+    m_jobAttributes << KCUPS_JOB_K_OCTETS_PROCESSED;
+    m_jobAttributes << KCUPS_JOB_STATE;
+    m_jobAttributes << KCUPS_TIME_AT_COMPLETED;
+    m_jobAttributes << KCUPS_TIME_AT_CREATION;
+    m_jobAttributes << KCUPS_TIME_AT_PROCESSING;
+    m_jobAttributes << KCUPS_JOB_PRINTER_URI;
+    m_jobAttributes << KCUPS_JOB_ORIGINATING_USER_NAME;
+    m_jobAttributes << KCUPS_JOB_MEDIA_PROGRESS;
+    m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS;
+    m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
+    m_jobAttributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
+    m_jobAttributes << KCUPS_JOB_PRESERVED;
 
     createSubscription();
 }

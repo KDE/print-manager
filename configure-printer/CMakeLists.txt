@@ -28,7 +28,7 @@ kde4_add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
     ${KDE4_KIO_LIBS}
     ${CUPS_LIB}
-    qcupslib
+    kcupslib
 )
 
 install(TARGETS configure-printer DESTINATION ${LIBEXEC_INSTALL_DIR})

@@ -40,15 +40,23 @@
 
 #define PRINTER_ICON_SIZE 92
 
-PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
- : QWidget(parent),
-   ui(new Ui::PrintQueueUi),
-   m_destName(printer.name()),
-   m_preparingMenu(false),
-   m_lastState(0)
+PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
+    KDialog(parent),
+    ui(new Ui::PrintQueueUi),
+    m_destName(printer.name()),
+    m_preparingMenu(false),
+    m_lastState(0)
 {
-    ui->setupUi(this);
+    ui->setupUi(mainWidget());
+    // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
+
+    setWindowIcon(printer.icon());
+//    setWindowTitle(ui->windowTitle());
+    setButtons(0);
+    setSizeGripEnabled(true);
+    (void) minimumSizeHint(); //Force the dialog to be laid out now
+    layout()->setContentsMargins(0,0,0,0);
 
     m_isClass = printer.isClass();
 
@@ -143,14 +151,20 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
                                          SLOT(updatePrinter(QString)));
 
     updatePrinter(m_destName);
+
+    // Restore the dialog size
+    restoreDialogSize(printQueue);
 }
 
 PrintQueueUi::~PrintQueueUi()
 {
     KConfig config("print-manager");
-    KConfigGroup printQueue(&config, "PrintQueue");
+    KConfigGroup configGroup(&config, "PrintQueue");
     // save the header state order
-    printQueue.writeEntry("ColumnState", ui->jobsView->header()->saveState());
+    configGroup.writeEntry("ColumnState", ui->jobsView->header()->saveState());
+
+    // Save the dialog size
+    saveDialogSize(configGroup);
 }
 
 int PrintQueueUi::columnCount(const QModelIndex &parent) const
@@ -357,12 +371,12 @@ void PrintQueueUi::update()
     // Set window title
     if (m_model->rowCount()) {
         if (m_title.isNull()) {
-            emit windowTitleChanged(i18np("All Printers (%1 Job)", "All Printers (%1 Jobs)", m_model->rowCount()));
+            setWindowTitle(i18np("All Printers (%1 Job)", "All Printers (%1 Jobs)", m_model->rowCount()));
         } else {
-            emit windowTitleChanged(i18np("%2 (%1 Job)", "%2 (%1 Jobs)", m_model->rowCount(), m_title));
+            setWindowTitle(i18np("%2 (%1 Job)", "%2 (%1 Jobs)", m_model->rowCount(), m_title));
         }
     } else {
-        emit windowTitleChanged(m_title.isNull() ? i18n("All Printers") : m_title);
+        setWindowTitle(m_title.isNull() ? i18n("All Printers") : m_title);
     }
 }
 

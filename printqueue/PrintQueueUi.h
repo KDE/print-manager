@@ -21,7 +21,7 @@
 #ifndef PRINT_QUEUE_UI_H
 #define PRINT_QUEUE_UI_H
 
-#include <QWidget>
+#include <KDialog>
 #include <QModelIndex>
 #include <QToolButton>
 
@@ -32,7 +32,7 @@ namespace Ui {
 class KCupsPrinter;
 class PrintQueueSortFilterProxyModel;
 class PrintQueueModel;
-class PrintQueueUi : public QWidget
+class PrintQueueUi : public KDialog
 {
     Q_OBJECT
 public:
@@ -41,7 +41,6 @@ public:
 
 signals:
     void finished();
-    void windowTitleChanged(const QString &title);
 
 public slots:
     void update();

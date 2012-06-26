@@ -13,10 +13,10 @@ include_directories(${CMAKE_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${KDE4_INCLUDES}
-    ${CMAKE_CURRENT_SOURCE_DIR}/libqcups
+    ${CMAKE_CURRENT_SOURCE_DIR}/libkcups
 )
 
-add_subdirectory(libqcups)
+add_subdirectory(libkcups)
 add_subdirectory(configure-printer)
 add_subdirectory(add-printer)
 add_subdirectory(printer-manager-kcm)

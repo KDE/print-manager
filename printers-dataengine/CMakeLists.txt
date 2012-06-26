@@ -21,7 +21,7 @@ kde4_add_plugin(plasma_engine_printers ${printers_engine_SRCS})
 target_link_libraries(plasma_engine_printers
     ${KDE4_KDECORE_LIBS}
     ${KDE4_PLASMA_LIBS}
-    qcupslib
+    kcupslib
 )
  
 install(TARGETS plasma_engine_printers

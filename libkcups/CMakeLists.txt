@@ -1,4 +1,4 @@
-set(libqcups_SRCS
+set(libkcups_SRCS
     KCupsPasswordDialog.cpp
     KCupsConnection.cpp
     KCupsJob.cpp
@@ -10,14 +10,14 @@ set(libqcups_SRCS
     SelectMakeModel.cpp
 )
 
-kde4_add_ui_files(libqcups_SRCS
+kde4_add_ui_files(libkcups_SRCS
     SelectMakeModel.ui
 )
 
-kde4_add_library(qcupslib SHARED ${libqcups_SRCS})
-target_link_libraries(qcupslib
+kde4_add_library(kcupslib SHARED ${libkcups_SRCS})
+target_link_libraries(kcupslib
     ${KDE4_KIO_LIBS}
     ${CUPS_LIB}
 )
 
-install(TARGETS qcupslib ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kcupslib ${INSTALL_TARGETS_DEFAULT_ARGS})

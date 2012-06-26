@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -68,6 +68,7 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     ui->stackedWidget->addWidget(m_chooseUri);
     connect(m_chooseUri, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
 
+    m_chooseLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     ui->stackedWidget->addWidget(m_chooseLabel);
 
     // setup default options
@@ -80,6 +81,11 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     // Expand when a parent is added
     connect(m_model, SIGNAL(parentAdded(QModelIndex)),
             ui->devicesTV, SLOT(expand(QModelIndex)));
+
+    // Update the view when the device URI combo box changed
+    connect(ui->connectionsCB, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(deviceUriChanged()));
+    ui->connectionsGB->setVisible(false);
 
     // Setup the busy cursor
 //    m_busySeq = new KPixmapSequenceOverlayPainter(this);
@@ -161,28 +167,31 @@ bool PageDestinations::canProceed() const
 
 void PageDestinations::deviceChanged()
 {
-//    QString deviceUri;
     QItemSelectionModel *selection = ui->devicesTV->selectionModel();
     if (!selection->selectedIndexes().isEmpty() &&
             selection->selectedIndexes().size() == 1) {
         QModelIndex index = selection->selectedIndexes().first();
         QVariant uri = index.data(DevicesModel::DeviceUris);
         if (uri.type() == QVariant::String) {
-//            deviceUri = uri.toString();
+            ui->connectionsGB->setVisible(false);
         } else  {
-            ui->conexionCB->clear();
+            ui->connectionsCB->clear();
             foreach (const QString &uri, uri.toStringList()) {
-                KUrl url;
-                url.setEncodedUrl(uri.toAscii());
-                ui->conexionCB->addItem(uriText(url), uri);
+                ui->connectionsCB->addItem(uriText(uri), uri);
             }
+            ui->connectionsGB->setVisible(true);
         }
     } else {
         setCurrentPage(0, selectedItemValues());
         return;
     }
 
-    // Get the selected index
+    deviceUriChanged();
+}
+
+void PageDestinations::deviceUriChanged()
+{
+    // Get the selected values
     QVariantHash args = selectedItemValues();
 
     // "beh" is excluded from the list
@@ -258,10 +267,6 @@ void PageDestinations::deviceChanged()
     emit allowProceed(canProceed());
 }
 
-void PageDestinations::deviceUriChanged()
-{
-}
-
 QVariantHash PageDestinations::selectedItemValues() const
 {
     QVariantHash ret = m_args;
@@ -269,13 +274,12 @@ QVariantHash PageDestinations::selectedItemValues() const
             ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
         QModelIndex index = ui->devicesTV->selectionModel()->selectedIndexes().first();
         QVariant uri = index.data(DevicesModel::DeviceUris);
-        kDebug() << uri << uri.type() << QVariant::String;
-        if (uri.type() == QVariant::String) {
-            ret[KCUPS_DEVICE_URI] = uri;
-        } else  {
-            // TODO get device from combo
-//            ui->conexionCB->addItems(uri.toStringList());
+        // if the devicesTV holds an item with grouped URIs
+        // get the selected value from the connections combo box
+        if (uri.type() == QVariant::StringList) {
+            uri = ui->connectionsCB->itemData(ui->connectionsCB->currentIndex());
         }
+        ret[KCUPS_DEVICE_URI] = uri;
         ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
         ret[KCUPS_DEVICE_MAKE_AND_MODEL] = index.data(DevicesModel::DeviceMakeAndModel);
         ret[KCUPS_DEVICE_INFO] = index.data(DevicesModel::DeviceInfo);
@@ -293,6 +297,12 @@ void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
             ui->stackedWidget->setCurrentWidget(page);
         }
     } else if (qobject_cast<QLabel*>(widget)) {
+        if (ui->connectionsGB->isVisible() &&
+                ui->connectionsCB->currentText() == m_chooseLabel->text()) {
+            // Don't show duplicated text for the user
+            m_chooseLabel->clear();
+        }
+
         if (ui->stackedWidget->currentWidget() != widget) {;
             ui->stackedWidget->setCurrentWidget(widget);
         }
@@ -301,62 +311,64 @@ void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
     }
 }
 
-QString PageDestinations::uriText(const KUrl &uri) const
+QString PageDestinations::uriText(const QString &uri) const
 {
     QString ret;
-    if (uri.protocol() == QLatin1String("parallel")) {
+    if (uri.startsWith(QLatin1String("parallel"))) {
         ret = i18n("Parallel Port");
-    } else if (uri.protocol() == QLatin1String("serial")) {
+    } else if (uri.startsWith(QLatin1String("serial"))) {
         ret = i18n("Serial Port");
-    } else if (uri.protocol() == QLatin1String("usb")) {
+    } else if (uri.startsWith(QLatin1String("usb"))) {
         ret = i18n("USB");
-    } else if (uri.protocol() == QLatin1String("bluetooth")) {
+    } else if (uri.startsWith(QLatin1String("bluetooth")) ){
         ret = i18n("Bluetooth");
-    } else if (uri.protocol() == QLatin1String("hp")) {
-        ret = i18n("HP Linux Imaging and Printing (HPLIP)");
-    } else if (uri.protocol() == QLatin1String("hpfax")) {
+    } else if (uri.startsWith(QLatin1String("hpfax"))) {
         ret = i18n("Fax - HP Linux Imaging and Printing (HPLIP)");
-    } else if (uri.protocol() == QLatin1String("hal")) {
+    } else if (uri.startsWith(QLatin1String("hp"))) {
+        ret = i18n("HP Linux Imaging and Printing (HPLIP)");
+    } else if (uri.startsWith(QLatin1String("hal"))) {
         ret = i18n("Hardware Abstraction Layer (HAL)");
-    } else if (uri.protocol() == QLatin1String("socket")) {
+    } else if (uri.startsWith(QLatin1String("socket"))) {
         ret = i18n("AppSocket/HP JetDirect");
-    } else if (uri.protocol() == QLatin1String("lpd")) {
-        // Check if the queue name (fileName) is defined
-        if (uri.fileName().isEmpty()) {
+    } else if (uri.startsWith(QLatin1String("lpd"))) {
+        // Check if the queue name is defined
+        QString queue = uri.section(QLatin1Char('/'), -1, -1);
+        if (queue.isEmpty()) {
             ret = i18n("LPD/LPR queue");
         } else {
-            ret = i18n("LPD/LPR queue %1", uri.fileName());
+            ret = i18n("LPD/LPR queue %1", queue);
         }
-    } else if (uri.protocol() == QLatin1String("smb")) {
+    } else if (uri.startsWith(QLatin1String("smb"))) {
         ret = i18n("Windows Printer via SAMBA");
-    } else if (uri.protocol() == QLatin1String("ipp")) {
+    } else if (uri.startsWith(QLatin1String("ipp"))) {
         // Check if the queue name (fileName) is defined
-        if (uri.fileName().isEmpty()) {
+        QString queue = uri.section(QLatin1Char('/'), -1, -1);
+        if (queue.isEmpty()) {
             ret = i18n("IPP");
         } else {
-            ret = i18n("IPP %1", uri.fileName());
+            ret = i18n("IPP %1", queue);
         }
-    } else if (uri.protocol() == QLatin1String("https")) {
+    } else if (uri.startsWith(QLatin1String("https"))) {
         ret = i18n("HTTP");
-    } else if (uri.protocol() == QLatin1String("dnssd") ||
-               uri.protocol() == QLatin1String("mdns")) {
+    } else if (uri.startsWith(QLatin1String("dnssd")) ||
+               uri.startsWith(QLatin1String("mdns"))) {
         // TODO this needs testing...
         QString text;
-        if (uri.url().contains(QLatin1String("cups"))) {
+        if (uri.contains(QLatin1String("cups"))) {
             text = i18n("Remote CUPS printer via DNS-SD");
         } else {
-            if (uri.url().contains(QLatin1String("._ipp"))) {
+            if (uri.contains(QLatin1String("._ipp"))) {
                 ret = i18n("IPP network printer via DNS-SD");
-            } else if (uri.url().contains(QLatin1String("._printer"))) {
+            } else if (uri.contains(QLatin1String("._printer"))) {
                 ret = i18n("LPD network printer via DNS-SD");
-            } else if (uri.url().contains(QLatin1String("._pdl-datastream"))) {
+            } else if (uri.contains(QLatin1String("._pdl-datastream"))) {
                 ret = i18n("AppSocket/JetDirect network printer via DNS-SD");
             } else {
                 ret = i18n("Network printer via DNS-SD");
             }
         }
     } else {
-        ret = uri.prettyUrl();
+        ret = uri;
     }
     return ret;
 }

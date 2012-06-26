@@ -12,7 +12,7 @@ kde4_add_plugin(kded_printmanager ${printmanagerkded_SRCS})
 
 target_link_libraries(kded_printmanager
     ${KDE4_KDEUI_LIBS}
-    qcupslib
+    kcupslib
 )
 
 install(TARGETS kded_printmanager DESTINATION ${PLUGIN_INSTALL_DIR})

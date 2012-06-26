@@ -43,9 +43,8 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
     setWindowTitle(destName);
     enableButtonApply(false);
-    KConfig config("print-manager");
-    KConfigGroup configureDialog(&config, "ConfigureDialog");
-    restoreDialogSize(configureDialog);
+    // Needed so we have our dialog size saved
+    setAttribute(Qt::WA_DeleteOnClose);
 
     KCupsPrinter::Attributes attr;
     KPageWidgetItem *page;
@@ -121,6 +120,9 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     // connect this after ALL pages were added, otherwise the slot will be called
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
             SLOT(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
+
+    KConfig config("print-manager");
+    KConfigGroup configureDialog(&config, "ConfigureDialog");
     restoreDialogSize(configureDialog);
 }
 

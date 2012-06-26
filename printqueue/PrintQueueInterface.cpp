@@ -86,22 +86,22 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
 
         if (found) {
             PrintQueueUi *ui = new PrintQueueUi(printer);
-            KDialog *dlg = new KDialog;
-            dlg->setWindowIcon(printer.icon());
-            dlg->setWindowTitle(ui->windowTitle());
-            dlg->setButtons(0);
-            dlg->setMainWidget(ui);
-            dlg->setSizeGripEnabled(true);
-            (void)dlg->minimumSizeHint(); //Force the dialog to be laid out now
-            dlg->layout()->setContentsMargins(0,0,0,0);
+//            KDialog *dlg = new KDialog;
+//            dlg->setWindowIcon(printer.icon());
+//            dlg->setWindowTitle(ui->windowTitle());
+//            dlg->setButtons(0);
+//            dlg->setMainWidget(ui);
+//            dlg->setSizeGripEnabled(true);
+//            (void)dlg->minimumSizeHint(); //Force the dialog to be laid out now
+//            dlg->layout()->setContentsMargins(0,0,0,0);
             connect(m_updateUi, SIGNAL(timeout()),
                     ui, SLOT(update()));
-            connect(dlg, SIGNAL(finished()),
+            connect(ui, SIGNAL(finished()),
                     this, SLOT(RemoveQueue()));
-            connect(ui, SIGNAL(windowTitleChanged(QString)),
-                    dlg, SLOT(setWindowTitle(QString)));
-            dlg->show();
-            m_uis[printer.name()] = dlg;
+//            connect(ui, SIGNAL(windowTitleChanged(QString)),
+//                    dlg, SLOT(setWindowTitle(QString)));
+            ui->show();
+            m_uis[printer.name()] = ui;
         } else {
             // Remove the reservation
             m_uis.remove(destName);

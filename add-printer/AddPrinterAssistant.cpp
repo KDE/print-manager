@@ -41,17 +41,26 @@ AddPrinterAssistant::AddPrinterAssistant() :
     m_choosePPDPage(0),
     m_addPrinterPage(0)
 {
-    kDebug();
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
     setWindowIcon(KIcon("printer"));
     showButton(KDialog::Cancel, false);
     showButton(KDialog::Help, false);
     setDefaultButton(KDialog::User2); // next
     setDefaultButton(KDialog::User1); // finished
+    // Needed so we have our dialog size saved
+    setAttribute(Qt::WA_DeleteOnClose);
+
+    // Restore the dialog size
+    KConfig config("print-manager");
+    KConfigGroup configGroup(&config, "AddPrinterAssistant");
+    restoreDialogSize(configGroup);
 }
 
 AddPrinterAssistant::~AddPrinterAssistant()
 {
+    KConfig config("print-manager");
+    KConfigGroup configGroup(&config, "AddPrinterAssistant");
+    saveDialogSize(configGroup);
 }
 
 void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &deviceId)

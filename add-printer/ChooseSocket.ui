@@ -17,8 +17,8 @@
    </sizepolicy>
   </property>
   <layout class="QFormLayout" name="formLayout">
-   <property name="formAlignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   <property name="labelAlignment">
+    <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
    </property>
    <property name="margin">
     <number>0</number>

@@ -24,6 +24,7 @@
 
 #include <KCupsRequest.h>
 
+#include <QApplication>
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
 #include <KWindowSystem>
@@ -111,6 +112,8 @@ void AddPrinterInterface::RemoveQueue()
 
 void AddPrinterInterface::show(QWidget *widget, qulonglong wid) const
 {
+//    connect(QApplication::instance(), SIGNAL(),
+//            widget, SLOT();
     widget->show();
     KWindowSystem::forceActiveWindow(widget->winId());
     KWindowSystem::setMainWindow(widget, wid);

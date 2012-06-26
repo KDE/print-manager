@@ -29,19 +29,6 @@
 #include "KCupsPrinter.h"
 #include "KCupsServer.h"
 
-#define KCUPS_DEVICE_CLASS          "device-class"
-#define KCUPS_DEVICE_ID             "device-id"
-#define KCUPS_DEVICE_INFO           "device-info"
-#define KCUPS_DEVICE_MAKE_AND_MODEL "device-make-and-model"
-#define KCUPS_DEVICE_LOCATION       "device-location"
-#define KCUPS_DEVICE_URI            "device-uri"
-
-#define KCUPS_PRINTER_NAME           "printer-name"
-#define KCUPS_PRINTER_LOCATION       "printer-location"
-#define KCUPS_PRINTER_INFO           "printer-info"
-#define KCUPS_PRINTER_MAKE_AND_MODEL "printer-make-and-model"
-#define KCUPS_MEMBER_URIS            "member-uris"
-
 typedef QList<KCupsPrinter> KCupsPrinters;
 typedef QList<KCupsJob> KCupsJobs;
 

@@ -21,7 +21,7 @@ kde4_add_plugin(plasma_engine_printjobs ${print_jobs_engine_SRCS})
 target_link_libraries(plasma_engine_printjobs
     ${KDE4_KDECORE_LIBS}
     ${KDE4_PLASMA_LIBS}
-    qcupslib
+    kcupslib
 )
  
 install(TARGETS plasma_engine_printjobs

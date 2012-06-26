@@ -28,7 +28,7 @@ kde4_add_executable(print-queue
 
 target_link_libraries(print-queue
     ${KDE4_KDEUI_LIBS}
-    qcupslib
+    kcupslib
 )
 
 install(TARGETS print-queue DESTINATION ${LIBEXEC_INSTALL_DIR})

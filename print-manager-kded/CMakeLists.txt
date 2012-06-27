@@ -1,5 +1,6 @@
 set(printmanagerkded_SRCS
     NewPrinterNotification.cpp
+    PrintManagerKded.cpp
 )
 
 qt4_add_dbus_adaptor(printmanagerkded_SRCS

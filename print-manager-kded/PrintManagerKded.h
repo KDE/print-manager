@@ -18,38 +18,26 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef NEW_PRINTER_NOTIFICATION_H
-#define NEW_PRINTER_NOTIFICATION_H
+#ifndef PRINTMANAGERKDED_H
+#define PRINTMANAGERKDED_H
 
-#include <QtDBus/QDBusContext>
-#include <QThread>
+#include <KDEDModule>
 
-class NewPrinterNotification : public QObject, protected QDBusContext
+#include <QVariantList>
+
+class NewPrinterNotification;
+class PrintManagerKded : public KDEDModule
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.redhat.NewPrinterNotification")
 public:
-    NewPrinterNotification();
-    ~NewPrinterNotification();
-
-public slots:
-    void GetReady();
-    void NewPrinter(int status, const QString &name, const QString &make, const QString &model, const QString &des, const QString &cmd);
-
+    PrintManagerKded(QObject *parent, const QVariantList &args);
+    ~PrintManagerKded();
+    
 private slots:
-    void init();
-    bool registerService();
-    void configurePrinter();
-    void searchDrivers();
-    void printTestPage();
-    void findDriver();
-    void installDriver();
-    void setupPrinter();
+    void loadThread();
 
 private:
-    QStringList getMissingExecutables(const QString &ppdFileName) const;
-    QThread *m_thread;
-    QString m_destName;
+    NewPrinterNotification *m_newPrinterNotification;
 };
 
-#endif // NEW_PRINTER_NOTIFICATION_H
+#endif // PRINTMANAGERKDED_H

@@ -22,19 +22,17 @@
 #include "newprinternotificationadaptor.h"
 
 #include <KLocale>
-#include <KGenericFactory>
 #include <KNotification>
 #include <KIcon>
+#include <KDebug>
 
 #include <KCupsRequest.h>
 
+#include <QThread>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusServiceWatcher>
 #include <QtDBus/QDBusReply>
-
-K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<NewPrinterNotification>();)
-K_EXPORT_PLUGIN(PrintDFactory("printmanager"))
 
 #define STATUS_SUCCESS        0
 #define STATUS_MODEL_MISMATCH 1
@@ -44,31 +42,25 @@ K_EXPORT_PLUGIN(PrintDFactory("printmanager"))
 #define PRINTER_NAME "PrinterName"
 #define DEVICE_ID "DeviceId"
 
-NewPrinterNotification::NewPrinterNotification(QObject *parent, const QVariantList &args) :
-    KDEDModule(parent)
+NewPrinterNotification::NewPrinterNotification()
 {
-    // There's not much use for args in a KCM
-    Q_UNUSED(args)
+    // Make sure the password dialog is created on the main threas
+    KCupsConnection::global();
 
-    // Creates or new adaptor
-    (void) new NewPrinterNotificationAdaptor(this);
+    // Make all our init code run on the thread since
+    // the DBus calls were made blocking
+    QTimer::singleShot(0, this, SLOT(init()));
 
-    // Register the com.redhat.NewPrinterNotification interface
-    if (!registerService()) {
-        // in case registration fails due to another user or application running
-        // keep an eye on it so we can register when available
-        QDBusServiceWatcher *watcher;
-        watcher = new QDBusServiceWatcher(QLatin1String("com.redhat.NewPrinterNotification"),
-                                          QDBusConnection::systemBus(),
-                                          QDBusServiceWatcher::WatchForUnregistration,
-                                          this);
-        connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(registerService()));
-    }
-
+    m_thread = new QThread(this);
+    moveToThread(m_thread);
+    m_thread->start();
 }
 
 NewPrinterNotification::~NewPrinterNotification()
 {
+    m_thread->quit();
+    m_thread->wait();
+    delete m_thread;
 }
 
 void NewPrinterNotification::GetReady()
@@ -196,6 +188,24 @@ void NewPrinterNotification::NewPrinter(int status,
     notify->setProperty(DEVICE_ID, devid);
     notify->setActions(actions);
     notify->sendEvent();
+}
+
+void NewPrinterNotification::init()
+{
+    // Creates our new adaptor
+    (void) new NewPrinterNotificationAdaptor(this);
+
+    // Register the com.redhat.NewPrinterNotification interface
+    if (!registerService()) {
+        // in case registration fails due to another user or application running
+        // keep an eye on it so we can register when available
+        QDBusServiceWatcher *watcher;
+        watcher = new QDBusServiceWatcher(QLatin1String("com.redhat.NewPrinterNotification"),
+                                          QDBusConnection::systemBus(),
+                                          QDBusServiceWatcher::WatchForUnregistration,
+                                          this);
+        connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(registerService()));
+    }
 }
 
 bool NewPrinterNotification::registerService()

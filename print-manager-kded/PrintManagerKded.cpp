@@ -18,38 +18,34 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef NEW_PRINTER_NOTIFICATION_H
-#define NEW_PRINTER_NOTIFICATION_H
+#include "PrintManagerKded.h"
 
-#include <QtDBus/QDBusContext>
-#include <QThread>
+#include "NewPrinterNotification.h"
 
-class NewPrinterNotification : public QObject, protected QDBusContext
+#include <QTimer>
+
+#include <KGenericFactory>
+
+K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)
+K_EXPORT_PLUGIN(PrintDFactory("printmanager"))
+
+PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
+    KDEDModule(parent),
+    m_newPrinterNotification(0)
 {
-    Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.redhat.NewPrinterNotification")
-public:
-    NewPrinterNotification();
-    ~NewPrinterNotification();
+    Q_UNUSED(args)
 
-public slots:
-    void GetReady();
-    void NewPrinter(int status, const QString &name, const QString &make, const QString &model, const QString &des, const QString &cmd);
+    QTimer::singleShot(0, this, SLOT(loadThread()));
+}
 
-private slots:
-    void init();
-    bool registerService();
-    void configurePrinter();
-    void searchDrivers();
-    void printTestPage();
-    void findDriver();
-    void installDriver();
-    void setupPrinter();
+PrintManagerKded::~PrintManagerKded()
+{
+    if (m_newPrinterNotification) {
+        delete m_newPrinterNotification;
+    }
+}
 
-private:
-    QStringList getMissingExecutables(const QString &ppdFileName) const;
-    QThread *m_thread;
-    QString m_destName;
-};
-
-#endif // NEW_PRINTER_NOTIFICATION_H
+void PrintManagerKded::loadThread()
+{
+    m_newPrinterNotification = new NewPrinterNotification;
+}

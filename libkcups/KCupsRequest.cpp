@@ -33,7 +33,7 @@
 
 KCupsRequest::KCupsRequest() :
     m_finished(true),
-    m_error(false)
+    m_error(IPP_OK)
 {
     connect(this, SIGNAL(finished()), &m_loop, SLOT(quit()));
 }
@@ -120,7 +120,7 @@ void KCupsRequest::getDevices(int timeout)
 void KCupsRequest::getPrinters(QStringList attributes, cups_ptype_t mask)
 {
     QVariantHash arguments;
-    arguments["printer-type-mask"] = mask;
+    arguments[KCUPS_PRINTER_TYPE_MASK] = mask;
     getPrinters(attributes, arguments);
 }
 
@@ -222,7 +222,7 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
     if (KCupsConnection::readyToStart()) {
         QVariantHash request;
         request[KCUPS_JOB_ID] = jobId;
-        request["printer-uri"] = printerUri;
+        request[KCUPS_PRINTER_URI] = printerUri;
         request["need-dest-name"] = false; // we don't need a dest name since it's a single list
         request["requested-attributes"] = attributes;
 
@@ -591,7 +591,7 @@ void KCupsRequest::invokeMethod(const char *method,
                                 const QVariant &arg7,
                                 const QVariant &arg8)
 {
-    m_error = false;
+    m_error = IPP_OK;
     m_errorMsg.clear();
     m_printers.clear();
     m_jobs.clear();
@@ -616,7 +616,7 @@ void KCupsRequest::invokeMethod(const char *method,
                                             QGenericArgument(arg7.typeName(), arg7.data()),
                                             QGenericArgument(arg8.typeName(), arg8.data()));
     if (m_finished) {
-        setError(1, i18n("Failed to invoke method: %1", method));
+        setError(IPP_BAD_REQUEST, i18n("Failed to invoke method: %1", method));
         setFinished();
     }
 }
@@ -680,7 +680,7 @@ bool KCupsRequest::hasError() const
     return m_error;
 }
 
-int KCupsRequest::error() const
+ipp_status_t KCupsRequest::error() const
 {
     return m_error;
 }
@@ -690,7 +690,7 @@ QString KCupsRequest::errorMsg() const
     return m_errorMsg;
 }
 
-void KCupsRequest::setError(int error, const QString &errorMsg)
+void KCupsRequest::setError(ipp_status_t error, const QString &errorMsg)
 {
     m_error = error;
     m_errorMsg = errorMsg;

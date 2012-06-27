@@ -252,8 +252,8 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
         }
 
         // Lets create the request
-        if (values.contains(QLatin1String("printer-name"))) {
-            request = ippNewDefaultRequest(values.take(QLatin1String("printer-name")).toString(),
+        if (values.contains(QLatin1String(KCUPS_PRINTER_NAME))) {
+            request = ippNewDefaultRequest(values.take(QLatin1String(KCUPS_PRINTER_NAME)).toString(),
                                            isClass,
                                            operation);
         } else {
@@ -378,7 +378,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         // Lets create the request
         request = ippNewRequest(operation);
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
-                     "printer-uri", NULL, "/");
+                     KCUPS_PRINTER_URI, NULL, "/");
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
                      "requesting-user-name", NULL, cupsUser());
 
@@ -441,7 +441,7 @@ void KCupsConnection::cancelDBusSubscription()
         // Lets create the request
         request = ippNewRequest(IPP_CANCEL_SUBSCRIPTION);
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
-                     "printer-uri", NULL, "/");
+                     KCUPS_PRINTER_URI, NULL, "/");
         ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
                      "requesting-user-name", NULL, cupsUser());
         ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
@@ -658,7 +658,7 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, 
     request = ippNewRequest(operation);
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8", "localhost",
                      ippPort(), destination.toUtf8());
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri",
+    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI,
                  "utf-8", uri);
 
     return request;

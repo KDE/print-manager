@@ -57,7 +57,7 @@ public:
      * This method returns true if there was an error with the request
      */
     bool hasError() const;
-    int error() const;
+    ipp_status_t error() const;
     QString serverError() const;
     QString errorMsg() const;
 
@@ -330,12 +330,12 @@ private:
                       const QVariant &arg7 = QVariant(),
                       const QVariant &arg8 = QVariant());
     Q_INVOKABLE void doOperation(int operation, const QString &resource, const QVariantHash &request);
-    void setError(int error, const QString &errorMsg);
+    void setError(ipp_status_t error, const QString &errorMsg);
     void setFinished(bool delayed = false);
 
     QEventLoop m_loop;
     bool m_finished;
-    int m_error;
+    ipp_status_t m_error;
     QString m_errorMsg;
     ReturnArguments m_ppds;
     KCupsServer m_server;

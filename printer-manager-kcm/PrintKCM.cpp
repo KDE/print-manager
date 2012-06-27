@@ -297,15 +297,22 @@ void PrintKCM::getServerSettingsFinished()
     // we get IPP_SERVICE_UNAVAILABLE and a message of "Not Modified"
     // TODO make sure the error message doesn't get localized
     bool error;
-    error = !request->hasError() || request->errorMsg() == QLatin1String("Not Modified");
+    error = request->hasError() &&
+            request->errorMsg() != QLatin1String("Not Modified") &&
+            request->errorMsg() != QLatin1String("No destinations added.");
 
-    m_showSharedPrinters->setEnabled(error);
-    m_shareConnectedPrinters->setEnabled(error);
-    m_allowPrintringFromInternet->setEnabled(error);
-    m_allowRemoteAdmin->setEnabled(error);
-    m_allowUsersCancelAnyJob->setEnabled(error);
+    m_showSharedPrinters->setEnabled(!error);
+    m_shareConnectedPrinters->setEnabled(!error);
+    m_allowPrintringFromInternet->setEnabled(!error);
+    m_allowRemoteAdmin->setEnabled(!error);
+    m_allowUsersCancelAnyJob->setEnabled(!error);
 
     if (error) {
+        KMessageBox::detailedSorry(this,
+                                   i18nc("@info", "Failed to get server settings"),
+                                   request->errorMsg(),
+                                   i18nc("@title:window", "Failed"));
+    } else {
         KCupsServer server = request->serverSettings();
 
         m_showSharedPrinters->setChecked(server.showSharedPrinters());
@@ -313,11 +320,6 @@ void PrintKCM::getServerSettingsFinished()
         m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
         m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
         m_allowUsersCancelAnyJob->setChecked(server.allowUserCancelAnyJobs());
-    } else {
-        KMessageBox::detailedSorry(this,
-                                   i18nc("@info", "Failed to get server settings"),
-                                   request->errorMsg(),
-                                   i18nc("@title:window", "Failed"));
     }
 
     request->deleteLater();

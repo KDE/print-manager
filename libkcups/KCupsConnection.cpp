@@ -495,22 +495,22 @@ void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &value
             }
             break;
         case QVariant::Int:
-            if (key == QLatin1String("job-id")) {
+            if (key == QLatin1String(KCUPS_JOB_ID)) {
                 ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                              "job-id", value.toInt());
-            } else if (key == QLatin1String("printer-state")) {
+                              KCUPS_JOB_ID, value.toInt());
+            } else if (key == QLatin1String(KCUPS_PRINTER_STATE)) {
                 ippAddInteger(request, IPP_TAG_PRINTER, IPP_TAG_ENUM,
-                              "printer-state", IPP_PRINTER_IDLE);
+                              KCUPS_PRINTER_STATE, IPP_PRINTER_IDLE);
             } else {
                 ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
                               key.toUtf8(), value.toInt());
             }
             break;
         case QVariant::String:
-            if (key == QLatin1String("device-uri")) {
+            if (key == QLatin1String(KCUPS_DEVICE_URI)) {
                 // device uri has a different TAG
                 ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                            "device-uri", "utf-8", value.toString().toUtf8());
+                             KCUPS_DEVICE_URI, "utf-8", value.toString().toUtf8());
             } else if (key == QLatin1String("job-printer-uri")) {
                 // TODO this seems broken
                 const char* dest_name = value.toString().toUtf8();
@@ -519,16 +519,16 @@ void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &value
                                  "ipp", "utf-8", "localhost", ippPort(),
                                  "/printers/%s", dest_name);
                 ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
-                             "job-printer-uri", "utf-8", value.toString().toUtf8());
-            } else if (key == QLatin1String("printer-op-policy") ||
-                       key == QLatin1String("printer-error-policy") ||
+                             KCUPS_JOB_PRINTER_URI, "utf-8", value.toString().toUtf8());
+            } else if (key == QLatin1String(KCUPS_PRINTER_OP_POLICY) ||
+                       key == QLatin1String(KCUPS_PRINTER_ERROR_POLICY) ||
                        key == QLatin1String("ppd-name")) {
                 // printer-op-policy has a different TAG
                 ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
                             key.toUtf8(), "utf-8", value.toString().toUtf8());
-            } else if (key == QLatin1String("job-name")) {
+            } else if (key == QLatin1String(KCUPS_JOB_NAME)) {
                 ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                             "job-name", "utf-8", value.toString().toUtf8());
+                             KCUPS_JOB_NAME, "utf-8", value.toString().toUtf8());
             } else if (key == QLatin1String("which-jobs")) {
                 ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
                              "which-jobs", "utf-8", value.toString().toUtf8());
@@ -544,9 +544,9 @@ void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &value
                 QList<QByteArray> valuesQByteArrayList;
                 const char **values = qStringListToCharPtrPtr(list, &valuesQByteArrayList);
 
-                if (key == QLatin1String("member-uris")) {
+                if (key == QLatin1String(KCUPS_MEMBER_URIS)) {
                     ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                                  "member-uris", list.size(), "utf-8", values);
+                                  KCUPS_MEMBER_URIS, list.size(), "utf-8", values);
                 } else if (key == QLatin1String("requested-attributes")) {
                     ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
                                   "requested-attributes", list.size(), "utf-8", values);
@@ -621,7 +621,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
         /*
          * See if we have everything needed...
          */
-        if (needDestName && destAttributes[QLatin1String("printer-name")].toString().isEmpty()) {
+        if (needDestName && destAttributes[QLatin1String(KCUPS_PRINTER_NAME)].toString().isEmpty()) {
             if (attr == NULL) {
                 break;
             } else {

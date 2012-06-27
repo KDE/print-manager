@@ -73,36 +73,36 @@ void DevicesModel::update()
                  QString(),
                  "other",
                  QString());
-    gotDevice("direct",
-              "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;",
-              "Samsung SCX-3400 Series",
-              "Samsung SCX-3400 Series",
-              "usb://Samsung/SCX-3400%20Series?serial=Z6Y1BQAC500079K&interface=1",
-              "");
-    gotDevice("network",
-              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
-              "Samsung SCX-3400 Series (SEC001599991856)",
-              "Samsung SCX-3400 Series",
-              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._ipp._tcp.local/",
-              "");
-    gotDevice("network",
-              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
-              "Samsung SCX-3400 Series (SEC001599991856)",
-              "Samsung SCX-3400 Series",
-              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._pdl-datastream._tcp.local/",
-              "");
-    gotDevice("network",
-              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
-              "Samsung SCX-3400 Series (SEC001599991856)",
-              "Samsung SCX-3400 Series",
-              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._printer._tcp.local/",
-              "");
-    gotDevice("network",
-              "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;",
-              "Samsung SCX-3400 Series",
-              "Samsung SCX-3400 Series",
-              "socket://192.168.1.141",
-              "");
+//    gotDevice("direct",
+//              "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;",
+//              "Samsung SCX-3400 Series",
+//              "Samsung SCX-3400 Series",
+//              "usb://Samsung/SCX-3400%20Series?serial=Z6Y1BQAC500079K&interface=1",
+//              "");
+//    gotDevice("network",
+//              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
+//              "Samsung SCX-3400 Series (SEC001599991856)",
+//              "Samsung SCX-3400 Series",
+//              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._ipp._tcp.local/",
+//              "");
+//    gotDevice("network",
+//              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
+//              "Samsung SCX-3400 Series (SEC001599991856)",
+//              "Samsung SCX-3400 Series",
+//              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._pdl-datastream._tcp.local/",
+//              "");
+//    gotDevice("network",
+//              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
+//              "Samsung SCX-3400 Series (SEC001599991856)",
+//              "Samsung SCX-3400 Series",
+//              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._printer._tcp.local/",
+//              "");
+//    gotDevice("network",
+//              "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;",
+//              "Samsung SCX-3400 Series",
+//              "Samsung SCX-3400 Series",
+//              "socket://192.168.1.141",
+//              "");
 }
 
 
@@ -148,7 +148,6 @@ void DevicesModel::gotDevice(const QString &device_class,
         mapSS[KCUPS_DEVICE_INFO] = device_info;
         mapSS[KCUPS_DEVICE_MAKE_AND_MODEL] = device_make_and_model;
         mapSS[KCUPS_DEVICE_LOCATION] = device_location;
-//        mapSS[KCUPS_DEVICE_URI] = device_uri;
         m_mappedDevices[device_uri] = mapSS;
     }
 }
@@ -290,7 +289,6 @@ void DevicesModel::insertDevice(const QString &device_class,
 
 void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
 {
-    kDebug() << message;
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
         QDBusArgument argument;
         argument = message.arguments().first().value<QDBusArgument>();
@@ -302,8 +300,6 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
             }
 
             QString uri = list.first();
-            kDebug() << uri << m_mappedDevices[list.first()];
-
             MapSS device = m_mappedDevices[uri];
             insertDevice(device[KCUPS_DEVICE_CLASS],
                          device[KCUPS_DEVICE_ID],
@@ -315,12 +311,29 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
         }
     } else {
         kWarning() << "Unexpected message" << message;
+        groupedDevicesFallback();
     }
 }
 
 void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)
 {
-    kDebug() << error <<  message;
+    kWarning() << error <<  message;
+    groupedDevicesFallback();
+}
+
+void DevicesModel::groupedDevicesFallback()
+{
+    MapSMapSS::const_iterator i = m_mappedDevices.constBegin();
+    while (i != m_mappedDevices.constEnd()) {
+        MapSS device = i.value();
+        insertDevice(device[KCUPS_DEVICE_CLASS],
+                     device[KCUPS_DEVICE_ID],
+                     device[KCUPS_DEVICE_INFO],
+                     device[KCUPS_DEVICE_MAKE_AND_MODEL],
+                     i.key(),
+                     device[KCUPS_DEVICE_LOCATION]);
+        ++i;
+    }
 }
 
 QStandardItem* DevicesModel::findCreateCategory(const QString &category)

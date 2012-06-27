@@ -74,6 +74,7 @@ private slots:
                       const QStringList &grouped_uris = QStringList());
     void getGroupedDevicesSuccess(const QDBusMessage &message);
     void getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message);
+    void groupedDevicesFallback();
 
 private:
     QStandardItem *findCreateCategory(const QString &category);

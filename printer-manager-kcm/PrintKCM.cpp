@@ -124,18 +124,17 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // The user has no printer
         // allow him to add a new one
         if (lastError == IPP_NOT_FOUND) {
-            noPrinters();
+            showInfo(KIcon("dialog-information"),
+                     i18n("No printers have been configured or discovered"),
+                     QString(),
+                     true,
+                     true);
         } else {
-            ui->hugeIcon->setPixmap(KIcon("printer", KIconLoader::global(), QStringList() << "" << "dialog-error").pixmap(128, 128));
-            ui->errorText->setText(QString("<strong>%1</strong>").arg(errorTitle));
-            ui->errorComment->setText(errorMsg);
-            ui->errorComment->show();
-            ui->addPrinterBtn->hide();
-        }
-
-        // 1 is the error message
-        if (ui->stackedWidget->currentIndex() != 1) {
-            ui->stackedWidget->setCurrentIndex(1);
+            showInfo(KIcon("printer", KIconLoader::global(), QStringList() << "" << "dialog-error"),
+                     QString("<strong>%1</strong>").arg(errorTitle),
+                     errorMsg,
+                     false,
+                     false);
         }
     }
 
@@ -156,24 +155,28 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
     }
 }
 
-void PrintKCM::noPrinters()
+void PrintKCM::showInfo(const KIcon &icon, const QString &title, const QString &comment, bool showAddPrinter, bool showToolButtons)
 {
-    ui->hugeIcon->setPixmap(KIcon("dialog-information").pixmap(128, 128));
-    ui->errorText->setText(i18n("No printers have been configured or discovered"));
-    ui->errorComment->hide();
-    ui->addPrinterBtn->show();
+    ui->hugeIcon->setPixmap(icon.pixmap(128, 128));
+    ui->errorText->setText(title);
+    ui->errorComment->setVisible(!comment.isEmpty());
+    ui->errorComment->setText(comment);
+    ui->addPrinterBtn->setVisible(showAddPrinter);
 
     // Well, when there is no printer, there is nothing to add to a printer class
     // so we can actually hide the Add button nontheless?
-    ui->addTB->hide();
-    ui->removeTB->hide();
-    ui->lineTB->hide();
-    ui->printersTV->hide();
+    ui->addTB->setVisible(!showAddPrinter && showToolButtons);
+    ui->removeTB->setVisible(!showAddPrinter && showToolButtons);
+    ui->lineTB->setVisible(!showAddPrinter && showToolButtons);
+    ui->printersTV->setVisible(!showAddPrinter && showToolButtons);
+
+    // Make sure we are visible
+    ui->stackedWidget->setCurrentIndex(1);
 }
 
 void PrintKCM::update()
 {
-    if (m_model->rowCount()) {        
+    if (m_model->rowCount()) {
         if (ui->stackedWidget->currentIndex() != 0) {
             ui->stackedWidget->setCurrentIndex(0);
         }
@@ -220,10 +223,13 @@ void PrintKCM::update()
         // disable the printer action buttons if there is nothing to selected
         ui->removeTB->setEnabled(false);
 
-        if (ui->stackedWidget->currentIndex() != 1) {
+        if (m_lastError == IPP_OK) {
             // the model is empty and no problem happened
-            noPrinters();
-            ui->stackedWidget->setCurrentIndex(1);
+            showInfo(KIcon("dialog-information"),
+                     i18n("No printers have been configured or discovered"),
+                     QString(),
+                     true,
+                     true);
         }
     }
 }

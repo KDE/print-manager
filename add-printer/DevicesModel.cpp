@@ -73,36 +73,6 @@ void DevicesModel::update()
                  QString(),
                  "other",
                  QString());
-//    gotDevice("direct",
-//              "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;",
-//              "Samsung SCX-3400 Series",
-//              "Samsung SCX-3400 Series",
-//              "usb://Samsung/SCX-3400%20Series?serial=Z6Y1BQAC500079K&interface=1",
-//              "");
-//    gotDevice("network",
-//              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
-//              "Samsung SCX-3400 Series (SEC001599991856)",
-//              "Samsung SCX-3400 Series",
-//              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._ipp._tcp.local/",
-//              "");
-//    gotDevice("network",
-//              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
-//              "Samsung SCX-3400 Series (SEC001599991856)",
-//              "Samsung SCX-3400 Series",
-//              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._pdl-datastream._tcp.local/",
-//              "");
-//    gotDevice("network",
-//              "MFG:Samsung;MDL:SCX-3400 Series;CMD:MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;;",
-//              "Samsung SCX-3400 Series (SEC001599991856)",
-//              "Samsung SCX-3400 Series",
-//              "dnssd://Samsung%20SCX-3400%20Series%20(SEC001599991856)._printer._tcp.local/",
-//              "");
-//    gotDevice("network",
-//              "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;",
-//              "Samsung SCX-3400 Series",
-//              "Samsung SCX-3400 Series",
-//              "socket://192.168.1.141",
-//              "");
 }
 
 

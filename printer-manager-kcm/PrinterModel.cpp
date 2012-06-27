@@ -132,6 +132,10 @@ void PrinterModel::getDestsFinished()
     if (request) {
         if (request->hasError()) {
             emit error(request->error(), request->serverError(), request->errorMsg());
+            if (request->error() == IPP_SERVICE_UNAVAILABLE) {
+                // Check if the service is up again
+                QTimer::singleShot(1000, this, SLOT(update()));
+            }
             // clear the model after so that the proper widget can be shown
             clear();
         } else {

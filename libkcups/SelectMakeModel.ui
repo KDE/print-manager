@@ -17,7 +17,7 @@
    <item row="2" column="0">
     <widget class="QRadioButton" name="radioButton">
      <property name="text">
-      <string>Manualy Provide a PPD File:</string>
+      <string>Manually Provide a PPD File:</string>
      </property>
     </widget>
    </item>

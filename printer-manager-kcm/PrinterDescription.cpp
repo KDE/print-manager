@@ -201,6 +201,9 @@ void PrinterDescription::setMarkers(const QVariantHash &data)
         palette.setColor(QPalette::Active,
                          QPalette::Highlight,
                          QColor(data["marker-colors"].toStringList().at(i)));
+        palette.setColor(QPalette::Inactive,
+                         QPalette::Highlight,
+                         QColor(data["marker-colors"].toStringList().at(i)).lighter());
         pogressBar->setPalette(palette);
         QLabel *label = new QLabel(data["marker-names"].toStringList().at(i), this);
         ui->formLayout->addRow(label, pogressBar);

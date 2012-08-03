@@ -74,9 +74,11 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     QMenu *systemMenu = new QMenu(this);
     connect(systemMenu, SIGNAL(aboutToShow()), this, SLOT(getServerSettings()));
     connect(systemMenu, SIGNAL(triggered(QAction*)), this, SLOT(systemPreferencesTriggered()));
+#ifndef HAVE_CUPS_1_6
     m_showSharedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Show printers shared by other systems"));
     m_showSharedPrinters->setCheckable(true);
     systemMenu->addSeparator();
+#endif // HAVE_CUPS_1_6
     m_shareConnectedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Share printers connected to this system"));
     m_shareConnectedPrinters->setCheckable(true);
     m_allowPrintringFromInternet = systemMenu->addAction(i18nc("@action:intoolbar","Allow printing from the Internet"));
@@ -309,7 +311,9 @@ void PrintKCM::getServerSettingsFinished()
             request->errorMsg() != QLatin1String("Not Modified") &&
             request->errorMsg() != QLatin1String("No destinations added.");
 
+#ifndef HAVE_CUPS_1_6
     m_showSharedPrinters->setEnabled(!error);
+#endif // HAVE_CUPS_1_6
     m_shareConnectedPrinters->setEnabled(!error);
     m_allowPrintringFromInternet->setEnabled(!error);
     m_allowRemoteAdmin->setEnabled(!error);
@@ -323,7 +327,9 @@ void PrintKCM::getServerSettingsFinished()
     } else {
         KCupsServer server = request->serverSettings();
 
+#ifndef HAVE_CUPS_1_6
         m_showSharedPrinters->setChecked(server.showSharedPrinters());
+#endif // HAVE_CUPS_1_6
         m_shareConnectedPrinters->setChecked(server.sharePrinters());
         m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
         m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
@@ -359,7 +365,9 @@ void PrintKCM::updateServerFinished()
 void PrintKCM::systemPreferencesTriggered()
 {
     KCupsServer server;
+#ifndef HAVE_CUPS_1_6
     server.setShowSharedPrinters(m_showSharedPrinters->isChecked());
+#endif // HAVE_CUPS_1_6
     server.setSharePrinters(m_shareConnectedPrinters->isChecked());
     server.setAllowPrintingFromInternet(m_allowPrintringFromInternet->isChecked());
     server.setAllowRemoteAdmin(m_allowRemoteAdmin->isChecked());

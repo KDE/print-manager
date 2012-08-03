@@ -23,6 +23,8 @@
 
 #include "KCupsPasswordDialog.h"
 
+#include <config.h>
+
 #include <QCoreApplication>
 #include <QStringBuilder>
 #include <QDBusConnection>
@@ -405,15 +407,26 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
     } while (retry("/"));
 
+
+#ifdef HAVE_CUPS_1_6
+    if (ret < 0 &&
+        response != NULL &&
+        ippGetStatusCode(response) <= IPP_OK_CONFLICT) {
+#else
     if (ret < 0 &&
         response != NULL &&
         response->request.status.status_code <= IPP_OK_CONFLICT) {
+#endif // HAVE_CUPS_1_6
         ipp_attribute_t *attr = NULL;
         if ((attr = ippFindAttribute(response, "notify-subscription-id",
                                      IPP_TAG_INTEGER)) == NULL) {
             kDebug() << "No notify-subscription-id in response!";
         } else {
+#ifdef HAVE_CUPS_1_6
+            ret = ippGetInteger(attr, 0);
+#else
             ret = attr->values[0].integer;
+#endif // HAVE_CUPS_1_6
         }
     }
 
@@ -581,21 +594,52 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
     ipp_attribute_t *attr;
     ReturnArguments ret;
 
-    for (attr = response->attrs; attr != NULL; attr = attr->next) {
-       /*
-        * Skip leading attributes until we hit a a group which can be a printer, job...
-        */
-        while (attr && attr->group_tag != group_tag) {
-            attr = attr->next;
+#ifdef HAVE_CUPS_1_6
+    QVariantHash destAttributes;
+    for (attr = ippFirstAttribute(response); attr != NULL; attr = ippNextAttribute(response)) {
+        // Skip leading attributes until we hit a a group which can be a printer, job...
+        if (ippGetGroupTag(attr) != group_tag) {
+            continue;
+        } else if (ippGetValueTag(attr) != IPP_TAG_INTEGER &&
+                   ippGetValueTag(attr) != IPP_TAG_ENUM &&
+                   ippGetValueTag(attr) != IPP_TAG_BOOLEAN &&
+                   ippGetValueTag(attr) != IPP_TAG_TEXT &&
+                   ippGetValueTag(attr) != IPP_TAG_TEXTLANG &&
+                   ippGetValueTag(attr) != IPP_TAG_LANGUAGE &&
+                   ippGetValueTag(attr) != IPP_TAG_NAME &&
+                   ippGetValueTag(attr) != IPP_TAG_NAMELANG &&
+                   ippGetValueTag(attr) != IPP_TAG_KEYWORD &&
+                   ippGetValueTag(attr) != IPP_TAG_RANGE &&
+                   ippGetValueTag(attr) != IPP_TAG_URI) {
+            continue;
         }
+
+        // Add a printer description attribute...
+        destAttributes[QString::fromUtf8(ippGetName(attr))] = ippAttrToVariant(attr);
+
+        // See if we have everything needed...
+        if (needDestName && destAttributes[QLatin1String(KCUPS_PRINTER_NAME)].toString().isEmpty()) {
+            if (attr == NULL) {
+                break;
+            } else {
+                continue;
+            }
+        }
+
+        ret << destAttributes;
 
         if (attr == NULL) {
             break;
         }
+    }
+#else
+    for (attr = response->attrs; attr != NULL; attr = attr->next) {
+        // Skip leading attributes until we hit a a group which can be a printer, job...
+        if (attr && attr->group_tag != group_tag) {
+            continue;
+        }
 
-        /*
-         * Pull the needed attributes from this printer...
-         */
+        // Pull the needed attributes from this printer...
         QVariantHash destAttributes;
         for (; attr && attr->group_tag == group_tag; attr = attr->next) {
             if (attr->value_tag != IPP_TAG_INTEGER &&
@@ -612,9 +656,8 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
                 continue;
             }
 
-            /*
-             * Add a printer description attribute...
-             */
+
+            // Add a printer description attribute...
             destAttributes[QString::fromUtf8(attr->name)] = ippAttrToVariant(attr);
         }
 
@@ -635,6 +678,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
             break;
         }
     }
+#endif // HAVE_CUPS_1_6
     return ret;
 }
 
@@ -667,6 +711,54 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, 
 QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 {
     QVariant ret;
+#ifdef HAVE_CUPS_1_6
+    switch (ippGetValueTag(attr)) {
+    case IPP_TAG_INTEGER:
+    case IPP_TAG_ENUM:
+        if (ippGetCount(attr) == 1) {
+            ret = ippGetInteger(attr, 0);
+        } else {
+            QList<int> values;
+            for (int i = 0; i < ippGetCount(attr); ++i) {
+                values << ippGetInteger(attr, i);
+            }
+            ret = qVariantFromValue(values);
+        }
+        break;
+    case IPP_TAG_BOOLEAN:
+        if (ippGetCount(attr)== 1) {
+            ret = ippGetBoolean(attr, 0);
+        } else {
+            QList<bool> values;
+            for (int i = 0; i < ippGetCount(attr); ++i) {
+                values << ippGetBoolean(attr, i);
+            }
+            ret = qVariantFromValue(values);
+        }
+        break;
+    case IPP_TAG_RANGE:
+    {
+        QVariantList values;
+        for (int i = 0; i < ippGetCount(attr); ++i) {
+            int rangeUpper;
+            values << ippGetRange(attr, i, &rangeUpper);
+            values << rangeUpper;
+        }
+        ret = values;
+    }
+        break;
+    default:
+        if (ippGetCount(attr)== 1) {
+            ret = QString::fromUtf8(ippGetString(attr, 0, NULL));
+        } else {
+            QStringList values;
+            for (int i = 0; i < ippGetCount(attr); ++i) {
+                values << QString::fromUtf8(ippGetString(attr, i, NULL));
+            }
+            ret = values;
+        }
+    }
+#else
     switch (attr->value_tag) {
     case IPP_TAG_INTEGER:
     case IPP_TAG_ENUM:
@@ -712,6 +804,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             ret = values;
         }
     }
+#endif // HAVE_CUPS_1_6
     return ret;
 }
 
@@ -803,11 +896,13 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     bool wrongPassword = password_retries > 1;
 
     // This will block this thread until exec is not finished
+    kDebug() << password_retries;
     QMetaObject::invokeMethod(passwordDialog,
                               "exec",
                               Qt::BlockingQueuedConnection,
                               Q_ARG(QString, QString::fromUtf8(cupsUser())),
                               Q_ARG(bool, wrongPassword));
+    kDebug() << passwordDialog->accepted();
 
     // The password dialog has just returned check the result
     // method that returns QDialog enums

@@ -22,6 +22,8 @@
 
 #include <cups/adminutil.h>
 
+#include <config.h>
+
 KCupsServer::KCupsServer()
 {
 }
@@ -53,12 +55,20 @@ void KCupsServer::setAllowUserCancelAnyJobs(bool allow)
 
 bool KCupsServer::showSharedPrinters() const
 {
+#ifndef HAVE_CUPS_1_6
     return m_arguments.value(CUPS_SERVER_REMOTE_PRINTERS).toBool();
+#else
+    return false;
+#endif
 }
 
 void KCupsServer::setShowSharedPrinters(bool show)
 {
+#ifndef HAVE_CUPS_1_6
     m_arguments[CUPS_SERVER_REMOTE_PRINTERS] = show ? QLatin1String("1") : QLatin1String("0");
+#else
+    Q_UNUSED(show)
+#endif // HAVE_CUPS_1_6
 }
 
 bool KCupsServer::sharePrinters() const

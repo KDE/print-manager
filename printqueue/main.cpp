@@ -20,6 +20,8 @@
 
 #include "PrintQueue.h"
 
+#include <config.h>
+
 #include <KDebug>
 #include <KLocale>
 #include <KAboutData>
@@ -30,7 +32,7 @@ int main(int argc, char **argv)
     KAboutData about("PrintQueue",
                      "print-manager",
                      ki18n("PrintQueue"),
-                     "0.1",
+                     PM_VERSION,
                      ki18n("PrintQueue"),
                      KAboutData::License_GPL,
                      ki18n("(C) 2010-2012 Daniel Nicoletti"));

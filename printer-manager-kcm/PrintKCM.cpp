@@ -22,6 +22,8 @@
 
 #include "ui_PrintKCM.h"
 
+#include <config.h>
+
 #include "PrinterModel.h"
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
@@ -50,7 +52,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     aboutData = new KAboutData("kcm_print",
                                "kcm_print",
                                ki18n("Print settings"),
-                               "0.1",
+                               PM_VERSION,
                                ki18n("Print settings"),
                                KAboutData::License_GPL,
                                ki18n("(C) 2010-2012 Daniel Nicoletti"));

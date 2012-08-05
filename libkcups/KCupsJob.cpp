@@ -69,21 +69,27 @@ QString KCupsJob::printer() const
 QDateTime KCupsJob::createdAt() const
 {
     QDateTime ret;
-    ret.setTime_t(m_arguments[KCUPS_TIME_AT_CREATION].toInt());
+    if (m_arguments.contains(KCUPS_TIME_AT_CREATION)) {
+        ret.setTime_t(m_arguments[KCUPS_TIME_AT_CREATION].toInt());
+    }
     return ret;
 }
 
 QDateTime KCupsJob::completedAt() const
 {
     QDateTime ret;
-    ret.setTime_t(m_arguments[KCUPS_TIME_AT_COMPLETED].toInt());
+    if (m_arguments.contains(KCUPS_TIME_AT_COMPLETED)) {
+        ret.setTime_t(m_arguments[KCUPS_TIME_AT_COMPLETED].toInt());
+    }
     return ret;
 }
 
 QDateTime KCupsJob::processedAt() const
 {
     QDateTime ret;
-    ret.setTime_t(m_arguments[KCUPS_TIME_AT_PROCESSING].toInt());
+    if (m_arguments.contains(KCUPS_TIME_AT_PROCESSING)) {
+        ret.setTime_t(m_arguments[KCUPS_TIME_AT_PROCESSING].toInt());
+    }
     return ret;
 }
 

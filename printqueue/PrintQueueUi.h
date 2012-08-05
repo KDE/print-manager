@@ -47,13 +47,13 @@ public slots:
 
 private slots:
     void updatePrinter(const QString &printer);
-    void on_whichJobsCB_currentIndexChanged(int index);
-    void on_pausePrinterPB_clicked();
-    void on_configurePrinterPB_clicked();
+    void whichJobsIndexChanged(int index);
+    void pausePrinter();
+    void configurePrinter();
 
-    void on_cancelJobPB_clicked();
-    void on_holdJobPB_clicked();
-    void on_resumeJobPB_clicked();
+    void cancelJob();
+    void holdJob();
+    void resumeJob();
 
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     void updateButtons();

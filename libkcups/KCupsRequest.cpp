@@ -205,7 +205,6 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
                                        "/",
                                        request,
                                        true);
-
         foreach (const QVariantHash &arguments, ret) {
             m_jobs << KCupsJob(arguments);
         }

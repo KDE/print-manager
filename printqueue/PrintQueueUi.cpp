@@ -48,6 +48,18 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     m_lastState(0)
 {
     ui->setupUi(mainWidget());
+
+    // since setupUi needs to setup on the mainWidget()
+    // we need to manually connect the buttons
+    connect(ui->cancelJobPB, SIGNAL(clicked()), this, SLOT(cancelJob()));
+    connect(ui->holdJobPB, SIGNAL(clicked()), this, SLOT(holdJob()));
+    connect(ui->resumeJobPB, SIGNAL(clicked()), this, SLOT(resumeJob()));
+
+    connect(ui->pausePrinterPB, SIGNAL(clicked()), this, SLOT(pausePrinter()));
+    connect(ui->configurePrinterPB, SIGNAL(clicked()), this, SLOT(configurePrinter()));
+
+    connect(ui->whichJobsCB, SIGNAL(currentIndexChanged(int)), this, SLOT(whichJobsIndexChanged(int)));
+
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -462,7 +474,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
     }
 }
 
-void PrintQueueUi::on_pausePrinterPB_clicked()
+void PrintQueueUi::pausePrinter()
 {
     // STOP and RESUME printer
     KCupsRequest *request = new KCupsRequest;
@@ -475,7 +487,7 @@ void PrintQueueUi::on_pausePrinterPB_clicked()
     request->deleteLater();
 }
 
-void PrintQueueUi::on_configurePrinterPB_clicked()
+void PrintQueueUi::configurePrinter()
 {
     QDBusMessage message;
     message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
@@ -486,37 +498,36 @@ void PrintQueueUi::on_configurePrinterPB_clicked()
     QDBusConnection::sessionBus().send(message);
 }
 
-void PrintQueueUi::on_cancelJobPB_clicked()
+void PrintQueueUi::cancelJob()
 {
     // CANCEL a job
     modifyJob(PrintQueueModel::Cancel);
 }
 
-void PrintQueueUi::on_holdJobPB_clicked()
+void PrintQueueUi::holdJob()
 {
     // HOLD a job
     modifyJob(PrintQueueModel::Hold);
 }
 
-void PrintQueueUi::on_resumeJobPB_clicked()
+void PrintQueueUi::resumeJob()
 {
     // RESUME a job
     modifyJob(PrintQueueModel::Release);
 }
 
-void PrintQueueUi::on_whichJobsCB_currentIndexChanged(int index)
+void PrintQueueUi::whichJobsIndexChanged(int index)
 {
-    int whichJobs = CUPS_WHICHJOBS_ACTIVE;
+    int whichJobs;
     switch (index) {
-    case 0:
-        whichJobs = CUPS_WHICHJOBS_ACTIVE;
-        break;
     case 1:
         whichJobs = CUPS_WHICHJOBS_COMPLETED;
         break;
     case 2:
         whichJobs = CUPS_WHICHJOBS_ALL;
         break;
+    default:
+        whichJobs = CUPS_WHICHJOBS_ACTIVE;
     }
     m_model->setWhichJobs(whichJobs);
 }

@@ -597,49 +597,52 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
 #ifdef HAVE_CUPS_1_6
     QVariantHash destAttributes;
     for (attr = ippFirstAttribute(response); attr != NULL; attr = ippNextAttribute(response)) {
-        // Skip leading attributes until we hit a a group which can be a printer, job...
-        if (ippGetGroupTag(attr) != group_tag) {
+        // We hit an attribute sepparator
+        if (ippGetName(attr) == NULL) {
+            ret << destAttributes;
+            destAttributes.clear();
             continue;
-        } else if (ippGetValueTag(attr) != IPP_TAG_INTEGER &&
-                   ippGetValueTag(attr) != IPP_TAG_ENUM &&
-                   ippGetValueTag(attr) != IPP_TAG_BOOLEAN &&
-                   ippGetValueTag(attr) != IPP_TAG_TEXT &&
-                   ippGetValueTag(attr) != IPP_TAG_TEXTLANG &&
-                   ippGetValueTag(attr) != IPP_TAG_LANGUAGE &&
-                   ippGetValueTag(attr) != IPP_TAG_NAME &&
-                   ippGetValueTag(attr) != IPP_TAG_NAMELANG &&
-                   ippGetValueTag(attr) != IPP_TAG_KEYWORD &&
-                   ippGetValueTag(attr) != IPP_TAG_RANGE &&
-                   ippGetValueTag(attr) != IPP_TAG_URI) {
+        }
+
+        // Skip leading attributes until we hit a a group which can be a printer, job...
+        if (ippGetGroupTag(attr) != group_tag ||
+                (ippGetValueTag(attr) != IPP_TAG_INTEGER &&
+                 ippGetValueTag(attr) != IPP_TAG_ENUM &&
+                 ippGetValueTag(attr) != IPP_TAG_BOOLEAN &&
+                 ippGetValueTag(attr) != IPP_TAG_TEXT &&
+                 ippGetValueTag(attr) != IPP_TAG_TEXTLANG &&
+                 ippGetValueTag(attr) != IPP_TAG_LANGUAGE &&
+                 ippGetValueTag(attr) != IPP_TAG_NAME &&
+                 ippGetValueTag(attr) != IPP_TAG_NAMELANG &&
+                 ippGetValueTag(attr) != IPP_TAG_KEYWORD &&
+                 ippGetValueTag(attr) != IPP_TAG_RANGE &&
+                 ippGetValueTag(attr) != IPP_TAG_URI)) {
             continue;
         }
 
         // Add a printer description attribute...
         destAttributes[QString::fromUtf8(ippGetName(attr))] = ippAttrToVariant(attr);
+    }
 
-        // See if we have everything needed...
-        if (needDestName && destAttributes[QLatin1String(KCUPS_PRINTER_NAME)].toString().isEmpty()) {
-            if (attr == NULL) {
-                break;
-            } else {
-                continue;
-            }
-        }
-
+    if (!destAttributes.isEmpty()) {
         ret << destAttributes;
+    }
+#else
+    for (attr = response->attrs; attr != NULL; attr = attr->next) {
+       /*
+        * Skip leading attributes until we hit a a group which can be a printer, job...
+        */
+        while (attr && attr->group_tag != group_tag) {
+            attr = attr->next;
+        }
 
         if (attr == NULL) {
             break;
         }
-    }
-#else
-    for (attr = response->attrs; attr != NULL; attr = attr->next) {
-        // Skip leading attributes until we hit a a group which can be a printer, job...
-        if (attr && attr->group_tag != group_tag) {
-            continue;
-        }
 
-        // Pull the needed attributes from this printer...
+        /*
+         * Pull the needed attributes from this printer...
+         */
         QVariantHash destAttributes;
         for (; attr && attr->group_tag == group_tag; attr = attr->next) {
             if (attr->value_tag != IPP_TAG_INTEGER &&
@@ -656,8 +659,9 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
                 continue;
             }
 
-
-            // Add a printer description attribute...
+            /*
+             * Add a printer description attribute...
+             */
             destAttributes[QString::fromUtf8(attr->name)] = ippAttrToVariant(attr);
         }
 
@@ -679,6 +683,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
         }
     }
 #endif // HAVE_CUPS_1_6
+
     return ret;
 }
 

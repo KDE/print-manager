@@ -61,6 +61,7 @@ void PrintQueueModel::getJobFinished()
 //            clear();// TODO remove also in printerModel
         } else {
             KCupsJobs jobs = request->jobs();
+            kDebug() << jobs.size();
             for (int i = 0; i < jobs.size(); ++i) {
                 if (jobs.at(i).state() == IPP_JOB_PROCESSING) {
                     m_processingJob = jobs.at(i).name();
@@ -110,6 +111,7 @@ void PrintQueueModel::updateModel()
 
     QStringList attributes;
     attributes << KCUPS_JOB_ID;
+    attributes << KCUPS_JOB_NAME;
     attributes << KCUPS_JOB_K_OCTETS;
     attributes << KCUPS_JOB_K_OCTETS_PROCESSED;
     attributes << KCUPS_JOB_STATE;

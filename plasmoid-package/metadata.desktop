@@ -2,6 +2,7 @@
 Name=Manage Print Jobs
 Name[da]=Håndtér udskriftsjob
 Name[de]=Druckaufträge verwalten
+Name[el]=Διαχείριση εργασιών εκτύπωσης
 Name[et]=Trükitööde haldus
 Name[fi]=Tulostustöiden hallinta
 Name[fr]=Gestion des tâches d'impression
@@ -16,6 +17,7 @@ Name[uk]=Керування завданнями з друку
 Name[x-test]=xxManage Print Jobsxx
 Comment=List print jobs and manage them
 Comment[da]=Vis udskriftsjob og håndtér dem
+Comment[el]=Εμφάνιση και διαχείριση των εργασιών εκτύπωσης
 Comment[et]=Trükitööde kuvamine ja nende haldamine
 Comment[fi]=Luettele tulostustyöt ja hallitse niitä
 Comment[fr]=Liste les tâches d'impression et les gère

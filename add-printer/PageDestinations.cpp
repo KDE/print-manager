@@ -32,12 +32,8 @@
 #include <KCupsRequest.h>
 
 #include <QItemSelectionModel>
-#include <QPainter>
 
-#include <KCategorizedSortFilterProxyModel>
-#include <KCategoryDrawer>
 #include <KDebug>
-#include <KPixmapSequence>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
 PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
@@ -88,11 +84,8 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     ui->connectionsGB->setVisible(false);
 
     // Setup the busy cursor
-//    m_busySeq = new KPixmapSequenceOverlayPainter(this);
-//    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
-//    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
-//    m_busySeq->setWidget(ui->printerL);
-//    connect(m_model, SIGNAL(loaded()), m_busySeq, SLOT(stop()));
+    working();
+    connect(m_model, SIGNAL(loaded()), this, SLOT(notWorking()));
 
     if (!args.isEmpty()) {
         // set our args

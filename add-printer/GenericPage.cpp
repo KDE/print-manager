@@ -21,8 +21,21 @@
 #include "GenericPage.h"
 
 GenericPage::GenericPage(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent),
+    m_working(false)
 {
+}
+
+void GenericPage::working()
+{
+    m_working = true;
+    emit startWorking();
+}
+
+void GenericPage::notWorking()
+{
+    m_working = false;
+    emit stopWorking();
 }
 
 QVariantHash GenericPage::values() const

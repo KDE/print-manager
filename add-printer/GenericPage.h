@@ -34,18 +34,26 @@ class GenericPage : public QWidget
     Q_OBJECT
 public:
     GenericPage(QWidget *parent = 0);
-    virtual bool canProceed() const { return true; };
-    virtual bool hasChanges() const { return false; };
-    virtual bool isValid() const { return true; };
+    virtual bool canProceed() const { return true; }
+    virtual bool hasChanges() const { return false; }
+    virtual bool isValid() const { return true; }
+    virtual bool isWorking() const { return m_working; }
     virtual void setValues(const QVariantHash &args);
     virtual QVariantHash values() const;
 
 signals:
     void allowProceed(bool allow);
     void proceed();
+    void startWorking();
+    void stopWorking();
+
+protected slots:
+    void working();
+    void notWorking();
 
 protected:
-    QHash<QString, QVariant> m_args;
+    QVariantHash m_args;
+    bool m_working;
 };
 
 #endif

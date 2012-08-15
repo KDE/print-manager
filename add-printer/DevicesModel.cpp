@@ -61,7 +61,6 @@ void DevicesModel::update()
     connect(m_request, SIGNAL(device(QString,QString,QString,QString,QString,QString)),
             this, SLOT(gotDevice(QString,QString,QString,QString,QString,QString)));
     connect(m_request, SIGNAL(finished()), this, SLOT(finished()));
-    connect(m_request, SIGNAL(finished()), this, SIGNAL(loaded()));
 
     // Get devices with 5 seconds of timeout
     m_request->getDevices(5);
@@ -126,8 +125,9 @@ void DevicesModel::finished()
 {
     m_request->deleteLater();
     m_request = 0;
-    kDebug() << m_mappedDevices.isEmpty();
+
     if (m_mappedDevices.isEmpty()) {
+        emit loaded();
         return;
     }
 
@@ -283,12 +283,14 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
         kWarning() << "Unexpected message" << message;
         groupedDevicesFallback();
     }
+    emit loaded();
 }
 
 void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)
 {
     kWarning() << error <<  message;
     groupedDevicesFallback();
+    emit loaded();
 }
 
 void DevicesModel::groupedDevicesFallback()

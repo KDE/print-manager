@@ -38,33 +38,15 @@ PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
-    // loads the standard key icon
-//    QPixmap pixmap;
-//    pixmap = KIconLoader::global()->loadIcon("printer",
-//                                             KIconLoader::NoGroup,
-//                                             KIconLoader::SizeEnormous, // a not so huge icon
-//                                             KIconLoader::DefaultState);
-//    QPixmap icon(pixmap);
-//    QPainter painter(&icon);
-
-//    pixmap = KIconLoader::global()->loadIcon("page-zoom",
-//                                             KIconLoader::NoGroup,
-//                                             KIconLoader::SizeLarge, // a not so huge icon
-//                                             KIconLoader::DefaultState);
-//    // the the emblem icon to size 32
-//    int overlaySize = KIconLoader::SizeLarge;
-//    QPoint startPoint;
-//    // bottom right corner
-//    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-//                        KIconLoader::SizeEnormous - overlaySize - 2);
-//    painter.drawPixmap(startPoint, pixmap);
-//    ui->printerL->setPixmap(icon);
 
     m_layout = new QStackedLayout;
     m_layout->setContentsMargins(0, 0, 0, 0);
     ui->gridLayout->addLayout(m_layout, 1, 3);
     m_selectMM = new SelectMakeModel(this);
     m_layout->addWidget(m_selectMM);
+
+    // Setup the busy cursor
+    connect(m_selectMM, SIGNAL(changed(bool)), this, SLOT(notWorking()));
 
     if (!args.isEmpty()) {
         // set our args
@@ -85,6 +67,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         connect(m_selectMM, SIGNAL(changed(bool)),
                 this, SLOT(checkSelected()));
         kDebug() << args;
+        working();
         m_selectMM->setDeviceInfo(args[KCUPS_DEVICE_ID].toString(),
                                   args[KCUPS_DEVICE_MAKE_AND_MODEL].toString(),
                                   args[KCUPS_DEVICE_URI].toString());

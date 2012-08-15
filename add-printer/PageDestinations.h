@@ -23,7 +23,6 @@
 
 #include "GenericPage.h"
 
-#include <KPixmapSequenceOverlayPainter>
 #include <KUrl>
 
 #include <QLabel>
@@ -62,7 +61,6 @@ private:
     void setCurrentPage(QWidget *widget, const QVariantHash &args);
 
     Ui::PageDestinations *ui;
-    KPixmapSequenceOverlayPainter *m_busySeq;
     DevicesModel *m_model;
 
     QString m_currentUri;

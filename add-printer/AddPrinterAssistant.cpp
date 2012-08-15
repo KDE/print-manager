@@ -31,6 +31,8 @@
 
 #include <KLocale>
 #include <KMessageBox>
+#include <KPushButton>
+#include <KPixmapSequence>
 
 #include <KDebug>
 
@@ -44,11 +46,22 @@ AddPrinterAssistant::AddPrinterAssistant() :
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
     setWindowIcon(KIcon("printer"));
     showButton(KDialog::Cancel, false);
-    showButton(KDialog::Help, false);
     setDefaultButton(KDialog::User2); // next
     setDefaultButton(KDialog::User1); // finished
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
+
+    // Configure the help button to be flat, disabled and empty
+    button(KDialog::Help)->setFlat(true);
+    button(KDialog::Help)->setEnabled(false);
+    button(KDialog::Help)->setIcon(QIcon());
+    button(KDialog::Help)->setText(QString());
+
+    // Setup the busy cursor
+    m_busySeq = new KPixmapSequenceOverlayPainter(this);
+    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
+    m_busySeq->setWidget(button(KDialog::Help));
 
     // Restore the dialog size
     KConfig config("print-manager");
@@ -177,9 +190,22 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         // Disconnect the current page slots
         disconnect(currPage, SIGNAL(allowProceed(bool)), this, SLOT(enableNextButton(bool)));
         disconnect(currPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
+        disconnect(currPage, SIGNAL(startWorking()), m_busySeq, SLOT(start()));
+        disconnect(currPage, SIGNAL(stopWorking()), m_busySeq, SLOT(stop()));
         disconnect(currPage, SIGNAL(proceed()), this, SLOT(next()));
 
+        // Connect next page signals
+        connect(currPage, SIGNAL(startWorking()), m_busySeq, SLOT(start()));
+        connect(currPage, SIGNAL(stopWorking()), m_busySeq, SLOT(stop()));
         connect(nextPage, SIGNAL(proceed()), this, SLOT(next()));
+
+        // check the working property
+        if (nextPage->isWorking()) {
+            m_busySeq->start();
+        } else {
+            m_busySeq->stop();
+        }
+
         // When ChangePPD() is called addPrinterPage is zero
         if (page == m_addPrinterPage || m_addPrinterPage == 0) {
             connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));

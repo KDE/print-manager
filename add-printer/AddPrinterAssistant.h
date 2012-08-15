@@ -23,6 +23,8 @@
 
 #include <KAssistantDialog>
 
+#include <KPixmapSequenceOverlayPainter>
+
 class AddPrinterAssistant : public KAssistantDialog
 {
     Q_OBJECT
@@ -50,6 +52,7 @@ private:
     KPageWidgetItem *m_chooseClassPage;
     KPageWidgetItem *m_choosePPDPage;
     KPageWidgetItem *m_addPrinterPage;
+    KPixmapSequenceOverlayPainter *m_busySeq;
 };
 
 #endif

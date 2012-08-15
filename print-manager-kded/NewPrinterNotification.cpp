@@ -58,9 +58,6 @@ NewPrinterNotification::NewPrinterNotification()
 
 NewPrinterNotification::~NewPrinterNotification()
 {
-    m_thread->quit();
-    m_thread->wait();
-    delete m_thread;
 }
 
 void NewPrinterNotification::GetReady()

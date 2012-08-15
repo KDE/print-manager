@@ -41,7 +41,7 @@ PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
 PrintManagerKded::~PrintManagerKded()
 {
     if (m_newPrinterNotification) {
-        delete m_newPrinterNotification;
+        m_newPrinterNotification->deleteLater();
     }
 }
 

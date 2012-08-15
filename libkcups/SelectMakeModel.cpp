@@ -35,7 +35,6 @@
 #include <QtDBus/QDBusMetaType>
 
 #include <KMessageBox>
-#include <KPixmapSequence>
 #include <KDebug>
 
 // Marshall the MyStructure data into a D-Bus argument
@@ -85,11 +84,6 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
-
-    m_busySeq = new KPixmapSequenceOverlayPainter(this);
-    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
-    m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-    m_busySeq->setWidget(ui->ppdsLV->viewport());
 }
 
 SelectMakeModel::~SelectMakeModel()
@@ -101,6 +95,9 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
 {
     kDebug() << "===================================" << deviceId;
     m_gotBestDrivers = false;
+    m_make.clear();
+    m_makeAndModel.clear();
+
     // Get the best drivers
     QDBusMessage message;
     message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
@@ -124,27 +121,18 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)
 {
-//    if (!m_request) {
-//        m_request = new KCupsRequest;
-//        m_request->getPPDS();
-//        connect(m_request, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
-//        m_make = make;
-//        m_makeAndModel = makeAndModel;
-//        m_busySeq->start();
-//    } else {
-//        m_busySeq->stop();
-//        if (!makeAndModel.isEmpty()) {
-//            // Tries to find the current PPD and select it
-//            for (int i = 0; i < m_model->rowCount(); i++) {
-//                QString modelMakeAndModel;
-//                modelMakeAndModel = m_model->index(i, 0).data(PPDModel::PPDMakeAndModel).toString();
-//                if (modelMakeAndModel == makeAndModel) {
-//                    ui->ppdsLV->setCurrentIndex(m_model->index(i, 0));
-//                    break;
-//                }
-//            }
-//        }
-//    }
+    if (!m_ppdRequest) {
+        // We won't try to get the best driver
+        // we should be we need more info and testing
+        // TODO
+        m_gotBestDrivers = true;
+        m_make = make;
+        m_makeAndModel = makeAndModel;
+
+        m_ppdRequest = new KCupsRequest;
+        m_ppdRequest->getPPDS();
+        connect(m_ppdRequest, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
+    }
 }
 
 void SelectMakeModel::ppdsLoaded()
@@ -179,8 +167,30 @@ void SelectMakeModel::checkChanged()
         m_selectedMakeAndModel.clear();
         m_selectedPPDName.clear();
         emit changed(false);
-        ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
-                                                        QItemSelectionModel::SelectCurrent);
+        if (m_make.isEmpty()) {
+            ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
+                                                            QItemSelectionModel::SelectCurrent);
+        } else {
+            QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
+            foreach (QStandardItem *make, makes) {
+                // Check if the item is in this make
+                for (int i = 0; i < make->rowCount(); i++) {
+                    if (make->child(i)->data(PPDModel::PPDMakeAndModel).toString() == m_makeAndModel) {
+                        ui->makeView->selectionModel()->setCurrentIndex(make->index(),
+                                                                        QItemSelectionModel::SelectCurrent);
+                        ui->ppdsLV->selectionModel()->setCurrentIndex(make->child(i)->index(),
+                                                                     QItemSelectionModel::SelectCurrent);
+                        return;
+                    }
+                }
+            }
+
+            // the exact PPD wasn't found try to select just the make
+            if (!makes.isEmpty()) {
+                ui->makeView->selectionModel()->setCurrentIndex(makes.first()->index(),
+                                                                QItemSelectionModel::SelectCurrent);
+            }
+        }
     }
 }
 

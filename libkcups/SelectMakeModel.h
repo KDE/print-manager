@@ -24,7 +24,6 @@
 #include <QWidget>
 #include <QDBusMessage>
 
-#include <KPixmapSequenceOverlayPainter>
 #include <kdemacros.h>
 
 #include "KCupsConnection.h"
@@ -39,7 +38,7 @@ class KDE_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
 public:
-    SelectMakeModel(QWidget *parent = 0);
+    explicit SelectMakeModel(QWidget *parent = 0);
     ~SelectMakeModel();
 
     void setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri);
@@ -67,7 +66,6 @@ private:
     ReturnArguments m_ppds;
     DriverMatchList m_driverMatchList;
     bool m_gotBestDrivers;
-    KPixmapSequenceOverlayPainter *m_busySeq;
     QString m_selectedPPDName;
     QString m_selectedMakeAndModel;
     QString m_make;

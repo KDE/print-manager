@@ -58,13 +58,13 @@ public:
     void save();
 
 signals:
-    void showKUR();
-    void hideKUR();
     void ppdChanged();
 
 private slots:
     void textChanged(const QString &text);
     void on_makeCB_activated(int index);
+    void ppdSelectionAccepted();
+    void ppdSelectionRejected();
     void modelChanged();
 
 private:

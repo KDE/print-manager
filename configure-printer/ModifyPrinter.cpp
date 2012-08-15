@@ -24,7 +24,11 @@
 
 #include "SelectMakeModel.h"
 
-#include <QPointer>
+#include <KDialog>
+#include <KPixmapSequenceOverlayPainter>
+#include <KPixmapSequence>
+#include <KPushButton>
+
 #include <KDebug>
 
 ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModify, QWidget *parent) :
@@ -45,7 +49,8 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModif
 
     ui->connectionL->setVisible(!isClass);
     ui->connectionLE->setVisible(!isClass);
-    ui->makeModelCB->setVisible(!isClass);
+    ui->driverL->setVisible(!isClass);
+    ui->makeCB->setVisible(!isClass);
 
     ui->membersL->setVisible(isClass);
     ui->membersLV->setVisible(isClass);
@@ -58,12 +63,6 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModif
             this, SLOT(textChanged(QString)));
     connect(ui->membersLV, SIGNAL(changed(bool)),
             this, SLOT(modelChanged()));
-
-    connect(this, SIGNAL(showKUR()), ui->fileKUR, SLOT(show()));
-    connect(this, SIGNAL(showKUR()), ui->fileL, SLOT(show()));
-    connect(this, SIGNAL(hideKUR()), ui->fileKUR, SLOT(clear()));
-    connect(this, SIGNAL(hideKUR()), ui->fileKUR, SLOT(hide()));
-    connect(this, SIGNAL(hideKUR()), ui->fileL, SLOT(hide()));
 }
 
 ModifyPrinter::~ModifyPrinter()
@@ -75,56 +74,53 @@ void ModifyPrinter::on_makeCB_activated(int index)
 {
     bool isDifferent = true;
     if (ui->makeCB->itemData(index).toUInt() == PPDList) {
-        emit hideKUR();
         KConfig config("print-manager");
         KConfigGroup ppdDialog(&config, "PPDDialog");
 
         SelectMakeModel *widget = new SelectMakeModel(this);
-        widget->setMakeModel(m_make, m_makeAndModel);
 
-        QPointer<KDialog> dialog = new KDialog(this);
+        KDialog *dialog = new KDialog(this);
+        connect(dialog, SIGNAL(accepted()), this, SLOT(ppdSelectionAccepted()));
+        connect(dialog, SIGNAL(rejected()), this, SLOT(ppdSelectionRejected()));
+        connect(widget, SIGNAL(changed(bool)), dialog, SLOT(enableButtonOk(bool)));
         dialog->setCaption("Select a Driver");
-        dialog->setButtons(KDialog::Ok | KDialog::Cancel);
+        dialog->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
         dialog->setMainWidget(widget);
-        connect(widget, SIGNAL(changed(bool)),
-                dialog, SLOT(enableButtonOk(bool)));
         dialog->enableButtonOk(false);
         dialog->restoreDialogSize(ppdDialog);
-        if (dialog->exec() == QDialog::Accepted && dialog) {
-            dialog->saveDialogSize(ppdDialog);
-            QString makeAndModel = widget->selectedMakeAndModel();
-            QString ppdName = widget->selectedPPDName();
-            if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
-                ui->makeCB->insertItem(0, makeAndModel, PPDCustom);
-                ui->makeCB->setItemData(0, ppdName, PPDName);
-                ui->makeCB->setCurrentIndex(0);
-                // store the new value
-                m_changedValues["ppd-name"] = ppdName;
-            } else {
-                ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
-            }
-        } else {
-            ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
-        }
+
+        // Configure the help button to be flat, disabled and empty
+        KPushButton *button = dialog->button(KDialog::Help);
+        button->setFlat(true);
+        button->setEnabled(false);
+        button->setIcon(QIcon());
+        button->setText(QString());
+
+        // Setup the busy cursor
+        KPixmapSequenceOverlayPainter *busySeq = new KPixmapSequenceOverlayPainter(dialog);
+        busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+        busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
+        busySeq->setWidget(button);
+        busySeq->start();
+        connect(widget, SIGNAL(changed(bool)), busySeq, SLOT(stop()));
+
+        widget->setMakeModel(m_make, m_makeAndModel);
+        dialog->show();
         return;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDFile) {
-        ui->fileKUR->button()->click();
-        if (ui->fileKUR->url().isEmpty()) {
-            ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
-            return;
-        }
-        emit showKUR();
+//        ui->fileKUR->button()->click();
+//        if (ui->fileKUR->url().isEmpty()) {
+//            ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
+//            return;
+//        }
         // set the QVariant type to bool makes it possible to know a file was selected
         m_changedValues["ppd-name"] = true;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDDefault) {
         isDifferent = false;
         m_changedValues.remove("ppd-name");
-        emit hideKUR();
     } else if (ui->makeCB->itemData(index).toUInt() == PPDCustom) {
-        emit hideKUR();
         m_changedValues["ppd-name"] = ui->makeCB->itemData(index, PPDName).toString();
     } else {
-        emit hideKUR();
         kWarning() << "This should not happen";
         return;
     }
@@ -139,13 +135,46 @@ void ModifyPrinter::on_makeCB_activated(int index)
     ui->makeCB->setProperty("lastIndex", ui->makeCB->currentIndex());
 }
 
+void ModifyPrinter::ppdSelectionAccepted()
+{
+    KDialog *dialog = qobject_cast<KDialog*>(sender());
+    SelectMakeModel *widget = qobject_cast<SelectMakeModel*>(dialog->mainWidget());
+
+    QString makeAndModel = widget->selectedMakeAndModel();
+    QString ppdName = widget->selectedPPDName();
+    if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
+        ui->makeCB->insertItem(0, makeAndModel, PPDCustom);
+        ui->makeCB->setItemData(0, ppdName, PPDName);
+        ui->makeCB->setCurrentIndex(0);
+        // store the new value
+        m_changedValues["ppd-name"] = ppdName;
+    } else {
+        ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
+    }
+
+    KConfig config("print-manager");
+    KConfigGroup ppdDialog(&config, "PPDDialog");
+    dialog->saveDialogSize(ppdDialog);
+    dialog->deleteLater();
+}
+
+void ModifyPrinter::ppdSelectionRejected()
+{
+    ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
+
+    KDialog *dialog = qobject_cast<KDialog*>(sender());
+    KConfig config("print-manager");
+    KConfigGroup ppdDialog(&config, "PPDDialog");
+    dialog->saveDialogSize(ppdDialog);
+    dialog->deleteLater();
+}
+
 void ModifyPrinter::setValues(const KCupsPrinter &printer)
 {
 //     kDebug() << values;
     if (m_isClass) {
         ui->membersLV->reload(m_destName, printer.memberNames());
     } else {
-        emit hideKUR();
         ui->makeCB->clear();
         ui->makeCB->setProperty("different", false);
         ui->makeCB->setProperty("lastIndex", 0);
@@ -153,8 +182,7 @@ void ModifyPrinter::setValues(const KCupsPrinter &printer)
                                i18n("Current - %1", printer.makeAndModel()),
                                PPDDefault);
         ui->makeCB->insertSeparator(1);
-        ui->makeCB->insertItem(2, i18n("Select a Driver from a List"), PPDList);
-        ui->makeCB->insertItem(3, i18n("Provide a PPD file"), PPDFile);
+        ui->makeCB->insertItem(2, i18n("Select a custom driver"), PPDList);
     }
     ui->membersLV->setProperty("different", false);
 
@@ -225,9 +253,9 @@ void ModifyPrinter::save()
         if (m_changedValues.contains("ppd-name") &&
             m_changedValues["ppd-name"].type() == QVariant::Bool) {
             // check if it's really a local file and set the file string
-            if (ui->fileKUR->url().isLocalFile()) {
-                file = ui->fileKUR->url().toLocalFile();
-            }
+//            if (ui->fileKUR->url().isLocalFile()) {
+//                file = ui->fileKUR->url().toLocalFile();
+//            }
             m_changedValues.remove("ppd-name");
         }
         // if there is no file call setAttributes witout it

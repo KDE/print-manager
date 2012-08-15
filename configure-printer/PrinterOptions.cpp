@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti85-pk@yahoo.com.br                                              *
+ *   dantti12@gmail.com                                                    *
  *   For the save PPD snipet provided as LGPL in CUPS cgi code             *
  *   Copyright 2007-2009 by Apple Inc.                                     *
  *   Copyright 1997-2007 by Easy Software Products.                        *

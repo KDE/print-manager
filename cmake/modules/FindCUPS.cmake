@@ -6,7 +6,7 @@
 #  CUPS_LIB - Link these to use CUPS
 #  CUPS_DEFINITIONS - Compiler switches required for using CUPS
 
-# Copyright (c) 2010, Daniel Nicolett, <dantti85-pk@yahoo.com.br>
+# Copyright (c) 2010, Daniel Nicolett, <dantti12@gmail.com>
 #
 # Redistribution and use is allowed according to the terms of the GPLv2+ license.
 

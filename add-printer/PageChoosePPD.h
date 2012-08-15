@@ -35,7 +35,7 @@ class PageChoosePPD : public GenericPage
 {
     Q_OBJECT
 public:
-    PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
+    explicit PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
     ~PageChoosePPD();
 
     bool hasChanges() const;

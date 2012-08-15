@@ -203,6 +203,7 @@ void PrinterOptions::createGroups()
             }
         }
     }
+    ui->verticalLayout->addStretch();
 }
 
 QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const

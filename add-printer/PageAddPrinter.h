@@ -31,7 +31,7 @@ class PageAddPrinter : public GenericPage
 {
     Q_OBJECT
 public:
-    PageAddPrinter(QWidget *parent = 0);
+    explicit PageAddPrinter(QWidget *parent = 0);
     ~PageAddPrinter();
 
     void setValues(const QVariantHash &args);

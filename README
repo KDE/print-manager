@@ -6,9 +6,14 @@ current printing management of KDE.
 * Very well integrated
 
 printd - contains a kded module that checks for user print jobs and shows a systray icon
+ --TODO
+  - Integrate with PackageKit, talking to PK is easy
+    the hard part is understand what s-c-p does.
+
 printqueue - contains an application that show the printers queue
 
 printer-manager-kcm - configure printers in a very simple way
+
 add-printer - a wizard to add new printers
  --TODO
   - Search for windows printers using samba

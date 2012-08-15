@@ -31,13 +31,14 @@
 #include <KLocale>
 #include <KMessageBox>
 
-PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject *parent)
- : QStandardItemModel(parent),
-   m_printer(new KCupsPrinter(destName)),
-   m_jobRequest(0),
-   m_destName(destName),
-   m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
-   m_parentId(parentId)
+PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject *parent) :
+    QStandardItemModel(parent),
+    m_printer(new KCupsPrinter(destName)),
+    m_jobRequest(0),
+    m_destName(destName),
+    m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
+    m_parentId(parentId),
+    m_subscriptionId(-1)
 {
     setHorizontalHeaderItem(ColStatus,        new QStandardItem(i18n("Status")));
     setHorizontalHeaderItem(ColName,          new QStandardItem(i18n("Name")));
@@ -49,6 +50,78 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
     setHorizontalHeaderItem(ColSize,          new QStandardItem(i18n("Size")));
     setHorizontalHeaderItem(ColStatusMessage, new QStandardItem(i18n("Status Message")));
     setHorizontalHeaderItem(ColPrinter,       new QStandardItem(i18n("Printer")));
+
+    // Setup the attributes we want from jobs
+    m_jobAttributes << KCUPS_JOB_ID;
+    m_jobAttributes << KCUPS_JOB_NAME;
+    m_jobAttributes << KCUPS_JOB_K_OCTETS;
+    m_jobAttributes << KCUPS_JOB_K_OCTETS_PROCESSED;
+    m_jobAttributes << KCUPS_JOB_STATE;
+    m_jobAttributes << KCUPS_TIME_AT_COMPLETED;
+    m_jobAttributes << KCUPS_TIME_AT_CREATION;
+    m_jobAttributes << KCUPS_TIME_AT_PROCESSING;
+    m_jobAttributes << KCUPS_JOB_PRINTER_URI;
+    m_jobAttributes << KCUPS_JOB_ORIGINATING_USER_NAME;
+    m_jobAttributes << KCUPS_JOB_MEDIA_PROGRESS;
+    m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS;
+    m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
+    m_jobAttributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
+    m_jobAttributes << KCUPS_JOB_PRESERVED;
+
+    // This is emitted when a job change it's state
+    connect(KCupsConnection::global(),
+            SIGNAL(jobState(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // This is emitted when a job is created
+    connect(KCupsConnection::global(),
+            SIGNAL(jobCreated(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // This is emitted when a job is stopped
+    connect(KCupsConnection::global(),
+            SIGNAL(jobStopped(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // This is emitted when a job has it's config changed
+    connect(KCupsConnection::global(),
+            SIGNAL(jobConfigChanged(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // This is emitted when a job change it's progress
+    connect(KCupsConnection::global(),
+            SIGNAL(jobProgress(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    // This is emitted when a printer is removed
+    connect(KCupsConnection::global(),
+            SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
+            this,
+            SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    createSubscription();
+
+    // Get all jobs
+    getJobs();
+}
+
+void PrintQueueModel::getJobs()
+{
+    if (m_jobRequest) {
+        return;
+    }
+
+    m_jobRequest = new KCupsRequest;
+    connect(m_jobRequest, SIGNAL(finished()), this, SLOT(getJobFinished()));
+
+    m_jobRequest->getJobs(m_destName, false, m_whichjobs, m_jobAttributes);
+
+    m_processingJob.clear();
 }
 
 void PrintQueueModel::getJobFinished()
@@ -100,34 +173,92 @@ void PrintQueueModel::getJobFinished()
     m_jobRequest = 0;
 }
 
-void PrintQueueModel::updateModel()
+void PrintQueueModel::createSubscription()
 {
-    if (m_jobRequest) {
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
+    QStringList events;
+    events << "job-state-changed";
+    events << "job-created";
+    events << "job-completed";
+    events << "job-stopped";
+    events << "job-state";
+    events << "job-config-changed";
+    events << "job-progress";
+    request->createDBusSubscription(events);
+}
+
+void PrintQueueModel::createSubscriptionFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
+    if (!request || request->hasError() || request->subscriptionId() < 0) {
+        // in case of an error probe the server again in 1.5 seconds
+        QTimer::singleShot(1000, this, SLOT(createSubscription()));
+        request->deleteLater();
+        m_subscriptionId = -1;
         return;
     }
 
-    m_jobRequest = new KCupsRequest;
-    connect(m_jobRequest, SIGNAL(finished()), this, SLOT(getJobFinished()));
+    m_subscriptionId = request->subscriptionId();
+    request->deleteLater();
+}
 
-    QStringList attributes;
-    attributes << KCUPS_JOB_ID;
-    attributes << KCUPS_JOB_NAME;
-    attributes << KCUPS_JOB_K_OCTETS;
-    attributes << KCUPS_JOB_K_OCTETS_PROCESSED;
-    attributes << KCUPS_JOB_STATE;
-    attributes << KCUPS_TIME_AT_COMPLETED;
-    attributes << KCUPS_TIME_AT_CREATION;
-    attributes << KCUPS_TIME_AT_PROCESSING;
-    attributes << KCUPS_JOB_PRINTER_URI;
-    attributes << KCUPS_JOB_ORIGINATING_USER_NAME;
-    attributes << KCUPS_JOB_MEDIA_PROGRESS;
-    attributes << KCUPS_JOB_MEDIA_SHEETS;
-    attributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
-    attributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
-    attributes << KCUPS_JOB_PRESERVED;
-    m_jobRequest->getJobs(m_destName, false, m_whichjobs, attributes);
+void PrintQueueModel::jobCompleted(const QString &text,
+                                   const QString &printerUri,
+                                   const QString &printerName,
+                                   uint printerState,
+                                   const QString &printerStateReasons,
+                                   bool printerIsAcceptingJobs,
+                                   uint jobId,
+                                   uint jobState,
+                                   const QString &jobStateReasons,
+                                   const QString &jobName,
+                                   uint jobImpressionsCompleted)
+{
+    // REALLY? all these parameters just to say foo was deleted??
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerName)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+    Q_UNUSED(jobId)
+    Q_UNUSED(jobState)
+    Q_UNUSED(jobStateReasons)
+    Q_UNUSED(jobName)
+    Q_UNUSED(jobImpressionsCompleted)
 
-    m_processingJob.clear();
+    // We grab all jobs again
+    getJobs();
+}
+
+void PrintQueueModel::insertUpdateJob(const QString &text,
+                                      const QString &printerUri,
+                                      const QString &printerName,
+                                      uint printerState,
+                                      const QString &printerStateReasons,
+                                      bool printerIsAcceptingJobs,
+                                      uint jobId,
+                                      uint jobState,
+                                      const QString &jobStateReasons,
+                                      const QString &jobName,
+                                      uint jobImpressionsCompleted)
+{
+    // REALLY? all these parameters just to say foo was created??
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerName)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+    Q_UNUSED(jobId)
+    Q_UNUSED(jobState)
+    Q_UNUSED(jobStateReasons)
+    Q_UNUSED(jobName)
+    Q_UNUSED(jobImpressionsCompleted)
+
+    // We grab all jobs again
+    getJobs();
 }
 
 void PrintQueueModel::insertJob(int pos, const KCupsJob &job)
@@ -348,7 +479,7 @@ KCupsRequest* PrintQueueModel::modifyJob(int row, JobAction action, const QStrin
         kWarning() << "Unknown ACTION called!!!" << action;
         return 0;
     }
-    kWarning() << "Action unknown!!";
+
     return request;
 }
 

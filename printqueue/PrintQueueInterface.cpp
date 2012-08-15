@@ -25,7 +25,6 @@
 #include <KCupsPrinter.h>
 
 #include <QtDBus/QDBusConnection>
-#include <QtCore/QTimer>
 #include <QtGui/QLayout>
 #include <KWindowSystem>
 #include <KDialog>
@@ -46,11 +45,6 @@ PrintQueueInterface::PrintQueueInterface(QObject *parent)
         kDebug() << "unable to register service interface to dbus";
         return;
     }
-
-    // setup the timer that updates the UIs
-    m_updateUi = new QTimer(this);
-    m_updateUi->setInterval(1000);
-    m_updateUi->start();
 }
 
 PrintQueueInterface::~PrintQueueInterface()
@@ -86,8 +80,6 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
 
         if (found) {
             PrintQueueUi *ui = new PrintQueueUi(printer);
-            connect(m_updateUi, SIGNAL(timeout()),
-                    ui, SLOT(update()));
             connect(ui, SIGNAL(finished()),
                     this, SLOT(RemoveQueue()));
             ui->show();

@@ -96,6 +96,8 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     m_model = new PrintQueueModel(printer.name(), winId(), this);
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(updateButtons()));
+    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+            this, SLOT(update()));
     m_proxyModel = new PrintQueueSortFilterProxyModel(this);
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->setDynamicSortFilter(true);
@@ -378,8 +380,6 @@ void PrintQueueUi::getAttributesFinished()
 
 void PrintQueueUi::update()
 {
-    m_model->updateModel();
-
     // Set window title
     if (m_model->rowCount()) {
         if (m_title.isNull()) {

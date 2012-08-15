@@ -22,7 +22,6 @@
 
 #include <QtDBus/QDBusContext>
 
-class QTimer;
 class QWidget;
 class PrintQueueInterface : public QObject, protected QDBusContext
 {
@@ -40,7 +39,6 @@ public slots:
     void RemoveQueue();
 
 private:
-    QTimer *m_updateUi;
     QHash<QString, QWidget *> m_uis;
 };
 

@@ -61,7 +61,8 @@ public:
         LastColumn
     } Columns;
 
-    PrintQueueModel(const QString &destName, WId parentId, QObject *parent = 0);
+    explicit PrintQueueModel(const QString &destName, WId parentId, QObject *parent = 0);
+    void init();
     QString processingJob() const;
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
@@ -77,23 +78,49 @@ public:
     void setWhichJobs(int whichjobs);
     KCupsRequest* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
-public slots:
+private slots:
+    void getJobs();
     void getJobFinished();
-    void updateModel();
+
+    void createSubscription();
+    void createSubscriptionFinished();
+    void jobCompleted(const QString &text,
+                      const QString &printerUri,
+                      const QString &printerName,
+                      uint printerState,
+                      const QString &printerStateReasons,
+                      bool printerIsAcceptingJobs,
+                      uint jobId,
+                      uint jobState,
+                      const QString &jobStateReasons,
+                      const QString &jobName,
+                      uint jobImpressionsCompleted);
+    void insertUpdateJob(const QString &text,
+                         const QString &printerUri,
+                         const QString &printerName,
+                         uint printerState,
+                         const QString &printerStateReasons,
+                         bool printerIsAcceptingJobs,
+                         uint jobId,
+                         uint jobState,
+                         const QString &jobStateReasons,
+                         const QString &jobName,
+                         uint jobImpressionsCompleted);
 
 private:
+    int jobRow(int jobId);
+    void insertJob(int pos, const KCupsJob &job);
+    void updateJob(int pos, const KCupsJob &job);
+    QString jobStatus(ipp_jstate_e job_state);
+
     KCupsPrinter *m_printer;
     KCupsRequest *m_jobRequest;
     QString m_destName;
     QString m_processingJob;
     int m_whichjobs;
     WId m_parentId;
-    QStringList m_requestedAttr;
-
-    int jobRow(int jobId);
-    void insertJob(int pos, const KCupsJob &job);
-    void updateJob(int pos, const KCupsJob &job);
-    QString jobStatus(ipp_jstate_e job_state);
+    QStringList m_jobAttributes;
+    int m_subscriptionId;
 };
 
 #endif

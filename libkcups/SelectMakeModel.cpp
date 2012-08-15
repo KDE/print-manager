@@ -196,10 +196,11 @@ QString SelectMakeModel::selectedMakeAndModel() const
 
 void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
 {
+    bool hasRecommended = false;
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
         QDBusArgument argument = message.arguments().first().value<QDBusArgument>();
         m_driverMatchList = qdbus_cast<DriverMatchList>(argument);
-
+        hasRecommended = !m_driverMatchList.isEmpty();
         foreach (const DriverMatch &driverMatch, m_driverMatchList) {
             kDebug() << driverMatch.ppd << driverMatch.match;
         }
@@ -208,6 +209,19 @@ void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
     }
     m_gotBestDrivers = true;
     setModelData();
+
+    // Pre-select the first Recommended PPD
+    if (hasRecommended) {
+        QItemSelection ppdSelection = ui->ppdsLV->selectionModel()->selection();
+        if (ppdSelection.indexes().isEmpty()) {
+            QItemSelection makeSelection = ui->makeView->selectionModel()->selection();
+            QModelIndex parent = makeSelection.indexes().first();
+            if (parent.isValid()) {
+                ui->ppdsLV->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0, parent),
+                                                              QItemSelectionModel::SelectCurrent);
+            }
+        }
+    }
 }
 
 void SelectMakeModel::getBestDriversFailed(const QDBusError &error, const QDBusMessage &message)

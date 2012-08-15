@@ -43,6 +43,7 @@ PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     m_layout->setContentsMargins(0, 0, 0, 0);
     ui->gridLayout->addLayout(m_layout, 1, 3);
     m_selectMM = new SelectMakeModel(this);
+    connect(m_selectMM, SIGNAL(changed(bool)), this, SLOT(checkSelected()));
     m_layout->addWidget(m_selectMM);
 
     // Setup the busy cursor
@@ -64,8 +65,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
     m_args = args;
 
     if (args[ADDING_PRINTER].toBool()) {
-        connect(m_selectMM, SIGNAL(changed(bool)),
-                this, SLOT(checkSelected()));
+
         kDebug() << args;
         working();
         m_selectMM->setDeviceInfo(args[KCUPS_DEVICE_ID].toString(),
@@ -129,4 +129,9 @@ bool PageChoosePPD::canProceed() const
 void PageChoosePPD::checkSelected()
 {
     emit allowProceed(canProceed());
+}
+
+void PageChoosePPD::selectDefault()
+{
+
 }

@@ -46,6 +46,7 @@ public:
 
 private slots:
     void checkSelected();
+    void selectDefault();
 
 private:
     Ui::PageChoosePPD *ui;

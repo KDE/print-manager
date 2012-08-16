@@ -45,7 +45,6 @@ public:
     explicit PageDestinations(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
     ~PageDestinations();
 
-    bool hasChanges() const;
     bool canProceed() const;
     void setValues(const QVariantHash &args);
     QVariantHash values() const;

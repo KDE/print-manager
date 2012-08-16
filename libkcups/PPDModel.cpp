@@ -100,6 +100,11 @@ QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd, bool recommended
     QString naturalLanguage = ppd["ppd-natural-language"].toString();
     QString ppdName = ppd["ppd-name"].toString();
 
+    // Set this data before we change the makeAndModel
+    ret->setData(ppdName, PPDName);
+    ret->setData(make, PPDMake);
+    ret->setData(makeAndModel, PPDMakeAndModel);
+
     QString text;
     if (recommended) {
         text = makeAndModel %
@@ -119,7 +124,6 @@ QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd, bool recommended
                 QLatin1Char(')');
     }
     ret->setText(text);
-    ret->setData(ppdName, PPDName);
 
     return ret;
 }

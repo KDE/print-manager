@@ -15,14 +15,14 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="2" column="0">
-    <widget class="QRadioButton" name="radioButton">
+    <widget class="QRadioButton" name="ppdFileRB">
      <property name="text">
       <string>Manually Provide a PPD File:</string>
      </property>
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="KUrlRequester" name="kurlrequester">
+    <widget class="KUrlRequester" name="ppdFilePathUrl">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -78,29 +78,11 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="KLineEdit" name="klineedit">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="placeholderText">
-        <string>Search for drivers</string>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
   <customwidget>
    <class>KUrlRequester</class>
    <extends>QFrame</extends>
@@ -110,34 +92,66 @@
  <resources/>
  <connections>
   <connection>
-   <sender>radioButton</sender>
+   <sender>ppdFileRB</sender>
    <signal>toggled(bool)</signal>
-   <receiver>kurlrequester</receiver>
+   <receiver>ppdFilePathUrl</receiver>
    <slot>setEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>134</x>
-     <y>9</y>
+     <x>138</x>
+     <y>341</y>
     </hint>
     <hint type="destinationlabel">
-     <x>218</x>
-     <y>11</y>
+     <x>406</x>
+     <y>342</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>radioButton</sender>
+   <sender>ppdFileRB</sender>
    <signal>clicked()</signal>
-   <receiver>kurlrequester</receiver>
+   <receiver>ppdFilePathUrl</receiver>
    <slot>setFocus()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>78</x>
-     <y>8</y>
+     <x>82</x>
+     <y>340</y>
     </hint>
     <hint type="destinationlabel">
-     <x>326</x>
-     <y>13</y>
+     <x>462</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>makeView</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>100</x>
+     <y>15</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>99</x>
+     <y>65</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_2</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>ppdsLV</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>291</x>
+     <y>12</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>297</x>
+     <y>119</y>
     </hint>
    </hints>
   </connection>

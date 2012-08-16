@@ -354,11 +354,6 @@ void KCupsRequest::setAttributes(const QString &printerName,
                                  const QVariantHash &attributes,
                                  const QString &filename)
 {
-    if (attributes.isEmpty()) {
-        setFinished();
-        return;
-    }
-
     QVariantHash request = attributes;
     request[KCUPS_PRINTER_NAME] = printerName;
     request["printer-is-class"] = isClass;

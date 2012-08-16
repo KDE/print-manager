@@ -82,6 +82,10 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(checkChanged()));    
 
+    // When the radio button changes the signal must be emitted
+    connect(ui->ppdFileRB, SIGNAL(toggled(bool)), this, SLOT(checkChanged()));
+    connect(ui->ppdFilePathUrl, SIGNAL(textChanged(QString)), this, SLOT(checkChanged()));
+
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
 }
@@ -151,57 +155,92 @@ void SelectMakeModel::ppdsLoaded()
 
 void SelectMakeModel::checkChanged()
 {
-    QItemSelection selection;
-    // we need to map the selection to source to get the real indexes
-    selection = ui->ppdsLV->selectionModel()->selection();
-
-    // enable or disable the job action buttons if something is selected
-    emit changed(!selection.indexes().isEmpty());
-    kDebug() << sender() << selection.indexes().isEmpty();
-    if (!selection.indexes().isEmpty()) {
-        QModelIndex index = selection.indexes().first();
-        m_selectedMakeAndModel = index.data(PPDModel::PPDMakeAndModel).toString();
-        m_selectedPPDName = index.data(PPDModel::PPDName).toString();
-        emit changed(m_makeAndModel != m_selectedMakeAndModel);
+    if (isFileSelected()) {
+        emit changed(!selectedPPDFileName().isNull());
     } else {
-        m_selectedMakeAndModel.clear();
-        m_selectedPPDName.clear();
-        emit changed(false);
-        if (m_make.isEmpty()) {
+        // enable or disable the job action buttons if something is selected
+        emit changed(!selectedPPDName().isNull());
+
+        QItemSelection selection;
+        selection = ui->makeView->selectionModel()->selection();
+        // Make sure the first make is selected
+        if (selection.indexes().isEmpty() && m_sourceModel->rowCount() > 0) {
             ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
                                                             QItemSelectionModel::SelectCurrent);
-        } else {
-            QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
-            foreach (QStandardItem *make, makes) {
-                // Check if the item is in this make
-                for (int i = 0; i < make->rowCount(); i++) {
-                    if (make->child(i)->data(PPDModel::PPDMakeAndModel).toString() == m_makeAndModel) {
-                        ui->makeView->selectionModel()->setCurrentIndex(make->index(),
-                                                                        QItemSelectionModel::SelectCurrent);
-                        ui->ppdsLV->selectionModel()->setCurrentIndex(make->child(i)->index(),
-                                                                     QItemSelectionModel::SelectCurrent);
-                        return;
-                    }
-                }
-            }
-
-            // the exact PPD wasn't found try to select just the make
-            if (!makes.isEmpty()) {
-                ui->makeView->selectionModel()->setCurrentIndex(makes.first()->index(),
-                                                                QItemSelectionModel::SelectCurrent);
-            }
         }
+//        if (!selection.indexes().isEmpty()) {
+//            QModelIndex index = selection.indexes().first();
+//            m_selectedMakeAndModel = index.data(PPDModel::PPDMakeAndModel).toString();
+//            m_selectedPPDName = index.data(PPDModel::PPDName).toString();
+//            emit changed(m_makeAndModel != m_selectedMakeAndModel);
+//        } else {
+//            m_selectedMakeAndModel.clear();
+//            m_selectedPPDName.clear();
+//            emit changed(false);
+//            if (m_make.isEmpty()) {
+//                ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
+//                                                                QItemSelectionModel::SelectCurrent);
+//            } else {
+//                QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
+//                foreach (QStandardItem *make, makes) {
+//                    // Check if the item is in this make
+//                    for (int i = 0; i < make->rowCount(); i++) {
+//                        if (make->child(i)->data(PPDModel::PPDMakeAndModel).toString() == m_makeAndModel) {
+//                            ui->makeView->selectionModel()->setCurrentIndex(make->index(),
+//                                                                            QItemSelectionModel::SelectCurrent);
+//                            ui->ppdsLV->selectionModel()->setCurrentIndex(make->child(i)->index(),
+//                                                                          QItemSelectionModel::SelectCurrent);
+//                            return;
+//                        }
+//                    }
+//                }
+
+//                // the exact PPD wasn't found try to select just the make
+//                if (!makes.isEmpty()) {
+//                    ui->makeView->selectionModel()->setCurrentIndex(makes.first()->index(),
+//                                                                    QItemSelectionModel::SelectCurrent);
+//                }
+//            }
+//        }
     }
 }
 
 QString SelectMakeModel::selectedPPDName() const
 {
-    return m_selectedPPDName;
+    QItemSelection ppdSelection = ui->ppdsLV->selectionModel()->selection();
+    if (!isFileSelected() && !ppdSelection.indexes().isEmpty()) {
+        QModelIndex index = ppdSelection.indexes().first();
+        return index.data(PPDModel::PPDName).toString();
+    }
+    return QString();
 }
 
-QString SelectMakeModel::selectedMakeAndModel() const
+QString SelectMakeModel::selectedPPDMakeAndModel() const
 {
-    return m_selectedMakeAndModel;
+    QItemSelection ppdSelection = ui->ppdsLV->selectionModel()->selection();
+    if (!isFileSelected() && !ppdSelection.indexes().isEmpty()) {
+        QModelIndex index = ppdSelection.indexes().first();
+        return index.data(PPDModel::PPDMakeAndModel).toString();
+    }
+    return QString();
+}
+
+QString SelectMakeModel::selectedPPDFileName() const
+{
+    if (isFileSelected()) {
+        QFileInfo file = ui->ppdFilePathUrl->url().toLocalFile();
+        kDebug() << ui->ppdFilePathUrl->url().toLocalFile() << file.isFile() << file.filePath();
+        if (file.isFile()) {
+            return file.filePath();
+        }
+    }
+    return QString();
+}
+
+bool SelectMakeModel::isFileSelected() const
+{
+    kDebug() << ui->ppdFileRB->isChecked();
+    return ui->ppdFileRB->isChecked();
 }
 
 void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)

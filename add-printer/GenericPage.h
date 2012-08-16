@@ -35,7 +35,6 @@ class GenericPage : public QWidget
 public:
     GenericPage(QWidget *parent = 0);
     virtual bool canProceed() const { return true; }
-    virtual bool hasChanges() const { return false; }
     virtual bool isValid() const { return true; }
     virtual bool isWorking() const { return m_working; }
     virtual void setValues(const QVariantHash &args);

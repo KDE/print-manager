@@ -166,9 +166,6 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // we don't set (or even unset values),
     // and we only call setValues on the next page if
     // the currentPage() has changes.
-    // And if it hasChanges() we get it's values and
-    // pass it to the next page so it "clans up" and
-    // start as it was the first time
     QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
     if (currentPage == m_devicesPage) {
         qobject_cast<GenericPage*>(m_choosePPDPage->widget())->setValues(args);
@@ -233,16 +230,19 @@ void AddPrinterAssistant::slotButtonClicked(int button)
     // Finish Button
     if (button == KDialog::User1) {
         QVariantHash args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
-        kDebug() << args;
-        KCupsRequest *request = new KCupsRequest;
-        bool isClass = !args.take(ADDING_PRINTER).toBool();
 
         // Check if it's a printer or a class that we are adding
-        if (!isClass) {
-            QString destName = args[KCUPS_PRINTER_NAME].toString();
-            request->setAttributes(destName, false, args);
+        bool isClass = !args.take(ADDING_PRINTER).toBool();
+        QString destName = args[KCUPS_PRINTER_NAME].toString();
+        QString filename = args.take(FILENAME).toString();
+
+        KCupsRequest *request = new KCupsRequest;
+        if (isClass) {
+            args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
+            args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
+            request->addOrModifyClass(destName, args);
         } else {
-            request->addClass(args);
+            request->addOrModifyPrinter(destName, args, filename);
         }
 
         request->waitTillFinished();

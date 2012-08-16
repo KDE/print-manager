@@ -42,6 +42,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     setModal(true);
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
     setWindowTitle(destName);
+    setWindowIcon(KIcon("configure"));
     enableButtonApply(false);
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);

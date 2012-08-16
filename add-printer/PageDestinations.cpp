@@ -115,25 +115,6 @@ bool PageDestinations::isValid() const
     return true;
 }
 
-bool PageDestinations::hasChanges() const
-{
-    if (!isValid()) {
-        return false;
-    }
-
-    QString deviceURI;
-    if (canProceed()) {
-        QVariant value;
-        value = ui->devicesTV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceUris);
-        if (value.type() == QVariant::String) {
-            deviceURI = value.toString();
-        } else {
-            // TODO get the selected value from the combo
-        }
-    }
-    return deviceURI != m_args[KCUPS_DEVICE_URI];
-}
-
 QVariantHash PageDestinations::values() const
 {
     QVariantHash ret = m_args;

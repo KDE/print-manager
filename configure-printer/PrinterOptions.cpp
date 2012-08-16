@@ -70,7 +70,19 @@ void PrinterOptions::reloadPPD()
 
     // remove all the options
     while (ui->verticalLayout->count()) {
-        ui->verticalLayout->removeItem(ui->verticalLayout->itemAt(0));
+        kDebug() << "removing" << ui->verticalLayout->count();
+        QLayoutItem *item = ui->verticalLayout->itemAt(0);
+        ui->verticalLayout->removeItem(item);
+        if (item->widget()) {
+            item->widget()->deleteLater();
+            delete item;
+        } else if (item->layout()) {
+            kDebug() << "removing layout" << ui->verticalLayout->count();
+
+//            item->layout()->deleteLater();
+        } else if (item->spacerItem()) {
+            delete item->spacerItem();
+        }
     }
     m_changes = 0;
     m_customValues.clear();
@@ -737,7 +749,12 @@ void PrinterOptions::save()
 
     QVariantHash values; // we need null values
     KCupsRequest *request = new KCupsRequest;
-    request->setAttributes(m_destName, m_isClass, values, tempfile);
+    if (m_isClass) {
+        request->addOrModifyClass(m_destName, values);
+    } else {
+        request->addOrModifyPrinter(m_destName, values, tempfile);
+    }
+
     // Disable the widget till the request is processed
     // Otherwise the user might change something in the ui
     // which won't be saved but the apply but when the request

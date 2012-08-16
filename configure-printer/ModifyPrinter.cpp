@@ -28,6 +28,7 @@
 #include <KPixmapSequenceOverlayPainter>
 #include <KPixmapSequence>
 #include <KPushButton>
+#include <KMessageBox>
 
 #include <KDebug>
 
@@ -103,16 +104,11 @@ void ModifyPrinter::on_makeCB_activated(int index)
         busySeq->setWidget(button);
         busySeq->start();
         connect(widget, SIGNAL(changed(bool)), busySeq, SLOT(stop()));
-
+kDebug() << m_make << m_makeAndModel;
         widget->setMakeModel(m_make, m_makeAndModel);
         dialog->show();
         return;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDFile) {
-//        ui->fileKUR->button()->click();
-//        if (ui->fileKUR->url().isEmpty()) {
-//            ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
-//            return;
-//        }
         // set the QVariant type to bool makes it possible to know a file was selected
         m_changedValues["ppd-name"] = true;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDDefault) {
@@ -140,14 +136,18 @@ void ModifyPrinter::ppdSelectionAccepted()
     KDialog *dialog = qobject_cast<KDialog*>(sender());
     SelectMakeModel *widget = qobject_cast<SelectMakeModel*>(dialog->mainWidget());
 
-    QString makeAndModel = widget->selectedMakeAndModel();
-    QString ppdName = widget->selectedPPDName();
-    if (!ppdName.isEmpty() && !makeAndModel.isEmpty()){
+    if (widget->isFileSelected()) {
+        QString fileName = widget->selectedPPDFileName();
+        ui->makeCB->insertItem(0, fileName, PPDFile);
+        ui->makeCB->setCurrentIndex(0);
+        on_makeCB_activated(0);
+    } else if (!widget->selectedPPDName().isNull()) {
+        QString makeAndModel = widget->selectedPPDMakeAndModel();
+        QString ppdName = widget->selectedPPDName();
         ui->makeCB->insertItem(0, makeAndModel, PPDCustom);
         ui->makeCB->setItemData(0, ppdName, PPDName);
         ui->makeCB->setCurrentIndex(0);
-        // store the new value
-        m_changedValues["ppd-name"] = ppdName;
+        on_makeCB_activated(0);
     } else {
         ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
     }
@@ -249,28 +249,27 @@ void ModifyPrinter::textChanged(const QString &text)
 void ModifyPrinter::save()
 {
     if (m_changes) {
-        QString file;
-        if (m_changedValues.contains("ppd-name") &&
-            m_changedValues["ppd-name"].type() == QVariant::Bool) {
-            // check if it's really a local file and set the file string
-//            if (ui->fileKUR->url().isLocalFile()) {
-//                file = ui->fileKUR->url().toLocalFile();
-//            }
-            m_changedValues.remove("ppd-name");
+        QVariantHash args = m_changedValues;
+        QString fileName;
+        kDebug() << args;
+        if (args.contains("ppd-name") &&
+            args["ppd-name"].type() == QVariant::Bool) {
+
+            fileName = ui->makeCB->itemData(ui->makeCB->currentIndex(), PPDFile).toString();
+            args.remove("ppd-name");
         }
-        // if there is no file call setAttributes witout it
+        kDebug() << fileName;
+
         KCupsRequest *request = new KCupsRequest;
-        if (file.isEmpty()) {
-            kDebug() << m_changedValues;
-            request->setAttributes(m_destName, m_isClass, m_changedValues);
+        if (m_isClass) {
+            request->addOrModifyClass(m_destName, args);
         } else {
-            request->setAttributes(m_destName, m_isClass, m_changedValues, file.toUtf8());
+            request->addOrModifyPrinter(m_destName, args, fileName);
         }
         request->waitTillFinished();
 
         if (!request->hasError()) {
-            if (!file.isEmpty() ||
-                (m_changedValues.contains("ppd-name") && m_changedValues["ppd-name"].type() != QVariant::Bool)) {
+            if (m_changedValues.contains("ppd-name")) {
                 emit ppdChanged();
             }
             request->getPrinterAttributes(m_destName, m_isClass, neededValues());
@@ -280,6 +279,12 @@ void ModifyPrinter::save()
                 KCupsPrinter printer = request->printers().first();
                 setValues(printer);
             }
+        } else {
+            KMessageBox::detailedSorry(this,
+                                       m_isClass ? i18nc("@info", "Failed to configure class") :
+                                                   i18nc("@info", "Failed to configure printer"),
+                                       request->errorMsg(),
+                                       i18nc("@title:window", "Failed"));
         }
         request->deleteLater();
     }

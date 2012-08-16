@@ -83,19 +83,6 @@ bool PageChoosePPD::isValid() const
     return m_isValid;
 }
 
-bool PageChoosePPD::hasChanges() const
-{
-    if (!isValid()) {
-        return false;
-    }
-
-    QString deviceURI;
-    if (canProceed()) {
-//         deviceURI = devicesLV->selectionModel()->selectedIndexes().first().data(DevicesModel::DeviceURI).toString();
-    }
-    return deviceURI != m_args[KCUPS_DEVICE_URI];
-}
-
 QVariantHash PageChoosePPD::values() const
 {
     if (!isValid()) {
@@ -105,8 +92,11 @@ QVariantHash PageChoosePPD::values() const
     QVariantHash ret = m_args;
     if (canProceed()) {
         // TODO get the PPD file name
-        ret[PPD_NAME] = m_selectMM->selectedPPDName();
-//        ret[FILENAME] = m_selectMM->selectedPPDFileName();
+        if (m_selectMM->isFileSelected()) {
+            ret[FILENAME] = m_selectMM->selectedPPDFileName();
+        } else {
+            ret[PPD_NAME] = m_selectMM->selectedPPDName();
+        }
     }
     return ret;
 }
@@ -116,10 +106,10 @@ bool PageChoosePPD::canProceed() const
     // It can proceed if a PPD file (local or not) is provided    bool changed = false;
     bool allow = false;
 
-    // TODO check the PPD file name
-    QString ppdName = m_selectMM->selectedPPDName();
-    if (!ppdName.isEmpty()){
-        allow = true;
+    if (m_selectMM->isFileSelected()) {
+        allow = !m_selectMM->selectedPPDFileName().isNull();
+    } else {
+        allow = !m_selectMM->selectedPPDName().isNull();
     }
 
     kDebug() << allow;

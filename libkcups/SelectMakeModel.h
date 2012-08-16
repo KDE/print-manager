@@ -44,7 +44,9 @@ public:
     void setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri);
     void setMakeModel(const QString &make, const QString &makeAndModel);
     QString selectedPPDName() const;
-    QString selectedMakeAndModel() const;
+    QString selectedPPDMakeAndModel() const;
+    QString selectedPPDFileName() const;
+    bool isFileSelected() const;
 
 public slots:
     void checkChanged();
@@ -66,8 +68,6 @@ private:
     ReturnArguments m_ppds;
     DriverMatchList m_driverMatchList;
     bool m_gotBestDrivers;
-    QString m_selectedPPDName;
-    QString m_selectedMakeAndModel;
     QString m_make;
     QString m_makeAndModel;
 };

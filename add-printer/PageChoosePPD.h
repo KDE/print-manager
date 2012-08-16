@@ -38,7 +38,6 @@ public:
     explicit PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
     ~PageChoosePPD();
 
-    bool hasChanges() const;
     bool canProceed() const;
     void setValues(const QVariantHash &args);
     QVariantHash values() const;

@@ -45,6 +45,7 @@
 #define KCUPS_PRINTER_STATE                  "printer-state"
 #define KCUPS_PRINTER_STATE_MESSAGE          "printer-state-message"
 #define KCUPS_PRINTER_IS_SHARED              "printer-is-shared"
+#define KCUPS_PRINTER_IS_ACCEPTING_JOBS      "printer-is-accepting-jobs"
 #define KCUPS_PRINTER_TYPE                   "printer-type"
 #define KCUPS_PRINTER_TYPE_MASK              "printer-type-mask"
 #define KCUPS_PRINTER_COMMANDS               "printer-commands"

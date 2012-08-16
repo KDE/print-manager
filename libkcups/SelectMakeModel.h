@@ -61,6 +61,9 @@ private slots:
 
 private:
     void setModelData();
+    void selectFirstMake();
+    void selectMakeModelPPD();
+    void selectRecommendedPPD();
 
     Ui::SelectMakeModel *ui;
     PPDModel *m_sourceModel;

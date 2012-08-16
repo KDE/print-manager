@@ -149,6 +149,10 @@ void SelectMakeModel::ppdsLoaded()
 
         // Try to show the PPDs
         setModelData();
+
+        if (!m_ppds.isEmpty() && !m_make.isEmpty() && !m_makeAndModel.isEmpty()) {
+            selectMakeModelPPD();
+        }
     }
     sender()->deleteLater();
 }
@@ -161,47 +165,7 @@ void SelectMakeModel::checkChanged()
         // enable or disable the job action buttons if something is selected
         emit changed(!selectedPPDName().isNull());
 
-        QItemSelection selection;
-        selection = ui->makeView->selectionModel()->selection();
-        // Make sure the first make is selected
-        if (selection.indexes().isEmpty() && m_sourceModel->rowCount() > 0) {
-            ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
-                                                            QItemSelectionModel::SelectCurrent);
-        }
-//        if (!selection.indexes().isEmpty()) {
-//            QModelIndex index = selection.indexes().first();
-//            m_selectedMakeAndModel = index.data(PPDModel::PPDMakeAndModel).toString();
-//            m_selectedPPDName = index.data(PPDModel::PPDName).toString();
-//            emit changed(m_makeAndModel != m_selectedMakeAndModel);
-//        } else {
-//            m_selectedMakeAndModel.clear();
-//            m_selectedPPDName.clear();
-//            emit changed(false);
-//            if (m_make.isEmpty()) {
-//                ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
-//                                                                QItemSelectionModel::SelectCurrent);
-//            } else {
-//                QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
-//                foreach (QStandardItem *make, makes) {
-//                    // Check if the item is in this make
-//                    for (int i = 0; i < make->rowCount(); i++) {
-//                        if (make->child(i)->data(PPDModel::PPDMakeAndModel).toString() == m_makeAndModel) {
-//                            ui->makeView->selectionModel()->setCurrentIndex(make->index(),
-//                                                                            QItemSelectionModel::SelectCurrent);
-//                            ui->ppdsLV->selectionModel()->setCurrentIndex(make->child(i)->index(),
-//                                                                          QItemSelectionModel::SelectCurrent);
-//                            return;
-//                        }
-//                    }
-//                }
-
-//                // the exact PPD wasn't found try to select just the make
-//                if (!makes.isEmpty()) {
-//                    ui->makeView->selectionModel()->setCurrentIndex(makes.first()->index(),
-//                                                                    QItemSelectionModel::SelectCurrent);
-//                }
-//            }
-//        }
+        selectFirstMake();
     }
 }
 
@@ -261,15 +225,7 @@ void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
 
     // Pre-select the first Recommended PPD
     if (hasRecommended) {
-        QItemSelection ppdSelection = ui->ppdsLV->selectionModel()->selection();
-        if (ppdSelection.indexes().isEmpty()) {
-            QItemSelection makeSelection = ui->makeView->selectionModel()->selection();
-            QModelIndex parent = makeSelection.indexes().first();
-            if (parent.isValid()) {
-                ui->ppdsLV->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0, parent),
-                                                              QItemSelectionModel::SelectCurrent);
-            }
-        }
+        selectRecommendedPPD();
     }
 }
 
@@ -286,6 +242,55 @@ void SelectMakeModel::setModelData()
 {
     if (!m_ppds.isEmpty() && m_gotBestDrivers) {
         m_sourceModel->setPPDs(m_ppds, m_driverMatchList);
-        checkChanged();
+    }
+}
+
+void SelectMakeModel::selectFirstMake()
+{
+    QItemSelection selection;
+    selection = ui->makeView->selectionModel()->selection();
+    // Make sure the first make is selected
+    if (selection.indexes().isEmpty() && m_sourceModel->rowCount() > 0) {
+        ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
+                                                        QItemSelectionModel::SelectCurrent);
+    }
+}
+
+void SelectMakeModel::selectMakeModelPPD()
+{
+    QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
+    foreach (QStandardItem *make, makes) {
+        // Check if the item is in this make
+        for (int i = 0; i < make->rowCount(); i++) {
+            if (make->child(i)->data(PPDModel::PPDMakeAndModel).toString() == m_makeAndModel) {
+                ui->makeView->selectionModel()->setCurrentIndex(make->index(),
+                                                                QItemSelectionModel::SelectCurrent);
+                ui->ppdsLV->selectionModel()->setCurrentIndex(make->child(i)->index(),
+                                                              QItemSelectionModel::SelectCurrent);
+                return;
+            }
+        }
+    }
+
+    // the exact PPD wasn't found try to select just the make
+    if (!makes.isEmpty()) {
+        ui->makeView->selectionModel()->setCurrentIndex(makes.first()->index(),
+                                                        QItemSelectionModel::SelectCurrent);
+    }
+}
+
+void SelectMakeModel::selectRecommendedPPD()
+{
+    // Force the first make to be selected
+    selectFirstMake();
+
+    QItemSelection ppdSelection = ui->ppdsLV->selectionModel()->selection();
+    if (ppdSelection.indexes().isEmpty()) {
+        QItemSelection makeSelection = ui->makeView->selectionModel()->selection();
+        QModelIndex parent = makeSelection.indexes().first();
+        if (parent.isValid()) {
+            ui->ppdsLV->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0, parent),
+                                                          QItemSelectionModel::SelectCurrent);
+        }
     }
 }

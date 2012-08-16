@@ -230,17 +230,19 @@ void AddPrinterAssistant::slotButtonClicked(int button)
     // Finish Button
     if (button == KDialog::User1) {
         QVariantHash args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
-        kDebug() << args;
-        KCupsRequest *request = new KCupsRequest;
-        bool isClass = !args.take(ADDING_PRINTER).toBool();
 
         // Check if it's a printer or a class that we are adding
-        if (!isClass) {
-            QString destName = args[KCUPS_PRINTER_NAME].toString();
-            QString filename = args.take(FILENAME).toString();
-            request->setAttributes(destName, false, args, filename);
+        bool isClass = !args.take(ADDING_PRINTER).toBool();
+        QString destName = args[KCUPS_PRINTER_NAME].toString();
+        QString filename = args.take(FILENAME).toString();
+
+        KCupsRequest *request = new KCupsRequest;
+        if (isClass) {
+            args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
+            args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
+            request->addOrModifyClass(destName, args);
         } else {
-            request->addClass(args);
+            request->addOrModifyPrinter(destName, args, filename);
         }
 
         request->waitTillFinished();

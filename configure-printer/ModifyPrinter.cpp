@@ -261,7 +261,11 @@ void ModifyPrinter::save()
         kDebug() << fileName;
 
         KCupsRequest *request = new KCupsRequest;
-        request->setAttributes(m_destName, m_isClass, args, fileName);
+        if (m_isClass) {
+            request->addOrModifyClass(m_destName, args);
+        } else {
+            request->addOrModifyPrinter(m_destName, args, fileName);
+        }
         request->waitTillFinished();
 
         if (!request->hasError()) {

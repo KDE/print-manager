@@ -176,12 +176,6 @@ public:
     Q_INVOKABLE void cancelDBusSubscription(int subscriptionId);
 
     /**
-     * Adds a printer class
-     * @param values the values required to add a class
-     */
-    void addClass(const QVariantHash &values);
-
-    /**
      * Get the CUPS server settings
      * This method emits server()
      */
@@ -201,16 +195,22 @@ public:
 
     // ---- Printer Methods
     /**
-     * Set the Printer attributes
-     * @param printer The printer to apply the change
-     * @param isClass True it is a printer class
+     * Add or Modify a Printer
+     * @param printerName The printer to apply the change
      * @param attributes The new attributes of the printer
      * @param filename The file name in case of changing the PPD
      */
-    void setAttributes(const QString &printerName,
-                       bool isClass,
-                       const QVariantHash &attributes,
-                       const QString &filename = QString());
+    void addOrModifyPrinter(const QString &printerName,
+                            const QVariantHash &attributes,
+                            const QString &filename = QString());
+
+    /**
+     * Add or Modify a Class
+     * @param className The class to apply the change
+     * @param attributes The new attributes of the printer
+     */
+    void addOrModifyClass(const QString &className,
+                          const QVariantHash &attributes);
 
     /**
      * Set if a given printer should be shared among other cups

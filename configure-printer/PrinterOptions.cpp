@@ -749,7 +749,12 @@ void PrinterOptions::save()
 
     QVariantHash values; // we need null values
     KCupsRequest *request = new KCupsRequest;
-    request->setAttributes(m_destName, m_isClass, values, tempfile);
+    if (m_isClass) {
+        request->addOrModifyClass(m_destName, values);
+    } else {
+        request->addOrModifyPrinter(m_destName, values, tempfile);
+    }
+
     // Disable the widget till the request is processed
     // Otherwise the user might change something in the ui
     // which won't be saved but the apply but when the request

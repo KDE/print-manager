@@ -270,7 +270,11 @@ void PrinterBehavior::save()
             }
         }
         KCupsRequest *request = new KCupsRequest;
-        request->setAttributes(m_destName, m_isClass, changedValues);
+        if (m_isClass) {
+            request->addOrModifyClass(m_destName, changedValues);
+        } else {
+            request->addOrModifyPrinter(m_destName, changedValues);
+        }
         request->waitTillFinished();
         if (!request->hasError()) {
             request->getPrinterAttributes(m_destName, m_isClass, neededValues());

@@ -271,15 +271,15 @@ void KCupsRequest::cancelDBusSubscription(int subscriptionId)
     }
 }
 
-void KCupsRequest::addClass(const QVariantHash &values)
-{
-    QVariantHash request = values;
-    request["printer-is-class"] = true;
-    request["printer-is-accepting-jobs"] = true;
-    request[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
+//void KCupsRequest::addClass(const QVariantHash &values)
+//{
+//    QVariantHash request = values;
+//    request["printer-is-class"] = true;
+//    request["printer-is-accepting-jobs"] = true;
+//    request[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
 
-    doOperation(CUPS_ADD_MODIFY_CLASS, QLatin1String("/admin/"), request);
-}
+//    doOperation(CUPS_ADD_MODIFY_CLASS, QLatin1String("/admin/"), request);
+//}
 
 void KCupsRequest::getServerSettings()
 {
@@ -349,27 +349,25 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
     }
 }
 
-void KCupsRequest::setAttributes(const QString &printerName,
-                                 bool isClass,
-                                 const QVariantHash &attributes,
-                                 const QString &filename)
+void KCupsRequest::addOrModifyPrinter(const QString &printerName, const QVariantHash &attributes, const QString &filename)
 {
     QVariantHash request = attributes;
     request[KCUPS_PRINTER_NAME] = printerName;
-    request["printer-is-class"] = isClass;
+    request["printer-is-class"] = false;
     if (!filename.isEmpty()) {
         request["filename"] = filename;
     }
 
-    ipp_op_e operation;
-    // TODO this seems weird now.. review this code..
-    if (isClass && request.contains("member-uris")) {
-        operation = CUPS_ADD_MODIFY_CLASS;
-    } else {
-        operation = isClass ? CUPS_ADD_MODIFY_CLASS : CUPS_ADD_MODIFY_PRINTER;
-    }
+    doOperation(CUPS_ADD_MODIFY_PRINTER, QLatin1String("/admin/"), request);
+}
 
-    doOperation(operation, QLatin1String("/admin/"), request);
+void KCupsRequest::addOrModifyClass(const QString &printerName, const QVariantHash &attributes)
+{
+    QVariantHash request = attributes;
+    request[KCUPS_PRINTER_NAME] = printerName;
+    request["printer-is-class"] = true;
+
+    doOperation(CUPS_ADD_MODIFY_CLASS, QLatin1String("/admin/"), request);
 }
 
 void KCupsRequest::setShared(const QString &printerName, bool isClass, bool shared)

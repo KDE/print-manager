@@ -217,6 +217,7 @@ void PrintKCM::update()
         ui->printerDesc->setLocation(index.data(PrinterModel::DestLocation).toString());
         ui->printerDesc->setKind(index.data(PrinterModel::DestKind).toString());
         ui->printerDesc->setIsShared(index.data(PrinterModel::DestIsShared).toBool());
+        ui->printerDesc->setAcceptingJobs(index.data(PrinterModel::DestIsAcceptingJobs).toBool());
         ui->printerDesc->setIsDefault(index.data(PrinterModel::DestIsDefault).toBool());
         ui->printerDesc->setCommands(index.data(PrinterModel::DestCommands).toStringList());
         ui->printerDesc->setMarkers(index.data(PrinterModel::DestMarkers).value<QVariantHash>());

@@ -176,6 +176,50 @@ KCupsConnection::KCupsConnection(QObject *parent) :
                     this,
                     SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
+    // This signal is needed since the cups registration thing
+    // doesn't emit printerAdded when we add a printer class
+    // This is emitted when a printer/queue is changed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterAdded"),
+                                         this,
+                                         SIGNAL(rhPrinterAdded(QString)));
+
+    // This signal is needed since the cups registration thing
+    // sometimes simple stops working... don't ask me why
+    // This is emitted when a printer/queue is changed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("QueueChanged"),
+                                         this,
+                                         SIGNAL(rhQueueChanged(QString)));
+
+    // This signal is needed since the cups registration thing
+    // doesn't emit printerRemoved when we add a printer class
+    // This is emitted when a printer/queue is changed
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("PrinterRemoved"),
+                                         this,
+                                         SIGNAL(rhPrinterRemoved(QString)));
+
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("JobQueuedLocal"),
+                                         this,
+                                         SIGNAL(rhJobQueuedLocal(QString,uint,QString)));
+
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("JobStartedLocal"),
+                                         this,
+                                         SIGNAL(rhJobStartedLocal(QString,uint,QString)));
+
     // Starts this thread
     start();
 }

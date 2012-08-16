@@ -97,6 +97,16 @@ void PrintersEngine::init()
             this,
             SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
 
+    // Deprecated stuff that works better than the above
+    connect(KCupsConnection::global(), SIGNAL(rhPrinterAdded(QString)),
+            this, SLOT(insertUpdatePrinter(QString)));
+
+    connect(KCupsConnection::global(), SIGNAL(rhPrinterRemoved(QString)),
+            this, SLOT(printerRemoved(QString)));
+
+    connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
+            this, SLOT(insertUpdatePrinter(QString)));
+
     // Get all available printers
     getPrinters();
 }
@@ -166,16 +176,8 @@ void PrintersEngine::getPrintersFinished()
     request->deleteLater();
 }
 
-void PrintersEngine::insertUpdatePrinter(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+void PrintersEngine::insertUpdatePrinter(const QString &printerName)
 {
-    // REALLY? all these parameters just to say foo was added??
-    Q_UNUSED(text)
-    Q_UNUSED(printerUri)
-    Q_UNUSED(printerState)
-    Q_UNUSED(printerStateReasons)
-    Q_UNUSED(printerIsAcceptingJobs)
-    kDebug() << printerName << printerStateReasons;
-
     QStringList attr;
     attr << KCUPS_PRINTER_INFO;
     attr << KCUPS_PRINTER_TYPE;
@@ -186,6 +188,19 @@ void PrintersEngine::insertUpdatePrinter(const QString &text, const QString &pri
     // TODO we set is class to false, but what if it was a class?
     request->getPrinterAttributes(printerName, false, attr);
     connect(request, SIGNAL(finished()), this, SLOT(insertUpdatePrinterFinished()));
+}
+
+void PrintersEngine::insertUpdatePrinter(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    // REALLY? all these parameters just to say foo was added??
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+    kDebug() << printerName << printerStateReasons;
+
+    insertUpdatePrinter(printerName);
 }
 
 void PrintersEngine::updatePrinterSource(const KCupsPrinter &printer)

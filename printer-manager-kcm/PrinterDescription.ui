@@ -55,7 +55,7 @@
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -114,6 +114,13 @@
         <widget class="QCheckBox" name="sharedCB">
          <property name="text">
           <string comment="@option:check">Share this printer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="rejectPrintJobsCB">
+         <property name="text">
+          <string>Reject print jobs</string>
          </property>
         </widget>
        </item>

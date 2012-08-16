@@ -50,6 +50,7 @@ private slots:
     void createSubscriptionFinished();
     void getPrinters();
     void getPrintersFinished();
+    void insertUpdatePrinter(const QString &printerName);
     void insertUpdatePrinter(const QString &text,
                              const QString &printerUri,
                              const QString &printerName,

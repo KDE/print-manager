@@ -108,6 +108,22 @@ void PrinterDescription::on_sharedCB_clicked()
     request->deleteLater();
 }
 
+void PrinterDescription::on_rejectPrintJobsCB_clicked()
+{
+    bool accepting = !ui->rejectPrintJobsCB->isChecked();
+    kDebug() << accepting;
+    KCupsRequest *request = new KCupsRequest;
+    if (accepting) {
+        request->acceptJobs(m_destName);
+    } else {
+        request->rejectJobs(m_destName);
+
+    }
+    request->waitTillFinished();
+    setAcceptingJobs(request->hasError() ? !accepting : accepting);
+    request->deleteLater();
+}
+
 void PrinterDescription::setPrinterIcon(const QIcon &icon)
 {
     ui->iconL->setPixmap(icon.pixmap(PRINTER_ICON_SIZE, PRINTER_ICON_SIZE));
@@ -155,6 +171,11 @@ void PrinterDescription::setIsDefault(bool isDefault)
 void PrinterDescription::setIsShared(bool isShared)
 {
     ui->sharedCB->setChecked(isShared);
+}
+
+void PrinterDescription::setAcceptingJobs(bool accepting)
+{
+    ui->rejectPrintJobsCB->setChecked(!accepting);
 }
 
 void PrinterDescription::setCommands(const QStringList &commands)

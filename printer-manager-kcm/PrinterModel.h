@@ -37,6 +37,7 @@ public:
         DestName,
         DestIsDefault,
         DestIsShared,
+        DestIsAcceptingJobs,
         DestIsClass,
         DestLocation,
         DestDescription,

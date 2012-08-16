@@ -101,6 +101,12 @@ void PrintJobsEngine::init()
             this,
             SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
+    // Deprecated stuff that works better than the above
+    connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
+            this, SLOT(getJobs()));
+    connect(KCupsConnection::global(), SIGNAL(rhJobQueuedLocal(QString,uint,QString)),
+            this, SLOT(insertUpdateJob(QString,uint,QString)));
+
     // Get all jobs
     getJobs();
 }
@@ -201,6 +207,21 @@ void PrintJobsEngine::jobCompleted(const QString &text,
     removeSource(QString::number(jobId));
 }
 
+void PrintJobsEngine::insertUpdateJob(uint jobId, const QString &printerUri)
+{
+    KCupsRequest *request = new KCupsRequest;
+    // TODO we set is class to false, but what if it was a class?
+    request->getJobAttributes(jobId, printerUri, m_jobAttributes);
+    connect(request, SIGNAL(finished()), this, SLOT(insertUpdateJobFinished()));
+}
+
+void PrintJobsEngine::insertUpdateJob(const QString &queueName, uint jobId, const QString &jobOwner)
+{
+    Q_UNUSED(jobOwner)
+    // TODO this is not the printer URI
+    insertUpdateJob(jobId, queueName);
+}
+
 void PrintJobsEngine::insertUpdateJob(const QString &text,
                                       const QString &printerUri,
                                       const QString &printerName,
@@ -224,11 +245,6 @@ void PrintJobsEngine::insertUpdateJob(const QString &text,
     Q_UNUSED(jobName)
     Q_UNUSED(jobImpressionsCompleted)
 
-//    KCupsJob::Attributes attr;
-//    attr |= KCupsJob::PrinterInfo;
-//    attr |= KCupsJob::PrinterType;
-//    attr |= KCupsJob::PrinterState;
-//    attr |= KCupsJob::PrinterStateMessage;
     kDebug() << jobId << jobState << jobStateReasons << jobName << jobImpressionsCompleted;
 
     QString source = QString::number(jobId);
@@ -255,10 +271,7 @@ void PrintJobsEngine::insertUpdateJob(const QString &text,
             setData(source, sourceData);
         }
     } else {
-        KCupsRequest *request = new KCupsRequest;
-        // TODO we set is class to false, but what if it was a class?
-        request->getJobAttributes(jobId, printerUri, m_jobAttributes);
-        connect(request, SIGNAL(finished()), this, SLOT(insertUpdateJobFinished()));
+        insertUpdateJob(jobId, printerUri);
     }
 }
 

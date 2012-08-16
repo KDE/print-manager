@@ -61,6 +61,8 @@ private slots:
                       const QString &jobStateReasons,
                       const QString &jobName,
                       uint jobImpressionsCompleted);
+    void insertUpdateJob(uint jobId, const QString &printerUri);
+    void insertUpdateJob(const QString &queueName, uint jobId, const QString &jobOwner);
     void insertUpdateJob(const QString &text,
                          const QString &printerUri,
                          const QString &printerName,

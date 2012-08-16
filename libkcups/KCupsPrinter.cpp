@@ -61,6 +61,11 @@ bool KCupsPrinter::isShared() const
     return m_arguments[KCUPS_PRINTER_IS_SHARED].toBool();
 }
 
+bool KCupsPrinter::isAcceptingJobs() const
+{
+    return m_arguments[KCUPS_PRINTER_IS_ACCEPTING_JOBS].toBool();
+}
+
 cups_ptype_e KCupsPrinter::type() const
 {
     return static_cast<cups_ptype_e>(m_arguments[KCUPS_PRINTER_TYPE].toUInt());

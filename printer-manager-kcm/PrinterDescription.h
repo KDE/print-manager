@@ -46,6 +46,7 @@ public:
     void setKind(const QString &kind);
     void setIsDefault(bool isDefault);
     void setIsShared(bool isShared);
+    void setAcceptingJobs(bool accepting);
     void setCommands(const QStringList &commands);
 
     void setMarkers(const QVariantHash &data);
@@ -57,6 +58,7 @@ private slots:
     void on_openQueuePB_clicked();
     void on_defaultCB_clicked();
     void on_sharedCB_clicked();
+    void on_rejectPrintJobsCB_clicked();
 
     void on_actionPrintTestPage_triggered(bool checked);
     void on_actionCleanPrintHeads_triggered(bool checked);

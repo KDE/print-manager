@@ -42,6 +42,7 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent) :
     m_attributes << KCUPS_PRINTER_STATE;
     m_attributes << KCUPS_PRINTER_STATE_MESSAGE;
     m_attributes << KCUPS_PRINTER_IS_SHARED;
+    m_attributes << KCUPS_PRINTER_IS_ACCEPTING_JOBS;
     m_attributes << KCUPS_PRINTER_TYPE;
     m_attributes << KCUPS_PRINTER_LOCATION;
     m_attributes << KCUPS_PRINTER_INFO;
@@ -103,25 +104,15 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent) :
             this,
             SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
 
-    // This signal is needed since the cups registration thing
-    // doesn't emit printerAdded when we add a printer class
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterAdded"),
-                                         this,
-                                         SLOT(insertUpdatePrinter(QString)));
+    // Deprecated stuff that works better than the above
+    connect(KCupsConnection::global(), SIGNAL(rhPrinterAdded(QString)),
+            this, SLOT(insertUpdatePrinter(QString)));
 
-    // This signal is needed since the cups registration thing
-    // doesn't emit printerRemoved when we add a printer class
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterRemoved"),
-                                         this,
-                                         SLOT(printerRemoved(QString)));
+    connect(KCupsConnection::global(), SIGNAL(rhPrinterRemoved(QString)),
+            this, SLOT(printerRemoved(QString)));
+
+    connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
+            this, SLOT(insertUpdatePrinter(QString)));
 
     update();
 }
@@ -224,6 +215,12 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     bool shared = printer.isShared();
     if (shared != destItem->data(DestIsShared)) {
         destItem->setData(shared, DestIsShared);
+    }
+
+    // store if the printer is accepting jobs
+    bool accepting = printer.isAcceptingJobs();
+    if (accepting != destItem->data(DestIsAcceptingJobs)) {
+        destItem->setData(accepting, DestIsAcceptingJobs);
     }
 
     // store if the printer is a class

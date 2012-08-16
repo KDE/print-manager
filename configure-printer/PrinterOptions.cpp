@@ -25,7 +25,8 @@
 
 #include "ui_PrinterOptions.h"
 
-#include "KCupsRequest.h"
+#include <KCupsRequest.h>
+#include <NoSelectionRectDelegate.h>
 
 #include <QFormLayout>
 #include <KComboBox>
@@ -288,6 +289,7 @@ QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, 
     QListView *listView = new QListView(parent);
     QStandardItemModel *model = new QStandardItemModel(listView);
     listView->setModel(model);
+    listView->setItemDelegate(new NoSelectionRectDelegate(listView));
 
     int i;
     ppd_choice_t *choice;

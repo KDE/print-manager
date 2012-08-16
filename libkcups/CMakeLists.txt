@@ -8,6 +8,7 @@ set(libkcups_SRCS
     ClassListWidget.cpp
     PPDModel.cpp
     SelectMakeModel.cpp
+    NoSelectionRectDelegate.cpp
 )
 
 kde4_add_ui_files(libkcups_SRCS

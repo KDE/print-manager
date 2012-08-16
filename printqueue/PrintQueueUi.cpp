@@ -26,6 +26,7 @@
 
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
+#include <NoSelectionRectDelegate.h>
 
 #include <QPainter>
 #include <QToolBar>
@@ -103,6 +104,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     m_proxyModel->setDynamicSortFilter(true);
 
     ui->jobsView->setModel(m_proxyModel);
+    ui->jobsView->setItemDelegate(new NoSelectionRectDelegate(this));
     // sort by status column means the jobs will be sorted by the queue order
     ui->jobsView->sortByColumn(PrintQueueModel::ColStatus, Qt::AscendingOrder);
     connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),

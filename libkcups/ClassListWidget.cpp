@@ -23,7 +23,7 @@
 #include "SelectMakeModel.h"
 
 #include "KCupsRequest.h"
-#include <cups/cups.h>
+#include "NoSelectionRectDelegate.h"
 
 #include <QPointer>
 #include <KFileDialog>
@@ -31,13 +31,13 @@
 
 #include <KPixmapSequence>
 
-
-ClassListWidget::ClassListWidget(QWidget *parent)
- : QListView(parent),
-   m_request(0)
+ClassListWidget::ClassListWidget(QWidget *parent) :
+    QListView(parent),
+    m_request(0)
 {
     m_model = new QStandardItemModel(this);
     setModel(m_model);
+    setItemDelegate(new NoSelectionRectDelegate(this));
 
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);

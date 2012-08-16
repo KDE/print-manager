@@ -38,6 +38,7 @@
 #include <QDBusConnection>
 #include <KCupsRequest.h>
 #include <KCupsServer.h>
+#include <NoSelectionRectDelegate.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
@@ -98,6 +99,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     m_model = new PrinterModel(winId(), this);
     ui->printersTV->setModel(m_model);
+    ui->printersTV->setItemDelegate(new NoSelectionRectDelegate(this));
     ui->printersTV->setItemDelegate(new PrinterDelegate(this));
     connect(ui->printersTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(update()));

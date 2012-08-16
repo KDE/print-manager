@@ -30,6 +30,7 @@
 #include "ChooseUri.h"
 
 #include <KCupsRequest.h>
+#include <NoSelectionRectDelegate.h>
 
 #include <QItemSelectionModel>
 
@@ -71,6 +72,7 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
     m_model = new DevicesModel(this);
     ui->devicesTV->setModel(m_model);
+    ui->devicesTV->setItemDelegate(new NoSelectionRectDelegate(this));
     connect(ui->devicesTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(deviceChanged()));
 

@@ -24,6 +24,7 @@
 #include "PPDModel.h"
 
 #include "KCupsRequest.h"
+#include "NoSelectionRectDelegate.h"
 
 #include <QStandardItemModel>
 #include <QLineEdit>
@@ -66,11 +67,13 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     m_sourceModel = new PPDModel(this);
 
     ui->makeView->setModel(m_sourceModel);
+    ui->makeView->setItemDelegate(new NoSelectionRectDelegate(this));
     // Updates the PPD view to the selected Make
     connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
             ui->ppdsLV, SLOT(setRootIndex(QModelIndex)));
 
     ui->ppdsLV->setModel(m_sourceModel);
+    ui->ppdsLV->setItemDelegate(new NoSelectionRectDelegate(this));
     connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(checkChanged()));
 

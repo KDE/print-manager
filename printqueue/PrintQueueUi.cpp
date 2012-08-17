@@ -46,6 +46,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     ui(new Ui::PrintQueueUi),
     m_destName(printer.name()),
     m_preparingMenu(false),
+    m_printerPaused(false),
     m_lastState(0)
 {
     ui->setupUi(mainWidget());
@@ -142,29 +143,54 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
         header->hideSection(PrintQueueModel::ColSize);
     }
 
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("QueueChanged"),
-                                         this,
-                                         SLOT(updatePrinter(QString)));
+    // This is emitted when a printer is modified
+    connect(KCupsConnection::global(),
+            SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
-    // This is emitted when a printer is added
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterAdded"),
-                                         this,
-                                         SLOT(updatePrinter(QString)));
+    // This is emitted when a printer has it's state changed
+    connect(KCupsConnection::global(),
+            SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is stopped
+    connect(KCupsConnection::global(),
+            SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is restarted
+    connect(KCupsConnection::global(),
+            SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer is shutdown
+    connect(KCupsConnection::global(),
+            SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is removed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterRemoved"),
-                                         this,
-                                         SLOT(updatePrinter(QString)));
+    connect(KCupsConnection::global(),
+            SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)),
+            this,
+            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+
+    // This is emitted when a printer/queue is changed
+    // Deprecated stuff that works better than the above
+    connect(KCupsConnection::global(), SIGNAL(rhPrinterAdded(QString)),
+            this, SLOT(updatePrinter(QString)));
+
+    connect(KCupsConnection::global(), SIGNAL(rhPrinterRemoved(QString)),
+            this, SLOT(updatePrinter(QString)));
+
+    connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
+            this, SLOT(updatePrinter(QString)));
+
+    createSubscription();
 
     updatePrinter(m_destName);
 
@@ -193,6 +219,7 @@ int PrintQueueUi::columnCount(const QModelIndex &parent) const
 
 void PrintQueueUi::setState(int state, const QString &message)
 {
+    kDebug() << state << message;
     if (state != m_lastState ||
         ui->printerStatusMsgL->text() != message) {
         // save the last state so the ui doesn't need to keep updating
@@ -334,9 +361,9 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
     }
 }
 
-
 void PrintQueueUi::updatePrinter(const QString &printer)
 {
+    kDebug() << printer << m_destName;
     if (printer != m_destName) {
         // It was another printer that changed
         return;
@@ -349,13 +376,28 @@ void PrintQueueUi::updatePrinter(const QString &printer)
     attr << KCUPS_PRINTER_STATE_MESSAGE;
 
     KCupsRequest *request = new KCupsRequest;
-    request->getPrinterAttributes(printer, m_isClass, attr);
     connect(request, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
+    request->getPrinterAttributes(printer, m_isClass, attr);
+}
+
+void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+{
+    // REALLY? all these parameters just to say foo was added??
+    Q_UNUSED(text)
+    Q_UNUSED(printerUri)
+    Q_UNUSED(printerState)
+    Q_UNUSED(printerStateReasons)
+    Q_UNUSED(printerIsAcceptingJobs)
+    kDebug() << printerName << printerStateReasons;
+
+    updatePrinter(printerName);
 }
 
 void PrintQueueUi::getAttributesFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    kDebug() << request->hasError() << request->printers().isEmpty();
+
     if (request->hasError() || request->printers().isEmpty()) {
         // if cups stops we disable our queue
         setEnabled(false);
@@ -392,6 +434,29 @@ void PrintQueueUi::update()
     } else {
         setWindowTitle(m_title.isNull() ? i18n("All Printers") : m_title);
     }
+}
+
+void PrintQueueUi::createSubscription()
+{
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
+    QStringList events;
+    events << "printer-added";
+    events << "printer-deleted";
+    events << "printer-state-changed";
+    events << "printer-modified";
+    request->createDBusSubscription(events);
+}
+
+void PrintQueueUi::createSubscriptionFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
+    if (!request || request->hasError() || request->subscriptionId() < 0) {
+        // in case of an error probe the server again in 1.5 seconds
+        QTimer::singleShot(1000, this, SLOT(createSubscription()));
+    }
+
+    request->deleteLater();
 }
 
 void PrintQueueUi::updateButtons()
@@ -481,8 +546,10 @@ void PrintQueueUi::pausePrinter()
     // STOP and RESUME printer
     KCupsRequest *request = new KCupsRequest;
     if (m_printerPaused) {
+        kDebug() << m_destName << "m_printerPaused";
         request->resumePrinter(m_destName);
     } else {
+        kDebug() << m_destName << "NOT m_printerPaused";
         request->pausePrinter(m_destName);
     }
     request->waitTillFinished();

@@ -46,7 +46,15 @@ public slots:
     void update();
 
 private slots:
+    void createSubscription();
+    void createSubscriptionFinished();
     void updatePrinter(const QString &printer);
+    void updatePrinter(const QString &text,
+                       const QString &printerUri,
+                       const QString &printerName,
+                       uint printerState,
+                       const QString &printerStateReasons,
+                       bool printerIsAcceptingJobs);
     void whichJobsIndexChanged(int index);
     void pausePrinter();
     void configurePrinter();

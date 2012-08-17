@@ -227,6 +227,9 @@ KCupsConnection::KCupsConnection(QObject *parent) :
 KCupsConnection::~KCupsConnection()
 {
     m_instance = 0;
+    if (m_subscriptionId != -1) {
+        cancelDBusSubscription();
+    }
     m_renewTimer->deleteLater();
     m_passwordDialog->deleteLater();
 
@@ -245,6 +248,7 @@ void KCupsConnection::run()
     // Creates the timer that will renew the DBus subscription
     m_renewTimer = new QTimer;
     m_renewTimer->setInterval(RENEW_INTERVAL);
+    m_renewTimer->moveToThread(QThread::currentThread()->thread());
     connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()));
 
     m_inited = true;
@@ -253,7 +257,7 @@ void KCupsConnection::run()
 
 bool KCupsConnection::readyToStart()
 {
-    if (QThread::currentThread() == KCupsConnection::global()) {
+    if (QThread::currentThread()->thread() == KCupsConnection::global()->thread()) {
         password_retries = 0;
         internalErrorCount = 0;
         return true;
@@ -344,6 +348,7 @@ int KCupsConnection::createDBusSubscription(const QStringList &events)
     foreach (const QString &event, events) {
         if (!currentEvents.contains(event)) {
             equal = false;
+            break;
         }
     }
 
@@ -364,14 +369,15 @@ int KCupsConnection::createDBusSubscription(const QStringList &events)
     // If we alread have a subscription lets cancel
     // and create a new one
     if (m_subscriptionId >= 0) {
-        cancelDBusSubscription();
+        QMetaObject::invokeMethod(this,
+                                  "cancelDBusSubscription",
+                                  Qt::QueuedConnection);
     }
 
-    currentEvents << events;
-
     // Canculates the new events
-    renewDBusSubscription();
-
+    QMetaObject::invokeMethod(this,
+                              "renewDBusSubscription",
+                              Qt::QueuedConnection);
     return id;
 }
 
@@ -404,6 +410,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     int ret = -1;
 
     if (!readyToStart()) {
+        kWarning() << "Tryied to run on the wrong thread";
         return subscriptionId; // This is not intended to be used in the gui thread
     }
 
@@ -450,7 +457,6 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         // Do the request
         response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
     } while (retry("/"));
-
 
 #ifdef HAVE_CUPS_1_6
     if (ret < 0 &&

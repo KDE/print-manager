@@ -41,7 +41,7 @@ public:
     explicit SelectMakeModel(QWidget *parent = 0);
     ~SelectMakeModel();
 
-    void setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri);
+    void setDeviceInfo(const QString &deviceId, const QString &make, const QString &makeAndModel, const QString &deviceUri);
     void setMakeModel(const QString &make, const QString &makeAndModel);
     QString selectedPPDName() const;
     QString selectedPPDMakeAndModel() const;
@@ -71,6 +71,7 @@ private:
     ReturnArguments m_ppds;
     DriverMatchList m_driverMatchList;
     bool m_gotBestDrivers;
+    bool m_hasRecommended;
     QString m_make;
     QString m_makeAndModel;
 };

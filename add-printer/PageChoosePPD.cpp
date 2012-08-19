@@ -25,7 +25,7 @@
 
 #include <KCupsRequest.h>
 
-#include <QPainter>
+#include <QStringBuilder>
 #include <KDebug>
 
 PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
@@ -68,10 +68,41 @@ void PageChoosePPD::setValues(const QVariantHash &args)
 
         kDebug() << args;
         working();
-        m_selectMM->setDeviceInfo(args[KCUPS_DEVICE_ID].toString(),
-                                  args[KCUPS_DEVICE_MAKE_AND_MODEL].toString(),
-                                  args[KCUPS_DEVICE_URI].toString());
-        m_selectMM->setMakeModel(QString(), QString());
+        QString deviceId = args[KCUPS_DEVICE_ID].toString();
+        QString make;
+        QString makeAndModel = args[KCUPS_DEVICE_MAKE_AND_MODEL].toString();
+        QString deviceURI = args[KCUPS_DEVICE_URI].toString();
+
+        // Get the make from the device id
+        foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
+            if (pair.startsWith(QLatin1String("MFG:"))) {
+                make = pair.section(QLatin1Char(':'), 1);
+                break;
+            }
+        }
+
+        if (makeAndModel.isEmpty()) {
+            // Get the model  from the device id
+            foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
+                if (pair.startsWith(QLatin1String("MDL:"))) {
+                    // Build the make and model string
+                    if (make.isNull()) {
+                        makeAndModel = pair.section(QLatin1Char(':'), 1);
+                    } else {
+                        makeAndModel = make % QLatin1Char(' ') % pair.section(QLatin1Char(':'), 1);
+                    }
+                    break;
+                }
+            }
+        }
+
+        // if the device info is empty use the make and model
+        // so we can have a nice name for the new printer on the next page
+        if (!args.contains(KCUPS_DEVICE_INFO) && !makeAndModel.isEmpty()) {
+            m_args[KCUPS_DEVICE_INFO] = makeAndModel;
+        }
+
+        m_selectMM->setDeviceInfo(deviceId, make, makeAndModel, deviceURI);
         m_isValid = true;
     } else {
         m_isValid = false;

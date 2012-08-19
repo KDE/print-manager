@@ -29,6 +29,7 @@
 #include <QStandardItemModel>
 #include <QLineEdit>
 #include <QItemSelection>
+#include <QStringBuilder>
 
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
@@ -60,7 +61,8 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SelectMakeModel),
     m_ppdRequest(0),
-    m_gotBestDrivers(false)
+    m_gotBestDrivers(false),
+    m_hasRecommended(false)
 {
     ui->setupUi(this);
 
@@ -98,12 +100,13 @@ SelectMakeModel::~SelectMakeModel()
     delete ui;
 }
 
-void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri)
+void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make, const QString &makeAndModel, const QString &deviceUri)
 {
-    kDebug() << "===================================" << deviceId;
+    kDebug() << "===================================" << deviceId << makeAndModel << deviceUri;
     m_gotBestDrivers = false;
-    m_make.clear();
-    m_makeAndModel.clear();
+    m_hasRecommended = false;
+    m_make = make;
+    m_makeAndModel = makeAndModel;
 
     // Get the best drivers
     QDBusMessage message;
@@ -121,8 +124,8 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
 
     if (!m_ppdRequest) {
         m_ppdRequest = new KCupsRequest;
-        m_ppdRequest->getPPDS();
         connect(m_ppdRequest, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
+        m_ppdRequest->getPPDS();
     }
 }
 
@@ -133,12 +136,16 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
         // we should be we need more info and testing
         // TODO
         m_gotBestDrivers = true;
+        m_hasRecommended = false;
         m_make = make;
         m_makeAndModel = makeAndModel;
 
         m_ppdRequest = new KCupsRequest;
-        m_ppdRequest->getPPDS();
         connect(m_ppdRequest, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
+        m_ppdRequest->getPPDS();
+    } else {
+        // TODO test this
+        setModelData();
     }
 }
 
@@ -152,16 +159,13 @@ void SelectMakeModel::ppdsLoaded()
 
         // Try to show the PPDs
         setModelData();
-
-        if (!m_ppds.isEmpty() && !m_make.isEmpty() && !m_makeAndModel.isEmpty()) {
-            selectMakeModelPPD();
-        }
     }
     sender()->deleteLater();
 }
 
 void SelectMakeModel::checkChanged()
 {
+    kDebug();
     if (isFileSelected()) {
         emit changed(!selectedPPDFileName().isNull());
     } else {
@@ -212,11 +216,10 @@ bool SelectMakeModel::isFileSelected() const
 
 void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
 {
-    bool hasRecommended = false;
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
         QDBusArgument argument = message.arguments().first().value<QDBusArgument>();
         m_driverMatchList = qdbus_cast<DriverMatchList>(argument);
-        hasRecommended = !m_driverMatchList.isEmpty();
+        m_hasRecommended = !m_driverMatchList.isEmpty();
         foreach (const DriverMatch &driverMatch, m_driverMatchList) {
             kDebug() << driverMatch.ppd << driverMatch.match;
         }
@@ -225,11 +228,6 @@ void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
     }
     m_gotBestDrivers = true;
     setModelData();
-
-    // Pre-select the first Recommended PPD
-    if (hasRecommended) {
-        selectRecommendedPPD();
-    }
 }
 
 void SelectMakeModel::getBestDriversFailed(const QDBusError &error, const QDBusMessage &message)
@@ -245,6 +243,16 @@ void SelectMakeModel::setModelData()
 {
     if (!m_ppds.isEmpty() && m_gotBestDrivers) {
         m_sourceModel->setPPDs(m_ppds, m_driverMatchList);
+
+        // Pre-select the first Recommended PPD
+        if (m_hasRecommended) {
+            selectRecommendedPPD();
+        } else if (!m_ppds.isEmpty() && !m_make.isEmpty()) {
+            selectMakeModelPPD();
+        }
+
+        // Force changed signal to be emitted
+        checkChanged();
     }
 }
 

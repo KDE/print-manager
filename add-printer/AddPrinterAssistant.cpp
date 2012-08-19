@@ -92,7 +92,7 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
         m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
         addPage(m_choosePPDPage);
     } else {
-        args[KCUPS_DEVICE_INFO] = printer;
+        args[KCUPS_DEVICE_URI] = printer;
         args[KCUPS_DEVICE_ID] = deviceId;
         args[KCUPS_DEVICE_LOCATION] = QHostInfo::localHostName();
 

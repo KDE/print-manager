@@ -1,9 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2010 by Daniel Nicoletti                                *
  *   dantti12@gmail.com                                                    *
- *   For the save PPD snipet provided as LGPL in CUPS cgi code             *
- *   Copyright 2007-2009 by Apple Inc.                                     *
- *   Copyright 1997-2007 by Easy Software Products.                        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,6 +16,15 @@
  *   along with this program; see the file COPYING. If not, write to       *
  *   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,  *
  *   Boston, MA 02110-1301, USA.                                           *
+ *                                                                         *
+ *   The save PPD snipet is from CUPS                                      *
+ *   Copyright 2007-2009 by Apple Inc.                                     *
+ *   Copyright 1997-2007 by Easy Software Products.                        *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License         *
+ *   See http://www.cups.org/documentation.php/license.html                *
  ***************************************************************************/
 
 #include "PrinterOptions.h"

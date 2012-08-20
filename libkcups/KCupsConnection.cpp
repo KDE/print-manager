@@ -257,7 +257,7 @@ void KCupsConnection::run()
 
 bool KCupsConnection::readyToStart()
 {
-    if (QThread::currentThread()->thread() == KCupsConnection::global()->thread()) {
+    if (QThread::currentThread() == KCupsConnection::global()) {
         password_retries = 0;
         internalErrorCount = 0;
         return true;

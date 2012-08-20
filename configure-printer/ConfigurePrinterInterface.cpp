@@ -32,8 +32,8 @@
 
 #include <KDebug>
 
-ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent)
-    : QObject(parent)
+ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent) :
+    QObject(parent)
 {
     kDebug() << "Creating Helper";
     (void) new ConfigurePrinterAdaptor(this);

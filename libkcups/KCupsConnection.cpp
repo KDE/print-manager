@@ -248,8 +248,8 @@ void KCupsConnection::run()
     // Creates the timer that will renew the DBus subscription
     m_renewTimer = new QTimer;
     m_renewTimer->setInterval(RENEW_INTERVAL);
-    m_renewTimer->moveToThread(QThread::currentThread()->thread());
-    connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()));
+    m_renewTimer->moveToThread(this);
+    connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()), Qt::DirectConnection);
 
     m_inited = true;
     exec();
@@ -369,15 +369,12 @@ int KCupsConnection::createDBusSubscription(const QStringList &events)
     // If we alread have a subscription lets cancel
     // and create a new one
     if (m_subscriptionId >= 0) {
-        QMetaObject::invokeMethod(this,
-                                  "cancelDBusSubscription",
-                                  Qt::QueuedConnection);
+        cancelDBusSubscription();
     }
 
     // Canculates the new events
-    QMetaObject::invokeMethod(this,
-                              "renewDBusSubscription",
-                              Qt::QueuedConnection);
+    renewDBusSubscription();
+
     return id;
 }
 
@@ -418,7 +415,6 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     do {
         ipp_t *request;
         ipp_op_e operation;
-        ret = subscriptionId;
 
         // check if we have a valid subscription ID
         if (subscriptionId >= 0) {
@@ -459,18 +455,19 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     } while (retry("/"));
 
 #ifdef HAVE_CUPS_1_6
-    if (ret < 0 &&
-        response != NULL &&
-        ippGetStatusCode(response) <= IPP_OK_CONFLICT) {
+    if (response && ippGetStatusCode(response) == IPP_OK) {
 #else
-    if (ret < 0 &&
-        response != NULL &&
-        response->request.status.status_code <= IPP_OK_CONFLICT) {
+    if (response && response->request.status.status_code == IPP_OK) {
 #endif // HAVE_CUPS_1_6
-        ipp_attribute_t *attr = NULL;
-        if ((attr = ippFindAttribute(response, "notify-subscription-id",
-                                     IPP_TAG_INTEGER)) == NULL) {
-            kDebug() << "No notify-subscription-id in response!";
+        ipp_attribute_t *attr;
+        if (subscriptionId >= 0) {
+            // Request was ok, just return the current subscription
+            ret = subscriptionId;
+        } else if ((attr = ippFindAttribute(response,
+                                            "notify-subscription-id",
+                                            IPP_TAG_INTEGER)) == NULL) {
+            kWarning() << "No notify-subscription-id in response!";
+            ret = -1;
         } else {
 #ifdef HAVE_CUPS_1_6
             ret = ippGetInteger(attr, 0);
@@ -478,6 +475,9 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
             ret = attr->values[0].integer;
 #endif // HAVE_CUPS_1_6
         }
+    } else {
+        kWarning() << "Request failed" << lastError();
+        ret = -1;
     }
 
     ippDelete(response);
@@ -522,9 +522,13 @@ void KCupsConnection::renewDBusSubscription()
 {
     // check if we have a valid subscription ID
     kDebug() << m_subscriptionId;
+
     if (m_subscriptionId >= 0) {
-        renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
-    } else {
+        m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
+    }
+
+    // The above request might fail if the subscription was cancelled
+    if (m_subscriptionId < 0) {
         QStringList currentEvents;
         foreach (const QStringList &registeredEvents, m_requestedDBusEvents) {
             currentEvents << registeredEvents;

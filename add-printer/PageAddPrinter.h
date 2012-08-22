@@ -38,6 +38,8 @@ public:
     QVariantHash values() const;
     bool canProceed() const;
 
+    bool finishClicked();
+
 public slots:
     void load();
 

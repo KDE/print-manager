@@ -30,7 +30,6 @@
 #include <KCupsRequest.h>
 
 #include <KLocale>
-#include <KMessageBox>
 #include <KPushButton>
 #include <KPixmapSequence>
 
@@ -229,34 +228,10 @@ void AddPrinterAssistant::slotButtonClicked(int button)
 {
     // Finish Button
     if (button == KDialog::User1) {
-        QVariantHash args = qobject_cast<GenericPage*>(currentPage()->widget())->values();
-
-        // Check if it's a printer or a class that we are adding
-        bool isClass = !args.take(ADDING_PRINTER).toBool();
-        QString destName = args[KCUPS_PRINTER_NAME].toString();
-        QString filename = args.take(FILENAME).toString();
-
-        KCupsRequest *request = new KCupsRequest;
-        if (isClass) {
-            args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
-            args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
-            request->addOrModifyClass(destName, args);
-        } else {
-            request->addOrModifyPrinter(destName, args, filename);
-        }
-
-        request->waitTillFinished();
-        if (request->hasError()) {
-            kDebug() << request->error() << request->errorMsg();
-            KMessageBox::detailedSorry(this,
-                                       isClass ? i18nc("@info", "Failed to add class") :
-                                                 i18nc("@info", "Failed to configure printer"),
-                                       request->errorMsg(),
-                                       i18nc("@title:window", "Failed"));
-        } else {
+        GenericPage *page = qobject_cast<GenericPage*>(currentPage()->widget());
+        if (page->finishClicked()) {
             KAssistantDialog::slotButtonClicked(button);
         }
-        request->deleteLater();
     } else {
         KAssistantDialog::slotButtonClicked(button);
     }

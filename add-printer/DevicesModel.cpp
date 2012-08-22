@@ -123,10 +123,14 @@ void DevicesModel::gotDevice(const QString &device_class,
 
 void DevicesModel::finished()
 {
+    bool hasError = m_request->hasError();
+    if (hasError) {
+        emit errorMessage(i18n("Failed to get a list of devices: '%1'", m_request->errorMsg()));
+    }
     m_request->deleteLater();
     m_request = 0;
 
-    if (m_mappedDevices.isEmpty()) {
+    if (hasError || m_mappedDevices.isEmpty()) {
         emit loaded();
         return;
     }
@@ -290,6 +294,7 @@ void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusM
 {
     kWarning() << error <<  message;
     groupedDevicesFallback();
+    emit errorMessage(i18n("Failed to group devices: '%1'",error.message()));
     emit loaded();
 }
 

@@ -66,6 +66,10 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Configure the erro message widget
+    ui->messageWidget->setMessageType(KMessageWidget::Error);
+    ui->messageWidget->hide();
+
     m_sourceModel = new PPDModel(this);
 
     ui->makeView->setModel(m_sourceModel);
@@ -153,6 +157,12 @@ void SelectMakeModel::ppdsLoaded()
 {
     if (m_ppdRequest->hasError()) {
         kWarning() << "Failed to get PPDs" << m_ppdRequest->errorMsg();
+        ui->messageWidget->setText(i18n("Failed to get a list of drivers: '%1'", m_ppdRequest->errorMsg()));
+        ui->messageWidget->animatedShow();
+
+        // Force the changed signal to be sent
+        checkChanged();
+
         m_ppdRequest = 0;
     } else {
         m_ppds = m_ppdRequest->ppds();
@@ -236,6 +246,8 @@ void SelectMakeModel::getBestDriversFailed(const QDBusError &error, const QDBusM
 
     // Show the PPDs anyway
     m_gotBestDrivers = true;
+    ui->messageWidget->setText(i18n("Failed to search for a recommended driver: '%1'", error.message()));
+    ui->messageWidget->animatedShow();
     setModelData();
 }
 

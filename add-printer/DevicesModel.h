@@ -53,6 +53,7 @@ public:
 signals:
     void loaded();
     void parentAdded(const QModelIndex &index);
+    void errorMessage(const QString &message);
 
 public slots:
     void update();

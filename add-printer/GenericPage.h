@@ -40,6 +40,8 @@ public:
     virtual void setValues(const QVariantHash &args);
     virtual QVariantHash values() const;
 
+    virtual bool finishClicked() { return false; }
+
 signals:
     void allowProceed(bool allow);
     void proceed();

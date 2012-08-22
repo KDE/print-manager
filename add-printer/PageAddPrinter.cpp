@@ -64,6 +64,10 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
     QRegExp rx("[^/#\\ ]*");
     QValidator *validator = new QRegExpValidator(rx, this);
     ui->nameLE->setValidator(validator);
+
+    // Hide the message widget
+    ui->messageWidget->setMessageType(KMessageWidget::Error);
+    ui->messageWidget->hide();
 }
 
 PageAddPrinter::~PageAddPrinter()
@@ -95,6 +99,44 @@ void PageAddPrinter::load()
 bool PageAddPrinter::canProceed() const
 {
     return !ui->nameLE->text().isEmpty();
+}
+
+bool PageAddPrinter::finishClicked()
+{
+    bool ret = false;
+    QVariantHash args = values();
+
+    // Check if it's a printer or a class that we are adding
+    bool isClass = !args.take(ADDING_PRINTER).toBool();
+    QString destName = args[KCUPS_PRINTER_NAME].toString();
+    QString filename = args.take(FILENAME).toString();
+
+    KCupsRequest *request = new KCupsRequest;
+    if (isClass) {
+        args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
+        args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
+        request->addOrModifyClass(destName, args);
+    } else {
+        request->addOrModifyPrinter(destName, args, filename);
+    }
+
+    request->waitTillFinished();
+    if (request->hasError()) {
+        kDebug() << request->error() << request->errorMsg();
+        QString message;
+        if (isClass) {
+            message = i18nc("@info", "Failed to add class: '%1'", request->errorMsg());
+        } else {
+            message = i18nc("@info", "Failed to configure printer: '%1'", request->errorMsg());
+        }
+        ui->messageWidget->setText(message);
+        ui->messageWidget->animatedShow();
+    } else {
+        ret = true;
+    }
+    request->deleteLater();
+
+    return ret;
 }
 
 QVariantHash PageAddPrinter::values() const

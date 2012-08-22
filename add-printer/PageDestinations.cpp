@@ -68,6 +68,10 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     m_chooseLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     ui->stackedWidget->addWidget(m_chooseLabel);
 
+    // Hide the message widget
+    ui->messageWidget->setMessageType(KMessageWidget::Error);
+    ui->messageWidget->hide();
+
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
     m_model = new DevicesModel(this);
@@ -75,6 +79,8 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     ui->devicesTV->setItemDelegate(new NoSelectionRectDelegate(this));
     connect(ui->devicesTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(deviceChanged()));
+    connect(m_model, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(setText(QString)));
+    connect(m_model, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(animatedShow()));
 
     // Expand when a parent is added
     connect(m_model, SIGNAL(parentAdded(QModelIndex)),

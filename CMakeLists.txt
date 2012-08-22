@@ -13,7 +13,7 @@ set(HAVE_CUPS_1_6 ${CUPS_1_6})
 message(STATUS "Build for CUPS 1.6 and above: " ${CUPS_1_6})
 
 # Print-Manager version
-set(PM_VERSION "0.2.0" CACHE STRING "Print Manager version")
+set(PM_VERSION "0.3.0" CACHE STRING "Print Manager version")
 
 # Generate config.h
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake

@@ -1,35 +1,6 @@
 [Desktop Entry]
 Name=Manage Print Jobs
-Name[da]=Håndtér udskriftsjob
-Name[de]=Druckaufträge verwalten
-Name[el]=Διαχείριση εργασιών εκτύπωσης
-Name[et]=Trükitööde haldus
-Name[fi]=Tulostustöiden hallinta
-Name[fr]=Gestion des tâches d'impression
-Name[hu]=Nyomtatási feladatok kezelése
-Name[km]=គ្រប់គ្រង​ការងារ​បោះពុម្ព
-Name[nl]=Afdrukopdrachten beheren
-Name[pl]=Zarządzaj pracami wydruku
-Name[pt]=Gerir as Tarefas de Impressão
-Name[pt_BR]=Gerenciar as tarefas de impressão
-Name[sv]=Hantera skrivarjobb
-Name[uk]=Керування завданнями з друку
-Name[x-test]=xxManage Print Jobsxx
 Comment=List print jobs and manage them
-Comment[da]=Vis udskriftsjob og håndtér dem
-Comment[el]=Εμφάνιση και διαχείριση των εργασιών εκτύπωσης
-Comment[et]=Trükitööde kuvamine ja nende haldamine
-Comment[fi]=Luettele tulostustyöt ja hallitse niitä
-Comment[fr]=Liste les tâches d'impression et les gère
-Comment[hu]=Nyomtatási feladatok listázása és kezelése
-Comment[km]=រាយ​ការងារ​បោះពុម្ព​ និង​គ្រប់គ្រង​ពួកវា
-Comment[nl]=Een lijst maken van afdrukopdrachten en ze beheren
-Comment[pl]=Pokaż listę prac wydruku i zarządzaj nimi
-Comment[pt]=Imprimir as tarefas de impressão e geri-las
-Comment[pt_BR]=Imprimir as tarefas de impressão e gerenciá-las
-Comment[sv]=Lista skrivarjobb och hantera dem
-Comment[uk]=Показ списку завдань і керування ними
-Comment[x-test]=xxList print jobs and manage themxx
 
 Icon=printer
 Type=Service

@@ -35,6 +35,7 @@ PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
 {
     Q_UNUSED(args)
 
+    KGlobal::insertCatalog(QLatin1String("print-manager"));
     QTimer::singleShot(0, this, SLOT(loadThread()));
 }
 

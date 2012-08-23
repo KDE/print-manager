@@ -52,7 +52,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 {
     KAboutData *aboutData;
     aboutData = new KAboutData("kcm_print",
-                               "kcm_print",
+                               "print-manager",
                                ki18n("Print settings"),
                                PM_VERSION,
                                ki18n("Print settings"),
@@ -60,6 +60,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
                                ki18n("(C) 2010-2012 Daniel Nicoletti"));
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
+    KGlobal::insertCatalog(QLatin1String("print-manager"));
 
     ui->setupUi(this);
 

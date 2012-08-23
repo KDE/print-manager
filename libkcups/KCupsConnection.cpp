@@ -471,13 +471,23 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         } else {
 #ifdef HAVE_CUPS_1_6
             ret = ippGetInteger(attr, 0);
+        }
+    } else if (subscriptionId >= 0 && response && ippGetStatusCode(response) == IPP_NOT_FOUND) {
+        kDebug() << "Subscription not found";
+        // When the subscription is not found try to get a new one
+        return renewDBusSubscription(-1, leaseDuration, events);
 #else
             ret = attr->values[0].integer;
-#endif // HAVE_CUPS_1_6
         }
+    } else if (subscriptionId >= 0 && response && response->request.status.status_code == IPP_NOT_FOUND) {
+        kDebug() << "Subscription not found";
+        // When the subscription is not found try to get a new one
+        return renewDBusSubscription(-1, leaseDuration, events);
+#endif // HAVE_CUPS_1_6
     } else {
         kWarning() << "Request failed" << lastError();
-        ret = -1;
+        // When the server stops/restarts we will have some error so ignore it
+        ret = subscriptionId;
     }
 
     ippDelete(response);
@@ -878,11 +888,17 @@ bool KCupsConnection::retry(const char *resource)
     if (status == IPP_INTERNAL_ERROR) {
         // Deleting this connection thread forces it
         // to create a new CUPS_HTTP_DEFAULT connection
-        kDebug() << "IPP_INTERNAL_ERROR clearing cookies";
-        httpClearCookie(CUPS_HTTP_DEFAULT);
+        kWarning() << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
-        // Server might be restarting sleep for a few ms
-        msleep(500);
+        // TODO maybe reconnect is enough
+//        httpClearCookie(CUPS_HTTP_DEFAULT);
+
+        // Reconnect to CUPS
+        if (httpReconnect(CUPS_HTTP_DEFAULT)) {
+            kWarning() << "IPP_INTERNAL_ERROR: failed to reconnect";
+            // Server might be restarting sleep for a few ms
+            msleep(500);
+        }
 
         // Try the request again
         return ++internalErrorCount < 3;

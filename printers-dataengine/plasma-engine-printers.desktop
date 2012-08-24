@@ -1,5 +1,19 @@
 [Desktop Entry]
 Name=Printers Engine
+Name[da]=Motor til printere
+Name[el]=Μηχανή εκτυπωτών
+Name[et]=Printerite mootor
+Name[fi]=Tulostinten tietomoottori
+Name[fr]=Moteurs d'imprimantes
+Name[hu]=Nyomtatók modul
+Name[km]=​ម៉ាស៊ីន​​នៃ​ម៉ាស៊ីន​​បោះពុម្ព
+Name[nl]=Printers-engine
+Name[pl]=Silnik drukarek
+Name[pt]=Motor de Impressoras
+Name[pt_BR]=Mecanismo de impressoras
+Name[sv]=Utskriftsgränssnitt
+Name[uk]=Рушій керування принтерами
+Name[x-test]=xxPrinters Enginexx
 Type=Service
 
 X-KDE-ServiceTypes=Plasma/DataEngine

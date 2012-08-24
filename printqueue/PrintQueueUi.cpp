@@ -256,7 +256,7 @@ void PrintQueueUi::setState(int state, const QString &message)
             // create a paiter to paint the action icon over the key icon
             {
                 QPainter painter(&icon);
-                // the the emblem icon to size 32
+                // the emblem icon to size 32
                 int overlaySize = KIconLoader::SizeMedium;
                 QPoint startPoint;
                 // bottom right corner

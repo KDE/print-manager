@@ -51,7 +51,7 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeLarge, // a not so huge icon
                                              KIconLoader::DefaultState);
-    // the the emblem icon to size 32
+    // the emblem icon to size 32
     int overlaySize = KIconLoader::SizeLarge;
     QPoint startPoint;
     // bottom right corner

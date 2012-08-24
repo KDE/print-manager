@@ -105,7 +105,7 @@ void NewPrinterNotification::NewPrinter(int status,
     if (name.contains(QLatin1Char('/'))) {
         // name is a URI, no queue was generated, because no suitable
         // driver was found
-        title = i18n("Missing printer dirver");
+        title = i18n("Missing printer driver");
         if (!make.isEmpty() && !model.isEmpty()) {
             text = i18n("No printer driver for %1 %2.", make, model);
         } else if (!description.isEmpty()) {

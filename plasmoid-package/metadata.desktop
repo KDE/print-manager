@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Manage Print Jobs
+Name[cs]=Spravovat tiskové úlohy
 Name[da]=Håndtér udskriftsjob
 Name[de]=Druckaufträge verwalten
 Name[el]=Διαχείριση εργασιών εκτύπωσης
@@ -16,6 +17,7 @@ Name[sv]=Hantera skrivarjobb
 Name[uk]=Керування завданнями з друку
 Name[x-test]=xxManage Print Jobsxx
 Comment=List print jobs and manage them
+Comment[cs]=Vypsat tiskové úlohy a spravovat je
 Comment[da]=Vis udskriftsjob og håndtér dem
 Comment[el]=Εμφάνιση και διαχείριση των εργασιών εκτύπωσης
 Comment[et]=Trükitööde kuvamine ja nende haldamine

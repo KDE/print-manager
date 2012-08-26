@@ -25,6 +25,7 @@ Name[sv]=Utskriftshanterare
 Name[uk]=Керування друком
 Name[x-test]=xxPrint Managerxx
 Comment=Inform when a new printer is detected, and print problems
+Comment[cs]=Informovat, když je detekována nová tiskárna a při tiskových problémech
 Comment[da]=Giv besked når en ny printer detekteres eller der er udskriftsproblemer
 Comment[el]=Ειδοποίηση κατά την ανίχνευση νέου εκτυπωτή και παρουσίαση προβλημάτων
 Comment[et]=Teavitamine uue printeri tuvastamisest ja trükkimisprobleemidest

@@ -1,5 +1,10 @@
 [Desktop Entry]
 Name=Printers Engine
+Name[es]=Motor de impresoras
+Name[nl]=Engine voor printers
+Name[pt_BR]=Mecanismo de impressoras
+Name[sv]=Utskriftsgränssnitt
+Name[x-test]=xxPrinters Enginexx
 Type=Service
 
 X-KDE-ServiceTypes=Plasma/DataEngine

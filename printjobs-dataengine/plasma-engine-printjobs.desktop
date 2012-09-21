@@ -1,5 +1,10 @@
 [Desktop Entry]
 Name=Print Jobs Engine
+Name[es]=Motor de trabajos de impresión
+Name[nl]=Engine voor afdruktaken
+Name[pt_BR]=Mecanismo de trabalhos de impressão
+Name[sv]=Utskriftsgränssnitt
+Name[x-test]=xxPrint Jobs Enginexx
 Type=Service
 
 X-KDE-ServiceTypes=Plasma/DataEngine

@@ -1,6 +1,16 @@
 [Desktop Entry]
 Name=Manage Print Jobs
+Name[es]=Gestión de trabajos de impresión
+Name[nl]=Afdruktaken beheren
+Name[pt_BR]=Gerenciar os trabalhos de impressão
+Name[sv]=Hantera skrivarjobb
+Name[x-test]=xxManage Print Jobsxx
 Comment=List print jobs and manage them
+Comment[es]=Listar los trabajos de impresión y gestionarlos
+Comment[nl]=Toon afdruktaken en beheer ze
+Comment[pt_BR]=Lista os trabalhos de impressão e os gerencia
+Comment[sv]=Lista skrivarjobb och hantera dem
+Comment[x-test]=xxList print jobs and manage themxx
 
 Icon=printer
 Type=Service

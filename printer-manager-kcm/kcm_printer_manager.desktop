@@ -10,5 +10,15 @@ X-KDE-System-Settings-Parent-Category-V2=hardware
 X-KDE-ParentApp=kcontrol
 
 Name=Printers
+Name[es]=Impresoras
+Name[nl]=Printers
+Name[pt_BR]=Impressoras
+Name[sv]=Skrivare
+Name[x-test]=xxPrintersxx
 
 Comment=Configure your printers
+Comment[es]=Configure sus impresoras
+Comment[nl]=Uw printers instellen
+Comment[pt_BR]=Configure suas impressoras
+Comment[sv]=Anpassa skrivare
+Comment[x-test]=xxConfigure your printersxx

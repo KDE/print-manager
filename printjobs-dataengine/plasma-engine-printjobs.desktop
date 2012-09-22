@@ -1,9 +1,20 @@
 [Desktop Entry]
 Name=Print Jobs Engine
+Name[cs]=Stroj úloh tisku
+Name[da]=Motor til udskriftsjob
+Name[el]=Μηχανή εργασιών εκτύπωσης
 Name[es]=Motor de trabajos de impresión
+Name[et]=Trükitööde mootor
+Name[fi]=Tulostintöiden tietomoottori
+Name[fr]=Moteur de tâches d'impression
+Name[hu]=Nyomtatási feladatok modul
+Name[km]=ម៉ាស៊ីន​ការងារ​បោះពុម្ព
 Name[nl]=Engine voor afdruktaken
+Name[pl]=Silnik zadań drukowania
+Name[pt]=Motor das Tarefas de Impressão
 Name[pt_BR]=Mecanismo de trabalhos de impressão
 Name[sv]=Utskriftsgränssnitt
+Name[uk]=Рушій керування завданнями з друку
 Name[x-test]=xxPrint Jobs Enginexx
 Type=Service
 

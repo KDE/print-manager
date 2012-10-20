@@ -43,6 +43,7 @@ Name[tr]=Yazıcılar
 Name[ug]=پرىنتېرلار
 Name[uk]=Принтери
 Name[x-test]=xxPrintersxx
+Name[zh_TW]=印表機
 
 Comment=Configure your printers
 Comment[cs]=Nastavte Vaše tiskárny
@@ -69,3 +70,4 @@ Comment[sr@latin]=Podesite štampače
 Comment[sv]=Anpassa skrivare
 Comment[uk]=Налаштування ваших принтерів
 Comment[x-test]=xxConfigure your printersxx
+Comment[zh_TW]=設定您的印表機

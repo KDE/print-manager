@@ -22,6 +22,7 @@ Name[sr@latin]=Motor poslova štampanja
 Name[sv]=Utskriftsgränssnitt
 Name[uk]=Рушій керування завданнями з друку
 Name[x-test]=xxPrint Jobs Enginexx
+Name[zh_TW]=列印工作引擎
 Type=Service
 
 X-KDE-ServiceTypes=Plasma/DataEngine

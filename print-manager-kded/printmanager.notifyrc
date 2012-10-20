@@ -24,6 +24,7 @@ Name[sr@latin]=Menadžer štampanja
 Name[sv]=Utskriftshanterare
 Name[uk]=керування друком
 Name[x-test]=xxprintmanagerxx
+Name[zh_TW]=列印管理員
 Comment=Notifies when a new printer is detected
 Comment[cs]=Informuje o zjištění nových tiskáren
 Comment[da]=Bekendtgør når en ny printer detekteres
@@ -47,6 +48,7 @@ Comment[sr@latin]=Obaveštava kada se doda novi štampač
 Comment[sv]=Underrättar om när en ny skrivare detekteras
 Comment[uk]=Сповіщає про виявлення нового принтера
 Comment[x-test]=xxNotifies when a new printer is detectedxx
+Comment[zh_TW]=偵測到新印表機時發出通知
 
 [Event/GetReady]
 Name=A New Printer was detected
@@ -72,6 +74,7 @@ Name[sr@latin]=Otkriven je novi štampač
 Name[sv]=En ny skrivare detekterades
 Name[uk]=Виявлено новий принтер
 Name[x-test]=xxA New Printer was detectedxx
+Name[zh_TW]=偵測到新印表機
 Action=Sound|Popup
 
 [Event/NewPrinterNotification]
@@ -99,4 +102,5 @@ Name[sr@latin]=Dodat je novi štampač
 Name[sv]=Den nya skrivaren har lagts till
 Name[uk]=Додано новий принтер
 Name[x-test]=xxThe New Printer was addedxx
+Name[zh_TW]=新印表機已加入
 Action=Sound|Popup

@@ -8,6 +8,7 @@ X-KDE-ServiceTypes=KCModule,KCModuleInit
 X-KDE-System-Settings-Parent-Category=hardware
 X-KDE-System-Settings-Parent-Category-V2=hardware
 X-KDE-ParentApp=kcontrol
+Categories=Qt;KDE;X-KDE-settings-hardware;
 
 Name=Printers
 Name[cs]=Tiskárny

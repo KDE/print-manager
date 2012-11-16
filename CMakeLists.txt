@@ -7,11 +7,6 @@ find_package(CUPS "1.4" REQUIRED)
 include (MacroLibrary)
 
 
-# If CUPS 1.6 is installed set this
-option(CUPS_1_6 "Build for CUPS 1.6 and above enabled" OFF)
-set(HAVE_CUPS_1_6 ${CUPS_1_6})
-message(STATUS "Build for CUPS 1.6 and above: " ${CUPS_1_6})
-
 # Print-Manager version
 set(PM_VERSION "0.3.0" CACHE STRING "Print Manager version")
 

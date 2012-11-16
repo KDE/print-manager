@@ -454,11 +454,11 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
     } while (retry("/"));
 
-#ifdef HAVE_CUPS_1_6
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     if (response && ippGetStatusCode(response) == IPP_OK) {
 #else
     if (response && response->request.status.status_code == IPP_OK) {
-#endif // HAVE_CUPS_1_6
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
         ipp_attribute_t *attr;
         if (subscriptionId >= 0) {
             // Request was ok, just return the current subscription
@@ -469,7 +469,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
             kWarning() << "No notify-subscription-id in response!";
             ret = -1;
         } else {
-#ifdef HAVE_CUPS_1_6
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
             ret = ippGetInteger(attr, 0);
         }
     } else if (subscriptionId >= 0 && response && ippGetStatusCode(response) == IPP_NOT_FOUND) {
@@ -483,7 +483,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         kDebug() << "Subscription not found";
         // When the subscription is not found try to get a new one
         return renewDBusSubscription(-1, leaseDuration, events);
-#endif // HAVE_CUPS_1_6
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     } else {
         kWarning() << "Request failed" << lastError();
         // When the server stops/restarts we will have some error so ignore it
@@ -658,7 +658,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
     ipp_attribute_t *attr;
     ReturnArguments ret;
 
-#ifdef HAVE_CUPS_1_6
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     QVariantHash destAttributes;
     for (attr = ippFirstAttribute(response); attr != NULL; attr = ippNextAttribute(response)) {
         // We hit an attribute sepparator
@@ -746,7 +746,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
             break;
         }
     }
-#endif // HAVE_CUPS_1_6
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
 
     return ret;
 }
@@ -780,7 +780,7 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, 
 QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 {
     QVariant ret;
-#ifdef HAVE_CUPS_1_6
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     switch (ippGetValueTag(attr)) {
     case IPP_TAG_INTEGER:
     case IPP_TAG_ENUM:
@@ -873,7 +873,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             ret = values;
         }
     }
-#endif // HAVE_CUPS_1_6
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     return ret;
 }
 

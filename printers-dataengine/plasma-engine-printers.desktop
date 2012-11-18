@@ -23,6 +23,7 @@ Name[sr@latin]=Motor štampača
 Name[sv]=Utskriftsgränssnitt
 Name[uk]=Рушій керування принтерами
 Name[x-test]=xxPrinters Enginexx
+Name[zh_CN]=打印机引擎
 Name[zh_TW]=印表機引擎
 Type=Service
 

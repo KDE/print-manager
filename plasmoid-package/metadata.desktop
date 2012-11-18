@@ -24,6 +24,7 @@ Name[sr@latin]=Upravljanje poslovima štampanja
 Name[sv]=Hantera skrivarjobb
 Name[uk]=Керування завданнями з друку
 Name[x-test]=xxManage Print Jobsxx
+Name[zh_CN]=管理打印任务
 Name[zh_TW]=管理列印工作
 Comment=List print jobs and manage them
 Comment[cs]=Vypsat tiskové úlohy a spravovat je
@@ -49,6 +50,7 @@ Comment[sr@latin]=Pregledajte i upravljajte poslovima štampanja
 Comment[sv]=Lista skrivarjobb och hantera dem
 Comment[uk]=Показ списку завдань і керування ними
 Comment[x-test]=xxList print jobs and manage themxx
+Comment[zh_CN]=显示和管理打印任务
 Comment[zh_TW]=列出列印工作並管理
 
 Icon=printer

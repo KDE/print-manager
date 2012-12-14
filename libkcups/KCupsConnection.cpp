@@ -247,7 +247,7 @@ void KCupsConnection::run()
 
     // Creates the timer that will renew the DBus subscription
     m_renewTimer = new QTimer;
-    m_renewTimer->setInterval(RENEW_INTERVAL);
+    m_renewTimer->setInterval(RENEW_INTERVAL*1000);
     m_renewTimer->moveToThread(this);
     connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()), Qt::DirectConnection);
 
@@ -485,7 +485,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         return renewDBusSubscription(-1, leaseDuration, events);
 #endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     } else {
-        kWarning() << "Request failed" << lastError();
+        kDebug() << "Request failed" << lastError();
         // When the server stops/restarts we will have some error so ignore it
         ret = subscriptionId;
     }

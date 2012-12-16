@@ -14,7 +14,6 @@ set(PM_VERSION "0.3.0" CACHE STRING "Print Manager version")
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 
-include(FindPkgConfig)
 include(KDE4Defaults)
 
 add_definitions(${QT_DEFINITIONS} ${KDE_DEFINITIONS})

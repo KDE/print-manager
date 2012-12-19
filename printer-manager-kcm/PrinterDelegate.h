@@ -40,6 +40,11 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
+    int m_favIconSize;
+    int m_emblemIconSize;
+    int m_universalPadding;
+    int m_fadeLength;
+    int m_mainIconSize;
     int calcItemHeight(const QStyleOptionViewItem &option) const;
 };
 

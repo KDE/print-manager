@@ -28,17 +28,14 @@
 #include <KDebug>
 #include <KIconLoader>
 
-#define FAV_ICON_SIZE 24
-#define EMBLEM_ICON_SIZE 8
-#define UNIVERSAL_PADDING 4
-#define FADE_LENGTH 16
-#define MAIN_ICON_SIZE 32
-#define DROPDOWN_PADDING 2
-// #define DROPDOWN_SEPARATOR_HEIGHT 32
-
 PrinterDelegate::PrinterDelegate(QObject *parent)
 : QStyledItemDelegate(parent)
 {
+    m_mainIconSize = IconSize(KIconLoader::Dialog); // 32
+    m_favIconSize = m_mainIconSize * 0.75; // 24
+    m_emblemIconSize = m_mainIconSize / 4; // 8
+    m_universalPadding = m_mainIconSize / 8; // 4
+    m_fadeLength = m_mainIconSize / 2; // 16
 }
 
 int PrinterDelegate::calcItemHeight(const QStyleOptionViewItem &option) const
@@ -50,7 +47,7 @@ int PrinterDelegate::calcItemHeight(const QStyleOptionViewItem &option) const
     local_option_normal.font.setPointSize(local_option_normal.font.pointSize() - 1);
 
     int textHeight = QFontInfo(local_option_title.font).pixelSize() + QFontInfo(local_option_normal.font).pixelSize();
-    return qMax(textHeight, MAIN_ICON_SIZE) + 2 * UNIVERSAL_PADDING;
+    return qMax(textHeight, m_mainIconSize) + 2 * m_universalPadding;
 }
 
 
@@ -99,7 +96,7 @@ void PrinterDelegate::paint(QPainter *painter,
     // Painting
 
     // Text
-    int textInner = 2 * UNIVERSAL_PADDING + MAIN_ICON_SIZE;
+    int textInner = 2 * m_universalPadding + m_mainIconSize;
     const int itemHeight = calcItemHeight(option);
 
     QString status = index.data(PrinterModel::DestStatus).toString();
@@ -127,10 +124,10 @@ void PrinterDelegate::paint(QPainter *painter,
     // if we have a package that mean we
     // can try to get a better icon
     icon.paint(&p,
-               leftToRight ? left + UNIVERSAL_PADDING : left + width - UNIVERSAL_PADDING - MAIN_ICON_SIZE,
-               top + UNIVERSAL_PADDING,
-               MAIN_ICON_SIZE,
-               MAIN_ICON_SIZE,
+               leftToRight ? left + m_universalPadding : left + width - m_universalPadding - m_mainIconSize,
+               top + m_universalPadding,
+               m_mainIconSize,
+               m_mainIconSize,
                Qt::AlignCenter,
                iconMode);
 
@@ -139,13 +136,13 @@ void PrinterDelegate::paint(QPainter *painter,
 
     // Gradient part of the background - fading of the text at the end
     if (leftToRight) {
-        gradient = QLinearGradient(left + width - UNIVERSAL_PADDING - FADE_LENGTH, 0,
-                left + width - UNIVERSAL_PADDING, 0);
+        gradient = QLinearGradient(left + width - m_universalPadding - m_fadeLength, 0,
+                left + width - m_universalPadding, 0);
         gradient.setColorAt(0, Qt::white);
         gradient.setColorAt(1, Qt::transparent);
     } else {
-        gradient = QLinearGradient(left + UNIVERSAL_PADDING, 0,
-                left + UNIVERSAL_PADDING + FADE_LENGTH, 0);
+        gradient = QLinearGradient(left + m_universalPadding, 0,
+                left + m_universalPadding + m_fadeLength, 0);
         gradient.setColorAt(0, Qt::transparent);
         gradient.setColorAt(1, Qt::white);
     }
@@ -156,16 +153,16 @@ void PrinterDelegate::paint(QPainter *painter,
 
     if (leftToRight) {
         gradient.setStart(left + width
-                - emblemCount * (UNIVERSAL_PADDING + EMBLEM_ICON_SIZE) - FADE_LENGTH, 0);
+                - emblemCount * (m_universalPadding + m_emblemIconSize) - m_fadeLength, 0);
         gradient.setFinalStop(left + width
-                - emblemCount * (UNIVERSAL_PADDING + EMBLEM_ICON_SIZE), 0);
+                - emblemCount * (m_universalPadding + m_emblemIconSize), 0);
     } else {
-        gradient.setStart(left + UNIVERSAL_PADDING
-                + emblemCount * (UNIVERSAL_PADDING + EMBLEM_ICON_SIZE), 0);
-        gradient.setFinalStop(left + UNIVERSAL_PADDING
-                + emblemCount * (UNIVERSAL_PADDING + EMBLEM_ICON_SIZE) + FADE_LENGTH, 0);
+        gradient.setStart(left + m_universalPadding
+                + emblemCount * (m_universalPadding + m_emblemIconSize), 0);
+        gradient.setFinalStop(left + m_universalPadding
+                + emblemCount * (m_universalPadding + m_emblemIconSize) + m_fadeLength, 0);
     }
-    paintRect.setHeight(UNIVERSAL_PADDING + MAIN_ICON_SIZE / 2);
+    paintRect.setHeight(m_universalPadding + m_mainIconSize / 2);
     p.fillRect(paintRect, gradient);
 
     painter->drawPixmap(option.rect.topLeft(), pixmap);
@@ -174,7 +171,7 @@ void PrinterDelegate::paint(QPainter *painter,
 QSize PrinterDelegate::sizeHint(const QStyleOptionViewItem &option,
         const QModelIndex &index ) const
 {
-    int width = (index.column() == 0) ? index.data(Qt::SizeHintRole).toSize().width() : FAV_ICON_SIZE + 2 * UNIVERSAL_PADDING;
+    int width = (index.column() == 0) ? index.data(Qt::SizeHintRole).toSize().width() : m_favIconSize + 2 * m_universalPadding;
     QSize ret;
 
     return QSize(width, calcItemHeight(option));

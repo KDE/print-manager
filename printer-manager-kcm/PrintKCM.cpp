@@ -66,6 +66,10 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     ui->setupUi(this);
 
+    // The printer list needs to increase in width according to the icon sizes
+    // default dialog icon size is 32, this times 6 is 192 which is roughly the original width
+    ui->printersTV->setMinimumWidth(IconSize(KIconLoader::Dialog) * 6);
+
     QMenu *addMenu = new QMenu(this);
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
                        this, SLOT(addClass()));

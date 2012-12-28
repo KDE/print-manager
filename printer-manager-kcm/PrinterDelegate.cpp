@@ -19,7 +19,7 @@
  */
 
 #include "PrinterDelegate.h"
-#include "PrinterModel.h"
+#include <PrinterModel.h>
 
 #include <cmath>
 

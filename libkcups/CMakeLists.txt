@@ -9,6 +9,8 @@ set(libkcups_SRCS
     PPDModel.cpp
     SelectMakeModel.cpp
     NoSelectionRectDelegate.cpp
+    PrinterModel.cpp
+    PrintQueueModel.cpp
 )
 
 kde4_add_ui_files(libkcups_SRCS

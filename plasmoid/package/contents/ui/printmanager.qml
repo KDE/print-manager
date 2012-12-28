@@ -20,6 +20,7 @@
 import QtQuick 1.0
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
+import org.kde.printmanager 0.1 as PrintManager
 
 Item {
     id: printmanager
@@ -52,11 +53,7 @@ Item {
     }
     
     function checkPlasmoidStatus() {
-        if (jobsFilterModel.count == 0) {
-            plasmoid.status = "PassiveStatus"
-        } else {
-            plasmoid.status = "ActiveStatus"
-        }
+        plasmoid.setActive(jobsFilterModel.count);
     }
     
     function popupEventSlot(popped) {
@@ -99,13 +96,8 @@ Item {
             currentIndex: -1
             model: PlasmaCore.SortFilterModel {
                 id: printersFilterModel
-                sourceModel: PlasmaCore.DataModel {
+                sourceModel: PrintManager.PrinterModel {
                     id: printersModel
-                    dataSource: PlasmaCore.DataSource {
-                        engine: "org.kde.printers"
-                        connectedSources: sources
-                        interval: 0
-                    }
                 }
                 filterRole: "printerName"
                 filterRegExp: whichPrinter
@@ -135,14 +127,7 @@ Item {
             height: horizontalLayout ? parent.height : printmanager.height - headerSeparator.height - printersView.height
             model: PlasmaCore.SortFilterModel {
                 id: jobsFilterModel
-                sourceModel: PlasmaCore.DataModel {
-                    id: jobsModel
-                    dataSource: PlasmaCore.DataSource {
-                        engine: "org.kde.printjobs"
-                        connectedSources: sources
-                        interval: 0
-                    }
-                }
+                sourceModel: jobsModel
                 filterRole: "jobPrinter"
                 filterRegExp: whichPrinter
                 sortRole: "jobId"

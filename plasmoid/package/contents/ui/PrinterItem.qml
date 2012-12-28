@@ -119,9 +119,11 @@ Item {
             }
             checked: stateEnum == "stopped" ? false : true
             onClicked: {
-                service = printersModel.dataSource.serviceForSource(DataEngineSource);
-                operation = service.operationDescription(checked ? "resume" : "pause");
-                service.startOperationCall(operation);
+                if (checked) {
+                    printersModel.resumePrinter(index);
+                } else {
+                    printersModel.pausePrinter(index);
+                }
             }
         }
     }

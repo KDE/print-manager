@@ -26,13 +26,13 @@
 
 #include <KCupsPrinter.h>
 
-class PrinterModel : public QStandardItemModel
+class KDE_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(JobAction)
     Q_ENUMS(Role)
 public:
-    typedef enum {
+    enum Role {
         DestStatus = Qt::UserRole,
         DestName,
         DestIsDefault,
@@ -45,20 +45,26 @@ public:
         DestType,
         DestCommands,
         DestMarkerChangeTime,
-        DestMarkers
-    } Role;
+        DestMarkers,
+        DestIconName
+    };
 
-    typedef enum {
+    enum JobAction {
         Cancel,
         Hold,
         Release,
         Move
-    } JobAction;
+    };
 
-    explicit PrinterModel(WId parentId, QObject *parent = 0);
+    explicit PrinterModel(QObject *parent = 0);
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+
+    Q_INVOKABLE void pausePrinter(int row);
+    Q_INVOKABLE void resumePrinter(int row);
+    Q_INVOKABLE void rejectJobs(int row);
+    Q_INVOKABLE void acceptJobs(int row);
 
 public slots:
     void update();

@@ -21,7 +21,7 @@
 #include "PrintQueueUi.h"
 #include "ui_PrintQueueUi.h"
 
-#include "PrintQueueModel.h"
+#include <PrintQueueModel.h>
 #include "PrintQueueSortFilterProxyModel.h"
 
 #include <KCupsRequest.h>
@@ -95,7 +95,9 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     ui->printerStatusMsgL->setText(QString());
 
     // setup the jobs model
-    m_model = new PrintQueueModel(printer.name(), winId(), this);
+    m_model = new PrintQueueModel(this);
+    m_model->setParentWId(winId());
+    m_model->init(printer.name());
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(updateButtons()));
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
@@ -472,8 +474,7 @@ void PrintQueueUi::updateButtons()
     if (!selection.indexes().isEmpty()) {
         foreach (const QModelIndex &index, selection.indexes()) {
             if (index.column() == 0) {
-                switch (static_cast<ipp_jstate_t>(index.data(PrintQueueModel::JobState).toInt()))
-                {
+                switch (static_cast<ipp_jstate_t>(index.data(PrintQueueModel::RoleJobState).toInt())) {
                     case IPP_JOB_CANCELED :
                     case IPP_JOB_COMPLETED :
                     case IPP_JOB_ABORTED :

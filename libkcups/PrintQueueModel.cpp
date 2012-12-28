@@ -31,13 +31,13 @@
 #include <KLocale>
 #include <KMessageBox>
 
-PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject *parent) :
+#include <QStringBuilder>
+
+PrintQueueModel::PrintQueueModel(QObject *parent) :
     QStandardItemModel(parent),
-    m_printer(new KCupsPrinter(destName)),
     m_jobRequest(0),
-    m_destName(destName),
     m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
-    m_parentId(parentId),
+    m_parentId(0),
     m_subscriptionId(-1)
 {
     setHorizontalHeaderItem(ColStatus,        new QStandardItem(i18n("Status")));
@@ -67,6 +67,22 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
     m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
     m_jobAttributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
     m_jobAttributes << KCUPS_JOB_PRESERVED;
+
+    QHash<int, QByteArray> roles = roleNames();
+    roles[RoleJobId] = "jobId";
+    roles[RoleJobState] = "jobState";
+    roles[RoleJobName] = "jobName";
+    roles[RoleJobPages] = "jobPages";
+    roles[RoleJobSize] = "jobSize";
+    roles[RoleJobOwner] = "jobOwner";
+    roles[RoleJobCreatedAt] = "jobCreatedAt";
+    roles[RoleJobIconName] = "jobIconName";
+    roles[RoleJobCancelEnabled] = "jobCancelEnabled";
+    roles[RoleJobHoldEnabled] = "jobHoldEnabled";
+    roles[RoleJobReleaseEnabled] = "jobReleaseEnabled";
+    roles[RoleJobRestartEnabled] = "jobRestartEnabled";
+    roles[RoleJobPrinter] = "jobPrinter";
+    setRoleNames(roles);
 
     // This is emitted when a job change it's state
     connect(KCupsConnection::global(),
@@ -105,6 +121,16 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
             SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     createSubscription();
+}
+
+void PrintQueueModel::setParentWId(WId parentId)
+{
+    m_parentId = parentId;
+}
+
+void PrintQueueModel::init(const QString &destName)
+{
+    m_destName = destName;
 
     // Get all jobs
     getJobs();
@@ -267,8 +293,30 @@ void PrintQueueModel::insertJob(int pos, const KCupsJob &job)
     QList<QStandardItem*> row;
     ipp_jstate_e jobState = job.state();
     QStandardItem *statusItem = new QStandardItem(jobStatus(jobState));
-    statusItem->setData(jobState, JobState);
-    statusItem->setData(job.id(), JobId);
+    statusItem->setData(jobState, RoleJobState);
+    statusItem->setData(job.id(), RoleJobId);
+    statusItem->setData(job.name(), RoleJobName);
+    statusItem->setData(job.ownerName(), RoleJobOwner);
+    QString size = KGlobal::locale()->formatByteSize(job.size());
+    statusItem->setData(size, RoleJobSize);
+    QString createdAt = KGlobal::locale()->formatDateTime(job.createdAt());
+    statusItem->setData(createdAt, RoleJobCreatedAt);
+
+    // TODO move the update code before the insert and reuse some code...
+    statusItem->setData(KCupsJob::iconName(jobState), RoleJobIconName);
+    statusItem->setData(KCupsJob::cancelEnabled(jobState), RoleJobCancelEnabled);
+    statusItem->setData(KCupsJob::holdEnabled(jobState), RoleJobHoldEnabled);
+    statusItem->setData(KCupsJob::releaseEnabled(jobState), RoleJobReleaseEnabled);
+    statusItem->setData(KCupsJob::restartEnabled(jobState), RoleJobRestartEnabled);
+
+    QString pages = QString::number(job.pages());
+    if (job.processedPages()) {
+        pages = QString::number(job.processedPages()) % QLatin1Char('/') % QString::number(job.processedPages());
+    }
+    if (statusItem->data(RoleJobPages) != pages) {
+        statusItem->setData(pages, RoleJobPages);
+    }
+
     row << statusItem;
     for (int i = ColName; i < LastColumn; i++) {
         // adds all Items to the model
@@ -286,15 +334,29 @@ void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
 {
     // Job Status & internal dataipp_jstate_e
     ipp_jstate_e jobState = job.state();
-    if (item(pos, ColStatus)->data(JobState).toInt() != jobState) {
+    if (item(pos, ColStatus)->data(RoleJobState).toInt() != jobState) {
         item(pos, ColStatus)->setText(jobStatus(jobState));
-        item(pos, ColStatus)->setData(static_cast<int>(jobState), JobState);
+        item(pos, ColStatus)->setData(static_cast<int>(jobState), RoleJobState);
+
+        item(pos, ColStatus)->setData(KCupsJob::iconName(jobState), RoleJobIconName);
+        item(pos, ColStatus)->setData(KCupsJob::cancelEnabled(jobState), RoleJobCancelEnabled);
+        item(pos, ColStatus)->setData(KCupsJob::holdEnabled(jobState), RoleJobHoldEnabled);
+        item(pos, ColStatus)->setData(KCupsJob::releaseEnabled(jobState), RoleJobReleaseEnabled);
+        item(pos, ColStatus)->setData(KCupsJob::restartEnabled(jobState), RoleJobRestartEnabled);
+    }
+
+    QString pages = QString::number(job.pages());
+    if (job.processedPages()) {
+        pages = QString::number(job.processedPages()) % QLatin1Char('/') % QString::number(job.processedPages());
+    }
+    if (item(pos, ColStatus)->data(RoleJobPages) != pages) {
+        item(pos, ColStatus)->setData(pages, RoleJobPages);
     }
 
     // internal dest name & column
     QString destName = job.printer();
-    if (item(pos, ColStatus)->data(DestName).toString() != destName) {
-        item(pos, ColStatus)->setData(destName, DestName);
+    if (item(pos, ColStatus)->data(RoleJobPrinter).toString() != destName) {
+        item(pos, ColStatus)->setData(destName, RoleJobPrinter);
         // Column job printer Name
         item(pos, ColPrinter)->setText(destName);
     }
@@ -302,6 +364,7 @@ void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
     // job name
     QString jobName = job.name();
     if (item(pos, ColName)->text() != jobName) {
+        item(pos, ColStatus)->setData(jobName, RoleJobName);
         item(pos, ColName)->setText(jobName);
     }
 
@@ -387,8 +450,8 @@ QMimeData* PrintQueueModel::mimeData(const QModelIndexList &indexes) const
     foreach (const QModelIndex &index, indexes) {
         if (index.isValid() && index.column() == 0) {
             // serialize the jobId and fromDestName
-            stream << data(index, JobId).toInt()
-                   << data(index, DestName).toString()
+            stream << data(index, RoleJobId).toInt()
+                   << data(index, RoleJobPrinter).toString()
                    << item(index.row(), ColName)->text();
         }
     }
@@ -450,11 +513,11 @@ KCupsRequest* PrintQueueModel::modifyJob(int row, JobAction action, const QStrin
 {
     Q_UNUSED(parent)
     QStandardItem *job = item(row, ColStatus);
-    int jobId = job->data(JobId).toInt();
-    QString destName = job->data(DestName).toString();
+    int jobId = job->data(RoleJobId).toInt();
+    QString destName = job->data(RoleJobPrinter).toString();
 
     // ignore some jobs
-    ipp_jstate_t state = (ipp_jstate_t) job->data(PrintQueueModel::JobState).toInt();
+    ipp_jstate_t state = (ipp_jstate_t) job->data(RoleJobState).toInt();
     if ((state == IPP_JOB_HELD && action == Hold) ||
         (state == IPP_JOB_CANCELED && action == Cancel) ||
         (state != IPP_JOB_HELD && action == Release)) {
@@ -487,7 +550,7 @@ int PrintQueueModel::jobRow(int jobId)
 {
     // find the position of the jobId inside the model
     for (int i = 0; i < rowCount(); i++) {
-        if (jobId == item(i)->data(JobId).toInt())
+        if (jobId == item(i)->data(RoleJobId).toInt())
         {
             return i;
         }
@@ -519,7 +582,7 @@ void PrintQueueModel::setWhichJobs(int whichjobs)
 Qt::ItemFlags PrintQueueModel::flags(const QModelIndex &index) const
 {
     if (index.isValid()) {
-        ipp_jstate_t state = static_cast<ipp_jstate_t>(item(index.row(), ColStatus)->data(JobState).toInt());
+        ipp_jstate_t state = static_cast<ipp_jstate_t>(item(index.row(), ColStatus)->data(RoleJobState).toInt());
         if (state == IPP_JOB_PENDING ||
             state == IPP_JOB_PROCESSING) {
             return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;

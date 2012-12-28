@@ -1,5 +1,4 @@
 set(kcm_print_SRCS
-    PrinterModel.cpp
     PrinterDelegate.cpp
     PrinterDescription.cpp
     PrintKCM.cpp

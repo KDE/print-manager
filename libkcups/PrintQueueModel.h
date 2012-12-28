@@ -25,29 +25,40 @@
 
 #include <cups/cups.h>
 
+#include <kdemacros.h>
+
 class KCupsJob;
-class KCupsPrinter;
 class KCupsRequest;
-class PrintQueueModel : public QStandardItemModel
+class KDE_EXPORT PrintQueueModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(JobAction)
     Q_ENUMS(Role)
 public:
-    typedef enum {
-        JobId = Qt::UserRole + 2,
-        JobState,
-        DestName
-    } Role;
+    enum Role {
+        RoleJobId = Qt::UserRole + 2,
+        RoleJobState,
+        RoleJobName,
+        RoleJobPages,
+        RoleJobSize,
+        RoleJobOwner,
+        RoleJobCreatedAt,
+        RoleJobIconName,
+        RoleJobCancelEnabled,
+        RoleJobHoldEnabled,
+        RoleJobReleaseEnabled,
+        RoleJobRestartEnabled,
+        RoleJobPrinter
+    };
 
-    typedef enum {
+    enum JobAction {
         Cancel,
         Hold,
         Release,
         Move
-    } JobAction;
+    };
 
-    typedef enum {
+    enum Columns {
         ColStatus = 0,
         ColName,
         ColUser,
@@ -59,10 +70,11 @@ public:
         ColStatusMessage,
         ColPrinter,
         LastColumn
-    } Columns;
+    };
 
-    explicit PrintQueueModel(const QString &destName, WId parentId, QObject *parent = 0);
-    void init();
+    explicit PrintQueueModel(QObject *parent = 0);
+    void setParentWId(WId parentId);
+    Q_INVOKABLE void init(const QString &destName = QString());
     QString processingJob() const;
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
@@ -113,7 +125,6 @@ private:
     void updateJob(int pos, const KCupsJob &job);
     QString jobStatus(ipp_jstate_e job_state);
 
-    KCupsPrinter *m_printer;
     KCupsRequest *m_jobRequest;
     QString m_destName;
     QString m_processingJob;

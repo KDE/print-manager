@@ -3,7 +3,6 @@ find_package(KDE4Internal REQUIRED)
 set(queuemanager_SRCS
     main.cpp
     PrintQueue.cpp
-    PrintQueueModel.cpp
     PrintQueueUi.cpp
     PrintQueueInterface.cpp
     PrintQueueSortFilterProxyModel.cpp

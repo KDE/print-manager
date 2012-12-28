@@ -24,7 +24,7 @@
 
 #include <config.h>
 
-#include "PrinterModel.h"
+#include <PrinterModel.h>
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
 
@@ -104,7 +104,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->systemPreferencesTB->setToolTip(i18n("Configure the global preferences"));
     ui->systemPreferencesTB->setMenu(systemMenu);
 
-    m_model = new PrinterModel(winId(), this);
+    m_model = new PrinterModel(this);
     ui->printersTV->setModel(m_model);
     ui->printersTV->setItemDelegate(new NoSelectionRectDelegate(this));
     ui->printersTV->setItemDelegate(new PrinterDelegate(this));
@@ -125,7 +125,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     // Force the model update AFTER we setup the error signal
     m_model->update();
 }
-
 
 PrintKCM::~PrintKCM()
 {

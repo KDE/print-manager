@@ -20,7 +20,7 @@
 
 #include "PrintQueueSortFilterProxyModel.h"
 
-#include "PrintQueueModel.h"
+#include <PrintQueueModel.h>
 
 PrintQueueSortFilterProxyModel::PrintQueueSortFilterProxyModel(QObject *parent)
  : QSortFilterProxyModel(parent)

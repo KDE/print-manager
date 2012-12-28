@@ -34,9 +34,8 @@
 
 #include <cups/cups.h>
 
-PrinterModel::PrinterModel(WId parentId, QObject *parent) :
-    QStandardItemModel(parent),
-    m_parentId(parentId)
+PrinterModel::PrinterModel(QObject *parent) :
+    QStandardItemModel(parent)
 {
     m_attributes << KCUPS_PRINTER_NAME;
     m_attributes << KCUPS_PRINTER_STATE;
@@ -53,6 +52,23 @@ PrinterModel::PrinterModel(WId parentId, QObject *parent) :
     m_attributes << KCUPS_MARKER_LEVELS;
     m_attributes << KCUPS_MARKER_NAMES;
     m_attributes << KCUPS_MARKER_TYPES;
+
+    QHash<int, QByteArray> roles = roleNames();
+    roles[DestStatus] = "stateMessage";
+    roles[DestName] = "printerName";
+    roles[DestIsDefault] = "isDefault";
+    roles[DestIsShared] = "isShared";
+    roles[DestIsAcceptingJobs] = "isAcceptingJobs";
+    roles[DestIsClass] = "isClass";
+    roles[DestLocation] = "location";
+    roles[DestDescription] = "info";
+    roles[DestKind] = "kind";
+    roles[DestType] = "type";
+    roles[DestCommands] = "commands";
+    roles[DestMarkerChangeTime] = "markerChangeTime";
+    roles[DestMarkers] = "markers";
+    roles[DestIconName] = "iconName";
+    setRoleNames(roles);
 
     KCupsRequest *request = new KCupsRequest;
     QStringList events;
@@ -175,6 +191,38 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
     return QVariant();
 }
 
+void PrinterModel::pausePrinter(int row)
+{
+    QString destName = index(row, 0).data(DestName).toString();
+    KCupsRequest *request = new KCupsRequest;
+    request->pausePrinter(destName);
+    request->deleteLater();
+}
+
+void PrinterModel::resumePrinter(int row)
+{
+    QString destName = index(row, 0).data(DestName).toString();
+    KCupsRequest *request = new KCupsRequest;
+    request->resumePrinter(destName);
+    request->deleteLater();
+}
+
+void PrinterModel::rejectJobs(int row)
+{
+    QString destName = index(row, 0).data(DestName).toString();
+    KCupsRequest *request = new KCupsRequest;
+    request->rejectJobs(destName);
+    request->deleteLater();
+}
+
+void PrinterModel::acceptJobs(int row)
+{
+    QString destName = index(row, 0).data(DestName).toString();
+    KCupsRequest *request = new KCupsRequest;
+    request->acceptJobs(destName);
+    request->deleteLater();
+}
+
 void PrinterModel::update()
 {
 //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
@@ -241,6 +289,12 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     QString location = printer.location();
     if (location != destItem->data(DestLocation).toString()) {
         destItem->setData(location, DestLocation);
+    }
+
+    // store the printer icon name
+    QString iconName = printer.iconName();
+    if (iconName != destItem->data(DestIconName).toString()) {
+        destItem->setData(iconName, DestIconName);
     }
 
     if (destItem->data(DestName).toString() != destItem->text()){

@@ -30,11 +30,4 @@ add_subdirectory(add-printer)
 add_subdirectory(printer-manager-kcm)
 add_subdirectory(printqueue)
 add_subdirectory(print-manager-kded)
-add_subdirectory(printjobs-dataengine)
-add_subdirectory(printers-dataengine)
-
-install(DIRECTORY plasmoid-package/
-        DESTINATION ${DATA_INSTALL_DIR}/plasma/plasmoids/printmanager)
-
-install(FILES plasmoid-package/metadata.desktop
-        DESTINATION ${SERVICES_INSTALL_DIR} RENAME plasma-applet-printmanager.desktop)
+add_subdirectory(plasmoid)

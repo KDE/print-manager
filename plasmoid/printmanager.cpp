@@ -27,6 +27,9 @@
 #include <QDBusConnection>
 #include <QDBusServiceWatcher>
 
+#include <KConfigDialog>
+#include <KCModuleProxy>
+
 #include <Plasma/ToolTipManager>
 #include <Plasma/ToolTipContent>
 #include <Plasma/DeclarativeWidget>
@@ -130,6 +133,22 @@ void PrintManager::constraintsEvent(Plasma::Constraints constraints)
             break;
         }
     }
+}
+
+void PrintManager::createConfigurationInterface(KConfigDialog *parent)
+{
+    // TODO: Add printer filtering for plasmoid
+
+    // Add the printer KCM to the applet's configdialog
+    m_printersKCM = new KCModuleProxy("kcm_printer_manager");
+    parent->addPage(m_printersKCM, i18n("Printers"), QLatin1String("printer"));
+
+    parent->setMinimumSize(830,490);
+    parent->resize(960, 600);
+
+    // NOTE: Not needed not but probably when the plasmoid gets its own config
+    //connect(parent, SIGNAL(applyClicked()), this, SLOT(saveConfiguration()));
+    //connect(parent, SIGNAL(okClicked()), this, SLOT(saveConfiguration()));
 }
 
 #include "printmanager.moc"

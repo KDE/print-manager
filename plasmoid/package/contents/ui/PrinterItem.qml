@@ -46,7 +46,9 @@ Item {
         }
         onExited: {
             padding.opacity = 0;
-            highlightPrinter = "";
+            if (highlightPrinter === printerName) {
+                highlightPrinter = "";
+            }
         }
         onClicked: {
             if (printerItem.ListView.view.isCurrentIndex) {
@@ -60,48 +62,41 @@ Item {
             }
         }
     }
-    
-    Item {
-        anchors {
-            fill: parent
-            topMargin: padding.margins.top
-            leftMargin: padding.margins.left
-            rightMargin: padding.margins.right
-            bottomMargin: padding.margins.bottom
-        }
+
+    Row {
+        anchors.fill: parent
+        anchors.topMargin: padding.margins.top
+        anchors.leftMargin: padding.margins.left
+        anchors.rightMargin: padding.margins.right
+        anchors.bottomMargin: padding.margins.bottom
+        spacing: 4
         QIconItem {
             id: printerIcon
-            width: 32
-            height: 32
+            width: parent.height
+            height: width
+            anchors.verticalCenter: parent.verticalCenter
             icon: QIcon(iconName)
-            anchors {
-                left: parent.left
-                top: parent.top
-            }
             Behavior on opacity { PropertyAnimation {} }
         }
         
         Column {
             id: labelsColumn
+            width: parent.width - printerIcon.width - switchAction.width - parent.spacing * 2
+            anchors.verticalCenter: parent.verticalCenter
             spacing: padding.margins.top/2
-            anchors {
-                top: parent.top
-                left: printerIcon.right
-                right: switchAction.left
-                leftMargin: padding.margins.left
-            }
             PlasmaComponents.Label {
+                id: printerLabel
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: paintedHeight
                 elide: Text.ElideRight
                 text: info
             }
-            
             PlasmaComponents.Label {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: paintedHeight
+                height: printerLabel.height
+                verticalAlignment: Text.AlignTop
                 text: stateMessage
                 elide: Text.ElideRight
                 font.italic: true
@@ -113,10 +108,7 @@ Item {
         PlasmaComponents.Switch {
             id: switchAction
             opacity: 1
-            anchors {
-                right: parent.right
-                verticalCenter: printerIcon.verticalCenter
-            }
+            anchors.verticalCenter: parent.verticalCenter
             checked: !isPaused
             onClicked: {
                 enabled = false;
@@ -147,4 +139,3 @@ Item {
         }
     ]
 }
-

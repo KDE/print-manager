@@ -33,7 +33,7 @@ Item {
         id: padding
         imagePath: "widgets/viewitem"
         prefix: "hover"
-        opacity: highlightPrinter == jobPrinter ? 0.7 : 0
+        opacity: highlightPrinter === jobPrinter ? 0.7 : 0
         Behavior on opacity { PropertyAnimation {} }
         anchors.fill: parent
     }
@@ -46,7 +46,7 @@ Item {
             padding.opacity = 0.7;
         }
         onClicked: {
-            if (jobItem.ListView.view.currentIndex == index) {
+            if (jobItem.ListView.view.isCurrentIndex) {
                 jobItem.ListView.view.currentIndex = -1;
             } else {
                 jobItem.ListView.view.currentIndex = index;

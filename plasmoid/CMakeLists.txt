@@ -8,6 +8,7 @@ target_link_libraries(plasma_applet_printmanager
     ${KDE4_PLASMA_LIBS}
     ${KDE4_KIO_LIBS}
     ${KDE4_KDEUI_LIBS}
+    ${KDE4_KCMUTILS_LIBS}
     ${QT_QTDECLARATIVE_LIBRARY}
     kcupslib
 )

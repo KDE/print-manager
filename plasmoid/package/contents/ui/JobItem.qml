@@ -117,10 +117,9 @@ Item {
                         text:  i18n("Cancel Job")
                         visible: jobCancelEnabled
                         onClicked: {
-                            service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
-                            operation = service.operationDescription("cancelJob");
-                            operation.PrinterName = jobPrinter;
-                            service.startOperationCall(operation);
+                            enabled = false;
+                            jobsModel.cancel(jobPrinter, jobId);
+                            enabled = true;
                         }
                     }
                     PlasmaComponents.ToolButton {
@@ -130,10 +129,13 @@ Item {
                         text: jobRestartEnabled ?  i18n("Reprint Job") : (jobHoldEnabled ?  i18n("Hold Job") :  i18n("Release Job"))
                         visible: jobCancelEnabled
                         onClicked: {
-                            service = jobsFilterModel.sourceModel.dataSource.serviceForSource(DataEngineSource);
-                            operation = service.operationDescription(jobHoldEnabled ? "holdJob" : "releaseJob");
-                            operation.PrinterName = jobPrinter;
-                            service.startOperationCall(operation);
+                            enabled = false;
+                            if (jobHoldEnabled) {
+                                jobsModel.hold(jobPrinter, jobId);
+                            } else {
+                                jobsModel.release(jobPrinter, jobId);
+                            }
+                            enabled = true;
                         }
                     }
                 }

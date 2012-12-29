@@ -36,32 +36,11 @@ Item {
     }
     
     Component.onCompleted: {
-        // This allows the plasmoid to shrink when the layout changes
-        plasmoid.aspectRatioMode = IgnoreAspectRatio
-        plasmoid.addEventListener ('ConfigChanged', configChanged);
-        plasmoid.popupEvent.connect(popupEventSlot);
-        configChanged();
-        
         checkPlasmoidStatus();
     }
-    
-    function configChanged() {
-        whichPrinter = plasmoid.readConfig("printerName");
 
-        printersView.currentIndex = -1;
-        jobsView.currentIndex = -1;
-    }
-    
     function checkPlasmoidStatus() {
         plasmoid.setActive(jobsFilterModel.count);
-    }
-    
-    function popupEventSlot(popped) {
-        if (!popped) {
-            checkPlasmoidStatus();
-            printersView.currentIndex = -1;
-            jobsView.currentIndex = -1;
-        }
     }
     
     Column {
@@ -125,6 +104,7 @@ Item {
             id: jobsView
             width:  horizontalLayout ? parent.width * 0.60 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : printmanager.height - headerSeparator.height - printersView.height
+            currentIndex: -1
             model: PlasmaCore.SortFilterModel {
                 id: jobsFilterModel
                 sourceModel: jobsModel

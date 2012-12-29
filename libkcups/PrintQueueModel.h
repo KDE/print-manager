@@ -75,6 +75,12 @@ public:
     explicit PrintQueueModel(QObject *parent = 0);
     void setParentWId(WId parentId);
     Q_INVOKABLE void init(const QString &destName = QString());
+
+    Q_INVOKABLE void hold(const QString &printerName, int jobId);
+    Q_INVOKABLE void release(const QString &printerName, int jobId);
+    Q_INVOKABLE void cancel(const QString &printerName, int jobId);
+    Q_INVOKABLE void move(const QString &printerName, int jobId, const QString &toPrinterName);
+
     QString processingJob() const;
 
     Qt::ItemFlags flags(const QModelIndex &index) const;

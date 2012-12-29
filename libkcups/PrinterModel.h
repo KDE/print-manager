@@ -39,6 +39,7 @@ public:
         DestIsDefault,
         DestIsShared,
         DestIsAcceptingJobs,
+        DestIsPaused,
         DestIsClass,
         DestLocation,
         DestDescription,
@@ -62,10 +63,10 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
 
-    Q_INVOKABLE void pausePrinter(int row);
-    Q_INVOKABLE void resumePrinter(int row);
-    Q_INVOKABLE void rejectJobs(int row);
-    Q_INVOKABLE void acceptJobs(int row);
+    Q_INVOKABLE void pausePrinter(const QString &printerName);
+    Q_INVOKABLE void resumePrinter(const QString &printerName);
+    Q_INVOKABLE void rejectJobs(const QString &printerName);
+    Q_INVOKABLE void acceptJobs(const QString &printerName);
 
 public slots:
     void update();

@@ -24,6 +24,7 @@
 #include <QMimeData>
 #include <QDBusConnection>
 #include <QtDBus/QDBusInterface>
+#include <QPointer>
 
 #include <KUser>
 #include <KDebug>
@@ -60,6 +61,7 @@ PrinterModel::PrinterModel(QObject *parent) :
     roles[DestIsDefault] = "isDefault";
     roles[DestIsShared] = "isShared";
     roles[DestIsAcceptingJobs] = "isAcceptingJobs";
+    roles[DestIsPaused] = "isPaused";
     roles[DestIsClass] = "isClass";
     roles[DestLocation] = "location";
     roles[DestDescription] = "info";
@@ -192,36 +194,44 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
     return QVariant();
 }
 
-void PrinterModel::pausePrinter(int row)
+void PrinterModel::pausePrinter(const QString &printerName)
 {
-    QString destName = index(row, 0).data(DestName).toString();
-    KCupsRequest *request = new KCupsRequest;
-    request->pausePrinter(destName);
-    request->deleteLater();
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->pausePrinter(printerName);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
-void PrinterModel::resumePrinter(int row)
+void PrinterModel::resumePrinter(const QString &printerName)
 {
-    QString destName = index(row, 0).data(DestName).toString();
-    KCupsRequest *request = new KCupsRequest;
-    request->resumePrinter(destName);
-    request->deleteLater();
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->resumePrinter(printerName);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
-void PrinterModel::rejectJobs(int row)
+void PrinterModel::rejectJobs(const QString &printerName)
 {
-    QString destName = index(row, 0).data(DestName).toString();
-    KCupsRequest *request = new KCupsRequest;
-    request->rejectJobs(destName);
-    request->deleteLater();
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->rejectJobs(printerName);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
-void PrinterModel::acceptJobs(int row)
+void PrinterModel::acceptJobs(const QString &printerName)
 {
-    QString destName = index(row, 0).data(DestName).toString();
-    KCupsRequest *request = new KCupsRequest;
-    request->acceptJobs(destName);
-    request->deleteLater();
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->acceptJobs(printerName);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 void PrinterModel::update()
@@ -268,9 +278,14 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     }
 
     // store the printer status message
-    QString status = destStatus(printer.state(), printer.stateMsg(), accepting);
+    QString status = destStatus(state, printer.stateMsg(), accepting);
     if (status != destItem->data(DestStatus)) {
         destItem->setData(status, DestStatus);
+    }
+
+    bool paused = (state == KCupsPrinter::Stoped || !accepting);
+    if (paused != destItem->data(DestIsPaused)) {
+        destItem->setData(paused, DestIsPaused);
     }
 
     // store if the printer is shared
@@ -372,9 +387,9 @@ QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &mess
         }
     case KCupsPrinter::Stoped:
         if (message.isEmpty()){
-            return i18n("Paused");
+            return isAcceptingJobs ? i18n("Paused") : i18n("Paused, rejecting jobs");
         } else {
-            return i18n("Paused - '%1'", message);
+            return isAcceptingJobs ? i18n("Paused - '%1'", message) : i18n("Paused, rejecting jobs - '%1'", message);
         }
     default :
         if (message.isEmpty()){

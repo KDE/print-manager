@@ -67,11 +67,16 @@ void PrinterDelegate::paint(QPainter *painter,
     int width = option.rect.width();
 
     bool leftToRight = (painter->layoutDirection() == Qt::LeftToRight);
+    bool isPaused = index.data(PrinterModel::DestIsPaused).toBool();
 
     // selects the mode to paint the icon based on the info field
     QIcon::Mode iconMode;
-    if (option.state & QStyle::State_MouseOver) {
+    if (isPaused) {
+        iconMode = QIcon::Disabled;
+    } else if (option.state & QStyle::State_MouseOver) {
         iconMode = QIcon::Active;
+    } else if (option.state.testFlag(QStyle::State_Selected)) {
+        iconMode = QIcon::Selected;
     } else {
         iconMode = QIcon::Normal;
     }

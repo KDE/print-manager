@@ -27,7 +27,7 @@ Item {
     property bool multipleItems
     width: printerItem.ListView.view.width
     height: 50
-    state: stateEnum
+    state: isPaused ? "PAUSED" : ""
 
     PlasmaCore.FrameSvgItem {
         id: padding
@@ -49,7 +49,7 @@ Item {
             highlightPrinter = "";
         }
         onClicked: {
-            if (printerItem.ListView.view.currentIndex == index) {
+            if (printerItem.ListView.view.isCurrentIndex) {
                 printerItem.ListView.view.currentIndex = -1;
                 whichPrinter = printerName;
                 highlightPrinter = "";
@@ -117,20 +117,27 @@ Item {
                 right: parent.right
                 verticalCenter: printerIcon.verticalCenter
             }
-            checked: stateEnum == "stopped" ? false : true
+            checked: !isPaused
             onClicked: {
+                enabled = false;
                 if (checked) {
-                    printersModel.resumePrinter(index);
+                    if (!isAcceptingJobs) {
+                        printersModel.acceptJobs(printerName);
+                    }
+                    if (printerState === 5) {
+                        printersModel.resumePrinter(printerName);
+                    }
                 } else {
-                    printersModel.pausePrinter(index);
+                    printersModel.pausePrinter(printerName);
                 }
+                enabled = true;
             }
         }
     }
     
     states: [
         State {
-            name: "stopped"
+            name: "PAUSED"
             PropertyChanges { target: labelsColumn; opacity: 0.6}
             PropertyChanges { target: printerIcon; opacity: 0.6}
         },

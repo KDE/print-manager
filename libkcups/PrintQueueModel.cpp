@@ -26,6 +26,8 @@
 
 #include <QDateTime>
 #include <QMimeData>
+#include <QPointer>
+
 #include <KUser>
 #include <KDebug>
 #include <KLocale>
@@ -134,6 +136,46 @@ void PrintQueueModel::init(const QString &destName)
 
     // Get all jobs
     getJobs();
+}
+
+void PrintQueueModel::hold(const QString &printerName, int jobId)
+{
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->holdJob(printerName, jobId);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
+}
+
+void PrintQueueModel::release(const QString &printerName, int jobId)
+{
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->releaseJob(printerName, jobId);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
+}
+
+void PrintQueueModel::cancel(const QString &printerName, int jobId)
+{
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->cancelJob(printerName, jobId);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
+}
+
+void PrintQueueModel::move(const QString &printerName, int jobId, const QString &toPrinterName)
+{
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->moveJob(printerName, jobId, toPrinterName);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 void PrintQueueModel::getJobs()

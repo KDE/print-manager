@@ -36,6 +36,7 @@ Item {
     ListView {
         id: list
         clip: true
+        interactive: false
         anchors {
             left:   parent.left
             right:  scrollBar.visible ? scrollBar.left : parent.right

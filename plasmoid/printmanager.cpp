@@ -91,16 +91,19 @@ void PrintManager::toolTipAboutToShow()
     }
 
     QString text;
+    KIcon icon;
     if (m_printQueueModel->rowCount() == 0) {
         text = i18n("Print queue is empty");
+        icon = KIcon("printer");
     } else {
         text = i18np("There is one print job in the queue",
                      "There are %1 print jobs in the queue",
                      m_printQueueModel->rowCount());
+        icon = KIcon("printer-printing");
     }
     Plasma::ToolTipContent content(text,
                                    QString(),
-                                   KIcon("system-software-update"));
+                                   icon);
 
     Plasma::ToolTipManager::self()->setContent(this, content);
 }

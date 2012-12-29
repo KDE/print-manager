@@ -42,6 +42,7 @@ PrintManager::PrintManager(QObject *parent, const QVariantList &args) :
     PopupApplet(parent, args),
     m_declarativeWidget(0)
 {
+    KGlobal::insertCatalog(QLatin1String("print-manager"));
     setAspectRatioMode(Plasma::IgnoreAspectRatio);
     setActive(false);
     setPopupIcon("printer");

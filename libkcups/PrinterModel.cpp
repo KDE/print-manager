@@ -56,6 +56,7 @@ PrinterModel::PrinterModel(QObject *parent) :
     QHash<int, QByteArray> roles = roleNames();
     roles[DestStatus] = "stateMessage";
     roles[DestName] = "printerName";
+    roles[DestState] = "printerState";
     roles[DestIsDefault] = "isDefault";
     roles[DestIsShared] = "isShared";
     roles[DestIsAcceptingJobs] = "isAcceptingJobs";
@@ -254,7 +255,20 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     }
 
     // store the printer state
-    QString status = destStatus(printer.state(), printer.stateMsg());
+    KCupsPrinter::Status state = printer.state();
+    if (state != destItem->data(DestState)) {
+        destItem->setData(state, DestState);
+    }
+    kDebug() << state << printer.name();
+
+    // store if the printer is accepting jobs
+    bool accepting = printer.isAcceptingJobs();
+    if (accepting != destItem->data(DestIsAcceptingJobs)) {
+        destItem->setData(accepting, DestIsAcceptingJobs);
+    }
+
+    // store the printer status message
+    QString status = destStatus(printer.state(), printer.stateMsg(), accepting);
     if (status != destItem->data(DestStatus)) {
         destItem->setData(status, DestStatus);
     }
@@ -263,12 +277,6 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     bool shared = printer.isShared();
     if (shared != destItem->data(DestIsShared)) {
         destItem->setData(shared, DestIsShared);
-    }
-
-    // store if the printer is accepting jobs
-    bool accepting = printer.isAcceptingJobs();
-    if (accepting != destItem->data(DestIsAcceptingJobs)) {
-        destItem->setData(accepting, DestIsAcceptingJobs);
     }
 
     // store if the printer is a class
@@ -347,14 +355,14 @@ int PrinterModel::destRow(const QString &destName)
     return -1;
 }
 
-QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &message) const
+QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const
 {
     switch (state) {
     case KCupsPrinter::Idle:
         if (message.isEmpty()){
-            return i18n("Idle");
+            return isAcceptingJobs ? i18n("Idle") : i18n("Idle, rejecting jobs");
         } else {
-            return i18n("Idle - '%1'", message);
+            return isAcceptingJobs ? i18n("Idle - '%1'", message) : i18n("Idle, rejecting jobs - '%1'", message);
         }
     case KCupsPrinter::Printing:
         if (message.isEmpty()){

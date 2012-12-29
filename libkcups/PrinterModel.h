@@ -34,6 +34,7 @@ class KDE_EXPORT PrinterModel : public QStandardItemModel
 public:
     enum Role {
         DestStatus = Qt::UserRole,
+        DestState,
         DestName,
         DestIsDefault,
         DestIsShared,
@@ -98,7 +99,7 @@ private:
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
-    QString destStatus(KCupsPrinter::Status state, const QString &message) const;
+    QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
 };
 
 #endif // PRINTER_MODEL_H

@@ -29,7 +29,8 @@ Item {
     
     property string highlightPrinter
     property bool horizontalLayout: printersFilterModel.count > 1
-    property string whichPrinter
+    property string filterJobs
+    property string filterPrinters
 
     PlasmaCore.Theme {
         id: theme
@@ -79,7 +80,7 @@ Item {
                     id: printersModel
                 }
                 filterRole: "printerName"
-                filterRegExp: whichPrinter
+                filterRegExp: filterPrinters
                 sortRole: "info"
                 sortOrder: Qt.AscendingOrder
             }
@@ -109,7 +110,7 @@ Item {
                 id: jobsFilterModel
                 sourceModel: jobsModel
                 filterRole: "jobPrinter"
-                filterRegExp: whichPrinter
+                filterRegExp: filterJobs
                 sortRole: "jobId"
                 sortOrder: Qt.AscendingOrder
             }

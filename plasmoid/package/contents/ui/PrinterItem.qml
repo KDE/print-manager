@@ -24,10 +24,11 @@ import org.kde.qtextracomponents 0.1
 
 Item {
     id: printerItem
-    property bool multipleItems
-    width: printerItem.ListView.view.width
+    width: ListView.view.width
     height: 50
     state: isPaused ? "PAUSED" : ""
+
+    property bool multipleItems: false
 
     PlasmaCore.FrameSvgItem {
         id: padding
@@ -51,13 +52,17 @@ Item {
             }
         }
         onClicked: {
-            if (printerItem.ListView.view.isCurrentIndex) {
+            if (printerItem.ListView.isCurrentItem) {
                 printerItem.ListView.view.currentIndex = -1;
-                whichPrinter = printerName;
+                filterJobs = "";
                 highlightPrinter = "";
             } else if (multipleItems) {
                 printerItem.ListView.view.currentIndex = index;
-                whichPrinter = "";
+                // We need to unset the filter before applying a new one
+                // otherwise, the filter model get's rowCoun() == 0 and
+                // the popup hides
+                filterJobs = "";
+                filterJobs = printerName;
                 highlightPrinter = "";
             }
         }

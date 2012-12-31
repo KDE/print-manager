@@ -19,6 +19,8 @@
 
 #include "printmanager.h"
 
+#include "PlasmoidConfig.h"
+
 #include <QtGui/QGraphicsLinearLayout>
 #include <QtDeclarative/QDeclarativeEngine>
 #include <QtDeclarative/QDeclarativeContext>
@@ -141,10 +143,18 @@ void PrintManager::constraintsEvent(Plasma::Constraints constraints)
 void PrintManager::createConfigurationInterface(KConfigDialog *parent)
 {
     // TODO: Add printer filtering for plasmoid
+    parent->addPage(new PlasmoidConfig(parent),
+                    QLatin1String("Behavior"),
+                    QLatin1String("preferences-other"),
+                    i18n("Behavior"),
+                    true);
 
     // Add the printer KCM to the applet's configdialog
-    m_printersKCM = new KCModuleProxy("kcm_printer_manager");
-    parent->addPage(m_printersKCM, i18n("Printers"), QLatin1String("printer"));
+    parent->addPage(new KCModuleProxy("kcm_printer_manager", parent),
+                    i18n("Printers"),
+                    QLatin1String("printer"),
+                    i18n("Printers"),
+                    false);
 
     parent->setMinimumSize(830,490);
     parent->resize(960, 600);

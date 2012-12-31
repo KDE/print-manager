@@ -22,8 +22,6 @@
 
 #include <Plasma/PopupApplet>
 
-class KCModuleProxy;
-
 namespace Plasma
 {
     class DeclarativeWidget;
@@ -51,7 +49,6 @@ protected:
 private:
     Plasma::DeclarativeWidget *m_declarativeWidget;
     PrintQueueModel *m_printQueueModel;
-    KCModuleProxy *m_printersKCM;
 };
 
 K_EXPORT_PLASMA_APPLET(printmanager, PrintManager)

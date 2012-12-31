@@ -1,5 +1,10 @@
 set(printmanager_applet_SRCS
+    PlasmoidConfig.cpp
     printmanager.cpp
+)
+
+kde4_add_ui_files(printmanager_applet_SRCS
+    PlasmoidConfig.ui
 )
 
 kde4_add_plugin(plasma_applet_printmanager ${printmanager_applet_SRCS})

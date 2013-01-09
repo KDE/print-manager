@@ -11,6 +11,7 @@ X-KDE-ParentApp=kcontrol
 Categories=Qt;KDE;X-KDE-settings-hardware;
 
 Name=Printers
+Name[bs]=Štampači
 Name[ca]=Impressores
 Name[cs]=Tiskárny
 Name[da]=Printere
@@ -51,6 +52,7 @@ Name[zh_CN]=打印机
 Name[zh_TW]=印表機
 
 Comment=Configure your printers
+Comment[bs]=Konfigurišite štampače
 Comment[ca]=Configura les impressores
 Comment[cs]=Nastavte Vaše tiskárny
 Comment[da]=Indstil dine printere

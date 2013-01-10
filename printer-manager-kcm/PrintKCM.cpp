@@ -88,6 +88,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_allowPrintringFromInternet->setCheckable(true);
     m_allowPrintringFromInternet->setEnabled(false);
     connect(m_shareConnectedPrinters, SIGNAL(toggled(bool)), m_allowPrintringFromInternet, SLOT(setEnabled(bool)));
+    connect(m_shareConnectedPrinters, SIGNAL(toggled(bool)), ui->printerDesc, SLOT(enableShareCheckBox(bool)));
     systemMenu->addSeparator();
     m_allowRemoteAdmin = systemMenu->addAction(i18nc("@action:intoolbar","Allow remote administration"));
     m_allowRemoteAdmin->setCheckable(true);
@@ -118,6 +119,10 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     // Force the model update AFTER we setup the error signal
     m_model->update();
+
+    // We need to know the server settings so we disable the
+    // share printer checkbox if sharing is disabled on the server
+    getServerSettings();
 }
 
 
@@ -323,7 +328,6 @@ void PrintKCM::getServerSettingsFinished()
 
     m_showSharedPrinters->setEnabled(!error);
     m_shareConnectedPrinters->setEnabled(!error);
-    m_allowPrintringFromInternet->setEnabled(!error);
     m_allowRemoteAdmin->setEnabled(!error);
     m_allowUsersCancelAnyJob->setEnabled(!error);
 

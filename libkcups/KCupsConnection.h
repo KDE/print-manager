@@ -26,6 +26,8 @@
 #include <QVariantHash>
 #include <QStringList>
 
+#include <KUrl>
+
 #include <kdemacros.h>
 
 #include <cups/cups.h>
@@ -115,6 +117,17 @@ public:
      * class which will move to this thread and then run.
      */
     static KCupsConnection* global();
+
+    /**
+     * @brief KCupsConnection
+     * @param parent
+     *
+     * This is the default constructor that connects to the default server
+     * If you don't have any special reason for creating a connection
+     * on your own consider calling global()
+     */
+    explicit KCupsConnection(QObject *parent = 0);
+    KCupsConnection(const KUrl &server, QObject *parent = 0);
     ~KCupsConnection();
 
 Q_SIGNALS:
@@ -330,8 +343,8 @@ protected:
     friend class KCupsRequest;
 
     virtual void run();
-    static bool readyToStart();
-    static bool retry(const char *resource);
+    bool readyToStart();
+    bool retry(const char *resource);
     /**
       * Always use this method to get the last error
       * because if the cups connection fails, the last
@@ -339,12 +352,12 @@ protected:
       * to destroy this thread in order to recover
       * from this error.
       */
-    static ipp_status_t lastError();
+    ipp_status_t lastError();
 
-    static ReturnArguments request(ipp_op_e operation,
-                                   const char *resource,
-                                   const QVariantHash &reqValues,
-                                   bool needResponse);
+    ReturnArguments request(ipp_op_e operation,
+                            const char *resource,
+                            const QVariantHash &reqValues,
+                            bool needResponse);
 
 private slots:
     void updateSubscription();
@@ -352,12 +365,13 @@ private slots:
     void cancelDBusSubscription();
 
 protected:
+    http_t* cupsConnection() const;
     virtual void connectNotify(const char *signal);
     virtual void disconnectNotify(const char *signal);
     QString eventForSignal(const char *signal) const;
 
 private:
-    explicit KCupsConnection(QObject *parent = 0);
+    void init();
     /**
      * This is the most weird cups function, the DBus API
      * it is completely messy, and if we change the order of the attributes
@@ -378,6 +392,8 @@ private:
 
     bool m_inited;
     KCupsPasswordDialog *m_passwordDialog;
+    KUrl m_serverUrl;
+    http_t *m_connection;
 
     QTimer *m_subscriptionTimer;
     QTimer *m_renewTimer;

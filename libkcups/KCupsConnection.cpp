@@ -92,12 +92,40 @@ KCupsConnection* KCupsConnection::global()
 }
 
 KCupsConnection::KCupsConnection(QObject *parent) :
-    QThread(parent),
-    m_inited(false),
-    // Creating the dialog before start() will make it run on the gui thread
-    m_passwordDialog(new KCupsPasswordDialog),
-    m_subscriptionId(-1)
+    QThread(parent)
 {
+    init();
+}
+
+KCupsConnection::KCupsConnection(const KUrl &server, QObject *parent) :
+    QThread(parent),
+    m_serverUrl(server)
+{
+    init();
+}
+
+KCupsConnection::~KCupsConnection()
+{
+    if (m_instance == this) {
+        m_instance = 0;
+    }
+    m_passwordDialog->deleteLater();
+
+    quit();
+    wait();
+
+    delete m_renewTimer;
+    delete m_subscriptionTimer;
+}
+
+void KCupsConnection::init()
+{
+    // Creating the dialog before start() will make it run on the gui thread
+    m_passwordDialog = new KCupsPasswordDialog;
+    m_subscriptionId = -1;
+    m_connection = CUPS_HTTP_DEFAULT;
+    m_inited = false;
+
     // setup the DBus subscriptions
 
     // Server related signals
@@ -259,20 +287,15 @@ KCupsConnection::KCupsConnection(QObject *parent) :
     start();
 }
 
-KCupsConnection::~KCupsConnection()
-{
-    m_instance = 0;
-    m_passwordDialog->deleteLater();
-
-    quit();
-    wait();
-
-    delete m_renewTimer;
-    delete m_subscriptionTimer;
-}
 
 void KCupsConnection::run()
 {
+    // Check if we need an special connection
+    if (!m_serverUrl.isEmpty() && m_serverUrl.isValid()) {
+        // Connect to a special server
+        m_connection = httpConnectEncrypt(m_serverUrl.host().toUtf8(), m_serverUrl.port(), HTTP_ENCRYPT_IF_REQUESTED);
+    }
+
     // This is dead cool, cups will call the thread_password_cb()
     // function when a password set is needed, as we passed the
     // password dialog pointer the functions just need to call
@@ -290,7 +313,7 @@ void KCupsConnection::run()
 
 bool KCupsConnection::readyToStart()
 {
-    if (QThread::currentThread() == KCupsConnection::global()) {
+    if (QThread::currentThread() == this) {
         password_retries = 0;
         internalErrorCount = 0;
         return true;
@@ -353,9 +376,9 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
         // Do the request
         // do the request deleting the response
         if (filename.isEmpty()) {
-            response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource);
+            response = cupsDoRequest(m_connection, request, resource);
         } else {
-            response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource, filename.toUtf8());
+            response = cupsDoFileRequest(m_connection, request, resource, filename.toUtf8());
         }
     } while (retry(resource));
 
@@ -416,7 +439,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         }
 
         // Do the request
-        response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
+        response = cupsDoRequest(m_connection, request, "/");
     } while (retry("/"));
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
@@ -617,11 +640,16 @@ void KCupsConnection::cancelDBusSubscription()
                       "notify-subscription-id", m_subscriptionId);
 
         // Do the request
-        ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/"));
+        ippDelete(cupsDoRequest(m_connection, request, "/"));
     } while (retry("/"));
 
     // Reset the subscription id
     m_subscriptionId = -1;
+}
+
+http_t *KCupsConnection::cupsConnection() const
+{
+    return m_connection;
 }
 
 void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &values)
@@ -958,14 +986,14 @@ bool KCupsConnection::retry(const char *resource)
     // with it fails and has to be re-established
     if (status == IPP_INTERNAL_ERROR) {
         // Deleting this connection thread forces it
-        // to create a new CUPS_HTTP_DEFAULT connection
+        // to create a new CUPS connection
         kWarning() << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
         // TODO maybe reconnect is enough
-//        httpClearCookie(CUPS_HTTP_DEFAULT);
+//        httpClearCookie(m_connection);
 
         // Reconnect to CUPS
-        if (httpReconnect(CUPS_HTTP_DEFAULT)) {
+        if (httpReconnect(m_connection)) {
             kWarning() << "IPP_INTERNAL_ERROR: failed to reconnect";
             // Server might be restarting sleep for a few ms
             msleep(500);
@@ -1006,7 +1034,7 @@ bool KCupsConnection::retry(const char *resource)
     if (forceAuth) {
         // force authentication
         kDebug() << "cupsDoAuthentication() password_retries:" << password_retries;
-        int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
+        int ret = cupsDoAuthentication(m_connection, "POST", resource);
         kDebug() << "cupsDoAuthentication() success:" << (ret == -1 ? true : false);
 
         // If the authentication was succefull

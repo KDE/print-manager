@@ -28,8 +28,6 @@
 AddPrinter::AddPrinter() :
     KUniqueApplication()
 {
-    KGlobal::insertCatalog(QLatin1String("add-printer"));
-    
     setQuitOnLastWindowClosed(true);
     m_pqInterface = new AddPrinterInterface(this);
     connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));

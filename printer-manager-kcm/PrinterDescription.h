@@ -53,6 +53,9 @@ public:
 
     QString destName() const;
 
+public slots:
+    void enableShareCheckBox(bool enable);
+
 private slots:
     void on_configurePB_clicked();
     void on_openQueuePB_clicked();
@@ -68,6 +71,7 @@ private:
     Ui::PrinterDescription *ui;
     QString m_destName;
     bool m_isClass;
+    bool m_isShared;
     QStringList m_commands;
     QPixmap m_printerIcon;
     QPixmap m_pauseIcon;

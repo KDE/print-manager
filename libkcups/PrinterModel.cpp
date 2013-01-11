@@ -73,14 +73,6 @@ PrinterModel::PrinterModel(QObject *parent) :
     roles[DestIconName] = "iconName";
     setRoleNames(roles);
 
-    KCupsRequest *request = new KCupsRequest;
-    QStringList events;
-    events << "printer-added";
-    events << "printer-deleted";
-    events << "printer-state-changed";
-    events << "printer-modified";
-    request->createDBusSubscription(events);
-
     // This is emitted when a printer is added
     connect(KCupsConnection::global(),
             SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool)),

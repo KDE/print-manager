@@ -192,8 +192,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
             this, SLOT(updatePrinter(QString)));
 
-    createSubscription();
-
     updatePrinter(m_destName);
 
     // Restore the dialog size
@@ -436,29 +434,6 @@ void PrintQueueUi::update()
     } else {
         setWindowTitle(m_title.isNull() ? i18n("All Printers") : m_title);
     }
-}
-
-void PrintQueueUi::createSubscription()
-{
-    KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
-    QStringList events;
-    events << "printer-added";
-    events << "printer-deleted";
-    events << "printer-state-changed";
-    events << "printer-modified";
-    request->createDBusSubscription(events);
-}
-
-void PrintQueueUi::createSubscriptionFinished()
-{
-    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    if (!request || request->hasError() || request->subscriptionId() < 0) {
-        // in case of an error probe the server again in 1.5 seconds
-        QTimer::singleShot(1000, this, SLOT(createSubscription()));
-    }
-
-    request->deleteLater();
 }
 
 void PrintQueueUi::updateButtons()

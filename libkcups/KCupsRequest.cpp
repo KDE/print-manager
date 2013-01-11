@@ -242,45 +242,6 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
     }
 }
 
-void KCupsRequest::createDBusSubscription(const QStringList &events)
-{
-    if (KCupsConnection::readyToStart()) {
-        int ret;
-        ret = KCupsConnection::global()->createDBusSubscription(events);
-        kDebug() << "Got internal ID" << ret << events;
-        m_subscriptionId = ret;
-
-        if (ret < 0) {
-            setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
-        }
-        setFinished();
-    } else {
-        invokeMethod("createDBusSubscription", events);
-    }
-}
-
-void KCupsRequest::cancelDBusSubscription(int subscriptionId)
-{
-    if (KCupsConnection::readyToStart()) {
-        KCupsConnection::global()->removeDBusSubscription(subscriptionId);
-
-        setError(KCupsConnection::lastError(), QString::fromUtf8(cupsLastErrorString()));
-        setFinished();
-    } else {
-        invokeMethod("cancelDBusSubscription", subscriptionId);
-    }
-}
-
-//void KCupsRequest::addClass(const QVariantHash &values)
-//{
-//    QVariantHash request = values;
-//    request["printer-is-class"] = true;
-//    request["printer-is-accepting-jobs"] = true;
-//    request[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
-
-//    doOperation(CUPS_ADD_MODIFY_CLASS, QLatin1String("/admin/"), request);
-//}
-
 void KCupsRequest::getServerSettings()
 {
     if (KCupsConnection::readyToStart()) {
@@ -589,7 +550,6 @@ void KCupsRequest::invokeMethod(const char *method,
     m_jobs.clear();
     m_ppds.clear();
     m_ppdFile.clear();
-    m_subscriptionId = -1;
 
     // If this fails we get into a infinite loop
     // Do not use global()->thread() which point
@@ -641,11 +601,6 @@ KCupsServer KCupsRequest::serverSettings() const
 QString KCupsRequest::printerPPD() const
 {
     return m_ppdFile;
-}
-
-int KCupsRequest::subscriptionId() const
-{
-    return m_subscriptionId;
 }
 
 KCupsPrinters KCupsRequest::printers() const

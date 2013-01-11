@@ -78,12 +78,15 @@ PageAddPrinter::~PageAddPrinter()
 void PageAddPrinter::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
-        QString name = args[KCUPS_DEVICE_INFO].toString();
+        QString name = args[KCUPS_DEVICE_MAKE_AND_MODEL].toString();
+        if (name.isEmpty()) {
+            name = args[KCUPS_DEVICE_INFO].toString();
+        }
+        ui->descriptionLE->setText(name);
         name.replace(QLatin1Char(' '), QLatin1Char('_'));
         name.replace(QLatin1Char('/'), QLatin1Char('-'));
         name.replace(QLatin1Char('#'), QLatin1Char('='));
         ui->nameLE->setText(name);
-        ui->descriptionLE->setText(args[KCUPS_DEVICE_INFO].toString());
         ui->locationLE->setText(args[KCUPS_DEVICE_LOCATION].toString());
         ui->shareCB->setChecked(true);
         ui->shareCB->setVisible(args[ADDING_PRINTER].toBool());

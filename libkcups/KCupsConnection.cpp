@@ -38,6 +38,28 @@
 #define RENEW_INTERVAL        3500
 #define SUBSCRIPTION_DURATION 3600
 
+#define DBUS_SERVER_RESTARTED "server-restarted" // ServerRestarted
+#define DBUS_SERVER_STARTED   "server-started"   // ServerStarted
+#define DBUS_SERVER_STOPPED   "server-stopped"   // ServerStopped
+#define DBUS_SERVER_AUDIT     "server-audit"     // ServerAudit
+
+#define DBUS_PRINTER_RESTARTED          "printer-restarted"          // PrinterRestarted
+#define DBUS_PRINTER_SHUTDOWN           "printer-shutdown"           // PrinterShutdown
+#define DBUS_PRINTER_STOPPED            "printer-stopped"            // PrinterStopped
+#define DBUS_PRINTER_STATE_CHANGED      "printer-state-changed"      // PrinterStateChanged
+#define DBUS_PRINTER_FINISHINGS_CHANGED "printer-finishings-changed" // PrinterFinishingsChanged
+#define DBUS_PRINTER_MEDIA_CHANGED      "printer-media-changed"      // PrinterMediaChanged
+#define DBUS_PRINTER_ADDED              "printer-added"              // PrinterAdded
+#define DBUS_PRINTER_DELETED            "printer-deleted"            // PrinterDeleted
+#define DBUS_PRINTER_MODIFIED           "printer-modified"           // PrinterModified
+
+#define DBUS_JOB_STATE_CHANGED  "job-state-changed"  // JobState
+#define DBUS_JOB_CREATED        "job-created"        // JobCreated
+#define DBUS_JOB_COMPLETED      "job-completed"      // JobCompleted
+#define DBUS_JOB_STOPPED        "job-stopped"        // JobStopped
+#define DBUS_JOB_CONFIG_CHANGED "job-config-changed" // JobConfigChanged
+#define DBUS_JOB_PROGRESS       "job-progress"       // JobProgress
+
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
 
@@ -220,6 +242,19 @@ KCupsConnection::KCupsConnection(QObject *parent) :
                                          this,
                                          SIGNAL(rhJobStartedLocal(QString,uint,QString)));
 
+    // Creates the timer that will renew the DBus subscription
+    m_renewTimer = new QTimer;
+    m_renewTimer->setInterval(RENEW_INTERVAL*1000);
+    m_renewTimer->moveToThread(this);
+    connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()), Qt::DirectConnection);
+
+    // Creates the timer to merge updates on the DBus subscription
+    m_subscriptionTimer = new QTimer;
+    m_subscriptionTimer->setInterval(0);
+    m_subscriptionTimer->setSingleShot(true);
+    m_subscriptionTimer->moveToThread(this);
+    connect(m_subscriptionTimer, SIGNAL(timeout()), this, SLOT(updateSubscription()), Qt::DirectConnection);
+
     // Starts this thread
     start();
 }
@@ -227,14 +262,13 @@ KCupsConnection::KCupsConnection(QObject *parent) :
 KCupsConnection::~KCupsConnection()
 {
     m_instance = 0;
-    if (m_subscriptionId != -1) {
-        cancelDBusSubscription();
-    }
-    m_renewTimer->deleteLater();
     m_passwordDialog->deleteLater();
 
     quit();
     wait();
+
+    delete m_renewTimer;
+    delete m_subscriptionTimer;
 }
 
 void KCupsConnection::run()
@@ -245,14 +279,13 @@ void KCupsConnection::run()
     // it on a blocking mode.
     cupsSetPasswordCB2(password_cb, m_passwordDialog);
 
-    // Creates the timer that will renew the DBus subscription
-    m_renewTimer = new QTimer;
-    m_renewTimer->setInterval(RENEW_INTERVAL*1000);
-    m_renewTimer->moveToThread(this);
-    connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()), Qt::DirectConnection);
-
     m_inited = true;
     exec();
+
+    // Event loop quit so cancelDBusSubscription()
+    if (m_subscriptionId != -1) {
+        cancelDBusSubscription();
+    }
 }
 
 bool KCupsConnection::readyToStart()
@@ -332,74 +365,6 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
     ippDelete(response);
 
     return ret;
-}
-
-int KCupsConnection::createDBusSubscription(const QStringList &events)
-{
-    // Build the current list
-    QStringList currentEvents;
-    foreach (const QStringList &registeredEvents, m_requestedDBusEvents) {
-        currentEvents << registeredEvents;
-    }
-    currentEvents.removeDuplicates();
-
-    // Check if the requested events are already being asked
-    bool equal = true;
-    foreach (const QString &event, events) {
-        if (!currentEvents.contains(event)) {
-            equal = false;
-            break;
-        }
-    }
-
-    // Store the subscription
-    int id = 1;
-    if (!m_requestedDBusEvents.isEmpty()) {
-        id = m_requestedDBusEvents.keys().last();
-        ++id;
-    }
-    m_requestedDBusEvents[id] = events;
-
-    // If the requested list is included in our request just
-    // return an ID
-    if (equal) {
-        return id;
-    }
-
-    // If we alread have a subscription lets cancel
-    // and create a new one
-    if (m_subscriptionId >= 0) {
-        cancelDBusSubscription();
-    }
-
-    // Canculates the new events
-    renewDBusSubscription();
-
-    return id;
-}
-
-void KCupsConnection::removeDBusSubscription(int subscriptionId)
-{
-    // Collect the list of current events
-    QStringList currentEvents;
-    foreach (const QStringList &registeredEvents, m_requestedDBusEvents) {
-        currentEvents << registeredEvents;
-    }
-    currentEvents.removeDuplicates();
-
-    QStringList removedEvents = m_requestedDBusEvents.take(subscriptionId);
-
-    // Check if the removed events list is the same as the list we
-    // need, if yes means we can keep renewing the same events
-    if (removedEvents == currentEvents && !m_requestedDBusEvents.isEmpty()) {
-        return;
-    } else {
-        // The requested events changed
-        cancelDBusSubscription();
-
-        // Canculates the new events
-        renewDBusSubscription();
-    }
 }
 
 int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events)
@@ -506,6 +471,137 @@ void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, 
                       slot);
 }
 
+void KCupsConnection::connectNotify(const char *signal)
+{
+    QString event = eventForSignal(signal);
+    if (!event.isNull()) {
+        m_connectedEvents << event;
+        QMetaObject::invokeMethod(m_subscriptionTimer,
+                                  "start",
+                                  Qt::QueuedConnection);
+    }
+}
+
+void KCupsConnection::disconnectNotify(const char *signal)
+{
+    QString event = eventForSignal(signal);
+    if (!event.isNull()) {
+        m_connectedEvents.removeOne(event);
+        QMetaObject::invokeMethod(m_subscriptionTimer,
+                                  "start",
+                                  Qt::QueuedConnection);
+    }
+}
+
+QString KCupsConnection::eventForSignal(const char *signal) const
+{
+    // Server signals
+    if (QLatin1String(signal) == SIGNAL(serverAudit(QString))) {
+        return DBUS_SERVER_AUDIT;
+    }
+    if (QLatin1String(signal) == SIGNAL(serverStarted(QString))) {
+        return DBUS_SERVER_STARTED;
+    }
+    if (QLatin1String(signal) == SIGNAL(serverStopped(QString))) {
+        return DBUS_SERVER_STOPPED;
+    }
+    if (QLatin1String(signal) == SIGNAL(serverRestarted(QString))) {
+        return DBUS_SERVER_RESTARTED;
+    }
+
+    // Printer signals
+    if (QLatin1String(signal) == SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_ADDED;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_DELETED;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerFinishingsChanged(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_FINISHINGS_CHANGED;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerMediaChanged(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_MEDIA_CHANGED;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerModified(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_MODIFIED;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_RESTARTED;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_SHUTDOWN;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_STATE_CHANGED;
+    }
+    if (QLatin1String(signal) == SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool))) {
+        return DBUS_PRINTER_STOPPED;
+    }
+
+    // job signals
+    if (QLatin1String(signal) == SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+        return DBUS_JOB_COMPLETED;
+    }
+    if (QLatin1String(signal) == SIGNAL(jobConfigChanged(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+        return DBUS_JOB_CONFIG_CHANGED;
+    }
+    if (QLatin1String(signal) == SIGNAL(jobCreated(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+        return DBUS_JOB_CREATED;
+    }
+    if (QLatin1String(signal) == SIGNAL(jobProgress(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+        return DBUS_JOB_PROGRESS;
+    }
+    if (QLatin1String(signal) == SIGNAL(jobState(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+        return DBUS_JOB_STATE_CHANGED;
+    }
+    if (QLatin1String(signal) == SIGNAL(jobStopped(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+        return DBUS_JOB_STOPPED;
+    }
+
+    // No registered event signal matched
+    return QString();
+}
+
+void KCupsConnection::updateSubscription()
+{
+    // Build the current list
+    QStringList currentEvents = m_connectedEvents;
+    currentEvents.sort();
+    currentEvents.removeDuplicates();
+
+    // Check if the requested events are already being asked
+    if (m_requestedDBusEvents != currentEvents) {
+        m_requestedDBusEvents = currentEvents;
+
+        // If we alread have a subscription lets cancel
+        // and create a new one
+        if (m_subscriptionId >= 0) {
+            cancelDBusSubscription();
+        }
+
+        // Canculates the new events
+        renewDBusSubscription();
+    }
+}
+
+void KCupsConnection::renewDBusSubscription()
+{
+    // check if we have a valid subscription ID
+    if (m_subscriptionId >= 0) {
+        m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
+    }
+
+    // The above request might fail if the subscription was cancelled
+    if (m_subscriptionId < 0) {
+        if (m_requestedDBusEvents.isEmpty()) {
+            m_renewTimer->stop();
+        } else {
+            m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION, m_requestedDBusEvents);
+            m_renewTimer->start();
+        }
+    }
+}
+
 void KCupsConnection::cancelDBusSubscription()
 {
     do {
@@ -526,33 +622,6 @@ void KCupsConnection::cancelDBusSubscription()
 
     // Reset the subscription id
     m_subscriptionId = -1;
-}
-
-void KCupsConnection::renewDBusSubscription()
-{
-    // check if we have a valid subscription ID
-    kDebug() << m_subscriptionId;
-
-    if (m_subscriptionId >= 0) {
-        m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
-    }
-
-    // The above request might fail if the subscription was cancelled
-    if (m_subscriptionId < 0) {
-        QStringList currentEvents;
-        foreach (const QStringList &registeredEvents, m_requestedDBusEvents) {
-            currentEvents << registeredEvents;
-        }
-        currentEvents.removeDuplicates();
-        kDebug() << currentEvents;
-
-        if (!currentEvents.isEmpty()) {
-            m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION, currentEvents);
-            m_renewTimer->start();
-        } else {
-            m_renewTimer->stop();
-        }
-    }
 }
 
 void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &values)
@@ -659,6 +728,8 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
     ReturnArguments ret;
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
+    Q_UNUSED(needDestName)
+
     QVariantHash destAttributes;
     for (attr = ippFirstAttribute(response); attr != NULL; attr = ippNextAttribute(response)) {
         // We hit an attribute sepparator

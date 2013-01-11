@@ -170,7 +170,10 @@ void PrinterDescription::setIsDefault(bool isDefault)
 
 void PrinterDescription::setIsShared(bool isShared)
 {
-    ui->sharedCB->setChecked(isShared);
+    m_isShared = isShared;
+    if (ui->sharedCB->isEnabled()) {
+        ui->sharedCB->setChecked(m_isShared);
+    }
 }
 
 void PrinterDescription::setAcceptingJobs(bool accepting)
@@ -263,6 +266,17 @@ void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 QString PrinterDescription::destName() const
 {
     return m_destName;
+}
+
+void PrinterDescription::enableShareCheckBox(bool enable)
+{
+    ui->sharedCB->setEnabled(enable);
+    if (enable) {
+        // Get the current printer share state
+        ui->sharedCB->setChecked(m_isShared);
+    } else {
+        ui->sharedCB->setChecked(false);
+    }
 }
 
 void PrinterDescription::on_configurePB_clicked()

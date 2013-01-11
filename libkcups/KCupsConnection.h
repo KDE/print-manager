@@ -346,25 +346,18 @@ protected:
                                    const QVariantHash &reqValues,
                                    bool needResponse);
 
-    /**
-     * Just pass the list of event and this class will
-     * worry about renewing
-     */
-    int createDBusSubscription(const QStringList &events);
-
-    /**
-     * This is the most weird cups function, the DBus API
-     * is completely messy, and if we change the order of the attributes
-     * the call just fails. This is why we have a specific method
-     */
-    void removeDBusSubscription(int subscriptionId);
-
 private slots:
+    void updateSubscription();
     void renewDBusSubscription();
     void cancelDBusSubscription();
 
+protected:
+    virtual void connectNotify(const char *signal);
+    virtual void disconnectNotify(const char *signal);
+    QString eventForSignal(const char *signal) const;
+
 private:
-    KCupsConnection(QObject *parent = 0);
+    explicit KCupsConnection(QObject *parent = 0);
     /**
      * This is the most weird cups function, the DBus API
      * it is completely messy, and if we change the order of the attributes
@@ -386,8 +379,10 @@ private:
     bool m_inited;
     KCupsPasswordDialog *m_passwordDialog;
 
+    QTimer *m_subscriptionTimer;
     QTimer *m_renewTimer;
-    QMap<int, QStringList> m_requestedDBusEvents;
+    QStringList m_connectedEvents;
+    QStringList m_requestedDBusEvents;
     int m_subscriptionId;
 };
 

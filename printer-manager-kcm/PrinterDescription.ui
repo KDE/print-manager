@@ -112,6 +112,9 @@
        </item>
        <item>
         <widget class="QCheckBox" name="sharedCB">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="text">
           <string comment="@option:check">Share this printer</string>
          </property>

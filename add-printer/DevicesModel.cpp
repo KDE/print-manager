@@ -66,7 +66,7 @@ void DevicesModel::update()
     m_request->getDevices(5);
 
     // Adds the other device which is meant for manual URI input
-    insertDevice(QString(),
+    insertDevice("network",
                  QString(),
                  i18nc("@item", "Manual URI"),
                  QString(),

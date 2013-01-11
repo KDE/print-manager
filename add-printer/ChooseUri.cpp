@@ -34,6 +34,8 @@ ChooseUri::ChooseUri(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->searchTB->setIcon(KIcon("system-search"));
+
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
@@ -92,4 +94,14 @@ void ChooseUri::load()
 void ChooseUri::checkSelected()
 {
     emit allowProceed(isValid());
+}
+
+void ChooseUri::on_addressLE_textChanged(const QString &text)
+{
+    KUrl url(text);
+    if (url.isValid() && url.protocol().isEmpty()) {
+        ui->searchTB->setEnabled(true);
+    } else {
+        ui->searchTB->setEnabled(false);
+    }
 }

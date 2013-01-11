@@ -37,8 +37,7 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
     m_jobRequest(0),
     m_destName(destName),
     m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
-    m_parentId(parentId),
-    m_subscriptionId(-1)
+    m_parentId(parentId)
 {
     setHorizontalHeaderItem(ColStatus,        new QStandardItem(i18n("Status")));
     setHorizontalHeaderItem(ColName,          new QStandardItem(i18n("Name")));
@@ -103,8 +102,6 @@ PrintQueueModel::PrintQueueModel(const QString &destName, WId parentId, QObject 
             SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
             this,
             SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
-
-    createSubscription();
 
     // Get all jobs
     getJobs();
@@ -171,36 +168,6 @@ void PrintQueueModel::getJobFinished()
         kWarning() << "Should not be called from a non KCupsRequest class" << sender();
     }
     m_jobRequest = 0;
-}
-
-void PrintQueueModel::createSubscription()
-{
-    KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
-    QStringList events;
-    events << "job-state-changed";
-    events << "job-created";
-    events << "job-completed";
-    events << "job-stopped";
-    events << "job-state";
-    events << "job-config-changed";
-    events << "job-progress";
-    request->createDBusSubscription(events);
-}
-
-void PrintQueueModel::createSubscriptionFinished()
-{
-    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    if (!request || request->hasError() || request->subscriptionId() < 0) {
-        // in case of an error probe the server again in 1.5 seconds
-        QTimer::singleShot(1000, this, SLOT(createSubscription()));
-        request->deleteLater();
-        m_subscriptionId = -1;
-        return;
-    }
-
-    m_subscriptionId = request->subscriptionId();
-    request->deleteLater();
 }
 
 void PrintQueueModel::jobCompleted(const QString &text,

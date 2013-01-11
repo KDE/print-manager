@@ -46,8 +46,6 @@ public slots:
     void update();
 
 private slots:
-    void createSubscription();
-    void createSubscriptionFinished();
     void updatePrinter(const QString &printer);
     void updatePrinter(const QString &text,
                        const QString &printerUri,

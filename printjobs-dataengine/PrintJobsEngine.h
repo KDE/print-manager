@@ -46,8 +46,6 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
-    void createSubscription();
-    void createSubscriptionFinished();
     void getJobs();
     void getJobsFinished();
     void jobCompleted(const QString &text,
@@ -82,7 +80,6 @@ private:
 
     QStringList m_jobAttributes;
     KCupsRequest *m_jobRequest;
-    int m_subscriptionId;
 };
  
 #endif // PRINT_JOBS_ENGINE_H

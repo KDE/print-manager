@@ -31,8 +31,7 @@
 #include <KCupsJob.h>
  
 PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args) :
-    Plasma::DataEngine(parent, args),
-    m_subscriptionId(-1)
+    Plasma::DataEngine(parent, args)
 {
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
@@ -43,14 +42,10 @@ PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args) :
     m_printerAttributes << KCUPS_PRINTER_STATE_MESSAGE;
     // to get proper icons
     m_printerAttributes << KCUPS_PRINTER_TYPE;
-
-    createSubscription();
 }
 
 PrintersEngine::~PrintersEngine()
 {
-    KCupsRequest *request = new KCupsRequest;
-    request->cancelDBusSubscription(m_subscriptionId);
 }
 
 void PrintersEngine::init()
@@ -114,33 +109,6 @@ void PrintersEngine::init()
 Plasma::Service* PrintersEngine::serviceForSource(const QString &source)
 {
     return new PrintersService(this, source);
-}
-
-void PrintersEngine::createSubscription()
-{
-    KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
-    QStringList events;
-    events << "printer-added";
-    events << "printer-deleted";
-    events << "printer-state-changed";
-    events << "printer-modified";
-    request->createDBusSubscription(events);
-}
-
-void PrintersEngine::createSubscriptionFinished()
-{
-    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    if (!request || request->hasError() || request->subscriptionId() < 0) {
-        // in case of an error probe the server again in 1.5 seconds
-        QTimer::singleShot(1000, this, SLOT(createSubscription()));
-        request->deleteLater();
-        m_subscriptionId = -1;
-        return;
-    }
-
-    m_subscriptionId = request->subscriptionId();
-    request->deleteLater();
 }
 
 void PrintersEngine::getPrinters()

@@ -31,8 +31,7 @@
 #include <KCupsJob.h>
  
 PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args) :
-    Plasma::DataEngine(parent, args),
-    m_subscriptionId(-1)
+    Plasma::DataEngine(parent, args)
 {
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
@@ -53,14 +52,10 @@ PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args) :
     m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
     m_jobAttributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
     m_jobAttributes << KCUPS_JOB_PRESERVED;
-
-    createSubscription();
 }
 
 PrintJobsEngine::~PrintJobsEngine()
 {
-    KCupsRequest *request = new KCupsRequest;
-    request->cancelDBusSubscription(m_subscriptionId);
 }
 
 void PrintJobsEngine::init()
@@ -114,36 +109,6 @@ void PrintJobsEngine::init()
 Plasma::Service* PrintJobsEngine::serviceForSource(const QString &source)
 {
     return new PrintJobsService(this, source);
-}
-
-void PrintJobsEngine::createSubscription()
-{
-    KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(createSubscriptionFinished()));
-    QStringList events;
-    events << "job-state-changed";
-    events << "job-created";
-    events << "job-completed";
-    events << "job-stopped";
-    events << "job-state";
-    events << "job-config-changed";
-    events << "job-progress";
-    request->createDBusSubscription(events);
-}
-
-void PrintJobsEngine::createSubscriptionFinished()
-{
-    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    if (!request || request->hasError() || request->subscriptionId() < 0) {
-        // in case of an error probe the server again in 1.5 seconds
-        QTimer::singleShot(1000, this, SLOT(createSubscription()));
-        request->deleteLater();
-        m_subscriptionId = -1;
-        return;
-    }
-
-    m_subscriptionId = request->subscriptionId();
-    request->deleteLater();
 }
 
 void PrintJobsEngine::getJobs()

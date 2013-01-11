@@ -46,8 +46,6 @@ public:
     virtual Plasma::Service* serviceForSource(const QString &source);
 
 private slots:
-    void createSubscription();
-    void createSubscriptionFinished();
     void getPrinters();
     void getPrintersFinished();
     void insertUpdatePrinter(const QString &printerName);
@@ -70,7 +68,6 @@ private:
 
     QStringList m_printerAttributes;
     KCupsRequest *m_printersRequest;
-    int m_subscriptionId;
 };
  
 #endif // PRINT_MANAGER_ENGINE_H

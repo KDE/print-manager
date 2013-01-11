@@ -82,8 +82,6 @@ private slots:
     void getJobs();
     void getJobFinished();
 
-    void createSubscription();
-    void createSubscriptionFinished();
     void jobCompleted(const QString &text,
                       const QString &printerUri,
                       const QString &printerName,
@@ -120,7 +118,6 @@ private:
     int m_whichjobs;
     WId m_parentId;
     QStringList m_jobAttributes;
-    int m_subscriptionId;
 };
 
 #endif

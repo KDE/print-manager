@@ -120,11 +120,17 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     // Force the model update AFTER we setup the error signal
     m_model->update();
 
+    // Make sure we update our server settings if the user change it on
+    // another interface
+    connect(KCupsConnection::global(), SIGNAL(serverAudit(QString)), this, SLOT(getServerSettings()));
+    connect(KCupsConnection::global(), SIGNAL(serverRestarted(QString)), this, SLOT(getServerSettings()));
+    connect(KCupsConnection::global(), SIGNAL(serverStarted(QString)), this, SLOT(getServerSettings()));
+    connect(KCupsConnection::global(), SIGNAL(serverStopped(QString)), this, SLOT(getServerSettings()));
+
     // We need to know the server settings so we disable the
     // share printer checkbox if sharing is disabled on the server
     getServerSettings();
 }
-
 
 PrintKCM::~PrintKCM()
 {

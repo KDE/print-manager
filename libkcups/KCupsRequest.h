@@ -62,12 +62,6 @@ public:
     QString errorMsg() const;
 
     /**
-     * When renewDBusSubscription() is called the result is stored here
-     * @returns -1 when failed
-     */
-    int subscriptionId() const;
-
-    /**
      * Non empty when getPrinters is called and finish is emitted
      */
     KCupsPrinters printers() const;
@@ -159,21 +153,6 @@ public:
      * @return The return will be stored in \sa printers()
      */
     Q_INVOKABLE void getJobAttributes(int jobId, const QString &printerUri, QStringList attributes);
-
-    /**
-     * This makes KCupsConnection emit signals to the following
-     * events:
-     * "job-created"
-     * "job-completed"
-     * "job-state-changed"
-     * "job-state"
-     * "printer-added"
-     * "printer-deleted"
-     * "printer-state-changed"
-     */
-    Q_INVOKABLE void createDBusSubscription(const QStringList &events);
-
-    Q_INVOKABLE void cancelDBusSubscription(int subscriptionId);
 
     /**
      * Get the CUPS server settings
@@ -340,7 +319,6 @@ private:
     ReturnArguments m_ppds;
     KCupsServer m_server;
     QString m_ppdFile;
-    int m_subscriptionId;
     KCupsPrinters m_printers;
     KCupsJobs m_jobs;
 };

@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=Printers Engine
-Name[bs]=Pogon za štampače
+Name[bs]=Pogon štampača
 Name[ca]=Motor d'impressores
-Name[cs]=Stroj tiskáren
 Name[da]=Motor til printere
 Name[el]=Μηχανή εκτυπωτών
 Name[es]=Motor de impresoras
@@ -20,7 +19,6 @@ Name[pa]=ਪਰਿੰਟਰ ਇੰਜਣ
 Name[pl]=Silnik drukarek
 Name[pt]=Motor de Impressoras
 Name[pt_BR]=Mecanismo de impressoras
-Name[ro]=Motor pentru imprimante
 Name[sk]=Engine tlačiarní
 Name[sr]=Мотор штампача
 Name[sr@ijekavian]=Мотор штампача
@@ -28,7 +26,6 @@ Name[sr@ijekavianlatin]=Motor štampača
 Name[sr@latin]=Motor štampača
 Name[sv]=Utskriftsgränssnitt
 Name[uk]=Рушій керування принтерами
-Name[x-test]=xxPrinters Enginexx
 Name[zh_CN]=打印机引擎
 Name[zh_TW]=印表機引擎
 Type=Service

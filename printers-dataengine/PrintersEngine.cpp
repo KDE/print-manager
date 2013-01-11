@@ -36,6 +36,8 @@ PrintersEngine::PrintersEngine(QObject *parent, const QVariantList &args) :
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
 
+    KGlobal::insertCatalog(QLatin1String("print-manager"));
+
     m_printerAttributes << KCUPS_PRINTER_NAME;
     m_printerAttributes << KCUPS_PRINTER_INFO;
     m_printerAttributes << KCUPS_PRINTER_STATE;

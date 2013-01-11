@@ -36,6 +36,8 @@ PrintJobsEngine::PrintJobsEngine(QObject *parent, const QVariantList &args) :
     // We ignore any arguments - data engines do not have much use for them
     Q_UNUSED(args)
 
+    KGlobal::insertCatalog(QLatin1String("print-manager"));
+
     // Setup the attributes we want from jobs
     m_jobAttributes << KCUPS_JOB_ID;
     m_jobAttributes << KCUPS_JOB_NAME;

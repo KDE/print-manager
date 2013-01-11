@@ -45,7 +45,7 @@ public:
      * You must delete the object manually after finished
      * using deleteLater().
      */
-    KCupsRequest();
+    explicit KCupsRequest(KCupsConnection *connection = 0);
 
     /**
      * This method creates an event loop
@@ -312,6 +312,7 @@ private:
     void setError(ipp_status_t error, const QString &errorMsg);
     void setFinished(bool delayed = false);
 
+    KCupsConnection *m_connection;
     QEventLoop m_loop;
     bool m_finished;
     ipp_status_t m_error;

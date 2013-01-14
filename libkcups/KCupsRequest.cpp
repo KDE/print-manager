@@ -101,20 +101,39 @@ static void choose_device_cb(const char *device_class,           /* I - Class */
 
 void KCupsRequest::getDevices(int timeout)
 {
+    getDevices(timeout, QStringList(), QStringList());
+}
+
+void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes)
+{
     if (m_connection->readyToStart()) {
         do {
+            const char *include;
+            if (includeSchemes.isEmpty()) {
+                include = CUPS_INCLUDE_ALL;
+            } else {
+                include = includeSchemes.join(QLatin1String(",")).toUtf8();
+            }
+
+            const char *exclude;
+            if (excludeSchemes.isEmpty()) {
+                exclude = CUPS_EXCLUDE_NONE;
+            } else {
+                exclude = excludeSchemes.join(QLatin1String(",")).toUtf8();
+            }
+
             // Scan for devices for "timeout" seconds
             cupsGetDevices(m_connection->cupsConnection(),
                            timeout,
-                           CUPS_INCLUDE_ALL,
-                           CUPS_EXCLUDE_NONE,
+                           include,
+                           exclude,
                            (cups_device_cb_t) choose_device_cb,
                            this);
         } while (m_connection->retry("/admin/"));
         setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished(true);
     } else {
-        invokeMethod("getDevices", timeout);
+        invokeMethod("getDevices", timeout, includeSchemes, excludeSchemes);
     }
 }
 
@@ -640,6 +659,11 @@ ipp_status_t KCupsRequest::error() const
 QString KCupsRequest::errorMsg() const
 {
     return m_errorMsg;
+}
+
+KCupsConnection *KCupsRequest::connection() const
+{
+    return m_connection;
 }
 
 void KCupsRequest::setError(ipp_status_t error, const QString &errorMsg)

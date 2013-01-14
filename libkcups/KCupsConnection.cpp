@@ -293,7 +293,13 @@ void KCupsConnection::run()
     // Check if we need an special connection
     if (!m_serverUrl.isEmpty() && m_serverUrl.isValid()) {
         // Connect to a special server
-        m_connection = httpConnectEncrypt(m_serverUrl.host().toUtf8(), m_serverUrl.port(), HTTP_ENCRYPT_IF_REQUESTED);
+        int port = m_serverUrl.port();
+        if (port < 0) {
+            // TODO find out if there's a better way of hardcoding
+            // the CUPS port
+            port = 631;
+        }
+        m_connection = httpConnectEncrypt(m_serverUrl.host().toUtf8(), port, HTTP_ENCRYPT_IF_REQUESTED);
     }
 
     // This is dead cool, cups will call the thread_password_cb()

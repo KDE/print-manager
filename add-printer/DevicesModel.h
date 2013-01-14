@@ -45,7 +45,8 @@ public:
     typedef enum {
         Local,
         Networked,
-        OtherNetworked
+        OtherNetworked,
+        Other
     } Kind;
 
     DevicesModel(QObject *parent = 0);
@@ -57,6 +58,13 @@ signals:
 
 public slots:
     void update();
+    void insertDevice(const QString &device_class,
+                      const QString &device_id,
+                      const QString &device_info,
+                      const QString &device_make_and_model,
+                      const QString &device_uri,
+                      const QString &device_location,
+                      const QStringList &grouped_uris = QStringList());
 
 private slots:
     void gotDevice(const QString &device_class,
@@ -66,13 +74,6 @@ private slots:
                    const QString &device_uri,
                    const QString &device_location);
     void finished();
-    void insertDevice(const QString &device_class,
-                      const QString &device_id,
-                      const QString &device_info,
-                      const QString &device_make_and_model,
-                      const QString &device_uri,
-                      const QString &device_location,
-                      const QStringList &grouped_uris = QStringList());
     void getGroupedDevicesSuccess(const QDBusMessage &message);
     void getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message);
     void groupedDevicesFallback();

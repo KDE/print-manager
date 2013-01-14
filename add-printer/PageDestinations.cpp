@@ -64,6 +64,8 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
 
     ui->stackedWidget->addWidget(m_chooseUri);
     connect(m_chooseUri, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
+    connect(m_chooseUri, SIGNAL(insertDevice(QString,QString,QString,QString,QString,QString,QStringList)),
+            SLOT(insertDevice(QString,QString,QString,QString,QString,QString,QStringList)));
 
     m_chooseLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     ui->stackedWidget->addWidget(m_chooseLabel);
@@ -178,6 +180,7 @@ void PageDestinations::deviceUriChanged()
 
     // "beh" is excluded from the list
     QString deviceUri = args[KCUPS_DEVICE_URI].toString();
+    kDebug() << deviceUri;
     if (deviceUri.startsWith(QLatin1String("parallel"))) {
         m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
         setCurrentPage(m_chooseLabel, args);
@@ -247,6 +250,17 @@ void PageDestinations::deviceUriChanged()
     }
 
     emit allowProceed(canProceed());
+}
+
+void PageDestinations::insertDevice(const QString &device_class, const QString &device_id, const QString &device_info, const QString &device_make_and_model, const QString &device_uri, const QString &device_location, const QStringList &grouped_uris)
+{
+    m_model->insertDevice(device_class,
+                          device_id,
+                          device_info,
+                          device_make_and_model,
+                          device_uri,
+                          device_location,
+                          grouped_uris);
 }
 
 QVariantHash PageDestinations::selectedItemValues() const

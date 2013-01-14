@@ -61,6 +61,8 @@ public:
     QString serverError() const;
     QString errorMsg() const;
 
+    KCupsConnection* connection() const;
+
     /**
      * Non empty when getPrinters is called and finish is emitted
      */
@@ -97,7 +99,13 @@ public:
      * Get all devices that could be added as a printer
      * This method emits device()
      */
-    Q_INVOKABLE void getDevices(int timeout);
+    Q_INVOKABLE void getDevices(int timeout = CUPS_TIMEOUT_DEFAULT);
+
+    /**
+     * Get all devices that could be added as a printer
+     * This method emits device()
+     */
+    Q_INVOKABLE void getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes);
 
     /**
      * Get all available printers

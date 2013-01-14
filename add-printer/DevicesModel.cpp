@@ -35,7 +35,7 @@
 DevicesModel::DevicesModel(QObject *parent)
  : QStandardItemModel(parent),
    m_request(0),
-   m_rx("[a-z]+://?")
+   m_rx("[a-z]+://.*")
 {
     qDBusRegisterMetaType<MapSS>();
     qDBusRegisterMetaType<MapSMapSS>();
@@ -47,6 +47,14 @@ DevicesModel::DevicesModel(QObject *parent)
     m_blacklistedURIs << QLatin1String("scsi");
     m_blacklistedURIs << QLatin1String("http");
     m_blacklistedURIs << QLatin1String("delete");
+
+    // Adds the other device which is meant for manual URI input
+    insertDevice("other",
+                 QString(),
+                 i18nc("@item", "Manual URI"),
+                 QString(),
+                 "other",
+                 QString());
 }
 
 void DevicesModel::update()
@@ -56,22 +64,16 @@ void DevicesModel::update()
     }
 
     // clear the model to don't duplicate items
-    clear();
+    if (rowCount()) {
+        removeRows(1, rowCount() - 1);
+    }
     m_request = new KCupsRequest;
     connect(m_request, SIGNAL(device(QString,QString,QString,QString,QString,QString)),
             this, SLOT(gotDevice(QString,QString,QString,QString,QString,QString)));
     connect(m_request, SIGNAL(finished()), this, SLOT(finished()));
 
     // Get devices with 5 seconds of timeout
-    m_request->getDevices(5);
-
-    // Adds the other device which is meant for manual URI input
-    insertDevice("network",
-                 QString(),
-                 i18nc("@item", "Manual URI"),
-                 QString(),
-                 "other",
-                 QString());
+    m_request->getDevices(10);
 }
 
 
@@ -178,11 +180,13 @@ void DevicesModel::insertDevice(const QString &device_class,
             // just "http"
             kind = OtherNetworked;
         }
+    } else if (device_class == QLatin1String("other") &&
+               device_uri == QLatin1String("other")) {
+        kind = Other;
     } else {
         // If device class is not network assume local
         kind = Local;
     }
-    kDebug() << device_class << kind << device_uri;
 
     QString location;
     if (device_location.isEmpty() && kind == Local) {
@@ -249,16 +253,19 @@ void DevicesModel::insertDevice(const QString &device_class,
     switch (kind) {
     case Networked:
         catItem = findCreateCategory(i18nc("@item", "Discovered Network Printers"));
+        catItem->appendRow(stdItem);
         break;
     case OtherNetworked:
         catItem = findCreateCategory(i18nc("@item", "Other Network Printers"));
+        catItem->appendRow(stdItem);
+        break;
+    case Local:
+        catItem = findCreateCategory(i18nc("@item", "Local Printers"));
+        catItem->appendRow(stdItem);
         break;
     default:
-        catItem = findCreateCategory(i18nc("@item", "Local Printers"));
+        appendRow(stdItem);
     }
-
-    // Append the devie item to the row
-    catItem->appendRow(stdItem);
 }
 
 void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)

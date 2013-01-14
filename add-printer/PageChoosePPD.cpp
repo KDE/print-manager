@@ -25,13 +25,16 @@
 
 #include <KCupsRequest.h>
 
+#include <KTemporaryFile>
+
 #include <QStringBuilder>
 #include <KDebug>
 
 PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageChoosePPD),
-    m_isValid(false)
+    m_isValid(false),
+    m_ppdJob(0)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -72,6 +75,29 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         QString make;
         QString makeAndModel = args[KCUPS_DEVICE_MAKE_AND_MODEL].toString();
         QString deviceURI = args[KCUPS_DEVICE_URI].toString();
+
+        // If
+        KUrl url(deviceURI % QLatin1String(".ppd"));
+        if (url.protocol() == QLatin1String("ipp")) {
+            KTemporaryFile *tempFile = new KTemporaryFile;
+            tempFile->setPrefix("print-manager");
+            tempFile->setSuffix(".ppd");
+            tempFile->open();
+            if (m_ppdJob) {
+                m_ppdJob->deleteLater();
+            }
+            url.setProtocol(QLatin1String("http"));
+            if (url.port() < 0) {
+                url.setPort(631);
+            }
+            kDebug() << deviceURI << url;
+            m_ppdJob = KIO::file_copy(url,
+                                      tempFile->fileName(),
+                                      -1,
+                                      KIO::Overwrite | KIO::HideProgressInfo);
+            connect(m_ppdJob, SIGNAL(result(KJob*)),
+                    this, SLOT(resultJob(KJob*)));
+        }
 
         // Get the make from the device id
         foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
@@ -123,7 +149,9 @@ QVariantHash PageChoosePPD::values() const
     QVariantHash ret = m_args;
     if (canProceed()) {
         // TODO get the PPD file name
-        if (m_selectMM->isFileSelected()) {
+        if (m_ppdJob) {
+            ret[FILENAME] = m_ppdJob->destUrl().toLocalFile();
+        } else if (m_selectMM->isFileSelected()) {
             ret[FILENAME] = m_selectMM->selectedPPDFileName();
         } else {
             ret[PPD_NAME] = m_selectMM->selectedPPDName();
@@ -154,5 +182,12 @@ void PageChoosePPD::checkSelected()
 
 void PageChoosePPD::selectDefault()
 {
+}
 
+void PageChoosePPD::resultJob(KJob *job)
+{
+    KIO::FileCopyJob *fJob = qobject_cast<KIO::FileCopyJob*>(job);
+    if (!fJob->error()) {
+        emit proceed();
+    }
 }

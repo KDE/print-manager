@@ -23,6 +23,7 @@
 
 #include "GenericPage.h"
 
+#include <KCupsPrinter.h>
 #include <KUrl>
 
 #include <QLabel>
@@ -59,7 +60,7 @@ private slots:
                       const QString &device_make_and_model,
                       const QString &device_uri,
                       const QString &device_location,
-                      const QStringList &grouped_uris);
+                      const KCupsPrinters &grouped_printers);
 
 private:
     QString uriText(const QString &uri) const;

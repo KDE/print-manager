@@ -78,11 +78,21 @@ PageAddPrinter::~PageAddPrinter()
 void PageAddPrinter::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
-        QString name = args[KCUPS_DEVICE_MAKE_AND_MODEL].toString();
-        if (name.isEmpty()) {
+        QString name;
+        if (!args[KCUPS_PRINTER_NAME].toString().isEmpty()) {
+            name = args[KCUPS_PRINTER_NAME].toString();
+        } else if (!args[KCUPS_DEVICE_MAKE_AND_MODEL].toString().isEmpty()) {
+            name = args[KCUPS_DEVICE_MAKE_AND_MODEL].toString();
+        } else if (!args[KCUPS_DEVICE_INFO].toString().isEmpty()) {
             name = args[KCUPS_DEVICE_INFO].toString();
         }
-        ui->descriptionLE->setText(name);
+
+        if (!args[KCUPS_PRINTER_INFO].toString().isEmpty()) {
+            ui->descriptionLE->setText(args[KCUPS_PRINTER_INFO].toString());
+        } else {
+            ui->descriptionLE->setText(name);
+        }
+
         name.replace(QLatin1Char(' '), QLatin1Char('_'));
         name.replace(QLatin1Char('/'), QLatin1Char('-'));
         name.replace(QLatin1Char('#'), QLatin1Char('='));

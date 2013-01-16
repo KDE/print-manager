@@ -23,7 +23,6 @@
 
 #include "GenericPage.h"
 
-#include <SelectMakeModel.h>
 #include <QStackedLayout>
 
 #include <KIO/Job>
@@ -32,6 +31,7 @@ namespace Ui {
     class PageChoosePPD;
 }
 
+class SelectMakeModel;
 class PageChoosePPD : public GenericPage
 {
     Q_OBJECT
@@ -50,11 +50,13 @@ private slots:
     void resultJob(KJob *job);
 
 private:
+    void removeTempPPD();
+
     Ui::PageChoosePPD *ui;
     bool m_isValid;
-    KIO::FileCopyJob *m_ppdJob;
     SelectMakeModel *m_selectMM;
     QStackedLayout *m_layout;
+    QString m_ppdFile;
 };
 
 #endif

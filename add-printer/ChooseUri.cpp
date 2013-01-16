@@ -119,8 +119,6 @@ void ChooseUri::findPrinters()
 
     KCupsConnection *conn = new KCupsConnection(url, this);
     KCupsRequest *request = new KCupsRequest(conn);
-    connect(request, SIGNAL(device(QString,QString,QString,QString,QString,QString)),
-            this, SLOT(gotDevice(QString,QString,QString,QString,QString,QString)));
     connect(request, SIGNAL(finished()), this, SLOT(getPrintersFinished()));
 
     QStringList attr;
@@ -133,56 +131,35 @@ void ChooseUri::findPrinters()
     attr << KCUPS_PRINTER_INFO;
     attr << KCUPS_PRINTER_MAKE_AND_MODEL;
     request->setProperty("URI", url);
+
+    emit startWorking();
     request->getPrinters(attr);
-}
-
-void ChooseUri::gotDevice(const QString &device_class, const QString &device_id, const QString &device_info, const QString &device_make_and_model, const QString &device_uri, const QString &device_location)
-{
-    kDebug() << device_class;
-    // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
-    kDebug() << device_id;
-    // "Samsung SCX-4200 Series"
-    kDebug() << device_info;
-    // "Samsung SCX-4200 Series"
-    kDebug() << device_make_and_model;
-    // "usb://Samsung/SCX-4200%20Series"
-    kDebug() << device_uri;
-    // ""
-    kDebug() << device_location;
-
 }
 
 void ChooseUri::getPrintersFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    KUrl url = request->property("URI").value<KUrl>();
+    KUrl uri = request->property("URI").value<KUrl>();
+    KUrl url;
+    url.setProtocol(QLatin1String("ipp"));
+    url.setAuthority(uri.authority());
 
-    QStringList uris;
-    foreach (const KCupsPrinter &printer, request->printers()) {
-        KUrl printerURI;
-        printerURI.setProtocol(QLatin1String("ipp"));
-        printerURI.setAuthority(url.authority());
-        printerURI.addPath(QLatin1String("printers/") % printer.name());
-        uris << printerURI.url();
+    KCupsPrinters printers = request->printers();
+    if (request->hasError()) {
+        emit errorMessage(request->errorMsg());
+    } else {
+        emit insertDevice("network",
+                          url.authority(),
+                          url.authority(),
+                          QString(),
+                          url.url(),
+                          QString(),
+                          printers);
     }
-
-    emit insertDevice("network",
-                      url.authority(),
-                      url.authority(),
-                      QString(),
-                      url.url(),
-                      QString(),
-                      uris);
 
     request->deleteLater();
     request->connection()->deleteLater();
-}
-
-void ChooseUri::gotPPDFinished()
-{
-    kDebug();
-    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    kDebug() << request->printerPPD();
+    emit stopWorking();
 }
 
 KUrl ChooseUri::parsedURL(const QString &text) const

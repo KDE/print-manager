@@ -54,7 +54,7 @@ protected slots:
 
 protected:
     QVariantHash m_args;
-    bool m_working;
+    int m_working;
 };
 
 #endif

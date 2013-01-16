@@ -29,9 +29,6 @@
 #include "KCupsPrinter.h"
 #include "KCupsServer.h"
 
-typedef QList<KCupsPrinter> KCupsPrinters;
-typedef QList<KCupsJob> KCupsJobs;
-
 class KDE_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT

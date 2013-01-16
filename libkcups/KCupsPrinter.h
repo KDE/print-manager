@@ -87,4 +87,8 @@ private:
     QVariantHash m_arguments;
 };
 
+typedef QList<KCupsPrinter> KCupsPrinters;
+Q_DECLARE_METATYPE(KCupsPrinters)
+Q_DECLARE_METATYPE(KCupsPrinter)
+
 #endif // KCUPSPRINTER_H

@@ -123,7 +123,7 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
             }
 
             // Scan for devices for "timeout" seconds
-            cupsGetDevices(m_connection->cupsConnection(),
+            cupsGetDevices(CUPS_HTTP_DEFAULT,
                            timeout,
                            include,
                            exclude,
@@ -273,7 +273,7 @@ void KCupsRequest::getServerSettings()
             int num_settings;
             cups_option_t *settings;
             QVariantHash arguments;
-            cupsAdminGetServerSettings(m_connection->cupsConnection(), &num_settings, &settings);
+            cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
             for (int i = 0; i < num_settings; ++i) {
                 QString name = QString::fromUtf8(settings[i].name);
                 QString value = QString::fromUtf8(settings[i].value);
@@ -295,7 +295,7 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
     if (m_connection->readyToStart()) {
         do {
             const char  *filename;
-            filename = cupsGetPPD2(m_connection->cupsConnection(), printerName.toUtf8());
+            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, printerName.toUtf8());
             kDebug() << filename;
             m_ppdFile = filename;
             kDebug() << m_ppdFile;
@@ -324,7 +324,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
                 ++i;
             }
 
-            cupsAdminSetServerSettings(m_connection->cupsConnection(), num_settings, settings);
+            cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
             cupsFreeOptions(num_settings, settings);
         } while (m_connection->retry("/admin/"));
         setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
@@ -463,7 +463,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
             hold_option.name  = const_cast<char*>("job-hold-until");
             hold_option.value = const_cast<char*>("no-hold");
 
-            if ((job_id = cupsCreateJob(m_connection->cupsConnection(),
+            if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT,
                                         printerName.toUtf8(),
                                         title.toUtf8(),
                                         1,
@@ -475,19 +475,19 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
                 return;
             }
 
-            status = cupsStartDocument(m_connection->cupsConnection(),
+            status = cupsStartDocument(CUPS_HTTP_DEFAULT,
                                        printerName.toUtf8(),
                                        job_id,
                                        NULL,
                                        CUPS_FORMAT_COMMAND,
                                        1);
             if (status == HTTP_CONTINUE) {
-                status = cupsWriteRequestData(m_connection->cupsConnection(), command_file,
+                status = cupsWriteRequestData(CUPS_HTTP_DEFAULT, command_file,
                                               strlen(command_file));
             }
 
             if (status == HTTP_CONTINUE) {
-                cupsFinishDocument(m_connection->cupsConnection(), printerName.toUtf8());
+                cupsFinishDocument(CUPS_HTTP_DEFAULT, printerName.toUtf8());
             }
 
             setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));

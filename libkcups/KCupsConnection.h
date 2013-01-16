@@ -365,7 +365,6 @@ private slots:
     void cancelDBusSubscription();
 
 protected:
-    http_t* cupsConnection() const;
     virtual void connectNotify(const char *signal);
     virtual void disconnectNotify(const char *signal);
     QString eventForSignal(const char *signal) const;
@@ -393,7 +392,6 @@ private:
     bool m_inited;
     KCupsPasswordDialog *m_passwordDialog;
     KUrl m_serverUrl;
-    http_t *m_connection;
 
     QTimer *m_subscriptionTimer;
     QTimer *m_renewTimer;

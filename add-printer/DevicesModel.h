@@ -24,6 +24,8 @@
 #include <QStandardItemModel>
 #include <QDBusMessage>
 
+#include <KCupsPrinter.h>
+
 typedef QMap<QString, QString> MapSS;
 typedef QMap<QString, MapSS> MapSMapSS;
 
@@ -38,6 +40,7 @@ public:
         DeviceId,
         DeviceInfo,
         DeviceMakeAndModel,
+        DeviceUri,
         DeviceUris,
         DeviceLocation
     } Role;
@@ -65,8 +68,22 @@ public slots:
                       const QString &device_uri,
                       const QString &device_location,
                       const QStringList &grouped_uris = QStringList());
+    void insertDevice(const QString &device_class,
+                      const QString &device_id,
+                      const QString &device_info,
+                      const QString &device_make_and_model,
+                      const QString &device_uri,
+                      const QString &device_location,
+                      const KCupsPrinters &grouped_printers);
 
 private slots:
+    QStandardItem* createItem(const QString &device_class,
+                              const QString &device_id,
+                              const QString &device_info,
+                              const QString &device_make_and_model,
+                              const QString &device_uri,
+                              const QString &device_location,
+                              bool grouped);
     void gotDevice(const QString &device_class,
                    const QString &device_id,
                    const QString &device_info,

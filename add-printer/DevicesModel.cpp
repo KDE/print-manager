@@ -157,6 +157,48 @@ void DevicesModel::insertDevice(const QString &device_class,
                                 const QString &device_location,
                                 const QStringList &grouped_uris)
 {
+    QStandardItem *stdItem;
+    stdItem = createItem(device_class,
+                         device_id,
+                         device_info,
+                         device_make_and_model,
+                         device_uri,
+                         device_location,
+                         !grouped_uris.isEmpty());
+    if (!grouped_uris.isEmpty()) {
+        stdItem->setData(grouped_uris, DeviceUris);
+    }
+}
+
+void DevicesModel::insertDevice(const QString &device_class,
+                                const QString &device_id,
+                                const QString &device_info,
+                                const QString &device_make_and_model,
+                                const QString &device_uri,
+                                const QString &device_location,
+                                const KCupsPrinters &grouped_printers)
+{
+    QStandardItem *stdItem;
+    stdItem = createItem(device_class,
+                         device_id,
+                         device_info,
+                         device_make_and_model,
+                         device_uri,
+                         device_location,
+                         !grouped_printers.isEmpty());
+    if (!grouped_printers.isEmpty()) {
+        stdItem->setData(qVariantFromValue(grouped_printers), DeviceUris);
+    }
+}
+
+QStandardItem *DevicesModel::createItem(const QString &device_class,
+                                        const QString &device_id,
+                                        const QString &device_info,
+                                        const QString &device_make_and_model,
+                                        const QString &device_uri,
+                                        const QString &device_location,
+                                        bool grouped)
+{
     // "direct"
     kDebug() << device_class;
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
@@ -197,7 +239,7 @@ void DevicesModel::insertDevice(const QString &device_class,
 
     QString text;
     if (!device_make_and_model.isEmpty() &&
-            grouped_uris.isEmpty() &&
+            !grouped &&
             device_make_and_model.compare(QLatin1String("unknown"), Qt::CaseInsensitive)) {
         text = device_info % QLatin1String(" (") % device_make_and_model % QLatin1Char(')');
     } else {
@@ -205,7 +247,7 @@ void DevicesModel::insertDevice(const QString &device_class,
     }
 
     QString toolTip;
-    if (grouped_uris.isEmpty()) {
+    if (!grouped) {
         if (device_uri.startsWith(QLatin1String("parallel"))) {
             toolTip = i18nc("@info:tooltip",
                             "A printer connected to the parallel port");
@@ -240,12 +282,8 @@ void DevicesModel::insertDevice(const QString &device_class,
     stdItem->setData(device_class, DeviceClass);
     stdItem->setData(device_id, DeviceId);
     stdItem->setData(device_info, DeviceInfo);
+    stdItem->setData(device_uri, DeviceUri);
     stdItem->setData(device_make_and_model, DeviceMakeAndModel);
-    if (grouped_uris.isEmpty()) {
-        stdItem->setData(device_uri, DeviceUris);
-    } else {
-        stdItem->setData(grouped_uris, DeviceUris);
-    }
     stdItem->setData(device_location, DeviceLocation);
 
     // Find the proper category to our item
@@ -266,6 +304,8 @@ void DevicesModel::insertDevice(const QString &device_class,
     default:
         appendRow(stdItem);
     }
+
+    return stdItem;
 }
 
 void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
@@ -333,7 +373,7 @@ QStandardItem* DevicesModel::findCreateCategory(const QString &category)
     QFont font = catItem->font();
     font.setBold(true);
     catItem->setFont(font);
-    catItem->setSelectable(false);
+    catItem->setFlags(Qt::ItemIsEnabled);
     appendRow(catItem);
 
     // Emit the parent so the view expand the item

@@ -66,4 +66,8 @@ private:
     QVariantHash m_arguments;
 };
 
+typedef QList<KCupsJob> KCupsJobs;
+Q_DECLARE_METATYPE(KCupsJobs)
+Q_DECLARE_METATYPE(KCupsJob)
+
 #endif // KCUPSJOB_H

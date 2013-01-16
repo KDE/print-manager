@@ -33,6 +33,7 @@
 #include <NoSelectionRectDelegate.h>
 
 #include <QItemSelectionModel>
+#include <QStringBuilder>
 
 #include <KDebug>
 
@@ -52,20 +53,32 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
 
     ui->stackedWidget->addWidget(m_chooseLpd);
     connect(m_chooseLpd, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
+    connect(m_chooseLpd, SIGNAL(startWorking()), SLOT(working()));
+    connect(m_chooseLpd, SIGNAL(stopWorking()), SLOT(notWorking()));
 
     ui->stackedWidget->addWidget(m_chooseSamba);
     connect(m_chooseSamba, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
+    connect(m_chooseSamba, SIGNAL(startWorking()), SLOT(working()));
+    connect(m_chooseSamba, SIGNAL(stopWorking()), SLOT(notWorking()));
 
     ui->stackedWidget->addWidget(m_chooseSerial);
     connect(m_chooseSerial, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
+    connect(m_chooseSerial, SIGNAL(startWorking()), SLOT(working()));
+    connect(m_chooseSerial, SIGNAL(stopWorking()), SLOT(notWorking()));
 
     ui->stackedWidget->addWidget(m_chooseSocket);
     connect(m_chooseSocket, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
+    connect(m_chooseSocket, SIGNAL(startWorking()), SLOT(working()));
+    connect(m_chooseSocket, SIGNAL(stopWorking()), SLOT(notWorking()));
 
     ui->stackedWidget->addWidget(m_chooseUri);
     connect(m_chooseUri, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
-    connect(m_chooseUri, SIGNAL(insertDevice(QString,QString,QString,QString,QString,QString,QStringList)),
-            SLOT(insertDevice(QString,QString,QString,QString,QString,QString,QStringList)));
+    connect(m_chooseUri, SIGNAL(startWorking()), SLOT(working()));
+    connect(m_chooseUri, SIGNAL(stopWorking()), SLOT(notWorking()));
+    connect(m_chooseUri, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(setText(QString)));
+    connect(m_chooseUri, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(animatedShow()));
+    connect(m_chooseUri, SIGNAL(insertDevice(QString,QString,QString,QString,QString,QString,KCupsPrinters)),
+            SLOT(insertDevice(QString,QString,QString,QString,QString,QString,KCupsPrinters)));
 
     m_chooseLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     ui->stackedWidget->addWidget(m_chooseLabel);
@@ -155,17 +168,24 @@ void PageDestinations::deviceChanged()
     if (!selection->selectedIndexes().isEmpty() &&
             selection->selectedIndexes().size() == 1) {
         QModelIndex index = selection->selectedIndexes().first();
-        QVariant uri = index.data(DevicesModel::DeviceUris);
-        if (uri.type() == QVariant::String) {
+        QVariant uris = index.data(DevicesModel::DeviceUris);
+        if (uris.isNull()) {
             ui->connectionsGB->setVisible(false);
-        } else  {
+        } else if (uris.type() == QVariant::StringList) {
             ui->connectionsCB->clear();
-            foreach (const QString &uri, uri.toStringList()) {
+            foreach (const QString &uri, uris.toStringList()) {
                 ui->connectionsCB->addItem(uriText(uri), uri);
+            }
+            ui->connectionsGB->setVisible(true);
+        } else {
+            ui->connectionsCB->clear();
+            foreach (const KCupsPrinter &printer, uris.value<KCupsPrinters>()) {
+                ui->connectionsCB->addItem(printer.name(), qVariantFromValue(printer));
             }
             ui->connectionsGB->setVisible(true);
         }
     } else {
+        ui->connectionsGB->setVisible(false);
         setCurrentPage(0, selectedItemValues());
         return;
     }
@@ -252,7 +272,7 @@ void PageDestinations::deviceUriChanged()
     emit allowProceed(canProceed());
 }
 
-void PageDestinations::insertDevice(const QString &device_class, const QString &device_id, const QString &device_info, const QString &device_make_and_model, const QString &device_uri, const QString &device_location, const QStringList &grouped_uris)
+void PageDestinations::insertDevice(const QString &device_class, const QString &device_id, const QString &device_info, const QString &device_make_and_model, const QString &device_uri, const QString &device_location, const KCupsPrinters &grouped_printers)
 {
     m_model->insertDevice(device_class,
                           device_id,
@@ -260,7 +280,7 @@ void PageDestinations::insertDevice(const QString &device_class, const QString &
                           device_make_and_model,
                           device_uri,
                           device_location,
-                          grouped_uris);
+                          grouped_printers);
 }
 
 QVariantHash PageDestinations::selectedItemValues() const
@@ -269,17 +289,32 @@ QVariantHash PageDestinations::selectedItemValues() const
     if (!ui->devicesTV->selectionModel()->selectedIndexes().isEmpty() &&
             ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
         QModelIndex index = ui->devicesTV->selectionModel()->selectedIndexes().first();
-        QVariant uri = index.data(DevicesModel::DeviceUris);
+        QVariant uri = index.data(DevicesModel::DeviceUri);
+        QVariant uris = index.data(DevicesModel::DeviceUris);
         // if the devicesTV holds an item with grouped URIs
         // get the selected value from the connections combo box
-        if (uri.type() == QVariant::StringList) {
-            uri = ui->connectionsCB->itemData(ui->connectionsCB->currentIndex());
+        if (uris.isNull() || uris.type() == QVariant::StringList) {
+            if (uris.type() == QVariant::StringList) {
+                uri = ui->connectionsCB->itemData(ui->connectionsCB->currentIndex());
+            }
+            ret[KCUPS_DEVICE_URI] = uri;
+            ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
+            ret[KCUPS_DEVICE_MAKE_AND_MODEL] = index.data(DevicesModel::DeviceMakeAndModel);
+            ret[KCUPS_DEVICE_INFO] = index.data(DevicesModel::DeviceInfo);
+            ret[KCUPS_DEVICE_LOCATION] = index.data(DevicesModel::DeviceLocation);
+        } else {
+            QVariant aux = ui->connectionsCB->itemData(ui->connectionsCB->currentIndex());
+            KCupsPrinter printer = aux.value<KCupsPrinter>();
+            KUrl url = uri.toString();
+            url.setPath(QLatin1String("printers/") % printer.name());
+            ret[KCUPS_DEVICE_URI] = url.url();
+            ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
+            ret[KCUPS_PRINTER_INFO] = printer.info();
+            kDebug() << KCUPS_PRINTER_INFO << printer.info();
+            ret[KCUPS_PRINTER_NAME] = printer.name();
+            ret[KCUPS_DEVICE_LOCATION] = printer.location();
         }
-        ret[KCUPS_DEVICE_URI] = uri;
-        ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
-        ret[KCUPS_DEVICE_MAKE_AND_MODEL] = index.data(DevicesModel::DeviceMakeAndModel);
-        ret[KCUPS_DEVICE_INFO] = index.data(DevicesModel::DeviceInfo);
-        ret[KCUPS_DEVICE_LOCATION] = index.data(DevicesModel::DeviceLocation);
+        kDebug() << uri << ret;
     }
     return ret;
 }

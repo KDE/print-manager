@@ -78,9 +78,11 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     QMenu *systemMenu = new QMenu(this);
     connect(systemMenu, SIGNAL(aboutToShow()), this, SLOT(getServerSettings()));
     connect(systemMenu, SIGNAL(triggered(QAction*)), this, SLOT(systemPreferencesTriggered()));
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_showSharedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Show printers shared by other systems"));
     m_showSharedPrinters->setCheckable(true);
     systemMenu->addSeparator();
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_shareConnectedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Share printers connected to this system"));
     m_shareConnectedPrinters->setCheckable(true);
     m_allowPrintringFromInternet = systemMenu->addAction(i18nc("@action:intoolbar","Allow printing from the Internet"));
@@ -322,7 +324,9 @@ void PrintKCM::getServerSettingsFinished()
     // we can safely ignore the error since it DOES bring the server settings
     bool error = request->hasError() && request->error() != IPP_NOT_FOUND;
 
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_showSharedPrinters->setEnabled(!error);
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_shareConnectedPrinters->setEnabled(!error);
     m_allowRemoteAdmin->setEnabled(!error);
     m_allowUsersCancelAnyJob->setEnabled(!error);
@@ -335,7 +339,9 @@ void PrintKCM::getServerSettingsFinished()
     } else {
         KCupsServer server = request->serverSettings();
 
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
         m_showSharedPrinters->setChecked(server.showSharedPrinters());
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
         m_shareConnectedPrinters->setChecked(server.sharePrinters());
         m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
         m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
@@ -372,7 +378,9 @@ void PrintKCM::updateServerFinished()
 void PrintKCM::systemPreferencesTriggered()
 {
     KCupsServer server;
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     server.setShowSharedPrinters(m_showSharedPrinters->isChecked());
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     server.setSharePrinters(m_shareConnectedPrinters->isChecked());
     server.setAllowPrintingFromInternet(m_allowPrintringFromInternet->isChecked());
     server.setAllowRemoteAdmin(m_allowRemoteAdmin->isChecked());

@@ -477,7 +477,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         return renewDBusSubscription(-1, leaseDuration, events);
 #endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     } else {
-        kDebug() << "Request failed" << lastError();
+        kDebug() << "Request failed" << cupsLastError() << httpGetStatus(CUPS_HTTP_DEFAULT);
         // When the server stops/restarts we will have some error so ignore it
         ret = subscriptionId;
     }
@@ -1043,13 +1043,6 @@ bool KCupsConnection::retry(const char *resource)
 
     // the action was not forbidden
     return false;
-}
-
-ipp_status_t KCupsConnection::lastError()
-{
-    ipp_status_t status = cupsLastError();
-
-    return status;
 }
 
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)

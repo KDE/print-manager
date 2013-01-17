@@ -55,6 +55,7 @@ public:
      */
     bool hasError() const;
     ipp_status_t error() const;
+    http_status_t httpStatus() const;
     QString serverError() const;
     QString errorMsg() const;
 
@@ -314,13 +315,14 @@ private:
                       const QVariant &arg7 = QVariant(),
                       const QVariant &arg8 = QVariant());
     Q_INVOKABLE void doOperation(int operation, const QString &resource, const QVariantHash &request);
-    void setError(ipp_status_t error, const QString &errorMsg);
+    void setError(http_status_t httpStatus, ipp_status_t error, const QString &errorMsg);
     void setFinished(bool delayed = false);
 
     KCupsConnection *m_connection;
     QEventLoop m_loop;
     bool m_finished;
     ipp_status_t m_error;
+    http_status_t m_httpStatus;
     QString m_errorMsg;
     ReturnArguments m_ppds;
     KCupsServer m_server;

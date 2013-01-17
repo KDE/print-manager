@@ -49,7 +49,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(PrintKCMFactory::componentData(), parent, args),
     ui(new Ui::PrintKCM),
     m_lastError(-1), // Force the error to run on the first time
-    m_gotServerSettings(false),
     m_serverRequest(0)
 {
     KAboutData *aboutData;
@@ -319,15 +318,6 @@ void PrintKCM::getServerSettingsFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
 
-    // This is odd, when the server settings didn't change
-    // we get IPP_SERVICE_UNAVAILABLE and a message of "Not Modified"
-    // but we can't rely on the message since it's localized
-    kDebug() << request->errorMsg();
-    if (m_gotServerSettings == true && request->error() == IPP_SERVICE_UNAVAILABLE) {
-        request->deleteLater();
-        return;
-    }
-
     // When we don't have any destinations error is set to IPP_NOT_FOUND
     // we can safely ignore the error since it DOES bring the server settings
     bool error = request->hasError() && request->error() != IPP_NOT_FOUND;
@@ -344,7 +334,6 @@ void PrintKCM::getServerSettingsFinished()
                                    i18nc("@title:window", "Failed"));
     } else {
         KCupsServer server = request->serverSettings();
-        m_gotServerSettings = true;
 
         m_showSharedPrinters->setChecked(server.showSharedPrinters());
         m_shareConnectedPrinters->setChecked(server.sharePrinters());

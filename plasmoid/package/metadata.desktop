@@ -2,6 +2,7 @@
 Name=Manage Print Jobs
 Name[bs]=Upravaljaj poslovima štampe
 Name[ca]=Gestió de treballs d'impressió
+Name[ca@valencia]=Gestió de treballs d'impressió
 Name[cs]=Spravovat tiskové úlohy
 Name[da]=Håndtér udskriftsjob
 Name[de]=Druckaufträge verwalten
@@ -39,6 +40,7 @@ Name[zh_TW]=管理列印工作
 Comment=List print jobs and manage them
 Comment[bs]=Prikaži poslove štampe i upravljaj njima
 Comment[ca]=Llista els treballs d'impressió i els gestiona
+Comment[ca@valencia]=Llista els treballs d'impressió i els gestiona
 Comment[cs]=Vypsat tiskové úlohy a spravovat je
 Comment[da]=Vis udskriftsjob og håndtér dem
 Comment[de]=Druckaufträge anzeigen und verwalten

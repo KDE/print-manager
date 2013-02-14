@@ -22,20 +22,22 @@
 
 GenericPage::GenericPage(QWidget *parent) :
     QWidget(parent),
-    m_working(false)
+    m_working(0)
 {
 }
 
 void GenericPage::working()
 {
-    m_working = true;
-    emit startWorking();
+    if (m_working++ == 0) {
+        emit startWorking();
+    }
 }
 
 void GenericPage::notWorking()
 {
-    m_working = false;
-    emit stopWorking();
+    if (--m_working == 0) {
+        emit stopWorking();
+    }
 }
 
 QVariantHash GenericPage::values() const

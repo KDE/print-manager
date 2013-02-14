@@ -345,15 +345,6 @@ protected:
     virtual void run();
     bool readyToStart();
     bool retry(const char *resource);
-    /**
-      * Always use this method to get the last error
-      * because if the cups connection fails, the last
-      * error will be an internal error and we need
-      * to destroy this thread in order to recover
-      * from this error.
-      */
-    ipp_status_t lastError();
-
     ReturnArguments request(ipp_op_e operation,
                             const char *resource,
                             const QVariantHash &reqValues,
@@ -365,7 +356,6 @@ private slots:
     void cancelDBusSubscription();
 
 protected:
-    http_t* cupsConnection() const;
     virtual void connectNotify(const char *signal);
     virtual void disconnectNotify(const char *signal);
     QString eventForSignal(const char *signal) const;
@@ -393,7 +383,6 @@ private:
     bool m_inited;
     KCupsPasswordDialog *m_passwordDialog;
     KUrl m_serverUrl;
-    http_t *m_connection;
 
     QTimer *m_subscriptionTimer;
     QTimer *m_renewTimer;

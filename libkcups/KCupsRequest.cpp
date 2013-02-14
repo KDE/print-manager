@@ -69,7 +69,7 @@ void KCupsRequest::getPPDS(const QString &make)
                                        "/",
                                        request,
                                        true);
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getPPDS", make);
@@ -101,20 +101,39 @@ static void choose_device_cb(const char *device_class,           /* I - Class */
 
 void KCupsRequest::getDevices(int timeout)
 {
+    getDevices(timeout, QStringList(), QStringList());
+}
+
+void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes)
+{
     if (m_connection->readyToStart()) {
         do {
+            const char *include;
+            if (includeSchemes.isEmpty()) {
+                include = CUPS_INCLUDE_ALL;
+            } else {
+                include = includeSchemes.join(QLatin1String(",")).toUtf8();
+            }
+
+            const char *exclude;
+            if (excludeSchemes.isEmpty()) {
+                exclude = CUPS_EXCLUDE_NONE;
+            } else {
+                exclude = excludeSchemes.join(QLatin1String(",")).toUtf8();
+            }
+
             // Scan for devices for "timeout" seconds
-            cupsGetDevices(m_connection->cupsConnection(),
+            cupsGetDevices(CUPS_HTTP_DEFAULT,
                            timeout,
-                           CUPS_INCLUDE_ALL,
-                           CUPS_EXCLUDE_NONE,
+                           include,
+                           exclude,
                            (cups_device_cb_t) choose_device_cb,
                            this);
         } while (m_connection->retry("/admin/"));
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished(true);
     } else {
-        invokeMethod("getDevices", timeout);
+        invokeMethod("getDevices", timeout, includeSchemes, excludeSchemes);
     }
 }
 
@@ -147,7 +166,7 @@ void KCupsRequest::getPrinters(QStringList attributes, const QVariantHash &argum
             m_printers << KCupsPrinter(arguments);
         }
 
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getPrinters", qVariantFromValue(attributes), arguments);
@@ -176,7 +195,7 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
             m_printers << KCupsPrinter(args);
         }
 
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getPrinterAttributes", printerName, isClass, qVariantFromValue(attributes));
@@ -214,7 +233,7 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
             m_jobs << KCupsJob(arguments);
         }
 
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getJobs", printerName, myJobs, whichJobs, qVariantFromValue(attributes));
@@ -240,7 +259,7 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
             m_jobs << KCupsJob(arguments);
         }
 
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getJobAttributes", jobId, printerUri, qVariantFromValue(attributes));
@@ -254,17 +273,21 @@ void KCupsRequest::getServerSettings()
             int num_settings;
             cups_option_t *settings;
             QVariantHash arguments;
-            cupsAdminGetServerSettings(m_connection->cupsConnection(), &num_settings, &settings);
+            int ret = cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
             for (int i = 0; i < num_settings; ++i) {
                 QString name = QString::fromUtf8(settings[i].name);
                 QString value = QString::fromUtf8(settings[i].value);
                 arguments[name] = value;
             }
             cupsFreeOptions(num_settings, settings);
+            if (ret) {
+                setError(HTTP_OK, IPP_OK, QString());
+            } else {
+                setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+            }
 
             m_server = KCupsServer(arguments);
         } while (m_connection->retry("/admin/"));
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getServerSettings");
@@ -276,12 +299,12 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
     if (m_connection->readyToStart()) {
         do {
             const char  *filename;
-            filename = cupsGetPPD2(m_connection->cupsConnection(), printerName.toUtf8());
+            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, printerName.toUtf8());
             kDebug() << filename;
             m_ppdFile = filename;
             kDebug() << m_ppdFile;
         } while (m_connection->retry("/"));
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("getPrinterPPD", printerName);
@@ -305,10 +328,10 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
                 ++i;
             }
 
-            cupsAdminSetServerSettings(m_connection->cupsConnection(), num_settings, settings);
+            cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
             cupsFreeOptions(num_settings, settings);
         } while (m_connection->retry("/admin/"));
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("setServerSettings", qVariantFromValue(server));
@@ -444,35 +467,35 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
             hold_option.name  = const_cast<char*>("job-hold-until");
             hold_option.value = const_cast<char*>("no-hold");
 
-            if ((job_id = cupsCreateJob(m_connection->cupsConnection(),
+            if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT,
                                         printerName.toUtf8(),
                                         title.toUtf8(),
                                         1,
                                         &hold_option)) < 1) {
                 qWarning() << "Unable to send command to printer driver!";
 
-                setError(IPP_NOT_POSSIBLE, i18n("Unable to send command to printer driver!"));
+                setError(HTTP_OK, IPP_NOT_POSSIBLE, i18n("Unable to send command to printer driver!"));
                 setFinished();
                 return;
             }
 
-            status = cupsStartDocument(m_connection->cupsConnection(),
+            status = cupsStartDocument(CUPS_HTTP_DEFAULT,
                                        printerName.toUtf8(),
                                        job_id,
                                        NULL,
                                        CUPS_FORMAT_COMMAND,
                                        1);
             if (status == HTTP_CONTINUE) {
-                status = cupsWriteRequestData(m_connection->cupsConnection(), command_file,
+                status = cupsWriteRequestData(CUPS_HTTP_DEFAULT, command_file,
                                               strlen(command_file));
             }
 
             if (status == HTTP_CONTINUE) {
-                cupsFinishDocument(m_connection->cupsConnection(), printerName.toUtf8());
+                cupsFinishDocument(CUPS_HTTP_DEFAULT, printerName.toUtf8());
             }
 
-            setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
-            if (m_connection->lastError() >= IPP_REDIRECTION_OTHER_SITE) {
+            setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+            if (httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError() >= IPP_REDIRECTION_OTHER_SITE) {
                 qWarning() << "Unable to send command to printer driver!";
 
                 cupsCancelJob(printerName.toUtf8(), job_id);
@@ -480,7 +503,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
                 return; // Return to avoid a new try
             }
         } while (m_connection->retry("/"));
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("printCommand", printerName, command, title);
@@ -573,7 +596,7 @@ void KCupsRequest::invokeMethod(const char *method,
                                             QGenericArgument(arg7.typeName(), arg7.data()),
                                             QGenericArgument(arg8.typeName(), arg8.data()));
     if (m_finished) {
-        setError(IPP_BAD_REQUEST, i18n("Failed to invoke method: %1", method));
+        setError(HTTP_ERROR, IPP_BAD_REQUEST, i18n("Failed to invoke method: %1", method));
         setFinished();
     }
 }
@@ -586,7 +609,7 @@ void KCupsRequest::doOperation(int operation, const QString &resource, const QVa
                               request,
                               false);
 
-        setError(m_connection->lastError(), QString::fromUtf8(cupsLastErrorString()));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
         invokeMethod("doOperation", operation, resource, request);
@@ -637,13 +660,24 @@ ipp_status_t KCupsRequest::error() const
     return m_error;
 }
 
+http_status_t KCupsRequest::httpStatus() const
+{
+    return m_httpStatus;
+}
+
 QString KCupsRequest::errorMsg() const
 {
     return m_errorMsg;
 }
 
-void KCupsRequest::setError(ipp_status_t error, const QString &errorMsg)
+KCupsConnection *KCupsRequest::connection() const
 {
+    return m_connection;
+}
+
+void KCupsRequest::setError(http_status_t httpStatus, ipp_status_t error, const QString &errorMsg)
+{
+    m_httpStatus = httpStatus;
     m_error = error;
     m_errorMsg = errorMsg;
 }

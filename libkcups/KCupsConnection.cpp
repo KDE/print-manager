@@ -123,7 +123,6 @@ void KCupsConnection::init()
     // Creating the dialog before start() will make it run on the gui thread
     m_passwordDialog = new KCupsPasswordDialog;
     m_subscriptionId = -1;
-    m_connection = CUPS_HTTP_DEFAULT;
     m_inited = false;
 
     // setup the DBus subscriptions
@@ -291,9 +290,14 @@ void KCupsConnection::init()
 void KCupsConnection::run()
 {
     // Check if we need an special connection
-    if (!m_serverUrl.isEmpty() && m_serverUrl.isValid()) {
-        // Connect to a special server
-        m_connection = httpConnectEncrypt(m_serverUrl.host().toUtf8(), m_serverUrl.port(), HTTP_ENCRYPT_IF_REQUESTED);
+    if (!m_serverUrl.isEmpty()) {
+        if (m_serverUrl.port() < 0) {
+            // TODO find out if there's a better way of hardcoding
+            // the CUPS port
+            m_serverUrl.setPort(631);
+        }
+
+        cupsSetServer(m_serverUrl.authority().toUtf8());
     }
 
     // This is dead cool, cups will call the thread_password_cb()
@@ -376,9 +380,9 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
         // Do the request
         // do the request deleting the response
         if (filename.isEmpty()) {
-            response = cupsDoRequest(m_connection, request, resource);
+            response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource);
         } else {
-            response = cupsDoFileRequest(m_connection, request, resource, filename.toUtf8());
+            response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource, filename.toUtf8());
         }
     } while (retry(resource));
 
@@ -439,7 +443,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         }
 
         // Do the request
-        response = cupsDoRequest(m_connection, request, "/");
+        response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
     } while (retry("/"));
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
@@ -473,7 +477,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         return renewDBusSubscription(-1, leaseDuration, events);
 #endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     } else {
-        kDebug() << "Request failed" << lastError();
+        kDebug() << "Request failed" << cupsLastError() << httpGetStatus(CUPS_HTTP_DEFAULT);
         // When the server stops/restarts we will have some error so ignore it
         ret = subscriptionId;
     }
@@ -640,16 +644,11 @@ void KCupsConnection::cancelDBusSubscription()
                       "notify-subscription-id", m_subscriptionId);
 
         // Do the request
-        ippDelete(cupsDoRequest(m_connection, request, "/"));
+        ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/"));
     } while (retry("/"));
 
     // Reset the subscription id
     m_subscriptionId = -1;
-}
-
-http_t *KCupsConnection::cupsConnection() const
-{
-    return m_connection;
 }
 
 void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &values)
@@ -990,10 +989,10 @@ bool KCupsConnection::retry(const char *resource)
         kWarning() << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
         // TODO maybe reconnect is enough
-//        httpClearCookie(m_connection);
+//        httpClearCookie(CUPS_HTTP_DEFAULT);
 
         // Reconnect to CUPS
-        if (httpReconnect(m_connection)) {
+        if (httpReconnect(CUPS_HTTP_DEFAULT)) {
             kWarning() << "IPP_INTERNAL_ERROR: failed to reconnect";
             // Server might be restarting sleep for a few ms
             msleep(500);
@@ -1034,7 +1033,7 @@ bool KCupsConnection::retry(const char *resource)
     if (forceAuth) {
         // force authentication
         kDebug() << "cupsDoAuthentication() password_retries:" << password_retries;
-        int ret = cupsDoAuthentication(m_connection, "POST", resource);
+        int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
         kDebug() << "cupsDoAuthentication() success:" << (ret == -1 ? true : false);
 
         // If the authentication was succefull
@@ -1044,13 +1043,6 @@ bool KCupsConnection::retry(const char *resource)
 
     // the action was not forbidden
     return false;
-}
-
-ipp_status_t KCupsConnection::lastError()
-{
-    ipp_status_t status = cupsLastError();
-
-    return status;
 }
 
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)

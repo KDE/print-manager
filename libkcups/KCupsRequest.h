@@ -29,9 +29,6 @@
 #include "KCupsPrinter.h"
 #include "KCupsServer.h"
 
-typedef QList<KCupsPrinter> KCupsPrinters;
-typedef QList<KCupsJob> KCupsJobs;
-
 class KDE_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT
@@ -58,8 +55,11 @@ public:
      */
     bool hasError() const;
     ipp_status_t error() const;
+    http_status_t httpStatus() const;
     QString serverError() const;
     QString errorMsg() const;
+
+    KCupsConnection* connection() const;
 
     /**
      * Non empty when getPrinters is called and finish is emitted
@@ -97,7 +97,13 @@ public:
      * Get all devices that could be added as a printer
      * This method emits device()
      */
-    Q_INVOKABLE void getDevices(int timeout);
+    Q_INVOKABLE void getDevices(int timeout = CUPS_TIMEOUT_DEFAULT);
+
+    /**
+     * Get all devices that could be added as a printer
+     * This method emits device()
+     */
+    Q_INVOKABLE void getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes);
 
     /**
      * Get all available printers
@@ -309,13 +315,14 @@ private:
                       const QVariant &arg7 = QVariant(),
                       const QVariant &arg8 = QVariant());
     Q_INVOKABLE void doOperation(int operation, const QString &resource, const QVariantHash &request);
-    void setError(ipp_status_t error, const QString &errorMsg);
+    void setError(http_status_t httpStatus, ipp_status_t error, const QString &errorMsg);
     void setFinished(bool delayed = false);
 
     KCupsConnection *m_connection;
     QEventLoop m_loop;
     bool m_finished;
     ipp_status_t m_error;
+    http_status_t m_httpStatus;
     QString m_errorMsg;
     ReturnArguments m_ppds;
     KCupsServer m_server;

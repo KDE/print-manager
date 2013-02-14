@@ -49,7 +49,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(PrintKCMFactory::componentData(), parent, args),
     ui(new Ui::PrintKCM),
     m_lastError(-1), // Force the error to run on the first time
-    m_gotServerSettings(false),
     m_serverRequest(0)
 {
     KAboutData *aboutData;
@@ -83,9 +82,11 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     QMenu *systemMenu = new QMenu(this);
     connect(systemMenu, SIGNAL(aboutToShow()), this, SLOT(getServerSettings()));
     connect(systemMenu, SIGNAL(triggered(QAction*)), this, SLOT(systemPreferencesTriggered()));
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_showSharedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Show printers shared by other systems"));
     m_showSharedPrinters->setCheckable(true);
     systemMenu->addSeparator();
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_shareConnectedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Share printers connected to this system"));
     m_shareConnectedPrinters->setCheckable(true);
     m_allowPrintringFromInternet = systemMenu->addAction(i18nc("@action:intoolbar","Allow printing from the Internet"));
@@ -323,20 +324,13 @@ void PrintKCM::getServerSettingsFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
 
-    // This is odd, when the server settings didn't change
-    // we get IPP_SERVICE_UNAVAILABLE and a message of "Not Modified"
-    // but we can't rely on the message since it's localized
-    kDebug() << request->errorMsg();
-    if (m_gotServerSettings == true && request->error() == IPP_SERVICE_UNAVAILABLE) {
-        request->deleteLater();
-        return;
-    }
-
     // When we don't have any destinations error is set to IPP_NOT_FOUND
     // we can safely ignore the error since it DOES bring the server settings
     bool error = request->hasError() && request->error() != IPP_NOT_FOUND;
 
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_showSharedPrinters->setEnabled(!error);
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_shareConnectedPrinters->setEnabled(!error);
     m_allowRemoteAdmin->setEnabled(!error);
     m_allowUsersCancelAnyJob->setEnabled(!error);
@@ -348,9 +342,10 @@ void PrintKCM::getServerSettingsFinished()
                                    i18nc("@title:window", "Failed"));
     } else {
         KCupsServer server = request->serverSettings();
-        m_gotServerSettings = true;
 
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
         m_showSharedPrinters->setChecked(server.showSharedPrinters());
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
         m_shareConnectedPrinters->setChecked(server.sharePrinters());
         m_allowPrintringFromInternet->setChecked(server.allowPrintingFromInternet());
         m_allowRemoteAdmin->setChecked(server.allowRemoteAdmin());
@@ -387,7 +382,9 @@ void PrintKCM::updateServerFinished()
 void PrintKCM::systemPreferencesTriggered()
 {
     KCupsServer server;
+#if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     server.setShowSharedPrinters(m_showSharedPrinters->isChecked());
+#endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     server.setSharePrinters(m_shareConnectedPrinters->isChecked());
     server.setAllowPrintingFromInternet(m_allowPrintringFromInternet->isChecked());
     server.setAllowRemoteAdmin(m_allowRemoteAdmin->isChecked());

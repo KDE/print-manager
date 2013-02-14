@@ -23,6 +23,10 @@
 
 #include "GenericPage.h"
 
+#include <KCupsPrinter.h>
+
+#include <KUrl>
+
 namespace Ui {
     class ChooseUri;
 }
@@ -41,10 +45,25 @@ public:
 public slots:
     void load();
 
+signals:
+    void errorMessage(const QString &message);
+    void insertDevice(const QString &device_class,
+                      const QString &device_id,
+                      const QString &device_info,
+                      const QString &device_make_and_model,
+                      const QString &device_uri,
+                      const QString &device_location,
+                      const KCupsPrinters &grouped_printers);
+
 private slots:
     void checkSelected();
+    void on_addressLE_textChanged(const QString &text);
+    void findPrinters();
+    void getPrintersFinished();
 
 private:
+    KUrl parsedURL(const QString &text) const;
+
     Ui::ChooseUri *ui;
 };
 

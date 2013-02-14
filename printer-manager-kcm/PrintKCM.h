@@ -58,7 +58,6 @@ private:
     Ui::PrintKCM *ui;
     PrinterModel *m_model;
     int m_lastError;
-    bool m_gotServerSettings;
 
     KCupsRequest *m_serverRequest;
     QAction *m_showSharedPrinters;

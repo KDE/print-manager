@@ -21,16 +21,17 @@
 #ifndef PAGE_CHOOSE_PPD_H
 #define PAGE_CHOOSE_PPD_H
 
-
-#include <SelectMakeModel.h>
 #include "GenericPage.h"
 
 #include <QStackedLayout>
+
+#include <KIO/Job>
 
 namespace Ui {
     class PageChoosePPD;
 }
 
+class SelectMakeModel;
 class PageChoosePPD : public GenericPage
 {
     Q_OBJECT
@@ -46,12 +47,16 @@ public:
 private slots:
     void checkSelected();
     void selectDefault();
+    void resultJob(KJob *job);
 
 private:
+    void removeTempPPD();
+
     Ui::PageChoosePPD *ui;
     bool m_isValid;
     SelectMakeModel *m_selectMM;
     QStackedLayout *m_layout;
+    QString m_ppdFile;
 };
 
 #endif

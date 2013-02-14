@@ -43,6 +43,7 @@ kde4_add_executable(add-printer
 target_link_libraries(add-printer
     ${KDE4_KDEUI_LIBS}
     ${QT_QTNETWORK_LIBRARY}
+    ${KDE4_KIO_LIBS}
     kcupslib
 )
 

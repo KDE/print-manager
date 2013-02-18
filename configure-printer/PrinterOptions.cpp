@@ -46,6 +46,8 @@
 
 #include <KDebug>
 
+#include <ctype.h>
+
 #define DEFAULT_CHOICE "defaultChoice"
 
 PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent) :

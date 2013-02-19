@@ -4,7 +4,7 @@ Icon=printer
 Exec=kcmshell4 kcm_printer_manager
 
 X-KDE-Library=kcm_printer_manager
-X-KDE-ServiceTypes=KCModule,KCModuleInit
+X-KDE-ServiceTypes=KCModule
 X-KDE-System-Settings-Parent-Category=hardware
 X-KDE-System-Settings-Parent-Category-V2=hardware
 X-KDE-ParentApp=kcontrol

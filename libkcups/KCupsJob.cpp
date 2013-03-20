@@ -56,9 +56,14 @@ QString KCupsJob::name() const
     return m_arguments[KCUPS_JOB_NAME].toString();
 }
 
-QString KCupsJob::ownerName() const
+QString KCupsJob::originatingUserName() const
 {
     return m_arguments[KCUPS_JOB_ORIGINATING_USER_NAME].toString();
+}
+
+QString KCupsJob::originatingHostName() const
+{
+    return m_arguments[KCUPS_JOB_ORIGINATING_HOST_NAME].toString();
 }
 
 QString KCupsJob::printer() const

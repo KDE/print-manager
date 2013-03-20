@@ -36,8 +36,9 @@ public:
 
     int id() const;
     QString idStr() const;
-    QString name() const;
-    QString ownerName() const;
+    QString name() const;    
+    QString originatingUserName() const;
+    QString originatingHostName() const;
     QString printer() const;
     QDateTime createdAt() const;
     QDateTime completedAt() const;

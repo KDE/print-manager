@@ -76,6 +76,7 @@
 #define KCUPS_JOB_PRINTER_URI            "job-printer-uri"
 #define KCUPS_JOB_PRINTER_STATE_MESSAGE  "job-printer-state-message"
 #define KCUPS_JOB_ORIGINATING_USER_NAME  "job-originating-user-name"
+#define KCUPS_JOB_ORIGINATING_HOST_NAME  "job-originating-host-name"
 #define KCUPS_JOB_MEDIA_PROGRESS         "job-media-progress"
 #define KCUPS_JOB_MEDIA_SHEETS           "job-media-sheets"
 #define KCUPS_JOB_MEDIA_SHEETS_COMPLETED "job-media-sheets-completed"

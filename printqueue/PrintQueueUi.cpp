@@ -143,6 +143,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
         header->hideSection(PrintQueueModel::ColUser);
         header->hideSection(PrintQueueModel::ColCompleted);
         header->hideSection(PrintQueueModel::ColSize);
+        header->hideSection(PrintQueueModel::ColFromHost);
     }
 
     // This is emitted when a printer is modified

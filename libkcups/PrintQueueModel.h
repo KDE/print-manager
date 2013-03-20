@@ -48,7 +48,8 @@ public:
         RoleJobHoldEnabled,
         RoleJobReleaseEnabled,
         RoleJobRestartEnabled,
-        RoleJobPrinter
+        RoleJobPrinter,
+        RoleJobOriginatingHostName
     };
 
     enum JobAction {
@@ -69,6 +70,7 @@ public:
         ColSize,
         ColStatusMessage,
         ColPrinter,
+        ColFromHost,
         LastColumn
     };
 

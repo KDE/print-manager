@@ -51,6 +51,7 @@ PrintQueueModel::PrintQueueModel(QObject *parent) :
     setHorizontalHeaderItem(ColSize,          new QStandardItem(i18n("Size")));
     setHorizontalHeaderItem(ColStatusMessage, new QStandardItem(i18n("Status Message")));
     setHorizontalHeaderItem(ColPrinter,       new QStandardItem(i18n("Printer")));
+    setHorizontalHeaderItem(ColFromHost,      new QStandardItem(i18n("From Hostname")));
 
     // Setup the attributes we want from jobs
     m_jobAttributes << KCUPS_JOB_ID;
@@ -63,6 +64,7 @@ PrintQueueModel::PrintQueueModel(QObject *parent) :
     m_jobAttributes << KCUPS_TIME_AT_PROCESSING;
     m_jobAttributes << KCUPS_JOB_PRINTER_URI;
     m_jobAttributes << KCUPS_JOB_ORIGINATING_USER_NAME;
+    m_jobAttributes << KCUPS_JOB_ORIGINATING_HOST_NAME;
     m_jobAttributes << KCUPS_JOB_MEDIA_PROGRESS;
     m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS;
     m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
@@ -83,6 +85,7 @@ PrintQueueModel::PrintQueueModel(QObject *parent) :
     roles[RoleJobReleaseEnabled] = "jobReleaseEnabled";
     roles[RoleJobRestartEnabled] = "jobRestartEnabled";
     roles[RoleJobPrinter] = "jobPrinter";
+    roles[RoleJobOriginatingHostName] = "jobFrom";
     setRoleNames(roles);
 
     // This is emitted when a job change it's state
@@ -305,7 +308,8 @@ void PrintQueueModel::insertJob(int pos, const KCupsJob &job)
     statusItem->setData(jobState, RoleJobState);
     statusItem->setData(job.id(), RoleJobId);
     statusItem->setData(job.name(), RoleJobName);
-    statusItem->setData(job.ownerName(), RoleJobOwner);
+    statusItem->setData(job.originatingUserName(), RoleJobOwner);
+    statusItem->setData(job.originatingHostName(), RoleJobOriginatingHostName);
     QString size = KGlobal::locale()->formatByteSize(job.size());
     statusItem->setData(size, RoleJobSize);
     QString createdAt = KGlobal::locale()->formatDateTime(job.createdAt());
@@ -379,7 +383,7 @@ void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
 
     // owner of the job
     // try to get the full user name
-    QString userString = job.ownerName();
+    QString userString = job.originatingUserName();
     KUser user(userString);
     if (user.isValid() && !user.property(KUser::FullName).toString().isEmpty()) {
         userString = user.property(KUser::FullName).toString();
@@ -436,6 +440,13 @@ void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
     QString stateMessage = job.stateMsg();
     if (item(pos, ColStatusMessage)->text() != stateMessage) {
         item(pos, ColStatusMessage)->setText(stateMessage);
+    }
+
+    // owner of the job
+    // try to get the full user name
+    QString originatingHostName = job.originatingHostName();
+    if (item(pos, ColFromHost)->text() != originatingHostName) {
+        item(pos, ColFromHost)->setText(originatingHostName);
     }
 }
 

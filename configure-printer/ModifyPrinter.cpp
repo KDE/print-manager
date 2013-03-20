@@ -260,33 +260,34 @@ void ModifyPrinter::save()
         }
         kDebug() << fileName;
 
-        KCupsRequest *request = new KCupsRequest;
+        QPointer<KCupsRequest> request = new KCupsRequest;
         if (m_isClass) {
             request->addOrModifyClass(m_destName, args);
         } else {
             request->addOrModifyPrinter(m_destName, args, fileName);
         }
         request->waitTillFinished();
+        if (request) {
+            if (!request->hasError()) {
+                if (m_changedValues.contains("ppd-name")) {
+                    emit ppdChanged();
+                }
+                request->getPrinterAttributes(m_destName, m_isClass, neededValues());
+                request->waitTillFinished();
 
-        if (!request->hasError()) {
-            if (m_changedValues.contains("ppd-name")) {
-                emit ppdChanged();
+                if (!request->hasError() && !request->printers().isEmpty()) {
+                    KCupsPrinter printer = request->printers().first();
+                    setValues(printer);
+                }
+            } else {
+                KMessageBox::detailedSorry(this,
+                                           m_isClass ? i18nc("@info", "Failed to configure class") :
+                                                       i18nc("@info", "Failed to configure printer"),
+                                           request->errorMsg(),
+                                           i18nc("@title:window", "Failed"));
             }
-            request->getPrinterAttributes(m_destName, m_isClass, neededValues());
-            request->waitTillFinished();
-
-            if (!request->hasError() && !request->printers().isEmpty()) {
-                KCupsPrinter printer = request->printers().first();
-                setValues(printer);
-            }
-        } else {
-            KMessageBox::detailedSorry(this,
-                                       m_isClass ? i18nc("@info", "Failed to configure class") :
-                                                   i18nc("@info", "Failed to configure printer"),
-                                       request->errorMsg(),
-                                       i18nc("@title:window", "Failed"));
+            request->deleteLater();
         }
-        request->deleteLater();
     }
 }
 

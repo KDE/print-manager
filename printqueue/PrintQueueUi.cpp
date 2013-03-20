@@ -303,12 +303,15 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             QMenu *moveToMenu = new QMenu(i18n("Move to"), this);
 
             // get printers we can move to
-            KCupsRequest *request = new KCupsRequest;
+            QPointer<KCupsRequest> request = new KCupsRequest;
             QStringList attr;
             attr << KCUPS_PRINTER_NAME;
             attr << KCUPS_PRINTER_INFO;
             request->getPrinters(attr);
             request->waitTillFinished();
+            if (!request) {
+                return;
+            }
             KCupsPrinters printers = request->printers();
             request->deleteLater();
 
@@ -520,7 +523,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
 void PrintQueueUi::pausePrinter()
 {
     // STOP and RESUME printer
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     if (m_printerPaused) {
         kDebug() << m_destName << "m_printerPaused";
         request->resumePrinter(m_destName);
@@ -529,7 +532,9 @@ void PrintQueueUi::pausePrinter()
         request->pausePrinter(m_destName);
     }
     request->waitTillFinished();
-    request->deleteLater();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 void PrintQueueUi::configurePrinter()

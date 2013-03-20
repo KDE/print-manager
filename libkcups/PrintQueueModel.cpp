@@ -499,21 +499,22 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
             continue;
         }
 
-        KCupsRequest *request = new KCupsRequest;
+        QPointer<KCupsRequest> request = new KCupsRequest;
         request->moveJob(fromDestName, jobId, m_destName);
         request->waitTillFinished();
-        request->deleteLater(); // TODO can it be deleted here?
-        if (request->hasError()) {
-            // failed to move one job
-            // we return here to avoid more password tries
-            KMessageBox::detailedSorryWId(m_parentId,
-                                          i18n("Failed to move '%1' to '%2'",
-                                               displayName, m_destName),
-                                          request->errorMsg(),
-                                          i18n("Failed"));
-            return false;
+        if (request) {
+            if (request->hasError()) {
+                // failed to move one job
+                // we return here to avoid more password tries
+                KMessageBox::detailedSorryWId(m_parentId,
+                                              i18n("Failed to move '%1' to '%2'",
+                                                   displayName, m_destName),
+                                              request->errorMsg(),
+                                              i18n("Failed"));
+            }
+            request->deleteLater();
+            ret = !request->hasError();
         }
-        ret = true;
     }
     return ret;
 }

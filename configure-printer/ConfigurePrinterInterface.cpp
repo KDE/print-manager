@@ -67,9 +67,12 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
         att << KCUPS_PRINTER_NAME;
         att << KCUPS_PRINTER_TYPE;
         // Get destinations with these attributes
-        KCupsRequest *request = new KCupsRequest;
+        QPointer<KCupsRequest> request = new KCupsRequest;
         request->getPrinters(att);
         request->waitTillFinished();
+        if (!request) {
+            return;
+        }
 
         bool found = false;
         KCupsPrinter printer;

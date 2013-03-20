@@ -130,9 +130,12 @@ void NewPrinterNotification::NewPrinter(int status,
         attr << KCUPS_PRINTER_MAKE_AND_MODEL;
 
         // Get the new printer attributes
-        KCupsRequest *request = new KCupsRequest;
+        QPointer<KCupsRequest> request = new KCupsRequest;
         request->getPrinterAttributes(name, false, attr);
         request->waitTillFinished();
+        if (!request) {
+            return;
+        }
 
         QString driver;
         // Get the new printer driver
@@ -146,6 +149,9 @@ void NewPrinterNotification::NewPrinter(int status,
         request = new KCupsRequest;
         request->getPrinterPPD(name);
         request->waitTillFinished();
+        if (!request) {
+            return;
+        }
         ppdFileName = request->printerPPD();
         request->deleteLater();
 
@@ -238,10 +244,12 @@ void NewPrinterNotification::searchDrivers()
 void NewPrinterNotification::printTestPage()
 {
     kDebug();
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->printTestPage(sender()->property(PRINTER_NAME).toString(), false);
     request->waitTillFinished();
-    request->deleteLater();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 void NewPrinterNotification::findDriver()

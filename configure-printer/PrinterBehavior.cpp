@@ -269,22 +269,24 @@ void PrinterBehavior::save()
                 }
             }
         }
-        KCupsRequest *request = new KCupsRequest;
+        QPointer<KCupsRequest> request = new KCupsRequest;
         if (m_isClass) {
             request->addOrModifyClass(m_destName, changedValues);
         } else {
             request->addOrModifyPrinter(m_destName, changedValues);
         }
         request->waitTillFinished();
-        if (!request->hasError()) {
-            request->getPrinterAttributes(m_destName, m_isClass, neededValues());
-            request->waitTillFinished();
-            if (!request->hasError() && !request->printers().isEmpty()){
-                KCupsPrinter printer = request->printers().first();
-                setValues(printer);
+        if (request) {
+            if (!request->hasError()) {
+                request->getPrinterAttributes(m_destName, m_isClass, neededValues());
+                request->waitTillFinished();
+                if (request && !request->hasError() && !request->printers().isEmpty()){
+                    KCupsPrinter printer = request->printers().first();
+                    setValues(printer);
+                }
             }
+            request->deleteLater();
         }
-        request->deleteLater();
     }
 }
 

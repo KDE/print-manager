@@ -64,10 +64,12 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
 
 void PrinterOptions::on_autoConfigurePB_clicked()
 {
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
     request->waitTillFinished();
-    request->deleteLater();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 void PrinterOptions::reloadPPD()
@@ -97,9 +99,12 @@ void PrinterOptions::reloadPPD()
     m_customValues.clear();
     emit changed(false);
 
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->getPrinterPPD(m_destName);
     request->waitTillFinished();
+    if (!request) {
+        return;
+    }
     m_filename = request->printerPPD();
     m_ppd = ppdOpenFile(m_filename.toUtf8());
     request->deleteLater();
@@ -758,7 +763,7 @@ void PrinterOptions::save()
     }
 
     QVariantHash values; // we need null values
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     if (m_isClass) {
         request->addOrModifyClass(m_destName, values);
     } else {
@@ -771,28 +776,31 @@ void PrinterOptions::save()
     // finishes we will set the current options as default
     setEnabled(false);
     request->waitTillFinished();
-    setEnabled(true);
-    if (!request->hasError()) {
-        // if we succefully save the new ppd we need now to
-        // clear our changes
-        QHash<QString, QObject*>::const_iterator i = m_customValues.constBegin();
-        while (i != m_customValues.constEnd()) {
-            QString currentChoice;
-            currentChoice = i.value()->property("currentChoice").toString();
-            // Store the current choice as the default one
-            i.value()->setProperty(DEFAULT_CHOICE, currentChoice);
-            i.value()->setProperty("currentChoice", QVariant());
-            i.value()->setProperty("different", false);
-            ++i;
-        }
-        m_changes = 0;
-        m_customValues.clear();
-        emit changed(false);
-    }
-    request->deleteLater();
 
     // unlink the file
     unlink(tempfile);
+
+    if (request) {
+        setEnabled(true);
+        if (!request->hasError()) {
+            // if we succefully save the new ppd we need now to
+            // clear our changes
+            QHash<QString, QObject*>::const_iterator i = m_customValues.constBegin();
+            while (i != m_customValues.constEnd()) {
+                QString currentChoice;
+                currentChoice = i.value()->property("currentChoice").toString();
+                // Store the current choice as the default one
+                i.value()->setProperty(DEFAULT_CHOICE, currentChoice);
+                i.value()->setProperty("currentChoice", QVariant());
+                i.value()->setProperty("different", false);
+                ++i;
+            }
+            m_changes = 0;
+            m_customValues.clear();
+            emit changed(false);
+        }
+        request->deleteLater();
+    }
 }
 
 bool PrinterOptions::hasChanges()

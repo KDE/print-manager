@@ -33,6 +33,8 @@
 #include <KDebug>
 
 #include <QList>
+#include <QPointer>
+
 Q_DECLARE_METATYPE(QList<int>)
 
 ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent) :
@@ -58,9 +60,12 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     attr << KCUPS_PRINTER_MAKE_AND_MODEL;
 
     KCupsPrinter printer;
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->getPrinterAttributes(destName, isClass, attr);
     request->waitTillFinished();
+    if (!request) {
+        return;
+    }
     if (!request->hasError() && !request->printers().isEmpty()){
         printer = request->printers().first();
     }

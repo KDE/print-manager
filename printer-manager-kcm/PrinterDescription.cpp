@@ -91,28 +91,32 @@ void PrinterDescription::on_openQueuePB_clicked()
 void PrinterDescription::on_defaultCB_clicked()
 {
     bool isDefault = ui->defaultCB->isChecked();
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->setDefaultPrinter(m_destName);
     request->waitTillFinished();
-    setIsDefault(request->hasError() ? !isDefault : isDefault);
-    request->deleteLater();
+    if (request) {
+        setIsDefault(request->hasError() ? !isDefault : isDefault);
+        request->deleteLater();
+    }
 }
 
 void PrinterDescription::on_sharedCB_clicked()
 {
     bool shared = ui->sharedCB->isChecked();
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->setShared(m_destName, m_isClass, shared);
     request->waitTillFinished();
-    setIsShared(request->hasError() ? !shared : shared);
-    request->deleteLater();
+    if (request) {
+        setIsShared(request->hasError() ? !shared : shared);
+        request->deleteLater();
+    }
 }
 
 void PrinterDescription::on_rejectPrintJobsCB_clicked()
 {
     bool accepting = !ui->rejectPrintJobsCB->isChecked();
     kDebug() << accepting;
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     if (accepting) {
         request->acceptJobs(m_destName);
     } else {
@@ -120,8 +124,10 @@ void PrinterDescription::on_rejectPrintJobsCB_clicked()
 
     }
     request->waitTillFinished();
-    setAcceptingJobs(request->hasError() ? !accepting : accepting);
-    request->deleteLater();
+    if (request) {
+        setAcceptingJobs(request->hasError() ? !accepting : accepting);
+        request->deleteLater();
+    }
 }
 
 void PrinterDescription::setPrinterIcon(const QIcon &icon)
@@ -239,28 +245,34 @@ void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
     Q_UNUSED(checked)
     // TODO Show a msg box if failed
 
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->printTestPage(m_destName, m_isClass);
     request->waitTillFinished();
-    request->deleteLater();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
     request->waitTillFinished();
-    request->deleteLater();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     request->printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
     request->waitTillFinished();
-    request->deleteLater();
+    if (request) {
+        request->deleteLater();
+    }
 }
 
 QString PrinterDescription::destName() const

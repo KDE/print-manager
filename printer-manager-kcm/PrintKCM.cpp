@@ -298,10 +298,12 @@ void PrintKCM::on_removeTB_clicked()
         }
         resp = KMessageBox::warningYesNo(this, msg, title);
         if (resp == KMessageBox::Yes) {
-            KCupsRequest *request = new KCupsRequest;
+            QPointer<KCupsRequest> request = new KCupsRequest;
             request->deletePrinter(index.data(PrinterModel::DestName).toString());
             request->waitTillFinished();
-            request->deleteLater();
+            if (request) {
+                request->deleteLater();
+            }
         }
     }
 }

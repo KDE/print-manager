@@ -62,9 +62,12 @@ void PrintQueueInterface::ShowQueue(const QString &destName)
         attr << KCUPS_PRINTER_NAME;
         attr << KCUPS_PRINTER_TYPE;
         // Get destinations with these attributes
-        KCupsRequest *request = new KCupsRequest;
+        QPointer<KCupsRequest> request = new KCupsRequest;
         request->getPrinters(attr);
         request->waitTillFinished();
+        if (!request) {
+            return;
+        }
 
         bool found = false;
         KCupsPrinter printer;

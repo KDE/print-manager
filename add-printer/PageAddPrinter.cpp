@@ -124,7 +124,7 @@ bool PageAddPrinter::finishClicked()
     QString destName = args[KCUPS_PRINTER_NAME].toString();
     QString filename = args.take(FILENAME).toString();
 
-    KCupsRequest *request = new KCupsRequest;
+    QPointer<KCupsRequest> request = new KCupsRequest;
     if (isClass) {
         args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
         args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
@@ -132,22 +132,23 @@ bool PageAddPrinter::finishClicked()
     } else {
         request->addOrModifyPrinter(destName, args, filename);
     }
-
     request->waitTillFinished();
-    if (request->hasError()) {
-        kDebug() << request->error() << request->errorMsg();
-        QString message;
-        if (isClass) {
-            message = i18nc("@info", "Failed to add class: '%1'", request->errorMsg());
+    if (request) {
+        if (request->hasError()) {
+            kDebug() << request->error() << request->errorMsg();
+            QString message;
+            if (isClass) {
+                message = i18nc("@info", "Failed to add class: '%1'", request->errorMsg());
+            } else {
+                message = i18nc("@info", "Failed to configure printer: '%1'", request->errorMsg());
+            }
+            ui->messageWidget->setText(message);
+            ui->messageWidget->animatedShow();
         } else {
-            message = i18nc("@info", "Failed to configure printer: '%1'", request->errorMsg());
+            ret = true;
         }
-        ui->messageWidget->setText(message);
-        ui->messageWidget->animatedShow();
-    } else {
-        ret = true;
+        request->deleteLater();
     }
-    request->deleteLater();
 
     return ret;
 }

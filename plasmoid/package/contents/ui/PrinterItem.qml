@@ -89,18 +89,32 @@ Item {
             width: parent.width - printerIcon.width - switchAction.width - parent.spacing * 2
             anchors.verticalCenter: parent.verticalCenter
             spacing: padding.margins.top/2
-            PlasmaComponents.Label {
-                id: printerLabel
+            Row {
+                id: nameRow
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: paintedHeight
-                elide: Text.ElideRight
-                text: info
+                spacing: 4
+                PlasmaComponents.Label {
+                    id: printerLabel
+                    height: paintedHeight
+                    elide: Text.ElideRight
+                    text: printerName
+                }
+                PlasmaComponents.Label {
+                    id: printerDescription
+                    width: parent.width - printerLabel.paintedWidth
+                    height: parent.height
+                    elide: Text.ElideRight
+                    verticalAlignment: Text.AlignBottom
+                    font.pointSize: theme.smallestFont.pointSize
+                    color: "#99"+(theme.textColor.toString().substr(1))
+                    text: info
+                }
             }
             PlasmaComponents.Label {
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: printerLabel.height
+                height: nameRow.height
                 verticalAlignment: Text.AlignTop
                 text: stateMessage
                 elide: Text.ElideRight

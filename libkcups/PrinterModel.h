@@ -48,7 +48,8 @@ public:
         DestCommands,
         DestMarkerChangeTime,
         DestMarkers,
-        DestIconName
+        DestIconName,
+        DestRemote
     };
 
     enum JobAction {

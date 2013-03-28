@@ -71,6 +71,7 @@ PrinterModel::PrinterModel(QObject *parent) :
     roles[DestMarkerChangeTime] = "markerChangeTime";
     roles[DestMarkers] = "markers";
     roles[DestIconName] = "iconName";
+    roles[DestRemote] = "remote";
     setRoleNames(roles);
 
     // This is emitted when a printer is added
@@ -298,6 +299,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     uint printerType = printer.type();
     if (printerType != destItem->data(DestType)) {
         destItem->setData(printerType, DestType);
+        destItem->setData(printerType & CUPS_PRINTER_REMOTE, DestRemote);
     }
 
     // store the printer location

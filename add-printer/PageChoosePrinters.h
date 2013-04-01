@@ -31,7 +31,7 @@ class PageChoosePrinters : public GenericPage
 {
     Q_OBJECT
 public:
-    PageChoosePrinters(const QVariantHash &args, QWidget *parent = 0);
+    explicit PageChoosePrinters(const QVariantHash &args, QWidget *parent = 0);
     ~PageChoosePrinters();
 
     void setValues(const QVariantHash &args);

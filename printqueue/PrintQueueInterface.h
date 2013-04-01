@@ -28,7 +28,7 @@ class PrintQueueInterface : public QObject, protected QDBusContext
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.PrintQueue")
 public:
-    PrintQueueInterface(QObject *parent = 0);
+    explicit PrintQueueInterface(QObject *parent = 0);
     ~PrintQueueInterface();
 
 signals:

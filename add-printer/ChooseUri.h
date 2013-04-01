@@ -34,7 +34,7 @@ class ChooseUri : public GenericPage
 {
     Q_OBJECT
 public:
-    ChooseUri(QWidget *parent = 0);
+    explicit ChooseUri(QWidget *parent = 0);
     ~ChooseUri();
 
     void setValues(const QVariantHash &args);

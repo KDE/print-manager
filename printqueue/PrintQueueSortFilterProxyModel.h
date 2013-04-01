@@ -27,7 +27,7 @@ class PrintQueueSortFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    PrintQueueSortFilterProxyModel(QObject *parent = 0);
+    explicit PrintQueueSortFilterProxyModel(QObject *parent = 0);
 
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
 

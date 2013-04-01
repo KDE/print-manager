@@ -30,7 +30,7 @@ class ChooseSocket : public GenericPage
 {
     Q_OBJECT
 public:
-    ChooseSocket(QWidget *parent = 0);
+    explicit ChooseSocket(QWidget *parent = 0);
     ~ChooseSocket();
 
     void setValues(const QVariantHash &args);

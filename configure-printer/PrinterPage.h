@@ -28,7 +28,7 @@ class PrinterPage : public QWidget
 {
     Q_OBJECT
 public:
-    PrinterPage(QWidget *parent = 0);
+    explicit PrinterPage(QWidget *parent = 0);
     virtual bool hasChanges() { return false; }
 
 public:

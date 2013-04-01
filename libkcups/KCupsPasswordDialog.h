@@ -27,7 +27,7 @@ class KCupsPasswordDialog : public QObject
 {
     Q_OBJECT
 public:
-    KCupsPasswordDialog(QObject *parent = 0);
+    explicit KCupsPasswordDialog(QObject *parent = 0);
 
 public slots:
     void exec(const QString &username, bool wrongPassword);

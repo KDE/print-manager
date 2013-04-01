@@ -33,7 +33,7 @@ class ChooseSerial : public GenericPage
 {
     Q_OBJECT
 public:
-    ChooseSerial(QWidget *parent = 0);
+    explicit ChooseSerial(QWidget *parent = 0);
     ~ChooseSerial();
 
     void setValues(const QVariantHash &args);

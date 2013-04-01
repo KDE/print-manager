@@ -35,7 +35,7 @@ class DevicesModel : public QStandardItemModel
     Q_OBJECT
     Q_ENUMS(Role)
 public:
-    typedef enum {
+    enum Role {
         DeviceClass = Qt::UserRole + 2,
         DeviceId,
         DeviceInfo,
@@ -43,16 +43,16 @@ public:
         DeviceUri,
         DeviceUris,
         DeviceLocation
-    } Role;
+    };
 
-    typedef enum {
+    enum Kind {
         Local,
         Networked,
         OtherNetworked,
         Other
-    } Kind;
+    };
 
-    DevicesModel(QObject *parent = 0);
+    explicit DevicesModel(QObject *parent = 0);
 
 signals:
     void loaded();

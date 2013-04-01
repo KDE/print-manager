@@ -30,7 +30,7 @@ class ChooseLpd : public GenericPage
 {
     Q_OBJECT
 public:
-    ChooseLpd(QWidget *parent = 0);
+    explicit ChooseLpd(QWidget *parent = 0);
     ~ChooseLpd();
 
     void setValues(const QVariantHash &args);

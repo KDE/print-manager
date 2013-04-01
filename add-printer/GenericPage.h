@@ -33,7 +33,7 @@ class GenericPage : public QWidget
 {
     Q_OBJECT
 public:
-    GenericPage(QWidget *parent = 0);
+    explicit GenericPage(QWidget *parent = 0);
     virtual bool canProceed() const { return true; }
     virtual bool isValid() const { return true; }
     virtual bool isWorking() const { return m_working; }

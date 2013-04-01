@@ -128,7 +128,7 @@ public:
      * on your own consider calling global()
      */
     explicit KCupsConnection(QObject *parent = 0);
-    KCupsConnection(const KUrl &server, QObject *parent = 0);
+    explicit KCupsConnection(const KUrl &server, QObject *parent = 0);
     ~KCupsConnection();
 
 Q_SIGNALS:

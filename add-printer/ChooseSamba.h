@@ -30,7 +30,7 @@ class ChooseSamba : public GenericPage
 {
     Q_OBJECT
 public:
-    ChooseSamba(QWidget *parent = 0);
+    explicit ChooseSamba(QWidget *parent = 0);
     ~ChooseSamba();
 
     void setValues(const QVariantHash &args);

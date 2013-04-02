@@ -10,6 +10,7 @@ set(libkcups_SRCS
     SelectMakeModel.cpp
     NoSelectionRectDelegate.cpp
     PrinterModel.cpp
+    PrinterSortFilterModel.cpp
     PrintQueueModel.cpp
 )
 

@@ -25,6 +25,7 @@
 #include <config.h>
 
 #include <PrinterModel.h>
+#include <PrinterSortFilterModel.h>
 #include "PrinterDelegate.h"
 #include "PrinterDescription.h"
 
@@ -105,14 +106,16 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->systemPreferencesTB->setMenu(systemMenu);
 
     m_model = new PrinterModel(this);
-    ui->printersTV->setModel(m_model);
+    PrinterSortFilterModel *sortModel = new PrinterSortFilterModel(this);
+    sortModel->setSourceModel(m_model);
+    ui->printersTV->setModel(sortModel);
     ui->printersTV->setItemDelegate(new NoSelectionRectDelegate(this));
     ui->printersTV->setItemDelegate(new PrinterDelegate(this));
     connect(ui->printersTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(update()));
-    connect(m_model, SIGNAL(rowsInserted(QModelIndex,int,int)),
+    connect(sortModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
             this, SLOT(update()));
-    connect(m_model, SIGNAL(rowsRemoved(QModelIndex,int,int)),
+    connect(sortModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
             this, SLOT(update()));
     connect(ui->printersTV->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(update()));

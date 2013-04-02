@@ -38,6 +38,7 @@
 #include <Plasma/Package>
 
 #include <PrinterModel.h>
+#include <PrinterSortFilterModel.h>
 #include <PrintQueueModel.h>
 
 PrintManager::PrintManager(QObject *parent, const QVariantList &args) :
@@ -82,6 +83,7 @@ QGraphicsWidget *PrintManager::graphicsWidget()
         m_declarativeWidget->engine()->rootContext()->setContextProperty("plasmoid", this);
         m_declarativeWidget->engine()->rootContext()->setContextProperty("jobsModel", m_printQueueModel);
         qmlRegisterType<PrinterModel>("org.kde.printmanager", 0, 1, "PrinterModel");
+        qmlRegisterType<PrinterSortFilterModel>("org.kde.printmanager", 0, 1, "PrinterSortFilterModel");
         qmlRegisterType<PrintQueueModel>("org.kde.printmanager", 0, 1, "PrintQueueModel");
 
         Plasma::PackageStructure::Ptr structure = Plasma::PackageStructure::load("Plasma/Generic");

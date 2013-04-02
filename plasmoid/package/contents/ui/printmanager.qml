@@ -28,7 +28,7 @@ Item {
     property int minimumHeight: 270
     
     property string highlightPrinter
-    property bool horizontalLayout: printersFilterModel.count > 1
+    property bool horizontalLayout: false
     property string filterJobs
     property string filterPrinters
 
@@ -74,20 +74,18 @@ Item {
             width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : 50
             currentIndex: -1
-            model: PlasmaCore.SortFilterModel {
+            model: PrintManager.PrinterSortFilterModel {
                 id: printersFilterModel
                 sourceModel: PrintManager.PrinterModel {
                     id: printersModel
                 }
-                filterRole: "printerName"
-                filterRegExp: filterPrinters
-                sortRole: "info"
-                sortOrder: Qt.AscendingOrder
+                filteredPrinters: filterPrinters
             }
             delegate: PrinterItem{
                 multipleItems: horizontalLayout
             }
             interactive: horizontalLayout
+            onCountChanged: horizontalLayout = printersFilterModel.count > 1
         }
         
         PlasmaCore.SvgItem {

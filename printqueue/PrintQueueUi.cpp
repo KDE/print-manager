@@ -32,6 +32,7 @@
 #include <QToolBar>
 #include <QMenu>
 #include <QByteArray>
+#include <QStringBuilder>
 
 #include <QtDBus/QDBusConnection>
 #include <QtDBus/QDBusMessage>
@@ -66,7 +67,12 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
     setWindowIcon(printer.icon());
-//    setWindowTitle(ui->windowTitle());
+    if (printer.info().isEmpty()) {
+        m_title = printer.name();
+    } else {
+        m_title = printer.name() % QLatin1String(" - ") % printer.info();
+    }
+    setWindowTitle(m_title);
     setButtons(0);
     setSizeGripEnabled(true);
     (void) minimumSizeHint(); //Force the dialog to be laid out now
@@ -75,7 +81,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     m_isClass = printer.isClass();
 
     // setup default options
-    setWindowTitle(m_destName.isNull() ? i18n("All printers") : m_destName);
     ui->jobsView->setCornerWidget(new QWidget);
 
     setupButtons();
@@ -415,7 +420,11 @@ void PrintQueueUi::getAttributesFinished()
     KCupsPrinter printer = request->printers().first();
 
     // get printer-info
-    m_title = printer.info();
+    if (printer.info().isEmpty()) {
+        m_title = printer.name();
+    } else {
+        m_title = printer.name() % QLatin1String(" - ") % printer.info();
+    }
 
     // get printer-state
     setState(printer.state(), printer.stateMsg());
@@ -424,19 +433,21 @@ void PrintQueueUi::getAttributesFinished()
     m_isClass = printer.isClass();
 
     request->deleteLater();
+
+    update();
 }
 
 void PrintQueueUi::update()
 {
     // Set window title
     if (m_model->rowCount()) {
-        if (m_title.isNull()) {
+        if (m_destName.isNull()) {
             setWindowTitle(i18np("All Printers (%1 Job)", "All Printers (%1 Jobs)", m_model->rowCount()));
         } else {
             setWindowTitle(i18np("%2 (%1 Job)", "%2 (%1 Jobs)", m_model->rowCount(), m_title));
         }
     } else {
-        setWindowTitle(m_title.isNull() ? i18n("All Printers") : m_title);
+        setWindowTitle(m_destName.isNull() ? i18n("All Printers") : m_title);
     }
 }
 

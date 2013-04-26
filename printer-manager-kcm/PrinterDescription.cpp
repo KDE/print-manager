@@ -137,7 +137,6 @@ void PrinterDescription::setPrinterIcon(const QIcon &icon)
 
 void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass, bool singlePrinter)
 {
-    kDebug() << singlePrinter;
     m_destName = name;
 
     m_markerData.clear();
@@ -153,14 +152,14 @@ void PrinterDescription::setDestName(const QString &name, const QString &descrip
         ui->printerNameL->setText(name);
     }
 
+    ui->statusL->setVisible(singlePrinter);
     ui->nameL->setVisible(singlePrinter);
     ui->nameMsgL->setVisible(singlePrinter);
 }
 
 void PrinterDescription::setDestStatus(const QString &status)
 {
-  ui->statusL->setText(status);
-  ui->statusL->setVisible(!status.isEmpty());
+    ui->statusL->setText(status);
 }
 
 void PrinterDescription::setLocation(const QString &location)

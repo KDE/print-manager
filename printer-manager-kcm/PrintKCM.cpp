@@ -117,9 +117,9 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
             this, SLOT(update()));
     connect(sortModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
             this, SLOT(update()));
-    connect(ui->printersTV->model(), SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(update()));
-    connect(ui->printersTV->model(), SIGNAL(error(int,QString,QString)),
+    connect(m_model, SIGNAL(error(int,QString,QString)),
             this, SLOT(error(int,QString,QString)));
 
     ui->addPrinterBtn->setIcon(KIcon("list-add"));
@@ -228,7 +228,8 @@ void PrintKCM::update()
         }
         ui->printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                      index.data(PrinterModel::DestDescription).toString(),
-                                     index.data(PrinterModel::DestIsClass).toBool());
+                                     index.data(PrinterModel::DestIsClass).toBool(),
+                                     m_model->rowCount() == 1);
         if (m_model->rowCount() == 1) {
           ui->printerDesc->setDestStatus(index.data(PrinterModel::DestStatus).toString());
         } else {

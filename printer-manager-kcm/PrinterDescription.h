@@ -40,7 +40,7 @@ public:
     ~PrinterDescription();
 
     void setPrinterIcon(const QIcon &icon);
-    void setDestName(const QString &name, const QString &description, bool isClass);
+    void setDestName(const QString &name, const QString &description, bool isClass, bool singlePrinter);
     void setDestStatus(const QString &status);
     void setLocation(const QString &location);
     void setKind(const QString &kind);

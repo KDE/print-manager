@@ -135,8 +135,9 @@ void PrinterDescription::setPrinterIcon(const QIcon &icon)
     ui->iconL->setPixmap(icon.pixmap(PRINTER_ICON_SIZE, PRINTER_ICON_SIZE));
 }
 
-void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass)
+void PrinterDescription::setDestName(const QString &name, const QString &description, bool isClass, bool singlePrinter)
 {
+    kDebug() << singlePrinter;
     m_destName = name;
 
     m_markerData.clear();
@@ -145,11 +146,15 @@ void PrinterDescription::setDestName(const QString &name, const QString &descrip
         ui->sharedCB->setText(m_isClass ? i18n("Share this class") : i18n("Share this printer"));
     }
 
+    ui->nameMsgL->setText(name);
     if (!description.isEmpty() && description != ui->printerNameL->text()) {
         ui->printerNameL->setText(description);
     } else if (description.isEmpty() && name != ui->printerNameL->text()) {
         ui->printerNameL->setText(name);
     }
+
+    ui->nameL->setVisible(singlePrinter);
+    ui->nameMsgL->setVisible(singlePrinter);
 }
 
 void PrinterDescription::setDestStatus(const QString &status)

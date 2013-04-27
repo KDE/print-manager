@@ -229,8 +229,11 @@ void AddPrinterAssistant::slotButtonClicked(int button)
     // Finish Button
     if (button == KDialog::User1) {
         GenericPage *page = qobject_cast<GenericPage*>(currentPage()->widget());
+        enableFinishButton(false);
         if (page->finishClicked()) {
             KAssistantDialog::slotButtonClicked(button);
+        } else {
+            enableFinishButton(true);
         }
     } else {
         KAssistantDialog::slotButtonClicked(button);

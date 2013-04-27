@@ -150,6 +150,15 @@ bool PageAddPrinter::finishClicked()
         request->deleteLater();
     }
 
+    if (ret) {
+        // For some reason CUPS sometimes (AppleSocket?)
+        // adds printers paused and rejecting jobs
+        // this makes sure they are fine
+        if (resumePrinter(destName)) {
+            acceptJobs(destName);
+        }
+    }
+
     return ret;
 }
 
@@ -168,6 +177,30 @@ QVariantHash PageAddPrinter::values() const
 void PageAddPrinter::on_nameLE_textChanged(const QString &text)
 {
     emit allowProceed(!text.isEmpty());
+}
+
+bool PageAddPrinter::resumePrinter(const QString &printer)
+{
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->resumePrinter(printer);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+        return true;
+    }
+    return false;
+}
+
+bool PageAddPrinter::acceptJobs(const QString &printer)
+{
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    request->acceptJobs(printer);
+    request->waitTillFinished();
+    if (request) {
+        request->deleteLater();
+        return true;
+    }
+    return false;
 }
 
 void PageAddPrinter::checkSelected()

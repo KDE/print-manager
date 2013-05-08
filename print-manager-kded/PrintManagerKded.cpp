@@ -27,7 +27,7 @@
 #include <KGenericFactory>
 
 K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)
-K_EXPORT_PLUGIN(PrintDFactory("printmanager"))
+K_EXPORT_PLUGIN(PrintDFactory("printmanager", "print-manager"))
 
 PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
     KDEDModule(parent),
@@ -35,7 +35,6 @@ PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
 {
     Q_UNUSED(args)
 
-    KGlobal::insertCatalog(QLatin1String("print-manager"));
     QTimer::singleShot(0, this, SLOT(loadThread()));
 }
 

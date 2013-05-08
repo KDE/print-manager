@@ -35,7 +35,7 @@ int main(int argc, char **argv)
                      PM_VERSION,
                      ki18n("PrintQueue"),
                      KAboutData::License_GPL,
-                     ki18n("(C) 2010-2012 Daniel Nicoletti"));
+                     ki18n("(C) 2010-2013 Daniel Nicoletti"));
 
     about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
 

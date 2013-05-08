@@ -44,7 +44,7 @@
 #include <cups/cups.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
-K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print"))
+K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print", "print-manager"))
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(PrintKCMFactory::componentData(), parent, args),
@@ -59,10 +59,9 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
                                PM_VERSION,
                                ki18n("Print settings"),
                                KAboutData::License_GPL,
-                               ki18n("(C) 2010-2012 Daniel Nicoletti"));
+                               ki18n("(C) 2010-2013 Daniel Nicoletti"));
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
-    KGlobal::insertCatalog(QLatin1String("print-manager"));
 
     ui->setupUi(this);
 

@@ -37,8 +37,6 @@ Item {
     }
 
     Component.onCompleted: {
-        jobsModel.init();
-
         // This allows the plasmoid to shrink when the layout changes
         plasmoid.aspectRatioMode = IgnoreAspectRatio
         plasmoid.addEventListener('ConfigChanged', configChanged);
@@ -49,7 +47,24 @@ Item {
     }
 
     function configChanged() {
-        whichPrinter = plasmoid.readConfig("printerName");
+        var completedJobs = plasmoid.readConfig("completedJobs");
+        var allJobs = plasmoid.readConfig("allJobs");
+        if (completedJobs == true) {
+            console.debug("completedJobs");
+            jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichCompleted);
+        } else if (allJobs == true) {
+            console.debug("allJobs");
+            jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichAll);
+        } else {
+            console.debug("finish");
+            jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichActive);
+        }
+
+        if (plasmoid.readConfig("filterPrinters") == true) {
+            filterPrinters = plasmoid.readConfig("selectedPrinters");
+        } else {
+            filterPrinters = undefined;
+        }
 
         printersView.currentIndex = -1;
         jobsView.currentIndex = -1;

@@ -30,26 +30,29 @@ class KCupsRequest;
 class KDE_EXPORT ClassListWidget : public QListView
 {
     Q_OBJECT
+    Q_PROPERTY(QStringList selectedPrinters READ selectedPrinters WRITE setSelectedPrinters NOTIFY selectedPrintersChanged USER true)
 public:
-    explicit ClassListWidget(QWidget *parent = 0);
+    explicit ClassListWidget(bool init = true, QWidget *parent = 0);
     ~ClassListWidget();
 
     bool hasChanges();
-    QStringList selectedDests() const;
+    QStringList selectedPrinters() const;
+    void setSelectedPrinters(const QStringList &selected);
 
-    void reload(const QString &destName, const QStringList &memberNames = QStringList());
+    void reload(const QString &destName = QString(), const QStringList &memberNames = QStringList());
 
 signals:
     void changed(bool changed);
+    void selectedPrintersChanged(const QStringList &list);
 
 private slots:
     void loadFinished();
     void modelChanged();
 
 private:
+    QStringList m_selectedPrinters;
     KPixmapSequenceOverlayPainter *m_busySeq;
     KCupsRequest *m_request;
-    QStringList m_selectedDests;
     bool m_changed;
     QStandardItemModel *m_model;
 };

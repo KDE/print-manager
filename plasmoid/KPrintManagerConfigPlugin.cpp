@@ -17,24 +17,59 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#include "PlasmoidConfig.h"
-#include "ui_PlasmoidConfig.h"
+#include "KPrintManagerConfigPlugin.h"
+#include "ClassListWidget.h"
 
-#include <KDebug>
+#include <QtPlugin>
 
-PlasmoidConfig::PlasmoidConfig(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::PlasmoidConfig)
+#include <KGlobal>
+
+static const KCatalogLoader loader(QLatin1String("printmanager"));
+
+KPrintManagerConfigPlugin::KPrintManagerConfigPlugin(QObject *parent)
+: QObject(parent)
 {
-    ui->setupUi(this);
 }
 
-PlasmoidConfig::~PlasmoidConfig()
+bool KPrintManagerConfigPlugin::isContainer() const
 {
-    delete ui;
+    return false;
 }
 
-void PlasmoidConfig::loadSettings()
+QIcon KPrintManagerConfigPlugin::icon() const
 {
-    kDebug() << "fooooo";
+    return QIcon();
 }
+
+QString KPrintManagerConfigPlugin::group() const
+{
+    return QString();
+}
+
+QString KPrintManagerConfigPlugin::includeFile() const
+{
+    return "ClassListWidget.h";
+}
+
+QString KPrintManagerConfigPlugin::name() const
+{
+    return "ClassListWidget";
+}
+
+QString KPrintManagerConfigPlugin::toolTip() const
+{
+    return QString();
+}
+
+QString KPrintManagerConfigPlugin::whatsThis() const
+{
+    return QString();
+}
+
+QWidget * KPrintManagerConfigPlugin::createWidget(QWidget *parent)
+{
+    return new ClassListWidget(parent);
+}
+
+Q_EXPORT_PLUGIN2(printmanagerwidget, KPrintManagerConfigPlugin)
+

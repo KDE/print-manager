@@ -34,6 +34,7 @@ class KDE_EXPORT PrintQueueModel : public QStandardItemModel
     Q_OBJECT
     Q_ENUMS(JobAction)
     Q_ENUMS(Role)
+    Q_ENUMS(WhichJobs)
 public:
     enum Role {
         RoleJobId = Qt::UserRole + 2,
@@ -57,6 +58,12 @@ public:
         Hold,
         Release,
         Move
+    };
+
+    enum WhichJobs {
+        WhichAll = -1,
+        WhichActive,
+        WhichCompleted
     };
 
     enum Columns {
@@ -95,7 +102,7 @@ public:
                       int column,
                       const QModelIndex &parent);
 
-    void setWhichJobs(int whichjobs);
+    Q_INVOKABLE void setWhichJobs(int whichjobs);
     KCupsRequest* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 private slots:

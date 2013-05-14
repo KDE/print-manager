@@ -17,28 +17,27 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef PLASMOIDCONFIG_H
-#define PLASMOIDCONFIG_H
+#ifndef KPRINT_MANAGER_CONFIG_H
+#define KPRINT_MANAGER_CONFIG_H
 
-#include <QWidget>
+#include <QObject>
+#include <QDesignerCustomWidgetInterface>
 
-namespace Ui {
-class PlasmoidConfig;
-}
-
-class PlasmoidConfig : public QWidget
+class KPrintManagerConfigPlugin : public QObject, public QDesignerCustomWidgetInterface
 {
     Q_OBJECT
-    
+    Q_INTERFACES(QDesignerCustomWidgetInterface)
 public:
-    explicit PlasmoidConfig(QWidget *parent = 0);
-    ~PlasmoidConfig();
-    
-public slots:
-    void loadSettings();
+    explicit KPrintManagerConfigPlugin(QObject *parent = 0);
 
-private:
-    Ui::PlasmoidConfig *ui;
+    bool isContainer() const;
+    QIcon icon() const;
+    QString group() const;
+    QString includeFile() const;
+    QString name() const;
+    QString toolTip() const;
+    QString whatsThis() const;
+    QWidget *createWidget(QWidget *parent);
 };
 
-#endif // PLASMOIDCONFIG_H
+#endif // KPRINT_MANAGER_CONFIG_H

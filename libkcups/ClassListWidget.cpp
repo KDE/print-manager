@@ -31,7 +31,7 @@
 
 #include <KPixmapSequence>
 
-ClassListWidget::ClassListWidget(QWidget *parent) :
+ClassListWidget::ClassListWidget(bool init, QWidget *parent) :
     QListView(parent),
     m_request(0)
 {
@@ -47,6 +47,10 @@ ClassListWidget::ClassListWidget(QWidget *parent) :
 
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(modelChanged()));
+
+    if (init) {
+        reload();
+    }
 }
 
 ClassListWidget::~ClassListWidget()
@@ -99,7 +103,7 @@ void ClassListWidget::loadFinished()
         }
     }
     m_model->setProperty("orig-member-uris", origMemberUris);
-    m_selectedDests = origMemberUris;
+//    m_selectedPrinters = origMemberUris;
 
     foreach (const KCupsPrinter &printer, printers) {
         QString destName = printer.name();
@@ -131,9 +135,10 @@ void ClassListWidget::modelChanged()
     currentMembers.sort();
 
     // store the new values
-    m_selectedDests = currentMembers;
+//    m_selectedPrinters = currentMembers;
 
     m_changed = m_model->property("orig-member-uris").toStringList() != currentMembers;
+    emit selectedPrintersChanged(currentMembers);
     emit changed(m_changed);
 }
 
@@ -142,9 +147,15 @@ bool ClassListWidget::hasChanges()
     return m_changed;
 }
 
-QStringList ClassListWidget::selectedDests() const
+QStringList ClassListWidget::selectedPrinters() const
 {
-    return m_selectedDests;
+    return m_selectedPrinters;
+}
+
+
+void ClassListWidget::setSelectedPrinters(const QStringList &selected)
+{
+    m_selectedPrinters = selected;
 }
 
 #include "ClassListWidget.moc"

@@ -597,6 +597,7 @@ QString PrintQueueModel::jobStatus(ipp_jstate_e job_state)
 
 void PrintQueueModel::setWhichJobs(int whichjobs)
 {
+    kDebug() << whichjobs;
     m_whichjobs = whichjobs;
     getJobs();
 }

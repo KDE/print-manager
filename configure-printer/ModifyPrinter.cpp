@@ -218,7 +218,7 @@ void ModifyPrinter::modelChanged()
 
     // store the new values
     if (isDifferent) {
-        m_changedValues["member-uris"] = ui->membersLV->selectedDests();
+        m_changedValues["member-uris"] = ui->membersLV->selectedPrinters();
     } else {
         m_changedValues.remove("member-uris");
     }

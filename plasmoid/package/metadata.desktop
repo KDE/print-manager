@@ -88,11 +88,12 @@ X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/printmanager.qml
 X-Plasma-DefaultSize=650,270
 X-Plasma-NotificationArea=true
+X-Plasma-ConfigPlugins=kcm_printer_manager
 
 X-KDE-PluginInfo-Author=Daniel Nicoletti
 X-KDE-PluginInfo-Email=dantti12@gmail.com
-X-KDE-PluginInfo-Name=printmanager
-X-KDE-PluginInfo-Version=0.1
+X-KDE-PluginInfo-Name=org.kde.printmanager
+X-KDE-PluginInfo-Version=0.3
 X-KDE-PluginInfo-Website=http://www.kde.org
 X-KDE-PluginInfo-Category=Utilities
 X-KDE-PluginInfo-Depends=

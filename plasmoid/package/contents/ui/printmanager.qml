@@ -17,7 +17,7 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 1.0
+import QtQuick 1.1
 import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.printmanager 0.1 as PrintManager
@@ -38,10 +38,11 @@ Item {
     
     Component.onCompleted: {
         checkPlasmoidStatus();
+        jobsModel.init();
     }
 
     function checkPlasmoidStatus() {
-        plasmoid.setActive(jobsFilterModel.count);
+//        plasmoid.setActive(jobsFilterModel.count);
     }
     
     Column {
@@ -106,7 +107,9 @@ Item {
             currentIndex: -1
             model: PlasmaCore.SortFilterModel {
                 id: jobsFilterModel
-                sourceModel: jobsModel
+                sourceModel: PrintManager.PrintQueueModel {
+                    id: jobsModel
+                }
                 filterRole: "jobPrinter"
                 filterRegExp: filterJobs
                 sortRole: "jobId"

@@ -35,14 +35,14 @@ PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
 
 void PrinterSortFilterModel::setFilteredPrinters(const QString &printers)
 {
-    m_filteredPrinters = printers.split(QLatin1Char(','));
+    m_filteredPrinters = printers.split(QLatin1Char('|'));
     invalidate();
     emit changed();
 }
 
 QString PrinterSortFilterModel::filteredPrinters() const
 {
-    return m_filteredPrinters.join(QLatin1String(","));
+    return m_filteredPrinters.join(QLatin1String("|"));
 }
 
 int PrinterSortFilterModel::count() const

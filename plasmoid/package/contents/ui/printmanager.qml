@@ -29,7 +29,6 @@ Item {
     
     property string highlightPrinter
     property bool horizontalLayout: false
-    property string filterJobs
     property string filterPrinters
 
     PlasmaCore.Theme {
@@ -50,20 +49,18 @@ Item {
         var completedJobs = plasmoid.readConfig("completedJobs");
         var allJobs = plasmoid.readConfig("allJobs");
         if (completedJobs == true) {
-            console.debug("completedJobs");
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichCompleted);
         } else if (allJobs == true) {
-            console.debug("allJobs");
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichAll);
         } else {
-            console.debug("finish");
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichActive);
         }
 
         if (plasmoid.readConfig("filterPrinters") == true) {
             filterPrinters = plasmoid.readConfig("selectedPrinters");
+            console.debug("selectedPrinters: " + filterPrinters)
         } else {
-            filterPrinters = undefined;
+            filterPrinters = "";
         }
 
         printersView.currentIndex = -1;
@@ -161,7 +158,7 @@ Item {
                     id: jobsModel
                 }
                 filterRole: "jobPrinter"
-                filterRegExp: filterJobs
+                filterRegExp: filterPrinters
                 sortRole: "jobId"
                 sortOrder: Qt.AscendingOrder
             }

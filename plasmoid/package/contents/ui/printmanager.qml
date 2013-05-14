@@ -1,5 +1,5 @@
 /*
- *   Copyright 2012 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -35,16 +35,51 @@ Item {
     PlasmaCore.Theme {
         id: theme
     }
-    
+
     Component.onCompleted: {
-        checkPlasmoidStatus();
         jobsModel.init();
+
+        // This allows the plasmoid to shrink when the layout changes
+        plasmoid.aspectRatioMode = IgnoreAspectRatio
+        plasmoid.addEventListener('ConfigChanged', configChanged);
+        plasmoid.popupEvent.connect(popupEventSlot);
+        configChanged();
+
+        checkPlasmoidStatus();
+    }
+
+    function configChanged() {
+        whichPrinter = plasmoid.readConfig("printerName");
+
+        printersView.currentIndex = -1;
+        jobsView.currentIndex = -1;
     }
 
     function checkPlasmoidStatus() {
-//        plasmoid.setActive(jobsFilterModel.count);
+        var data = new Object
+        data["image"] = "printer"
+        data["subText"] = "ToolTip descriptive sub text"
+        if (jobsFilterModel.count === 0) {
+            plasmoid.status = "PassiveStatus";
+            data["subText"] = i18n("Print queue is empty");
+        } else {
+            plasmoid.status = "ActiveStatus"
+            data["subText"] = i18np("There is one print job in the queue",
+                                    "There are %1 print jobs in the queue",
+                                    jobsFilterModel.count);
+
+        }
+        plasmoid.popupIconToolTip = data
     }
-    
+
+    function popupEventSlot(popped) {
+        if (!popped) {
+            checkPlasmoidStatus();
+            printersView.currentIndex = -1;
+            jobsView.currentIndex = -1;
+        }
+    }
+
     Column {
         id: columnLayout
         spacing: 2

@@ -556,6 +556,9 @@ KCupsRequest* PrintQueueModel::modifyJob(int row, JobAction action, const QStrin
     case Release:
         request->releaseJob(destName, jobId);
         break;
+    case Reprint:
+        request->restartJob(destName, jobId);
+        break;
     case Move:
         request->moveJob(destName, jobId, newDestName);
         break;

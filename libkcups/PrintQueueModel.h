@@ -57,7 +57,8 @@ public:
         Cancel,
         Hold,
         Release,
-        Move
+        Move,
+        Reprint
     };
 
     enum WhichJobs {

@@ -57,6 +57,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     connect(ui->cancelJobPB, SIGNAL(clicked()), this, SLOT(cancelJob()));
     connect(ui->holdJobPB, SIGNAL(clicked()), this, SLOT(holdJob()));
     connect(ui->resumeJobPB, SIGNAL(clicked()), this, SLOT(resumeJob()));
+    connect(ui->reprintPB, SIGNAL(clicked()), this, SLOT(reprintJob()));
 
     connect(ui->pausePrinterPB, SIGNAL(clicked()), this, SLOT(pausePrinter()));
     connect(ui->configurePrinterPB, SIGNAL(clicked()), this, SLOT(configurePrinter()));
@@ -453,9 +454,9 @@ void PrintQueueUi::update()
 
 void PrintQueueUi::updateButtons()
 {
-    bool cancel, hold, release;
+    bool cancel, hold, release, reprint;
     // Set all options to false
-    cancel = hold = release = false;
+    cancel = hold = release = reprint = false;
 
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
@@ -478,6 +479,9 @@ void PrintQueueUi::updateButtons()
                         cancel = hold = true;
                         break;
                 }
+                if (index.data(PrintQueueModel::RoleJobRestartEnabled).toBool()) {
+                    reprint = true;
+                }
             }
         }
     }
@@ -485,6 +489,7 @@ void PrintQueueUi::updateButtons()
     ui->cancelJobPB->setEnabled(cancel);
     ui->holdJobPB->setEnabled(hold);
     ui->resumeJobPB->setEnabled(release);
+    ui->reprintPB->setEnabled(reprint);
 }
 
 void PrintQueueUi::modifyJob(int action, const QString &destName)
@@ -497,8 +502,8 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
         if (index.column() == 0) {
             KCupsRequest *request;
             request = m_model->modifyJob(index.row(),
-                                        static_cast<PrintQueueModel::JobAction>(action),
-                                        destName);
+                                         static_cast<PrintQueueModel::JobAction>(action),
+                                         destName);
             if (!request) {
                 // probably the job already has this state
                 // or this is an unknown action
@@ -517,6 +522,9 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
                     break;
                 case PrintQueueModel::Release:
                     msg = i18n("Failed to release '%1'", jobName);
+                    break;
+                case PrintQueueModel::Reprint:
+                    msg = i18n("Failed to reprint '%1'", jobName);
                     break;
                 case PrintQueueModel::Move:
                     msg = i18n("Failed to move '%1' to '%2'", jobName, destName);
@@ -578,6 +586,11 @@ void PrintQueueUi::resumeJob()
     modifyJob(PrintQueueModel::Release);
 }
 
+void PrintQueueUi::reprintJob()
+{
+    modifyJob(PrintQueueModel::Reprint);
+}
+
 void PrintQueueUi::whichJobsIndexChanged(int index)
 {
     switch (index) {
@@ -606,7 +619,9 @@ void PrintQueueUi::setupButtons()
 
     // resume job action
     // TODO we need a new icon
-    ui->resumeJobPB->setIcon(KIcon("media-playback-play"));
+    ui->resumeJobPB->setIcon(KIcon("media-playback-start"));
+
+    ui->reprintPB->setIcon(KIcon("view-refresh"));
 
     ui->whichJobsCB->setItemIcon(0, KIcon("view-filter"));
     ui->whichJobsCB->setItemIcon(1, KIcon("view-filter"));

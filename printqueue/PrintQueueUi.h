@@ -60,6 +60,7 @@ private slots:
     void cancelJob();
     void holdJob();
     void resumeJob();
+    void reprintJob();
 
     int columnCount(const QModelIndex &parent = QModelIndex()) const;
     void updateButtons();

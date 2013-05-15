@@ -595,10 +595,21 @@ QString PrintQueueModel::jobStatus(ipp_jstate_e job_state)
   return "-";
 }
 
-void PrintQueueModel::setWhichJobs(int whichjobs)
+void PrintQueueModel::setWhichJobs(WhichJobs whichjobs)
 {
     kDebug() << whichjobs;
-    m_whichjobs = whichjobs;
+    switch (whichjobs) {
+    case WhichActive:
+        m_whichjobs = CUPS_WHICHJOBS_ACTIVE;
+        break;
+    case WhichCompleted:
+        m_whichjobs = CUPS_WHICHJOBS_COMPLETED;
+        break;
+    case WhichAll:
+        m_whichjobs = CUPS_WHICHJOBS_ALL;
+        break;
+    }
+
     getJobs();
 }
 

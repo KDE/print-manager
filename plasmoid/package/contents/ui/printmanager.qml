@@ -62,10 +62,8 @@ Item {
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichActive);
         }
 
-        filterPrinters = plasmoid.readConfig("selectedPrinters");
-        console.debug("selectedPrinters: " + filterPrinters)
         if (plasmoid.readConfig("filterPrinters") == true) {
-
+            filterPrinters = plasmoid.readConfig("selectedPrinters");
         } else {
             filterPrinters = "";
         }

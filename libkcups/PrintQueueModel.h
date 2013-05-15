@@ -61,7 +61,7 @@ public:
     };
 
     enum WhichJobs {
-        WhichAll = -1,
+        WhichAll,
         WhichActive,
         WhichCompleted
     };
@@ -102,7 +102,7 @@ public:
                       int column,
                       const QModelIndex &parent);
 
-    Q_INVOKABLE void setWhichJobs(int whichjobs);
+    Q_INVOKABLE void setWhichJobs(WhichJobs whichjobs);
     KCupsRequest* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 private slots:

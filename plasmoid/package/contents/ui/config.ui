@@ -45,6 +45,9 @@
      <property name="text">
       <string>Active jobs only</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
   </layout>
@@ -53,7 +56,7 @@
   <customwidget>
    <class>ClassListWidget</class>
    <extends>QListView</extends>
-   <header>ClassListWidget.h</header>
+   <header location="global">ClassListWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -580,18 +580,18 @@ void PrintQueueUi::resumeJob()
 
 void PrintQueueUi::whichJobsIndexChanged(int index)
 {
-    int whichJobs;
     switch (index) {
     case 1:
-        whichJobs = CUPS_WHICHJOBS_COMPLETED;
+        m_model->setWhichJobs(PrintQueueModel::WhichCompleted);
         break;
     case 2:
-        whichJobs = CUPS_WHICHJOBS_ALL;
+        m_model->setWhichJobs(PrintQueueModel::WhichAll);
         break;
     default:
-        whichJobs = CUPS_WHICHJOBS_ACTIVE;
+        m_model->setWhichJobs(PrintQueueModel::WhichActive);
+        break;
     }
-    m_model->setWhichJobs(whichJobs);
+
 }
 
 void PrintQueueUi::setupButtons()

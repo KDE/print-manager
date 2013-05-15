@@ -25,6 +25,7 @@ import org.kde.qtextracomponents 0.1
 Item {
     property alias delegate: list.delegate
     property alias model: list.model
+    property alias view: list
     property alias interactive: list.interactive
     property alias currentIndex: list.currentIndex
     signal countChanged()

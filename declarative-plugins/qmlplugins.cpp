@@ -27,9 +27,10 @@
 
 void QmlPlugins::registerTypes(const char* uri)
 {
-    qmlRegisterType<PrinterModel>("org.kde.printmanager", 0, 1, "PrinterModel");
-    qmlRegisterType<PrinterSortFilterModel>("org.kde.printmanager", 0, 1, "PrinterSortFilterModel");
-    qmlRegisterType<PrintQueueModel>("org.kde.printmanager", 0, 1, "PrintQueueModel");
+    Q_ASSERT(uri == QLatin1String("org.kde.printmanager"));
+    qmlRegisterType<PrinterModel>(uri, 0, 1, "PrinterModel");
+    qmlRegisterType<PrinterSortFilterModel>(uri, 0, 1, "PrinterSortFilterModel");
+    qmlRegisterType<PrintQueueModel>(uri, 0, 1, "PrintQueueModel");
 }
 
 Q_EXPORT_PLUGIN2(printmanager, QmlPlugins)

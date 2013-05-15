@@ -29,18 +29,24 @@
 class KDE_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
-    Q_PROPERTY(QAbstractItemModel* sourceModel READ sourceModel WRITE setSourceModel NOTIFY changed)
-    Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY changed)
-    Q_PROPERTY(int count READ count NOTIFY changed)
+    Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY filteredPrintersChanged)
+    Q_PROPERTY(QAbstractItemModel *sourceModel READ sourceModel WRITE setModel NOTIFY sourceModelChanged)
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
     explicit PrinterSortFilterModel(QObject *parent = 0);
 
+    void setModel(QAbstractItemModel *model);
     void setFilteredPrinters(const QString &printers);
     QString filteredPrinters() const;
     int count() const;
 
 signals:
-    void changed();
+    void countChanged();
+    void sourceModelChanged(QObject *);
+    void filteredPrintersChanged();
+
+private slots:
+    void syncRoleNames();
 
 private:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;

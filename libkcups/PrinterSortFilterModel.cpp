@@ -30,14 +30,54 @@ PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
     setSortCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
 
-    connect(this, SIGNAL(layoutChanged()), SIGNAL(changed()));
+    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
+            this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
+            this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(modelReset()),
+            this, SIGNAL(countChanged()));
+    connect(this,  SIGNAL(countChanged()), this, SLOT(syncRoleNames()));
+}
+
+void PrinterSortFilterModel::setModel(QAbstractItemModel *model)
+{
+    if (model == sourceModel()) {
+        return;
+    }
+
+    if (sourceModel()) {
+        disconnect(sourceModel(), SIGNAL(modelReset()), this, SLOT(syncRoleNames()));
+    }
+
+    QSortFilterProxyModel::setSourceModel(model);
+
+    if (model) {
+        connect(model, SIGNAL(modelReset()), this, SLOT(syncRoleNames()));
+        syncRoleNames();
+    }
+
+    emit sourceModelChanged(model);
 }
 
 void PrinterSortFilterModel::setFilteredPrinters(const QString &printers)
 {
-    m_filteredPrinters = printers.split(QLatin1Char('|'));
-    invalidate();
-    emit changed();
+    kDebug() << rowCount() << printers << printers.split(QLatin1Char('|'));
+    if (printers.isEmpty()) {
+        m_filteredPrinters.clear();
+    } else {
+        m_filteredPrinters = printers.split(QLatin1Char('|'));
+    }
+    invalidateFilter();
+    emit filteredPrintersChanged();
+}
+
+void PrinterSortFilterModel::syncRoleNames()
+{
+    if (!sourceModel()) {
+        return;
+    }
+
+    setRoleNames(sourceModel()->roleNames());
 }
 
 QString PrinterSortFilterModel::filteredPrinters() const
@@ -47,7 +87,8 @@ QString PrinterSortFilterModel::filteredPrinters() const
 
 int PrinterSortFilterModel::count() const
 {
-    return rowCount();
+    kDebug() << rowCount();
+    return QSortFilterProxyModel::rowCount();
 }
 
 bool PrinterSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
@@ -55,11 +96,10 @@ bool PrinterSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex 
     QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
 
     // check if the printer is on the blacklist
-    if (m_filteredPrinters.contains(index.data(PrinterModel::DestName).toString())) {
-        return false;
+    if (!m_filteredPrinters.isEmpty()) {
+        return m_filteredPrinters.contains(index.data(PrinterModel::DestName).toString());
     }
 
-    // Return true if no filter was applied
     return true;
 }
 

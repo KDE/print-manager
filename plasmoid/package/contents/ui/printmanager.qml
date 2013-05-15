@@ -35,6 +35,12 @@ Item {
         id: theme
     }
 
+    onHorizontalLayoutChanged: {
+        if (horizontalLayout === false) {
+            printersView.currentIndex = -1;
+        }
+    }
+
     Component.onCompleted: {
         // This allows the plasmoid to shrink when the layout changes
         plasmoid.aspectRatioMode = IgnoreAspectRatio
@@ -56,9 +62,10 @@ Item {
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichActive);
         }
 
+        filterPrinters = plasmoid.readConfig("selectedPrinters");
+        console.debug("selectedPrinters: " + filterPrinters)
         if (plasmoid.readConfig("filterPrinters") == true) {
-            filterPrinters = plasmoid.readConfig("selectedPrinters");
-            console.debug("selectedPrinters: " + filterPrinters)
+
         } else {
             filterPrinters = "";
         }
@@ -117,7 +124,7 @@ Item {
         id: rowLayout
         spacing: 2
         anchors.fill: parent
-        ScrollableListView {
+        ListView {
             id: printersView
             width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : 50
@@ -129,11 +136,17 @@ Item {
                 }
                 filteredPrinters: filterPrinters
             }
-            delegate: PrinterItem{
+            delegate: PrinterItem {
                 multipleItems: horizontalLayout
             }
-            interactive: horizontalLayout
-            onCountChanged: horizontalLayout = printersFilterModel.count > 1
+            interactive: false
+            onCountChanged: {
+                if (printersFilterModel.count > 1) {
+                    horizontalLayout = true;
+                } else if (printersFilterModel.count === 1) {
+                    horizontalLayout = false;
+                }
+            }
         }
         
         PlasmaCore.SvgItem {

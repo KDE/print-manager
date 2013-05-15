@@ -320,7 +320,7 @@ void PrintQueueModel::insertJob(int pos, const KCupsJob &job)
     statusItem->setData(KCupsJob::cancelEnabled(jobState), RoleJobCancelEnabled);
     statusItem->setData(KCupsJob::holdEnabled(jobState), RoleJobHoldEnabled);
     statusItem->setData(KCupsJob::releaseEnabled(jobState), RoleJobReleaseEnabled);
-    statusItem->setData(KCupsJob::restartEnabled(jobState), RoleJobRestartEnabled);
+    statusItem->setData(job.reprintEnabled(), RoleJobRestartEnabled);
 
     QString pages = QString::number(job.pages());
     if (job.processedPages()) {
@@ -355,7 +355,7 @@ void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
         item(pos, ColStatus)->setData(KCupsJob::cancelEnabled(jobState), RoleJobCancelEnabled);
         item(pos, ColStatus)->setData(KCupsJob::holdEnabled(jobState), RoleJobHoldEnabled);
         item(pos, ColStatus)->setData(KCupsJob::releaseEnabled(jobState), RoleJobReleaseEnabled);
-        item(pos, ColStatus)->setData(KCupsJob::restartEnabled(jobState), RoleJobRestartEnabled);
+        item(pos, ColStatus)->setData(job.reprintEnabled(), RoleJobRestartEnabled);
     }
 
     QString pages = QString::number(job.pages());

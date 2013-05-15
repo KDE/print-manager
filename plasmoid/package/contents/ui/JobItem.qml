@@ -140,7 +140,7 @@ Item {
                     flat: true
                     iconSource: "document-open-recent"
                     text: jobRestartEnabled ?  i18n("Reprint Job") : (jobHoldEnabled ?  i18n("Hold Job") :  i18n("Release Job"))
-                    visible: jobCancelEnabled
+                    visible: jobCancelEnabled || jobRestartEnabled
                     onClicked: {
                         enabled = false;
                         if (jobHoldEnabled) {

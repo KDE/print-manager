@@ -115,6 +115,11 @@ int KCupsJob::size() const
     return jobKOctets;
 }
 
+bool KCupsJob::preserved() const
+{
+    return m_arguments[KCUPS_JOB_PRESERVED].toInt();
+}
+
 QString KCupsJob::iconName(ipp_jstate_t state)
 {
     QString ret;
@@ -156,6 +161,14 @@ QString KCupsJob::stateMsg() const
     return m_arguments[KCUPS_JOB_PRINTER_STATE_MESSAGE].toString();
 }
 
+bool KCupsJob::reprintEnabled() const
+{
+    if (state() >= IPP_JOB_STOPPED && preserved()) {
+        return true;
+    }
+    return false;
+}
+
 bool KCupsJob::cancelEnabled(ipp_jstate_t state)
 {
     switch (state) {
@@ -190,17 +203,5 @@ bool KCupsJob::releaseEnabled(ipp_jstate_t state)
         return true;
     default:
         return false;
-    }
-}
-
-bool KCupsJob::restartEnabled(ipp_jstate_t state)
-{
-    switch (state) {
-    case IPP_JOB_PENDING:
-    case IPP_JOB_HELD:
-    case IPP_JOB_PROCESSING:
-        return false;
-    default:
-        return true;
     }
 }

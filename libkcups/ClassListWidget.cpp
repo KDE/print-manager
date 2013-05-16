@@ -32,7 +32,7 @@
 #include <KPixmapSequence>
 #include <KConfigDialogManager>
 
-ClassListWidget::ClassListWidget(bool init, QWidget *parent) :
+ClassListWidget::ClassListWidget(QWidget *parent) :
     QListView(parent),
     m_request(0)
 {
@@ -51,9 +51,7 @@ ClassListWidget::ClassListWidget(bool init, QWidget *parent) :
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(modelChanged()));
 
-    if (init) {
-        reload();
-    }
+    reload();
 }
 
 ClassListWidget::~ClassListWidget()
@@ -64,8 +62,8 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
 {
     // If we have an old request running discard it's result and get a new one
     if (m_request) {
-        connect(m_request, SIGNAL(finished()), this, SLOT(deleteLater()));
         disconnect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
+        connect(m_request, SIGNAL(finished()), m_request, SLOT(deleteLater()));
     }
 
     m_printerName = reqDestName;
@@ -102,22 +100,17 @@ void ClassListWidget::loadFinished()
         }
     }
     m_model->setProperty("orig-member-uris", origMemberUris);
-//    m_selectedPrinters = origMemberUris;
 
     foreach (const KCupsPrinter &printer, printers) {
         QString destName = printer.name();
         if (destName != m_printerName) {
-            QStandardItem *item = new QStandardItem(destName);
+            QStandardItem *item = new QStandardItem;
+            item->setText(destName);
             item->setCheckable(true);
             item->setEditable(false);
-            if (m_printerName.isNull()) {
-                if (m_selectedPrinters.contains(destName)) {
-                    item->setCheckState(Qt::Checked);
-                }
-            } else if (m_memberNames.contains(destName)) {
-                item->setCheckState(Qt::Checked);
-            }
             item->setData(printer.uriSupported());
+            updateItemState(item);
+
             m_model->appendRow(item);
         }
     }
@@ -155,6 +148,19 @@ QStringList ClassListWidget::currentSelected() const
     }
     currentMembers.sort();
     return currentMembers;
+}
+
+void ClassListWidget::updateItemState(QStandardItem *item) const
+{
+    if (m_printerName.isNull() && m_selectedPrinters.isEmpty()) {
+        item->setCheckState(Qt::Checked);
+    } else if (m_printerName.isNull() && m_selectedPrinters.contains(item->text())) {
+        item->setCheckState(Qt::Checked);
+    } else if (m_memberNames.contains(item->text())) {
+        item->setCheckState(Qt::Checked);
+    } else {
+        item->setCheckState(Qt::Unchecked);
+    }
 }
 
 bool ClassListWidget::hasChanges()

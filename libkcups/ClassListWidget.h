@@ -32,7 +32,7 @@ class KDE_EXPORT ClassListWidget : public QListView
     Q_OBJECT
     Q_PROPERTY(QString selectedPrinters READ selectedPrinters WRITE setSelectedPrinters USER true)
 public:
-    explicit ClassListWidget(bool init = true, QWidget *parent = 0);
+    explicit ClassListWidget(QWidget *parent = 0);
     ~ClassListWidget();
 
     bool hasChanges();
@@ -51,6 +51,7 @@ private slots:
 
 private:
     QStringList currentSelected() const;
+    void updateItemState(QStandardItem *item) const;
 
     QString m_printerName;
     QStringList m_memberNames;

@@ -43,7 +43,7 @@ int AddPrinter::newInstance()
     // "usb://Samsung/SCX-4200%20Series"
     // ""
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("add")) {
+    if (args->isSet("add-printer")) {
         QString printer;
         QString deviceId;
 
@@ -62,6 +62,8 @@ int AddPrinter::newInstance()
 
 //        m_pqInterface->ChangePPD(0, "foo");
 //        m_pqInterface->ChangePPD(0, "Samsung_SCX-3400_Series");
+    } else if (args->isSet("add-class")) {
+        m_pqInterface->AddClass(0);
     }
     args->clear();
     return 0;

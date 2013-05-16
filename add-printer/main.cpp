@@ -41,7 +41,8 @@ int main(int argc, char **argv)
 
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;
-    options.add("add", ki18n("A short binary option"));
+    options.add("add-printer", ki18n("Add a new printer"));
+    options.add("add-class", ki18n("Add a new printer class"));
     KCmdLineArgs::addCmdLineOptions(options);
 
     AddPrinter::addCmdLineOptions();

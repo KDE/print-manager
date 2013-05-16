@@ -22,7 +22,7 @@ import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.qtextracomponents 0.1
 
-Item {
+FocusScope {
     property alias delegate: list.delegate
     property alias model: list.model
     property alias view: list
@@ -37,6 +37,7 @@ Item {
     ListView {
         id: list
         clip: true
+        focus: true
         interactive: false
         anchors {
             left:   parent.left
@@ -44,23 +45,23 @@ Item {
             top :   parent.top
             bottom: parent.bottom
         }
-        highlight: highlighter
+//        highlight: highlighter
     }
-    Component {
-        id: highlighter
-        PlasmaCore.FrameSvgItem {
-            width: list.width
-            imagePath: "widgets/viewitem"
-            prefix: "hover"
-            opacity: 0.9
-            Behavior on opacity {
-                NumberAnimation {
-                    duration: 250
-                    easing.type: Easing.OutQuad
-                }
-            }
-        }
-    }
+//    Component {
+//        id: highlighter
+//        PlasmaCore.FrameSvgItem {
+//            width: list.width
+//            imagePath: "widgets/viewitem"
+//            prefix: "hover"
+//            opacity: 0.9
+//            Behavior on opacity {
+//                NumberAnimation {
+//                    duration: 250
+//                    easing.type: Easing.OutQuad
+//                }
+//            }
+//        }
+//    }
     PlasmaComponents.ScrollBar {
         id: scrollBar
         flickableItem: list

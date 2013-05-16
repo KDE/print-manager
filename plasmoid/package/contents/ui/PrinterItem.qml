@@ -29,6 +29,21 @@ Item {
     state: isPaused ? "PAUSED" : ""
 
     property bool multipleItems: false
+    property bool currentItem: ListView.isCurrentItem
+
+    function updateSelection() {
+        var containsMouse = mouseArea.containsMouse;
+
+        if (currentItem && containsMouse) {
+            padding.opacity = 1;
+        } else if (currentItem) {
+            padding.opacity = 0.9;
+        } else if (containsMouse) {
+            padding.opacity = 0.7;
+        } else {
+            padding.opacity = 0;
+        }
+    }
 
     PlasmaCore.FrameSvgItem {
         id: padding
@@ -38,18 +53,18 @@ Item {
         anchors.fill: parent
     }
     MouseArea {
-        id: container
+        id: mouseArea
         anchors.fill: parent
         hoverEnabled: multipleItems
         onEntered: {
-            padding.opacity = 0.6;
             highlightPrinter = printerName;
+            updateSelection();
         }
         onExited: {
-            padding.opacity = 0;
             if (highlightPrinter === printerName) {
                 highlightPrinter = "";
             }
+            updateSelection();
         }
         onClicked: {
             if (printerItem.ListView.isCurrentItem) {
@@ -65,6 +80,7 @@ Item {
                 filterJobs = printerName;
                 highlightPrinter = "";
             }
+            printerItem.forceActiveFocus();
         }
     }
 

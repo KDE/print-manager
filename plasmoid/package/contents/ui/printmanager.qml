@@ -22,7 +22,7 @@ import org.kde.plasma.core 0.1 as PlasmaCore
 import org.kde.plasma.components 0.1 as PlasmaComponents
 import org.kde.printmanager 0.1 as PrintManager
 
-Item {
+FocusScope   {
     id: printmanager
     property int minimumWidth: horizontalLayout ? 500 : 300
     property int minimumHeight: 270
@@ -30,6 +30,10 @@ Item {
     property string highlightPrinter
     property bool horizontalLayout: false
     property string filterPrinters
+
+    property Component compactRepresentation: CompactRepresentation {
+        jobsActiveCount: jobsView.view.count
+    }
 
     PlasmaCore.Theme {
         id: theme
@@ -73,27 +77,34 @@ Item {
     }
 
     function checkPlasmoidStatus() {
-        var data = new Object
-        data["image"] = "printer"
-        data["subText"] = "ToolTip descriptive sub text"
-        if (jobsFilterModel.count === 0) {
-            plasmoid.status = "PassiveStatus";
-            data["subText"] = i18n("Print queue is empty");
-        } else {
-            plasmoid.status = "ActiveStatus"
-            data["subText"] = i18np("There is one print job in the queue",
-                                    "There are %1 print jobs in the queue",
-                                    jobsFilterModel.count);
+//        if (jobsFilterModel.count === 0) {
+//            plasmoid.status = "PassiveStatus";
+//            compact.tooltipText = i18n("Print queue is empty");
+//        } else {
+//            plasmoid.status = "ActiveStatus"
+//            compact.tooltipText = i18np("There is one print job in the queue",
+//                                    "There are %1 print jobs in the queue",
+//                                    jobsFilterModel.count);
 
-        }
-        plasmoid.popupIconToolTip = data
+//        }
     }
 
     function popupEventSlot(popped) {
-        if (!popped) {
+        if (popped) {
+            printmanager.forceActiveFocus();
             checkPlasmoidStatus();
             printersView.currentIndex = -1;
             jobsView.currentIndex = -1;
+        }
+    }
+
+    Timer {
+        id: forceFocus
+        interval: 300
+        repeat: false
+        onTriggered: {
+            console.log('Key AforceActiveFocus');
+            printmanager.forceActiveFocus();
         }
     }
 
@@ -124,8 +135,11 @@ Item {
         anchors.fill: parent
         ListView {
             id: printersView
+            focus: true
             width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : 50
+            KeyNavigation.tab: jobsView
+            KeyNavigation.backtab: jobsView
             currentIndex: -1
             model: PrintManager.PrinterSortFilterModel {
                 id: printersFilterModel
@@ -162,6 +176,9 @@ Item {
             id: jobsView
             width:  horizontalLayout ? parent.width * 0.60 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : printmanager.height - headerSeparator.height - printersView.height
+            focus: false
+            KeyNavigation.tab: printersView
+            KeyNavigation.backtab: printersView
             currentIndex: -1
             model: PlasmaCore.SortFilterModel {
                 id: jobsFilterModel
@@ -176,7 +193,7 @@ Item {
             onCountChanged: {
                 checkPlasmoidStatus();
             }
-            delegate: JobItem{}
+            delegate: JobItem {}
         }
     }
 }

@@ -1,5 +1,5 @@
 /*
- *   Copyright 2012 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -28,22 +28,34 @@ Item {
     height: items.height + padding.margins.top + padding.margins.bottom
     Behavior on height { PropertyAnimation {} }
 
-    property bool expanded: ListView.isCurrentItem
+    property bool currentItem: ListView.isCurrentItem
     property bool highlight: highlightPrinter === jobPrinter
 
     function updateSelection() {
-        if (expanded && (highlight || mouseArea.containsMouse)) {
+        var containsMouse = mouseArea.containsMouse;
+
+        if (currentItem && containsMouse) {
             padding.opacity = 1;
-        } else if (expanded) {
-            padding.opacity = 0.85;
-        } else if (highlight || mouseArea.containsMouse) {
+        } else if (currentItem) {
+            padding.opacity = 0.9;
+        } else if (containsMouse) {
             padding.opacity = 0.7;
         } else {
             padding.opacity = 0;
         }
     }
 
-    onExpandedChanged: updateSelection();
+    function toggleSelection() {
+        updateItem.ListView.view.currentIndex = index;
+        updateItem.forceActiveFocus();
+        updatesModel.toggleSelection(rId)
+    }
+
+    Keys.onEnterPressed: toggleChangelog()
+    Keys.onReturnPressed: toggleChangelog()
+    Keys.onSpacePressed: toggleSelection()
+
+    onCurrentItemChanged: updateSelection();
     onHighlightChanged: updateSelection();
 
     PlasmaCore.FrameSvgItem {
@@ -62,12 +74,14 @@ Item {
         onEntered: updateSelection()
         onExited: updateSelection()
         onClicked: {
-            if (expanded) {
+            if (currentItem) {
                 jobItem.ListView.view.currentIndex = -1;
             } else {
                 jobItem.ListView.view.currentIndex = index;
             }
+            jobItem.forceActiveFocus();
         }
+        onDoubleClicked: toggleChangelog()
     }
         
     Column {
@@ -115,7 +129,7 @@ Item {
 
         Row {
             id: actionRow
-            opacity: expanded ? 1 : 0
+            opacity: currentItem ? 1 : 0
             width: parent.width
             Behavior on opacity { PropertyAnimation {} }
 

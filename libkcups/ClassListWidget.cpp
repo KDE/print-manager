@@ -168,16 +168,16 @@ bool ClassListWidget::hasChanges()
     return m_changed;
 }
 
-QString ClassListWidget::selectedPrinters() const
+QStringList ClassListWidget::selectedPrinters() const
 {
     kDebug() << m_selectedPrinters;
-    return m_selectedPrinters.join(QLatin1String("|"));
+    return m_selectedPrinters;
 }
 
 
-void ClassListWidget::setSelectedPrinters(const QString &selected)
+void ClassListWidget::setSelectedPrinters(const QStringList &selected)
 {
-    m_selectedPrinters = selected.split(QLatin1Char('|'));
+    m_selectedPrinters = selected;
     m_selectedPrinters.sort();
     kDebug() << m_selectedPrinters;
 }

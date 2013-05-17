@@ -59,14 +59,10 @@ void JobSortFilterModel::setModel(QAbstractItemModel *model)
     emit sourceModelChanged(model);
 }
 
-void JobSortFilterModel::setFilteredPrinters(const QString &printers)
+void JobSortFilterModel::setFilteredPrinters(const QStringList &printers)
 {
-    kDebug() << rowCount() << printers << printers.split(QLatin1Char('|'));
-    if (printers.isEmpty()) {
-        m_filteredPrinters.clear();
-    } else {
-        m_filteredPrinters = printers.split(QLatin1Char('|'));
-    }
+    kDebug() << rowCount() << printers << printers;
+    m_filteredPrinters = printers;
     invalidateFilter();
     emit filteredPrintersChanged();
 }
@@ -80,9 +76,9 @@ void JobSortFilterModel::syncRoleNames()
     setRoleNames(sourceModel()->roleNames());
 }
 
-QString JobSortFilterModel::filteredPrinters() const
+QStringList JobSortFilterModel::filteredPrinters() const
 {
-    return m_filteredPrinters.join(QLatin1String("|"));
+    return m_filteredPrinters;
 }
 
 int JobSortFilterModel::count() const

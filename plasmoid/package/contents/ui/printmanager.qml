@@ -105,13 +105,14 @@ FocusScope   {
         id: rowLayout
         spacing: 2
         anchors.fill: parent
-        ScrollableListView {
+        ListView {
             id: printersView
             focus: true
             width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : 50
             KeyNavigation.tab: jobsView
             KeyNavigation.backtab: jobsView
+            boundsBehavior: Flickable.StopAtBounds
             currentIndex: -1
             model: PrintManager.PrinterSortFilterModel {
                 id: printersFilterModel

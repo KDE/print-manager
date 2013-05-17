@@ -18,8 +18,8 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef PRINT_QUEUE_MODEL_H
-#define PRINT_QUEUE_MODEL_H
+#ifndef JOB_MODEL_H
+#define JOB_MODEL_H
 
 #include <QStandardItemModel>
 
@@ -29,7 +29,7 @@
 
 class KCupsJob;
 class KCupsRequest;
-class KDE_EXPORT PrintQueueModel : public QStandardItemModel
+class KDE_EXPORT JobModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(JobAction)
@@ -82,7 +82,7 @@ public:
         LastColumn
     };
 
-    explicit PrintQueueModel(QObject *parent = 0);
+    explicit JobModel(QObject *parent = 0);
     void setParentWId(WId parentId);
     Q_INVOKABLE void init(const QString &destName = QString());
 
@@ -147,4 +147,4 @@ private:
     QStringList m_jobAttributes;
 };
 
-#endif
+#endif // JOB_MODEL_H

@@ -24,6 +24,7 @@ import org.kde.qtextracomponents 0.1
 
 Item {
     id: jobItem
+    clip: true
     width: jobItem.ListView.view.width
     height: items.height + padding.margins.top + padding.margins.bottom
 

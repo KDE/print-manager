@@ -58,11 +58,11 @@ FocusScope   {
 //        jobsView.currentIndex = -1;
 
         if (plasmoid.readConfig("completedJobs") == true) {
-            jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichCompleted);
+            jobsModel.setWhichJobs(PrintManager.JobModel.WhichCompleted);
         } else if (plasmoid.readConfig("allJobs") == true) {
-            jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichAll);
+            jobsModel.setWhichJobs(PrintManager.JobModel.WhichAll);
         } else {
-            jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichActive);
+            jobsModel.setWhichJobs(PrintManager.JobModel.WhichActive);
         }
 
         if (plasmoid.readConfig("filterPrinters") == true) {
@@ -150,15 +150,12 @@ FocusScope   {
             KeyNavigation.tab: printersView
             KeyNavigation.backtab: printersView
             currentIndex: -1
-            model: PlasmaCore.SortFilterModel {
+            model: PrintManager.JobSortFilterModel {
                 id: jobsFilterModel
-                sourceModel: PrintManager.PrintQueueModel {
+                sourceModel: PrintManager.JobModel {
                     id: jobsModel
                 }
-                filterRole: "jobPrinter"
-                filterRegExp: filterPrinters
-                sortRole: "jobId"
-                sortOrder: Qt.AscendingOrder
+                filteredPrinters: filterPrinters
             }
             delegate: JobItem {}
         }

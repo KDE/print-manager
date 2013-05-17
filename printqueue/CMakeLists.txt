@@ -5,7 +5,6 @@ set(queuemanager_SRCS
     PrintQueue.cpp
     PrintQueueUi.cpp
     PrintQueueInterface.cpp
-    PrintQueueSortFilterProxyModel.cpp
 )
 
 kde4_add_ui_files(queuemanager_SRCS

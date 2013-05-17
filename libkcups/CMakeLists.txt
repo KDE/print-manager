@@ -11,7 +11,8 @@ set(libkcups_SRCS
     NoSelectionRectDelegate.cpp
     PrinterModel.cpp
     PrinterSortFilterModel.cpp
-    PrintQueueModel.cpp
+    JobModel.cpp
+    JobSortFilterModel.cpp
 )
 
 kde4_add_ui_files(libkcups_SRCS

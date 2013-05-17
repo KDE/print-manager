@@ -30,8 +30,8 @@ namespace Ui {
 }
 
 class KCupsPrinter;
-class PrintQueueSortFilterProxyModel;
-class PrintQueueModel;
+class JobSortFilterModel;
+class JobModel;
 class PrintQueueUi : public KDialog
 {
     Q_OBJECT
@@ -76,8 +76,8 @@ private:
 
     Ui::PrintQueueUi *ui;
     QToolButton *m_filterJobs;
-    PrintQueueSortFilterProxyModel *m_proxyModel;
-    PrintQueueModel *m_model;
+    JobSortFilterModel *m_proxyModel;
+    JobModel *m_model;
     QString m_destName;
     QString m_title;
     bool m_isClass;

@@ -23,14 +23,16 @@
 
 #include <PrinterModel.h>
 #include <PrinterSortFilterModel.h>
-#include <PrintQueueModel.h>
+#include <JobModel.h>
+#include <JobSortFilterModel.h>
 
 void QmlPlugins::registerTypes(const char* uri)
 {
     Q_ASSERT(uri == QLatin1String("org.kde.printmanager"));
     qmlRegisterType<PrinterModel>(uri, 0, 1, "PrinterModel");
     qmlRegisterType<PrinterSortFilterModel>(uri, 0, 1, "PrinterSortFilterModel");
-    qmlRegisterType<PrintQueueModel>(uri, 0, 1, "PrintQueueModel");
+    qmlRegisterType<JobModel>(uri, 0, 1, "JobModel");
+    qmlRegisterType<JobSortFilterModel>(uri, 0, 1, "JobSortFilterModel");
 }
 
 Q_EXPORT_PLUGIN2(printmanager, QmlPlugins)

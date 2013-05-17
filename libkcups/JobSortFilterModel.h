@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2012-2013 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -18,27 +18,44 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PrintQueueSortFilterProxyModel.h"
+#ifndef JOB_SORT_FILTER_MODEL_H
+#define JOB_SORT_FILTER_MODEL_H
 
-#include <JobModel.h>
+#include <QSortFilterProxyModel>
 
-PrintQueueSortFilterProxyModel::PrintQueueSortFilterProxyModel(QObject *parent)
- : QSortFilterProxyModel(parent)
+#include <QDeclarativeItem>
+
+#include <kdemacros.h>
+
+class KDE_EXPORT JobSortFilterModel : public QSortFilterProxyModel
 {
-}
+    Q_OBJECT
+    Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY filteredPrintersChanged)
+    Q_PROPERTY(QAbstractItemModel *sourceModel READ sourceModel WRITE setModel NOTIFY sourceModelChanged)
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
+public:
+    explicit JobSortFilterModel(QObject *parent = 0);
 
-bool PrintQueueSortFilterProxyModel::lessThan(const QModelIndex &left,
-                                              const QModelIndex &right) const
-{
-    if (left.column() == JobModel::ColStatus) {
-        // the source model indices are sorted by the print queue
-        // which has the right printing order.
-        // The print order is about jobs creation and priority,
-        // but we don't have to worry if we follow the getJobs order :D
-        return left.row() < right.row();
-    }
+    void setModel(QAbstractItemModel *model);
+    void setFilteredPrinters(const QString &printers);
+    QString filteredPrinters() const;
+    int count() const;
 
-    return QSortFilterProxyModel::lessThan(left, right);
-}
+signals:
+    void countChanged();
+    void sourceModelChanged(QObject *);
+    void filteredPrintersChanged();
 
-#include "PrintQueueSortFilterProxyModel.moc"
+private slots:
+    void syncRoleNames();
+
+private:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
+    bool lessThan(const QModelIndex &left, const QModelIndex &right) const;
+
+    int weightForState(int state) const;
+
+    QStringList m_filteredPrinters;
+};
+
+#endif // JOB_SORT_FILTER_MODEL_H

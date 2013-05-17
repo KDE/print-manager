@@ -18,7 +18,7 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#include "PrintQueueModel.h"
+#include "JobModel.h"
 
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
@@ -35,7 +35,7 @@
 
 #include <QStringBuilder>
 
-PrintQueueModel::PrintQueueModel(QObject *parent) :
+JobModel::JobModel(QObject *parent) :
     QStandardItemModel(parent),
     m_jobRequest(0),
     m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
@@ -125,12 +125,12 @@ PrintQueueModel::PrintQueueModel(QObject *parent) :
             SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 }
 
-void PrintQueueModel::setParentWId(WId parentId)
+void JobModel::setParentWId(WId parentId)
 {
     m_parentId = parentId;
 }
 
-void PrintQueueModel::init(const QString &destName)
+void JobModel::init(const QString &destName)
 {
     m_destName = destName;
 
@@ -138,7 +138,7 @@ void PrintQueueModel::init(const QString &destName)
     getJobs();
 }
 
-void PrintQueueModel::hold(const QString &printerName, int jobId)
+void JobModel::hold(const QString &printerName, int jobId)
 {
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->holdJob(printerName, jobId);
@@ -148,7 +148,7 @@ void PrintQueueModel::hold(const QString &printerName, int jobId)
     }
 }
 
-void PrintQueueModel::release(const QString &printerName, int jobId)
+void JobModel::release(const QString &printerName, int jobId)
 {
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->releaseJob(printerName, jobId);
@@ -158,7 +158,7 @@ void PrintQueueModel::release(const QString &printerName, int jobId)
     }
 }
 
-void PrintQueueModel::cancel(const QString &printerName, int jobId)
+void JobModel::cancel(const QString &printerName, int jobId)
 {
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->cancelJob(printerName, jobId);
@@ -168,7 +168,7 @@ void PrintQueueModel::cancel(const QString &printerName, int jobId)
     }
 }
 
-void PrintQueueModel::move(const QString &printerName, int jobId, const QString &toPrinterName)
+void JobModel::move(const QString &printerName, int jobId, const QString &toPrinterName)
 {
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->moveJob(printerName, jobId, toPrinterName);
@@ -178,7 +178,7 @@ void PrintQueueModel::move(const QString &printerName, int jobId, const QString 
     }
 }
 
-void PrintQueueModel::getJobs()
+void JobModel::getJobs()
 {
     if (m_jobRequest) {
         return;
@@ -192,7 +192,7 @@ void PrintQueueModel::getJobs()
     m_processingJob.clear();
 }
 
-void PrintQueueModel::getJobFinished()
+void JobModel::getJobFinished()
 {
     KCupsRequest *request = static_cast<KCupsRequest *>(sender());
     if (request) {
@@ -241,7 +241,7 @@ void PrintQueueModel::getJobFinished()
     m_jobRequest = 0;
 }
 
-void PrintQueueModel::jobCompleted(const QString &text,
+void JobModel::jobCompleted(const QString &text,
                                    const QString &printerUri,
                                    const QString &printerName,
                                    uint printerState,
@@ -270,7 +270,7 @@ void PrintQueueModel::jobCompleted(const QString &text,
     getJobs();
 }
 
-void PrintQueueModel::insertUpdateJob(const QString &text,
+void JobModel::insertUpdateJob(const QString &text,
                                       const QString &printerUri,
                                       const QString &printerName,
                                       uint printerState,
@@ -299,7 +299,7 @@ void PrintQueueModel::insertUpdateJob(const QString &text,
     getJobs();
 }
 
-void PrintQueueModel::insertJob(int pos, const KCupsJob &job)
+void JobModel::insertJob(int pos, const KCupsJob &job)
 {
     // insert the first column which has the job state and id
     QList<QStandardItem*> row;
@@ -343,7 +343,7 @@ void PrintQueueModel::insertJob(int pos, const KCupsJob &job)
     updateJob(pos, job);
 }
 
-void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
+void JobModel::updateJob(int pos, const KCupsJob &job)
 {
     // Job Status & internal dataipp_jstate_e
     ipp_jstate_e jobState = job.state();
@@ -450,17 +450,17 @@ void PrintQueueModel::updateJob(int pos, const KCupsJob &job)
     }
 }
 
-QStringList PrintQueueModel::mimeTypes() const
+QStringList JobModel::mimeTypes() const
 {
     return QStringList("application/x-cupsjobs");
 }
 
-Qt::DropActions PrintQueueModel::supportedDropActions() const
+Qt::DropActions JobModel::supportedDropActions() const
 {
     return Qt::MoveAction;
 }
 
-QMimeData* PrintQueueModel::mimeData(const QModelIndexList &indexes) const
+QMimeData* JobModel::mimeData(const QModelIndexList &indexes) const
 {
     QMimeData *mimeData = new QMimeData();
     QByteArray encodedData;
@@ -480,7 +480,7 @@ QMimeData* PrintQueueModel::mimeData(const QModelIndexList &indexes) const
     return mimeData;
 }
 
-bool PrintQueueModel::dropMimeData(const QMimeData *data,
+bool JobModel::dropMimeData(const QMimeData *data,
                                    Qt::DropAction action,
                                    int row,
                                    int column,
@@ -530,7 +530,7 @@ bool PrintQueueModel::dropMimeData(const QMimeData *data,
     return ret;
 }
 
-KCupsRequest* PrintQueueModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
+KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
 {
     Q_UNUSED(parent)
     QStandardItem *job = item(row, ColStatus);
@@ -538,7 +538,7 @@ KCupsRequest* PrintQueueModel::modifyJob(int row, JobAction action, const QStrin
     QString destName = job->data(RoleJobPrinter).toString();
 
     // ignore some jobs
-    ipp_jstate_t state = (ipp_jstate_t) job->data(RoleJobState).toInt();
+    ipp_jstate_t state = static_cast<ipp_jstate_t>(job->data(RoleJobState).toInt());
     if ((state == IPP_JOB_HELD && action == Hold) ||
         (state == IPP_JOB_CANCELED && action == Cancel) ||
         (state != IPP_JOB_HELD && action == Release)) {
@@ -570,7 +570,7 @@ KCupsRequest* PrintQueueModel::modifyJob(int row, JobAction action, const QStrin
     return request;
 }
 
-int PrintQueueModel::jobRow(int jobId)
+int JobModel::jobRow(int jobId)
 {
     // find the position of the jobId inside the model
     for (int i = 0; i < rowCount(); i++) {
@@ -583,7 +583,7 @@ int PrintQueueModel::jobRow(int jobId)
     return -1;
 }
 
-QString PrintQueueModel::jobStatus(ipp_jstate_e job_state)
+QString JobModel::jobStatus(ipp_jstate_e job_state)
 {
   switch (job_state)
   {
@@ -598,7 +598,7 @@ QString PrintQueueModel::jobStatus(ipp_jstate_e job_state)
   return "-";
 }
 
-void PrintQueueModel::setWhichJobs(WhichJobs whichjobs)
+void JobModel::setWhichJobs(WhichJobs whichjobs)
 {
     kDebug() << whichjobs;
     switch (whichjobs) {
@@ -616,7 +616,7 @@ void PrintQueueModel::setWhichJobs(WhichJobs whichjobs)
     getJobs();
 }
 
-Qt::ItemFlags PrintQueueModel::flags(const QModelIndex &index) const
+Qt::ItemFlags JobModel::flags(const QModelIndex &index) const
 {
     if (index.isValid()) {
         ipp_jstate_t state = static_cast<ipp_jstate_t>(item(index.row(), ColStatus)->data(RoleJobState).toInt());
@@ -628,9 +628,9 @@ Qt::ItemFlags PrintQueueModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsDropEnabled;
 }
 
-QString PrintQueueModel::processingJob() const
+QString JobModel::processingJob() const
 {
     return m_processingJob;
 }
 
-#include "PrintQueueModel.moc"
+#include "JobModel.moc"

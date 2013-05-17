@@ -21,8 +21,8 @@
 #include "PrintQueueUi.h"
 #include "ui_PrintQueueUi.h"
 
-#include <PrintQueueModel.h>
-#include "PrintQueueSortFilterProxyModel.h"
+#include <JobModel.h>
+#include <JobSortFilterModel.h>
 
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
@@ -101,21 +101,21 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     ui->printerStatusMsgL->setText(QString());
 
     // setup the jobs model
-    m_model = new PrintQueueModel(this);
+    m_model = new JobModel(this);
     m_model->setParentWId(winId());
     m_model->init(printer.name());
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(updateButtons()));
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(update()));
-    m_proxyModel = new PrintQueueSortFilterProxyModel(this);
+    m_proxyModel = new JobSortFilterModel(this);
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->setDynamicSortFilter(true);
 
     ui->jobsView->setModel(m_proxyModel);
     ui->jobsView->setItemDelegate(new NoSelectionRectDelegate(this));
     // sort by status column means the jobs will be sorted by the queue order
-    ui->jobsView->sortByColumn(PrintQueueModel::ColStatus, Qt::AscendingOrder);
+    ui->jobsView->sortByColumn(JobModel::ColStatus, Qt::AscendingOrder);
     connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(updateButtons()));
     connect(ui->jobsView, SIGNAL(customContextMenuRequested(QPoint)),
@@ -127,16 +127,16 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     QHeaderView *header = ui->jobsView->header();
     header->setResizeMode(QHeaderView::Interactive);
     header->setStretchLastSection(false);
-    header->setResizeMode(PrintQueueModel::ColStatus,        QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColName,          QHeaderView::Stretch);
-    header->setResizeMode(PrintQueueModel::ColUser,          QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColCreated,       QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColCompleted,     QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColPages,         QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColProcessed,     QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColSize,          QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColStatusMessage, QHeaderView::ResizeToContents);
-    header->setResizeMode(PrintQueueModel::ColPrinter,       QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColStatus,        QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColName,          QHeaderView::Stretch);
+    header->setResizeMode(JobModel::ColUser,          QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColCreated,       QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColCompleted,     QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColPages,         QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColProcessed,     QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColSize,          QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
+    header->setResizeMode(JobModel::ColPrinter,       QHeaderView::ResizeToContents);
 
     KConfig config("print-manager");
     KConfigGroup printQueue(&config, "PrintQueue");
@@ -145,11 +145,11 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
         header->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
     } else {
         // Hide some columns ColPrinter
-        header->hideSection(PrintQueueModel::ColPrinter);
-        header->hideSection(PrintQueueModel::ColUser);
-        header->hideSection(PrintQueueModel::ColCompleted);
-        header->hideSection(PrintQueueModel::ColSize);
-        header->hideSection(PrintQueueModel::ColFromHost);
+        header->hideSection(JobModel::ColPrinter);
+        header->hideSection(JobModel::ColUser);
+        header->hideSection(JobModel::ColCompleted);
+        header->hideSection(JobModel::ColSize);
+        header->hideSection(JobModel::ColFromHost);
     }
 
     // This is emitted when a printer is modified
@@ -219,7 +219,7 @@ PrintQueueUi::~PrintQueueUi()
 int PrintQueueUi::columnCount(const QModelIndex &parent) const
 {
     if (!parent.isValid()) {
-        return PrintQueueModel::LastColumn;
+        return JobModel::LastColumn;
     }
     return 0;
 }
@@ -337,7 +337,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
                 QAction *action = menu->exec(ui->jobsView->mapToGlobal(point));
                 if (action) {
                     // move the job
-                    modifyJob(PrintQueueModel::Move, action->data().toString());
+                    modifyJob(JobModel::Move, action->data().toString());
                 }
             }
         }
@@ -465,7 +465,7 @@ void PrintQueueUi::updateButtons()
     if (!selection.indexes().isEmpty()) {
         foreach (const QModelIndex &index, selection.indexes()) {
             if (index.column() == 0) {
-                switch (static_cast<ipp_jstate_t>(index.data(PrintQueueModel::RoleJobState).toInt())) {
+                switch (static_cast<ipp_jstate_t>(index.data(JobModel::RoleJobState).toInt())) {
                     case IPP_JOB_CANCELED :
                     case IPP_JOB_COMPLETED :
                     case IPP_JOB_ABORTED :
@@ -479,7 +479,7 @@ void PrintQueueUi::updateButtons()
                         cancel = hold = true;
                         break;
                 }
-                if (index.data(PrintQueueModel::RoleJobRestartEnabled).toBool()) {
+                if (index.data(JobModel::RoleJobRestartEnabled).toBool()) {
                     reprint = true;
                 }
             }
@@ -502,7 +502,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
         if (index.column() == 0) {
             KCupsRequest *request;
             request = m_model->modifyJob(index.row(),
-                                         static_cast<PrintQueueModel::JobAction>(action),
+                                         static_cast<JobModel::JobAction>(action),
                                          destName);
             if (!request) {
                 // probably the job already has this state
@@ -512,21 +512,21 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
             request->waitTillFinished();
             if (request->hasError()) {
                 QString msg, jobName;
-                jobName = m_model->item(index.row(), static_cast<int>(PrintQueueModel::ColName))->text();
+                jobName = m_model->item(index.row(), static_cast<int>(JobModel::ColName))->text();
                 switch (action) {
-                case PrintQueueModel::Cancel:
+                case JobModel::Cancel:
                     msg = i18n("Failed to cancel '%1'", jobName);
                     break;
-                case PrintQueueModel::Hold:
+                case JobModel::Hold:
                     msg = i18n("Failed to hold '%1'", jobName);
                     break;
-                case PrintQueueModel::Release:
+                case JobModel::Release:
                     msg = i18n("Failed to release '%1'", jobName);
                     break;
-                case PrintQueueModel::Reprint:
+                case JobModel::Reprint:
                     msg = i18n("Failed to reprint '%1'", jobName);
                     break;
-                case PrintQueueModel::Move:
+                case JobModel::Move:
                     msg = i18n("Failed to move '%1' to '%2'", jobName, destName);
                     break;
                 }
@@ -571,37 +571,37 @@ void PrintQueueUi::configurePrinter()
 void PrintQueueUi::cancelJob()
 {
     // CANCEL a job
-    modifyJob(PrintQueueModel::Cancel);
+    modifyJob(JobModel::Cancel);
 }
 
 void PrintQueueUi::holdJob()
 {
     // HOLD a job
-    modifyJob(PrintQueueModel::Hold);
+    modifyJob(JobModel::Hold);
 }
 
 void PrintQueueUi::resumeJob()
 {
     // RESUME a job
-    modifyJob(PrintQueueModel::Release);
+    modifyJob(JobModel::Release);
 }
 
 void PrintQueueUi::reprintJob()
 {
-    modifyJob(PrintQueueModel::Reprint);
+    modifyJob(JobModel::Reprint);
 }
 
 void PrintQueueUi::whichJobsIndexChanged(int index)
 {
     switch (index) {
     case 1:
-        m_model->setWhichJobs(PrintQueueModel::WhichCompleted);
+        m_model->setWhichJobs(JobModel::WhichCompleted);
         break;
     case 2:
-        m_model->setWhichJobs(PrintQueueModel::WhichAll);
+        m_model->setWhichJobs(JobModel::WhichAll);
         break;
     default:
-        m_model->setWhichJobs(PrintQueueModel::WhichActive);
+        m_model->setWhichJobs(JobModel::WhichActive);
         break;
     }
 

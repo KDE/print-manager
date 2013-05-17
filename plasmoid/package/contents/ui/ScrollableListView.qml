@@ -38,30 +38,14 @@ FocusScope {
         id: list
         clip: true
         focus: true
-        interactive: false
         anchors {
             left:   parent.left
             right:  scrollBar.visible ? scrollBar.left : parent.right
             top :   parent.top
             bottom: parent.bottom
         }
-//        highlight: highlighter
+        boundsBehavior: Flickable.StopAtBounds
     }
-//    Component {
-//        id: highlighter
-//        PlasmaCore.FrameSvgItem {
-//            width: list.width
-//            imagePath: "widgets/viewitem"
-//            prefix: "hover"
-//            opacity: 0.9
-//            Behavior on opacity {
-//                NumberAnimation {
-//                    duration: 250
-//                    easing.type: Easing.OutQuad
-//                }
-//            }
-//        }
-//    }
     PlasmaComponents.ScrollBar {
         id: scrollBar
         flickableItem: list

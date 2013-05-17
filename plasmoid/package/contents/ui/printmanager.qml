@@ -51,16 +51,15 @@ FocusScope   {
         plasmoid.addEventListener('ConfigChanged', configChanged);
         plasmoid.popupEvent.connect(popupEventSlot);
         configChanged();
-
-        checkPlasmoidStatus();
     }
 
     function configChanged() {
-        var completedJobs = plasmoid.readConfig("completedJobs");
-        var allJobs = plasmoid.readConfig("allJobs");
-        if (completedJobs == true) {
+        printersView.currentIndex = -1;
+//        jobsView.currentIndex = -1;
+
+        if (plasmoid.readConfig("completedJobs") == true) {
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichCompleted);
-        } else if (allJobs == true) {
+        } else if (plasmoid.readConfig("allJobs") == true) {
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichAll);
         } else {
             jobsModel.setWhichJobs(PrintManager.PrintQueueModel.WhichActive);
@@ -71,40 +70,13 @@ FocusScope   {
         } else {
             filterPrinters = "";
         }
-
-        printersView.currentIndex = -1;
-        jobsView.currentIndex = -1;
-    }
-
-    function checkPlasmoidStatus() {
-//        if (jobsFilterModel.count === 0) {
-//            plasmoid.status = "PassiveStatus";
-//            compact.tooltipText = i18n("Print queue is empty");
-//        } else {
-//            plasmoid.status = "ActiveStatus"
-//            compact.tooltipText = i18np("There is one print job in the queue",
-//                                    "There are %1 print jobs in the queue",
-//                                    jobsFilterModel.count);
-
-//        }
     }
 
     function popupEventSlot(popped) {
         if (popped) {
             printmanager.forceActiveFocus();
-            checkPlasmoidStatus();
-            printersView.currentIndex = -1;
-            jobsView.currentIndex = -1;
-        }
-    }
-
-    Timer {
-        id: forceFocus
-        interval: 300
-        repeat: false
-        onTriggered: {
-            console.log('Key AforceActiveFocus');
-            printmanager.forceActiveFocus();
+//            printersView.currentIndex = -1;
+//            jobsView.currentIndex = -1;
         }
     }
 
@@ -112,7 +84,7 @@ FocusScope   {
         id: columnLayout
         spacing: 2
         anchors.fill: parent
-        
+
         state: horizontalLayout ? "horizontal" : "vertical"
         states: [
             State {
@@ -133,7 +105,7 @@ FocusScope   {
         id: rowLayout
         spacing: 2
         anchors.fill: parent
-        ListView {
+        ScrollableListView {
             id: printersView
             focus: true
             width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
@@ -151,7 +123,6 @@ FocusScope   {
             delegate: PrinterItem {
                 multipleItems: horizontalLayout
             }
-            interactive: false
             onCountChanged: {
                 if (printersFilterModel.count > 1) {
                     horizontalLayout = true;
@@ -171,12 +142,11 @@ FocusScope   {
             height:    horizontalLayout ? parent.height : lineSvg.elementSize("horizontal-line").height
             width:     horizontalLayout ? lineSvg.elementSize("vertical-line").width : parent.width
         }
-        
+
         ScrollableListView {
             id: jobsView
-            width:  horizontalLayout ? parent.width * 0.60 - headerSeparator.width : parent.width
+            width:  horizontalLayout ? parent.width * 0.6 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : printmanager.height - headerSeparator.height - printersView.height
-            focus: false
             KeyNavigation.tab: printersView
             KeyNavigation.backtab: printersView
             currentIndex: -1
@@ -189,9 +159,6 @@ FocusScope   {
                 filterRegExp: filterPrinters
                 sortRole: "jobId"
                 sortOrder: Qt.AscendingOrder
-            }
-            onCountChanged: {
-                checkPlasmoidStatus();
             }
             delegate: JobItem {}
         }

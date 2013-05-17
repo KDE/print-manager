@@ -25,24 +25,47 @@ import org.kde.qtextracomponents 0.1
 Item {
     id: printerItem
     width: ListView.view.width
-    height: 50
-    state: isPaused ? "PAUSED" : ""
+    height: items.height + padding.margins.top + padding.margins.bottom
+    state: isPaused ? "PAUSED" : "*"
 
-    property bool multipleItems: false
     property bool currentItem: ListView.isCurrentItem
+    property bool multipleItems: false
+
+    Keys.onSpacePressed: toggleSelection()
+
+    onCurrentItemChanged: updateSelection();
 
     function updateSelection() {
         var containsMouse = mouseArea.containsMouse;
 
         if (currentItem && containsMouse) {
+            highlightPrinter = printerName;
             padding.opacity = 1;
         } else if (currentItem) {
             padding.opacity = 0.9;
         } else if (containsMouse) {
             padding.opacity = 0.7;
         } else {
+            if (highlightPrinter === printerName) {
+                highlightPrinter = "";
+            }
             padding.opacity = 0;
         }
+    }
+
+    function toggleSelection() {
+        switchAction.enabled = false;
+        if (isPaused) {
+            if (!isAcceptingJobs) {
+                printersModel.acceptJobs(printerName);
+            }
+            if (printerState === 5) {
+                printersModel.resumePrinter(printerName);
+            }
+        } else {
+            printersModel.pausePrinter(printerName);
+        }
+        switchAction.enabled = true;
     }
 
     PlasmaCore.FrameSvgItem {
@@ -50,60 +73,56 @@ Item {
         imagePath: "widgets/viewitem"
         prefix: "hover"
         opacity: 0
+        Behavior on opacity { PropertyAnimation {} }
         anchors.fill: parent
     }
+
     MouseArea {
         id: mouseArea
         anchors.fill: parent
         hoverEnabled: multipleItems
-        onEntered: {
-            highlightPrinter = printerName;
-            updateSelection();
-        }
-        onExited: {
-            if (highlightPrinter === printerName) {
-                highlightPrinter = "";
-            }
-            updateSelection();
-        }
+        onEntered: updateSelection()
+        onExited: updateSelection()
         onClicked: {
-            if (printerItem.ListView.isCurrentItem) {
+            if (currentItem) {
                 printerItem.ListView.view.currentIndex = -1;
                 filterJobs = "";
-                highlightPrinter = "";
+//                highlightPrinter = "";
             } else if (multipleItems) {
                 printerItem.ListView.view.currentIndex = index;
+                printerItem.forceActiveFocus();
                 // We need to unset the filter before applying a new one
                 // otherwise, the filter model get's rowCoun() == 0 and
                 // the popup hides
                 filterJobs = "";
                 filterJobs = printerName;
-                highlightPrinter = "";
+//                highlightPrinter = "";
             }
-            printerItem.forceActiveFocus();
+            updateSelection();
         }
     }
 
     Row {
-        anchors.fill: parent
+        id: items
+        width: parent.width - padding.margins.left - padding.margins.right
         anchors.topMargin: padding.margins.top
         anchors.leftMargin: padding.margins.left
         anchors.rightMargin: padding.margins.right
         anchors.bottomMargin: padding.margins.bottom
+        anchors.centerIn: parent
         spacing: 4
+
         QIconItem {
             id: printerIcon
             width: parent.height
             height: width
-            anchors.verticalCenter: parent.verticalCenter
             icon: QIcon(iconName)
             Behavior on opacity { PropertyAnimation {} }
         }
-        
+
         Column {
             id: labelsColumn
             width: parent.width - printerIcon.width - switchAction.width - parent.spacing * 2
-            anchors.verticalCenter: parent.verticalCenter
             spacing: padding.margins.top/2
             Row {
                 id: nameRow
@@ -119,7 +138,7 @@ Item {
                 PlasmaComponents.Label {
                     id: printerDescription
                     width: parent.width - printerLabel.paintedWidth
-                    height: parent.height
+                    height: printerLabel.height
                     elide: Text.ElideRight
                     verticalAlignment: Text.AlignBottom
                     font.pointSize: theme.smallestFont.pointSize
@@ -128,9 +147,9 @@ Item {
                 }
             }
             PlasmaComponents.Label {
+                height: paintedHeight
                 anchors.left: parent.left
                 anchors.right: parent.right
-                height: nameRow.height
                 verticalAlignment: Text.AlignTop
                 text: stateMessage
                 elide: Text.ElideRight
@@ -139,38 +158,21 @@ Item {
                 color: "#99"+(theme.textColor.toString().substr(1))
             }
         }
-        
+
         PlasmaComponents.Switch {
             id: switchAction
-            opacity: 1
             anchors.verticalCenter: parent.verticalCenter
+            focus: false
             checked: !isPaused
-            onClicked: {
-                enabled = false;
-                if (checked) {
-                    if (!isAcceptingJobs) {
-                        printersModel.acceptJobs(printerName);
-                    }
-                    if (printerState === 5) {
-                        printersModel.resumePrinter(printerName);
-                    }
-                } else {
-                    printersModel.pausePrinter(printerName);
-                }
-                enabled = true;
-            }
+            onClicked: toggleSelection()
         }
     }
-    
+
     states: [
         State {
             name: "PAUSED"
             PropertyChanges { target: labelsColumn; opacity: 0.6}
             PropertyChanges { target: printerIcon; opacity: 0.6}
-        },
-        State {
-            PropertyChanges { target: labelsColumn; opacity: 1}
-            PropertyChanges { target: printerIcon; opacity: 1}
         }
     ]
 }

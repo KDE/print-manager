@@ -26,10 +26,17 @@ Item {
     id: jobItem
     width: jobItem.ListView.view.width
     height: items.height + padding.margins.top + padding.margins.bottom
+
     Behavior on height { PropertyAnimation {} }
 
     property bool currentItem: ListView.isCurrentItem
     property bool highlight: highlightPrinter === jobPrinter
+
+    Keys.onDeletePressed: cancelJob()
+    Keys.onReturnPressed: cancelJob()
+
+    onCurrentItemChanged: updateSelection();
+    onHighlightChanged: updateSelection();
 
     function updateSelection() {
         var containsMouse = mouseArea.containsMouse;
@@ -45,18 +52,11 @@ Item {
         }
     }
 
-    function toggleSelection() {
-        updateItem.ListView.view.currentIndex = index;
-        updateItem.forceActiveFocus();
-        updatesModel.toggleSelection(rId)
+    function cancelJob() {
+        cancelButton.enabled = false;
+        jobsModel.cancel(jobPrinter, jobId);
+        cancelButton.enabled = true;
     }
-
-    Keys.onEnterPressed: toggleChangelog()
-    Keys.onReturnPressed: toggleChangelog()
-    Keys.onSpacePressed: toggleSelection()
-
-    onCurrentItemChanged: updateSelection();
-    onHighlightChanged: updateSelection();
 
     PlasmaCore.FrameSvgItem {
         id: padding
@@ -78,8 +78,9 @@ Item {
                 jobItem.ListView.view.currentIndex = -1;
             } else {
                 jobItem.ListView.view.currentIndex = index;
+                jobItem.forceActiveFocus();
             }
-            jobItem.forceActiveFocus();
+            updateSelection();
         }
         onDoubleClicked: toggleChangelog()
     }
@@ -131,7 +132,6 @@ Item {
             id: actionRow
             opacity: currentItem ? 1 : 0
             width: parent.width
-            Behavior on opacity { PropertyAnimation {} }
 
             spacing: 4
             Column {
@@ -143,11 +143,7 @@ Item {
                     iconSource: "dialog-cancel"
                     text:  i18n("Cancel Job")
                     visible: jobCancelEnabled
-                    onClicked: {
-                        enabled = false;
-                        jobsModel.cancel(jobPrinter, jobId);
-                        enabled = true;
-                    }
+                    onClicked: cancelJob()
                 }
                 PlasmaComponents.ToolButton {
                     id: holdButton

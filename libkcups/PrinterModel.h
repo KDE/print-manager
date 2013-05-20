@@ -31,6 +31,7 @@ class KDE_EXPORT PrinterModel : public QStandardItemModel
     Q_OBJECT
     Q_ENUMS(JobAction)
     Q_ENUMS(Role)
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
     enum Role {
         DestStatus = Qt::UserRole,
@@ -63,6 +64,7 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    int count() const;
 
     Q_INVOKABLE void pausePrinter(const QString &printerName);
     Q_INVOKABLE void resumePrinter(const QString &printerName);
@@ -72,8 +74,10 @@ public:
 public slots:
     void update();
     void getDestsFinished();
+    void slotCountChanged();
 
 signals:
+    void countChanged(int count);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
 private slots:

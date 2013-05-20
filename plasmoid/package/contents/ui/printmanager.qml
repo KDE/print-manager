@@ -50,7 +50,6 @@ FocusScope   {
         plasmoid.addEventListener('ConfigChanged', configChanged);
         plasmoid.popupEvent.connect(popupEventSlot);
         configChanged();
-        updateStatus();
     }
 
     function configChanged() {
@@ -70,17 +69,37 @@ FocusScope   {
         } else {
             filterPrinters = "";
         }
+
+        updateJobStatus();
+        updatePrinterStatus();
     }
 
-    function updateStatus() {
-        if (jobsFilterModel.activeCount === 0) {
+    function updateJobStatus() {
+        var activeCount = jobsFilterModel.activeCount;
+        if (activeCount === 0) {
             plasmoidStatus = "PassiveStatus";
             jobsTooltipText = i18n("Print queue is empty");
         } else {
             plasmoidStatus = "ActiveStatus";
             jobsTooltipText = i18np("There is one print job in the queue",
                                     "There are %1 print jobs in the queue",
-                                    jobsFilterModel.activeCount);
+                                    activeCount);
+        }
+    }
+
+    function updatePrinterStatus() {
+        var printersFilterCount = printersFilterModel.count;
+        if (printersFilterCount > 1) {
+            horizontalLayout = true;
+            printmanager.state = "JOBS_PRINTER";
+        } else if (printersFilterCount === 1) {
+            horizontalLayout = false;
+            printmanager.state = "JOBS_PRINTER";
+        } else if (printersFilterCount === 0 &&
+                   printersModel.count > 0) {
+            printmanager.state = "PRINTER_FILTER";
+        } else {
+            printmanager.state = "NO_PRINTER";
         }
     }
 
@@ -90,7 +109,7 @@ FocusScope   {
             printersView.currentIndex = -1;
             jobsView.currentIndex = -1;
         } else {
-            updateStatus();
+            updateJobStatus();
         }
     }
 
@@ -134,25 +153,13 @@ FocusScope   {
                 id: printersFilterModel
                 sourceModel: PrintManager.PrinterModel {
                     id: printersModel
+                    onCountChanged: updatePrinterStatus()
                 }
                 filteredPrinters: filterPrinters
             }
+            onCountChanged: updatePrinterStatus()
             delegate: PrinterItem {
                 multipleItems: horizontalLayout
-            }
-            onCountChanged: {
-                if (printersFilterModel.count > 1) {
-                    horizontalLayout = true;
-                    printmanager.state = "JOBS_PRINTER";
-                } else if (printersFilterModel.count === 1) {
-                    horizontalLayout = false;
-                    printmanager.state = "JOBS_PRINTER";
-                } else if (printersFilterModel.count === 0 &&
-                           printersModel.count > 0) {
-                    printmanager.state = "PRINTER_FILTER";
-                } else {
-                    printmanager.state = "NO_PRINTER";
-                }
             }
         }
         
@@ -180,7 +187,7 @@ FocusScope   {
                     id: jobsModel
                 }
                 filteredPrinters: filterPrinters
-                onActiveCountChanged: updateStatus()
+                onActiveCountChanged: updateJobStatus()
             }
             delegate: JobItem {}
         }
@@ -198,8 +205,8 @@ FocusScope   {
         id: statusPrinterFilter
         anchors.fill: parent
         opacity: 0
-        iconName: "task-attention"
-        title: i18n("There is currently no available printer matching the filter")
+        iconName: "dialog-information"
+        title: i18n("There is currently no available printer matching the selected filters")
     }
 
     states: [

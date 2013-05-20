@@ -126,6 +126,13 @@ PrinterModel::PrinterModel(QObject *parent) :
     connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
             this, SLOT(insertUpdatePrinter(QString)));
 
+    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
+            this, SLOT(slotCountChanged()));
+    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
+            this, SLOT(slotCountChanged()));
+    connect(this, SIGNAL(modelReset()),
+            this, SLOT(slotCountChanged()));
+
     update();
 }
 
@@ -179,12 +186,22 @@ void PrinterModel::getDestsFinished()
     }
 }
 
+void PrinterModel::slotCountChanged()
+{
+    emit countChanged(rowCount());
+}
+
 QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (section == 0 && orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         return i18n("Printers");
     }
     return QVariant();
+}
+
+int PrinterModel::count() const
+{
+    return rowCount();
 }
 
 void PrinterModel::pausePrinter(const QString &printerName)

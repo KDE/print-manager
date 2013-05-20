@@ -60,12 +60,6 @@ ClassListWidget::~ClassListWidget()
 
 void ClassListWidget::reload(const QString &reqDestName, const QStringList &memberNames)
 {
-    // If we have an old request running discard it's result and get a new one
-    if (m_request) {
-        disconnect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
-        connect(m_request, SIGNAL(finished()), m_request, SLOT(deleteLater()));
-    }
-
     m_printerName = reqDestName;
     m_memberNames = memberNames;
 
@@ -83,6 +77,12 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
 
 void ClassListWidget::loadFinished()
 {
+    // If we have an old request running discard it's result and get a new one
+    if (m_request != sender()) {
+        sender()->deleteLater();
+        return;
+    }
+
     m_busySeq->stop(); // Stop spining
 
     KCupsPrinters printers = m_request->printers();

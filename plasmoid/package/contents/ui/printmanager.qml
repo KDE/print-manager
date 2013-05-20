@@ -89,6 +89,8 @@ FocusScope   {
             printmanager.forceActiveFocus();
             printersView.currentIndex = -1;
             jobsView.currentIndex = -1;
+        } else {
+            updateStatus();
         }
     }
 

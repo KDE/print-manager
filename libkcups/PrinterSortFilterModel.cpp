@@ -36,7 +36,6 @@ PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
             this, SIGNAL(countChanged()));
     connect(this, SIGNAL(modelReset()),
             this, SIGNAL(countChanged()));
-    connect(this,  SIGNAL(countChanged()), this, SLOT(syncRoleNames()));
 }
 
 void PrinterSortFilterModel::setModel(QAbstractItemModel *model)
@@ -45,17 +44,7 @@ void PrinterSortFilterModel::setModel(QAbstractItemModel *model)
         return;
     }
 
-    if (sourceModel()) {
-        disconnect(sourceModel(), SIGNAL(modelReset()), this, SLOT(syncRoleNames()));
-    }
-
     QSortFilterProxyModel::setSourceModel(model);
-
-    if (model) {
-        connect(model, SIGNAL(modelReset()), this, SLOT(syncRoleNames()));
-        syncRoleNames();
-    }
-
     emit sourceModelChanged(model);
 }
 
@@ -69,15 +58,6 @@ void PrinterSortFilterModel::setFilteredPrinters(const QString &printers)
     }
     invalidateFilter();
     emit filteredPrintersChanged();
-}
-
-void PrinterSortFilterModel::syncRoleNames()
-{
-    if (!sourceModel()) {
-        return;
-    }
-
-    setRoleNames(sourceModel()->roleNames());
 }
 
 QString PrinterSortFilterModel::filteredPrinters() const

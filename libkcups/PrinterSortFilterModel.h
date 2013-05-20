@@ -45,9 +45,6 @@ signals:
     void sourceModelChanged(QObject *);
     void filteredPrintersChanged();
 
-private slots:
-    void syncRoleNames();
-
 private:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const;

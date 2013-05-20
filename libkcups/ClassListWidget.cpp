@@ -60,6 +60,9 @@ ClassListWidget::~ClassListWidget()
 
 void ClassListWidget::reload(const QString &reqDestName, const QStringList &memberNames)
 {
+    m_busySeq->start(); // Start spining
+    m_model->clear();
+
     m_printerName = reqDestName;
     m_memberNames = memberNames;
 
@@ -68,15 +71,15 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
     att << KCUPS_PRINTER_URI_SUPPORTED;
     // Get destinations with these masks
     m_request = new KCupsRequest;
+    connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
     m_request->getPrinters(att,
                            CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT);
-    connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
-
-    m_busySeq->start(); // Start spining
+    kDebug() << m_request << reqDestName << memberNames;
 }
 
 void ClassListWidget::loadFinished()
 {
+    kDebug() << m_request << sender();
     // If we have an old request running discard it's result and get a new one
     if (m_request != sender()) {
         sender()->deleteLater();
@@ -89,7 +92,6 @@ void ClassListWidget::loadFinished()
     m_request->deleteLater();
     m_request = 0;
 
-    m_model->clear();
     QStringList origMemberUris;
     foreach (const QString &memberUri, m_memberNames) {
         foreach (const KCupsPrinter &printer, printers) {

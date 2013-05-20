@@ -32,9 +32,12 @@ FocusScope   {
     property string highlightPrinter
     property bool horizontalLayout: false
     property string filterPrinters
+    property string tooltipText
+    property string plasmoidStatus: "PassiveStatus"
+    property string jobsTooltipText
 
     property Component compactRepresentation: CompactRepresentation {
-        jobsActiveCount: jobsView.view.count
+        tooltipText: printmanager.tooltipText
     }
 
     PlasmaCore.Theme {
@@ -47,6 +50,7 @@ FocusScope   {
         plasmoid.addEventListener('ConfigChanged', configChanged);
         plasmoid.popupEvent.connect(popupEventSlot);
         configChanged();
+        updateStatus();
     }
 
     function configChanged() {
@@ -65,6 +69,18 @@ FocusScope   {
             filterPrinters = plasmoid.readConfig("selectedPrinters");
         } else {
             filterPrinters = "";
+        }
+    }
+
+    function updateStatus() {
+        if (jobsFilterModel.activeCount === 0) {
+            plasmoidStatus = "PassiveStatus";
+            jobsTooltipText = i18n("Print queue is empty");
+        } else {
+            plasmoidStatus = "ActiveStatus";
+            jobsTooltipText = i18np("There is one print job in the queue",
+                                    "There are %1 print jobs in the queue",
+                                    jobsFilterModel.activeCount);
         }
     }
 
@@ -162,6 +178,7 @@ FocusScope   {
                     id: jobsModel
                 }
                 filteredPrinters: filterPrinters
+                onActiveCountChanged: updateStatus()
             }
             delegate: JobItem {}
         }
@@ -187,15 +204,21 @@ FocusScope   {
         State {
             name: "NO_PRINTER"
             PropertyChanges { target: statusNoPrinter; opacity: 1 }
+            PropertyChanges { target: printmanager; tooltipText: statusNoPrinter.title }
+            PropertyChanges { target: plasmoid; status: "PassiveStatus" }
         },
         State {
             name: "PRINTER_FILTER"
             PropertyChanges { target: statusPrinterFilter; opacity: 1 }
+            PropertyChanges { target: printmanager; tooltipText: statusPrinterFilter.title }
+            PropertyChanges { target: plasmoid; status: "PassiveStatus" }
         },
         State {
             name: "JOBS_PRINTER"
             PropertyChanges { target: columnLayout; opacity: 1 }
             PropertyChanges { target: rowLayout; opacity: 1 }
+            PropertyChanges { target: printmanager; tooltipText: jobsTooltipText }
+            PropertyChanges { target: plasmoid; status: plasmoidStatus }
         }
     ]
 }

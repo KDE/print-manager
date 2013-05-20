@@ -32,17 +32,17 @@ class KDE_EXPORT JobSortFilterModel : public QSortFilterProxyModel
     Q_OBJECT
     Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY filteredPrintersChanged)
     Q_PROPERTY(QAbstractItemModel *sourceModel READ sourceModel WRITE setModel NOTIFY sourceModelChanged)
-    Q_PROPERTY(int count READ count NOTIFY countChanged)
+    Q_PROPERTY(int activeCount READ activeCount NOTIFY activeCountChanged)
 public:
     explicit JobSortFilterModel(QObject *parent = 0);
 
     void setModel(QAbstractItemModel *model);
     void setFilteredPrinters(const QString &printers);
     QString filteredPrinters() const;
-    int count() const;
+    int activeCount() const;
 
 signals:
-    void countChanged();
+    void activeCountChanged();
     void sourceModelChanged(QObject *);
     void filteredPrintersChanged();
 

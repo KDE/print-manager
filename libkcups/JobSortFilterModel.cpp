@@ -30,13 +30,15 @@ JobSortFilterModel::JobSortFilterModel(QObject *parent) :
     setSortCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
 
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+            this, SIGNAL(activeCountChanged()));
     connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SIGNAL(countChanged()));
+            this, SIGNAL(activeCountChanged()));
     connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SIGNAL(countChanged()));
+            this, SIGNAL(activeCountChanged()));
     connect(this, SIGNAL(modelReset()),
-            this, SIGNAL(countChanged()));
-    connect(this,  SIGNAL(countChanged()), this, SLOT(syncRoleNames()));
+            this, SIGNAL(activeCountChanged()));
+    connect(this,  SIGNAL(activeCountChanged()), this, SLOT(syncRoleNames()));
 }
 
 void JobSortFilterModel::setModel(QAbstractItemModel *model)
@@ -85,10 +87,16 @@ QString JobSortFilterModel::filteredPrinters() const
     return m_filteredPrinters.join(QLatin1String("|"));
 }
 
-int JobSortFilterModel::count() const
+int JobSortFilterModel::activeCount() const
 {
-    kDebug() << rowCount();
-    return QSortFilterProxyModel::rowCount();
+    int active = 0;
+    for (int i = 0; i < rowCount(); ++i) {
+        QModelIndex item = index(i, 0);
+        if (weightForState(item.data(JobModel::RoleJobState).toInt())) {
+            ++active;
+        }
+    }
+    return active;
 }
 
 bool JobSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

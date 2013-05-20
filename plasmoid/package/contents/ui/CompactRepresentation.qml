@@ -25,20 +25,7 @@ import org.kde.plasma.components 0.1 as PlasmaComponents
 Item {
     id: panelIconWidget;
 
-    property int jobsActiveCount: 0
-
-    onJobsActiveCountChanged: {
-        if (jobsActiveCount === 0) {
-            plasmoid.status = "PassiveStatus";
-            tooltip.subText = i18n("Print queue is empty");
-        } else {
-            plasmoid.status = "ActiveStatus"
-            tooltip.subText = i18np("There is one print job in the queue",
-                                    "There are %1 print jobs in the queue",
-                                    jobsActiveCount);
-
-        }
-    }
+    property alias tooltipText: tooltip.subText
 
     PlasmaCore.SvgItem {
         id: connectionIcon

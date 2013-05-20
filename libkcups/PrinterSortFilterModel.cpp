@@ -87,8 +87,7 @@ QString PrinterSortFilterModel::filteredPrinters() const
 
 int PrinterSortFilterModel::count() const
 {
-    kDebug() << rowCount();
-    return QSortFilterProxyModel::rowCount();
+    return rowCount();
 }
 
 bool PrinterSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

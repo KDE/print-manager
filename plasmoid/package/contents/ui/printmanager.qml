@@ -24,6 +24,8 @@ import org.kde.printmanager 0.1 as PrintManager
 
 FocusScope   {
     id: printmanager
+    state: "NO_PRINTER"
+
     property int minimumWidth: horizontalLayout ? 500 : 300
     property int minimumHeight: 270
     
@@ -78,6 +80,7 @@ FocusScope   {
         id: columnLayout
         spacing: 2
         anchors.fill: parent
+        opacity: 0
 
         state: horizontalLayout ? "horizontal" : "vertical"
         states: [
@@ -99,10 +102,11 @@ FocusScope   {
         id: rowLayout
         spacing: 2
         anchors.fill: parent
+        opacity: 0
         ListView {
             id: printersView
             focus: true
-            width:  horizontalLayout ? parent.width * 0.40 - headerSeparator.width : parent.width
+            width:  horizontalLayout ? parent.width * 0.5 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : 50
             KeyNavigation.tab: jobsView
             KeyNavigation.backtab: jobsView
@@ -121,8 +125,15 @@ FocusScope   {
             onCountChanged: {
                 if (printersFilterModel.count > 1) {
                     horizontalLayout = true;
+                    printmanager.state = "JOBS_PRINTER";
                 } else if (printersFilterModel.count === 1) {
                     horizontalLayout = false;
+                    printmanager.state = "JOBS_PRINTER";
+                } else if (printersFilterModel.count === 0 &&
+                           printersModel.count > 0) {
+                    printmanager.state = "PRINTER_FILTER";
+                } else {
+                    printmanager.state = "NO_PRINTER";
                 }
             }
         }
@@ -140,7 +151,7 @@ FocusScope   {
 
         ScrollableListView {
             id: jobsView
-            width:  horizontalLayout ? parent.width * 0.6 - headerSeparator.width : parent.width
+            width:  horizontalLayout ? parent.width * 0.5 - headerSeparator.width : parent.width
             height: horizontalLayout ? parent.height : printmanager.height - headerSeparator.height - printersView.height
             KeyNavigation.tab: printersView
             KeyNavigation.backtab: printersView
@@ -155,4 +166,36 @@ FocusScope   {
             delegate: JobItem {}
         }
     }
+
+    StatusView {
+        id: statusNoPrinter
+        anchors.fill: parent
+        opacity: 0
+        iconName: "dialog-information"
+        title: i18n("No printers have been configured or discovered")
+    }
+
+    StatusView {
+        id: statusPrinterFilter
+        anchors.fill: parent
+        opacity: 0
+        iconName: "task-attention"
+        title: i18n("There is currently no available printer matching the filter")
+    }
+
+    states: [
+        State {
+            name: "NO_PRINTER"
+            PropertyChanges { target: statusNoPrinter; opacity: 1 }
+        },
+        State {
+            name: "PRINTER_FILTER"
+            PropertyChanges { target: statusPrinterFilter; opacity: 1 }
+        },
+        State {
+            name: "JOBS_PRINTER"
+            PropertyChanges { target: columnLayout; opacity: 1 }
+            PropertyChanges { target: rowLayout; opacity: 1 }
+        }
+    ]
 }

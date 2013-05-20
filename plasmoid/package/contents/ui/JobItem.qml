@@ -42,12 +42,12 @@ Item {
     function updateSelection() {
         var containsMouse = mouseArea.containsMouse;
 
-        if (currentItem && containsMouse) {
+        if (highlight || currentItem && containsMouse) {
             padding.opacity = 1;
         } else if (currentItem) {
-            padding.opacity = 0.9;
+            padding.opacity = 0.8;
         } else if (containsMouse) {
-            padding.opacity = 0.7;
+            padding.opacity = 0.65;
         } else {
             padding.opacity = 0;
         }

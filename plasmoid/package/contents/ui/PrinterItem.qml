@@ -44,6 +44,7 @@ Item {
         } else if (currentItem) {
             padding.opacity = 0.9;
         } else if (containsMouse) {
+            highlightPrinter = printerName;
             padding.opacity = 0.7;
         } else {
             if (highlightPrinter === printerName) {
@@ -72,6 +73,7 @@ Item {
         id: padding
         imagePath: "widgets/viewitem"
         prefix: "hover"
+        visible: multipleItems
         opacity: 0
         Behavior on opacity { PropertyAnimation {} }
         anchors.fill: parent
@@ -87,16 +89,14 @@ Item {
             if (currentItem) {
                 printerItem.ListView.view.currentIndex = -1;
                 filterJobs = "";
-//                highlightPrinter = "";
             } else if (multipleItems) {
                 printerItem.ListView.view.currentIndex = index;
                 printerItem.forceActiveFocus();
                 // We need to unset the filter before applying a new one
-                // otherwise, the filter model get's rowCoun() == 0 and
+                // otherwise, the filter model get's rowCount() == 0 and
                 // the popup hides
                 filterJobs = "";
                 filterJobs = printerName;
-//                highlightPrinter = "";
             }
             updateSelection();
         }
@@ -162,7 +162,7 @@ Item {
         PlasmaComponents.Switch {
             id: switchAction
             anchors.verticalCenter: parent.verticalCenter
-            focus: false
+            focus: !multipleItems
             checked: !isPaused
             onClicked: toggleSelection()
         }

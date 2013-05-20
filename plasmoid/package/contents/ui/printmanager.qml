@@ -39,12 +39,6 @@ FocusScope   {
         id: theme
     }
 
-    onHorizontalLayoutChanged: {
-        if (horizontalLayout === false) {
-            printersView.currentIndex = -1;
-        }
-    }
-
     Component.onCompleted: {
         // This allows the plasmoid to shrink when the layout changes
         plasmoid.aspectRatioMode = IgnoreAspectRatio
@@ -55,7 +49,7 @@ FocusScope   {
 
     function configChanged() {
         printersView.currentIndex = -1;
-//        jobsView.currentIndex = -1;
+        jobsView.currentIndex = -1;
 
         if (plasmoid.readConfig("completedJobs") == true) {
             jobsModel.setWhichJobs(PrintManager.JobModel.WhichCompleted);
@@ -75,8 +69,8 @@ FocusScope   {
     function popupEventSlot(popped) {
         if (popped) {
             printmanager.forceActiveFocus();
-//            printersView.currentIndex = -1;
-//            jobsView.currentIndex = -1;
+            printersView.currentIndex = -1;
+            jobsView.currentIndex = -1;
         }
     }
 

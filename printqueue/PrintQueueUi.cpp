@@ -255,7 +255,7 @@ void PrintQueueUi::setState(int state, const QString &message)
                 ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
             }
             break;
-        case KCupsPrinter::Stoped:
+        case KCupsPrinter::Stopped:
             m_printerPaused = true;
             ui->statusL->setText(i18n("Printer paused"));
             ui->pausePrinterPB->setText(i18n("Resume Printer"));

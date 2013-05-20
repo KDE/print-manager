@@ -293,7 +293,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
         destItem->setData(status, DestStatus);
     }
 
-    bool paused = (state == KCupsPrinter::Stoped || !accepting);
+    bool paused = (state == KCupsPrinter::Stopped || !accepting);
     if (paused != destItem->data(DestIsPaused)) {
         destItem->setData(paused, DestIsPaused);
     }
@@ -396,7 +396,7 @@ QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &mess
         } else {
             return i18n("In use - '%1'", message);
         }
-    case KCupsPrinter::Stoped:
+    case KCupsPrinter::Stopped:
         if (message.isEmpty()){
             return isAcceptingJobs ? i18n("Paused") : i18n("Paused, rejecting jobs");
         } else {

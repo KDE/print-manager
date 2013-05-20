@@ -35,7 +35,7 @@ public:
     typedef enum {
         Idle = 3,
         Printing,
-        Stoped
+        Stopped
     } Status;
     KCupsPrinter();
     explicit KCupsPrinter(const QString &printer, bool isClass = false);

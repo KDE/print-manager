@@ -129,26 +129,44 @@ Item {
             }
         }
 
-        Row {
+        Column {
             id: actionRow
             opacity: currentItem ? 1 : 0
             width: parent.width
-
             spacing: 4
-            Column {
+
+            PlasmaCore.SvgItem {
+                svg: PlasmaCore.Svg {
+                    id: lineSvg
+                    imagePath: "widgets/line"
+                }
+                elementId: "horizontal-line"
+                height: lineSvg.elementSize("horizontal-line").height
+                width: parent.width
+            }
+
+            Row {
                 id: columnButton
+                width: parent.width
                 spacing: 2
-                PlasmaComponents.ToolButton {
+
+                PlasmaComponents.Button {
                     id: cancelButton
-                    flat: true
+                    focus: true
+                    width: holdButton.visible ? parent.width * 0.5 - parent.spacing : minimumWidth
+                    KeyNavigation.tab: holdButton
+                    KeyNavigation.backtab: holdButton
                     iconSource: "dialog-cancel"
-                    text:  i18n("Cancel Job")
+                    text:  i18n("Cancel")
                     visible: jobCancelEnabled
                     onClicked: cancelJob()
                 }
-                PlasmaComponents.ToolButton {
+                PlasmaComponents.Button {
                     id: holdButton
-                    flat: true
+                    focus: true
+                    width: holdButton.visible ? parent.width * 0.5 - parent.spacing : minimumWidth
+                    KeyNavigation.tab: cancelButton
+                    KeyNavigation.backtab: cancelButton
                     iconSource: "document-open-recent"
                     text: jobRestartEnabled ?  i18n("Reprint Job") : (jobHoldEnabled ?  i18n("Hold Job") :  i18n("Release Job"))
                     visible: jobCancelEnabled || jobRestartEnabled
@@ -163,79 +181,85 @@ Item {
                     }
                 }
             }
-            Column {
-                id: column
-                PlasmaComponents.Label {
-                    id: ownerLabel
-                    height: paintedHeight
-                    width: parent.width
-                    horizontalAlignment: Text.AlignRight
-                    onPaintedWidthChanged: {
-                        if (paintedWidth > parent.width) {
-                        parent.width = paintedWidth;
+            Row {
+                id: detailsRow
+                width: parent.width
+                spacing: 4
+
+                Column {
+                    id: labelsColumn
+                    PlasmaComponents.Label {
+                        id: ownerLabel
+                        height: paintedHeight
+                        width: parent.width
+                        horizontalAlignment: Text.AlignRight
+                        onPaintedWidthChanged: {
+                            if (paintedWidth > parent.width) {
+                                parent.width = paintedWidth;
+                            }
                         }
+                        text: i18n("Owner:")
+                        font.pointSize: theme.smallestFont.pointSize
+                        color: "#99"+(theme.textColor.toString().substr(1))
                     }
-                    text: i18n("Owner:")
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
-                }
-                PlasmaComponents.Label {
-                    id: sizeLabel
-                    height: paintedHeight
-                    width: parent.width
-                    horizontalAlignment: Text.AlignRight
-                    onPaintedWidthChanged: {
-                        if (paintedWidth > parent.width) {
-                        parent.width = paintedWidth;
+                    PlasmaComponents.Label {
+                        id: sizeLabel
+                        height: paintedHeight
+                        width: parent.width
+                        horizontalAlignment: Text.AlignRight
+                        onPaintedWidthChanged: {
+                            if (paintedWidth > parent.width) {
+                                parent.width = paintedWidth;
+                            }
                         }
+                        text: i18n("Size:")
+                        font.pointSize: theme.smallestFont.pointSize
+                        color: "#99"+(theme.textColor.toString().substr(1))
                     }
-                    text: i18n("Size:")
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
-                }
-                PlasmaComponents.Label {
-                    id: createdLabel
-                    height: paintedHeight
-                    width: parent.width
-                    horizontalAlignment: Text.AlignRight
-                    onPaintedWidthChanged: {
-                        if (paintedWidth > parent.width) {
-                        parent.width = paintedWidth;
+                    PlasmaComponents.Label {
+                        id: createdLabel
+                        height: paintedHeight
+                        width: parent.width
+                        horizontalAlignment: Text.AlignRight
+                        onPaintedWidthChanged: {
+                            if (paintedWidth > parent.width) {
+                                parent.width = paintedWidth;
+                            }
                         }
+                        text: i18n("Created:")
+                        font.pointSize: theme.smallestFont.pointSize
+                        color: "#99"+(theme.textColor.toString().substr(1))
                     }
-                    text: i18n("Created:")
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
                 }
-            }
-            Column {
-                width: parent.width - columnButton.width - column.width - parent.spacing * 2
-                PlasmaComponents.Label {
-                    height: paintedHeight
-                    width: parent.width
-                    horizontalAlignment: Text.AlignLeft
-                    elide: Text.ElideRight
-                    text: jobOwner
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
-                }
-                PlasmaComponents.Label {
-                    height:paintedHeight
-                    width: parent.width
-                    horizontalAlignment: Text.AlignLeft
-                    elide: Text.ElideRight
-                    text: jobSize
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
-                }
-                PlasmaComponents.Label {
-                    height: paintedHeight
-                    width: parent.width
-                    horizontalAlignment: Text.AlignLeft
-                    elide: Text.ElideRight
-                    text: jobCreatedAt
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
+                Column {
+                    width: parent.width - labelsColumn.width - parent.spacing * 2
+                    PlasmaComponents.Label {
+                        height: paintedHeight
+                        width: parent.width
+                        horizontalAlignment: Text.AlignLeft
+                        elide: Text.ElideRight
+                        text: jobOwner
+                        font.pointSize: theme.smallestFont.pointSize
+                        color: "#99"+(theme.textColor.toString().substr(1))
+                    }
+                    PlasmaComponents.Label {
+                        height:paintedHeight
+                        width: parent.width
+                        horizontalAlignment: Text.AlignLeft
+                        elide: Text.ElideRight
+                        text: jobSize
+                        font.pointSize: theme.smallestFont.pointSize
+                        color: "#99"+(theme.textColor.toString().substr(1))
+                    }
+                    PlasmaComponents.Label {
+                        height: paintedHeight
+                        width: parent.width
+                        horizontalAlignment: Text.AlignLeft
+                        elide: Text.ElideRight
+                        text: jobCreatedAt
+                        font.pointSize: theme.smallestFont.pointSize
+                        color: "#99"+(theme.textColor.toString().substr(1))
+                    }
                 }
             }
         }

@@ -42,6 +42,7 @@ Item {
             highlightPrinter = printerName;
             padding.opacity = 1;
         } else if (currentItem) {
+            highlightPrinter = "";
             padding.opacity = 0.9;
         } else if (containsMouse) {
             highlightPrinter = printerName;

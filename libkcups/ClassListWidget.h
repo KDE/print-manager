@@ -23,6 +23,7 @@
 
 #include <QStandardItemModel>
 #include <QListView>
+#include <QTimer>
 
 #include <KPixmapSequenceOverlayPainter>
 
@@ -31,6 +32,7 @@ class KDE_EXPORT ClassListWidget : public QListView
 {
     Q_OBJECT
     Q_PROPERTY(QString selectedPrinters READ selectedPrinters WRITE setSelectedPrinters USER true)
+    Q_PROPERTY(bool showClasses READ showClasses WRITE setShowClasses USER true)
 public:
     explicit ClassListWidget(QWidget *parent = 0);
     ~ClassListWidget();
@@ -38,6 +40,8 @@ public:
     bool hasChanges();
     QString selectedPrinters() const;
     void setSelectedPrinters(const QString &selected);
+    bool showClasses() const;
+    void setShowClasses(bool enable);
 
     void reload(const QString &destName = QString(), const QStringList &memberNames = QStringList());
 
@@ -46,6 +50,7 @@ signals:
     void changed(const QString &selected);
 
 private slots:
+    void init();
     void loadFinished();
     void modelChanged();
 
@@ -59,7 +64,9 @@ private:
     KPixmapSequenceOverlayPainter *m_busySeq;
     KCupsRequest *m_request;
     bool m_changed;
+    bool m_showClasses;
     QStandardItemModel *m_model;
+    QTimer m_delayedInit;
 };
 
 #endif

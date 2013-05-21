@@ -21,7 +21,11 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="ClassListWidget" name="kcfg_selectedPrinters"/>
+       <widget class="ClassListWidget" name="kcfg_selectedPrinters">
+        <property name="showClasses">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -56,7 +60,7 @@
   <customwidget>
    <class>ClassListWidget</class>
    <extends>QListView</extends>
-   <header location="global">ClassListWidget.h</header>
+   <header>ClassListWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

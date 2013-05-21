@@ -34,7 +34,8 @@
 
 ClassListWidget::ClassListWidget(QWidget *parent) :
     QListView(parent),
-    m_request(0)
+    m_request(0),
+    m_showClasses(false)
 {
     KConfigDialogManager::changedMap()->insert("ClassListWidget", SIGNAL(changed(QString)));
 
@@ -51,7 +52,10 @@ ClassListWidget::ClassListWidget(QWidget *parent) :
     connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
             this, SLOT(modelChanged()));
 
-    reload();
+    m_delayedInit.setInterval(0);
+    m_delayedInit.setSingleShot(true);
+    connect(&m_delayedInit, SIGNAL(timeout()), SLOT(init()));
+    m_delayedInit.start();
 }
 
 ClassListWidget::~ClassListWidget()
@@ -60,11 +64,16 @@ ClassListWidget::~ClassListWidget()
 
 void ClassListWidget::reload(const QString &reqDestName, const QStringList &memberNames)
 {
-    m_busySeq->start(); // Start spining
-    m_model->clear();
-
     m_printerName = reqDestName;
     m_memberNames = memberNames;
+    m_delayedInit.start();
+}
+
+void ClassListWidget::init()
+{
+    kDebug();
+    m_busySeq->start(); // Start spining
+    m_model->clear();
 
     QStringList att;
     att << KCUPS_PRINTER_NAME;
@@ -72,14 +81,16 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
     // Get destinations with these masks
     m_request = new KCupsRequest;
     connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
-    m_request->getPrinters(att,
-                           CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT);
-    kDebug() << m_request << reqDestName << memberNames;
+    if (m_showClasses) {
+        m_request->getPrinters(att);
+    } else {
+        m_request->getPrinters(att,
+                               CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT);
+    }
 }
 
 void ClassListWidget::loadFinished()
 {
-    kDebug() << m_request << sender();
     // If we have an old request running discard it's result and get a new one
     if (m_request != sender()) {
         sender()->deleteLater();
@@ -154,9 +165,7 @@ QStringList ClassListWidget::currentSelected() const
 
 void ClassListWidget::updateItemState(QStandardItem *item) const
 {
-    if (m_printerName.isNull() && m_selectedPrinters.isEmpty()) {
-        item->setCheckState(Qt::Checked);
-    } else if (m_printerName.isNull() && m_selectedPrinters.contains(item->text())) {
+    if (m_printerName.isNull() && m_selectedPrinters.contains(item->text())) {
         item->setCheckState(Qt::Checked);
     } else if (m_memberNames.contains(item->text())) {
         item->setCheckState(Qt::Checked);
@@ -181,7 +190,21 @@ void ClassListWidget::setSelectedPrinters(const QString &selected)
 {
     m_selectedPrinters = selected.split(QLatin1Char('|'));
     m_selectedPrinters.sort();
+    m_delayedInit.start();
     kDebug() << m_selectedPrinters;
+}
+
+bool ClassListWidget::showClasses() const
+{
+    return m_showClasses;
+}
+
+void ClassListWidget::setShowClasses(bool enable)
+{
+    if (m_showClasses != enable) {
+        m_showClasses = enable;
+        m_delayedInit.start();
+    }
 }
 
 #include "ClassListWidget.moc"

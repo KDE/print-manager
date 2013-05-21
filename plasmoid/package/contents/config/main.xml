@@ -6,7 +6,8 @@
   <kcfgfile name=""/>
 
   <group name="General">
-    <entry name="activeJobs" type="Bool" value="true">
+    <entry name="activeJobs" type="Bool">
+      <default>true</default>
     </entry>
     <entry name="completedJobs" type="Bool">
     </entry>

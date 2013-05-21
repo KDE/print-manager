@@ -55,6 +55,9 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModif
 
     ui->membersL->setVisible(isClass);
     ui->membersLV->setVisible(isClass);
+    if (isClass) {
+        ui->membersLV->setPrinter(destName);
+    }
 
     connect(ui->descriptionLE, SIGNAL(textChanged(QString)),
             this, SLOT(textChanged(QString)));
@@ -173,7 +176,7 @@ void ModifyPrinter::setValues(const KCupsPrinter &printer)
 {
 //     kDebug() << values;
     if (m_isClass) {
-        ui->membersLV->reload(m_destName, printer.memberNames());
+        ui->membersLV->setSelectedPrinters(printer.memberNames().join(QLatin1String("|")));
     } else {
         ui->makeCB->clear();
         ui->makeCB->setProperty("different", false);
@@ -218,7 +221,7 @@ void ModifyPrinter::modelChanged()
 
     // store the new values
     if (isDifferent) {
-        m_changedValues["member-uris"] = ui->membersLV->selectedPrinters();
+        m_changedValues["member-uris"] = ui->membersLV->currentSelected(true);
     } else {
         m_changedValues.remove("member-uris");
     }

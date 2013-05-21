@@ -62,13 +62,6 @@ ClassListWidget::~ClassListWidget()
 {
 }
 
-void ClassListWidget::reload(const QString &reqDestName, const QStringList &memberNames)
-{
-    m_printerName = reqDestName;
-    m_memberNames = memberNames;
-    m_delayedInit.start();
-}
-
 void ClassListWidget::init()
 {
     kDebug();
@@ -103,17 +96,6 @@ void ClassListWidget::loadFinished()
     m_request->deleteLater();
     m_request = 0;
 
-    QStringList origMemberUris;
-    foreach (const QString &memberUri, m_memberNames) {
-        foreach (const KCupsPrinter &printer, printers) {
-            if (printer.name() == memberUri) {
-                origMemberUris << printer.uriSupported();
-                break;
-            }
-        }
-    }
-    m_model->setProperty("orig-member-uris", origMemberUris);
-
     foreach (const KCupsPrinter &printer, printers) {
         QString destName = printer.name();
         if (destName != m_printerName) {
@@ -121,6 +103,7 @@ void ClassListWidget::loadFinished()
             item->setText(destName);
             item->setCheckable(true);
             item->setEditable(false);
+            item->setData(printer.uriSupported());
             updateItemState(item);
 
             m_model->appendRow(item);
@@ -132,13 +115,9 @@ void ClassListWidget::loadFinished()
 
 void ClassListWidget::modelChanged()
 {
-    QStringList currentMembers = currentSelected();
+    QStringList currentMembers = currentSelected(false);
 
-    if (m_printerName.isNull()) {
-        m_changed = m_selectedPrinters != currentMembers;
-    } else {
-        m_changed = m_model->property("orig-member-uris").toStringList() != currentMembers;
-    }
+    m_changed = m_selectedPrinters != currentMembers;
 
     emit changed(selectedPrinters());
     emit changed(m_changed);
@@ -146,14 +125,18 @@ void ClassListWidget::modelChanged()
     kDebug() << m_changed << currentMembers;
 }
 
-QStringList ClassListWidget::currentSelected() const
+QStringList ClassListWidget::currentSelected(bool uri) const
 {
     QStringList currentMembers;
     for (int i = 0; i < m_model->rowCount(); i++) {
         QStandardItem *item = m_model->item(i);
         kDebug() << item << item->checkState() << Qt::Checked << item->text();
         if (item && item->checkState() == Qt::Checked) {
-            currentMembers << item->text();
+            if (uri) {
+                currentMembers << item->data().toString();
+            } else {
+                currentMembers << item->text();
+            }
         }
     }
     currentMembers.sort();
@@ -162,9 +145,7 @@ QStringList ClassListWidget::currentSelected() const
 
 void ClassListWidget::updateItemState(QStandardItem *item) const
 {
-    if (m_printerName.isNull() && m_selectedPrinters.contains(item->text())) {
-        item->setCheckState(Qt::Checked);
-    } else if (m_memberNames.contains(item->text())) {
+    if (m_selectedPrinters.contains(item->text())) {
         item->setCheckState(Qt::Checked);
     } else {
         item->setCheckState(Qt::Unchecked);
@@ -176,9 +157,17 @@ bool ClassListWidget::hasChanges()
     return m_changed;
 }
 
+void ClassListWidget::setPrinter(const QString &printer)
+{
+    if (m_printerName != printer) {
+        m_printerName = printer;
+        m_delayedInit.start();
+    }
+}
+
 QString ClassListWidget::selectedPrinters() const
 {
-    return m_selectedPrinters.join(QLatin1String("|"));
+    return currentSelected(false).join(QLatin1String("|"));
 }
 
 void ClassListWidget::setSelectedPrinters(const QString &selected)

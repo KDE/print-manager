@@ -74,7 +74,6 @@ PageChoosePrinters::~PageChoosePrinters()
 void PageChoosePrinters::setValues(const QVariantHash &args)
 {
     if (m_args != args) {
-        ui->membersLV->reload();
         m_args = args;
     }
 }
@@ -82,7 +81,7 @@ void PageChoosePrinters::setValues(const QVariantHash &args)
 QVariantHash PageChoosePrinters::values() const
 {
     QVariantHash ret = m_args;
-    ret[KCUPS_MEMBER_URIS] = ui->membersLV->selectedPrinters();
+    ret[KCUPS_MEMBER_URIS] = ui->membersLV->currentSelected(true);
     return ret;
 }
 

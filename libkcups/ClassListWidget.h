@@ -38,12 +38,12 @@ public:
     ~ClassListWidget();
 
     bool hasChanges();
+    void setPrinter(const QString &printer);
     QString selectedPrinters() const;
     void setSelectedPrinters(const QString &selected);
     bool showClasses() const;
     void setShowClasses(bool enable);
-
-    void reload(const QString &destName = QString(), const QStringList &memberNames = QStringList());
+    QStringList currentSelected(bool uri) const;
 
 signals:
     void changed(bool changed);
@@ -55,11 +55,9 @@ private slots:
     void modelChanged();
 
 private:
-    QStringList currentSelected() const;
     void updateItemState(QStandardItem *item) const;
 
     QString m_printerName;
-    QStringList m_memberNames;
     QStringList m_selectedPrinters;
     KPixmapSequenceOverlayPainter *m_busySeq;
     KCupsRequest *m_request;

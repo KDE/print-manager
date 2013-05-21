@@ -121,15 +121,13 @@ void ClassListWidget::loadFinished()
             item->setText(destName);
             item->setCheckable(true);
             item->setEditable(false);
-            item->setData(printer.uriSupported());
             updateItemState(item);
 
             m_model->appendRow(item);
         }
     }
 
-    // clear old values
-    m_changed = false;
+    modelChanged();
 }
 
 void ClassListWidget::modelChanged()
@@ -142,8 +140,6 @@ void ClassListWidget::modelChanged()
         m_changed = m_model->property("orig-member-uris").toStringList() != currentMembers;
     }
 
-    // store the new values
-    m_selectedPrinters = currentMembers;
     emit changed(selectedPrinters());
     emit changed(m_changed);
 
@@ -155,6 +151,7 @@ QStringList ClassListWidget::currentSelected() const
     QStringList currentMembers;
     for (int i = 0; i < m_model->rowCount(); i++) {
         QStandardItem *item = m_model->item(i);
+        kDebug() << item << item->checkState() << Qt::Checked << item->text();
         if (item && item->checkState() == Qt::Checked) {
             currentMembers << item->text();
         }
@@ -183,7 +180,6 @@ QString ClassListWidget::selectedPrinters() const
 {
     return m_selectedPrinters.join(QLatin1String("|"));
 }
-
 
 void ClassListWidget::setSelectedPrinters(const QString &selected)
 {

@@ -51,7 +51,7 @@
 #define KCUPS_PRINTER_TYPE                   "printer-type"
 #define KCUPS_PRINTER_TYPE_MASK              "printer-type-mask"
 #define KCUPS_PRINTER_COMMANDS               "printer-commands"
-#define KCUPS_PRINTER_URI_SUPPORTED          "printer-supported"
+#define KCUPS_PRINTER_URI_SUPPORTED          "printer-uri-supported"
 #define KCUPS_PRINTER_ERROR_POLICY           "printer-error-policy"
 #define KCUPS_PRINTER_ERROR_POLICY_SUPPORTED "printer-error-policy-supported"
 #define KCUPS_PRINTER_OP_POLICY              "printer-op-policy"

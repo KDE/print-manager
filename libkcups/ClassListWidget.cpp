@@ -181,7 +181,6 @@ bool ClassListWidget::hasChanges()
 
 QString ClassListWidget::selectedPrinters() const
 {
-    kDebug() << m_selectedPrinters;
     return m_selectedPrinters.join(QLatin1String("|"));
 }
 

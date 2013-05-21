@@ -11,6 +11,9 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>0</number>
+   </property>
    <item row="3" column="0">
     <widget class="QGroupBox" name="kcfg_filterPrinters">
      <property name="title">
@@ -48,9 +51,6 @@
     <widget class="QRadioButton" name="kcfg_activeJobs">
      <property name="text">
       <string>Active jobs only</string>
-     </property>
-     <property name="checked">
-      <bool>true</bool>
      </property>
     </widget>
    </item>

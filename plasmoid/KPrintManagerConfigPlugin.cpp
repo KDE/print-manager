@@ -24,7 +24,7 @@
 
 #include <KGlobal>
 
-static const KCatalogLoader loader(QLatin1String("printmanager"));
+static const KCatalogLoader loader(QLatin1String("print-manager"));
 
 KPrintManagerConfigPlugin::KPrintManagerConfigPlugin(QObject *parent)
 : QObject(parent)

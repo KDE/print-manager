@@ -48,9 +48,6 @@ private slots:
     void on_nameLE_textChanged(const QString &text);
 
 private:
-    bool resumePrinter(const QString &printer);
-    bool acceptJobs(const QString &printer);
-
     Ui::PageAddPrinter *ui;
 };
 

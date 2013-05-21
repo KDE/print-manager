@@ -118,6 +118,8 @@ bool PageAddPrinter::finishClicked()
 {
     bool ret = false;
     QVariantHash args = values();
+    args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
+    args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
 
     // Check if it's a printer or a class that we are adding
     bool isClass = !args.take(ADDING_PRINTER).toBool();
@@ -126,8 +128,6 @@ bool PageAddPrinter::finishClicked()
 
     QPointer<KCupsRequest> request = new KCupsRequest;
     if (isClass) {
-        args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
-        args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
         request->addOrModifyClass(destName, args);
     } else {
         request->addOrModifyPrinter(destName, args, filename);
@@ -150,15 +150,6 @@ bool PageAddPrinter::finishClicked()
         request->deleteLater();
     }
 
-    if (ret) {
-        // For some reason CUPS sometimes (AppleSocket?)
-        // adds printers paused and rejecting jobs
-        // this makes sure they are fine
-        if (resumePrinter(destName)) {
-            acceptJobs(destName);
-        }
-    }
-
     return ret;
 }
 
@@ -177,30 +168,6 @@ QVariantHash PageAddPrinter::values() const
 void PageAddPrinter::on_nameLE_textChanged(const QString &text)
 {
     emit allowProceed(!text.isEmpty());
-}
-
-bool PageAddPrinter::resumePrinter(const QString &printer)
-{
-    QPointer<KCupsRequest> request = new KCupsRequest;
-    request->resumePrinter(printer);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-        return true;
-    }
-    return false;
-}
-
-bool PageAddPrinter::acceptJobs(const QString &printer)
-{
-    QPointer<KCupsRequest> request = new KCupsRequest;
-    request->acceptJobs(printer);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-        return true;
-    }
-    return false;
 }
 
 void PageAddPrinter::checkSelected()

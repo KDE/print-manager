@@ -64,7 +64,6 @@ ClassListWidget::~ClassListWidget()
 
 void ClassListWidget::init()
 {
-    kDebug();
     m_busySeq->start(); // Start spining
     m_model->clear();
 
@@ -121,8 +120,6 @@ void ClassListWidget::modelChanged()
 
     emit changed(selectedPrinters());
     emit changed(m_changed);
-
-    kDebug() << m_changed << currentMembers;
 }
 
 QStringList ClassListWidget::currentSelected(bool uri) const
@@ -130,7 +127,6 @@ QStringList ClassListWidget::currentSelected(bool uri) const
     QStringList currentMembers;
     for (int i = 0; i < m_model->rowCount(); i++) {
         QStandardItem *item = m_model->item(i);
-        kDebug() << item << item->checkState() << Qt::Checked << item->text();
         if (item && item->checkState() == Qt::Checked) {
             if (uri) {
                 currentMembers << item->data().toString();
@@ -175,7 +171,6 @@ void ClassListWidget::setSelectedPrinters(const QString &selected)
     m_selectedPrinters = selected.split(QLatin1Char('|'));
     m_selectedPrinters.sort();
     m_delayedInit.start();
-    kDebug() << m_selectedPrinters;
 }
 
 bool ClassListWidget::showClasses() const

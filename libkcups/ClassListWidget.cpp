@@ -66,11 +66,11 @@ void ClassListWidget::reload(const QString &reqDestName, const QStringList &memb
     att << KCUPS_PRINTER_URI_SUPPORTED;
     // Get destinations with these masks
     m_request = new KCupsRequest;
+    connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
     m_request->setProperty("reqDestName", reqDestName);
     m_request->setProperty("memberNames", memberNames);
     m_request->getPrinters(att,
                            CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT);
-    connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
 
     m_busySeq->start(); // Start spining
 }

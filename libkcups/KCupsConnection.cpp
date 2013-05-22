@@ -393,7 +393,7 @@ ReturnArguments KCupsConnection::request(KIppRequest *request, int group_tag, bo
 
         // do the request deleting the response
         response = request->send(CUPS_HTTP_DEFAULT);
-    } while (retry(request->resource()));
+    } while (retry(request->resource().toUtf8()));
 
     if (response != NULL && needResponse) {
         ret = parseIPPVars(response, group_tag, needDestName);

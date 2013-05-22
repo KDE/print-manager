@@ -50,10 +50,10 @@ ipp_op_t KIppRequest::operation() const
     return d->operation;
 }
 
-const char *KIppRequest::resource() const
+QString KIppRequest::resource() const
 {
     Q_D(const KIppRequest);
-    return d->resource.toUtf8();
+    return d->resource;
 }
 
 ipp_t *KIppRequest::send(http_t *http)
@@ -64,11 +64,11 @@ ipp_t *KIppRequest::send(http_t *http)
 
     d->addRawRequestsToIpp(request);
 
-//    kDebug() << ippOpString(d->operation) << resource << filename.isNull();
+//    kDebug() << ippOpString(d->operation) << d->resource.toUtf8() << d->filename.isNull();
     if (d->filename.isNull()) {
-        return cupsDoRequest(http, request, resource());
+        return cupsDoRequest(http, request, d->resource.toUtf8());
     } else {
-        return cupsDoFileRequest(http, request, resource(), d->filename.toUtf8());
+        return cupsDoFileRequest(http, request, d->resource.toUtf8(), d->filename.toUtf8());
     }
 }
 

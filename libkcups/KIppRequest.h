@@ -32,7 +32,7 @@ public:
     ~KIppRequest();
 
     ipp_op_t operation() const;
-    const char *resource() const;
+    QString resource() const;
 
     ipp_t *send(http_t *http);
 

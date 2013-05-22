@@ -88,6 +88,7 @@ KCupsConnection::KCupsConnection(const KUrl &server, QObject *parent) :
     QThread(parent),
     m_serverUrl(server)
 {
+    qRegisterMetaType<KIppRequest>("KIppRequest");
     init();
 }
 
@@ -384,7 +385,7 @@ ReturnArguments KCupsConnection::request(ipp_op_t operation,
     return ret;
 }
 
-ReturnArguments KCupsConnection::request(KIppRequest *request, int group_tag, bool needResponse, bool needDestName)
+ReturnArguments KCupsConnection::request(KIppRequest &request, int group_tag, bool needResponse, bool needDestName)
 {
     ReturnArguments ret;
     ipp_t *response = NULL;
@@ -392,8 +393,8 @@ ReturnArguments KCupsConnection::request(KIppRequest *request, int group_tag, bo
         ippDelete(response);
 
         // do the request deleting the response
-        response = request->send(CUPS_HTTP_DEFAULT);
-    } while (retry(request->resource().toUtf8()));
+        response = request.send(CUPS_HTTP_DEFAULT);
+    } while (retry(request.resource().toUtf8()));
 
     if (response != NULL && needResponse) {
         ret = parseIPPVars(response, group_tag, needDestName);

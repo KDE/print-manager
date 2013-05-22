@@ -25,6 +25,17 @@
 
 #include <KDebug>
 
+KIppRequest::KIppRequest() :
+    d_ptr(new KIppRequestPrivate)
+{
+}
+
+KIppRequest::KIppRequest(const KIppRequest &other) :
+    d_ptr(new KIppRequestPrivate)
+{
+    *this = other;
+}
+
 KIppRequest::KIppRequest(ipp_op_t operation, const char *resource, const QString &filename) :
     d_ptr(new KIppRequestPrivate)
 {
@@ -177,6 +188,17 @@ QString KIppRequest::assembleUrif(const QString &name, bool isClass)
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
                      ippPort(), destination.toUtf8());
     return uri;
+}
+
+KIppRequest &KIppRequest::operator =(const KIppRequest &other)
+{
+    Q_D(KIppRequest);
+    if (this == &other)
+        return *this;
+
+    *d = *other.d_ptr;
+
+    return *this;
 }
 
 void KIppRequestPrivate::addRequest(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QVariant &value)

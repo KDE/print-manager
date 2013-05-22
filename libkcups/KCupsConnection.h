@@ -361,7 +361,7 @@ protected:
                             const QVariantHash &reqValues,
                             bool needResponse);
 
-    ReturnArguments request(KIppRequest *request, int group_tag, bool needResponse, bool needDestName);
+    ReturnArguments request(KIppRequest &request, int group_tag, bool needResponse, bool needDestName);
 
 private slots:
     void updateSubscription();

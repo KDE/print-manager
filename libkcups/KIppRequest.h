@@ -24,10 +24,12 @@
 #include <KCupsConnection.h>
 
 class KIppRequestPrivate;
-class KIppRequest
+class KDE_EXPORT KIppRequest
 {
     Q_DECLARE_PRIVATE(KIppRequest)
 public:
+    KIppRequest();
+    KIppRequest(const KIppRequest &other);
     KIppRequest(ipp_op_t operation, const char *resource, const QString &filename = QString());
     ~KIppRequest();
 
@@ -44,8 +46,16 @@ public:
 
     static QString assembleUrif(const QString &name, bool isClass);
 
+    /**
+     * Makes a copy of the KIppRequest object other.
+     */
+    KIppRequest &operator=(const KIppRequest &other);
+
+
 private:
     KIppRequestPrivate *d_ptr;
 };
+
+Q_DECLARE_METATYPE(KIppRequest)
 
 #endif // KIPPREQUEST_H

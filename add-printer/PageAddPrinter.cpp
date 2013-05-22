@@ -159,9 +159,9 @@ QVariantHash PageAddPrinter::values() const
     ret[KCUPS_PRINTER_NAME] = ui->nameLE->text();
     ret[KCUPS_PRINTER_LOCATION] = ui->locationLE->text();
     ret[KCUPS_PRINTER_INFO] = ui->descriptionLE->text();
-//     if (ret[ADDING_PRINTER].toBool()) {
-        // shareCB
-//     }
+    if (ret[ADDING_PRINTER].toBool()) {
+         ret[KCUPS_PRINTER_IS_SHARED] = ui->shareCB->isChecked();
+    }
     return ret;
 }
 

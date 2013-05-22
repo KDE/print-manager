@@ -68,14 +68,16 @@ static int password_retries = 0;
 static int internalErrorCount = 0;
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data);
 
-static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByteArray> *qbaList)
+static const char **qStringListToCharPtrPtr(const QStringList &list)
 {
+    QList<QByteArray> qbaList;
+
     const char **ptr = new const char *[list.size() + 1];
-    qbaList->reserve(qbaList->size() + list.size());
+    qbaList.reserve(qbaList.size() + list.size());
     QByteArray qba;
     for (int i = 0; i < list.size(); ++i) {
         qba = list.at(i).toUtf8();
-        qbaList->append(qba);
+        qbaList.append(qba);
         ptr[i] = qba.constData();
     }
     ptr[list.size()] = 0;
@@ -651,102 +653,155 @@ void KCupsConnection::cancelDBusSubscription()
     m_subscriptionId = -1;
 }
 
-void KCupsConnection::requestAddValues(ipp_t *request, const QVariantHash &values)
+class KCupsRawRequest
 {
-    QVariantHash::const_iterator i = values.constBegin();
-    while (i != values.constEnd()) {
-        QString key = i.key();
-        QVariant value = i.value();
-        switch (value.type()) {
+public:
+    ipp_tag_t group;
+    ipp_tag_t value_tag;
+    QString key;
+    QVariant value;
+};
+
+bool rawRequestGroupLessThan(const KCupsRawRequest &a, const KCupsRawRequest &b)
+{
+     return a.group < b.group;
+}
+
+void rawRequestToIPP(const QList<KCupsRawRequest> &requests, ipp_t *ipp)
+{
+    foreach (const KCupsRawRequest &request, requests) {
+        switch (request.value.type()) {
         case QVariant::Bool:
-            if (key == QLatin1String("printer-is-accepting-jobs")) {
-                ippAddBoolean(request, IPP_TAG_PRINTER,
-                              "printer-is-accepting-jobs", value.toBool());
+            ippAddBoolean(ipp,
+                          request.group,
+                          request.key.toUtf8(),
+                          request.value.toBool());
+            break;
+        case QVariant::Int:
+        case QVariant::UInt:
+            ippAddInteger(ipp,
+                          request.group,
+                          request.value_tag,
+                          request.key.toUtf8(),
+                          request.value.toInt());
+            break;
+        case QVariant::String:
+            ippAddString(ipp,
+                         request.group,
+                         request.value_tag,
+                         request.key.toUtf8(),
+                         "utf-8",
+                         request.value.toString().toUtf8());
+            break;
+        case QVariant::StringList:
+        {
+            QStringList list = request.value.toStringList();
+            const char **values = qStringListToCharPtrPtr(list);
+
+            ippAddStrings(ipp,
+                          request.group,
+                          request.value_tag,
+                          request.key.toUtf8(),
+                          list.size(),
+                          "utf-8",
+                          values);
+
+            // ippAddStrings deep copies everything so we can throw away the values.
+            // the QBAList and content is auto discarded when going out of scope.
+            delete [] values;
+            break;
+        }
+        default:
+            kWarning() << "type NOT recognized! This will be ignored:" << request.key << "values" << request.value;
+        }
+    }
+}
+
+void KCupsConnection::requestAddValues(ipp_t *ipp, const QVariantHash &values)
+{
+    QList<KCupsRawRequest> rawRequestList;
+    QVariantHash::ConstIterator i = values.constBegin();
+    while (i != values.constEnd()) {
+        KCupsRawRequest rawRequest;
+        rawRequest.key = i.key();
+        rawRequest.value = i.value();
+        QString key = i.key();
+        switch (rawRequest.value.type()) {
+        case QVariant::Bool:
+            if (key == QLatin1String(KCUPS_PRINTER_IS_ACCEPTING_JOBS)) {
+                rawRequest.group = IPP_TAG_PRINTER;
             } else {
-                ippAddBoolean(request, IPP_TAG_OPERATION,
-                              key.toUtf8(), value.toBool());
+                rawRequest.group = IPP_TAG_OPERATION;
             }
             break;
         case QVariant::Int:
             if (key == QLatin1String(KCUPS_JOB_ID)) {
-                ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                              KCUPS_JOB_ID, value.toInt());
+                rawRequest.group = IPP_TAG_OPERATION;
+                rawRequest.value_tag = IPP_TAG_INTEGER;
             } else if (key == QLatin1String(KCUPS_PRINTER_STATE)) {
-                ippAddInteger(request, IPP_TAG_PRINTER, IPP_TAG_ENUM,
-                              KCUPS_PRINTER_STATE, IPP_PRINTER_IDLE);
+                rawRequest.group = IPP_TAG_PRINTER;
+                rawRequest.value_tag = IPP_TAG_ENUM;
             } else {
-                ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
-                              key.toUtf8(), value.toInt());
+                rawRequest.group = IPP_TAG_OPERATION;
+                rawRequest.value_tag = IPP_TAG_ENUM;
             }
             break;
         case QVariant::String:
             if (key == QLatin1String(KCUPS_DEVICE_URI)) {
                 // device uri has a different TAG
-                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                             KCUPS_DEVICE_URI, "utf-8", value.toString().toUtf8());
-            } else if (key == QLatin1String("job-printer-uri")) {
-                // TODO this seems broken
-                const char* dest_name = value.toString().toUtf8();
-                char  destUri[HTTP_MAX_URI];
-                httpAssembleURIf(HTTP_URI_CODING_ALL, destUri, sizeof(destUri),
-                                 "ipp", "utf-8", "localhost", ippPort(),
-                                 "/printers/%s", dest_name);
-                ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
-                             KCUPS_JOB_PRINTER_URI, "utf-8", value.toString().toUtf8());
+                rawRequest.group = IPP_TAG_PRINTER;
+                rawRequest.value_tag = IPP_TAG_URI;
+            } else if (key == QLatin1String(KCUPS_JOB_PRINTER_URI)) {
+                rawRequest.group = IPP_TAG_OPERATION;
+                rawRequest.value_tag = IPP_TAG_URI;
             } else if (key == QLatin1String(KCUPS_PRINTER_OP_POLICY) ||
                        key == QLatin1String(KCUPS_PRINTER_ERROR_POLICY) ||
                        key == QLatin1String("ppd-name")) {
                 // printer-op-policy has a different TAG
-                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
-                            key.toUtf8(), "utf-8", value.toString().toUtf8());
+                rawRequest.group = IPP_TAG_PRINTER;
+                rawRequest.value_tag = IPP_TAG_NAME;
             } else if (key == QLatin1String(KCUPS_JOB_NAME)) {
-                ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                             KCUPS_JOB_NAME, "utf-8", value.toString().toUtf8());
-            } else if (key == QLatin1String("which-jobs")) {
-                ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                             "which-jobs", "utf-8", value.toString().toUtf8());
+                rawRequest.group = IPP_TAG_OPERATION;
+                rawRequest.value_tag = IPP_TAG_NAME;
+            } else if (key == QLatin1String(KCUPS_WHICH_JOBS)) {
+                rawRequest.group = IPP_TAG_OPERATION;
+                rawRequest.value_tag = IPP_TAG_KEYWORD;
             } else {
-                ippAddString(request, IPP_TAG_PRINTER, IPP_TAG_TEXT,
-                             key.toUtf8(), "utf-8", value.toString().toUtf8());
+                rawRequest.group = IPP_TAG_PRINTER;
+                rawRequest.value_tag = IPP_TAG_TEXT;
             }
             break;
         case QVariant::StringList:
-            {
-                QStringList list = value.value<QStringList>();
-
-                QList<QByteArray> valuesQByteArrayList;
-                const char **values = qStringListToCharPtrPtr(list, &valuesQByteArrayList);
-
-                if (key == QLatin1String(KCUPS_MEMBER_URIS)) {
-                    ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_URI,
-                                  KCUPS_MEMBER_URIS, list.size(), "utf-8", values);
-                } else if (key == QLatin1String("requested-attributes")) {
-                    ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD,
-                                  "requested-attributes", list.size(), "utf-8", values);
-                } else if (key == QLatin1String("notify-events")) {
-                    // Used for DBus notification, the values contains
-                    // what we want to watch
-                    ippAddStrings(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
-                                  "notify-events", list.size(), NULL, values);
-                } else {
-                    ippAddStrings(request, IPP_TAG_PRINTER, IPP_TAG_NAME,
-                                  i.key().toUtf8(), list.size(), "utf-8", values);
-                }
-
-                // ippAddStrings deep copies everything so we can throw away the values.
-                // the QBAList and content is auto discarded when going out of scope.
-                delete [] values;
+            if (key == QLatin1String(KCUPS_MEMBER_URIS)) {
+                rawRequest.group = IPP_TAG_PRINTER;
+                rawRequest.value_tag = IPP_TAG_URI;
+            } else if (key == QLatin1String("requested-attributes")) {
+                rawRequest.group = IPP_TAG_OPERATION;
+                rawRequest.value_tag = IPP_TAG_KEYWORD;
+            } else if (key == QLatin1String("notify-events")) {
+                // Used for DBus notification, the values contains
+                // what we want to watch
+                rawRequest.group = IPP_TAG_SUBSCRIPTION;
+                rawRequest.value_tag = IPP_TAG_KEYWORD;
+            } else {
+                rawRequest.group = IPP_TAG_PRINTER;
+                rawRequest.value_tag = IPP_TAG_NAME;
             }
             break;
         case QVariant::UInt:
-            ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_ENUM,
-                          key.toUtf8(), value.toInt());
+            rawRequest.group = IPP_TAG_OPERATION;
+            rawRequest.value_tag = IPP_TAG_ENUM;
             break;
         default:
-            kWarning() << "type NOT recognized! This will be ignored:" << key << "values" << value;
+            kWarning() << "type NOT recognized! This will be ignored:" << key << "values" << i.value();
         }
+
+        rawRequestList << rawRequest;
         ++i;
     }
+
+    qSort(rawRequestList.begin(), rawRequestList.end(), rawRequestGroupLessThan);
+    rawRequestToIPP(rawRequestList, ipp);
 }
 
 ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bool needDestName)

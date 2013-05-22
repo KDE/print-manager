@@ -87,6 +87,8 @@
 #define KCUPS_JOB_SHEETS_DEFAULT         "job-sheets-default"
 #define KCUPS_JOB_SHEETS_SUPPORTED       "job-sheets-supported"
 
+#define KCUPS_WHICH_JOBS "which-jobs"
+
 #define KCUPS_TIME_AT_COMPLETED  "time-at-completed"
 #define KCUPS_TIME_AT_CREATION   "time-at-creation"
 #define KCUPS_TIME_AT_PROCESSING "time-at-processing"
@@ -95,6 +97,7 @@
 #define KCUPS_REQUESTING_USER_NAME_DENIED  "requesting-user-name-denied"
 
 typedef QList<QVariantHash> ReturnArguments;
+
 class KCupsPasswordDialog;
 class KDE_EXPORT KCupsConnection : public QThread
 {
@@ -372,7 +375,7 @@ private:
 
     void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
 
-    static void requestAddValues(ipp_t *request, const QVariantHash &values);
+    static void requestAddValues(ipp_t *ipp, const QVariantHash &values);
     static ReturnArguments parseIPPVars(ipp_t *response,
                                         int group_tag,
                                         bool needDestName);

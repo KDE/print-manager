@@ -28,16 +28,21 @@ class KIppRequest
 {
     Q_DECLARE_PRIVATE(KIppRequest)
 public:
-    KIppRequest(ipp_op_t operation);
+    KIppRequest(ipp_op_t operation, const char *resource, const QString &filename = QString());
     ~KIppRequest();
 
-    ipp_t *doRequest(http_t *http, const char *resource, const QString &filename = QString());
+    ipp_op_t operation() const;
+    const char *resource() const;
+
+    ipp_t *send(http_t *http);
 
     void addString(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QString &value);
     void addStringList(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QStringList &value);
     void addInteger(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, int value);
     void addBoolean(ipp_tag_t group, const QString &name, bool value);
     void addVariantValues(const QVariantHash &values);
+
+    static QString assembleUrif(const QString &name, bool isClass);
 
 private:
     KIppRequestPrivate *d_ptr;

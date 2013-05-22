@@ -87,11 +87,14 @@
 #define KCUPS_JOB_SHEETS_DEFAULT         "job-sheets-default"
 #define KCUPS_JOB_SHEETS_SUPPORTED       "job-sheets-supported"
 
+#define KCUPS_MY_JOBS "my-jobs"
 #define KCUPS_WHICH_JOBS "which-jobs"
 
 #define KCUPS_TIME_AT_COMPLETED  "time-at-completed"
 #define KCUPS_TIME_AT_CREATION   "time-at-creation"
 #define KCUPS_TIME_AT_PROCESSING "time-at-processing"
+
+#define KCUPS_REQUESTED_ATTRIBUTES "requested-attributes"
 
 #define KCUPS_REQUESTING_USER_NAME         "requesting-user-name"
 #define KCUPS_REQUESTING_USER_NAME_ALLOWED "requesting-user-name-allowed"
@@ -356,6 +359,8 @@ protected:
                             const QVariantHash &reqValues,
                             bool needResponse);
 
+    ReturnArguments request(KIppRequest *request, int group_tag, bool needResponse, bool needDestName);
+
 private slots:
     void updateSubscription();
     void renewDBusSubscription();
@@ -380,7 +385,6 @@ private:
     static ReturnArguments parseIPPVars(ipp_t *response,
                                         int group_tag,
                                         bool needDestName);
-    static KIppRequest* ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
 
     static KCupsConnection* m_instance;

@@ -20,6 +20,7 @@
 
 #include "KCupsRequest.h"
 
+#include "KIppRequest.h"
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
 
@@ -151,20 +152,17 @@ void KCupsRequest::getPrinters(QStringList attributes, cups_ptype_t mask)
 void KCupsRequest::getPrinters(QStringList attributes, const QVariantHash &arguments)
 {
     if (m_connection->readyToStart()) {
-        QVariantHash request = arguments;
-        request[KCUPS_PRINTER_TYPE] = CUPS_PRINTER_LOCAL;
-        request["requested-attributes"] = attributes;
-        request["need-dest-name"] = true;
+        KIppRequest *request = new KIppRequest(CUPS_GET_PRINTERS, "/");
+        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
+        request->addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
 
         ReturnArguments ret;
-        ret = m_connection->request(CUPS_GET_PRINTERS,
-                                    "/",
-                                    request,
-                                    true);
+        ret = m_connection->request(request, IPP_TAG_PRINTER, true, true);
 
         foreach (const QVariantHash &arguments, ret) {
             m_printers << KCupsPrinter(arguments);
         }
+        delete request;
 
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
@@ -176,17 +174,16 @@ void KCupsRequest::getPrinters(QStringList attributes, const QVariantHash &argum
 void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes)
 {
     if (m_connection->readyToStart()) {
-        QVariantHash request;
-        request[KCUPS_PRINTER_NAME] = printerName;
-        request["printer-is-class"] = isClass;
-        request["need-dest-name"] = false; // we don't need a dest name since it's a single item
-        request["requested-attributes"] = attributes;
+        KIppRequest *request = new KIppRequest(IPP_GET_PRINTER_ATTRIBUTES, "/admin/");
+
+        QString uri = KIppRequest::assembleUrif(printerName, isClass);
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
+        request->addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
 
         ReturnArguments ret;
-        ret = m_connection->request(IPP_GET_PRINTER_ATTRIBUTES,
-                                    "/admin/",
-                                    request,
-                                    true);
+        ret = m_connection->request(request, IPP_TAG_PRINTER, true, false);
+        delete request;
 
         foreach (const QVariantHash &arguments, ret) {
             // Inject the printer name back to the arguments hash
@@ -205,30 +202,26 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
 void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJobs, QStringList attributes)
 {
     if (m_connection->readyToStart()) {
-        QVariantHash request;
-        // printer-uri makes the Name of the Job and owner came blank lol
-        request[KCUPS_PRINTER_NAME] = printerName;
+        KIppRequest *request = new KIppRequest(IPP_GET_JOBS, "/");
 
-        if (myJobs) {
-            request["my-jobs"] = myJobs;
-        }
+        QString uri = KIppRequest::assembleUrif(printerName, false);
+        // printer-uri makes the Name of the Job and owner came blank lol
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
+        request->addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
+
+        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_MY_JOBS, myJobs);
 
         if (whichJobs == CUPS_WHICHJOBS_COMPLETED) {
-            request[KCUPS_WHICH_JOBS] = "completed";
+            request->addString(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_WHICH_JOBS, "completed");
         } else if (whichJobs == CUPS_WHICHJOBS_ALL) {
-            request[KCUPS_WHICH_JOBS] = "all";
+            request->addString(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_WHICH_JOBS, "all");
         }
-
-        if (!attributes.isEmpty()) {
-            request["requested-attributes"] = attributes;
-        }
-        request["group-tag-qt"] = IPP_TAG_JOB;
 
         ReturnArguments ret;
-        ret = m_connection->request(IPP_GET_JOBS,
-                                    "/",
-                                    request,
-                                    true);
+        ret = m_connection->request(request, IPP_TAG_JOB, true, false);
+        delete request;
+
         foreach (const QVariantHash &arguments, ret) {
             m_jobs << KCupsJob(arguments);
         }
@@ -243,17 +236,17 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
 void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStringList attributes)
 {
     if (m_connection->readyToStart()) {
-        QVariantHash request;
-        request[KCUPS_JOB_ID] = jobId;
-        request[KCUPS_PRINTER_URI] = printerUri;
-        request["need-dest-name"] = false; // we don't need a dest name since it's a single list
-        request["requested-attributes"] = attributes;
+        KIppRequest *request = new KIppRequest(IPP_GET_JOB_ATTRIBUTES, "/admin/");
+
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, printerUri);
+        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
+        request->addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
+
+        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_JOB_ID, jobId);
 
         ReturnArguments ret;
-        ret = m_connection->request(IPP_GET_JOB_ATTRIBUTES,
-                                    "/admin/",
-                                    request,
-                                    true);
+        ret = m_connection->request(request, IPP_TAG_PRINTER, true, false);
+        delete request;
 
         foreach (const QVariantHash &arguments, ret) {
             m_jobs << KCupsJob(arguments);

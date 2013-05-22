@@ -319,53 +319,81 @@ ReturnArguments KCupsConnection::request(ipp_op_t operation,
 {
     ReturnArguments ret;
 
-    if (!readyToStart()) {
-        return ret; // This is not intended to be used in the gui thread
-    }
-
-    ipp_t *response = NULL;
+    KIppRequest *request;
+    bool isClass = false;
     bool needDestName = false;
     int group_tag = IPP_TAG_PRINTER;
-    do {
-        KIppRequest *request;
-        bool isClass = false;
-        QString filename;
-        QVariantHash values = reqValues;
+    QString filename;
+    QVariantHash values = reqValues;
 
+    if (values.contains(QLatin1String("printer-is-class"))) {
+        isClass = values.take(QLatin1String("printer-is-class")).toBool();
+    }
+    if (values.contains(QLatin1String("need-dest-name"))) {
+        needDestName = values.take(QLatin1String("need-dest-name")).toBool();
+    }
+    if (values.contains(QLatin1String("group-tag-qt"))) {
+        group_tag = values.take(QLatin1String("group-tag-qt")).toInt();
+    }
+
+    if (values.contains(QLatin1String("filename"))) {
+        filename = values.take(QLatin1String("filename")).toString();
+    }
+
+    // Lets create the request
+    if (values.contains(QLatin1String(KCUPS_PRINTER_NAME))) {
+        QString name = values.take(QLatin1String(KCUPS_PRINTER_NAME)).toString();
+        char  uri[HTTP_MAX_URI]; // printer URI
+
+        QString destination;
+        if (isClass) {
+            destination = QLatin1String("/classes/") % name;
+        } else {
+            destination = QLatin1String("/printers/") % name;
+        }
+
+        // Create a new request
+        // where we need:
+        // * printer-uri
+        // * requesting-user-name
+        request = new KIppRequest(operation, resource, filename);
+        httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8", "localhost",
+                         ippPort(), destination.toUtf8());
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+    } else {
+        request = new KIppRequest(operation, resource, filename);
+    }
+
+    // Add the requested values to the request
+    request->addVariantValues(values);
+
+    ipp_t *response = NULL;
+    do {
         ippDelete(response);
 
-        if (values.contains(QLatin1String("printer-is-class"))) {
-            isClass = values.take(QLatin1String("printer-is-class")).toBool();
-        }
-        if (values.contains(QLatin1String("need-dest-name"))) {
-            needDestName = values.take(QLatin1String("need-dest-name")).toBool();
-        }
-        if (values.contains(QLatin1String("group-tag-qt"))) {
-            group_tag = values.take(QLatin1String("group-tag-qt")).toInt();
-        }
+        // do the request deleting the response
+        response = request->send(CUPS_HTTP_DEFAULT);
+    } while (retry(resource));
 
-        if (values.contains(QLatin1String("filename"))) {
-            filename = values.take(QLatin1String("filename")).toString();
-        }
+    if (response != NULL && needResponse) {
+        ret = parseIPPVars(response, group_tag, needDestName);
+    }
+    ippDelete(response);
+    delete request;
 
-        // Lets create the request
-        if (values.contains(QLatin1String(KCUPS_PRINTER_NAME))) {
-            request = ippNewDefaultRequest(values.take(QLatin1String(KCUPS_PRINTER_NAME)).toString(),
-                                           isClass,
-                                           operation);
-        } else {
-            request = new KIppRequest(operation);
-        }
+    return ret;
+}
 
-        // send our user name on the request too
-        request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME, KCUPS_REQUESTING_USER_NAME, cupsUser());
-
-        // Add the requested values to the request
-        request->addVariantValues(values);
+ReturnArguments KCupsConnection::request(KIppRequest *request, int group_tag, bool needResponse, bool needDestName)
+{
+    ReturnArguments ret;
+    ipp_t *response = NULL;
+    do {
+        ippDelete(response);
 
         // do the request deleting the response
-        response = request->doRequest(CUPS_HTTP_DEFAULT, resource, filename);
-    } while (retry(resource));
+        response = request->send(CUPS_HTTP_DEFAULT);
+    } while (retry(request->resource()));
 
     if (response != NULL && needResponse) {
         ret = parseIPPVars(response, group_tag, needDestName);
@@ -397,11 +425,9 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
             operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
         }
 
-        request = new KIppRequest(operation);
+        request = new KIppRequest(operation, "/");
         request->addString(IPP_TAG_OPERATION, IPP_TAG_URI,
                            KCUPS_PRINTER_URI, QLatin1String("/"));
-        request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME,
-                           KCUPS_REQUESTING_USER_NAME, cupsUser());
 
         if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
             // Add the "notify-events" values to the request
@@ -423,7 +449,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         }
 
         // Do the request
-        response = request->doRequest(CUPS_HTTP_DEFAULT, "/");
+        response = request->send(CUPS_HTTP_DEFAULT);
     } while (retry("/"));
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
@@ -611,17 +637,17 @@ void KCupsConnection::renewDBusSubscription()
 
 void KCupsConnection::cancelDBusSubscription()
 {
-    do {
-        KIppRequest *request = new KIppRequest(IPP_CANCEL_SUBSCRIPTION);
-        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI,
-                           KCUPS_PRINTER_URI, "/");
-        request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME,
-                           "requesting-user-name", cupsUser());
-        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                            "notify-subscription-id", m_subscriptionId);
+    KIppRequest *request = new KIppRequest(IPP_CANCEL_SUBSCRIPTION, "/");
+    request->addString(IPP_TAG_OPERATION, IPP_TAG_URI,
+                       KCUPS_PRINTER_URI, "/");
+    request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME,
+                       "requesting-user-name", cupsUser());
+    request->addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                        "notify-subscription-id", m_subscriptionId);
 
+    do {
         // Do the request
-        ippDelete(request->doRequest(CUPS_HTTP_DEFAULT, "/"));
+        ippDelete(request->send(CUPS_HTTP_DEFAULT));
     } while (retry("/"));
 
     // Reset the subscription id
@@ -726,31 +752,6 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
 #endif // CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
 
     return ret;
-}
-
-// Don't forget to delete the request
-KIppRequest* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation)
-{
-    char  uri[HTTP_MAX_URI]; // printer URI
-    KIppRequest *request;
-
-    QString destination;
-    if (isClass) {
-        destination = QLatin1String("/classes/") % name;
-    } else {
-        destination = QLatin1String("/printers/") % name;
-    }
-
-    // Create a new request
-    // where we need:
-    // * printer-uri
-    // * requesting-user-name
-    request = new KIppRequest(operation);
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8", "localhost",
-                     ippPort(), destination.toUtf8());
-    request->addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
-
-    return request;
 }
 
 QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)

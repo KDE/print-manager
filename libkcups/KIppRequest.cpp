@@ -21,13 +21,21 @@
 #include "KIppRequest.h"
 #include "KIppRequest_p.h"
 
+#include <QStringBuilder>
+
 #include <KDebug>
 
-KIppRequest::KIppRequest(ipp_op_t operation) :
+KIppRequest::KIppRequest(ipp_op_t operation, const char *resource, const QString &filename) :
     d_ptr(new KIppRequestPrivate)
 {
     Q_D(KIppRequest);
+
     d->operation = operation;
+    d->resource = qstrdup(resource);
+    d->filename = filename;
+
+    // send our user name on the request too
+    addString(IPP_TAG_OPERATION, IPP_TAG_NAME, KCUPS_REQUESTING_USER_NAME, cupsUser());
 }
 
 KIppRequest::~KIppRequest()
@@ -36,7 +44,19 @@ KIppRequest::~KIppRequest()
     delete d;
 }
 
-ipp_t *KIppRequest::doRequest(http_t *http, const char *resource, const QString &filename)
+ipp_op_t KIppRequest::operation() const
+{
+    Q_D(const KIppRequest);
+    return d->operation;
+}
+
+const char *KIppRequest::resource() const
+{
+    Q_D(const KIppRequest);
+    return d->resource;
+}
+
+ipp_t *KIppRequest::send(http_t *http)
 {
     Q_D(KIppRequest);
 
@@ -45,10 +65,10 @@ ipp_t *KIppRequest::doRequest(http_t *http, const char *resource, const QString 
     d->addRawRequestsToIpp(request);
 
 //    kDebug() << ippOpString(d->operation) << resource << filename.isNull();
-    if (filename.isNull()) {
-        return cupsDoRequest(http, request, resource);
+    if (d->filename.isNull()) {
+        return cupsDoRequest(http, request, d->resource);
     } else {
-        return cupsDoFileRequest(http, request, resource, filename.toUtf8());
+        return cupsDoFileRequest(http, request, d->resource, d->filename.toUtf8());
     }
 }
 
@@ -125,8 +145,6 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
         case QVariant::StringList:
             if (key == QLatin1String(KCUPS_MEMBER_URIS)) {
                 addStringList(IPP_TAG_PRINTER, IPP_TAG_URI, key, value.toStringList());
-            } else if (key == QLatin1String("requested-attributes")) {
-                addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, key, value.toStringList());
             } else if (key == QLatin1String("notify-events")) {
                 // Used for DBus notification, the values contains
                 // what we want to watch
@@ -143,6 +161,22 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
         }
         ++i;
     }
+}
+
+QString KIppRequest::assembleUrif(const QString &name, bool isClass)
+{
+    char  uri[HTTP_MAX_URI]; // printer URI
+
+    QString destination;
+    if (isClass) {
+        destination = QLatin1String("/classes/") % name;
+    } else {
+        destination = QLatin1String("/printers/") % name;
+    }
+
+    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
+                     ippPort(), destination.toUtf8());
+    return uri;
 }
 
 void KIppRequestPrivate::addRequest(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QVariant &value)

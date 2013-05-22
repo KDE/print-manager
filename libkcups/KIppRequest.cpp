@@ -97,7 +97,7 @@ void KIppRequest::addBoolean(ipp_tag_t group, const QString &name, bool value)
 {
     Q_D(KIppRequest);
 
-    d->addRequest(group, IPP_TAG_CUPS_INVALID, name.toUtf8(), value);
+    d->addRequest(group, IPP_TAG_ZERO, name.toUtf8(), value);
 }
 
 void KIppRequest::addVariantValues(const QVariantHash &values)

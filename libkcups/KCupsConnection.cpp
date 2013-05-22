@@ -337,49 +337,39 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
 {
     int ret = -1;
 
-    if (!readyToStart()) {
-        kWarning() << "Tryied to run on the wrong thread";
-        return subscriptionId; // This is not intended to be used in the gui thread
+    ipp_op_t operation;
+
+    // check if we have a valid subscription ID
+    if (subscriptionId >= 0) {
+        // Add the "notify-events" values to the request
+        operation = IPP_RENEW_SUBSCRIPTION;
+    } else {
+        operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
+    }
+
+    KIppRequest request(operation, "/");
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI,
+                       KCUPS_PRINTER_URI, QLatin1String("/"));
+    request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
+                        KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
+
+    if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
+        // Add the "notify-events" values to the request
+        request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
+                              KCUPS_NOTIFY_EVENTS, events);
+        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
+                          KCUPS_NOTIFY_PULL_METHOD, "ippget");
+        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
+                          KCUPS_NOTIFY_RECIPIENT_URI, "dbus://");
+    } else {
+        request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                           KCUPS_NOTIFY_SUBSCRIPTION_ID, subscriptionId);
     }
 
     ipp_t *response = NULL;
     do {
-        KIppRequest *request;
-        ipp_op_t operation;
-
-        // check if we have a valid subscription ID
-        if (subscriptionId >= 0) {
-            // Add the "notify-events" values to the request
-            operation = IPP_RENEW_SUBSCRIPTION;
-        } else {
-            operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
-        }
-
-        request = new KIppRequest(operation, "/");
-        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI,
-                           KCUPS_PRINTER_URI, QLatin1String("/"));
-
-        if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
-            // Add the "notify-events" values to the request
-            QVariantHash values;
-            values["notify-events"] = events;
-            request->addVariantValues(values);
-
-            request->addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
-                               "notify-pull-method", "ippget");
-            request->addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
-                               "notify-recipient-uri", "dbus://");
-            request->addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
-                                "notify-lease-duration", leaseDuration);
-        } else {
-            request->addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                                "notify-subscription-id", subscriptionId);
-            request->addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
-                                "notify-lease-duration", leaseDuration);
-        }
-
         // Do the request
-        response = request->sendIppRequest();
+        response = request.sendIppRequest();
     } while (retry("/"));
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
@@ -567,17 +557,15 @@ void KCupsConnection::renewDBusSubscription()
 
 void KCupsConnection::cancelDBusSubscription()
 {
-    KIppRequest *request = new KIppRequest(IPP_CANCEL_SUBSCRIPTION, "/");
-    request->addString(IPP_TAG_OPERATION, IPP_TAG_URI,
-                       KCUPS_PRINTER_URI, "/");
-    request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME,
-                       "requesting-user-name", cupsUser());
-    request->addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                        "notify-subscription-id", m_subscriptionId);
+    KIppRequest request(IPP_CANCEL_SUBSCRIPTION, "/");
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI,
+                      KCUPS_PRINTER_URI, "/");
+    request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                       KCUPS_NOTIFY_SUBSCRIPTION_ID, m_subscriptionId);
 
     do {
         // Do the request
-        ippDelete(request->sendIppRequest());
+        ippDelete(request.sendIppRequest());
     } while (retry("/"));
 
     // Reset the subscription id

@@ -124,6 +124,7 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
         QVariant value = i.value();
         switch (value.type()) {
         case QVariant::Bool:
+            // Still in use at add-printer/PageAddPrinter.cpp
             if (key == QLatin1String(KCUPS_PRINTER_IS_ACCEPTING_JOBS)) {
                 addBoolean(IPP_TAG_PRINTER, key, value.toBool());
             } else {
@@ -131,20 +132,18 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
             }
             break;
         case QVariant::Int:
-            if (key == QLatin1String(KCUPS_JOB_ID)) {
-                addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, key, value.toInt());
-            } else if (key == QLatin1String(KCUPS_PRINTER_STATE)) {
+            // Still in use at add-printer/PageAddPrinter.cpp
+            if (key == QLatin1String(KCUPS_PRINTER_STATE)) {
                 addInteger(IPP_TAG_PRINTER, IPP_TAG_ENUM, key, value.toInt());
             } else {
                 addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, key, value.toInt());
             }
             break;
         case QVariant::String:
+            // Still in use at add-printer/*
             if (key == QLatin1String(KCUPS_DEVICE_URI)) {
                 // device uri has a different TAG
                 addString(IPP_TAG_PRINTER, IPP_TAG_URI, key, value.toString());
-            } else if (key == QLatin1String(KCUPS_JOB_PRINTER_URI)) {
-                addString(IPP_TAG_OPERATION, IPP_TAG_URI, key, value.toString());
             } else if (key == QLatin1String(KCUPS_PRINTER_OP_POLICY) ||
                        key == QLatin1String(KCUPS_PRINTER_ERROR_POLICY) ||
                        key == QLatin1String("ppd-name")) {

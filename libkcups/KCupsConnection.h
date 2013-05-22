@@ -102,6 +102,13 @@
 
 #define KCUPS_PPD_MAKE_AND_MODEL "ppd-make-and-model"
 
+#define KCUPS_NOTIFY_EVENTS          "notify-events"
+#define KCUPS_NOTIFY_PULL_METHOD     "notify-pull-method"
+#define KCUPS_NOTIFY_RECIPIENT_URI   "notify-recipient-uri"
+#define KCUPS_NOTIFY_LEASE_DURATION  "notify-lease-duration"
+#define KCUPS_NOTIFY_SUBSCRIPTION_ID "notify-subscription-id"
+#define KCUPS_NOTIFY_
+
 typedef QList<QVariantHash> ReturnArguments;
 
 class KIppRequest;

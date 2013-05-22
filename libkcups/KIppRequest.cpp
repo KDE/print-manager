@@ -31,7 +31,7 @@ KIppRequest::KIppRequest(ipp_op_t operation, const char *resource, const QString
     Q_D(KIppRequest);
 
     d->operation = operation;
-    d->resource = qstrdup(resource);
+    d->resource = resource;
     d->filename = filename;
 
     // send our user name on the request too
@@ -53,7 +53,7 @@ ipp_op_t KIppRequest::operation() const
 const char *KIppRequest::resource() const
 {
     Q_D(const KIppRequest);
-    return d->resource;
+    return d->resource.toUtf8();
 }
 
 ipp_t *KIppRequest::send(http_t *http)
@@ -66,9 +66,9 @@ ipp_t *KIppRequest::send(http_t *http)
 
 //    kDebug() << ippOpString(d->operation) << resource << filename.isNull();
     if (d->filename.isNull()) {
-        return cupsDoRequest(http, request, d->resource);
+        return cupsDoRequest(http, request, resource());
     } else {
-        return cupsDoFileRequest(http, request, d->resource, d->filename.toUtf8());
+        return cupsDoFileRequest(http, request, resource(), d->filename.toUtf8());
     }
 }
 

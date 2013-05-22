@@ -39,7 +39,7 @@ public:
     void addRawRequestsToIpp(ipp_t *ipp);
 
     ipp_op_t operation;
-    const char *resource;
+    QString resource;
     QString filename;
     QList<KCupsRawRequest> rawRequests;
 };

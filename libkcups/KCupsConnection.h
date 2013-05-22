@@ -100,6 +100,8 @@
 #define KCUPS_REQUESTING_USER_NAME_ALLOWED "requesting-user-name-allowed"
 #define KCUPS_REQUESTING_USER_NAME_DENIED  "requesting-user-name-denied"
 
+#define KCUPS_PPD_MAKE_AND_MODEL "ppd-make-and-model"
+
 typedef QList<QVariantHash> ReturnArguments;
 
 class KIppRequest;

@@ -60,16 +60,14 @@ QString KCupsRequest::serverError() const
 void KCupsRequest::getPPDS(const QString &make)
 {
     if (m_connection->readyToStart()) {
-        QVariantHash request;
-        if (!make.isEmpty()){
-            request["ppd-make-and-model"] = make;
+        KIppRequest *request = new KIppRequest(CUPS_GET_PPDS, "/");
+        if (!make.isEmpty()) {
+            request->addString(IPP_TAG_PRINTER, IPP_TAG_TEXT, KCUPS_PPD_MAKE_AND_MODEL, make);
         }
-        request["need-dest-name"] = false;
 
-        m_ppds = m_connection->request(CUPS_GET_PPDS,
-                                       "/",
-                                       request,
-                                       true);
+        m_ppds = m_connection->request(request, IPP_TAG_PRINTER, true, false);
+        delete request;
+
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -158,11 +156,11 @@ void KCupsRequest::getPrinters(QStringList attributes, const QVariantHash &argum
 
         ReturnArguments ret;
         ret = m_connection->request(request, IPP_TAG_PRINTER, true, true);
+        delete request;
 
         foreach (const QVariantHash &arguments, ret) {
             m_printers << KCupsPrinter(arguments);
         }
-        delete request;
 
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();

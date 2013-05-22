@@ -41,7 +41,7 @@ public:
     ipp_op_t operation;
     QString resource;
     QString filename;
-    QList<KCupsRawRequest> rawRequests;
+    mutable QList<KCupsRawRequest> rawRequests;
 };
 
 static const char **qStringListToCharPtrPtr(const QStringList &list)

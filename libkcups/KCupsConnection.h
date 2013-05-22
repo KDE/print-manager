@@ -356,12 +356,7 @@ protected:
     virtual void run();
     bool readyToStart();
     bool retry(const char *resource) const;
-    ReturnArguments request(ipp_op_t operation,
-                            const char *resource,
-                            const QVariantHash &reqValues,
-                            bool needResponse);
-
-    ReturnArguments request(const KIppRequest &request, int group_tag, bool needResponse, bool needDestName) const;
+    ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
 
 private slots:
     void updateSubscription();
@@ -385,7 +380,7 @@ private:
     void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
 
     static ReturnArguments parseIPPVars(ipp_t *response,
-                                        int group_tag,
+                                        ipp_tag_t group_tag,
                                         bool needDestName);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
 

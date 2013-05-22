@@ -313,91 +313,20 @@ bool KCupsConnection::readyToStart()
     return false;
 }
 
-ReturnArguments KCupsConnection::request(ipp_op_t operation,
-                                         const char *resource,
-                                         const QVariantHash &reqValues,
-                                         bool needResponse)
-{
-    ReturnArguments ret;
 
-    KIppRequest *request;
-    bool isClass = false;
-    bool needDestName = false;
-    int group_tag = IPP_TAG_PRINTER;
-    QString filename;
-    QVariantHash values = reqValues;
-
-    if (values.contains(QLatin1String("printer-is-class"))) {
-        isClass = values.take(QLatin1String("printer-is-class")).toBool();
-    }
-    if (values.contains(QLatin1String("need-dest-name"))) {
-        needDestName = values.take(QLatin1String("need-dest-name")).toBool();
-    }
-    if (values.contains(QLatin1String("group-tag-qt"))) {
-        group_tag = values.take(QLatin1String("group-tag-qt")).toInt();
-    }
-
-    if (values.contains(QLatin1String("filename"))) {
-        filename = values.take(QLatin1String("filename")).toString();
-    }
-
-    // Lets create the request
-    if (values.contains(QLatin1String(KCUPS_PRINTER_NAME))) {
-        QString name = values.take(QLatin1String(KCUPS_PRINTER_NAME)).toString();
-        char  uri[HTTP_MAX_URI]; // printer URI
-
-        QString destination;
-        if (isClass) {
-            destination = QLatin1String("/classes/") % name;
-        } else {
-            destination = QLatin1String("/printers/") % name;
-        }
-
-        // Create a new request
-        // where we need:
-        // * printer-uri
-        // * requesting-user-name
-        request = new KIppRequest(operation, resource, filename);
-        httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8", "localhost",
-                         ippPort(), destination.toUtf8());
-        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
-    } else {
-        request = new KIppRequest(operation, resource, filename);
-    }
-
-    // Add the requested values to the request
-    request->addVariantValues(values);
-
-    ipp_t *response = NULL;
-    do {
-        ippDelete(response);
-
-        // do the request deleting the response
-        response = request->sendIppRequest();
-    } while (retry(resource));
-
-    if (response != NULL && needResponse) {
-        ret = parseIPPVars(response, group_tag, needDestName);
-    }
-    ippDelete(response);
-    delete request;
-
-    return ret;
-}
-
-ReturnArguments KCupsConnection::request(const KIppRequest &request, int group_tag, bool needResponse, bool needDestName) const
+ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t groupTag) const
 {
     ReturnArguments ret;
     ipp_t *response = NULL;
     do {
         ippDelete(response);
+        response = NULL;
 
-        // do the request deleting the response
         response = request.sendIppRequest();
     } while (retry(request.resource().toUtf8()));
 
-    if (response != NULL && needResponse) {
-        ret = parseIPPVars(response, group_tag, needDestName);
+    if (response && groupTag != IPP_TAG_ZERO) {
+        ret = parseIPPVars(response, groupTag, true);
     }
     ippDelete(response);
 
@@ -655,7 +584,7 @@ void KCupsConnection::cancelDBusSubscription()
     m_subscriptionId = -1;
 }
 
-ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bool needDestName)
+ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_tag, bool needDestName)
 {
     ipp_attribute_t *attr;
     ReturnArguments ret;

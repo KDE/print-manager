@@ -44,10 +44,8 @@ public:
     mutable QList<KCupsRawRequest> rawRequests;
 };
 
-static const char **qStringListToCharPtrPtr(const QStringList &list)
+static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByteArray> &qbaList)
 {
-    QList<QByteArray> qbaList;
-
     const char **ptr = new const char *[list.size() + 1];
     qbaList.reserve(qbaList.size() + list.size());
     QByteArray qba;

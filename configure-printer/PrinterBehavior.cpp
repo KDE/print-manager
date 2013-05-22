@@ -260,12 +260,12 @@ void PrinterBehavior::save()
             QStringList list = ui->usersELB->items();
             if (list.isEmpty()) {
                 list << "all";
-                changedValues["requesting-user-name-allowed"] = list;
+                changedValues[KCUPS_REQUESTING_USER_NAME_ALLOWED] = list;
             } else {
                 if (ui->allowRB->isChecked()) {
-                    changedValues["requesting-user-name-allowed"] = list;
+                    changedValues[KCUPS_REQUESTING_USER_NAME_ALLOWED] = list;
                 } else {
-                    changedValues["requesting-user-name-denied"] = list;
+                    changedValues[KCUPS_REQUESTING_USER_NAME_DENIED] = list;
                 }
             }
         }

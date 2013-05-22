@@ -107,7 +107,6 @@
 #define KCUPS_NOTIFY_RECIPIENT_URI   "notify-recipient-uri"
 #define KCUPS_NOTIFY_LEASE_DURATION  "notify-lease-duration"
 #define KCUPS_NOTIFY_SUBSCRIPTION_ID "notify-subscription-id"
-#define KCUPS_NOTIFY_
 
 typedef QList<QVariantHash> ReturnArguments;
 
@@ -377,11 +376,7 @@ protected:
 
 private:
     void init();
-    /**
-     * This is the most weird cups function, the DBus API
-     * it is completely messy, and if we change the order of the attributes
-     * the call just fails. This is why we have a specific method
-     */
+
     int renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events = QStringList());
 
     void notifierConnect(const QString &signal, QObject *receiver, const char *slot);

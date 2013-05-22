@@ -250,7 +250,8 @@ void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
         case QVariant::StringList:
         {
             QStringList list = request.value.toStringList();
-            const char **values = qStringListToCharPtrPtr(list);
+            QList<QByteArray> valuesQByteArrayList;
+            const char **values = qStringListToCharPtrPtr(list, valuesQByteArrayList);
 
             ippAddStrings(ipp,
                           request.group,

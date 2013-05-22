@@ -221,9 +221,9 @@ void ModifyPrinter::modelChanged()
 
     // store the new values
     if (isDifferent) {
-        m_changedValues["member-uris"] = ui->membersLV->currentSelected(true);
+        m_changedValues[KCUPS_MEMBER_URIS] = ui->membersLV->currentSelected(true);
     } else {
-        m_changedValues.remove("member-uris");
+        m_changedValues.remove(KCUPS_MEMBER_URIS);
     }
 }
 

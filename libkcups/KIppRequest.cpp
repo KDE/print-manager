@@ -160,10 +160,6 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
         case QVariant::StringList:
             if (key == QLatin1String(KCUPS_MEMBER_URIS)) {
                 addStringList(IPP_TAG_PRINTER, IPP_TAG_URI, key, value.toStringList());
-            } else if (key == QLatin1String("notify-events")) {
-                // Used for DBus notification, the values contains
-                // what we want to watch
-                addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, key, value.toStringList());
             } else {
                 addStringList(IPP_TAG_PRINTER, IPP_TAG_NAME, key, value.toStringList());
             }

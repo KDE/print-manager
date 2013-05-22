@@ -355,13 +355,13 @@ protected:
 
     virtual void run();
     bool readyToStart();
-    bool retry(const char *resource);
+    bool retry(const char *resource) const;
     ReturnArguments request(ipp_op_t operation,
                             const char *resource,
                             const QVariantHash &reqValues,
                             bool needResponse);
 
-    ReturnArguments request(KIppRequest &request, int group_tag, bool needResponse, bool needDestName);
+    ReturnArguments request(const KIppRequest &request, int group_tag, bool needResponse, bool needDestName) const;
 
 private slots:
     void updateSubscription();

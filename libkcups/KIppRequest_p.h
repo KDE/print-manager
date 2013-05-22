@@ -36,7 +36,7 @@ class KIppRequestPrivate
 {
 public:
     void addRequest(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QVariant &value);
-    void addRawRequestsToIpp(ipp_t *ipp);
+    void addRawRequestsToIpp(ipp_t *ipp) const;
 
     ipp_op_t operation;
     QString resource;

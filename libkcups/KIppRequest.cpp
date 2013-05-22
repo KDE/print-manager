@@ -67,19 +67,24 @@ QString KIppRequest::resource() const
     return d->resource;
 }
 
-ipp_t *KIppRequest::send(http_t *http)
+QString KIppRequest::filename() const
 {
-    Q_D(KIppRequest);
+    Q_D(const KIppRequest);
+    return d->filename;
+}
+
+ipp_t *KIppRequest::sendIppRequest() const
+{
+    Q_D(const KIppRequest);
 
     ipp_t *request = ippNewRequest(d->operation);
 
     d->addRawRequestsToIpp(request);
 
-//    kDebug() << ippOpString(d->operation) << d->resource.toUtf8() << d->filename.isNull();
     if (d->filename.isNull()) {
-        return cupsDoRequest(http, request, d->resource.toUtf8());
+        return cupsDoRequest(CUPS_HTTP_DEFAULT, request, d->resource.toUtf8());
     } else {
-        return cupsDoFileRequest(http, request, d->resource.toUtf8(), d->filename.toUtf8());
+        return cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, d->resource.toUtf8(), d->filename.toUtf8());
     }
 }
 
@@ -174,6 +179,12 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
     }
 }
 
+void KIppRequest::addPrinterUri(const QString &printerName, bool isClass)
+{
+    QString uri = assembleUrif(printerName, isClass);
+    addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+}
+
 QString KIppRequest::assembleUrif(const QString &name, bool isClass)
 {
     char  uri[HTTP_MAX_URI]; // printer URI
@@ -212,10 +223,10 @@ void KIppRequestPrivate::addRequest(ipp_tag_t group, ipp_tag_t valueTag, const Q
     rawRequests << request;
 }
 
-void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp)
+void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
 {
     // sort the values as CUPS requires it
-    qSort(rawRequests.begin(), rawRequests.end(), rawRequestGroupLessThan);
+//    qSort(rawRequests.begin(), rawRequests.end(), rawRequestGroupLessThan);
 
     foreach (const KCupsRawRequest &request, rawRequests) {
         switch (request.value.type()) {

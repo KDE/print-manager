@@ -35,14 +35,16 @@ public:
 
     ipp_op_t operation() const;
     QString resource() const;
+    QString filename() const;
 
-    ipp_t *send(http_t *http);
+    ipp_t *sendIppRequest() const;
 
     void addString(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QString &value);
     void addStringList(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QStringList &value);
     void addInteger(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, int value);
     void addBoolean(ipp_tag_t group, const QString &name, bool value);
     void addVariantValues(const QVariantHash &values);
+    void addPrinterUri(const QString &printerName, bool isClass = false);
 
     static QString assembleUrif(const QString &name, bool isClass);
 

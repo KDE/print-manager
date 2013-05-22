@@ -316,7 +316,7 @@ private:
                       const QVariant &arg7 = QVariant(),
                       const QVariant &arg8 = QVariant());
     Q_INVOKABLE void doOperation(int operation, const QString &resource, const QVariantHash &request);
-    Q_INVOKABLE void doOperation(KIppRequest &request);
+    Q_INVOKABLE void process(const KIppRequest &request);
     void setError(http_status_t httpStatus, ipp_status_t error, const QString &errorMsg);
     void setFinished(bool delayed = false);
 

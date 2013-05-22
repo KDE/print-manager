@@ -373,7 +373,7 @@ ReturnArguments KCupsConnection::request(ipp_op_t operation,
         ippDelete(response);
 
         // do the request deleting the response
-        response = request->send(CUPS_HTTP_DEFAULT);
+        response = request->sendIppRequest();
     } while (retry(resource));
 
     if (response != NULL && needResponse) {
@@ -385,7 +385,7 @@ ReturnArguments KCupsConnection::request(ipp_op_t operation,
     return ret;
 }
 
-ReturnArguments KCupsConnection::request(KIppRequest &request, int group_tag, bool needResponse, bool needDestName)
+ReturnArguments KCupsConnection::request(const KIppRequest &request, int group_tag, bool needResponse, bool needDestName) const
 {
     ReturnArguments ret;
     ipp_t *response = NULL;
@@ -393,7 +393,7 @@ ReturnArguments KCupsConnection::request(KIppRequest &request, int group_tag, bo
         ippDelete(response);
 
         // do the request deleting the response
-        response = request.send(CUPS_HTTP_DEFAULT);
+        response = request.sendIppRequest();
     } while (retry(request.resource().toUtf8()));
 
     if (response != NULL && needResponse) {
@@ -450,7 +450,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         }
 
         // Do the request
-        response = request->send(CUPS_HTTP_DEFAULT);
+        response = request->sendIppRequest();
     } while (retry("/"));
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
@@ -648,7 +648,7 @@ void KCupsConnection::cancelDBusSubscription()
 
     do {
         // Do the request
-        ippDelete(request->send(CUPS_HTTP_DEFAULT));
+        ippDelete(request->sendIppRequest());
     } while (retry("/"));
 
     // Reset the subscription id
@@ -855,7 +855,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
     return ret;
 }
 
-bool KCupsConnection::retry(const char *resource)
+bool KCupsConnection::retry(const char *resource) const
 {
     ipp_status_t status = cupsLastError();
 

@@ -22,6 +22,7 @@
 #include "KCupsConnection.h"
 
 #include "KCupsPasswordDialog.h"
+#include "KIppRequest.h"
 
 #include <config.h>
 
@@ -67,22 +68,6 @@ KCupsConnection* KCupsConnection::m_instance = 0;
 static int password_retries = 0;
 static int internalErrorCount = 0;
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data);
-
-static const char **qStringListToCharPtrPtr(const QStringList &list)
-{
-    QList<QByteArray> qbaList;
-
-    const char **ptr = new const char *[list.size() + 1];
-    qbaList.reserve(qbaList.size() + list.size());
-    QByteArray qba;
-    for (int i = 0; i < list.size(); ++i) {
-        qba = list.at(i).toUtf8();
-        qbaList.append(qba);
-        ptr[i] = qba.constData();
-    }
-    ptr[list.size()] = 0;
-    return ptr;
-}
 
 KCupsConnection* KCupsConnection::global()
 {
@@ -327,7 +312,7 @@ bool KCupsConnection::readyToStart()
     return false;
 }
 
-ReturnArguments KCupsConnection::request(ipp_op_e operation,
+ReturnArguments KCupsConnection::request(ipp_op_t operation,
                                          const char *resource,
                                          const QVariantHash &reqValues,
                                          bool needResponse)
@@ -342,7 +327,7 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
     bool needDestName = false;
     int group_tag = IPP_TAG_PRINTER;
     do {
-        ipp_t *request;
+        KIppRequest *request;
         bool isClass = false;
         QString filename;
         QVariantHash values = reqValues;
@@ -369,23 +354,17 @@ ReturnArguments KCupsConnection::request(ipp_op_e operation,
                                            isClass,
                                            operation);
         } else {
-            request = ippNewRequest(operation);
+            request = new KIppRequest(operation);
         }
 
         // send our user name on the request too
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                     "requesting-user-name", NULL, cupsUser());
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME, KCUPS_REQUESTING_USER_NAME, cupsUser());
 
         // Add the requested values to the request
-        requestAddValues(request, values);
+        request->addVariantValues(values);
 
-        // Do the request
         // do the request deleting the response
-        if (filename.isEmpty()) {
-            response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, resource);
-        } else {
-            response = cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, resource, filename.toUtf8());
-        }
+        response = request->doRequest(CUPS_HTTP_DEFAULT, resource, filename);
     } while (retry(resource));
 
     if (response != NULL && needResponse) {
@@ -407,8 +386,8 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
 
     ipp_t *response = NULL;
     do {
-        ipp_t *request;
-        ipp_op_e operation;
+        KIppRequest *request;
+        ipp_op_t operation;
 
         // check if we have a valid subscription ID
         if (subscriptionId >= 0) {
@@ -418,34 +397,33 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
             operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
         }
 
-        // Lets create the request
-        request = ippNewRequest(operation);
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
-                     KCUPS_PRINTER_URI, NULL, "/");
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                     "requesting-user-name", NULL, cupsUser());
+        request = new KIppRequest(operation);
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI,
+                           KCUPS_PRINTER_URI, QLatin1String("/"));
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME,
+                           KCUPS_REQUESTING_USER_NAME, cupsUser());
 
         if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
             // Add the "notify-events" values to the request
             QVariantHash values;
             values["notify-events"] = events;
-            requestAddValues(request, values);
+            request->addVariantValues(values);
 
-            ippAddString(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
-                         "notify-pull-method", NULL, "ippget");
-            ippAddString(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
-                         "notify-recipient-uri", NULL, "dbus://");
-            ippAddInteger(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
-                          "notify-lease-duration", leaseDuration);
+            request->addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
+                               "notify-pull-method", "ippget");
+            request->addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
+                               "notify-recipient-uri", "dbus://");
+            request->addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
+                                "notify-lease-duration", leaseDuration);
         } else {
-            ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                          "notify-subscription-id", subscriptionId);
-            ippAddInteger(request, IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
-                          "notify-lease-duration", leaseDuration);
+            request->addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                                "notify-subscription-id", subscriptionId);
+            request->addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
+                                "notify-lease-duration", leaseDuration);
         }
 
         // Do the request
-        response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
+        response = request->doRequest(CUPS_HTTP_DEFAULT, "/");
     } while (retry("/"));
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
@@ -634,174 +612,20 @@ void KCupsConnection::renewDBusSubscription()
 void KCupsConnection::cancelDBusSubscription()
 {
     do {
-        ipp_t *request;
-
-        // Lets create the request
-        request = ippNewRequest(IPP_CANCEL_SUBSCRIPTION);
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI,
-                     KCUPS_PRINTER_URI, NULL, "/");
-        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_NAME,
-                     "requesting-user-name", NULL, cupsUser());
-        ippAddInteger(request, IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                      "notify-subscription-id", m_subscriptionId);
+        KIppRequest *request = new KIppRequest(IPP_CANCEL_SUBSCRIPTION);
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_URI,
+                           KCUPS_PRINTER_URI, "/");
+        request->addString(IPP_TAG_OPERATION, IPP_TAG_NAME,
+                           "requesting-user-name", cupsUser());
+        request->addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
+                            "notify-subscription-id", m_subscriptionId);
 
         // Do the request
-        ippDelete(cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/"));
+        ippDelete(request->doRequest(CUPS_HTTP_DEFAULT, "/"));
     } while (retry("/"));
 
     // Reset the subscription id
     m_subscriptionId = -1;
-}
-
-class KCupsRawRequest
-{
-public:
-    ipp_tag_t group;
-    ipp_tag_t value_tag;
-    QString key;
-    QVariant value;
-};
-
-bool rawRequestGroupLessThan(const KCupsRawRequest &a, const KCupsRawRequest &b)
-{
-     return a.group < b.group;
-}
-
-void rawRequestToIPP(const QList<KCupsRawRequest> &requests, ipp_t *ipp)
-{
-    foreach (const KCupsRawRequest &request, requests) {
-        switch (request.value.type()) {
-        case QVariant::Bool:
-            ippAddBoolean(ipp,
-                          request.group,
-                          request.key.toUtf8(),
-                          request.value.toBool());
-            break;
-        case QVariant::Int:
-        case QVariant::UInt:
-            ippAddInteger(ipp,
-                          request.group,
-                          request.value_tag,
-                          request.key.toUtf8(),
-                          request.value.toInt());
-            break;
-        case QVariant::String:
-            ippAddString(ipp,
-                         request.group,
-                         request.value_tag,
-                         request.key.toUtf8(),
-                         "utf-8",
-                         request.value.toString().toUtf8());
-            break;
-        case QVariant::StringList:
-        {
-            QStringList list = request.value.toStringList();
-            const char **values = qStringListToCharPtrPtr(list);
-
-            ippAddStrings(ipp,
-                          request.group,
-                          request.value_tag,
-                          request.key.toUtf8(),
-                          list.size(),
-                          "utf-8",
-                          values);
-
-            // ippAddStrings deep copies everything so we can throw away the values.
-            // the QBAList and content is auto discarded when going out of scope.
-            delete [] values;
-            break;
-        }
-        default:
-            kWarning() << "type NOT recognized! This will be ignored:" << request.key << "values" << request.value;
-        }
-    }
-}
-
-void KCupsConnection::requestAddValues(ipp_t *ipp, const QVariantHash &values)
-{
-    QList<KCupsRawRequest> rawRequestList;
-    QVariantHash::ConstIterator i = values.constBegin();
-    while (i != values.constEnd()) {
-        KCupsRawRequest rawRequest;
-        rawRequest.key = i.key();
-        rawRequest.value = i.value();
-        QString key = i.key();
-        switch (rawRequest.value.type()) {
-        case QVariant::Bool:
-            if (key == QLatin1String(KCUPS_PRINTER_IS_ACCEPTING_JOBS)) {
-                rawRequest.group = IPP_TAG_PRINTER;
-            } else {
-                rawRequest.group = IPP_TAG_OPERATION;
-            }
-            break;
-        case QVariant::Int:
-            if (key == QLatin1String(KCUPS_JOB_ID)) {
-                rawRequest.group = IPP_TAG_OPERATION;
-                rawRequest.value_tag = IPP_TAG_INTEGER;
-            } else if (key == QLatin1String(KCUPS_PRINTER_STATE)) {
-                rawRequest.group = IPP_TAG_PRINTER;
-                rawRequest.value_tag = IPP_TAG_ENUM;
-            } else {
-                rawRequest.group = IPP_TAG_OPERATION;
-                rawRequest.value_tag = IPP_TAG_ENUM;
-            }
-            break;
-        case QVariant::String:
-            if (key == QLatin1String(KCUPS_DEVICE_URI)) {
-                // device uri has a different TAG
-                rawRequest.group = IPP_TAG_PRINTER;
-                rawRequest.value_tag = IPP_TAG_URI;
-            } else if (key == QLatin1String(KCUPS_JOB_PRINTER_URI)) {
-                rawRequest.group = IPP_TAG_OPERATION;
-                rawRequest.value_tag = IPP_TAG_URI;
-            } else if (key == QLatin1String(KCUPS_PRINTER_OP_POLICY) ||
-                       key == QLatin1String(KCUPS_PRINTER_ERROR_POLICY) ||
-                       key == QLatin1String("ppd-name")) {
-                // printer-op-policy has a different TAG
-                rawRequest.group = IPP_TAG_PRINTER;
-                rawRequest.value_tag = IPP_TAG_NAME;
-            } else if (key == QLatin1String(KCUPS_JOB_NAME)) {
-                rawRequest.group = IPP_TAG_OPERATION;
-                rawRequest.value_tag = IPP_TAG_NAME;
-            } else if (key == QLatin1String(KCUPS_WHICH_JOBS)) {
-                rawRequest.group = IPP_TAG_OPERATION;
-                rawRequest.value_tag = IPP_TAG_KEYWORD;
-            } else {
-                rawRequest.group = IPP_TAG_PRINTER;
-                rawRequest.value_tag = IPP_TAG_TEXT;
-            }
-            break;
-        case QVariant::StringList:
-            if (key == QLatin1String(KCUPS_MEMBER_URIS)) {
-                rawRequest.group = IPP_TAG_PRINTER;
-                rawRequest.value_tag = IPP_TAG_URI;
-            } else if (key == QLatin1String("requested-attributes")) {
-                rawRequest.group = IPP_TAG_OPERATION;
-                rawRequest.value_tag = IPP_TAG_KEYWORD;
-            } else if (key == QLatin1String("notify-events")) {
-                // Used for DBus notification, the values contains
-                // what we want to watch
-                rawRequest.group = IPP_TAG_SUBSCRIPTION;
-                rawRequest.value_tag = IPP_TAG_KEYWORD;
-            } else {
-                rawRequest.group = IPP_TAG_PRINTER;
-                rawRequest.value_tag = IPP_TAG_NAME;
-            }
-            break;
-        case QVariant::UInt:
-            rawRequest.group = IPP_TAG_OPERATION;
-            rawRequest.value_tag = IPP_TAG_ENUM;
-            break;
-        default:
-            kWarning() << "type NOT recognized! This will be ignored:" << key << "values" << i.value();
-        }
-
-        rawRequestList << rawRequest;
-        ++i;
-    }
-
-    qSort(rawRequestList.begin(), rawRequestList.end(), rawRequestGroupLessThan);
-    rawRequestToIPP(rawRequestList, ipp);
 }
 
 ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bool needDestName)
@@ -905,10 +729,10 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, int group_tag, bo
 }
 
 // Don't forget to delete the request
-ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation)
+KIppRequest* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation)
 {
     char  uri[HTTP_MAX_URI]; // printer URI
-    ipp_t *request;
+    KIppRequest *request;
 
     QString destination;
     if (isClass) {
@@ -921,11 +745,10 @@ ipp_t* KCupsConnection::ippNewDefaultRequest(const QString &name, bool isClass, 
     // where we need:
     // * printer-uri
     // * requesting-user-name
-    request = ippNewRequest(operation);
+    request = new KIppRequest(operation);
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", "utf-8", "localhost",
                      ippPort(), destination.toUtf8());
-    ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI,
-                 "utf-8", uri);
+    request->addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
 
     return request;
 }

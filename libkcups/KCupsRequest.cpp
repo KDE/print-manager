@@ -214,9 +214,9 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
         }
 
         if (whichJobs == CUPS_WHICHJOBS_COMPLETED) {
-            request["which-jobs"] = "completed";
+            request[KCUPS_WHICH_JOBS] = "completed";
         } else if (whichJobs == CUPS_WHICHJOBS_ALL) {
-            request["which-jobs"] = "all";
+            request[KCUPS_WHICH_JOBS] = "all";
         }
 
         if (!attributes.isEmpty()) {

@@ -93,11 +93,13 @@
 #define KCUPS_TIME_AT_CREATION   "time-at-creation"
 #define KCUPS_TIME_AT_PROCESSING "time-at-processing"
 
+#define KCUPS_REQUESTING_USER_NAME         "requesting-user-name"
 #define KCUPS_REQUESTING_USER_NAME_ALLOWED "requesting-user-name-allowed"
 #define KCUPS_REQUESTING_USER_NAME_DENIED  "requesting-user-name-denied"
 
 typedef QList<QVariantHash> ReturnArguments;
 
+class KIppRequest;
 class KCupsPasswordDialog;
 class KDE_EXPORT KCupsConnection : public QThread
 {
@@ -349,7 +351,7 @@ protected:
     virtual void run();
     bool readyToStart();
     bool retry(const char *resource);
-    ReturnArguments request(ipp_op_e operation,
+    ReturnArguments request(ipp_op_t operation,
                             const char *resource,
                             const QVariantHash &reqValues,
                             bool needResponse);
@@ -375,11 +377,10 @@ private:
 
     void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
 
-    static void requestAddValues(ipp_t *ipp, const QVariantHash &values);
     static ReturnArguments parseIPPVars(ipp_t *response,
                                         int group_tag,
                                         bool needDestName);
-    static ipp_t* ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation);
+    static KIppRequest* ippNewDefaultRequest(const QString &name, bool isClass, ipp_op_t operation);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
 
     static KCupsConnection* m_instance;

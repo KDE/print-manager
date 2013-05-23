@@ -4,7 +4,6 @@ set(addprinter_SRCS
     main.cpp
     AddPrinter.cpp
     DevicesModel.cpp
-    AddPrinterInterface.cpp
     GenericPage.cpp
     PageDestinations.cpp
     ChooseLpd.cpp
@@ -30,24 +29,15 @@ kde4_add_ui_files(addprinter_SRCS
     PageAddPrinter.ui
 )
 
-qt4_add_dbus_adaptor(addprinter_SRCS
-    org.kde.AddPrinter.xml
-    AddPrinterInterface.h
-    AddPrinterInterface
-)
-
-kde4_add_executable(add-printer
+kde4_add_executable(kde-add-printer
     ${addprinter_SRCS}
 )
 
-target_link_libraries(add-printer
+target_link_libraries(kde-add-printer
     ${KDE4_KDEUI_LIBS}
     ${QT_QTNETWORK_LIBRARY}
     ${KDE4_KIO_LIBS}
     kcupslib
 )
 
-install(TARGETS add-printer DESTINATION ${LIBEXEC_INSTALL_DIR})
-
-configure_file(org.kde.AddPrinter.service.in org.kde.AddPrinter.service)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.AddPrinter.service DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
+install(TARGETS kde-add-printer DESTINATION ${BIN_INSTALL_DIR})

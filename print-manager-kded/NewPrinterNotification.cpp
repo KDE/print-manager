@@ -24,6 +24,7 @@
 #include <KLocale>
 #include <KNotification>
 #include <KIcon>
+#include <KToolInvocation>
 #include <KDebug>
 
 #include <KCupsRequest.h>
@@ -234,7 +235,7 @@ void NewPrinterNotification::configurePrinter()
                                              QLatin1String("ConfigurePrinter"));
     // TODO setup wid
     message << sender()->property(PRINTER_NAME);
-    QDBusConnection::sessionBus().call(message);
+    QDBusConnection::sessionBus().send(message);
 }
 
 void NewPrinterNotification::searchDrivers()
@@ -257,14 +258,10 @@ void NewPrinterNotification::findDriver()
     kDebug();
     // This function will show the PPD browser dialog
     // to choose a better PPD to the already added printer
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("ChangePPD"));
-    message << static_cast<qulonglong>(0);
-    message << sender()->property(PRINTER_NAME);
-    QDBusConnection::sessionBus().call(message);
+    QStringList args;
+    args << "--change-ppd";
+    args << sender()->property(PRINTER_NAME).toString();
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
 }
 
 void NewPrinterNotification::installDriver()
@@ -278,15 +275,10 @@ void NewPrinterNotification::setupPrinter()
     // This function will show the PPD browser dialog
     // to choose a better PPD, queue name, location
     // in this case the printer was not added
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("NewPrinterFromDevice"));
-    message << static_cast<qulonglong>(0);
-    message << sender()->property(PRINTER_NAME);
-    message << sender()->property(DEVICE_ID);
-    QDBusConnection::sessionBus().call(message);
+    QStringList args;
+    args << "--new-printer-from-device";
+    args << sender()->property(PRINTER_NAME).toString() % QLatin1Char('/') % sender()->property(DEVICE_ID).toString();
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
 }
 
 QStringList NewPrinterNotification::getMissingExecutables(const QString &ppdFileName) const

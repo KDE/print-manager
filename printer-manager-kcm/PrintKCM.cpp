@@ -32,11 +32,10 @@
 #include <KMessageBox>
 #include <KGenericFactory>
 #include <KAboutData>
+#include <KToolInvocation>
 #include <KIcon>
 
 #include <QMenu>
-#include <QDBusMessage>
-#include <QDBusConnection>
 #include <KCupsRequest.h>
 #include <KCupsServer.h>
 #include <NoSelectionRectDelegate.h>
@@ -260,24 +259,16 @@ void PrintKCM::update()
 
 void PrintKCM::on_addTB_clicked()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("AddPrinter"));
-    message << static_cast<qulonglong>(winId());
-    QDBusConnection::sessionBus().call(message);
+    QStringList args;
+    args << "--add-printer";
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
 }
 
 void PrintKCM::addClass()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.AddPrinter"),
-                                             QLatin1String("AddClass"));
-    message << static_cast<qulonglong>(winId());
-    QDBusConnection::sessionBus().call(message);
+    QStringList args;
+    args << "--add-class";
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
 }
 
 void PrintKCM::on_removeTB_clicked()

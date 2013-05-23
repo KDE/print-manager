@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=org.kde.AddPrinter
-Exec=@LIBEXEC_INSTALL_DIR@/add-printer

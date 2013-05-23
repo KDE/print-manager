@@ -41,17 +41,38 @@ int main(int argc, char **argv)
 
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;
+    options.add("w").add("parent-window <wid>", ki18n("Parent Window ID"));
     options.add("add-printer", ki18n("Add a new printer"));
     options.add("add-class", ki18n("Add a new printer class"));
+    options.add("change-ppd <printer-name>", ki18n("Changes the PPD of a given printer"));
+    options.add("new-printer-from-device <printername/deviceid>", ki18n("Changes the PPD of a given printer/deviceid"));
     KCmdLineArgs::addCmdLineOptions(options);
 
-    AddPrinter::addCmdLineOptions();
-
-    if (!AddPrinter::start()) {
-        //kDebug() << "AddPrinter is already running!";
-        return 0;
+    qulonglong wid = 0;
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    if (args->isSet("w")) {
+        wid = args->getOption("parent-window").toULongLong();
     }
 
     AddPrinter app;
+    if (args->isSet("add-printer")) {
+        app.addPrinter(wid);
+    } else if (args->isSet("add-class")) {
+        app.addClass(wid);
+    } else if (args->isSet("change-ppd")) {
+        app.changePPD(wid, args->getOption("change-ppd"));
+    } else if (args->isSet("new-printer-from-device")) {
+        QString value = args->getOption("new-printer-from-device");
+        QStringList values = value.split(QLatin1String("/"));
+        if (values.size() == 2) {
+            app.newPrinterFromDevice(wid, values.first(), values.last());
+        } else {
+            args->usage("new-printer-from-device");
+        }
+    } else {
+        args->usage();
+    }
+
+
     return app.exec();
 }

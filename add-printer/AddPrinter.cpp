@@ -20,20 +20,67 @@
 
 #include "AddPrinter.h"
 
-#include "AddPrinterInterface.h"
+#include "AddPrinterAssistant.h"
 
-#include <KCmdLineArgs>
+#include <KCupsRequest.h>
+
+#include <QPointer>
+#include <KWindowSystem>
+
 #include <KDebug>
 
 AddPrinter::AddPrinter() :
-    KUniqueApplication()
+    KApplication()
 {
     setQuitOnLastWindowClosed(true);
-    m_pqInterface = new AddPrinterInterface(this);
-    connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));
 }
 
-int AddPrinter::newInstance()
+AddPrinter::~AddPrinter()
+{
+}
+
+void AddPrinter::addPrinter(qulonglong wid)
+{
+    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    wizard->initAddPrinter();
+    show(wizard, wid);
+}
+
+void AddPrinter::addClass(qulonglong wid)
+{
+    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    wizard->initAddClass();
+    show(wizard, wid);
+}
+
+void AddPrinter::changePPD(qulonglong wid, const QString &name)
+{
+    // Fist we need to get the printer attributes
+    QPointer<KCupsRequest> request = new KCupsRequest;
+    QStringList attr;
+    attr << KCUPS_PRINTER_TYPE; // needed to know if it's a remote printer
+    attr << KCUPS_PRINTER_MAKE_AND_MODEL;
+    attr << KCUPS_DEVICE_URI;
+    request->getPrinterAttributes(name, false, attr);
+    request->waitTillFinished();
+    if (request) {
+        if (!request->hasError() && request->printers().size() == 1) {
+            KCupsPrinter printer = request->printers().first();
+            if (printer.type() & CUPS_PRINTER_REMOTE) {
+                kWarning() << "Ignoring request, can not change PPD of remote printer" << name;
+            } else {
+                AddPrinterAssistant *wizard = new AddPrinterAssistant();
+                wizard->initChangePPD(name, printer.deviceUri(), printer.makeAndModel());
+                show(wizard, wid);
+            }
+        } else {
+            kWarning() << "Ignoring request, printer not found" << name << request->errorMsg();
+        }
+        request->deleteLater();
+    }
+}
+
+void AddPrinter::newPrinterFromDevice(qulonglong wid, const QString &name, const QString &device_id)
 {
     // Example of data
     // "direct"
@@ -42,33 +89,24 @@ int AddPrinter::newInstance()
     // "Samsung SCX-4200 Series"
     // "usb://Samsung/SCX-4200%20Series"
     // ""
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("add-printer")) {
-        QString printer;
-        QString deviceId;
 
-//        printer = "Samsung SCX-3400 Series";
-//        deviceId = "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;";
+    //        printer = "Samsung SCX-3400 Series";
+    //        deviceId = "MFG:Samsung;CMD:SPL,FWV,PIC,BDN,EXT;MDL:SCX-3400 Series;CLS:PRINTER;MODE:SCN,SPL3,R000105;STATUS:BUSY;";
 
-        printer = "Samsung SCX-4200 Series";
-        deviceId = "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;";
+    //        printer = "Samsung SCX-4200 Series";
+    //        deviceId = "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;";
 
-//        printer = "HP PSC 1400 series";
-//        deviceId = "MFG:HP;MDL:PSC 1400 series;DES:;CMD:LDL,MLC,PML,DYN;";
+    //        printer = "HP PSC 1400 series";
+    //        deviceId = "MFG:HP;MDL:PSC 1400 series;DES:;CMD:LDL,MLC,PML,DYN;";
 
-        m_pqInterface->AddPrinter(0);
-
-//        m_pqInterface->NewPrinterFromDevice(0, printer, deviceId);
-
-//        m_pqInterface->ChangePPD(0, "foo");
-//        m_pqInterface->ChangePPD(0, "Samsung_SCX-3400_Series");
-    } else if (args->isSet("add-class")) {
-        m_pqInterface->AddClass(0);
-    }
-    args->clear();
-    return 0;
+    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    wizard->initAddPrinter(name, device_id);
+    show(wizard, wid);
 }
 
-AddPrinter::~AddPrinter()
+void AddPrinter::show(QWidget *widget, qulonglong wid) const
 {
+    widget->show();
+    KWindowSystem::forceActiveWindow(widget->winId());
+    KWindowSystem::setMainWindow(widget, wid);
 }

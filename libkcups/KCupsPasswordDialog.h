@@ -22,12 +22,14 @@
 #define KCUPSPASSWORDDIALOG_H
 
 #include <QObject>
+#include <QWidget>
 
 class KCupsPasswordDialog : public QObject
 {
     Q_OBJECT
 public:
     explicit KCupsPasswordDialog(QObject *parent = 0);
+    void setMainWindow(WId mainwindow);
 
 public slots:
     void exec(const QString &username, bool wrongPassword);
@@ -38,6 +40,7 @@ public slots:
 
 private:
     bool m_accepted;
+    WId m_mainwindow;
     QString m_username;
     QString m_password;
 };

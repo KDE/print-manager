@@ -106,6 +106,11 @@ KCupsConnection::~KCupsConnection()
     delete m_subscriptionTimer;
 }
 
+void KCupsConnection::setPasswordMainWindow(WId mainwindow)
+{
+    m_passwordDialog->setMainWindow(mainwindow);
+}
+
 void KCupsConnection::init()
 {
     // Creating the dialog before start() will make it run on the gui thread

@@ -25,6 +25,7 @@
 #include <QTimer>
 #include <QVariantHash>
 #include <QStringList>
+#include <QWidget>
 
 #include <KUrl>
 
@@ -146,6 +147,8 @@ public:
     explicit KCupsConnection(QObject *parent = 0);
     explicit KCupsConnection(const KUrl &server, QObject *parent = 0);
     ~KCupsConnection();
+
+    void setPasswordMainWindow(WId mainwindow);
 
 Q_SIGNALS:
     /**

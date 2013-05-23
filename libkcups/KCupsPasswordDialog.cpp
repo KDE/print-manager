@@ -23,26 +23,39 @@
 #include <QPointer>
 
 #include <KPasswordDialog>
+#include <KWindowSystem>
 #include <KLocale>
 
 #include <KDebug>
 
 KCupsPasswordDialog::KCupsPasswordDialog(QObject *parent) :
     QObject(parent),
-    m_accepted(false)
+    m_accepted(false),
+    m_mainwindow(0)
 {
+}
+
+void KCupsPasswordDialog::setMainWindow(WId mainwindow)
+{
+    m_mainwindow = mainwindow;
 }
 
 void KCupsPasswordDialog::exec(const QString &username, bool wrongPassword)
 {
     QPointer<KPasswordDialog> dialog = new KPasswordDialog(0L, KPasswordDialog::ShowUsernameLine);
     dialog->setPrompt(i18n("Enter an username and a password to complete the task"));
-    dialog->setModal(true);
+    dialog->setModal(false);
     dialog->setUsername(username);
     if (wrongPassword) {
         dialog->showErrorMessage(QString(), KPasswordDialog::UsernameError);
         dialog->showErrorMessage(i18n("Wrong username or password"), KPasswordDialog::PasswordError);
     }
+
+    dialog->show();
+    if (m_mainwindow) {
+        KWindowSystem::setMainWindow(dialog, m_mainwindow);
+    }
+    KWindowSystem::forceActiveWindow(dialog->winId());
 
     // Do not return from this method now
     dialog->exec();

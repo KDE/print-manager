@@ -139,19 +139,15 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
 // "printer-is-default" attribute BUT it does not get user
 // defined default printer, see cupsGetDefault() on www.cups.org for details
 
-void KCupsRequest::getPrinters(QStringList attributes, cups_ptype_t mask)
-{
-    QVariantHash arguments;
-    arguments[KCUPS_PRINTER_TYPE_MASK] = mask;
-    getPrinters(attributes, arguments);
-}
-
-void KCupsRequest::getPrinters(QStringList attributes, const QVariantHash &arguments)
+void KCupsRequest::getPrinters(QStringList attributes, int mask)
 {
     if (m_connection->readyToStart()) {
         KIppRequest request(CUPS_GET_PRINTERS, "/");
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
         request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
+        if (mask != -1) {
+            request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE_MASK, mask);
+        }
 
         ReturnArguments ret;
         ret = m_connection->request(request, IPP_TAG_PRINTER);
@@ -163,7 +159,7 @@ void KCupsRequest::getPrinters(QStringList attributes, const QVariantHash &argum
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getPrinters", qVariantFromValue(attributes), arguments);
+        invokeMethod("getPrinters", qVariantFromValue(attributes), mask);
     }
 }
 

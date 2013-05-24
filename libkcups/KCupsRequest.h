@@ -116,19 +116,7 @@ public:
      * "printer-is-default" attribute BUT it does not get user
      * defined default printer, see cupsGetDefault() on www.cups.org for details
      */
-    Q_INVOKABLE void getPrinters(QStringList attributes, const QVariantHash &arguments = QVariantHash());
-
-    /**
-     * Get all available printers
-     * @param mask filter the kind of printer that will be emitted (-1 to no filter)
-     * @param requestedAttr the attibutes to retrieve from cups
-     * This method emits printer()
-     *
-     * THIS function can get the default server dest through the
-     * "printer-is-default" attribute BUT it does not get user
-     * defined default printer, see cupsGetDefault() on www.cups.org for details
-     */
-    Q_INVOKABLE void getPrinters(QStringList attributes, cups_ptype_t mask);
+    Q_INVOKABLE void getPrinters(QStringList attributes, int mask = -1);
 
     /**
      * Get attributes from a given printer

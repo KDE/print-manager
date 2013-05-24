@@ -64,6 +64,8 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KGlobal::insertCatalog(QLatin1String("print-manager"));
 
     ui->setupUi(this);
+    
+    connect(ui->printerDesc, SIGNAL(updateNeeded()), SLOT(update()));
 
     QMenu *addMenu = new QMenu(this);
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),

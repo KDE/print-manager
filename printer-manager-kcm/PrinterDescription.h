@@ -56,6 +56,9 @@ public:
 public slots:
     void enableShareCheckBox(bool enable);
 
+signals:
+    void updateNeeded();
+
 private slots:
     void on_configurePB_clicked();
     void on_openQueuePB_clicked();
@@ -67,11 +70,14 @@ private slots:
     void on_actionCleanPrintHeads_triggered(bool checked);
     void on_actionPrintSelfTestPage_triggered(bool checked);
 
+    void requestFinished();
+
 private:
     Ui::PrinterDescription *ui;
     QString m_destName;
     bool m_isClass;
     bool m_isShared;
+    bool m_globalShared;
     QStringList m_commands;
     QPixmap m_printerIcon;
     QPixmap m_pauseIcon;

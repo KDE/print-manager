@@ -90,43 +90,29 @@ void PrinterDescription::on_openQueuePB_clicked()
 
 void PrinterDescription::on_defaultCB_clicked()
 {
-    bool isDefault = ui->defaultCB->isChecked();
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    ui->defaultCB->setDisabled(true);
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
     request->setDefaultPrinter(m_destName);
-    request->waitTillFinished();
-    if (request) {
-        setIsDefault(request->hasError() ? !isDefault : isDefault);
-        request->deleteLater();
-    }
 }
 
 void PrinterDescription::on_sharedCB_clicked()
 {
-    bool shared = ui->sharedCB->isChecked();
-    QPointer<KCupsRequest> request = new KCupsRequest;
-    request->setShared(m_destName, m_isClass, shared);
-    request->waitTillFinished();
-    if (request) {
-        setIsShared(request->hasError() ? !shared : shared);
-        request->deleteLater();
-    }
+    ui->sharedCB->setDisabled(true);
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    request->setShared(m_destName, m_isClass, ui->sharedCB->isChecked());
 }
 
 void PrinterDescription::on_rejectPrintJobsCB_clicked()
 {
-    bool accepting = !ui->rejectPrintJobsCB->isChecked();
-    kDebug() << accepting;
-    QPointer<KCupsRequest> request = new KCupsRequest;
-    if (accepting) {
-        request->acceptJobs(m_destName);
-    } else {
+    ui->rejectPrintJobsCB->setDisabled(true);
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    if (ui->rejectPrintJobsCB->isChecked()) {
         request->rejectJobs(m_destName);
-
-    }
-    request->waitTillFinished();
-    if (request) {
-        setAcceptingJobs(request->hasError() ? !accepting : accepting);
-        request->deleteLater();
+    } else {
+        request->acceptJobs(m_destName);
     }
 }
 
@@ -177,13 +163,17 @@ void PrinterDescription::setIsDefault(bool isDefault)
 void PrinterDescription::setIsShared(bool isShared)
 {
     m_isShared = isShared;
-    if (ui->sharedCB->isEnabled()) {
-        ui->sharedCB->setChecked(m_isShared);
+    if (m_globalShared) {
+        ui->sharedCB->setChecked(isShared);
+    } else {
+        ui->sharedCB->setChecked(false);
     }
+    ui->sharedCB->setEnabled(m_globalShared);
 }
 
 void PrinterDescription::setAcceptingJobs(bool accepting)
 {
+    ui->rejectPrintJobsCB->setEnabled(true);
     ui->rejectPrintJobsCB->setChecked(!accepting);
 }
 
@@ -243,35 +233,35 @@ void PrinterDescription::setMarkers(const QVariantHash &data)
 void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    // TODO Show a msg box if failed
 
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
     request->printTestPage(m_destName, m_isClass);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    QPointer<KCupsRequest> request = new KCupsRequest;
+
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
     request->printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
-    QPointer<KCupsRequest> request = new KCupsRequest;
+
+    KCupsRequest *request = new KCupsRequest;
+    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
     request->printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
+}
+
+void PrinterDescription::requestFinished()
+{
+    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
+    if (request && request->hasError()) {
+        emit updateNeeded();
     }
 }
 
@@ -282,13 +272,8 @@ QString PrinterDescription::destName() const
 
 void PrinterDescription::enableShareCheckBox(bool enable)
 {
-    ui->sharedCB->setEnabled(enable);
-    if (enable) {
-        // Get the current printer share state
-        ui->sharedCB->setChecked(m_isShared);
-    } else {
-        ui->sharedCB->setChecked(false);
-    }
+    m_globalShared = enable;
+    setIsShared(m_isShared);
 }
 
 void PrinterDescription::on_configurePB_clicked()

@@ -168,8 +168,7 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
     if (m_connection->readyToStart()) {
         KIppRequest request(IPP_GET_PRINTER_ATTRIBUTES, "/admin/");
 
-        QString uri = KIppRequest::assembleUrif(printerName, isClass);
-        request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+        request.addPrinterUri(printerName, isClass);
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
         request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
 
@@ -195,9 +194,8 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
     if (m_connection->readyToStart()) {
         KIppRequest request(IPP_GET_JOBS, "/");
 
-        QString uri = KIppRequest::assembleUrif(printerName, false);
         // printer-uri makes the Name of the Job and owner came blank lol
-        request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+        request.addPrinterUri(printerName, false);
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
         request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
 
@@ -332,8 +330,7 @@ void KCupsRequest::addOrModifyPrinter(const QString &printerName, const QVariant
 void KCupsRequest::addOrModifyClass(const QString &printerName, const QVariantHash &attributes)
 {
     KIppRequest request(CUPS_ADD_MODIFY_CLASS, "/admin/");
-    QString uri = KIppRequest::assembleUrif(printerName, true);
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+    request.addPrinterUri(printerName, true);
     request.addVariantValues(attributes);
 
     process(request);

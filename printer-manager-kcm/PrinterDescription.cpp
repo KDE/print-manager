@@ -69,6 +69,9 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
     ui->actionCleanPrintHeads->setVisible(false);
     ui->actionPrintSelfTestPage->setVisible(false);
     ui->maintenancePB->setMenu(menu);
+
+    ui->errorMessage->setMessageType(KMessageWidget::Error);
+    ui->errorMessage->hide();
 }
 
 PrinterDescription::~PrinterDescription()
@@ -265,6 +268,8 @@ void PrinterDescription::requestFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
     if (request && request->hasError()) {
+        ui->errorMessage->setText(i18n("Failed to perform request: %1", request->errorMsg()));
+        ui->errorMessage->animatedShow();
         emit updateNeeded();
     }
 }

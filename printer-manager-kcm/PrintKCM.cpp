@@ -63,6 +63,8 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     setButtons(NoAdditionalButton);
 
     ui->setupUi(this);
+    
+    connect(ui->printerDesc, SIGNAL(updateNeeded()), SLOT(update()));
 
     // The printer list needs to increase in width according to the icon sizes
     // default dialog icon size is 32, this times 6 is 192 which is roughly the original width

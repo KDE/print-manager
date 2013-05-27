@@ -47,8 +47,8 @@ Item {
 
     signal toggled(bool enabled)
 
-    width: handle.width * 2
-    height: theme.defaultFont.mSize.height*1.6
+    width: handle.width * 2.3
+    height: theme.defaultFont.mSize.height*1.8
     // TODO: needs to define if there will be specific graphics for
     //     disabled sliders
     opacity: enabled ? 1.0 : 0.5
@@ -156,10 +156,10 @@ Item {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: showOn ? 1 : height
-                color: "transparent"
-                border.width: 1
-                border.color: "black"
+                width: showOn ? 1.5 : height
+                color: showOn ? "dimgrey" : "transparent"
+                border.width: showOn ? 0 : 2
+                border.color: "dimgrey"
                 radius: showOn ? 0 : height
                 smooth: true
             }

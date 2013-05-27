@@ -160,12 +160,12 @@ Item {
             }
         }
 
-        PlasmaComponents.Switch {
+        NIHSwitch {
             id: switchAction
             anchors.verticalCenter: parent.verticalCenter
             focus: !multipleItems
-            checked: !isPaused
-            onClicked: toggleSelection()
+            on: !isPaused
+            onToggled: toggleSelection()
         }
     }
 

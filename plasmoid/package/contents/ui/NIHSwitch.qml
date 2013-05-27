@@ -98,11 +98,11 @@ Item {
             id: groove
             imagePath: "widgets/slider"
             prefix: "groove"
-            //FIXME: frameSvg should have a minimumSize attribute, could be added to kdelibs 4.7(maybe just the qml binding is enough)?
-            height: handle.height //grooveSvg.elementSize("groove-topleft").height + grooveSvg.elementSize("groove-bottomleft").height
+            height: handle.height * 0.8 //grooveSvg.elementSize("groove-topleft").height + grooveSvg.elementSize("groove-bottomleft").height
             anchors {
                 left: parent.left
                 right: parent.right
+                margins: handle.width / 4
                 verticalCenter: parent.verticalCenter
             }
             opacity: switcher.on ? 1 : 0.5
@@ -112,7 +112,8 @@ Item {
             imagePath: "widgets/slider"
             prefix: "groove-highlight"
             height: groove.height
-            width: handle.x + handle.width/2
+            anchors.left: groove.left
+            anchors.right: handle.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
         }
 
@@ -148,20 +149,19 @@ Item {
                 }
             }
 
-            PlasmaCore.SvgItem {
-                id: headerSeparator
-                anchors.topMargin: 4
-                anchors.bottomMargin: 4
+            Rectangle {
+                property bool showOn: handle.x >= (contents.width - handle.width) / 2
+                anchors.topMargin: 6
+                anchors.bottomMargin: 6
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
-                width: lineSvg.elementSize("vertical-line").width
-                svg: PlasmaCore.Svg {
-                    id: lineSvg
-                    imagePath: "widgets/line"
-                }
-                elementId: "vertical-line"
-                visible: handle.x >= (contents.width - handle.width) / 2
+                width: showOn ? 1 : height
+                color: "transparent"
+                border.width: 1
+                border.color: "black"
+                radius: showOn ? 0 : height
+                smooth: true
             }
         }
 
@@ -179,13 +179,8 @@ Item {
             hoverEnabled: true
 
             onClicked: {
-                if (switcher.on && mouseX < contents.width - handle.width) {
-                    switcher.on = false
-                    toggled(false)
-                } else if (switcher.on ===false && mouseX >= contents.width - handle.width) {
-                    switcher.on = true
-                    toggled(true)
-                }
+                switcher.on = !switcher.on
+                toggled(switcher.on)
             }
 
             onPressed: switcher.forceActiveFocus()

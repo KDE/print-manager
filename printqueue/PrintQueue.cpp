@@ -20,29 +20,33 @@
 
 #include "PrintQueue.h"
 
-#include "PrintQueueInterface.h"
+#include "PrintQueueUi.h"
 
+#include <KCupsRequest.h>
+
+#include <QPointer>
 #include <QTimer>
 
+#include <KWindowSystem>
 #include <KCmdLineArgs>
 #include <KDebug>
 
 PrintQueue::PrintQueue() :
     KUniqueApplication()
 {
-    m_pqInterface = new PrintQueueInterface(this);
-    connect(m_pqInterface, SIGNAL(quit()), this, SLOT(quit()));
 }
 
 int PrintQueue::newInstance()
 {
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    QString queueName = args->getOption("show-queue");
-    if (!queueName.isEmpty()) {
-        m_pqInterface->ShowQueue(queueName);
+    if (args->count()) {
+        for (int i = 0; i < args->count(); ++i) {
+            showQueue(args->arg(i));
+        }
     } else {
+        kDebug() << "called with no args";
         // If DBus called the ui list won't be empty
-        QTimer::singleShot(500, m_pqInterface, SLOT(RemoveQueue()));
+        QTimer::singleShot(500, this, SLOT(removeQueue()));
     }
 
     return 0;
@@ -51,5 +55,75 @@ int PrintQueue::newInstance()
 PrintQueue::~PrintQueue()
 {
 }
+
+void PrintQueue::showQueue(const QString &destName)
+{
+    kDebug() << destName;
+    if (!m_uis.contains(destName)) {
+        // Reserve this since the CUPS call might take a long time
+        m_uis[destName] = 0;
+
+        QStringList attr;
+        attr << KCUPS_PRINTER_NAME;
+        attr << KCUPS_PRINTER_TYPE;
+        // Get destinations with these attributes
+        QPointer<KCupsRequest> request = new KCupsRequest;
+        request->getPrinters(attr);
+        request->waitTillFinished();
+        if (!request) {
+            return;
+        }
+
+        bool found = false;
+        KCupsPrinter printer;
+        KCupsPrinters printers = request->printers();
+        for (int i = 0; i < printers.size(); i++) {
+            if (printers.at(i).name() == destName) {
+                printer = printers.at(i);
+                found = true;
+                break;
+            }
+        }
+        request->deleteLater();
+
+        if (found) {
+            PrintQueueUi *ui = new PrintQueueUi(printer);
+            connect(ui, SIGNAL(finished()),
+                    this, SLOT(RemoveQueue()));
+            ui->show();
+            m_uis[printer.name()] = ui;
+        } else {
+            // Remove the reservation
+            m_uis.remove(destName);
+
+            // if no destination was found and we aren't showing
+            // a queue quit the app
+            if (m_uis.isEmpty()) {
+                 emit quit();
+            }
+            return;
+        }
+    }
+
+    // Check it it's not reserved
+    if (m_uis.value(destName)) {
+        KWindowSystem::forceActiveWindow(m_uis.value(destName)->winId());
+    }
+}
+
+void PrintQueue::removeQueue()
+{
+    QWidget *ui = qobject_cast<QWidget*>(sender());
+    if (ui) {
+        m_uis.remove(m_uis.key(ui));
+    }
+
+    // if no destination was found and we aren't showing
+    // a queue quit the app
+    if (m_uis.isEmpty()) {
+         quit();
+    }
+}
+
 
 #include "PrintQueue.moc"

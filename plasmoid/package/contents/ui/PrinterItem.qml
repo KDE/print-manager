@@ -101,6 +101,7 @@ Item {
             }
             updateSelection();
         }
+        onDoubleClicked: plasmoid.runCommand("kde-print-queue", [printerName])
     }
 
     Row {

@@ -23,19 +23,19 @@
 
 #include <KUniqueApplication>
 
-class PrintQueueInterface;
-
 class PrintQueue : public KUniqueApplication
 {
-Q_OBJECT
-
+    Q_OBJECT
 public:
     PrintQueue();
     virtual ~PrintQueue();
     int newInstance();
 
+    void showQueue(const QString &destName);
+    void removeQueue();
+
 private:
-    PrintQueueInterface *m_pqInterface;
+    QHash<QString, QWidget *> m_uis;
 };
 
 #endif

@@ -89,6 +89,7 @@ X-Plasma-MainScript=ui/printmanager.qml
 X-Plasma-DefaultSize=650,270
 X-Plasma-NotificationArea=true
 X-Plasma-ConfigPlugins=kcm_printer_manager
+X-Plasma-OptionalExtensions=LaunchApp
 
 X-KDE-PluginInfo-Author=Daniel Nicoletti
 X-KDE-PluginInfo-Email=dantti12@gmail.com

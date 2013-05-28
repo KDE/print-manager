@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;
-    options.add("show-queue [queue name]", ki18n("Show printer queue"));
+    options.add("+queuename", ki18n("Show printer queue"));
     KCmdLineArgs::addCmdLineOptions(options);
 
     PrintQueue::addCmdLineOptions();

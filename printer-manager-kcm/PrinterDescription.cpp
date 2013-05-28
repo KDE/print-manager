@@ -19,7 +19,6 @@
  ***************************************************************************/
 
 #include "PrinterDescription.h"
-
 #include "ui_PrinterDescription.h"
 
 #include <KCupsPrinter.h>
@@ -29,8 +28,9 @@
 #include <QDBusMessage>
 #include <QProgressBar>
 #include <QLabel>
-
 #include <QDBusConnection>
+
+#include <KToolInvocation>
 #include <KMenu>
 #include <KDebug>
 
@@ -81,14 +81,9 @@ PrinterDescription::~PrinterDescription()
 
 void PrinterDescription::on_openQueuePB_clicked()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.PrintQueue"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.PrintQueue"),
-                                             QLatin1String("ShowQueue"));
-    // Use our own cached tid to avoid crashes
-    message << qVariantFromValue(m_destName);
-    QDBusConnection::sessionBus().send(message);
+    QStringList args;
+    args << m_destName;
+    KToolInvocation::kdeinitExec(QLatin1String("kde-print-queue"), args);
 }
 
 void PrinterDescription::on_defaultCB_clicked()

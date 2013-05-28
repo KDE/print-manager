@@ -328,7 +328,7 @@ ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t g
         response = NULL;
 
         response = request.sendIppRequest();
-    } while (retry(request.resource().toUtf8()));
+    } while (retry(request.resource().toUtf8(), request.operation()));
 
     if (response && groupTag != IPP_TAG_ZERO) {
         ret = parseIPPVars(response, groupTag, true);
@@ -375,7 +375,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     do {
         // Do the request
         response = request.sendIppRequest();
-    } while (retry("/"));
+    } while (retry("/", operation));
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
     if (response && ippGetStatusCode(response) == IPP_OK) {
@@ -571,7 +571,7 @@ void KCupsConnection::cancelDBusSubscription()
     do {
         // Do the request
         ippDelete(request.sendIppRequest());
-    } while (retry("/"));
+    } while (retry(request.resource().toUtf8(), request.operation()));
 
     // Reset the subscription id
     m_subscriptionId = -1;
@@ -777,25 +777,25 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
     return ret;
 }
 
-bool KCupsConnection::retry(const char *resource) const
+bool KCupsConnection::retry(const char *resource, ipp_op_t operation) const
 {
     ipp_status_t status = cupsLastError();
 
-    kDebug() << "cupsLastError():" << status << cupsLastErrorString();
+    kDebug() << ippOpString(operation) << "last error:" << status << cupsLastErrorString();
 
     // When CUPS process stops our connection
     // with it fails and has to be re-established
     if (status == IPP_INTERNAL_ERROR) {
         // Deleting this connection thread forces it
         // to create a new CUPS connection
-        kWarning() << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
+        kWarning() << ippOpString(operation) << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
         // TODO maybe reconnect is enough
 //        httpClearCookie(CUPS_HTTP_DEFAULT);
 
         // Reconnect to CUPS
         if (httpReconnect(CUPS_HTTP_DEFAULT)) {
-            kWarning() << "IPP_INTERNAL_ERROR: failed to reconnect";
+            kWarning() << ippOpString(operation) << "IPP_INTERNAL_ERROR: failed to reconnect";
             // Server might be restarting sleep for a few ms
             msleep(500);
         }
@@ -834,9 +834,9 @@ bool KCupsConnection::retry(const char *resource) const
 
     if (forceAuth) {
         // force authentication
-        kDebug() << "cupsDoAuthentication() password_retries:" << password_retries;
+        kDebug() << ippOpString(operation) << "cupsDoAuthentication() password_retries:" << password_retries;
         int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
-        kDebug() << "cupsDoAuthentication() success:" << (ret == -1 ? true : false);
+        kDebug() << ippOpString(operation) << "cupsDoAuthentication() success:" << (ret == -1 ? true : false);
 
         // If the authentication was succefull
         // sometimes just trying to be root works

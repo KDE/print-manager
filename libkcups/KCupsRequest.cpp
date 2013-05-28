@@ -127,7 +127,7 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
                            exclude,
                            (cups_device_cb_t) choose_device_cb,
                            this);
-        } while (m_connection->retry("/admin/"));
+        } while (m_connection->retry("/admin/", CUPS_GET_DEVICES));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished(true);
     } else {
@@ -269,7 +269,7 @@ void KCupsRequest::getServerSettings()
             }
 
             m_server = KCupsServer(arguments);
-        } while (m_connection->retry("/admin/"));
+        } while (m_connection->retry("/admin/", IPP_GET_RESOURCE_DATA));
         setFinished();
     } else {
         invokeMethod("getServerSettings");
@@ -285,7 +285,7 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
             kDebug() << filename;
             m_ppdFile = filename;
             kDebug() << m_ppdFile;
-        } while (m_connection->retry("/"));
+        } while (m_connection->retry("/", CUPS_GET_PPD));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -312,7 +312,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
 
             cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
             cupsFreeOptions(num_settings, settings);
-        } while (m_connection->retry("/admin/"));
+        } while (m_connection->retry("/admin/", IPP_GET_RESOURCE_ATTRIBUTES));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
@@ -481,7 +481,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
                 setFinished();
                 return; // Return to avoid a new try
             }
-        } while (m_connection->retry("/"));
+        } while (m_connection->retry("/", IPP_CREATE_JOB));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {

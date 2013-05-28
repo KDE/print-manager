@@ -36,7 +36,8 @@
 #include <cups/cups.h>
 
 PrinterModel::PrinterModel(QObject *parent) :
-    QStandardItemModel(parent)
+    QStandardItemModel(parent),
+    m_unavailable(true)
 {
     m_attributes << KCUPS_PRINTER_NAME;
     m_attributes << KCUPS_PRINTER_STATE;
@@ -116,6 +117,15 @@ PrinterModel::PrinterModel(QObject *parent) :
             this,
             SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
 
+    connect(KCupsConnection::global(), SIGNAL(serverAudit(QString)),
+            SLOT(serverChanged(QString)));
+    connect(KCupsConnection::global(), SIGNAL(serverStarted(QString)),
+            SLOT(serverChanged(QString)));
+    connect(KCupsConnection::global(), SIGNAL(serverStopped(QString)),
+            SLOT(serverChanged(QString)));
+    connect(KCupsConnection::global(), SIGNAL(serverRestarted(QString)),
+            SLOT(serverChanged(QString)));
+
     // Deprecated stuff that works better than the above
     connect(KCupsConnection::global(), SIGNAL(rhPrinterAdded(QString)),
             this, SLOT(insertUpdatePrinter(QString)));
@@ -141,14 +151,20 @@ void PrinterModel::getDestsFinished()
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     if (request) {
         if (request->hasError()) {
-            emit error(request->error(), request->serverError(), request->errorMsg());
-            if (request->error() == IPP_SERVICE_UNAVAILABLE) {
-                // Check if the service is up again
-                QTimer::singleShot(1000, this, SLOT(update()));
-            }
             // clear the model after so that the proper widget can be shown
             clear();
+
+            emit error(request->error(), request->serverError(), request->errorMsg());
+            if (request->error() == IPP_SERVICE_UNAVAILABLE && !m_unavailable) {
+                m_unavailable = true;
+                emit serverUnavailableChanged(m_unavailable);
+            }
         } else {
+            if (m_unavailable) {
+                m_unavailable = false;
+                emit serverUnavailableChanged(m_unavailable);
+            }
+
             KCupsPrinters printers = request->printers();
             for (int i = 0; i < printers.size(); ++i) {
                 // If there is a printer and it's not the current one add it
@@ -202,6 +218,11 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
 int PrinterModel::count() const
 {
     return rowCount();
+}
+
+bool PrinterModel::serverUnavailable() const
+{
+    return m_unavailable;
 }
 
 void PrinterModel::pausePrinter(const QString &printerName)
@@ -519,6 +540,12 @@ void PrinterModel::printerShutdown(const QString &text, const QString &printerUr
 void PrinterModel::printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
 {
     kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+}
+
+void PrinterModel::serverChanged(const QString &text)
+{
+    kDebug() << text;
+    update();
 }
 
 #include "PrinterModel.moc"

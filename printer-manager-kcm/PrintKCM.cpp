@@ -204,6 +204,7 @@ void PrintKCM::showInfo(const KIcon &icon, const QString &title, const QString &
 void PrintKCM::update()
 {
     if (m_model->rowCount()) {
+        m_lastError = -1; // if the model has printers reset the error code
         if (ui->stackedWidget->currentIndex() != 0) {
             ui->stackedWidget->setCurrentIndex(0);
         }
@@ -307,7 +308,9 @@ void PrintKCM::on_removeTB_clicked()
 void PrintKCM::getServerSettings()
 {
     if (!m_serverRequest) {
+        QMenu *systemMenu = qobject_cast<QMenu*>(sender());
         m_serverRequest = new KCupsRequest;
+        m_serverRequest->setProperty("interactive", static_cast<bool>(systemMenu));
         connect(m_serverRequest, SIGNAL(finished()),
                 this, SLOT(getServerSettingsFinished()));
         m_serverRequest->getServerSettings();
@@ -330,10 +333,12 @@ void PrintKCM::getServerSettingsFinished()
     m_allowUsersCancelAnyJob->setEnabled(!error);
 
     if (error) {
-        KMessageBox::detailedSorry(this,
-                                   i18nc("@info", "Failed to get server settings"),
-                                   request->errorMsg(),
-                                   i18nc("@title:window", "Failed"));
+        if (request->property("interactive").toBool()) {
+            KMessageBox::detailedSorry(this,
+                                       i18nc("@info", "Failed to get server settings"),
+                                       request->errorMsg(),
+                                       i18nc("@title:window", "Failed"));
+        }
     } else {
         KCupsServer server = request->serverSettings();
 

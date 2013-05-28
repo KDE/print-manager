@@ -32,6 +32,7 @@ class KDE_EXPORT PrinterModel : public QStandardItemModel
     Q_ENUMS(JobAction)
     Q_ENUMS(Role)
     Q_PROPERTY(int count READ count NOTIFY countChanged)
+    Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
 public:
     enum Role {
         DestStatus = Qt::UserRole,
@@ -65,6 +66,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
     int count() const;
+    bool serverUnavailable() const;
 
     Q_INVOKABLE void pausePrinter(const QString &printerName);
     Q_INVOKABLE void resumePrinter(const QString &printerName);
@@ -78,6 +80,7 @@ public slots:
 
 signals:
     void countChanged(int count);
+    void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
 private slots:
@@ -96,10 +99,12 @@ private slots:
     void printerRestarted(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void printerShutdown(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
+    void serverChanged(const QString &text);
 
 private:
     WId m_parentId;
     QStringList m_attributes;
+    bool m_unavailable;
 
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);

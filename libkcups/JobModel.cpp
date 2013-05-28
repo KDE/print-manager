@@ -123,6 +123,15 @@ JobModel::JobModel(QObject *parent) :
             SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
             this,
             SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+
+    connect(KCupsConnection::global(), SIGNAL(serverAudit(QString)),
+            SLOT(getJobs()));
+    connect(KCupsConnection::global(), SIGNAL(serverStarted(QString)),
+            SLOT(getJobs()));
+    connect(KCupsConnection::global(), SIGNAL(serverStopped(QString)),
+            SLOT(getJobs()));
+    connect(KCupsConnection::global(), SIGNAL(serverRestarted(QString)),
+            SLOT(getJobs()));
 }
 
 void JobModel::setParentWId(WId parentId)
@@ -196,10 +205,9 @@ void JobModel::getJobFinished()
 {
     KCupsRequest *request = static_cast<KCupsRequest *>(sender());
     if (request) {
-        if (request->hasError()) {
-//            emit error(request->error(), request->serverError(), request->errorMsg());
+        if (request->hasError()) {            
             // clear the model after so that the proper widget can be shown
-//            clear();// TODO remove also in printerModel
+            clear();
         } else {
             KCupsJobs jobs = request->jobs();
             kDebug() << jobs.size();

@@ -35,6 +35,8 @@ FocusScope   {
     property string tooltipText
     property string plasmoidStatus: "PassiveStatus"
     property string jobsTooltipText
+    property string printersModelError: ""
+    property alias serverUnavailable: printersModel.serverUnavailable
 
     property Component compactRepresentation: CompactRepresentation {
         tooltipText: printmanager.tooltipText
@@ -154,6 +156,7 @@ FocusScope   {
                 sourceModel: PrintManager.PrinterModel {
                     id: printersModel
                     onCountChanged: updatePrinterStatus()
+                    onError: printersModelError = errorTitle
                 }
                 filteredPrinters: filterPrinters
             }
@@ -197,8 +200,10 @@ FocusScope   {
         id: statusNoPrinter
         anchors.fill: parent
         opacity: 0
-        iconName: "dialog-information"
-        title: i18n("No printers have been configured or discovered")
+        iconName: serverUnavailable ? "dialog-error" : "dialog-information"
+        title: serverUnavailable ?
+                   printersModelError :
+                   i18n("No printers have been configured or discovered")
     }
 
     StatusView {

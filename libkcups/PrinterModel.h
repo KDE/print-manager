@@ -111,6 +111,7 @@ private:
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
+    void clear();
 };
 
 #endif // PRINTER_MODEL_H

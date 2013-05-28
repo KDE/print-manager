@@ -432,6 +432,11 @@ QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &mess
     }
 }
 
+void PrinterModel::clear()
+{
+    removeRows(0, rowCount());
+}
+
 Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
 {
     Q_UNUSED(index)

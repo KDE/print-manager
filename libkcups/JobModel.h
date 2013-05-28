@@ -138,6 +138,7 @@ private:
     void insertJob(int pos, const KCupsJob &job);
     void updateJob(int pos, const KCupsJob &job);
     QString jobStatus(ipp_jstate_e job_state);
+    void clear();
 
     KCupsRequest *m_jobRequest;
     QString m_destName;

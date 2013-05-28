@@ -606,9 +606,13 @@ QString JobModel::jobStatus(ipp_jstate_e job_state)
   return "-";
 }
 
+void JobModel::clear()
+{
+    removeRows(0, rowCount());
+}
+
 void JobModel::setWhichJobs(WhichJobs whichjobs)
 {
-    kDebug() << whichjobs;
     switch (whichjobs) {
     case WhichActive:
         m_whichjobs = CUPS_WHICHJOBS_ACTIVE;

@@ -45,12 +45,22 @@ Item {
      */
     property bool on: false
 
+    /**
+     * type:bool
+     * This property holds if the mouse area of
+     * our switch contains the mouse cursor, which
+     * is needed to keep the list highlight
+     */
+    property alias containsMouse: mouseArea.containsMouse
+
+    /**
+     * This signal is emitted only when the user
+     * manually change the state.
+     */
     signal toggled(bool enabled)
 
     width: handle.width * 2.3
     height: theme.defaultFont.mSize.height*1.8
-    // TODO: needs to define if there will be specific graphics for
-    //     disabled sliders
     opacity: enabled ? 1.0 : 0.5
 
     Keys.onLeftPressed: {
@@ -98,7 +108,7 @@ Item {
             id: groove
             imagePath: "widgets/slider"
             prefix: "groove"
-            height: handle.height * 0.8 //grooveSvg.elementSize("groove-topleft").height + grooveSvg.elementSize("groove-bottomleft").height
+            height: handle.height * 0.85
             anchors {
                 left: parent.left
                 right: parent.right
@@ -125,7 +135,6 @@ Item {
             shadowElement: "horizontal-slider-shadow"
             state: switcher.activeFocus ? "focus" : (mouseArea.containsMouse ? "hover" : "shadow")
             anchors.fill: handle
-            //We rotate the handle below, we need to rotate the shadow back as well
         }
 
         PlasmaCore.SvgItem {

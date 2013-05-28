@@ -36,7 +36,7 @@ Item {
     onCurrentItemChanged: updateSelection();
 
     function updateSelection() {
-        var containsMouse = mouseArea.containsMouse;
+        var containsMouse = mouseArea.containsMouse || switchAction.containsMouse;
 
         if (currentItem && containsMouse) {
             highlightPrinter = printerName;
@@ -165,6 +165,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             focus: !multipleItems
             on: !isPaused
+            onContainsMouseChanged: updateSelection()
             onToggled: toggleSelection()
         }
     }

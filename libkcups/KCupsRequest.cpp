@@ -144,7 +144,9 @@ void KCupsRequest::getPrinters(QStringList attributes, int mask)
     if (m_connection->readyToStart()) {
         KIppRequest request(CUPS_GET_PRINTERS, "/");
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
-        request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
+        if (!attributes.isEmpty()) {
+            request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
+        }
         if (mask != -1) {
             request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE_MASK, mask);
         }

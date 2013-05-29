@@ -48,12 +48,12 @@ QString KCupsRequest::serverError() const
 {
     switch (error()) {
     case IPP_SERVICE_UNAVAILABLE:
-        return i18n("Service is unavailable");
+        return i18n("Print service is unavailable");
     case IPP_NOT_FOUND :
         return i18n("Not found");
     default : // In this case we don't want to map all enums
         kWarning() << "status unrecognised: " << error();
-        return QString();
+        return QString::fromUtf8(ippErrorString(error()));
     }
 }
 

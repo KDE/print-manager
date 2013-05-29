@@ -269,7 +269,7 @@ void KCupsRequest::getServerSettings()
             }
 
             m_server = KCupsServer(arguments);
-        } while (m_connection->retry("/admin/", IPP_GET_RESOURCE_DATA));
+        } while (m_connection->retry("/admin/", -1));
         setFinished();
     } else {
         invokeMethod("getServerSettings");
@@ -312,7 +312,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
 
             cupsAdminSetServerSettings(CUPS_HTTP_DEFAULT, num_settings, settings);
             cupsFreeOptions(num_settings, settings);
-        } while (m_connection->retry("/admin/", IPP_GET_RESOURCE_ATTRIBUTES));
+        } while (m_connection->retry("/admin/", -1));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {

@@ -777,25 +777,30 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
     return ret;
 }
 
-bool KCupsConnection::retry(const char *resource, ipp_op_t operation) const
+bool KCupsConnection::retry(const char *resource, int operation) const
 {
     ipp_status_t status = cupsLastError();
 
-    kDebug() << ippOpString(operation) << "last error:" << status << cupsLastErrorString();
+    if (operation != -1) {
+        kDebug() << ippOpString(static_cast<ipp_op_t>(operation)) << "last error:" << status << cupsLastErrorString();
+    } else {
+        kDebug() << operation << "last error:" << status << cupsLastErrorString();
+    }
 
     // When CUPS process stops our connection
     // with it fails and has to be re-established
     if (status == IPP_INTERNAL_ERROR) {
         // Deleting this connection thread forces it
         // to create a new CUPS connection
-        kWarning() << ippOpString(operation) << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
+        kWarning() << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
         // TODO maybe reconnect is enough
 //        httpClearCookie(CUPS_HTTP_DEFAULT);
 
         // Reconnect to CUPS
         if (httpReconnect(CUPS_HTTP_DEFAULT)) {
-            kWarning() << ippOpString(operation) << "IPP_INTERNAL_ERROR: failed to reconnect";
+            kWarning() << "Failed to reconnect" << cupsLastErrorString();
+
             // Server might be restarting sleep for a few ms
             msleep(500);
         }
@@ -834,9 +839,9 @@ bool KCupsConnection::retry(const char *resource, ipp_op_t operation) const
 
     if (forceAuth) {
         // force authentication
-        kDebug() << ippOpString(operation) << "cupsDoAuthentication() password_retries:" << password_retries;
+        kDebug() << "Calling cupsDoAuthentication() password_retries:" << password_retries;
         int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
-        kDebug() << ippOpString(operation) << "cupsDoAuthentication() success:" << (ret == -1 ? true : false);
+        kDebug() << "Called cupsDoAuthentication(), success:" << (ret == -1 ? true : false);
 
         // If the authentication was succefull
         // sometimes just trying to be root works

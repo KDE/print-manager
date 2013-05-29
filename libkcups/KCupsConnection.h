@@ -364,7 +364,7 @@ protected:
 
     virtual void run();
     bool readyToStart();
-    bool retry(const char *resource, ipp_op_t operation) const;
+    bool retry(const char *resource, int operation) const;
     ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
 
 private slots:

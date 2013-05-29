@@ -166,9 +166,9 @@ Item {
                 anchors.bottom: parent.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: showOn ? 1.5 : height
-                color: showOn ? "dimgrey" : "transparent"
+                color: showOn ? theme.textColor : "transparent"
                 border.width: showOn ? 0 : 2
-                border.color: "dimgrey"
+                border.color: theme.textColor
                 radius: showOn ? 0 : height
                 smooth: true
             }

@@ -22,6 +22,7 @@ include_directories(${CMAKE_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${KDE4_INCLUDES}
     ${CMAKE_CURRENT_SOURCE_DIR}/libkcups
+    ${CUPS_INCLUDE_DIR}
 )
 
 add_subdirectory(libkcups)

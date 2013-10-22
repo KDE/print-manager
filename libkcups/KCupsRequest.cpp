@@ -168,7 +168,7 @@ void KCupsRequest::getPrinters(QStringList attributes, int mask)
 void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes)
 {
     if (m_connection->readyToStart()) {
-        KIppRequest request(IPP_GET_PRINTER_ATTRIBUTES, "/admin/");
+        KIppRequest request(IPP_GET_PRINTER_ATTRIBUTES, "/");
 
         request.addPrinterUri(printerName, isClass);
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
@@ -226,7 +226,7 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
 void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStringList attributes)
 {
     if (m_connection->readyToStart()) {
-        KIppRequest request(IPP_GET_JOB_ATTRIBUTES, "/admin/");
+        KIppRequest request(IPP_GET_JOB_ATTRIBUTES, "/");
 
         request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, printerUri);
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);

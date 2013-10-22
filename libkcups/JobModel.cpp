@@ -541,6 +541,12 @@ bool JobModel::dropMimeData(const QMimeData *data,
 KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
 {
     Q_UNUSED(parent)
+
+    if (row < 0 || row >= rowCount()) {
+        kWarning() << "Row number is invalid:" << row;
+        return 0;
+    }
+
     QStandardItem *job = item(row, ColStatus);
     int jobId = job->data(RoleJobId).toInt();
     QString destName = job->data(RoleJobPrinter).toString();

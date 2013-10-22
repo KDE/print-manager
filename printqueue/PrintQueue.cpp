@@ -89,7 +89,7 @@ void PrintQueue::showQueue(const QString &destName)
         if (found) {
             PrintQueueUi *ui = new PrintQueueUi(printer);
             connect(ui, SIGNAL(finished()),
-                    this, SLOT(RemoveQueue()));
+                    this, SLOT(removeQueue()));
             ui->show();
             m_uis[printer.name()] = ui;
         } else {

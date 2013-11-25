@@ -32,7 +32,7 @@
 
 #include <KDebug>
 
-ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModify, QWidget *parent) :
+ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *parent) :
     PrinterPage(parent),
     ui(new Ui::ModifyPrinter),
     m_destName(destName),
@@ -41,13 +41,7 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, bool isModif
 {
     ui->setupUi(this);
 
-    if (isModify) {
-        // we are modifying the printer/class so
-        // the user cannot change it.
-        ui->nameLE->setText(destName);
-        ui->nameLE->setReadOnly(true);
-    }
-
+    ui->nameL->setText(destName);
     ui->connectionL->setVisible(!isClass);
     ui->connectionLE->setVisible(!isClass);
     ui->driverL->setVisible(!isClass);

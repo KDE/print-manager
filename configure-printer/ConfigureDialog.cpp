@@ -52,7 +52,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     QStringList attr;
     KPageWidgetItem *page;
 
-    modifyPrinter = new ModifyPrinter(destName, isClass, true, this);
+    modifyPrinter = new ModifyPrinter(destName, isClass, this);
     PrinterBehavior *printerBehavior = new PrinterBehavior(destName, isClass, this);
     attr << modifyPrinter->neededValues();
     attr << printerBehavior->neededValues();

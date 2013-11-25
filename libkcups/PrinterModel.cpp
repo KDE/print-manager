@@ -149,57 +149,54 @@ PrinterModel::PrinterModel(QObject *parent) :
 void PrinterModel::getDestsFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
-    if (request) {
-        if (request->hasError()) {
-            // clear the model after so that the proper widget can be shown
-            clear();
+    // When there is no printer IPP_NOT_FOUND is returned
+    if (request->hasError() && request->error() != IPP_NOT_FOUND) {
+        // clear the model after so that the proper widget can be shown
+        clear();
 
-            emit error(request->error(), request->serverError(), request->errorMsg());
-            if (request->error() == IPP_SERVICE_UNAVAILABLE && !m_unavailable) {
-                m_unavailable = true;
-                emit serverUnavailableChanged(m_unavailable);
-            }
-        } else {
-            if (m_unavailable) {
-                m_unavailable = false;
-                emit serverUnavailableChanged(m_unavailable);
-            }
-
-            KCupsPrinters printers = request->printers();
-            for (int i = 0; i < printers.size(); ++i) {
-                // If there is a printer and it's not the current one add it
-                // as a new destination
-                int dest_row = destRow(printers.at(i).name());
-                if (dest_row == -1) {
-                    // not found, insert new one
-                    insertDest(i, printers.at(i));
-                } else if (dest_row == i) {
-                    // update the printer
-                    updateDest(item(i), printers.at(i));
-                } else {
-                    // found at wrong position
-                    // take it and insert on the right position
-                    QList<QStandardItem *> row = takeRow(dest_row);
-                    insertRow(i, row);
-                    updateDest(item(i), printers.at(i));
-                }
-            }
-
-            // remove old printers
-            // The above code starts from 0 and make sure
-            // dest == modelIndex(x) and if it's not the
-            // case it either inserts or moves it.
-            // so any item > num_jobs can be safely deleted
-            while (rowCount() > printers.size()) {
-                removeRow(rowCount() - 1);
-            }
-
-            emit error(IPP_OK, QString(), QString());
+        emit error(request->error(), request->serverError(), request->errorMsg());
+        if (request->error() == IPP_SERVICE_UNAVAILABLE && !m_unavailable) {
+            m_unavailable = true;
+            emit serverUnavailableChanged(m_unavailable);
         }
-        request->deleteLater();
     } else {
-        kWarning() << "Should not be called from a non KCupsRequest class" << sender();
+        if (m_unavailable) {
+            m_unavailable = false;
+            emit serverUnavailableChanged(m_unavailable);
+        }
+
+        KCupsPrinters printers = request->printers();
+        for (int i = 0; i < printers.size(); ++i) {
+            // If there is a printer and it's not the current one add it
+            // as a new destination
+            int dest_row = destRow(printers.at(i).name());
+            if (dest_row == -1) {
+                // not found, insert new one
+                insertDest(i, printers.at(i));
+            } else if (dest_row == i) {
+                // update the printer
+                updateDest(item(i), printers.at(i));
+            } else {
+                // found at wrong position
+                // take it and insert on the right position
+                QList<QStandardItem *> row = takeRow(dest_row);
+                insertRow(i, row);
+                updateDest(item(i), printers.at(i));
+            }
+        }
+
+        // remove old printers
+        // The above code starts from 0 and make sure
+        // dest == modelIndex(x) and if it's not the
+        // case it either inserts or moves it.
+        // so any item > num_jobs can be safely deleted
+        while (rowCount() > printers.size()) {
+            removeRow(rowCount() - 1);
+        }
+
+        emit error(IPP_OK, QString(), QString());
     }
+    request->deleteLater();
 }
 
 void PrinterModel::slotCountChanged()

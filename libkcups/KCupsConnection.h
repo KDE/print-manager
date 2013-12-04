@@ -385,8 +385,7 @@ private:
     void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
 
     static ReturnArguments parseIPPVars(ipp_t *response,
-                                        ipp_tag_t group_tag,
-                                        bool needDestName);
+                                        ipp_tag_t group_tag);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
 
     static KCupsConnection* m_instance;

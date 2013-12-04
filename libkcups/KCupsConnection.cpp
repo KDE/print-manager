@@ -331,7 +331,7 @@ ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t g
     } while (retry(request.resource().toUtf8(), request.operation()));
 
     if (response && groupTag != IPP_TAG_ZERO) {
-        ret = parseIPPVars(response, groupTag, true);
+        ret = parseIPPVars(response, groupTag);
     }
     ippDelete(response);
 
@@ -577,14 +577,12 @@ void KCupsConnection::cancelDBusSubscription()
     m_subscriptionId = -1;
 }
 
-ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_tag, bool needDestName)
+ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_tag)
 {
     ipp_attribute_t *attr;
     ReturnArguments ret;
 
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR >= 6
-    Q_UNUSED(needDestName)
-
     QVariantHash destAttributes;
     for (attr = ippFirstAttribute(response); attr != NULL; attr = ippNextAttribute(response)) {
         // We hit an attribute sepparator
@@ -653,17 +651,6 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
              * Add a printer description attribute...
              */
             destAttributes[QString::fromUtf8(attr->name)] = ippAttrToVariant(attr);
-        }
-
-        /*
-         * See if we have everything needed...
-         */
-        if (needDestName && destAttributes[QLatin1String(KCUPS_PRINTER_NAME)].toString().isEmpty()) {
-            if (attr == NULL) {
-                break;
-            } else {
-                continue;
-            }
         }
 
         ret << destAttributes;

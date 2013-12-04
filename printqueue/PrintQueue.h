@@ -32,6 +32,8 @@ public:
     int newInstance();
 
     void showQueue(const QString &destName);
+
+public slots:
     void removeQueue();
 
 private:

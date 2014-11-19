@@ -20,8 +20,6 @@
 
 #include "KCupsPrinter.h"
 
-#include <KDebug>
-
 KCupsPrinter::KCupsPrinter() :
     m_isClass(false)
 {
@@ -168,14 +166,14 @@ QVariant KCupsPrinter::argument(const QString &name) const
     return m_arguments.value(name);
 }
 
-KIcon KCupsPrinter::icon() const
+QIcon KCupsPrinter::icon() const
 {
     return icon(type());
 }
 
-KIcon KCupsPrinter::icon(cups_ptype_e type)
+QIcon KCupsPrinter::icon(cups_ptype_e type)
 {
-    return KIcon(iconName(type));
+    return QIcon(iconName(type));
 }
 
 QString KCupsPrinter::iconName() const

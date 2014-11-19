@@ -24,7 +24,7 @@
 #include <KCupsConnection.h>
 
 class KIppRequestPrivate;
-class KDE_EXPORT KIppRequest
+class Q_DECL_EXPORT KIppRequest
 {
     Q_DECLARE_PRIVATE(KIppRequest)
 public:

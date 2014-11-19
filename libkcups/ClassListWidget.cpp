@@ -26,9 +26,9 @@
 #include "NoSelectionRectDelegate.h"
 
 #include <QPointer>
-#include <KFileDialog>
-#include <KDebug>
+#include <QFileDialog>
 
+#include <KIconLoader>
 #include <KPixmapSequence>
 #include <KConfigDialogManager>
 

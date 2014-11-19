@@ -25,11 +25,9 @@
 
 #include <cups/cups.h>
 
-#include <kdemacros.h>
-
 class KCupsJob;
 class KCupsRequest;
-class KDE_EXPORT JobModel : public QStandardItemModel
+class Q_DECL_EXPORT JobModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(JobAction)

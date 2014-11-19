@@ -27,7 +27,8 @@
 class PrinterPage;
 class ModifyPrinter;
 class PrinterOptions;
-class KDE_EXPORT ConfigureDialog : public KPageDialog
+
+class Q_DECL_EXPORT ConfigureDialog : public KPageDialog
 {
     Q_OBJECT
 public:

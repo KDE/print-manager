@@ -20,6 +20,8 @@
 
 #include "PrinterModel.h"
 
+#include "Debug.h"
+
 #include <QDateTime>
 #include <QMimeData>
 #include <QDBusConnection>
@@ -27,8 +29,7 @@
 #include <QPointer>
 
 #include <KUser>
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include <KCupsRequest.h>
@@ -297,7 +298,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     if (state != destItem->data(DestState)) {
         destItem->setData(state, DestState);
     }
-    kDebug() << state << printer.name();
+    qCDebug(LIBKCUPS) << state << printer.name();
 
     // store if the printer is accepting jobs
     bool accepting = printer.isAcceptingJobs();
@@ -463,7 +464,7 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
 
-    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
     insertUpdatePrinter(printerName);
 }
 
@@ -489,7 +490,7 @@ void PrinterModel::insertUpdatePrinterFinished()
 
 void PrinterModel::printerRemoved(const QString &printerName)
 {
-    kDebug() << printerName;
+    qCDebug(LIBKCUPS) << printerName;
 
     // Look for the removed printer
     int dest_row = destRow(printerName);
@@ -511,7 +512,7 @@ void PrinterModel::printerRemoved(const QString &text,
     Q_UNUSED(printerState)
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
-    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 
     // Look for the removed printer
     int dest_row = destRow(printerName);
@@ -522,31 +523,31 @@ void PrinterModel::printerRemoved(const QString &text,
 
 void PrinterModel::printerStateChanged(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
 {
-    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 }
 void PrinterModel::printerStopped(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
 {
-    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 }
 
 void PrinterModel::printerRestarted(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
 {
-    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 }
 
 void PrinterModel::printerShutdown(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
 {
-    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 }
 
 void PrinterModel::printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
 {
-    kDebug() << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 }
 
 void PrinterModel::serverChanged(const QString &text)
 {
-    kDebug() << text;
+    qCDebug(LIBKCUPS) << text;
     update();
 }
 

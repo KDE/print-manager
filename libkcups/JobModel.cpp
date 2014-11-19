@@ -20,6 +20,7 @@
 
 #include "JobModel.h"
 
+#include <Debug.h>
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 #include <KCupsJob.h>
@@ -28,9 +29,9 @@
 #include <QMimeData>
 #include <QPointer>
 
+#include <KFormat>
 #include <KUser>
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include <QStringBuilder>
@@ -205,12 +206,12 @@ void JobModel::getJobFinished()
 {
     KCupsRequest *request = static_cast<KCupsRequest *>(sender());
     if (request) {
-        if (request->hasError()) {            
+        if (request->hasError()) {
             // clear the model after so that the proper widget can be shown
             clear();
         } else {
             KCupsJobs jobs = request->jobs();
-            kDebug() << jobs.size();
+            qCDebug(LIBKCUPS) << jobs.size();
             for (int i = 0; i < jobs.size(); ++i) {
                 if (jobs.at(i).state() == IPP_JOB_PROCESSING) {
                     m_processingJob = jobs.at(i).name();
@@ -244,7 +245,7 @@ void JobModel::getJobFinished()
         }
         request->deleteLater();
     } else {
-        kWarning() << "Should not be called from a non KCupsRequest class" << sender();
+        qCWarning(LIBKCUPS) << "Should not be called from a non KCupsRequest class" << sender();
     }
     m_jobRequest = 0;
 }
@@ -318,9 +319,9 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
     statusItem->setData(job.name(), RoleJobName);
     statusItem->setData(job.originatingUserName(), RoleJobOwner);
     statusItem->setData(job.originatingHostName(), RoleJobOriginatingHostName);
-    QString size = KGlobal::locale()->formatByteSize(job.size());
+    QString size = KFormat().formatByteSize(job.size());
     statusItem->setData(size, RoleJobSize);
-    QString createdAt = KGlobal::locale()->formatDateTime(job.createdAt());
+    QString createdAt = QLocale().toString(job.createdAt());
     statusItem->setData(createdAt, RoleJobCreatedAt);
 
     // TODO move the update code before the insert and reuse some code...
@@ -441,7 +442,7 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
     int jobSize = job.size();
     if (item(pos, ColSize)->data(Qt::UserRole) != jobSize) {
         item(pos, ColSize)->setData(jobSize, Qt::UserRole);
-        item(pos, ColSize)->setText(KGlobal::locale()->formatByteSize(jobSize));
+        item(pos, ColSize)->setText(KFormat().formatByteSize(jobSize));
     }
 
     // job printer state message
@@ -543,7 +544,7 @@ KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newD
     Q_UNUSED(parent)
 
     if (row < 0 || row >= rowCount()) {
-        kWarning() << "Row number is invalid:" << row;
+        qCWarning(LIBKCUPS) << "Row number is invalid:" << row;
         return 0;
     }
 
@@ -577,7 +578,7 @@ KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newD
         request->moveJob(destName, jobId, newDestName);
         break;
     default:
-        kWarning() << "Unknown ACTION called!!!" << action;
+        qCWarning(LIBKCUPS) << "Unknown ACTION called!!!" << action;
         return 0;
     }
 

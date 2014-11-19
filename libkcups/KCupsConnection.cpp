@@ -21,6 +21,7 @@
 
 #include "KCupsConnection.h"
 
+#include "Debug.h"
 #include "KCupsPasswordDialog.h"
 #include "KIppRequest.h"
 
@@ -31,8 +32,7 @@
 #include <QDBusConnection>
 #include <QByteArray>
 
-#include <KLocale>
-#include <KDebug>
+#include <KLocalizedString>
 
 #include <cups/cups.h>
 
@@ -84,7 +84,7 @@ KCupsConnection::KCupsConnection(QObject *parent) :
     init();
 }
 
-KCupsConnection::KCupsConnection(const KUrl &server, QObject *parent) :
+KCupsConnection::KCupsConnection(const QUrl &server, QObject *parent) :
     QThread(parent),
     m_serverUrl(server)
 {
@@ -389,26 +389,26 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         } else if ((attr = ippFindAttribute(response,
                                             "notify-subscription-id",
                                             IPP_TAG_INTEGER)) == NULL) {
-            kWarning() << "No notify-subscription-id in response!";
+            qCWarning(LIBKCUPS) << "No notify-subscription-id in response!";
             ret = -1;
         } else {
 #if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
             ret = ippGetInteger(attr, 0);
         }
     } else if (subscriptionId >= 0 && response && ippGetStatusCode(response) == IPP_NOT_FOUND) {
-        kDebug() << "Subscription not found";
+        qCDebug(LIBKCUPS) << "Subscription not found";
         // When the subscription is not found try to get a new one
         return renewDBusSubscription(-1, leaseDuration, events);
 #else
             ret = attr->values[0].integer;
         }
     } else if (subscriptionId >= 0 && response && response->request.status.status_code == IPP_NOT_FOUND) {
-        kDebug() << "Subscription not found";
+        qCDebug(LIBKCUPS) << "Subscription not found";
         // When the subscription is not found try to get a new one
         return renewDBusSubscription(-1, leaseDuration, events);
 #endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     } else {
-        kDebug() << "Request failed" << cupsLastError() << httpGetStatus(CUPS_HTTP_DEFAULT);
+        qCDebug(LIBKCUPS) << "Request failed" << cupsLastError() << httpGetStatus(CUPS_HTTP_DEFAULT);
         // When the server stops/restarts we will have some error so ignore it
         ret = subscriptionId;
     }
@@ -769,9 +769,9 @@ bool KCupsConnection::retry(const char *resource, int operation) const
     ipp_status_t status = cupsLastError();
 
     if (operation != -1) {
-        kDebug() << ippOpString(static_cast<ipp_op_t>(operation)) << "last error:" << status << cupsLastErrorString();
+        qCDebug(LIBKCUPS) << ippOpString(static_cast<ipp_op_t>(operation)) << "last error:" << status << cupsLastErrorString();
     } else {
-        kDebug() << operation << "last error:" << status << cupsLastErrorString();
+        qCDebug(LIBKCUPS) << operation << "last error:" << status << cupsLastErrorString();
     }
 
     // When CUPS process stops our connection
@@ -779,14 +779,14 @@ bool KCupsConnection::retry(const char *resource, int operation) const
     if (status == IPP_INTERNAL_ERROR) {
         // Deleting this connection thread forces it
         // to create a new CUPS connection
-        kWarning() << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
+        qCWarning(LIBKCUPS) << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
         // TODO maybe reconnect is enough
 //        httpClearCookie(CUPS_HTTP_DEFAULT);
 
         // Reconnect to CUPS
         if (httpReconnect(CUPS_HTTP_DEFAULT)) {
-            kWarning() << "Failed to reconnect" << cupsLastErrorString();
+            qCWarning(LIBKCUPS) << "Failed to reconnect" << cupsLastErrorString();
 
             // Server might be restarting sleep for a few ms
             msleep(500);
@@ -826,9 +826,9 @@ bool KCupsConnection::retry(const char *resource, int operation) const
 
     if (forceAuth) {
         // force authentication
-        kDebug() << "Calling cupsDoAuthentication() password_retries:" << password_retries;
+        qCDebug(LIBKCUPS) << "Calling cupsDoAuthentication() password_retries:" << password_retries;
         int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
-        kDebug() << "Called cupsDoAuthentication(), success:" << (ret == -1 ? true : false);
+        qCDebug(LIBKCUPS) << "Called cupsDoAuthentication(), success:" << (ret == -1 ? true : false);
 
         // If the authentication was succefull
         // sometimes just trying to be root works
@@ -856,13 +856,13 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     bool wrongPassword = password_retries > 1;
 
     // This will block this thread until exec is not finished
-    kDebug() << password_retries;
+    qCDebug(LIBKCUPS) << password_retries;
     QMetaObject::invokeMethod(passwordDialog,
                               "exec",
                               Qt::BlockingQueuedConnection,
                               Q_ARG(QString, QString::fromUtf8(cupsUser())),
                               Q_ARG(bool, wrongPassword));
-    kDebug() << passwordDialog->accepted();
+    qCDebug(LIBKCUPS) << passwordDialog->accepted();
 
     // The password dialog has just returned check the result
     // method that returns QDialog enums

@@ -23,11 +23,7 @@
 
 #include <QSortFilterProxyModel>
 
-#include <QDeclarativeItem>
-
-#include <kdemacros.h>
-
-class KDE_EXPORT JobSortFilterModel : public QSortFilterProxyModel
+class Q_DECL_EXPORT JobSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY filteredPrintersChanged)

@@ -21,14 +21,14 @@
 #ifndef CONFIGURE_PRINTER_H
 #define CONFIGURE_PRINTER_H
 
-#include <KUniqueApplication>
+#include <QApplication>
 
 class ConfigurePrinterInterface;
-class ConfigurePrinter : public KUniqueApplication
+class ConfigurePrinter : public QApplication
 {
     Q_OBJECT
 public:
-    ConfigurePrinter();
+    ConfigurePrinter(int & argc, char ** argv);
     virtual ~ConfigurePrinter();
 
     int newInstance();

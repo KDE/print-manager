@@ -22,7 +22,7 @@
 #include "ui_SelectMakeModel.h"
 
 #include "PPDModel.h"
-
+#include "Debug.h"
 #include "KCupsRequest.h"
 #include "NoSelectionRectDelegate.h"
 
@@ -37,7 +37,6 @@
 #include <QtDBus/QDBusMetaType>
 
 #include <KMessageBox>
-#include <KDebug>
 
 // Marshall the MyStructure data into a D-Bus argument
 QDBusArgument &operator<<(QDBusArgument &argument, const DriverMatch &driverMatch)
@@ -89,7 +88,7 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
 
     // Make sure we update the Next/Finish button if a PPD is selected
     connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(checkChanged()));    
+            this, SLOT(checkChanged()));
 
     // When the radio button changes the signal must be emitted
     connect(ui->ppdFileRB, SIGNAL(toggled(bool)), this, SLOT(checkChanged()));
@@ -106,7 +105,7 @@ SelectMakeModel::~SelectMakeModel()
 
 void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make, const QString &makeAndModel, const QString &deviceUri)
 {
-    kDebug() << "===================================" << deviceId << makeAndModel << deviceUri;
+    qCDebug(LIBKCUPS) << "===================================" << deviceId << makeAndModel << deviceUri;
     m_gotBestDrivers = false;
     m_hasRecommended = false;
     m_make = make;
@@ -156,7 +155,7 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
 void SelectMakeModel::ppdsLoaded()
 {
     if (m_ppdRequest->hasError()) {
-        kWarning() << "Failed to get PPDs" << m_ppdRequest->errorMsg();
+        qCWarning(LIBKCUPS) << "Failed to get PPDs" << m_ppdRequest->errorMsg();
         ui->messageWidget->setText(i18n("Failed to get a list of drivers: '%1'", m_ppdRequest->errorMsg()));
         ui->messageWidget->animatedShow();
 
@@ -175,7 +174,7 @@ void SelectMakeModel::ppdsLoaded()
 
 void SelectMakeModel::checkChanged()
 {
-    kDebug();
+    qCDebug(LIBKCUPS);
     if (isFileSelected()) {
         emit changed(!selectedPPDFileName().isNull());
     } else {
@@ -210,7 +209,7 @@ QString SelectMakeModel::selectedPPDFileName() const
 {
     if (isFileSelected()) {
         QFileInfo file = ui->ppdFilePathUrl->url().toLocalFile();
-        kDebug() << ui->ppdFilePathUrl->url().toLocalFile() << file.isFile() << file.filePath();
+        qCDebug(LIBKCUPS) << ui->ppdFilePathUrl->url().toLocalFile() << file.isFile() << file.filePath();
         if (file.isFile()) {
             return file.filePath();
         }
@@ -220,7 +219,7 @@ QString SelectMakeModel::selectedPPDFileName() const
 
 bool SelectMakeModel::isFileSelected() const
 {
-    kDebug() << ui->ppdFileRB->isChecked();
+    qCDebug(LIBKCUPS) << ui->ppdFileRB->isChecked();
     return ui->ppdFileRB->isChecked();
 }
 
@@ -231,10 +230,10 @@ void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
         m_driverMatchList = qdbus_cast<DriverMatchList>(argument);
         m_hasRecommended = !m_driverMatchList.isEmpty();
         foreach (const DriverMatch &driverMatch, m_driverMatchList) {
-            kDebug() << driverMatch.ppd << driverMatch.match;
+            qCDebug(LIBKCUPS) << driverMatch.ppd << driverMatch.match;
         }
     } else {
-        kWarning() << "Unexpected message" << message;
+        qCWarning(LIBKCUPS) << "Unexpected message" << message;
     }
     m_gotBestDrivers = true;
     setModelData();
@@ -242,7 +241,7 @@ void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
 
 void SelectMakeModel::getBestDriversFailed(const QDBusError &error, const QDBusMessage &message)
 {
-    kWarning() << "Failed to get best drivers" << error << message;
+    qCWarning(LIBKCUPS) << "Failed to get best drivers" << error << message;
 
     // Show the PPDs anyway
     m_gotBestDrivers = true;

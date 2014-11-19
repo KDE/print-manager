@@ -20,11 +20,11 @@
 
 #include "PPDModel.h"
 
+#include "Debug.h"
+
 #include <QStringBuilder>
 
-#include <KLocale>
-
-#include <KDebug>
+#include <KLocalizedString>
 
 PPDModel::PPDModel(QObject *parent) :
     QStandardItemModel(parent)

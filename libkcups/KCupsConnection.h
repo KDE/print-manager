@@ -27,9 +27,7 @@
 #include <QStringList>
 #include <QWidget>
 
-#include <KUrl>
-
-#include <kdemacros.h>
+#include <QUrl>
 
 #include <cups/cups.h>
 
@@ -113,7 +111,7 @@ typedef QList<QVariantHash> ReturnArguments;
 
 class KIppRequest;
 class KCupsPasswordDialog;
-class KDE_EXPORT KCupsConnection : public QThread
+class Q_DECL_EXPORT KCupsConnection : public QThread
 {
     Q_OBJECT
 public:
@@ -145,7 +143,7 @@ public:
      * on your own consider calling global()
      */
     explicit KCupsConnection(QObject *parent = 0);
-    explicit KCupsConnection(const KUrl &server, QObject *parent = 0);
+    explicit KCupsConnection(const QUrl &server, QObject *parent = 0);
     ~KCupsConnection();
 
     void setPasswordMainWindow(WId mainwindow);
@@ -392,7 +390,7 @@ private:
 
     bool m_inited;
     KCupsPasswordDialog *m_passwordDialog;
-    KUrl m_serverUrl;
+    QUrl m_serverUrl;
 
     QTimer *m_subscriptionTimer;
     QTimer *m_renewTimer;

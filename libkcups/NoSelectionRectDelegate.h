@@ -22,9 +22,7 @@
 
 #include <QStyledItemDelegate>
 
-#include <kdemacros.h>
-
-class KDE_EXPORT NoSelectionRectDelegate : public QStyledItemDelegate
+class Q_DECL_EXPORT NoSelectionRectDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:

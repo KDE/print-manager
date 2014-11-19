@@ -19,9 +19,8 @@
  ***************************************************************************/
 #include "JobSortFilterModel.h"
 
+#include "Debug.h"
 #include "JobModel.h"
-
-#include <KDebug>
 
 JobSortFilterModel::JobSortFilterModel(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -52,7 +51,7 @@ void JobSortFilterModel::setModel(QAbstractItemModel *model)
 
 void JobSortFilterModel::setFilteredPrinters(const QString &printers)
 {
-    kDebug() << rowCount() << printers << printers.split(QLatin1Char('|'));
+    qCDebug(LIBKCUPS) << rowCount() << printers << printers.split(QLatin1Char('|'));
     if (printers.isEmpty()) {
         m_filteredPrinters.clear();
     } else {

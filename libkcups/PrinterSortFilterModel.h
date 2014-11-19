@@ -22,11 +22,7 @@
 
 #include <QSortFilterProxyModel>
 
-#include <QDeclarativeItem>
-
-#include <kdemacros.h>
-
-class KDE_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
+class Q_DECL_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY filteredPrintersChanged)

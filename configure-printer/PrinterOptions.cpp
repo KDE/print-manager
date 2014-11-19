@@ -33,6 +33,8 @@
 
 #include "ui_PrinterOptions.h"
 
+#include "Debug.h"
+
 #include <KCupsRequest.h>
 #include <NoSelectionRectDelegate.h>
 
@@ -43,8 +45,6 @@
 #include <QStandardItemModel>
 #include <QListView>
 #include <QGroupBox>
-
-#include <KDebug>
 
 #include <ctype.h>
 
@@ -83,14 +83,14 @@ void PrinterOptions::reloadPPD()
 
     // remove all the options
     while (ui->verticalLayout->count()) {
-        kDebug() << "removing" << ui->verticalLayout->count();
+        qCDebug(PM_CONFIGURE_PRINTER) << "removing" << ui->verticalLayout->count();
         QLayoutItem *item = ui->verticalLayout->itemAt(0);
         ui->verticalLayout->removeItem(item);
         if (item->widget()) {
             item->widget()->deleteLater();
             delete item;
         } else if (item->layout()) {
-            kDebug() << "removing layout" << ui->verticalLayout->count();
+            qCDebug(PM_CONFIGURE_PRINTER) << "removing layout" << ui->verticalLayout->count();
 
 //            item->layout()->deleteLater();
         } else if (item->spacerItem()) {
@@ -111,7 +111,7 @@ void PrinterOptions::reloadPPD()
     m_ppd = ppdOpenFile(m_filename.toUtf8());
     request->deleteLater();
     if (m_ppd == NULL) {
-        kWarning() << "Could not open ppd file:" << m_filename << request->errorMsg();
+        qCWarning(PM_CONFIGURE_PRINTER) << "Could not open ppd file:" << m_filename << request->errorMsg();
         m_filename.clear();
         return;
     }
@@ -219,7 +219,7 @@ void PrinterOptions::createGroups()
                 optionW = pickOne(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;
             default:
-                kWarning() << "Option type not recognized: " << option->ui;
+                qCWarning(PM_CONFIGURE_PRINTER) << "Option type not recognized: " << option->ui;
                 // let's use the most common
                 optionW = pickOne(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;

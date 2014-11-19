@@ -25,12 +25,12 @@
 #include "PrinterBehavior.h"
 #include "PrinterOptions.h"
 
+#include "Debug.h"
 #include "KCupsRequest.h"
 
 #include <KConfig>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
-#include <KDebug>
 
 #include <QList>
 #include <QPointer>
@@ -42,9 +42,9 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
 {
     setFaceType(List);
     setModal(true);
-    setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
+    setButtons(QDialog::Ok | QDialog::Cancel | QDialog::Apply);
     setWindowTitle(destName);
-    setWindowIcon(KIcon("configure"));
+    setWindowIcon(QIcon("configure"));
     enableButtonApply(false);
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
@@ -69,36 +69,36 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     if (!request->hasError() && !request->printers().isEmpty()){
         printer = request->printers().first();
     }
-//    kDebug() << "VALUES" << printer.a rgument();
-//    kDebug() << "marker" << values["marker-levels"].value<QList<int> >();
+//    qCDebug(PM_CONFIGURE_PRINTER) << "VALUES" << printer.a rgument();
+//    qCDebug(PM_CONFIGURE_PRINTER) << "marker" << values["marker-levels"].value<QList<int> >();
 
     request->deleteLater();
 
-    //     kDebug() << values;
+    //     qCDebug(PM_CONFIGURE_PRINTER) << values;
     if (printer.type() & CUPS_PRINTER_LOCAL) {
-        kDebug() << "CUPS_PRINTER_LOCAL";
+        qCDebug(PM_CONFIGURE_PRINTER) << "CUPS_PRINTER_LOCAL";
     }
     isClass = printer.isClass();
     bool isRemote = false;
     if (printer.type() & CUPS_PRINTER_REMOTE) {
-        kDebug() << "CUPS_PRINTER_REMOTE";
+        qCDebug(PM_CONFIGURE_PRINTER) << "CUPS_PRINTER_REMOTE";
         isRemote = true;
     }
     if (printer.type() & CUPS_PRINTER_BW) {
-        kDebug() << "CUPS_PRINTER_BW";
+        qCDebug(PM_CONFIGURE_PRINTER) << "CUPS_PRINTER_BW";
     }
     if (printer.type() & CUPS_PRINTER_COLOR) {
-        kDebug() << "CUPS_PRINTER_COLOR";
+        qCDebug(PM_CONFIGURE_PRINTER) << "CUPS_PRINTER_COLOR";
     }
     if (printer.type() & CUPS_PRINTER_MFP) {
-        kDebug() << "CUPS_PRINTER_MFP";
+        qCDebug(PM_CONFIGURE_PRINTER) << "CUPS_PRINTER_MFP";
     }
 
     modifyPrinter->setRemote(isRemote);
     modifyPrinter->setValues(printer);
     page = new KPageWidgetItem(modifyPrinter, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
-    page->setIcon(KIcon("dialog-information"));
+    page->setIcon(QIcon("dialog-information"));
     // CONNECT this signal ONLY to the first Page
     connect(modifyPrinter, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
     addPage(page);
@@ -109,7 +109,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         printerOptions = new PrinterOptions(destName, isClass, isRemote, this);
         page = new KPageWidgetItem(printerOptions, i18n("Printer Options"));
         page->setHeader(i18n("Set the Default Printer Options"));
-        page->setIcon(KIcon("view-pim-tasks"));
+        page->setIcon(QIcon("view-pim-tasks"));
         addPage(page);
         connect(modifyPrinter, SIGNAL(ppdChanged()), this, SLOT(ppdChanged()));
         modifyPrinter->setCurrentMake(printerOptions->currentMake());
@@ -120,7 +120,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     printerBehavior->setValues(printer);
     page = new KPageWidgetItem(printerBehavior, i18n("Banners, Policies and Allowed Users"));
     page->setHeader(i18n("Banners, Policies and Allowed Users"));
-    page->setIcon(KIcon("feed-subscribe"));
+    page->setIcon(QIcon("feed-subscribe"));
     addPage(page);
 
     // connect this after ALL pages were added, otherwise the slot will be called
@@ -165,13 +165,13 @@ void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetIt
 void ConfigureDialog::slotButtonClicked(int button)
 {
     PrinterPage *page = qobject_cast<PrinterPage *>(currentPage()->widget());
-    if (button == KDialog::Ok) {
+    if (button == QDialog::Ok) {
         page->save();
         accept();
-    } else if (button == KDialog::Apply) {
+    } else if (button == QDialog::Apply) {
         page->save();
     } else {
-        KDialog::slotButtonClicked(button);
+        QDialog::slotButtonClicked(button);
     }
 }
 

@@ -30,7 +30,7 @@
 #include "KCupsServer.h"
 #include "KIppRequest.h"
 
-class KDE_EXPORT KCupsRequest : public QObject
+class Q_DECL_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT
 public:

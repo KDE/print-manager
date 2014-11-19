@@ -26,7 +26,7 @@
 
 #include <KCupsPrinter.h>
 
-class KDE_EXPORT PrinterModel : public QStandardItemModel
+class Q_DECL_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(JobAction)

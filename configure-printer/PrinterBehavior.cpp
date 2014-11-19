@@ -21,8 +21,9 @@
 #include "PrinterBehavior.h"
 #include "ui_PrinterBehavior.h"
 
+#include "Debug.h"
+
 #include <KComboBox>
-#include <KDebug>
 
 PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent) :
     PrinterPage(parent),

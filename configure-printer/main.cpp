@@ -22,32 +22,32 @@
 
 #include <config.h>
 
-#include <KDebug>
-#include <KLocale>
+#include "Debug.h"
+
+#include <KLocalizedString>
 #include <KAboutData>
 #include <KCmdLineArgs>
 
 int main(int argc, char **argv)
 {
     KAboutData about("ConfigurePrinter",
-                     "print-manager",
-                     ki18n("ConfigurePrinter"),
+                     i18n("Configure Printer"),
                      PM_VERSION,
-                     ki18n("ConfigurePrinter"),
-                     KAboutData::License_GPL,
-                     ki18n("(C) 2010-2013 Daniel Nicoletti"));
+                     i18n("ConfigurePrinter"),
+                     KAboutLicense::GPL,
+                     i18n("(C) 2010-2013 Daniel Nicoletti"));
 
-    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
+    about.addAuthor("Daniel Nicoletti", QString(), "dantti12@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
     KCmdLineOptions options;
-    options.add("configure-printer [printer name]", ki18n("Configure printer"));
+    options.add("configure-printer [printer name]", i18n("Configure printer"));
     KCmdLineArgs::addCmdLineOptions(options);
 
     ConfigurePrinter::addCmdLineOptions();
 
     if (!ConfigurePrinter::start()) {
-        //kDebug() << "ConfigurePrinter is already running!";
+        //qCDebug(PM_CONFIGURE_PRINTER) << "ConfigurePrinter is already running!";
         return 0;
     }
 

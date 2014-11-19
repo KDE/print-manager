@@ -20,13 +20,13 @@
 
 #include "KCupsPasswordDialog.h"
 
+#include "Debug.h"
+
 #include <QPointer>
 
 #include <KPasswordDialog>
 #include <KWindowSystem>
-#include <KLocale>
-
-#include <KDebug>
+#include <KLocalizedString>
 
 KCupsPasswordDialog::KCupsPasswordDialog(QObject *parent) :
     QObject(parent),

@@ -22,15 +22,17 @@
 
 #include "ui_ModifyPrinter.h"
 
+#include "Debug.h"
 #include "SelectMakeModel.h"
 
 #include <KDialog>
+#include <QPushButton>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KIconLoader>
 #include <KPixmapSequenceOverlayPainter>
 #include <KPixmapSequence>
-#include <KPushButton>
 #include <KMessageBox>
-
-#include <KDebug>
 
 ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *parent) :
     PrinterPage(parent),
@@ -88,7 +90,7 @@ void ModifyPrinter::on_makeCB_activated(int index)
         dialog->restoreDialogSize(ppdDialog);
 
         // Configure the help button to be flat, disabled and empty
-        KPushButton *button = dialog->button(KDialog::Help);
+        QPushButton *button = dialog->button(KDialog::Help);
         button->setFlat(true);
         button->setEnabled(false);
         button->setIcon(QIcon());
@@ -101,7 +103,7 @@ void ModifyPrinter::on_makeCB_activated(int index)
         busySeq->setWidget(button);
         busySeq->start();
         connect(widget, SIGNAL(changed(bool)), busySeq, SLOT(stop()));
-kDebug() << m_make << m_makeAndModel;
+        qCDebug(PM_CONFIGURE_PRINTER) << m_make << m_makeAndModel;
         widget->setMakeModel(m_make, m_makeAndModel);
         dialog->show();
         return;
@@ -114,7 +116,7 @@ kDebug() << m_make << m_makeAndModel;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDCustom) {
         m_changedValues["ppd-name"] = ui->makeCB->itemData(index, PPDName).toString();
     } else {
-        kWarning() << "This should not happen";
+        qCWarning(PM_CONFIGURE_PRINTER) << "This should not happen";
         return;
     }
 
@@ -168,7 +170,7 @@ void ModifyPrinter::ppdSelectionRejected()
 
 void ModifyPrinter::setValues(const KCupsPrinter &printer)
 {
-//     kDebug() << values;
+//     qCDebug(PM_CONFIGURE_PRINTER) << values;
     if (m_isClass) {
         ui->membersLV->setSelectedPrinters(printer.memberNames().join(QLatin1String("|")));
     } else {
@@ -248,14 +250,14 @@ void ModifyPrinter::save()
     if (m_changes) {
         QVariantHash args = m_changedValues;
         QString fileName;
-        kDebug() << args;
+        qCDebug(PM_CONFIGURE_PRINTER) << args;
         if (args.contains("ppd-name") &&
             args["ppd-name"].type() == QVariant::Bool) {
 
             fileName = ui->makeCB->itemData(ui->makeCB->currentIndex(), PPDFile).toString();
             args.remove("ppd-name");
         }
-        kDebug() << fileName;
+        qCDebug(PM_CONFIGURE_PRINTER) << fileName;
 
         QPointer<KCupsRequest> request = new KCupsRequest;
         if (m_isClass) {

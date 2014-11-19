@@ -19,9 +19,8 @@
  ***************************************************************************/
 #include "PrinterSortFilterModel.h"
 
+#include "Debug.h"
 #include "PrinterModel.h"
-
-#include <KDebug>
 
 PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -50,7 +49,7 @@ void PrinterSortFilterModel::setModel(QAbstractItemModel *model)
 
 void PrinterSortFilterModel::setFilteredPrinters(const QString &printers)
 {
-    kDebug() << rowCount() << printers << printers.split(QLatin1Char('|'));
+    qCDebug(LIBKCUPS) << rowCount() << printers << printers.split(QLatin1Char('|'));
     if (printers.isEmpty()) {
         m_filteredPrinters.clear();
     } else {

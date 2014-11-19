@@ -1,4 +1,5 @@
 set(libkcups_SRCS
+    Debug.cpp
     KIppRequest.cpp
     KCupsPasswordDialog.cpp
     KCupsConnection.cpp
@@ -16,13 +17,24 @@ set(libkcups_SRCS
     JobSortFilterModel.cpp
 )
 
-kde4_add_ui_files(libkcups_SRCS
+ki18n_wrap_ui(libkcups_SRCS
     SelectMakeModel.ui
 )
 
-kde4_add_library(kcupslib SHARED ${libkcups_SRCS})
+add_library(kcupslib SHARED ${libkcups_SRCS})
+
 target_link_libraries(kcupslib
-    ${KDE4_KIO_LIBS}
+    Qt5::Core
+    Qt5::DBus
+    Qt5::Widgets
+    KF5::ConfigWidgets
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::IconThemes
+    KF5::KIOCore
+    KF5::KIOWidgets
+    KF5::WidgetsAddons
+    KF5::WindowSystem
     ${CUPS_LIB}
 )
 

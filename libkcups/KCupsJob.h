@@ -26,7 +26,7 @@
 
 #include <KCupsConnection.h>
 
-class KDE_EXPORT KCupsJob
+class Q_DECL_EXPORT KCupsJob
 {
     Q_GADGET
     Q_ENUMS(Attribute)

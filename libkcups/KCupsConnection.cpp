@@ -429,7 +429,7 @@ void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, 
                       slot);
 }
 
-void KCupsConnection::connectNotify(const char *signal)
+void KCupsConnection::connectNotify(const QMetaMethod & signal)
 {
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
@@ -440,7 +440,7 @@ void KCupsConnection::connectNotify(const char *signal)
     }
 }
 
-void KCupsConnection::disconnectNotify(const char *signal)
+void KCupsConnection::disconnectNotify(const QMetaMethod & signal)
 {
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
@@ -451,68 +451,68 @@ void KCupsConnection::disconnectNotify(const char *signal)
     }
 }
 
-QString KCupsConnection::eventForSignal(const char *signal) const
+QString KCupsConnection::eventForSignal(const QMetaMethod & signal) const
 {
     // Server signals
-    if (QLatin1String(signal) == SIGNAL(serverAudit(QString))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverAudit)) {
         return DBUS_SERVER_AUDIT;
     }
-    if (QLatin1String(signal) == SIGNAL(serverStarted(QString))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStarted)) {
         return DBUS_SERVER_STARTED;
     }
-    if (QLatin1String(signal) == SIGNAL(serverStopped(QString))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStopped)) {
         return DBUS_SERVER_STOPPED;
     }
-    if (QLatin1String(signal) == SIGNAL(serverRestarted(QString))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverRestarted)) {
         return DBUS_SERVER_RESTARTED;
     }
 
     // Printer signals
-    if (QLatin1String(signal) == SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerAdded)) {
         return DBUS_PRINTER_ADDED;
     }
-    if (QLatin1String(signal) == SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerDeleted)) {
         return DBUS_PRINTER_DELETED;
     }
-    if (QLatin1String(signal) == SIGNAL(printerFinishingsChanged(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerFinishingsChanged)) {
         return DBUS_PRINTER_FINISHINGS_CHANGED;
     }
-    if (QLatin1String(signal) == SIGNAL(printerMediaChanged(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerMediaChanged)) {
         return DBUS_PRINTER_MEDIA_CHANGED;
     }
-    if (QLatin1String(signal) == SIGNAL(printerModified(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerModified)) {
         return DBUS_PRINTER_MODIFIED;
     }
-    if (QLatin1String(signal) == SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerRestarted)) {
         return DBUS_PRINTER_RESTARTED;
     }
-    if (QLatin1String(signal) == SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerShutdown)) {
         return DBUS_PRINTER_SHUTDOWN;
     }
-    if (QLatin1String(signal) == SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStateChanged)) {
         return DBUS_PRINTER_STATE_CHANGED;
     }
-    if (QLatin1String(signal) == SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStopped)) {
         return DBUS_PRINTER_STOPPED;
     }
 
     // job signals
-    if (QLatin1String(signal) == SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCompleted)) {
         return DBUS_JOB_COMPLETED;
     }
-    if (QLatin1String(signal) == SIGNAL(jobConfigChanged(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobConfigChanged)) {
         return DBUS_JOB_CONFIG_CHANGED;
     }
-    if (QLatin1String(signal) == SIGNAL(jobCreated(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCreated)) {
         return DBUS_JOB_CREATED;
     }
-    if (QLatin1String(signal) == SIGNAL(jobProgress(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobProgress)) {
         return DBUS_JOB_PROGRESS;
     }
-    if (QLatin1String(signal) == SIGNAL(jobState(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobState)) {
         return DBUS_JOB_STATE_CHANGED;
     }
-    if (QLatin1String(signal) == SIGNAL(jobStopped(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint))) {
+    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobStopped)) {
         return DBUS_JOB_STOPPED;
     }
 

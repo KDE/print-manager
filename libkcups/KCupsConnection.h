@@ -26,6 +26,7 @@
 #include <QVariantHash>
 #include <QStringList>
 #include <QWidget>
+#include <QMetaMethod>
 
 #include <QUrl>
 
@@ -360,7 +361,7 @@ Q_SIGNALS:
 protected:
     friend class KCupsRequest;
 
-    virtual void run();
+    virtual void run() Q_DECL_OVERRIDE;
     bool readyToStart();
     bool retry(const char *resource, int operation) const;
     ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
@@ -371,9 +372,9 @@ private slots:
     void cancelDBusSubscription();
 
 protected:
-    virtual void connectNotify(const char *signal);
-    virtual void disconnectNotify(const char *signal);
-    QString eventForSignal(const char *signal) const;
+    virtual void connectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;
+    virtual void disconnectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;
+    QString eventForSignal(const QMetaMethod & signal) const;
 
 private:
     void init();

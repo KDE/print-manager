@@ -27,7 +27,6 @@
 #include <KPluginFactory>
 
 K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)
-K_EXPORT_PLUGIN(PrintDFactory("printmanager", "print-manager"))
 
 PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
     KDEDModule(parent),

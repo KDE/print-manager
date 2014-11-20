@@ -94,7 +94,7 @@ void NewPrinterNotification::NewPrinter(int status,
     // mdl "SCX-3400 Series" "" "SPL,FWV,PIC,BDN,EXT"
     // This method is all about telling the user a new printer was detected
     KNotification *notify = new KNotification("NewPrinterNotification");
-//     notify->setComponentData(KComponentData("printmanager"));
+    notify->setComponentName("printmanager");
     notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
     notify->setFlags(KNotification::Persistent);
 

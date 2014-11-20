@@ -24,8 +24,8 @@
 #include <cmath>
 
 #include <QtGui/QPainter>
+#include <QtWidgets/QStyleOption>
 
-#include <KDebug>
 #include <KIconLoader>
 
 PrinterDelegate::PrinterDelegate(QObject *parent)
@@ -58,7 +58,7 @@ void PrinterDelegate::paint(QPainter *painter,
       return;
     }
 
-    QStyleOptionViewItemV4 opt(option);
+    QStyleOptionViewItem opt(option);
     QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
 

@@ -30,11 +30,12 @@
 #include "PrinterDescription.h"
 
 #include <KMessageBox>
-#include <KGenericFactory>
+#include <KPluginFactory>
 #include <KAboutData>
 #include <KToolInvocation>
-#include <KIcon>
+#include <KIconLoader>
 
+#include <QIcon>
 #include <QMenu>
 #include <KCupsRequest.h>
 #include <KCupsServer.h>
@@ -46,24 +47,23 @@ K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print", "print-manager"))
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
-    KCModule(PrintKCMFactory::componentData(), parent, args),
+    KCModule(parent, args),
     ui(new Ui::PrintKCM),
     m_lastError(-1), // Force the error to run on the first time
     m_serverRequest(0)
 {
     KAboutData *aboutData;
     aboutData = new KAboutData("kcm_print",
-                               "print-manager",
-                               ki18n("Print settings"),
+                               i18n("Print settings"),
                                PM_VERSION,
-                               ki18n("Print settings"),
-                               KAboutData::License_GPL,
-                               ki18n("(C) 2010-2013 Daniel Nicoletti"));
+                               i18n("Print settings"),
+                               KAboutLicense::GPL,
+                               i18n("(C) 2010-2013 Daniel Nicoletti"));
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
 
     ui->setupUi(this);
-    
+
     connect(ui->printerDesc, SIGNAL(updateNeeded()), SLOT(update()));
 
     // The printer list needs to increase in width according to the icon sizes
@@ -73,11 +73,11 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     QMenu *addMenu = new QMenu(this);
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
                        this, SLOT(addClass()));
-    ui->addTB->setIcon(KIcon("list-add"));
+    ui->addTB->setIcon(QIcon("list-add"));
     ui->addTB->setToolTip(i18n("Add a new printer or a printer class"));
     ui->addTB->setMenu(addMenu);
 
-    ui->removeTB->setIcon(KIcon("list-remove"));
+    ui->removeTB->setIcon(QIcon("list-remove"));
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
     QMenu *systemMenu = new QMenu(this);
@@ -101,7 +101,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_allowUsersCancelAnyJob = systemMenu->addAction(i18nc("@action:intoolbar","Allow users to cancel any job (not just their own)"));
     m_allowUsersCancelAnyJob->setCheckable(true);
 
-    ui->systemPreferencesTB->setIcon(KIcon("configure"));
+    ui->systemPreferencesTB->setIcon(QIcon("configure"));
     ui->systemPreferencesTB->setToolTip(i18n("Configure the global preferences"));
     ui->systemPreferencesTB->setMenu(systemMenu);
 
@@ -122,7 +122,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     connect(m_model, SIGNAL(error(int,QString,QString)),
             this, SLOT(error(int,QString,QString)));
 
-    ui->addPrinterBtn->setIcon(KIcon("list-add"));
+    ui->addPrinterBtn->setIcon(QIcon("list-add"));
     connect(ui->addPrinterBtn, SIGNAL(clicked()), this, SLOT(on_addTB_clicked()));
 
     // Force the model update AFTER we setup the error signal
@@ -151,13 +151,13 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // The user has no printer
         // allow him to add a new one
         if (lastError == IPP_NOT_FOUND) {
-            showInfo(KIcon("dialog-information"),
+            showInfo(QIcon("dialog-information"),
                      i18n("No printers have been configured or discovered"),
                      QString(),
                      true,
                      true);
         } else {
-            showInfo(KIcon("printer", KIconLoader::global(), QStringList() << "" << "dialog-error"),
+            showInfo(QIcon("printer"),
                      QString("<strong>%1</strong>").arg(errorTitle),
                      errorMsg,
                      false,
@@ -182,7 +182,7 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
     }
 }
 
-void PrintKCM::showInfo(const KIcon &icon, const QString &title, const QString &comment, bool showAddPrinter, bool showToolButtons)
+void PrintKCM::showInfo(const QIcon &icon, const QString &title, const QString &comment, bool showAddPrinter, bool showToolButtons)
 {
     ui->hugeIcon->setPixmap(icon.pixmap(128, 128));
     ui->errorText->setText(title);
@@ -251,7 +251,7 @@ void PrintKCM::update()
 
         if (m_lastError == IPP_OK) {
             // the model is empty and no problem happened
-            showInfo(KIcon("dialog-information"),
+            showInfo(QIcon("dialog-information"),
                      i18n("No printers have been configured or discovered"),
                      QString(),
                      true,
@@ -392,3 +392,5 @@ void PrintKCM::systemPreferencesTriggered()
     connect(request, SIGNAL(finished()), this, SLOT(updateServerFinished()));
     request->setServerSettings(server);
 }
+
+#include "PrintKCM.moc"

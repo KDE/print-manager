@@ -22,7 +22,7 @@
 #define PRINT_KCM_H
 
 #include <KCModule>
-#include <KIcon>
+#include <QIcon>
 
 #include <QAction>
 
@@ -47,7 +47,7 @@ private slots:
     void on_removeTB_clicked();
 
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
-    void showInfo(const KIcon &icon, const QString &title, const QString &comment, bool showAddPrinter, bool showToolButtons);
+    void showInfo(const QIcon &icon, const QString &title, const QString &comment, bool showAddPrinter, bool showToolButtons);
 
     void getServerSettings();
     void getServerSettingsFinished();

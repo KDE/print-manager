@@ -29,11 +29,10 @@
 #include <QProgressBar>
 #include <QLabel>
 #include <QDBusConnection>
+#include <QMenu>
 
+#include <KIconLoader>
 #include <KToolInvocation>
-#include <KMenu>
-#include <KDebug>
-
 #define PRINTER_ICON_SIZE 128
 
 Q_DECLARE_METATYPE(QList<int>)
@@ -62,7 +61,7 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
                                                   0,
                                                   true);
 
-    KMenu *menu = new KMenu(ui->maintenancePB);
+    QMenu *menu = new QMenu(ui->maintenancePB);
     menu->addAction(ui->actionPrintTestPage);
     menu->addAction(ui->actionPrintSelfTestPage);
     menu->addAction(ui->actionCleanPrintHeads);

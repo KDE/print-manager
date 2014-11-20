@@ -28,7 +28,6 @@
 
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
-#include <QtGui/QLayout>
 #include <KWindowSystem>
 #include <QDialog>
 

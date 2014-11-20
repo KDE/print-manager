@@ -29,7 +29,7 @@
 #include <KCupsServer.h>
 
 namespace Ui {
-    class PrintKCM;
+class PrintKCM;
 }
 class KCupsRequest;
 class PrinterModel;

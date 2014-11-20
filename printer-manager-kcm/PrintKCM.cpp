@@ -34,6 +34,7 @@
 #include <KAboutData>
 #include <KToolInvocation>
 #include <KIconLoader>
+#include <KIconEngine>
 
 #include <QIcon>
 #include <QMenu>
@@ -73,11 +74,11 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     QMenu *addMenu = new QMenu(this);
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
                        this, SLOT(addClass()));
-    ui->addTB->setIcon(QIcon("list-add"));
+    ui->addTB->setIcon(QIcon::fromTheme("list-add"));
     ui->addTB->setToolTip(i18n("Add a new printer or a printer class"));
     ui->addTB->setMenu(addMenu);
 
-    ui->removeTB->setIcon(QIcon("list-remove"));
+    ui->removeTB->setIcon(QIcon::fromTheme("list-remove"));
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
     QMenu *systemMenu = new QMenu(this);
@@ -101,7 +102,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_allowUsersCancelAnyJob = systemMenu->addAction(i18nc("@action:intoolbar","Allow users to cancel any job (not just their own)"));
     m_allowUsersCancelAnyJob->setCheckable(true);
 
-    ui->systemPreferencesTB->setIcon(QIcon("configure"));
+    ui->systemPreferencesTB->setIcon(QIcon::fromTheme("configure"));
     ui->systemPreferencesTB->setToolTip(i18n("Configure the global preferences"));
     ui->systemPreferencesTB->setMenu(systemMenu);
 
@@ -122,7 +123,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     connect(m_model, SIGNAL(error(int,QString,QString)),
             this, SLOT(error(int,QString,QString)));
 
-    ui->addPrinterBtn->setIcon(QIcon("list-add"));
+    ui->addPrinterBtn->setIcon(QIcon::fromTheme("list-add"));
     connect(ui->addPrinterBtn, SIGNAL(clicked()), this, SLOT(on_addTB_clicked()));
 
     // Force the model update AFTER we setup the error signal
@@ -151,13 +152,13 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // The user has no printer
         // allow him to add a new one
         if (lastError == IPP_NOT_FOUND) {
-            showInfo(QIcon("dialog-information"),
+            showInfo(QIcon::fromTheme("dialog-information"),
                      i18n("No printers have been configured or discovered"),
                      QString(),
                      true,
                      true);
         } else {
-            showInfo(QIcon("printer"),
+            showInfo(QIcon(new KIconEngine("printer", KIconLoader::global())),
                      QString("<strong>%1</strong>").arg(errorTitle),
                      errorMsg,
                      false,
@@ -251,7 +252,7 @@ void PrintKCM::update()
 
         if (m_lastError == IPP_OK) {
             // the model is empty and no problem happened
-            showInfo(QIcon("dialog-information"),
+            showInfo(QIcon::fromTheme("dialog-information"),
                      i18n("No printers have been configured or discovered"),
                      QString(),
                      true,
@@ -361,8 +362,8 @@ void PrintKCM::updateServerFinished()
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     if (request->hasError()) {
         if (request->error() == IPP_SERVICE_UNAVAILABLE ||
-            request->error() == IPP_INTERNAL_ERROR ||
-            request->error() == IPP_AUTHENTICATION_CANCELED) {
+                request->error() == IPP_INTERNAL_ERROR ||
+                request->error() == IPP_AUTHENTICATION_CANCELED) {
             // Server is restarting, or auth was canceled, update the settings in one second
             QTimer::singleShot(1000, this, SLOT(update()));
         } else {

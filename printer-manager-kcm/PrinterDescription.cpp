@@ -48,18 +48,18 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
 
     // loads the standard key icon
     m_printerIcon = KIconLoader::global()->loadIcon("printer",
-                                                    KIconLoader::NoGroup,
-                                                    PRINTER_ICON_SIZE, // a not so huge icon
-                                                    KIconLoader::DefaultState);
+                    KIconLoader::NoGroup,
+                    PRINTER_ICON_SIZE, // a not so huge icon
+                    KIconLoader::DefaultState);
     ui->iconL->setPixmap(m_printerIcon);
 
     m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",
-                                                  KIconLoader::NoGroup,
-                                                  KIconLoader::SizeMedium,
-                                                  KIconLoader::DefaultState,
-                                                  QStringList(),
-                                                  0,
-                                                  true);
+                  KIconLoader::NoGroup,
+                  KIconLoader::SizeMedium,
+                  KIconLoader::DefaultState,
+                  QStringList(),
+                  0,
+                  true);
 
     QMenu *menu = new QMenu(ui->maintenancePB);
     menu->addAction(ui->actionPrintTestPage);
@@ -204,8 +204,8 @@ void PrinterDescription::setMarkers(const QVariantHash &data)
 
     int size = data["marker-names"].toStringList().size();
     if (size != data["marker-levels"].value<QList<int> >().size() ||
-        size != data["marker-colors"].toStringList().size() ||
-        size != data["marker-types"].toStringList().size()) {
+            size != data["marker-colors"].toStringList().size() ||
+            size != data["marker-types"].toStringList().size()) {
         return;
     }
 
@@ -283,9 +283,9 @@ void PrinterDescription::on_configurePB_clicked()
 {
     QDBusMessage message;
     message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("ConfigurePrinter"));
+              QLatin1String("/"),
+              QLatin1String("org.kde.ConfigurePrinter"),
+              QLatin1String("ConfigurePrinter"));
     message << m_destName;
     QDBusConnection::sessionBus().call(message);
 }

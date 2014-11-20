@@ -173,7 +173,7 @@ QIcon KCupsPrinter::icon() const
 
 QIcon KCupsPrinter::icon(cups_ptype_e type)
 {
-    return QIcon(iconName(type));
+    return QIcon::fromTheme(iconName(type));
 }
 
 QString KCupsPrinter::iconName() const
@@ -187,6 +187,7 @@ QString KCupsPrinter::iconName(cups_ptype_e type)
     if (!(type & CUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one
         return "printer-laser";
+//         return "printer-laser";
     } else if (type & CUPS_PRINTER_SCANNER) {
         return "scanner";
     } else {

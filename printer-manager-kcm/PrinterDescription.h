@@ -29,7 +29,7 @@ class QToolButton;
 class QSortFilterProxyModel;
 
 namespace Ui {
-    class PrinterDescription;
+class PrinterDescription;
 }
 class PrintQueueModel;
 class PrinterDescription : public QWidget

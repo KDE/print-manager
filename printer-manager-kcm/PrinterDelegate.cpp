@@ -29,7 +29,7 @@
 #include <KIconLoader>
 
 PrinterDelegate::PrinterDelegate(QObject *parent)
-: QStyledItemDelegate(parent)
+    : QStyledItemDelegate(parent)
 {
     m_mainIconSize = IconSize(KIconLoader::Dialog); // 32
     m_favIconSize = m_mainIconSize * 0.75; // 24
@@ -52,10 +52,10 @@ int PrinterDelegate::calcItemHeight(const QStyleOptionViewItem &option) const
 
 
 void PrinterDelegate::paint(QPainter *painter,
-        const QStyleOptionViewItem &option, const QModelIndex &index) const
+                            const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    if (!index.isValid() && index.column() == 0){
-      return;
+    if (!index.isValid() && index.column() == 0) {
+        return;
     }
 
     QStyleOptionViewItem opt(option);
@@ -82,7 +82,7 @@ void PrinterDelegate::paint(QPainter *painter,
     }
 
     QColor foregroundColor = (option.state.testFlag(QStyle::State_Selected))?
-        option.palette.color(QPalette::HighlightedText):option.palette.color(QPalette::Text);
+                             option.palette.color(QPalette::HighlightedText):option.palette.color(QPalette::Text);
 
     // Painting main column
     QStyleOptionViewItem local_option_title(option);
@@ -110,19 +110,19 @@ void PrinterDelegate::paint(QPainter *painter,
     p.setPen(foregroundColor);
     p.setFont(local_option_title.font);
     p.drawText(left + (leftToRight ? textInner : 0),
-                top,
-                width - textInner,
-                itemHeight / 2,
-                Qt::AlignBottom | Qt::AlignLeft,
-                description);
+               top,
+               width - textInner,
+               itemHeight / 2,
+               Qt::AlignBottom | Qt::AlignLeft,
+               description);
 
     p.setFont(local_option_normal.font);
     p.drawText(left + (leftToRight ? textInner : 0) + 10,
-                (top + itemHeight / 2) + 1,
-                width - textInner,
-                itemHeight / 2,
-                Qt::AlignTop | Qt::AlignLeft,
-                status);
+               (top + itemHeight / 2) + 1,
+               width - textInner,
+               itemHeight / 2,
+               Qt::AlignTop | Qt::AlignLeft,
+               status);
 
     // Main icon
     QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
@@ -142,12 +142,12 @@ void PrinterDelegate::paint(QPainter *painter,
     // Gradient part of the background - fading of the text at the end
     if (leftToRight) {
         gradient = QLinearGradient(left + width - m_universalPadding - m_fadeLength, 0,
-                left + width - m_universalPadding, 0);
+                                   left + width - m_universalPadding, 0);
         gradient.setColorAt(0, Qt::white);
         gradient.setColorAt(1, Qt::transparent);
     } else {
         gradient = QLinearGradient(left + m_universalPadding, 0,
-                left + m_universalPadding + m_fadeLength, 0);
+                                   left + m_universalPadding + m_fadeLength, 0);
         gradient.setColorAt(0, Qt::transparent);
         gradient.setColorAt(1, Qt::white);
     }
@@ -158,14 +158,14 @@ void PrinterDelegate::paint(QPainter *painter,
 
     if (leftToRight) {
         gradient.setStart(left + width
-                - emblemCount * (m_universalPadding + m_emblemIconSize) - m_fadeLength, 0);
+                          - emblemCount * (m_universalPadding + m_emblemIconSize) - m_fadeLength, 0);
         gradient.setFinalStop(left + width
-                - emblemCount * (m_universalPadding + m_emblemIconSize), 0);
+                              - emblemCount * (m_universalPadding + m_emblemIconSize), 0);
     } else {
         gradient.setStart(left + m_universalPadding
-                + emblemCount * (m_universalPadding + m_emblemIconSize), 0);
+                          + emblemCount * (m_universalPadding + m_emblemIconSize), 0);
         gradient.setFinalStop(left + m_universalPadding
-                + emblemCount * (m_universalPadding + m_emblemIconSize) + m_fadeLength, 0);
+                              + emblemCount * (m_universalPadding + m_emblemIconSize) + m_fadeLength, 0);
     }
     paintRect.setHeight(m_universalPadding + m_mainIconSize / 2);
     p.fillRect(paintRect, gradient);
@@ -174,7 +174,7 @@ void PrinterDelegate::paint(QPainter *painter,
 }
 
 QSize PrinterDelegate::sizeHint(const QStyleOptionViewItem &option,
-        const QModelIndex &index ) const
+                                const QModelIndex &index ) const
 {
     int width = (index.column() == 0) ? index.data(Qt::SizeHintRole).toSize().width() : m_favIconSize + 2 * m_universalPadding;
     QSize ret;

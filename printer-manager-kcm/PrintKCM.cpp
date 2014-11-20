@@ -45,7 +45,6 @@
 #include <cups/cups.h>
 
 K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
-K_EXPORT_PLUGIN(PrintKCMFactory("kcm_print", "print-manager"))
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(parent, args),

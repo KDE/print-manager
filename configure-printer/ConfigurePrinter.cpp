@@ -46,5 +46,3 @@ void ConfigurePrinter::configurePrinter(const QString& printer)
 ConfigurePrinter::~ConfigurePrinter()
 {
 }
-
-#include "ConfigurePrinter.moc"

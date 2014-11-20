@@ -550,5 +550,3 @@ void PrinterModel::serverChanged(const QString &text)
     qCDebug(LIBKCUPS) << text;
     update();
 }
-
-#include "PrinterModel.moc"

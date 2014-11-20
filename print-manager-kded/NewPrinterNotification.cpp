@@ -162,7 +162,7 @@ void NewPrinterNotification::NewPrinter(int status,
 
         if (!missingExecutables.isEmpty()) {
             // TODO check with PackageKit about missing drivers
-            qCWarning(PM_KDED);
+            qCWarning(PM_KDED) << "Missing executables:" << missingExecutables;
         } else if (status == STATUS_SUCCESS) {
             text = i18n("'%1' is ready for printing.", name);
             actions << i18n("Print test page");
@@ -171,7 +171,6 @@ void NewPrinterNotification::NewPrinter(int status,
             connect(notify, SIGNAL(action2Activated()), this, SLOT(configurePrinter()));
         } else {
             // Model mismatch
-
 
             // The cups request might have failed
             if (driver.isEmpty()) {

@@ -438,7 +438,6 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
         }
     }
 
-    // job size TODO use kde converter
     int jobSize = job.size();
     if (item(pos, ColSize)->data(Qt::UserRole) != jobSize) {
         item(pos, ColSize)->setData(jobSize, Qt::UserRole);

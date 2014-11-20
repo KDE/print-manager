@@ -34,7 +34,6 @@
 #include <KAboutData>
 #include <KToolInvocation>
 #include <KIconLoader>
-#include <KIconEngine>
 
 #include <QIcon>
 #include <QMenu>
@@ -157,8 +156,8 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
                      true,
                      true);
         } else {
-            showInfo(QIcon(new KIconEngine("printer", KIconLoader::global())),
-                     QString("<strong>%1</strong>").arg(errorTitle),
+            showInfo(QIcon::fromTheme("printer"),
+                     QStringLiteral("<strong>%1</strong>").arg(errorTitle),
                      errorMsg,
                      false,
                      false);

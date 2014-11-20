@@ -119,7 +119,7 @@ void PrinterOptions::reloadPPD()
     // select the default options on the ppd file
     ppdMarkDefaults(m_ppd);
 
-    // TODO tri to use QTextCodec aliases
+    // TODO try to use QTextCodec aliases
     const char *lang_encoding;
     lang_encoding = m_ppd->lang_encoding;
     if (lang_encoding && !strcasecmp (lang_encoding, "ISOLatin1")) {

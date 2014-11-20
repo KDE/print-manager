@@ -187,7 +187,6 @@ QString KCupsPrinter::iconName(cups_ptype_e type)
     if (!(type & CUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one
         return "printer-laser";
-//         return "printer-laser";
     } else if (type & CUPS_PRINTER_SCANNER) {
         return "scanner";
     } else {

@@ -229,14 +229,7 @@ bool NewPrinterNotification::registerService()
 
 void NewPrinterNotification::configurePrinter()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("ConfigurePrinter"));
-    // TODO setup wid
-    message << sender()->property(PRINTER_NAME);
-    QDBusConnection::sessionBus().send(message);
+    QProcess::startDetached("configure-printer", {PRINTER_NAME});
 }
 
 void NewPrinterNotification::searchDrivers()

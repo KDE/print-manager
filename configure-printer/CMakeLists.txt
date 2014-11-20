@@ -22,9 +22,6 @@ qt5_add_dbus_adaptor(configureprinter_SRCS
     ConfigurePrinterInterface
 )
 
-configure_file(org.kde.ConfigurePrinter.service.in org.kde.ConfigurePrinter.service)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.ConfigurePrinter.service DESTINATION ${DBUS_SERVICES_INSTALL_DIR})
-
 add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
     Qt5::Core
@@ -37,8 +34,10 @@ target_link_libraries(configure-printer
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::WidgetsAddons
+    KF5::DBusAddons
     ${CUPS_LIB}
     kcupslib
 )
 
-install(TARGETS configure-printer DESTINATION ${LIBEXEC_INSTALL_DIR})
+install(TARGETS configure-printer DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(PROGRAMS org.kde.ConfigurePrinter.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

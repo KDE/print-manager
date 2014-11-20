@@ -25,28 +25,30 @@
 #include <KDebug>
 #include <KLocale>
 #include <KAboutData>
+#include <KDBusService>
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 
 int main(int argc, char **argv)
 {
+    ConfigurePrinter app(argc, argv);
+    app.setOrganizationDomain("org.kde");
+
     KAboutData aboutData("ConfigurePrinter",
                      i18n("Configure Printer"),
                      PM_VERSION,
                      i18n("ConfigurePrinter"),
                      KAboutLicense::GPL,
                      i18n("(C) 2010-2013 Daniel Nicoletti"));
-
     aboutData.addAuthor("Daniel Nicoletti", QString(), "dantti12@gmail.com");
 
-    ConfigurePrinter app(argc, argv);
-    app.setApplicationName("ConfigurePrinter");
-    app.setApplicationVersion(PM_VERSION);
+    KAboutData::setApplicationData(aboutData);
+    KDBusService service(KDBusService::Unique);
 
     QCommandLineParser parser;
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addPositionalArgument("printer", QCoreApplication::translate("configure-printer", "Printer to be configured"));
+    parser.addPositionalArgument("printer", i18n("Printer to be configured"));
     parser.process(app);
 
     QStringList args = parser.positionalArguments();
@@ -54,7 +56,7 @@ int main(int argc, char **argv)
         QString printerName = args.at(0);
         app.configurePrinter(printerName);
     } else {
-        qDebug() << QCoreApplication::translate("configure-printer", "No printer was specified");
+        qDebug() << "No printer was specified";
         return 1;
     }
 

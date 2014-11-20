@@ -25,11 +25,10 @@
 
 #include <QPainter>
 #include <QPointer>
-#include <QDBusMessage>
 #include <QProgressBar>
 #include <QLabel>
-#include <QDBusConnection>
 #include <QMenu>
+#include <QProcess>
 
 #include <KIconLoader>
 #include <KToolInvocation>
@@ -281,11 +280,5 @@ void PrinterDescription::enableShareCheckBox(bool enable)
 
 void PrinterDescription::on_configurePB_clicked()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
-              QLatin1String("/"),
-              QLatin1String("org.kde.ConfigurePrinter"),
-              QLatin1String("ConfigurePrinter"));
-    message << m_destName;
-    QDBusConnection::sessionBus().call(message);
+    QProcess::startDetached("configure-printer", {m_destName});
 }

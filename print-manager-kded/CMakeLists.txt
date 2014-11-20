@@ -1,18 +1,21 @@
 set(printmanagerkded_SRCS
+    Debug.cpp
     NewPrinterNotification.cpp
     PrintManagerKded.cpp
 )
 
-qt4_add_dbus_adaptor(printmanagerkded_SRCS
+qt5_add_dbus_adaptor(printmanagerkded_SRCS
     com.redhat.NewPrinterNotification.xml
     NewPrinterNotification.h
     NewPrinterNotification
 )
 
-kde4_add_plugin(kded_printmanager ${printmanagerkded_SRCS})
+add_library(kded_printmanager MODULE ${printmanagerkded_SRCS})
 
 target_link_libraries(kded_printmanager
-    ${KDE4_KDEUI_LIBS}
+    Qt5::Core
+    KF5::DBusAddons
+    KF5::Notifications
     kcupslib
 )
 

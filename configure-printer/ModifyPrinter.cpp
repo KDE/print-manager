@@ -83,7 +83,7 @@ void ModifyPrinter::on_makeCB_activated(int index)
         connect(dialog, SIGNAL(accepted()), this, SLOT(ppdSelectionAccepted()));
         connect(dialog, SIGNAL(rejected()), this, SLOT(ppdSelectionRejected()));
         connect(widget, SIGNAL(changed(bool)), dialog, SLOT(enableButtonOk(bool)));
-        dialog->setCaption("Select a Driver");
+        dialog->setWindowTitle(i18n("Select a Driver"));
         dialog->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
         dialog->setMainWidget(widget);
         dialog->enableButtonOk(false);

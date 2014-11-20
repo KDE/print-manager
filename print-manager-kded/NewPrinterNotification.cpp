@@ -46,7 +46,7 @@
 
 NewPrinterNotification::NewPrinterNotification()
 {
-    // Make sure the password dialog is created on the main threas
+    // Make sure the password dialog is created in the main thread
     KCupsConnection::global();
 
     // Make all our init code run on the thread since
@@ -67,7 +67,7 @@ void NewPrinterNotification::GetReady()
     qCDebug(PM_KDED);
     // This method is all about telling the user a new printer was detected
     KNotification *notify = new KNotification("GetReady");
-//     notify->setComponentData(KComponentData("printmanager"));
+    notify->setComponentName("printmanager");
     notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
     notify->setTitle(i18n("A New Printer was detected"));
     notify->setText(i18n("Configuring new printer..."));
@@ -215,12 +215,12 @@ void NewPrinterNotification::init()
 bool NewPrinterNotification::registerService()
 {
     if (!QDBusConnection::systemBus().registerService("com.redhat.NewPrinterNotification")) {
-        qCDebug(PM_KDED) << "unable to register service to dbus";
+        qCWarning(PM_KDED) << "unable to register service to dbus";
         return false;
     }
 
     if (!QDBusConnection::systemBus().registerObject("/com/redhat/NewPrinterNotification", this)) {
-        qCDebug(PM_KDED) << "unable to register object to dbus";
+        qCWarning(PM_KDED) << "unable to register object to dbus";
         return false;
     }
     return true;

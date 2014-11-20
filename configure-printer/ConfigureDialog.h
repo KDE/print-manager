@@ -21,6 +21,7 @@
 #ifndef CONFIGURE_DIALOG_H
 #define CONFIGURE_DIALOG_H
 
+#include <QAbstractButton>
 #include <QCloseEvent>
 #include <KPageDialog>
 
@@ -37,7 +38,8 @@ public:
 
 private slots:
     void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
-    virtual void slotButtonClicked(int button);
+    void enableButtonApply(bool enable);
+    void slotButtonClicked(QAbstractButton * pressedButton);
     void ppdChanged();
 
 private:

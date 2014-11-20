@@ -22,35 +22,41 @@
 
 #include <config.h>
 
-#include "Debug.h"
-
-#include <KLocalizedString>
+#include <KDebug>
+#include <KLocale>
 #include <KAboutData>
-#include <KCmdLineArgs>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 
 int main(int argc, char **argv)
 {
-    KAboutData about("ConfigurePrinter",
+    KAboutData aboutData("ConfigurePrinter",
                      i18n("Configure Printer"),
                      PM_VERSION,
                      i18n("ConfigurePrinter"),
                      KAboutLicense::GPL,
                      i18n("(C) 2010-2013 Daniel Nicoletti"));
 
-    about.addAuthor("Daniel Nicoletti", QString(), "dantti12@gmail.com");
+    aboutData.addAuthor("Daniel Nicoletti", QString(), "dantti12@gmail.com");
 
-    KCmdLineArgs::init(argc, argv, &about);
-    KCmdLineOptions options;
-    options.add("configure-printer [printer name]", i18n("Configure printer"));
-    KCmdLineArgs::addCmdLineOptions(options);
+    ConfigurePrinter app(argc, argv);
+    app.setApplicationName("ConfigurePrinter");
+    app.setApplicationVersion(PM_VERSION);
 
-    ConfigurePrinter::addCmdLineOptions();
+    QCommandLineParser parser;
+    parser.addVersionOption();
+    parser.addHelpOption();
+    parser.addPositionalArgument("printer", QCoreApplication::translate("configure-printer", "Printer to be configured"));
+    parser.process(app);
 
-    if (!ConfigurePrinter::start()) {
-        //qCDebug(PM_CONFIGURE_PRINTER) << "ConfigurePrinter is already running!";
-        return 0;
+    QStringList args = parser.positionalArguments();
+    if (args.count() == 1) {
+        QString printerName = args.at(0);
+        app.configurePrinter(printerName);
+    } else {
+        qDebug() << QCoreApplication::translate("configure-printer", "No printer was specified");
+        return 1;
     }
 
-    ConfigurePrinter app;
     return app.exec();
 }

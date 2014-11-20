@@ -24,30 +24,23 @@
 #include "Debug.h"
 
 #include <QTimer>
-#include <QCommandLineParser>
 
 ConfigurePrinter::ConfigurePrinter(int & argc, char ** argv) :
     QApplication(argc, argv)
 {
-    m_cpInterface = new ConfigurePrinterInterface(this);
-    connect(m_cpInterface, SIGNAL(quit()), this, SLOT(quit()));
 }
 
-int ConfigurePrinter::newInstance()
+void ConfigurePrinter::configurePrinter(const QString& printer)
 {
-    QCommandLineParser args;
-    QCommandLineOption configurePrinterOption("configure-printer");
-    args.addOption(configurePrinterOption);
-    args.process(this);
+    m_cpInterface = new ConfigurePrinterInterface(this);
+    connect(m_cpInterface, SIGNAL(quit()), this, SLOT(quit()));
 
-    if (args.isSet(configurePrinterOption)) {
-        m_cpInterface->ConfigurePrinter(args.value(configurePrinterOption));
+    if (!printer.isEmpty()) {
+        m_cpInterface->ConfigurePrinter(printer);
     } else {
         // If DBus called the ui list won't be empty
         QTimer::singleShot(500, m_cpInterface, SLOT(RemovePrinter()));
     }
-
-    return 0;
 }
 
 ConfigurePrinter::~ConfigurePrinter()

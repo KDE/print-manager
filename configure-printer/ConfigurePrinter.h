@@ -31,8 +31,7 @@ public:
     ConfigurePrinter(int & argc, char ** argv);
     virtual ~ConfigurePrinter();
 
-    int newInstance();
-
+    void configurePrinter(const QString &printer);
 private:
     ConfigurePrinterInterface *m_cpInterface;
 };

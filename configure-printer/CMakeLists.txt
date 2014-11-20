@@ -1,14 +1,13 @@
-include_directories(${CMAKE_SOURCE_DIR}/libkcups)
-
 set(configureprinter_SRCS
     ConfigurePrinterInterface.cpp
-#     ModifyPrinter.cpp
-#     PrinterPage.cpp
-#     PrinterOptions.cpp
-#     PrinterBehavior.cpp
-#     ConfigureDialog.cpp
-#     ConfigurePrinter.cpp
-#     main.cpp
+    Debug.cpp
+    ModifyPrinter.cpp
+    PrinterPage.cpp
+    PrinterOptions.cpp
+    PrinterBehavior.cpp
+    ConfigureDialog.cpp
+    ConfigurePrinter.cpp
+    main.cpp
 )
 
 ki18n_wrap_ui(configureprinter_SRCS
@@ -31,6 +30,7 @@ target_link_libraries(configure-printer
     Qt5::Core
     Qt5::Widgets
     KF5::Completion
+    KF5::CoreAddons
     KF5::I18n
     KF5::IconThemes
     KF5::KDELibs4Support

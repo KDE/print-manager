@@ -29,11 +29,13 @@
 #include "KCupsRequest.h"
 
 #include <KConfig>
+#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageBox>
 
 #include <QList>
 #include <QPointer>
+#include <QPushButton>
 
 Q_DECLARE_METATYPE(QList<int>)
 
@@ -42,7 +44,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
 {
     setFaceType(List);
     setModal(true);
-    setButtons(QDialog::Ok | QDialog::Cancel | QDialog::Apply);
+    setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
     setWindowTitle(destName);
     setWindowIcon(QIcon("configure"));
     enableButtonApply(false);
@@ -129,7 +131,10 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
 
     KConfig config("print-manager");
     KConfigGroup configureDialog(&config, "ConfigureDialog");
-    restoreDialogSize(configureDialog);
+    // TODO
+    // restoreDialogSize(configureDialog);
+
+    connect(buttonBox(), SIGNAL(clicked(QAbstractButton*)), this, SLOT(slotButtonClicked(QAbstractButton*)));
 }
 
 void ConfigureDialog::ppdChanged()
@@ -143,7 +148,8 @@ ConfigureDialog::~ConfigureDialog()
 {
     KConfig config("print-manager");
     KConfigGroup configureDialog(&config, "ConfigureDialog");
-    saveDialogSize(configureDialog);
+    // TODO
+    // saveDialogSize(configureDialog);
 }
 
 void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
@@ -162,16 +168,17 @@ void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetIt
     enableButtonApply(currentPage->hasChanges());
 }
 
-void ConfigureDialog::slotButtonClicked(int button)
+void ConfigureDialog::enableButtonApply(bool enable)
+{
+    button(QDialogButtonBox::QDialogButtonBox::Apply)->setEnabled(enable);
+}
+
+void ConfigureDialog::slotButtonClicked(QAbstractButton * pressedButton)
 {
     PrinterPage *page = qobject_cast<PrinterPage *>(currentPage()->widget());
-    if (button == QDialog::Ok) {
+    if (pressedButton == button(QDialogButtonBox::Ok) ||
+        pressedButton == button(QDialogButtonBox::Apply)) {
         page->save();
-        accept();
-    } else if (button == QDialog::Apply) {
-        page->save();
-    } else {
-        QDialog::slotButtonClicked(button);
     }
 }
 

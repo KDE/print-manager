@@ -30,11 +30,12 @@ target_link_libraries(configure-printer
     KF5::CoreAddons
     KF5::I18n
     KF5::IconThemes
-    KF5::KDELibs4Support
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::WidgetsAddons
     KF5::DBusAddons
+    KF5::ConfigCore
+    KF5::KDELibs4Support
     ${CUPS_LIB}
     kcupslib
 )

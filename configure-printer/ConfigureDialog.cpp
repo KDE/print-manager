@@ -28,10 +28,11 @@
 #include "Debug.h"
 #include "KCupsRequest.h"
 
-#include <KConfig>
+#include <KSharedConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KWindowConfig>
 
 #include <QList>
 #include <QPointer>
@@ -129,10 +130,8 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
             SLOT(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
 
-    KConfig config("print-manager");
-    KConfigGroup configureDialog(&config, "ConfigureDialog");
-    // TODO
-    // restoreDialogSize(configureDialog);
+    KConfigGroup group(KSharedConfig::openConfig("print-manager"), "ConfigureDialog");
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
 
     connect(buttonBox(), SIGNAL(clicked(QAbstractButton*)), this, SLOT(slotButtonClicked(QAbstractButton*)));
 }
@@ -146,10 +145,8 @@ void ConfigureDialog::ppdChanged()
 
 ConfigureDialog::~ConfigureDialog()
 {
-    KConfig config("print-manager");
-    KConfigGroup configureDialog(&config, "ConfigureDialog");
-    // TODO
-    // saveDialogSize(configureDialog);
+    KConfigGroup group(KSharedConfig::openConfig("print-manager"), "ConfigureDialog");
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)

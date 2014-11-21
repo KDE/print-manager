@@ -26,6 +26,7 @@
 class KPrintManagerConfigPlugin : public QObject, public QDesignerCustomWidgetInterface
 {
     Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
     Q_INTERFACES(QDesignerCustomWidgetInterface)
 public:
     explicit KPrintManagerConfigPlugin(QObject *parent = 0);

@@ -19,7 +19,7 @@
 
 #include "qmlplugins.h"
 
-#include <QtDeclarative/QDeclarativeItem>
+#include <QQuickItem>
 
 #include <PrinterModel.h>
 #include <PrinterSortFilterModel.h>
@@ -34,5 +34,3 @@ void QmlPlugins::registerTypes(const char* uri)
     qmlRegisterType<JobModel>(uri, 0, 1, "JobModel");
     qmlRegisterType<JobSortFilterModel>(uri, 0, 1, "JobSortFilterModel");
 }
-
-Q_EXPORT_PLUGIN2(printmanager, QmlPlugins)

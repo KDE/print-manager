@@ -24,11 +24,14 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     DBus
 #     Network
     Widgets
+    Designer
+    Qml
+    Quick
 )
 
 find_package(CUPS "1.5" REQUIRED)
 
-find_package(KF5 REQUIRED Config ConfigWidgets Completion CoreAddons DBusAddons IconThemes I18n KCMUtils KIO KDELibs4Support Notifications WidgetsAddons WindowSystem)
+find_package(KF5 REQUIRED Config ConfigWidgets Completion CoreAddons DBusAddons IconThemes I18n KCMUtils KIO KDELibs4Support Notifications Plasma WidgetsAddons WindowSystem)
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
@@ -52,5 +55,5 @@ add_subdirectory(configure-printer)
 add_subdirectory(printer-manager-kcm)
 # add_subdirectory(printqueue)
 add_subdirectory(print-manager-kded)
-# add_subdirectory(plasmoid)
-# add_subdirectory(declarative-plugins)
+add_subdirectory(plasmoid)
+add_subdirectory(declarative-plugins)

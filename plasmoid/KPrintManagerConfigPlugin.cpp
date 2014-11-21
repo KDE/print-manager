@@ -22,10 +22,6 @@
 
 #include <QtPlugin>
 
-#include <KGlobal>
-
-static const KCatalogLoader loader(QLatin1String("print-manager"));
-
 KPrintManagerConfigPlugin::KPrintManagerConfigPlugin(QObject *parent)
 : QObject(parent)
 {
@@ -70,6 +66,3 @@ QWidget * KPrintManagerConfigPlugin::createWidget(QWidget *parent)
 {
     return new ClassListWidget(parent);
 }
-
-Q_EXPORT_PLUGIN2(printmanagerwidget, KPrintManagerConfigPlugin)
-

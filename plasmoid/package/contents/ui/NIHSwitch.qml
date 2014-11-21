@@ -18,8 +18,8 @@
 *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import QtQuick 1.0
-import org.kde.plasma.core 0.1 as PlasmaCore
+import QtQuick 2.0
+import org.kde.plasma.core 2.0 as PlasmaCore
 import "private" as Private
 
 /**
@@ -60,7 +60,7 @@ Item {
     signal toggled(bool enabled)
 
     width: handle.width * 2.3
-    height: theme.defaultFont.mSize.height*1.8
+    height: theme.mSize(theme.defaultFont).height*1.8
     opacity: enabled ? 1.0 : 0.5
 
     Keys.onLeftPressed: {

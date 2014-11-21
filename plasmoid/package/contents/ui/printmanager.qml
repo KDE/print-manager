@@ -17,9 +17,9 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 1.1
-import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
+import QtQuick 2.0
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.printmanager 0.1 as PrintManager
 
 FocusScope   {
@@ -38,13 +38,9 @@ FocusScope   {
     property string printersModelError: ""
     property alias serverUnavailable: printersModel.serverUnavailable
 
-    property Component compactRepresentation: CompactRepresentation {
-        tooltipText: printmanager.tooltipText
-    }
-
-    PlasmaCore.Theme {
-        id: theme
-    }
+//     property Component compactRepresentation: CompactRepresentation {
+//         tooltipText: printmanager.tooltipText
+//     }
 
     Component.onCompleted: {
         // This allows the plasmoid to shrink when the layout changes

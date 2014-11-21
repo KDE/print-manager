@@ -46,10 +46,12 @@ int main(int argc, char **argv)
     KDBusService service(KDBusService::Unique);
 
     QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
     parser.addVersionOption();
     parser.addHelpOption();
     parser.addPositionalArgument("printer", i18n("Printer to be configured"));
     parser.process(app);
+    aboutData.processCommandLine(&parser);
 
     QStringList args = parser.positionalArguments();
     if (args.count() == 1) {

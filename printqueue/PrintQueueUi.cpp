@@ -33,12 +33,12 @@
 #include <QMenu>
 #include <QByteArray>
 #include <QStringBuilder>
-
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
+#include <QProcess>
 
 #include <KMessageBox>
 #include <KDebug>
+#include <KIconLoader>
+#include <KSharedConfig>
 
 #define PRINTER_ICON_SIZE 92
 
@@ -138,8 +138,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     header->setResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
     header->setResizeMode(JobModel::ColPrinter,       QHeaderView::ResizeToContents);
 
-    KConfig config("print-manager");
-    KConfigGroup printQueue(&config, "PrintQueue");
+    KConfigGroup printQueue(KSharedConfig::openConfig("print-manager"), "PrintQueue");
     if (printQueue.hasKey("ColumnState")) {
         // restore the header state order
         header->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
@@ -207,13 +206,14 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
 
 PrintQueueUi::~PrintQueueUi()
 {
-    KConfig config("print-manager");
-    KConfigGroup configGroup(&config, "PrintQueue");
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PrintQueue");
     // save the header state order
     configGroup.writeEntry("ColumnState", ui->jobsView->header()->saveState());
 
     // Save the dialog size
     saveDialogSize(configGroup);
+
+    delete ui;
 }
 
 int PrintQueueUi::columnCount(const QModelIndex &parent) const
@@ -241,7 +241,7 @@ void PrintQueueUi::setState(int state, const QString &message)
         case KCupsPrinter::Idle:
             ui->statusL->setText(i18n("Printer ready"));
             ui->pausePrinterPB->setText(i18n("Pause Printer"));
-            ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+            ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-pause"));
             break;
         case KCupsPrinter::Printing:
             if (!m_title.isNull()) {
@@ -252,14 +252,14 @@ void PrintQueueUi::setState(int state, const QString &message)
                     ui->statusL->setText(i18n("Printing '%1'", jobTitle));
                 }
                 ui->pausePrinterPB->setText(i18n("Pause Printer"));
-                ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+                ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-pause"));
             }
             break;
         case KCupsPrinter::Stopped:
             m_printerPaused = true;
             ui->statusL->setText(i18n("Printer paused"));
             ui->pausePrinterPB->setText(i18n("Resume Printer"));
-            ui->pausePrinterPB->setIcon(KIcon("media-playback-start"));
+            ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-start"));
             // create a paiter to paint the action icon over the key icon
             {
                 QPainter painter(&icon);
@@ -559,13 +559,7 @@ void PrintQueueUi::pausePrinter()
 
 void PrintQueueUi::configurePrinter()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("ConfigurePrinter"));
-    message << qVariantFromValue(m_destName);
-    QDBusConnection::sessionBus().send(message);
+    QProcess::startDetached("configure-printer", {m_destName});
 }
 
 void PrintQueueUi::cancelJob()
@@ -612,26 +606,26 @@ void PrintQueueUi::setupButtons()
     // setup jobs buttons
 
     // cancel action
-    ui->cancelJobPB->setIcon(KIcon("dialog-cancel"));
+    ui->cancelJobPB->setIcon(QIcon::fromTheme("dialog-cancel"));
 
     // hold job action
-    ui->holdJobPB->setIcon(KIcon("document-open-recent"));
+    ui->holdJobPB->setIcon(QIcon::fromTheme("document-open-recent"));
 
     // resume job action
     // TODO we need a new icon
-    ui->resumeJobPB->setIcon(KIcon("media-playback-start"));
+    ui->resumeJobPB->setIcon(QIcon::fromTheme("media-playback-start"));
 
-    ui->reprintPB->setIcon(KIcon("view-refresh"));
+    ui->reprintPB->setIcon(QIcon::fromTheme("view-refresh"));
 
-    ui->whichJobsCB->setItemIcon(0, KIcon("view-filter"));
-    ui->whichJobsCB->setItemIcon(1, KIcon("view-filter"));
-    ui->whichJobsCB->setItemIcon(2, KIcon("view-filter"));
+    ui->whichJobsCB->setItemIcon(0, QIcon::fromTheme("view-filter"));
+    ui->whichJobsCB->setItemIcon(1, QIcon::fromTheme("view-filter"));
+    ui->whichJobsCB->setItemIcon(2, QIcon::fromTheme("view-filter"));
 
     // stop start printer
-    ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+    ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-pause"));
 
     // configure printer
-    ui->configurePrinterPB->setIcon(KIcon("configure"));
+    ui->configurePrinterPB->setIcon(QIcon::fromTheme("configure"));
 }
 
 void PrintQueueUi::closeEvent(QCloseEvent *event)
@@ -640,5 +634,3 @@ void PrintQueueUi::closeEvent(QCloseEvent *event)
     emit finished();
     QWidget::closeEvent(event);
 }
-
-#include "PrintQueueUi.moc"

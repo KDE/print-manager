@@ -40,7 +40,7 @@ int main(int argc, char **argv)
                      i18n("ConfigurePrinter"),
                      KAboutLicense::GPL,
                      i18n("(C) 2010-2013 Daniel Nicoletti"));
-    aboutData.addAuthor("Daniel Nicoletti", QString(), "dantti12@gmail.com");
+    aboutData.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
 
     KAboutData::setApplicationData(aboutData);
     KDBusService service(KDBusService::Unique);
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
-    QStringList args = parser.positionalArguments();
+    const QStringList args = parser.positionalArguments();
     if (args.count() == 1) {
         QString printerName = args.at(0);
         app.configurePrinter(printerName);

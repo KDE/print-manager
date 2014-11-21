@@ -69,7 +69,7 @@ private slots:
     void getAttributesFinished();
 
 private:
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
     void setupButtons();
     void setState(int state, const QString &message);
     void modifyJob(int action, const QString &destName = QString());

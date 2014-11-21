@@ -19,46 +19,43 @@
  ***************************************************************************/
 
 #include "PrintQueue.h"
-
 #include "PrintQueueUi.h"
 
 #include <KCupsRequest.h>
 
 #include <QPointer>
 #include <QTimer>
+#include <QDebug>
 
 #include <KWindowSystem>
-#include <KCmdLineArgs>
-#include <KDebug>
 
-PrintQueue::PrintQueue() :
-    KUniqueApplication()
+PrintQueue::PrintQueue(int &argc, char **argv) :
+    QApplication(argc, argv)
 {
-}
-
-int PrintQueue::newInstance()
-{
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->count()) {
-        for (int i = 0; i < args->count(); ++i) {
-            showQueue(args->arg(i));
-        }
-    } else {
-        kDebug() << "called with no args";
-        // If DBus called the ui list won't be empty
-        QTimer::singleShot(500, this, SLOT(removeQueue()));
-    }
-
-    return 0;
 }
 
 PrintQueue::~PrintQueue()
 {
 }
 
+void PrintQueue::showQueues(const QStringList &queues, const QString &cwd)
+{
+    Q_UNUSED(cwd)
+
+    if (!queues.isEmpty()) {
+        foreach (const QString & queue, queues) {
+            showQueue(queue);
+        }
+    } else {
+        qDebug() << "called with no args";
+        // If DBus called the ui list won't be empty
+        QTimer::singleShot(500, this, SLOT(removeQueue()));
+    }
+}
+
 void PrintQueue::showQueue(const QString &destName)
 {
-    kDebug() << destName;
+    qDebug() << Q_FUNC_INFO << destName;
     if (!m_uis.contains(destName)) {
         // Reserve this since the CUPS call might take a long time
         m_uis[destName] = 0;
@@ -124,6 +121,3 @@ void PrintQueue::removeQueue()
          quit();
     }
 }
-
-
-#include "PrintQueue.moc"

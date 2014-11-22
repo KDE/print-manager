@@ -34,11 +34,11 @@ public:
     explicit PageAddPrinter(QWidget *parent = 0);
     ~PageAddPrinter();
 
-    void setValues(const QVariantHash &args);
-    QVariantHash values() const;
-    bool canProceed() const;
+    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
+    QVariantHash values() const Q_DECL_OVERRIDE;
+    bool canProceed() const Q_DECL_OVERRIDE;
 
-    bool finishClicked();
+    bool finishClicked() Q_DECL_OVERRIDE;
 
 public slots:
     void load();

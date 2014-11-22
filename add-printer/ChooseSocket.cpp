@@ -27,6 +27,7 @@
 #include <QPainter>
 
 #include <KDebug>
+#include <KUrl>
 
 ChooseSocket::ChooseSocket(QWidget *parent) :
     GenericPage(parent),

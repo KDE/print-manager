@@ -55,7 +55,7 @@ ChooseSerial::~ChooseSerial()
 bool ChooseSerial::isValid() const
 {
     return m_isValid;
-};
+}
 
 void ChooseSerial::setValues(const QVariantHash &args)
 {

@@ -26,6 +26,7 @@
 #include <QPainter>
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
+#include <KIconLoader>
 
 #include <KDebug>
 

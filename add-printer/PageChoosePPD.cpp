@@ -26,13 +26,13 @@
 #include <SelectMakeModel.h>
 #include <KCupsRequest.h>
 
-#include <KTemporaryFile>
-
 #include <QFileInfo>
 #include <QFile>
 #include <QStringBuilder>
 
 #include <KDebug>
+#include <KUrl>
+#include <KTemporaryFile>
 
 PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
@@ -191,8 +191,7 @@ void PageChoosePPD::selectDefault()
 
 void PageChoosePPD::resultJob(KJob *job)
 {
-    if (!job->error() &&
-            job->property("URI").toString() == m_args[KCUPS_DEVICE_URI].toString()) {
+    if (!job->error() && job->property("URI").toString() == m_args[KCUPS_DEVICE_URI].toString()) {
         KIO::FileCopyJob *fileCopyJob = qobject_cast<KIO::FileCopyJob*>(job);
 
         // Make sure this job is for the current device

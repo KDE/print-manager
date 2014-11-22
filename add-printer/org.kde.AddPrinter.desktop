@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Add Printer
+Comment=Tool for adding new printers
+Exec=kde-add-printer
+Icon=printer
+Type=Application
+Terminal=false
+Categories=Qt;KDE;Printing;

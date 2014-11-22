@@ -34,7 +34,7 @@ ChooseUri::ChooseUri(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->searchTB->setIcon(KIcon("edit-find"));
+    ui->searchTB->setIcon(QIcon::fromTheme("edit-find"));
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));

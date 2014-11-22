@@ -1,5 +1,3 @@
-find_package(KDE4Internal REQUIRED)
-
 set(addprinter_SRCS
     main.cpp
     AddPrinter.cpp
@@ -17,7 +15,7 @@ set(addprinter_SRCS
     AddPrinterAssistant.cpp
 )
 
-kde4_add_ui_files(addprinter_SRCS
+ki18n_wrap_ui(addprinter_SRCS
     PageDestinations.ui
     ChooseLpd.ui
     ChooseSamba.ui
@@ -29,15 +27,24 @@ kde4_add_ui_files(addprinter_SRCS
     PageAddPrinter.ui
 )
 
-kde4_add_executable(kde-add-printer
+add_executable(kde-add-printer
     ${addprinter_SRCS}
 )
 
 target_link_libraries(kde-add-printer
-    ${KDE4_KDEUI_LIBS}
-    ${QT_QTNETWORK_LIBRARY}
-    ${KDE4_KIO_LIBS}
+    Qt5::Core
+    Qt5::Widgets
+    Qt5::Network
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::IconThemes
+    KF5::KIOCore
+    KF5::KIOWidgets
+    KF5::ConfigCore
+    KF5::KDELibs4Support
+    ${CUPS_LIB}
     kcupslib
 )
 
 install(TARGETS kde-add-printer DESTINATION ${BIN_INSTALL_DIR})
+install(PROGRAMS org.kde.AddPrinter.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

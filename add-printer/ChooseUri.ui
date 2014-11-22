@@ -23,7 +23,16 @@
    <property name="rowWrapPolicy">
     <enum>QFormLayout::WrapLongRows</enum>
    </property>
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item row="0" column="0">
@@ -80,6 +89,9 @@ Printers&quot;&lt;/A&gt; for the correct URI to use with your printer.&lt;/P&gt;
      </property>
      <property name="openExternalLinks">
       <bool>true</bool>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::TextBrowserInteraction</set>
      </property>
     </widget>
    </item>

@@ -25,15 +25,16 @@
 #include "PageChoosePPD.h"
 #include "PageAddPrinter.h"
 
-#include <QHostInfo>
-
 #include <KCupsRequest.h>
 
-#include <KLocale>
-#include <KPushButton>
-#include <KPixmapSequence>
+#include <QHostInfo>
+#include <QPushButton>
 
-#include <KDebug>
+#include <KLocalizedString>
+#include <KPixmapSequence>
+#include <KIconLoader>
+#include <KSharedConfig>
+#include <KWindowConfig>
 
 AddPrinterAssistant::AddPrinterAssistant() :
     KAssistantDialog(),
@@ -43,36 +44,36 @@ AddPrinterAssistant::AddPrinterAssistant() :
     m_addPrinterPage(0)
 {
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
-    setWindowIcon(KIcon("printer"));
-    showButton(KDialog::Cancel, false);
-    setDefaultButton(KDialog::User2); // next
-    setDefaultButton(KDialog::User1); // finished
+    setWindowIcon(QIcon::fromTheme("printer"));
+    buttonBox()->removeButton(buttonBox()->button(QDialogButtonBox::Cancel));
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
 
+    QPushButton * helpButton = buttonBox()->addButton(QDialogButtonBox::Help);
     // Configure the help button to be flat, disabled and empty
-    button(KDialog::Help)->setFlat(true);
-    button(KDialog::Help)->setEnabled(false);
-    button(KDialog::Help)->setIcon(QIcon());
-    button(KDialog::Help)->setText(QString());
+    helpButton->setFlat(true);
+    helpButton->setEnabled(false);
+    helpButton->setIcon(QIcon());
+    helpButton->setText(QString());
 
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
-    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setSequence(KIconLoader::global()->loadPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
-    m_busySeq->setWidget(button(KDialog::Help));
+    m_busySeq->setWidget(helpButton);
+
+    connect(finishButton(), SIGNAL(clicked()),
+            this, SLOT(slotFinishButtonClicked()));
 
     // Restore the dialog size
-    KConfig config("print-manager");
-    KConfigGroup configGroup(&config, "AddPrinterAssistant");
-    restoreDialogSize(configGroup);
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "AddPrinterAssistant");
+    KWindowConfig::restoreWindowSize(windowHandle(), configGroup);
 }
 
 AddPrinterAssistant::~AddPrinterAssistant()
 {
-    KConfig config("print-manager");
-    KConfigGroup configGroup(&config, "AddPrinterAssistant");
-    saveDialogSize(configGroup);
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "AddPrinterAssistant");
+    KWindowConfig::saveWindowSize(windowHandle(), configGroup);
 }
 
 void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &deviceId)
@@ -83,7 +84,7 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
     args[ADDING_PRINTER] = true;
 
     KPageWidgetItem *currentPage;
-    if (deviceId.isNull()) {
+    if (deviceId.isEmpty()) {
         m_devicesPage = new KPageWidgetItem(new PageDestinations(args), i18nc("@title:window", "Select a Printer to Add"));
         addPage(m_devicesPage);
         currentPage = m_devicesPage;
@@ -224,28 +225,24 @@ void AddPrinterAssistant::showEvent(QShowEvent *event)
     enableFinishButton(false);
 }
 
-void AddPrinterAssistant::slotButtonClicked(int button)
+void AddPrinterAssistant::slotFinishButtonClicked()
 {
-    // Finish Button
-    if (button == KDialog::User1) {
-        GenericPage *page = qobject_cast<GenericPage*>(currentPage()->widget());
-        enableFinishButton(false);
-        if (page->finishClicked()) {
-            KAssistantDialog::slotButtonClicked(button);
-        } else {
-            enableFinishButton(true);
-        }
+    GenericPage *page = qobject_cast<GenericPage*>(currentPage()->widget());
+    enableFinishButton(false);
+    if (page->finishClicked()) {
+        //KAssistantDialog::slotButtonClicked(button); // FIXME next() really?
+        next();
     } else {
-        KAssistantDialog::slotButtonClicked(button);
+        enableFinishButton(true);
     }
 }
 
 void AddPrinterAssistant::enableNextButton(bool enable)
 {
-    enableButton(KDialog::User2, enable);
+    nextButton()->setEnabled(enable);
 }
 
 void AddPrinterAssistant::enableFinishButton(bool enable)
 {
-    enableButton(KDialog::User1, enable);
+    finishButton()->setEnabled(enable);
 }

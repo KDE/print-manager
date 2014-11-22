@@ -25,12 +25,12 @@
 #include <KCupsRequest.h>
 
 #include <QPointer>
+#include <QDebug>
+
 #include <KWindowSystem>
 
-#include <KDebug>
-
-AddPrinter::AddPrinter() :
-    KApplication()
+AddPrinter::AddPrinter(int &argc, char **argv) :
+    QApplication(argc, argv)
 {
     setQuitOnLastWindowClosed(true);
 }
@@ -67,14 +67,14 @@ void AddPrinter::changePPD(qulonglong wid, const QString &name)
         if (!request->hasError() && request->printers().size() == 1) {
             KCupsPrinter printer = request->printers().first();
             if (printer.type() & CUPS_PRINTER_REMOTE) {
-                kWarning() << "Ignoring request, can not change PPD of remote printer" << name;
+                qWarning() << "Ignoring request, can not change PPD of remote printer" << name;
             } else {
                 AddPrinterAssistant *wizard = new AddPrinterAssistant();
                 wizard->initChangePPD(name, printer.deviceUri(), printer.makeAndModel());
                 show(wizard, wid);
             }
         } else {
-            kWarning() << "Ignoring request, printer not found" << name << request->errorMsg();
+            qWarning() << "Ignoring request, printer not found" << name << request->errorMsg();
         }
         request->deleteLater();
     }

@@ -37,16 +37,16 @@ public:
     void initChangePPD(const QString &printer, const QString &deviceUri, const QString &makeAndModel);
 
 public slots:
-    void back();
-    void next();
+    void back() Q_DECL_OVERRIDE;
+    void next() Q_DECL_OVERRIDE;
     void enableNextButton(bool enable);
     void enableFinishButton(bool enable);
-    void slotButtonClicked(int button);
+    void slotFinishButtonClicked();
 
 private:
     void next(KPageWidgetItem *currentPage);
     void setCurrentPage(KPageWidgetItem *page);
-    virtual void showEvent(QShowEvent * event);
+    void showEvent(QShowEvent * event) Q_DECL_OVERRIDE;
 
     KPageWidgetItem *m_devicesPage;
     KPageWidgetItem *m_chooseClassPage;

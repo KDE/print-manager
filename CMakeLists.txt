@@ -22,7 +22,7 @@ include(FeatureSummary)
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     DBus
-#     Network
+    Network
     Widgets
     Designer
     Qml
@@ -49,9 +49,11 @@ include_directories(${CMAKE_SOURCE_DIR}
     ${CUPS_INCLUDE_DIR}
 )
 
+add_definitions(-DTRANSLATION_DOMAIN="print-manager")
+
 add_subdirectory(libkcups)
 add_subdirectory(configure-printer)
-# add_subdirectory(add-printer)
+add_subdirectory(add-printer)
 add_subdirectory(printer-manager-kcm)
 add_subdirectory(printqueue)
 add_subdirectory(print-manager-kded)

@@ -34,9 +34,9 @@ public:
     explicit PageChoosePrinters(const QVariantHash &args, QWidget *parent = 0);
     ~PageChoosePrinters();
 
-    void setValues(const QVariantHash &args);
-    QVariantHash values() const;
-    bool canProceed() const;
+    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
+    QVariantHash values() const Q_DECL_OVERRIDE;
+    bool canProceed() const Q_DECL_OVERRIDE;
 
 private:
     Ui::PageChoosePrinters *ui;

@@ -58,6 +58,8 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
                                i18n("Print settings"),
                                KAboutLicense::GPL,
                                i18n("(C) 2010-2013 Daniel Nicoletti"));
+    aboutData->addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    aboutData->addAuthor(QStringLiteral("Jan Grulich"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("jgrulich@redhat.com"));
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
 

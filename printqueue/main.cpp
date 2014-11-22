@@ -42,6 +42,7 @@ int main(int argc, char **argv)
                      i18n("(C) 2010-2013 Daniel Nicoletti"));
 
     about.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    about.addAuthor(QStringLiteral("Lukáš Tinkl"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("ltinkl@redhat.com"));
 
     KAboutData::setApplicationData(about);
     KDBusService service(KDBusService::Unique);

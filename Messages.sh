@@ -4,5 +4,5 @@ $XGETTEXT `find . -name "*.cpp" | grep -v "plasmoid"` -o $podir/print-manager.po
 rm -f rc.cpp
 
 $EXTRACTRC `find plasmoid -name "*.rc" -o -name "*.ui"` >> rc.cpp
-$XGETTEXT rc.cpp `find plasmoid -name "*.cpp"` -o $podir/plasma_applet_org.kde.printmanager.pot
-$XGETTEXT `find plasmoid -name "*.qml"` -j -L Java -o $podir/plasma_applet_org.kde.printmanager.pot
+$XGETTEXT rc.cpp `find plasmoid -name "*.cpp"` -o $podir/plasma_applet_org.kde.plasma.printmanager.pot
+$XGETTEXT `find plasmoid -name "*.qml"` -j -L Java -o $podir/plasma_applet_org.kde.plasma.printmanager.pot

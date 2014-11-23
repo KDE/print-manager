@@ -33,6 +33,8 @@
 #include <KPixmapSequenceOverlayPainter>
 #include <KPixmapSequence>
 #include <KMessageBox>
+#include <KSharedConfig>
+#include <KWindowConfig>
 
 ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *parent) :
     PrinterPage(parent),
@@ -98,7 +100,7 @@ void ModifyPrinter::on_makeCB_activated(int index)
 
         // Setup the busy cursor
         KPixmapSequenceOverlayPainter *busySeq = new KPixmapSequenceOverlayPainter(dialog);
-        busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+        busySeq->setSequence(KIconLoader::global()->loadPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
         busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
         busySeq->setWidget(button);
         busySeq->start();
@@ -151,9 +153,8 @@ void ModifyPrinter::ppdSelectionAccepted()
         ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
     }
 
-    KConfig config("print-manager");
-    KConfigGroup ppdDialog(&config, "PPDDialog");
-    dialog->saveDialogSize(ppdDialog);
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PPDDialog");
+    KWindowConfig::saveWindowSize(dialog->windowHandle(), configGroup);
     dialog->deleteLater();
 }
 
@@ -162,9 +163,8 @@ void ModifyPrinter::ppdSelectionRejected()
     ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
 
     KDialog *dialog = qobject_cast<KDialog*>(sender());
-    KConfig config("print-manager");
-    KConfigGroup ppdDialog(&config, "PPDDialog");
-    dialog->saveDialogSize(ppdDialog);
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PPDDialog");
+    KWindowConfig::saveWindowSize(dialog->windowHandle(), configGroup);
     dialog->deleteLater();
 }
 

@@ -21,7 +21,7 @@
 #ifndef PRINT_QUEUE_UI_H
 #define PRINT_QUEUE_UI_H
 
-#include <KDialog>
+#include <QDialog>
 #include <QModelIndex>
 #include <QToolButton>
 
@@ -32,7 +32,7 @@ namespace Ui {
 class KCupsPrinter;
 class JobSortFilterModel;
 class JobModel;
-class PrintQueueUi : public KDialog
+class PrintQueueUi : public QDialog
 {
     Q_OBJECT
 public:

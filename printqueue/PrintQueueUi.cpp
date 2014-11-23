@@ -34,23 +34,25 @@
 #include <QByteArray>
 #include <QStringBuilder>
 #include <QProcess>
+#include <QDebug>
 
 #include <KMessageBox>
-#include <QDebug>
 #include <KIconLoader>
 #include <KSharedConfig>
+#include <KConfigGroup>
+#include <KWindowConfig>
 
 #define PRINTER_ICON_SIZE 92
 
 PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
-    KDialog(parent),
+    QDialog(parent),
     ui(new Ui::PrintQueueUi),
     m_destName(printer.name()),
     m_preparingMenu(false),
     m_printerPaused(false),
     m_lastState(0)
 {
-    ui->setupUi(mainWidget());
+    ui->setupUi(this);
 
     // since setupUi needs to setup on the mainWidget()
     // we need to manually connect the buttons
@@ -74,7 +76,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
         m_title = printer.name() % QLatin1String(" - ") % printer.info();
     }
     setWindowTitle(m_title);
-    setButtons(0);
     setSizeGripEnabled(true);
     (void) minimumSizeHint(); //Force the dialog to be laid out now
     layout()->setContentsMargins(0,0,0,0);
@@ -201,7 +202,8 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     updatePrinter(m_destName);
 
     // Restore the dialog size
-    restoreDialogSize(printQueue);
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PrintQueue");
+    KWindowConfig::restoreWindowSize(windowHandle(), configGroup);
 }
 
 PrintQueueUi::~PrintQueueUi()
@@ -211,7 +213,7 @@ PrintQueueUi::~PrintQueueUi()
     configGroup.writeEntry("ColumnState", ui->jobsView->header()->saveState());
 
     // Save the dialog size
-    saveDialogSize(configGroup);
+    KWindowConfig::saveWindowSize(windowHandle(), configGroup);
 
     delete ui;
 }

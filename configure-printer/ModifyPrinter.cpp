@@ -142,7 +142,7 @@ void ModifyPrinter::ppdSelectionAccepted()
         ui->makeCB->insertItem(0, fileName, PPDFile);
         ui->makeCB->setCurrentIndex(0);
         on_makeCB_activated(0);
-    } else if (!widget->selectedPPDName().isNull()) {
+    } else if (!widget->selectedPPDName().isEmpty()) {
         QString makeAndModel = widget->selectedPPDMakeAndModel();
         QString ppdName = widget->selectedPPDName();
         ui->makeCB->insertItem(0, makeAndModel, PPDCustom);

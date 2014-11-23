@@ -31,10 +31,9 @@
 #include <QItemSelection>
 #include <QStringBuilder>
 
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusReply>
-#include <QtDBus/QDBusMetaType>
+#include <QDBusConnection>
+#include <QDBusReply>
+#include <QDBusMetaType>
 
 #include <KMessageBox>
 

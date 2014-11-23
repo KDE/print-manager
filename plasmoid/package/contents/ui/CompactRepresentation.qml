@@ -17,36 +17,20 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 2.0
+import QtQuick 2.2
 import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
-Item {
+MouseArea {
     id: panelIconWidget;
 
-    property alias tooltipText: tooltip.subText
+    anchors.fill: parent
+    onClicked: plasmoid.expanded = !plasmoid.expanded
 
-    PlasmaCore.SvgItem {
+    PlasmaCore.IconItem {
         id: connectionIcon
         anchors.fill: parent
-        svg: PlasmaCore.Svg {
-            imagePath: "icons/printer";
-        }
-        elementId: "printer";
-    }
-
-    MouseArea {
-        id: mouseAreaPopup
-
-        anchors.fill: parent
-        hoverEnabled: true
-        onClicked: plasmoid.togglePopup()
-
-        PlasmaCore.ToolTip {
-             id: tooltip
-             target: mouseAreaPopup
-             image: "printer"
-        }
+        source: "printer";
     }
 }

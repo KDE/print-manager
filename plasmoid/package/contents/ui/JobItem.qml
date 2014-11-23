@@ -17,96 +17,45 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 2.0
+import QtQuick 2.2
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
 
-Item {
+PlasmaComponents.ListItem {
     id: jobItem
-    clip: true
+
+    enabled: true
     width: jobItem.ListView.view.width
-    height: items.height + padding.margins.top + padding.margins.bottom
-
-    Behavior on height { PropertyAnimation {} }
-
-    property bool currentItem: ListView.isCurrentItem
-    property bool highlight: highlightPrinter === jobPrinter
+    height: items.height + (Math.round(units.gridUnit / 3) * 2)
 
     Keys.onDeletePressed: cancelJob()
     Keys.onReturnPressed: cancelJob()
 
-    onCurrentItemChanged: updateSelection();
-    onHighlightChanged: updateSelection();
-
-    function updateSelection() {
-        var containsMouse = mouseArea.containsMouse;
-
-        if (highlight || currentItem && containsMouse) {
-            padding.opacity = 1;
-        } else if (currentItem) {
-            padding.opacity = 0.8;
-        } else if (containsMouse) {
-            padding.opacity = 0.65;
-        } else {
-            padding.opacity = 0;
-        }
-    }
-
-    function cancelJob() {
-        cancelButton.enabled = false;
-        jobsModel.cancel(jobPrinter, jobId);
-        cancelButton.enabled = true;
-    }
-
-    PlasmaCore.FrameSvgItem {
-        id: padding
-        imagePath: "widgets/viewitem"
-        prefix: "hover"
-        opacity: 0
-        Behavior on opacity { PropertyAnimation {} }
-        anchors.fill: parent
-    }
-
-    MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        hoverEnabled: true
-        onEntered: updateSelection()
-        onExited: updateSelection()
-        onClicked: {
-            if (currentItem) {
-                jobItem.ListView.view.currentIndex = -1;
-            } else {
-                jobItem.ListView.view.currentIndex = index;
-                jobItem.forceActiveFocus();
-            }
-            updateSelection();
-        }
-        onDoubleClicked: toggleChangelog()
-    }
-        
     Column {
         id: items
+
         spacing: 4
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.topMargin: padding.margins.top
-        anchors.leftMargin: padding.margins.left
-        anchors.rightMargin: padding.margins.right
-        anchors.bottomMargin: padding.margins.bottom
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+        }
+
         Row {
             id: jobRow
             spacing: 4
             width: parent.width
+
             KQuickControlsAddons.QIconItem {
                 id: jobIcon
                 width: parent.height
                 height: width
                 anchors.verticalCenter: parent.verticalCenter
-                icon: QIcon(jobIconName)
+                icon: jobIconName
             }
+
             PlasmaComponents.Label {
                 // 12 = 3 * spacing
                 id: jobNameLabel
@@ -116,6 +65,7 @@ Item {
                 elide: Text.ElideRight
                 text: jobName
             }
+
             PlasmaComponents.Label {
                 id: pagesLabel
                 visible: jobPages != 0
@@ -131,19 +81,18 @@ Item {
 
         Column {
             id: actionRow
-            opacity: currentItem ? 1 : 0
             width: parent.width
             spacing: 4
 
-            PlasmaCore.SvgItem {
-                svg: PlasmaCore.Svg {
-                    id: lineSvg
-                    imagePath: "widgets/line"
-                }
-                elementId: "horizontal-line"
-                height: lineSvg.elementSize("horizontal-line").height
-                width: parent.width
-            }
+//             PlasmaCore.SvgItem {
+//                 svg: PlasmaCore.Svg {
+//                     id: lineSvg
+//                     imagePath: "widgets/line"
+//                 }
+//                 elementId: "horizontal-line"
+//                 height: lineSvg.elementSize("horizontal-line").height
+//                 width: parent.width
+//             }
 
             Row {
                 id: columnButton
@@ -161,6 +110,7 @@ Item {
                     visible: jobCancelEnabled
                     onClicked: cancelJob()
                 }
+
                 PlasmaComponents.Button {
                     id: holdButton
                     focus: true
@@ -181,6 +131,7 @@ Item {
                     }
                 }
             }
+
             Row {
                 id: detailsRow
                 width: parent.width
@@ -188,6 +139,7 @@ Item {
 
                 Column {
                     id: labelsColumn
+
                     PlasmaComponents.Label {
                         id: ownerLabel
                         height: paintedHeight
@@ -202,6 +154,7 @@ Item {
                         font.pointSize: theme.smallestFont.pointSize
                         color: "#99"+(theme.textColor.toString().substr(1))
                     }
+
                     PlasmaComponents.Label {
                         id: sizeLabel
                         height: paintedHeight
@@ -216,6 +169,7 @@ Item {
                         font.pointSize: theme.smallestFont.pointSize
                         color: "#99"+(theme.textColor.toString().substr(1))
                     }
+
                     PlasmaComponents.Label {
                         id: createdLabel
                         height: paintedHeight
@@ -231,6 +185,7 @@ Item {
                         color: "#99"+(theme.textColor.toString().substr(1))
                     }
                 }
+
                 Column {
                     width: parent.width - labelsColumn.width - parent.spacing * 2
                     PlasmaComponents.Label {
@@ -242,6 +197,7 @@ Item {
                         font.pointSize: theme.smallestFont.pointSize
                         color: "#99"+(theme.textColor.toString().substr(1))
                     }
+
                     PlasmaComponents.Label {
                         height:paintedHeight
                         width: parent.width
@@ -251,6 +207,7 @@ Item {
                         font.pointSize: theme.smallestFont.pointSize
                         color: "#99"+(theme.textColor.toString().substr(1))
                     }
+
                     PlasmaComponents.Label {
                         height: paintedHeight
                         width: parent.width
@@ -263,6 +220,12 @@ Item {
                 }
             }
         }
+    }
+
+    function cancelJob() {
+        cancelButton.enabled = false;
+        jobsModel.cancel(jobPrinter, jobId);
+        cancelButton.enabled = true;
     }
 }
 

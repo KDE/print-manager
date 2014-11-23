@@ -20,7 +20,7 @@
 #ifndef CONFIGURE_PRINTER_INTERFACE_H
 #define CONFIGURE_PRINTER_INTERFACE_H
 
-#include <QtDBus/QDBusContext>
+#include <QDBusContext>
 
 class QTimer;
 class QWidget;

@@ -45,7 +45,7 @@ private slots:
 private:
     ModifyPrinter *modifyPrinter;
     PrinterOptions *printerOptions;
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
     // return false if the dialog was canceled
     bool savePage(PrinterPage *page);
 };

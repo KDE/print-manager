@@ -89,7 +89,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
             ConfigureDialog *ui = new ConfigureDialog(printer.name(), printer.isClass());
             connect(m_updateUi, SIGNAL(timeout()),
                     ui, SLOT(update()));
-            connect(ui, SIGNAL(finished()),
+            connect(ui, SIGNAL(finished(int)),
                     this, SLOT(RemovePrinter()));
             ui->show();
             m_uis[printer.name()] = ui;

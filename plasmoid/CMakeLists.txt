@@ -11,4 +11,4 @@ target_link_libraries(printmanagerwidget
 )
 
 # QML Stuff
-plasma_install_package(package org.kde.printmanager)
+plasma_install_package(package org.kde.plasma.printmanager)

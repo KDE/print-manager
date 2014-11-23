@@ -304,7 +304,7 @@ QVariantHash PageDestinations::selectedItemValues() const
         } else {
             QVariant aux = ui->connectionsCB->itemData(ui->connectionsCB->currentIndex());
             KCupsPrinter printer = aux.value<KCupsPrinter>();
-            KUrl url = uri.toString();
+            QUrl url = uri.toString();
             url.setPath(QLatin1String("printers/") % printer.name());
             ret[KCUPS_DEVICE_URI] = url.url();
             ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);

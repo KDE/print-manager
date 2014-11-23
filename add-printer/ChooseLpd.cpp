@@ -27,7 +27,7 @@
 #include <QStringBuilder>
 #include <QDebug>
 
-#include <KUrl>
+#include <QUrl>
 
 ChooseLpd::ChooseLpd(QWidget *parent) :
     GenericPage(parent),
@@ -76,7 +76,7 @@ bool ChooseLpd::canProceed() const
 {
     bool allow = false;
     if (!ui->addressLE->text().isEmpty()) {
-        KUrl url = KUrl(QLatin1String("lpd://") % ui->addressLE->text());
+        QUrl url = QUrl(QStringLiteral("lpd://") % ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;

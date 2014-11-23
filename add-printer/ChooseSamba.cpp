@@ -26,8 +26,7 @@
 #include <QPainter>
 #include <QStringBuilder>
 #include <QDebug>
-
-#include <KUrl>
+#include <QUrl>
 
 ChooseSamba::ChooseSamba(QWidget *parent) :
     GenericPage(parent),
@@ -59,7 +58,7 @@ QVariantHash ChooseSamba::values() const
     QVariantHash ret = m_args;
 
     QString address = ui->addressLE->text().trimmed();
-    KUrl url;
+    QUrl url;
     if (address.startsWith(QLatin1String("//"))) {
         url = QLatin1String("smb:") % address;
     } else if (address.startsWith(QLatin1String("/"))) {
@@ -68,21 +67,21 @@ QVariantHash ChooseSamba::values() const
         url = QLatin1String("smb") % address;
     } else if (address.startsWith(QLatin1String("smb://"))) {
         url = address;
-    } else if (!KUrl(address).protocol().isEmpty() &&
-               KUrl(address).protocol() != QLatin1String("smb")) {
-        url = address;
-        url.setProtocol(QLatin1String("smb"));
+    } else if (!QUrl::fromUserInput(address).scheme().isEmpty() &&
+               QUrl::fromUserInput(address).scheme() != QStringLiteral("smb")) {
+        url = QUrl::fromUserInput(address);
+        url.setScheme(QStringLiteral("smb"));
     } else {
-        url = QLatin1String("smb://") % address;
+        url = QStringLiteral("smb://") % address;
     }
 
     qDebug() << 1 << url;
     if (!ui->usernameLE->text().isEmpty()) {
-        url.setUser(ui->usernameLE->text());
+        url.setUserName(ui->usernameLE->text());
     }
 
     if (!ui->passwordLE->text().isEmpty()) {
-        url.setPass(ui->passwordLE->text());
+        url.setPassword(ui->passwordLE->text());
     }
 
     qDebug() << 2 << url;
@@ -107,13 +106,13 @@ QVariantHash ChooseSamba::values() const
 bool ChooseSamba::isValid() const
 {
     QVariantHash args = values();
-    KUrl url(args[KCUPS_DEVICE_URI].toString());
+    QUrl url(args[KCUPS_DEVICE_URI].toString());
 
     return url.isValid() &&
             !url.isEmpty() &&
-            !url.protocol().isEmpty() &&
-            url.hasHost() &&
-            url.hasPath() &&
+            !url.scheme().isEmpty() &&
+            !url.host().isEmpty() &&
+            !url.path().isEmpty() &&
             !url.fileName().isEmpty() &&
             url.url().count(QLatin1Char('/')) <= 4;
 }

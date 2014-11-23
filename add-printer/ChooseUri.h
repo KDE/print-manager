@@ -25,7 +25,7 @@
 
 #include <KCupsPrinter.h>
 
-#include <KUrl>
+#include <QUrl>
 
 namespace Ui {
     class ChooseUri;
@@ -62,7 +62,7 @@ private slots:
     void getPrintersFinished();
 
 private:
-    KUrl parsedURL(const QString &text) const;
+    QUrl parsedURL(const QString &text) const;
 
     Ui::ChooseUri *ui;
 };

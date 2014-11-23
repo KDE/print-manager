@@ -31,7 +31,7 @@
 #include <QStringBuilder>
 
 #include <QDebug>
-#include <KUrl>
+#include <QUrl>
 #include <KTemporaryFile>
 
 PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
@@ -83,13 +83,13 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         QString deviceURI = args[KCUPS_DEVICE_URI].toString();
 
         // If
-        KUrl url(deviceURI % QLatin1String(".ppd"));
-        if (url.protocol() == QLatin1String("ipp")) {
+        QUrl url(deviceURI % QStringLiteral(".ppd"));
+        if (url.scheme() == QStringLiteral("ipp")) {
             KTemporaryFile *tempFile = new KTemporaryFile;
             tempFile->setPrefix("print-manager");
             tempFile->setSuffix(".ppd");
             tempFile->open();
-            url.setProtocol(QLatin1String("http"));
+            url.setScheme(QLatin1String("http"));
             if (url.port() < 0) {
                 url.setPort(631);
             }

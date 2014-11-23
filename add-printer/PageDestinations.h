@@ -24,8 +24,8 @@
 #include "GenericPage.h"
 
 #include <KCupsPrinter.h>
-#include <KUrl>
 
+#include <QUrl>
 #include <QLabel>
 
 namespace Ui {

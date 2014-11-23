@@ -25,8 +25,7 @@
 
 #include <KUrl>
 #include <QStringBuilder>
-
-#include <KDebug>
+#include <QDebug>
 
 ChooseUri::ChooseUri(QWidget *parent) :
     GenericPage(parent),
@@ -79,7 +78,7 @@ bool ChooseUri::isValid() const
 {
     QVariantHash args = values();
     KUrl url(args[KCUPS_DEVICE_URI].toString());
-//kDebug() << url << url.isValid() << url.isEmpty() << url.protocol().isEmpty() << url.hasHost();
+    //qDebug() << url << url.isValid() << url.isEmpty() << url.protocol().isEmpty() << url.hasHost();
     return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && url.hasHost();
 }
 

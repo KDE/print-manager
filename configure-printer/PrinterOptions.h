@@ -39,13 +39,13 @@ public:
     explicit PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent = 0);
     ~PrinterOptions();
 
-    bool hasChanges();
+    bool hasChanges() Q_DECL_OVERRIDE;
 
     QString currentMake() const;
     QString currentMakeAndModel() const;
     void reloadPPD();
 
-    void save();
+    void save() Q_DECL_OVERRIDE;
 
 private slots:
     void on_autoConfigurePB_clicked();

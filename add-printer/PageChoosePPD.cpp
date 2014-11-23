@@ -30,7 +30,7 @@
 #include <QFile>
 #include <QStringBuilder>
 
-#include <KDebug>
+#include <QDebug>
 #include <KUrl>
 #include <KTemporaryFile>
 
@@ -74,7 +74,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
 
     if (args[ADDING_PRINTER].toBool()) {
 
-        kDebug() << args;
+        qDebug() << args;
         working();
         removeTempPPD();
         QString deviceId = args[KCUPS_DEVICE_ID].toString();
@@ -93,7 +93,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
             if (url.port() < 0) {
                 url.setPort(631);
             }
-            kDebug() << deviceURI << url;
+            qDebug() << deviceURI << url;
             KJob *job = KIO::file_copy(url,
                                       tempFile->fileName(),
                                       -1,
@@ -176,7 +176,7 @@ bool PageChoosePPD::canProceed() const
         allow = !m_selectMM->selectedPPDName().isNull();
     }
 
-    kDebug() << allow;
+    qDebug() << allow;
     return allow;
 }
 

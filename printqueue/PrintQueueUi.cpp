@@ -36,7 +36,7 @@
 #include <QProcess>
 
 #include <KMessageBox>
-#include <KDebug>
+#include <QDebug>
 #include <KIconLoader>
 #include <KSharedConfig>
 
@@ -226,7 +226,7 @@ int PrintQueueUi::columnCount(const QModelIndex &parent) const
 
 void PrintQueueUi::setState(int state, const QString &message)
 {
-    kDebug() << state << message;
+    qDebug() << state << message;
     if (state != m_lastState ||
         ui->printerStatusMsgL->text() != message) {
         // save the last state so the ui doesn't need to keep updating
@@ -373,7 +373,7 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
 
 void PrintQueueUi::updatePrinter(const QString &printer)
 {
-    kDebug() << printer << m_destName;
+    qDebug() << printer << m_destName;
     if (printer != m_destName) {
         // It was another printer that changed
         return;
@@ -398,7 +398,7 @@ void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri,
     Q_UNUSED(printerState)
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
-    kDebug() << printerName << printerStateReasons;
+    qDebug() << printerName << printerStateReasons;
 
     updatePrinter(printerName);
 }
@@ -406,7 +406,7 @@ void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri,
 void PrintQueueUi::getAttributesFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
-    kDebug() << request->hasError() << request->printers().isEmpty();
+    qDebug() << request->hasError() << request->printers().isEmpty();
 
     if (request->hasError() || request->printers().isEmpty()) {
         // if cups stops we disable our queue
@@ -545,10 +545,10 @@ void PrintQueueUi::pausePrinter()
     // STOP and RESUME printer
     QPointer<KCupsRequest> request = new KCupsRequest;
     if (m_printerPaused) {
-        kDebug() << m_destName << "m_printerPaused";
+        qDebug() << m_destName << "m_printerPaused";
         request->resumePrinter(m_destName);
     } else {
-        kDebug() << m_destName << "NOT m_printerPaused";
+        qDebug() << m_destName << "NOT m_printerPaused";
         request->pausePrinter(m_destName);
     }
     request->waitTillFinished();

@@ -28,7 +28,7 @@
 #include <KCategoryDrawer>
 #include <KIconLoader>
 
-#include <KDebug>
+#include <QDebug>
 
 PageAddPrinter::PageAddPrinter(QWidget *parent) :
     GenericPage(parent),
@@ -136,7 +136,7 @@ bool PageAddPrinter::finishClicked()
     request->waitTillFinished();
     if (request) {
         if (request->hasError()) {
-            kDebug() << request->error() << request->errorMsg();
+            qDebug() << request->error() << request->errorMsg();
             QString message;
             if (isClass) {
                 message = i18nc("@info", "Failed to add class: '%1'", request->errorMsg());

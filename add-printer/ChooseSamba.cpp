@@ -25,10 +25,9 @@
 
 #include <QPainter>
 #include <QStringBuilder>
+#include <QDebug>
 
 #include <KUrl>
-
-#include <KDebug>
 
 ChooseSamba::ChooseSamba(QWidget *parent) :
     GenericPage(parent),
@@ -77,7 +76,7 @@ QVariantHash ChooseSamba::values() const
         url = QLatin1String("smb://") % address;
     }
 
-    kDebug() << 1 << url;
+    qDebug() << 1 << url;
     if (!ui->usernameLE->text().isEmpty()) {
         url.setUser(ui->usernameLE->text());
     }
@@ -86,10 +85,10 @@ QVariantHash ChooseSamba::values() const
         url.setPass(ui->passwordLE->text());
     }
 
-    kDebug() << 2 << url;
-    kDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);// same as url.fileName()
-    kDebug() << 4 << url.fileName();
-    kDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
+    qDebug() << 2 << url;
+    qDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);// same as url.fileName()
+    qDebug() << 4 << url.fileName();
+    qDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
 
     ret[KCUPS_DEVICE_URI] = url.url();
     ret[KCUPS_DEVICE_INFO] = url.fileName();

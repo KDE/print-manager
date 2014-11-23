@@ -27,7 +27,6 @@
 
 #include <QPainter>
 
-#include <KDebug>
 #include <KIconLoader>
 
 PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent) :

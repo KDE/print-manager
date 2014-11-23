@@ -22,12 +22,13 @@
 
 #include <config.h>
 
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KAboutData>
 #include <KDBusService>
+
 #include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QDebug>
 
 int main(int argc, char **argv)
 {
@@ -59,7 +60,7 @@ int main(int argc, char **argv)
         QString printerName = args.at(0);
         app.configurePrinter(printerName);
     } else {
-        qDebug() << "No printer was specified";
+        qWarning() << "No printer was specified";
         return 1;
     }
 

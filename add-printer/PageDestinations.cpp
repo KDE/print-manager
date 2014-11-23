@@ -34,8 +34,7 @@
 
 #include <QItemSelectionModel>
 #include <QStringBuilder>
-
-#include <KDebug>
+#include <QDebug>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
 PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
@@ -200,7 +199,7 @@ void PageDestinations::deviceUriChanged()
 
     // "beh" is excluded from the list
     QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-    kDebug() << deviceUri;
+    qDebug() << deviceUri;
     if (deviceUri.startsWith(QLatin1String("parallel"))) {
         m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
         setCurrentPage(m_chooseLabel, args);
@@ -247,7 +246,7 @@ void PageDestinations::deviceUriChanged()
         m_chooseLabel->setText(text);
         setCurrentPage(m_chooseLabel, args);
     } else if (deviceUri.startsWith(QLatin1String("socket"))) {
-        kDebug() << "SOCKET";
+        qDebug() << "SOCKET";
         setCurrentPage(m_chooseSocket, args);
     } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
                deviceUri.startsWith(QLatin1String("ipps")) ||
@@ -310,11 +309,11 @@ QVariantHash PageDestinations::selectedItemValues() const
             ret[KCUPS_DEVICE_URI] = url.url();
             ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
             ret[KCUPS_PRINTER_INFO] = printer.info();
-            kDebug() << KCUPS_PRINTER_INFO << printer.info();
+            qDebug() << KCUPS_PRINTER_INFO << printer.info();
             ret[KCUPS_PRINTER_NAME] = printer.name();
             ret[KCUPS_DEVICE_LOCATION] = printer.location();
         }
-        kDebug() << uri << ret;
+        qDebug() << uri << ret;
     }
     return ret;
 }

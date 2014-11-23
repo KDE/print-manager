@@ -24,7 +24,6 @@
 #include <KCupsRequest.h>
 
 #include <QPainter>
-#include <KDebug>
 
 ChooseSerial::ChooseSerial(QWidget *parent) :
     GenericPage(parent),

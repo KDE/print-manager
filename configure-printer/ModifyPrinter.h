@@ -46,16 +46,16 @@ public:
     explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = 0);
     ~ModifyPrinter();
 
-    bool hasChanges();
-    QVariantHash modifiedValues() const;
-    QStringList neededValues() const;
-    void setRemote(bool remote);
+    bool hasChanges() Q_DECL_OVERRIDE;
+    QVariantHash modifiedValues() const Q_DECL_OVERRIDE;
+    QStringList neededValues() const Q_DECL_OVERRIDE;
+    void setRemote(bool remote) Q_DECL_OVERRIDE;
 
     void setValues(const KCupsPrinter &printer);
     void setCurrentMake(const QString &make);
     void setCurrentMakeAndModel(const QString &makeAndModel);
 
-    void save();
+    void save() Q_DECL_OVERRIDE;
 
 signals:
     void ppdChanged();

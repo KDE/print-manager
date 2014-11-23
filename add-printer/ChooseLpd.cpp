@@ -25,8 +25,8 @@
 
 #include <QPainter>
 #include <QStringBuilder>
+#include <QDebug>
 
-#include <KDebug>
 #include <KUrl>
 
 ChooseLpd::ChooseLpd(QWidget *parent) :
@@ -47,14 +47,14 @@ ChooseLpd::~ChooseLpd()
 
 void ChooseLpd::on_addressLE_textChanged(const QString &text)
 {
-    kDebug() << text;
+    qDebug() << text;
 }
 
 void ChooseLpd::setValues(const QVariantHash &args)
 {
     m_args = args;
     const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-    kDebug() << deviceUri;
+    qDebug() << deviceUri;
     if (deviceUri.contains(QLatin1Char('/'))) {
         m_isValid = false;
         return;

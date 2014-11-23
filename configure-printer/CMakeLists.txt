@@ -26,7 +26,6 @@ add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
     Qt5::Core
     Qt5::Widgets
-    KF5::Completion
     KF5::CoreAddons
     KF5::I18n
     KF5::IconThemes

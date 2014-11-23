@@ -26,7 +26,6 @@
 #include <QStringBuilder>
 #include <QPainter>
 
-#include <KDebug>
 #include <KUrl>
 
 ChooseSocket::ChooseSocket(QWidget *parent) :

@@ -18,7 +18,6 @@ target_link_libraries(kcm_printer_manager
     KF5::I18n
     KF5::IconThemes
     KF5::KCMUtils
-#     KF5::KDELibs4Support
     kcupslib
 )
 

@@ -19,6 +19,7 @@
  */
 
 import QtQuick 2.2
+import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
@@ -134,10 +135,27 @@ PlasmaComponents.ListItem {
     }
 
     Component {
-        id: detailsComponent
+        id: jobsListComponent
 
         Item {
             height: childrenRect.height
+
+            PlasmaCore.SvgItem {
+                id: detailsSeparator
+
+                anchors {
+                    left: parent.left
+                    leftMargin: Math.round(units.gridUnit / 3)
+                    right: parent.right
+                    top: detailsSeparator.bottom
+                    topMargin: Math.round(units.gridUnit / 3)
+                }
+
+                height: lineSvg.elementSize("horizontal-line").height
+                width: parent.width
+                elementId: "horizontal-line"
+                svg: PlasmaCore.Svg { id: lineSvg; imagePath: "widgets/line" }
+            }
 
             PlasmaExtras.ScrollArea {
                 id: scrollView
@@ -159,11 +177,53 @@ PlasmaComponents.ListItem {
                             ListView.view.currentIndex = -1
                         }
                     }
-
-                    Component.onCompleted: {
-                        jobsFilterModel.filteredPrinters = printerName
-                    }
                 }
+            }
+        }
+    }
+
+    Component {
+        id: noJobComponent
+
+        Item {
+            height: childrenRect.height
+
+            PlasmaCore.SvgItem {
+                id: detailsSeparator
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    top: parent.top
+                }
+
+                height: lineSvg.elementSize("horizontal-line").height
+                width: parent.width
+                elementId: "horizontal-line"
+                svg: PlasmaCore.Svg { id: lineSvg; imagePath: "widgets/line" }
+            }
+
+            KQuickControlsAddons.QIconItem {
+                id: noJobIcon
+                anchors {
+                    top: detailsSeparator.bottom
+                    topMargin: Math.round(units.gridUnit / 3)
+                }
+                width: units.iconSizes.small
+                height: width
+                icon: "dialog-information"
+            }
+
+            PlasmaComponents.Label {
+                id: noJobLabel
+                anchors {
+                    left: noJobIcon.right
+                    leftMargin: Math.round(units.gridUnit / 3)
+                    top: detailsSeparator.bottom
+                    topMargin: Math.round(units.gridUnit / 3)
+                }
+                height: paintedHeight
+                text: i18n("No job available")
             }
         }
     }
@@ -211,10 +271,17 @@ PlasmaComponents.ListItem {
         if (!expanded) {
             ListView.view.currentIndex = -1
             jobsFilterModel.filteredPrinters = ""
+            printerItem.checked = false
         }
     }
 
     function createContent() {
-        expandableComponentLoader.sourceComponent = detailsComponent
+        jobsFilterModel.filteredPrinters = printerName
+        if (jobsFilterModel.count > 0) {
+            expandableComponentLoader.sourceComponent = jobsListComponent
+        } else {
+            expandableComponentLoader.sourceComponent = noJobComponent
+            printerItem.checked = ListView.isCurrentItem
+        }
     }
 }

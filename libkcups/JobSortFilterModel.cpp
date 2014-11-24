@@ -37,6 +37,14 @@ JobSortFilterModel::JobSortFilterModel(QObject *parent) :
             this, SIGNAL(activeCountChanged()));
     connect(this, SIGNAL(modelReset()),
             this, SIGNAL(activeCountChanged()));
+    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
+            this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
+            this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
+            this, SIGNAL(countChanged()));
+    connect(this, SIGNAL(modelReset()),
+            this, SIGNAL(countChanged()));
 }
 
 void JobSortFilterModel::setModel(QAbstractItemModel *model)
@@ -76,6 +84,11 @@ int JobSortFilterModel::activeCount() const
         }
     }
     return active;
+}
+
+int JobSortFilterModel::count() const
+{
+    return rowCount();
 }
 
 bool JobSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

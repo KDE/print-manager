@@ -87,6 +87,7 @@ PlasmaComponents.ListItem {
 
             height: paintedHeight
             elide: Text.ElideRight
+            font.weight: isDefault ? Font.DemiBold : Font.Normal
             text: printerName
         }
 

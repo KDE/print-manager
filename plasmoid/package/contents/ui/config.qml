@@ -20,7 +20,6 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1 as Controls
 import QtQuick.Layouts 1.1 as Layouts
-
 import org.kde.plasma.core 2.0 as PlasmaCore
 
 

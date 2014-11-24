@@ -19,7 +19,7 @@
  */
 
 import QtQuick 2.2
-import org.kde.printmanager 0.1 as PrintManager
+import org.kde.plasma.printmanager 0.2 as PrintManager
 
 FocusScope {
     id: dialog

@@ -1,2 +1,2 @@
-module org.kde.printmanager
+module org.kde.plasma.printmanager
 plugin printmanager

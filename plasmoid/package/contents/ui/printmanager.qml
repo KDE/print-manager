@@ -53,4 +53,8 @@ Item {
             }
         }
     }
+
+    onJobsFilterChanged: {
+        jobsModel.setWhichJobs(jobsFilter)
+    }
 }

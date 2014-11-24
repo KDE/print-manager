@@ -41,7 +41,7 @@ target_link_libraries(kde-add-printer
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::ConfigCore
-    KF5::KDELibs4Support
+    KF5::ItemViews
     ${CUPS_LIB}
     kcupslib
 )

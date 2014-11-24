@@ -34,7 +34,7 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="KComboBox" name="baudRateCB"/>
+    <widget class="QComboBox" name="baudRateCB"/>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_3">
@@ -47,7 +47,7 @@
     </widget>
    </item>
    <item row="1" column="1">
-    <widget class="KComboBox" name="parityCB"/>
+    <widget class="QComboBox" name="parityCB"/>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_4">
@@ -60,7 +60,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="KComboBox" name="bitsCB">
+    <widget class="QComboBox" name="bitsCB">
      <item>
       <property name="text">
        <string notr="true">8</string>
@@ -84,17 +84,10 @@
     </widget>
    </item>
    <item row="3" column="1">
-    <widget class="KComboBox" name="flowCB"/>
+    <widget class="QComboBox" name="flowCB"/>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -24,11 +24,12 @@
 #include <KCupsRequest.h>
 
 #include <QPainter>
+#include <QPointer>
+#include <QDebug>
+
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
 #include <KIconLoader>
-
-#include <QDebug>
 
 PageAddPrinter::PageAddPrinter(QWidget *parent) :
     GenericPage(parent),

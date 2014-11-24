@@ -37,9 +37,9 @@ ChooseSamba::ChooseSamba(QWidget *parent) :
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    connect(ui->addressLE, &KLineEdit::textChanged, this, &ChooseSamba::checkSelected);
-    connect(ui->usernameLE, &KLineEdit::textChanged, this, &ChooseSamba::checkSelected);
-    connect(ui->passwordLE, &KLineEdit::textChanged, this, &ChooseSamba::checkSelected);
+    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
+    connect(ui->usernameLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
+    connect(ui->passwordLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
 }
 
 ChooseSamba::~ChooseSamba()

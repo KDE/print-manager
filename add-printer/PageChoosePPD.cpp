@@ -29,10 +29,9 @@
 #include <QFileInfo>
 #include <QFile>
 #include <QStringBuilder>
-
 #include <QDebug>
 #include <QUrl>
-#include <KTemporaryFile>
+#include <QTemporaryFile>
 
 PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
@@ -85,11 +84,10 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         // If
         QUrl url(deviceURI % QStringLiteral(".ppd"));
         if (url.scheme() == QStringLiteral("ipp")) {
-            KTemporaryFile *tempFile = new KTemporaryFile;
-            tempFile->setPrefix("print-manager");
-            tempFile->setSuffix(".ppd");
+            QTemporaryFile *tempFile = new QTemporaryFile;
+            tempFile->setFileTemplate(QStringLiteral("print-manager-XXXXXX.ppd"));
             tempFile->open();
-            url.setScheme(QLatin1String("http"));
+            url.setScheme(QStringLiteral("http"));
             if (url.port() < 0) {
                 url.setPort(631);
             }
@@ -104,7 +102,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
 
         // Get the make from the device id
         foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
-            if (pair.startsWith(QLatin1String("MFG:"))) {
+            if (pair.startsWith(QStringLiteral("MFG:"))) {
                 make = pair.section(QLatin1Char(':'), 1);
                 break;
             }
@@ -113,7 +111,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         if (makeAndModel.isEmpty()) {
             // Get the model  from the device id
             foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
-                if (pair.startsWith(QLatin1String("MDL:"))) {
+                if (pair.startsWith(QStringLiteral("MDL:"))) {
                     // Build the make and model string
                     if (make.isNull()) {
                         makeAndModel = pair.section(QLatin1Char(':'), 1);
@@ -202,7 +200,7 @@ void PageChoosePPD::resultJob(KJob *job)
 
 void PageChoosePPD::removeTempPPD()
 {
-    if (!m_ppdFile.isNull()) {
+    if (!m_ppdFile.isEmpty()) {
         QFile::remove(m_ppdFile);
         m_ppdFile.clear();
     }

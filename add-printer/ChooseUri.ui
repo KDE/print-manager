@@ -45,7 +45,7 @@
    <item row="0" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="KLineEdit" name="addressLE"/>
+      <widget class="QLineEdit" name="addressLE"/>
      </item>
      <item>
       <widget class="QToolButton" name="searchTB">
@@ -97,13 +97,6 @@ Printers&quot;&lt;/A&gt; for the correct URI to use with your printer.&lt;/P&gt;
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -22,7 +22,7 @@
 
 #include <KCupsRequest.h>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include <QHostInfo>

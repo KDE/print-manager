@@ -33,7 +33,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="KLineEdit" name="nameLE">
+      <widget class="QLineEdit" name="nameLE">
        <property name="toolTip">
         <string>May contain any printable characters except &quot;/&quot;, &quot;#&quot;, and space</string>
        </property>
@@ -47,7 +47,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="KLineEdit" name="descriptionLE"/>
+      <widget class="QLineEdit" name="descriptionLE"/>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_4">
@@ -57,7 +57,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="KLineEdit" name="locationLE"/>
+      <widget class="QLineEdit" name="locationLE"/>
      </item>
      <item row="3" column="1">
       <widget class="QCheckBox" name="shareCB">
@@ -133,11 +133,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
   <customwidget>
    <class>KMessageWidget</class>
    <extends>QWidget</extends>

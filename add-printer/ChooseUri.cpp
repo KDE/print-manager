@@ -37,8 +37,8 @@ ChooseUri::ChooseUri(QWidget *parent) :
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    connect(ui->addressLE, &KLineEdit::textChanged, this, &ChooseUri::checkSelected);
-    connect(ui->addressLE, &KLineEdit::returnPressed, this, &ChooseUri::findPrinters);
+    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseUri::checkSelected);
+    connect(ui->addressLE, &QLineEdit::returnPressed, this, &ChooseUri::findPrinters);
     connect(ui->searchTB, &QToolButton::clicked, this, &ChooseUri::findPrinters);
 }
 

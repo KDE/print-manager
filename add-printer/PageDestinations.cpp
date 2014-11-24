@@ -99,7 +99,7 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     connect(m_model, &DevicesModel::parentAdded, ui->devicesTV, &QTreeView::expand);
 
     // Update the view when the device URI combo box changed
-    connect(ui->connectionsCB, static_cast<void (KComboBox::*)(int)>(&KComboBox::currentIndexChanged), this, &PageDestinations::deviceUriChanged);
+    connect(ui->connectionsCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PageDestinations::deviceUriChanged);
     ui->connectionsGB->setVisible(false);
 
     // Setup the busy cursor

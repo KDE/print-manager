@@ -78,8 +78,7 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
 
     ui->ppdsLV->setModel(m_sourceModel);
     ui->ppdsLV->setItemDelegate(new NoSelectionRectDelegate(this));
-    connect(m_sourceModel, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(checkChanged()));
+    connect(m_sourceModel, &PPDModel::dataChanged, this, &SelectMakeModel::checkChanged);
 
     // Clear the PPD view selection, so the Next/Finish button gets disabled
     connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
@@ -90,8 +89,8 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
             this, SLOT(checkChanged()));
 
     // When the radio button changes the signal must be emitted
-    connect(ui->ppdFileRB, SIGNAL(toggled(bool)), this, SLOT(checkChanged()));
-    connect(ui->ppdFilePathUrl, SIGNAL(textChanged(QString)), this, SLOT(checkChanged()));
+    connect(ui->ppdFileRB, &QRadioButton::toggled, this, &SelectMakeModel::checkChanged);
+    connect(ui->ppdFilePathUrl, &KUrlRequester::textChanged, this, &SelectMakeModel::checkChanged);
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
@@ -126,7 +125,7 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
 
     if (!m_ppdRequest) {
         m_ppdRequest = new KCupsRequest;
-        connect(m_ppdRequest, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
+        connect(m_ppdRequest, &KCupsRequest::finished, this, &SelectMakeModel::ppdsLoaded);
         m_ppdRequest->getPPDS();
     }
 }
@@ -143,7 +142,7 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
         m_makeAndModel = makeAndModel;
 
         m_ppdRequest = new KCupsRequest;
-        connect(m_ppdRequest, SIGNAL(finished()), this, SLOT(ppdsLoaded()));
+        connect(m_ppdRequest, &KCupsRequest::finished, this, &SelectMakeModel::ppdsLoaded);
         m_ppdRequest->getPPDS();
     } else {
         // TODO test this

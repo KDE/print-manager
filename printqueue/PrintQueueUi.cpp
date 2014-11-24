@@ -56,15 +56,15 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
 
     // since setupUi needs to setup on the mainWidget()
     // we need to manually connect the buttons
-    connect(ui->cancelJobPB, SIGNAL(clicked()), this, SLOT(cancelJob()));
-    connect(ui->holdJobPB, SIGNAL(clicked()), this, SLOT(holdJob()));
-    connect(ui->resumeJobPB, SIGNAL(clicked()), this, SLOT(resumeJob()));
-    connect(ui->reprintPB, SIGNAL(clicked()), this, SLOT(reprintJob()));
+    connect(ui->cancelJobPB, &QPushButton::clicked, this, &PrintQueueUi::cancelJob);
+    connect(ui->holdJobPB, &QPushButton::clicked, this, &PrintQueueUi::holdJob);
+    connect(ui->resumeJobPB, &QPushButton::clicked, this, &PrintQueueUi::resumeJob);
+    connect(ui->reprintPB, &QPushButton::clicked, this, &PrintQueueUi::reprintJob);
 
-    connect(ui->pausePrinterPB, SIGNAL(clicked()), this, SLOT(pausePrinter()));
-    connect(ui->configurePrinterPB, SIGNAL(clicked()), this, SLOT(configurePrinter()));
+    connect(ui->pausePrinterPB, &QPushButton::clicked, this, &PrintQueueUi::pausePrinter);
+    connect(ui->configurePrinterPB, &QPushButton::clicked, this, &PrintQueueUi::configurePrinter);
 
-    connect(ui->whichJobsCB, SIGNAL(currentIndexChanged(int)), this, SLOT(whichJobsIndexChanged(int)));
+    connect(ui->whichJobsCB, static_cast<void (KComboBox::*)(int)>(&KComboBox::currentIndexChanged), this, &PrintQueueUi::whichJobsIndexChanged);
 
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
@@ -105,10 +105,8 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     m_model = new JobModel(this);
     m_model->setParentWId(winId());
     m_model->init(printer.name());
-    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(updateButtons()));
-    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(update()));
+    connect(m_model, &JobModel::dataChanged, this, &PrintQueueUi::updateButtons);
+    connect(m_model, &JobModel::dataChanged, this, &PrintQueueUi::update);
     m_proxyModel = new JobSortFilterModel(this);
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->setDynamicSortFilter(true);
@@ -119,8 +117,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     ui->jobsView->sortByColumn(JobModel::ColStatus, Qt::AscendingOrder);
     connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(updateButtons()));
-    connect(ui->jobsView, SIGNAL(customContextMenuRequested(QPoint)),
-            this, SLOT(showContextMenu(QPoint)));
+    connect(ui->jobsView, &QTreeView::customContextMenuRequested, this, &PrintQueueUi::showContextMenu);
     ui->jobsView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->jobsView->header(), SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(showHeaderContextMenu(QPoint)));
@@ -153,39 +150,27 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     }
 
     // This is emitted when a printer is modified
-    connect(KCupsConnection::global(),
-            SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer has it's state changed
-    connect(KCupsConnection::global(),
-            SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is stopped
-    connect(KCupsConnection::global(),
-            SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is restarted
-    connect(KCupsConnection::global(),
-            SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is shutdown
-    connect(KCupsConnection::global(),
-            SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is removed
-    connect(KCupsConnection::global(),
-            SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer/queue is changed
@@ -388,7 +373,7 @@ void PrintQueueUi::updatePrinter(const QString &printer)
     attr << KCUPS_PRINTER_STATE_MESSAGE;
 
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrintQueueUi::getAttributesFinished);
     request->getPrinterAttributes(printer, m_isClass, attr);
 }
 

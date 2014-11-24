@@ -68,9 +68,8 @@ void DevicesModel::update()
         removeRows(1, rowCount() - 1);
     }
     m_request = new KCupsRequest;
-    connect(m_request, SIGNAL(device(QString,QString,QString,QString,QString,QString)),
-            this, SLOT(gotDevice(QString,QString,QString,QString,QString,QString)));
-    connect(m_request, SIGNAL(finished()), this, SLOT(finished()));
+    connect(m_request, &KCupsRequest::device, this, &DevicesModel::gotDevice);
+    connect(m_request, &KCupsRequest::finished, this, &DevicesModel::finished);
 
     // Get devices with 5 seconds of timeout
     m_request->getDevices(10);

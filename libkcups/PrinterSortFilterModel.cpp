@@ -29,12 +29,9 @@ PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
     setSortCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
 
-    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SIGNAL(countChanged()));
-    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SIGNAL(countChanged()));
-    connect(this, SIGNAL(modelReset()),
-            this, SIGNAL(countChanged()));
+    connect(this, &PrinterSortFilterModel::rowsInserted, this, &PrinterSortFilterModel::countChanged);
+    connect(this, &PrinterSortFilterModel::rowsRemoved, this, &PrinterSortFilterModel::countChanged);
+    connect(this, &PrinterSortFilterModel::modelReset, this, &PrinterSortFilterModel::countChanged);
 }
 
 void PrinterSortFilterModel::setModel(QAbstractItemModel *model)

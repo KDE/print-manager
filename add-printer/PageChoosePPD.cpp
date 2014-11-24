@@ -49,11 +49,11 @@ PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     m_layout->setContentsMargins(0, 0, 0, 0);
     ui->gridLayout->addLayout(m_layout, 1, 3);
     m_selectMM = new SelectMakeModel(this);
-    connect(m_selectMM, SIGNAL(changed(bool)), this, SLOT(checkSelected()));
+    connect(m_selectMM, &SelectMakeModel::changed, this, &PageChoosePPD::checkSelected);
     m_layout->addWidget(m_selectMM);
 
     // Setup the busy cursor
-    connect(m_selectMM, SIGNAL(changed(bool)), this, SLOT(notWorking()));
+    connect(m_selectMM, &SelectMakeModel::changed, this, &PageChoosePPD::notWorking);
 
     if (!args.isEmpty()) {
         // set our args
@@ -99,8 +99,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
                                       -1,
                                       KIO::Overwrite | KIO::HideProgressInfo);
             job->setProperty("URI", deviceURI);
-            connect(job, SIGNAL(result(KJob*)),
-                    this, SLOT(resultJob(KJob*)));
+            connect(job, &KJob::result, this, &PageChoosePPD::resultJob);
         }
 
         // Get the make from the device id

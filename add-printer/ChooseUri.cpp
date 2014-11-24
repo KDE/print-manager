@@ -37,9 +37,9 @@ ChooseUri::ChooseUri(QWidget *parent) :
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
-    connect(ui->addressLE, SIGNAL(returnPressed()), this, SLOT(findPrinters()));
-    connect(ui->searchTB, SIGNAL(clicked()), this, SLOT(findPrinters()));
+    connect(ui->addressLE, &KLineEdit::textChanged, this, &ChooseUri::checkSelected);
+    connect(ui->addressLE, &KLineEdit::returnPressed, this, &ChooseUri::findPrinters);
+    connect(ui->searchTB, &QToolButton::clicked, this, &ChooseUri::findPrinters);
 }
 
 ChooseUri::~ChooseUri()
@@ -117,7 +117,7 @@ void ChooseUri::findPrinters()
 
     KCupsConnection *conn = new KCupsConnection(url, this);
     KCupsRequest *request = new KCupsRequest(conn);
-    connect(request, SIGNAL(finished()), this, SLOT(getPrintersFinished()));
+    connect(request, &KCupsRequest::finished, this, &ChooseUri::getPrintersFinished);
 
     QStringList attr;
     attr << KCUPS_PRINTER_NAME;

@@ -41,7 +41,7 @@ KCupsRequest::KCupsRequest(KCupsConnection *connection) :
     if (m_connection == 0) {
         m_connection = KCupsConnection::global();
     }
-    connect(this, SIGNAL(finished()), &m_loop, SLOT(quit()));
+    connect(this, &KCupsRequest::finished, &m_loop, &QEventLoop::quit);
 }
 
 QString KCupsRequest::serverError() const

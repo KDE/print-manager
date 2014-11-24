@@ -37,7 +37,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="KLineEdit" name="descriptionLE">
+      <widget class="QLineEdit" name="descriptionLE">
        <property name="toolTip">
         <string>Human-readable description such as &quot;HP LaserJet with Duplexer&quot;</string>
        </property>
@@ -57,7 +57,7 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="KLineEdit" name="locationLE">
+      <widget class="QLineEdit" name="locationLE">
        <property name="toolTip">
         <string>Human-readable location such as &quot;Lab 1&quot;</string>
        </property>
@@ -84,7 +84,7 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="KLineEdit" name="connectionLE">
+      <widget class="QLineEdit" name="connectionLE">
        <property name="whatsThis">
         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -131,7 +131,7 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="KComboBox" name="makeCB">
+      <widget class="QComboBox" name="makeCB">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -158,16 +158,6 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
   <customwidget>
    <class>ClassListWidget</class>
    <extends>QListView</extends>

@@ -39,12 +39,13 @@
 #include <NoSelectionRectDelegate.h>
 
 #include <QFormLayout>
-#include <KComboBox>
+#include <QComboBox>
 #include <QRadioButton>
 #include <QButtonGroup>
 #include <QStandardItemModel>
 #include <QListView>
 #include <QGroupBox>
+#include <QPointer>
 
 #include <ctype.h>
 
@@ -335,7 +336,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
     int i;
     ppd_choice_t *choice;
     QString defChoice = m_codec->toUnicode(option->defchoice);
-    KComboBox *comboBox = new KComboBox(parent);
+    QComboBox *comboBox = new QComboBox(parent);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
@@ -359,7 +360,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 
 void PrinterOptions::currentIndexChangedCB(int index)
 {
-    KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
+    QComboBox *comboBox = qobject_cast<QComboBox*>(sender());
     bool isDifferent = comboBox->property(DEFAULT_CHOICE).toString() != comboBox->itemData(index);
 
     if (isDifferent != comboBox->property("different").toBool()) {

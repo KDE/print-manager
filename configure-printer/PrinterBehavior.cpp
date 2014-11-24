@@ -23,7 +23,7 @@
 
 #include "Debug.h"
 
-#include <KComboBox>
+#include <QPointer>
 
 PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent) :
     PrinterPage(parent),
@@ -173,7 +173,7 @@ void PrinterBehavior::userListChanged()
 
 void PrinterBehavior::currentIndexChangedCB(int index)
 {
-    KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
+    QComboBox *comboBox = qobject_cast<QComboBox*>(sender());
     bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
 
     if (isDifferent != comboBox->property("different").toBool()) {

@@ -25,8 +25,10 @@
 #include "Debug.h"
 #include "SelectMakeModel.h"
 
-#include <KDialog>
+#include <QPointer>
 #include <QPushButton>
+
+#include <KDialog>
 #include <KConfig>
 #include <KConfigGroup>
 #include <KIconLoader>
@@ -225,7 +227,7 @@ void ModifyPrinter::modelChanged()
 
 void ModifyPrinter::textChanged(const QString &text)
 {
-    KLineEdit *le = qobject_cast<KLineEdit *>(sender());
+    QLineEdit *le = qobject_cast<QLineEdit *>(sender());
 
     bool isDifferent = le->property("orig_text") != text;
     if (isDifferent != le->property("different").toBool()) {

@@ -35,6 +35,7 @@
 #include <QStringBuilder>
 #include <QProcess>
 #include <QDebug>
+#include <QPointer>
 
 #include <KMessageBox>
 #include <KIconLoader>
@@ -64,7 +65,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     connect(ui->pausePrinterPB, &QPushButton::clicked, this, &PrintQueueUi::pausePrinter);
     connect(ui->configurePrinterPB, &QPushButton::clicked, this, &PrintQueueUi::configurePrinter);
 
-    connect(ui->whichJobsCB, static_cast<void (KComboBox::*)(int)>(&KComboBox::currentIndexChanged), this, &PrintQueueUi::whichJobsIndexChanged);
+    connect(ui->whichJobsCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PrintQueueUi::whichJobsIndexChanged);
 
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);

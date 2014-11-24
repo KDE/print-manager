@@ -23,7 +23,6 @@ target_link_libraries(kde-print-queue
     KF5::WidgetsAddons
     KF5::DBusAddons
     KF5::ConfigCore
-    KF5::KDELibs4Support
     ${CUPS_LIB}
     kcupslib
 )

@@ -1,5 +1,6 @@
 /*
  *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2014 Jan Grulich <jgrulich@redhat.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -19,20 +20,37 @@
 
 import QtQuick 2.2
 import org.kde.plasma.plasmoid 2.0
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.printmanager 0.1 as PrintManager
 
 Item {
     id: printmanager
+
+    property int jobsFilter: printmanager.Plasmoid.configuration.allJobs ? PrintManager.JobModel.WhichAll :
+                             printmanager.Plasmoid.configuration.completedJobs ? PrintManager.JobModel.WhichCompleted : PrintManager.JobModel.WhichActive
 
     Plasmoid.toolTipMainText: i18n("Printers");
     Plasmoid.icon: "printer";
     Plasmoid.compactRepresentation: CompactRepresentation { }
     Plasmoid.fullRepresentation: PopupDialog {
-        id: dialogItem;
+        id: dialogItem
 
-        anchors.fill: parent;
-        focus: true;
+        anchors.fill: parent
+        focus: true
     }
 
-    Plasmoid.switchWidth: units.gridUnit * 10;
-    Plasmoid.switchHeight: units.gridUnit * 10;
+    Plasmoid.switchWidth: units.gridUnit * 10
+    Plasmoid.switchHeight: units.gridUnit * 10
+    Plasmoid.status: (jobsFilterModel.activeCount > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+
+    PrintManager.JobSortFilterModel {
+        id: jobsFilterModel
+        sourceModel: PrintManager.JobModel {
+            id: jobsModel
+
+            Component.onCompleted: {
+                setWhichJobs(printmanager.jobsFilter)
+            }
+        }
+    }
 }

@@ -1,5 +1,6 @@
 /*
- *   Copyright 2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2014 Jan Grulich <jgrulich@redhat.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as

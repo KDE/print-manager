@@ -1,5 +1,6 @@
 /*
- *   Copyright 2012 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2014 Jan Grulich <jgrulich@redhat.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -18,20 +19,15 @@
  */
 
 import QtQuick 2.2
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
-import org.kde.printmanager 0.1 as PrintManager
 
 PlasmaComponents.ListItem {
     id: printerItem
 
     property bool expanded: false
     property bool isPaused: false
-    property int jobsFilter: printmanager.Plasmoid.configuration.allJobs ? PrintManager.JobModel.WhichAll :
-                             printmanager.Plasmoid.configuration.completedJobs ? PrintManager.JobModel.WhichCompleted : PrintManager.JobModel.WhichActive
 
     height: expanded ? printerBaseItem.height + expandableComponentLoader.height + Math.round(units.gridUnit / 3) : printerBaseItem.height
 //     checked: ListView.isCurrentItem
@@ -78,7 +74,7 @@ PlasmaComponents.ListItem {
             Behavior on opacity { PropertyAnimation {} }
         }
 
-         PlasmaComponents.Label {
+        PlasmaComponents.Label {
             id: printerNameLabel
 
             anchors {
@@ -156,22 +152,17 @@ PlasmaComponents.ListItem {
 
                     boundsBehavior: Flickable.StopAtBounds;
                     clip: true;
-                    model: PrintManager.JobSortFilterModel {
-                        id: jobsFilterModel
-                        sourceModel: PrintManager.JobModel {
-                            id: jobsModel
-
-                            Component.onCompleted: {
-                                setWhichJobs(printerItem.jobsFilter)
-                            }
-                        }
-                        filteredPrinters: printerName
-                    }
+                    model: jobsFilterModel
                     delegate: JobItem {
                         onClicked: {
                             printerItem.expanded = false
                             ListView.view.currentIndex = -1;
                         }
+                    }
+
+                    Component.onCompleted: {
+                        jobsFilterModel.filteredPrinters = printerName
+                        console.log(jobsFilterModel.filteredPrinters)
                     }
                 }
             }

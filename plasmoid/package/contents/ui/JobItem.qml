@@ -1,5 +1,6 @@
 /*
  *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2014 Jan Grulich <jgrulich@redhat.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -18,7 +19,6 @@
  */
 
 import QtQuick 2.2
-import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
 
@@ -83,16 +83,6 @@ PlasmaComponents.ListItem {
             id: actionRow
             width: parent.width
             spacing: 4
-
-//             PlasmaCore.SvgItem {
-//                 svg: PlasmaCore.Svg {
-//                     id: lineSvg
-//                     imagePath: "widgets/line"
-//                 }
-//                 elementId: "horizontal-line"
-//                 height: lineSvg.elementSize("horizontal-line").height
-//                 width: parent.width
-//             }
 
             Row {
                 id: columnButton

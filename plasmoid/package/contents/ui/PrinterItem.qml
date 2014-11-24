@@ -162,7 +162,6 @@ PlasmaComponents.ListItem {
 
                     Component.onCompleted: {
                         jobsFilterModel.filteredPrinters = printerName
-                        console.log(jobsFilterModel.filteredPrinters)
                     }
                 }
             }
@@ -210,11 +209,12 @@ PlasmaComponents.ListItem {
         expanded = !expanded
 
         if (!expanded) {
-            ListView.view.currentIndex = -1;
+            ListView.view.currentIndex = -1
+            jobsFilterModel.filteredPrinters = ""
         }
     }
 
     function createContent() {
-        expandableComponentLoader.sourceComponent = detailsComponent;
+        expandableComponentLoader.sourceComponent = detailsComponent
     }
 }

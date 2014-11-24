@@ -223,7 +223,7 @@ PlasmaComponents.ListItem {
                     topMargin: Math.round(units.gridUnit / 3)
                 }
                 height: paintedHeight
-                text: i18n("No job available")
+                text: i18n("Print queue is empty")
             }
         }
     }

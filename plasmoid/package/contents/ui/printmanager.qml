@@ -29,8 +29,8 @@ Item {
     property int jobsFilter: printmanager.Plasmoid.configuration.allJobs ? PrintManager.JobModel.WhichAll :
                              printmanager.Plasmoid.configuration.completedJobs ? PrintManager.JobModel.WhichCompleted : PrintManager.JobModel.WhichActive
 
-    Plasmoid.toolTipMainText: i18n("Printers");
-    Plasmoid.icon: "printer";
+    Plasmoid.toolTipMainText: i18n("Printers")
+    Plasmoid.icon: "printer"
     Plasmoid.compactRepresentation: CompactRepresentation { }
     Plasmoid.fullRepresentation: PopupDialog {
         id: dialogItem

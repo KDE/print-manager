@@ -24,7 +24,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 
 MouseArea {
-    id: panelIconWidget;
+    id: panelIconWidget
 
     anchors.fill: parent
     onClicked: plasmoid.expanded = !plasmoid.expanded
@@ -32,6 +32,6 @@ MouseArea {
     PlasmaCore.IconItem {
         id: connectionIcon
         anchors.fill: parent
-        source: "printer";
+        source: "printer"
     }
 }

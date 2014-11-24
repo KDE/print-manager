@@ -32,7 +32,7 @@ FocusScope {
 
 
 //     PlasmaExtras.ScrollArea {
-//         id: scrollView;
+//         id: scrollView
 //
 //         anchors.fill: parent
 //         opacity: 0
@@ -44,7 +44,7 @@ FocusScope {
             opacity: 0
             focus: true
             currentIndex: -1
-            clip: true;
+            clip: true
             boundsBehavior: Flickable.StopAtBounds
             model: PrintManager.PrinterSortFilterModel {
                 id: printersFilterModel
@@ -84,11 +84,11 @@ FocusScope {
     ]
 
     function updatePrinterStatus() {
-        var printersFilterCount = printersFilterModel.count;
+        var printersFilterCount = printersFilterModel.count
         if (printersFilterCount >= 1) {
-            dialog.state = "JOBS_PRINTER";
+            dialog.state = "JOBS_PRINTER"
         } else {
-            dialog.state = "NO_PRINTER";
+            dialog.state = "NO_PRINTER"
         }
     }
 }

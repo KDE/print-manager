@@ -111,13 +111,13 @@ PlasmaComponents.ListItem {
                     text: jobRestartEnabled ?  i18n("Reprint") : (jobHoldEnabled ?  i18n("Hold") :  i18n("Release"))
                     visible: jobCancelEnabled || jobRestartEnabled
                     onClicked: {
-                        enabled = false;
+                        enabled = false
                         if (jobHoldEnabled) {
-                            jobsModel.hold(jobPrinter, jobId);
+                            jobsModel.hold(jobPrinter, jobId)
                         } else {
-                            jobsModel.release(jobPrinter, jobId);
+                            jobsModel.release(jobPrinter, jobId)
                         }
-                        enabled = true;
+                        enabled = true
                     }
                 }
             }
@@ -137,7 +137,7 @@ PlasmaComponents.ListItem {
                         horizontalAlignment: Text.AlignRight
                         onPaintedWidthChanged: {
                             if (paintedWidth > parent.width) {
-                                parent.width = paintedWidth;
+                                parent.width = paintedWidth
                             }
                         }
                         text: i18n("Owner:")
@@ -152,7 +152,7 @@ PlasmaComponents.ListItem {
                         horizontalAlignment: Text.AlignRight
                         onPaintedWidthChanged: {
                             if (paintedWidth > parent.width) {
-                                parent.width = paintedWidth;
+                                parent.width = paintedWidth
                             }
                         }
                         text: i18n("Size:")
@@ -167,7 +167,7 @@ PlasmaComponents.ListItem {
                         horizontalAlignment: Text.AlignRight
                         onPaintedWidthChanged: {
                             if (paintedWidth > parent.width) {
-                                parent.width = paintedWidth;
+                                parent.width = paintedWidth
                             }
                         }
                         text: i18n("Created:")
@@ -213,9 +213,9 @@ PlasmaComponents.ListItem {
     }
 
     function cancelJob() {
-        cancelButton.enabled = false;
-        jobsModel.cancel(jobPrinter, jobId);
-        cancelButton.enabled = true;
+        cancelButton.enabled = false
+        jobsModel.cancel(jobPrinter, jobId)
+        cancelButton.enabled = true
     }
 }
 

@@ -36,13 +36,13 @@ PlasmaComponents.ListItem {
     function toggleSelection() {
         if (isPaused) {
 //             if (!isAcceptingJobs) {
-//                 printersModel.acceptJobs(printerName);
+//                 printersModel.acceptJobs(printerName)
 //             }
             if (printerState === 5) {
-                printersModel.resumePrinter(printerName);
+                printersModel.resumePrinter(printerName)
             }
         } else {
-            printersModel.pausePrinter(printerName);
+            printersModel.pausePrinter(printerName)
         }
         isPaused = !isPaused
     }
@@ -107,40 +107,40 @@ PlasmaComponents.ListItem {
         }
 
         PlasmaComponents.ToolButton {
-            id: stateChangeButton;
+            id: stateChangeButton
 
             anchors {
-                right: parent.right;
-                rightMargin: Math.round(units.gridUnit / 2);
-                verticalCenter: printerIcon.verticalCenter;
+                right: parent.right
+                rightMargin: Math.round(units.gridUnit / 2)
+                verticalCenter: printerIcon.verticalCenter
             }
 
             iconSource: isPaused ? "media-playback-start" : "media-playback-pause"
-            opacity: printerItem.containsMouse ? 1 : 0;
-            visible: opacity != 0;
+            opacity: printerItem.containsMouse ? 1 : 0
+            visible: opacity != 0
 
-            onClicked: toggleSelection();
+            onClicked: toggleSelection()
         }
     }
 
     Loader {
-        id: expandableComponentLoader;
+        id: expandableComponentLoader
 
         anchors {
-            left: parent.left;
-            right: parent.right;
-            top: printerBaseItem.bottom;
+            left: parent.left
+            right: parent.right
+            top: printerBaseItem.bottom
         }
     }
 
     Component {
-        id: detailsComponent;
+        id: detailsComponent
 
         Item {
             height: childrenRect.height
 
             PlasmaExtras.ScrollArea {
-                id: scrollView;
+                id: scrollView
 
                 width: parent.width
                 height: printerItem.ListView.view.height - printerBaseItem.height
@@ -150,13 +150,13 @@ PlasmaComponents.ListItem {
 
                     anchors.fill: parent
 
-                    boundsBehavior: Flickable.StopAtBounds;
-                    clip: true;
+                    boundsBehavior: Flickable.StopAtBounds
+                    clip: true
                     model: jobsFilterModel
                     delegate: JobItem {
                         onClicked: {
                             printerItem.expanded = false
-                            ListView.view.currentIndex = -1;
+                            ListView.view.currentIndex = -1
                         }
                     }
 
@@ -201,7 +201,7 @@ PlasmaComponents.ListItem {
 
     onStateChanged: {
         if (state == "EXPANDED" || state == "PAUSED_EXPANDED") {
-            ListView.view.currentIndex = index;
+            ListView.view.currentIndex = index
         }
     }
 

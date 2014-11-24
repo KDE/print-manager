@@ -24,19 +24,14 @@
 
 #include "Debug.h"
 #include "SelectMakeModel.h"
+#include "SelectMakeModelDialog.h"
 
 #include <QPointer>
 #include <QPushButton>
 
-#include <KDialog>
-#include <KConfig>
-#include <KConfigGroup>
 #include <KIconLoader>
 #include <KPixmapSequenceOverlayPainter>
-#include <KPixmapSequence>
 #include <KMessageBox>
-#include <KSharedConfig>
-#include <KWindowConfig>
 
 ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *parent) :
     PrinterPage(parent),
@@ -78,37 +73,9 @@ void ModifyPrinter::on_makeCB_activated(int index)
 {
     bool isDifferent = true;
     if (ui->makeCB->itemData(index).toUInt() == PPDList) {
-        KConfig config("print-manager");
-        KConfigGroup ppdDialog(&config, "PPDDialog");
-
-        SelectMakeModel *widget = new SelectMakeModel(this);
-
-        KDialog *dialog = new KDialog(this);
-        connect(dialog, SIGNAL(accepted()), this, SLOT(ppdSelectionAccepted()));
-        connect(dialog, SIGNAL(rejected()), this, SLOT(ppdSelectionRejected()));
-        connect(widget, SIGNAL(changed(bool)), dialog, SLOT(enableButtonOk(bool)));
-        dialog->setWindowTitle(i18n("Select a Driver"));
-        dialog->setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Help);
-        dialog->setMainWidget(widget);
-        dialog->enableButtonOk(false);
-        dialog->restoreDialogSize(ppdDialog);
-
-        // Configure the help button to be flat, disabled and empty
-        QPushButton *button = dialog->button(KDialog::Help);
-        button->setFlat(true);
-        button->setEnabled(false);
-        button->setIcon(QIcon());
-        button->setText(QString());
-
-        // Setup the busy cursor
-        KPixmapSequenceOverlayPainter *busySeq = new KPixmapSequenceOverlayPainter(dialog);
-        busySeq->setSequence(KIconLoader::global()->loadPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
-        busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
-        busySeq->setWidget(button);
-        busySeq->start();
-        connect(widget, SIGNAL(changed(bool)), busySeq, SLOT(stop()));
-        qCDebug(PM_CONFIGURE_PRINTER) << m_make << m_makeAndModel;
-        widget->setMakeModel(m_make, m_makeAndModel);
+        SelectMakeModelDialog * dialog = new SelectMakeModelDialog(m_make, m_makeAndModel, this);
+        connect(dialog, &SelectMakeModelDialog::accepted, this, &ModifyPrinter::ppdSelectionAccepted);
+        connect(dialog, &SelectMakeModelDialog::rejected, this, &ModifyPrinter::ppdSelectionRejected);
         dialog->show();
         return;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDFile) {
@@ -136,7 +103,7 @@ void ModifyPrinter::on_makeCB_activated(int index)
 
 void ModifyPrinter::ppdSelectionAccepted()
 {
-    KDialog *dialog = qobject_cast<KDialog*>(sender());
+    SelectMakeModelDialog *dialog = qobject_cast<SelectMakeModelDialog*>(sender());
     SelectMakeModel *widget = qobject_cast<SelectMakeModel*>(dialog->mainWidget());
 
     if (widget->isFileSelected()) {
@@ -155,18 +122,13 @@ void ModifyPrinter::ppdSelectionAccepted()
         ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
     }
 
-    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PPDDialog");
-    KWindowConfig::saveWindowSize(dialog->windowHandle(), configGroup);
     dialog->deleteLater();
 }
 
 void ModifyPrinter::ppdSelectionRejected()
 {
+    SelectMakeModelDialog *dialog = qobject_cast<SelectMakeModelDialog*>(sender());
     ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
-
-    KDialog *dialog = qobject_cast<KDialog*>(sender());
-    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PPDDialog");
-    KWindowConfig::saveWindowSize(dialog->windowHandle(), configGroup);
     dialog->deleteLater();
 }
 

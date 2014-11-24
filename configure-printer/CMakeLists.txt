@@ -7,6 +7,7 @@ set(configureprinter_SRCS
     PrinterBehavior.cpp
     ConfigureDialog.cpp
     ConfigurePrinter.cpp
+    SelectMakeModelDialog.cpp
     main.cpp
 )
 
@@ -34,7 +35,6 @@ target_link_libraries(configure-printer
     KF5::WidgetsAddons
     KF5::DBusAddons
     KF5::ConfigCore
-    KF5::KDELibs4Support
     ${CUPS_LIB}
     kcupslib
 )

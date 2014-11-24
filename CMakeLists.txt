@@ -31,7 +31,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 
 find_package(CUPS "1.5" REQUIRED)
 
-find_package(KF5 REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO KDELibs4Support
+find_package(KF5 REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
              Notifications Plasma WidgetsAddons WindowSystem ItemViews)
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)

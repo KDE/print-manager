@@ -43,18 +43,26 @@ Item {
     Plasmoid.switchHeight: units.gridUnit * 10
     Plasmoid.status: (jobsFilterModel.activeCount > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
+    onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
+    Component.onCompleted: updateJobStatus()
+
     PrintManager.JobSortFilterModel {
         id: jobsFilterModel
         sourceModel: PrintManager.JobModel {
             id: jobsModel
-
-            Component.onCompleted: {
-                setWhichJobs(printmanager.jobsFilter)
-            }
+            Component.onCompleted: setWhichJobs(printmanager.jobsFilter)
         }
+        onActiveCountChanged: updateJobStatus()
     }
 
-    onJobsFilterChanged: {
-        jobsModel.setWhichJobs(jobsFilter)
+    function updateJobStatus() {
+        var activeCount = jobsFilterModel.activeCount
+        if (activeCount === 0) {
+            Plasmoid.toolTipSubText = i18n("Print queue is empty")
+        } else {
+            Plasmoid.toolTipSubText = i18np("There is one print job in the queue",
+                                    "There are %1 print jobs in the queue",
+                                    activeCount)
+        }
     }
 }

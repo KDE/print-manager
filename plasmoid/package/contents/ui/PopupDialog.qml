@@ -29,8 +29,6 @@ FocusScope {
 
     state: "NO_PRINTER"
 
-
-
 //     PlasmaExtras.ScrollArea {
 //         id: scrollView
 //

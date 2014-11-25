@@ -241,6 +241,7 @@ PlasmaComponents.ListItem {
             when: isPaused && !expanded
             PropertyChanges { target: printerNameLabel; opacity: 0.6 }
             PropertyChanges { target: printerIcon; opacity: 0.6 }
+            StateChangeScript { script: if (expandableComponentLoader.status == Loader.Ready) {expandableComponentLoader.sourceComponent = undefined} }
         },
 
         State {

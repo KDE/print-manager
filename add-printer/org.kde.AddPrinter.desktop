@@ -5,4 +5,5 @@ Exec=kde-add-printer
 Icon=printer
 Type=Application
 Terminal=false
-Categories=Qt;KDE;Printing;
+NoDisplay=true
+Categories=Qt;KDE;Printing;Utility;

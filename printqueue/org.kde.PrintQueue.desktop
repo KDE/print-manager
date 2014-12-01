@@ -7,4 +7,5 @@ Type=Application
 Terminal=false
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.PrintQueue
-Categories=Qt;KDE;Printing;
+NoDisplay=true
+Categories=Qt;KDE;Printing;Utility;

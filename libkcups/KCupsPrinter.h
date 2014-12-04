@@ -28,7 +28,6 @@
 
 class Q_DECL_EXPORT KCupsPrinter
 {
-    Q_GADGET
     Q_ENUMS(Attribute)
 public:
     typedef enum {

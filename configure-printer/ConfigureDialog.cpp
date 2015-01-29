@@ -41,7 +41,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     KPageDialog(parent)
 {
     setFaceType(List);
-    setModal(true);
+    setModal(false);
     setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
     setWindowTitle(destName);
     setWindowIcon(KIcon("configure"));

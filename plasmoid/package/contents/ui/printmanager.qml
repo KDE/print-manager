@@ -44,10 +44,14 @@ Item {
     Plasmoid.status: (activeJobsFilterModel.activeCount > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
 
     onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
-    Component.onCompleted: updateJobStatus()
+    Component.onCompleted: {
+        updateJobStatus()
+        plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
+    }
 
     PrintManager.JobSortFilterModel {
         id: jobsFilterModel
+
         sourceModel: PrintManager.JobModel {
             id: jobsModel
             Component.onCompleted: setWhichJobs(printmanager.jobsFilter)
@@ -60,6 +64,14 @@ Item {
             Component.onCompleted: setWhichJobs(PrintManager.JobModel.WhichActive)
         }
         onActiveCountChanged: updateJobStatus()
+    }
+
+    PrintManager.ProcessRunner {
+        id: processRunner
+    }
+
+    function action_printerskcm() {
+        processRunner.openPrintKCM();
     }
 
     function updateJobStatus() {

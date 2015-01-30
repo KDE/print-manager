@@ -15,6 +15,7 @@ set(libkcups_SRCS
     PrinterSortFilterModel.cpp
     JobModel.cpp
     JobSortFilterModel.cpp
+    ProcessRunner.cpp
 )
 
 ki18n_wrap_ui(libkcups_SRCS

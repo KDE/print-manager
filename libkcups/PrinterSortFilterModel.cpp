@@ -75,13 +75,19 @@ bool PrinterSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex 
         return m_filteredPrinters.contains(index.data(PrinterModel::DestName).toString());
     }
 
-    return true;
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 
 bool PrinterSortFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     bool leftIsRemote = sourceModel()->data(left, PrinterModel::DestRemote).toBool();
     bool rightIsRemote = sourceModel()->data(right, PrinterModel::DestRemote).toBool();
+    bool leftDefault = sourceModel()->data(left, PrinterModel::DestIsDefault).toBool();
+    bool rightDefault = sourceModel()->data(right, PrinterModel::DestIsDefault).toBool();
+
+    if (leftDefault != rightDefault) {
+        return leftDefault;
+    }
 
     if (leftIsRemote != rightIsRemote) {
         // If the right item is a remote the left should move right

@@ -26,9 +26,9 @@
 #include "NoSelectionRectDelegate.h"
 
 #include <QPointer>
-#include <KFileDialog>
-#include <KDebug>
+#include <QFileDialog>
 
+#include <KIconLoader>
 #include <KPixmapSequence>
 #include <KConfigDialogManager>
 
@@ -49,12 +49,11 @@ ClassListWidget::ClassListWidget(QWidget *parent) :
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     m_busySeq->setWidget(viewport());
 
-    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(modelChanged()));
+    connect(m_model, &QStandardItemModel::dataChanged, this, &ClassListWidget::modelChanged);
 
     m_delayedInit.setInterval(0);
     m_delayedInit.setSingleShot(true);
-    connect(&m_delayedInit, SIGNAL(timeout()), SLOT(init()));
+    connect(&m_delayedInit, &QTimer::timeout, this, &ClassListWidget::init);
     m_delayedInit.start();
 }
 
@@ -72,7 +71,7 @@ void ClassListWidget::init()
     att << KCUPS_PRINTER_URI_SUPPORTED;
     // Get destinations with these masks
     m_request = new KCupsRequest;
-    connect(m_request, SIGNAL(finished()), this, SLOT(loadFinished()));
+    connect(m_request, &KCupsRequest::finished, this, &ClassListWidget::loadFinished);
     if (m_showClasses) {
         m_request->getPrinters(att);
     } else {
@@ -185,5 +184,3 @@ void ClassListWidget::setShowClasses(bool enable)
         m_delayedInit.start();
     }
 }
-
-#include "ClassListWidget.moc"

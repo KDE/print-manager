@@ -33,36 +33,39 @@
 #include <QMenu>
 #include <QByteArray>
 #include <QStringBuilder>
-
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
+#include <QProcess>
+#include <QDebug>
+#include <QPointer>
 
 #include <KMessageBox>
-#include <KDebug>
+#include <KIconLoader>
+#include <KSharedConfig>
+#include <KConfigGroup>
+#include <KWindowConfig>
 
 #define PRINTER_ICON_SIZE 92
 
 PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
-    KDialog(parent),
+    QDialog(parent),
     ui(new Ui::PrintQueueUi),
     m_destName(printer.name()),
     m_preparingMenu(false),
     m_printerPaused(false),
     m_lastState(0)
 {
-    ui->setupUi(mainWidget());
+    ui->setupUi(this);
 
     // since setupUi needs to setup on the mainWidget()
     // we need to manually connect the buttons
-    connect(ui->cancelJobPB, SIGNAL(clicked()), this, SLOT(cancelJob()));
-    connect(ui->holdJobPB, SIGNAL(clicked()), this, SLOT(holdJob()));
-    connect(ui->resumeJobPB, SIGNAL(clicked()), this, SLOT(resumeJob()));
-    connect(ui->reprintPB, SIGNAL(clicked()), this, SLOT(reprintJob()));
+    connect(ui->cancelJobPB, &QPushButton::clicked, this, &PrintQueueUi::cancelJob);
+    connect(ui->holdJobPB, &QPushButton::clicked, this, &PrintQueueUi::holdJob);
+    connect(ui->resumeJobPB, &QPushButton::clicked, this, &PrintQueueUi::resumeJob);
+    connect(ui->reprintPB, &QPushButton::clicked, this, &PrintQueueUi::reprintJob);
 
-    connect(ui->pausePrinterPB, SIGNAL(clicked()), this, SLOT(pausePrinter()));
-    connect(ui->configurePrinterPB, SIGNAL(clicked()), this, SLOT(configurePrinter()));
+    connect(ui->pausePrinterPB, &QPushButton::clicked, this, &PrintQueueUi::pausePrinter);
+    connect(ui->configurePrinterPB, &QPushButton::clicked, this, &PrintQueueUi::configurePrinter);
 
-    connect(ui->whichJobsCB, SIGNAL(currentIndexChanged(int)), this, SLOT(whichJobsIndexChanged(int)));
+    connect(ui->whichJobsCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PrintQueueUi::whichJobsIndexChanged);
 
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
@@ -74,7 +77,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
         m_title = printer.name() % QLatin1String(" - ") % printer.info();
     }
     setWindowTitle(m_title);
-    setButtons(0);
     setSizeGripEnabled(true);
     (void) minimumSizeHint(); //Force the dialog to be laid out now
     layout()->setContentsMargins(0,0,0,0);
@@ -104,10 +106,8 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     m_model = new JobModel(this);
     m_model->setParentWId(winId());
     m_model->init(printer.name());
-    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(updateButtons()));
-    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(update()));
+    connect(m_model, &JobModel::dataChanged, this, &PrintQueueUi::updateButtons);
+    connect(m_model, &JobModel::dataChanged, this, &PrintQueueUi::update);
     m_proxyModel = new JobSortFilterModel(this);
     m_proxyModel->setSourceModel(m_model);
     m_proxyModel->setDynamicSortFilter(true);
@@ -118,8 +118,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     ui->jobsView->sortByColumn(JobModel::ColStatus, Qt::AscendingOrder);
     connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(updateButtons()));
-    connect(ui->jobsView, SIGNAL(customContextMenuRequested(QPoint)),
-            this, SLOT(showContextMenu(QPoint)));
+    connect(ui->jobsView, &QTreeView::customContextMenuRequested, this, &PrintQueueUi::showContextMenu);
     ui->jobsView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->jobsView->header(), SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(showHeaderContextMenu(QPoint)));
@@ -138,8 +137,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     header->setResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
     header->setResizeMode(JobModel::ColPrinter,       QHeaderView::ResizeToContents);
 
-    KConfig config("print-manager");
-    KConfigGroup printQueue(&config, "PrintQueue");
+    KConfigGroup printQueue(KSharedConfig::openConfig("print-manager"), "PrintQueue");
     if (printQueue.hasKey("ColumnState")) {
         // restore the header state order
         header->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
@@ -153,39 +151,27 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     }
 
     // This is emitted when a printer is modified
-    connect(KCupsConnection::global(),
-            SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer has it's state changed
-    connect(KCupsConnection::global(),
-            SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is stopped
-    connect(KCupsConnection::global(),
-            SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is restarted
-    connect(KCupsConnection::global(),
-            SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is shutdown
-    connect(KCupsConnection::global(),
-            SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer is removed
-    connect(KCupsConnection::global(),
-            SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)),
-            this,
+    connect(KCupsConnection::global(), SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)), this,
             SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
 
     // This is emitted when a printer/queue is changed
@@ -202,18 +188,20 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     updatePrinter(m_destName);
 
     // Restore the dialog size
-    restoreDialogSize(printQueue);
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PrintQueue");
+    KWindowConfig::restoreWindowSize(windowHandle(), configGroup);
 }
 
 PrintQueueUi::~PrintQueueUi()
 {
-    KConfig config("print-manager");
-    KConfigGroup configGroup(&config, "PrintQueue");
+    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PrintQueue");
     // save the header state order
     configGroup.writeEntry("ColumnState", ui->jobsView->header()->saveState());
 
     // Save the dialog size
-    saveDialogSize(configGroup);
+    KWindowConfig::saveWindowSize(windowHandle(), configGroup);
+
+    delete ui;
 }
 
 int PrintQueueUi::columnCount(const QModelIndex &parent) const
@@ -226,7 +214,7 @@ int PrintQueueUi::columnCount(const QModelIndex &parent) const
 
 void PrintQueueUi::setState(int state, const QString &message)
 {
-    kDebug() << state << message;
+    qDebug() << state << message;
     if (state != m_lastState ||
         ui->printerStatusMsgL->text() != message) {
         // save the last state so the ui doesn't need to keep updating
@@ -241,7 +229,7 @@ void PrintQueueUi::setState(int state, const QString &message)
         case KCupsPrinter::Idle:
             ui->statusL->setText(i18n("Printer ready"));
             ui->pausePrinterPB->setText(i18n("Pause Printer"));
-            ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+            ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-pause"));
             break;
         case KCupsPrinter::Printing:
             if (!m_title.isNull()) {
@@ -252,14 +240,14 @@ void PrintQueueUi::setState(int state, const QString &message)
                     ui->statusL->setText(i18n("Printing '%1'", jobTitle));
                 }
                 ui->pausePrinterPB->setText(i18n("Pause Printer"));
-                ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+                ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-pause"));
             }
             break;
         case KCupsPrinter::Stopped:
             m_printerPaused = true;
             ui->statusL->setText(i18n("Printer paused"));
             ui->pausePrinterPB->setText(i18n("Resume Printer"));
-            ui->pausePrinterPB->setIcon(KIcon("media-playback-start"));
+            ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-start"));
             // create a paiter to paint the action icon over the key icon
             {
                 QPainter painter(&icon);
@@ -373,7 +361,7 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
 
 void PrintQueueUi::updatePrinter(const QString &printer)
 {
-    kDebug() << printer << m_destName;
+    qDebug() << printer << m_destName;
     if (printer != m_destName) {
         // It was another printer that changed
         return;
@@ -386,7 +374,7 @@ void PrintQueueUi::updatePrinter(const QString &printer)
     attr << KCUPS_PRINTER_STATE_MESSAGE;
 
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(getAttributesFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrintQueueUi::getAttributesFinished);
     request->getPrinterAttributes(printer, m_isClass, attr);
 }
 
@@ -398,7 +386,7 @@ void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri,
     Q_UNUSED(printerState)
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
-    kDebug() << printerName << printerStateReasons;
+    qDebug() << printerName << printerStateReasons;
 
     updatePrinter(printerName);
 }
@@ -406,7 +394,7 @@ void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri,
 void PrintQueueUi::getAttributesFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
-    kDebug() << request->hasError() << request->printers().isEmpty();
+    qDebug() << request->hasError() << request->printers().isEmpty();
 
     if (request->hasError() || request->printers().isEmpty()) {
         // if cups stops we disable our queue
@@ -545,10 +533,10 @@ void PrintQueueUi::pausePrinter()
     // STOP and RESUME printer
     QPointer<KCupsRequest> request = new KCupsRequest;
     if (m_printerPaused) {
-        kDebug() << m_destName << "m_printerPaused";
+        qDebug() << m_destName << "m_printerPaused";
         request->resumePrinter(m_destName);
     } else {
-        kDebug() << m_destName << "NOT m_printerPaused";
+        qDebug() << m_destName << "NOT m_printerPaused";
         request->pausePrinter(m_destName);
     }
     request->waitTillFinished();
@@ -559,13 +547,7 @@ void PrintQueueUi::pausePrinter()
 
 void PrintQueueUi::configurePrinter()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("ConfigurePrinter"));
-    message << qVariantFromValue(m_destName);
-    QDBusConnection::sessionBus().send(message);
+    QProcess::startDetached("configure-printer", {m_destName});
 }
 
 void PrintQueueUi::cancelJob()
@@ -612,26 +594,26 @@ void PrintQueueUi::setupButtons()
     // setup jobs buttons
 
     // cancel action
-    ui->cancelJobPB->setIcon(KIcon("dialog-cancel"));
+    ui->cancelJobPB->setIcon(QIcon::fromTheme("dialog-cancel"));
 
     // hold job action
-    ui->holdJobPB->setIcon(KIcon("document-open-recent"));
+    ui->holdJobPB->setIcon(QIcon::fromTheme("document-open-recent"));
 
     // resume job action
     // TODO we need a new icon
-    ui->resumeJobPB->setIcon(KIcon("media-playback-start"));
+    ui->resumeJobPB->setIcon(QIcon::fromTheme("media-playback-start"));
 
-    ui->reprintPB->setIcon(KIcon("view-refresh"));
+    ui->reprintPB->setIcon(QIcon::fromTheme("view-refresh"));
 
-    ui->whichJobsCB->setItemIcon(0, KIcon("view-filter"));
-    ui->whichJobsCB->setItemIcon(1, KIcon("view-filter"));
-    ui->whichJobsCB->setItemIcon(2, KIcon("view-filter"));
+    ui->whichJobsCB->setItemIcon(0, QIcon::fromTheme("view-filter"));
+    ui->whichJobsCB->setItemIcon(1, QIcon::fromTheme("view-filter"));
+    ui->whichJobsCB->setItemIcon(2, QIcon::fromTheme("view-filter"));
 
     // stop start printer
-    ui->pausePrinterPB->setIcon(KIcon("media-playback-pause"));
+    ui->pausePrinterPB->setIcon(QIcon::fromTheme("media-playback-pause"));
 
     // configure printer
-    ui->configurePrinterPB->setIcon(KIcon("configure"));
+    ui->configurePrinterPB->setIcon(QIcon::fromTheme("configure"));
 }
 
 void PrintQueueUi::closeEvent(QCloseEvent *event)
@@ -640,5 +622,3 @@ void PrintQueueUi::closeEvent(QCloseEvent *event)
     emit finished();
     QWidget::closeEvent(event);
 }
-
-#include "PrintQueueUi.moc"

@@ -20,7 +20,7 @@
 
 #include "KCupsJob.h"
 
-#include <KDebug>
+#include "Debug.h"
 
 KCupsJob::KCupsJob() :
     m_jobId(0)

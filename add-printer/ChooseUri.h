@@ -25,7 +25,7 @@
 
 #include <KCupsPrinter.h>
 
-#include <KUrl>
+#include <QUrl>
 
 namespace Ui {
     class ChooseUri;
@@ -37,10 +37,10 @@ public:
     explicit ChooseUri(QWidget *parent = 0);
     ~ChooseUri();
 
-    void setValues(const QVariantHash &args);
-    QVariantHash values() const;
-    bool isValid() const;
-    bool canProceed() const;
+    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
+    QVariantHash values() const Q_DECL_OVERRIDE;
+    bool isValid() const Q_DECL_OVERRIDE;
+    bool canProceed() const Q_DECL_OVERRIDE;
 
 public slots:
     void load();
@@ -62,7 +62,7 @@ private slots:
     void getPrintersFinished();
 
 private:
-    KUrl parsedURL(const QString &text) const;
+    QUrl parsedURL(const QString &text) const;
 
     Ui::ChooseUri *ui;
 };

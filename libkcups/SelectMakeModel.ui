@@ -14,10 +14,19 @@
    <string>Select a Driver</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="verticalSpacing">
+   <property name="leftMargin">
     <number>0</number>
    </property>
-   <property name="margin">
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <property name="verticalSpacing">
     <number>0</number>
    </property>
    <item row="3" column="1">
@@ -70,7 +79,7 @@
      <item>
       <widget class="QRadioButton" name="radioButton_2">
        <property name="text">
-        <string>Choose the driver from the list</string>
+        <string>Choose &amp;the driver from the list</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -82,7 +91,7 @@
    <item row="3" column="0">
     <widget class="QRadioButton" name="ppdFileRB">
      <property name="text">
-      <string>Manually Provide a PPD File:</string>
+      <string>Ma&amp;nually Provide a PPD File:</string>
      </property>
     </widget>
    </item>
@@ -94,8 +103,8 @@
  <customwidgets>
   <customwidget>
    <class>KUrlRequester</class>
-   <extends>QFrame</extends>
-   <header>kurlrequester.h</header>
+   <extends>QWidget</extends>
+   <header location="global">kurlrequester.h</header>
   </customwidget>
   <customwidget>
    <class>KMessageWidget</class>

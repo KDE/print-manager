@@ -33,10 +33,10 @@ public:
     explicit ChooseSocket(QWidget *parent = 0);
     ~ChooseSocket();
 
-    void setValues(const QVariantHash &args);
-    QVariantHash values() const;
-    bool isValid() const;
-    bool canProceed() const;
+    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
+    QVariantHash values() const Q_DECL_OVERRIDE;
+    bool isValid() const Q_DECL_OVERRIDE;
+    bool canProceed() const Q_DECL_OVERRIDE;
 
 private slots:
     void on_addressLE_textChanged(const QString &text);

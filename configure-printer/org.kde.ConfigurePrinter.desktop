@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Configure Printer
+Comment=Configure your printer
+Exec=configure-printer
+Icon=printer
+Type=Application
+Terminal=false
+X-DBUS-StartupType=Unique
+X-DBUS-ServiceName=org.kde.ConfigurePrinter
+Categories=Qt;KDE;Printing;Utility;
+NoDisplay=true

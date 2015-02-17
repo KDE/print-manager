@@ -21,29 +21,28 @@
 #include "configureprinteradaptor.h"
 
 #include "ConfigureDialog.h"
+#include "Debug.h"
+
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 
 #include <QtDBus/QDBusConnection>
 #include <QtCore/QTimer>
-#include <QtGui/QLayout>
 #include <KWindowSystem>
-#include <KDialog>
-
-#include <KDebug>
+#include <QDialog>
 
 ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent) :
     QObject(parent)
 {
-    kDebug() << "Creating Helper";
+    qCDebug(PM_CONFIGURE_PRINTER) << "Creating Helper";
     (void) new ConfigurePrinterAdaptor(this);
     if (!QDBusConnection::sessionBus().registerService("org.kde.ConfigurePrinter")) {
-        kDebug() << "another helper is already running";
+        qCDebug(PM_CONFIGURE_PRINTER) << "another helper is already running";
         return;
     }
 
     if (!QDBusConnection::sessionBus().registerObject("/", this)) {
-        kDebug() << "unable to register service interface to dbus";
+        qCDebug(PM_CONFIGURE_PRINTER) << "unable to register service interface to dbus";
         return;
     }
 
@@ -90,7 +89,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
             ConfigureDialog *ui = new ConfigureDialog(printer.name(), printer.isClass());
             connect(m_updateUi, SIGNAL(timeout()),
                     ui, SLOT(update()));
-            connect(ui, SIGNAL(finished()),
+            connect(ui, SIGNAL(finished(int)),
                     this, SLOT(RemovePrinter()));
             ui->show();
             m_uis[printer.name()] = ui;
@@ -126,5 +125,3 @@ void ConfigurePrinterInterface::RemovePrinter()
          emit quit();
     }
 }
-
-#include "ConfigurePrinterInterface.moc"

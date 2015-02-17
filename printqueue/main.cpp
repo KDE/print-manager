@@ -22,35 +22,42 @@
 
 #include <config.h>
 
-#include <KDebug>
-#include <KLocale>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
+
+#include <KLocalizedString>
 #include <KAboutData>
-#include <KCmdLineArgs>
+#include <KDBusService>
 
 int main(int argc, char **argv)
 {
+    PrintQueue app(argc, argv);
+    app.setOrganizationDomain("org.kde");
+
     KAboutData about("PrintQueue",
-                     "print-manager",
-                     ki18n("PrintQueue"),
+                     i18n("Print Queue"),
                      PM_VERSION,
-                     ki18n("PrintQueue"),
-                     KAboutData::License_GPL,
-                     ki18n("(C) 2010-2013 Daniel Nicoletti"));
+                     i18n("Print Queue"),
+                     KAboutLicense::GPL,
+                     i18n("(C) 2010-2013 Daniel Nicoletti"));
 
-    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
+    about.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    about.addAuthor(QStringLiteral("Lukáš Tinkl"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("ltinkl@redhat.com"));
 
-    KCmdLineArgs::init(argc, argv, &about);
-    KCmdLineOptions options;
-    options.add("+queuename", ki18n("Show printer queue"));
-    KCmdLineArgs::addCmdLineOptions(options);
+    KAboutData::setApplicationData(about);
+    KDBusService service(KDBusService::Unique);
 
-    PrintQueue::addCmdLineOptions();
+    QCommandLineParser parser;
+    about.setupCommandLine(&parser);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    parser.addPositionalArgument("queue", i18n("Show printer queue(s)"));
+    parser.process(app);
+    about.processCommandLine(&parser);
 
-    if (!PrintQueue::start()) {
-        //kDebug() << "PrintQueue is already running!";
-        return 0;
-    }
+    QObject::connect(&service, &KDBusService::activateRequested, &app, &PrintQueue::showQueues);
 
-    PrintQueue app;
+    app.showQueues(parser.positionalArguments());
+
     return app.exec();
 }

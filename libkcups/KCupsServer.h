@@ -24,7 +24,7 @@
 #include <QString>
 #include <KCupsConnection.h>
 
-class KDE_EXPORT KCupsServer
+class Q_DECL_EXPORT KCupsServer
 {
 public:
     KCupsServer();

@@ -26,13 +26,12 @@
 #include <SelectMakeModel.h>
 #include <KCupsRequest.h>
 
-#include <KTemporaryFile>
-
 #include <QFileInfo>
 #include <QFile>
 #include <QStringBuilder>
-
-#include <KDebug>
+#include <QDebug>
+#include <QUrl>
+#include <QTemporaryFile>
 
 PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
@@ -49,11 +48,11 @@ PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     m_layout->setContentsMargins(0, 0, 0, 0);
     ui->gridLayout->addLayout(m_layout, 1, 3);
     m_selectMM = new SelectMakeModel(this);
-    connect(m_selectMM, SIGNAL(changed(bool)), this, SLOT(checkSelected()));
+    connect(m_selectMM, &SelectMakeModel::changed, this, &PageChoosePPD::checkSelected);
     m_layout->addWidget(m_selectMM);
 
     // Setup the busy cursor
-    connect(m_selectMM, SIGNAL(changed(bool)), this, SLOT(notWorking()));
+    connect(m_selectMM, &SelectMakeModel::changed, this, &PageChoosePPD::notWorking);
 
     if (!args.isEmpty()) {
         // set our args
@@ -74,7 +73,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
 
     if (args[ADDING_PRINTER].toBool()) {
 
-        kDebug() << args;
+        qDebug() << args;
         working();
         removeTempPPD();
         QString deviceId = args[KCUPS_DEVICE_ID].toString();
@@ -83,29 +82,27 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         QString deviceURI = args[KCUPS_DEVICE_URI].toString();
 
         // If
-        KUrl url(deviceURI % QLatin1String(".ppd"));
-        if (url.protocol() == QLatin1String("ipp")) {
-            KTemporaryFile *tempFile = new KTemporaryFile;
-            tempFile->setPrefix("print-manager");
-            tempFile->setSuffix(".ppd");
+        QUrl url(deviceURI % QStringLiteral(".ppd"));
+        if (url.scheme() == QStringLiteral("ipp")) {
+            QTemporaryFile *tempFile = new QTemporaryFile;
+            tempFile->setFileTemplate(QStringLiteral("print-manager-XXXXXX.ppd"));
             tempFile->open();
-            url.setProtocol(QLatin1String("http"));
+            url.setScheme(QStringLiteral("http"));
             if (url.port() < 0) {
                 url.setPort(631);
             }
-            kDebug() << deviceURI << url;
+            qDebug() << deviceURI << url;
             KJob *job = KIO::file_copy(url,
                                       tempFile->fileName(),
                                       -1,
                                       KIO::Overwrite | KIO::HideProgressInfo);
             job->setProperty("URI", deviceURI);
-            connect(job, SIGNAL(result(KJob*)),
-                    this, SLOT(resultJob(KJob*)));
+            connect(job, &KJob::result, this, &PageChoosePPD::resultJob);
         }
 
         // Get the make from the device id
         foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
-            if (pair.startsWith(QLatin1String("MFG:"))) {
+            if (pair.startsWith(QStringLiteral("MFG:"))) {
                 make = pair.section(QLatin1Char(':'), 1);
                 break;
             }
@@ -114,7 +111,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         if (makeAndModel.isEmpty()) {
             // Get the model  from the device id
             foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
-                if (pair.startsWith(QLatin1String("MDL:"))) {
+                if (pair.startsWith(QStringLiteral("MDL:"))) {
                     // Build the make and model string
                     if (make.isNull()) {
                         makeAndModel = pair.section(QLatin1Char(':'), 1);
@@ -176,7 +173,7 @@ bool PageChoosePPD::canProceed() const
         allow = !m_selectMM->selectedPPDName().isNull();
     }
 
-    kDebug() << allow;
+    qDebug() << allow;
     return allow;
 }
 
@@ -191,8 +188,7 @@ void PageChoosePPD::selectDefault()
 
 void PageChoosePPD::resultJob(KJob *job)
 {
-    if (!job->error() &&
-            job->property("URI").toString() == m_args[KCUPS_DEVICE_URI].toString()) {
+    if (!job->error() && job->property("URI").toString() == m_args[KCUPS_DEVICE_URI].toString()) {
         KIO::FileCopyJob *fileCopyJob = qobject_cast<KIO::FileCopyJob*>(job);
 
         // Make sure this job is for the current device
@@ -204,7 +200,7 @@ void PageChoosePPD::resultJob(KJob *job)
 
 void PageChoosePPD::removeTempPPD()
 {
-    if (!m_ppdFile.isNull()) {
+    if (!m_ppdFile.isEmpty()) {
         QFile::remove(m_ppdFile);
         m_ppdFile.clear();
     }

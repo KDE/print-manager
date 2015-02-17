@@ -26,10 +26,9 @@
 #include <QVariantHash>
 #include <QStringList>
 #include <QWidget>
+#include <QMetaMethod>
 
-#include <KUrl>
-
-#include <kdemacros.h>
+#include <QUrl>
 
 #include <cups/cups.h>
 
@@ -113,7 +112,7 @@ typedef QList<QVariantHash> ReturnArguments;
 
 class KIppRequest;
 class KCupsPasswordDialog;
-class KDE_EXPORT KCupsConnection : public QThread
+class Q_DECL_EXPORT KCupsConnection : public QThread
 {
     Q_OBJECT
 public:
@@ -145,7 +144,7 @@ public:
      * on your own consider calling global()
      */
     explicit KCupsConnection(QObject *parent = 0);
-    explicit KCupsConnection(const KUrl &server, QObject *parent = 0);
+    explicit KCupsConnection(const QUrl &server, QObject *parent = 0);
     ~KCupsConnection();
 
     void setPasswordMainWindow(WId mainwindow);
@@ -362,7 +361,7 @@ Q_SIGNALS:
 protected:
     friend class KCupsRequest;
 
-    virtual void run();
+    virtual void run() Q_DECL_OVERRIDE;
     bool readyToStart();
     bool retry(const char *resource, int operation) const;
     ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
@@ -373,9 +372,9 @@ private slots:
     void cancelDBusSubscription();
 
 protected:
-    virtual void connectNotify(const char *signal);
-    virtual void disconnectNotify(const char *signal);
-    QString eventForSignal(const char *signal) const;
+    virtual void connectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;
+    virtual void disconnectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;
+    QString eventForSignal(const QMetaMethod & signal) const;
 
 private:
     void init();
@@ -392,7 +391,7 @@ private:
 
     bool m_inited;
     KCupsPasswordDialog *m_passwordDialog;
-    KUrl m_serverUrl;
+    QUrl m_serverUrl;
 
     QTimer *m_subscriptionTimer;
     QTimer *m_renewTimer;

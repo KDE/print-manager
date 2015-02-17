@@ -1,5 +1,6 @@
 /*
- *   Copyright 2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2014 Jan Grulich <jgrulich@redhat.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -17,36 +18,20 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 1.1
-import org.kde.qtextracomponents 0.1
-import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
+import QtQuick 2.2
+import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.components 2.0 as PlasmaComponents
 
-Item {
-    id: panelIconWidget;
+MouseArea {
+    id: panelIconWidget
 
-    property alias tooltipText: tooltip.subText
+    anchors.fill: parent
+    onClicked: plasmoid.expanded = !plasmoid.expanded
 
-    PlasmaCore.SvgItem {
+    PlasmaCore.IconItem {
         id: connectionIcon
         anchors.fill: parent
-        svg: PlasmaCore.Svg {
-            imagePath: "icons/printer";
-        }
-        elementId: "printer";
-    }
-
-    MouseArea {
-        id: mouseAreaPopup
-
-        anchors.fill: parent
-        hoverEnabled: true
-        onClicked: plasmoid.togglePopup()
-
-        PlasmaCore.ToolTip {
-             id: tooltip
-             target: mouseAreaPopup
-             image: QIcon("printer")
-        }
+        source: "printer"
     }
 }

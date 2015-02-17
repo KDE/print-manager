@@ -1,5 +1,6 @@
 /*
- *   Copyright 2012 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
+ *   Copyright 2014-2015 Jan Grulich <jgrulich@redhat.com>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -17,165 +18,290 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-import QtQuick 1.1
-import org.kde.plasma.core 0.1 as PlasmaCore
-import org.kde.plasma.components 0.1 as PlasmaComponents
-import org.kde.qtextracomponents 0.1
+import QtQuick 2.2
+import org.kde.kquickcontrolsaddons 2.0
+import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.kquickcontrolsaddons 2.0 as KQuickControlsAddons
+import org.kde.plasma.printmanager 0.2 as PrintManager
 
 Item {
     id: printerItem
-    width: ListView.view.width
-    height: items.height + padding.margins.top + padding.margins.bottom
-    state: isPaused ? "PAUSED" : "*"
 
-    property bool currentItem: ListView.isCurrentItem
-    property bool multipleItems: false
+    property bool isPaused: false
+    property bool expanded: ListView.view.currentExpanded == index
 
-    Keys.onSpacePressed: toggleSelection()
-
-    onCurrentItemChanged: updateSelection();
-
-    function updateSelection() {
-        var containsMouse = mouseArea.containsMouse || switchAction.containsMouse;
-
-        if (currentItem && containsMouse) {
-            highlightPrinter = printerName;
-            padding.opacity = 1;
-        } else if (currentItem) {
-            highlightPrinter = "";
-            padding.opacity = 0.9;
-        } else if (containsMouse) {
-            highlightPrinter = printerName;
-            padding.opacity = 0.7;
-        } else {
-            if (highlightPrinter === printerName) {
-                highlightPrinter = "";
-            }
-            padding.opacity = 0;
-        }
-    }
-
-    function toggleSelection() {
-        switchAction.enabled = false;
-        if (isPaused) {
-            if (!isAcceptingJobs) {
-                printersModel.acceptJobs(printerName);
-            }
-            if (printerState === 5) {
-                printersModel.resumePrinter(printerName);
-            }
-        } else {
-            printersModel.pausePrinter(printerName);
-        }
-        switchAction.enabled = true;
-    }
-
-    PlasmaCore.FrameSvgItem {
-        id: padding
-        imagePath: "widgets/viewitem"
-        prefix: "hover"
-        visible: multipleItems
-        opacity: 0
-        Behavior on opacity { PropertyAnimation {} }
-        anchors.fill: parent
-    }
+    height: container.childrenRect.height + Math.round(units.gridUnit / 2)
+    width: parent.width - Math.round(units.gridUnit / 2)
 
     MouseArea {
-        id: mouseArea
-        anchors.fill: parent
-        hoverEnabled: multipleItems
-        onEntered: updateSelection()
-        onExited: updateSelection()
-        onClicked: {
-            if (currentItem) {
-                printerItem.ListView.view.currentIndex = -1;
-                filterJobs = "";
-            } else if (multipleItems) {
-                printerItem.ListView.view.currentIndex = index;
-                printerItem.forceActiveFocus();
-                // We need to unset the filter before applying a new one
-                // otherwise, the filter model get's rowCount() == 0 and
-                // the popup hides
-                filterJobs = "";
-                filterJobs = printerName;
-            }
-            updateSelection();
+        id: container
+        anchors {
+            fill: parent
+            topMargin: Math.round(units.gridUnit / 2)
+            leftMargin: Math.round(units.gridUnit / 2)
+            rightMargin: Math.round(units.gridUnit / 2)
+            bottomMargin: Math.round(units.gridUnit / 2)
         }
-        onDoubleClicked: plasmoid.runCommand("kde-print-queue", [printerName])
-    }
 
-    Row {
-        id: items
-        width: parent.width - padding.margins.left - padding.margins.right
-        anchors.topMargin: padding.margins.top
-        anchors.leftMargin: padding.margins.left
-        anchors.rightMargin: padding.margins.right
-        anchors.bottomMargin: padding.margins.bottom
-        anchors.centerIn: parent
-        spacing: 4
+        hoverEnabled: true
+        onEntered: {
+            printerItem.ListView.view.currentIndex = index;
 
-        QIconItem {
+            //this is done to hide the highlight if the mouse moves out of the list view
+            //and we are not mouseoverring anything
+            if (printerItem.ListView.view.highlightItem) {
+                printerItem.ListView.view.highlightItem.opacity = 1
+            }
+        }
+        onExited: {
+            if (printerItem.ListView.view.highlightItem) {
+                printerItem.ListView.view.highlightItem.opacity = 0
+            }
+        }
+        onClicked: {
+            printerItem.ListView.view.currentExpanded = expanded ? -1 : index;
+            jobsFilterModel.filteredPrinters = expanded ? "" : printerName
+        }
+
+        KQuickControlsAddons.QIconItem {
             id: printerIcon
-            width: parent.height
-            height: width
-            icon: QIcon(iconName)
+
+            anchors {
+                left: parent.left
+                verticalCenter: labelsColumn.verticalCenter
+            }
+
+            height: units.iconSizes.medium
+            width: height
+            icon: iconName
             Behavior on opacity { PropertyAnimation {} }
         }
 
         Column {
             id: labelsColumn
-            width: parent.width - printerIcon.width - switchAction.width - parent.spacing * 2
-            spacing: padding.margins.top/2
-            Row {
-                id: nameRow
-                anchors.left: parent.left
-                anchors.right: parent.right
-                spacing: 4
-                PlasmaComponents.Label {
-                    id: printerLabel
-                    height: paintedHeight
-                    elide: Text.ElideRight
-                    text: printerName
-                }
-                PlasmaComponents.Label {
-                    id: printerDescription
-                    width: parent.width - printerLabel.paintedWidth
-                    height: printerLabel.height
-                    elide: Text.ElideRight
-                    verticalAlignment: Text.AlignBottom
-                    font.pointSize: theme.smallestFont.pointSize
-                    color: "#99"+(theme.textColor.toString().substr(1))
-                    text: info
-                }
+
+            anchors {
+                top: parent.top
+                left: printerIcon.right
+                right: stateChangeButton.left
+                leftMargin: Math.round(units.gridUnit / 2)
+                rightMargin: Math.round(units.gridUnit / 2)
             }
+
             PlasmaComponents.Label {
+                id: printerNameLabel
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                }
+
                 height: paintedHeight
-                anchors.left: parent.left
-                anchors.right: parent.right
-                verticalAlignment: Text.AlignTop
-                text: stateMessage
                 elide: Text.ElideRight
-                font.italic: true
+                font.weight: isDefault ? Font.DemiBold : Font.Normal
+                text: printerName
+            }
+
+            PlasmaComponents.Label {
+                id: printerStatusLabel
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                }
+
+                height: paintedHeight
+                elide: Text.ElideRight
                 font.pointSize: theme.smallestFont.pointSize
-                color: "#99"+(theme.textColor.toString().substr(1))
+                opacity: 0.6
+                text: stateMessage
             }
         }
 
-        NIHSwitch {
-            id: switchAction
-            anchors.verticalCenter: parent.verticalCenter
-            focus: !multipleItems
-            on: !isPaused
-            onContainsMouseChanged: updateSelection()
-            onToggled: toggleSelection()
+        PlasmaComponents.ToolButton {
+            id: stateChangeButton
+
+            anchors {
+                right: parent.right
+                rightMargin: Math.round(units.gridUnit / 2)
+                verticalCenter: printerIcon.verticalCenter
+            }
+
+            iconSource: isPaused ? "media-playback-start" : "media-playback-pause"
+            opacity: container.containsMouse ? 1 : 0
+            visible: opacity != 0
+
+            onClicked: toggleSelection()
         }
+
+        ListView {
+            id: actionsList
+
+            anchors {
+                top: labelsColumn.bottom
+                left: printerIcon.right
+                right: stateChangeButton.left
+                leftMargin: Math.round(units.gridUnit / 2)
+                rightMargin: Math.round(units.gridUnit / 2)
+            }
+            interactive: false
+            model: ListModel {
+                Component.onCompleted: {
+                    append({"name":i18n("Configure printer"), "icon":"configure", "actionType":1})
+                    append({"name":i18n("Open print queue"), "icon":"view-list-details", "actionType":2})
+                }
+            }
+            property int actionIconHeight: units.iconSizes.medium * 0.8
+            height: expanded ? ((actionIconHeight + Math.round(units.gridUnit / 2)) * 2) + Math.round(units.gridUnit / 4) : 0
+            opacity: expanded ? 1 : 0
+            highlight: PlasmaComponents.Highlight{}
+            delegate: actionItem
+
+
+            Behavior on opacity { NumberAnimation { duration: units.shortDuration * 3 } }
+
+            Component.onCompleted: currentIndex = -1
+
+            PrintManager.ProcessRunner {
+                id: processRunner
+            }
+
+            Component {
+                id: actionItem
+
+                Item {
+                    height: Math.max(actionIcon.height, actionText.height + jobsCountText.height) + Math.round(units.gridUnit / 3)
+                    width: actionsList.width
+
+                    PlasmaCore.IconItem {
+                        id: actionIcon
+
+                        source: icon
+                        height: actionsList.actionIconHeight
+                        width: actionsList.actionIconHeight
+
+                        anchors {
+                            left: parent.left
+                            leftMargin: 3
+                            verticalCenter: actionLabels.verticalCenter
+                        }
+                    }
+
+                    Column {
+                        id: actionLabels
+
+                        anchors {
+                            left: actionIcon.right
+                            leftMargin: 5
+                            right: parent.right
+                            rightMargin: 3
+                            verticalCenter: parent.verticalCenter
+                        }
+
+                        PlasmaComponents.Label {
+                            id: actionText
+
+                            anchors {
+                                left: parent.left
+                                right: parent.right
+                            }
+
+                            height: paintedHeight
+                            verticalAlignment: Text.AlignVCenter
+                            wrapMode: Text.WordWrap
+                            text: name
+                        }
+
+                        PlasmaComponents.Label {
+                            id: jobsCountText
+
+                            anchors {
+                                left: parent.left
+                                right: parent.right
+                            }
+
+                            height: actionType == 2 ? paintedHeight : 0
+                            elide: Text.ElideRight
+                            font.pointSize: theme.smallestFont.pointSize
+                            opacity: 0.6
+                            text: getJobsLabel()
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+
+                        onEntered: {
+                            actionsList.currentIndex = index;
+                            actionsList.highlightItem.opacity = 1;
+                        }
+                        onExited: {
+                            actionsList.highlightItem.opacity = 0;
+                        }
+                        onClicked: {
+                            // Configure printer
+                            if (actionType == 1) {
+                                processRunner.configurePrinter(printerName)
+                            // Open print queue
+                            } else {
+                                processRunner.openPrintQueue(printerName)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        isPaused = printerState === 5
     }
 
     states: [
         State {
+            name: "NORMAL"
+            when: !isPaused
+        },
+
+        State {
             name: "PAUSED"
-            PropertyChanges { target: labelsColumn; opacity: 0.6}
-            PropertyChanges { target: printerIcon; opacity: 0.6}
+            when: isPaused
+            PropertyChanges { target: printerNameLabel; opacity: 0.6 }
+            PropertyChanges { target: printerIcon; opacity: 0.6 }
         }
     ]
+
+    function getJobsLabel() {
+        if (printmanager.jobsFilter == PrintManager.JobModel.WhichActive) {
+            if (jobsFilterModel.count == 0) {
+                return i18n("No active job");
+            } else if (jobsFilterModel.count == 1) {
+                return i18n("One active job");
+            } else {
+                return i18n("%1 active jobs", jobsFilterModel.count);
+            }
+        } else {
+            if (jobsFilterModel.count == 0) {
+                return i18n("No job");
+            } else if (jobsFilterModel.count == 1) {
+                return i18n("One job");
+            } else {
+                return i18n("%1 jobs", jobsFilterModel.count);
+            }
+        }
+    }
+
+    function toggleSelection() {
+        if (isPaused) {
+            if (printerState === 5) {
+                printersModel.resumePrinter(printerName)
+            }
+        } else {
+            printersModel.pausePrinter(printerName)
+        }
+        isPaused = !isPaused
+    }
 }

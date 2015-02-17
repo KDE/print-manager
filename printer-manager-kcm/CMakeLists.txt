@@ -4,15 +4,20 @@ set(kcm_print_SRCS
     PrintKCM.cpp
 )
 
-kde4_add_ui_files(kcm_print_SRCS
+ki18n_wrap_ui(kcm_print_SRCS
     PrintKCM.ui
     PrinterDescription.ui
 )
 
-kde4_add_plugin(kcm_printer_manager ${kcm_print_SRCS})
+add_library(kcm_printer_manager MODULE ${kcm_print_SRCS})
 
 target_link_libraries(kcm_printer_manager
-    ${KDE4_KDEUI_LIBS}
+    Qt5::Core
+    Qt5::Widgets
+    KF5::CoreAddons
+    KF5::I18n
+    KF5::IconThemes
+    KF5::KCMUtils
     kcupslib
 )
 

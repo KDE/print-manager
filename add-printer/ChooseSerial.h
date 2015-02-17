@@ -36,9 +36,9 @@ public:
     explicit ChooseSerial(QWidget *parent = 0);
     ~ChooseSerial();
 
-    void setValues(const QVariantHash &args);
-    QVariantHash values() const;
-    bool isValid() const;
+    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
+    QVariantHash values() const Q_DECL_OVERRIDE;
+    bool isValid() const Q_DECL_OVERRIDE;
 
 public slots:
     void load();

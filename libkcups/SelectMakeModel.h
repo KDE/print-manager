@@ -24,8 +24,6 @@
 #include <QWidget>
 #include <QDBusMessage>
 
-#include <kdemacros.h>
-
 #include "KCupsConnection.h"
 #include "PPDModel.h"
 
@@ -34,7 +32,7 @@ namespace Ui {
 }
 
 class KCupsRequest;
-class KDE_EXPORT SelectMakeModel : public QWidget
+class Q_DECL_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
 public:

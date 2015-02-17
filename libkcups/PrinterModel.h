@@ -26,7 +26,7 @@
 
 #include <KCupsPrinter.h>
 
-class KDE_EXPORT PrinterModel : public QStandardItemModel
+class Q_DECL_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(JobAction)
@@ -63,8 +63,8 @@ public:
 
     explicit PrinterModel(QObject *parent = 0);
 
-    Qt::ItemFlags flags(const QModelIndex &index) const;
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
     int count() const;
     bool serverUnavailable() const;
 

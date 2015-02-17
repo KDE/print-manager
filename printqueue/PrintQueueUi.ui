@@ -297,7 +297,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="KComboBox" name="whichJobsCB">
+      <widget class="QComboBox" name="whichJobsCB">
        <property name="insertPolicy">
         <enum>QComboBox::NoInsert</enum>
        </property>
@@ -328,13 +328,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

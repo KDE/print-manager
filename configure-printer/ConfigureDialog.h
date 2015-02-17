@@ -21,13 +21,15 @@
 #ifndef CONFIGURE_DIALOG_H
 #define CONFIGURE_DIALOG_H
 
+#include <QAbstractButton>
 #include <QCloseEvent>
 #include <KPageDialog>
 
 class PrinterPage;
 class ModifyPrinter;
 class PrinterOptions;
-class KDE_EXPORT ConfigureDialog : public KPageDialog
+
+class Q_DECL_EXPORT ConfigureDialog : public KPageDialog
 {
     Q_OBJECT
 public:
@@ -36,13 +38,14 @@ public:
 
 private slots:
     void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
-    virtual void slotButtonClicked(int button);
+    void enableButtonApply(bool enable);
+    void slotButtonClicked(QAbstractButton * pressedButton);
     void ppdChanged();
 
 private:
     ModifyPrinter *modifyPrinter;
     PrinterOptions *printerOptions;
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
     // return false if the dialog was canceled
     bool savePage(PrinterPage *page);
 };

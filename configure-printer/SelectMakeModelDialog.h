@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2012-2013 by Daniel Nicoletti <dantti12@gmail.com>      *
+ *   Copyright (C) 2014 Lukáš Tinkl <ltinkl@redhat.com>                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -12,32 +12,30 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
+ *   along with this program; see the file COPYING. If not, write to       *
+ *   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,  *
+ *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
-#ifndef KPRINT_MANAGER_CONFIG_H
-#define KPRINT_MANAGER_CONFIG_H
+#ifndef SELECTMAKEMODELDIALOG_H
+#define SELECTMAKEMODELDIALOG_H
 
-#include <QObject>
-#include <QDesignerCustomWidgetInterface>
+#include <QDialog>
+#include <QDialogButtonBox>
 
-class KPrintManagerConfigPlugin : public QObject, public QDesignerCustomWidgetInterface
+#include "SelectMakeModel.h"
+
+class SelectMakeModelDialog : public QDialog
 {
     Q_OBJECT
-    Q_INTERFACES(QDesignerCustomWidgetInterface)
 public:
-    explicit KPrintManagerConfigPlugin(QObject *parent = 0);
+    explicit SelectMakeModelDialog(const QString & make, const QString & makeModel, QWidget *parent = 0);
+    ~SelectMakeModelDialog();
 
-    bool isContainer() const;
-    QIcon icon() const;
-    QString group() const;
-    QString includeFile() const;
-    QString name() const;
-    QString toolTip() const;
-    QString whatsThis() const;
-    QWidget *createWidget(QWidget *parent);
+    SelectMakeModel * mainWidget() const;
+private:
+    SelectMakeModel * m_widget;
+    QDialogButtonBox * m_bbox;
 };
 
-#endif // KPRINT_MANAGER_CONFIG_H
+#endif // SELECTMAKEMODELDIALOG_H

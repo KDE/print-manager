@@ -25,10 +25,8 @@
 
 #include <QPainter>
 #include <QStringBuilder>
-
-#include <KUrl>
-
-#include <KDebug>
+#include <QDebug>
+#include <QUrl>
 
 ChooseSamba::ChooseSamba(QWidget *parent) :
     GenericPage(parent),
@@ -39,9 +37,9 @@ ChooseSamba::ChooseSamba(QWidget *parent) :
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
-    connect(ui->usernameLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
-    connect(ui->passwordLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
+    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
+    connect(ui->usernameLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
+    connect(ui->passwordLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
 }
 
 ChooseSamba::~ChooseSamba()
@@ -60,7 +58,7 @@ QVariantHash ChooseSamba::values() const
     QVariantHash ret = m_args;
 
     QString address = ui->addressLE->text().trimmed();
-    KUrl url;
+    QUrl url;
     if (address.startsWith(QLatin1String("//"))) {
         url = QLatin1String("smb:") % address;
     } else if (address.startsWith(QLatin1String("/"))) {
@@ -69,27 +67,27 @@ QVariantHash ChooseSamba::values() const
         url = QLatin1String("smb") % address;
     } else if (address.startsWith(QLatin1String("smb://"))) {
         url = address;
-    } else if (!KUrl(address).protocol().isEmpty() &&
-               KUrl(address).protocol() != QLatin1String("smb")) {
-        url = address;
-        url.setProtocol(QLatin1String("smb"));
+    } else if (!QUrl::fromUserInput(address).scheme().isEmpty() &&
+               QUrl::fromUserInput(address).scheme() != QStringLiteral("smb")) {
+        url = QUrl::fromUserInput(address);
+        url.setScheme(QStringLiteral("smb"));
     } else {
-        url = QLatin1String("smb://") % address;
+        url = QStringLiteral("smb://") % address;
     }
 
-    kDebug() << 1 << url;
+    qDebug() << 1 << url;
     if (!ui->usernameLE->text().isEmpty()) {
-        url.setUser(ui->usernameLE->text());
+        url.setUserName(ui->usernameLE->text());
     }
 
     if (!ui->passwordLE->text().isEmpty()) {
-        url.setPass(ui->passwordLE->text());
+        url.setPassword(ui->passwordLE->text());
     }
 
-    kDebug() << 2 << url;
-    kDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);// same as url.fileName()
-    kDebug() << 4 << url.fileName();
-    kDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
+    qDebug() << 2 << url;
+    qDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);// same as url.fileName()
+    qDebug() << 4 << url.fileName();
+    qDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
 
     ret[KCUPS_DEVICE_URI] = url.url();
     ret[KCUPS_DEVICE_INFO] = url.fileName();
@@ -108,13 +106,13 @@ QVariantHash ChooseSamba::values() const
 bool ChooseSamba::isValid() const
 {
     QVariantHash args = values();
-    KUrl url(args[KCUPS_DEVICE_URI].toString());
+    QUrl url(args[KCUPS_DEVICE_URI].toString());
 
     return url.isValid() &&
             !url.isEmpty() &&
-            !url.protocol().isEmpty() &&
-            url.hasHost() &&
-            url.hasPath() &&
+            !url.scheme().isEmpty() &&
+            !url.host().isEmpty() &&
+            !url.path().isEmpty() &&
             !url.fileName().isEmpty() &&
             url.url().count(QLatin1Char('/')) <= 4;
 }

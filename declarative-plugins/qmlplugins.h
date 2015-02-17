@@ -20,10 +20,13 @@
 #ifndef PRINT_MANAGER_PLUGINS_H
 #define PRINT_MANAGER_PLUGINS_H
 
-#include <QtDeclarative/QDeclarativeExtensionPlugin>
+#include <QQmlExtensionPlugin>
 
-class QmlPlugins : public QDeclarativeExtensionPlugin
+class QmlPlugins : public QQmlExtensionPlugin
 {
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
+
     public:
         virtual void registerTypes(const char * uri);
 };

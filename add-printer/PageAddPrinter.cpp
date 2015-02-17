@@ -24,10 +24,12 @@
 #include <KCupsRequest.h>
 
 #include <QPainter>
+#include <QPointer>
+#include <QDebug>
+
 #include <KCategorizedSortFilterProxyModel>
 #include <KCategoryDrawer>
-
-#include <KDebug>
+#include <KIconLoader>
 
 PageAddPrinter::PageAddPrinter(QWidget *parent) :
     GenericPage(parent),
@@ -135,7 +137,7 @@ bool PageAddPrinter::finishClicked()
     request->waitTillFinished();
     if (request) {
         if (request->hasError()) {
-            kDebug() << request->error() << request->errorMsg();
+            qDebug() << request->error() << request->errorMsg();
             QString message;
             if (isClass) {
                 message = i18nc("@info", "Failed to add class: '%1'", request->errorMsg());

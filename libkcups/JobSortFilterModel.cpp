@@ -19,9 +19,8 @@
  ***************************************************************************/
 #include "JobSortFilterModel.h"
 
+#include "Debug.h"
 #include "JobModel.h"
-
-#include <KDebug>
 
 JobSortFilterModel::JobSortFilterModel(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -30,14 +29,14 @@ JobSortFilterModel::JobSortFilterModel(QObject *parent) :
     setSortCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
 
-    connect(this, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SIGNAL(activeCountChanged()));
-    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SIGNAL(activeCountChanged()));
-    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SIGNAL(activeCountChanged()));
-    connect(this, SIGNAL(modelReset()),
-            this, SIGNAL(activeCountChanged()));
+    connect(this, &JobSortFilterModel::dataChanged, this, &JobSortFilterModel::activeCountChanged);
+    connect(this, &JobSortFilterModel::rowsInserted, this, &JobSortFilterModel::activeCountChanged);
+    connect(this, &JobSortFilterModel::rowsRemoved, this, &JobSortFilterModel::activeCountChanged);
+    connect(this, &JobSortFilterModel::modelReset, this, &JobSortFilterModel::activeCountChanged);
+    connect(this, &JobSortFilterModel::dataChanged, this, &JobSortFilterModel::countChanged);
+    connect(this, &JobSortFilterModel::rowsInserted, this, &JobSortFilterModel::countChanged);
+    connect(this, &JobSortFilterModel::rowsRemoved, this, &JobSortFilterModel::countChanged);
+    connect(this, &JobSortFilterModel::modelReset, this, &JobSortFilterModel::countChanged);
 }
 
 void JobSortFilterModel::setModel(QAbstractItemModel *model)
@@ -52,7 +51,7 @@ void JobSortFilterModel::setModel(QAbstractItemModel *model)
 
 void JobSortFilterModel::setFilteredPrinters(const QString &printers)
 {
-    kDebug() << rowCount() << printers << printers.split(QLatin1Char('|'));
+    qCDebug(LIBKCUPS) << rowCount() << printers << printers.split(QLatin1Char('|'));
     if (printers.isEmpty()) {
         m_filteredPrinters.clear();
     } else {
@@ -77,6 +76,11 @@ int JobSortFilterModel::activeCount() const
         }
     }
     return active;
+}
+
+int JobSortFilterModel::count() const
+{
+    return rowCount();
 }
 
 bool JobSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const

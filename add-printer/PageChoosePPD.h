@@ -39,10 +39,10 @@ public:
     explicit PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
     ~PageChoosePPD();
 
-    bool canProceed() const;
-    void setValues(const QVariantHash &args);
-    QVariantHash values() const;
-    bool isValid() const;
+    bool canProceed() const Q_DECL_OVERRIDE;
+    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
+    QVariantHash values() const Q_DECL_OVERRIDE;
+    bool isValid() const Q_DECL_OVERRIDE;
 
 private slots:
     void checkSelected();

@@ -21,14 +21,14 @@
 #ifndef ADDPRINTER_H
 #define ADDPRINTER_H
 
-#include <KApplication>
+#include <QApplication>
 
 class AddPrinterInterface;
-class AddPrinter : public KApplication
+class AddPrinter : public QApplication
 {
     Q_OBJECT
 public:
-    AddPrinter();
+    AddPrinter(int &argc, char **argv);
     virtual ~AddPrinter();
 
     /**

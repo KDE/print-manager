@@ -21,14 +21,15 @@
 #include "NewPrinterNotification.h"
 #include "newprinternotificationadaptor.h"
 
-#include <KLocale>
+#include "Debug.h"
+
+#include <KLocalizedString>
 #include <KNotification>
-#include <KIcon>
 #include <KToolInvocation>
-#include <KDebug>
 
 #include <KCupsRequest.h>
 
+#include <QIcon>
 #include <QThread>
 #include <QtDBus/QDBusMessage>
 #include <QtDBus/QDBusConnection>
@@ -45,7 +46,7 @@
 
 NewPrinterNotification::NewPrinterNotification()
 {
-    // Make sure the password dialog is created on the main threas
+    // Make sure the password dialog is created in the main thread
     KCupsConnection::global();
 
     // Make all our init code run on the thread since
@@ -63,11 +64,11 @@ NewPrinterNotification::~NewPrinterNotification()
 
 void NewPrinterNotification::GetReady()
 {
-    kDebug();
+    qCDebug(PM_KDED);
     // This method is all about telling the user a new printer was detected
     KNotification *notify = new KNotification("GetReady");
-    notify->setComponentData(KComponentData("printmanager"));
-    notify->setPixmap(KIcon("printer").pixmap(64, 64));
+    notify->setComponentName("printmanager");
+    notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
     notify->setTitle(i18n("A New Printer was detected"));
     notify->setText(i18n("Configuring new printer..."));
     notify->sendEvent();
@@ -86,15 +87,15 @@ void NewPrinterNotification::NewPrinter(int status,
                                         const QString &description,
                                         const QString &cmd)
 {
-    kDebug() << status << name << make << model << description << cmd;
+    qCDebug(PM_KDED) << status << name << make << model << description << cmd;
     // 1
     // "usb://Samsung/SCX-3400%20Series?serial=Z6Y1BQAC500079K&interface=1"
     // mfg "Samsung"
     // mdl "SCX-3400 Series" "" "SPL,FWV,PIC,BDN,EXT"
     // This method is all about telling the user a new printer was detected
     KNotification *notify = new KNotification("NewPrinterNotification");
-    notify->setComponentData(KComponentData("printmanager"));
-    notify->setPixmap(KIcon("printer").pixmap(64, 64));
+    notify->setComponentName("printmanager");
+    notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
     notify->setFlags(KNotification::Persistent);
 
     QString title;
@@ -161,7 +162,7 @@ void NewPrinterNotification::NewPrinter(int status,
 
         if (!missingExecutables.isEmpty()) {
             // TODO check with PackageKit about missing drivers
-            kWarning();
+            qCWarning(PM_KDED) << "Missing executables:" << missingExecutables;
         } else if (status == STATUS_SUCCESS) {
             text = i18n("'%1' is ready for printing.", name);
             actions << i18n("Print test page");
@@ -170,7 +171,6 @@ void NewPrinterNotification::NewPrinter(int status,
             connect(notify, SIGNAL(action2Activated()), this, SLOT(configurePrinter()));
         } else {
             // Model mismatch
-
 
             // The cups request might have failed
             if (driver.isEmpty()) {
@@ -215,12 +215,12 @@ void NewPrinterNotification::init()
 bool NewPrinterNotification::registerService()
 {
     if (!QDBusConnection::systemBus().registerService("com.redhat.NewPrinterNotification")) {
-        kDebug() << "unable to register service to dbus";
+        qCWarning(PM_KDED) << "unable to register service to dbus";
         return false;
     }
 
     if (!QDBusConnection::systemBus().registerObject("/com/redhat/NewPrinterNotification", this)) {
-        kDebug() << "unable to register object to dbus";
+        qCWarning(PM_KDED) << "unable to register object to dbus";
         return false;
     }
     return true;
@@ -228,14 +228,7 @@ bool NewPrinterNotification::registerService()
 
 void NewPrinterNotification::configurePrinter()
 {
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("/"),
-                                             QLatin1String("org.kde.ConfigurePrinter"),
-                                             QLatin1String("ConfigurePrinter"));
-    // TODO setup wid
-    message << sender()->property(PRINTER_NAME);
-    QDBusConnection::sessionBus().send(message);
+    QProcess::startDetached("configure-printer", {PRINTER_NAME});
 }
 
 void NewPrinterNotification::searchDrivers()
@@ -244,7 +237,7 @@ void NewPrinterNotification::searchDrivers()
 
 void NewPrinterNotification::printTestPage()
 {
-    kDebug();
+    qCDebug(PM_KDED);
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->printTestPage(sender()->property(PRINTER_NAME).toString(), false);
     request->waitTillFinished();
@@ -255,7 +248,7 @@ void NewPrinterNotification::printTestPage()
 
 void NewPrinterNotification::findDriver()
 {
-    kDebug();
+    qCDebug(PM_KDED);
     // This function will show the PPD browser dialog
     // to choose a better PPD to the already added printer
     QStringList args;
@@ -266,12 +259,12 @@ void NewPrinterNotification::findDriver()
 
 void NewPrinterNotification::installDriver()
 {
-    kDebug();
+    qCDebug(PM_KDED);
 }
 
 void NewPrinterNotification::setupPrinter()
 {
-    kDebug();
+    qCDebug(PM_KDED);
     // This function will show the PPD browser dialog
     // to choose a better PPD, queue name, location
     // in this case the printer was not added
@@ -283,7 +276,7 @@ void NewPrinterNotification::setupPrinter()
 
 QStringList NewPrinterNotification::getMissingExecutables(const QString &ppdFileName) const
 {
-    kDebug();
+    qCDebug(PM_KDED);
     QDBusMessage message;
     message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
                                              QLatin1String("/org/fedoraproject/Config/Printing"),
@@ -292,7 +285,7 @@ QStringList NewPrinterNotification::getMissingExecutables(const QString &ppdFile
     message << ppdFileName;
     QDBusReply<QStringList> reply = QDBusConnection::sessionBus().call(message);
     if (!reply.isValid()) {
-        kWarning() << "Invalid reply" << reply.error();
+        qCWarning(PM_KDED) << "Invalid reply" << reply.error();
     }
     return reply;
 }

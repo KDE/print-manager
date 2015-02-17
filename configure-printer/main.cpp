@@ -22,35 +22,47 @@
 
 #include <config.h>
 
-#include <KDebug>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KAboutData>
-#include <KCmdLineArgs>
+#include <KDBusService>
+
+#include <QCommandLineParser>
+#include <QCommandLineOption>
+#include <QDebug>
 
 int main(int argc, char **argv)
 {
-    KAboutData about("ConfigurePrinter",
-                     "print-manager",
-                     ki18n("ConfigurePrinter"),
+    ConfigurePrinter app(argc, argv);
+    app.setOrganizationDomain("org.kde");
+
+    KAboutData aboutData("ConfigurePrinter",
+                     i18n("Configure Printer"),
                      PM_VERSION,
-                     ki18n("ConfigurePrinter"),
-                     KAboutData::License_GPL,
-                     ki18n("(C) 2010-2013 Daniel Nicoletti"));
+                     i18n("ConfigurePrinter"),
+                     KAboutLicense::GPL,
+                     i18n("(C) 2010-2013 Daniel Nicoletti"));
+    aboutData.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    aboutData.addAuthor(QStringLiteral("Jan Grulich"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("jgrulich@redhat.com"));
 
-    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
+    KAboutData::setApplicationData(aboutData);
+    KDBusService service(KDBusService::Unique);
 
-    KCmdLineArgs::init(argc, argv, &about);
-    KCmdLineOptions options;
-    options.add("configure-printer [printer name]", ki18n("Configure printer"));
-    KCmdLineArgs::addCmdLineOptions(options);
+    QCommandLineParser parser;
+    aboutData.setupCommandLine(&parser);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    parser.addPositionalArgument("printer", i18n("Printer to be configured"));
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
-    ConfigurePrinter::addCmdLineOptions();
-
-    if (!ConfigurePrinter::start()) {
-        //kDebug() << "ConfigurePrinter is already running!";
-        return 0;
+    const QStringList args = parser.positionalArguments();
+    if (args.count() == 1) {
+        QString printerName = args.at(0);
+        app.configurePrinter(printerName);
+    } else {
+        qWarning() << "No printer was specified";
+        return 1;
     }
 
-    ConfigurePrinter app;
     return app.exec();
 }

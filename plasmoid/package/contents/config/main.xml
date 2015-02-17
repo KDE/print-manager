@@ -13,10 +13,6 @@
     </entry>
     <entry name="allJobs" type="Bool">
     </entry>
-    <entry name="filterPrinters" type="Bool">
-    </entry>
-    <entry name="selectedPrinters" type="String">
-    </entry>
   </group>
 
-</kcfg>
+</kcfg> 

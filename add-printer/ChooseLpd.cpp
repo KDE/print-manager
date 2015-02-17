@@ -25,8 +25,9 @@
 
 #include <QPainter>
 #include <QStringBuilder>
+#include <QDebug>
 
-#include <KDebug>
+#include <QUrl>
 
 ChooseLpd::ChooseLpd(QWidget *parent) :
     GenericPage(parent),
@@ -46,14 +47,14 @@ ChooseLpd::~ChooseLpd()
 
 void ChooseLpd::on_addressLE_textChanged(const QString &text)
 {
-    kDebug() << text;
+    qDebug() << text;
 }
 
 void ChooseLpd::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-    kDebug() << deviceUri;
+    const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
+    qDebug() << deviceUri;
     if (deviceUri.contains(QLatin1Char('/'))) {
         m_isValid = false;
         return;
@@ -75,7 +76,7 @@ bool ChooseLpd::canProceed() const
 {
     bool allow = false;
     if (!ui->addressLE->text().isEmpty()) {
-        KUrl url = KUrl(QLatin1String("lpd://") % ui->addressLE->text());
+        QUrl url = QUrl(QStringLiteral("lpd://") % ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;

@@ -19,9 +19,8 @@
  ***************************************************************************/
 #include "PrinterSortFilterModel.h"
 
+#include "Debug.h"
 #include "PrinterModel.h"
-
-#include <KDebug>
 
 PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
     QSortFilterProxyModel(parent)
@@ -30,12 +29,9 @@ PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
     setSortCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
 
-    connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SIGNAL(countChanged()));
-    connect(this, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SIGNAL(countChanged()));
-    connect(this, SIGNAL(modelReset()),
-            this, SIGNAL(countChanged()));
+    connect(this, &PrinterSortFilterModel::rowsInserted, this, &PrinterSortFilterModel::countChanged);
+    connect(this, &PrinterSortFilterModel::rowsRemoved, this, &PrinterSortFilterModel::countChanged);
+    connect(this, &PrinterSortFilterModel::modelReset, this, &PrinterSortFilterModel::countChanged);
 }
 
 void PrinterSortFilterModel::setModel(QAbstractItemModel *model)
@@ -50,7 +46,7 @@ void PrinterSortFilterModel::setModel(QAbstractItemModel *model)
 
 void PrinterSortFilterModel::setFilteredPrinters(const QString &printers)
 {
-    kDebug() << rowCount() << printers << printers.split(QLatin1Char('|'));
+    qCDebug(LIBKCUPS) << rowCount() << printers << printers.split(QLatin1Char('|'));
     if (printers.isEmpty()) {
         m_filteredPrinters.clear();
     } else {
@@ -79,13 +75,19 @@ bool PrinterSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex 
         return m_filteredPrinters.contains(index.data(PrinterModel::DestName).toString());
     }
 
-    return true;
+    return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 
 bool PrinterSortFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     bool leftIsRemote = sourceModel()->data(left, PrinterModel::DestRemote).toBool();
     bool rightIsRemote = sourceModel()->data(right, PrinterModel::DestRemote).toBool();
+    bool leftDefault = sourceModel()->data(left, PrinterModel::DestIsDefault).toBool();
+    bool rightDefault = sourceModel()->data(right, PrinterModel::DestIsDefault).toBool();
+
+    if (leftDefault != rightDefault) {
+        return leftDefault;
+    }
 
     if (leftIsRemote != rightIsRemote) {
         // If the right item is a remote the left should move right

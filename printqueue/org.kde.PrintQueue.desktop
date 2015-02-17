@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Print Queue
+Comment=View the print jobs
+Exec=kde-print-queue
+Icon=printer
+Type=Application
+Terminal=false
+X-DBUS-StartupType=Unique
+X-DBUS-ServiceName=org.kde.PrintQueue
+NoDisplay=true
+Categories=Qt;KDE;Printing;Utility;

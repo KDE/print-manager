@@ -22,14 +22,12 @@
 #define KCUPSPRINTER_H
 
 #include <QString>
-
-#include <KIcon>
+#include <QIcon>
 
 #include <KCupsConnection.h>
 
-class KDE_EXPORT KCupsPrinter
+class Q_DECL_EXPORT KCupsPrinter
 {
-    Q_GADGET
     Q_ENUMS(Attribute)
 public:
     typedef enum {
@@ -71,8 +69,8 @@ public:
       * Requires enum PrinterType to work properly
       *
       */
-    KIcon icon() const;
-    static KIcon icon(cups_ptype_e type);
+    QIcon icon() const;
+    static QIcon icon(cups_ptype_e type);
     QString iconName() const;
     static QString iconName(cups_ptype_e type);
 

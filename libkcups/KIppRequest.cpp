@@ -21,9 +21,9 @@
 #include "KIppRequest.h"
 #include "KIppRequest_p.h"
 
-#include <QStringBuilder>
+#include "Debug.h"
 
-#include <KDebug>
+#include <QStringBuilder>
 
 KIppRequest::KIppRequest() :
     d_ptr(new KIppRequestPrivate)
@@ -168,7 +168,7 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
             addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, key, value.toInt());
             break;
         default:
-            kWarning() << "type NOT recognized! This will be ignored:" << key << "values" << i.value();
+            qCWarning(LIBKCUPS) << "type NOT recognized! This will be ignored:" << key << "values" << i.value();
         }
         ++i;
     }
@@ -267,7 +267,7 @@ void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
             break;
         }
         default:
-            kWarning() << "type NOT recognized! This will be ignored:" << request.name << "values" << request.value;
+            qCWarning(LIBKCUPS) << "type NOT recognized! This will be ignored:" << request.name << "values" << request.value;
         }
     }
 }

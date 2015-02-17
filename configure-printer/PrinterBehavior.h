@@ -38,11 +38,11 @@ public:
     ~PrinterBehavior();
 
     void setValues(const KCupsPrinter &printer);
-    void setRemote(bool remote);
-    bool hasChanges();
+    void setRemote(bool remote) Q_DECL_OVERRIDE;
+    bool hasChanges() Q_DECL_OVERRIDE;
 
-    QStringList neededValues() const;
-    void save();
+    QStringList neededValues() const Q_DECL_OVERRIDE;
+    void save() Q_DECL_OVERRIDE;
 
 private slots:
     void currentIndexChangedCB(int index);

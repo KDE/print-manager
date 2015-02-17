@@ -22,57 +22,66 @@
 
 #include <config.h>
 
-#include <KDebug>
-#include <KLocale>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
+#include <QDebug>
+
+#include <KLocalizedString>
 #include <KAboutData>
-#include <KCmdLineArgs>
 
 int main(int argc, char **argv)
 {
-    KAboutData about("add-printer",
-                     "print-manager",
-                     ki18n("AddPrinter"),
+    AddPrinter app(argc, argv);
+    app.setOrganizationDomain("org.kde");
+
+    KAboutData about("kde-add-printer",
+                     i18n("Add Printer"),
                      PM_VERSION,
-                     ki18n("Tool for adding new printers"),
-                     KAboutData::License_GPL,
-                     ki18n("(C) 2010-2013 Daniel Nicoletti"));
+                     i18n("Tool for adding new printers"),
+                     KAboutLicense::GPL,
+                     i18n("(C) 2010-2013 Daniel Nicoletti"));
 
-    about.addAuthor(ki18n("Daniel Nicoletti"), KLocalizedString(), "dantti12@gmail.com");
+    about.addAuthor(i18n("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    about.addAuthor(QStringLiteral("Lukáš Tinkl"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("ltinkl@redhat.com"));
+    KAboutData::setApplicationData(about);
 
-    KCmdLineArgs::init(argc, argv, &about);
-    KCmdLineOptions options;
-    options.add("w").add("parent-window <wid>", ki18n("Parent Window ID"));
-    options.add("add-printer", ki18n("Add a new printer"));
-    options.add("add-class", ki18n("Add a new printer class"));
-    options.add("change-ppd <printer-name>", ki18n("Changes the PPD of a given printer"));
-    options.add("new-printer-from-device <printername/deviceid>", ki18n("Changes the PPD of a given printer/deviceid"));
-    KCmdLineArgs::addCmdLineOptions(options);
+    QCommandLineParser parser;
+    about.setupCommandLine(&parser);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    parser.addOption(QCommandLineOption({"w", "parent-window"}, i18n("Parent Window ID"), "wid"));
+    parser.addOption(QCommandLineOption("add-printer", i18n("Add a new printer")));
+    parser.addOption(QCommandLineOption("add-class", i18n("Add a new printer class")));
+    parser.addOption(QCommandLineOption("change-ppd", i18n("Changes the PPD of a given printer"), "printer-name"));
+    parser.addOption(QCommandLineOption("new-printer-from-device", i18n("Changes the PPD of a given printer/deviceid"),
+                                        "printername/deviceid"));
+
+    parser.process(app);
+    about.processCommandLine(&parser);
 
     qulonglong wid = 0;
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("w")) {
-        wid = args->getOption("parent-window").toULongLong();
+    if (parser.isSet("w")) {
+        wid = parser.value("parent-window").toULongLong();
     }
 
-    AddPrinter app;
-    if (args->isSet("add-printer")) {
+    if (parser.isSet("add-printer")) {
         app.addPrinter(wid);
-    } else if (args->isSet("add-class")) {
+    } else if (parser.isSet("add-class")) {
         app.addClass(wid);
-    } else if (args->isSet("change-ppd")) {
-        app.changePPD(wid, args->getOption("change-ppd"));
-    } else if (args->isSet("new-printer-from-device")) {
-        QString value = args->getOption("new-printer-from-device");
-        QStringList values = value.split(QLatin1String("/"));
+    } else if (parser.isSet("change-ppd")) {
+        app.changePPD(wid, parser.value("change-ppd"));
+    } else if (parser.isSet("new-printer-from-device")) {
+        const QString value = parser.value("new-printer-from-device");
+        const QStringList values = value.split(QLatin1String("/"));
         if (values.size() == 2) {
             app.newPrinterFromDevice(wid, values.first(), values.last());
         } else {
-            args->usage("new-printer-from-device");
+            qWarning() << "The expected input should be printer/deviceid";
+            exit(EXIT_FAILURE);
         }
     } else {
-        args->usage();
+        parser.showHelp(EXIT_FAILURE);
     }
-
 
     return app.exec();
 }

@@ -26,9 +26,8 @@
 
 #include <KCupsConnection.h>
 
-class KDE_EXPORT KCupsJob
+class Q_DECL_EXPORT KCupsJob
 {
-    Q_GADGET
     Q_ENUMS(Attribute)
 public:
     KCupsJob();
@@ -36,7 +35,7 @@ public:
 
     int id() const;
     QString idStr() const;
-    QString name() const;    
+    QString name() const;
     QString originatingUserName() const;
     QString originatingHostName() const;
     QString printer() const;

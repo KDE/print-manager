@@ -20,12 +20,12 @@
 
 #include "KCupsRequest.h"
 
+#include "Debug.h"
 #include "KIppRequest.h"
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
 
-#include <KLocale>
-#include <KDebug>
+#include <KLocalizedString>
 #include <QStringBuilder>
 
 #include <cups/adminutil.h>
@@ -41,7 +41,7 @@ KCupsRequest::KCupsRequest(KCupsConnection *connection) :
     if (m_connection == 0) {
         m_connection = KCupsConnection::global();
     }
-    connect(this, SIGNAL(finished()), &m_loop, SLOT(quit()));
+    connect(this, &KCupsRequest::finished, &m_loop, &QEventLoop::quit);
 }
 
 QString KCupsRequest::serverError() const
@@ -52,7 +52,7 @@ QString KCupsRequest::serverError() const
     case IPP_NOT_FOUND :
         return i18n("Not found");
     default : // In this case we don't want to map all enums
-        kWarning() << "status unrecognised: " << error();
+        qCWarning(LIBKCUPS) << "status unrecognised: " << error();
         return QString::fromUtf8(ippErrorString(error()));
     }
 }
@@ -282,9 +282,9 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
         do {
             const char  *filename;
             filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, printerName.toUtf8());
-            kDebug() << filename;
+            qCDebug(LIBKCUPS) << filename;
             m_ppdFile = filename;
-            kDebug() << m_ppdFile;
+            qCDebug(LIBKCUPS) << m_ppdFile;
         } while (m_connection->retry("/", CUPS_GET_PPD));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();

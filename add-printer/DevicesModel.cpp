@@ -22,7 +22,7 @@
 
 #include <KCupsRequest.h>
 
-#include <KLocale>
+#include <KLocalizedString>
 #include <KMessageBox>
 
 #include <QHostInfo>
@@ -30,7 +30,7 @@
 #include <QDBusMetaType>
 #include <QDBusConnection>
 
-#include <KDebug>
+#include <QDebug>
 
 DevicesModel::DevicesModel(QObject *parent)
  : QStandardItemModel(parent),
@@ -68,9 +68,8 @@ void DevicesModel::update()
         removeRows(1, rowCount() - 1);
     }
     m_request = new KCupsRequest;
-    connect(m_request, SIGNAL(device(QString,QString,QString,QString,QString,QString)),
-            this, SLOT(gotDevice(QString,QString,QString,QString,QString,QString)));
-    connect(m_request, SIGNAL(finished()), this, SLOT(finished()));
+    connect(m_request, &KCupsRequest::device, this, &DevicesModel::gotDevice);
+    connect(m_request, &KCupsRequest::finished, this, &DevicesModel::finished);
 
     // Get devices with 5 seconds of timeout
     m_request->getDevices(10);
@@ -85,17 +84,17 @@ void DevicesModel::gotDevice(const QString &device_class,
                              const QString &device_location)
 {
     // "direct"
-    kDebug() << device_class;
+    qDebug() << device_class;
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
-    kDebug() << device_id;
+    qDebug() << device_id;
     // "Samsung SCX-4200 Series"
-    kDebug() << device_info;
+    qDebug() << device_info;
     // "Samsung SCX-4200 Series"
-    kDebug() << device_make_and_model;
+    qDebug() << device_make_and_model;
     // "usb://Samsung/SCX-4200%20Series"
-    kDebug() << device_uri;
+    qDebug() << device_uri;
     // ""
-    kDebug() << device_location;
+    qDebug() << device_location;
 
     if (m_blacklistedURIs.contains(device_uri)) {
         // ignore black listed uri's
@@ -200,17 +199,17 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
                                         bool grouped)
 {
     // "direct"
-    kDebug() << device_class;
+    qDebug() << device_class;
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
-    kDebug() << device_id;
+    qDebug() << device_id;
     // "Samsung SCX-4200 Series"
-    kDebug() << device_info;
+    qDebug() << device_info;
     // "Samsung SCX-4200 Series"
-    kDebug() << device_make_and_model;
+    qDebug() << device_make_and_model;
     // "usb://Samsung/SCX-4200%20Series"
-    kDebug() << device_uri;
+    qDebug() << device_uri;
     // ""
-    kDebug() << device_location;
+    qDebug() << device_location;
 
     Kind kind;
     // Store the kind of the device
@@ -331,7 +330,7 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
                          list.size() > 1 ? list : QStringList());
         }
     } else {
-        kWarning() << "Unexpected message" << message;
+        qWarning() << "Unexpected message" << message;
         groupedDevicesFallback();
     }
     emit loaded();
@@ -339,7 +338,7 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
 
 void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)
 {
-    kWarning() << error <<  message;
+    qWarning() << error <<  message;
     groupedDevicesFallback();
     emit errorMessage(i18n("Failed to group devices: '%1'",error.message()));
     emit loaded();

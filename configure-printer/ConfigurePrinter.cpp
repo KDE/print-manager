@@ -21,36 +21,28 @@
 #include "ConfigurePrinter.h"
 
 #include "ConfigurePrinterInterface.h"
+#include "Debug.h"
 
 #include <QTimer>
 
-#include <KCmdLineArgs>
-#include <KDebug>
+ConfigurePrinter::ConfigurePrinter(int & argc, char ** argv) :
+    QApplication(argc, argv)
+{
+}
 
-ConfigurePrinter::ConfigurePrinter() :
-    KUniqueApplication()
+void ConfigurePrinter::configurePrinter(const QString& printer)
 {
     m_cpInterface = new ConfigurePrinterInterface(this);
     connect(m_cpInterface, SIGNAL(quit()), this, SLOT(quit()));
-}
 
-int ConfigurePrinter::newInstance()
-{
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    QString printerName = args->getOption("configure-printer");
-    if (!printerName.isEmpty()) {
-        m_cpInterface->ConfigurePrinter(printerName);
+    if (!printer.isEmpty()) {
+        m_cpInterface->ConfigurePrinter(printer);
     } else {
         // If DBus called the ui list won't be empty
         QTimer::singleShot(500, m_cpInterface, SLOT(RemovePrinter()));
     }
-    args->clear();
-
-    return 0;
 }
 
 ConfigurePrinter::~ConfigurePrinter()
 {
 }
-
-#include "ConfigurePrinter.moc"

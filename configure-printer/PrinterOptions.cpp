@@ -33,18 +33,19 @@
 
 #include "ui_PrinterOptions.h"
 
+#include "Debug.h"
+
 #include <KCupsRequest.h>
 #include <NoSelectionRectDelegate.h>
 
 #include <QFormLayout>
-#include <KComboBox>
+#include <QComboBox>
 #include <QRadioButton>
 #include <QButtonGroup>
 #include <QStandardItemModel>
 #include <QListView>
 #include <QGroupBox>
-
-#include <KDebug>
+#include <QPointer>
 
 #include <ctype.h>
 
@@ -83,14 +84,14 @@ void PrinterOptions::reloadPPD()
 
     // remove all the options
     while (ui->verticalLayout->count()) {
-        kDebug() << "removing" << ui->verticalLayout->count();
+        qCDebug(PM_CONFIGURE_PRINTER) << "removing" << ui->verticalLayout->count();
         QLayoutItem *item = ui->verticalLayout->itemAt(0);
         ui->verticalLayout->removeItem(item);
         if (item->widget()) {
             item->widget()->deleteLater();
             delete item;
         } else if (item->layout()) {
-            kDebug() << "removing layout" << ui->verticalLayout->count();
+            qCDebug(PM_CONFIGURE_PRINTER) << "removing layout" << ui->verticalLayout->count();
 
 //            item->layout()->deleteLater();
         } else if (item->spacerItem()) {
@@ -111,7 +112,7 @@ void PrinterOptions::reloadPPD()
     m_ppd = ppdOpenFile(m_filename.toUtf8());
     request->deleteLater();
     if (m_ppd == NULL) {
-        kWarning() << "Could not open ppd file:" << m_filename << request->errorMsg();
+        qCWarning(PM_CONFIGURE_PRINTER) << "Could not open ppd file:" << m_filename << request->errorMsg();
         m_filename.clear();
         return;
     }
@@ -119,7 +120,7 @@ void PrinterOptions::reloadPPD()
     // select the default options on the ppd file
     ppdMarkDefaults(m_ppd);
 
-    // TODO tri to use QTextCodec aliases
+    // TODO try to use QTextCodec aliases
     const char *lang_encoding;
     lang_encoding = m_ppd->lang_encoding;
     if (lang_encoding && !strcasecmp (lang_encoding, "ISOLatin1")) {
@@ -219,7 +220,7 @@ void PrinterOptions::createGroups()
                 optionW = pickOne(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;
             default:
-                kWarning() << "Option type not recognized: " << option->ui;
+                qCWarning(PM_CONFIGURE_PRINTER) << "Option type not recognized: " << option->ui;
                 // let's use the most common
                 optionW = pickOne(option, oKeyword, ui->scrollAreaWidgetContents);
                 break;
@@ -335,7 +336,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
     int i;
     ppd_choice_t *choice;
     QString defChoice = m_codec->toUnicode(option->defchoice);
-    KComboBox *comboBox = new KComboBox(parent);
+    QComboBox *comboBox = new QComboBox(parent);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
@@ -359,7 +360,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 
 void PrinterOptions::currentIndexChangedCB(int index)
 {
-    KComboBox *comboBox = qobject_cast<KComboBox*>(sender());
+    QComboBox *comboBox = qobject_cast<QComboBox*>(sender());
     bool isDifferent = comboBox->property(DEFAULT_CHOICE).toString() != comboBox->itemData(index);
 
     if (isDifferent != comboBox->property("different").toBool()) {
@@ -819,5 +820,3 @@ QString PrinterOptions::currentMakeAndModel() const
 {
     return m_makeAndModel;
 }
-
-#include "PrinterOptions.moc"

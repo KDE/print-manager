@@ -23,10 +23,8 @@
 
 #include <KCupsRequest.h>
 
-#include <KUrl>
 #include <QStringBuilder>
-
-#include <KDebug>
+#include <QDebug>
 
 ChooseUri::ChooseUri(QWidget *parent) :
     GenericPage(parent),
@@ -34,14 +32,14 @@ ChooseUri::ChooseUri(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->searchTB->setIcon(KIcon("edit-find"));
+    ui->searchTB->setIcon(QIcon::fromTheme("edit-find"));
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    connect(ui->addressLE, SIGNAL(textChanged(QString)), this, SLOT(checkSelected()));
-    connect(ui->addressLE, SIGNAL(returnPressed()), this, SLOT(findPrinters()));
-    connect(ui->searchTB, SIGNAL(clicked()), this, SLOT(findPrinters()));
+    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseUri::checkSelected);
+    connect(ui->addressLE, &QLineEdit::returnPressed, this, &ChooseUri::findPrinters);
+    connect(ui->searchTB, &QToolButton::clicked, this, &ChooseUri::findPrinters);
 }
 
 ChooseUri::~ChooseUri()
@@ -53,11 +51,11 @@ void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
     bool visible = false;
-    KUrl url = args[KCUPS_DEVICE_URI].toString();
+    QUrl url = args[KCUPS_DEVICE_URI].toString();
     if (url.url() == QLatin1String("other")) {
         ui->addressLE->clear();
         visible = true;
-    } else if (url.protocol().isEmpty() && url.authority().isEmpty()) {
+    } else if (url.scheme().isEmpty() && url.authority().isEmpty()) {
         ui->addressLE->setText(url.url() % QLatin1String("://"));
     } else {
         ui->addressLE->setText(url.url());
@@ -78,9 +76,9 @@ QVariantHash ChooseUri::values() const
 bool ChooseUri::isValid() const
 {
     QVariantHash args = values();
-    KUrl url(args[KCUPS_DEVICE_URI].toString());
-//kDebug() << url << url.isValid() << url.isEmpty() << url.protocol().isEmpty() << url.hasHost();
-    return url.isValid() && !url.isEmpty() && !url.protocol().isEmpty() && url.hasHost();
+    QUrl url(args[KCUPS_DEVICE_URI].toString());
+    //qDebug() << url << url.isValid() << url.isEmpty() << url.scheme().isEmpty() << url.host();
+    return url.isValid() && !url.isEmpty() && !url.scheme().isEmpty() && !url.host().isEmpty();
 }
 
 bool ChooseUri::canProceed() const
@@ -99,13 +97,13 @@ void ChooseUri::checkSelected()
 
 void ChooseUri::on_addressLE_textChanged(const QString &text)
 {
-    KUrl url = parsedURL(text);
+    QUrl url = parsedURL(text);
 
     if (url.isValid() &&
-            (url.protocol().isEmpty() ||
-             url.protocol() == QLatin1String("http") ||
-             url.protocol() == QLatin1String("https") ||
-             url.protocol() == QLatin1String("ipp"))) {
+            (url.scheme().isEmpty() ||
+             url.scheme() == QStringLiteral("http") ||
+             url.scheme() == QStringLiteral("https") ||
+             url.scheme() == QStringLiteral("ipp"))) {
         // TODO maybe cups library can connect to more protocols
         ui->searchTB->setEnabled(true);
     } else {
@@ -115,11 +113,11 @@ void ChooseUri::on_addressLE_textChanged(const QString &text)
 
 void ChooseUri::findPrinters()
 {
-    KUrl url = parsedURL(ui->addressLE->text());
+    QUrl url = parsedURL(ui->addressLE->text());
 
     KCupsConnection *conn = new KCupsConnection(url, this);
     KCupsRequest *request = new KCupsRequest(conn);
-    connect(request, SIGNAL(finished()), this, SLOT(getPrintersFinished()));
+    connect(request, &KCupsRequest::finished, this, &ChooseUri::getPrintersFinished);
 
     QStringList attr;
     attr << KCUPS_PRINTER_NAME;
@@ -139,9 +137,9 @@ void ChooseUri::findPrinters()
 void ChooseUri::getPrintersFinished()
 {
     KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
-    KUrl uri = request->property("URI").value<KUrl>();
-    KUrl url;
-    url.setProtocol(QLatin1String("ipp"));
+    QUrl uri = request->property("URI").value<QUrl>();
+    QUrl url;
+    url.setScheme(QStringLiteral("ipp"));
     url.setAuthority(uri.authority());
 
     KCupsPrinters printers = request->printers();
@@ -162,14 +160,14 @@ void ChooseUri::getPrintersFinished()
     emit stopWorking();
 }
 
-KUrl ChooseUri::parsedURL(const QString &text) const
+QUrl ChooseUri::parsedURL(const QString &text) const
 {
-    KUrl url(text);
+    QUrl url(QUrl::fromUserInput(text));
     if (url.host().isEmpty() && !text.contains(QLatin1String("://"))) {
-        url = KUrl();
+        url = QUrl();
         // URI might be scsi, network on anything that didn't match before
         if (m_args[KCUPS_DEVICE_URI].toString() != QLatin1String("other")) {
-            url.setProtocol(m_args[KCUPS_DEVICE_URI].toString());
+            url.setScheme(m_args[KCUPS_DEVICE_URI].toString());
         }
         url.setAuthority(text);
     }

@@ -22,14 +22,12 @@
 
 #include <QStyledItemDelegate>
 
-#include <kdemacros.h>
-
-class KDE_EXPORT NoSelectionRectDelegate : public QStyledItemDelegate
+class Q_DECL_EXPORT NoSelectionRectDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
     explicit NoSelectionRectDelegate(QObject *parent = 0);
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 };
 
 #endif // NOSELECTIONRECTDELEGATEEGATE_H

@@ -21,7 +21,7 @@
 #ifndef PRINT_QUEUE_UI_H
 #define PRINT_QUEUE_UI_H
 
-#include <KDialog>
+#include <QDialog>
 #include <QModelIndex>
 #include <QToolButton>
 
@@ -32,7 +32,7 @@ namespace Ui {
 class KCupsPrinter;
 class JobSortFilterModel;
 class JobModel;
-class PrintQueueUi : public KDialog
+class PrintQueueUi : public QDialog
 {
     Q_OBJECT
 public:
@@ -69,7 +69,7 @@ private slots:
     void getAttributesFinished();
 
 private:
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
     void setupButtons();
     void setState(int state, const QString &message);
     void modifyJob(int action, const QString &destName = QString());

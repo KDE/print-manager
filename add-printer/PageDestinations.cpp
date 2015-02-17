@@ -34,8 +34,7 @@
 
 #include <QItemSelectionModel>
 #include <QStringBuilder>
-
-#include <KDebug>
+#include <QDebug>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
 PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
@@ -52,33 +51,32 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
 
     ui->stackedWidget->addWidget(m_chooseLpd);
-    connect(m_chooseLpd, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
-    connect(m_chooseLpd, SIGNAL(startWorking()), SLOT(working()));
-    connect(m_chooseLpd, SIGNAL(stopWorking()), SLOT(notWorking()));
+    connect(m_chooseLpd, &ChooseLpd::allowProceed, this, &PageDestinations::allowProceed);
+    connect(m_chooseLpd, &ChooseLpd::startWorking, this, &PageDestinations::working);
+    connect(m_chooseLpd, &ChooseLpd::stopWorking, this, &PageDestinations::notWorking);
 
     ui->stackedWidget->addWidget(m_chooseSamba);
-    connect(m_chooseSamba, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
-    connect(m_chooseSamba, SIGNAL(startWorking()), SLOT(working()));
-    connect(m_chooseSamba, SIGNAL(stopWorking()), SLOT(notWorking()));
+    connect(m_chooseSamba, &ChooseSamba::allowProceed, this, &PageDestinations::allowProceed);
+    connect(m_chooseSamba, &ChooseSamba::startWorking, this, &PageDestinations::working);
+    connect(m_chooseSamba, &ChooseSamba::stopWorking, this, &PageDestinations::notWorking);
 
     ui->stackedWidget->addWidget(m_chooseSerial);
-    connect(m_chooseSerial, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
-    connect(m_chooseSerial, SIGNAL(startWorking()), SLOT(working()));
-    connect(m_chooseSerial, SIGNAL(stopWorking()), SLOT(notWorking()));
+    connect(m_chooseSerial, &ChooseSerial::allowProceed, this, &PageDestinations::allowProceed);
+    connect(m_chooseSerial, &ChooseSerial::startWorking, this, &PageDestinations::working);
+    connect(m_chooseSerial, &ChooseSerial::stopWorking, this, &PageDestinations::notWorking);
 
     ui->stackedWidget->addWidget(m_chooseSocket);
-    connect(m_chooseSocket, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
-    connect(m_chooseSocket, SIGNAL(startWorking()), SLOT(working()));
-    connect(m_chooseSocket, SIGNAL(stopWorking()), SLOT(notWorking()));
+    connect(m_chooseSocket, &ChooseSocket::allowProceed, this, &PageDestinations::allowProceed);
+    connect(m_chooseSocket, &ChooseSocket::startWorking, this, &PageDestinations::working);
+    connect(m_chooseSocket, &ChooseSocket::stopWorking, this, &PageDestinations::notWorking);
 
     ui->stackedWidget->addWidget(m_chooseUri);
-    connect(m_chooseUri, SIGNAL(allowProceed(bool)), SIGNAL(allowProceed(bool)));
-    connect(m_chooseUri, SIGNAL(startWorking()), SLOT(working()));
-    connect(m_chooseUri, SIGNAL(stopWorking()), SLOT(notWorking()));
-    connect(m_chooseUri, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(setText(QString)));
-    connect(m_chooseUri, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(animatedShow()));
-    connect(m_chooseUri, SIGNAL(insertDevice(QString,QString,QString,QString,QString,QString,KCupsPrinters)),
-            SLOT(insertDevice(QString,QString,QString,QString,QString,QString,KCupsPrinters)));
+    connect(m_chooseUri, &ChooseUri::allowProceed, this, &PageDestinations::allowProceed);
+    connect(m_chooseUri, &ChooseUri::startWorking, this, &PageDestinations::working);
+    connect(m_chooseUri, &ChooseUri::stopWorking, this, &PageDestinations::notWorking);
+    connect(m_chooseUri, &ChooseUri::errorMessage, ui->messageWidget, &KMessageWidget::setText);
+    connect(m_chooseUri, &ChooseUri::errorMessage, ui->messageWidget, &KMessageWidget::animatedShow);
+    connect(m_chooseUri, &ChooseUri::insertDevice, this, &PageDestinations::insertDevice);
 
     m_chooseLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     ui->stackedWidget->addWidget(m_chooseLabel);
@@ -94,21 +92,19 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     ui->devicesTV->setItemDelegate(new NoSelectionRectDelegate(this));
     connect(ui->devicesTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(deviceChanged()));
-    connect(m_model, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(setText(QString)));
-    connect(m_model, SIGNAL(errorMessage(QString)), ui->messageWidget, SLOT(animatedShow()));
+    connect(m_model, &DevicesModel::errorMessage, ui->messageWidget, &KMessageWidget::setText);
+    connect(m_model, &DevicesModel::errorMessage, ui->messageWidget, &KMessageWidget::animatedShow);
 
     // Expand when a parent is added
-    connect(m_model, SIGNAL(parentAdded(QModelIndex)),
-            ui->devicesTV, SLOT(expand(QModelIndex)));
+    connect(m_model, &DevicesModel::parentAdded, ui->devicesTV, &QTreeView::expand);
 
     // Update the view when the device URI combo box changed
-    connect(ui->connectionsCB, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(deviceUriChanged()));
+    connect(ui->connectionsCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PageDestinations::deviceUriChanged);
     ui->connectionsGB->setVisible(false);
 
     // Setup the busy cursor
     working();
-    connect(m_model, SIGNAL(loaded()), this, SLOT(notWorking()));
+    connect(m_model, &DevicesModel::loaded, this, &PageDestinations::notWorking);
 
     if (!args.isEmpty()) {
         // set our args
@@ -200,7 +196,7 @@ void PageDestinations::deviceUriChanged()
 
     // "beh" is excluded from the list
     QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-    kDebug() << deviceUri;
+    qDebug() << deviceUri;
     if (deviceUri.startsWith(QLatin1String("parallel"))) {
         m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
         setCurrentPage(m_chooseLabel, args);
@@ -247,7 +243,7 @@ void PageDestinations::deviceUriChanged()
         m_chooseLabel->setText(text);
         setCurrentPage(m_chooseLabel, args);
     } else if (deviceUri.startsWith(QLatin1String("socket"))) {
-        kDebug() << "SOCKET";
+        qDebug() << "SOCKET";
         setCurrentPage(m_chooseSocket, args);
     } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
                deviceUri.startsWith(QLatin1String("ipps")) ||
@@ -305,16 +301,16 @@ QVariantHash PageDestinations::selectedItemValues() const
         } else {
             QVariant aux = ui->connectionsCB->itemData(ui->connectionsCB->currentIndex());
             KCupsPrinter printer = aux.value<KCupsPrinter>();
-            KUrl url = uri.toString();
+            QUrl url = uri.toString();
             url.setPath(QLatin1String("printers/") % printer.name());
             ret[KCUPS_DEVICE_URI] = url.url();
             ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
             ret[KCUPS_PRINTER_INFO] = printer.info();
-            kDebug() << KCUPS_PRINTER_INFO << printer.info();
+            qDebug() << KCUPS_PRINTER_INFO << printer.info();
             ret[KCUPS_PRINTER_NAME] = printer.name();
             ret[KCUPS_DEVICE_LOCATION] = printer.location();
         }
-        kDebug() << uri << ret;
+        qDebug() << uri << ret;
     }
     return ret;
 }

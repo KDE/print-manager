@@ -17,7 +17,16 @@
    </sizepolicy>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item row="0" column="0">
@@ -34,7 +43,7 @@
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="KLineEdit" name="addressLE"/>
+       <widget class="QLineEdit" name="addressLE"/>
       </item>
       <item row="0" column="1">
        <widget class="QPushButton" name="browsePB">
@@ -69,7 +78,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KLineEdit" name="usernameLE"/>
+       <widget class="QLineEdit" name="usernameLE"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="label_4">
@@ -82,9 +91,9 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="KLineEdit" name="passwordLE">
-        <property name="passwordMode">
-         <bool>true</bool>
+       <widget class="QLineEdit" name="passwordLE">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
         </property>
        </widget>
       </item>
@@ -106,13 +115,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>addressLE</tabstop>
   <tabstop>usernameLE</tabstop>

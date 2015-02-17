@@ -11,7 +11,16 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item row="4" column="0">
@@ -34,7 +43,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KComboBox" name="startingBannerCB">
+       <widget class="QComboBox" name="startingBannerCB">
         <property name="AttributeName" stdset="0">
          <string notr="true">job-sheets-default</string>
         </property>
@@ -54,7 +63,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="KComboBox" name="endingBannerCB">
+       <widget class="QComboBox" name="endingBannerCB">
         <property name="AttributeName" stdset="0">
          <string notr="true">job-sheets-default</string>
         </property>
@@ -102,14 +111,14 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="KComboBox" name="errorPolicyCB">
+       <widget class="QComboBox" name="errorPolicyCB">
         <property name="AttributeName" stdset="0">
          <string notr="true">printer-error-policy</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="KComboBox" name="operationPolicyCB">
+       <widget class="QComboBox" name="operationPolicyCB">
         <property name="AttributeName" stdset="0">
          <string notr="true">printer-op-policy</string>
         </property>
@@ -127,24 +136,21 @@
       <item row="1" column="0">
        <widget class="QRadioButton" name="preventRB">
         <property name="text">
-         <string>Prevent these users from printing </string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="KEditListBox" name="usersELB">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="buttons">
-         <set>KEditListBox::Add|KEditListBox::Remove</set>
+         <string>Pre&amp;vent these users from printing </string>
         </property>
        </widget>
       </item>
       <item row="0" column="0">
        <widget class="QRadioButton" name="allowRB">
         <property name="text">
-         <string>Allow these users to print</string>
+         <string>A&amp;llow these users to print</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="KEditListWidget" name="usersELB">
+        <property name="buttons">
+         <set>KEditListWidget::Add|KEditListWidget::Remove</set>
         </property>
        </widget>
       </item>
@@ -155,16 +161,19 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KEditListBox</class>
-   <extends>QGroupBox</extends>
-   <header>keditlistbox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
+   <class>KEditListWidget</class>
+   <extends>QWidget</extends>
+   <header>keditlistwidget.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>errorPolicyCB</tabstop>
+  <tabstop>operationPolicyCB</tabstop>
+  <tabstop>startingBannerCB</tabstop>
+  <tabstop>endingBannerCB</tabstop>
+  <tabstop>allowRB</tabstop>
+  <tabstop>preventRB</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

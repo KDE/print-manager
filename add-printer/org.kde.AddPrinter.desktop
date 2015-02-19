@@ -1,6 +1,20 @@
 [Desktop Entry]
 Name=Add Printer
+Name[nl]=Printer toevoegen
+Name[pt]=Adicionar uma Impressora
+Name[pt_BR]=Adicionar impressora
+Name[sk]=Pridať tlačiareň
+Name[sv]=Lägg till skrivare
+Name[uk]=Додати принтер
+Name[x-test]=xxAdd Printerxx
 Comment=Tool for adding new printers
+Comment[nl]=Hulpmiddel voor het toevoegen van nieuwe printers
+Comment[pt]=Ferramenta para adicionar novas impressoras
+Comment[pt_BR]=Ferramenta para adicionar novas impressoras
+Comment[sk]=Nástroj na pridanie nových tlačiarní
+Comment[sv]=Verktyg för att lägga till nya skrivare
+Comment[uk]=Інструмент для додавання нових записів принтерів
+Comment[x-test]=xxTool for adding new printersxx
 Exec=kde-add-printer
 Icon=printer
 Type=Application

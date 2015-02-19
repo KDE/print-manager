@@ -1,6 +1,20 @@
 [Desktop Entry]
 Name=Configure Printer
+Name[nl]=Printer instellen
+Name[pt]=Configurar a Impressora
+Name[pt_BR]=Configurar impressora
+Name[sk]=Nastaviť tlačiareň
+Name[sv]=Anpassa skrivare
+Name[uk]=Налаштувати принтер
+Name[x-test]=xxConfigure Printerxx
 Comment=Configure your printer
+Comment[nl]=Uw printer instellen
+Comment[pt]=Configurar a sua impressora
+Comment[pt_BR]=Configura sua impressora
+Comment[sk]=Nastaviť vaše tlačiarne
+Comment[sv]=Anpassa din skrivare
+Comment[uk]=Налаштування ваших принтерів
+Comment[x-test]=xxConfigure your printerxx
 Exec=configure-printer
 Icon=printer
 Type=Application

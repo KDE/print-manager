@@ -277,19 +277,15 @@ Item {
     function getJobsLabel() {
         if (printmanager.jobsFilter == PrintManager.JobModel.WhichActive) {
             if (jobsFilterModel.count == 0) {
-                return i18n("No active job");
-            } else if (jobsFilterModel.count == 1) {
-                return i18n("One active job");
+                return i18n("No active jobs");
             } else {
-                return i18n("%1 active jobs", jobsFilterModel.count);
+                return i18np("One active job", "%1 active jobs", jobsFilterModel.count);
             }
         } else {
             if (jobsFilterModel.count == 0) {
-                return i18n("No job");
-            } else if (jobsFilterModel.count == 1) {
-                return i18n("One job");
+                return i18n("No jobs");
             } else {
-                return i18n("%1 jobs", jobsFilterModel.count);
+                return i18np("One job", "%1 jobs", jobsFilterModel.count);
             }
         }
     }

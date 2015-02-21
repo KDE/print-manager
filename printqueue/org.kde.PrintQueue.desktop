@@ -1,20 +1,24 @@
 [Desktop Entry]
 Name=Print Queue
 Name[nl]=Printwachtrij
+Name[pl]=Kolejka drukowania
 Name[pt]=Fila de Impressão
 Name[pt_BR]=Fila de impressão
 Name[sk]=Tlačová fronta
 Name[sv]=Utskriftskö
 Name[uk]=Черга друку
 Name[x-test]=xxPrint Queuexx
+Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[nl]=Afdruktaken bekijken
+Comment[pl]=Obejrzyj zadania drukowania
 Comment[pt]=Ver as tarefas de impressão
 Comment[pt_BR]=Visualiza os trabalhos de impressão
 Comment[sk]=Zobraziť tlačové úlohy
 Comment[sv]=Visa utskriftsjobb
 Comment[uk]=Спостереження за завданнями з друку
 Comment[x-test]=xxView the print jobsxx
+Comment[zh_TW]=檢視列印工作
 Exec=kde-print-queue
 Icon=printer
 Type=Application

@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=Configure Printer
 Name[ca]=Configuració d'impressora
+Name[en_GB]=Configure Printer
+Name[es]=Configurar impresora
 Name[gl]=Configurar a impresora
 Name[nl]=Printer instellen
 Name[pl]=Ustawienia drukarki
@@ -17,6 +19,8 @@ Name[x-test]=xxConfigure Printerxx
 Name[zh_TW]=設定印表機
 Comment=Configure your printer
 Comment[ca]=Configura la impressora
+Comment[en_GB]=Configure your printer
+Comment[es]=Configurar su impresora
 Comment[gl]=Configurar a impresora
 Comment[nl]=Uw printer instellen
 Comment[pl]=Ustaw swoje drukarki

@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=Print Queue
 Name[ca]=Cua d'impressió
+Name[en_GB]=Print Queue
+Name[es]=Cola de impresión
 Name[gl]=Cola de impresión
 Name[nl]=Printwachtrij
 Name[pl]=Kolejka drukowania
@@ -17,6 +19,8 @@ Name[x-test]=xxPrint Queuexx
 Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[ca]=Visualitza els treballs d'impressió
+Comment[en_GB]=View the print jobs
+Comment[es]=Ver los trabajos de impresión
 Comment[gl]=Ver as tarefas de impresión
 Comment[nl]=Afdruktaken bekijken
 Comment[pl]=Obejrzyj zadania drukowania

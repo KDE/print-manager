@@ -11,6 +11,7 @@ X-KDE-ParentApp=kcontrol
 Categories=Qt;KDE;X-KDE-settings-hardware;
 
 Name=Printers
+Name[ast]=Imprentadores
 Name[bg]=Принтери
 Name[bs]=Štampači
 Name[ca]=Impressores

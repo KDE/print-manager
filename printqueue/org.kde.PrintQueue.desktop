@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Print Queue
 Name[ca]=Cua d'impressió
+Name[el]=Λίστα αναμονής εκτύπωσης
 Name[en_GB]=Print Queue
 Name[es]=Cola de impresión
 Name[fi]=Tulostusjono
@@ -23,6 +24,7 @@ Name[zh_CN]=打印序列
 Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[ca]=Visualitza els treballs d'impressió
+Comment[el]=Προβολή εργασιών εκτύπωσης
 Comment[en_GB]=View the print jobs
 Comment[es]=Ver los trabajos de impresión
 Comment[fi]=Näyttää tulostustyöt

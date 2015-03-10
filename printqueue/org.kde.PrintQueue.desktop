@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Print Queue
 Name[ca]=Cua d'impressió
+Name[de]=Druckerwarteschlange
 Name[el]=Λίστα αναμονής εκτύπωσης
 Name[en_GB]=Print Queue
 Name[es]=Cola de impresión
@@ -24,6 +25,7 @@ Name[zh_CN]=打印序列
 Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[ca]=Visualitza els treballs d'impressió
+Comment[de]=Druckaufträge anzeigen
 Comment[el]=Προβολή εργασιών εκτύπωσης
 Comment[en_GB]=View the print jobs
 Comment[es]=Ver los trabajos de impresión

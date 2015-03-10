@@ -25,6 +25,7 @@ Name[zh_CN]=配置打印机
 Name[zh_TW]=設定印表機
 Comment=Configure your printer
 Comment[ca]=Configura la impressora
+Comment[de]=Drucker einrichten
 Comment[el]=Διαμόρφωση του εκτυπωτή σας
 Comment[en_GB]=Configure your printer
 Comment[es]=Configurar su impresora

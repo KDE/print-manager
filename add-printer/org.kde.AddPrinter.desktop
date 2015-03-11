@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Add Printer
 Name[ca]=Afegeix impressora
+Name[cs]=Přidat tiskárnu
 Name[de]=Drucker hinzufügen
 Name[el]=Προσθήκη εκτυπωτή
 Name[en_GB]=Add Printer
@@ -25,6 +26,7 @@ Name[zh_CN]=添加打印机
 Name[zh_TW]=新增印表機
 Comment=Tool for adding new printers
 Comment[ca]=Eina per afegir impressores noves
+Comment[cs]=Nástroj pro přidávání nových tiskáren
 Comment[de]=Hilfsprogramm für das Hinzufügen von neuen Druckern
 Comment[el]=Εργαλείο για την προσθήκη νέων εκτυπωτών
 Comment[en_GB]=Tool for adding new printers

@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Configure Printer
 Name[ca]=Configuració d'impressora
+Name[cs]=Nastavit tiskárnu
 Name[de]=Drucker einrichten
 Name[el]=Διαμόρφωση εκτυπωτή
 Name[en_GB]=Configure Printer
@@ -25,6 +26,7 @@ Name[zh_CN]=配置打印机
 Name[zh_TW]=設定印表機
 Comment=Configure your printer
 Comment[ca]=Configura la impressora
+Comment[cs]=Nastavte vaši tiskárnu
 Comment[de]=Drucker einrichten
 Comment[el]=Διαμόρφωση του εκτυπωτή σας
 Comment[en_GB]=Configure your printer

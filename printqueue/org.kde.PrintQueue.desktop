@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Print Queue
+Name[ast]=Cola d'imprentación
 Name[ca]=Cua d'impressió
 Name[cs]=Fronta tisku
 Name[de]=Druckerwarteschlange
@@ -27,6 +28,7 @@ Name[x-test]=xxPrint Queuexx
 Name[zh_CN]=打印序列
 Name[zh_TW]=列印佇列
 Comment=View the print jobs
+Comment[ast]=Ve los trabayos d'imprentación
 Comment[ca]=Visualitza els treballs d'impressió
 Comment[cs]=Zobrazit tiskové úkoly
 Comment[de]=Druckaufträge anzeigen

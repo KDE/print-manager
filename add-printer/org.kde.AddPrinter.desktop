@@ -2,6 +2,7 @@
 Name=Add Printer
 Name[ca]=Afegeix impressora
 Name[cs]=Přidat tiskárnu
+Name[da]=Tilføj printer
 Name[de]=Drucker hinzufügen
 Name[en_GB]=Add Printer
 Name[es]=Añadir Impresora
@@ -28,6 +29,7 @@ Name[zh_TW]=新增印表機
 Comment=Tool for adding new printers
 Comment[ca]=Eina per afegir impressores noves
 Comment[cs]=Nástroj pro přidávání nových tiskáren
+Comment[da]=Værktøj til at tilføje nye printere
 Comment[de]=Hilfsprogramm für das Hinzufügen von neuen Druckern
 Comment[en_GB]=Tool for adding new printers
 Comment[es]=Herramienta para añadir nuevas impresoras

@@ -2,6 +2,7 @@
 Name=Configure Printer
 Name[ca]=Configuració d'impressora
 Name[cs]=Nastavit tiskárnu
+Name[da]=Konfigurér printer
 Name[de]=Drucker einrichten
 Name[en_GB]=Configure Printer
 Name[es]=Configurar impresora
@@ -28,6 +29,7 @@ Name[zh_TW]=設定印表機
 Comment=Configure your printer
 Comment[ca]=Configura la impressora
 Comment[cs]=Nastavte vaši tiskárnu
+Comment[da]=Konfigurér din printer
 Comment[de]=Drucker einrichten
 Comment[en_GB]=Configure your printer
 Comment[es]=Configurar su impresora

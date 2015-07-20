@@ -103,6 +103,7 @@ X-Plasma-API=declarativeappletscript
 X-Plasma-MainScript=ui/printmanager.qml
 X-Plasma-DefaultSize=650,270
 X-Plasma-NotificationArea=true
+X-Plasma-NotificationAreaCategory=Hardware
 X-Plasma-ConfigPlugins=kcm_printer_manager
 X-Plasma-OptionalExtensions=LaunchApp
 

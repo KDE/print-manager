@@ -2,6 +2,7 @@
  *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *   Copyright (C) 2012 Harald Sitter <sitter@kde.org>                     *
+ *   Copyright (C) 2015 Leslie Zhai <xiang.zhai@i-soft.com.cn>             *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,6 +34,8 @@
 #include <QByteArray>
 
 #include <KLocalizedString>
+
+#include <PolkitQt1/Authority>
 
 #include <cups/cups.h>
 
@@ -846,32 +849,17 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     Q_UNUSED(method)
     Q_UNUSED(resource)
 
-    if (++password_retries > 3) {
-        // cancel the authentication
-        cupsSetUser(NULL);
-        return NULL;
-    }
+    PolkitQt1::Authority::Result result;
+    PolkitQt1::UnixProcessSubject subject(static_cast<uint>(
+        QCoreApplication::applicationPid()));
 
-    KCupsPasswordDialog *passwordDialog = static_cast<KCupsPasswordDialog *>(user_data);
-    bool wrongPassword = password_retries > 1;
-
-    // This will block this thread until exec is not finished
-    qCDebug(LIBKCUPS) << password_retries;
-    QMetaObject::invokeMethod(passwordDialog,
-                              "exec",
-                              Qt::BlockingQueuedConnection,
-                              Q_ARG(QString, QString::fromUtf8(cupsUser())),
-                              Q_ARG(bool, wrongPassword));
-    qCDebug(LIBKCUPS) << passwordDialog->accepted();
-
-    // The password dialog has just returned check the result
-    // method that returns QDialog enums
-    if (passwordDialog->accepted()) {
-        cupsSetUser(passwordDialog->username().toUtf8());
-        return passwordDialog->password().toUtf8();
+    result = PolkitQt1::Authority::instance()->checkAuthorizationSync(
+        "org.opensuse.cupspkhelper.mechanism.all-edit", subject,
+        PolkitQt1::Authority::AllowUserInteraction);
+    if (result == PolkitQt1::Authority::Yes) {
+        cupsSetUser("Polkit-User"); // such as root
+        return "Polkit-Password";   // such as 123456
     } else {
-        // the dialog was canceled
-        password_retries = -1;
         cupsSetUser(NULL);
         return NULL;
     }

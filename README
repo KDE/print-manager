@@ -23,3 +23,7 @@ plasmoid - show printers and it's jobs
  --TODO
   - Move the jobs dataengine to a QML plugin
     so we can load all jobs and still be fast
+
+libkcups
+ --TODO
+  - Add Polkit cups support

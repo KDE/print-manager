@@ -22,6 +22,8 @@ ki18n_wrap_ui(libkcups_SRCS
     SelectMakeModel.ui
 )
 
+include_directories(${POLKITQT-1_INCLUDE_DIR})
+
 add_library(kcupslib SHARED ${libkcups_SRCS})
 
 target_link_libraries(kcupslib
@@ -37,6 +39,7 @@ target_link_libraries(kcupslib
     KF5::WidgetsAddons
     KF5::WindowSystem
     ${CUPS_LIB}
+    ${POLKITQT-1_LIBRARIES}
 )
 
 install(TARGETS kcupslib ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

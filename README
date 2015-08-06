@@ -26,4 +26,4 @@ plasmoid - show printers and it's jobs
 
 libkcups
  --TODO
-  - Add Polkit cups support
+  - Add Polkit cups support, install cups-pk-helper, add 70-cupspkhelper.rules 

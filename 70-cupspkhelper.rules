@@ -1,0 +1,7 @@
+// This file belongs in /etc/polkit-1/rules.d
+polkit.addRule(function(action, subject) {
+    if (/^org\.opensuse\.cupspkhelper\.mechanism\./.test(action.id) &&
+        subject.isInGroup("wheel")) {
+            return polkit.Result.YES;
+    }
+});

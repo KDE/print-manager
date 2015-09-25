@@ -371,6 +371,10 @@ private slots:
     void renewDBusSubscription();
     void cancelDBusSubscription();
 
+    void connectNotifyQueued(const QString& event);
+    void disconnectNotifyQueued(const QString &event);
+
+
 protected:
     virtual void connectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;
     virtual void disconnectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;

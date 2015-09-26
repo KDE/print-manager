@@ -40,6 +40,7 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::PrinterDescription),
     m_isClass(false),
+    m_globalShared(false),
     m_markerChangeTime(0)
 {
     ui->setupUi(this);

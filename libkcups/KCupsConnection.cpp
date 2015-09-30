@@ -433,23 +433,37 @@ void KCupsConnection::connectNotify(const QMetaMethod & signal)
 {
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
-        m_connectedEvents << event;
-        QMetaObject::invokeMethod(m_subscriptionTimer,
-                                  "start",
-                                  Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this,
+                                  "connectNotifyQueued",
+                                  Qt::QueuedConnection),
+                                  Q_ARG(QString, event);
     }
 }
+
+void KCupsConnection::connectNotifyQueued(const QString& event)
+{
+    m_connectedEvents << event;
+    m_subscriptionTimer->start();
+}
+
 
 void KCupsConnection::disconnectNotify(const QMetaMethod & signal)
 {
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
-        m_connectedEvents.removeOne(event);
-        QMetaObject::invokeMethod(m_subscriptionTimer,
-                                  "start",
-                                  Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this,
+                            "disconnectNotifyQueued",
+                            Qt::QueuedConnection),
+                            Q_ARG(QString, event);
     }
 }
+
+void KCupsConnection::disconnectNotifyQueued(const QString& event)
+{
+    m_connectedEvents.removeOne(event);
+    m_subscriptionTimer->start();
+}
+
 
 QString KCupsConnection::eventForSignal(const QMetaMethod & signal) const
 {

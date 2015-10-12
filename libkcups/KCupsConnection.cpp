@@ -31,6 +31,7 @@
 #include <QStringBuilder>
 #include <QDBusConnection>
 #include <QByteArray>
+#include <QMutexLocker>
 
 #include <KLocalizedString>
 
@@ -431,39 +432,27 @@ void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, 
 
 void KCupsConnection::connectNotify(const QMetaMethod & signal)
 {
+    QMutexLocker locker(&m_mutex);
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
-        QMetaObject::invokeMethod(this,
-                                  "connectNotifyQueued",
-                                  Qt::QueuedConnection),
-                                  Q_ARG(QString, event);
+        m_connectedEvents << event;
+        QMetaObject::invokeMethod(m_subscriptionTimer,
+                                  "start",
+                                  Qt::QueuedConnection);
     }
 }
-
-void KCupsConnection::connectNotifyQueued(const QString& event)
-{
-    m_connectedEvents << event;
-    m_subscriptionTimer->start();
-}
-
 
 void KCupsConnection::disconnectNotify(const QMetaMethod & signal)
 {
+    QMutexLocker locker(&m_mutex);
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
-        QMetaObject::invokeMethod(this,
-                            "disconnectNotifyQueued",
-                            Qt::QueuedConnection),
-                            Q_ARG(QString, event);
+        m_connectedEvents.removeOne(event);
+        QMetaObject::invokeMethod(m_subscriptionTimer,
+                                  "start",
+                                  Qt::QueuedConnection);
     }
 }
-
-void KCupsConnection::disconnectNotifyQueued(const QString& event)
-{
-    m_connectedEvents.removeOne(event);
-    m_subscriptionTimer->start();
-}
-
 
 QString KCupsConnection::eventForSignal(const QMetaMethod & signal) const
 {
@@ -536,6 +525,7 @@ QString KCupsConnection::eventForSignal(const QMetaMethod & signal) const
 
 void KCupsConnection::updateSubscription()
 {
+    QMutexLocker locker(&m_mutex);
     // Build the current list
     QStringList currentEvents = m_connectedEvents;
     currentEvents.sort();

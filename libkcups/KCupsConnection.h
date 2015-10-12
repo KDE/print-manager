@@ -27,6 +27,7 @@
 #include <QStringList>
 #include <QWidget>
 #include <QMetaMethod>
+#include <QMutex>
 
 #include <QUrl>
 
@@ -371,10 +372,6 @@ private slots:
     void renewDBusSubscription();
     void cancelDBusSubscription();
 
-    void connectNotifyQueued(const QString& event);
-    void disconnectNotifyQueued(const QString &event);
-
-
 protected:
     virtual void connectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;
     virtual void disconnectNotify(const QMetaMethod & signal) Q_DECL_OVERRIDE;
@@ -399,9 +396,10 @@ private:
 
     QTimer *m_subscriptionTimer;
     QTimer *m_renewTimer;
-    QStringList m_connectedEvents;
+    QStringList m_connectedEvents; //note this updated in another thread. Always guard with m_mutex
     QStringList m_requestedDBusEvents;
     int m_subscriptionId;
+    QMutex m_mutex;
 };
 
 #endif // KCUPSCONNECTION_H

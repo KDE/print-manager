@@ -2,7 +2,7 @@
 Name=Print Queue
 Name[ast]=Cola d'imprentación
 Name[ca]=Cua de la impressió
-Name[ca@valencia]=Cua d'impressió
+Name[ca@valencia]=Cua de la impressió
 Name[cs]=Fronta tisku
 Name[da]=Printkø
 Name[de]=Druckerwarteschlange
@@ -34,7 +34,7 @@ Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[ast]=Ve los trabayos d'imprentación
 Comment[ca]=Visualitza els treballs de la impressió
-Comment[ca@valencia]=Visualitza els treballs d'impressió
+Comment[ca@valencia]=Visualitza els treballs de la impressió
 Comment[cs]=Zobrazit tiskové úkoly
 Comment[da]=Vis udskriftsjobs
 Comment[de]=Druckaufträge anzeigen

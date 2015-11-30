@@ -27,8 +27,6 @@
 #include <QPointer>
 #include <QDebug>
 
-#include <KCategorizedSortFilterProxyModel>
-#include <KCategoryDrawer>
 #include <KIconLoader>
 
 PageAddPrinter::PageAddPrinter(QWidget *parent) :

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Add Printer
+Name[ar]=أضف طابعة
 Name[ast]=Amestar imprentadora
 Name[ca]=Afegeix una impressora
 Name[ca@valencia]=Afig una impressora
@@ -33,6 +34,7 @@ Name[x-test]=xxAdd Printerxx
 Name[zh_CN]=添加打印机
 Name[zh_TW]=新增印表機
 Comment=Tool for adding new printers
+Comment[ar]=أداة لإضافة طابعات جديدة
 Comment[ast]=Ferramienta p'amestar imprentadores nueves
 Comment[ca]=Eina per afegir impressores noves
 Comment[ca@valencia]=Eina per afegir impressores noves

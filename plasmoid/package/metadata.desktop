@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Printers
+Name[ar]=الطّابعات
 Name[ast]=Imprentadores
 Name[bg]=Принтери
 Name[bs]=Štampači
@@ -51,6 +52,7 @@ Name[x-test]=xxPrintersxx
 Name[zh_CN]=打印机
 Name[zh_TW]=印表機
 Comment=List print jobs and manage them
+Comment[ar]=اسرد مهام الطّباعة وأدرها
 Comment[ast]=Llista los trabayos d'imprentación y xestiónalos
 Comment[bg]=Показване и управление на задачите за печат
 Comment[bs]=Prikaz i upravljanje poslovima štampe

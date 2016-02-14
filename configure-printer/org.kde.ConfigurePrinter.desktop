@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Configure Printer
+Name[ar]=اضبط الطّابعة
 Name[ast]=Configurar imprentadora
 Name[ca]=Configuració de la impressora
 Name[ca@valencia]=Configuració de la impressora
@@ -33,6 +34,7 @@ Name[x-test]=xxConfigure Printerxx
 Name[zh_CN]=配置打印机
 Name[zh_TW]=設定印表機
 Comment=Configure your printer
+Comment[ar]=اضبط طابعتك
 Comment[ast]=Configura la to imprentadora
 Comment[ca]=Configura la impressora
 Comment[ca@valencia]=Configura la impressora

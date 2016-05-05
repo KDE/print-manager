@@ -78,7 +78,7 @@ void PrinterOptions::on_autoConfigurePB_clicked()
 void PrinterOptions::reloadPPD()
 {
     //     The caller "owns" the file that is created and must unlink the returned filename.
-    if (!m_filename.isNull()) {
+    if (!m_filename.isEmpty()) {
         unlink(m_filename.toUtf8());
     }
 
@@ -393,7 +393,7 @@ PrinterOptions::~PrinterOptions()
         ppdClose(m_ppd);
     }
 
-    if (!m_filename.isNull()) {
+    if (!m_filename.isEmpty()) {
         unlink(m_filename.toUtf8());
     }
 
@@ -706,7 +706,7 @@ void PrinterOptions::save()
                 *keyptr;                /* Pointer into keyword... */
 
     // copy cups-1.4.2/cgi-bin line 3779
-    if (!m_filename.isNull()) {
+    if (!m_filename.isEmpty()) {
         out = cupsTempFile2(tempfile, sizeof(tempfile));
         in  = cupsFileOpen(m_filename.toUtf8(), "r");
 
@@ -763,6 +763,12 @@ void PrinterOptions::save()
 
         cupsFileClose(in);
         cupsFileClose(out);
+    }
+    else {
+        // TODO add a KMessageBox::error
+        qCWarning(PM_CONFIGURE_PRINTER) << "No printer PPD file set, can't save options.";
+
+        return;
     }
 
     QVariantHash values; // we need null values

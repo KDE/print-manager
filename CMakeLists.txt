@@ -35,7 +35,9 @@ find_package(KF5 REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes 
 
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0)
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
+add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+
+remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
 # Generate config.h
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake

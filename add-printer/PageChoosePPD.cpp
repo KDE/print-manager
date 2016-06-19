@@ -93,7 +93,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
             }
             qDebug() << deviceURI << url;
             KJob *job = KIO::file_copy(url,
-                                      tempFile->fileName(),
+                                      QUrl::fromLocalFile(tempFile->fileName()),
                                       -1,
                                       KIO::Overwrite | KIO::HideProgressInfo);
             job->setProperty("URI", deviceURI);

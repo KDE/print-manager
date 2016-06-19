@@ -60,19 +60,19 @@ QVariantHash ChooseSamba::values() const
     QString address = ui->addressLE->text().trimmed();
     QUrl url;
     if (address.startsWith(QLatin1String("//"))) {
-        url = QLatin1String("smb:") % address;
+        url = QUrl(QLatin1String("smb:") % address);
     } else if (address.startsWith(QLatin1String("/"))) {
-        url = QLatin1String("smb:/") % address;
+        url = QUrl(QLatin1String("smb:/") % address);
     } else if (address.startsWith(QLatin1String("://"))) {
-        url = QLatin1String("smb") % address;
+        url = QUrl(QLatin1String("smb") % address);
     } else if (address.startsWith(QLatin1String("smb://"))) {
-        url = address;
+        url = QUrl(address);
     } else if (!QUrl::fromUserInput(address).scheme().isEmpty() &&
                QUrl::fromUserInput(address).scheme() != QStringLiteral("smb")) {
         url = QUrl::fromUserInput(address);
         url.setScheme(QStringLiteral("smb"));
     } else {
-        url = QStringLiteral("smb://") % address;
+        url = QUrl(QStringLiteral("smb://") % address);
     }
 
     qDebug() << 1 << url;

@@ -51,7 +51,7 @@ void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
     bool visible = false;
-    QUrl url = args[KCUPS_DEVICE_URI].toString();
+    QUrl url(args[KCUPS_DEVICE_URI].toString());
     if (url.url() == QLatin1String("other")) {
         ui->addressLE->clear();
         visible = true;

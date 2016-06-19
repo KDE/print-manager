@@ -53,7 +53,7 @@ void ChooseSocket::setValues(const QVariantHash &args)
     ui->addressLE->clear();
     ui->portISB->setValue(9100);
     QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-    QUrl url = deviceUri;
+    QUrl url(deviceUri);
     if (url.scheme() == QStringLiteral("socket")) {
         ui->addressLE->setText(url.host());
         ui->portISB->setValue(url.port(9100));

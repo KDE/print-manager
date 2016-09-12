@@ -29,6 +29,7 @@
 #include <QStringBuilder>
 
 #include <cups/adminutil.h>
+#include <cups/ppd.h>
 
 #define CUPS_DATADIR    "/usr/share/cups"
 

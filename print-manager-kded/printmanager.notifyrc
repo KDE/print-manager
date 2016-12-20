@@ -2,7 +2,6 @@
 IconName=printer
 Name=printmanager
 Name[ar]=printmanager
-Name[ast]=printmanager
 Name[bg]=printmanager
 Name[bs]=printmanager
 Name[ca]=printmanager
@@ -51,7 +50,6 @@ Name[zh_CN]=打印管理器
 Name[zh_TW]=列印管理員
 Comment=Notifies when a new printer is detected
 Comment[ar]=يخطرك عند اكتشاف طابعة جديدة
-Comment[ast]=Notifica cuando se deteuta una imprentadora nueva
 Comment[bg]=Уведомява при засичане на нов принтер
 Comment[bs]=Informiše kada je novi printer prepoznat
 Comment[ca]=Notifica quan es detecta una impressora nova
@@ -100,7 +98,6 @@ Comment[zh_TW]=偵測到新印表機時發出通知
 [Event/GetReady]
 Name=A New Printer was detected
 Name[ar]=اكتُشفت طابعة جديدة
-Name[ast]=Deteutóse una imprentadora nueva
 Name[bg]=Засечен е нов принтер
 Name[bs]=Novi printer je prepoznat
 Name[ca]=S'ha detectat una impressora nova
@@ -152,7 +149,6 @@ Action=Sound|Popup
 [Event/NewPrinterNotification]
 Name=The New Printer was added
 Name[ar]=أُضيفت طابعة جديدة
-Name[ast]=Amestóse la imprentadora nueva
 Name[bg]=Новият принтер беше добавен
 Name[bs]=Novi printer je dodan
 Name[ca]=S'ha afegit la impressora nova

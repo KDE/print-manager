@@ -2,7 +2,7 @@
 Type=Service
 
 X-KDE-ServiceTypes=KDEDModule
-X-KDE-Library=printmanager
+X-KDE-Library=kded_printmanager
 X-KDE-Kded-autoload=true
 X-KDE-Kded-phase=1
 

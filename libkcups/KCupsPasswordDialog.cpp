@@ -43,7 +43,7 @@ void KCupsPasswordDialog::setMainWindow(WId mainwindow)
 void KCupsPasswordDialog::exec(const QString &username, bool wrongPassword)
 {
     QPointer<KPasswordDialog> dialog = new KPasswordDialog(0L, KPasswordDialog::ShowUsernameLine);
-    dialog->setPrompt(i18n("Enter an username and a password to complete the task"));
+    dialog->setPrompt(i18n("Enter a username and password with printer admin rights"));
     dialog->setModal(false);
     dialog->setUsername(username);
     if (wrongPassword) {

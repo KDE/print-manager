@@ -537,7 +537,9 @@ void KCupsRequest::moveJob(const QString &fromPrinterName, int jobId, const QStr
     KIppRequest request(CUPS_MOVE_JOB, "/jobs/");
     request.addPrinterUri(fromPrinterName);
     request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_JOB_ID, jobId);
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_JOB_PRINTER_URI, toPrinterName);
+
+    QString toPrinterUri = KIppRequest::assembleUrif(toPrinterName, false);
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_JOB_PRINTER_URI, toPrinterUri);
 
     process(request);
 }

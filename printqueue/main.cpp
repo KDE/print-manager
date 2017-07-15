@@ -55,7 +55,11 @@ int main(int argc, char **argv)
     parser.process(app);
     about.processCommandLine(&parser);
 
-    QObject::connect(&service, &KDBusService::activateRequested, &app, &PrintQueue::showQueues);
+    QObject::connect(&service, &KDBusService::activateRequested, &app, [&app](const QStringList &arguments) {
+        if (!arguments.isEmpty()) {
+            app.showQueues(arguments.mid(1)); // strip off executable name
+        }
+    });
 
     app.showQueues(parser.positionalArguments());
 

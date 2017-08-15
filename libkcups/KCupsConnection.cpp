@@ -67,6 +67,7 @@ Q_DECLARE_METATYPE(QList<bool>)
 
 KCupsConnection* KCupsConnection::m_instance = 0;
 static int password_retries = 0;
+static int total_retries = 0;
 static int internalErrorCount = 0;
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data);
 
@@ -313,6 +314,7 @@ bool KCupsConnection::readyToStart()
 {
     if (QThread::currentThread() == this) {
         password_retries = 0;
+        total_retries = 0;
         internalErrorCount = 0;
         return true;
     }
@@ -800,6 +802,17 @@ bool KCupsConnection::retry(const char *resource, int operation) const
         return ++internalErrorCount < 3;
     }
 
+    total_retries++;
+
+    if (total_retries > (password_retries+3)) {
+       // Something is wrong.
+       // This will happen if the password_cb function is not called,
+       // which will for example be the case if the server has
+       // an IP blacklist and thus always return 403.
+       // In this case, there is nothing we can do.
+       return false;
+    }
+
     bool forceAuth = false;
     // If our user is forbidden to perform the
     // task we try again using the root user
@@ -821,6 +834,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
             // OR the dialog was canceld (-1)
             // reset to 0 and quit the do-while loop
             password_retries = 0;
+            total_retries = 0;
             return false;
         }
 

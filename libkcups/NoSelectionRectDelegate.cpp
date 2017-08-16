@@ -30,7 +30,7 @@ void NoSelectionRectDelegate::paint(QPainter *painter,
 {
     // For some reason some styles don't honor the views SelectionRectVisible
     // and I just hate that selection rect thing...
-    QStyleOptionViewItemV4 opt(option);
+    QStyleOptionViewItem opt(option);
     if (opt.state & QStyle::State_HasFocus) {
         opt.state ^= QStyle::State_HasFocus;
     }

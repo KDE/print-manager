@@ -117,6 +117,7 @@ void PrinterOptions::reloadPPD()
         return;
     }
 
+    ppdLocalize(m_ppd);
     // select the default options on the ppd file
     ppdMarkDefaults(m_ppd);
 

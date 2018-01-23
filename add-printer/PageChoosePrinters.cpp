@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -59,8 +59,8 @@ PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent
     painter.drawPixmap(startPoint, pixmap);
     ui->printerL->setPixmap(icon);
 
-    connect(ui->membersLV, SIGNAL(changed(bool)),
-            this, SIGNAL(allowProceed(bool)));
+    connect(ui->membersLV, static_cast<void (ClassListWidget::*) (bool)>(&ClassListWidget::changed),
+            this, &PageChoosePrinters::allowProceed);
 
     if (!args.isEmpty()) {
         setValues(args);

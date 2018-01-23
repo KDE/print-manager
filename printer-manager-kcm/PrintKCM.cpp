@@ -57,7 +57,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
                                PM_VERSION,
                                i18n("Print settings"),
                                KAboutLicense::GPL,
-                               i18n("(C) 2010-2013 Daniel Nicoletti"));
+                               i18n("(C) 2010-2018 Daniel Nicoletti"));
     aboutData->addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
     aboutData->addAuthor(QStringLiteral("Jan Grulich"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("jgrulich@redhat.com"));
     setAboutData(aboutData);
@@ -71,7 +71,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     // default dialog icon size is 32, this times 6 is 192 which is roughly the original width
     ui->printersTV->setMinimumWidth(IconSize(KIconLoader::Dialog) * 6);
 
-    QMenu *addMenu = new QMenu(this);
+    auto addMenu = new QMenu(this);
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
                        this, &PrintKCM::addClass);
     ui->addTB->setIcon(QIcon::fromTheme("list-add"));
@@ -81,7 +81,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->removeTB->setIcon(QIcon::fromTheme("list-remove"));
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
-    QMenu *systemMenu = new QMenu(this);
+    auto systemMenu = new QMenu(this);
     connect(systemMenu, &QMenu::aboutToShow, this, &PrintKCM::getServerSettings);
     connect(systemMenu, &QMenu::triggered, this, &PrintKCM::systemPreferencesTriggered);
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
@@ -107,7 +107,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->systemPreferencesTB->setMenu(systemMenu);
 
     m_model = new PrinterModel(this);
-    PrinterSortFilterModel *sortModel = new PrinterSortFilterModel(this);
+    auto sortModel = new PrinterSortFilterModel(this);
     sortModel->setSourceModel(m_model);
     ui->printersTV->setModel(sortModel);
     ui->printersTV->setItemDelegate(new NoSelectionRectDelegate(this));
@@ -304,7 +304,7 @@ void PrintKCM::on_removeTB_clicked()
 void PrintKCM::getServerSettings()
 {
     if (!m_serverRequest) {
-        QMenu *systemMenu = qobject_cast<QMenu*>(sender());
+        auto systemMenu = qobject_cast<QMenu*>(sender());
         m_serverRequest = new KCupsRequest;
         m_serverRequest->setProperty("interactive", static_cast<bool>(systemMenu));
         connect(m_serverRequest, &KCupsRequest::finished, this, &PrintKCM::getServerSettingsFinished);
@@ -314,7 +314,7 @@ void PrintKCM::getServerSettings()
 
 void PrintKCM::getServerSettingsFinished()
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    auto request = qobject_cast<KCupsRequest *>(sender());
 
     // When we don't have any destinations error is set to IPP_NOT_FOUND
     // we can safely ignore the error since it DOES bring the server settings
@@ -353,7 +353,7 @@ void PrintKCM::getServerSettingsFinished()
 
 void PrintKCM::updateServerFinished()
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    auto request = qobject_cast<KCupsRequest *>(sender());
     if (request->hasError()) {
         if (request->error() == IPP_SERVICE_UNAVAILABLE ||
                 request->error() == IPP_INTERNAL_ERROR ||
@@ -383,7 +383,7 @@ void PrintKCM::systemPreferencesTriggered()
     server.setAllowPrintingFromInternet(m_allowPrintringFromInternet->isChecked());
     server.setAllowRemoteAdmin(m_allowRemoteAdmin->isChecked());
     server.setAllowUserCancelAnyJobs(m_allowUsersCancelAnyJob->isChecked());
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrintKCM::updateServerFinished);
     request->setServerSettings(server);
 }

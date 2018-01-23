@@ -56,7 +56,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     KPageWidgetItem *page;
 
     modifyPrinter = new ModifyPrinter(destName, isClass, this);
-    PrinterBehavior *printerBehavior = new PrinterBehavior(destName, isClass, this);
+    auto printerBehavior = new PrinterBehavior(destName, isClass, this);
     attr << modifyPrinter->neededValues();
     attr << printerBehavior->neededValues();
     attr << KCUPS_PRINTER_TYPE; // needed to know if it's a remote printer
@@ -150,8 +150,8 @@ ConfigureDialog::~ConfigureDialog()
 
 void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
 {
-    PrinterPage *currentPage = qobject_cast<PrinterPage*>(current->widget());
-    PrinterPage *beforePage = qobject_cast<PrinterPage*>(before->widget());
+    auto currentPage = qobject_cast<PrinterPage*>(current->widget());
+    auto beforePage = qobject_cast<PrinterPage*>(before->widget());
 
     // Check if the before page has changes
     savePage(beforePage);
@@ -171,7 +171,7 @@ void ConfigureDialog::enableButtonApply(bool enable)
 
 void ConfigureDialog::slotButtonClicked(QAbstractButton * pressedButton)
 {
-    PrinterPage *page = qobject_cast<PrinterPage *>(currentPage()->widget());
+    auto page = qobject_cast<PrinterPage *>(currentPage()->widget());
     if (pressedButton == button(QDialogButtonBox::Ok) ||
         pressedButton == button(QDialogButtonBox::Apply)) {
         page->save();
@@ -180,7 +180,7 @@ void ConfigureDialog::slotButtonClicked(QAbstractButton * pressedButton)
 
 void ConfigureDialog::closeEvent(QCloseEvent *event)
 {
-    PrinterPage *page = qobject_cast<PrinterPage*>(currentPage()->widget());
+    auto page = qobject_cast<PrinterPage*>(currentPage()->widget());
     if (savePage(page)) {
         event->accept();
     } else {

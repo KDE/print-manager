@@ -39,7 +39,7 @@ int main(int argc, char **argv)
                      PM_VERSION,
                      i18n("Tool for adding new printers"),
                      KAboutLicense::GPL,
-                     i18n("(C) 2010-2013 Daniel Nicoletti"));
+                     i18n("(C) 2010-2018 Daniel Nicoletti"));
 
     about.addAuthor(i18n("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
     about.addAuthor(QStringLiteral("Lukáš Tinkl"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("ltinkl@redhat.com"));

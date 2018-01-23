@@ -1,5 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2014 Lukáš Tinkl <ltinkl@redhat.com>                    *
+ *   Copyright (C) 2018 by Daniel Nicoletti <dantti12@gmail.com>           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -35,7 +36,7 @@ SelectMakeModelDialog::SelectMakeModelDialog(const QString &make, const QString 
 {
     setWindowTitle(i18n("Select a Driver"));
 
-    QVBoxLayout * layout = new QVBoxLayout(this);
+    auto layout = new QVBoxLayout(this);
 
     m_widget = new SelectMakeModel(this);
     layout->addWidget(m_widget);
@@ -50,14 +51,14 @@ SelectMakeModelDialog::SelectMakeModelDialog(const QString &make, const QString 
     m_bbox->button(QDialogButtonBox::Ok)->setEnabled(false);
 
     // Configure the help button to be flat, disabled and empty
-    QPushButton *button = m_bbox->button(QDialogButtonBox::Help);
+    auto button = m_bbox->button(QDialogButtonBox::Help);
     button->setFlat(true);
     button->setEnabled(false);
     button->setIcon(QIcon());
     button->setText(QString());
 
     // Setup the busy cursor
-    KPixmapSequenceOverlayPainter *busySeq = new KPixmapSequenceOverlayPainter(this);
+    auto busySeq = new KPixmapSequenceOverlayPainter(this);
     busySeq->setSequence(KIconLoader::global()->loadPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
     busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
     busySeq->setWidget(button);

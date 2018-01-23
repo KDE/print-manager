@@ -145,8 +145,7 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
 void AddPrinterAssistant::back()
 {
     KAssistantDialog::back();
-    GenericPage *currPage;
-    currPage = qobject_cast<GenericPage*>(currentPage()->widget());
+    auto currPage = qobject_cast<GenericPage*>(currentPage()->widget());
     enableNextButton(currPage->canProceed());
     if (!qobject_cast<GenericPage*>(currentPage()->widget())->isValid()) {
         back();
@@ -181,8 +180,8 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
     // it up, if not call next with it so we can find the next page
     if (qobject_cast<GenericPage*>(page->widget())->isValid()) {
         KAssistantDialog::setCurrentPage(page);
-        GenericPage *currPage = qobject_cast<GenericPage*>(currentPage()->widget());
-        GenericPage *nextPage = qobject_cast<GenericPage*>(page->widget());
+        auto currPage = qobject_cast<GenericPage*>(currentPage()->widget());
+        auto nextPage = qobject_cast<GenericPage*>(page->widget());
         // Disconnect the current page slots
         disconnect(currPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableNextButton);
         disconnect(currPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableFinishButton);
@@ -226,7 +225,7 @@ void AddPrinterAssistant::showEvent(QShowEvent *event)
 
 void AddPrinterAssistant::slotFinishButtonClicked()
 {
-    GenericPage *page = qobject_cast<GenericPage*>(currentPage()->widget());
+    auto page = qobject_cast<GenericPage*>(currentPage()->widget());
     enableFinishButton(false);
     if (page->finishClicked()) {
         //KAssistantDialog::slotButtonClicked(button); // FIXME next() really?

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
                      PM_VERSION,
                      i18n("Print Queue"),
                      KAboutLicense::GPL,
-                     i18n("(C) 2010-2013 Daniel Nicoletti"));
+                     i18n("(C) 2010-2018 Daniel Nicoletti"));
 
     about.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
     about.addAuthor(QStringLiteral("Lukáš Tinkl"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("ltinkl@redhat.com"));

@@ -86,7 +86,7 @@ static void choose_device_cb(const char *device_class,           /* I - Class */
     /*
      * Add the device to the array...
      */
-    KCupsRequest *request = static_cast<KCupsRequest*>(user_data);
+    auto request = static_cast<KCupsRequest*>(user_data);
     QMetaObject::invokeMethod(request,
                               "device",
                               Qt::QueuedConnection,

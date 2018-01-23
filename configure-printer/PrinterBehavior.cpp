@@ -171,7 +171,7 @@ void PrinterBehavior::userListChanged()
 
 void PrinterBehavior::currentIndexChangedCB(int index)
 {
-    QComboBox *comboBox = qobject_cast<QComboBox*>(sender());
+    auto comboBox = qobject_cast<QComboBox*>(sender());
     bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
 
     if (isDifferent != comboBox->property("different").toBool()) {

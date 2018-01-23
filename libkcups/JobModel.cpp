@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
- *   dantti12@gmail.com                                                    *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti <dantti12@gmail.com>      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -182,7 +181,7 @@ void JobModel::getJobs()
 
 void JobModel::getJobFinished()
 {
-    KCupsRequest *request = static_cast<KCupsRequest *>(sender());
+    auto request = static_cast<KCupsRequest *>(sender());
     if (request) {
         if (request->hasError()) {
             // clear the model after so that the proper widget can be shown
@@ -291,7 +290,7 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
     // insert the first column which has the job state and id
     QList<QStandardItem*> row;
     ipp_jstate_e jobState = job.state();
-    QStandardItem *statusItem = new QStandardItem(jobStatus(jobState));
+    auto statusItem = new QStandardItem(jobStatus(jobState));
     statusItem->setData(jobState, RoleJobState);
     statusItem->setData(job.id(), RoleJobId);
     statusItem->setData(job.name(), RoleJobName);
@@ -448,7 +447,7 @@ Qt::DropActions JobModel::supportedDropActions() const
 
 QMimeData* JobModel::mimeData(const QModelIndexList &indexes) const
 {
-    QMimeData *mimeData = new QMimeData();
+    auto mimeData = new QMimeData();
     QByteArray encodedData;
 
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
@@ -537,7 +536,7 @@ KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newD
         return 0;
     }
 
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     switch (action) {
     case Cancel:
         request->cancelJob(destName, jobId);

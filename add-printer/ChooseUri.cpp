@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -115,8 +115,8 @@ void ChooseUri::findPrinters()
 {
     QUrl url = parsedURL(ui->addressLE->text());
 
-    KCupsConnection *conn = new KCupsConnection(url, this);
-    KCupsRequest *request = new KCupsRequest(conn);
+    auto conn = new KCupsConnection(url, this);
+    auto request = new KCupsRequest(conn);
     connect(request, &KCupsRequest::finished, this, &ChooseUri::getPrintersFinished);
 
     QStringList attr;
@@ -136,7 +136,7 @@ void ChooseUri::findPrinters()
 
 void ChooseUri::getPrintersFinished()
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
+    auto request = qobject_cast<KCupsRequest*>(sender());
     QUrl uri = request->property("URI").value<QUrl>();
     QUrl url;
     url.setScheme(QStringLiteral("ipp"));

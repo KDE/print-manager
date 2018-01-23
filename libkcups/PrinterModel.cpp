@@ -116,7 +116,7 @@ PrinterModel::PrinterModel(QObject *parent) :
 
 void PrinterModel::getDestsFinished()
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    auto request = qobject_cast<KCupsRequest *>(sender());
     // When there is no printer IPP_NOT_FOUND is returned
     if (request->hasError() && request->error() != IPP_NOT_FOUND) {
         // clear the model after so that the proper widget can be shown
@@ -234,7 +234,7 @@ void PrinterModel::update()
 {
 //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan", "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" ,  QVariant(QStringList, ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) ( "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge", "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) ( "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int, 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) ( "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
     // Get destinations with these attributes
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterModel::getDestsFinished);
     request->getPrinters(m_attributes);
 }
@@ -242,7 +242,7 @@ void PrinterModel::update()
 void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
 {
     // Create the printer item
-    QStandardItem *stdItem = new QStandardItem(printer.name());
+    auto stdItem = new QStandardItem(printer.name());
     stdItem->setData(printer.name(), DestName);
     stdItem->setIcon(printer.icon());
     // update the item
@@ -411,7 +411,7 @@ Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
 
 void PrinterModel::insertUpdatePrinterName(const QString &printerName)
 {
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
     // TODO how do we know if it's a class if this DBus signal
     // does not tell us
@@ -437,7 +437,7 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
 
 void PrinterModel::insertUpdatePrinterFinished()
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+    auto request = qobject_cast<KCupsRequest *>(sender());
     if (!request->hasError()) {
         foreach (const KCupsPrinter &printer, request->printers()) {
             // If there is a printer and it's not the current one add it

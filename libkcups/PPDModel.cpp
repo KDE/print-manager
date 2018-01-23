@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
- *   dantti12@gmail.com                                                    *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti <dantti12@gmail.com>      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -74,7 +73,7 @@ QStandardItem* PPDModel::findCreateMake(const QString &make)
         }
     }
 
-    QStandardItem *makeItem = new QStandardItem(make);
+    auto makeItem = new QStandardItem(make);
     appendRow(makeItem);
     return makeItem;
 }
@@ -93,7 +92,7 @@ void PPDModel::clear()
 
 QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd, bool recommended)
 {
-    QStandardItem *ret = new QStandardItem;
+    auto ret = new QStandardItem;
 
     QString make = ppd["ppd-make"].toString();
     QString makeAndModel = ppd["ppd-make-and-model"].toString();

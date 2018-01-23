@@ -185,10 +185,10 @@ void PrinterOptions::createGroups()
         QString text = m_codec->toUnicode(group->text);
 
         // The group box were the options will be laid out
-        QGroupBox *groupBox = new QGroupBox(text, ui->scrollArea);
+        auto groupBox = new QGroupBox(text, ui->scrollArea);
 
         // Create the form layout to put options in
-        QFormLayout *gFormLayout = new QFormLayout(groupBox);
+        auto gFormLayout = new QFormLayout(groupBox);
         gFormLayout->setFormAlignment(Qt::AlignCenter);
         groupBox->setLayout(gFormLayout);
         ui->verticalLayout->addWidget(groupBox);
@@ -239,9 +239,9 @@ void PrinterOptions::createGroups()
 QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const
 {
     Q_UNUSED(keyword)
-    QWidget *widget = new QWidget(parent);
-    QHBoxLayout *layout = new QHBoxLayout(widget);
-    QButtonGroup *radioGroup = new QButtonGroup(widget);
+    auto widget = new QWidget(parent);
+    auto layout = new QHBoxLayout(widget);
+    auto radioGroup = new QButtonGroup(widget);
     widget->setLayout(layout);
 
     int i;
@@ -254,7 +254,7 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
         QString choiceName = m_codec->toUnicode(choice->choice);
         QString cText = m_codec->toUnicode(choice->text);
 
-        QRadioButton *button = new QRadioButton(cText, widget);
+        auto button = new QRadioButton(cText, widget);
         button->setChecked(defChoice == choiceName);
         button->setProperty("choice", choiceName);
         // if we are in looking at a remote printer we can't save it
@@ -302,8 +302,8 @@ void PrinterOptions::radioBtClicked(QAbstractButton *button)
 QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const
 {
     Q_UNUSED(keyword)
-    QListView *listView = new QListView(parent);
-    QStandardItemModel *model = new QStandardItemModel(listView);
+    auto listView = new QListView(parent);
+    auto model = new QStandardItemModel(listView);
     listView->setModel(model);
     listView->setItemDelegate(new NoSelectionRectDelegate(listView));
 
@@ -317,7 +317,7 @@ QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, 
         QString cName = m_codec->toUnicode(choice->choice);
         QString cText = m_codec->toUnicode(choice->text);
 
-        QStandardItem *item = new QStandardItem(cText);
+        auto item = new QStandardItem(cText);
         item->setData(cName);
         item->setCheckable(true);
         item->setEditable(false);
@@ -336,7 +336,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
     int i;
     ppd_choice_t *choice;
     QString defChoice = m_codec->toUnicode(option->defchoice);
-    QComboBox *comboBox = new QComboBox(parent);
+    auto comboBox = new QComboBox(parent);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
@@ -359,7 +359,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 
 void PrinterOptions::currentIndexChangedCB(int index)
 {
-    QComboBox *comboBox = qobject_cast<QComboBox*>(sender());
+    auto comboBox = qobject_cast<QComboBox*>(sender());
     bool isDifferent = comboBox->property(DEFAULT_CHOICE).toString() != comboBox->itemData(index);
 
     if (isDifferent != comboBox->property("different").toBool()) {

@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
- *   dantti12@gmail.com                                                    *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti <dantti12@gmail.com>      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -97,7 +96,7 @@ void ClassListWidget::loadFinished()
     foreach (const KCupsPrinter &printer, printers) {
         QString destName = printer.name();
         if (destName != m_printerName) {
-            QStandardItem *item = new QStandardItem;
+            auto item = new QStandardItem;
             item->setText(destName);
             item->setCheckable(true);
             item->setEditable(false);

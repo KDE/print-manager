@@ -86,7 +86,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
         request->deleteLater();
 
         if (found) {
-            ConfigureDialog *ui = new ConfigureDialog(printer.name(), printer.isClass());
+            auto ui = new ConfigureDialog(printer.name(), printer.isClass());
             connect(m_updateUi, &QTimer::timeout, ui, static_cast<void(ConfigureDialog::*)()>(&ConfigureDialog::update));
             connect(ui, &ConfigureDialog::finished, this, &ConfigurePrinterInterface::RemovePrinter);
             ui->show();
@@ -112,7 +112,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 
 void ConfigurePrinterInterface::RemovePrinter()
 {
-    QWidget *ui = qobject_cast<QWidget*>(sender());
+    auto ui = qobject_cast<QWidget*>(sender());
     if (ui) {
         m_uis.remove(m_uis.key(ui));
     }

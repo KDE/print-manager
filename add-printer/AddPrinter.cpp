@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -41,14 +41,14 @@ AddPrinter::~AddPrinter()
 
 void AddPrinter::addPrinter(qulonglong wid)
 {
-    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    auto wizard = new AddPrinterAssistant();
     wizard->initAddPrinter();
     show(wizard, wid);
 }
 
 void AddPrinter::addClass(qulonglong wid)
 {
-    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    auto wizard = new AddPrinterAssistant();
     wizard->initAddClass();
     show(wizard, wid);
 }
@@ -69,7 +69,7 @@ void AddPrinter::changePPD(qulonglong wid, const QString &name)
             if (printer.type() & CUPS_PRINTER_REMOTE) {
                 qWarning() << "Ignoring request, can not change PPD of remote printer" << name;
             } else {
-                AddPrinterAssistant *wizard = new AddPrinterAssistant();
+                auto wizard = new AddPrinterAssistant();
                 wizard->initChangePPD(name, printer.deviceUri(), printer.makeAndModel());
                 show(wizard, wid);
             }
@@ -99,7 +99,7 @@ void AddPrinter::newPrinterFromDevice(qulonglong wid, const QString &name, const
     //        printer = "HP PSC 1400 series";
     //        deviceId = "MFG:HP;MDL:PSC 1400 series;DES:;CMD:LDL,MLC,PML,DYN;";
 
-    AddPrinterAssistant *wizard = new AddPrinterAssistant();
+    auto wizard = new AddPrinterAssistant();
     wizard->initAddPrinter(name, device_id);
     show(wizard, wid);
 }

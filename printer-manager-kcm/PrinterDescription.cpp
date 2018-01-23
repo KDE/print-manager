@@ -61,7 +61,7 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
                   0,
                   true);
 
-    QMenu *menu = new QMenu(ui->maintenancePB);
+    auto menu = new QMenu(ui->maintenancePB);
     menu->addAction(ui->actionPrintTestPage);
     menu->addAction(ui->actionPrintSelfTestPage);
     menu->addAction(ui->actionCleanPrintHeads);
@@ -88,7 +88,7 @@ void PrinterDescription::on_openQueuePB_clicked()
 void PrinterDescription::on_defaultCB_clicked()
 {
     ui->defaultCB->setDisabled(true);
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->setDefaultPrinter(m_destName);
 }
@@ -96,7 +96,7 @@ void PrinterDescription::on_defaultCB_clicked()
 void PrinterDescription::on_sharedCB_clicked()
 {
     ui->sharedCB->setDisabled(true);
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->setShared(m_destName, m_isClass, ui->sharedCB->isChecked());
 }
@@ -104,7 +104,7 @@ void PrinterDescription::on_sharedCB_clicked()
 void PrinterDescription::on_rejectPrintJobsCB_clicked()
 {
     ui->rejectPrintJobsCB->setDisabled(true);
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     if (ui->rejectPrintJobsCB->isChecked()) {
         request->rejectJobs(m_destName);
@@ -214,7 +214,7 @@ void PrinterDescription::setMarkers(const QVariantHash &data)
         if (data["marker-types"].toStringList().at(i) == QLatin1String("unknown")) {
             continue;
         }
-        QProgressBar *pogressBar = new QProgressBar;
+        auto pogressBar = new QProgressBar;
         pogressBar->setValue(data["marker-levels"].value<QList<int> >().at(i));
         pogressBar->setTextVisible(false);
         pogressBar->setMaximumHeight(15);
@@ -226,7 +226,7 @@ void PrinterDescription::setMarkers(const QVariantHash &data)
                          QPalette::Highlight,
                          QColor(data["marker-colors"].toStringList().at(i)).lighter());
         pogressBar->setPalette(palette);
-        QLabel *label = new QLabel(data["marker-names"].toStringList().at(i), this);
+        auto label = new QLabel(data["marker-names"].toStringList().at(i), this);
         ui->formLayout->addRow(label, pogressBar);
     }
 }
@@ -235,7 +235,7 @@ void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
 
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->printTestPage(m_destName, m_isClass);
 }
@@ -244,7 +244,7 @@ void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
 {
     Q_UNUSED(checked)
 
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
 }
@@ -253,14 +253,14 @@ void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 {
     Q_UNUSED(checked)
 
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
 }
 
 void PrinterDescription::requestFinished()
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest*>(sender());
+    auto request = qobject_cast<KCupsRequest*>(sender());
     if (request && request->hasError()) {
         ui->errorMessage->setText(i18n("Failed to perform request: %1", request->errorMsg()));
         ui->errorMessage->animatedShow();

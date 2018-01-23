@@ -280,9 +280,9 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
         // if we can move a job create the menu
         if (moveTo) {
             // context menu
-            QMenu *menu = new QMenu(this);
+            auto menu = new QMenu(this);
             // move to menu
-            QMenu *moveToMenu = new QMenu(i18n("Move to"), this);
+            auto moveToMenu = new QMenu(i18n("Move to"), this);
 
             // get printers we can move to
             QPointer<KCupsRequest> request = new KCupsRequest;
@@ -324,7 +324,7 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
 {
     // Displays a menu containing the header name, and
     // a check box to indicate if it's being shown
-    QMenu *menu = new QMenu(this);
+    auto menu = new QMenu(this);
     for (int i = 0; i < m_proxyModel->columnCount(); i++) {
         QAction *action;
         QString name;
@@ -360,7 +360,7 @@ void PrintQueueUi::updatePrinterByName(const QString &printer)
     attr << KCUPS_PRINTER_STATE;
     attr << KCUPS_PRINTER_STATE_MESSAGE;
 
-    KCupsRequest *request = new KCupsRequest;
+    auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrintQueueUi::getAttributesFinished);
     request->getPrinterAttributes(printer, m_isClass, attr);
 }

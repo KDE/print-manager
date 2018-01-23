@@ -84,7 +84,7 @@ void PrintQueue::showQueue(const QString &destName)
         request->deleteLater();
 
         if (found) {
-            PrintQueueUi *ui = new PrintQueueUi(printer);
+            auto ui = new PrintQueueUi(printer);
             connect(ui, &PrintQueueUi::finished, this, &PrintQueue::removeQueue);
             ui->show();
             m_uis[printer.name()] = ui;
@@ -109,7 +109,7 @@ void PrintQueue::showQueue(const QString &destName)
 
 void PrintQueue::removeQueue()
 {
-    QWidget *ui = qobject_cast<QWidget*>(sender());
+    auto ui = qobject_cast<QWidget*>(sender());
     if (ui) {
         m_uis.remove(m_uis.key(ui));
     }

@@ -70,7 +70,7 @@ void ModifyPrinter::on_makeCB_activated(int index)
 {
     bool isDifferent = true;
     if (ui->makeCB->itemData(index).toUInt() == PPDList) {
-        SelectMakeModelDialog * dialog = new SelectMakeModelDialog(m_make, m_makeAndModel, this);
+        auto dialog = new SelectMakeModelDialog(m_make, m_makeAndModel, this);
         connect(dialog, &SelectMakeModelDialog::accepted, this, &ModifyPrinter::ppdSelectionAccepted);
         connect(dialog, &SelectMakeModelDialog::rejected, this, &ModifyPrinter::ppdSelectionRejected);
         dialog->show();
@@ -100,8 +100,8 @@ void ModifyPrinter::on_makeCB_activated(int index)
 
 void ModifyPrinter::ppdSelectionAccepted()
 {
-    SelectMakeModelDialog *dialog = qobject_cast<SelectMakeModelDialog*>(sender());
-    SelectMakeModel *widget = qobject_cast<SelectMakeModel*>(dialog->mainWidget());
+    auto dialog = qobject_cast<SelectMakeModelDialog*>(sender());
+    auto widget = qobject_cast<SelectMakeModel*>(dialog->mainWidget());
 
     if (widget->isFileSelected()) {
         QString fileName = widget->selectedPPDFileName();
@@ -124,7 +124,7 @@ void ModifyPrinter::ppdSelectionAccepted()
 
 void ModifyPrinter::ppdSelectionRejected()
 {
-    SelectMakeModelDialog *dialog = qobject_cast<SelectMakeModelDialog*>(sender());
+    auto dialog = qobject_cast<SelectMakeModelDialog*>(sender());
     ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
     dialog->deleteLater();
 }
@@ -186,7 +186,7 @@ void ModifyPrinter::modelChanged()
 
 void ModifyPrinter::textChanged(const QString &text)
 {
-    QLineEdit *le = qobject_cast<QLineEdit *>(sender());
+    auto le = qobject_cast<QLineEdit *>(sender());
 
     bool isDifferent = le->property("orig_text") != text;
     if (isDifferent != le->property("different").toBool()) {

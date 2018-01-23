@@ -136,7 +136,7 @@ bool PageDestinations::isValid() const
 QVariantHash PageDestinations::values() const
 {
     QVariantHash ret = m_args;
-    GenericPage *page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
+    auto page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
     if (page) {
         ret = page->values();
     } else if (canProceed()) {
@@ -149,7 +149,7 @@ bool PageDestinations::canProceed() const
 {
     bool ret = ui->stackedWidget->currentIndex() != 0;
 
-    GenericPage *page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
+    auto page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
     if (page) {
         ret = page->canProceed();
     }
@@ -316,7 +316,7 @@ QVariantHash PageDestinations::selectedItemValues() const
 
 void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
 {
-    GenericPage *page = qobject_cast<GenericPage*>(widget);
+    auto page = qobject_cast<GenericPage*>(widget);
     if (page) {
         page->setValues(args);
         if (ui->stackedWidget->currentWidget() != page) {;

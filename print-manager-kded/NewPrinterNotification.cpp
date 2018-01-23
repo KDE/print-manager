@@ -66,7 +66,7 @@ void NewPrinterNotification::GetReady()
 {
     qCDebug(PM_KDED);
     // This method is all about telling the user a new printer was detected
-    KNotification *notify = new KNotification("GetReady");
+    auto notify = new KNotification("GetReady");
     notify->setComponentName("printmanager");
     notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
     notify->setTitle(i18n("A New Printer was detected"));
@@ -93,7 +93,7 @@ void NewPrinterNotification::NewPrinter(int status,
     // mfg "Samsung"
     // mdl "SCX-3400 Series" "" "SPL,FWV,PIC,BDN,EXT"
     // This method is all about telling the user a new printer was detected
-    KNotification *notify = new KNotification("NewPrinterNotification");
+    auto notify = new KNotification("NewPrinterNotification");
     notify->setComponentName("printmanager");
     notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
     notify->setFlags(KNotification::Persistent);
@@ -203,11 +203,10 @@ void NewPrinterNotification::init()
     if (!registerService()) {
         // in case registration fails due to another user or application running
         // keep an eye on it so we can register when available
-        QDBusServiceWatcher *watcher;
-        watcher = new QDBusServiceWatcher(QLatin1String("com.redhat.NewPrinterNotification"),
-                                          QDBusConnection::systemBus(),
-                                          QDBusServiceWatcher::WatchForUnregistration,
-                                          this);
+        auto watcher = new QDBusServiceWatcher(QLatin1String("com.redhat.NewPrinterNotification"),
+                                               QDBusConnection::systemBus(),
+                                               QDBusServiceWatcher::WatchForUnregistration,
+                                               this);
         connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &NewPrinterNotification::registerService);
     }
 }

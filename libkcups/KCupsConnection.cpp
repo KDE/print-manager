@@ -872,7 +872,7 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
         return NULL;
     }
 
-    KCupsPasswordDialog *passwordDialog = static_cast<KCupsPasswordDialog *>(user_data);
+    auto passwordDialog = static_cast<KCupsPasswordDialog *>(user_data);
     bool wrongPassword = password_retries > 1;
 
     // This will block this thread until exec is not finished

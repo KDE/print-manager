@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -62,7 +62,7 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
 
     // May contain any printable characters except "/", "#", and space
     QRegExp rx("[^/#\\ ]*");
-    QValidator *validator = new QRegExpValidator(rx, this);
+    auto validator = new QRegExpValidator(rx, this);
     ui->nameLE->setValidator(validator);
 
     // Hide the message widget

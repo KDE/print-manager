@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -84,7 +84,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         // If
         QUrl url(deviceURI % QStringLiteral(".ppd"));
         if (url.scheme() == QStringLiteral("ipp")) {
-            QTemporaryFile *tempFile = new QTemporaryFile;
+            auto tempFile = new QTemporaryFile;
             tempFile->setFileTemplate(QStringLiteral("print-manager-XXXXXX.ppd"));
             tempFile->open();
             url.setScheme(QStringLiteral("http"));
@@ -189,7 +189,7 @@ void PageChoosePPD::selectDefault()
 void PageChoosePPD::resultJob(KJob *job)
 {
     if (!job->error() && job->property("URI").toString() == m_args[KCUPS_DEVICE_URI].toString()) {
-        KIO::FileCopyJob *fileCopyJob = qobject_cast<KIO::FileCopyJob*>(job);
+        auto fileCopyJob = qobject_cast<KIO::FileCopyJob*>(job);
 
         // Make sure this job is for the current device
         m_ppdFile = fileCopyJob->destUrl().toLocalFile();

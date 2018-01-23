@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -275,7 +275,7 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
         }
     }
 
-    QStandardItem *stdItem = new QStandardItem;
+    auto stdItem = new QStandardItem;
     stdItem->setText(text);
     stdItem->setToolTip(toolTip);
     stdItem->setData(device_class, DeviceClass);
@@ -368,7 +368,7 @@ QStandardItem* DevicesModel::findCreateCategory(const QString &category)
         }
     }
 
-    QStandardItem *catItem = new QStandardItem(category);
+    auto catItem = new QStandardItem(category);
     QFont font = catItem->font();
     font.setBold(true);
     catItem->setFont(font);

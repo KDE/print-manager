@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -34,7 +34,7 @@ PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
 {
     Q_UNUSED(args)
 
-    QTimer::singleShot(0, this, SLOT(loadThread()));
+    QTimer::singleShot(0, this, &PrintManagerKded::loadThread);
 }
 
 PrintManagerKded::~PrintManagerKded()

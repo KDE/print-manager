@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -62,8 +62,7 @@ AddPrinterAssistant::AddPrinterAssistant() :
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
     m_busySeq->setWidget(helpButton);
 
-    connect(finishButton(), SIGNAL(clicked()),
-            this, SLOT(slotFinishButtonClicked()));
+    connect(finishButton(), &QPushButton::clicked, this, &AddPrinterAssistant::slotFinishButtonClicked);
 
     // Restore the dialog size
     KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "AddPrinterAssistant");
@@ -185,16 +184,16 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         GenericPage *currPage = qobject_cast<GenericPage*>(currentPage()->widget());
         GenericPage *nextPage = qobject_cast<GenericPage*>(page->widget());
         // Disconnect the current page slots
-        disconnect(currPage, SIGNAL(allowProceed(bool)), this, SLOT(enableNextButton(bool)));
-        disconnect(currPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
-        disconnect(currPage, SIGNAL(startWorking()), m_busySeq, SLOT(start()));
-        disconnect(currPage, SIGNAL(stopWorking()), m_busySeq, SLOT(stop()));
-        disconnect(currPage, SIGNAL(proceed()), this, SLOT(next()));
+        disconnect(currPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableNextButton);
+        disconnect(currPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableFinishButton);
+        disconnect(currPage, &GenericPage::proceed, this, static_cast<void(AddPrinterAssistant::*)()>(&AddPrinterAssistant::next));
+        disconnect(currPage, &GenericPage::startWorking, m_busySeq, &KPixmapSequenceOverlayPainter::start);
+        disconnect(currPage, &GenericPage::stopWorking, m_busySeq, &KPixmapSequenceOverlayPainter::stop);
 
         // Connect next page signals
-        connect(currPage, SIGNAL(startWorking()), m_busySeq, SLOT(start()));
-        connect(currPage, SIGNAL(stopWorking()), m_busySeq, SLOT(stop()));
-        connect(nextPage, SIGNAL(proceed()), this, SLOT(next()));
+        connect(nextPage, &GenericPage::startWorking, m_busySeq, &KPixmapSequenceOverlayPainter::start);
+        connect(nextPage, &GenericPage::stopWorking, m_busySeq, &KPixmapSequenceOverlayPainter::stop);
+        connect(nextPage, &GenericPage::proceed, this, static_cast<void(AddPrinterAssistant::*)()>(&AddPrinterAssistant::next));
 
         // check the working property
         if (nextPage->isWorking()) {
@@ -205,11 +204,11 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
 
         // When ChangePPD() is called addPrinterPage is zero
         if (page == m_addPrinterPage || m_addPrinterPage == 0) {
-            connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableFinishButton(bool)));
+            connect(nextPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableFinishButton);
             enableNextButton(false);
             enableFinishButton(nextPage->canProceed());
         } else {
-            connect(nextPage, SIGNAL(allowProceed(bool)), this, SLOT(enableNextButton(bool)));
+            connect(nextPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableNextButton);
             enableNextButton(nextPage->canProceed());
         }
     } else {

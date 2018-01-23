@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -116,12 +116,10 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     ui->jobsView->setItemDelegate(new NoSelectionRectDelegate(this));
     // sort by status column means the jobs will be sorted by the queue order
     ui->jobsView->sortByColumn(JobModel::ColStatus, Qt::AscendingOrder);
-    connect(ui->jobsView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(updateButtons()));
+    connect(ui->jobsView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PrintQueueUi::updateButtons);
     connect(ui->jobsView, &QTreeView::customContextMenuRequested, this, &PrintQueueUi::showContextMenu);
     ui->jobsView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(ui->jobsView->header(), SIGNAL(customContextMenuRequested(QPoint)),
-            this, SLOT(showHeaderContextMenu(QPoint)));
+    connect(ui->jobsView->header(), &QHeaderView::customContextMenuRequested, this, &PrintQueueUi::showHeaderContextMenu);
 
     QHeaderView *header = ui->jobsView->header();
     header->setResizeMode(QHeaderView::Interactive);
@@ -151,41 +149,30 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     }
 
     // This is emitted when a printer is modified
-    connect(KCupsConnection::global(), SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerModified, this, &PrintQueueUi::updatePrinter);
 
     // This is emitted when a printer has it's state changed
-    connect(KCupsConnection::global(), SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerStateChanged, this, &PrintQueueUi::updatePrinter);
 
     // This is emitted when a printer is stopped
-    connect(KCupsConnection::global(), SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerStopped, this, &PrintQueueUi::updatePrinter);
 
     // This is emitted when a printer is restarted
-    connect(KCupsConnection::global(), SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerRestarted, this, &PrintQueueUi::updatePrinter);
 
     // This is emitted when a printer is shutdown
-    connect(KCupsConnection::global(), SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerShutdown, this, &PrintQueueUi::updatePrinter);
 
     // This is emitted when a printer is removed
-    connect(KCupsConnection::global(), SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(updatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerDeleted, this, &PrintQueueUi::updatePrinter);
 
     // This is emitted when a printer/queue is changed
     // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), SIGNAL(rhPrinterAdded(QString)),
-            this, SLOT(updatePrinter(QString)));
+    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrintQueueUi::updatePrinterByName);
+    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrintQueueUi::updatePrinterByName);
+    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrintQueueUi::updatePrinterByName);
 
-    connect(KCupsConnection::global(), SIGNAL(rhPrinterRemoved(QString)),
-            this, SLOT(updatePrinter(QString)));
-
-    connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
-            this, SLOT(updatePrinter(QString)));
-
-    updatePrinter(m_destName);
+    updatePrinterByName(m_destName);
 
     // Restore the dialog size
     KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "PrintQueue");
@@ -359,7 +346,7 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
     }
 }
 
-void PrintQueueUi::updatePrinter(const QString &printer)
+void PrintQueueUi::updatePrinterByName(const QString &printer)
 {
     qDebug() << printer << m_destName;
     if (printer != m_destName) {
@@ -388,7 +375,7 @@ void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri,
     Q_UNUSED(printerIsAcceptingJobs)
     qDebug() << printerName << printerStateReasons;
 
-    updatePrinter(printerName);
+    updatePrinterByName(printerName);
 }
 
 void PrintQueueUi::getAttributesFinished()

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -90,49 +90,27 @@ JobModel::JobModel(QObject *parent) :
     setRoleNames(roles);
 
     // This is emitted when a job change it's state
-    connect(KCupsConnection::global(),
-            SIGNAL(jobState(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
-            this,
-            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::insertUpdateJob);
 
     // This is emitted when a job is created
-    connect(KCupsConnection::global(),
-            SIGNAL(jobCreated(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
-            this,
-            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &JobModel::insertUpdateJob);
 
     // This is emitted when a job is stopped
-    connect(KCupsConnection::global(),
-            SIGNAL(jobStopped(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
-            this,
-            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(), &KCupsConnection::jobStopped, this, &JobModel::insertUpdateJob);
 
     // This is emitted when a job has it's config changed
-    connect(KCupsConnection::global(),
-            SIGNAL(jobConfigChanged(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
-            this,
-            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(), &KCupsConnection::jobConfigChanged, this, &JobModel::insertUpdateJob);
 
     // This is emitted when a job change it's progress
-    connect(KCupsConnection::global(),
-            SIGNAL(jobProgress(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
-            this,
-            SLOT(insertUpdateJob(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(), &KCupsConnection::jobProgress, this, &JobModel::insertUpdateJob);
 
     // This is emitted when a printer is removed
-    connect(KCupsConnection::global(),
-            SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)),
-            this,
-            SLOT(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    connect(KCupsConnection::global(), &KCupsConnection::jobCompleted, this, &JobModel::jobCompleted);
 
-    connect(KCupsConnection::global(), SIGNAL(serverAudit(QString)),
-            SLOT(getJobs()));
-    connect(KCupsConnection::global(), SIGNAL(serverStarted(QString)),
-            SLOT(getJobs()));
-    connect(KCupsConnection::global(), SIGNAL(serverStopped(QString)),
-            SLOT(getJobs()));
-    connect(KCupsConnection::global(), SIGNAL(serverRestarted(QString)),
-            SLOT(getJobs()));
+    connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, &JobModel::getJobs);
+    connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, &JobModel::getJobs);
+    connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, &JobModel::getJobs);
+    connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &JobModel::getJobs);
 }
 
 void JobModel::setParentWId(WId parentId)
@@ -195,7 +173,7 @@ void JobModel::getJobs()
     }
 
     m_jobRequest = new KCupsRequest;
-    connect(m_jobRequest, SIGNAL(finished()), this, SLOT(getJobFinished()));
+    connect(m_jobRequest, &KCupsRequest::finished, this, &JobModel::getJobFinished);
 
     m_jobRequest->getJobs(m_destName, false, m_whichjobs, m_jobAttributes);
 

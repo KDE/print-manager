@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -33,13 +33,13 @@ ConfigurePrinter::ConfigurePrinter(int & argc, char ** argv) :
 void ConfigurePrinter::configurePrinter(const QString& printer)
 {
     m_cpInterface = new ConfigurePrinterInterface(this);
-    connect(m_cpInterface, SIGNAL(quit()), this, SLOT(quit()));
+    connect(m_cpInterface, &ConfigurePrinterInterface::quit, this, &ConfigurePrinter::quit);
 
     if (!printer.isEmpty()) {
         m_cpInterface->ConfigurePrinter(printer);
     } else {
         // If DBus called the ui list won't be empty
-        QTimer::singleShot(500, m_cpInterface, SLOT(RemovePrinter()));
+        QTimer::singleShot(500, m_cpInterface, &ConfigurePrinterInterface::RemovePrinter);
     }
 }
 

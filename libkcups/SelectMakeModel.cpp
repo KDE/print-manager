@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -73,20 +73,19 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     ui->makeView->setModel(m_sourceModel);
     ui->makeView->setItemDelegate(new NoSelectionRectDelegate(this));
     // Updates the PPD view to the selected Make
-    connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            ui->ppdsLV, SLOT(setRootIndex(QModelIndex)));
+    connect(ui->makeView->selectionModel(), &QItemSelectionModel::currentChanged, ui->ppdsLV, &QListView::setRootIndex);
 
     ui->ppdsLV->setModel(m_sourceModel);
     ui->ppdsLV->setItemDelegate(new NoSelectionRectDelegate(this));
     connect(m_sourceModel, &PPDModel::dataChanged, this, &SelectMakeModel::checkChanged);
 
     // Clear the PPD view selection, so the Next/Finish button gets disabled
-    connect(ui->makeView->selectionModel(), SIGNAL(currentChanged(QModelIndex,QModelIndex)),
-            ui->ppdsLV->selectionModel(), SLOT(clearSelection()));
+    connect(ui->makeView->selectionModel(), &QItemSelectionModel::currentChanged,
+            ui->ppdsLV->selectionModel(), &QItemSelectionModel::clearSelection);
 
     // Make sure we update the Next/Finish button if a PPD is selected
-    connect(ui->ppdsLV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(checkChanged()));
+    connect(ui->ppdsLV->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &SelectMakeModel::checkChanged);
 
     // When the radio button changes the signal must be emitted
     connect(ui->ppdFileRB, &QRadioButton::toggled, this, &SelectMakeModel::checkChanged);

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -77,51 +77,35 @@ PrinterModel::PrinterModel(QObject *parent) :
     setRoleNames(roles);
 
     // This is emitted when a printer is added
-    connect(KCupsConnection::global(), SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerAdded, this, &PrinterModel::insertUpdatePrinter);
 
     // This is emitted when a printer is modified
-    connect(KCupsConnection::global(), SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerModified, this, &PrinterModel::insertUpdatePrinter);
 
     // This is emitted when a printer has it's state changed
-    connect(KCupsConnection::global(), SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerStateChanged, this, &PrinterModel::insertUpdatePrinter);
 
     // This is emitted when a printer is stopped
-    connect(KCupsConnection::global(), SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerStopped, this, &PrinterModel::insertUpdatePrinter);
 
     // This is emitted when a printer is restarted
-    connect(KCupsConnection::global(), SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerRestarted, this, &PrinterModel::insertUpdatePrinter);
 
     // This is emitted when a printer is shutdown
-    connect(KCupsConnection::global(), SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(insertUpdatePrinter(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerShutdown, this, &PrinterModel::insertUpdatePrinter);
 
     // This is emitted when a printer is removed
-    connect(KCupsConnection::global(), SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)), this,
-            SLOT(printerRemoved(QString,QString,QString,uint,QString,bool)));
+    connect(KCupsConnection::global(), &KCupsConnection::printerDeleted, this, &PrinterModel::printerRemoved);
 
-    connect(KCupsConnection::global(), SIGNAL(serverAudit(QString)),
-            SLOT(serverChanged(QString)));
-    connect(KCupsConnection::global(), SIGNAL(serverStarted(QString)),
-            SLOT(serverChanged(QString)));
-    connect(KCupsConnection::global(), SIGNAL(serverStopped(QString)),
-            SLOT(serverChanged(QString)));
-    connect(KCupsConnection::global(), SIGNAL(serverRestarted(QString)),
-            SLOT(serverChanged(QString)));
+    connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, &PrinterModel::serverChanged);
+    connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, &PrinterModel::serverChanged);
+    connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, &PrinterModel::serverChanged);
+    connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &PrinterModel::serverChanged);
 
     // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), SIGNAL(rhPrinterAdded(QString)),
-            this, SLOT(insertUpdatePrinter(QString)));
-
-    connect(KCupsConnection::global(), SIGNAL(rhPrinterRemoved(QString)),
-            this, SLOT(printerRemoved(QString)));
-
-    connect(KCupsConnection::global(), SIGNAL(rhQueueChanged(QString)),
-            this, SLOT(insertUpdatePrinter(QString)));
+    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrinterModel::insertUpdatePrinterName);
+    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrinterModel::printerRemovedName);
+    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrinterModel::insertUpdatePrinterName);
 
     connect(this, &PrinterModel::rowsInserted, this, &PrinterModel::slotCountChanged);
     connect(this, &PrinterModel::rowsRemoved, this, &PrinterModel::slotCountChanged);
@@ -425,7 +409,7 @@ Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
 }
 
 
-void PrinterModel::insertUpdatePrinter(const QString &printerName)
+void PrinterModel::insertUpdatePrinterName(const QString &printerName)
 {
     KCupsRequest *request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
@@ -448,7 +432,7 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
     Q_UNUSED(printerIsAcceptingJobs)
 
     qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
-    insertUpdatePrinter(printerName);
+    insertUpdatePrinterName(printerName);
 }
 
 void PrinterModel::insertUpdatePrinterFinished()
@@ -471,7 +455,7 @@ void PrinterModel::insertUpdatePrinterFinished()
     request->deleteLater();
 }
 
-void PrinterModel::printerRemoved(const QString &printerName)
+void PrinterModel::printerRemovedName(const QString &printerName)
 {
     qCDebug(LIBKCUPS) << printerName;
 

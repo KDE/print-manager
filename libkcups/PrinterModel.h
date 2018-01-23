@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -84,7 +84,7 @@ signals:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
 
 private slots:
-    void insertUpdatePrinter(const QString &printerName);
+    void insertUpdatePrinterName(const QString &printerName);
     void insertUpdatePrinter(const QString &text,
                              const QString &printerUri,
                              const QString &printerName,
@@ -92,7 +92,7 @@ private slots:
                              const QString &printerStateReasons,
                              bool printerIsAcceptingJobs);
     void insertUpdatePrinterFinished();
-    void printerRemoved(const QString &printerName);
+    void printerRemovedName(const QString &printerName);
     void printerRemoved(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void printerStateChanged(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void printerStopped(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);

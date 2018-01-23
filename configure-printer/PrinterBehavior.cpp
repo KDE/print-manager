@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -34,20 +34,18 @@ PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget 
 {
     ui->setupUi(this);
 
-    connect(ui->errorPolicyCB, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(currentIndexChangedCB(int)));
-    connect(ui->operationPolicyCB, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(currentIndexChangedCB(int)));
+    connect(ui->errorPolicyCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &PrinterBehavior::currentIndexChangedCB);
+    connect(ui->operationPolicyCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &PrinterBehavior::currentIndexChangedCB);
 
-    connect(ui->startingBannerCB, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(currentIndexChangedCB(int)));
-    connect(ui->endingBannerCB, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(currentIndexChangedCB(int)));
+    connect(ui->startingBannerCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &PrinterBehavior::currentIndexChangedCB);
+    connect(ui->endingBannerCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &PrinterBehavior::currentIndexChangedCB);
 
-    connect(ui->usersELB, SIGNAL(changed()),
-            this, SLOT(userListChanged()));
-    connect(ui->allowRB, SIGNAL(toggled(bool)),
-            this, SLOT(userListChanged()));
+    connect(ui->usersELB, &KEditListWidget::changed, this, &PrinterBehavior::userListChanged);
+    connect(ui->allowRB, &QRadioButton::toggled, this, &PrinterBehavior::userListChanged);
 }
 
 PrinterBehavior::~PrinterBehavior()

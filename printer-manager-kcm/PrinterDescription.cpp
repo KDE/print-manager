@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -89,7 +89,7 @@ void PrinterDescription::on_defaultCB_clicked()
 {
     ui->defaultCB->setDisabled(true);
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->setDefaultPrinter(m_destName);
 }
 
@@ -97,7 +97,7 @@ void PrinterDescription::on_sharedCB_clicked()
 {
     ui->sharedCB->setDisabled(true);
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->setShared(m_destName, m_isClass, ui->sharedCB->isChecked());
 }
 
@@ -105,7 +105,7 @@ void PrinterDescription::on_rejectPrintJobsCB_clicked()
 {
     ui->rejectPrintJobsCB->setDisabled(true);
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     if (ui->rejectPrintJobsCB->isChecked()) {
         request->rejectJobs(m_destName);
     } else {
@@ -236,7 +236,7 @@ void PrinterDescription::on_actionPrintTestPage_triggered(bool checked)
     Q_UNUSED(checked)
 
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->printTestPage(m_destName, m_isClass);
 }
 
@@ -245,7 +245,7 @@ void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
     Q_UNUSED(checked)
 
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
 }
 
@@ -254,7 +254,7 @@ void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
     Q_UNUSED(checked)
 
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(requestFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
     request->printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
 }
 

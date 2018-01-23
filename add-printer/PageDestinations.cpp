@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -90,8 +90,7 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     m_model = new DevicesModel(this);
     ui->devicesTV->setModel(m_model);
     ui->devicesTV->setItemDelegate(new NoSelectionRectDelegate(this));
-    connect(ui->devicesTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(deviceChanged()));
+    connect(ui->devicesTV->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PageDestinations::deviceChanged);
     connect(m_model, &DevicesModel::errorMessage, ui->messageWidget, &KMessageWidget::setText);
     connect(m_model, &DevicesModel::errorMessage, ui->messageWidget, &KMessageWidget::animatedShow);
 

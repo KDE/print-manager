@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -46,7 +46,7 @@ public slots:
     void update();
 
 private slots:
-    void updatePrinter(const QString &printer);
+    void updatePrinterByName(const QString &printer);
     void updatePrinter(const QString &text,
                        const QString &printerUri,
                        const QString &printerName,

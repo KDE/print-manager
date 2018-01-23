@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -54,14 +54,11 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
         ui->membersLV->setPrinter(destName);
     }
 
-    connect(ui->descriptionLE, SIGNAL(textChanged(QString)),
-            this, SLOT(textChanged(QString)));
-    connect(ui->locationLE, SIGNAL(textChanged(QString)),
-            this, SLOT(textChanged(QString)));
-    connect(ui->connectionLE, SIGNAL(textChanged(QString)),
-            this, SLOT(textChanged(QString)));
-    connect(ui->membersLV, SIGNAL(changed(bool)),
-            this, SLOT(modelChanged()));
+    connect(ui->descriptionLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
+    connect(ui->locationLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
+    connect(ui->connectionLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
+    connect(ui->membersLV, static_cast<void(ClassListWidget::*)(bool)>(&ClassListWidget::changed),
+            this, &ModifyPrinter::modelChanged);
 }
 
 ModifyPrinter::~ModifyPrinter()

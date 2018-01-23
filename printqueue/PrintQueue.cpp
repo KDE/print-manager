@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -49,7 +49,7 @@ void PrintQueue::showQueues(const QStringList &queues, const QString &cwd)
     } else {
         qDebug() << "called with no args";
         // If DBus called the ui list won't be empty
-        QTimer::singleShot(500, this, SLOT(removeQueue()));
+        QTimer::singleShot(500, this, &PrintQueue::removeQueue);
     }
 }
 

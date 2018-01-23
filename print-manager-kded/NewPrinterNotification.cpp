@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -51,7 +51,7 @@ NewPrinterNotification::NewPrinterNotification()
 
     // Make all our init code run on the thread since
     // the DBus calls were made blocking
-    QTimer::singleShot(0, this, SLOT(init()));
+    QTimer::singleShot(0, this, &NewPrinterNotification::init);
 
     m_thread = new QThread(this);
     moveToThread(m_thread);
@@ -117,7 +117,7 @@ void NewPrinterNotification::NewPrinter(int status,
         }
 
         actions << i18n("Search");
-        connect(notify, SIGNAL(action1Activated()), this, SLOT(setupPrinter()));
+        connect(notify, &KNotification::action1Activated, this, &NewPrinterNotification::setupPrinter);
     } else {
         // name is the name of the queue which hal_lpadmin has set up
         // automatically.
@@ -166,9 +166,9 @@ void NewPrinterNotification::NewPrinter(int status,
         } else if (status == STATUS_SUCCESS) {
             text = i18n("'%1' is ready for printing.", name);
             actions << i18n("Print test page");
-            connect(notify, SIGNAL(action1Activated()), this, SLOT(printTestPage()));
+            connect(notify, &KNotification::action1Activated, this, &NewPrinterNotification::printTestPage);
             actions << i18n("Configure");
-            connect(notify, SIGNAL(action2Activated()), this, SLOT(configurePrinter()));
+            connect(notify, &KNotification::action2Activated, this, &NewPrinterNotification::configurePrinter);
         } else {
             // Model mismatch
 
@@ -176,13 +176,13 @@ void NewPrinterNotification::NewPrinter(int status,
             if (driver.isEmpty()) {
                 text = i18n("'%1' has been added, please check its driver.", name);
                 actions << i18n("Configure");
-                connect(notify, SIGNAL(action1Activated()), this, SLOT(configurePrinter()));
+                connect(notify, &KNotification::action1Activated, this, &NewPrinterNotification::configurePrinter);
             } else {
                 text = i18n("'%1' has been added, using the '%2' driver.", name, driver);
                 actions << i18n("Print test page");
-                connect(notify, SIGNAL(action1Activated()), this, SLOT(printTestPage()));
+                connect(notify, &KNotification::action1Activated, this, &NewPrinterNotification::printTestPage);
                 actions << i18n("Find driver");
-                connect(notify, SIGNAL(action2Activated()), this, SLOT(findDriver()));
+                connect(notify, &KNotification::action2Activated, this, &NewPrinterNotification::findDriver);
             }
         }
     }
@@ -208,7 +208,7 @@ void NewPrinterNotification::init()
                                           QDBusConnection::systemBus(),
                                           QDBusServiceWatcher::WatchForUnregistration,
                                           this);
-        connect(watcher, SIGNAL(serviceUnregistered(QString)), this, SLOT(registerService()));
+        connect(watcher, &QDBusServiceWatcher::serviceUnregistered, this, &NewPrinterNotification::registerService);
     }
 }
 

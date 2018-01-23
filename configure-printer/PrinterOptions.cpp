@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -266,8 +266,7 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
     // store the default choice
     radioGroup->setProperty(DEFAULT_CHOICE, defChoice);
     radioGroup->setProperty("Keyword", keyword);
-    connect(radioGroup, SIGNAL(buttonClicked(QAbstractButton*)),
-            this, SLOT(radioBtClicked(QAbstractButton*)));
+    connect(radioGroup, static_cast<void(QButtonGroup::*)(QAbstractButton *)>(&QButtonGroup::buttonClicked), this, &PrinterOptions::radioBtClicked);
     return widget;
 }
 
@@ -352,8 +351,7 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
     comboBox->setProperty("Keyword", keyword);
     comboBox->setCurrentIndex(comboBox->findData(defChoice));
     // connect the signal AFTER setCurrentIndex is called
-    connect(comboBox, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(currentIndexChangedCB(int)));
+    connect(comboBox, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PrinterOptions::currentIndexChangedCB);
     // if we are in looking at a remote printer we can't save it
     comboBox->setEnabled(!m_isRemote);
     return qobject_cast<QWidget*>(comboBox);

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *   Copyright (C) 2012 Harald Sitter <sitter@kde.org>                     *
  *                                                                         *
@@ -268,14 +268,16 @@ void KCupsConnection::init()
     m_renewTimer = new QTimer;
     m_renewTimer->setInterval(RENEW_INTERVAL*1000);
     m_renewTimer->moveToThread(this);
-    connect(m_renewTimer, SIGNAL(timeout()), this, SLOT(renewDBusSubscription()), Qt::DirectConnection);
+    connect(m_renewTimer, &QTimer::timeout,
+            this, static_cast<void(KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::DirectConnection);
+
 
     // Creates the timer to merge updates on the DBus subscription
     m_subscriptionTimer = new QTimer;
     m_subscriptionTimer->setInterval(0);
     m_subscriptionTimer->setSingleShot(true);
     m_subscriptionTimer->moveToThread(this);
-    connect(m_subscriptionTimer, SIGNAL(timeout()), this, SLOT(updateSubscription()), Qt::DirectConnection);
+    connect(m_subscriptionTimer, &QTimer::timeout, this, &KCupsConnection::updateSubscription, Qt::DirectConnection);
 
     // Starts this thread
     start();

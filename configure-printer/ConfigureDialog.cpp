@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -103,7 +103,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     page->setHeader(i18n("Configure"));
     page->setIcon(QIcon::fromTheme("dialog-information"));
     // CONNECT this signal ONLY to the first Page
-    connect(modifyPrinter, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+    connect(modifyPrinter, &ModifyPrinter::changed, this, &ConfigureDialog::enableButtonApply);
     addPage(page);
 
     if (!isClass) {
@@ -114,7 +114,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         page->setHeader(i18n("Set the Default Printer Options"));
         page->setIcon(QIcon::fromTheme("view-pim-tasks"));
         addPage(page);
-        connect(modifyPrinter, SIGNAL(ppdChanged()), this, SLOT(ppdChanged()));
+        connect(modifyPrinter, &ModifyPrinter::ppdChanged, this, &ConfigureDialog::ppdChanged);
         modifyPrinter->setCurrentMake(printerOptions->currentMake());
         modifyPrinter->setCurrentMakeAndModel(printerOptions->currentMakeAndModel());
     }
@@ -127,13 +127,12 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     addPage(page);
 
     // connect this after ALL pages were added, otherwise the slot will be called
-    connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
-            SLOT(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
+    connect(this, &ConfigureDialog::currentPageChanged, this, &ConfigureDialog::currentPageChanged);
 
     KConfigGroup group(KSharedConfig::openConfig("print-manager"), "ConfigureDialog");
     KWindowConfig::restoreWindowSize(windowHandle(), group);
 
-    connect(buttonBox(), SIGNAL(clicked(QAbstractButton*)), this, SLOT(slotButtonClicked(QAbstractButton*)));
+    connect(buttonBox(), &QDialogButtonBox::clicked, this, &ConfigureDialog::slotButtonClicked);
 }
 
 void ConfigureDialog::ppdChanged()
@@ -157,11 +156,11 @@ void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetIt
     // Check if the before page has changes
     savePage(beforePage);
     if (beforePage) {
-        disconnect(beforePage, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+        disconnect(beforePage, &PrinterPage::changed, this, &ConfigureDialog::enableButtonApply);
     }
 
     // connect the changed signal to the new page and check if it has changes
-    connect(currentPage, SIGNAL(changed(bool)), this, SLOT(enableButtonApply(bool)));
+    connect(currentPage, &PrinterPage::changed, this, &ConfigureDialog::enableButtonApply);
     enableButtonApply(currentPage->hasChanges());
 }
 

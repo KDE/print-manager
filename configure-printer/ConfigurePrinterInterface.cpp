@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 Daniel Nicoletti <dantti12@gmail.com>         *
+ *   Copyright (C) 2010-2018 Daniel Nicoletti <dantti12@gmail.com>         *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -87,10 +87,8 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 
         if (found) {
             ConfigureDialog *ui = new ConfigureDialog(printer.name(), printer.isClass());
-            connect(m_updateUi, SIGNAL(timeout()),
-                    ui, SLOT(update()));
-            connect(ui, SIGNAL(finished(int)),
-                    this, SLOT(RemovePrinter()));
+            connect(m_updateUi, &QTimer::timeout, ui, static_cast<void(ConfigureDialog::*)()>(&ConfigureDialog::update));
+            connect(ui, &ConfigureDialog::finished, this, &ConfigurePrinterInterface::RemovePrinter);
             ui->show();
             m_uis[printer.name()] = ui;
         } else {

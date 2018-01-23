@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010 by Daniel Nicoletti                                *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -65,7 +65,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     ui->setupUi(this);
 
-    connect(ui->printerDesc, SIGNAL(updateNeeded()), SLOT(update()));
+    connect(ui->printerDesc, &PrinterDescription::updateNeeded, this, &PrintKCM::update);
 
     // The printer list needs to increase in width according to the icon sizes
     // default dialog icon size is 32, this times 6 is 192 which is roughly the original width
@@ -73,7 +73,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
 
     QMenu *addMenu = new QMenu(this);
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
-                       this, SLOT(addClass()));
+                       this, &PrintKCM::addClass);
     ui->addTB->setIcon(QIcon::fromTheme("list-add"));
     ui->addTB->setToolTip(i18n("Add a new printer or a printer class"));
     ui->addTB->setMenu(addMenu);
@@ -82,8 +82,8 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
     QMenu *systemMenu = new QMenu(this);
-    connect(systemMenu, SIGNAL(aboutToShow()), this, SLOT(getServerSettings()));
-    connect(systemMenu, SIGNAL(triggered(QAction*)), this, SLOT(systemPreferencesTriggered()));
+    connect(systemMenu, &QMenu::aboutToShow, this, &PrintKCM::getServerSettings);
+    connect(systemMenu, &QMenu::triggered, this, &PrintKCM::systemPreferencesTriggered);
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_showSharedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Show printers shared by other systems"));
     m_showSharedPrinters->setCheckable(true);
@@ -94,8 +94,8 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_allowPrintringFromInternet = systemMenu->addAction(i18nc("@action:intoolbar","Allow printing from the Internet"));
     m_allowPrintringFromInternet->setCheckable(true);
     m_allowPrintringFromInternet->setEnabled(false);
-    connect(m_shareConnectedPrinters, SIGNAL(toggled(bool)), m_allowPrintringFromInternet, SLOT(setEnabled(bool)));
-    connect(m_shareConnectedPrinters, SIGNAL(toggled(bool)), ui->printerDesc, SLOT(enableShareCheckBox(bool)));
+    connect(m_shareConnectedPrinters, &QAction::toggled, m_allowPrintringFromInternet, &QAction::setEnabled);
+    connect(m_shareConnectedPrinters, &QAction::toggled, ui->printerDesc, &PrinterDescription::enableShareCheckBox);
     systemMenu->addSeparator();
     m_allowRemoteAdmin = systemMenu->addAction(i18nc("@action:intoolbar","Allow remote administration"));
     m_allowRemoteAdmin->setCheckable(true);
@@ -112,29 +112,24 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->printersTV->setModel(sortModel);
     ui->printersTV->setItemDelegate(new NoSelectionRectDelegate(this));
     ui->printersTV->setItemDelegate(new PrinterDelegate(this));
-    connect(ui->printersTV->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(update()));
-    connect(sortModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this, SLOT(update()));
-    connect(sortModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
-            this, SLOT(update()));
-    connect(m_model, SIGNAL(dataChanged(QModelIndex,QModelIndex)),
-            this, SLOT(update()));
-    connect(m_model, SIGNAL(error(int,QString,QString)),
-            this, SLOT(error(int,QString,QString)));
+    connect(ui->printersTV->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PrintKCM::update);
+    connect(sortModel, &PrinterSortFilterModel::rowsInserted, this, &PrintKCM::update);
+    connect(sortModel, &PrinterSortFilterModel::rowsRemoved, this, &PrintKCM::update);
+    connect(m_model, &PrinterModel::dataChanged, this, &PrintKCM::update);
+    connect(m_model, &PrinterModel::error, this, &PrintKCM::error);
 
     ui->addPrinterBtn->setIcon(QIcon::fromTheme("list-add"));
-    connect(ui->addPrinterBtn, SIGNAL(clicked()), this, SLOT(on_addTB_clicked()));
+    connect(ui->addPrinterBtn, &QPushButton::clicked, this, &PrintKCM::on_addTB_clicked);
 
     // Force the model update AFTER we setup the error signal
     m_model->update();
 
     // Make sure we update our server settings if the user change it on
     // another interface
-    connect(KCupsConnection::global(), SIGNAL(serverAudit(QString)), this, SLOT(getServerSettings()));
-    connect(KCupsConnection::global(), SIGNAL(serverRestarted(QString)), this, SLOT(getServerSettings()));
-    connect(KCupsConnection::global(), SIGNAL(serverStarted(QString)), this, SLOT(getServerSettings()));
-    connect(KCupsConnection::global(), SIGNAL(serverStopped(QString)), this, SLOT(getServerSettings()));
+    connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, &PrintKCM::getServerSettings);
+    connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, &PrintKCM::getServerSettings);
+    connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, &PrintKCM::getServerSettings);
+    connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &PrintKCM::getServerSettings);
 
     // We need to know the server settings so we disable the
     // share printer checkbox if sharing is disabled on the server
@@ -312,8 +307,7 @@ void PrintKCM::getServerSettings()
         QMenu *systemMenu = qobject_cast<QMenu*>(sender());
         m_serverRequest = new KCupsRequest;
         m_serverRequest->setProperty("interactive", static_cast<bool>(systemMenu));
-        connect(m_serverRequest, SIGNAL(finished()),
-                this, SLOT(getServerSettingsFinished()));
+        connect(m_serverRequest, &KCupsRequest::finished, this, &PrintKCM::getServerSettingsFinished);
         m_serverRequest->getServerSettings();
     }
 }
@@ -365,7 +359,7 @@ void PrintKCM::updateServerFinished()
                 request->error() == IPP_INTERNAL_ERROR ||
                 request->error() == IPP_AUTHENTICATION_CANCELED) {
             // Server is restarting, or auth was canceled, update the settings in one second
-            QTimer::singleShot(1000, this, SLOT(update()));
+            QTimer::singleShot(1000, this, &PrintKCM::update);
         } else {
             KMessageBox::detailedSorry(this,
                                        i18nc("@info", "Failed to configure server settings"),
@@ -390,7 +384,7 @@ void PrintKCM::systemPreferencesTriggered()
     server.setAllowRemoteAdmin(m_allowRemoteAdmin->isChecked());
     server.setAllowUserCancelAnyJobs(m_allowUsersCancelAnyJob->isChecked());
     KCupsRequest *request = new KCupsRequest;
-    connect(request, SIGNAL(finished()), this, SLOT(updateServerFinished()));
+    connect(request, &KCupsRequest::finished, this, &PrintKCM::updateServerFinished);
     request->setServerSettings(server);
 }
 

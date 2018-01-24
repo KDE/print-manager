@@ -43,7 +43,7 @@ void PrintQueue::showQueues(const QStringList &queues, const QString &cwd)
     Q_UNUSED(cwd)
 
     if (!queues.isEmpty()) {
-        foreach (const QString & queue, queues) {
+        for (const QString &queue : queues) {
             showQueue(queue);
         }
     } else {

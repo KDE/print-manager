@@ -451,7 +451,7 @@ QMimeData* JobModel::mimeData(const QModelIndexList &indexes) const
 
     QDataStream stream(&encodedData, QIODevice::WriteOnly);
 
-    foreach (const QModelIndex &index, indexes) {
+    for (const QModelIndex &index : indexes) {
         if (index.isValid() && index.column() == 0) {
             // serialize the jobId and fromDestName
             stream << data(index, RoleJobId).toInt()

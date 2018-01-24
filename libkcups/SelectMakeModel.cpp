@@ -224,9 +224,10 @@ void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
 {
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
         QDBusArgument argument = message.arguments().first().value<QDBusArgument>();
-        m_driverMatchList = qdbus_cast<DriverMatchList>(argument);
+        const DriverMatchList driverMatchList = qdbus_cast<DriverMatchList>(argument);
+        m_driverMatchList = driverMatchList;
         m_hasRecommended = !m_driverMatchList.isEmpty();
-        foreach (const DriverMatch &driverMatch, m_driverMatchList) {
+        for (const DriverMatch &driverMatch : driverMatchList) {
             qCDebug(LIBKCUPS) << driverMatch.ppd << driverMatch.match;
         }
     } else {
@@ -277,8 +278,8 @@ void SelectMakeModel::selectFirstMake()
 
 void SelectMakeModel::selectMakeModelPPD()
 {
-    QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
-    foreach (QStandardItem *make, makes) {
+    const QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
+    for (QStandardItem *make : makes) {
         // Check if the item is in this make
         for (int i = 0; i < make->rowCount(); i++) {
             if (make->child(i)->data(PPDModel::PPDMakeAndModel).toString() == m_makeAndModel) {

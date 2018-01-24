@@ -152,10 +152,9 @@ void KCupsRequest::getPrinters(QStringList attributes, int mask)
             request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE_MASK, mask);
         }
 
-        ReturnArguments ret;
-        ret = m_connection->request(request, IPP_TAG_PRINTER);
+        const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
 
-        foreach (const QVariantHash &arguments, ret) {
+        for (const QVariantHash &arguments : ret) {
             m_printers << KCupsPrinter(arguments);
         }
 
@@ -175,10 +174,9 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
         request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes);
 
-        ReturnArguments ret;
-        ret = m_connection->request(request, IPP_TAG_PRINTER);
+        const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
 
-        foreach (const QVariantHash &arguments, ret) {
+        for (const QVariantHash &arguments : ret) {
             // Inject the printer name back to the arguments hash
             QVariantHash args = arguments;
             args[KCUPS_PRINTER_NAME] = printerName;
@@ -210,10 +208,9 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
             request.addString(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_WHICH_JOBS, "all");
         }
 
-        ReturnArguments ret;
-        ret = m_connection->request(request, IPP_TAG_JOB);
+        const ReturnArguments ret = m_connection->request(request, IPP_TAG_JOB);
 
-        foreach (const QVariantHash &arguments, ret) {
+        for (const QVariantHash &arguments : ret) {
             m_jobs << KCupsJob(arguments);
         }
 
@@ -235,10 +232,9 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
 
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_JOB_ID, jobId);
 
-        ReturnArguments ret;
-        ret = m_connection->request(request, IPP_TAG_PRINTER);
+        const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
 
-        foreach (const QVariantHash &arguments, ret) {
+        for (const QVariantHash &arguments : ret) {
             m_jobs << KCupsJob(arguments);
         }
 

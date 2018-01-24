@@ -310,11 +310,9 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
 void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
 {
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
-        QDBusArgument argument;
-        argument = message.arguments().first().value<QDBusArgument>();
-        QList<QStringList> groupeDevices;
-        groupeDevices = qdbus_cast<QList<QStringList> >(argument);
-        foreach (const QStringList &list, groupeDevices) {
+        const auto argument = message.arguments().first().value<QDBusArgument>();
+        const auto groupeDevices = qdbus_cast<QList<QStringList> >(argument);
+        for (const QStringList &list : groupeDevices) {
             if (list.isEmpty()) {
                 continue;
             }

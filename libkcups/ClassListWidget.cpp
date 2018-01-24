@@ -89,11 +89,11 @@ void ClassListWidget::loadFinished(KCupsRequest *request)
 
     m_busySeq->stop(); // Stop spining
 
-    KCupsPrinters printers = m_request->printers();
-    m_request->deleteLater();
+    const KCupsPrinters printers = request->printers();
+    request->deleteLater();
     m_request = 0;
 
-    foreach (const KCupsPrinter &printer, printers) {
+    for (const KCupsPrinter &printer : printers) {
         QString destName = printer.name();
         if (destName != m_printerName) {
             auto item = new QStandardItem;

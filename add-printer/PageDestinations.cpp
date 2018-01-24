@@ -168,13 +168,14 @@ void PageDestinations::deviceChanged()
             ui->connectionsGB->setVisible(false);
         } else if (uris.type() == QVariant::StringList) {
             ui->connectionsCB->clear();
-            foreach (const QString &uri, uris.toStringList()) {
+            for (const QString &uri : uris.toStringList()) {
                 ui->connectionsCB->addItem(uriText(uri), uri);
             }
             ui->connectionsGB->setVisible(true);
         } else {
             ui->connectionsCB->clear();
-            foreach (const KCupsPrinter &printer, uris.value<KCupsPrinters>()) {
+            const auto printers = uris.value<KCupsPrinters>();
+            for (const KCupsPrinter &printer : printers) {
                 ui->connectionsCB->addItem(printer.name(), qVariantFromValue(printer));
             }
             ui->connectionsGB->setVisible(true);

@@ -101,7 +101,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         }
 
         // Get the make from the device id
-        foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
+        for (const QString &pair : deviceId.split(QLatin1Char(';'))) {
             if (pair.startsWith(QStringLiteral("MFG:"))) {
                 make = pair.section(QLatin1Char(':'), 1);
                 break;
@@ -110,7 +110,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
 
         if (makeAndModel.isEmpty()) {
             // Get the model  from the device id
-            foreach (const QString &pair, deviceId.split(QLatin1Char(';'))) {
+            for (const QString &pair : deviceId.split(QLatin1Char(';'))) {
                 if (pair.startsWith(QStringLiteral("MDL:"))) {
                     // Build the make and model string
                     if (make.isNull()) {

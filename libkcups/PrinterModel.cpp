@@ -437,7 +437,8 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
 void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
 {
     if (!request->hasError()) {
-        foreach (const KCupsPrinter &printer, request->printers()) {
+        const KCupsPrinters printers = request->printers();
+        for (const KCupsPrinter &printer : printers) {
             // If there is a printer and it's not the current one add it
             // as a new destination
             int dest_row = destRow(printer.name());

@@ -223,7 +223,8 @@ void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
     // sort the values as CUPS requires it
     qSort(rawRequests.begin(), rawRequests.end(), rawRequestGroupLessThan);
 
-    foreach (const KCupsRawRequest &request, rawRequests) {
+    const QList<KCupsRawRequest> &requests = rawRequests;
+    for (const KCupsRawRequest &request :requests) {
         switch (request.value.type()) {
         case QVariant::Bool:
             ippAddBoolean(ipp,

@@ -57,7 +57,8 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
 {
     int defaultChoice;
     ui->errorPolicyCB->clear();
-    foreach (const QString &value, printer.errorPolicySupported()) {
+    const QStringList errorPolicySupported = printer.errorPolicySupported();
+    for (const QString &value : errorPolicySupported) {
         ui->errorPolicyCB->addItem(errorPolicyString(value), value);
     }
     QStringList errorPolicy = printer.errorPolicy();
@@ -68,7 +69,8 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
     }
 
     ui->operationPolicyCB->clear();
-    foreach (const QString &value, printer.opPolicySupported()) {
+    const QStringList opPolicySupported = printer.opPolicySupported();
+    for (const QString &value : opPolicySupported) {
         ui->operationPolicyCB->addItem(operationPolicyString(value), value);
     }
     QStringList operationPolicy = printer.opPolicy();
@@ -80,7 +82,8 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
 
     ui->startingBannerCB->clear();
     ui->endingBannerCB->clear();
-    foreach (const QString &value, printer.jobSheetsSupported()) {
+    const QStringList jobSheetsSupported = printer.jobSheetsSupported();
+    for (const QString &value : jobSheetsSupported) {
         ui->startingBannerCB->addItem(jobSheetsString(value), value);
         ui->endingBannerCB->addItem(jobSheetsString(value), value);
     }

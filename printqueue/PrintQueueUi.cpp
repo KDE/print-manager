@@ -270,7 +270,8 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
     selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
     // if the selection is empty the user clicked on an empty space
     if (!selection.indexes().isEmpty()) {
-        foreach (const QModelIndex &index, selection.indexes()) {
+        const QModelIndexList indexes = selection.indexes();
+        for (const QModelIndex &index : indexes) {
             if (index.column() == 0 && index.flags() & Qt::ItemIsDragEnabled) {
                 // Found a move to item
                 moveTo = true;
@@ -294,10 +295,10 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             if (!request) {
                 return;
             }
-            KCupsPrinters printers = request->printers();
+            const KCupsPrinters printers = request->printers();
             request->deleteLater();
 
-            foreach (const KCupsPrinter &printer, printers) {
+            for (const KCupsPrinter &printer : printers) {
                 // If there is a printer and it's not the current one add it
                 // as a new destination
                 if (printer.name() != m_destName) {
@@ -437,7 +438,8 @@ void PrintQueueUi::updateButtons()
     selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
     // enable or disable the job action buttons if something is selected
     if (!selection.indexes().isEmpty()) {
-        foreach (const QModelIndex &index, selection.indexes()) {
+        const QModelIndexList indexes = selection.indexes();
+        for (const QModelIndex &index : indexes) {
             if (index.column() == 0) {
                 switch (static_cast<ipp_jstate_t>(index.data(JobModel::RoleJobState).toInt())) {
                     case IPP_JOB_CANCELED :
@@ -472,7 +474,8 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
     QItemSelection selection;
     // we need to map the selection to source to get the real indexes
     selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
-    foreach (const QModelIndex &index, selection.indexes()) {
+    const QModelIndexList indexes = selection.indexes();
+    for (const QModelIndex &index : indexes) {
         if (index.column() == 0) {
             KCupsRequest *request;
             request = m_model->modifyJob(index.row(),

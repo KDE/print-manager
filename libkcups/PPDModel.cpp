@@ -35,9 +35,9 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
     clear();
 
     QStandardItem *recommended = 0;
-    foreach (const DriverMatch &driver, driverMatch) {
+    for (const DriverMatch &driver : driverMatch) {
         // Find the matched PPD on the PPDs list
-        foreach (const QVariantHash &ppd, ppds) {
+        for (const QVariantHash &ppd : ppds) {
             if (ppd["ppd-name"].toString() == driver.ppd) {
                 // Create the PPD
                 QStandardItem *ppdItem = createPPDItem(ppd, true);
@@ -54,7 +54,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
         }
     }
 
-    foreach (const QVariantHash &ppd, ppds) {
+    for (const QVariantHash &ppd : ppds) {
         // Find or create the PPD parent (printer Make)
         QStandardItem *makeItem = findCreateMake(ppd["ppd-make"].toString());
 

@@ -242,3 +242,5 @@ void AddPrinterAssistant::enableFinishButton(bool enable)
 {
     finishButton()->setEnabled(enable);
 }
+
+#include "moc_AddPrinterAssistant.cpp"

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -22,6 +22,7 @@
 #define PRINTMANAGERKDED_H
 
 #include <KDEDModule>
+#include <KPluginFactory>
 
 #include <QVariantList>
 
@@ -33,11 +34,12 @@ public:
     PrintManagerKded(QObject *parent, const QVariantList &args);
     ~PrintManagerKded();
     
-private slots:
+private:
     void loadThread();
 
-private:
     NewPrinterNotification *m_newPrinterNotification = nullptr;
 };
+
+K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)
 
 #endif // PRINTMANAGERKDED_H

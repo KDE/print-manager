@@ -604,3 +604,5 @@ void PrintQueueUi::closeEvent(QCloseEvent *event)
     emit finished();
     QWidget::closeEvent(event);
 }
+
+#include "moc_PrintQueueUi.cpp"

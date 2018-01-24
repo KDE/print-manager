@@ -310,3 +310,5 @@ void SelectMakeModel::selectRecommendedPPD()
         }
     }
 }
+
+#include "moc_SelectMakeModel.cpp"

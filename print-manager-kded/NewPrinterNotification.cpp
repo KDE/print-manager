@@ -290,3 +290,5 @@ QStringList NewPrinterNotification::getMissingExecutables(const QString &ppdFile
     }
     return reply;
 }
+
+#include "moc_NewPrinterNotification.cpp"

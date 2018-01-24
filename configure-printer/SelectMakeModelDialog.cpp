@@ -85,3 +85,5 @@ SelectMakeModel *SelectMakeModelDialog::mainWidget() const
 {
     return m_widget;
 }
+
+#include "moc_SelectMakeModelDialog.cpp"

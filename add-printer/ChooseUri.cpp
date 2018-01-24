@@ -169,3 +169,5 @@ QUrl ChooseUri::parsedURL(const QString &text) const
     }
     return url;
 }
+
+#include "moc_ChooseUri.cpp"

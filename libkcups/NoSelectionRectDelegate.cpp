@@ -36,3 +36,5 @@ void NoSelectionRectDelegate::paint(QPainter *painter,
     }
     QStyledItemDelegate::paint(painter, opt, index);
 }
+
+#include "moc_NoSelectionRectDelegate.cpp"

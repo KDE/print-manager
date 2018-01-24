@@ -893,3 +893,5 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
         return NULL;
     }
 }
+
+#include "moc_KCupsConnection.cpp"

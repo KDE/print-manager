@@ -30,7 +30,6 @@
 #include "PrinterDescription.h"
 
 #include <KMessageBox>
-#include <KPluginFactory>
 #include <KAboutData>
 #include <KToolInvocation>
 #include <KIconLoader>
@@ -42,8 +41,6 @@
 #include <NoSelectionRectDelegate.h>
 
 #include <cups/cups.h>
-
-K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(parent, args),
@@ -380,4 +377,4 @@ void PrintKCM::systemPreferencesTriggered()
     request->setServerSettings(server);
 }
 
-#include "PrintKCM.moc"
+#include "moc_PrintKCM.cpp"

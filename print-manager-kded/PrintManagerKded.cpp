@@ -24,10 +24,6 @@
 
 #include <QTimer>
 
-#include <KPluginFactory>
-
-K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)
-
 PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
     KDEDModule(parent)
 {
@@ -48,4 +44,4 @@ void PrintManagerKded::loadThread()
     m_newPrinterNotification = new NewPrinterNotification;
 }
 
-#include "PrintManagerKded.moc"
+#include "moc_PrintManagerKded.cpp"

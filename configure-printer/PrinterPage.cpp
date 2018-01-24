@@ -36,3 +36,5 @@ QVariantHash PrinterPage::modifiedValues() const
 void PrinterPage::setRemote(bool)
 {
 }
+
+#include "moc_PrinterPage.cpp"

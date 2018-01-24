@@ -41,3 +41,5 @@ void ProcessRunner::openPrintKCM()
 {
     QProcess::startDetached(QLatin1String("kcmshell5"), {QLatin1String("kcm_printer_manager")});
 }
+
+#include "moc_ProcessRunner.cpp"

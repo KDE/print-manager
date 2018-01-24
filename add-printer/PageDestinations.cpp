@@ -398,3 +398,5 @@ QString PageDestinations::uriText(const QString &uri) const
     }
     return ret;
 }
+
+#include "moc_PageDestinations.cpp"

@@ -180,3 +180,5 @@ void ClassListWidget::setShowClasses(bool enable)
         m_delayedInit.start();
     }
 }
+
+#include "moc_ClassListWidget.cpp"

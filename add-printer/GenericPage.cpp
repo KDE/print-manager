@@ -49,3 +49,5 @@ void GenericPage::setValues(const QVariantHash &args)
 {
     m_args = args;
 }
+
+#include "moc_GenericPage.cpp"

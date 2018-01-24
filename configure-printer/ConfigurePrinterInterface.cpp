@@ -120,3 +120,5 @@ void ConfigurePrinterInterface::RemovePrinter()
          emit quit();
     }
 }
+
+#include "moc_ConfigurePrinterInterface.cpp"

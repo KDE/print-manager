@@ -82,3 +82,5 @@ QString KCupsPasswordDialog::password() const
 {
     return m_password;
 }
+
+#include "moc_KCupsPasswordDialog.cpp"

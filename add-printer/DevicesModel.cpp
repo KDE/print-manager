@@ -378,3 +378,5 @@ QStandardItem* DevicesModel::findCreateCategory(const QString &category)
 
     return catItem;
 }
+
+#include "moc_DevicesModel.cpp"

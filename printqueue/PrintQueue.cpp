@@ -117,3 +117,5 @@ void PrintQueue::removeQueue()
          quit();
     }
 }
+
+#include "moc_PrintQueue.cpp"

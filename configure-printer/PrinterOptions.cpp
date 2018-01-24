@@ -823,3 +823,5 @@ QString PrinterOptions::currentMakeAndModel() const
 {
     return m_makeAndModel;
 }
+
+#include "moc_PrinterOptions.cpp"

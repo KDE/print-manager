@@ -85,3 +85,5 @@ void ChooseSocket::on_addressLE_textChanged(const QString &text)
     Q_UNUSED(text)
     emit allowProceed(canProceed());
 }
+
+#include "moc_ChooseSocket.cpp"

@@ -277,3 +277,5 @@ void PrinterDescription::on_configurePB_clicked()
 {
     QProcess::startDetached(QLatin1String("configure-printer"), {m_destName});
 }
+
+#include "moc_PrinterDescription.cpp"

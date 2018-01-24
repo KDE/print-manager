@@ -129,3 +129,5 @@ void ChooseSamba::checkSelected()
 {
     emit allowProceed(isValid());
 }
+
+#include "moc_ChooseSamba.cpp"

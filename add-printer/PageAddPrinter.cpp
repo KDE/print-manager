@@ -174,3 +174,5 @@ void PageAddPrinter::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
+
+#include "moc_PageAddPrinter.cpp"

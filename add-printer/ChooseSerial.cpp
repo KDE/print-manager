@@ -118,3 +118,5 @@ QVariantHash ChooseSerial::values() const
     ret[KCUPS_DEVICE_URI] = deviceUri;
     return ret;
 }
+
+#include "moc_ChooseSerial.cpp"

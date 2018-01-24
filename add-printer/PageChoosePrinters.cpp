@@ -90,3 +90,5 @@ bool PageChoosePrinters::canProceed() const
 {
     return ui->membersLV->selectedPrinters().count() > 0;
 }
+
+#include "moc_PageChoosePrinters.cpp"

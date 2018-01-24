@@ -22,8 +22,9 @@
 #define PRINT_KCM_H
 
 #include <KCModule>
-#include <QIcon>
+#include <KPluginFactory>
 
+#include <QIcon>
 #include <QAction>
 
 #include <KCupsServer.h>
@@ -66,5 +67,7 @@ private:
     QAction *m_allowRemoteAdmin;
     QAction *m_allowUsersCancelAnyJob;
 };
+
+K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 
 #endif

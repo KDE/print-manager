@@ -89,3 +89,5 @@ void ChooseLpd::checkSelected()
 {
 //     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
+
+#include "moc_ChooseLpd.cpp"

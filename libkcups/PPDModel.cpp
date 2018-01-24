@@ -124,3 +124,5 @@ QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd, bool recommended
 
     return ret;
 }
+
+#include "moc_PPDModel.cpp"

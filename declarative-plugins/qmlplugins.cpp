@@ -36,3 +36,5 @@ void QmlPlugins::registerTypes(const char* uri)
     qmlRegisterType<JobSortFilterModel>(uri, 0, 2, "JobSortFilterModel");
     qmlRegisterType<ProcessRunner>(uri, 0, 2, "ProcessRunner");
 }
+
+#include "moc_qmlplugins.cpp"

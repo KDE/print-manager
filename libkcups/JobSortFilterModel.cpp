@@ -134,3 +134,5 @@ int JobSortFilterModel::weightForState(int state) const
         break;
     }
 }
+
+#include "moc_JobSortFilterModel.cpp"

@@ -665,3 +665,5 @@ void KCupsRequest::setFinished(bool delayed)
         emit finished(this);
     }
 }
+
+#include "moc_KCupsRequest.cpp"

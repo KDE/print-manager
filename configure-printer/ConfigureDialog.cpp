@@ -203,3 +203,5 @@ bool ConfigureDialog::savePage(PrinterPage *page)
     }
     return true;
 }
+
+#include "moc_ConfigureDialog.cpp"

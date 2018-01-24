@@ -181,3 +181,5 @@ QSize PrinterDelegate::sizeHint(const QStyleOptionViewItem &option,
 
     return QSize(width, calcItemHeight(option));
 }
+
+#include "moc_PrinterDelegate.cpp"

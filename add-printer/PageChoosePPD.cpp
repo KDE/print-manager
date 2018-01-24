@@ -203,3 +203,5 @@ void PageChoosePPD::removeTempPPD()
         m_ppdFile.clear();
     }
 }
+
+#include "moc_PageChoosePPD.cpp"

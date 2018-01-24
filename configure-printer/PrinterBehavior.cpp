@@ -323,3 +323,5 @@ QStringList PrinterBehavior::neededValues() const
                            KCUPS_REQUESTING_USER_NAME_DENIED
                        });
 }
+
+#include "moc_PrinterBehavior.cpp"

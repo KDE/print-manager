@@ -26,6 +26,7 @@
 
 #include <KCupsPrinter.h>
 
+class KCupsRequest;
 class Q_DECL_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
@@ -75,7 +76,7 @@ public:
 
 public slots:
     void update();
-    void getDestsFinished();
+    void getDestsFinished(KCupsRequest *request);
     void slotCountChanged();
 
 signals:
@@ -91,7 +92,7 @@ private slots:
                              uint printerState,
                              const QString &printerStateReasons,
                              bool printerIsAcceptingJobs);
-    void insertUpdatePrinterFinished();
+    void insertUpdatePrinterFinished(KCupsRequest *request);
     void printerRemovedName(const QString &printerName);
     void printerRemoved(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void printerStateChanged(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);

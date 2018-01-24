@@ -106,7 +106,7 @@ public:
 
 private slots:
     void getJobs();
-    void getJobFinished();
+    void getJobFinished(KCupsRequest *request);
 
     void jobCompleted(const QString &text,
                       const QString &printerUri,

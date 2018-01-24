@@ -149,24 +149,24 @@ void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndMo
     }
 }
 
-void SelectMakeModel::ppdsLoaded()
+void SelectMakeModel::ppdsLoaded(KCupsRequest *request)
 {
-    if (m_ppdRequest->hasError()) {
-        qCWarning(LIBKCUPS) << "Failed to get PPDs" << m_ppdRequest->errorMsg();
-        ui->messageWidget->setText(i18n("Failed to get a list of drivers: '%1'", m_ppdRequest->errorMsg()));
+    if (request->hasError()) {
+        qCWarning(LIBKCUPS) << "Failed to get PPDs" << request->errorMsg();
+        ui->messageWidget->setText(i18n("Failed to get a list of drivers: '%1'", request->errorMsg()));
         ui->messageWidget->animatedShow();
 
         // Force the changed signal to be sent
         checkChanged();
 
-        m_ppdRequest = 0;
     } else {
-        m_ppds = m_ppdRequest->ppds();
+        m_ppds = request->ppds();
 
         // Try to show the PPDs
         setModelData();
     }
-    sender()->deleteLater();
+    m_ppdRequest = nullptr;
+    request->deleteLater();
 }
 
 void SelectMakeModel::checkChanged()

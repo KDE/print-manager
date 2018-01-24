@@ -29,6 +29,7 @@ namespace Ui {
     class PrintQueueUi;
 }
 
+class KCupsRequest;
 class KCupsPrinter;
 class JobSortFilterModel;
 class JobModel;
@@ -66,7 +67,7 @@ private slots:
     void updateButtons();
     void showContextMenu(const QPoint &point);
     void showHeaderContextMenu(const QPoint &point);
-    void getAttributesFinished();
+    void getAttributesFinished(KCupsRequest *request);
 
 private:
     void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;

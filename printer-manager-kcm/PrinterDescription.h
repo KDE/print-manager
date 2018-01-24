@@ -70,7 +70,7 @@ private slots:
     void on_actionCleanPrintHeads_triggered(bool checked);
     void on_actionPrintSelfTestPage_triggered(bool checked);
 
-    void requestFinished();
+    void requestFinished(KCupsRequest *request);
 
 private:
     Ui::PrinterDescription *ui;

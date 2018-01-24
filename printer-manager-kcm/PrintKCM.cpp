@@ -312,10 +312,8 @@ void PrintKCM::getServerSettings()
     }
 }
 
-void PrintKCM::getServerSettingsFinished()
+void PrintKCM::getServerSettingsFinished(KCupsRequest *request)
 {
-    auto request = qobject_cast<KCupsRequest *>(sender());
-
     // When we don't have any destinations error is set to IPP_NOT_FOUND
     // we can safely ignore the error since it DOES bring the server settings
     bool error = request->hasError() && request->error() != IPP_NOT_FOUND;
@@ -351,9 +349,8 @@ void PrintKCM::getServerSettingsFinished()
     m_serverRequest = 0;
 }
 
-void PrintKCM::updateServerFinished()
+void PrintKCM::updateServerFinished(KCupsRequest *request)
 {
-    auto request = qobject_cast<KCupsRequest *>(sender());
     if (request->hasError()) {
         if (request->error() == IPP_SERVICE_UNAVAILABLE ||
                 request->error() == IPP_INTERNAL_ERROR ||

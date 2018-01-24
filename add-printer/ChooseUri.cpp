@@ -134,9 +134,8 @@ void ChooseUri::findPrinters()
     request->getPrinters(attr);
 }
 
-void ChooseUri::getPrintersFinished()
+void ChooseUri::getPrintersFinished(KCupsRequest *request)
 {
-    auto request = qobject_cast<KCupsRequest*>(sender());
     QUrl uri = request->property("URI").value<QUrl>();
     QUrl url;
     url.setScheme(QStringLiteral("ipp"));

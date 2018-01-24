@@ -48,7 +48,7 @@ public:
 
 public slots:
     void checkChanged();
-    void ppdsLoaded();
+    void ppdsLoaded(KCupsRequest *request);
 
 signals:
     void changed(bool);

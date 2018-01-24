@@ -179,9 +179,8 @@ void JobModel::getJobs()
     m_processingJob.clear();
 }
 
-void JobModel::getJobFinished()
+void JobModel::getJobFinished(KCupsRequest *request)
 {
-    auto request = static_cast<KCupsRequest *>(sender());
     if (request) {
         if (request->hasError()) {
             // clear the model after so that the proper widget can be shown

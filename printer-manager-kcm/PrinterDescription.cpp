@@ -258,9 +258,8 @@ void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
     request->printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
 }
 
-void PrinterDescription::requestFinished()
+void PrinterDescription::requestFinished(KCupsRequest *request)
 {
-    auto request = qobject_cast<KCupsRequest*>(sender());
     if (request && request->hasError()) {
         ui->errorMessage->setText(i18n("Failed to perform request: %1", request->errorMsg()));
         ui->errorMessage->animatedShow();

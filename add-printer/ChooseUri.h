@@ -30,6 +30,7 @@
 namespace Ui {
     class ChooseUri;
 }
+class KCupsRequest;
 class ChooseUri : public GenericPage
 {
     Q_OBJECT
@@ -59,7 +60,7 @@ private slots:
     void checkSelected();
     void on_addressLE_textChanged(const QString &text);
     void findPrinters();
-    void getPrintersFinished();
+    void getPrintersFinished(KCupsRequest *request);
 
 private:
     QUrl parsedURL(const QString &text) const;

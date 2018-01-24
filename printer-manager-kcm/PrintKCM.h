@@ -50,8 +50,8 @@ private slots:
     void showInfo(const QIcon &icon, const QString &title, const QString &comment, bool showAddPrinter, bool showToolButtons);
 
     void getServerSettings();
-    void getServerSettingsFinished();
-    void updateServerFinished();
+    void getServerSettingsFinished(KCupsRequest *request);
+    void updateServerFinished(KCupsRequest *request);
     void systemPreferencesTriggered();
 
 private:

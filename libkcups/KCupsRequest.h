@@ -291,7 +291,7 @@ signals:
                 const QString &device_uri,
                 const QString &device_location);
 
-    void finished();
+    void finished(KCupsRequest *);
 
 private:
     void invokeMethod(const char *method,

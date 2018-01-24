@@ -51,7 +51,7 @@ signals:
 
 private slots:
     void init();
-    void loadFinished();
+    void loadFinished(KCupsRequest *request);
     void modelChanged();
 
 private:

@@ -378,9 +378,8 @@ void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri,
     updatePrinterByName(printerName);
 }
 
-void PrintQueueUi::getAttributesFinished()
+void PrintQueueUi::getAttributesFinished(KCupsRequest *request)
 {
-    KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
     qDebug() << request->hasError() << request->printers().isEmpty();
 
     if (request->hasError() || request->printers().isEmpty()) {

@@ -79,11 +79,11 @@ void ClassListWidget::init()
     }
 }
 
-void ClassListWidget::loadFinished()
+void ClassListWidget::loadFinished(KCupsRequest *request)
 {
     // If we have an old request running discard it's result and get a new one
-    if (m_request != sender()) {
-        sender()->deleteLater();
+    if (m_request != request) {
+        request->deleteLater();
         return;
     }
 

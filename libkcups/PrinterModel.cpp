@@ -114,9 +114,8 @@ PrinterModel::PrinterModel(QObject *parent) :
     update();
 }
 
-void PrinterModel::getDestsFinished()
+void PrinterModel::getDestsFinished(KCupsRequest *request)
 {
-    auto request = qobject_cast<KCupsRequest *>(sender());
     // When there is no printer IPP_NOT_FOUND is returned
     if (request->hasError() && request->error() != IPP_NOT_FOUND) {
         // clear the model after so that the proper widget can be shown
@@ -435,9 +434,8 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
     insertUpdatePrinterName(printerName);
 }
 
-void PrinterModel::insertUpdatePrinterFinished()
+void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
 {
-    auto request = qobject_cast<KCupsRequest *>(sender());
     if (!request->hasError()) {
         foreach (const KCupsPrinter &printer, request->printers()) {
             // If there is a printer and it's not the current one add it

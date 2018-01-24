@@ -28,7 +28,6 @@
 #include <config.h>
 
 #include <QCoreApplication>
-#include <QStringBuilder>
 #include <QDBusConnection>
 #include <QByteArray>
 #include <QMutexLocker>
@@ -117,8 +116,6 @@ void KCupsConnection::init()
 {
     // Creating the dialog before start() will make it run on the gui thread
     m_passwordDialog = new KCupsPasswordDialog;
-    m_subscriptionId = -1;
-    m_inited = false;
 
     // setup the DBus subscriptions
 
@@ -427,8 +424,8 @@ void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, 
 {
     QDBusConnection systemBus = QDBusConnection::systemBus();
     systemBus.connect(QString(),
-                      QLatin1String("/org/cups/cupsd/Notifier"),
-                      QLatin1String("org.cups.cupsd.Notifier"),
+                      QStringLiteral("/org/cups/cupsd/Notifier"),
+                      QStringLiteral("org.cups.cupsd.Notifier"),
                       signal,
                       receiver,
                       slot);

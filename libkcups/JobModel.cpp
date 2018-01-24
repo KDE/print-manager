@@ -33,13 +33,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <QStringBuilder>
-
-JobModel::JobModel(QObject *parent) :
-    QStandardItemModel(parent),
-    m_jobRequest(0),
-    m_whichjobs(CUPS_WHICHJOBS_ACTIVE),
-    m_parentId(0)
+JobModel::JobModel(QObject *parent) : QStandardItemModel(parent)
 {
     setHorizontalHeaderItem(ColStatus,        new QStandardItem(i18n("Status")));
     setHorizontalHeaderItem(ColName,          new QStandardItem(i18n("Name")));
@@ -54,22 +48,24 @@ JobModel::JobModel(QObject *parent) :
     setHorizontalHeaderItem(ColFromHost,      new QStandardItem(i18n("From Hostname")));
 
     // Setup the attributes we want from jobs
-    m_jobAttributes << KCUPS_JOB_ID;
-    m_jobAttributes << KCUPS_JOB_NAME;
-    m_jobAttributes << KCUPS_JOB_K_OCTETS;
-    m_jobAttributes << KCUPS_JOB_K_OCTETS_PROCESSED;
-    m_jobAttributes << KCUPS_JOB_STATE;
-    m_jobAttributes << KCUPS_TIME_AT_COMPLETED;
-    m_jobAttributes << KCUPS_TIME_AT_CREATION;
-    m_jobAttributes << KCUPS_TIME_AT_PROCESSING;
-    m_jobAttributes << KCUPS_JOB_PRINTER_URI;
-    m_jobAttributes << KCUPS_JOB_ORIGINATING_USER_NAME;
-    m_jobAttributes << KCUPS_JOB_ORIGINATING_HOST_NAME;
-    m_jobAttributes << KCUPS_JOB_MEDIA_PROGRESS;
-    m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS;
-    m_jobAttributes << KCUPS_JOB_MEDIA_SHEETS_COMPLETED;
-    m_jobAttributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
-    m_jobAttributes << KCUPS_JOB_PRESERVED;
+    m_jobAttributes = QStringList{
+        KCUPS_JOB_ID,
+        KCUPS_JOB_NAME,
+        KCUPS_JOB_K_OCTETS,
+        KCUPS_JOB_K_OCTETS_PROCESSED,
+        KCUPS_JOB_STATE,
+        KCUPS_TIME_AT_COMPLETED,
+        KCUPS_TIME_AT_CREATION,
+        KCUPS_TIME_AT_PROCESSING,
+        KCUPS_JOB_PRINTER_URI,
+        KCUPS_JOB_ORIGINATING_USER_NAME,
+        KCUPS_JOB_ORIGINATING_HOST_NAME,
+        KCUPS_JOB_MEDIA_PROGRESS,
+        KCUPS_JOB_MEDIA_SHEETS,
+        KCUPS_JOB_MEDIA_SHEETS_COMPLETED,
+        KCUPS_JOB_PRINTER_STATE_MESSAGE,
+        KCUPS_JOB_PRESERVED
+    };
 
     m_roles = QStandardItemModel::roleNames();
     m_roles[RoleJobId] = "jobId";
@@ -185,7 +181,7 @@ void JobModel::getJobFinished(KCupsRequest *request)
             // clear the model after so that the proper widget can be shown
             clear();
         } else {
-            KCupsJobs jobs = request->jobs();
+            const KCupsJobs jobs = request->jobs();
             qCDebug(LIBKCUPS) << jobs.size();
             for (int i = 0; i < jobs.size(); ++i) {
                 if (jobs.at(i).state() == IPP_JOB_PROCESSING) {
@@ -308,7 +304,7 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
 
     QString pages = QString::number(job.pages());
     if (job.processedPages()) {
-        pages = QString::number(job.processedPages()) % QLatin1Char('/') % QString::number(job.processedPages());
+        pages = QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.processedPages());
     }
     if (statusItem->data(RoleJobPages) != pages) {
         statusItem->setData(pages, RoleJobPages);
@@ -344,7 +340,7 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
 
     QString pages = QString::number(job.pages());
     if (job.processedPages()) {
-        pages = QString::number(job.processedPages()) % QLatin1Char('/') % QString::number(job.processedPages());
+        pages = QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.processedPages());
     }
     if (item(pos, ColStatus)->data(RoleJobPages) != pages) {
         item(pos, ColStatus)->setData(pages, RoleJobPages);

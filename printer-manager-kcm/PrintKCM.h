@@ -57,9 +57,9 @@ private slots:
 private:
     Ui::PrintKCM *ui;
     PrinterModel *m_model;
-    int m_lastError;
+    int m_lastError = -1; // Force the error to run on the first time
 
-    KCupsRequest *m_serverRequest;
+    KCupsRequest *m_serverRequest = nullptr;
     QAction *m_showSharedPrinters;
     QAction *m_shareConnectedPrinters;
     QAction *m_allowPrintringFromInternet;

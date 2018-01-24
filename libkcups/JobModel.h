@@ -139,12 +139,12 @@ private:
     QString jobStatus(ipp_jstate_e job_state);
     void clear();
 
-    KCupsRequest *m_jobRequest;
+    KCupsRequest *m_jobRequest = nullptr;
     QString m_destName;
     QString m_processingJob;
     QHash<int, QByteArray> m_roles;
-    int m_whichjobs;
-    WId m_parentId;
+    int m_whichjobs = CUPS_WHICHJOBS_ACTIVE;
+    WId m_parentId = 0;
     QStringList m_jobAttributes;
 };
 

@@ -32,7 +32,6 @@
 #include <QToolBar>
 #include <QMenu>
 #include <QByteArray>
-#include <QStringBuilder>
 #include <QProcess>
 #include <QDebug>
 #include <QPointer>
@@ -48,10 +47,7 @@
 PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PrintQueueUi),
-    m_destName(printer.name()),
-    m_preparingMenu(false),
-    m_printerPaused(false),
-    m_lastState(0)
+    m_destName(printer.name())
 {
     ui->setupUi(this);
 
@@ -287,10 +283,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
 
             // get printers we can move to
             QPointer<KCupsRequest> request = new KCupsRequest;
-            QStringList attr;
-            attr << KCUPS_PRINTER_NAME;
-            attr << KCUPS_PRINTER_INFO;
-            request->getPrinters(attr);
+            request->getPrinters({ KCUPS_PRINTER_NAME, KCUPS_PRINTER_INFO });
             request->waitTillFinished();
             if (!request) {
                 return;
@@ -327,10 +320,8 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
     // a check box to indicate if it's being shown
     auto menu = new QMenu(this);
     for (int i = 0; i < m_proxyModel->columnCount(); i++) {
-        QAction *action;
-        QString name;
-        name = m_proxyModel->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString();
-        action = menu->addAction(name);
+        auto name = m_proxyModel->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString();
+        QAction *action = menu->addAction(name);
         action->setCheckable(true);
         action->setChecked(!ui->jobsView->header()->isSectionHidden(i));
         action->setData(i);
@@ -355,11 +346,12 @@ void PrintQueueUi::updatePrinterByName(const QString &printer)
         return;
     }
 
-    QStringList attr;
-    attr << KCUPS_PRINTER_INFO;
-    attr << KCUPS_PRINTER_TYPE;
-    attr << KCUPS_PRINTER_STATE;
-    attr << KCUPS_PRINTER_STATE_MESSAGE;
+    const QStringList attr({
+                               KCUPS_PRINTER_INFO,
+                               KCUPS_PRINTER_TYPE,
+                               KCUPS_PRINTER_STATE,
+                               KCUPS_PRINTER_STATE_MESSAGE,
+                           });
 
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrintQueueUi::getAttributesFinished);
@@ -399,7 +391,7 @@ void PrintQueueUi::getAttributesFinished(KCupsRequest *request)
     if (printer.info().isEmpty()) {
         m_title = printer.name();
     } else {
-        m_title = printer.name() % QLatin1String(" - ") % printer.info();
+        m_title = printer.name() + QLatin1String(" - ") + printer.info();
     }
 
     // get printer-state

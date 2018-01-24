@@ -29,8 +29,7 @@
 K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)
 
 PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
-    KDEDModule(parent),
-    m_newPrinterNotification(0)
+    KDEDModule(parent)
 {
     Q_UNUSED(args)
 

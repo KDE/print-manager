@@ -28,8 +28,7 @@
 ChooseSerial::ChooseSerial(QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::ChooseSerial),
-    m_rx(QLatin1String("\\?baud=(\\d+)")),
-    m_isValid(false)
+    m_rx(QLatin1String("\\?baud=(\\d+)"))
 {
     ui->setupUi(this);
 
@@ -108,12 +107,12 @@ QVariantHash ChooseSerial::values() const
 {
     QVariantHash ret = m_args;
     QString deviceUri = m_args[KCUPS_DEVICE_URI].toString();
-    int pos = deviceUri.indexOf(QLatin1Char('?'));
-    QString baudRate = ui->baudRateCB->currentText();
-    QString bits = ui->bitsCB->currentText();
-    QString parity = ui->baudRateCB->itemData(ui->baudRateCB->currentIndex()).toString();
-    QString flow = ui->flowCB->itemData(ui->flowCB->currentIndex()).toString();
-    QString replace = QString::fromLatin1("?baud=%1+bits=%2+parity=%3+flow=%4")
+    const int pos = deviceUri.indexOf(QLatin1Char('?'));
+    const QString baudRate = ui->baudRateCB->currentText();
+    const QString bits = ui->bitsCB->currentText();
+    const QString parity = ui->baudRateCB->itemData(ui->baudRateCB->currentIndex()).toString();
+    const QString flow = ui->flowCB->itemData(ui->flowCB->currentIndex()).toString();
+    const QString replace = QString::fromLatin1("?baud=%1+bits=%2+parity=%3+flow=%4")
             .arg(baudRate, bits, parity, flow);
     deviceUri.replace(pos, deviceUri.size() - pos, replace);
     ret[KCUPS_DEVICE_URI] = deviceUri;

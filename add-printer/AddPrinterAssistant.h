@@ -48,10 +48,10 @@ private:
     void setCurrentPage(KPageWidgetItem *page);
     void showEvent(QShowEvent * event) Q_DECL_OVERRIDE;
 
-    KPageWidgetItem *m_devicesPage;
-    KPageWidgetItem *m_chooseClassPage;
-    KPageWidgetItem *m_choosePPDPage;
-    KPageWidgetItem *m_addPrinterPage;
+    KPageWidgetItem *m_devicesPage = nullptr;
+    KPageWidgetItem *m_chooseClassPage = nullptr;
+    KPageWidgetItem *m_choosePPDPage = nullptr;
+    KPageWidgetItem *m_addPrinterPage = nullptr;
     KPixmapSequenceOverlayPainter *m_busySeq;
 };
 

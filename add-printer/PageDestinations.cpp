@@ -33,7 +33,6 @@
 #include <NoSelectionRectDelegate.h>
 
 #include <QItemSelectionModel>
-#include <QStringBuilder>
 #include <QDebug>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
@@ -302,7 +301,7 @@ QVariantHash PageDestinations::selectedItemValues() const
             QVariant aux = ui->connectionsCB->itemData(ui->connectionsCB->currentIndex());
             KCupsPrinter printer = aux.value<KCupsPrinter>();
             QUrl url(uri.toString());
-            url.setPath(QLatin1String("printers/") % printer.name());
+            url.setPath(QLatin1String("printers/") + printer.name());
             ret[KCUPS_DEVICE_URI] = url.url();
             ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
             ret[KCUPS_PRINTER_INFO] = printer.info();
@@ -359,7 +358,7 @@ QString PageDestinations::uriText(const QString &uri) const
         ret = i18n("AppSocket/HP JetDirect");
     } else if (uri.startsWith(QLatin1String("lpd"))) {
         // Check if the queue name is defined
-        QString queue = uri.section(QLatin1Char('/'), -1, -1);
+        const QString queue = uri.section(QLatin1Char('/'), -1, -1);
         if (queue.isEmpty()) {
             ret = i18n("LPD/LPR queue");
         } else {
@@ -369,7 +368,7 @@ QString PageDestinations::uriText(const QString &uri) const
         ret = i18n("Windows Printer via SAMBA");
     } else if (uri.startsWith(QLatin1String("ipp"))) {
         // Check if the queue name (fileName) is defined
-        QString queue = uri.section(QLatin1Char('/'), -1, -1);
+        const QString queue = uri.section(QLatin1Char('/'), -1, -1);
         if (queue.isEmpty()) {
             ret = i18n("IPP");
         } else {

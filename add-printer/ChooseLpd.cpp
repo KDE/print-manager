@@ -24,8 +24,6 @@
 #include <KCupsRequest.h>
 
 #include <QPainter>
-#include <QStringBuilder>
-#include <QDebug>
 
 #include <QUrl>
 
@@ -47,14 +45,14 @@ ChooseLpd::~ChooseLpd()
 
 void ChooseLpd::on_addressLE_textChanged(const QString &text)
 {
-    qDebug() << text;
+    Q_UNUSED(text);
+//    qDebug() << text;
 }
 
 void ChooseLpd::setValues(const QVariantHash &args)
 {
     m_args = args;
     const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-    qDebug() << deviceUri;
     if (deviceUri.contains(QLatin1Char('/'))) {
         m_isValid = false;
         return;
@@ -68,7 +66,7 @@ void ChooseLpd::setValues(const QVariantHash &args)
 QVariantHash ChooseLpd::values() const
 {
     QVariantHash ret = m_args;
-    ret[KCUPS_DEVICE_URI] = static_cast<QString>(QLatin1String("lpd://") % ui->addressLE->text());
+    ret[KCUPS_DEVICE_URI] = static_cast<QString>(QLatin1String("lpd://") + ui->addressLE->text());
     return ret;
 }
 
@@ -76,7 +74,7 @@ bool ChooseLpd::canProceed() const
 {
     bool allow = false;
     if (!ui->addressLE->text().isEmpty()) {
-        QUrl url = QUrl(QStringLiteral("lpd://") % ui->addressLE->text());
+        const QUrl url = QUrl(QLatin1String("lpd://") + ui->addressLE->text());
         allow = url.isValid();
     }
     return allow;

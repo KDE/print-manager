@@ -26,27 +26,26 @@
 #include <KMessageBox>
 
 #include <QHostInfo>
-#include <QStringBuilder>
 #include <QDBusMetaType>
 #include <QDBusConnection>
 
 #include <QDebug>
 
-DevicesModel::DevicesModel(QObject *parent)
- : QStandardItemModel(parent),
-   m_request(0),
-   m_rx(QLatin1String("[a-z]+://.*"))
+DevicesModel::DevicesModel(QObject *parent) : QStandardItemModel(parent)
+  , m_request(0)
+  , m_rx(QLatin1String("[a-z]+://.*"))
+  , m_blacklistedURIs({
+                      QLatin1String("hp"),
+                      QLatin1String("hpfax"),
+                      QLatin1String("hal"),
+                      QLatin1String("beh"),
+                      QLatin1String("scsi"),
+                      QLatin1String("http"),
+                      QLatin1String("delete")
+                      })
 {
     qDBusRegisterMetaType<MapSS>();
     qDBusRegisterMetaType<MapSMapSS>();
-
-    m_blacklistedURIs << QLatin1String("hp");
-    m_blacklistedURIs << QLatin1String("hpfax");
-    m_blacklistedURIs << QLatin1String("hal");
-    m_blacklistedURIs << QLatin1String("beh");
-    m_blacklistedURIs << QLatin1String("scsi");
-    m_blacklistedURIs << QLatin1String("http");
-    m_blacklistedURIs << QLatin1String("delete");
 
     // Adds the other device which is meant for manual URI input
     insertDevice(QLatin1String("other"),
@@ -112,12 +111,13 @@ void DevicesModel::gotDevice(const QString &device_class,
                      device_location);
     } else {
         // Map the devices so later we try to group them
-        MapSS mapSS;
-        mapSS[KCUPS_DEVICE_CLASS] = device_class;
-        mapSS[KCUPS_DEVICE_ID] = device_id;
-        mapSS[KCUPS_DEVICE_INFO] = device_info;
-        mapSS[KCUPS_DEVICE_MAKE_AND_MODEL] = device_make_and_model;
-        mapSS[KCUPS_DEVICE_LOCATION] = device_location;
+        const MapSS mapSS({
+                              {KCUPS_DEVICE_CLASS, device_class},
+                              {KCUPS_DEVICE_ID, device_id},
+                              {KCUPS_DEVICE_INFO, device_info},
+                              {KCUPS_DEVICE_MAKE_AND_MODEL, device_make_and_model},
+                              {KCUPS_DEVICE_LOCATION, device_location}
+                          });
         m_mappedDevices[device_uri] = mapSS;
     }
 }
@@ -141,7 +141,7 @@ void DevicesModel::finished()
                                              QLatin1String("/org/fedoraproject/Config/Printing"),
                                              QLatin1String("org.fedoraproject.Config.Printing"),
                                              QLatin1String("GroupPhysicalDevices"));
-    message << qVariantFromValue(m_mappedDevices);
+    message << QVariant::fromValue(m_mappedDevices);
     QDBusConnection::sessionBus().callWithCallback(message,
                                                    this,
                                                    SLOT(getGroupedDevicesSuccess(QDBusMessage)),
@@ -240,7 +240,7 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
     if (!device_make_and_model.isEmpty() &&
             !grouped &&
             device_make_and_model.compare(QLatin1String("unknown"), Qt::CaseInsensitive)) {
-        text = device_info % QLatin1String(" (") % device_make_and_model % QLatin1Char(')');
+        text = device_info + QLatin1String(" (") + device_make_and_model + QLatin1Char(')');
     } else {
         text = device_info;
     }
@@ -317,8 +317,8 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
                 continue;
             }
 
-            QString uri = list.first();
-            MapSS device = m_mappedDevices[uri];
+            const QString uri = list.first();
+            const MapSS device = m_mappedDevices[uri];
             insertDevice(device[KCUPS_DEVICE_CLASS],
                          device[KCUPS_DEVICE_ID],
                          device[KCUPS_DEVICE_INFO],
@@ -346,7 +346,7 @@ void DevicesModel::groupedDevicesFallback()
 {
     MapSMapSS::const_iterator i = m_mappedDevices.constBegin();
     while (i != m_mappedDevices.constEnd()) {
-        MapSS device = i.value();
+        const MapSS device = i.value();
         insertDevice(device[KCUPS_DEVICE_CLASS],
                      device[KCUPS_DEVICE_ID],
                      device[KCUPS_DEVICE_INFO],

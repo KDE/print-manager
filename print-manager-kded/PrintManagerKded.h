@@ -37,7 +37,7 @@ private slots:
     void loadThread();
 
 private:
-    NewPrinterNotification *m_newPrinterNotification;
+    NewPrinterNotification *m_newPrinterNotification = nullptr;
 };
 
 #endif // PRINTMANAGERKDED_H

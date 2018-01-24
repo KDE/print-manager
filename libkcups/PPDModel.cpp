@@ -21,8 +21,6 @@
 
 #include "Debug.h"
 
-#include <QStringBuilder>
-
 #include <KLocalizedString>
 
 PPDModel::PPDModel(QObject *parent) :

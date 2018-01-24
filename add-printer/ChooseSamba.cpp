@@ -24,7 +24,6 @@
 #include <KCupsRequest.h>
 
 #include <QPainter>
-#include <QStringBuilder>
 #include <QDebug>
 #include <QUrl>
 
@@ -57,14 +56,14 @@ QVariantHash ChooseSamba::values() const
 {
     QVariantHash ret = m_args;
 
-    QString address = ui->addressLE->text().trimmed();
+    const QString address = ui->addressLE->text().trimmed();
     QUrl url;
     if (address.startsWith(QLatin1String("//"))) {
-        url = QUrl(QLatin1String("smb:") % address);
+        url = QUrl(QLatin1String("smb:") + address);
     } else if (address.startsWith(QLatin1String("/"))) {
-        url = QUrl(QLatin1String("smb:/") % address);
+        url = QUrl(QLatin1String("smb:/") + address);
     } else if (address.startsWith(QLatin1String("://"))) {
-        url = QUrl(QLatin1String("smb") % address);
+        url = QUrl(QLatin1String("smb") + address);
     } else if (address.startsWith(QLatin1String("smb://"))) {
         url = QUrl(address);
     } else if (!QUrl::fromUserInput(address).scheme().isEmpty() &&
@@ -72,7 +71,7 @@ QVariantHash ChooseSamba::values() const
         url = QUrl::fromUserInput(address);
         url.setScheme(QStringLiteral("smb"));
     } else {
-        url = QUrl(QStringLiteral("smb://") % address);
+        url = QUrl(QStringLiteral("smb://") + address);
     }
 
     qDebug() << 1 << url;
@@ -105,8 +104,8 @@ QVariantHash ChooseSamba::values() const
 
 bool ChooseSamba::isValid() const
 {
-    QVariantHash args = values();
-    QUrl url(args[KCUPS_DEVICE_URI].toString());
+    const QVariantHash args = values();
+    const QUrl url(args[KCUPS_DEVICE_URI].toString());
 
     return url.isValid() &&
             !url.isEmpty() &&

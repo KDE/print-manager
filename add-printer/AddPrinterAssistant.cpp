@@ -36,12 +36,7 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 
-AddPrinterAssistant::AddPrinterAssistant() :
-    KAssistantDialog(),
-    m_devicesPage(0),
-    m_chooseClassPage(0),
-    m_choosePPDPage(0),
-    m_addPrinterPage(0)
+AddPrinterAssistant::AddPrinterAssistant()
 {
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
     setWindowIcon(QIcon::fromTheme(QLatin1String("printer")));
@@ -49,7 +44,7 @@ AddPrinterAssistant::AddPrinterAssistant() :
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
 
-    QPushButton * helpButton = buttonBox()->addButton(QDialogButtonBox::Help);
+    QPushButton *helpButton = buttonBox()->addButton(QDialogButtonBox::Help);
     // Configure the help button to be flat, disabled and empty
     helpButton->setFlat(true);
     helpButton->setEnabled(false);
@@ -79,8 +74,9 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    QVariantHash args;
-    args[ADDING_PRINTER] = true;
+    QVariantHash args({
+                          {ADDING_PRINTER, true}
+                      });
 
     KPageWidgetItem *currentPage;
     if (deviceId.isEmpty()) {
@@ -111,9 +107,10 @@ void AddPrinterAssistant::initAddClass()
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    QVariantHash args;
-    args[ADDING_PRINTER] = false;
-    args[KCUPS_DEVICE_LOCATION] = QHostInfo::localHostName();
+    const QVariantHash args({
+                                {ADDING_PRINTER, false},
+                                {KCUPS_DEVICE_LOCATION, QHostInfo::localHostName()}
+                            });
 
     KPageWidgetItem *currentPage;
     m_chooseClassPage = new KPageWidgetItem(new PageChoosePrinters(args), i18nc("@title:window", "Configure your connection"));
@@ -131,11 +128,12 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    QVariantHash args;
-    args[ADDING_PRINTER] = true;
-    args[KCUPS_DEVICE_URI] = deviceUri;
-    args[KCUPS_PRINTER_NAME] = printer;
-    args[KCUPS_PRINTER_MAKE_AND_MODEL] = makeAndModel;
+    const QVariantHash args({
+                                {ADDING_PRINTER, true},
+                                {KCUPS_DEVICE_URI, deviceUri},
+                                {KCUPS_PRINTER_NAME, printer},
+                                {KCUPS_PRINTER_MAKE_AND_MODEL, makeAndModel}
+                            });
 
     m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
     addPage(m_choosePPDPage);
@@ -164,7 +162,7 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // we don't set (or even unset values),
     // and we only call setValues on the next page if
     // the currentPage() has changes.
-    QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
+    const QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
     if (currentPage == m_devicesPage) {
         qobject_cast<GenericPage*>(m_choosePPDPage->widget())->setValues(args);
         setCurrentPage(m_choosePPDPage);

@@ -37,8 +37,7 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
     PrinterPage(parent),
     ui(new Ui::ModifyPrinter),
     m_destName(destName),
-    m_isClass(isClass),
-    m_changes(0)
+    m_isClass(isClass)
 {
     ui->setupUi(this);
 
@@ -281,9 +280,10 @@ void ModifyPrinter::setCurrentMakeAndModel(const QString &makeAndModel)
 
 QStringList ModifyPrinter::neededValues() const
 {
-    QStringList ret;
-    ret << KCUPS_PRINTER_INFO;
-    ret << KCUPS_PRINTER_LOCATION;
+    QStringList ret({
+                        KCUPS_PRINTER_INFO,
+                        KCUPS_PRINTER_LOCATION
+                    });
 
     if (m_isClass) {
         ret << KCUPS_MEMBER_NAMES;

@@ -28,15 +28,13 @@
 
 #include <QFileInfo>
 #include <QFile>
-#include <QStringBuilder>
 #include <QDebug>
 #include <QUrl>
 #include <QTemporaryFile>
 
 PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
-    ui(new Ui::PageChoosePPD),
-    m_isValid(false)
+    ui(new Ui::PageChoosePPD)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -82,12 +80,12 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         QString deviceURI = args[KCUPS_DEVICE_URI].toString();
 
         // If
-        QUrl url(deviceURI % QStringLiteral(".ppd"));
-        if (url.scheme() == QStringLiteral("ipp")) {
+        QUrl url(deviceURI + QLatin1String(".ppd"));
+        if (url.scheme() == QLatin1String("ipp")) {
             auto tempFile = new QTemporaryFile;
-            tempFile->setFileTemplate(QStringLiteral("print-manager-XXXXXX.ppd"));
+            tempFile->setFileTemplate(QLatin1String("print-manager-XXXXXX.ppd"));
             tempFile->open();
-            url.setScheme(QStringLiteral("http"));
+            url.setScheme(QLatin1String("http"));
             if (url.port() < 0) {
                 url.setPort(631);
             }
@@ -102,7 +100,7 @@ void PageChoosePPD::setValues(const QVariantHash &args)
 
         // Get the make from the device id
         for (const QString &pair : deviceId.split(QLatin1Char(';'))) {
-            if (pair.startsWith(QStringLiteral("MFG:"))) {
+            if (pair.startsWith(QLatin1String("MFG:"))) {
                 make = pair.section(QLatin1Char(':'), 1);
                 break;
             }
@@ -111,12 +109,12 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         if (makeAndModel.isEmpty()) {
             // Get the model  from the device id
             for (const QString &pair : deviceId.split(QLatin1Char(';'))) {
-                if (pair.startsWith(QStringLiteral("MDL:"))) {
+                if (pair.startsWith(QLatin1String("MDL:"))) {
                     // Build the make and model string
                     if (make.isNull()) {
                         makeAndModel = pair.section(QLatin1Char(':'), 1);
                     } else {
-                        makeAndModel = make % QLatin1Char(' ') % pair.section(QLatin1Char(':'), 1);
+                        makeAndModel = make + QLatin1Char(' ') + pair.section(QLatin1Char(':'), 1);
                     }
                     break;
                 }

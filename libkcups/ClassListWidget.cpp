@@ -31,10 +31,7 @@
 #include <KPixmapSequence>
 #include <KConfigDialogManager>
 
-ClassListWidget::ClassListWidget(QWidget *parent) :
-    QListView(parent),
-    m_request(0),
-    m_showClasses(false)
+ClassListWidget::ClassListWidget(QWidget *parent) : QListView(parent)
 {
     KConfigDialogManager::changedMap()->insert(QLatin1String("ClassListWidget"), SIGNAL(changed(QString)));
 

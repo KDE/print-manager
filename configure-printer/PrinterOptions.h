@@ -67,8 +67,8 @@ private:
     bool m_isClass;
     bool m_isRemote;
     QString m_filename;
-    ppd_file_t *m_ppd;
-    int m_changes;
+    ppd_file_t *m_ppd = nullptr;
+    int m_changes = 0;
     QTextCodec *m_codec;
     QHash<QString, QObject*> m_customValues;
     QString m_make, m_makeAndModel;

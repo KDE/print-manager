@@ -60,12 +60,9 @@ void PrintQueue::showQueue(const QString &destName)
         // Reserve this since the CUPS call might take a long time
         m_uis[destName] = 0;
 
-        QStringList attr;
-        attr << KCUPS_PRINTER_NAME;
-        attr << KCUPS_PRINTER_TYPE;
         // Get destinations with these attributes
         QPointer<KCupsRequest> request = new KCupsRequest;
-        request->getPrinters(attr);
+        request->getPrinters({ KCUPS_PRINTER_NAME, KCUPS_PRINTER_TYPE });
         request->waitTillFinished();
         if (!request) {
             return;
@@ -73,10 +70,10 @@ void PrintQueue::showQueue(const QString &destName)
 
         bool found = false;
         KCupsPrinter printer;
-        KCupsPrinters printers = request->printers();
-        for (int i = 0; i < printers.size(); i++) {
-            if (printers.at(i).name() == destName) {
-                printer = printers.at(i);
+        const KCupsPrinters printers = request->printers();
+        for (const KCupsPrinter &printerItem : printers) {
+            if (printerItem.name() == destName) {
+                printer = printerItem;
                 found = true;
                 break;
             }

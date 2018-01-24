@@ -56,9 +56,7 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
     ui(new Ui::PrinterOptions),
     m_destName(destName),
     m_isClass(isClass),
-    m_isRemote(isRemote),
-    m_ppd(NULL),
-    m_changes(0)
+    m_isRemote(isRemote)
 {
     ui->setupUi(this);
 
@@ -793,14 +791,14 @@ void PrinterOptions::save()
         if (!request->hasError()) {
             // if we succefully save the new ppd we need now to
             // clear our changes
-            QHash<QString, QObject*>::const_iterator i = m_customValues.constBegin();
+            auto i = m_customValues.constBegin();
             while (i != m_customValues.constEnd()) {
-                QString currentChoice;
-                currentChoice = i.value()->property("currentChoice").toString();
+                QObject *obj = i.value();
+                const QString currentChoice = obj->property("currentChoice").toString();
                 // Store the current choice as the default one
-                i.value()->setProperty(DEFAULT_CHOICE, currentChoice);
-                i.value()->setProperty("currentChoice", QVariant());
-                i.value()->setProperty("different", false);
+                obj->setProperty(DEFAULT_CHOICE, currentChoice);
+                obj->setProperty("currentChoice", QVariant());
+                obj->setProperty("different", false);
                 ++i;
             }
             m_changes = 0;

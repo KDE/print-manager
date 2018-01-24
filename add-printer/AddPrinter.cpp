@@ -23,11 +23,13 @@
 #include "AddPrinterAssistant.h"
 
 #include <KCupsRequest.h>
+#include <KWindowSystem>
 
 #include <QPointer>
-#include <QDebug>
 
-#include <KWindowSystem>
+#include <QLoggingCategory>
+
+Q_DECLARE_LOGGING_CATEGORY(PM_ADD_PRINTER)
 
 AddPrinter::AddPrinter(int &argc, char **argv) :
     QApplication(argc, argv)
@@ -57,17 +59,18 @@ void AddPrinter::changePPD(qulonglong wid, const QString &name)
 {
     // Fist we need to get the printer attributes
     QPointer<KCupsRequest> request = new KCupsRequest;
-    QStringList attr;
-    attr << KCUPS_PRINTER_TYPE; // needed to know if it's a remote printer
-    attr << KCUPS_PRINTER_MAKE_AND_MODEL;
-    attr << KCUPS_DEVICE_URI;
+    const QStringList attr({
+                               KCUPS_PRINTER_TYPE, // needed to know if it's a remote printer
+                               KCUPS_PRINTER_MAKE_AND_MODEL,
+                               KCUPS_DEVICE_URI
+                           });
     request->getPrinterAttributes(name, false, attr);
     request->waitTillFinished();
     if (request) {
         if (!request->hasError() && request->printers().size() == 1) {
-            KCupsPrinter printer = request->printers().first();
+            const KCupsPrinter printer = request->printers().first();
             if (printer.type() & CUPS_PRINTER_REMOTE) {
-                qWarning() << "Ignoring request, can not change PPD of remote printer" << name;
+                qCWarning(PM_ADD_PRINTER) << "Ignoring request, can not change PPD of remote printer" << name;
             } else {
                 auto wizard = new AddPrinterAssistant();
                 wizard->initChangePPD(name, printer.deviceUri(), printer.makeAndModel());

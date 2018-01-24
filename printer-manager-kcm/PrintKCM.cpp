@@ -47,17 +47,14 @@ K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
 
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(parent, args),
-    ui(new Ui::PrintKCM),
-    m_lastError(-1), // Force the error to run on the first time
-    m_serverRequest(0)
+    ui(new Ui::PrintKCM)
 {
-    KAboutData *aboutData;
-    aboutData = new KAboutData(QLatin1String("kcm_print"),
-                               i18n("Print settings"),
-                               QLatin1String(PM_VERSION),
-                               i18n("Print settings"),
-                               KAboutLicense::GPL,
-                               i18n("(C) 2010-2018 Daniel Nicoletti"));
+    auto aboutData = new KAboutData(QLatin1String("kcm_print"),
+                                    i18n("Print settings"),
+                                    QLatin1String(PM_VERSION),
+                                    i18n("Print settings"),
+                                    KAboutLicense::GPL,
+                                    i18n("(C) 2010-2018 Daniel Nicoletti"));
     aboutData->addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), QLatin1String("dantti12@gmail.com"));
     aboutData->addAuthor(QStringLiteral("Jan Grulich"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("jgrulich@redhat.com"));
     setAboutData(aboutData);

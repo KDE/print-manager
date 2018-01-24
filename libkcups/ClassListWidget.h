@@ -60,9 +60,9 @@ private:
     QString m_printerName;
     QStringList m_selectedPrinters;
     KPixmapSequenceOverlayPainter *m_busySeq;
-    KCupsRequest *m_request;
+    KCupsRequest *m_request = nullptr;
     bool m_changed;
-    bool m_showClasses;
+    bool m_showClasses = false;
     QStandardItemModel *m_model;
     QTimer m_delayedInit;
 };

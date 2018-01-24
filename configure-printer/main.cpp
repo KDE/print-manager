@@ -28,7 +28,7 @@
 
 #include <QCommandLineParser>
 #include <QCommandLineOption>
-#include <QDebug>
+#include "Debug.h"
 
 int main(int argc, char **argv)
 {
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
         QString printerName = args.at(0);
         app.configurePrinter(printerName);
     } else {
-        qWarning() << "No printer was specified";
+        qCWarning(PM_CONFIGURE_PRINTER) << "No printer was specified";
         return 1;
     }
 

@@ -43,7 +43,7 @@ private slots:
 
 private:
     Ui::ChooseSocket *ui;
-    bool m_isValid;
+    bool m_isValid = false;
 };
 
 #endif

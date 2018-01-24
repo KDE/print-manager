@@ -29,7 +29,6 @@
 #include <QStandardItemModel>
 #include <QLineEdit>
 #include <QItemSelection>
-#include <QStringBuilder>
 
 #include <QDBusConnection>
 #include <QDBusReply>
@@ -57,10 +56,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driv
 
 SelectMakeModel::SelectMakeModel(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::SelectMakeModel),
-    m_ppdRequest(0),
-    m_gotBestDrivers(false),
-    m_hasRecommended(false)
+    ui(new Ui::SelectMakeModel)
 {
     ui->setupUi(this);
 

@@ -38,10 +38,7 @@ Q_DECLARE_METATYPE(QList<int>)
 
 PrinterDescription::PrinterDescription(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::PrinterDescription),
-    m_isClass(false),
-    m_globalShared(false),
-    m_markerChangeTime(0)
+    ui(new Ui::PrinterDescription)
 {
     ui->setupUi(this);
     m_layoutEnd = ui->formLayout->count();
@@ -80,9 +77,7 @@ PrinterDescription::~PrinterDescription()
 
 void PrinterDescription::on_openQueuePB_clicked()
 {
-    QStringList args;
-    args << m_destName;
-    KToolInvocation::kdeinitExec(QLatin1String("kde-print-queue"), args);
+    KToolInvocation::kdeinitExec(QLatin1String("kde-print-queue"), { m_destName });
 }
 
 void PrinterDescription::on_defaultCB_clicked()

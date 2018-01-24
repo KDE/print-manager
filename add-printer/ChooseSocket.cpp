@@ -23,14 +23,12 @@
 
 #include <KCupsRequest.h>
 
-#include <QStringBuilder>
 #include <QPainter>
 #include <QUrl>
 
 ChooseSocket::ChooseSocket(QWidget *parent) :
     GenericPage(parent),
-    ui(new Ui::ChooseSocket),
-    m_isValid(false)
+    ui(new Ui::ChooseSocket)
 {
     ui->setupUi(this);
 
@@ -52,9 +50,9 @@ void ChooseSocket::setValues(const QVariantHash &args)
     m_args = args;
     ui->addressLE->clear();
     ui->portISB->setValue(9100);
-    QString deviceUri = args[KCUPS_DEVICE_URI].toString();
+    const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
     QUrl url(deviceUri);
-    if (url.scheme() == QStringLiteral("socket")) {
+    if (url.scheme() == QLatin1String("socket")) {
         ui->addressLE->setText(url.host());
         ui->portISB->setValue(url.port(9100));
     }
@@ -66,7 +64,7 @@ void ChooseSocket::setValues(const QVariantHash &args)
 QVariantHash ChooseSocket::values() const
 {
     QVariantHash ret = m_args;
-    QUrl url = QUrl(QStringLiteral("socket://") % ui->addressLE->text());
+    QUrl url = QUrl(QLatin1String("socket://") + ui->addressLE->text());
     url.setPort(ui->portISB->value());
     ret[KCUPS_DEVICE_URI] = url.toDisplayString();
     return ret;

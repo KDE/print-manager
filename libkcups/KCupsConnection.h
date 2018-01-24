@@ -390,7 +390,7 @@ private:
 
     static KCupsConnection* m_instance;
 
-    bool m_inited;
+    bool m_inited = false;
     KCupsPasswordDialog *m_passwordDialog;
     QUrl m_serverUrl;
 
@@ -398,7 +398,7 @@ private:
     QTimer *m_renewTimer;
     QStringList m_connectedEvents; //note this updated in another thread. Always guard with m_mutex
     QStringList m_requestedDBusEvents;
-    int m_subscriptionId;
+    int m_subscriptionId = -1;
     QMutex m_mutex;
 };
 

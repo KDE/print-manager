@@ -81,14 +81,14 @@ private:
     JobModel *m_model;
     QString m_destName;
     QString m_title;
-    bool m_isClass;
-    bool m_preparingMenu;
     QPixmap m_printerIcon;
     QPixmap m_pauseIcon;
     QPixmap m_startIcon;
     QPixmap m_warningIcon;
-    bool m_printerPaused;
-    char m_lastState;
+    char m_lastState = 0;
+    bool m_isClass;
+    bool m_preparingMenu = false;
+    bool m_printerPaused = false;
 };
 
 #endif

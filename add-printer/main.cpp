@@ -24,10 +24,13 @@
 
 #include <QCommandLineParser>
 #include <QCommandLineOption>
-#include <QDebug>
+
+#include <QLoggingCategory>
 
 #include <KLocalizedString>
 #include <KAboutData>
+
+Q_LOGGING_CATEGORY(PM_ADD_PRINTER, "pm.add.printer")
 
 int main(int argc, char **argv)
 {

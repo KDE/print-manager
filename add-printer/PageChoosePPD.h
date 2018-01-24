@@ -53,7 +53,7 @@ private:
     void removeTempPPD();
 
     Ui::PageChoosePPD *ui;
-    bool m_isValid;
+    bool m_isValid = false;
     SelectMakeModel *m_selectMM;
     QStackedLayout *m_layout;
     QString m_ppdFile;

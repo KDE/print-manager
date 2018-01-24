@@ -309,8 +309,8 @@ private:
 
     KCupsConnection *m_connection;
     QEventLoop m_loop;
-    bool m_finished;
-    ipp_status_t m_error;
+    bool m_finished = true;
+    ipp_status_t m_error = IPP_OK;
     http_status_t m_httpStatus;
     QString m_errorMsg;
     ReturnArguments m_ppds;

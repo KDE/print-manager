@@ -29,8 +29,7 @@ PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget 
     PrinterPage(parent),
     ui(new Ui::PrinterBehavior),
     m_destName(destName),
-    m_isClass(isClass),
-    m_changes(0)
+    m_isClass(isClass)
 {
     ui->setupUi(this);
 
@@ -310,18 +309,17 @@ bool PrinterBehavior::hasChanges()
 
 QStringList PrinterBehavior::neededValues() const
 {
-    QStringList ret;
-    ret << KCUPS_JOB_SHEETS_DEFAULT;
-    ret << KCUPS_JOB_SHEETS_SUPPORTED;
+    return QStringList({
+                           KCUPS_JOB_SHEETS_DEFAULT,
+                           KCUPS_JOB_SHEETS_SUPPORTED,
 
-    ret << KCUPS_PRINTER_ERROR_POLICY;
-    ret << KCUPS_PRINTER_ERROR_POLICY_SUPPORTED;
+                           KCUPS_PRINTER_ERROR_POLICY,
+                           KCUPS_PRINTER_ERROR_POLICY_SUPPORTED,
 
-    ret << KCUPS_PRINTER_OP_POLICY;
-    ret << KCUPS_PRINTER_OP_POLICY_SUPPORTED;
+                           KCUPS_PRINTER_OP_POLICY,
+                           KCUPS_PRINTER_OP_POLICY_SUPPORTED,
 
-    ret << KCUPS_REQUESTING_USER_NAME_ALLOWED;
-    ret << KCUPS_REQUESTING_USER_NAME_DENIED;
-
-    return ret;
+                           KCUPS_REQUESTING_USER_NAME_ALLOWED,
+                           KCUPS_REQUESTING_USER_NAME_DENIED
+                       });
 }

@@ -40,21 +40,23 @@ PrinterModel::PrinterModel(QObject *parent) :
     QStandardItemModel(parent),
     m_unavailable(true)
 {
-    m_attributes << KCUPS_PRINTER_NAME;
-    m_attributes << KCUPS_PRINTER_STATE;
-    m_attributes << KCUPS_PRINTER_STATE_MESSAGE;
-    m_attributes << KCUPS_PRINTER_IS_SHARED;
-    m_attributes << KCUPS_PRINTER_IS_ACCEPTING_JOBS;
-    m_attributes << KCUPS_PRINTER_TYPE;
-    m_attributes << KCUPS_PRINTER_LOCATION;
-    m_attributes << KCUPS_PRINTER_INFO;
-    m_attributes << KCUPS_PRINTER_MAKE_AND_MODEL;
-    m_attributes << KCUPS_PRINTER_COMMANDS;
-    m_attributes << KCUPS_MARKER_CHANGE_TIME;
-    m_attributes << KCUPS_MARKER_COLORS;
-    m_attributes << KCUPS_MARKER_LEVELS;
-    m_attributes << KCUPS_MARKER_NAMES;
-    m_attributes << KCUPS_MARKER_TYPES;
+    m_attributes = QStringList{
+        KCUPS_PRINTER_NAME,
+        KCUPS_PRINTER_STATE,
+        KCUPS_PRINTER_STATE_MESSAGE,
+        KCUPS_PRINTER_IS_SHARED,
+        KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+        KCUPS_PRINTER_TYPE,
+        KCUPS_PRINTER_LOCATION,
+        KCUPS_PRINTER_INFO,
+        KCUPS_PRINTER_MAKE_AND_MODEL,
+        KCUPS_PRINTER_COMMANDS,
+        KCUPS_MARKER_CHANGE_TIME,
+        KCUPS_MARKER_COLORS,
+        KCUPS_MARKER_LEVELS,
+        KCUPS_MARKER_NAMES,
+        KCUPS_MARKER_TYPES
+    };
 
     m_roles = QStandardItemModel::roleNames();
     m_roles[DestStatus] = "stateMessage";
@@ -131,7 +133,7 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
             emit serverUnavailableChanged(m_unavailable);
         }
 
-        KCupsPrinters printers = request->printers();
+        const KCupsPrinters printers = request->printers();
         for (int i = 0; i < printers.size(); ++i) {
             // If there is a printer and it's not the current one add it
             // as a new destination
@@ -347,12 +349,13 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     int markerChangeTime = printer.markerChangeTime();
     if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
         destItem->setData(printer.markerChangeTime(), DestMarkerChangeTime);
-        QVariantHash markers;
-        markers[KCUPS_MARKER_CHANGE_TIME] = printer.markerChangeTime();
-        markers[KCUPS_MARKER_COLORS] = printer.argument(KCUPS_MARKER_COLORS);
-        markers[KCUPS_MARKER_LEVELS] = printer.argument(KCUPS_MARKER_LEVELS);
-        markers[KCUPS_MARKER_NAMES] = printer.argument(KCUPS_MARKER_NAMES);
-        markers[KCUPS_MARKER_TYPES] = printer.argument(KCUPS_MARKER_TYPES);
+        const QVariantHash markers{
+            {KCUPS_MARKER_CHANGE_TIME, printer.markerChangeTime()},
+            {KCUPS_MARKER_COLORS, printer.argument(KCUPS_MARKER_COLORS)},
+            {KCUPS_MARKER_LEVELS, printer.argument(KCUPS_MARKER_LEVELS)},
+            {KCUPS_MARKER_NAMES, printer.argument(KCUPS_MARKER_NAMES)},
+            {KCUPS_MARKER_TYPES, printer.argument(KCUPS_MARKER_TYPES)}
+        };
         destItem->setData(markers, DestMarkers);
     }
 }

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2012 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -26,7 +26,6 @@
 #include "KCupsPrinter.h"
 
 #include <KLocalizedString>
-#include <QStringBuilder>
 
 #include <cups/adminutil.h>
 #include <cups/ppd.h>
@@ -34,9 +33,7 @@
 #define CUPS_DATADIR    QLatin1String("/usr/share/cups")
 
 KCupsRequest::KCupsRequest(KCupsConnection *connection) :
-    m_connection(connection),
-    m_finished(true),
-    m_error(IPP_OK)
+    m_connection(connection)
 {
     // If no connection was specified use default one
     if (m_connection == 0) {
@@ -411,9 +408,9 @@ void KCupsRequest::printTestPage(const QString &printerName, bool isClass)
      * Point to the printer/class...
      */
     if (isClass) {
-        resource = QLatin1String("/classes/") % printerName;
+        resource = QLatin1String("/classes/") + printerName;
     } else {
-        resource = QLatin1String("/printers/") % printerName;
+        resource = QLatin1String("/printers/") + printerName;
     }
 
     KIppRequest request(IPP_PRINT_JOB, resource, filename);

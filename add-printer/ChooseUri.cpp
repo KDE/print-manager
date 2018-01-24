@@ -23,9 +23,6 @@
 
 #include <KCupsRequest.h>
 
-#include <QStringBuilder>
-#include <QDebug>
-
 ChooseUri::ChooseUri(QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::ChooseUri)
@@ -51,12 +48,12 @@ void ChooseUri::setValues(const QVariantHash &args)
 {
     m_args = args;
     bool visible = false;
-    QUrl url(args[KCUPS_DEVICE_URI].toString());
+    const QUrl url(args[KCUPS_DEVICE_URI].toString());
     if (url.url() == QLatin1String("other")) {
         ui->addressLE->clear();
         visible = true;
     } else if (url.scheme().isEmpty() && url.authority().isEmpty()) {
-        ui->addressLE->setText(url.url() % QLatin1String("://"));
+        ui->addressLE->setText(url.url() + QLatin1String("://"));
     } else {
         ui->addressLE->setText(url.url());
     }

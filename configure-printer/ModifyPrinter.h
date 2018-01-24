@@ -72,7 +72,7 @@ private:
     QString m_destName, m_make, m_makeAndModel;
     bool m_isClass;
     QVariantHash m_changedValues;
-    int m_changes;
+    int m_changes = 0;
 };
 
 #endif

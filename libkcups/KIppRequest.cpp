@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2010-2013 by Daniel Nicoletti                           *
+ *   Copyright (C) 2010-2018 by Daniel Nicoletti                           *
  *   dantti12@gmail.com                                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -22,8 +22,6 @@
 #include "KIppRequest_p.h"
 
 #include "Debug.h"
-
-#include <QStringBuilder>
 
 KIppRequest::KIppRequest() :
     d_ptr(new KIppRequestPrivate)
@@ -51,8 +49,7 @@ KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QStr
 
 KIppRequest::~KIppRequest()
 {
-    Q_D(KIppRequest);
-    delete d;
+    delete d_ptr;
 }
 
 ipp_op_t KIppRequest::operation() const
@@ -118,10 +115,10 @@ void KIppRequest::addBoolean(ipp_tag_t group, const QString &name, bool value)
 
 void KIppRequest::addVariantValues(const QVariantHash &values)
 {
-    QVariantHash::ConstIterator i = values.constBegin();
+    auto i = values.constBegin();
     while (i != values.constEnd()) {
-        QString key = i.key();
-        QVariant value = i.value();
+        const QString &key = i.key();
+        const QVariant &value = i.value();
         switch (value.type()) {
         case QVariant::Bool:
             // Still in use at add-printer/PageAddPrinter.cpp
@@ -186,9 +183,9 @@ QString KIppRequest::assembleUrif(const QString &name, bool isClass)
 
     QString destination;
     if (isClass) {
-        destination = QLatin1String("/classes/") % name;
+        destination = QLatin1String("/classes/") + name;
     } else {
-        destination = QLatin1String("/printers/") % name;
+        destination = QLatin1String("/printers/") + name;
     }
 
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",

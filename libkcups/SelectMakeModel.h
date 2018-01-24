@@ -63,15 +63,15 @@ private:
     void selectMakeModelPPD();
     void selectRecommendedPPD();
 
-    Ui::SelectMakeModel *ui;
-    PPDModel *m_sourceModel;
-    KCupsRequest *m_ppdRequest;
     ReturnArguments m_ppds;
     DriverMatchList m_driverMatchList;
-    bool m_gotBestDrivers;
-    bool m_hasRecommended;
     QString m_make;
     QString m_makeAndModel;
+    Ui::SelectMakeModel *ui;
+    PPDModel *m_sourceModel;
+    KCupsRequest *m_ppdRequest = nullptr;
+    bool m_gotBestDrivers = false;
+    bool m_hasRecommended = false;
 };
 
 #endif

@@ -46,7 +46,7 @@ public slots:
 private:
     Ui::ChooseSerial *ui;
     QRegExp m_rx;
-    bool m_isValid;
+    bool m_isValid = false;
 };
 
 #endif

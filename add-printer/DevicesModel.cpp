@@ -35,7 +35,7 @@
 DevicesModel::DevicesModel(QObject *parent)
  : QStandardItemModel(parent),
    m_request(0),
-   m_rx("[a-z]+://.*")
+   m_rx(QLatin1String("[a-z]+://.*"))
 {
     qDBusRegisterMetaType<MapSS>();
     qDBusRegisterMetaType<MapSMapSS>();
@@ -49,11 +49,11 @@ DevicesModel::DevicesModel(QObject *parent)
     m_blacklistedURIs << QLatin1String("delete");
 
     // Adds the other device which is meant for manual URI input
-    insertDevice("other",
+    insertDevice(QLatin1String("other"),
                  QString(),
                  i18nc("@item", "Manual URI"),
                  QString(),
-                 "other",
+                 QLatin1String("other"),
                  QString());
 }
 

@@ -32,7 +32,7 @@ ChooseUri::ChooseUri(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->searchTB->setIcon(QIcon::fromTheme("edit-find"));
+    ui->searchTB->setIcon(QIcon::fromTheme(QLatin1String("edit-find")));
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
@@ -145,7 +145,7 @@ void ChooseUri::getPrintersFinished(KCupsRequest *request)
     if (request->hasError()) {
         emit errorMessage(request->errorMsg());
     } else {
-        emit insertDevice("network",
+        emit insertDevice(QLatin1String("network"),
                           url.authority(),
                           url.authority(),
                           QString(),

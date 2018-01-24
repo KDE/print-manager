@@ -40,14 +40,14 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
     // loads the standard key icon
     QPixmap pixmap;
-    pixmap = KIconLoader::global()->loadIcon("printer",
+    pixmap = KIconLoader::global()->loadIcon(QLatin1String("printer"),
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeEnormous, // a not so huge icon
                                              KIconLoader::DefaultState);
     QPixmap icon(pixmap);
     QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon("dialog-information",
+    pixmap = KIconLoader::global()->loadIcon(QLatin1String("dialog-information"),
                                              KIconLoader::NoGroup,
                                              KIconLoader::SizeLarge, // a not so huge icon
                                              KIconLoader::DefaultState);
@@ -61,7 +61,7 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
     ui->printerL->setPixmap(icon);
 
     // May contain any printable characters except "/", "#", and space
-    QRegExp rx("[^/#\\ ]*");
+    QRegExp rx(QLatin1String("[^/#\\ ]*"));
     auto validator = new QRegExpValidator(rx, this);
     ui->nameLE->setValidator(validator);
 

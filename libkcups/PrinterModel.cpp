@@ -348,11 +348,11 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
         destItem->setData(printer.markerChangeTime(), DestMarkerChangeTime);
         QVariantHash markers;
-        markers["marker-change-time"] = printer.markerChangeTime();
-        markers["marker-colors"] = printer.argument("marker-colors");
-        markers["marker-levels"] = printer.argument("marker-levels");
-        markers["marker-names"] = printer.argument("marker-names");
-        markers["marker-types"] = printer.argument("marker-types");
+        markers[KCUPS_MARKER_CHANGE_TIME] = printer.markerChangeTime();
+        markers[KCUPS_MARKER_COLORS] = printer.argument(KCUPS_MARKER_COLORS);
+        markers[KCUPS_MARKER_LEVELS] = printer.argument(KCUPS_MARKER_LEVELS);
+        markers[KCUPS_MARKER_NAMES] = printer.argument(KCUPS_MARKER_NAMES);
+        markers[KCUPS_MARKER_TYPES] = printer.argument(KCUPS_MARKER_TYPES);
         destItem->setData(markers, DestMarkers);
     }
 }

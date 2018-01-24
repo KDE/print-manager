@@ -29,15 +29,15 @@ ProcessRunner::ProcessRunner(QObject* parent)
 
 void ProcessRunner::configurePrinter(const QString& printerName)
 {
-    QProcess::startDetached("configure-printer", {printerName});
+    QProcess::startDetached(QLatin1String("configure-printer"), {printerName});
 }
 
 void ProcessRunner::openPrintQueue(const QString& printerName)
 {
-    QProcess::startDetached("kde-print-queue", {printerName});
+    QProcess::startDetached(QLatin1String("kde-print-queue"), {printerName});
 }
 
 void ProcessRunner::openPrintKCM()
 {
-    QProcess::startDetached("kcmshell5", {"kcm_printer_manager"});
+    QProcess::startDetached(QLatin1String("kcmshell5"), {QLatin1String("kcm_printer_manager")});
 }

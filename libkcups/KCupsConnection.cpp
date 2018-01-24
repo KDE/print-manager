@@ -357,20 +357,20 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
     }
 
-    KIppRequest request(operation, "/");
+    KIppRequest request(operation, QLatin1String("/"));
     request.addString(IPP_TAG_OPERATION, IPP_TAG_URI,
-                       KCUPS_PRINTER_URI, QLatin1String("/"));
+                      KCUPS_PRINTER_URI, QLatin1String("/"));
     request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
-                        KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
+                       KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
 
     if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
         // Add the "notify-events" values to the request
         request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
                               KCUPS_NOTIFY_EVENTS, events);
         request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
-                          KCUPS_NOTIFY_PULL_METHOD, "ippget");
+                          KCUPS_NOTIFY_PULL_METHOD, QLatin1String("ippget"));
         request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
-                          KCUPS_NOTIFY_RECIPIENT_URI, "dbus://");
+                          KCUPS_NOTIFY_RECIPIENT_URI, QLatin1String("dbus://"));
     } else {
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
                            KCUPS_NOTIFY_SUBSCRIPTION_ID, subscriptionId);
@@ -462,65 +462,65 @@ QString KCupsConnection::eventForSignal(const QMetaMethod & signal) const
 {
     // Server signals
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverAudit)) {
-        return DBUS_SERVER_AUDIT;
+        return QStringLiteral(DBUS_SERVER_AUDIT);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStarted)) {
-        return DBUS_SERVER_STARTED;
+        return QStringLiteral(DBUS_SERVER_STARTED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStopped)) {
-        return DBUS_SERVER_STOPPED;
+        return QStringLiteral(DBUS_SERVER_STOPPED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverRestarted)) {
-        return DBUS_SERVER_RESTARTED;
+        return QStringLiteral(DBUS_SERVER_RESTARTED);
     }
 
     // Printer signals
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerAdded)) {
-        return DBUS_PRINTER_ADDED;
+        return QStringLiteral(DBUS_PRINTER_ADDED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerDeleted)) {
-        return DBUS_PRINTER_DELETED;
+        return QStringLiteral(DBUS_PRINTER_DELETED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerFinishingsChanged)) {
-        return DBUS_PRINTER_FINISHINGS_CHANGED;
+        return QStringLiteral(DBUS_PRINTER_FINISHINGS_CHANGED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerMediaChanged)) {
-        return DBUS_PRINTER_MEDIA_CHANGED;
+        return QStringLiteral(DBUS_PRINTER_MEDIA_CHANGED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerModified)) {
-        return DBUS_PRINTER_MODIFIED;
+        return QStringLiteral(DBUS_PRINTER_MODIFIED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerRestarted)) {
-        return DBUS_PRINTER_RESTARTED;
+        return QStringLiteral(DBUS_PRINTER_RESTARTED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerShutdown)) {
-        return DBUS_PRINTER_SHUTDOWN;
+        return QStringLiteral(DBUS_PRINTER_SHUTDOWN);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStateChanged)) {
-        return DBUS_PRINTER_STATE_CHANGED;
+        return QStringLiteral(DBUS_PRINTER_STATE_CHANGED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStopped)) {
-        return DBUS_PRINTER_STOPPED;
+        return QStringLiteral(DBUS_PRINTER_STOPPED);
     }
 
     // job signals
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCompleted)) {
-        return DBUS_JOB_COMPLETED;
+        return QStringLiteral(DBUS_JOB_COMPLETED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobConfigChanged)) {
-        return DBUS_JOB_CONFIG_CHANGED;
+        return QStringLiteral(DBUS_JOB_CONFIG_CHANGED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCreated)) {
-        return DBUS_JOB_CREATED;
+        return QStringLiteral(DBUS_JOB_CREATED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobProgress)) {
-        return DBUS_JOB_PROGRESS;
+        return QStringLiteral(DBUS_JOB_PROGRESS);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobState)) {
-        return DBUS_JOB_STATE_CHANGED;
+        return QStringLiteral(DBUS_JOB_STATE_CHANGED);
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobStopped)) {
-        return DBUS_JOB_STOPPED;
+        return QStringLiteral(DBUS_JOB_STOPPED);
     }
 
     // No registered event signal matched
@@ -570,9 +570,9 @@ void KCupsConnection::renewDBusSubscription()
 
 void KCupsConnection::cancelDBusSubscription()
 {
-    KIppRequest request(IPP_CANCEL_SUBSCRIPTION, "/");
+    KIppRequest request(IPP_CANCEL_SUBSCRIPTION, QLatin1String("/"));
     request.addString(IPP_TAG_OPERATION, IPP_TAG_URI,
-                      KCUPS_PRINTER_URI, "/");
+                      KCUPS_PRINTER_URI, QLatin1String("/"));
     request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
                        KCUPS_NOTIFY_SUBSCRIPTION_ID, m_subscriptionId);
 

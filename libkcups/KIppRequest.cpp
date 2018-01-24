@@ -36,7 +36,7 @@ KIppRequest::KIppRequest(const KIppRequest &other) :
     *this = other;
 }
 
-KIppRequest::KIppRequest(ipp_op_t operation, const char *resource, const QString &filename) :
+KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename) :
     d_ptr(new KIppRequestPrivate)
 {
     Q_D(KIppRequest);
@@ -46,7 +46,7 @@ KIppRequest::KIppRequest(ipp_op_t operation, const char *resource, const QString
     d->filename = filename;
 
     // send our user name on the request too
-    addString(IPP_TAG_OPERATION, IPP_TAG_NAME, KCUPS_REQUESTING_USER_NAME, cupsUser());
+    addString(IPP_TAG_OPERATION, IPP_TAG_NAME, QLatin1String(KCUPS_REQUESTING_USER_NAME), QString::fromUtf8(cupsUser()));
 }
 
 KIppRequest::~KIppRequest()
@@ -92,28 +92,28 @@ void KIppRequest::addString(ipp_tag_t group, ipp_tag_t valueTag, const QString &
 {
     Q_D(KIppRequest);
 
-    d->addRequest(group, valueTag, name.toUtf8(), value);
+    d->addRequest(group, valueTag, name, value);
 }
 
 void KIppRequest::addStringList(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QStringList &value)
 {
     Q_D(KIppRequest);
 
-    d->addRequest(group, valueTag, name.toUtf8(), value);
+    d->addRequest(group, valueTag, name, value);
 }
 
 void KIppRequest::addInteger(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, int value)
 {
     Q_D(KIppRequest);
 
-    d->addRequest(group, valueTag, name.toUtf8(), value);
+    d->addRequest(group, valueTag, name, value);
 }
 
 void KIppRequest::addBoolean(ipp_tag_t group, const QString &name, bool value)
 {
     Q_D(KIppRequest);
 
-    d->addRequest(group, IPP_TAG_ZERO, name.toUtf8(), value);
+    d->addRequest(group, IPP_TAG_ZERO, name, value);
 }
 
 void KIppRequest::addVariantValues(const QVariantHash &values)
@@ -177,7 +177,7 @@ void KIppRequest::addVariantValues(const QVariantHash &values)
 void KIppRequest::addPrinterUri(const QString &printerName, bool isClass)
 {
     QString uri = assembleUrif(printerName, isClass);
-    addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, uri);
+    addString(IPP_TAG_OPERATION, IPP_TAG_URI, QLatin1String(KCUPS_PRINTER_URI), uri);
 }
 
 QString KIppRequest::assembleUrif(const QString &name, bool isClass)
@@ -193,7 +193,7 @@ QString KIppRequest::assembleUrif(const QString &name, bool isClass)
 
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
                      ippPort(), destination.toUtf8().constData());
-    return uri;
+    return QString::fromLatin1(uri);
 }
 
 KIppRequest &KIppRequest::operator =(const KIppRequest &other)

@@ -33,15 +33,15 @@
 int main(int argc, char **argv)
 {
     ConfigurePrinter app(argc, argv);
-    app.setOrganizationDomain("org.kde");
+    app.setOrganizationDomain(QLatin1String("org.kde"));
 
-    KAboutData aboutData("ConfigurePrinter",
+    KAboutData aboutData(QLatin1String("ConfigurePrinter"),
                      i18n("Configure Printer"),
-                     PM_VERSION,
+                     QLatin1String(PM_VERSION),
                      i18n("ConfigurePrinter"),
                      KAboutLicense::GPL,
                      i18n("(C) 2010-2018 Daniel Nicoletti"));
-    aboutData.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    aboutData.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), QLatin1String("dantti12@gmail.com"));
     aboutData.addAuthor(QStringLiteral("Jan Grulich"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("jgrulich@redhat.com"));
 
     KAboutData::setApplicationData(aboutData);
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     aboutData.setupCommandLine(&parser);
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addPositionalArgument("printer", i18n("Printer to be configured"));
+    parser.addPositionalArgument(QLatin1String("printer"), i18n("Printer to be configured"));
     parser.process(app);
     aboutData.processCommandLine(&parser);
 

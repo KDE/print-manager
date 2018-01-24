@@ -47,7 +47,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     setModal(false);
     setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel | QDialogButtonBox::Apply);
     setWindowTitle(destName);
-    setWindowIcon(QIcon::fromTheme("configure"));
+    setWindowIcon(QIcon::fromTheme(QLatin1String("configure")));
     enableButtonApply(false);
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
@@ -101,7 +101,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     modifyPrinter->setValues(printer);
     page = new KPageWidgetItem(modifyPrinter, i18n("Modify Printer"));
     page->setHeader(i18n("Configure"));
-    page->setIcon(QIcon::fromTheme("dialog-information"));
+    page->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
     // CONNECT this signal ONLY to the first Page
     connect(modifyPrinter, &ModifyPrinter::changed, this, &ConfigureDialog::enableButtonApply);
     addPage(page);
@@ -112,7 +112,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         printerOptions = new PrinterOptions(destName, isClass, isRemote, this);
         page = new KPageWidgetItem(printerOptions, i18n("Printer Options"));
         page->setHeader(i18n("Set the Default Printer Options"));
-        page->setIcon(QIcon::fromTheme("view-pim-tasks"));
+        page->setIcon(QIcon::fromTheme(QLatin1String("view-pim-tasks")));
         addPage(page);
         connect(modifyPrinter, &ModifyPrinter::ppdChanged, this, &ConfigureDialog::ppdChanged);
         modifyPrinter->setCurrentMake(printerOptions->currentMake());
@@ -123,13 +123,13 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     printerBehavior->setValues(printer);
     page = new KPageWidgetItem(printerBehavior, i18n("Banners, Policies and Allowed Users"));
     page->setHeader(i18n("Banners, Policies and Allowed Users"));
-    page->setIcon(QIcon::fromTheme("feed-subscribe"));
+    page->setIcon(QIcon::fromTheme(QLatin1String("feed-subscribe")));
     addPage(page);
 
     // connect this after ALL pages were added, otherwise the slot will be called
     connect(this, &ConfigureDialog::currentPageChanged, this, &ConfigureDialog::currentPageChanged);
 
-    KConfigGroup group(KSharedConfig::openConfig("print-manager"), "ConfigureDialog");
+    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), "ConfigureDialog");
     KWindowConfig::restoreWindowSize(windowHandle(), group);
 
     connect(buttonBox(), &QDialogButtonBox::clicked, this, &ConfigureDialog::slotButtonClicked);
@@ -144,7 +144,7 @@ void ConfigureDialog::ppdChanged()
 
 ConfigureDialog::~ConfigureDialog()
 {
-    KConfigGroup group(KSharedConfig::openConfig("print-manager"), "ConfigureDialog");
+    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), "ConfigureDialog");
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

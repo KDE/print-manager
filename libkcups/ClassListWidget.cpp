@@ -36,7 +36,7 @@ ClassListWidget::ClassListWidget(QWidget *parent) :
     m_request(0),
     m_showClasses(false)
 {
-    KConfigDialogManager::changedMap()->insert("ClassListWidget", SIGNAL(changed(QString)));
+    KConfigDialogManager::changedMap()->insert(QLatin1String("ClassListWidget"), SIGNAL(changed(QString)));
 
     m_model = new QStandardItemModel(this);
     setModel(m_model);
@@ -44,7 +44,7 @@ ClassListWidget::ClassListWidget(QWidget *parent) :
 
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
-    m_busySeq->setSequence(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setSequence(KPixmapSequence(QLatin1String("process-working"), KIconLoader::SizeSmallMedium));
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     m_busySeq->setWidget(viewport());
 

@@ -44,7 +44,7 @@ AddPrinterAssistant::AddPrinterAssistant() :
     m_addPrinterPage(0)
 {
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
-    setWindowIcon(QIcon::fromTheme("printer"));
+    setWindowIcon(QIcon::fromTheme(QLatin1String("printer")));
     buttonBox()->removeButton(buttonBox()->button(QDialogButtonBox::Cancel));
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
@@ -58,20 +58,20 @@ AddPrinterAssistant::AddPrinterAssistant() :
 
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
-    m_busySeq->setSequence(KIconLoader::global()->loadPixmapSequence("process-working", KIconLoader::SizeSmallMedium));
+    m_busySeq->setSequence(KIconLoader::global()->loadPixmapSequence(QLatin1String("process-working"), KIconLoader::SizeSmallMedium));
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
     m_busySeq->setWidget(helpButton);
 
     connect(finishButton(), &QPushButton::clicked, this, &AddPrinterAssistant::slotFinishButtonClicked);
 
     // Restore the dialog size
-    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "AddPrinterAssistant");
+    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "AddPrinterAssistant");
     KWindowConfig::restoreWindowSize(windowHandle(), configGroup);
 }
 
 AddPrinterAssistant::~AddPrinterAssistant()
 {
-    KConfigGroup configGroup(KSharedConfig::openConfig("print-manager"), "AddPrinterAssistant");
+    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "AddPrinterAssistant");
     KWindowConfig::saveWindowSize(windowHandle(), configGroup);
 }
 

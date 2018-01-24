@@ -28,7 +28,7 @@
 ChooseSerial::ChooseSerial(QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::ChooseSerial),
-    m_rx("\\?baud=(\\d+)"),
+    m_rx(QLatin1String("\\?baud=(\\d+)")),
     m_isValid(false)
 {
     ui->setupUi(this);
@@ -36,14 +36,14 @@ ChooseSerial::ChooseSerial(QWidget *parent) :
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    ui->parityCB->addItem(i18nc("@label:listbox", "None"), "none");
-    ui->parityCB->addItem(i18nc("@label:listbox", "Even"), "even");
-    ui->parityCB->addItem(i18nc("@label:listbox", "Odd"),  "odd");
+    ui->parityCB->addItem(i18nc("@label:listbox", "None"), QLatin1String("none"));
+    ui->parityCB->addItem(i18nc("@label:listbox", "Even"), QLatin1String("even"));
+    ui->parityCB->addItem(i18nc("@label:listbox", "Odd"),  QLatin1String("odd"));
 
-    ui->flowCB->addItem(i18nc("@label:listbox", "None"), "none");
-    ui->flowCB->addItem(i18nc("@label:listbox", "XON/XOFF (Software)"), "soft");
-    ui->flowCB->addItem(i18nc("@label:listbox", "RTS/CTS (Hardware)"),  "hard");
-    ui->flowCB->addItem(i18nc("@label:listbox", "DTR/DSR (Hardware)"),  "dtrdsr");
+    ui->flowCB->addItem(i18nc("@label:listbox", "None"), QLatin1String("none"));
+    ui->flowCB->addItem(i18nc("@label:listbox", "XON/XOFF (Software)"), QLatin1String("soft"));
+    ui->flowCB->addItem(i18nc("@label:listbox", "RTS/CTS (Hardware)"),  QLatin1String("hard"));
+    ui->flowCB->addItem(i18nc("@label:listbox", "DTR/DSR (Hardware)"),  QLatin1String("dtrdsr"));
 }
 
 ChooseSerial::~ChooseSerial()
@@ -113,7 +113,8 @@ QVariantHash ChooseSerial::values() const
     QString bits = ui->bitsCB->currentText();
     QString parity = ui->baudRateCB->itemData(ui->baudRateCB->currentIndex()).toString();
     QString flow = ui->flowCB->itemData(ui->flowCB->currentIndex()).toString();
-    QString replace = QString("?baud=%1+bits=%2+parity=%3+flow=%4").arg(baudRate, bits, parity, flow);
+    QString replace = QString::fromLatin1("?baud=%1+bits=%2+parity=%3+flow=%4")
+            .arg(baudRate, bits, parity, flow);
     deviceUri.replace(pos, deviceUri.size() - pos, replace);
     ret[KCUPS_DEVICE_URI] = deviceUri;
     return ret;

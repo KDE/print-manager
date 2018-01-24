@@ -188,7 +188,7 @@ void PrinterBehavior::currentIndexChangedCB(int index)
     QString attribute = comboBox->property("AttributeName").toString();
     QVariant value;
     // job-sheets-default has always two values
-    if (attribute == "job-sheets-default") {
+    if (attribute == QLatin1String("job-sheets-default")) {
         QStringList values;
         values << ui->startingBannerCB->itemData(ui->startingBannerCB->currentIndex()).toString();
         values << ui->endingBannerCB->itemData(ui->endingBannerCB->currentIndex()).toString();
@@ -208,13 +208,13 @@ void PrinterBehavior::currentIndexChangedCB(int index)
 QString PrinterBehavior::errorPolicyString(const QString &policy) const
 {
     // TODO search for others policies of printer-error-policy-supported
-    if (policy == "abort-job") {
+    if (policy == QLatin1String("abort-job")) {
         return i18n("Abort job");
-    } else if (policy == "retry-current-job") {
+    } else if (policy == QLatin1String("retry-current-job")) {
         return i18n("Retry current job");
-    } else if (policy == "retry-job") {
+    } else if (policy == QLatin1String("retry-job")) {
         return i18n("Retry job");
-    } else if (policy == "stop-printer") {
+    } else if (policy == QLatin1String("stop-printer")) {
         return i18n("Stop printer");
     }
     return policy;
@@ -223,9 +223,9 @@ QString PrinterBehavior::errorPolicyString(const QString &policy) const
 QString PrinterBehavior::operationPolicyString(const QString &policy) const
 {
     // TODO search for others policies of printer-error-policy-supported
-    if (policy == "authenticated") {
+    if (policy == QLatin1String("authenticated")) {
         return i18n("Authenticated");
-    } else if (policy == "default") {
+    } else if (policy == QLatin1String("default")) {
         return i18n("Default");
     }
     return policy;
@@ -234,19 +234,19 @@ QString PrinterBehavior::operationPolicyString(const QString &policy) const
 QString PrinterBehavior::jobSheetsString(const QString &policy) const
 {
     // TODO search for others policies of printer-error-policy-supported
-    if (policy == "none") {
+    if (policy == QLatin1String("none")) {
         return i18n("None");
-    } else if (policy == "classified") {
+    } else if (policy == QLatin1String("classified")) {
         return i18n("Classified");
-    } else if (policy == "confidential") {
+    } else if (policy == QLatin1String("confidential")) {
         return i18n("Confidential");
-    } else if (policy == "secret") {
+    } else if (policy == QLatin1String("secret")) {
         return i18n("Secret");
-    } else if (policy == "standard") {
+    } else if (policy == QLatin1String("standard")) {
         return i18n("Standard");
-    } else if (policy == "topsecret") {
+    } else if (policy == QLatin1String("topsecret")) {
         return i18n("Topsecret");
-    } else if (policy == "unclassified") {
+    } else if (policy == QLatin1String("unclassified")) {
         return i18n("Unclassified");
     }
     return policy;
@@ -261,7 +261,7 @@ void PrinterBehavior::save()
         if (ui->usersELB->property("different").toBool()) {
             QStringList list = ui->usersELB->items();
             if (list.isEmpty()) {
-                list << "all";
+                list << QLatin1String("all");
                 changedValues[KCUPS_REQUESTING_USER_NAME_ALLOWED] = list;
             } else {
                 if (ui->allowRB->isChecked()) {

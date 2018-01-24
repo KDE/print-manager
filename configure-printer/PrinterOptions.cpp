@@ -68,7 +68,7 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
 void PrinterOptions::on_autoConfigurePB_clicked()
 {
     QPointer<KCupsRequest> request = new KCupsRequest;
-    request->printCommand(m_destName, "AutoConfigure", i18n("Set Default Options"));
+    request->printCommand(m_destName, QLatin1String("AutoConfigure"), i18n("Set Default Options"));
     request->waitTillFinished();
     if (request) {
         request->deleteLater();
@@ -205,7 +205,7 @@ void PrinterOptions::createGroups()
             // The python system-config-printer skips this one
             // which has the same data as "PageSize", let's hope
             // they did the right thing
-            if (oKeyword == "PageRegion") {
+            if (oKeyword == QLatin1String("PageRegion")) {
                 continue;
             }
 
@@ -775,7 +775,7 @@ void PrinterOptions::save()
     if (m_isClass) {
         request->addOrModifyClass(m_destName, values);
     } else {
-        request->addOrModifyPrinter(m_destName, values, tempfile);
+        request->addOrModifyPrinter(m_destName, values, QString::fromUtf8(tempfile));
     }
 
     // Disable the widget till the request is processed

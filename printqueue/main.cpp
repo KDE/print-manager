@@ -32,16 +32,16 @@
 int main(int argc, char **argv)
 {
     PrintQueue app(argc, argv);
-    app.setOrganizationDomain("org.kde");
+    app.setOrganizationDomain(QLatin1String("org.kde"));
 
-    KAboutData about("PrintQueue",
+    KAboutData about(QLatin1String("PrintQueue"),
                      i18n("Print Queue"),
-                     PM_VERSION,
+                     QLatin1String(PM_VERSION),
                      i18n("Print Queue"),
                      KAboutLicense::GPL,
                      i18n("(C) 2010-2018 Daniel Nicoletti"));
 
-    about.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    about.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), QLatin1String("dantti12@gmail.com"));
     about.addAuthor(QStringLiteral("Lukáš Tinkl"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("ltinkl@redhat.com"));
 
     KAboutData::setApplicationData(about);
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     about.setupCommandLine(&parser);
     parser.addVersionOption();
     parser.addHelpOption();
-    parser.addPositionalArgument("queue", i18n("Show printer queue(s)"));
+    parser.addPositionalArgument(QLatin1String("queue"), i18n("Show printer queue(s)"));
     parser.process(app);
     about.processCommandLine(&parser);
 

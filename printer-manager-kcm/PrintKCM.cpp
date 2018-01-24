@@ -52,13 +52,13 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_serverRequest(0)
 {
     KAboutData *aboutData;
-    aboutData = new KAboutData("kcm_print",
+    aboutData = new KAboutData(QLatin1String("kcm_print"),
                                i18n("Print settings"),
-                               PM_VERSION,
+                               QLatin1String(PM_VERSION),
                                i18n("Print settings"),
                                KAboutLicense::GPL,
                                i18n("(C) 2010-2018 Daniel Nicoletti"));
-    aboutData->addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), "dantti12@gmail.com");
+    aboutData->addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), QLatin1String("dantti12@gmail.com"));
     aboutData->addAuthor(QStringLiteral("Jan Grulich"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("jgrulich@redhat.com"));
     setAboutData(aboutData);
     setButtons(NoAdditionalButton);
@@ -74,11 +74,11 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     auto addMenu = new QMenu(this);
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
                        this, &PrintKCM::addClass);
-    ui->addTB->setIcon(QIcon::fromTheme("list-add"));
+    ui->addTB->setIcon(QIcon::fromTheme(QLatin1String("list-add")));
     ui->addTB->setToolTip(i18n("Add a new printer or a printer class"));
     ui->addTB->setMenu(addMenu);
 
-    ui->removeTB->setIcon(QIcon::fromTheme("list-remove"));
+    ui->removeTB->setIcon(QIcon::fromTheme(QLatin1String("list-remove")));
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
     auto systemMenu = new QMenu(this);
@@ -102,7 +102,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     m_allowUsersCancelAnyJob = systemMenu->addAction(i18nc("@action:intoolbar","Allow users to cancel any job (not just their own)"));
     m_allowUsersCancelAnyJob->setCheckable(true);
 
-    ui->systemPreferencesTB->setIcon(QIcon::fromTheme("configure"));
+    ui->systemPreferencesTB->setIcon(QIcon::fromTheme(QLatin1String("configure")));
     ui->systemPreferencesTB->setToolTip(i18n("Configure the global preferences"));
     ui->systemPreferencesTB->setMenu(systemMenu);
 
@@ -118,7 +118,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     connect(m_model, &PrinterModel::dataChanged, this, &PrintKCM::update);
     connect(m_model, &PrinterModel::error, this, &PrintKCM::error);
 
-    ui->addPrinterBtn->setIcon(QIcon::fromTheme("list-add"));
+    ui->addPrinterBtn->setIcon(QIcon::fromTheme(QLatin1String("list-add")));
     connect(ui->addPrinterBtn, &QPushButton::clicked, this, &PrintKCM::on_addTB_clicked);
 
     // Force the model update AFTER we setup the error signal
@@ -147,13 +147,13 @@ void PrintKCM::error(int lastError, const QString &errorTitle, const QString &er
         // The user has no printer
         // allow him to add a new one
         if (lastError == IPP_NOT_FOUND) {
-            showInfo(QIcon::fromTheme("dialog-information"),
+            showInfo(QIcon::fromTheme(QLatin1String("dialog-information")),
                      i18n("No printers have been configured or discovered"),
                      QString(),
                      true,
                      true);
         } else {
-            showInfo(QIcon::fromTheme("printer"),
+            showInfo(QIcon::fromTheme(QLatin1String("printer")),
                      QStringLiteral("<strong>%1</strong>").arg(errorTitle),
                      errorMsg,
                      false,
@@ -247,7 +247,7 @@ void PrintKCM::update()
 
         if (m_lastError == IPP_OK) {
             // the model is empty and no problem happened
-            showInfo(QIcon::fromTheme("dialog-information"),
+            showInfo(QIcon::fromTheme(QLatin1String("dialog-information")),
                      i18n("No printers have been configured or discovered"),
                      QString(),
                      true,
@@ -258,16 +258,14 @@ void PrintKCM::update()
 
 void PrintKCM::on_addTB_clicked()
 {
-    QStringList args;
-    args << "--add-printer";
-    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"),
+    { QLatin1String("--add-printer") });
 }
 
 void PrintKCM::addClass()
 {
-    QStringList args;
-    args << "--add-class";
-    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"),
+    { QLatin1String("--add-class") });
 }
 
 void PrintKCM::on_removeTB_clicked()

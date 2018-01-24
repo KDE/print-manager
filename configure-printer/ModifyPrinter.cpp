@@ -77,12 +77,12 @@ void ModifyPrinter::on_makeCB_activated(int index)
         return;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDFile) {
         // set the QVariant type to bool makes it possible to know a file was selected
-        m_changedValues["ppd-name"] = true;
+        m_changedValues[QLatin1String("ppd-name")] = true;
     } else if (ui->makeCB->itemData(index).toUInt() == PPDDefault) {
         isDifferent = false;
-        m_changedValues.remove("ppd-name");
+        m_changedValues.remove(QLatin1String("ppd-name"));
     } else if (ui->makeCB->itemData(index).toUInt() == PPDCustom) {
-        m_changedValues["ppd-name"] = ui->makeCB->itemData(index, PPDName).toString();
+        m_changedValues[QLatin1String("ppd-name")] = ui->makeCB->itemData(index, PPDName).toString();
     } else {
         qCWarning(PM_CONFIGURE_PRINTER) << "This should not happen";
         return;
@@ -212,11 +212,11 @@ void ModifyPrinter::save()
         QVariantHash args = m_changedValues;
         QString fileName;
         qCDebug(PM_CONFIGURE_PRINTER) << args;
-        if (args.contains("ppd-name") &&
-            args["ppd-name"].type() == QVariant::Bool) {
+        if (args.contains(QLatin1String("ppd-name")) &&
+            args[QLatin1String("ppd-name")].type() == QVariant::Bool) {
 
             fileName = ui->makeCB->itemData(ui->makeCB->currentIndex(), PPDFile).toString();
-            args.remove("ppd-name");
+            args.remove(QLatin1String("ppd-name"));
         }
         qCDebug(PM_CONFIGURE_PRINTER) << fileName;
 
@@ -229,7 +229,7 @@ void ModifyPrinter::save()
         request->waitTillFinished();
         if (request) {
             if (!request->hasError()) {
-                if (m_changedValues.contains("ppd-name")) {
+                if (m_changedValues.contains(QLatin1String("ppd-name"))) {
                     emit ppdChanged();
                 }
                 request->getPrinterAttributes(m_destName, m_isClass, neededValues());

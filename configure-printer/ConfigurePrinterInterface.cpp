@@ -36,12 +36,12 @@ ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent) :
 {
     qCDebug(PM_CONFIGURE_PRINTER) << "Creating Helper";
     (void) new ConfigurePrinterAdaptor(this);
-    if (!QDBusConnection::sessionBus().registerService("org.kde.ConfigurePrinter")) {
+    if (!QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.ConfigurePrinter"))) {
         qCDebug(PM_CONFIGURE_PRINTER) << "another helper is already running";
         return;
     }
 
-    if (!QDBusConnection::sessionBus().registerObject("/", this)) {
+    if (!QDBusConnection::sessionBus().registerObject(QLatin1String("/"), this)) {
         qCDebug(PM_CONFIGURE_PRINTER) << "unable to register service interface to dbus";
         return;
     }

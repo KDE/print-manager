@@ -435,7 +435,7 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
 
 QStringList JobModel::mimeTypes() const
 {
-    return QStringList("application/x-cupsjobs");
+    return { QStringLiteral("application/x-cupsjobs") };
 }
 
 Qt::DropActions JobModel::supportedDropActions() const
@@ -459,7 +459,7 @@ QMimeData* JobModel::mimeData(const QModelIndexList &indexes) const
         }
     }
 
-    mimeData->setData("application/x-cupsjobs", encodedData);
+    mimeData->setData(QLatin1String("application/x-cupsjobs"), encodedData);
     return mimeData;
 }
 
@@ -476,11 +476,11 @@ bool JobModel::dropMimeData(const QMimeData *data,
         return true;
     }
 
-    if (!data->hasFormat("application/x-cupsjobs")) {
+    if (!data->hasFormat(QLatin1String("application/x-cupsjobs"))) {
         return false;
     }
 
-    QByteArray encodedData = data->data("application/x-cupsjobs");
+    QByteArray encodedData = data->data(QLatin1String("application/x-cupsjobs"));
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
 
     bool ret = false;
@@ -583,13 +583,13 @@ QString JobModel::jobStatus(ipp_jstate_e job_state)
   {
     case IPP_JOB_PENDING    : return i18n("Pending");
     case IPP_JOB_HELD       : return i18n("On hold");
-    case IPP_JOB_PROCESSING : return "-";
+    case IPP_JOB_PROCESSING : return QLatin1String("-");
     case IPP_JOB_STOPPED    : return i18n("Stopped");
     case IPP_JOB_CANCELED   : return i18n("Canceled");
     case IPP_JOB_ABORTED    : return i18n("Aborted");
     case IPP_JOB_COMPLETED  : return i18n("Completed");
   }
-  return "-";
+  return QLatin1String("-");
 }
 
 void JobModel::clear()

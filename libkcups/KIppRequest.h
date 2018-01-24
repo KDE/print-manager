@@ -30,7 +30,7 @@ class Q_DECL_EXPORT KIppRequest
 public:
     KIppRequest();
     KIppRequest(const KIppRequest &other);
-    KIppRequest(ipp_op_t operation, const char *resource, const QString &filename = QString());
+    KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename = QString());
     ~KIppRequest();
 
     ipp_op_t operation() const;

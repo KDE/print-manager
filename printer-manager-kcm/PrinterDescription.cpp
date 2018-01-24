@@ -47,13 +47,13 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
     m_layoutEnd = ui->formLayout->count();
 
     // loads the standard key icon
-    m_printerIcon = KIconLoader::global()->loadIcon("printer",
+    m_printerIcon = KIconLoader::global()->loadIcon(QLatin1String("printer"),
                     KIconLoader::NoGroup,
                     PRINTER_ICON_SIZE, // a not so huge icon
                     KIconLoader::DefaultState);
     ui->iconL->setPixmap(m_printerIcon);
 
-    m_pauseIcon = KIconLoader::global()->loadIcon("media-playback-pause",
+    m_pauseIcon = KIconLoader::global()->loadIcon(QLatin1String("media-playback-pause"),
                   KIconLoader::NoGroup,
                   KIconLoader::SizeMedium,
                   KIconLoader::DefaultState,
@@ -186,8 +186,8 @@ void PrinterDescription::setCommands(const QStringList &commands)
     if (m_commands != commands) {
         m_commands = commands;
 
-        ui->actionCleanPrintHeads->setVisible(commands.contains("Clean"));
-        ui->actionPrintSelfTestPage->setVisible(commands.contains("PrintSelfTestPage"));
+        ui->actionCleanPrintHeads->setVisible(commands.contains(QLatin1String("Clean")));
+        ui->actionPrintSelfTestPage->setVisible(commands.contains(QLatin1String("PrintSelfTestPage")));
 
         // TODO if the printer supports ReportLevels
         // we should probably probe for them
@@ -202,31 +202,31 @@ void PrinterDescription::setMarkers(const QVariantHash &data)
         ui->formLayout->takeAt(ui->formLayout->count() - 1)->widget()->deleteLater();
     }
 
-    int size = data["marker-names"].toStringList().size();
-    if (size != data["marker-levels"].value<QList<int> >().size() ||
-            size != data["marker-colors"].toStringList().size() ||
-            size != data["marker-types"].toStringList().size()) {
+    int size = data[KCUPS_MARKER_NAMES].toStringList().size();
+    if (size != data[KCUPS_MARKER_LEVELS].value<QList<int> >().size() ||
+            size != data[KCUPS_MARKER_COLORS].toStringList().size() ||
+            size != data[KCUPS_MARKER_TYPES].toStringList().size()) {
         return;
     }
 
     // Create a colored progress bar for each marker
     for (int i = 0; i < size; i++) {
-        if (data["marker-types"].toStringList().at(i) == QLatin1String("unknown")) {
+        if (data[KCUPS_MARKER_TYPES].toStringList().at(i) == QLatin1String("unknown")) {
             continue;
         }
         auto pogressBar = new QProgressBar;
-        pogressBar->setValue(data["marker-levels"].value<QList<int> >().at(i));
+        pogressBar->setValue(data[KCUPS_MARKER_LEVELS].value<QList<int> >().at(i));
         pogressBar->setTextVisible(false);
         pogressBar->setMaximumHeight(15);
         QPalette palette = pogressBar->palette();
         palette.setColor(QPalette::Active,
                          QPalette::Highlight,
-                         QColor(data["marker-colors"].toStringList().at(i)));
+                         QColor(data[KCUPS_MARKER_COLORS].toStringList().at(i)));
         palette.setColor(QPalette::Inactive,
                          QPalette::Highlight,
-                         QColor(data["marker-colors"].toStringList().at(i)).lighter());
+                         QColor(data[KCUPS_MARKER_COLORS].toStringList().at(i)).lighter());
         pogressBar->setPalette(palette);
-        auto label = new QLabel(data["marker-names"].toStringList().at(i), this);
+        auto label = new QLabel(data[KCUPS_MARKER_NAMES].toStringList().at(i), this);
         ui->formLayout->addRow(label, pogressBar);
     }
 }
@@ -246,7 +246,7 @@ void PrinterDescription::on_actionCleanPrintHeads_triggered(bool checked)
 
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
-    request->printCommand(m_destName, "Clean all", i18n("Clean Print Heads"));
+    request->printCommand(m_destName, QLatin1String("Clean all"), i18n("Clean Print Heads"));
 }
 
 void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
@@ -255,7 +255,7 @@ void PrinterDescription::on_actionPrintSelfTestPage_triggered(bool checked)
 
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterDescription::requestFinished);
-    request->printCommand(m_destName, "PrintSelfTestPage", i18n("Print Self-Test Page"));
+    request->printCommand(m_destName, QLatin1String("PrintSelfTestPage"), i18n("Print Self-Test Page"));
 }
 
 void PrinterDescription::requestFinished(KCupsRequest *request)
@@ -280,5 +280,5 @@ void PrinterDescription::enableShareCheckBox(bool enable)
 
 void PrinterDescription::on_configurePB_clicked()
 {
-    QProcess::startDetached("configure-printer", {m_destName});
+    QProcess::startDetached(QLatin1String("configure-printer"), {m_destName});
 }

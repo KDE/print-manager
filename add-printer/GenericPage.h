@@ -25,9 +25,9 @@
 #include <QHash>
 #include <QVariant>
 
-#define ADDING_PRINTER         "add-new-printer"
-#define PPD_NAME               "ppd-name"
-#define FILENAME               "filename"
+#define ADDING_PRINTER         QLatin1String("add-new-printer")
+#define PPD_NAME               QLatin1String("ppd-name")
+#define FILENAME               QLatin1String("filename")
 
 class GenericPage : public QWidget
 {

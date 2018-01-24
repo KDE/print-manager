@@ -42,7 +42,7 @@
 #define STATUS_NO_DRIVER      3
 
 #define PRINTER_NAME "PrinterName"
-#define DEVICE_ID "DeviceId"
+#define DEVICE_ID    "DeviceId"
 
 NewPrinterNotification::NewPrinterNotification()
 {
@@ -66,9 +66,9 @@ void NewPrinterNotification::GetReady()
 {
     qCDebug(PM_KDED);
     // This method is all about telling the user a new printer was detected
-    auto notify = new KNotification("GetReady");
-    notify->setComponentName("printmanager");
-    notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
+    auto notify = new KNotification(QLatin1String("GetReady"));
+    notify->setComponentName(QLatin1String("printmanager"));
+    notify->setIconName(QLatin1String("printer"));
     notify->setTitle(i18n("A New Printer was detected"));
     notify->setText(i18n("Configuring new printer..."));
     notify->sendEvent();
@@ -93,16 +93,16 @@ void NewPrinterNotification::NewPrinter(int status,
     // mfg "Samsung"
     // mdl "SCX-3400 Series" "" "SPL,FWV,PIC,BDN,EXT"
     // This method is all about telling the user a new printer was detected
-    auto notify = new KNotification("NewPrinterNotification");
-    notify->setComponentName("printmanager");
-    notify->setPixmap(QIcon::fromTheme("printer").pixmap(64, 64));
+    auto notify = new KNotification(QLatin1String("NewPrinterNotification"));
+    notify->setComponentName(QLatin1String("printmanager"));
+    notify->setIconName(QLatin1String("printer"));
     notify->setFlags(KNotification::Persistent);
 
     QString title;
     QString text;
     QString devid;
     QStringList actions;
-    devid = QString("MFG:%1;MDL:%2;DES:%3;CMD:%4;").arg(make, model, description, cmd);
+    devid = QString::fromLatin1("MFG:%1;MDL:%2;DES:%3;CMD:%4;").arg(make, model, description, cmd);
 
     if (name.contains(QLatin1Char('/'))) {
         // name is a URI, no queue was generated, because no suitable
@@ -213,12 +213,12 @@ void NewPrinterNotification::init()
 
 bool NewPrinterNotification::registerService()
 {
-    if (!QDBusConnection::systemBus().registerService("com.redhat.NewPrinterNotification")) {
+    if (!QDBusConnection::systemBus().registerService(QLatin1String("com.redhat.NewPrinterNotification"))) {
         qCWarning(PM_KDED) << "unable to register service to dbus";
         return false;
     }
 
-    if (!QDBusConnection::systemBus().registerObject("/com/redhat/NewPrinterNotification", this)) {
+    if (!QDBusConnection::systemBus().registerObject(QLatin1String("/com/redhat/NewPrinterNotification"), this)) {
         qCWarning(PM_KDED) << "unable to register object to dbus";
         return false;
     }
@@ -227,7 +227,7 @@ bool NewPrinterNotification::registerService()
 
 void NewPrinterNotification::configurePrinter()
 {
-    QProcess::startDetached("configure-printer", {PRINTER_NAME});
+    QProcess::startDetached(QLatin1String("configure-printer"), { QLatin1String(PRINTER_NAME) });
 }
 
 void NewPrinterNotification::searchDrivers()
@@ -251,7 +251,7 @@ void NewPrinterNotification::findDriver()
     // This function will show the PPD browser dialog
     // to choose a better PPD to the already added printer
     QStringList args;
-    args << "--change-ppd";
+    args << QLatin1String("--change-ppd");
     args << sender()->property(PRINTER_NAME).toString();
     KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
 }
@@ -264,12 +264,14 @@ void NewPrinterNotification::installDriver()
 void NewPrinterNotification::setupPrinter()
 {
     qCDebug(PM_KDED);
+    QObject *obj = sender();
     // This function will show the PPD browser dialog
     // to choose a better PPD, queue name, location
     // in this case the printer was not added
-    QStringList args;
-    args << "--new-printer-from-device";
-    args << sender()->property(PRINTER_NAME).toString() % QLatin1Char('/') % sender()->property(DEVICE_ID).toString();
+    QStringList args{
+        QLatin1String("--new-printer-from-device"),
+                obj->property(PRINTER_NAME).toString() % QLatin1Char('/') % obj->property(DEVICE_ID).toString()
+    };
     KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
 }
 

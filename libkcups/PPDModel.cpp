@@ -38,7 +38,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
     for (const DriverMatch &driver : driverMatch) {
         // Find the matched PPD on the PPDs list
         for (const QVariantHash &ppd : ppds) {
-            if (ppd["ppd-name"].toString() == driver.ppd) {
+            if (ppd[QLatin1String("ppd-name")].toString() == driver.ppd) {
                 // Create the PPD
                 QStandardItem *ppdItem = createPPDItem(ppd, true);
 
@@ -56,7 +56,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
 
     for (const QVariantHash &ppd : ppds) {
         // Find or create the PPD parent (printer Make)
-        QStandardItem *makeItem = findCreateMake(ppd["ppd-make"].toString());
+        QStandardItem *makeItem = findCreateMake(ppd[QLatin1String("ppd-make")].toString());
 
         // Create the PPD
         QStandardItem *ppdItem = createPPDItem(ppd, false);
@@ -94,10 +94,10 @@ QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd, bool recommended
 {
     auto ret = new QStandardItem;
 
-    QString make = ppd["ppd-make"].toString();
-    QString makeAndModel = ppd["ppd-make-and-model"].toString();
-    QString naturalLanguage = ppd["ppd-natural-language"].toString();
-    QString ppdName = ppd["ppd-name"].toString();
+    QString make = ppd[QLatin1String("ppd-make")].toString();
+    QString makeAndModel = ppd[QLatin1String("ppd-make-and-model")].toString();
+    QString naturalLanguage = ppd[QLatin1String("ppd-natural-language")].toString();
+    QString ppdName = ppd[QLatin1String("ppd-name")].toString();
 
     // Set this data before we change the makeAndModel
     ret->setData(ppdName, PPDName);

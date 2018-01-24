@@ -122,18 +122,18 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     connect(ui->jobsView->header(), &QHeaderView::customContextMenuRequested, this, &PrintQueueUi::showHeaderContextMenu);
 
     QHeaderView *header = ui->jobsView->header();
-    header->setResizeMode(QHeaderView::Interactive);
+    header->setSectionResizeMode(QHeaderView::Interactive);
     header->setStretchLastSection(false);
-    header->setResizeMode(JobModel::ColStatus,        QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColName,          QHeaderView::Stretch);
-    header->setResizeMode(JobModel::ColUser,          QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColCreated,       QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColCompleted,     QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColPages,         QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColProcessed,     QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColSize,          QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
-    header->setResizeMode(JobModel::ColPrinter,       QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColStatus,        QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColName,          QHeaderView::Stretch);
+    header->setSectionResizeMode(JobModel::ColUser,          QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColCreated,       QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColCompleted,     QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColPages,         QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColProcessed,     QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColSize,          QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColPrinter,       QHeaderView::ResizeToContents);
 
     KConfigGroup printQueue(KSharedConfig::openConfig("print-manager"), "PrintQueue");
     if (printQueue.hasKey("ColumnState")) {

@@ -58,9 +58,4 @@ static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByte
     return ptr;
 }
 
-bool rawRequestGroupLessThan(const KCupsRawRequest &a, const KCupsRawRequest &b)
-{
-     return a.group < b.group;
-}
-
 #endif // KIPPREQUEST_P_H

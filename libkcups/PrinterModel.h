@@ -69,6 +69,8 @@ public:
     int count() const;
     bool serverUnavailable() const;
 
+    virtual QHash<int,QByteArray> roleNames() const override;
+
     Q_INVOKABLE void pausePrinter(const QString &printerName);
     Q_INVOKABLE void resumePrinter(const QString &printerName);
     Q_INVOKABLE void rejectJobs(const QString &printerName);
@@ -105,6 +107,7 @@ private slots:
 private:
     WId m_parentId;
     QStringList m_attributes;
+    QHash<int, QByteArray> m_roles;
     bool m_unavailable;
 
     int destRow(const QString &destName);

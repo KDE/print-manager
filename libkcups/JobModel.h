@@ -100,6 +100,7 @@ public:
                       int row,
                       int column,
                       const QModelIndex &parent) Q_DECL_OVERRIDE;
+    virtual QHash<int,QByteArray> roleNames() const override;
 
     Q_INVOKABLE void setWhichJobs(WhichJobs whichjobs);
     KCupsRequest* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
@@ -141,6 +142,7 @@ private:
     KCupsRequest *m_jobRequest;
     QString m_destName;
     QString m_processingJob;
+    QHash<int, QByteArray> m_roles;
     int m_whichjobs;
     WId m_parentId;
     QStringList m_jobAttributes;

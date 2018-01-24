@@ -221,7 +221,9 @@ void KIppRequestPrivate::addRequest(ipp_tag_t group, ipp_tag_t valueTag, const Q
 void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
 {
     // sort the values as CUPS requires it
-    qSort(rawRequests.begin(), rawRequests.end(), rawRequestGroupLessThan);
+    std::sort(rawRequests.begin(), rawRequests.end(), [] (const KCupsRawRequest &a, const KCupsRawRequest &b) {
+        return a.group < b.group;
+    });
 
     const QList<KCupsRawRequest> &requests = rawRequests;
     for (const KCupsRawRequest &request :requests) {

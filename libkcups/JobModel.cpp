@@ -71,22 +71,21 @@ JobModel::JobModel(QObject *parent) :
     m_jobAttributes << KCUPS_JOB_PRINTER_STATE_MESSAGE;
     m_jobAttributes << KCUPS_JOB_PRESERVED;
 
-    QHash<int, QByteArray> roles = roleNames();
-    roles[RoleJobId] = "jobId";
-    roles[RoleJobState] = "jobState";
-    roles[RoleJobName] = "jobName";
-    roles[RoleJobPages] = "jobPages";
-    roles[RoleJobSize] = "jobSize";
-    roles[RoleJobOwner] = "jobOwner";
-    roles[RoleJobCreatedAt] = "jobCreatedAt";
-    roles[RoleJobIconName] = "jobIconName";
-    roles[RoleJobCancelEnabled] = "jobCancelEnabled";
-    roles[RoleJobHoldEnabled] = "jobHoldEnabled";
-    roles[RoleJobReleaseEnabled] = "jobReleaseEnabled";
-    roles[RoleJobRestartEnabled] = "jobRestartEnabled";
-    roles[RoleJobPrinter] = "jobPrinter";
-    roles[RoleJobOriginatingHostName] = "jobFrom";
-    setRoleNames(roles);
+    m_roles = QStandardItemModel::roleNames();
+    m_roles[RoleJobId] = "jobId";
+    m_roles[RoleJobState] = "jobState";
+    m_roles[RoleJobName] = "jobName";
+    m_roles[RoleJobPages] = "jobPages";
+    m_roles[RoleJobSize] = "jobSize";
+    m_roles[RoleJobOwner] = "jobOwner";
+    m_roles[RoleJobCreatedAt] = "jobCreatedAt";
+    m_roles[RoleJobIconName] = "jobIconName";
+    m_roles[RoleJobCancelEnabled] = "jobCancelEnabled";
+    m_roles[RoleJobHoldEnabled] = "jobHoldEnabled";
+    m_roles[RoleJobReleaseEnabled] = "jobReleaseEnabled";
+    m_roles[RoleJobRestartEnabled] = "jobRestartEnabled";
+    m_roles[RoleJobPrinter] = "jobPrinter";
+    m_roles[RoleJobOriginatingHostName] = "jobFrom";
 
     // This is emitted when a job change it's state
     connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::insertUpdateJob);
@@ -512,6 +511,11 @@ bool JobModel::dropMimeData(const QMimeData *data,
         }
     }
     return ret;
+}
+
+QHash<int, QByteArray> JobModel::roleNames() const
+{
+    return m_roles;
 }
 
 KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)

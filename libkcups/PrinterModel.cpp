@@ -56,25 +56,24 @@ PrinterModel::PrinterModel(QObject *parent) :
     m_attributes << KCUPS_MARKER_NAMES;
     m_attributes << KCUPS_MARKER_TYPES;
 
-    QHash<int, QByteArray> roles = roleNames();
-    roles[DestStatus] = "stateMessage";
-    roles[DestName] = "printerName";
-    roles[DestState] = "printerState";
-    roles[DestIsDefault] = "isDefault";
-    roles[DestIsShared] = "isShared";
-    roles[DestIsAcceptingJobs] = "isAcceptingJobs";
-    roles[DestIsPaused] = "isPaused";
-    roles[DestIsClass] = "isClass";
-    roles[DestLocation] = "location";
-    roles[DestDescription] = "info";
-    roles[DestKind] = "kind";
-    roles[DestType] = "type";
-    roles[DestCommands] = "commands";
-    roles[DestMarkerChangeTime] = "markerChangeTime";
-    roles[DestMarkers] = "markers";
-    roles[DestIconName] = "iconName";
-    roles[DestRemote] = "remote";
-    setRoleNames(roles);
+    m_roles = QStandardItemModel::roleNames();
+    m_roles[DestStatus] = "stateMessage";
+    m_roles[DestName] = "printerName";
+    m_roles[DestState] = "printerState";
+    m_roles[DestIsDefault] = "isDefault";
+    m_roles[DestIsShared] = "isShared";
+    m_roles[DestIsAcceptingJobs] = "isAcceptingJobs";
+    m_roles[DestIsPaused] = "isPaused";
+    m_roles[DestIsClass] = "isClass";
+    m_roles[DestLocation] = "location";
+    m_roles[DestDescription] = "info";
+    m_roles[DestKind] = "kind";
+    m_roles[DestType] = "type";
+    m_roles[DestCommands] = "commands";
+    m_roles[DestMarkerChangeTime] = "markerChangeTime";
+    m_roles[DestMarkers] = "markers";
+    m_roles[DestIconName] = "iconName";
+    m_roles[DestRemote] = "remote";
 
     // This is emitted when a printer is added
     connect(KCupsConnection::global(), &KCupsConnection::printerAdded, this, &PrinterModel::insertUpdatePrinter);
@@ -187,6 +186,11 @@ int PrinterModel::count() const
 bool PrinterModel::serverUnavailable() const
 {
     return m_unavailable;
+}
+
+QHash<int, QByteArray> PrinterModel::roleNames() const
+{
+    return m_roles;
 }
 
 void PrinterModel::pausePrinter(const QString &printerName)

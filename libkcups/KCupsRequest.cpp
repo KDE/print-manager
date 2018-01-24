@@ -111,14 +111,14 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
             if (includeSchemes.isEmpty()) {
                 include = CUPS_INCLUDE_ALL;
             } else {
-                include = includeSchemes.join(QLatin1String(",")).toUtf8();
+                include = qUtf8Printable(includeSchemes.join(QLatin1String(",")));
             }
 
             const char *exclude;
             if (excludeSchemes.isEmpty()) {
                 exclude = CUPS_EXCLUDE_NONE;
             } else {
-                exclude = excludeSchemes.join(QLatin1String(",")).toUtf8();
+                exclude = qUtf8Printable(excludeSchemes.join(QLatin1String(",")));
             }
 
             // Scan for devices for "timeout" seconds
@@ -278,7 +278,7 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
     if (m_connection->readyToStart()) {
         do {
             const char  *filename;
-            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, printerName.toUtf8());
+            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName));
             qCDebug(LIBKCUPS) << filename;
             m_ppdFile = filename;
             qCDebug(LIBKCUPS) << m_ppdFile;
@@ -300,8 +300,8 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
 
             QVariantHash::const_iterator i = args.constBegin();
             while (i != args.constEnd()) {
-                num_settings = cupsAddOption(i.key().toUtf8(),
-                                             i.value().toString().toUtf8(),
+                num_settings = cupsAddOption(qUtf8Printable(i.key()),
+                                             qUtf8Printable(i.value().toString()),
                                              num_settings,
                                              &settings);
                 ++i;
@@ -416,7 +416,7 @@ void KCupsRequest::printTestPage(const QString &printerName, bool isClass)
         resource = QLatin1String("/printers/") % printerName;
     }
 
-    KIppRequest request(IPP_PRINT_JOB, resource.toUtf8(), filename);
+    KIppRequest request(IPP_PRINT_JOB, qUtf8Printable(resource), filename);
     request.addPrinterUri(printerName);
     request.addString(IPP_TAG_OPERATION, IPP_TAG_NAME, KCUPS_JOB_NAME, i18n("Test Page"));
 
@@ -444,8 +444,8 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
             hold_option.value = const_cast<char*>("no-hold");
 
             if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT,
-                                        printerName.toUtf8(),
-                                        title.toUtf8(),
+                                        qUtf8Printable(printerName),
+                                        qUtf8Printable(title),
                                         1,
                                         &hold_option)) < 1) {
                 qWarning() << "Unable to send command to printer driver!";
@@ -456,7 +456,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
             }
 
             status = cupsStartDocument(CUPS_HTTP_DEFAULT,
-                                       printerName.toUtf8(),
+                                       qUtf8Printable(printerName),
                                        job_id,
                                        NULL,
                                        CUPS_FORMAT_COMMAND,
@@ -467,14 +467,14 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
             }
 
             if (status == HTTP_CONTINUE) {
-                cupsFinishDocument(CUPS_HTTP_DEFAULT, printerName.toUtf8());
+                cupsFinishDocument(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName));
             }
 
             setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
             if (httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError() >= IPP_REDIRECTION_OTHER_SITE) {
                 qWarning() << "Unable to send command to printer driver!";
 
-                cupsCancelJob(printerName.toUtf8(), job_id);
+                cupsCancelJob(qUtf8Printable(printerName), job_id);
                 setFinished();
                 return; // Return to avoid a new try
             }

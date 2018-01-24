@@ -294,7 +294,7 @@ void KCupsConnection::run()
             m_serverUrl.setPort(631);
         }
 
-        cupsSetServer(m_serverUrl.authority().toUtf8());
+        cupsSetServer(qUtf8Printable(m_serverUrl.authority()));
     }
 
     // This is dead cool, cups will call the thread_password_cb()
@@ -333,7 +333,7 @@ ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t g
         response = NULL;
 
         response = request.sendIppRequest();
-    } while (retry(request.resource().toUtf8(), request.operation()));
+    } while (retry(qUtf8Printable(request.resource()), request.operation()));
 
     if (response && groupTag != IPP_TAG_ZERO) {
         ret = parseIPPVars(response, groupTag);
@@ -579,7 +579,7 @@ void KCupsConnection::cancelDBusSubscription()
     do {
         // Do the request
         ippDelete(request.sendIppRequest());
-    } while (retry(request.resource().toUtf8(), request.operation()));
+    } while (retry(qUtf8Printable(request.resource()), request.operation()));
 
     // Reset the subscription id
     m_subscriptionId = -1;
@@ -887,8 +887,8 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     // The password dialog has just returned check the result
     // method that returns QDialog enums
     if (passwordDialog->accepted()) {
-        cupsSetUser(passwordDialog->username().toUtf8());
-        return passwordDialog->password().toUtf8();
+        cupsSetUser(qUtf8Printable(passwordDialog->username()));
+        return qUtf8Printable(passwordDialog->password());
     } else {
         // the dialog was canceled
         password_retries = -1;

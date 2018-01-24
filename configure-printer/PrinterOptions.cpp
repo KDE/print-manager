@@ -79,7 +79,7 @@ void PrinterOptions::reloadPPD()
 {
     //     The caller "owns" the file that is created and must unlink the returned filename.
     if (!m_filename.isEmpty()) {
-        unlink(m_filename.toUtf8());
+        unlink(qUtf8Printable(m_filename));
     }
 
     // remove all the options
@@ -109,7 +109,7 @@ void PrinterOptions::reloadPPD()
         return;
     }
     m_filename = request->printerPPD();
-    m_ppd = ppdOpenFile(m_filename.toUtf8());
+    m_ppd = ppdOpenFile(qUtf8Printable(m_filename));
     request->deleteLater();
     if (m_ppd == NULL) {
         qCWarning(PM_CONFIGURE_PRINTER) << "Could not open ppd file:" << m_filename << request->errorMsg();
@@ -393,7 +393,7 @@ PrinterOptions::~PrinterOptions()
     }
 
     if (!m_filename.isEmpty()) {
-        unlink(m_filename.toUtf8());
+        unlink(qUtf8Printable(m_filename));
     }
 
     delete ui;
@@ -405,7 +405,7 @@ PrinterOptions::getVariable(const char *name)    const    /* I - Name of variabl
     QString keyword = m_codec->toUnicode(name);
     if (m_customValues.contains(keyword)) {
         QString value = m_customValues[keyword]->property("currentChoice").toString();
-        return m_codec->fromUnicode(value);
+        return m_codec->fromUnicode(value).constData();
     } else {
         return NULL;
     }
@@ -707,7 +707,7 @@ void PrinterOptions::save()
     // copy cups-1.4.2/cgi-bin line 3779
     if (!m_filename.isEmpty()) {
         out = cupsTempFile2(tempfile, sizeof(tempfile));
-        in  = cupsFileOpen(m_filename.toUtf8(), "r");
+        in  = cupsFileOpen(qUtf8Printable(m_filename), "r");
 
         if (!in || !out)
         {

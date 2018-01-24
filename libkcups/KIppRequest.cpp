@@ -82,9 +82,9 @@ ipp_t *KIppRequest::sendIppRequest() const
     d->addRawRequestsToIpp(request);
 
     if (d->filename.isNull()) {
-        return cupsDoRequest(CUPS_HTTP_DEFAULT, request, d->resource.toUtf8());
+        return cupsDoRequest(CUPS_HTTP_DEFAULT, request, qUtf8Printable(d->resource));
     } else {
-        return cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, d->resource.toUtf8(), d->filename.toUtf8());
+        return cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, qUtf8Printable(d->resource), qUtf8Printable(d->filename));
     }
 }
 
@@ -192,7 +192,7 @@ QString KIppRequest::assembleUrif(const QString &name, bool isClass)
     }
 
     httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
-                     ippPort(), destination.toUtf8());
+                     ippPort(), destination.toUtf8().constData());
     return uri;
 }
 
@@ -231,7 +231,7 @@ void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
         case QVariant::Bool:
             ippAddBoolean(ipp,
                           request.group,
-                          request.name.toUtf8(),
+                          request.name.toUtf8().constData(),
                           request.value.toBool());
             break;
         case QVariant::Int:
@@ -239,16 +239,16 @@ void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
             ippAddInteger(ipp,
                           request.group,
                           request.valueTag,
-                          request.name.toUtf8(),
+                          request.name.toUtf8().constData(),
                           request.value.toInt());
             break;
         case QVariant::String:
             ippAddString(ipp,
                          request.group,
                          request.valueTag,
-                         request.name.toUtf8(),
+                         request.name.toUtf8().constData(),
                          "utf-8",
-                         request.value.toString().toUtf8());
+                         request.value.toString().toUtf8().constData());
             break;
         case QVariant::StringList:
         {
@@ -259,7 +259,7 @@ void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
             ippAddStrings(ipp,
                           request.group,
                           request.valueTag,
-                          request.name.toUtf8(),
+                          request.name.toUtf8().constData(),
                           list.size(),
                           "utf-8",
                           values);

@@ -81,6 +81,7 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     ui->stackedWidget->addWidget(m_chooseLabel);
 
     // Hide the message widget
+    ui->messageWidget->setWordWrap(true);
     ui->messageWidget->setMessageType(KMessageWidget::Error);
     ui->messageWidget->hide();
 

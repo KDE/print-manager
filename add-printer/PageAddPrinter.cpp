@@ -66,6 +66,7 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
     ui->nameLE->setValidator(validator);
 
     // Hide the message widget
+    ui->messageWidget->setWordWrap(true);
     ui->messageWidget->setMessageType(KMessageWidget::Error);
     ui->messageWidget->hide();
 }

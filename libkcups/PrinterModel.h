@@ -106,9 +106,8 @@ private slots:
 
 private:
     WId m_parentId;
-    QStringList m_attributes;
     QHash<int, QByteArray> m_roles;
-    bool m_unavailable;
+    bool m_unavailable = true;
 
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);

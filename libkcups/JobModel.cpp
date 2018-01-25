@@ -47,26 +47,6 @@ JobModel::JobModel(QObject *parent) : QStandardItemModel(parent)
     setHorizontalHeaderItem(ColPrinter,       new QStandardItem(i18n("Printer")));
     setHorizontalHeaderItem(ColFromHost,      new QStandardItem(i18n("From Hostname")));
 
-    // Setup the attributes we want from jobs
-    m_jobAttributes = QStringList{
-        KCUPS_JOB_ID,
-        KCUPS_JOB_NAME,
-        KCUPS_JOB_K_OCTETS,
-        KCUPS_JOB_K_OCTETS_PROCESSED,
-        KCUPS_JOB_STATE,
-        KCUPS_TIME_AT_COMPLETED,
-        KCUPS_TIME_AT_CREATION,
-        KCUPS_TIME_AT_PROCESSING,
-        KCUPS_JOB_PRINTER_URI,
-        KCUPS_JOB_ORIGINATING_USER_NAME,
-        KCUPS_JOB_ORIGINATING_HOST_NAME,
-        KCUPS_JOB_MEDIA_PROGRESS,
-        KCUPS_JOB_MEDIA_SHEETS,
-        KCUPS_JOB_MEDIA_SHEETS_COMPLETED,
-        KCUPS_JOB_PRINTER_STATE_MESSAGE,
-        KCUPS_JOB_PRESERVED
-    };
-
     m_roles = QStandardItemModel::roleNames();
     m_roles[RoleJobId] = "jobId";
     m_roles[RoleJobState] = "jobState";
@@ -169,7 +149,25 @@ void JobModel::getJobs()
     m_jobRequest = new KCupsRequest;
     connect(m_jobRequest, &KCupsRequest::finished, this, &JobModel::getJobFinished);
 
-    m_jobRequest->getJobs(m_destName, false, m_whichjobs, m_jobAttributes);
+    const static QStringList attrs({
+                                       KCUPS_JOB_ID,
+                                       KCUPS_JOB_NAME,
+                                       KCUPS_JOB_K_OCTETS,
+                                       KCUPS_JOB_K_OCTETS_PROCESSED,
+                                       KCUPS_JOB_STATE,
+                                       KCUPS_TIME_AT_COMPLETED,
+                                       KCUPS_TIME_AT_CREATION,
+                                       KCUPS_TIME_AT_PROCESSING,
+                                       KCUPS_JOB_PRINTER_URI,
+                                       KCUPS_JOB_ORIGINATING_USER_NAME,
+                                       KCUPS_JOB_ORIGINATING_HOST_NAME,
+                                       KCUPS_JOB_MEDIA_PROGRESS,
+                                       KCUPS_JOB_MEDIA_SHEETS,
+                                       KCUPS_JOB_MEDIA_SHEETS_COMPLETED,
+                                       KCUPS_JOB_PRINTER_STATE_MESSAGE,
+                                       KCUPS_JOB_PRESERVED
+                                   });
+    m_jobRequest->getJobs(m_destName, false, m_whichjobs, attrs);
 
     m_processingJob.clear();
 }

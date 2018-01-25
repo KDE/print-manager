@@ -145,7 +145,6 @@ private:
     QHash<int, QByteArray> m_roles;
     int m_whichjobs = CUPS_WHICHJOBS_ACTIVE;
     WId m_parentId = 0;
-    QStringList m_jobAttributes;
 };
 
 #endif // JOB_MODEL_H

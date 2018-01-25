@@ -36,28 +36,27 @@
 
 #include <cups/cups.h>
 
-PrinterModel::PrinterModel(QObject *parent) :
-    QStandardItemModel(parent),
-    m_unavailable(true)
-{
-    m_attributes = QStringList{
-        KCUPS_PRINTER_NAME,
-        KCUPS_PRINTER_STATE,
-        KCUPS_PRINTER_STATE_MESSAGE,
-        KCUPS_PRINTER_IS_SHARED,
-        KCUPS_PRINTER_IS_ACCEPTING_JOBS,
-        KCUPS_PRINTER_TYPE,
-        KCUPS_PRINTER_LOCATION,
-        KCUPS_PRINTER_INFO,
-        KCUPS_PRINTER_MAKE_AND_MODEL,
-        KCUPS_PRINTER_COMMANDS,
-        KCUPS_MARKER_CHANGE_TIME,
-        KCUPS_MARKER_COLORS,
-        KCUPS_MARKER_LEVELS,
-        KCUPS_MARKER_NAMES,
-        KCUPS_MARKER_TYPES
-    };
+const static QStringList attrs(QStringList{
+                                   KCUPS_PRINTER_NAME,
+                                   KCUPS_PRINTER_STATE,
+                                   KCUPS_PRINTER_STATE_MESSAGE,
+                                   KCUPS_PRINTER_IS_SHARED,
+                                   KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                                   KCUPS_PRINTER_TYPE,
+                                   KCUPS_PRINTER_LOCATION,
+                                   KCUPS_PRINTER_INFO,
+                                   KCUPS_PRINTER_MAKE_AND_MODEL,
+                                   KCUPS_PRINTER_COMMANDS,
+                                   KCUPS_MARKER_CHANGE_TIME,
+                                   KCUPS_MARKER_COLORS,
+                                   KCUPS_MARKER_LEVELS,
+                                   KCUPS_MARKER_NAMES,
+                                   KCUPS_MARKER_TYPES
+                               });
 
+PrinterModel::PrinterModel(QObject *parent) :
+    QStandardItemModel(parent)
+{
     m_roles = QStandardItemModel::roleNames();
     m_roles[DestStatus] = "stateMessage";
     m_roles[DestName] = "printerName";
@@ -241,7 +240,7 @@ void PrinterModel::update()
     // Get destinations with these attributes
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterModel::getDestsFinished);
-    request->getPrinters(m_attributes);
+    request->getPrinters(attrs);
 }
 
 void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
@@ -421,7 +420,7 @@ void PrinterModel::insertUpdatePrinterName(const QString &printerName)
     connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
     // TODO how do we know if it's a class if this DBus signal
     // does not tell us
-    request->getPrinterAttributes(printerName, false, m_attributes);
+    request->getPrinterAttributes(printerName, false, attrs);
 }
 
 void PrinterModel::insertUpdatePrinter(const QString &text,

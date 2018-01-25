@@ -1,10 +1,10 @@
-project(print-manager)
+cmake_minimum_required(VERSION 3.1)
+cmake_policy(SET CMP0048 NEW)
+
+project(print-manager VERSION 0.3.0)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.3.0")
-
-# Print-Manager version
-set(PM_VERSION "0.3.0" CACHE STRING "Print Manager version")
 
 ################# set KDE specific information #################
 

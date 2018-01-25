@@ -23,6 +23,10 @@
 
 #include <KCupsRequest.h>
 
+#include <QLoggingCategory>
+
+Q_DECLARE_LOGGING_CATEGORY(PM_ADD_PRINTER)
+
 ChooseUri::ChooseUri(QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::ChooseUri)
@@ -65,17 +69,20 @@ QVariantHash ChooseUri::values() const
 {
     QVariantHash ret = m_args;
 
-    ret[KCUPS_DEVICE_URI] = parsedURL(ui->addressLE->text()).url();
+    ret[KCUPS_DEVICE_URI] = parsedURL(ui->addressLE->text()).toString();
 
     return ret;
 }
 
 bool ChooseUri::isValid() const
 {
-    QVariantHash args = values();
-    QUrl url(args[KCUPS_DEVICE_URI].toString());
-    //qDebug() << url << url.isValid() << url.isEmpty() << url.scheme().isEmpty() << url.host();
-    return url.isValid() && !url.isEmpty() && !url.scheme().isEmpty() && !url.host().isEmpty();
+    const QString urlDefault = m_args[KCUPS_DEVICE_URI].toString();
+    const QVariantHash args = values();
+    const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
+    QUrl url(deviceUri);
+//    qCDebug(PM_ADD_PRINTER) << url << url.isValid() << url.isEmpty() << url.scheme().isEmpty() << url.host() << url.toString();
+    return (url.isValid() && !url.isEmpty() && !url.scheme().isEmpty() && !url.host().isEmpty())
+            || urlDefault == deviceUri;
 }
 
 bool ChooseUri::canProceed() const
@@ -98,9 +105,9 @@ void ChooseUri::on_addressLE_textChanged(const QString &text)
 
     if (url.isValid() &&
             (url.scheme().isEmpty() ||
-             url.scheme() == QStringLiteral("http") ||
-             url.scheme() == QStringLiteral("https") ||
-             url.scheme() == QStringLiteral("ipp"))) {
+             url.scheme() == QLatin1String("http") ||
+             url.scheme() == QLatin1String("https") ||
+             url.scheme() == QLatin1String("ipp"))) {
         // TODO maybe cups library can connect to more protocols
         ui->searchTB->setEnabled(true);
     } else {
@@ -158,8 +165,9 @@ void ChooseUri::getPrintersFinished(KCupsRequest *request)
 
 QUrl ChooseUri::parsedURL(const QString &text) const
 {
+    const QString urlDefault = m_args[KCUPS_DEVICE_URI].toString();
     QUrl url(QUrl::fromUserInput(text));
-    if (url.host().isEmpty() && !text.contains(QLatin1String("://"))) {
+    if (url.host().isEmpty() && !text.contains(QLatin1String("://")) && urlDefault != text) {
         url = QUrl();
         // URI might be scsi, network on anything that didn't match before
         if (m_args[KCUPS_DEVICE_URI].toString() != QLatin1String("other")) {

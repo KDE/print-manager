@@ -117,25 +117,25 @@ void ChooseUri::on_addressLE_textChanged(const QString &text)
 
 void ChooseUri::findPrinters()
 {
-    QUrl url = parsedURL(ui->addressLE->text());
+    const QUrl url = parsedURL(ui->addressLE->text());
 
     auto conn = new KCupsConnection(url, this);
     auto request = new KCupsRequest(conn);
     connect(request, &KCupsRequest::finished, this, &ChooseUri::getPrintersFinished);
 
-    QStringList attr;
-    attr << KCUPS_PRINTER_NAME;
-    attr << KCUPS_PRINTER_STATE;
-    attr << KCUPS_PRINTER_IS_SHARED;
-    attr << KCUPS_PRINTER_IS_ACCEPTING_JOBS;
-    attr << KCUPS_PRINTER_TYPE;
-    attr << KCUPS_PRINTER_LOCATION;
-    attr << KCUPS_PRINTER_INFO;
-    attr << KCUPS_PRINTER_MAKE_AND_MODEL;
     request->setProperty("URI", url);
 
     emit startWorking();
-    request->getPrinters(attr);
+    request->getPrinters({
+                             KCUPS_PRINTER_NAME,
+                             KCUPS_PRINTER_STATE,
+                             KCUPS_PRINTER_IS_SHARED,
+                             KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                             KCUPS_PRINTER_TYPE,
+                             KCUPS_PRINTER_LOCATION,
+                             KCUPS_PRINTER_INFO,
+                             KCUPS_PRINTER_MAKE_AND_MODEL
+                         });
 }
 
 void ChooseUri::getPrintersFinished(KCupsRequest *request)

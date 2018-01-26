@@ -35,6 +35,7 @@
 #include <QProcess>
 #include <QDebug>
 #include <QPointer>
+#include <QShortcut>
 
 #include <KMessageBox>
 #include <KIconLoader>
@@ -173,6 +174,10 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     // Restore the dialog size
     KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "PrintQueue");
     KWindowConfig::restoreWindowSize(windowHandle(), configGroup);
+
+    auto delJobShortcut = new QShortcut(QKeySequence::Delete, ui->jobsView);
+    delJobShortcut->setContext(Qt::WidgetShortcut);
+    connect(delJobShortcut, &QShortcut::activated, this, &PrintQueueUi::cancelJob);
 }
 
 PrintQueueUi::~PrintQueueUi()

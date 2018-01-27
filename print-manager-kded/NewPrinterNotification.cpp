@@ -29,11 +29,9 @@
 
 #include <KCupsRequest.h>
 
-#include <QIcon>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusServiceWatcher>
-#include <QtDBus/QDBusReply>
+#include <QDBusMessage>
+#include <QDBusConnection>
+#include <QDBusServiceWatcher>
 #include <QDBusPendingReply>
 #include <QDBusPendingCallWatcher>
 
@@ -145,40 +143,33 @@ bool NewPrinterNotification::registerService()
 
 void NewPrinterNotification::configurePrinter()
 {
-    QProcess::startDetached(QLatin1String("configure-printer"), { sender()->property(PRINTER_NAME).toString() });
-}
-
-void NewPrinterNotification::searchDrivers()
-{
+    const QString printerName = sender()->property(PRINTER_NAME).toString();
+    qCDebug(PM_KDED) << "configure printer tool" << printerName;
+    QProcess::startDetached(QLatin1String("configure-printer"), { printerName });
 }
 
 void NewPrinterNotification::printTestPage()
 {
-    qCDebug(PM_KDED);
-    QPointer<KCupsRequest> request = new KCupsRequest;
-    request->printTestPage(sender()->property(PRINTER_NAME).toString(), false);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
+    const QString printerName = sender()->property(PRINTER_NAME).toString();
+    qCDebug(PM_KDED) << "printing test page for" << printerName;
+
+    auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::finished, request, &KCupsRequest::deleteLater);
+    request->printTestPage(printerName, false);
 }
 
 void NewPrinterNotification::findDriver()
 {
-    qCDebug(PM_KDED);
+    const QString printerName = sender()->property(PRINTER_NAME).toString();
+    qCDebug(PM_KDED) << "find driver for" << printerName;
+
     // This function will show the PPD browser dialog
     // to choose a better PPD to the already added printer
     KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), {
                                      QLatin1String("--change-ppd"),
-                                     sender()->property(PRINTER_NAME).toString()
+                                     printerName
                                  });
 }
-
-void NewPrinterNotification::installDriver()
-{
-    qCDebug(PM_KDED);
-}
-
 
 void NewPrinterNotification::setupPrinterNotification(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg)
 {

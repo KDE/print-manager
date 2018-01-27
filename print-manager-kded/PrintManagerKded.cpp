@@ -38,5 +38,4 @@ PrintManagerKded::~PrintManagerKded()
 {
 }
 
-
 #include "moc_PrintManagerKded.cpp"

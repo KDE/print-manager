@@ -78,23 +78,23 @@ bool PrinterSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex 
     return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 
-bool PrinterSortFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
-{
-    bool leftIsRemote = sourceModel()->data(left, PrinterModel::DestRemote).toBool();
-    bool rightIsRemote = sourceModel()->data(right, PrinterModel::DestRemote).toBool();
-    bool leftDefault = sourceModel()->data(left, PrinterModel::DestIsDefault).toBool();
-    bool rightDefault = sourceModel()->data(right, PrinterModel::DestIsDefault).toBool();
+//bool PrinterSortFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+//{
+//    bool leftIsRemote = sourceModel()->data(left, PrinterModel::DestRemote).toBool();
+//    bool rightIsRemote = sourceModel()->data(right, PrinterModel::DestRemote).toBool();
+//    bool leftDefault = sourceModel()->data(left, PrinterModel::DestIsDefault).toBool();
+//    bool rightDefault = sourceModel()->data(right, PrinterModel::DestIsDefault).toBool();
 
-    if (leftDefault != rightDefault) {
-        return leftDefault;
-    }
+//    if (leftDefault != rightDefault) {
+//        return leftDefault;
+//    }
 
-    if (leftIsRemote != rightIsRemote) {
-        // If the right item is a remote the left should move right
-        return rightIsRemote;
-    }
+//    if (leftIsRemote != rightIsRemote) {
+//        // If the right item is a remote the left should move right
+//        return rightIsRemote;
+//    }
 
-    return QSortFilterProxyModel::lessThan(left, right);
-}
+//    return QSortFilterProxyModel::lessThan(left, right);
+//}
 
 #include "moc_PrinterSortFilterModel.cpp"

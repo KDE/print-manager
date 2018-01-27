@@ -145,7 +145,7 @@ bool NewPrinterNotification::registerService()
 
 void NewPrinterNotification::configurePrinter()
 {
-    QProcess::startDetached(QLatin1String("configure-printer"), { QLatin1String(PRINTER_NAME) });
+    QProcess::startDetached(QLatin1String("configure-printer"), { sender()->property(PRINTER_NAME).toString() });
 }
 
 void NewPrinterNotification::searchDrivers()

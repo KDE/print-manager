@@ -128,12 +128,9 @@ void NewPrinterNotification::NewPrinter(int status,
             title = i18n("The New Printer is Missing Drivers");
         }
 
-        QStringList attr;
-        attr << KCUPS_PRINTER_MAKE_AND_MODEL;
-
         // Get the new printer attributes
         QPointer<KCupsRequest> request = new KCupsRequest;
-        request->getPrinterAttributes(name, false, attr);
+        request->getPrinterAttributes(name, false, { KCUPS_PRINTER_MAKE_AND_MODEL });
         request->waitTillFinished();
         if (!request) {
             return;
@@ -250,10 +247,10 @@ void NewPrinterNotification::findDriver()
     qCDebug(PM_KDED);
     // This function will show the PPD browser dialog
     // to choose a better PPD to the already added printer
-    QStringList args;
-    args << QLatin1String("--change-ppd");
-    args << sender()->property(PRINTER_NAME).toString();
-    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), {
+                                     QLatin1String("--change-ppd"),
+                                     sender()->property(PRINTER_NAME).toString()
+                                 });
 }
 
 void NewPrinterNotification::installDriver()
@@ -268,11 +265,10 @@ void NewPrinterNotification::setupPrinter()
     // This function will show the PPD browser dialog
     // to choose a better PPD, queue name, location
     // in this case the printer was not added
-    QStringList args{
-        QLatin1String("--new-printer-from-device"),
-                obj->property(PRINTER_NAME).toString() % QLatin1Char('/') % obj->property(DEVICE_ID).toString()
-    };
-    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), args);
+    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), {
+                                     QLatin1String("--new-printer-from-device"),
+                                     obj->property(PRINTER_NAME).toString() + QLatin1Char('/') + obj->property(DEVICE_ID).toString()
+                                 });
 }
 
 QStringList NewPrinterNotification::getMissingExecutables(const QString &ppdFileName) const

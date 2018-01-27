@@ -46,4 +46,4 @@ target_link_libraries(kde-add-printer
 )
 
 install(TARGETS kde-add-printer DESTINATION ${BIN_INSTALL_DIR})
-install(PROGRAMS org.kde.AddPrinter.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(PROGRAMS org.kde.kde-add-printer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

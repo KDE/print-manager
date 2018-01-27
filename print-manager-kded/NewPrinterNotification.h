@@ -24,12 +24,13 @@
 #include <QtDBus/QDBusContext>
 #include <QThread>
 
+class KNotification;
 class NewPrinterNotification : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "com.redhat.NewPrinterNotification")
 public:
-    NewPrinterNotification();
+    NewPrinterNotification(QObject *parent);
     ~NewPrinterNotification();
 
 public slots:
@@ -37,17 +38,18 @@ public slots:
     void NewPrinter(int status, const QString &name, const QString &make, const QString &model, const QString &des, const QString &cmd);
 
 private slots:
-    void init();
     bool registerService();
     void configurePrinter();
     void searchDrivers();
     void printTestPage();
     void findDriver();
     void installDriver();
-    void setupPrinter();
 
 private:
-    QStringList getMissingExecutables(const QString &ppdFileName) const;
+    void setupPrinterNotification(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg);
+    void getMissingExecutables(KNotification *notify, int status, const QString &name, const QString &ppdFileName);
+    void checkPrinterCurrentDriver(KNotification *notify, const QString &name);
+    void printerReadyNotification(KNotification *notify, const QString &name);
     QThread *m_thread;
     QString m_destName;
 };

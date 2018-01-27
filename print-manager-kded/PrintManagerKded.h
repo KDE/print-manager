@@ -26,18 +26,12 @@
 
 #include <QVariantList>
 
-class NewPrinterNotification;
 class PrintManagerKded : public KDEDModule
 {
     Q_OBJECT
 public:
     PrintManagerKded(QObject *parent, const QVariantList &args);
     ~PrintManagerKded();
-    
-private:
-    void loadThread();
-
-    NewPrinterNotification *m_newPrinterNotification = nullptr;
 };
 
 K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)

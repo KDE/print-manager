@@ -20,4 +20,4 @@
 
 #include "Debug.h"
 
-Q_LOGGING_CATEGORY(PM_KDED, "pm.kded")
+Q_LOGGING_CATEGORY(PM_KDED, "print-manager.kded")

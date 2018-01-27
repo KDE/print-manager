@@ -29,19 +29,14 @@ PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
 {
     Q_UNUSED(args)
 
-    QTimer::singleShot(0, this, &PrintManagerKded::loadThread);
+    QTimer::singleShot(0, this, [this] () {
+        new NewPrinterNotification(this);
+    });
 }
 
 PrintManagerKded::~PrintManagerKded()
 {
-    if (m_newPrinterNotification) {
-        m_newPrinterNotification->deleteLater();
-    }
 }
 
-void PrintManagerKded::loadThread()
-{
-    m_newPrinterNotification = new NewPrinterNotification;
-}
 
 #include "moc_PrintManagerKded.cpp"

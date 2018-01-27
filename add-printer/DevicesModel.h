@@ -33,7 +33,6 @@ class KCupsRequest;
 class DevicesModel : public QStandardItemModel
 {
     Q_OBJECT
-    Q_ENUMS(Role)
 public:
     enum Role {
         DeviceClass = Qt::UserRole + 2,
@@ -44,13 +43,15 @@ public:
         DeviceUris,
         DeviceLocation
     };
+    Q_ENUM(Role)
 
     enum Kind {
+        Other,
         Local,
         Networked,
-        OtherNetworked,
-        Other
+        OtherNetworked
     };
+    Q_ENUM(Kind)
 
     explicit DevicesModel(QObject *parent = 0);
 
@@ -96,7 +97,7 @@ private slots:
     void groupedDevicesFallback();
 
 private:
-    QStandardItem *findCreateCategory(const QString &category);
+    QStandardItem *findCreateCategory(const QString &category, Kind kind);
 
     KCupsRequest *m_request;
     MapSMapSS m_mappedDevices;

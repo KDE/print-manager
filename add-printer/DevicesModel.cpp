@@ -289,18 +289,19 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
     QStandardItem *catItem;
     switch (kind) {
     case Networked:
-        catItem = findCreateCategory(i18nc("@item", "Discovered Network Printers"));
+        catItem = findCreateCategory(i18nc("@item", "Discovered Network Printers"), kind);
         catItem->appendRow(stdItem);
         break;
     case OtherNetworked:
-        catItem = findCreateCategory(i18nc("@item", "Other Network Printers"));
+        catItem = findCreateCategory(i18nc("@item", "Other Network Printers"), kind);
         catItem->appendRow(stdItem);
         break;
     case Local:
-        catItem = findCreateCategory(i18nc("@item", "Local Printers"));
+        catItem = findCreateCategory(i18nc("@item", "Local Printers"), kind);
         catItem->appendRow(stdItem);
         break;
     default:
+        stdItem->setData(kind, Qt::UserRole);
         appendRow(stdItem);
     }
 
@@ -357,12 +358,21 @@ void DevicesModel::groupedDevicesFallback()
     }
 }
 
-QStandardItem* DevicesModel::findCreateCategory(const QString &category)
+QStandardItem* DevicesModel::findCreateCategory(const QString &category, Kind kind)
 {
     for (int i = 0; i < rowCount(); ++i) {
         QStandardItem *catItem = item(i);
-        if (catItem->text() == category) {
+        if (catItem->data(Qt::UserRole).toInt() == kind) {
             return catItem;
+        }
+    }
+
+    int pos = 0;
+    for (int i = 0; i < rowCount(); ++i, ++pos) {
+        QStandardItem *catItem = item(i);
+        if (catItem->data(Qt::UserRole).toInt() > kind) {
+            pos = i;
+            break;
         }
     }
 
@@ -370,8 +380,9 @@ QStandardItem* DevicesModel::findCreateCategory(const QString &category)
     QFont font = catItem->font();
     font.setBold(true);
     catItem->setFont(font);
+    catItem->setData(kind, Qt::UserRole);
     catItem->setFlags(Qt::ItemIsEnabled);
-    appendRow(catItem);
+    insertRow(pos, catItem);
 
     // Emit the parent so the view expand the item
     emit parentAdded(indexFromItem(catItem));

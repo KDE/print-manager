@@ -22,16 +22,12 @@
 
 #include "NewPrinterNotification.h"
 
-#include <QTimer>
-
 PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
     KDEDModule(parent)
 {
     Q_UNUSED(args)
 
-    QTimer::singleShot(0, this, [this] () {
-        new NewPrinterNotification(this);
-    });
+    new NewPrinterNotification(this);
 }
 
 PrintManagerKded::~PrintManagerKded()

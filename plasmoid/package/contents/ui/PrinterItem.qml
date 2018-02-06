@@ -30,7 +30,7 @@ Item {
     id: printerItem
 
     property bool isPaused: false
-    property bool expanded: ListView.view.currentExpanded == index
+    readonly property bool expanded: ListView.view.currentExpanded == index
 
     height: container.childrenRect.height + Math.round(units.gridUnit / 2)
     width: parent.width - Math.round(units.gridUnit / 2)
@@ -61,8 +61,11 @@ Item {
             }
         }
         onClicked: {
-            printerItem.ListView.view.currentExpanded = expanded ? -1 : index;
+            // the order is important, don't change since the last
+            // line resets the value of expanded and makes the code hard to read
+            // if it's not the last one
             jobsFilterModel.filteredPrinters = expanded ? "" : printerName
+            printerItem.ListView.view.currentExpanded = expanded ? -1 : index;
         }
 
         KQuickControlsAddons.QIconItem {

@@ -127,7 +127,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     addPage(page);
 
     // connect this after ALL pages were added, otherwise the slot will be called
-    connect(this, &ConfigureDialog::currentPageChanged, this, &ConfigureDialog::currentPageChanged);
+    connect(this, &ConfigureDialog::currentPageChanged, this, &ConfigureDialog::currentPageChangedSlot);
 
     KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), "ConfigureDialog");
     KWindowConfig::restoreWindowSize(windowHandle(), group);
@@ -148,11 +148,12 @@ ConfigureDialog::~ConfigureDialog()
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before)
+void ConfigureDialog::currentPageChangedSlot(KPageWidgetItem *current, KPageWidgetItem *before)
 {
     auto currentPage = qobject_cast<PrinterPage*>(current->widget());
     auto beforePage = qobject_cast<PrinterPage*>(before->widget());
 
+    qCDebug(PM_CONFIGURE_PRINTER) << "currentPageChanged" << beforePage << currentPage;
     // Check if the before page has changes
     savePage(beforePage);
     if (beforePage) {
@@ -166,6 +167,7 @@ void ConfigureDialog::currentPageChanged(KPageWidgetItem *current, KPageWidgetIt
 
 void ConfigureDialog::enableButtonApply(bool enable)
 {
+    qDebug() << Q_FUNC_INFO << enable << sender();
     button(QDialogButtonBox::QDialogButtonBox::Apply)->setEnabled(enable);
 }
 

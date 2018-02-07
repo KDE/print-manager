@@ -36,13 +36,12 @@ public:
     explicit ConfigureDialog(const QString &destName, bool isClass, QWidget *parent = 0);
     ~ConfigureDialog();
 
-private slots:
-    void currentPageChanged(KPageWidgetItem *current, KPageWidgetItem *before);
+private:
+    void currentPageChangedSlot(KPageWidgetItem *current, KPageWidgetItem *before);
     void enableButtonApply(bool enable);
     void slotButtonClicked(QAbstractButton * pressedButton);
     void ppdChanged();
 
-private:
     ModifyPrinter *modifyPrinter;
     PrinterOptions *printerOptions;
     void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;

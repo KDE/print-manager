@@ -61,7 +61,7 @@ int main(int argc, char **argv)
         app.configurePrinter(printerName);
     } else {
         qCWarning(PM_CONFIGURE_PRINTER) << "No printer was specified";
-        return 1;
+        parser.showHelp(1);
     }
 
     return app.exec();

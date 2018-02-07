@@ -72,10 +72,10 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 
         bool found = false;
         KCupsPrinter printer;
-        KCupsPrinters printers = request->printers();
-        for (int i = 0; i < printers.size(); i++) {
-            if (printers.at(i).name() == destName) {
-                printer = printers.at(i);
+        const KCupsPrinters printers = request->printers();
+        for (const KCupsPrinter &p : printers) {
+            if (p.name() == destName) {
+                printer = p;
                 found = true;
                 break;
             }

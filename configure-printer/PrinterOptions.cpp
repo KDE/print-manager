@@ -249,8 +249,8 @@ QWidget* PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
     for (i = 0, choice = option->choices;
          i < option->num_choices;
          ++i, ++choice) {
-        QString choiceName = m_codec->toUnicode(choice->choice);
-        QString cText = m_codec->toUnicode(choice->text);
+        const QString choiceName = m_codec->toUnicode(choice->choice);
+        const QString cText = m_codec->toUnicode(choice->text);
 
         auto button = new QRadioButton(cText, widget);
         button->setChecked(defChoice == choiceName);
@@ -307,13 +307,13 @@ QWidget* PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, 
 
     int i;
     ppd_choice_t *choice;
-    QString oDefChoice = m_codec->toUnicode(option->defchoice);
+    const QString oDefChoice = m_codec->toUnicode(option->defchoice);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
          ++i, ++choice) {
-        QString cName = m_codec->toUnicode(choice->choice);
-        QString cText = m_codec->toUnicode(choice->text);
+        const QString cName = m_codec->toUnicode(choice->choice);
+        const QString cText = m_codec->toUnicode(choice->text);
 
         auto item = new QStandardItem(cText);
         item->setData(cName);
@@ -333,14 +333,14 @@ QWidget* PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 {
     int i;
     ppd_choice_t *choice;
-    QString defChoice = m_codec->toUnicode(option->defchoice);
+    const QString defChoice = m_codec->toUnicode(option->defchoice);
     auto comboBox = new QComboBox(parent);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices;
          i < option->num_choices;
          ++i, ++choice) {
-        QString cName = m_codec->toUnicode(choice->choice);
-        QString cText = m_codec->toUnicode(choice->text);
+        const QString cName = m_codec->toUnicode(choice->choice);
+        const QString cText = m_codec->toUnicode(choice->text);
 
         comboBox->addItem(cText, cName);
     }
@@ -400,9 +400,10 @@ PrinterOptions::~PrinterOptions()
 const char *                            /* O - Value of variable */
 PrinterOptions::getVariable(const char *name)    const    /* I - Name of variable */
 {
-    QString keyword = m_codec->toUnicode(name);
-    if (m_customValues.contains(keyword)) {
-        QString value = m_customValues[keyword]->property("currentChoice").toString();
+    const QString keyword = m_codec->toUnicode(name);
+    auto it = m_customValues.constFind(keyword);
+    if (it != m_customValues.constEnd()) {
+        const QString value = it.value()->property("currentChoice").toString();
         return m_codec->fromUnicode(value).constData();
     } else {
         return NULL;

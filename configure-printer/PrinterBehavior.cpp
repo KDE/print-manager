@@ -60,7 +60,7 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
     for (const QString &value : errorPolicySupported) {
         ui->errorPolicyCB->addItem(errorPolicyString(value), value);
     }
-    QStringList errorPolicy = printer.errorPolicy();
+    const QStringList errorPolicy = printer.errorPolicy();
     if (!errorPolicy.isEmpty()) {
         defaultChoice = ui->errorPolicyCB->findData(errorPolicy.first());
         ui->errorPolicyCB->setCurrentIndex(defaultChoice);
@@ -72,7 +72,7 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
     for (const QString &value : opPolicySupported) {
         ui->operationPolicyCB->addItem(operationPolicyString(value), value);
     }
-    QStringList operationPolicy = printer.opPolicy();
+    const QStringList operationPolicy = printer.opPolicy();
     if (!errorPolicy.isEmpty()) {
         defaultChoice = ui->operationPolicyCB->findData(operationPolicy.first());
         ui->operationPolicyCB->setCurrentIndex(defaultChoice);
@@ -86,7 +86,7 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
         ui->startingBannerCB->addItem(jobSheetsString(value), value);
         ui->endingBannerCB->addItem(jobSheetsString(value), value);
     }
-    QStringList bannerPolicy = printer.jobSheetsDefault();
+    const QStringList bannerPolicy = printer.jobSheetsDefault();
     if (bannerPolicy.size() == 2) {
         defaultChoice = ui->startingBannerCB->findData(bannerPolicy.at(0));
         ui->startingBannerCB->setCurrentIndex(defaultChoice);
@@ -147,11 +147,10 @@ void PrinterBehavior::userListChanged()
        ui-> usersELB->setEnabled(true);
     }
 
-    QStringList currentList, defaultList;
-    currentList = ui->usersELB->items();
+    QStringList currentList = ui->usersELB->items();
     // sort the list so we can be sure it's different
     currentList.sort();
-    defaultList = ui->usersELB->property("defaultList").value<QStringList>();
+    const QStringList defaultList = ui->usersELB->property("defaultList").toStringList();
 
     bool isDifferent = currentList != defaultList;
     if (isDifferent == false && currentList.isEmpty() == false) {
@@ -175,23 +174,26 @@ void PrinterBehavior::currentIndexChangedCB(int index)
 {
     auto comboBox = qobject_cast<QComboBox*>(sender());
     bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
+    qCDebug(PM_CONFIGURE_PRINTER) << Q_FUNC_INFO << "isDifferent" << isDifferent << this;
 
     if (isDifferent != comboBox->property("different").toBool()) {
         // it's different from the last time so add or remove changes
         isDifferent ? m_changes++ : m_changes--;
 
         comboBox->setProperty("different", isDifferent);
+        qCDebug(PM_CONFIGURE_PRINTER) << Q_FUNC_INFO << m_changes << this;
+
         emit changed(m_changes);
     }
 
-    QString attribute = comboBox->property("AttributeName").toString();
+    const QString attribute = comboBox->property("AttributeName").toString();
     QVariant value;
     // job-sheets-default has always two values
     if (attribute == QLatin1String("job-sheets-default")) {
-        QStringList values;
-        values << ui->startingBannerCB->itemData(ui->startingBannerCB->currentIndex()).toString();
-        values << ui->endingBannerCB->itemData(ui->endingBannerCB->currentIndex()).toString();
-        value = values;
+        value = QStringList({
+                               ui->startingBannerCB->itemData(ui->startingBannerCB->currentIndex()).toString(),
+                                ui->endingBannerCB->itemData(ui->endingBannerCB->currentIndex()).toString()
+                            });
     } else {
         value = comboBox->itemData(index).toString();
     }

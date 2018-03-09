@@ -31,7 +31,6 @@ Item {
 
     Plasmoid.toolTipMainText: i18n("Printers")
     Plasmoid.icon: "printer"
-    Plasmoid.compactRepresentation: CompactRepresentation { }
     Plasmoid.fullRepresentation: PopupDialog {
         id: dialogItem
 

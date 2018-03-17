@@ -25,6 +25,7 @@
 
 #include <QPainter>
 #include <QPointer>
+#include <QRegExpValidator>
 #include <QDebug>
 
 #include <KIconLoader>

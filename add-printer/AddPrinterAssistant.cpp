@@ -96,7 +96,7 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
         currentPage = m_choosePPDPage;
     }
 
-    m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe you printer"));
+    m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe your printer"));
     addPage(m_addPrinterPage);
 
     // Set this later so that all m_*Pages are created
@@ -117,7 +117,7 @@ void AddPrinterAssistant::initAddClass()
     addPage(m_chooseClassPage);
     currentPage = m_chooseClassPage;
 
-    m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe you printer"));
+    m_addPrinterPage = new KPageWidgetItem(new PageAddPrinter, i18nc("@title:window", "Please describe your printer"));
     addPage(m_addPrinterPage);
 
     // Set this later so that all m_*Pages are created

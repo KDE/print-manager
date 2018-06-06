@@ -187,19 +187,20 @@ void JobModel::getJobFinished(KCupsRequest *request)
                 }
 
                 // try to find the job row
-                int job_row = jobRow(jobs.at(i).id());
+                const int job_row = jobRow(jobs.at(i).id());
                 if (job_row == -1) {
                     // not found, insert new one
                     insertJob(i, jobs.at(i));
-                } else if (job_row == i) {
-                    // update the job
-                    updateJob(i, jobs.at(i));
                 } else {
-                    // found at wrong position
-                    // take it and insert on the right position
-                    QList<QStandardItem *> row = takeRow(job_row);
-                    insertRow(i, row);
-                    updateJob(i, jobs.at(i));
+                    // update the job
+                    updateJob(job_row, jobs.at(i));
+
+                    if (job_row != i) {
+                        // found at wrong position
+                        // take it and insert on the right position
+                        const QList<QStandardItem *> row = takeRow(job_row);
+                        insertRow(i, row);
+                    }
                 }
             }
 
@@ -325,105 +326,112 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
 {
     // Job Status & internal dataipp_jstate_e
     ipp_jstate_e jobState = job.state();
-    if (item(pos, ColStatus)->data(RoleJobState).toInt() != jobState) {
-        item(pos, ColStatus)->setText(jobStatus(jobState));
-        item(pos, ColStatus)->setData(static_cast<int>(jobState), RoleJobState);
+    QStandardItem *colStatus = item(pos, ColStatus);
+    if (colStatus->data(RoleJobState).toInt() != jobState) {
+        colStatus->setText(jobStatus(jobState));
+        colStatus->setData(static_cast<int>(jobState), RoleJobState);
 
-        item(pos, ColStatus)->setData(KCupsJob::iconName(jobState), RoleJobIconName);
-        item(pos, ColStatus)->setData(KCupsJob::cancelEnabled(jobState), RoleJobCancelEnabled);
-        item(pos, ColStatus)->setData(KCupsJob::holdEnabled(jobState), RoleJobHoldEnabled);
-        item(pos, ColStatus)->setData(KCupsJob::releaseEnabled(jobState), RoleJobReleaseEnabled);
-        item(pos, ColStatus)->setData(job.reprintEnabled(), RoleJobRestartEnabled);
+        colStatus->setData(KCupsJob::iconName(jobState), RoleJobIconName);
+        colStatus->setData(KCupsJob::cancelEnabled(jobState), RoleJobCancelEnabled);
+        colStatus->setData(KCupsJob::holdEnabled(jobState), RoleJobHoldEnabled);
+        colStatus->setData(KCupsJob::releaseEnabled(jobState), RoleJobReleaseEnabled);
+        colStatus->setData(job.reprintEnabled(), RoleJobRestartEnabled);
     }
 
-    QString pages = QString::number(job.pages());
-    if (job.processedPages()) {
-        pages = QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.processedPages());
-    }
-    if (item(pos, ColStatus)->data(RoleJobPages) != pages) {
-        item(pos, ColStatus)->setData(pages, RoleJobPages);
+    const QString pages = job.processedPages() ? QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.processedPages())
+                                               : QString::number(job.pages());
+    if (colStatus->data(RoleJobPages) != pages) {
+        colStatus->setData(pages, RoleJobPages);
     }
 
     // internal dest name & column
-    QString destName = job.printer();
-    if (item(pos, ColStatus)->data(RoleJobPrinter).toString() != destName) {
-        item(pos, ColStatus)->setData(destName, RoleJobPrinter);
+    const QString destName = job.printer();
+    if (colStatus->data(RoleJobPrinter).toString() != destName) {
+        colStatus->setData(destName, RoleJobPrinter);
         // Column job printer Name
         item(pos, ColPrinter)->setText(destName);
     }
 
     // job name
-    QString jobName = job.name();
+    const QString jobName = job.name();
     if (item(pos, ColName)->text() != jobName) {
-        item(pos, ColStatus)->setData(jobName, RoleJobName);
+        colStatus->setData(jobName, RoleJobName);
         item(pos, ColName)->setText(jobName);
     }
 
     // owner of the job
     // try to get the full user name
     QString userString = job.originatingUserName();
-    KUser user(userString);
+    const KUser user(userString);
     if (user.isValid() && !user.property(KUser::FullName).toString().isEmpty()) {
         userString = user.property(KUser::FullName).toString();
     }
 
     // user name
-    if (item(pos, ColUser)->text() != userString) {
-        item(pos, ColUser)->setText(userString);
+    QStandardItem *colUser = item(pos, ColUser);
+    if (colUser->text() != userString) {
+        colUser->setText(userString);
     }
 
     // when it was created
-    QDateTime timeAtCreation = job.createdAt();
-    if (item(pos, ColCreated)->data(Qt::DisplayRole).toDateTime() != timeAtCreation) {
-        item(pos, ColCreated)->setData(timeAtCreation, Qt::DisplayRole);
+    const QDateTime timeAtCreation = job.createdAt();
+    QStandardItem *colCreated = item(pos, ColCreated);
+    if (colCreated->data(Qt::DisplayRole).toDateTime() != timeAtCreation) {
+        colCreated->setData(timeAtCreation, Qt::DisplayRole);
     }
 
     // when it was completed
-    QDateTime completedAt = job.completedAt();
-    if (item(pos, ColCompleted)->data(Qt::DisplayRole).toDateTime() != completedAt) {
+    const QDateTime completedAt = job.completedAt();
+    QStandardItem *colCompleted = item(pos, ColCompleted);
+    if (colCompleted->data(Qt::DisplayRole).toDateTime() != completedAt) {
         if (!completedAt.isNull()) {
-            item(pos, ColCompleted)->setData(completedAt, Qt::DisplayRole);
+            colCompleted->setData(completedAt, Qt::DisplayRole);
         } else {
             // Clean the data might happen when the job is restarted
-            item(pos, ColCompleted)->setText(QString());
+            colCompleted->setText(QString());
         }
     }
 
     // job pages
-    int completedPages = job.processedPages();
-    if (item(pos, ColPages)->data(Qt::UserRole) != completedPages) {
-        item(pos, ColPages)->setData(completedPages, Qt::UserRole);
-        item(pos, ColPages)->setText(QString::number(completedPages));
+    const int completedPages = job.processedPages();
+    QStandardItem *colPages = item(pos, ColPages);
+    if (colPages->data(Qt::UserRole) != completedPages) {
+        colPages->setData(completedPages, Qt::UserRole);
+        colPages->setText(QString::number(completedPages));
     }
 
     // when it was precessed
-    QDateTime timeAtProcessing = job.processedAt();
-    if (item(pos, ColProcessed)->data(Qt::DisplayRole).toDateTime() != timeAtProcessing) {
+    const QDateTime timeAtProcessing = job.processedAt();
+    QStandardItem *colProcessed = item(pos, ColProcessed);
+    if (colProcessed->data(Qt::DisplayRole).toDateTime() != timeAtProcessing) {
         if (!timeAtProcessing.isNull()) {
-            item(pos, ColProcessed)->setData(timeAtProcessing, Qt::DisplayRole);
+            colProcessed->setData(timeAtProcessing, Qt::DisplayRole);
         } else {
             // Clean the data might happen when the job is restarted
-            item(pos, ColCompleted)->setText(QString());
+            colCompleted->setText(QString());
         }
     }
 
     int jobSize = job.size();
-    if (item(pos, ColSize)->data(Qt::UserRole) != jobSize) {
-        item(pos, ColSize)->setData(jobSize, Qt::UserRole);
-        item(pos, ColSize)->setText(KFormat().formatByteSize(jobSize));
+    QStandardItem *colSize = item(pos, ColSize);
+    if (colSize->data(Qt::UserRole) != jobSize) {
+        colSize->setData(jobSize, Qt::UserRole);
+        colSize->setText(KFormat().formatByteSize(jobSize));
     }
 
     // job printer state message
-    QString stateMessage = job.stateMsg();
-    if (item(pos, ColStatusMessage)->text() != stateMessage) {
-        item(pos, ColStatusMessage)->setText(stateMessage);
+    const QString stateMessage = job.stateMsg();
+    QStandardItem *colStatusMessage = item(pos, ColStatusMessage);
+    if (colStatusMessage->text() != stateMessage) {
+        colStatusMessage->setText(stateMessage);
     }
 
     // owner of the job
     // try to get the full user name
-    QString originatingHostName = job.originatingHostName();
-    if (item(pos, ColFromHost)->text() != originatingHostName) {
-        item(pos, ColFromHost)->setText(originatingHostName);
+    const QString originatingHostName = job.originatingHostName();
+    QStandardItem *colFromHost = item(pos, ColFromHost);
+    if (colFromHost->text() != originatingHostName) {
+        colFromHost->setText(originatingHostName);
     }
 }
 

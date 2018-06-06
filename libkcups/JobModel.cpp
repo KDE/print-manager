@@ -182,18 +182,19 @@ void JobModel::getJobFinished(KCupsRequest *request)
             const KCupsJobs jobs = request->jobs();
             qCDebug(LIBKCUPS) << jobs.size();
             for (int i = 0; i < jobs.size(); ++i) {
-                if (jobs.at(i).state() == IPP_JOB_PROCESSING) {
-                    m_processingJob = jobs.at(i).name();
+                const KCupsJob job = jobs.at(i);
+                if (job.state() == IPP_JOB_PROCESSING) {
+                    m_processingJob = job.name();
                 }
 
                 // try to find the job row
-                const int job_row = jobRow(jobs.at(i).id());
+                const int job_row = jobRow(job.id());
                 if (job_row == -1) {
                     // not found, insert new one
-                    insertJob(i, jobs.at(i));
+                    insertJob(i, job);
                 } else {
                     // update the job
-                    updateJob(job_row, jobs.at(i));
+                    updateJob(job_row, job);
 
                     if (job_row != i) {
                         // found at wrong position

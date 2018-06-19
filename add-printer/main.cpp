@@ -50,8 +50,6 @@ int main(int argc, char **argv)
 
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
-    parser.addVersionOption();
-    parser.addHelpOption();
 
     QCommandLineOption parentWindowOpt({QLatin1String("w"), QLatin1String("parent-window")}, i18n("Parent Window ID"), QLatin1String("wid"));
     parser.addOption(parentWindowOpt);

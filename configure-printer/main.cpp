@@ -49,8 +49,6 @@ int main(int argc, char **argv)
 
     QCommandLineParser parser;
     aboutData.setupCommandLine(&parser);
-    parser.addVersionOption();
-    parser.addHelpOption();
     parser.addPositionalArgument(QLatin1String("printer"), i18n("Printer to be configured"));
     parser.process(app);
     aboutData.processCommandLine(&parser);

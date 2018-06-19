@@ -49,8 +49,6 @@ int main(int argc, char **argv)
 
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
-    parser.addVersionOption();
-    parser.addHelpOption();
     parser.addPositionalArgument(QLatin1String("queue"), i18n("Show printer queue(s)"));
     parser.process(app);
     about.processCommandLine(&parser);

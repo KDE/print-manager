@@ -91,15 +91,15 @@ public:
 
     QString processingJob() const;
 
-    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
-    QStringList mimeTypes() const Q_DECL_OVERRIDE;
-    Qt::DropActions supportedDropActions() const Q_DECL_OVERRIDE;
-    QMimeData* mimeData(const QModelIndexList &indexes) const Q_DECL_OVERRIDE;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    QStringList mimeTypes() const override;
+    Qt::DropActions supportedDropActions() const override;
+    QMimeData* mimeData(const QModelIndexList &indexes) const override;
     bool dropMimeData(const QMimeData *data,
                       Qt::DropAction action,
                       int row,
                       int column,
-                      const QModelIndex &parent) Q_DECL_OVERRIDE;
+                      const QModelIndex &parent) override;
     virtual QHash<int,QByteArray> roleNames() const override;
 
     Q_INVOKABLE void setWhichJobs(WhichJobs whichjobs);

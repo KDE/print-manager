@@ -31,14 +31,14 @@ class PageAddPrinter : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit PageAddPrinter(QWidget *parent = 0);
+    explicit PageAddPrinter(QWidget *parent = nullptr);
     ~PageAddPrinter();
 
-    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
-    QVariantHash values() const Q_DECL_OVERRIDE;
-    bool canProceed() const Q_DECL_OVERRIDE;
+    void setValues(const QVariantHash &args) override;
+    QVariantHash values() const override;
+    bool canProceed() const override;
 
-    bool finishClicked() Q_DECL_OVERRIDE;
+    bool finishClicked() override;
 
 public slots:
     void load();

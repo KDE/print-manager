@@ -30,15 +30,15 @@ class AddPrinterAssistant : public KAssistantDialog
     Q_OBJECT
 public:
     AddPrinterAssistant();
-    virtual ~AddPrinterAssistant();
+    ~AddPrinterAssistant() override;
 
     void initAddPrinter(const QString &printer = QString(), const QString &deviceId = QString());
     void initAddClass();
     void initChangePPD(const QString &printer, const QString &deviceUri, const QString &makeAndModel);
 
 public slots:
-    void back() Q_DECL_OVERRIDE;
-    void next() Q_DECL_OVERRIDE;
+    void back() override;
+    void next() override;
     void enableNextButton(bool enable);
     void enableFinishButton(bool enable);
     void slotFinishButtonClicked();
@@ -46,7 +46,7 @@ public slots:
 private:
     void next(KPageWidgetItem *currentPage);
     void setCurrentPage(KPageWidgetItem *page);
-    void showEvent(QShowEvent * event) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent * event) override;
 
     KPageWidgetItem *m_devicesPage = nullptr;
     KPageWidgetItem *m_chooseClassPage = nullptr;

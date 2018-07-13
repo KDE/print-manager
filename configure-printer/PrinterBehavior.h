@@ -34,15 +34,15 @@ class PrinterBehavior : public PrinterPage
 {
     Q_OBJECT
 public:
-    explicit PrinterBehavior(const QString &destName, bool isClass, QWidget *parent = 0);
+    explicit PrinterBehavior(const QString &destName, bool isClass, QWidget *parent = nullptr);
     ~PrinterBehavior();
 
     void setValues(const KCupsPrinter &printer);
-    void setRemote(bool remote) Q_DECL_OVERRIDE;
-    bool hasChanges() Q_DECL_OVERRIDE;
+    void setRemote(bool remote) override;
+    bool hasChanges() override;
 
-    QStringList neededValues() const Q_DECL_OVERRIDE;
-    void save() Q_DECL_OVERRIDE;
+    QStringList neededValues() const override;
+    void save() override;
 
 private slots:
     void currentIndexChangedCB(int index);

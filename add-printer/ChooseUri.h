@@ -35,13 +35,13 @@ class ChooseUri : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit ChooseUri(QWidget *parent = 0);
+    explicit ChooseUri(QWidget *parent = nullptr);
     ~ChooseUri();
 
-    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
-    QVariantHash values() const Q_DECL_OVERRIDE;
-    bool isValid() const Q_DECL_OVERRIDE;
-    bool canProceed() const Q_DECL_OVERRIDE;
+    void setValues(const QVariantHash &args) override;
+    QVariantHash values() const override;
+    bool isValid() const override;
+    bool canProceed() const override;
 
 public slots:
     void load();

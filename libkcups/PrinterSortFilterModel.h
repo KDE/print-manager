@@ -42,8 +42,8 @@ signals:
     void filteredPrintersChanged();
 
 private:
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const Q_DECL_OVERRIDE;
-//    bool lessThan(const QModelIndex &left, const QModelIndex &right) const Q_DECL_OVERRIDE;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+//    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
     QStringList m_filteredPrinters;
 };

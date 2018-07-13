@@ -31,12 +31,12 @@ class PageChoosePrinters : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit PageChoosePrinters(const QVariantHash &args, QWidget *parent = 0);
+    explicit PageChoosePrinters(const QVariantHash &args, QWidget *parent = nullptr);
     ~PageChoosePrinters();
 
-    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
-    QVariantHash values() const Q_DECL_OVERRIDE;
-    bool canProceed() const Q_DECL_OVERRIDE;
+    void setValues(const QVariantHash &args) override;
+    QVariantHash values() const override;
+    bool canProceed() const override;
 
 private:
     Ui::PageChoosePrinters *ui;

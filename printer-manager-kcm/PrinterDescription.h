@@ -36,7 +36,7 @@ class PrinterDescription : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PrinterDescription(QWidget *parent = 0);
+    explicit PrinterDescription(QWidget *parent = nullptr);
     ~PrinterDescription();
 
     void setPrinterIcon(const QIcon &icon);

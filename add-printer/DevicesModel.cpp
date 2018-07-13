@@ -32,7 +32,7 @@
 #include <QDebug>
 
 DevicesModel::DevicesModel(QObject *parent) : QStandardItemModel(parent)
-  , m_request(0)
+  , m_request(nullptr)
   , m_rx(QLatin1String("[a-z]+://.*"))
   , m_blacklistedURIs({
                       QLatin1String("hp"),

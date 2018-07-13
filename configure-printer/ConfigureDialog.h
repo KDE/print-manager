@@ -33,7 +33,7 @@ class Q_DECL_EXPORT ConfigureDialog : public KPageDialog
 {
     Q_OBJECT
 public:
-    explicit ConfigureDialog(const QString &destName, bool isClass, QWidget *parent = 0);
+    explicit ConfigureDialog(const QString &destName, bool isClass, QWidget *parent = nullptr);
     ~ConfigureDialog();
 
 private:
@@ -44,7 +44,7 @@ private:
 
     ModifyPrinter *modifyPrinter;
     PrinterOptions *printerOptions;
-    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
+    void closeEvent(QCloseEvent *event) override;
     // return false if the dialog was canceled
     bool savePage(PrinterPage *page);
 };

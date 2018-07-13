@@ -34,7 +34,7 @@ class Q_DECL_EXPORT ClassListWidget : public QListView
     Q_PROPERTY(QString selectedPrinters READ selectedPrinters WRITE setSelectedPrinters USER true)
     Q_PROPERTY(bool showClasses READ showClasses WRITE setShowClasses)
 public:
-    explicit ClassListWidget(QWidget *parent = 0);
+    explicit ClassListWidget(QWidget *parent = nullptr);
     ~ClassListWidget();
 
     bool hasChanges();

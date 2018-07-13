@@ -29,7 +29,7 @@ class SelectMakeModelDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit SelectMakeModelDialog(const QString & make, const QString & makeModel, QWidget *parent = 0);
+    explicit SelectMakeModelDialog(const QString & make, const QString & makeModel, QWidget *parent = nullptr);
     ~SelectMakeModelDialog();
 
     SelectMakeModel * mainWidget() const;

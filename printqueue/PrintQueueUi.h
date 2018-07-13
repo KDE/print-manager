@@ -37,7 +37,7 @@ class PrintQueueUi : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PrintQueueUi(const KCupsPrinter &printer, QWidget *parent = 0);
+    explicit PrintQueueUi(const KCupsPrinter &printer, QWidget *parent = nullptr);
     ~PrintQueueUi();
 
 signals:
@@ -70,7 +70,7 @@ private slots:
     void getAttributesFinished(KCupsRequest *request);
 
 private:
-    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
+    void closeEvent(QCloseEvent *event) override;
     void setupButtons();
     void setState(int state, const QString &message);
     void modifyJob(int action, const QString &destName = QString());

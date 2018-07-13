@@ -30,13 +30,13 @@ class ChooseSocket : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit ChooseSocket(QWidget *parent = 0);
+    explicit ChooseSocket(QWidget *parent = nullptr);
     ~ChooseSocket();
 
-    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
-    QVariantHash values() const Q_DECL_OVERRIDE;
-    bool isValid() const Q_DECL_OVERRIDE;
-    bool canProceed() const Q_DECL_OVERRIDE;
+    void setValues(const QVariantHash &args) override;
+    QVariantHash values() const override;
+    bool isValid() const override;
+    bool canProceed() const override;
 
 private slots:
     void on_addressLE_textChanged(const QString &text);

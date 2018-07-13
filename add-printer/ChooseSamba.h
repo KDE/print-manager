@@ -30,13 +30,13 @@ class ChooseSamba : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit ChooseSamba(QWidget *parent = 0);
+    explicit ChooseSamba(QWidget *parent = nullptr);
     ~ChooseSamba();
 
-    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
-    QVariantHash values() const Q_DECL_OVERRIDE;
-    bool isValid() const Q_DECL_OVERRIDE;
-    bool canProceed() const Q_DECL_OVERRIDE;
+    void setValues(const QVariantHash &args) override;
+    QVariantHash values() const override;
+    bool isValid() const override;
+    bool canProceed() const override;
 
 public slots:
     void load();

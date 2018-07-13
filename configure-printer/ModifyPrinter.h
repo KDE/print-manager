@@ -43,19 +43,19 @@ public:
         PPDList,
         PPDName = Qt::UserRole + 1
     } Role;
-    explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = 0);
+    explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = nullptr);
     ~ModifyPrinter();
 
-    bool hasChanges() Q_DECL_OVERRIDE;
-    QVariantHash modifiedValues() const Q_DECL_OVERRIDE;
-    QStringList neededValues() const Q_DECL_OVERRIDE;
-    void setRemote(bool remote) Q_DECL_OVERRIDE;
+    bool hasChanges() override;
+    QVariantHash modifiedValues() const override;
+    QStringList neededValues() const override;
+    void setRemote(bool remote) override;
 
     void setValues(const KCupsPrinter &printer);
     void setCurrentMake(const QString &make);
     void setCurrentMakeAndModel(const QString &makeAndModel);
 
-    void save() Q_DECL_OVERRIDE;
+    void save() override;
 
 signals:
     void ppdChanged();

@@ -36,13 +36,13 @@ class PageChoosePPD : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = 0);
+    explicit PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = nullptr);
     ~PageChoosePPD();
 
-    bool canProceed() const Q_DECL_OVERRIDE;
-    void setValues(const QVariantHash &args) Q_DECL_OVERRIDE;
-    QVariantHash values() const Q_DECL_OVERRIDE;
-    bool isValid() const Q_DECL_OVERRIDE;
+    bool canProceed() const override;
+    void setValues(const QVariantHash &args) override;
+    QVariantHash values() const override;
+    bool isValid() const override;
 
 private slots:
     void checkSelected();

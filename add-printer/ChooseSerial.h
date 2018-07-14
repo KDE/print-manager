@@ -34,7 +34,7 @@ class ChooseSerial : public GenericPage
     Q_OBJECT
 public:
     explicit ChooseSerial(QWidget *parent = nullptr);
-    ~ChooseSerial();
+    ~ChooseSerial() override;
 
     void setValues(const QVariantHash &args) override;
     QVariantHash values() const override;

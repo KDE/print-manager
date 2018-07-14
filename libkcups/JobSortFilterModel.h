@@ -31,7 +31,7 @@ class Q_DECL_EXPORT JobSortFilterModel : public QSortFilterProxyModel
     Q_PROPERTY(int activeCount READ activeCount NOTIFY activeCountChanged)
     Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
-    explicit JobSortFilterModel(QObject *parent = 0);
+    explicit JobSortFilterModel(QObject *parent = nullptr);
 
     void setModel(QAbstractItemModel *model);
     void setFilteredPrinters(const QString &printers);

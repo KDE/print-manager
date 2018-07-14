@@ -35,7 +35,7 @@ class PrinterBehavior : public PrinterPage
     Q_OBJECT
 public:
     explicit PrinterBehavior(const QString &destName, bool isClass, QWidget *parent = nullptr);
-    ~PrinterBehavior();
+    ~PrinterBehavior() override;
 
     void setValues(const KCupsPrinter &printer);
     void setRemote(bool remote) override;

@@ -34,7 +34,7 @@ class Q_DECL_EXPORT ConfigureDialog : public KPageDialog
     Q_OBJECT
 public:
     explicit ConfigureDialog(const QString &destName, bool isClass, QWidget *parent = nullptr);
-    ~ConfigureDialog();
+    ~ConfigureDialog() override;
 
 private:
     void currentPageChangedSlot(KPageWidgetItem *current, KPageWidgetItem *before);

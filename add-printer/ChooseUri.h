@@ -36,7 +36,7 @@ class ChooseUri : public GenericPage
     Q_OBJECT
 public:
     explicit ChooseUri(QWidget *parent = nullptr);
-    ~ChooseUri();
+    ~ChooseUri() override;
 
     void setValues(const QVariantHash &args) override;
     QVariantHash values() const override;

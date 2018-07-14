@@ -37,7 +37,7 @@ class PageChoosePPD : public GenericPage
     Q_OBJECT
 public:
     explicit PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = nullptr);
-    ~PageChoosePPD();
+    ~PageChoosePPD() override;
 
     bool canProceed() const override;
     void setValues(const QVariantHash &args) override;

@@ -27,7 +27,7 @@ class Q_DECL_EXPORT ProcessRunner : public QObject
 {
     Q_OBJECT
 public:
-    explicit ProcessRunner(QObject *parent = 0);
+    explicit ProcessRunner(QObject *parent = nullptr);
 
 public Q_SLOTS:
     void configurePrinter(const QString &printerName);

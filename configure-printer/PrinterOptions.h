@@ -37,7 +37,7 @@ class PrinterOptions : public PrinterPage
     Q_OBJECT
 public:
     explicit PrinterOptions(const QString &destName, bool isClass, bool isRemote, QWidget *parent = nullptr);
-    ~PrinterOptions();
+    ~PrinterOptions() override;
 
     bool hasChanges() override;
 

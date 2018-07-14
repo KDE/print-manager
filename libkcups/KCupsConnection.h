@@ -144,9 +144,9 @@ public:
      * If you don't have any special reason for creating a connection
      * on your own consider calling global()
      */
-    explicit KCupsConnection(QObject *parent = 0);
-    explicit KCupsConnection(const QUrl &server, QObject *parent = 0);
-    ~KCupsConnection();
+    explicit KCupsConnection(QObject *parent = nullptr);
+    explicit KCupsConnection(const QUrl &server, QObject *parent = nullptr);
+    ~KCupsConnection() override;
 
     void setPasswordMainWindow(WId mainwindow);
 

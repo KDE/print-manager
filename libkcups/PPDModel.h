@@ -40,7 +40,7 @@ public:
         PPDMakeAndModel
     } Role;
 
-    explicit PPDModel(QObject *parent = 0);
+    explicit PPDModel(QObject *parent = nullptr);
     void setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &driverMatch = DriverMatchList());
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;

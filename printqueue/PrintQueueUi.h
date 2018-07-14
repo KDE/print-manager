@@ -38,7 +38,7 @@ class PrintQueueUi : public QDialog
     Q_OBJECT
 public:
     explicit PrintQueueUi(const KCupsPrinter &printer, QWidget *parent = nullptr);
-    ~PrintQueueUi();
+    ~PrintQueueUi() override;
 
 signals:
     void finished();

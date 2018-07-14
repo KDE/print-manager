@@ -29,8 +29,8 @@ class ConfigurePrinterInterface : public QObject, protected QDBusContext
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.ConfigurePrinter")
 public:
-    explicit ConfigurePrinterInterface(QObject *parent = 0);
-    ~ConfigurePrinterInterface();
+    explicit ConfigurePrinterInterface(QObject *parent = nullptr);
+    ~ConfigurePrinterInterface() override;
 
 signals:
     void quit();

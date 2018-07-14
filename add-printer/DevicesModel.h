@@ -53,7 +53,7 @@ public:
     };
     Q_ENUM(Kind)
 
-    explicit DevicesModel(QObject *parent = 0);
+    explicit DevicesModel(QObject *parent = nullptr);
 
 signals:
     void loaded();

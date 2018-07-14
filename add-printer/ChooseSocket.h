@@ -31,7 +31,7 @@ class ChooseSocket : public GenericPage
     Q_OBJECT
 public:
     explicit ChooseSocket(QWidget *parent = nullptr);
-    ~ChooseSocket();
+    ~ChooseSocket() override;
 
     void setValues(const QVariantHash &args) override;
     QVariantHash values() const override;

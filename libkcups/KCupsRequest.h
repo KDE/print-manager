@@ -43,7 +43,7 @@ public:
      * You must delete the object manually after finished
      * using deleteLater().
      */
-    explicit KCupsRequest(KCupsConnection *connection = 0);
+    explicit KCupsRequest(KCupsConnection *connection = nullptr);
 
     /**
      * This method creates an event loop

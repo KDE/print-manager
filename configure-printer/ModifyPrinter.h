@@ -44,7 +44,7 @@ public:
         PPDName = Qt::UserRole + 1
     } Role;
     explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = nullptr);
-    ~ModifyPrinter();
+    ~ModifyPrinter() override;
 
     bool hasChanges() override;
     QVariantHash modifiedValues() const override;

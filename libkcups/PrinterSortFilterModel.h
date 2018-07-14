@@ -29,7 +29,7 @@ class Q_DECL_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
     Q_PROPERTY(QAbstractItemModel *sourceModel READ sourceModel WRITE setModel NOTIFY sourceModelChanged)
     Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
-    explicit PrinterSortFilterModel(QObject *parent = 0);
+    explicit PrinterSortFilterModel(QObject *parent = nullptr);
 
     void setModel(QAbstractItemModel *model);
     void setFilteredPrinters(const QString &printers);

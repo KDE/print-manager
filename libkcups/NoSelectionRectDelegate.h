@@ -26,7 +26,7 @@ class Q_DECL_EXPORT NoSelectionRectDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    explicit NoSelectionRectDelegate(QObject *parent = 0);
+    explicit NoSelectionRectDelegate(QObject *parent = nullptr);
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 

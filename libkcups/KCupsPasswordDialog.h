@@ -28,7 +28,7 @@ class KCupsPasswordDialog : public QObject
 {
     Q_OBJECT
 public:
-    explicit KCupsPasswordDialog(QObject *parent = 0);
+    explicit KCupsPasswordDialog(QObject *parent = nullptr);
     void setMainWindow(WId mainwindow);
 
 public slots:

@@ -32,7 +32,7 @@ class PageAddPrinter : public GenericPage
     Q_OBJECT
 public:
     explicit PageAddPrinter(QWidget *parent = nullptr);
-    ~PageAddPrinter();
+    ~PageAddPrinter() override;
 
     void setValues(const QVariantHash &args) override;
     QVariantHash values() const override;

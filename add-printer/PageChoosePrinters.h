@@ -32,7 +32,7 @@ class PageChoosePrinters : public GenericPage
     Q_OBJECT
 public:
     explicit PageChoosePrinters(const QVariantHash &args, QWidget *parent = nullptr);
-    ~PageChoosePrinters();
+    ~PageChoosePrinters() override;
 
     void setValues(const QVariantHash &args) override;
     QVariantHash values() const override;

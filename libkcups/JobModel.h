@@ -80,7 +80,7 @@ public:
         LastColumn
     };
 
-    explicit JobModel(QObject *parent = 0);
+    explicit JobModel(QObject *parent = nullptr);
     void setParentWId(WId parentId);
     Q_INVOKABLE void init(const QString &destName = QString());
 

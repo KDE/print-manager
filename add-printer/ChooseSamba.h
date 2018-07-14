@@ -31,7 +31,7 @@ class ChooseSamba : public GenericPage
     Q_OBJECT
 public:
     explicit ChooseSamba(QWidget *parent = nullptr);
-    ~ChooseSamba();
+    ~ChooseSamba() override;
 
     void setValues(const QVariantHash &args) override;
     QVariantHash values() const override;

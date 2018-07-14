@@ -44,7 +44,7 @@ class PageDestinations : public GenericPage
     Q_OBJECT
 public:
     explicit PageDestinations(const QVariantHash &args = QVariantHash(), QWidget *parent = nullptr);
-    ~PageDestinations();
+    ~PageDestinations() override;
 
     bool canProceed() const override;
     void setValues(const QVariantHash &args) override;

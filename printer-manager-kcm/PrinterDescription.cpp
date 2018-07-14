@@ -55,7 +55,7 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
                   KIconLoader::SizeMedium,
                   KIconLoader::DefaultState,
                   QStringList(),
-                  0,
+                  nullptr,
                   true);
 
     auto menu = new QMenu(ui->maintenancePB);

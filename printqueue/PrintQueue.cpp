@@ -58,7 +58,7 @@ void PrintQueue::showQueue(const QString &destName)
     qDebug() << Q_FUNC_INFO << destName;
     if (!m_uis.contains(destName)) {
         // Reserve this since the CUPS call might take a long time
-        m_uis[destName] = 0;
+        m_uis[destName] = nullptr;
 
         // Get destinations with these attributes
         QPointer<KCupsRequest> request = new KCupsRequest;

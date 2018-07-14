@@ -88,7 +88,7 @@ void ClassListWidget::loadFinished(KCupsRequest *request)
 
     const KCupsPrinters printers = request->printers();
     request->deleteLater();
-    m_request = 0;
+    m_request = nullptr;
 
     for (const KCupsPrinter &printer : printers) {
         QString destName = printer.name();

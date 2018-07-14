@@ -94,7 +94,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
                                                   KIconLoader::SizeMedium,
                                                   KIconLoader::DefaultState,
                                                   QStringList(),
-                                                  0,
+                                                  nullptr,
                                                   true);
 
     ui->printerStatusMsgL->setText(QString());

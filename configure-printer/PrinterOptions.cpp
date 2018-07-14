@@ -109,7 +109,7 @@ void PrinterOptions::reloadPPD()
     m_filename = request->printerPPD();
     m_ppd = ppdOpenFile(qUtf8Printable(m_filename));
     request->deleteLater();
-    if (m_ppd == NULL) {
+    if (m_ppd == nullptr) {
         qCWarning(PM_CONFIGURE_PRINTER) << "Could not open ppd file:" << m_filename << request->errorMsg();
         m_filename.clear();
         return;
@@ -138,7 +138,7 @@ void PrinterOptions::reloadPPD()
         // Guess
         m_codec = QTextCodec::codecForName(lang_encoding);
     }
-    if (m_codec == 0) {
+    if (m_codec == nullptr) {
         m_codec = QTextCodec::codecForName("UTF-8");
     }
 
@@ -153,7 +153,7 @@ void PrinterOptions::reloadPPD()
     ui->autoConfigurePB->hide();
     ppd_attr_t  *ppdattr;
     if (m_ppd->num_filters == 0 ||
-        ((ppdattr = ppdFindAttr(m_ppd, "cupsCommands", NULL)) != NULL &&
+        ((ppdattr = ppdFindAttr(m_ppd, "cupsCommands", nullptr)) != nullptr &&
            ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
         ui->autoConfigurePB->show();
     } else {
@@ -207,7 +207,7 @@ void PrinterOptions::createGroups()
                 continue;
             }
 
-            QWidget *optionW = 0;
+            QWidget *optionW = nullptr;
             switch (option->ui) {
             case PPD_UI_BOOLEAN:
                 optionW = pickBoolean(option, oKeyword, ui->scrollAreaWidgetContents);
@@ -386,7 +386,7 @@ void PrinterOptions::currentIndexChangedCB(int index)
 
 PrinterOptions::~PrinterOptions()
 {
-    if (m_ppd != NULL) {
+    if (m_ppd != nullptr) {
         ppdClose(m_ppd);
     }
 
@@ -406,7 +406,7 @@ PrinterOptions::getVariable(const char *name)    const    /* I - Name of variabl
         const QString value = it.value()->property("currentChoice").toString();
         return m_codec->fromUnicode(value).constData();
     } else {
-        return NULL;
+        return nullptr;
     }
 }
 
@@ -437,7 +437,7 @@ PrinterOptions::get_points(double     number,           /* I - Original number *
  * This function also handles generation of custom option values.
  */
 
-char *                           /* O - Value string or NULL on error */
+char *                           /* O - Value string or nullptr on error */
 PrinterOptions::get_option_value(
     ppd_file_t    *ppd,                 /* I - PPD file */
     const char    *name,                /* I - Option name */
@@ -460,14 +460,14 @@ PrinterOptions::get_option_value(
      * See if we have a custom option choice...
      */
 
-    if ((val = getVariable(name)) == NULL) {
+    if ((val = getVariable(name)) == nullptr) {
         /*
          * Option not found!
          */
 
-        return (NULL);
+        return (nullptr);
     } else if (strcasecmp(val, "Custom") ||
-               (coption = ppdFindCustomOption(ppd, name)) == NULL) {
+               (coption = ppdFindCustomOption(ppd, name)) == nullptr) {
         /*
          * Not a custom choice...
          */
@@ -495,11 +495,11 @@ PrinterOptions::get_option_value(
         uval = getVariable("PageSize.Units");
 
         if (!val || !lval || !uval ||
-                (width = strtod(val, NULL)) == 0.0 ||
-                (length = strtod(lval, NULL)) == 0.0 ||
+                (width = strtod(val, nullptr)) == 0.0 ||
+                (length = strtod(lval, nullptr)) == 0.0 ||
                 (strcmp(uval, "pt") && strcmp(uval, "in") && strcmp(uval, "ft") &&
                  strcmp(uval, "cm") && strcmp(uval, "mm") && strcmp(uval, "m"))) {
-            return (NULL);
+            return (nullptr);
         }
 
         width_points  = get_points(width, uval);
@@ -509,7 +509,7 @@ PrinterOptions::get_option_value(
                 width_points > ppd->custom_max[0] ||
                 length_points < ppd->custom_min[1] ||
                 length_points > ppd->custom_max[1]) {
-            return (NULL);
+            return (nullptr);
         }
 
         snprintf(buffer, bufsize, "Custom.%gx%g%s", width, length, uval);
@@ -517,49 +517,49 @@ PrinterOptions::get_option_value(
         cparam = ppdFirstCustomParam(coption);
         snprintf(keyword, sizeof(keyword), "%s.%s", coption->keyword, cparam->name);
 
-        if ((val = getVariable(keyword)) == NULL)
-            return (NULL);
+        if ((val = getVariable(keyword)) == nullptr)
+            return (nullptr);
 
         switch (cparam->type) {
         case PPD_CUSTOM_CURVE :
         case PPD_CUSTOM_INVCURVE :
         case PPD_CUSTOM_REAL :
-            if ((number = strtod(val, NULL)) == 0.0 ||
+            if ((number = strtod(val, nullptr)) == 0.0 ||
                     number < cparam->minimum.custom_real ||
                     number > cparam->maximum.custom_real)
-                return (NULL);
+                return (nullptr);
 
             snprintf(buffer, bufsize, "Custom.%g", number);
             break;
         case PPD_CUSTOM_INT :
-            if (!*val || (integer = strtol(val, NULL, 10)) == LONG_MIN ||
+            if (!*val || (integer = strtol(val, nullptr, 10)) == LONG_MIN ||
                     integer == LONG_MAX ||
                     integer < cparam->minimum.custom_int ||
                     integer > cparam->maximum.custom_int)
-                return (NULL);
+                return (nullptr);
 
             snprintf(buffer, bufsize, "Custom.%ld", integer);
             break;
         case PPD_CUSTOM_POINTS :
             snprintf(keyword, sizeof(keyword), "%s.Units", coption->keyword);
 
-            if ((number = strtod(val, NULL)) == 0.0 ||
-                    (uval = getVariable(keyword)) == NULL ||
+            if ((number = strtod(val, nullptr)) == 0.0 ||
+                    (uval = getVariable(keyword)) == nullptr ||
                     (strcmp(uval, "pt") && strcmp(uval, "in") && strcmp(uval, "ft") &&
                      strcmp(uval, "cm") && strcmp(uval, "mm") && strcmp(uval, "m")))
-                return (NULL);
+                return (nullptr);
 
             number_points = get_points(number, uval);
             if (number_points < cparam->minimum.custom_points ||
                     number_points > cparam->maximum.custom_points)
-                return (NULL);
+                return (nullptr);
 
             snprintf(buffer, bufsize, "Custom.%g%s", number, uval);
             break;
         case PPD_CUSTOM_PASSCODE :
             for (uval = val; *uval; ++uval) {
                 if (!isdigit(*uval & 255)) {
-                    return (NULL);
+                    return (nullptr);
                 }
             }
         case PPD_CUSTOM_PASSWORD :
@@ -567,7 +567,7 @@ PrinterOptions::get_option_value(
             integer = (long)strlen(val);
             if (integer < cparam->minimum.custom_string ||
                     integer > cparam->maximum.custom_string) {
-                return (NULL);
+                return (nullptr);
             }
 
             snprintf(buffer, bufsize, "Custom.%s", val);
@@ -586,8 +586,8 @@ PrinterOptions::get_option_value(
             snprintf(keyword, sizeof(keyword), "%s.%s", coption->keyword,
                      cparam->name);
 
-            if ((val = getVariable(keyword)) == NULL) {
-                return (NULL);
+            if ((val = getVariable(keyword)) == nullptr) {
+                return (nullptr);
             }
 
             snprintf(bufptr, bufend - bufptr, "%s%s=", prefix, cparam->name);
@@ -598,19 +598,19 @@ PrinterOptions::get_option_value(
             case PPD_CUSTOM_CURVE :
             case PPD_CUSTOM_INVCURVE :
             case PPD_CUSTOM_REAL :
-                if ((number = strtod(val, NULL)) == 0.0 ||
+                if ((number = strtod(val, nullptr)) == 0.0 ||
                         number < cparam->minimum.custom_real ||
                         number > cparam->maximum.custom_real)
-                    return (NULL);
+                    return (nullptr);
 
                 snprintf(bufptr, bufend - bufptr, "%g", number);
                 break;
             case PPD_CUSTOM_INT :
-                if (!*val || (integer = strtol(val, NULL, 10)) == LONG_MIN ||
+                if (!*val || (integer = strtol(val, nullptr, 10)) == LONG_MIN ||
                         integer == LONG_MAX ||
                         integer < cparam->minimum.custom_int ||
                         integer > cparam->maximum.custom_int) {
-                    return (NULL);
+                    return (nullptr);
                 }
 
                 snprintf(bufptr, bufend - bufptr, "%ld", integer);
@@ -618,18 +618,18 @@ PrinterOptions::get_option_value(
             case PPD_CUSTOM_POINTS :
                 snprintf(keyword, sizeof(keyword), "%s.Units", coption->keyword);
 
-                if ((number = strtod(val, NULL)) == 0.0 ||
-                        (uval = getVariable(keyword)) == NULL ||
+                if ((number = strtod(val, nullptr)) == 0.0 ||
+                        (uval = getVariable(keyword)) == nullptr ||
                         (strcmp(uval, "pt") && strcmp(uval, "in") &&
                          strcmp(uval, "ft") && strcmp(uval, "cm") &&
                          strcmp(uval, "mm") && strcmp(uval, "m"))) {
-                    return (NULL);
+                    return (nullptr);
                 }
 
                 number_points = get_points(number, uval);
                 if (number_points < cparam->minimum.custom_points ||
                         number_points > cparam->maximum.custom_points) {
-                    return (NULL);
+                    return (nullptr);
                 }
 
                 snprintf(bufptr, bufend - bufptr, "%g%s", number, uval);
@@ -638,7 +638,7 @@ PrinterOptions::get_option_value(
             case PPD_CUSTOM_PASSCODE :
                 for (uval = val; *uval; uval ++) {
                     if (!isdigit(*uval & 255)) {
-                        return (NULL);
+                        return (nullptr);
                     }
                 }
             case PPD_CUSTOM_PASSWORD :
@@ -646,11 +646,11 @@ PrinterOptions::get_option_value(
                 integer = (long)strlen(val);
                 if (integer < cparam->minimum.custom_string ||
                         integer > cparam->maximum.custom_string) {
-                    return (NULL);
+                    return (nullptr);
                 }
 
                 if ((bufptr + 2) > bufend) {
-                    return (NULL);
+                    return (nullptr);
                 }
 
                 bufend --;
@@ -659,7 +659,7 @@ PrinterOptions::get_option_value(
                 while (*val && bufptr < bufend) {
                     if (*val == '\\' || *val == '\"') {
                         if ((bufptr + 1) >= bufend) {
-                            return (NULL);
+                            return (nullptr);
                         }
 
                         *bufptr++ = '\\';
@@ -669,7 +669,7 @@ PrinterOptions::get_option_value(
                 }
 
                 if (bufptr >= bufend) {
-                    return (NULL);
+                    return (nullptr);
                 }
 
                 *bufptr++ = '\"';
@@ -682,7 +682,7 @@ PrinterOptions::get_option_value(
         }
 
         if (bufptr == buffer || (bufend - bufptr) < 2) {
-            return (NULL);
+            return (nullptr);
         }
 
         strcpy(bufptr, "}");

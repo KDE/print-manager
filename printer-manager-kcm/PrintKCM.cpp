@@ -338,7 +338,7 @@ void PrintKCM::getServerSettingsFinished(KCupsRequest *request)
 
     request->deleteLater();
 
-    m_serverRequest = 0;
+    m_serverRequest = nullptr;
 }
 
 void PrintKCM::updateServerFinished(KCupsRequest *request)

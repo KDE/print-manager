@@ -42,7 +42,7 @@ void KCupsPasswordDialog::setMainWindow(WId mainwindow)
 
 void KCupsPasswordDialog::exec(const QString &username, bool wrongPassword)
 {
-    QPointer<KPasswordDialog> dialog = new KPasswordDialog(0L, KPasswordDialog::ShowUsernameLine);
+    QPointer<KPasswordDialog> dialog = new KPasswordDialog(nullptr, KPasswordDialog::ShowUsernameLine);
     dialog->setPrompt(i18n("Enter an username and a password to complete the task"));
     dialog->setModal(false);
     dialog->setUsername(username);

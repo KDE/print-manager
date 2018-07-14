@@ -200,7 +200,7 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
         }
 
         // When ChangePPD() is called addPrinterPage is zero
-        if (page == m_addPrinterPage || m_addPrinterPage == 0) {
+        if (page == m_addPrinterPage || m_addPrinterPage == nullptr) {
             connect(nextPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableFinishButton);
             enableNextButton(false);
             enableFinishButton(nextPage->canProceed());

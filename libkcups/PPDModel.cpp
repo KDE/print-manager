@@ -32,7 +32,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
 {
     clear();
 
-    QStandardItem *recommended = 0;
+    QStandardItem *recommended = nullptr;
     for (const DriverMatch &driver : driverMatch) {
         // Find the matched PPD on the PPDs list
         for (const QVariantHash &ppd : ppds) {
@@ -40,7 +40,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
                 // Create the PPD
                 QStandardItem *ppdItem = createPPDItem(ppd, true);
 
-                if (recommended == 0) {
+                if (recommended == nullptr) {
                     recommended = new QStandardItem;
                     recommended->setText(i18n("Recommended Drivers"));
                     appendRow(recommended);

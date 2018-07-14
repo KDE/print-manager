@@ -218,7 +218,7 @@ void JobModel::getJobFinished(KCupsRequest *request)
     } else {
         qCWarning(LIBKCUPS) << "Should not be called from a non KCupsRequest class" << sender();
     }
-    m_jobRequest = 0;
+    m_jobRequest = nullptr;
 }
 
 void JobModel::jobCompleted(const QString &text,

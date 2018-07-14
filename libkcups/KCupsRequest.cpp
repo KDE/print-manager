@@ -36,7 +36,7 @@ KCupsRequest::KCupsRequest(KCupsConnection *connection) :
     m_connection(connection)
 {
     // If no connection was specified use default one
-    if (m_connection == 0) {
+    if (m_connection == nullptr) {
         m_connection = KCupsConnection::global();
     }
     connect(this, &KCupsRequest::finished, &m_loop, &QEventLoop::quit);
@@ -455,7 +455,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
             status = cupsStartDocument(CUPS_HTTP_DEFAULT,
                                        qUtf8Printable(printerName),
                                        job_id,
-                                       NULL,
+                                       nullptr,
                                        CUPS_FORMAT_COMMAND,
                                        1);
             if (status == HTTP_CONTINUE) {

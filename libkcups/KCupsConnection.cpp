@@ -64,7 +64,7 @@
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
 
-KCupsConnection* KCupsConnection::m_instance = 0;
+KCupsConnection* KCupsConnection::m_instance = nullptr;
 static int password_retries = 0;
 static int total_retries = 0;
 static int internalErrorCount = 0;
@@ -96,7 +96,7 @@ KCupsConnection::KCupsConnection(const QUrl &server, QObject *parent) :
 KCupsConnection::~KCupsConnection()
 {
     if (m_instance == this) {
-        m_instance = 0;
+        m_instance = nullptr;
     }
     m_passwordDialog->deleteLater();
 
@@ -324,10 +324,10 @@ bool KCupsConnection::readyToStart()
 ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t groupTag) const
 {
     ReturnArguments ret;
-    ipp_t *response = NULL;
+    ipp_t *response = nullptr;
     do {
         ippDelete(response);
-        response = NULL;
+        response = nullptr;
 
         response = request.sendIppRequest();
     } while (retry(qUtf8Printable(request.resource()), request.operation()));
@@ -373,7 +373,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
                            KCUPS_NOTIFY_SUBSCRIPTION_ID, subscriptionId);
     }
 
-    ipp_t *response = NULL;
+    ipp_t *response = nullptr;
     do {
         // Do the request
         response = request.sendIppRequest();
@@ -390,7 +390,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
             ret = subscriptionId;
         } else if ((attr = ippFindAttribute(response,
                                             "notify-subscription-id",
-                                            IPP_TAG_INTEGER)) == NULL) {
+                                            IPP_TAG_INTEGER)) == nullptr) {
             qCWarning(LIBKCUPS) << "No notify-subscription-id in response!";
             ret = -1;
         } else {
@@ -589,9 +589,9 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
 
 #if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     QVariantHash destAttributes;
-    for (attr = ippFirstAttribute(response); attr != NULL; attr = ippNextAttribute(response)) {
+    for (attr = ippFirstAttribute(response); attr != nullptr; attr = ippNextAttribute(response)) {
         // We hit an attribute sepparator
-        if (ippGetName(attr) == NULL) {
+        if (ippGetName(attr) == nullptr) {
             ret << destAttributes;
             destAttributes.clear();
             continue;
@@ -621,7 +621,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
         ret << destAttributes;
     }
 #else
-    for (attr = response->attrs; attr != NULL; attr = attr->next) {
+    for (attr = response->attrs; attr != nullptr; attr = attr->next) {
        /*
         * Skip leading attributes until we hit a a group which can be a printer, job...
         */
@@ -629,7 +629,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
             attr = attr->next;
         }
 
-        if (attr == NULL) {
+        if (attr == nullptr) {
             break;
         }
 
@@ -660,7 +660,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
 
         ret << destAttributes;
 
-        if (attr == NULL) {
+        if (attr == nullptr) {
             break;
         }
     }
@@ -710,11 +710,11 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
         break;
     default:
         if (ippGetCount(attr)== 1) {
-            ret = QString::fromUtf8(ippGetString(attr, 0, NULL));
+            ret = QString::fromUtf8(ippGetString(attr, 0, nullptr));
         } else {
             QStringList values;
             for (int i = 0; i < ippGetCount(attr); ++i) {
-                values << QString::fromUtf8(ippGetString(attr, i, NULL));
+                values << QString::fromUtf8(ippGetString(attr, i, nullptr));
             }
             ret = values;
         }
@@ -865,8 +865,8 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
 
     if (++password_retries > 3) {
         // cancel the authentication
-        cupsSetUser(NULL);
-        return NULL;
+        cupsSetUser(nullptr);
+        return nullptr;
     }
 
     auto passwordDialog = static_cast<KCupsPasswordDialog *>(user_data);
@@ -889,8 +889,8 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     } else {
         // the dialog was canceled
         password_retries = -1;
-        cupsSetUser(NULL);
-        return NULL;
+        cupsSetUser(nullptr);
+        return nullptr;
     }
 }
 

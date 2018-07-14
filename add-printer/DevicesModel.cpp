@@ -129,7 +129,7 @@ void DevicesModel::finished()
         emit errorMessage(i18n("Failed to get a list of devices: '%1'", m_request->errorMsg()));
     }
     m_request->deleteLater();
-    m_request = 0;
+    m_request = nullptr;
 
     if (hasError || m_mappedDevices.isEmpty()) {
         emit loaded();

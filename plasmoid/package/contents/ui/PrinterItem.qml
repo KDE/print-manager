@@ -167,10 +167,6 @@ Item {
 
             Component.onCompleted: currentIndex = -1
 
-            PrintManager.ProcessRunner {
-                id: processRunner
-            }
-
             Component {
                 id: actionItem
 

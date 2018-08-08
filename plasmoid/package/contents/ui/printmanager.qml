@@ -21,6 +21,7 @@
 import QtQuick 2.2
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kquickcontrolsaddons 2.0
 import org.kde.plasma.printmanager 0.2 as PrintManager
 
 Item {
@@ -28,6 +29,9 @@ Item {
 
     property int jobsFilter: printmanager.Plasmoid.configuration.allJobs ? PrintManager.JobModel.WhichAll :
                              printmanager.Plasmoid.configuration.completedJobs ? PrintManager.JobModel.WhichCompleted : PrintManager.JobModel.WhichActive
+
+    readonly property string kcmName: "kcm_printer_manager"
+    readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
 
     Plasmoid.toolTipMainText: i18n("Printers")
     Plasmoid.icon: "printer"
@@ -45,7 +49,9 @@ Item {
     onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
     Component.onCompleted: {
         updateJobStatus()
-        plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
+        if (kcmAllowed) {
+            plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
+        }
     }
 
     PrintManager.JobSortFilterModel {
@@ -65,12 +71,8 @@ Item {
         onActiveCountChanged: updateJobStatus()
     }
 
-    PrintManager.ProcessRunner {
-        id: processRunner
-    }
-
     function action_printerskcm() {
-        processRunner.openPrintKCM();
+        KCMShell.open([printmanager.kcmName]);
     }
 
     function updateJobStatus() {

@@ -52,6 +52,10 @@ FocusScope {
         }
     }
 
+    PrintManager.ProcessRunner {
+        id: processRunner
+    }
+
     PrintManager.PrinterSortFilterModel {
         id: printersFilterModel
         sourceModel: PrintManager.PrinterModel {

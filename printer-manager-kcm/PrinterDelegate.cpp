@@ -23,8 +23,8 @@
 
 #include <cmath>
 
-#include <QtGui/QPainter>
-#include <QtWidgets/QStyleOption>
+#include <QPainter>
+#include <QStyleOption>
 
 #include <KIconLoader>
 

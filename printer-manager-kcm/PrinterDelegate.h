@@ -22,7 +22,7 @@
 #define PRINTER_DELEGATE_H
 
 #include <QApplication>
-#include <QtWidgets/QStyledItemDelegate>
+#include <QStyledItemDelegate>
 
 class QPainter;
 

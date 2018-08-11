@@ -18,6 +18,8 @@
  *   Boston, MA 02110-1301, USA.                                           *
  ***************************************************************************/
 
+#include "SelectMakeModelDialog.h"
+
 #include <QVBoxLayout>
 #include <QPushButton>
 
@@ -28,7 +30,6 @@
 #include <KIconLoader>
 #include <KPixmapSequence>
 
-#include "SelectMakeModelDialog.h"
 #include "Debug.h"
 
 SelectMakeModelDialog::SelectMakeModelDialog(const QString &make, const QString &makeModel, QWidget *parent) :

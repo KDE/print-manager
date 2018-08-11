@@ -26,8 +26,8 @@
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 
-#include <QtDBus/QDBusConnection>
-#include <QtCore/QTimer>
+#include <QDBusConnection>
+#include <QTimer>
 #include <KWindowSystem>
 #include <QDialog>
 

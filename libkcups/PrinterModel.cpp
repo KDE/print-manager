@@ -25,7 +25,7 @@
 #include <QDateTime>
 #include <QMimeData>
 #include <QDBusConnection>
-#include <QtDBus/QDBusInterface>
+#include <QDBusInterface>
 #include <QPointer>
 
 #include <KUser>

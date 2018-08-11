@@ -536,7 +536,7 @@ void KCupsConnection::updateSubscription()
     if (m_requestedDBusEvents != currentEvents) {
         m_requestedDBusEvents = currentEvents;
 
-        // If we alread have a subscription lets cancel
+        // If we already have a subscription lets cancel
         // and create a new one
         if (m_subscriptionId >= 0) {
             cancelDBusSubscription();

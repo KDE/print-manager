@@ -32,7 +32,7 @@ FocusScope {
     property string printersModelError: ""
     property alias serverUnavailable: printersModel.serverUnavailable
 
-    state: "NO_PRINTER"
+    state: printersFilterModel.count > 0 ? "JOBS_PRINTER" : "NO_PRINTER"
 
     TextField {
         id: searchBar
@@ -60,7 +60,6 @@ FocusScope {
         id: printersFilterModel
         sourceModel: PrintManager.PrinterModel {
             id: printersModel
-            onCountChanged: updatePrinterStatus()
             onError: printersModelError = errorTitle
         }
     }
@@ -86,7 +85,6 @@ FocusScope {
             currentIndex: -1
             clip: true
             model: printersFilterModel
-            onCountChanged: updatePrinterStatus()
             highlight: PlasmaComponents.Highlight{ }
             delegate: PrinterItem { }
         }
@@ -114,13 +112,4 @@ FocusScope {
             PropertyChanges { target: printmanager; tooltipText: jobsTooltipText }
         }
     ]
-
-    function updatePrinterStatus() {
-        var printersFilterCount = printersFilterModel.count
-        if (printersFilterCount >= 1) {
-            dialog.state = "JOBS_PRINTER"
-        } else {
-            dialog.state = "NO_PRINTER"
-        }
-    }
 }

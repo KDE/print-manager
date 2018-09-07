@@ -34,6 +34,10 @@ Item {
     readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
 
     Plasmoid.toolTipMainText: i18n("Printers")
+    Plasmoid.toolTipSubText: activeJobsFilterModel.activeCount ? i18np("There is one print job in the queue",
+                                                                       "There are %1 print jobs in the queue",
+                                                                       activeJobsFilterModel.activeCount)
+                                                               : i18n("Print queue is empty")
     Plasmoid.icon: "printer"
     Plasmoid.fullRepresentation: PopupDialog {
         id: dialogItem
@@ -48,7 +52,6 @@ Item {
 
     onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
     Component.onCompleted: {
-        updateJobStatus()
         if (kcmAllowed) {
             plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
         }
@@ -68,21 +71,9 @@ Item {
         sourceModel: PrintManager.JobModel {
             Component.onCompleted: setWhichJobs(PrintManager.JobModel.WhichActive)
         }
-        onActiveCountChanged: updateJobStatus()
     }
 
     function action_printerskcm() {
         KCMShell.open([printmanager.kcmName]);
-    }
-
-    function updateJobStatus() {
-        var activeCount = activeJobsFilterModel.activeCount
-        if (activeCount === 0) {
-            Plasmoid.toolTipSubText = i18n("Print queue is empty")
-        } else {
-            Plasmoid.toolTipSubText = i18np("There is one print job in the queue",
-                                    "There are %1 print jobs in the queue",
-                                    activeCount)
-        }
     }
 }

@@ -29,8 +29,6 @@ FocusScope {
 
     property bool scrollBarVisible: printersView.contentHeight > scrollArea.height
     property bool searchBarVisible: scrollBarVisible || searchBar.text.length !== 0
-    property string printersModelError: ""
-    property alias serverUnavailable: printersModel.serverUnavailable
 
     state: printersFilterModel.count > 0 ? "JOBS_PRINTER" : "NO_PRINTER"
 
@@ -58,10 +56,7 @@ FocusScope {
 
     PrintManager.PrinterSortFilterModel {
         id: printersFilterModel
-        sourceModel: PrintManager.PrinterModel {
-            id: printersModel
-            onError: printersModelError = errorTitle
-        }
+        sourceModel: printersModel
     }
 
     PlasmaExtras.ScrollArea {

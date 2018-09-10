@@ -30,6 +30,9 @@ Item {
     property int jobsFilter: printmanager.Plasmoid.configuration.allJobs ? PrintManager.JobModel.WhichAll :
                              printmanager.Plasmoid.configuration.completedJobs ? PrintManager.JobModel.WhichCompleted : PrintManager.JobModel.WhichActive
 
+    property alias serverUnavailable: printersModel.serverUnavailable
+    property string printersModelError: ""
+
     readonly property string kcmName: "kcm_printer_manager"
     readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
 
@@ -48,13 +51,26 @@ Item {
 
     Plasmoid.switchWidth: units.gridUnit * 10
     Plasmoid.switchHeight: units.gridUnit * 10
-    Plasmoid.status: (activeJobsFilterModel.activeCount > 0) ? PlasmaCore.Types.ActiveStatus : PlasmaCore.Types.PassiveStatus
+    Plasmoid.status: {
+        if (activeJobsFilterModel.activeCount > 0) {
+            return PlasmaCore.Types.ActiveStatus;
+        } else if (printersModel.count > 0 || serverUnavailable) {
+            return PlasmaCore.Types.PassiveStatus;
+        } else {
+            return PlasmaCore.Types.HiddenStatus;
+        }
+    }
 
     onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
     Component.onCompleted: {
         if (kcmAllowed) {
             plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
         }
+    }
+
+    PrintManager.PrinterModel {
+        id: printersModel
+        onError: printersModelError = errorTitle
     }
 
     PrintManager.JobSortFilterModel {

@@ -37,10 +37,29 @@ Item {
     readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
 
     Plasmoid.toolTipMainText: i18n("Printers")
-    Plasmoid.toolTipSubText: activeJobsFilterModel.activeCount ? i18np("There is one print job in the queue",
-                                                                       "There are %1 print jobs in the queue",
-                                                                       activeJobsFilterModel.activeCount)
-                                                               : i18n("Print queue is empty")
+    Plasmoid.toolTipSubText: {
+        if (serverUnavailable && printersModelError) {
+            return printersModelError;
+        } else if (activeJobsFilterModel.activeCount > 1) {
+            return i18np("There is one print job in the queue",
+                         "There are %1 print jobs in the queue",
+                         activeJobsFilterModel.activeCount);
+        // If there is only one job, show more information about it
+        } else if (activeJobsFilterModel.activeCount === 1) {
+            var idx = activeJobsFilterModel.index(0, 0);
+            var jobName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobName);
+            var printerName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobPrinter);
+            if (jobName) {
+                return i18nc("Printing document name with printer name", "Printing %1 with %2", jobName, printerName);
+            } else {
+                return i18nc("Printing with printer name", "Printing with %1", printerName);
+            }
+        } else if (printersModel.count > 0) {
+            return i18n("Print queue is empty");
+        } else {
+            return i18n("No printers have been configured or discovered");
+        }
+    }
     Plasmoid.icon: "printer"
     Plasmoid.fullRepresentation: PopupDialog {
         id: dialogItem

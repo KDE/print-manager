@@ -17,8 +17,8 @@
  *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA .        *
  ***************************************************************************/
 
-#ifndef PRINT_MANAGER_PLUGINS_H
-#define PRINT_MANAGER_PLUGINS_H
+#ifndef PRINT_MANAGER_QMLPLUGINS_H
+#define PRINT_MANAGER_QMLPLUGINS_H
 
 #include <QQmlExtensionPlugin>
 
@@ -31,4 +31,4 @@ class QmlPlugins : public QQmlExtensionPlugin
         void registerTypes(const char * uri) override;
 };
 
-#endif // PRINT_MANAGER_PLUGINS_H
+#endif // PRINT_MANAGER_QMLPLUGINS_H

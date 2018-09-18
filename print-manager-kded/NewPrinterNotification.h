@@ -29,7 +29,7 @@ class NewPrinterNotification : public QObject, protected QDBusContext
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "com.redhat.NewPrinterNotification")
 public:
-    NewPrinterNotification(QObject *parent);
+    explicit NewPrinterNotification(QObject *parent);
     ~NewPrinterNotification();
 
 public:

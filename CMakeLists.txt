@@ -5,13 +5,13 @@ project(print-manager VERSION 0.5.0)
 
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.9.0")
-set(KF5_VERSION "5.42.0")
+set(KF5_MIN_VERSION "5.42.0")
 
 
 
 ################# set KDE specific information #################
 
-find_package(ECM ${KF5_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 include(KDEInstallDirs)
@@ -33,7 +33,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 
 find_package(CUPS "1.5" REQUIRED)
 
-find_package(KF5 ${KF5_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
              Notifications Plasma WidgetsAddons WindowSystem)
 
 add_definitions(

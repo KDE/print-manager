@@ -872,7 +872,7 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
     bool wrongPassword = password_retries > 1;
 
     // use prompt text from CUPS callback for dialog
-    passwordDialog->setPromptText(i18n("A CUPS connection requires authentication: \"") + QString::fromUtf8(prompt) + QStringLiteral("\""));
+    passwordDialog->setPromptText(i18n("A CUPS connection requires authentication: \"%1\"", QString::fromUtf8(prompt)));
 
     // This will block this thread until exec is not finished
     qCDebug(LIBKCUPS) << password_retries;

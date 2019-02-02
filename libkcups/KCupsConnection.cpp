@@ -858,7 +858,6 @@ bool KCupsConnection::retry(const char *resource, int operation) const
 
 const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)
 {
-    Q_UNUSED(prompt)
     Q_UNUSED(http)
     Q_UNUSED(method)
     Q_UNUSED(resource)
@@ -871,6 +870,9 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
 
     auto passwordDialog = static_cast<KCupsPasswordDialog *>(user_data);
     bool wrongPassword = password_retries > 1;
+
+    // use prompt text from CUPS callback for dialog
+    passwordDialog->setPromptText(i18n("A CUPS connection requires authentication: \"") + QString::fromUtf8(prompt) + QStringLiteral("\""));
 
     // This will block this thread until exec is not finished
     qCDebug(LIBKCUPS) << password_retries;

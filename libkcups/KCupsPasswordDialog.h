@@ -30,6 +30,7 @@ class KCupsPasswordDialog : public QObject
 public:
     explicit KCupsPasswordDialog(QObject *parent = nullptr);
     void setMainWindow(WId mainwindow);
+    void setPromptText(const QString &promptText);
 
 public slots:
     void exec(const QString &username, bool wrongPassword);
@@ -43,6 +44,7 @@ private:
     WId m_mainwindow;
     QString m_username;
     QString m_password;
+    QString m_promptText;
 };
 
 #endif // KCUPSPASSWORDDIALOG_H

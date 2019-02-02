@@ -31,7 +31,9 @@
 KCupsPasswordDialog::KCupsPasswordDialog(QObject *parent) :
     QObject(parent),
     m_accepted(false),
-    m_mainwindow(0)
+    m_mainwindow(0),
+    // default text, can be overriden using setPromptText()
+    m_promptText(i18n("Enter an username and a password to complete the task"))
 {
 }
 
@@ -40,10 +42,15 @@ void KCupsPasswordDialog::setMainWindow(WId mainwindow)
     m_mainwindow = mainwindow;
 }
 
+void KCupsPasswordDialog::setPromptText(const QString &text)
+{
+    m_promptText = text;
+}
+
 void KCupsPasswordDialog::exec(const QString &username, bool wrongPassword)
 {
     QPointer<KPasswordDialog> dialog = new KPasswordDialog(nullptr, KPasswordDialog::ShowUsernameLine);
-    dialog->setPrompt(i18n("Enter an username and a password to complete the task"));
+    dialog->setPrompt(m_promptText);
     dialog->setModal(false);
     dialog->setUsername(username);
     if (wrongPassword) {

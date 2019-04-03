@@ -1,6 +1,13 @@
 [Global]
 IconName=printer
 Name=Printer Management
+Name[ca]=Gestió de la impressió
+Name[ca@valencia]=Gestió de la impressió
+Name[nl]=Printerbeheer
+Name[pt]=Gestão de Impressoras
+Name[uk]=Керування принтерами
+Name[x-test]=xxPrinter Managementxx
+Name[zh_TW]=列印機管理工具
 Comment=Notifies when a new printer is detected
 Comment[ar]=يخطرك عند اكتشاف طابعة جديدة
 Comment[bg]=Уведомява при засичане на нов принтер

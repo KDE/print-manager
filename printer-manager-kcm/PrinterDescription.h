@@ -25,13 +25,10 @@
 
 #include <KCupsRequest.h>
 
-class QToolButton;
-class QSortFilterProxyModel;
 
 namespace Ui {
 class PrinterDescription;
 }
-class PrintQueueModel;
 class PrinterDescription : public QWidget
 {
     Q_OBJECT

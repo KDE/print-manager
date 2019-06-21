@@ -27,6 +27,7 @@ PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
 {
     setDynamicSortFilter(true);
     setSortCaseSensitivity(Qt::CaseInsensitive);
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0);
 
     connect(this, &PrinterSortFilterModel::rowsInserted, this, &PrinterSortFilterModel::countChanged);

@@ -52,7 +52,7 @@ Item {
             if (jobName) {
                 return i18nc("Printing document name with printer name", "Printing %1 with %2", jobName, printerName);
             } else {
-                return i18nc("Printing with printer name", "Printing with %1", printerName);
+                return printerName === "" ? "" : i18nc("Printing with printer name", "Printing with %1", printerName);
             }
         } else if (printersModel.count > 0) {
             return i18n("Print queue is empty");

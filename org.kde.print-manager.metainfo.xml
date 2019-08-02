@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="addon">
+  <id>org.kde.print-manager</id>
+  <extends>org.kde.systemsettings</extends>
+  <extends>org.kde.kded</extends>
+  <name>Printer Configuration</name>
+  <summary>Set up and configure printers</summary>
+  <description>
+    <p>This KDE Config tool lets you set up and configure printers.  It detects new printers, finds the available drivers and allows you to configure their settings.  You can print test pages and set sharing properties.</p>
+  </description>
+  <url type="homepage">https://www.kde.org/</url>
+  <url type="bugtracker">https://bugs.kde.org/buglist.cgi?component=general&amp;product=print-manager&amp;resolution=---</url>
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Printer settings.</caption>
+      <image type="source" width="1028" height="757">https://cdn.kde.org/screenshots/print-manager/print-manager.png</image>
+    </screenshot>
+  </screenshots>
+  <project_group>KDE</project_group>
+  <categories>
+    <category>System</category>
+  </categories>
+  <icon type="stock">printer</icon>
+</component>

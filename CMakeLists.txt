@@ -62,6 +62,8 @@ include_directories(${CMAKE_SOURCE_DIR}
     ${CUPS_INCLUDE_DIR}
 )
 
+install(FILES org.kde.print-manager.metainfo.xml DESTINATION "${KDE_INSTALL_METAINFODIR}")
+
 add_definitions(-DTRANSLATION_DOMAIN="print-manager")
 
 add_subdirectory(libkcups)

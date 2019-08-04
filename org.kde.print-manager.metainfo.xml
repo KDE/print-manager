@@ -4,9 +4,33 @@
   <extends>org.kde.systemsettings</extends>
   <extends>org.kde.kded</extends>
   <name>Printer Configuration</name>
+  <name xml:lang="ca">Configuració de la impressora</name>
+  <name xml:lang="en-GB">Printer Configuration</name>
+  <name xml:lang="eu">Inprimagailu konfiguratzea</name>
+  <name xml:lang="pl">Ustawienia drukarki</name>
+  <name xml:lang="pt">Configuração da Impressora</name>
+  <name xml:lang="sv">Skrivarinställning</name>
+  <name xml:lang="uk">Налаштування принтера</name>
+  <name xml:lang="x-test">xxPrinter Configurationxx</name>
   <summary>Set up and configure printers</summary>
+  <summary xml:lang="ca">Instal·la i configura les impressores</summary>
+  <summary xml:lang="en-GB">Set up and configure printers</summary>
+  <summary xml:lang="eu">Ezarri eta konfiguratu inprimagailuak</summary>
+  <summary xml:lang="pl">Ustawienia drukarki</summary>
+  <summary xml:lang="pt">Definição e configuração de impressoras</summary>
+  <summary xml:lang="sv">Ställ in och anpassa skrivare</summary>
+  <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
+  <summary xml:lang="x-test">xxSet up and configure printersxx</summary>
   <description>
     <p>This KDE Config tool lets you set up and configure printers.  It detects new printers, finds the available drivers and allows you to configure their settings.  You can print test pages and set sharing properties.</p>
+    <p xml:lang="ca">Aquesta eina de configuració del KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controlador disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
+    <p xml:lang="en-GB">This KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.</p>
+    <p xml:lang="eu">KDEren konfiguratzeko tresna honek inprimagailuak ezartzen eta konfiguratzen uzten dizu. Inprimagailu berriak hautematen ditu, gidari erabilgarriak aurkitzen ditu eta haien ezarpenak konfiguratzen uzten dizu. Proba-orriak inprimatu eta partekatzeko propietateak ezarri ditzakezu.</p>
+    <p xml:lang="pl">Narzędzie ustawień KDE umożliwia ustawienie drukarek. Wykrywa nowe drukarki, znajduje dostępne sterowniki i umożliwia ich ustawienie. Można drukować strony próbne i nadawać ustawienia współdzielenia.</p>
+    <p xml:lang="pt">Esta ferramenta de configuração do KDE permite-lhe definir e configurar impressoras. Detecta impressoras novas, descobre os controladores disponíveis e permite-lhe configurar as suas opções. Poderá imprimir páginas de testes e definir as propriedades de partilha.</p>
+    <p xml:lang="sv">Det här KDE-inställningsverktyget låter dig ställa in och anpassa skrivare. Det detekterar nya skrivare, hittar tillgängliga drivrutiner och låter dig anpassa deras inställningar. Du kan skriva ut testsidor och ställa in delningsegenskaper.</p>
+    <p xml:lang="uk">За допомогою цього засобу налаштовування KDE ви зможете встановити початкові параметри роботи принтерів та налаштувати принтери. Він здатний виявляти нові принтери, визначати доступні для них драйвери та налаштовувати параметри роботи цих драйверів. Ви можете друкувати тестові сторінки та визначати параметри спільного користування принтерами.</p>
+    <p xml:lang="x-test">xxThis KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.xx</p>
   </description>
   <url type="homepage">https://www.kde.org/</url>
   <url type="bugtracker">https://bugs.kde.org/buglist.cgi?component=general&amp;product=print-manager&amp;resolution=---</url>
@@ -15,6 +39,14 @@
   <screenshots>
     <screenshot type="default">
       <caption>Printer settings.</caption>
+      <caption xml:lang="ca">Paràmetres de la impressora.</caption>
+      <caption xml:lang="en-GB">Printer settings.</caption>
+      <caption xml:lang="eu">Inprimagailu ezarpenak.</caption>
+      <caption xml:lang="pl">Ustawienia drukarki</caption>
+      <caption xml:lang="pt">Configuração da impressora.</caption>
+      <caption xml:lang="sv">Skrivarinställningar.</caption>
+      <caption xml:lang="uk">Параметри принтерів.</caption>
+      <caption xml:lang="x-test">xxPrinter settings.xx</caption>
       <image type="source" width="1028" height="757">https://cdn.kde.org/screenshots/print-manager/print-manager.png</image>
     </screenshot>
   </screenshots>

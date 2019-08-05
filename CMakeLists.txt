@@ -40,6 +40,14 @@ find_package(CUPS "1.5" REQUIRED)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
              Notifications Plasma WidgetsAddons WindowSystem)
 
+find_package(CupsSmb)
+set_package_properties(CupsSmb PROPERTIES
+    TYPE RUNTIME
+    DESCRIPTION "SMB backend for CUPS (aka smbspool)"
+    PURPOSE "Required for CUPS to be able to print to printers shared over SMB"
+    URL "https://samba.org"
+)
+
 add_definitions(
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050900
     -DQT_USE_FAST_OPERATOR_PLUS
@@ -74,3 +82,5 @@ add_subdirectory(printqueue)
 add_subdirectory(print-manager-kded)
 add_subdirectory(plasmoid)
 add_subdirectory(declarative-plugins)
+
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

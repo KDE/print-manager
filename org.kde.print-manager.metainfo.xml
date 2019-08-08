@@ -10,6 +10,7 @@
   <name xml:lang="en-GB">Printer Configuration</name>
   <name xml:lang="es">Configuración de la impresora</name>
   <name xml:lang="eu">Inprimagailu konfiguratzea</name>
+  <name xml:lang="it">Configurazione della stampante</name>
   <name xml:lang="nl">Printerconfiguratie</name>
   <name xml:lang="nn">Skrivaroppsett</name>
   <name xml:lang="pl">Ustawienia drukarki</name>
@@ -24,6 +25,7 @@
   <summary xml:lang="en-GB">Set up and configure printers</summary>
   <summary xml:lang="es">Instalación y configuración de impresoras</summary>
   <summary xml:lang="eu">Ezarri eta konfiguratu inprimagailuak</summary>
+  <summary xml:lang="it">Imposta e configura le stampanti</summary>
   <summary xml:lang="nl">Printers instellen en configureren</summary>
   <summary xml:lang="nn">Set opp skrivarar</summary>
   <summary xml:lang="pl">Ustawienia drukarki</summary>
@@ -39,6 +41,7 @@
     <p xml:lang="en-GB">This KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.</p>
     <p xml:lang="es">Esta herramienta de KDE le permite instalar y configurar impresoras. Detecta nuevas impresoras, encuentra los controladores disponibles y le permite configurar sus ajustes. Puede imprimir páginas de pruebas y definir las propiedades para compartir las impresoras.</p>
     <p xml:lang="eu">KDEren konfiguratzeko tresna honek inprimagailuak ezartzen eta konfiguratzen uzten dizu. Inprimagailu berriak hautematen ditu, gidari erabilgarriak aurkitzen ditu eta haien ezarpenak konfiguratzen uzten dizu. Proba-orriak inprimatu eta partekatzeko propietateak ezarri ditzakezu.</p>
+    <p xml:lang="it">Questo strumento di configurazione di KDE permette di impostare e configurare le stampanti. Rileva le nuove stampanti, trova tutti i driver disponibili e ti permette di configurarne le relative impostazioni. Puoi stampare pagine di prova ed impostare le proprietà di condivisione.</p>
     <p xml:lang="nl">Dit hulpmiddel voor configuratie van laat u printers instellen en configureren. Het detecteert nieuwe printers, vindt de beschikbare stuurprogramma's en biedt u aan om hun instellingen te configureren. U kunt testpagina's afdrukken en eigenschappen voor delen instellen.</p>
     <p xml:lang="nn">Dette verktøyet lèt deg setja opp skrivarar. Det kan oppdaga nye skrivarar, finna tilgjengelege drivarar og setja dei opp. Du kan skriva ut testutskrifter og endra delingsinnstillingar.</p>
     <p xml:lang="pl">Narzędzie ustawień KDE umożliwia ustawienie drukarek. Wykrywa nowe drukarki, znajduje dostępne sterowniki i umożliwia ich ustawienie. Można drukować strony próbne i nadawać ustawienia współdzielenia.</p>
@@ -60,6 +63,7 @@
       <caption xml:lang="en-GB">Printer settings.</caption>
       <caption xml:lang="es">Preferencias de la impresora.</caption>
       <caption xml:lang="eu">Inprimagailu ezarpenak.</caption>
+      <caption xml:lang="it">Impostazioni della stampante.</caption>
       <caption xml:lang="nl">Printerinstellingen.</caption>
       <caption xml:lang="nn">Skrivarinnstillingar.</caption>
       <caption xml:lang="pl">Ustawienia drukarki</caption>

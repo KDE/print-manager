@@ -219,8 +219,8 @@ bool SelectMakeModel::isFileSelected() const
 void SelectMakeModel::getBestDriversFinished(const QDBusMessage &message)
 {
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
-        QDBusArgument argument = message.arguments().first().value<QDBusArgument>();
-        const DriverMatchList driverMatchList = qdbus_cast<DriverMatchList>(argument);
+        QDBusArgument arg = message.arguments().first().value<QDBusArgument>();
+        const DriverMatchList driverMatchList = qdbus_cast<DriverMatchList>(arg);
         m_driverMatchList = driverMatchList;
         m_hasRecommended = !m_driverMatchList.isEmpty();
         for (const DriverMatch &driverMatch : driverMatchList) {

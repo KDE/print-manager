@@ -25,6 +25,7 @@
 
 #include <SelectMakeModel.h>
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 
 #include <QFileInfo>
 #include <QFile>
@@ -74,10 +75,10 @@ void PageChoosePPD::setValues(const QVariantHash &args)
         qDebug() << args;
         working();
         removeTempPPD();
-        QString deviceId = args[KCUPS_DEVICE_ID].toString();
+        const QString deviceId = args[KCUPS_DEVICE_ID].toString();
         QString make;
         QString makeAndModel = args[KCUPS_DEVICE_MAKE_AND_MODEL].toString();
-        QString deviceURI = args[KCUPS_DEVICE_URI].toString();
+        const QString deviceURI = args[KCUPS_DEVICE_URI].toString();
 
         // If
         QUrl url(deviceURI + QLatin1String(".ppd"));

@@ -339,7 +339,7 @@ void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusM
 {
     qWarning() << error <<  message;
     groupedDevicesFallback();
-    emit errorMessage(i18n("Failed to group devices: '%1'",error.message()));
+    emit errorMessage(i18n("Failed to group devices: '%1'", error.message()));
     emit loaded();
 }
 

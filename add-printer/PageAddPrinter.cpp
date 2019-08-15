@@ -22,6 +22,7 @@
 #include "ui_PageAddPrinter.h"
 
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 
 #include <QPainter>
 #include <QPointer>
@@ -54,10 +55,9 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
                                              KIconLoader::DefaultState);
     // the emblem icon to size 32
     int overlaySize = KIconLoader::SizeLarge;
-    QPoint startPoint;
     // bottom right corner
-    startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-                        KIconLoader::SizeEnormous - overlaySize - 2);
+    const QPoint startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
+                              KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
     ui->printerL->setPixmap(icon);
 

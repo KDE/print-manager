@@ -22,6 +22,7 @@
 #include "ui_ChooseLpd.h"
 
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 
 #include <QPainter>
 
@@ -45,7 +46,7 @@ ChooseLpd::~ChooseLpd()
 
 void ChooseLpd::on_addressLE_textChanged(const QString &text)
 {
-    Q_UNUSED(text);
+    Q_UNUSED(text)
 //    qDebug() << text;
 }
 

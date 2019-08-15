@@ -30,6 +30,7 @@
 #include "ChooseUri.h"
 
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 #include <NoSelectionRectDelegate.h>
 
 #include <QItemSelectionModel>
@@ -182,7 +183,7 @@ void PageDestinations::deviceChanged()
         }
     } else {
         ui->connectionsGB->setVisible(false);
-        setCurrentPage(0, selectedItemValues());
+        setCurrentPage(nullptr, selectedItemValues());
         return;
     }
 
@@ -320,7 +321,7 @@ void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
     auto page = qobject_cast<GenericPage*>(widget);
     if (page) {
         page->setValues(args);
-        if (ui->stackedWidget->currentWidget() != page) {;
+        if (ui->stackedWidget->currentWidget() != page) {
             ui->stackedWidget->setCurrentWidget(page);
         }
     } else if (qobject_cast<QLabel*>(widget)) {
@@ -330,7 +331,7 @@ void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
             m_chooseLabel->clear();
         }
 
-        if (ui->stackedWidget->currentWidget() != widget) {;
+        if (ui->stackedWidget->currentWidget() != widget) {
             ui->stackedWidget->setCurrentWidget(widget);
         }
     } else {

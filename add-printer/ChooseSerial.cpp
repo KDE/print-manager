@@ -22,6 +22,7 @@
 #include "ui_ChooseSerial.h"
 
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 
 #include <QPainter>
 
@@ -58,7 +59,7 @@ bool ChooseSerial::isValid() const
 void ChooseSerial::setValues(const QVariantHash &args)
 {
     m_args = args;
-    QString deviceUri = args[KCUPS_DEVICE_URI].toString();
+    const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
     if (!deviceUri.startsWith(QLatin1String("serial:"))) {
         m_isValid = false;
         return;

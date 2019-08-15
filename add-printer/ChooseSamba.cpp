@@ -22,6 +22,7 @@
 #include "ui_ChooseSamba.h"
 
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 
 #include <QPainter>
 #include <QDebug>

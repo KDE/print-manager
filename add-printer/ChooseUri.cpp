@@ -22,6 +22,7 @@
 #include "ui_ChooseUri.h"
 
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 
 #include <QLoggingCategory>
 

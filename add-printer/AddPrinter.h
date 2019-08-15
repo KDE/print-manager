@@ -55,7 +55,7 @@ public:
 private:
     void show(QWidget *widget, qulonglong wid) const;
 
-    AddPrinterInterface *m_pqInterface;
+    AddPrinterInterface *m_pqInterface {nullptr};
 };
 
 #endif //ADDPRINTER_H

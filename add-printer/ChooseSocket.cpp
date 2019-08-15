@@ -22,6 +22,7 @@
 #include "ui_ChooseSocket.h"
 
 #include <KCupsRequest.h>
+#include <KLocalizedString>
 
 #include <QPainter>
 #include <QUrl>

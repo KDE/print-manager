@@ -55,7 +55,7 @@ PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent
     const int overlaySize = KIconLoader::SizeLarge;
     // bottom right corner
     const QPoint startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-                              KIconLoader::SizeEnormous - overlaySize - 2);
+                                     KIconLoader::SizeEnormous - overlaySize - 2);
     painter.drawPixmap(startPoint, pixmap);
     ui->printerL->setPixmap(icon);
 

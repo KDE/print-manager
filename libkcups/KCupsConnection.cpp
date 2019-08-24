@@ -847,7 +847,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
         int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
         qCDebug(LIBKCUPS) << "Called cupsDoAuthentication(), success:" << (ret == -1 ? true : false);
 
-        // If the authentication was succefull
+        // If the authentication was successful
         // sometimes just trying to be root works
         return ret == -1 ? true : false;
     }

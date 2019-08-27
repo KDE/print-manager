@@ -32,7 +32,7 @@ KCupsPasswordDialog::KCupsPasswordDialog(QObject *parent) :
     QObject(parent),
     m_accepted(false),
     m_mainwindow(0),
-    // default text, can be overriden using setPromptText()
+    // default text, can be overridden using setPromptText()
     m_promptText(i18n("Enter an username and a password to complete the task"))
 {
 }

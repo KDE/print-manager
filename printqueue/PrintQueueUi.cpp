@@ -236,7 +236,7 @@ void PrintQueueUi::setState(int state, const QString &message)
             ui->statusL->setText(i18n("Printer paused"));
             ui->pausePrinterPB->setText(i18n("Resume Printer"));
             ui->pausePrinterPB->setIcon(QIcon::fromTheme(QLatin1String("media-playback-start")));
-            // create a paiter to paint the action icon over the key icon
+            // create a painter to paint the action icon over the key icon
             {
                 QPainter painter(&icon);
                 // the emblem icon to size 32

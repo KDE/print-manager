@@ -98,7 +98,7 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
 
     if (!printer.requestingUserNameAllowed().isEmpty()) {
         QStringList list = printer.requestingUserNameAllowed();
-        list.sort(); // sort the list here to be able to comapare it later
+        list.sort(); // sort the list here to be able to compare it later
         ui->usersELB->setEnabled(true);
         if (list != ui->usersELB->items()) {
             ui->usersELB->clear();
@@ -107,13 +107,13 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
         ui->usersELB->setProperty("defaultList", list);
         ui->allowRB->setProperty("defaultChoice", true);
         // Set checked AFTER the default choice was set
-        // otherwise the signal will be emmited
+        // otherwise the signal will be emitted
         // which sets that we have a change
         ui->allowRB->setChecked(true);
 
     } else if (!printer.requestingUserNameDenied().isEmpty()) {
         QStringList list = printer.requestingUserNameDenied();
-        list.sort(); // sort the list here to be able to comapare it later
+        list.sort(); // sort the list here to be able to compare it later
         ui->usersELB->setEnabled(true);
         if (list != ui->usersELB->items()) {
             ui->usersELB->clear();
@@ -122,7 +122,7 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
         ui->usersELB->setProperty("defaultList", list);
         ui->allowRB->setProperty("defaultChoice", false);
         // Set checked AFTER the default choice was set
-        // otherwise the signal will be emmited
+        // otherwise the signal will be emitted
         // which sets that we have a change
         ui->preventRB->setChecked(true);
     }

@@ -17,7 +17,7 @@
  *   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,  *
  *   Boston, MA 02110-1301, USA.                                           *
  *                                                                         *
- *   The save PPD snipet is from CUPS                                      *
+ *   The save PPD snippet is from CUPS                                     *
  *   Copyright 2007-2009 by Apple Inc.                                     *
  *   Copyright 1997-2007 by Easy Software Products.                        *
  *                                                                         *
@@ -179,7 +179,7 @@ void PrinterOptions::createGroups()
         // The name of the group
         QString name = m_codec->toUnicode(group->name);
 
-        // The humman name of the group
+        // The human name of the group
         QString text = m_codec->toUnicode(group->text);
 
         // The group box were the options will be laid out

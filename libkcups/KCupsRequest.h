@@ -109,7 +109,7 @@ public:
     /**
      * Get all available printers
      * @param mask filter the kind of printer that will be emitted (-1 to no filter)
-     * @param requestedAttr the attibutes to retrieve from cups
+     * @param requestedAttr the attributes to retrieve from cups
      * This method emits printer()
      *
      * THIS function can get the default server dest through the

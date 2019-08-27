@@ -121,7 +121,7 @@ public:
      * This is the main Cups class @author Daniel Nicoletti <dantti12@gmail.com>
      *
      * By calling KCupsConnection::global() you have access to it.
-     * Due to cups archtecture, this class has to live on a
+     * Due to cups architecture, this class has to live on a
      * separate thread so we avoid blocking the user interface when
      * the cups call blocks.
      *

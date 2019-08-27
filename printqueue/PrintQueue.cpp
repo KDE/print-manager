@@ -98,7 +98,7 @@ void PrintQueue::showQueue(const QString &destName)
         }
     }
 
-    // Check it it's not reserved
+    // Check if it's not reserved
     if (m_uis.value(destName)) {
         KWindowSystem::forceActiveWindow(m_uis.value(destName)->winId());
     }

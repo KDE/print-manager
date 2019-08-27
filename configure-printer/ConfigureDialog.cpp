@@ -72,7 +72,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     if (!request->hasError() && !request->printers().isEmpty()){
         printer = request->printers().first();
     }
-//    qCDebug(PM_CONFIGURE_PRINTER) << "VALUES" << printer.a rgument();
+//    qCDebug(PM_CONFIGURE_PRINTER) << "VALUES" << printer.argument();
 //    qCDebug(PM_CONFIGURE_PRINTER) << "marker" << values["marker-levels"].value<QList<int> >();
 
     request->deleteLater();

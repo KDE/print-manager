@@ -401,7 +401,7 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
         colPages->setText(QString::number(completedPages));
     }
 
-    // when it was precessed
+    // when it was processed
     const QDateTime timeAtProcessing = job.processedAt();
     QStandardItem *colProcessed = item(pos, ColProcessed);
     if (colProcessed->data(Qt::DisplayRole).toDateTime() != timeAtProcessing) {

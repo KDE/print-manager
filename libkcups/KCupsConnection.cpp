@@ -542,7 +542,7 @@ void KCupsConnection::updateSubscription()
             cancelDBusSubscription();
         }
 
-        // Canculates the new events
+        // Calculates the new events
         renewDBusSubscription();
     }
 }
@@ -590,14 +590,14 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
 #if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     QVariantHash destAttributes;
     for (attr = ippFirstAttribute(response); attr != nullptr; attr = ippNextAttribute(response)) {
-        // We hit an attribute sepparator
+        // We hit an attribute separator
         if (ippGetName(attr) == nullptr) {
             ret << destAttributes;
             destAttributes.clear();
             continue;
         }
 
-        // Skip leading attributes until we hit a a group which can be a printer, job...
+        // Skip leading attributes until we hit a group which can be a printer, job...
         if (ippGetGroupTag(attr) != group_tag ||
                 (ippGetValueTag(attr) != IPP_TAG_INTEGER &&
                  ippGetValueTag(attr) != IPP_TAG_ENUM &&
@@ -623,7 +623,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
 #else
     for (attr = response->attrs; attr != nullptr; attr = attr->next) {
        /*
-        * Skip leading attributes until we hit a a group which can be a printer, job...
+        * Skip leading attributes until we hit a group which can be a printer, job...
         */
         while (attr && attr->group_tag != group_tag) {
             attr = attr->next;
@@ -830,7 +830,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
         status == IPP_NOT_AUTHENTICATED) {
         if (password_retries > 3 || password_retries == -1) {
             // the authentication failed 3 times
-            // OR the dialog was canceld (-1)
+            // OR the dialog was canceled (-1)
             // reset to 0 and quit the do-while loop
             password_retries = 0;
             total_retries = 0;

@@ -59,7 +59,7 @@ ClassListWidget::~ClassListWidget()
 
 void ClassListWidget::init()
 {
-    m_busySeq->start(); // Start spining
+    m_busySeq->start(); // Start spinning
     m_model->clear();
 
     QStringList att;
@@ -84,7 +84,7 @@ void ClassListWidget::loadFinished(KCupsRequest *request)
         return;
     }
 
-    m_busySeq->stop(); // Stop spining
+    m_busySeq->stop(); // Stop spinning
 
     const KCupsPrinters printers = request->printers();
     request->deleteLater();

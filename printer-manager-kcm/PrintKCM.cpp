@@ -76,7 +76,6 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
     auto systemMenu = new QMenu(this);
-    connect(systemMenu, &QMenu::aboutToShow, this, &PrintKCM::getServerSettings);
     connect(systemMenu, &QMenu::triggered, this, &PrintKCM::systemPreferencesTriggered);
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
     m_showSharedPrinters = systemMenu->addAction(i18nc("@action:intoolbar","Show printers shared by other systems"));

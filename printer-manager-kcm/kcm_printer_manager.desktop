@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Icon=printer
+Icon=preferences-devices-printer
 Exec=kcmshell5 kcm_printer_manager
 
 X-KDE-Library=kcm_printer_manager

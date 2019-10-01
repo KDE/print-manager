@@ -683,7 +683,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             for (int i = 0; i < ippGetCount(attr); ++i) {
                 values << ippGetInteger(attr, i);
             }
-            ret = qVariantFromValue(values);
+            ret = QVariant::fromValue(values);
         }
         break;
     case IPP_TAG_BOOLEAN:
@@ -694,7 +694,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             for (int i = 0; i < ippGetCount(attr); ++i) {
                 values << ippGetBoolean(attr, i);
             }
-            ret = qVariantFromValue(values);
+            ret = QVariant::fromValue(values);
         }
         break;
     case IPP_TAG_RANGE:
@@ -730,7 +730,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             for (int i = 0; i < attr->num_values; ++i) {
                 values << attr->values[i].integer;
             }
-            ret = qVariantFromValue(values);
+            ret = QVariant::fromValue(values);
         }
         break;
     case IPP_TAG_BOOLEAN:
@@ -741,7 +741,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             for (int i = 0; i < attr->num_values; ++i) {
                 values << static_cast<bool>(attr->values[i].integer);
             }
-            ret = qVariantFromValue(values);
+            ret = QVariant::fromValue(values);
         }
         break;
     case IPP_TAG_RANGE:

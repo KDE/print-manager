@@ -158,7 +158,7 @@ void KCupsRequest::getPrinters(QStringList attributes, int mask)
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getPrinters", qVariantFromValue(attributes), mask);
+        invokeMethod("getPrinters", QVariant::fromValue(attributes), mask);
     }
 }
 
@@ -183,7 +183,7 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getPrinterAttributes", printerName, isClass, qVariantFromValue(attributes));
+        invokeMethod("getPrinterAttributes", printerName, isClass, QVariant::fromValue(attributes));
     }
 }
 
@@ -214,7 +214,7 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getJobs", printerName, myJobs, whichJobs, qVariantFromValue(attributes));
+        invokeMethod("getJobs", printerName, myJobs, whichJobs, QVariant::fromValue(attributes));
     }
 }
 
@@ -238,7 +238,7 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("getJobAttributes", jobId, printerUri, qVariantFromValue(attributes));
+        invokeMethod("getJobAttributes", jobId, printerUri, QVariant::fromValue(attributes));
     }
 }
 
@@ -310,7 +310,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("setServerSettings", qVariantFromValue(server));
+        invokeMethod("setServerSettings", QVariant::fromValue(server));
     }
 }
 
@@ -584,7 +584,7 @@ void KCupsRequest::process(const KIppRequest &request)
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
     } else {
-        invokeMethod("process", qVariantFromValue(request));
+        invokeMethod("process", QVariant::fromValue(request));
     }
 }
 

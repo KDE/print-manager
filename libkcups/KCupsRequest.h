@@ -283,6 +283,8 @@ public:
      */
     void moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName);
 
+    void authenticateJob(const QString &printerName, const QStringList authInfo, int jobId);
+
 signals:
     void device(const QString &device_class,
                 const QString &device_id,

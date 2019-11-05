@@ -48,7 +48,8 @@ public:
         RoleJobReleaseEnabled,
         RoleJobRestartEnabled,
         RoleJobPrinter,
-        RoleJobOriginatingHostName
+        RoleJobOriginatingHostName,
+        RoleJobAuthenticationRequired
     };
 
     enum JobAction {

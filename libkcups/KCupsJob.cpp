@@ -164,6 +164,21 @@ QString KCupsJob::stateMsg() const
     return m_arguments[KCUPS_JOB_PRINTER_STATE_MESSAGE].toString();
 }
 
+QString KCupsJob::stateReason() const
+{
+    return m_arguments[KCUPS_JOB_STATE_REASONS].toString();
+}
+
+QString KCupsJob::holdUntil() const
+{
+    return m_arguments[KCUPS_JOB_HOLD_UNTIL].toString();
+}
+
+bool KCupsJob::authenticationRequired() const
+{
+    return stateReason() == QStringLiteral("cups-held-for-authentication") || holdUntil() == QStringLiteral("auth-info-required");
+}
+
 bool KCupsJob::reprintEnabled() const
 {
     if (state() >= IPP_JOB_STOPPED && preserved()) {

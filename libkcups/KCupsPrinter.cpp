@@ -142,6 +142,11 @@ QStringList KCupsPrinter::requestingUserNameDenied() const
     return m_arguments[QLatin1String(KCUPS_REQUESTING_USER_NAME_DENIED)].toStringList();
 }
 
+QStringList KCupsPrinter::authInfoRequired() const
+{
+    return m_arguments[QLatin1String(KCUPS_AUTH_INFO_REQUIRED)].toStringList();
+}
+
 QString KCupsPrinter::uriSupported() const
 {
     return m_arguments[QLatin1String(KCUPS_PRINTER_URI_SUPPORTED)].toString();

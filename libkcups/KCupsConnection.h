@@ -83,6 +83,8 @@
 #define KCUPS_JOB_MEDIA_SHEETS_COMPLETED QLatin1String("job-media-sheets-completed")
 #define KCUPS_JOB_PRESERVED              QLatin1String("job-preserved")
 #define KCUPS_JOB_STATE                  QLatin1String("job-state")
+#define KCUPS_JOB_STATE_REASONS          QLatin1String("job-state-reasons")
+#define KCUPS_JOB_HOLD_UNTIL             QLatin1String("job-hold-until")
 #define KCUPS_JOB_SHEETS_DEFAULT         QLatin1String("job-sheets-default")
 #define KCUPS_JOB_SHEETS_SUPPORTED       QLatin1String("job-sheets-supported")
 #define KCUPS_JOB_SHEETS_DEFAULT         QLatin1String("job-sheets-default")
@@ -108,6 +110,9 @@
 #define KCUPS_NOTIFY_RECIPIENT_URI   QLatin1String("notify-recipient-uri")
 #define KCUPS_NOTIFY_LEASE_DURATION  QLatin1String("notify-lease-duration")
 #define KCUPS_NOTIFY_SUBSCRIPTION_ID QLatin1String("notify-subscription-id")
+
+#define KCUPS_AUTH_INFO          QLatin1String("auth-info")
+#define KCUPS_AUTH_INFO_REQUIRED QLatin1String("auth-info-required")
 
 typedef QList<QVariantHash> ReturnArguments;
 

@@ -537,6 +537,16 @@ void KCupsRequest::moveJob(const QString &fromPrinterName, int jobId, const QStr
     process(request);
 }
 
+void KCupsRequest::authenticateJob(const QString &printerName, const QStringList authInfo, int jobId)
+{
+    KIppRequest request(IPP_OP_CUPS_AUTHENTICATE_JOB, QLatin1String("/jobs/"));
+    request.addPrinterUri(printerName);
+    request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_JOB_ID, jobId);
+    request.addStringList(IPP_TAG_OPERATION, IPP_TAG_TEXT, KCUPS_AUTH_INFO, authInfo);
+
+    process(request);
+}
+
 void KCupsRequest::invokeMethod(const char *method,
                                 const QVariant &arg1,
                                 const QVariant &arg2,

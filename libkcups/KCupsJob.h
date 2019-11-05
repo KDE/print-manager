@@ -50,7 +50,10 @@ public:
     static QString iconName(ipp_jstate_t state);
     ipp_jstate_t state() const;
     QString stateMsg() const;
+    QString stateReason() const;
+    QString holdUntil() const;
 
+    bool authenticationRequired() const;
     bool reprintEnabled() const;
 
     static bool cancelEnabled(ipp_jstate_t state);

@@ -42,6 +42,10 @@
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KWindowConfig>
+#include <KIO/AuthInfo>
+#include <KIO/Job>
+#include <KUserTimestamp>
+#include <KPasswdServerClient>
 
 #define PRINTER_ICON_SIZE 92
 
@@ -263,59 +267,81 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
     if (!ui->jobsView->indexAt(point).isValid() || m_preparingMenu) {
         return;
     }
+
+    // we need to map the selection to source to get the real indexes
+    QItemSelection selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
+    // if the selection is empty the user clicked on an empty space
+    if (selection.indexes().isEmpty()) {
+        return;
+    }
+
     m_preparingMenu = true;
 
+    // context menu
+    auto menu = new QMenu(this);
+    menu->setAttribute(Qt::WA_DeleteOnClose);
+
     bool moveTo = false;
-    QItemSelection selection;
-    // we need to map the selection to source to get the real indexes
-    selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
-    // if the selection is empty the user clicked on an empty space
-    if (!selection.indexes().isEmpty()) {
-        const QModelIndexList indexes = selection.indexes();
-        for (const QModelIndex &index : indexes) {
-            if (index.column() == 0 && index.flags() & Qt::ItemIsDragEnabled) {
+    bool authenticate = false;
+    const QModelIndexList indexes = selection.indexes();
+    for (const QModelIndex &index : indexes) {
+        if (index.column() == JobModel::Columns::ColStatus) {
+            if (index.flags() & Qt::ItemIsDragEnabled) {
                 // Found a move to item
                 moveTo = true;
-                break;
             }
-        }
-        // if we can move a job create the menu
-        if (moveTo) {
-            // context menu
-            auto menu = new QMenu(this);
-            // move to menu
-            auto moveToMenu = new QMenu(i18n("Move to"), this);
-
-            // get printers we can move to
-            QPointer<KCupsRequest> request = new KCupsRequest;
-            request->getPrinters({ KCUPS_PRINTER_NAME, KCUPS_PRINTER_INFO });
-            request->waitTillFinished();
-            if (!request) {
-                return;
-            }
-            const KCupsPrinters printers = request->printers();
-            request->deleteLater();
-
-            for (const KCupsPrinter &printer : printers) {
-                // If there is a printer and it's not the current one add it
-                // as a new destination
-                if (printer.name() != m_destName) {
-                    QAction *action = moveToMenu->addAction(printer.info());
-                    action->setData(printer.name());
-                }
-            }
-
-            if (!moveToMenu->isEmpty()) {
-                menu->addMenu(moveToMenu);
-                // show the menu on the right point
-                QAction *action = menu->exec(ui->jobsView->mapToGlobal(point));
-                if (action) {
-                    // move the job
-                    modifyJob(JobModel::Move, action->data().toString());
-                }
+            if (index.data(JobModel::Role::RoleJobAuthenticationRequired).toBool()) {
+                // Found an item which requires authentication
+                authenticate = true;
             }
         }
     }
+
+    // if we can move a job create the menu
+    if (moveTo) {
+        // move to menu
+        auto moveToMenu = new QMenu(i18n("Move to"), menu);
+
+        // get printers we can move to
+        QPointer<KCupsRequest> request = new KCupsRequest;
+        request->getPrinters({ KCUPS_PRINTER_NAME, KCUPS_PRINTER_INFO });
+        request->waitTillFinished();
+        if (!request) {
+            return;
+        }
+        const KCupsPrinters printers = request->printers();
+        request->deleteLater();
+
+        for (const KCupsPrinter &printer : printers) {
+            // If there is a printer and it's not the current one add it
+            // as a new destination
+            if (printer.name() != m_destName) {
+                QAction *action = moveToMenu->addAction(printer.info());
+                action->setData(printer.name());
+                connect(action, &QAction::triggered, this, [=] () {
+                    this->modifyJob(JobModel::Move, action->data().toString());
+                });
+            }
+        }
+
+        if (!moveToMenu->isEmpty()) {
+            menu->addMenu(moveToMenu);
+        }
+    }
+
+    // Authenticate
+    if (authenticate) {
+        QAction *action = menu->addAction(i18n("Authenticate"));
+        connect(action, &QAction::triggered, this, &PrintQueueUi::authenticateJob);
+    }
+
+    if (menu->isEmpty()) {
+        delete menu;
+    } else {
+        // show the menu on the right point
+        menu->popup(ui->jobsView->mapToGlobal(point));
+    }
+
     m_preparingMenu = false;
 }
 
@@ -557,6 +583,74 @@ void PrintQueueUi::resumeJob()
 void PrintQueueUi::reprintJob()
 {
     modifyJob(JobModel::Reprint);
+}
+
+void PrintQueueUi::authenticateJob()
+{
+    QScopedPointer<KCupsRequest> request(new KCupsRequest);
+    request->getPrinterAttributes(m_destName, m_isClass, { KCUPS_PRINTER_URI_SUPPORTED, KCUPS_AUTH_INFO_REQUIRED });
+    request->waitTillFinished();
+    if (request->hasError() || request->printers().size() != 1) {
+        qWarning() << "Ignoring request, printer not found or error" << m_destName << request->errorMsg();
+    }
+
+    const KCupsPrinter printer = request->printers().first();
+
+    KIO::AuthInfo info;
+    info.keepPassword = true;
+    info.prompt = i18n("Enter credentials to print from <b>%1</b>", m_destName);
+    info.url = QUrl(printer.uriSupported());
+    if (printer.authInfoRequired().contains(QStringLiteral("domain"))) {
+        info.setExtraField(QStringLiteral("domain"), QStringLiteral(""));
+    }
+
+    QScopedPointer<KPasswdServerClient> passwdServerClient(new KPasswdServerClient());
+
+    auto winId = static_cast<qlonglong>(this->winId());
+    auto usertime = static_cast<qlonglong>(KUserTimestamp::userTimestamp());
+    if (passwdServerClient->checkAuthInfo(&info, winId, usertime)) {
+        // at this stage we don't know if stored credentials are correct
+        // trying blindly is risky, it may block this user's account
+        passwdServerClient->removeAuthInfo(info.url.host(), info.url.scheme(), info.username);
+    }
+    const int passwordDialogErrorCode = passwdServerClient->queryAuthInfo(&info, QString(), winId, usertime);
+    if (passwordDialogErrorCode != KJob::NoError) {
+        // user cancelled or kiod_kpasswdserver not running
+        qDebug() << "queryAuthInfo error code" << passwordDialogErrorCode;
+        return;
+    }
+
+    QStringList authInfo;
+    for (QString &authInfoRequired : printer.authInfoRequired()) {
+        if (authInfoRequired == QStringLiteral("domain")) {
+            authInfo << info.getExtraField(QStringLiteral("domain")).toString();
+        } else if (authInfoRequired == QStringLiteral("username")) {
+            authInfo << info.username;
+        } else if (authInfoRequired == QStringLiteral("password")) {
+            authInfo << info.password;
+        } else {
+            qWarning() << "No auth info for: " << authInfoRequired;
+            authInfo << QString();
+        }
+    }
+
+    // we need to map the selection to source to get the real indexes
+    QItemSelection selection = m_proxyModel->mapSelectionToSource(ui->jobsView->selectionModel()->selection());
+    const QModelIndexList indexes = selection.indexes();
+    for (const QModelIndex &index : indexes) {
+        if (index.column() == JobModel::Columns::ColStatus) {
+            QScopedPointer<KCupsRequest> authRequest(new KCupsRequest);
+            authRequest->authenticateJob(m_destName, authInfo, index.data(JobModel::Role::RoleJobId).toInt());
+            authRequest->waitTillFinished();
+            if (authRequest->hasError()) {
+                qWarning() << "Error authenticating jobs" << authRequest->error() << authRequest->errorMsg();
+                // remove cache on fail
+                passwdServerClient->removeAuthInfo(info.url.host(), info.url.scheme(), info.username);
+                return;
+            }
+        }
+    }
+
 }
 
 void PrintQueueUi::whichJobsIndexChanged(int index)

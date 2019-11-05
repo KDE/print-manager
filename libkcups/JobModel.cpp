@@ -155,6 +155,8 @@ void JobModel::getJobs()
                                        KCUPS_JOB_K_OCTETS,
                                        KCUPS_JOB_K_OCTETS_PROCESSED,
                                        KCUPS_JOB_STATE,
+                                       KCUPS_JOB_STATE_REASONS,
+                                       KCUPS_JOB_HOLD_UNTIL,
                                        KCUPS_TIME_AT_COMPLETED,
                                        KCUPS_TIME_AT_CREATION,
                                        KCUPS_TIME_AT_PROCESSING,
@@ -344,6 +346,8 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
     if (colStatus->data(RoleJobPages) != pages) {
         colStatus->setData(pages, RoleJobPages);
     }
+
+    colStatus->setData(job.authenticationRequired(), RoleJobAuthenticationRequired);
 
     // internal dest name & column
     const QString destName = job.printer();

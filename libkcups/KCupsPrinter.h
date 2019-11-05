@@ -58,6 +58,7 @@ public:
     QStringList jobSheetsSupported() const;
     QStringList requestingUserNameAllowed() const;
     QStringList requestingUserNameDenied() const;
+    QStringList authInfoRequired() const;
     QString uriSupported() const;
 
     Status state() const;

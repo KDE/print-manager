@@ -34,6 +34,4 @@ public:
     ~PrintManagerKded();
 };
 
-K_PLUGIN_FACTORY(PrintDFactory, registerPlugin<PrintManagerKded>();)
-
 #endif // PRINTMANAGERKDED_H

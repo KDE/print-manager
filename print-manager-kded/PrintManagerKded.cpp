@@ -20,7 +20,11 @@
 
 #include "PrintManagerKded.h"
 
+#include <KPluginFactory>
+
 #include "NewPrinterNotification.h"
+
+K_PLUGIN_CLASS_WITH_JSON(PrintManagerKded, "printmanager.json")
 
 PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
     KDEDModule(parent)
@@ -34,4 +38,4 @@ PrintManagerKded::~PrintManagerKded()
 {
 }
 
-#include "moc_PrintManagerKded.cpp"
+#include "PrintManagerKded.moc"

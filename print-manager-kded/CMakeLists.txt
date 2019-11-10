@@ -11,6 +11,7 @@ qt5_add_dbus_adaptor(printmanagerkded_SRCS
 )
 
 add_library(kded_printmanager MODULE ${printmanagerkded_SRCS})
+set_target_properties(kded_printmanager PROPERTIES OUTPUT_NAME printmanager)
 
 target_link_libraries(kded_printmanager
     Qt5::Core
@@ -19,6 +20,5 @@ target_link_libraries(kded_printmanager
     kcupslib
 )
 
-install(TARGETS kded_printmanager DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES printmanager.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
+install(TARGETS kded_printmanager DESTINATION ${PLUGIN_INSTALL_DIR}/kf5/kded)
 install(FILES printmanager.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})

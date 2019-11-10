@@ -111,7 +111,8 @@ void AddPrinter::show(QWidget *widget, qulonglong wid) const
 {
     widget->show();
     KWindowSystem::forceActiveWindow(widget->winId());
-    KWindowSystem::setMainWindow(widget, wid);
+    widget->setAttribute(Qt::WA_NativeWindow, true);
+    KWindowSystem::setMainWindow(widget->windowHandle(), wid);
 }
 
 #include "moc_AddPrinter.cpp"

@@ -60,7 +60,8 @@ void KCupsPasswordDialog::exec(const QString &username, bool wrongPassword)
 
     dialog->show();
     if (m_mainwindow) {
-        KWindowSystem::setMainWindow(dialog, m_mainwindow);
+        dialog->setAttribute(Qt::WA_NativeWindow, true);
+        KWindowSystem::setMainWindow(dialog->windowHandle(), m_mainwindow);
     }
     KWindowSystem::forceActiveWindow(dialog->winId());
 

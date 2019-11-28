@@ -1,7 +1,20 @@
 {
     "KPlugin": {
         "Description": "Inform when a new printer is detected, and print problems",
+        "Description[ca]": "Informa quan es detecta una impressora nova, dels problemes de la impressió",
+        "Description[et]": "Teavitamine uue printeri tuvastamise korral ja probleemide näitamine",
+        "Description[nl]": "Toon wanneer een nieuwe printer is ontdekt en toon problemen",
+        "Description[pt]": "Informa quando é detectada uma nova impressora, bem como problemas na impressão",
+        "Description[uk]": "Повідомлення щодо виявлення принтера та щодо проблем з принтером",
+        "Description[x-test]": "xxInform when a new printer is detected, and print problemsxx",
         "Name": "Print Manager",
+        "Name[ca]": "Gestor d'impressió",
+        "Name[et]": "Trükkimishaldur",
+        "Name[fr]": "Gestionnaire d'impression",
+        "Name[nl]": "Afdrukbeheer",
+        "Name[pt]": "Gestor de Impressão",
+        "Name[uk]": "Керування друком",
+        "Name[x-test]": "xxPrint Managerxx",
         "ServiceTypes": [
             "KDEDModule"
         ]

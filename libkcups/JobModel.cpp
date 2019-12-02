@@ -174,6 +174,25 @@ void JobModel::getJobs()
     m_processingJob.clear();
 }
 
+static KCupsJobs sanitizeJobs(KCupsJobs jobs)
+{
+    // For some reason sometimes cups has broken job queues with jobs with duplicated id
+    // our model doesn't like that at all so sanitize the job list before processing it
+    QVector<int> seenIds;
+    int i = 0;
+    while (i < jobs.count()) {
+        const int jobId = jobs.at(i).id();
+        if (seenIds.contains(jobId)) {
+            qCWarning(LIBKCUPS) << "Found job with duplicated id" << jobId;
+            jobs.removeAt(i);
+        } else {
+            seenIds << jobId;
+            ++i;
+        }
+    }
+    return jobs;
+}
+
 void JobModel::getJobFinished(KCupsRequest *request)
 {
     if (request) {
@@ -181,7 +200,7 @@ void JobModel::getJobFinished(KCupsRequest *request)
             // clear the model after so that the proper widget can be shown
             clear();
         } else {
-            const KCupsJobs jobs = request->jobs();
+            const KCupsJobs jobs = sanitizeJobs(request->jobs());
             qCDebug(LIBKCUPS) << jobs.size();
             for (int i = 0; i < jobs.size(); ++i) {
                 const KCupsJob job = jobs.at(i);
@@ -207,7 +226,7 @@ void JobModel::getJobFinished(KCupsRequest *request)
                 }
             }
 
-            // remove old printers
+            // remove old jobs
             // The above code starts from 0 and make sure
             // dest == modelIndex(x) and if it's not the
             // case it either inserts or moves it.

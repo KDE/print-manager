@@ -12,6 +12,7 @@
         "Description[sk]": "Informuje, keď sa nájde nová tlačiareň, a vytlačí problémy",
         "Description[uk]": "Повідомлення щодо виявлення принтера та щодо проблем з принтером",
         "Description[x-test]": "xxInform when a new printer is detected, and print problemsxx",
+        "Description[zh_TW]": "在偵測到新列印機或遇到列印問題時通知",
         "Name": "Print Manager",
         "Name[ca]": "Gestor d'impressió",
         "Name[en_GB]": "Print Manager",
@@ -25,6 +26,7 @@
         "Name[sk]": "Správca tlače",
         "Name[uk]": "Керування друком",
         "Name[x-test]": "xxPrint Managerxx",
+        "Name[zh_TW]": "列印管理工具",
         "ServiceTypes": [
             "KDEDModule"
         ]

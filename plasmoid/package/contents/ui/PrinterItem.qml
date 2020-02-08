@@ -29,7 +29,7 @@ import org.kde.plasma.printmanager 0.2 as PrintManager
 Item {
     id: printerItem
 
-    property bool isPaused: false
+    readonly property bool isPaused: printerState === 5
     readonly property bool expanded: ListView.view.currentExpanded == index
 
     height: container.childrenRect.height + Math.round(units.gridUnit / 2)
@@ -133,6 +133,7 @@ Item {
             }
 
             iconSource: isPaused ? "media-playback-start" : "media-playback-pause"
+            tooltip: isPaused ? i18n("Resume printing") : i18n("Pause printing")
             opacity: container.containsMouse ? 1 : 0
             visible: opacity != 0
 
@@ -255,10 +256,6 @@ Item {
         }
     }
 
-    Component.onCompleted: {
-        isPaused = printerState === 5
-    }
-
     states: [
         State {
             name: "NORMAL"
@@ -291,12 +288,9 @@ Item {
 
     function toggleSelection() {
         if (isPaused) {
-            if (printerState === 5) {
-                printersModel.resumePrinter(printerName)
-            }
+            printersModel.resumePrinter(printerName)
         } else {
             printersModel.pausePrinter(printerName)
         }
-        isPaused = !isPaused
     }
 }

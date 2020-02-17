@@ -14,6 +14,7 @@
   <name xml:lang="eu">Inprimagailu konfiguratzea</name>
   <name xml:lang="fi">Tulostinasetukset</name>
   <name xml:lang="fr">Configuration de l'imprimante</name>
+  <name xml:lang="gl">Configuración de impresoras</name>
   <name xml:lang="id">Konfigurasi Pencetak</name>
   <name xml:lang="it">Configurazione della stampante</name>
   <name xml:lang="ko">프린터 설정</name>
@@ -37,6 +38,7 @@
   <summary xml:lang="eu">Ezarri eta konfiguratu inprimagailuak</summary>
   <summary xml:lang="fi">Asenna ja aseta tulostimia</summary>
   <summary xml:lang="fr">Installer et configurer les imprimantes</summary>
+  <summary xml:lang="gl">Configurar impresoras</summary>
   <summary xml:lang="id">Mengeset dan mengkonfigurasi pencetak</summary>
   <summary xml:lang="it">Imposta e configura le stampanti</summary>
   <summary xml:lang="ko">프린터 설치 및 설정</summary>
@@ -60,6 +62,7 @@
     <p xml:lang="eu">KDEren konfiguratzeko tresna honek inprimagailuak ezartzen eta konfiguratzen uzten dizu. Inprimagailu berriak hautematen ditu, gidari erabilgarriak aurkitzen ditu eta haien ezarpenak konfiguratzen uzten dizu. Proba-orriak inprimatu eta partekatzeko propietateak ezarri ditzakezu.</p>
     <p xml:lang="fi">Tällä KDE:n määritystyökalulla voi asentaa ja asettaa tulostimia. Se havaitsee uudet tulostimet, etsii sille ajurit ja antaa sinun määrittää niiden asetukset. Tulostusta voi kokeilla sekä jako-ominaisuudet asettaa.</p>
     <p xml:lang="fr">Cet outil de configuration KDE vous permet d'installer et de configurer les imprimantes. Il détecte les nouvelles imprimantes, trouve les pilotes disponibles et vous permet de les configurer. Vous pouvez imprimer des pages de test et définir les propriétés de partage.</p>
+    <p xml:lang="gl">Esta ferramenta de configuración de KDE permítelle configurar impresoras. Detecta novas impresoras, atopa os controladores dispoñíbeis e permítelle configuralas. Pode imprimir páxinas de probas e definir propiedades de compartición.</p>
     <p xml:lang="id">Alat KDE Config memungkinkan kamu mengeset dan mengonfigurasi pencetak. Ini mendeteksikan pencetak baru, menemukan driver yang tersedia dan memungkinkan kamu untuk mengonfigurasi pengaturannya. Kamu bisa mencetak halaman uji dan mengatur properti berbagi.</p>
     <p xml:lang="it">Questo strumento di configurazione di KDE permette di impostare e configurare le stampanti. Rileva le nuove stampanti, trova tutti i driver disponibili e ti permette di configurarne le relative impostazioni. Puoi stampare pagine di prova ed impostare le proprietà di condivisione.</p>
     <p xml:lang="ko">이 KDE 설정 도구를 사용하여 프린터를 설치하고 설정할 수 있습니다. 새로운 프린터를 감지하고 사용 가능한 드라이버를 찾아서 설정할 수 있습니다. 테스트 페이지를 인쇄하고 공유 설정을 변경할 수 있습니다.</p>
@@ -89,6 +92,7 @@
       <caption xml:lang="eu">Inprimagailu ezarpenak.</caption>
       <caption xml:lang="fi">Tulostinasetukset.</caption>
       <caption xml:lang="fr">Paramètres de l'imprimante.</caption>
+      <caption xml:lang="gl">Configuración de impresoras.</caption>
       <caption xml:lang="id">Pengaturan pencetak.</caption>
       <caption xml:lang="it">Impostazioni della stampante.</caption>
       <caption xml:lang="ko">프린터 설정입니다.</caption>

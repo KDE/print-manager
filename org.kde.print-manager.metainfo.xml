@@ -5,6 +5,7 @@
   <extends>org.kde.kded</extends>
   <name>Printer Configuration</name>
   <name xml:lang="ca">Configuració de la impressora</name>
+  <name xml:lang="ca-valencia">Configuració de la impressora</name>
   <name xml:lang="cs">Nastavení tiskárny</name>
   <name xml:lang="de">Druckereinrichtung</name>
   <name xml:lang="el">Διαμόρφωση εκτυπωτή</name>
@@ -30,6 +31,7 @@
   <name xml:lang="x-test">xxPrinter Configurationxx</name>
   <summary>Set up and configure printers</summary>
   <summary xml:lang="ca">Instal·la i configura les impressores</summary>
+  <summary xml:lang="ca-valencia">Instal·la i configura les impressores</summary>
   <summary xml:lang="de">Drucker einrichten</summary>
   <summary xml:lang="el">Ρύθμιση και διαμόρφωση εκτυπωτών</summary>
   <summary xml:lang="en-GB">Set up and configure printers</summary>
@@ -55,6 +57,7 @@
   <description>
     <p>This KDE Config tool lets you set up and configure printers.  It detects new printers, finds the available drivers and allows you to configure their settings.  You can print test pages and set sharing properties.</p>
     <p xml:lang="ca">Aquesta eina de configuració del KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controlador disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
+    <p xml:lang="ca-valencia">Aquesta eina de configuració del KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controlador disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
     <p xml:lang="de">Mit diesem KDE-Einrichtungsprogramm können Sie Drucker einrichten. Es erkennt neue Drucker, findet die verfügbaren Treiber und ermöglicht es Ihnen, deren Treiber einzustellen. Sie können Testseiten drucken und Freigabeeigenschaften festlegen.</p>
     <p xml:lang="el">Αυτό το εργαλείο διαμόρφωσης του KDE σας επιτρέπει να ρυθμίσετε και να διαμορφώσετε εκτυπωτές. Ανιχνεύει νέους εκτυπωτές, βρίσκει τους διαθέσιμους οδηγούς και σας επιτρέπει να διαμορφώσετε τις ρυθμίσεις τους. Μπορείτε να εκτυπώσετε δοκιμαστικές σελίδες και να ρυθμίσετε τις ιδιότητες κοινής χρήσης.</p>
     <p xml:lang="en-GB">This KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.</p>
@@ -86,6 +89,7 @@
     <screenshot type="default">
       <caption>Printer settings.</caption>
       <caption xml:lang="ca">Paràmetres de la impressora.</caption>
+      <caption xml:lang="ca-valencia">Paràmetres de la impressora.</caption>
       <caption xml:lang="de">Druckereinstellungen</caption>
       <caption xml:lang="el">Ρυθμίσεις εκτυπωτή.</caption>
       <caption xml:lang="en-GB">Printer settings.</caption>

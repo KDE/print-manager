@@ -16,7 +16,6 @@
   <name xml:lang="fi">Tulostinasetukset</name>
   <name xml:lang="fr">Configuration de l'imprimante</name>
   <name xml:lang="gl">Configuración de impresoras</name>
-  <name xml:lang="ia">Configuration de imprimitor</name>
   <name xml:lang="id">Konfigurasi Pencetak</name>
   <name xml:lang="it">Configurazione della stampante</name>
   <name xml:lang="ko">프린터 설정</name>
@@ -100,7 +99,6 @@
       <caption xml:lang="fi">Tulostinasetukset.</caption>
       <caption xml:lang="fr">Paramètres de l'imprimante.</caption>
       <caption xml:lang="gl">Configuración de impresoras.</caption>
-      <caption xml:lang="ia">Preferentias de imprimitor</caption>
       <caption xml:lang="id">Pengaturan pencetak.</caption>
       <caption xml:lang="it">Impostazioni della stampante.</caption>
       <caption xml:lang="ko">프린터 설정입니다.</caption>

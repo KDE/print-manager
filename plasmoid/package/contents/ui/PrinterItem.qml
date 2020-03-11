@@ -37,13 +37,7 @@ Item {
 
     MouseArea {
         id: container
-        anchors {
-            fill: parent
-            topMargin: Math.round(units.gridUnit / 2)
-            leftMargin: Math.round(units.gridUnit / 2)
-            rightMargin: Math.round(units.gridUnit / 2)
-            bottomMargin: Math.round(units.gridUnit / 2)
-        }
+        anchors.fill: parent
 
         hoverEnabled: true
         onEntered: {
@@ -73,6 +67,7 @@ Item {
 
             anchors {
                 left: parent.left
+                leftMargin: units.smallSpacing
                 verticalCenter: labelsColumn.verticalCenter
             }
 
@@ -89,8 +84,9 @@ Item {
                 top: parent.top
                 left: printerIcon.right
                 right: stateChangeButton.left
-                leftMargin: Math.round(units.gridUnit / 2)
-                rightMargin: Math.round(units.gridUnit / 2)
+                topMargin: units.smallSpacing
+                leftMargin: units.smallSpacing
+                rightMargin: units.smallSpacing
             }
 
             PlasmaComponents.Label {

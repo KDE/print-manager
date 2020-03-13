@@ -71,8 +71,6 @@ FocusScope {
         ListView {
             id: printersView
 
-            property int currentExpanded: -1
-
             anchors.fill: parent
             opacity: 0
             focus: true
@@ -80,6 +78,8 @@ FocusScope {
             clip: true
             model: printersFilterModel
             highlight: PlasmaComponents.Highlight{ }
+            highlightMoveDuration: units.longDuration
+            highlightResizeDuration: units.longDuration
             delegate: PrinterItem { }
         }
     }

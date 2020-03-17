@@ -66,7 +66,6 @@ FocusScope {
             left: parent.left
             right: parent.right
             top: searchBarVisible ? searchBar.bottom : parent.top
-            topMargin: Math.round(units.gridUnit / 2)
         }
 
         ListView {

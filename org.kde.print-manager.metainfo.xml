@@ -26,6 +26,7 @@
   <name xml:lang="pt-BR">Configuração da impressora</name>
   <name xml:lang="ru">Настройка печати</name>
   <name xml:lang="sk">Nastavenie tlačiarne</name>
+  <name xml:lang="sl">Nastavitve tiskalnika</name>
   <name xml:lang="sv">Skrivarinställning</name>
   <name xml:lang="uk">Налаштування принтера</name>
   <name xml:lang="x-test">xxPrinter Configurationxx</name>
@@ -52,6 +53,7 @@
   <summary xml:lang="pt-BR">Configure impressoras</summary>
   <summary xml:lang="ru">Установка и настройка принтеров</summary>
   <summary xml:lang="sk">Nastaviť a nakonfigurovať tlačiarne</summary>
+  <summary xml:lang="sl">Dodeljevanje in nastavljanje tiskalnikov</summary>
   <summary xml:lang="sv">Ställ in och anpassa skrivare</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
   <summary xml:lang="x-test">xxSet up and configure printersxx</summary>
@@ -79,6 +81,7 @@
     <p xml:lang="pt-BR">Esta ferramenta de configuração KDE permite a você configurar impressoras. Ela detecta novas impressoras, encontra os drivers disponíveis e permite a você definir sua configuração. Você pode imprimir páginas de teste e configurar as propriedades de compartilhamento.</p>
     <p xml:lang="ru">Этот инструмент позволяет устанавливать и настраивать принтеры. Приложение  обнаруживает новые принтеры, находит доступные драйверы и позволяет задать их  параметры. Также из приложения возможно распечатать тестовые страницы и задать параметры совместного доступа к принтерам.</p>
     <p xml:lang="sk">Tento KDE nástroj vám umožní nastaviť a nakonfigurovať tlačiarne. Zistí nové tlačiarne, nájde dostupné ovládače a umožní vám nastaviť ich nastavenia. Môžete tlačiť testovacie stránky a nastaviť možnosti zdieľania.</p>
+    <p xml:lang="sl">Orodje KDE Config vam omogoča dodelitev in nastavitev tiskalnikov. Zazna nove tiskalnike, poišče razpoložljive gonilnike in omogoča njihovo nastavitev. Lahko natisnete testne strani in določite pravice skupne rabe.</p>
     <p xml:lang="sv">Det här KDE-inställningsverktyget låter dig ställa in och anpassa skrivare. Det detekterar nya skrivare, hittar tillgängliga drivrutiner och låter dig anpassa deras inställningar. Du kan skriva ut testsidor och ställa in delningsegenskaper.</p>
     <p xml:lang="uk">За допомогою цього засобу налаштовування KDE ви зможете встановити початкові параметри роботи принтерів та налаштувати принтери. Він здатний виявляти нові принтери, визначати доступні для них драйвери та налаштовувати параметри роботи цих драйверів. Ви можете друкувати тестові сторінки та визначати параметри спільного користування принтерами.</p>
     <p xml:lang="x-test">xxThis KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.xx</p>
@@ -112,6 +115,7 @@
       <caption xml:lang="pt-BR">Configurações da impressora.</caption>
       <caption xml:lang="ru">Настройка принтера.</caption>
       <caption xml:lang="sk">Nastavenia tlačiarne.</caption>
+      <caption xml:lang="sl">Nastavitve tiskalnika.</caption>
       <caption xml:lang="sv">Skrivarinställningar.</caption>
       <caption xml:lang="uk">Параметри принтерів.</caption>
       <caption xml:lang="x-test">xxPrinter settings.xx</caption>

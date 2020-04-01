@@ -188,8 +188,8 @@ QString KIppRequest::assembleUrif(const QString &name, bool isClass)
         destination = QLatin1String("/printers/") + name;
     }
 
-    httpAssembleURIf(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
-                     ippPort(), destination.toUtf8().constData());
+    httpAssembleURI(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
+                    ippPort(), destination.toUtf8().constData());
     return QString::fromLatin1(uri);
 }
 

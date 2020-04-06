@@ -12,6 +12,7 @@ Categories=Qt;KDE;X-KDE-settings-hardware;
 
 Name=Printers
 Name[ar]=الطّابعات
+Name[ast]=Imprentadores
 Name[bg]=Принтери
 Name[bs]=Štampači
 Name[ca]=Impressores
@@ -66,6 +67,7 @@ Name[zh_TW]=印表機
 
 Comment=Configure your printers
 Comment[ar]=اضبط طابعاتك
+Comment[ast]=Configura les imprentadores
 Comment[bg]=Настройване на вашите принтери
 Comment[bs]=Konfigurišite štampače
 Comment[ca]=Configura les impressores

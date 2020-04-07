@@ -60,7 +60,8 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Configure the erro message widget
+    // Configure the error message widget
+    ui->messageWidget->setWordWrap(true);
     ui->messageWidget->setMessageType(KMessageWidget::Error);
     ui->messageWidget->hide();
 

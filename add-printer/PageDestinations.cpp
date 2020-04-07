@@ -74,6 +74,7 @@ PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
     connect(m_chooseUri, &ChooseUri::allowProceed, this, &PageDestinations::allowProceed);
     connect(m_chooseUri, &ChooseUri::startWorking, this, &PageDestinations::working);
     connect(m_chooseUri, &ChooseUri::stopWorking, this, &PageDestinations::notWorking);
+    ui->messageWidget->setWordWrap(true);
     connect(m_chooseUri, &ChooseUri::errorMessage, ui->messageWidget, &KMessageWidget::setText);
     connect(m_chooseUri, &ChooseUri::errorMessage, ui->messageWidget, &KMessageWidget::animatedShow);
     connect(m_chooseUri, &ChooseUri::insertDevice, this, &PageDestinations::insertDevice);

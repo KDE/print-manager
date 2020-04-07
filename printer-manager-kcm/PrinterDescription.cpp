@@ -65,7 +65,7 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
     ui->actionCleanPrintHeads->setVisible(false);
     ui->actionPrintSelfTestPage->setVisible(false);
     ui->maintenancePB->setMenu(menu);
-
+    ui->errorMessage->setWordWrap(true);
     ui->errorMessage->setMessageType(KMessageWidget::Error);
     ui->errorMessage->hide();
 }

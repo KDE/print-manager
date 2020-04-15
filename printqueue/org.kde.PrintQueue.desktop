@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Print Queue
 Name[ar]=صفّ الطّباعة
-Name[ca]=Cua de la impressió
+Name[ca]=Cua d'impressió
 Name[ca@valencia]=Cua de la impressió
 Name[cs]=Fronta tisku
 Name[da]=Printkø
@@ -41,7 +41,7 @@ Name[zh_CN]=打印队列
 Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[ar]=اعرض مهامّ الطّباعة
-Comment[ca]=Visualitza els treballs de la impressió
+Comment[ca]=Visualitza els treballs d'impressió
 Comment[ca@valencia]=Visualitza els treballs de la impressió
 Comment[cs]=Zobrazit tiskové úkoly
 Comment[da]=Vis udskriftsjobs

@@ -24,13 +24,14 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.printmanager 0.2 as PrintManager
 
+import org.kde.kirigami 2.12 as Kirigami
+
 FocusScope {
     id: dialog
 
     property bool scrollBarVisible: printersView.contentHeight > scrollArea.height
     property bool searchBarVisible: scrollBarVisible || searchBar.text.length !== 0
 
-    state: printersFilterModel.count > 0 ? "JOBS_PRINTER" : "NO_PRINTER"
 
     TextField {
         id: searchBar
@@ -72,7 +73,6 @@ FocusScope {
             id: printersView
 
             anchors.fill: parent
-            opacity: 0
             focus: true
             currentIndex: -1
             clip: true
@@ -81,29 +81,17 @@ FocusScope {
             highlightMoveDuration: units.longDuration
             highlightResizeDuration: units.longDuration
             delegate: PrinterItem { }
+
+            Kirigami.PlaceholderMessage {
+                anchors.fill: parent
+                anchors.margins: units.largeSpacing
+
+                visible: printersFilterModel.count === 0 || serverUnavailable
+                text: serverUnavailable ?
+                        printersModelError :
+                        i18n("No printers have been configured or discovered")
+                icon.name: serverUnavailable ? "dialog-error" : undefined
+            }
         }
     }
-
-    StatusView {
-        id: statusNoPrinter
-        anchors.fill: parent
-        opacity: 0
-        iconName: serverUnavailable ? "dialog-error" : "dialog-information"
-        title: serverUnavailable ?
-                   printersModelError :
-                   i18n("No printers have been configured or discovered")
-    }
-
-    states: [
-        State {
-            name: "NO_PRINTER"
-            PropertyChanges { target: statusNoPrinter; opacity: 1 }
-            PropertyChanges { target: printmanager; tooltipText: statusNoPrinter.title }
-        },
-        State {
-            name: "JOBS_PRINTER"
-            PropertyChanges { target: printersView; opacity: 1 }
-            PropertyChanges { target: printmanager; tooltipText: jobsTooltipText }
-        }
-    ]
 }

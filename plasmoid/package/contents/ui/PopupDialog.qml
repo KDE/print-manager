@@ -83,8 +83,8 @@ FocusScope {
             delegate: PrinterItem { }
 
             Kirigami.PlaceholderMessage {
-                anchors.fill: parent
-                anchors.margins: units.largeSpacing
+                anchors.centerIn: parent
+                width: parent.width - (units.largeSpacing * 4)
 
                 visible: printersFilterModel.count === 0 || serverUnavailable
                 text: serverUnavailable ?

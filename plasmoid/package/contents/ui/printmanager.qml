@@ -109,6 +109,6 @@ Item {
     }
 
     function action_printerskcm() {
-        KCMShell.open([printmanager.kcmName]);
+        KCMShell.openSystemSettings(printmanager.kcmName);
     }
 }

@@ -24,8 +24,6 @@ import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.printmanager 0.2 as PrintManager
 
-import org.kde.kirigami 2.12 as Kirigami
-
 FocusScope {
     id: dialog
 
@@ -82,7 +80,7 @@ FocusScope {
             highlightResizeDuration: units.longDuration
             delegate: PrinterItem { }
 
-            Kirigami.PlaceholderMessage {
+            PlasmaExtras.PlaceholderMessage {
                 anchors.centerIn: parent
                 width: parent.width - (units.largeSpacing * 4)
 
@@ -90,7 +88,7 @@ FocusScope {
                 text: serverUnavailable ?
                         printersModelError :
                         i18n("No printers have been configured or discovered")
-                icon.name: serverUnavailable ? "dialog-error" : undefined
+                iconName: serverUnavailable ? "dialog-error" : undefined
             }
         }
     }

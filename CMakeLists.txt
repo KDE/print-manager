@@ -40,12 +40,6 @@ find_package(CUPS "1.5" REQUIRED)
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
              Notifications Plasma WidgetsAddons WindowSystem)
 
-find_package(KF5Kirigami2 ${KF5_MIN_VERSION} CONFIG)
-set_package_properties(KF5Kirigami2 PROPERTIES
-    DESCRIPTION "A QtQuick based components set"
-    TYPE RUNTIME
-)
-
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES
     TYPE RUNTIME

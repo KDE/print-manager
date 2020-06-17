@@ -50,7 +50,6 @@ Name[sv]=Skrivare
 Name[tr]=Yazıcılar
 Name[ug]=پرىنتېرلار
 Name[uk]=Принтери
-Name[x-test]=xxPrintersxx
 Name[zh_CN]=打印机
 Name[zh_TW]=印表機
 Comment=List print jobs and manage them
@@ -98,7 +97,6 @@ Comment[sr@latin]=Pregledajte i upravljajte poslovima štampanja
 Comment[sv]=Lista skrivarjobb och hantera dem
 Comment[tr]=Yazdırma görevlerini listele ve bunları yönet
 Comment[uk]=Показ списку завдань і керування ними
-Comment[x-test]=xxList print jobs and manage themxx
 Comment[zh_CN]=显示和管理打印任务
 Comment[zh_TW]=列出列印工作並管理
 

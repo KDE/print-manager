@@ -27,6 +27,7 @@
         "Description[sl]": "Obvešča o odkritju novega tiskalnika in težavah s tiskanjem",
         "Description[sv]": "Informera om när en ny skrivare detekteras, och om utskriftsproblem",
         "Description[uk]": "Повідомлення щодо виявлення принтера та щодо проблем з принтером",
+        "Description[x-test]": "xxInform when a new printer is detected, and print problemsxx",
         "Description[zh_CN]": "提示新检测到的打印机以及打印问题",
         "Description[zh_TW]": "在偵測到新列印機或遇到列印問題時通知",
         "Name": "Print Manager",
@@ -56,6 +57,7 @@
         "Name[sl]": "Print Manager",
         "Name[sv]": "Utskriftshanterare",
         "Name[uk]": "Керування друком",
+        "Name[x-test]": "xxPrint Managerxx",
         "Name[zh_CN]": "打印管理器",
         "Name[zh_TW]": "列印管理工具",
         "ServiceTypes": [

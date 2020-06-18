@@ -61,6 +61,7 @@ Name[sv]=Skrivare
 Name[tr]=Yazıcılar
 Name[ug]=پرىنتېرلار
 Name[uk]=Принтери
+Name[x-test]=xxPrintersxx
 Name[zh_CN]=打印机
 Name[zh_TW]=印表機
 
@@ -112,5 +113,6 @@ Comment[sr@latin]=Podesite štampače
 Comment[sv]=Anpassa skrivare
 Comment[tr]=Yazıcılarınızı yapılandırın
 Comment[uk]=Налаштування ваших принтерів
+Comment[x-test]=xxConfigure your printersxx
 Comment[zh_CN]=配置打印机
 Comment[zh_TW]=設定您的印表機

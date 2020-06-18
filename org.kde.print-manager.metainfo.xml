@@ -29,6 +29,7 @@
   <name xml:lang="sk">Nastavenie tlačiarne</name>
   <name xml:lang="sv">Skrivarinställning</name>
   <name xml:lang="uk">Налаштування принтера</name>
+  <name xml:lang="x-test">xxPrinter Configurationxx</name>
   <name xml:lang="zh-CN">打印机配置</name>
   <summary>Set up and configure printers</summary>
   <summary xml:lang="ca">Instal·la i configura les impressores</summary>
@@ -54,6 +55,7 @@
   <summary xml:lang="sk">Nastaviť a nakonfigurovať tlačiarne</summary>
   <summary xml:lang="sv">Ställ in och anpassa skrivare</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
+  <summary xml:lang="x-test">xxSet up and configure printersxx</summary>
   <summary xml:lang="zh-CN">设置和配置打印机</summary>
   <description>
     <p>This KDE Config tool lets you set up and configure printers.  It detects new printers, finds the available drivers and allows you to configure their settings.  You can print test pages and set sharing properties.</p>
@@ -80,6 +82,7 @@
     <p xml:lang="sk">Tento KDE nástroj vám umožní nastaviť a nakonfigurovať tlačiarne. Zistí nové tlačiarne, nájde dostupné ovládače a umožní vám nastaviť ich nastavenia. Môžete tlačiť testovacie stránky a nastaviť možnosti zdieľania.</p>
     <p xml:lang="sv">Det här KDE-inställningsverktyget låter dig ställa in och anpassa skrivare. Det detekterar nya skrivare, hittar tillgängliga drivrutiner och låter dig anpassa deras inställningar. Du kan skriva ut testsidor och ställa in delningsegenskaper.</p>
     <p xml:lang="uk">За допомогою цього засобу налаштовування KDE ви зможете встановити початкові параметри роботи принтерів та налаштувати принтери. Він здатний виявляти нові принтери, визначати доступні для них драйвери та налаштовувати параметри роботи цих драйверів. Ви можете друкувати тестові сторінки та визначати параметри спільного користування принтерами.</p>
+    <p xml:lang="x-test">xxThis KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.xx</p>
     <p xml:lang="zh-CN">这个 KDE 配置工具让您可以设置及配置打印机。它能检测新打印机，搜寻可用驱动程序，以及允许您配置它们的设置。您可以打印测试页以及设置共享属性。</p>
   </description>
   <url type="homepage">https://www.kde.org/</url>
@@ -114,6 +117,7 @@
       <caption xml:lang="sk">Nastavenia tlačiarne.</caption>
       <caption xml:lang="sv">Skrivarinställningar.</caption>
       <caption xml:lang="uk">Параметри принтерів.</caption>
+      <caption xml:lang="x-test">xxPrinter settings.xx</caption>
       <caption xml:lang="zh-CN">打印机设置。</caption>
       <image type="source" width="1028" height="757">https://cdn.kde.org/screenshots/print-manager/print-manager.png</image>
     </screenshot>

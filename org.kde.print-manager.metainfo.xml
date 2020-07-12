@@ -20,6 +20,7 @@
   <name xml:lang="id">Konfigurasi Pencetak</name>
   <name xml:lang="it">Configurazione della stampante</name>
   <name xml:lang="ko">프린터 설정</name>
+  <name xml:lang="lt">Spausdintuvų konfigūracija</name>
   <name xml:lang="nl">Printerconfiguratie</name>
   <name xml:lang="nn">Skrivaroppsett</name>
   <name xml:lang="pl">Ustawienia drukarki</name>
@@ -27,6 +28,7 @@
   <name xml:lang="pt-BR">Configuração da impressora</name>
   <name xml:lang="ru">Настройка печати</name>
   <name xml:lang="sk">Nastavenie tlačiarne</name>
+  <name xml:lang="sl">Nastavitve tiskalnika</name>
   <name xml:lang="sv">Skrivarinställning</name>
   <name xml:lang="uk">Налаштування принтера</name>
   <name xml:lang="x-test">xxPrinter Configurationxx</name>
@@ -43,9 +45,11 @@
   <summary xml:lang="fi">Asenna ja aseta tulostimia</summary>
   <summary xml:lang="fr">Installer et configurer les imprimantes</summary>
   <summary xml:lang="gl">Configurar impresoras</summary>
+  <summary xml:lang="ia">Configura imprimitores</summary>
   <summary xml:lang="id">Mengeset dan mengkonfigurasi pencetak</summary>
   <summary xml:lang="it">Imposta e configura le stampanti</summary>
   <summary xml:lang="ko">프린터 설치 및 설정</summary>
+  <summary xml:lang="lt">Nustatyti ir konfigūruoti spausdintuvus</summary>
   <summary xml:lang="nl">Printers instellen en configureren</summary>
   <summary xml:lang="nn">Set opp skrivarar</summary>
   <summary xml:lang="pl">Ustawienia drukarki</summary>
@@ -53,6 +57,7 @@
   <summary xml:lang="pt-BR">Configure impressoras</summary>
   <summary xml:lang="ru">Установка и настройка принтеров</summary>
   <summary xml:lang="sk">Nastaviť a nakonfigurovať tlačiarne</summary>
+  <summary xml:lang="sl">Dodeljevanje in nastavljanje tiskalnikov</summary>
   <summary xml:lang="sv">Ställ in och anpassa skrivare</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
   <summary xml:lang="x-test">xxSet up and configure printersxx</summary>
@@ -73,6 +78,7 @@
     <p xml:lang="id">Alat KDE Config memungkinkan kamu mengeset dan mengonfigurasi pencetak. Ini mendeteksikan pencetak baru, menemukan driver yang tersedia dan memungkinkan kamu untuk mengonfigurasi pengaturannya. Kamu bisa mencetak halaman uji dan mengatur properti berbagi.</p>
     <p xml:lang="it">Questo strumento di configurazione di KDE permette di impostare e configurare le stampanti. Rileva le nuove stampanti, trova tutti i driver disponibili e ti permette di configurarne le relative impostazioni. Puoi stampare pagine di prova ed impostare le proprietà di condivisione.</p>
     <p xml:lang="ko">이 KDE 설정 도구를 사용하여 프린터를 설치하고 설정할 수 있습니다. 새로운 프린터를 감지하고 사용 가능한 드라이버를 찾아서 설정할 수 있습니다. 테스트 페이지를 인쇄하고 공유 설정을 변경할 수 있습니다.</p>
+    <p xml:lang="lt">Šis KDE konfigūracijos įrankis leidžia jums nusistatyti ir konfigūruoti spausdintuvus. Įrankis aptinka naujus spausdintuvus, randa prieinamas tvarkykles ir leidžia jums konfigūruoti jų nuostatas. Galite spausdinti bandomuosius puslapius bei nustatyti bendrinimo savybes.</p>
     <p xml:lang="nl">Dit hulpmiddel voor configuratie van laat u printers instellen en configureren. Het detecteert nieuwe printers, vindt de beschikbare stuurprogramma's en biedt u aan om hun instellingen te configureren. U kunt testpagina's afdrukken en eigenschappen voor delen instellen.</p>
     <p xml:lang="nn">Dette verktøyet lèt deg setja opp skrivarar. Det kan oppdaga nye skrivarar, finna tilgjengelege drivarar og setja dei opp. Du kan skriva ut testutskrifter og endra delingsinnstillingar.</p>
     <p xml:lang="pl">Narzędzie ustawień KDE umożliwia ustawienie drukarek. Wykrywa nowe drukarki, znajduje dostępne sterowniki i umożliwia ich ustawienie. Można drukować strony próbne i nadawać ustawienia współdzielenia.</p>
@@ -80,6 +86,7 @@
     <p xml:lang="pt-BR">Esta ferramenta de configuração KDE permite a você configurar impressoras. Ela detecta novas impressoras, encontra os drivers disponíveis e permite a você definir sua configuração. Você pode imprimir páginas de teste e configurar as propriedades de compartilhamento.</p>
     <p xml:lang="ru">Этот инструмент позволяет устанавливать и настраивать принтеры. Приложение  обнаруживает новые принтеры, находит доступные драйверы и позволяет задать их  параметры. Также из приложения возможно распечатать тестовые страницы и задать параметры совместного доступа к принтерам.</p>
     <p xml:lang="sk">Tento KDE nástroj vám umožní nastaviť a nakonfigurovať tlačiarne. Zistí nové tlačiarne, nájde dostupné ovládače a umožní vám nastaviť ich nastavenia. Môžete tlačiť testovacie stránky a nastaviť možnosti zdieľania.</p>
+    <p xml:lang="sl">Orodje KDE Config vam omogoča dodelitev in nastavitev tiskalnikov. Zazna nove tiskalnike, poišče razpoložljive gonilnike in omogoča njihovo nastavitev. Lahko natisnete testne strani in določite pravice skupne rabe.</p>
     <p xml:lang="sv">Det här KDE-inställningsverktyget låter dig ställa in och anpassa skrivare. Det detekterar nya skrivare, hittar tillgängliga drivrutiner och låter dig anpassa deras inställningar. Du kan skriva ut testsidor och ställa in delningsegenskaper.</p>
     <p xml:lang="uk">За допомогою цього засобу налаштовування KDE ви зможете встановити початкові параметри роботи принтерів та налаштувати принтери. Він здатний виявляти нові принтери, визначати доступні для них драйвери та налаштовувати параметри роботи цих драйверів. Ви можете друкувати тестові сторінки та визначати параметри спільного користування принтерами.</p>
     <p xml:lang="x-test">xxThis KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.xx</p>
@@ -104,10 +111,11 @@
       <caption xml:lang="fi">Tulostinasetukset.</caption>
       <caption xml:lang="fr">Paramètres de l'imprimante.</caption>
       <caption xml:lang="gl">Configuración de impresoras.</caption>
-      <caption xml:lang="ia">Preferentias de imprimitor</caption>
+      <caption xml:lang="ia">Preferentias de imprimitor.</caption>
       <caption xml:lang="id">Pengaturan pencetak.</caption>
       <caption xml:lang="it">Impostazioni della stampante.</caption>
       <caption xml:lang="ko">프린터 설정입니다.</caption>
+      <caption xml:lang="lt">Spausdintuvo nuostatos.</caption>
       <caption xml:lang="nl">Printerinstellingen.</caption>
       <caption xml:lang="nn">Skrivarinnstillingar.</caption>
       <caption xml:lang="pl">Ustawienia drukarki</caption>
@@ -115,6 +123,7 @@
       <caption xml:lang="pt-BR">Configurações da impressora.</caption>
       <caption xml:lang="ru">Настройка принтера.</caption>
       <caption xml:lang="sk">Nastavenia tlačiarne.</caption>
+      <caption xml:lang="sl">Nastavitve tiskalnika.</caption>
       <caption xml:lang="sv">Skrivarinställningar.</caption>
       <caption xml:lang="uk">Параметри принтерів.</caption>
       <caption xml:lang="x-test">xxPrinter settings.xx</caption>

@@ -21,7 +21,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components 2.0 as PlasmaComponents // for Highlight
 import org.kde.plasma.printmanager 0.2 as PrintManager
 
 FocusScope {

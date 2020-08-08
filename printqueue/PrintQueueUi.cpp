@@ -486,8 +486,8 @@ void PrintQueueUi::updateButtons()
     }
 
     ui->cancelJobPB->setEnabled(cancel);
-    ui->holdJobPB->setEnabled(hold);
-    ui->resumeJobPB->setEnabled(release);
+    ui->holdJobPB->setVisible(hold);
+    ui->resumeJobPB->setVisible(release);
     ui->reprintPB->setEnabled(reprint);
 }
 

@@ -31,21 +31,7 @@ PlasmaExtras.ExpandableListItem {
     icon: model.iconName
     iconEmblem: isPaused ? "emblem-pause" : ""
     title: model.printerName
-    subtitle: {
-        if (printmanager.jobsFilter == PrintManager.JobModel.WhichActive) {
-            if (jobsFilterModel.count == 0) {
-                return i18n("%1, no active jobs", model.stateMessage);
-            } else {
-                return i18np("%1, %2 active job", "%1, %2 active jobs", model.stateMessage, jobsFilterModel.count);
-            }
-        } else {
-            if (jobsFilterModel.count == 0) {
-                return i18n("%1, no jobs", model.stateMessage);
-            } else {
-                return i18np("%1, %2 job", "%1, %2 jobs", model.stateMessage, jobsFilterModel.count);
-            }
-        }
-    }
+    subtitle: model.stateMessage
     isDefault: model.isDefault
     defaultActionButtonAction: Action {
         icon.name: isPaused ? "media-playback-start" : "media-playback-pause"

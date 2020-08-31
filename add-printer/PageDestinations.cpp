@@ -178,7 +178,7 @@ void PageDestinations::deviceChanged()
             ui->connectionsCB->clear();
             const auto printers = uris.value<KCupsPrinters>();
             for (const KCupsPrinter &printer : printers) {
-                ui->connectionsCB->addItem(printer.name(), qVariantFromValue(printer));
+                ui->connectionsCB->addItem(printer.name(), QVariant::fromValue(printer));
             }
             ui->connectionsGB->setVisible(true);
         }

@@ -186,7 +186,7 @@ void DevicesModel::insertDevice(const QString &device_class,
                          device_location,
                          !grouped_printers.isEmpty());
     if (!grouped_printers.isEmpty()) {
-        stdItem->setData(qVariantFromValue(grouped_printers), DeviceUris);
+        stdItem->setData(QVariant::fromValue(grouped_printers), DeviceUris);
     }
 }
 

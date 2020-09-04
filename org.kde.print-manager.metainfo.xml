@@ -31,6 +31,7 @@
   <name xml:lang="sk">Nastavenie tlačiarne</name>
   <name xml:lang="sl">Nastavitve tiskalnika</name>
   <name xml:lang="sv">Skrivarinställning</name>
+  <name xml:lang="tg">Танзимоти принтер</name>
   <name xml:lang="uk">Налаштування принтера</name>
   <name xml:lang="x-test">xxPrinter Configurationxx</name>
   <name xml:lang="zh-CN">打印机配置</name>
@@ -61,6 +62,7 @@
   <summary xml:lang="sk">Nastaviť a nakonfigurovať tlačiarne</summary>
   <summary xml:lang="sl">Dodeljevanje in nastavljanje tiskalnikov</summary>
   <summary xml:lang="sv">Ställ in och anpassa skrivare</summary>
+  <summary xml:lang="tg">Принтерҳоро танзим намоед</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
   <summary xml:lang="x-test">xxSet up and configure printersxx</summary>
   <summary xml:lang="zh-CN">设置和配置打印机</summary>
@@ -129,6 +131,7 @@
       <caption xml:lang="sk">Nastavenia tlačiarne.</caption>
       <caption xml:lang="sl">Nastavitve tiskalnika.</caption>
       <caption xml:lang="sv">Skrivarinställningar.</caption>
+      <caption xml:lang="tg">Танзимоти принтер</caption>
       <caption xml:lang="uk">Параметри принтерів.</caption>
       <caption xml:lang="x-test">xxPrinter settings.xx</caption>
       <caption xml:lang="zh-CN">打印机设置。</caption>

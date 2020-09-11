@@ -50,14 +50,6 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
                     KIconLoader::DefaultState);
     ui->iconL->setPixmap(m_printerIcon);
 
-    m_pauseIcon = KIconLoader::global()->loadIcon(QLatin1String("media-playback-pause"),
-                  KIconLoader::NoGroup,
-                  KIconLoader::SizeMedium,
-                  KIconLoader::DefaultState,
-                  QStringList(),
-                  nullptr,
-                  true);
-
     auto menu = new QMenu(ui->maintenancePB);
     menu->addAction(ui->actionPrintTestPage);
     menu->addAction(ui->actionPrintSelfTestPage);

@@ -77,9 +77,6 @@ private:
     bool m_globalShared = false;
     QStringList m_commands;
     QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
     int m_markerChangeTime = 0;
     QVariantHash m_markerData;
     int m_layoutEnd;

@@ -29,8 +29,6 @@
 #include <QPointer>
 #include <QPushButton>
 
-#include <KIconLoader>
-#include <KPixmapSequenceOverlayPainter>
 #include <KMessageBox>
 
 ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *parent) :

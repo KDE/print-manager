@@ -30,7 +30,6 @@
 #include <QMenu>
 #include <QProcess>
 
-#include <KIconLoader>
 #include <KToolInvocation>
 #define PRINTER_ICON_SIZE 128
 
@@ -44,10 +43,7 @@ PrinterDescription::PrinterDescription(QWidget *parent) :
     m_layoutEnd = ui->formLayout->count();
 
     // loads the standard key icon
-    m_printerIcon = KIconLoader::global()->loadIcon(QLatin1String("printer"),
-                    KIconLoader::NoGroup,
-                    PRINTER_ICON_SIZE, // a not so huge icon
-                    KIconLoader::DefaultState);
+    m_printerIcon = QIcon::fromTheme(QStringLiteral("printer")).pixmap(PRINTER_ICON_SIZE);
     ui->iconL->setPixmap(m_printerIcon);
 
     auto menu = new QMenu(ui->maintenancePB);

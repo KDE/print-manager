@@ -28,8 +28,6 @@
 
 #include <QPainter>
 
-#include <KIconLoader>
-
 PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageChoosePrinters)
@@ -39,25 +37,20 @@ PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
     // loads the standard key icon
-    QPixmap pixmap;
-    pixmap = KIconLoader::global()->loadIcon(QLatin1String("printer"),
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeEnormous, // a not so huge icon
-                                             KIconLoader::DefaultState);
-    QPixmap icon(pixmap);
-    QPainter painter(&icon);
 
-    pixmap = KIconLoader::global()->loadIcon(QLatin1String("preferences-other"),
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeLarge, // a not so huge icon
-                                             KIconLoader::DefaultState);
-    // the emblem icon to size 32
-    const int overlaySize = KIconLoader::SizeLarge;
+    const int printerSize = 128;
+    const int overlaySize = 48;
+
+    QPixmap printerIcon = QIcon::fromTheme(QStringLiteral("printer")).pixmap(printerSize);
+    const QPixmap preferencesIcon = QIcon::fromTheme(QStringLiteral("preferences-other")).pixmap(overlaySize);
+
+    QPainter painter(&printerIcon);
+
     // bottom right corner
-    const QPoint startPoint = QPoint(KIconLoader::SizeEnormous - overlaySize - 2,
-                                     KIconLoader::SizeEnormous - overlaySize - 2);
-    painter.drawPixmap(startPoint, pixmap);
-    ui->printerL->setPixmap(icon);
+    const QPoint startPoint = QPoint(printerSize - overlaySize - 2,
+                                     printerSize - overlaySize - 2);
+    painter.drawPixmap(startPoint, preferencesIcon);
+    ui->printerL->setPixmap(printerIcon);
 
     connect(ui->membersLV, static_cast<void (ClassListWidget::*) (bool)>(&ClassListWidget::changed),
             this, &PageChoosePrinters::allowProceed);

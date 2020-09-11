@@ -26,12 +26,10 @@
 #include <QPainter>
 #include <QStyleOption>
 
-#include <KIconLoader>
-
 PrinterDelegate::PrinterDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
 {
-    m_mainIconSize = IconSize(KIconLoader::Dialog); // 32
+    m_mainIconSize = 32;
     m_favIconSize = m_mainIconSize * 0.75; // 24
     m_emblemIconSize = m_mainIconSize / 4; // 8
     m_universalPadding = m_mainIconSize / 8; // 4

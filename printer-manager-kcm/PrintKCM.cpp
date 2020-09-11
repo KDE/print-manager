@@ -31,7 +31,7 @@
 
 #include <KMessageBox>
 #include <KAboutData>
-#include <KToolInvocation>
+#include <KIO/CommandLauncherJob>
 
 #include <QIcon>
 #include <QMenu>
@@ -250,14 +250,14 @@ void PrintKCM::update()
 
 void PrintKCM::on_addTB_clicked()
 {
-    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"),
-    { QLatin1String("--add-printer") });
+    auto job = new KIO::CommandLauncherJob(QStringLiteral("kde-add-printer"), { QStringLiteral("--add-printer") });
+    job->start();
 }
 
 void PrintKCM::addClass()
 {
-    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"),
-    { QLatin1String("--add-class") });
+    auto job = new KIO::CommandLauncherJob(QStringLiteral("kde-add-printer"), { QStringLiteral("--add-class") });
+    job->start();
 }
 
 void PrintKCM::on_removeTB_clicked()

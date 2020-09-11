@@ -25,7 +25,7 @@
 
 #include <KLocalizedString>
 #include <KNotification>
-#include <KToolInvocation>
+#include <KIO/CommandLauncherJob>
 
 #include <KCupsRequest.h>
 
@@ -165,10 +165,10 @@ void NewPrinterNotification::findDriver()
 
     // This function will show the PPD browser dialog
     // to choose a better PPD to the already added printer
-    KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), {
-                                     QLatin1String("--change-ppd"),
-                                     printerName
-                                 });
+
+    auto job = new KIO::CommandLauncherJob(QStringLiteral("kde-add-printer"), {QStringLiteral("--change-ppd"), printerName});
+    job->setDesktopName(QStringLiteral("org.kde.kde-add-printer"));
+    job->start();
 }
 
 void NewPrinterNotification::setupPrinterNotification(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg)
@@ -190,10 +190,9 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify, con
         // This function will show the PPD browser dialog
         // to choose a better PPD, queue name, location
         // in this case the printer was not added
-        KToolInvocation::kdeinitExec(QLatin1String("kde-add-printer"), {
-                                         QLatin1String("--new-printer-from-device"),
-                                         arg
-                                     });
+        auto job = new KIO::CommandLauncherJob(QStringLiteral("kde-add-printer"), {QLatin1String("--new-printer-from-device"), arg});
+        job->setDesktopName(QStringLiteral("org.kde.PrintQueue"));
+        job->start();
     });
 
     notify->sendEvent();

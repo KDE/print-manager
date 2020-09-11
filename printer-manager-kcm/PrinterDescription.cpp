@@ -30,7 +30,8 @@
 #include <QMenu>
 #include <QProcess>
 
-#include <KToolInvocation>
+#include <KIO/CommandLauncherJob>
+
 #define PRINTER_ICON_SIZE 128
 
 Q_DECLARE_METATYPE(QList<int>)
@@ -65,7 +66,8 @@ PrinterDescription::~PrinterDescription()
 
 void PrinterDescription::on_openQueuePB_clicked()
 {
-    KToolInvocation::kdeinitExec(QLatin1String("kde-print-queue"), { m_destName });
+    auto job = new KIO::CommandLauncherJob(QStringLiteral("kde-print-queue"), { m_destName });
+    job->start();
 }
 
 void PrinterDescription::on_defaultCB_clicked()

@@ -17,7 +17,6 @@ target_link_libraries(kde-print-queue
     Qt5::Widgets
     KF5::CoreAddons
     KF5::I18n
-    KF5::IconThemes
     KF5::KIOCore
     KF5::KIOWidgets
     KF5::WidgetsAddons

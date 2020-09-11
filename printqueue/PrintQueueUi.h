@@ -83,9 +83,6 @@ private:
     QString m_destName;
     QString m_title;
     QPixmap m_printerIcon;
-    QPixmap m_pauseIcon;
-    QPixmap m_startIcon;
-    QPixmap m_warningIcon;
     char m_lastState = 0;
     bool m_isClass;
     bool m_preparingMenu = false;

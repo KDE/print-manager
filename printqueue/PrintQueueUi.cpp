@@ -28,7 +28,6 @@
 #include <KCupsPrinter.h>
 #include <NoSelectionRectDelegate.h>
 
-#include <QPainter>
 #include <QToolBar>
 #include <QMenu>
 #include <QByteArray>
@@ -38,7 +37,6 @@
 #include <QShortcut>
 
 #include <KMessageBox>
-#include <KIconLoader>
 #include <KSharedConfig>
 #include <KConfigGroup>
 #include <KWindowConfig>
@@ -71,7 +69,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     // Needed so we have our dialog size saved
     setAttribute(Qt::WA_DeleteOnClose);
 
-    setWindowIcon(printer.icon());
     if (printer.info().isEmpty()) {
         m_title = printer.name();
     } else {
@@ -92,15 +89,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     // loads the standard key icon
     m_printerIcon = printer.icon().pixmap(PRINTER_ICON_SIZE, PRINTER_ICON_SIZE);
     ui->iconL->setPixmap(m_printerIcon);
-
-    m_pauseIcon = KIconLoader::global()->loadIcon(QLatin1String("media-playback-pause"),
-                                                  KIconLoader::NoGroup,
-                                                  KIconLoader::SizeMedium,
-                                                  KIconLoader::DefaultState,
-                                                  QStringList(),
-                                                  nullptr,
-                                                  true);
-
     ui->printerStatusMsgL->setText(QString());
 
     // setup the jobs model
@@ -215,7 +203,6 @@ void PrintQueueUi::setState(int state, const QString &message)
         }
         m_lastState = state;
 
-        QPixmap icon(m_printerIcon);
         m_printerPaused = false;
         switch (state) {
         case KCupsPrinter::Idle:
@@ -240,24 +227,11 @@ void PrintQueueUi::setState(int state, const QString &message)
             ui->statusL->setText(i18n("Printer paused"));
             ui->pausePrinterPB->setText(i18n("Resume Printer"));
             ui->pausePrinterPB->setIcon(QIcon::fromTheme(QLatin1String("media-playback-start")));
-            // create a painter to paint the action icon over the key icon
-            {
-                QPainter painter(&icon);
-                // the emblem icon to size 32
-                int overlaySize = KIconLoader::SizeMedium;
-                QPoint startPoint;
-                // bottom right corner
-                startPoint = QPoint(PRINTER_ICON_SIZE - overlaySize - 2,
-                                    PRINTER_ICON_SIZE - overlaySize - 2);
-                painter.drawPixmap(startPoint, m_pauseIcon);
-            }
             break;
         default :
             ui->statusL->setText(i18n("Printer state unknown"));
             break;
         }
-        // set the printer icon
-        setWindowIcon(icon);
     }
 }
 

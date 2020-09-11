@@ -31,6 +31,7 @@
 
 int main(int argc, char **argv)
 {
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     PrintQueue app(argc, argv);
     app.setOrganizationDomain(QLatin1String("org.kde"));
 

@@ -32,6 +32,7 @@
 
 int main(int argc, char **argv)
 {
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     ConfigurePrinter app(argc, argv);
     app.setOrganizationDomain(QLatin1String("org.kde"));
 

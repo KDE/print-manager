@@ -20,7 +20,6 @@
 
 #include "PrintManagerKded.h"
 
-#include <KPluginFactory>
 
 #include "NewPrinterNotification.h"
 

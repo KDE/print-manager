@@ -21,7 +21,6 @@
 #include "SelectMakeModel.h"
 #include "ui_SelectMakeModel.h"
 
-#include "PPDModel.h"
 #include "Debug.h"
 #include "KCupsRequest.h"
 #include "NoSelectionRectDelegate.h"

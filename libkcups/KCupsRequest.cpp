@@ -21,9 +21,6 @@
 #include "KCupsRequest.h"
 
 #include "Debug.h"
-#include "KIppRequest.h"
-#include "KCupsJob.h"
-#include "KCupsPrinter.h"
 
 #include <KLocalizedString>
 

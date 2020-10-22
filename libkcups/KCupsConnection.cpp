@@ -34,7 +34,6 @@
 
 #include <KLocalizedString>
 
-#include <cups/cups.h>
 
 #define RENEW_INTERVAL        3500
 #define SUBSCRIPTION_DURATION 3600

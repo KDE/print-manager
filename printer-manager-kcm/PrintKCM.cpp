@@ -36,7 +36,6 @@
 #include <QIcon>
 #include <QMenu>
 #include <KCupsRequest.h>
-#include <KCupsServer.h>
 #include <NoSelectionRectDelegate.h>
 
 #include <cups/cups.h>

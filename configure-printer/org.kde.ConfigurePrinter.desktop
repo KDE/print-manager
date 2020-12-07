@@ -2,6 +2,7 @@
 Name=Configure Printer
 Name[ar]=اضبط الطّابعة
 Name[ast]=Configurar una imprentadora
+Name[az]=Printeri tənzimləmək
 Name[ca]=Configuració de la impressora
 Name[ca@valencia]=Configuració de la impressora
 Name[cs]=Nastavit tiskárnu
@@ -45,6 +46,7 @@ Name[zh_TW]=設定印表機
 Comment=Configure your printer
 Comment[ar]=اضبط طابعتك
 Comment[ast]=Configura les imprentadores
+Comment[az]=Printerinizi tənzimləyin
 Comment[ca]=Configura la impressora
 Comment[ca@valencia]=Configura la impressora
 Comment[cs]=Nastavte vaši tiskárnu

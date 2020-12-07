@@ -2,6 +2,7 @@
 Name=Print Queue
 Name[ar]=صفّ الطّباعة
 Name[ast]=Cola d'imprentación
+Name[az]=Çap növbəsi
 Name[ca]=Cua d'impressió
 Name[ca@valencia]=Cua de la impressió
 Name[cs]=Fronta tisku
@@ -44,6 +45,7 @@ Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[ar]=اعرض مهامّ الطّباعة
 Comment[ast]=Visualiza los trabayos d'imprentación
+Comment[az]=Çap tapşırıqlarına baxmaq
 Comment[ca]=Visualitza els treballs d'impressió
 Comment[ca@valencia]=Visualitza els treballs de la impressió
 Comment[cs]=Zobrazit tiskové úkoly

@@ -28,6 +28,7 @@
   <name xml:lang="pl">Ustawienia drukarki</name>
   <name xml:lang="pt">Configuração da Impressora</name>
   <name xml:lang="pt-BR">Configuração da impressora</name>
+  <name xml:lang="ro">Configurarea imprimantei</name>
   <name xml:lang="ru">Настройка печати</name>
   <name xml:lang="sk">Nastavenie tlačiarne</name>
   <name xml:lang="sl">Nastavitve tiskalnika</name>
@@ -60,6 +61,7 @@
   <summary xml:lang="pl">Ustawienia drukarki</summary>
   <summary xml:lang="pt">Definição e configuração de impressoras</summary>
   <summary xml:lang="pt-BR">Configure impressoras</summary>
+  <summary xml:lang="ro">Configurează imprimante</summary>
   <summary xml:lang="ru">Установка и настройка принтеров</summary>
   <summary xml:lang="sk">Nastaviť a nakonfigurovať tlačiarne</summary>
   <summary xml:lang="sl">Dodeljevanje in nastavljanje tiskalnikov</summary>
@@ -93,6 +95,7 @@
     <p xml:lang="pl">Narzędzie ustawień KDE umożliwia ustawienie drukarek. Wykrywa nowe drukarki, znajduje dostępne sterowniki i umożliwia ich ustawienie. Można drukować strony próbne i nadawać ustawienia współdzielenia.</p>
     <p xml:lang="pt">Esta ferramenta de configuração do KDE permite-lhe definir e configurar impressoras. Detecta impressoras novas, descobre os controladores disponíveis e permite-lhe configurar as suas opções. Poderá imprimir páginas de testes e definir as propriedades de partilha.</p>
     <p xml:lang="pt-BR">Esta ferramenta de configuração KDE permite a você configurar impressoras. Ela detecta novas impressoras, encontra os drivers disponíveis e permite a você definir sua configuração. Você pode imprimir páginas de teste e configurar as propriedades de compartilhamento.</p>
+    <p xml:lang="ro">Această unealtă de configurare KDE vă permite să adăugați și să configurați imprimante. Aceasta detectează imprimante noi, găsește driver-e disponibile și vă permite să le configurați opțiunile. Puteți tipări pagini de test și stabili proprietăți de partajare.</p>
     <p xml:lang="ru">Этот инструмент позволяет устанавливать и настраивать принтеры. Приложение  обнаруживает новые принтеры, находит доступные драйверы и позволяет задать их  параметры. Также из приложения возможно распечатать тестовые страницы и задать параметры совместного доступа к принтерам.</p>
     <p xml:lang="sk">Tento KDE nástroj vám umožní nastaviť a nakonfigurovať tlačiarne. Zistí nové tlačiarne, nájde dostupné ovládače a umožní vám nastaviť ich nastavenia. Môžete tlačiť testovacie stránky a nastaviť možnosti zdieľania.</p>
     <p xml:lang="sl">Orodje KDE Config vam omogoča dodelitev in nastavitev tiskalnikov. Zazna nove tiskalnike, poišče razpoložljive gonilnike in omogoča njihovo nastavitev. Lahko natisnete testne strani in določite pravice skupne rabe.</p>
@@ -132,6 +135,7 @@
       <caption xml:lang="pl">Ustawienia drukarki</caption>
       <caption xml:lang="pt">Configuração da impressora.</caption>
       <caption xml:lang="pt-BR">Configurações da impressora.</caption>
+      <caption xml:lang="ro">Configurările imprimantei.</caption>
       <caption xml:lang="ru">Настройка принтера.</caption>
       <caption xml:lang="sk">Nastavenia tlačiarne.</caption>
       <caption xml:lang="sl">Nastavitve tiskalnika.</caption>

@@ -20,5 +20,5 @@ target_link_libraries(kcm_printer_manager
     kcupslib
 )
 
-install(TARGETS kcm_printer_manager DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS kcm_printer_manager DESTINATION ${KDE_INSTALL_PLUGINDIR})
 install(FILES kcm_printer_manager.desktop DESTINATION ${SERVICES_INSTALL_DIR})

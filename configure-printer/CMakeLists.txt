@@ -39,5 +39,5 @@ target_link_libraries(configure-printer
     kcupslib
 )
 
-install(TARGETS configure-printer DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS configure-printer DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.ConfigurePrinter.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

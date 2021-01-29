@@ -39,4 +39,4 @@ target_link_libraries(kcupslib
     ${CUPS_LIB}
 )
 
-install(TARGETS kcupslib ${INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS kcupslib ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

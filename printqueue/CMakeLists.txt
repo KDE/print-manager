@@ -26,5 +26,5 @@ target_link_libraries(kde-print-queue
     kcupslib
 )
 
-install(TARGETS kde-print-queue DESTINATION ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kde-print-queue DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.PrintQueue.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

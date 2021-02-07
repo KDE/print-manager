@@ -21,4 +21,4 @@ target_link_libraries(kded_printmanager
 )
 
 install(TARGETS kded_printmanager DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
-install(FILES printmanager.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+install(FILES printmanager.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})

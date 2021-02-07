@@ -9,5 +9,5 @@ target_link_libraries(printmanager
     kcupslib
 )
 
-install(TARGETS printmanager DESTINATION ${QML_INSTALL_DIR}/org/kde/plasma/printmanager)
-install(FILES qmldir DESTINATION ${QML_INSTALL_DIR}/org/kde/plasma/printmanager)
+install(TARGETS printmanager DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/printmanager)
+install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/printmanager)

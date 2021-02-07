@@ -45,5 +45,5 @@ target_link_libraries(kde-add-printer
     kcupslib
 )
 
-install(TARGETS kde-add-printer DESTINATION ${BIN_INSTALL_DIR})
-install(PROGRAMS org.kde.kde-add-printer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(TARGETS kde-add-printer DESTINATION ${KDE_INSTALL_BINDIR})
+install(PROGRAMS org.kde.kde-add-printer.desktop DESTINATION ${KDE_INSTALL_APPDIR})

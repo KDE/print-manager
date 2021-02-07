@@ -21,4 +21,4 @@ target_link_libraries(kcm_printer_manager
 )
 
 install(TARGETS kcm_printer_manager DESTINATION ${KDE_INSTALL_PLUGINDIR})
-install(FILES kcm_printer_manager.desktop DESTINATION ${SERVICES_INSTALL_DIR})
+install(FILES kcm_printer_manager.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})

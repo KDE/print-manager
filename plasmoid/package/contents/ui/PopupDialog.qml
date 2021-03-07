@@ -78,7 +78,9 @@ FocusScope {
             highlight: PlasmaComponents.Highlight{ }
             highlightMoveDuration: units.longDuration
             highlightResizeDuration: units.longDuration
-            delegate: PrinterItem { }
+            delegate: PrinterItem {
+                width: printersView.width
+            }
 
             PlasmaExtras.PlaceholderMessage {
                 anchors.centerIn: parent

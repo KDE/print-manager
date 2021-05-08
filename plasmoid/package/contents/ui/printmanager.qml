@@ -1,6 +1,7 @@
 /*
  *   Copyright 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
  *   Copyright 2014 Jan Grulich <jgrulich@redhat.com>
+ *   Copyright 2021 Nate Graham <nate@kde.org>
  *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU Library General Public License as
@@ -26,6 +27,10 @@ import org.kde.plasma.printmanager 0.2 as PrintManager
 
 Item {
     id: printmanager
+
+    property bool cfg_allJobs
+    property bool cfg_completedJobs
+    property bool cfg_activeJobs
 
     property int jobsFilter: printmanager.Plasmoid.configuration.allJobs ? PrintManager.JobModel.WhichAll :
                              printmanager.Plasmoid.configuration.completedJobs ? PrintManager.JobModel.WhichCompleted : PrintManager.JobModel.WhichActive
@@ -103,13 +108,58 @@ Item {
         }
     }
 
-    function action_printerskcm() {
+
+    property var showAllJobsAction
+    property var showCompletedJobsOnlyAction
+    property var showActiveJobsOnlyAction
+
+    function action_showAllJobs() {
+        Plasmoid.configuration.allJobs = true;
+        Plasmoid.configuration.completedJobs = false;
+        Plasmoid.configuration.activeJobs = false;
+    }
+
+    function action_showCompletedJobsOnly() {
+        Plasmoid.configuration.allJobs = false;
+        Plasmoid.configuration.completedJobs = true;
+        Plasmoid.configuration.activeJobs = false;
+    }
+
+    function action_showActiveJobsOnly() {
+        Plasmoid.configuration.allJobs = false;
+        Plasmoid.configuration.completedJobs = false;
+        Plasmoid.configuration.activeJobs = true;
+    }
+
+    function action_configure() {
         KCMShell.openSystemSettings(printmanager.kcmName);
     }
 
     Component.onCompleted: {
-        if (kcmAllowed) {
-            plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
-        }
+        Plasmoid.setAction("showAllJobs", i18n("Show All Jobs"));
+        printmanager.showAllJobsAction = Plasmoid.action("showAllJobs");
+        printmanager.showAllJobsAction.checkable = true;
+        printmanager.showAllJobsAction.checked = Qt.binding(() => {return Plasmoid.configuration.allJobs;});
+        Plasmoid.setActionGroup("showAllJobs", "jobsShown");
+
+        Plasmoid.setAction("showCompletedJobsOnly", i18n("Show Only Completed Jobs"));
+        printmanager.showCompletedJobsOnlyAction = Plasmoid.action("showCompletedJobsOnly");
+        printmanager.showCompletedJobsOnlyAction.checkable = true;
+        printmanager.showCompletedJobsOnlyAction.checked = Qt.binding(() => {return Plasmoid.configuration.completedJobs;});
+        Plasmoid.setActionGroup("showCompletedJobsOnly", "jobsShown");
+
+        Plasmoid.setAction("showActiveJobsOnly", i18n("Show Only Active Jobs"));
+        printmanager.showActiveJobsOnlyAction = Plasmoid.action("showActiveJobsOnly");
+        printmanager.showActiveJobsOnlyAction.checkable = true;
+        printmanager.showActiveJobsOnlyAction.checked = Qt.binding(() => {return Plasmoid.configuration.activeJobs;});
+        Plasmoid.setActionGroup("showActiveJobsOnly", "jobsShown");
+
+        // TODO: remove this separator once the configure action doesn't redundantly
+        // appear in the hamburger menu
+        Plasmoid.setActionSeparator("sep");
+
+        Plasmoid.removeAction("configure");
+        Plasmoid.setAction("configure", i18n("&Configure Printers..."), "configure");
+        Plasmoid.action("configure").enabled = Qt.binding(() => {return kcmAllowed;});
     }
 }

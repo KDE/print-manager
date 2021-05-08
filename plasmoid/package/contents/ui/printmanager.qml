@@ -81,11 +81,6 @@ Item {
     }
 
     onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
-    Component.onCompleted: {
-        if (kcmAllowed) {
-            plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
-        }
-    }
 
     PrintManager.PrinterModel {
         id: printersModel
@@ -110,5 +105,11 @@ Item {
 
     function action_printerskcm() {
         KCMShell.openSystemSettings(printmanager.kcmName);
+    }
+
+    Component.onCompleted: {
+        if (kcmAllowed) {
+            plasmoid.setAction("printerskcm", i18n("&Configure Printers..."), "printer");
+        }
     }
 }

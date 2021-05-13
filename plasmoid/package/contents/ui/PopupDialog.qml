@@ -90,7 +90,7 @@ FocusScope {
                 text: serverUnavailable ?
                         printersModelError :
                         i18n("No printers have been configured or discovered")
-                iconName: serverUnavailable ? "dialog-error" : undefined
+                iconName: serverUnavailable ? "dialog-error" : ""
             }
         }
     }

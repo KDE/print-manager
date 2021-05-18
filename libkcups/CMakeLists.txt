@@ -25,9 +25,9 @@ ki18n_wrap_ui(libkcups_SRCS
 add_library(kcupslib SHARED ${libkcups_SRCS})
 
 target_link_libraries(kcupslib
-    Qt5::Core
-    Qt5::DBus
-    Qt5::Widgets
+    Qt::Core
+    Qt::DBus
+    Qt::Widgets
     KF5::ConfigWidgets
     KF5::CoreAddons
     KF5::I18n

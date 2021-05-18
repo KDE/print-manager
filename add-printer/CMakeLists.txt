@@ -32,9 +32,9 @@ add_executable(kde-add-printer
 )
 
 target_link_libraries(kde-add-printer
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Network
+    Qt::Core
+    Qt::Widgets
+    Qt::Network
     KF5::CoreAddons
     KF5::I18n
     KF5::IconThemes

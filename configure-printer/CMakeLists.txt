@@ -17,7 +17,7 @@ ki18n_wrap_ui(configureprinter_SRCS
     PrinterBehavior.ui
 )
 
-qt5_add_dbus_adaptor(configureprinter_SRCS
+qt_add_dbus_adaptor(configureprinter_SRCS
     org.kde.ConfigurePrinter.xml
     ConfigurePrinterInterface.h
     ConfigurePrinterInterface
@@ -25,8 +25,8 @@ qt5_add_dbus_adaptor(configureprinter_SRCS
 
 add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
-    Qt5::Core
-    Qt5::Widgets
+    Qt::Core
+    Qt::Widgets
     KF5::CoreAddons
     KF5::I18n
     KF5::IconThemes

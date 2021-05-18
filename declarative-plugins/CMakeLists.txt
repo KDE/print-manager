@@ -4,8 +4,8 @@ set(printmanager_qml_plugin_SRCS
 
 add_library(printmanager SHARED ${printmanager_qml_plugin_SRCS})
 target_link_libraries(printmanager
-    Qt5::Qml
-    Qt5::Quick
+    Qt::Qml
+    Qt::Quick
     kcupslib
 )
 

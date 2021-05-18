@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.16)
 
 # KDE Application Version, managed by release script
 set (RELEASE_SERVICE_VERSION_MAJOR "21")
@@ -8,8 +8,8 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(print-manager VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.9.0")
-set(KF5_MIN_VERSION "5.72.0")
+set(QT_MIN_VERSION "5.15.0")
+set(KF5_MIN_VERSION "5.82.0")
 
 
 

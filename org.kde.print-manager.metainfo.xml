@@ -4,6 +4,7 @@
   <extends>org.kde.systemsettings</extends>
   <extends>org.kde.kded</extends>
   <name>Printer Configuration</name>
+  <name xml:lang="ar">ضبط الطابعة</name>
   <name xml:lang="az">Printer tənzimləmələri</name>
   <name xml:lang="ca">Configuració de la impressora</name>
   <name xml:lang="ca-valencia">Configuració de la impressora</name>
@@ -39,6 +40,7 @@
   <name xml:lang="x-test">xxPrinter Configurationxx</name>
   <name xml:lang="zh-CN">打印机配置</name>
   <summary>Set up and configure printers</summary>
+  <summary xml:lang="ar">يعد ويضبط الطابعات</summary>
   <summary xml:lang="az">Printerləri quraşdırmaq və tənzimləmək</summary>
   <summary xml:lang="ca">Instal·la i configura les impressores</summary>
   <summary xml:lang="ca-valencia">Instal·la i configura les impressores</summary>
@@ -75,6 +77,7 @@
   <summary xml:lang="zh-CN">设置和配置打印机</summary>
   <description>
     <p>This KDE Config tool lets you set up and configure printers.  It detects new printers, finds the available drivers and allows you to configure their settings.  You can print test pages and set sharing properties.</p>
+    <p xml:lang="ar">تتيح لك أداة تكوين كدي هذه إعداد الطابعات وتكوينها. يكتشف الطابعات الجديدة ، ويجد برامج التشغيل المتاحة ويسمح لك بتكوين إعداداتها. يمكنك طباعة صفحات الاختبار وتعيين خصائص المشاركة.</p>
     <p xml:lang="az">Bu KDE Tənzimləmələri vasitəsi ilə printerlər quraşdırıla və tənzimlənə bilər. Yeni printerləri aşkarlayır, mövcud sürücüləri tapır və ayarlarını tənzimləməyə  imkan verir. Test səhifələrini çap edə və paylaşma xüsusiyyətlərini təyin edə bilərsiniz.</p>
     <p xml:lang="ca">Aquesta eina de configuració del KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controlador disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
     <p xml:lang="ca-valencia">Aquesta eina de configuració del KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controlador disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
@@ -115,6 +118,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Printer settings.</caption>
+      <caption xml:lang="ar">إعدادات الطابعة.</caption>
       <caption xml:lang="az">Printer ayarları.</caption>
       <caption xml:lang="ca">Configuració de la impressora.</caption>
       <caption xml:lang="ca-valencia">Paràmetres de la impressora.</caption>

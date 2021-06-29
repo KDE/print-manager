@@ -1,6 +1,7 @@
 [Global]
 IconName=printer
 Name=Printer Management
+Name[ar]=إدارة الطابعة
 Name[ast]=Xestión d'imprentadores
 Name[az]=Printer İdarəetmə
 Name[ca]=Gestió de la impressió

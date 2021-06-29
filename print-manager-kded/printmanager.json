@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Inform when a new printer is detected, and print problems",
+        "Description[ar]": "يخطرك عند اكتشاف طابعة جديدة، وعند حدوث مشكلة في الطّباعة",
         "Description[ast]": "Informa cuando se detecta una imprentadora nueva y de los sos problemes",
         "Description[az]": "Yeni printer aşkar edildiyində və problem yarandıqda məlumat vermək",
         "Description[ca@valencia]": "Informa quan es detecta una impressora nova, dels problemes de la impressió",
@@ -37,6 +38,7 @@
         "Description[zh_CN]": "提示新检测到的打印机以及打印问题",
         "Description[zh_TW]": "在偵測到新列印機或遇到列印問題時通知",
         "Name": "Print Manager",
+        "Name[ar]": "مدير الطّباعة",
         "Name[ast]": "Xestor d'imprentación",
         "Name[az]": "Cap Meneceri",
         "Name[ca@valencia]": "Gestor d'impressió",

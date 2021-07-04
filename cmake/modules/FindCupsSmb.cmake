@@ -11,11 +11,8 @@
 # ``CupsSmb_BACKEND``
 #     Path of smb backend file
 
-#=============================================================================
 # SPDX-FileCopyrightText: 2019 Harald Sitter <sitter@kde.org>
-#
 # SPDX-License-Identifier: BSD-3-Clause
-#=============================================================================
 
 find_file(CupsSmb_BACKEND smb
     PATHS

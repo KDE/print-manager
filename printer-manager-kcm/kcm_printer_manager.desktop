@@ -120,6 +120,7 @@ Comment[x-test]=xxConfigure your printersxx
 Comment[zh_CN]=配置打印机
 Comment[zh_TW]=設定您的印表機
 X-KDE-Keywords=printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer
+X-KDE-Keywords[az]=printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,printerlər,kağız,çap,çap etmə,uzaq printer,şəbəkə printeri,printeri paylaşmaq
 X-KDE-Keywords[ca]=impressores,impressió,paper,cups,tinta,impressora,impressora remota,impressora d'internet,impressora de xarxa,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,impressora virtual brf braille,impressora compartida,compartició d'impressora
 X-KDE-Keywords[en_GB]=printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer
 X-KDE-Keywords[es]=impresoras,impresora,papel,cups,tinta,impresión,imprimir,impresora remota,impresora de internet,impresora de red,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,impresora brf braille virtual,compartir impresora

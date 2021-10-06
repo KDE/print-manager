@@ -63,8 +63,8 @@ FocusScope {
             clip: true
             model: printersFilterModel
             highlight: PlasmaComponents.Highlight{ }
-            highlightMoveDuration: units.longDuration
-            highlightResizeDuration: units.longDuration
+            highlightMoveDuration: 0
+            highlightResizeDuration: 0
             delegate: PrinterItem {
                 width: printersView.width
             }

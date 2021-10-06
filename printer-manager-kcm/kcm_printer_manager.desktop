@@ -6,7 +6,6 @@ Exec=systemsettings5 kcm_printer_manager
 X-KDE-Library=kcm_printer_manager
 X-KDE-ServiceTypes=KCModule
 X-KDE-System-Settings-Parent-Category=hardware
-X-KDE-System-Settings-Parent-Category-V2=hardware
 X-KDE-ParentApp=kcontrol
 Categories=Qt;KDE;X-KDE-settings-hardware;
 

@@ -428,7 +428,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
                                         qUtf8Printable(title),
                                         1,
                                         &hold_option)) < 1) {
-                qWarning() << "Unable to send command to printer driver!";
+                qCWarning(LIBKCUPS) << "Unable to send command to printer driver!";
 
                 setError(HTTP_OK, IPP_NOT_POSSIBLE, i18n("Unable to send command to printer driver!"));
                 setFinished();
@@ -452,7 +452,7 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
 
             setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
             if (httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError() >= IPP_REDIRECTION_OTHER_SITE) {
-                qWarning() << "Unable to send command to printer driver!";
+                qCWarning(LIBKCUPS) << "Unable to send command to printer driver!";
 
                 cupsCancelJob(qUtf8Printable(printerName), job_id);
                 setFinished();
@@ -505,7 +505,7 @@ void KCupsRequest::restartJob(const QString &printerName, int jobId)
 void KCupsRequest::moveJob(const QString &fromPrinterName, int jobId, const QString &toPrinterName)
 {
     if (jobId < -1 || fromPrinterName.isEmpty() || toPrinterName.isEmpty() || jobId == 0) {
-        qWarning() << "Internal error, invalid input data" << jobId << fromPrinterName << toPrinterName;
+        qCWarning(LIBKCUPS) << "Internal error, invalid input data" << jobId << fromPrinterName << toPrinterName;
         setFinished();
         return;
     }

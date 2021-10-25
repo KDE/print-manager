@@ -17,7 +17,7 @@ class PrintManagerKded : public KDEDModule
     Q_OBJECT
 public:
     PrintManagerKded(QObject *parent, const QVariantList &args);
-    ~PrintManagerKded();
+    ~PrintManagerKded() override;
 };
 
 #endif // PRINTMANAGERKDED_H

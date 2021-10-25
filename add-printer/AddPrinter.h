@@ -15,7 +15,7 @@ class AddPrinter : public QApplication
     Q_OBJECT
 public:
     AddPrinter(int &argc, char **argv);
-    virtual ~AddPrinter();
+    ~AddPrinter() override;
 
     /**
      * This method allows to browse discovered printers and add them

@@ -17,7 +17,7 @@ class SelectMakeModelDialog : public QDialog
     Q_OBJECT
 public:
     explicit SelectMakeModelDialog(const QString & make, const QString & makeModel, QWidget *parent = nullptr);
-    ~SelectMakeModelDialog();
+    ~SelectMakeModelDialog() override;
 
     SelectMakeModel * mainWidget() const;
 private:

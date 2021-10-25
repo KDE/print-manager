@@ -23,7 +23,7 @@ class Q_DECL_EXPORT SelectMakeModel : public QWidget
     Q_OBJECT
 public:
     explicit SelectMakeModel(QWidget *parent = nullptr);
-    ~SelectMakeModel();
+    ~SelectMakeModel() override;
 
     void setDeviceInfo(const QString &deviceId, const QString &make, const QString &makeAndModel, const QString &deviceUri);
     void setMakeModel(const QString &make, const QString &makeAndModel);

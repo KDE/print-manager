@@ -25,7 +25,7 @@ class PrintKCM : public KCModule
     Q_OBJECT
 public:
     PrintKCM(QWidget *parent, const QVariantList &args);
-    ~PrintKCM();
+    ~PrintKCM() override;
 
 private slots:
     void update();

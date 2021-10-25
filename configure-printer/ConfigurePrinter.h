@@ -15,7 +15,7 @@ class ConfigurePrinter : public QApplication
     Q_OBJECT
 public:
     ConfigurePrinter(int & argc, char ** argv);
-    virtual ~ConfigurePrinter();
+    ~ConfigurePrinter() override;
 
     void configurePrinter(const QString &printer);
 private:

@@ -20,7 +20,7 @@ class PrinterDescription : public QWidget
     Q_OBJECT
 public:
     explicit PrinterDescription(QWidget *parent = nullptr);
-    ~PrinterDescription();
+    ~PrinterDescription() override;
 
     void setPrinterIcon(const QIcon &icon);
     void setDestName(const QString &name, const QString &description, bool isClass, bool singlePrinter);

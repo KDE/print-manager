@@ -14,7 +14,7 @@ class PrintQueue : public QApplication
     Q_OBJECT
 public:
     PrintQueue(int & argc, char ** argv);
-    virtual ~PrintQueue();
+    ~PrintQueue() override;
 
 public slots:
     void showQueues(const QStringList & queues, const QString & cwd = QString());

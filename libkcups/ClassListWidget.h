@@ -21,7 +21,7 @@ class Q_DECL_EXPORT ClassListWidget : public QListView
     Q_PROPERTY(bool showClasses READ showClasses WRITE setShowClasses)
 public:
     explicit ClassListWidget(QWidget *parent = nullptr);
-    ~ClassListWidget();
+    ~ClassListWidget() override;
 
     bool hasChanges();
     void setPrinter(const QString &printer);

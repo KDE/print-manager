@@ -20,5 +20,5 @@ target_link_libraries(kcm_printer_manager
     kcupslib
 )
 
-install(TARGETS kcm_printer_manager DESTINATION ${KDE_INSTALL_PLUGINDIR})
-install(FILES kcm_printer_manager.desktop DESTINATION ${KDE_INSTALL_KSERVICES5DIR})
+install(TARGETS kcm_printer_manager DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
+install(FILES kcm_printer_manager.desktop DESTINATION ${KDE_INSTALL_APPDIR})

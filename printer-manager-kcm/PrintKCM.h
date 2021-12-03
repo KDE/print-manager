@@ -54,6 +54,4 @@ private:
     QAction *m_allowUsersCancelAnyJob;
 };
 
-K_PLUGIN_FACTORY(PrintKCMFactory, registerPlugin<PrintKCM>();)
-
 #endif

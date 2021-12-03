@@ -26,6 +26,9 @@
 
 #include <cups/cups.h>
 
+
+K_PLUGIN_CLASS_WITH_JSON(PrintKCM, "kcm_printer_manager.json")
+
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     KCModule(parent, args),
     ui(new Ui::PrintKCM)
@@ -360,4 +363,4 @@ void PrintKCM::systemPreferencesTriggered()
     request->setServerSettings(server);
 }
 
-#include "moc_PrintKCM.cpp"
+#include "PrintKCM.moc"

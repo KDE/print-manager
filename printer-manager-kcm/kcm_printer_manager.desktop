@@ -1,12 +1,8 @@
 [Desktop Entry]
-Type=Service
+Type=Application
+NoDisplay=true
 Icon=preferences-devices-printer
-Exec=systemsettings5 kcm_printer_manager
-
-X-KDE-Library=kcm_printer_manager
-X-KDE-ServiceTypes=KCModule
-X-KDE-System-Settings-Parent-Category=hardware
-X-KDE-ParentApp=kcontrol
+Exec=systemsettings kcm_printer_manager
 Categories=Qt;KDE;X-KDE-settings-hardware;
 
 Name=Printers

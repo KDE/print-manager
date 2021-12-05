@@ -1,6 +1,11 @@
 {
     "KPlugin": {
         "Description": "Configure your printers",
+        "Description[ca]": "Configura les impressores",
+        "Description[nl]": "Uw printers instellen",
+        "Description[sv]": "Anpassa skrivare",
+        "Description[uk]": "Налаштування ваших принтерів",
+        "Description[x-test]": "xxConfigure your printersxx",
         "Icon": "preferences-devices-printer",
         "Name": "Printers",
         "Name[ar]": "الطّابعات",

@@ -3,11 +3,21 @@
         "Authors": [
             {
                 "Email": "dantti12@gmail.com",
-                "Name": "Daniel Nicoletti"
+                "Name": "Daniel Nicoletti",
+                "Name[ca]": "Daniel Nicoletti",
+                "Name[nl]": "Daniel Nicoletti",
+                "Name[sv]": "Daniel Nicoletti",
+                "Name[uk]": "Daniel Nicoletti",
+                "Name[x-test]": "xxDaniel Nicolettixx"
             }
         ],
         "Category": "Utilities",
         "Description": "List print jobs and manage them",
+        "Description[ca]": "Llista i gestiona els treballs d'impressió",
+        "Description[nl]": "Toon afdruktaken en beheer ze",
+        "Description[sv]": "Lista skrivarjobb och hantera dem",
+        "Description[uk]": "Показ списку завдань і керування ними",
+        "Description[x-test]": "xxList print jobs and manage themxx",
         "EnabledByDefault": true,
         "Icon": "printer",
         "Id": "org.kde.plasma.printmanager",

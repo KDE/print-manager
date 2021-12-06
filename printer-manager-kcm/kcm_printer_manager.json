@@ -2,7 +2,10 @@
     "KPlugin": {
         "Description": "Configure your printers",
         "Description[ca]": "Configura les impressores",
+        "Description[fr]": "Configurer vos imprimantes",
         "Description[nl]": "Uw printers instellen",
+        "Description[pl]": "Ustaw swoje drukarki",
+        "Description[sl]": "Nastavi svoje tiskalnike",
         "Description[sv]": "Anpassa skrivare",
         "Description[uk]": "Налаштування ваших принтерів",
         "Description[x-test]": "xxConfigure your printersxx",

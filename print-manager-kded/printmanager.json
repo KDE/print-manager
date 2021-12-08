@@ -72,7 +72,7 @@
         "Name[tg]": "Мудири чоп",
         "Name[uk]": "Керування друком",
         "Name[x-test]": "xxPrint Managerxx",
-        "Name[zh_CN]": "打印管理器",
+        "Name[zh_CN]": "打印机管理器",
         "Name[zh_TW]": "列印管理工具",
         "ServiceTypes": [
             "KDEDModule"

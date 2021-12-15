@@ -652,10 +652,10 @@ void KCupsRequest::setFinished(bool delayed)
     m_finished = true;
     if (delayed) {
         QTimer::singleShot(0, this, [this] () {
-            emit finished(this);
+            Q_EMIT finished(this);
         });
     } else {
-        emit finished(this);
+        Q_EMIT finished(this);
     }
 }
 

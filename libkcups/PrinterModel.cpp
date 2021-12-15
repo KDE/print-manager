@@ -107,15 +107,15 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
         // clear the model after so that the proper widget can be shown
         clear();
 
-        emit error(request->error(), request->serverError(), request->errorMsg());
+        Q_EMIT error(request->error(), request->serverError(), request->errorMsg());
         if (request->error() == IPP_SERVICE_UNAVAILABLE && !m_unavailable) {
             m_unavailable = true;
-            emit serverUnavailableChanged(m_unavailable);
+            Q_EMIT serverUnavailableChanged(m_unavailable);
         }
     } else {
         if (m_unavailable) {
             m_unavailable = false;
-            emit serverUnavailableChanged(m_unavailable);
+            Q_EMIT serverUnavailableChanged(m_unavailable);
         }
 
         const KCupsPrinters printers = request->printers();
@@ -147,14 +147,14 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
             removeRow(rowCount() - 1);
         }
 
-        emit error(IPP_OK, QString(), QString());
+        Q_EMIT error(IPP_OK, QString(), QString());
     }
     request->deleteLater();
 }
 
 void PrinterModel::slotCountChanged()
 {
-    emit countChanged(rowCount());
+    Q_EMIT countChanged(rowCount());
 }
 
 QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int role) const

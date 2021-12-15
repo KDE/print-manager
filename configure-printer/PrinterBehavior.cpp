@@ -115,7 +115,7 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
 
     // Clear previous changes
     m_changes = 0;
-    emit changed(false);
+    Q_EMIT changed(false);
     m_changedValues.clear();
     ui->errorPolicyCB->setProperty("different", false);
     ui->operationPolicyCB->setProperty("different", false);
@@ -152,7 +152,7 @@ void PrinterBehavior::userListChanged()
         isDifferent ? m_changes++ : m_changes--;
 
         ui->usersELB->setProperty("different", isDifferent);
-        emit changed(m_changes);
+        Q_EMIT changed(m_changes);
     }
 }
 
@@ -169,7 +169,7 @@ void PrinterBehavior::currentIndexChangedCB(int index)
         comboBox->setProperty("different", isDifferent);
         qCDebug(PM_CONFIGURE_PRINTER) << Q_FUNC_INFO << m_changes << this;
 
-        emit changed(m_changes);
+        Q_EMIT changed(m_changes);
     }
 
     const QString attribute = comboBox->property("AttributeName").toString();

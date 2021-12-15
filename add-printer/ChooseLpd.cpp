@@ -74,7 +74,7 @@ bool ChooseLpd::isValid() const
 
 void ChooseLpd::checkSelected()
 {
-//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+//     Q_EMIT allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
 
 #include "moc_ChooseLpd.cpp"

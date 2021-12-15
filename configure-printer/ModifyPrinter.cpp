@@ -76,7 +76,7 @@ void ModifyPrinter::on_makeCB_activated(int index)
         isDifferent ? m_changes++ : m_changes--;
 
         ui->makeCB->setProperty("different", isDifferent);
-        emit changed(m_changes);
+        Q_EMIT changed(m_changes);
     }
     ui->makeCB->setProperty("lastIndex", ui->makeCB->currentIndex());
 }
@@ -145,7 +145,7 @@ void ModifyPrinter::setValues(const KCupsPrinter &printer)
     m_changes = 0;
     m_changedValues.clear();
 
-    emit changed(0);
+    Q_EMIT changed(0);
 }
 
 void ModifyPrinter::modelChanged()
@@ -156,7 +156,7 @@ void ModifyPrinter::modelChanged()
         isDifferent ? m_changes++ : m_changes--;
 
         ui->membersLV->setProperty("different", isDifferent);
-        emit changed(m_changes);
+        Q_EMIT changed(m_changes);
     }
 
     // store the new values
@@ -177,7 +177,7 @@ void ModifyPrinter::textChanged(const QString &text)
         isDifferent ? m_changes++ : m_changes--;
 
         le->setProperty("different", isDifferent);
-        emit changed(m_changes);
+        Q_EMIT changed(m_changes);
     }
 
     // store the new values
@@ -213,7 +213,7 @@ void ModifyPrinter::save()
         if (request) {
             if (!request->hasError()) {
                 if (m_changedValues.contains(QLatin1String("ppd-name"))) {
-                    emit ppdChanged();
+                    Q_EMIT ppdChanged();
                 }
                 request->getPrinterAttributes(m_destName, m_isClass, neededValues());
                 request->waitTillFinished();

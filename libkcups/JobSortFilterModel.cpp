@@ -33,7 +33,7 @@ void JobSortFilterModel::setModel(QAbstractItemModel *model)
     }
 
     QSortFilterProxyModel::setSourceModel(model);
-    emit sourceModelChanged(model);
+    Q_EMIT sourceModelChanged(model);
 }
 
 void JobSortFilterModel::setFilteredPrinters(const QString &printers)
@@ -45,7 +45,7 @@ void JobSortFilterModel::setFilteredPrinters(const QString &printers)
         m_filteredPrinters = printers.split(QLatin1Char('|'));
     }
     invalidateFilter();
-    emit filteredPrintersChanged();
+    Q_EMIT filteredPrintersChanged();
 }
 
 QString JobSortFilterModel::filteredPrinters() const

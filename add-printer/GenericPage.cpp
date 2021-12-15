@@ -15,14 +15,14 @@ GenericPage::GenericPage(QWidget *parent) :
 void GenericPage::working()
 {
     if (m_working++ == 0) {
-        emit startWorking();
+        Q_EMIT startWorking();
     }
 }
 
 void GenericPage::notWorking()
 {
     if (--m_working == 0) {
-        emit stopWorking();
+        Q_EMIT stopWorking();
     }
 }
 

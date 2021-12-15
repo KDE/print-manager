@@ -79,7 +79,7 @@ void PrinterOptions::reloadPPD()
     }
     m_changes = 0;
     m_customValues.clear();
-    emit changed(false);
+    Q_EMIT changed(false);
 
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->getPrinterPPD(m_destName);
@@ -259,7 +259,7 @@ void PrinterOptions::radioBtClicked(QAbstractButton *button)
         isDifferent ? m_changes++ : m_changes--;
 
         radioGroup->setProperty("different", isDifferent);
-        emit changed(m_changes);
+        Q_EMIT changed(m_changes);
     }
 
     QString keyword = radioGroup->property("Keyword").toString();
@@ -346,7 +346,7 @@ void PrinterOptions::currentIndexChangedCB(int index)
         isDifferent ? m_changes++ : m_changes--;
 
         comboBox->setProperty("different", isDifferent);
-        emit changed(m_changes);
+        Q_EMIT changed(m_changes);
     }
 
     QString keyword = comboBox->property("Keyword").toString();
@@ -785,7 +785,7 @@ void PrinterOptions::save()
             }
             m_changes = 0;
             m_customValues.clear();
-            emit changed(false);
+            Q_EMIT changed(false);
         }
         request->deleteLater();
     }

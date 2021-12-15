@@ -164,7 +164,7 @@ bool PageChoosePPD::canProceed() const
 
 void PageChoosePPD::checkSelected()
 {
-    emit allowProceed(canProceed());
+    Q_EMIT allowProceed(canProceed());
 }
 
 void PageChoosePPD::selectDefault()
@@ -179,7 +179,7 @@ void PageChoosePPD::resultJob(KJob *job)
         // Make sure this job is for the current device
         m_ppdFile = fileCopyJob->destUrl().toLocalFile();
         m_isValid = false;
-        emit proceed();
+        Q_EMIT proceed();
     }
 }
 

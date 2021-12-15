@@ -29,7 +29,7 @@ void PrinterSortFilterModel::setModel(QAbstractItemModel *model)
     }
 
     QSortFilterProxyModel::setSourceModel(model);
-    emit sourceModelChanged(model);
+    Q_EMIT sourceModelChanged(model);
 }
 
 void PrinterSortFilterModel::setFilteredPrinters(const QString &printers)
@@ -41,7 +41,7 @@ void PrinterSortFilterModel::setFilteredPrinters(const QString &printers)
         m_filteredPrinters = printers.split(QLatin1Char('|'));
     }
     invalidateFilter();
-    emit filteredPrintersChanged();
+    Q_EMIT filteredPrintersChanged();
 }
 
 QString PrinterSortFilterModel::filteredPrinters() const

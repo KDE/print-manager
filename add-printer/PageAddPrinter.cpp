@@ -148,12 +148,12 @@ QVariantHash PageAddPrinter::values() const
 
 void PageAddPrinter::on_nameLE_textChanged(const QString &text)
 {
-    emit allowProceed(!text.isEmpty());
+    Q_EMIT allowProceed(!text.isEmpty());
 }
 
 void PageAddPrinter::checkSelected()
 {
-//     emit allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+//     Q_EMIT allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
 
 #include "moc_PageAddPrinter.cpp"

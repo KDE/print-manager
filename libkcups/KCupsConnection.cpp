@@ -203,7 +203,7 @@ void KCupsConnection::init()
                     SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
 
     // This signal is needed since the cups registration thing
-    // doesn't emit printerAdded when we add a printer class
+    // doesn't Q_EMIT printerAdded when we add a printer class
     // This is emitted when a printer/queue is changed
     QDBusConnection::systemBus().connect(QLatin1String(""),
                                          QLatin1String("/com/redhat/PrinterSpooler"),
@@ -223,7 +223,7 @@ void KCupsConnection::init()
                                          SIGNAL(rhQueueChanged(QString)));
 
     // This signal is needed since the cups registration thing
-    // doesn't emit printerRemoved when we add a printer class
+    // doesn't Q_EMIT printerRemoved when we add a printer class
     // This is emitted when a printer/queue is changed
     QDBusConnection::systemBus().connect(QLatin1String(""),
                                          QLatin1String("/com/redhat/PrinterSpooler"),

@@ -234,7 +234,7 @@ void PrinterDescription::requestFinished(KCupsRequest *request)
     if (request && request->hasError()) {
         ui->errorMessage->setText(i18n("Failed to perform request: %1", request->errorMsg()));
         ui->errorMessage->animatedShow();
-        emit updateNeeded();
+        Q_EMIT updateNeeded();
     }
 }
 

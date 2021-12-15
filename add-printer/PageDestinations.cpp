@@ -253,7 +253,7 @@ void PageDestinations::deviceUriChanged()
         setCurrentPage(m_chooseUri, args);
     }
 
-    emit allowProceed(canProceed());
+    Q_EMIT allowProceed(canProceed());
 }
 
 void PageDestinations::insertDevice(const QString &device_class, const QString &device_id, const QString &device_info, const QString &device_make_and_model, const QString &device_uri, const QString &device_location, const KCupsPrinters &grouped_printers)

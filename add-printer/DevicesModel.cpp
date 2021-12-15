@@ -112,13 +112,13 @@ void DevicesModel::finished()
 {
     bool hasError = m_request->hasError();
     if (hasError) {
-        emit errorMessage(i18n("Failed to get a list of devices: '%1'", m_request->errorMsg()));
+        Q_EMIT errorMessage(i18n("Failed to get a list of devices: '%1'", m_request->errorMsg()));
     }
     m_request->deleteLater();
     m_request = nullptr;
 
     if (hasError || m_mappedDevices.isEmpty()) {
-        emit loaded();
+        Q_EMIT loaded();
         return;
     }
 
@@ -318,15 +318,15 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
         qWarning() << "Unexpected message" << message;
         groupedDevicesFallback();
     }
-    emit loaded();
+    Q_EMIT loaded();
 }
 
 void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)
 {
     qWarning() << error <<  message;
     groupedDevicesFallback();
-    emit errorMessage(i18n("Failed to group devices: '%1'", error.message()));
-    emit loaded();
+    Q_EMIT errorMessage(i18n("Failed to group devices: '%1'", error.message()));
+    Q_EMIT loaded();
 }
 
 void DevicesModel::groupedDevicesFallback()
@@ -371,7 +371,7 @@ QStandardItem* DevicesModel::findCreateCategory(const QString &category, Kind ki
     insertRow(pos, catItem);
 
     // Emit the parent so the view expand the item
-    emit parentAdded(indexFromItem(catItem));
+    Q_EMIT parentAdded(indexFromItem(catItem));
 
     return catItem;
 }

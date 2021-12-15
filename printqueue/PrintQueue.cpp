@@ -78,7 +78,7 @@ void PrintQueue::showQueue(const QString &destName)
             // if no destination was found and we aren't showing
             // a queue quit the app
             if (m_uis.isEmpty()) {
-                 emit quit();
+                 Q_EMIT quit();
             }
             return;
         }

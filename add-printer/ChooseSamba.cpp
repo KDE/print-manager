@@ -114,7 +114,7 @@ void ChooseSamba::load()
 
 void ChooseSamba::checkSelected()
 {
-    emit allowProceed(isValid());
+    Q_EMIT allowProceed(isValid());
 }
 
 #include "moc_ChooseSamba.cpp"

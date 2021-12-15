@@ -155,10 +155,10 @@ void SelectMakeModel::checkChanged()
 {
     qCDebug(LIBKCUPS);
     if (isFileSelected()) {
-        emit changed(!selectedPPDFileName().isNull());
+        Q_EMIT changed(!selectedPPDFileName().isNull());
     } else {
         // enable or disable the job action buttons if something is selected
-        emit changed(!selectedPPDName().isNull());
+        Q_EMIT changed(!selectedPPDName().isNull());
 
         selectFirstMake();
     }

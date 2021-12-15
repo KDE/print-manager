@@ -660,7 +660,7 @@ void PrintQueueUi::setupButtons()
 void PrintQueueUi::closeEvent(QCloseEvent *event)
 {
     // emits finished signal to be removed the cache
-    emit finished();
+    Q_EMIT finished();
     QWidget::closeEvent(event);
 }
 

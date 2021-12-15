@@ -70,7 +70,7 @@ bool ChooseSocket::canProceed() const
 void ChooseSocket::on_addressLE_textChanged(const QString &text)
 {
     Q_UNUSED(text)
-    emit allowProceed(canProceed());
+    Q_EMIT allowProceed(canProceed());
 }
 
 #include "moc_ChooseSocket.cpp"

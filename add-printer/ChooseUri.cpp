@@ -83,7 +83,7 @@ void ChooseUri::load()
 
 void ChooseUri::checkSelected()
 {
-    emit allowProceed(isValid());
+    Q_EMIT allowProceed(isValid());
 }
 
 void ChooseUri::on_addressLE_textChanged(const QString &text)
@@ -112,7 +112,7 @@ void ChooseUri::findPrinters()
 
     request->setProperty("URI", url);
 
-    emit startWorking();
+    Q_EMIT startWorking();
     request->getPrinters({
                              KCUPS_PRINTER_NAME,
                              KCUPS_PRINTER_STATE,
@@ -134,9 +134,9 @@ void ChooseUri::getPrintersFinished(KCupsRequest *request)
 
     KCupsPrinters printers = request->printers();
     if (request->hasError()) {
-        emit errorMessage(request->errorMsg());
+        Q_EMIT errorMessage(request->errorMsg());
     } else {
-        emit insertDevice(QLatin1String("network"),
+        Q_EMIT insertDevice(QLatin1String("network"),
                           url.authority(),
                           url.authority(),
                           QString(),
@@ -147,7 +147,7 @@ void ChooseUri::getPrintersFinished(KCupsRequest *request)
 
     request->deleteLater();
     request->connection()->deleteLater();
-    emit stopWorking();
+    Q_EMIT stopWorking();
 }
 
 QUrl ChooseUri::parsedURL(const QString &text) const

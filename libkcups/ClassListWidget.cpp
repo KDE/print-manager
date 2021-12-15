@@ -100,8 +100,8 @@ void ClassListWidget::modelChanged()
 
     m_changed = m_selectedPrinters != currentMembers;
 
-    emit changed(selectedPrinters());
-    emit changed(m_changed);
+    Q_EMIT changed(selectedPrinters());
+    Q_EMIT changed(m_changed);
 }
 
 QStringList ClassListWidget::currentSelected(bool uri) const

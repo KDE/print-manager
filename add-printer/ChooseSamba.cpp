@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2021 Harald Sitter <sitter@kde.org>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -10,14 +11,18 @@
 #include <KCupsRequest.h>
 #include <KLocalizedString>
 
-#include <QPainter>
 #include <QDebug>
+#include <QFileDialog>
+#include <QPainter>
 #include <QUrl>
 
 ChooseSamba::ChooseSamba(QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::ChooseSamba)
 {
+    // Opt into printer listing in the KIO SMB worker.
+    qputenv("KIO_SMB_PRINTERS", QByteArrayLiteral("1"));
+
     ui->setupUi(this);
 
     // setup default options
@@ -26,6 +31,25 @@ ChooseSamba::ChooseSamba(QWidget *parent) :
     connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
     connect(ui->usernameLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
     connect(ui->passwordLE, &QLineEdit::textChanged, this, &ChooseSamba::checkSelected);
+    connect(ui->browsePB, &QPushButton::clicked, this, [this] {
+        auto dialog = new QFileDialog(this);
+        dialog->setDirectoryUrl(QUrl(QStringLiteral("smb://")));
+        dialog->setMimeTypeFilters({QStringLiteral("inode/vnd.kde.kio.smb.printer")});
+        dialog->setSupportedSchemes({QStringLiteral("smb")});
+        connect(dialog, &QFileDialog::accepted, this, [dialog, this] {
+            dialog->hide();
+            dialog->deleteLater();
+            const QList<QUrl> urls = dialog->selectedUrls();
+            if (urls.isEmpty()) {
+                return;
+            }
+            QUrl url = urls.constFirst();
+            url.setQuery(QString()); // clear kio-smb query artifacts such as ?kio-printer=true
+            ui->addressLE->setText(url.toString());
+        });
+        dialog->show();
+    });
+    ui->browsePB->setEnabled(true);
 }
 
 ChooseSamba::~ChooseSamba()

@@ -40,8 +40,6 @@ PlasmaExtras.Representation {
         id: scrollView
 
         anchors.fill: parent
-        leftPadding: PlasmaCore.Units.smallSpacing * 2
-        rightPadding: PlasmaCore.Units.smallSpacing * 2
 
         contentItem: ListView {
             id: printersView
@@ -54,13 +52,15 @@ PlasmaExtras.Representation {
             }
             topMargin: PlasmaCore.Units.smallSpacing * 2
             bottomMargin: PlasmaCore.Units.smallSpacing * 2
+            leftMargin: PlasmaCore.Units.smallSpacing * 2
+            rightMargin: PlasmaCore.Units.smallSpacing * 2
             spacing: PlasmaCore.Units.smallSpacing
 
             highlight: PlasmaComponents.Highlight{ }
             highlightMoveDuration: 0
             highlightResizeDuration: 0
             delegate: PrinterItem {
-                width: printersView.width - (scrollView.PlasmaComponents3.ScrollBar.vertical.visible ? PlasmaCore.Units.smallSpacing * 4 : 0)
+                width: printersView.width - PlasmaCore.Units.smallSpacing * 4
             }
 
             PlasmaExtras.PlaceholderMessage {

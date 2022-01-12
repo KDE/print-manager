@@ -76,13 +76,6 @@ void PrinterDelegate::paint(QPainter *painter,
     local_option_normal.font.setPointSize(local_option_normal.font.pointSize() - 1);
     local_option_title.font.setBold(index.data(PrinterModel::DestIsDefault).toBool());
 
-    QPixmap pixmap(option.rect.size());
-    pixmap.fill(Qt::transparent);
-    QPainter p(&pixmap);
-    p.translate(-option.rect.topLeft());
-
-    QLinearGradient gradient;
-
     // Painting
 
     // Text
@@ -92,70 +85,34 @@ void PrinterDelegate::paint(QPainter *painter,
     QString status = index.data(PrinterModel::DestStatus).toString();
     QString description = index.data(Qt::DisplayRole).toString();
 
-    p.setPen(foregroundColor);
-    p.setFont(local_option_title.font);
-    p.drawText(left + (leftToRight ? textInner : 0),
+    painter->setPen(foregroundColor);
+    painter->setFont(local_option_title.font);
+    painter->drawText(left + (leftToRight ? textInner : 0),
                top,
                width - textInner,
                itemHeight / 2,
                Qt::AlignBottom | Qt::AlignLeft,
-               description);
+               local_option_title.fontMetrics.elidedText(description, Qt::ElideRight, width - textInner));
 
-    p.setFont(local_option_normal.font);
-    p.drawText(left + (leftToRight ? textInner : 0) + 10,
+    painter->setFont(local_option_normal.font);
+    painter->drawText(left + (leftToRight ? textInner : 0) + 10,
                (top + itemHeight / 2) + 1,
                width - textInner,
                itemHeight / 2,
                Qt::AlignTop | Qt::AlignLeft,
-               status);
+               local_option_normal.fontMetrics.elidedText(status, Qt::ElideRight, width - textInner));
 
     // Main icon
     QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
     // if we have a package that mean we
     // can try to get a better icon
-    icon.paint(&p,
+    icon.paint(painter,
                leftToRight ? left + m_universalPadding : left + width - m_universalPadding - m_mainIconSize,
                top + m_universalPadding,
                m_mainIconSize,
                m_mainIconSize,
                Qt::AlignCenter,
                iconMode);
-
-    // Counting the number of emblems for this item
-    int emblemCount = 1;
-
-    // Gradient part of the background - fading of the text at the end
-    if (leftToRight) {
-        gradient = QLinearGradient(left + width - m_universalPadding - m_fadeLength, 0,
-                                   left + width - m_universalPadding, 0);
-        gradient.setColorAt(0, Qt::white);
-        gradient.setColorAt(1, Qt::transparent);
-    } else {
-        gradient = QLinearGradient(left + m_universalPadding, 0,
-                                   left + m_universalPadding + m_fadeLength, 0);
-        gradient.setColorAt(0, Qt::transparent);
-        gradient.setColorAt(1, Qt::white);
-    }
-
-    QRect paintRect = option.rect;
-    p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
-    p.fillRect(paintRect, gradient);
-
-    if (leftToRight) {
-        gradient.setStart(left + width
-                          - emblemCount * (m_universalPadding + m_emblemIconSize) - m_fadeLength, 0);
-        gradient.setFinalStop(left + width
-                              - emblemCount * (m_universalPadding + m_emblemIconSize), 0);
-    } else {
-        gradient.setStart(left + m_universalPadding
-                          + emblemCount * (m_universalPadding + m_emblemIconSize), 0);
-        gradient.setFinalStop(left + m_universalPadding
-                              + emblemCount * (m_universalPadding + m_emblemIconSize) + m_fadeLength, 0);
-    }
-    paintRect.setHeight(m_universalPadding + m_mainIconSize / 2);
-    p.fillRect(paintRect, gradient);
-
-    painter->drawPixmap(option.rect.topLeft(), pixmap);
 }
 
 QSize PrinterDelegate::sizeHint(const QStyleOptionViewItem &option,

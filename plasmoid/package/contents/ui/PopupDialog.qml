@@ -37,9 +37,12 @@ PlasmaExtras.Representation {
     }
 
     PlasmaComponents3.ScrollView {
-        id: scrollView
-
         anchors.fill: parent
+
+        // HACK: workaround for https://bugreports.qt.io/browse/QTBUG-83890
+        PlasmaComponents3.ScrollBar.horizontal.policy: PlasmaComponents3.ScrollBar.AlwaysOff
+
+        contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
 
         contentItem: ListView {
             id: printersView
@@ -59,9 +62,7 @@ PlasmaExtras.Representation {
             highlight: PlasmaComponents.Highlight{ }
             highlightMoveDuration: 0
             highlightResizeDuration: 0
-            delegate: PrinterItem {
-                width: printersView.width - PlasmaCore.Units.smallSpacing * 4
-            }
+            delegate: PrinterItem {}
 
             PlasmaExtras.PlaceholderMessage {
                 anchors.centerIn: parent

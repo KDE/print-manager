@@ -37,7 +37,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
 find_package(CUPS "1.5" REQUIRED)
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
-             Notifications Plasma WidgetsAddons WindowSystem)
+             Notifications Plasma WidgetsAddons WindowSystem Declarative)
 
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES

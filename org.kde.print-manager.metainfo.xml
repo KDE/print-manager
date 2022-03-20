@@ -57,7 +57,7 @@
   <summary xml:lang="gl">Configurar impresoras</summary>
   <summary xml:lang="hu">Nyomtatók telepítése és beállítása</summary>
   <summary xml:lang="ia">Configura imprimitores</summary>
-  <summary xml:lang="id">Pengesetan dan pengkonfigurasian printer</summary>
+  <summary xml:lang="id">Siapkan dan konfigurasikan printer</summary>
   <summary xml:lang="it">Imposta e configura le stampanti</summary>
   <summary xml:lang="ko">프린터 설치 및 설정</summary>
   <summary xml:lang="lt">Nustatyti ir konfigūruoti spausdintuvus</summary>
@@ -80,7 +80,7 @@
     <p xml:lang="ar">تتيح لك أداة تكوين كدي هذه إعداد الطابعات وتكوينها. يكتشف الطابعات الجديدة ، ويجد برامج التشغيل المتاحة ويسمح لك بتكوين إعداداتها. يمكنك طباعة صفحات الاختبار وتعيين خصائص المشاركة.</p>
     <p xml:lang="az">Bu KDE Tənzimləmələri vasitəsi ilə printerlər quraşdırıla və tənzimlənə bilər. Yeni printerləri aşkarlayır, mövcud sürücüləri tapır və ayarlarını tənzimləməyə  imkan verir. Test səhifələrini çap edə və paylaşma xüsusiyyətlərini təyin edə bilərsiniz.</p>
     <p xml:lang="ca">Aquesta eina de configuració del KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controladors disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
-    <p xml:lang="ca-valencia">Aquesta eina de configuració del KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controladors disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
+    <p xml:lang="ca-valencia">Esta eina de configuració de KDE permet instal·lar i configurar impressores. Detecta les impressores noves, cerca els controladors disponibles i permet configurar els seus paràmetres. Es poden imprimir pàgines de prova i definir les propietats de compartició.</p>
     <p xml:lang="da">Dette KDE konfigurationsværktøj lader dig opsætte og indstille printere. Det detekterer nye printere, finder tilgængelige drivere og lader dig konfigurere deres indstillinger. Du kan udskrive testsider og opsætte printerdeling.</p>
     <p xml:lang="de">Mit diesem KDE-Einrichtungsprogramm können Sie Drucker einrichten. Es erkennt neue Drucker, findet die verfügbaren Treiber und ermöglicht es Ihnen, deren Treiber einzustellen. Sie können Testseiten drucken und Freigabeeigenschaften festlegen.</p>
     <p xml:lang="el">Αυτό το εργαλείο διαμόρφωσης του KDE σας επιτρέπει να ρυθμίσετε και να διαμορφώσετε εκτυπωτές. Ανιχνεύει νέους εκτυπωτές, βρίσκει τους διαθέσιμους οδηγούς και σας επιτρέπει να διαμορφώσετε τις ρυθμίσεις τους. Μπορείτε να εκτυπώσετε δοκιμαστικές σελίδες και να ρυθμίσετε τις ιδιότητες κοινής χρήσης.</p>
@@ -93,7 +93,7 @@
     <p xml:lang="gl">Esta ferramenta de configuración de KDE permítelle configurar impresoras. Detecta novas impresoras, atopa os controladores dispoñíbeis e permítelle configuralas. Pode imprimir páxinas de probas e definir propiedades de compartición.</p>
     <p xml:lang="hu">Ez a segédprogram lehetővé teszi nyomtatók telepítését és beállítását. Észleli az új nyomtatókat, megkeresi az elérhető illesztőprogramokat és segít a beállításukban. Tesztoldalakat nyomtathat és megadhatja a megosztási tulajdonságaikat.</p>
     <p xml:lang="ia">Iste instrumento de Configuration de KDE te permitte estabilir e configurar imprimitores. Illo discoperi nove imprimitores, trova le drivers disponibile e te permitte configurar lor preferentias. Tu pote imprimer paginas de prova e fixar proprietates de impartir.</p>
-    <p xml:lang="id">Alat KDE Config memungkinkan kamu mengeset dan mengonfigurasi printer. Ini mendeteksikan printer baru, menemukan driver yang tersedia dan memungkinkan kamu untuk mengkonfigurasi pengaturannya. Kamu bisa mencetak halaman uji dan mengatur properti berbagi.</p>
+    <p xml:lang="id">Alat KDE Config ini memungkinkan Anda mengeset dan mengkonfigurasi printer. Ini dapat mendeteksi printer baru, menemukan driver yang tersedia dan memungkinkan Anda untuk mengkonfigurasi pengaturannya. Anda dapat mencetak halaman uji dan mengatur properti berbagi.</p>
     <p xml:lang="it">Questo strumento di configurazione di KDE permette di impostare e configurare le stampanti. Rileva le nuove stampanti, trova tutti i driver disponibili e ti permette di configurarne le relative impostazioni. Puoi stampare pagine di prova ed impostare le proprietà di condivisione.</p>
     <p xml:lang="ko">이 KDE 설정 도구를 사용하여 프린터를 설치하고 설정할 수 있습니다. 새로운 프린터를 감지하고 사용 가능한 드라이버를 찾아서 설정할 수 있습니다. 테스트 페이지를 인쇄하고 공유 설정을 변경할 수 있습니다.</p>
     <p xml:lang="lt">Šis KDE konfigūracijos įrankis leidžia jums nusistatyti ir konfigūruoti spausdintuvus. Įrankis aptinka naujus spausdintuvus, randa prieinamas tvarkykles ir leidžia jums konfigūruoti jų nuostatas. Galite spausdinti bandomuosius puslapius bei nustatyti bendrinimo savybes.</p>

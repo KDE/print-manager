@@ -10,7 +10,6 @@ import QtQuick 2.2
 import QtQuick.Controls 1.3
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents // for Highlight
 import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.plasma.printmanager 0.2 as PrintManager
 
@@ -59,7 +58,7 @@ PlasmaExtras.Representation {
             rightMargin: PlasmaCore.Units.smallSpacing * 2
             spacing: PlasmaCore.Units.smallSpacing
 
-            highlight: PlasmaComponents.Highlight{ }
+            highlight: PlasmaExtras.Highlight {}
             highlightMoveDuration: 0
             highlightResizeDuration: 0
             delegate: PrinterItem {}

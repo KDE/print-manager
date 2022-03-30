@@ -68,10 +68,8 @@ PlasmaExtras.Representation {
                 width: parent.width - (PlasmaCore.Units.largeSpacing * 4)
 
                 visible: printersFilterModel.count === 0 || serverUnavailable
-                text: serverUnavailable ?
-                        printersModelError :
-                        i18n("No printers have been configured or discovered")
-                iconName: serverUnavailable ? "dialog-error" : ""
+                text: serverUnavailable ? printersModelError || i18n("No printers have been configured or discovered") : i18n("No matches")
+                iconName: serverUnavailable ? "dialog-error" : "edit-none"
             }
         }
     }

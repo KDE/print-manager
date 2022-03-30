@@ -23,7 +23,7 @@ PlasmaExtras.Representation {
             id: searchBar
             anchors.fill: parent
 
-            placeholderText: i18n("Search for a printer...")
+            placeholderText: i18n("Search…")
 
             onTextChanged: {
                 printersFilterModel.setFilterWildcard(text)

@@ -25,6 +25,7 @@
                 "Name[sk]": "Daniel Nicoletti",
                 "Name[sl]": "Daniel Nicoletti",
                 "Name[sv]": "Daniel Nicoletti",
+                "Name[tr]": "Daniel Nicoletti",
                 "Name[uk]": "Daniel Nicoletti",
                 "Name[x-test]": "xxDaniel Nicolettixx",
                 "Name[zh_CN]": "Daniel Nicoletti"
@@ -53,6 +54,7 @@
         "Description[sk]": "Vypíše tlačové úlohy a spravuje ich",
         "Description[sl]": "Seznam in upravljanje tiskalnih poslov",
         "Description[sv]": "Lista skrivarjobb och hantera dem",
+        "Description[tr]": "Yazdırma işlerini listele ve bunları yönet",
         "Description[uk]": "Показ списку завдань і керування ними",
         "Description[x-test]": "xxList print jobs and manage themxx",
         "Description[zh_CN]": "显示和管理打印任务",

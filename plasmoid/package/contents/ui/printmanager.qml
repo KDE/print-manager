@@ -38,9 +38,9 @@ Item {
                          activeJobsFilterModel.activeCount);
         // If there is only one job, show more information about it
         } else if (activeJobsFilterModel.activeCount === 1) {
-            var idx = activeJobsFilterModel.index(0, 0);
-            var jobName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobName);
-            var printerName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobPrinter);
+            const idx = activeJobsFilterModel.index(0, 0);
+            const jobName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobName);
+            const printerName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobPrinter);
             if (jobName) {
                 return i18nc("Printing document name with printer name", "Printing %1 with %2", jobName, printerName);
             } else {
@@ -126,19 +126,19 @@ Item {
         Plasmoid.setAction("showAllJobs", i18n("Show All Jobs"));
         printmanager.showAllJobsAction = Plasmoid.action("showAllJobs");
         printmanager.showAllJobsAction.checkable = true;
-        printmanager.showAllJobsAction.checked = Qt.binding(() => {return Plasmoid.configuration.allJobs;});
+        printmanager.showAllJobsAction.checked = Qt.binding(() => Plasmoid.configuration.allJobs);
         Plasmoid.setActionGroup("showAllJobs", "jobsShown");
 
         Plasmoid.setAction("showCompletedJobsOnly", i18n("Show Only Completed Jobs"));
         printmanager.showCompletedJobsOnlyAction = Plasmoid.action("showCompletedJobsOnly");
         printmanager.showCompletedJobsOnlyAction.checkable = true;
-        printmanager.showCompletedJobsOnlyAction.checked = Qt.binding(() => {return Plasmoid.configuration.completedJobs;});
+        printmanager.showCompletedJobsOnlyAction.checked = Qt.binding(() => Plasmoid.configuration.completedJobs);
         Plasmoid.setActionGroup("showCompletedJobsOnly", "jobsShown");
 
         Plasmoid.setAction("showActiveJobsOnly", i18n("Show Only Active Jobs"));
         printmanager.showActiveJobsOnlyAction = Plasmoid.action("showActiveJobsOnly");
         printmanager.showActiveJobsOnlyAction.checkable = true;
-        printmanager.showActiveJobsOnlyAction.checked = Qt.binding(() => {return Plasmoid.configuration.activeJobs;});
+        printmanager.showActiveJobsOnlyAction.checked = Qt.binding(() => Plasmoid.configuration.activeJobs);
         Plasmoid.setActionGroup("showActiveJobsOnly", "jobsShown");
 
         // TODO: remove this separator once the configure action doesn't redundantly
@@ -147,6 +147,6 @@ Item {
 
         Plasmoid.removeAction("configure");
         Plasmoid.setAction("configure", i18n("&Configure Printers..."), "configure");
-        Plasmoid.action("configure").enabled = Qt.binding(() => {return kcmAllowed;});
+        Plasmoid.action("configure").enabled = Qt.binding(() => kcmAllowed);
     }
 }

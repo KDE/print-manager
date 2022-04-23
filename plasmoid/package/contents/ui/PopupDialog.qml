@@ -52,11 +52,11 @@ PlasmaExtras.Representation {
                 id: printersFilterModel
                 sourceModel: printersModel
             }
+            spacing: PlasmaCore.Units.smallSpacing
             topMargin: PlasmaCore.Units.smallSpacing * 2
-            bottomMargin: PlasmaCore.Units.smallSpacing * 2
             leftMargin: PlasmaCore.Units.smallSpacing * 2
             rightMargin: PlasmaCore.Units.smallSpacing * 2
-            spacing: PlasmaCore.Units.smallSpacing
+            bottomMargin: PlasmaCore.Units.smallSpacing * 2
 
             highlight: PlasmaExtras.Highlight {}
             highlightMoveDuration: 0

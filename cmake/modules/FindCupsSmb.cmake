@@ -7,7 +7,7 @@
 # This will define the following variables:
 #
 # ``CupsSmb_FOUND``
-#     True if (the requested version of) Canberra is available
+#     True if (the requested version of) CupsSmb is available
 # ``CupsSmb_BACKEND``
 #     Path of smb backend file
 

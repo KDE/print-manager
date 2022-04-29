@@ -35,8 +35,8 @@ target_link_libraries(configure-printer
     KF5::WidgetsAddons
     KF5::DBusAddons
     KF5::ConfigCore
-    ${CUPS_LIB}
     kcupslib
+    PkgConfig::CUPS
 )
 
 install(TARGETS configure-printer DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

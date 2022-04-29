@@ -17,6 +17,7 @@ target_link_libraries(kcm_printer_manager
     KF5::CoreAddons
     KF5::I18n
     KF5::KCMUtils
+    PkgConfig::CUPS
     kcupslib
 )
 

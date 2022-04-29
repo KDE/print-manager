@@ -36,7 +36,7 @@ target_link_libraries(kcupslib
     KF5::KIOWidgets
     KF5::WidgetsAddons
     KF5::WindowSystem
-    ${CUPS_LIB}
+    CUPS::CUPS
 )
 
 install(TARGETS kcupslib ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

@@ -35,7 +35,7 @@ target_link_libraries(configure-printer
     KF5::WidgetsAddons
     KF5::DBusAddons
     KF5::ConfigCore
-    ${CUPS_LIB}
+    Cups::Cups
     kcupslib
 )
 

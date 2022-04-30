@@ -18,6 +18,7 @@ target_link_libraries(kcm_printer_manager
     KF5::I18n
     KF5::KCMUtils
     kcupslib
+    Cups::Cups
 )
 
 install(TARGETS kcm_printer_manager DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)

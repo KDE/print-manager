@@ -34,7 +34,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Quick
 )
 
-find_package(CUPS "1.5" REQUIRED)
+find_package(Cups "1.5" REQUIRED)
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
              Notifications Plasma WidgetsAddons WindowSystem)
@@ -66,7 +66,6 @@ include_directories(${CMAKE_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/libkcups
-    ${CUPS_INCLUDE_DIR}
 )
 
 install(FILES org.kde.print-manager.metainfo.xml DESTINATION "${KDE_INSTALL_METAINFODIR}")

@@ -104,7 +104,7 @@ QVariantHash ChooseSamba::values() const
 
     // if there is 4 '/' means the url is like
     // smb://group/host/printer, so the location is at a different place
-    if (url.url().count(QLatin1Char('/') == 4)) {
+    if (url.url().count(QLatin1Char('/')) == 4) {
         ret[KCUPS_DEVICE_LOCATION] = url.url().section(QLatin1Char('/'), 3, 3).toLower();
     } else {
         ret[KCUPS_DEVICE_LOCATION] = url.host();

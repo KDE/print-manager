@@ -20,5 +20,5 @@ target_link_libraries(kded_printmanager
     kcupslib
 )
 
-install(TARGETS kded_printmanager DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf5/kded)
-install(FILES printmanager.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
+install(TARGETS kded_printmanager DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kded)
+install(FILES printmanager.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})

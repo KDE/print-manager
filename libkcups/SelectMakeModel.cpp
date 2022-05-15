@@ -187,7 +187,7 @@ QString SelectMakeModel::selectedPPDMakeAndModel() const
 QString SelectMakeModel::selectedPPDFileName() const
 {
     if (isFileSelected()) {
-        QFileInfo file = ui->ppdFilePathUrl->url().toLocalFile();
+        QFileInfo file = QFileInfo(ui->ppdFilePathUrl->url().toLocalFile());
         qCDebug(LIBKCUPS) << ui->ppdFilePathUrl->url().toLocalFile() << file.isFile() << file.filePath();
         if (file.isFile()) {
             return file.filePath();

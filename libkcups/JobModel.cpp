@@ -14,6 +14,7 @@
 #include <QDateTime>
 #include <QMimeData>
 #include <QPointer>
+#include <QIODevice>
 
 #include <KFormat>
 #include <KUser>

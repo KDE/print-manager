@@ -12,7 +12,7 @@
 
 #include <QPainter>
 #include <QPointer>
-#include <QRegExpValidator>
+#include <QRegularExpressionValidator>
 #include <QDebug>
 
 PageAddPrinter::PageAddPrinter(QWidget *parent) :
@@ -41,8 +41,8 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
     ui->printerL->setPixmap(printerIcon);
 
     // May contain any printable characters except "/", "#", and space
-    QRegExp rx(QLatin1String("[^/#\\ ]*"));
-    auto validator = new QRegExpValidator(rx, this);
+    const QRegularExpression rx(QLatin1String("[^/#\\ ]*"));
+    auto validator = new QRegularExpressionValidator(rx, this);
     ui->nameLE->setValidator(validator);
 
     // Hide the message widget

@@ -9,6 +9,7 @@
 
 #include <QStandardItemModel>
 #include <QDBusMessage>
+#include <QRegExp>
 
 #include <KCupsPrinter.h>
 

@@ -36,6 +36,7 @@
   <name xml:lang="sk">Nastavenie tlačiarne</name>
   <name xml:lang="sl">Nastavitve tiskalnika</name>
   <name xml:lang="sv">Skrivarinställning</name>
+  <name xml:lang="ta">அச்சுப்பொறி அமைப்பு</name>
   <name xml:lang="tg">Танзимоти принтер</name>
   <name xml:lang="tr">Yazıcı Yapılandırması</name>
   <name xml:lang="uk">Налаштування принтера</name>
@@ -74,6 +75,7 @@
   <summary xml:lang="sk">Nastaviť a nakonfigurovať tlačiarne</summary>
   <summary xml:lang="sl">Dodeljevanje in nastavljanje tiskalnikov</summary>
   <summary xml:lang="sv">Ställ in och anpassa skrivare</summary>
+  <summary xml:lang="ta">அச்சுப்பொறிகளை அமையுங்கள்</summary>
   <summary xml:lang="tg">Принтерҳоро танзим намоед</summary>
   <summary xml:lang="tr">Yazıcıları kur ve yapılandır</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
@@ -156,6 +158,7 @@
       <caption xml:lang="sk">Nastavenia tlačiarne.</caption>
       <caption xml:lang="sl">Nastavitve tiskalnika.</caption>
       <caption xml:lang="sv">Skrivarinställningar.</caption>
+      <caption xml:lang="ta">அச்சுப்பொறிக்கான அமைப்புகள்</caption>
       <caption xml:lang="tg">Танзимоти принтер</caption>
       <caption xml:lang="tr">Yazıcı ayarları.</caption>
       <caption xml:lang="uk">Параметри принтерів.</caption>

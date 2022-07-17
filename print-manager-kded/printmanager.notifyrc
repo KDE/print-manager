@@ -90,7 +90,7 @@ Comment[ta]=புதிய அச்சுப்பொறி கண்டறி
 Comment[tr]=Yeni bir yazıcı algılandığında bildirir
 Comment[uk]=Сповіщення про виявлення нового принтера
 Comment[x-test]=xxNotifies when a new printer is detectedxx
-Comment[zh_CN]=提示新检测到的打印机
+Comment[zh_CN]=检测到新打印机时通知
 Comment[zh_TW]=偵測到新印表機時發出通知
 
 [Event/GetReady]
@@ -145,7 +145,7 @@ Name[tr]=Yeni bir yazıcı algılandı
 Name[ug]=بىر يېڭى پرىنتېر بايقالدى
 Name[uk]=Виявлено новий принтер
 Name[x-test]=xxA New Printer was detectedxx
-Name[zh_CN]=检测到一个新的打印机
+Name[zh_CN]=检测到新打印机
 Name[zh_TW]=偵測到新印表機
 Action=Sound|Popup
 Sound=KDE-Sys-App-Positive.ogg
@@ -201,6 +201,6 @@ Name[ta]=புதிய அச்சுப்பொறி செர்க்க
 Name[tr]=Yeni yazıcı eklendi
 Name[uk]=Додано новий принтер
 Name[x-test]=xxThe New Printer was addedxx
-Name[zh_CN]=添加了新打印机
+Name[zh_CN]=新打印机已被添加
 Name[zh_TW]=新印表機已加入
 Action=Popup

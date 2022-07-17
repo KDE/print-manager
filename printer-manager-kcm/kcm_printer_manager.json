@@ -30,7 +30,7 @@
         "Description[tr]": "Yazıcılarınızı yapılandırın",
         "Description[uk]": "Налаштування ваших принтерів",
         "Description[x-test]": "xxConfigure your printersxx",
-        "Description[zh_CN]": "配置您的打印机",
+        "Description[zh_CN]": "配置打印机",
         "Icon": "preferences-devices-printer",
         "Name": "Printers",
         "Name[ar]": "الطّابعات",

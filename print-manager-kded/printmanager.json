@@ -31,7 +31,7 @@
         "Description[tr]": "Yeni bir yazıcı algılandığında ve yazdırma sorunlarında bilgilendir",
         "Description[uk]": "Повідомлення щодо виявлення принтера та щодо проблем з принтером",
         "Description[x-test]": "xxInform when a new printer is detected, and print problemsxx",
-        "Description[zh_CN]": "提示新检测到的打印机以及打印问题",
+        "Description[zh_CN]": "检测到新打印机和打印故障时通知",
         "Name": "Print Manager",
         "Name[ar]": "مدير الطّباعة",
         "Name[ast]": "Xestor d'imprentación",

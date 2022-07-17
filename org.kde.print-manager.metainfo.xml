@@ -80,7 +80,7 @@
   <summary xml:lang="tr">Yazıcıları kur ve yapılandır</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
   <summary xml:lang="x-test">xxSet up and configure printersxx</summary>
-  <summary xml:lang="zh-CN">设置和配置打印机</summary>
+  <summary xml:lang="zh-CN">安装和配置打印机</summary>
   <description>
     <p>This KDE Config tool lets you set up and configure printers.  It detects new printers, finds the available drivers and allows you to configure their settings.  You can print test pages and set sharing properties.</p>
     <p xml:lang="ar">تتيح لك أداة تكوين كدي هذه إعداد الطابعات وتكوينها. يكتشف الطابعات الجديدة ، ويجد برامج التشغيل المتاحة ويسمح لك بتكوين إعداداتها. يمكنك طباعة صفحات الاختبار وتعيين خصائص المشاركة.</p>
@@ -117,7 +117,7 @@
     <p xml:lang="tr">Bu KDE Config aracı, yazıcıları kurmanızı ve yapılandırmanızı sağlar. Yeni yazıcıları algılar, kullanılabilir sürücüleri bulur ve ayarlarını yapılandırmanıza izin verir. Sınama sayfaları yazdırabilir ve paylaşma özelliklerini ayarlayabilirsiniz.</p>
     <p xml:lang="uk">За допомогою цього засобу налаштовування KDE ви зможете встановити початкові параметри роботи принтерів та налаштувати принтери. Він здатний виявляти нові принтери, визначати доступні для них драйвери та налаштовувати параметри роботи цих драйверів. Ви можете друкувати тестові сторінки та визначати параметри спільного користування принтерами.</p>
     <p xml:lang="x-test">xxThis KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.xx</p>
-    <p xml:lang="zh-CN">这个 KDE 配置工具让您可以设置及配置打印机。它能检测新打印机，搜寻可用驱动程序，以及允许您配置它们的设置。您可以打印测试页以及设置共享属性。</p>
+    <p xml:lang="zh-CN">此 KDE 配置工具用于设置及配置打印机。它能检测新打印机，查找可用的驱动程序，并对打印机的设置进行配置，打印测试页以及设置共享属性等。</p>
   </description>
   <url type="homepage">https://www.kde.org/</url>
   <url type="bugtracker">https://bugs.kde.org/buglist.cgi?component=general&amp;product=print-manager&amp;resolution=---</url>

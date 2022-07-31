@@ -85,10 +85,7 @@
         "Name[uk]": "Керування друком",
         "Name[x-test]": "xxPrint Managerxx",
         "Name[zh_CN]": "打印机管理器",
-        "Name[zh_TW]": "列印管理員",
-        "ServiceTypes": [
-            "KDEDModule"
-        ]
+        "Name[zh_TW]": "列印管理員"
     },
     "OnlyShowIn": "KDE;",
     "X-KDE-Kded-autoload": true,

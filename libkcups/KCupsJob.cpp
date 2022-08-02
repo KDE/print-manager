@@ -62,7 +62,7 @@ QDateTime KCupsJob::createdAt() const
     QDateTime ret;
     const auto it = m_arguments.constFind(KCUPS_TIME_AT_CREATION);
     if (it != m_arguments.constEnd()) {
-        ret.fromMSecsSinceEpoch(it.value().toInt() * 1000);
+        ret.fromSecsSinceEpoch(it.value().toInt());
     }
     return ret;
 }
@@ -72,7 +72,7 @@ QDateTime KCupsJob::completedAt() const
     QDateTime ret;
     const auto it = m_arguments.constFind(KCUPS_TIME_AT_COMPLETED);
     if (it != m_arguments.constEnd()) {
-        ret.fromMSecsSinceEpoch(it.value().toInt() * 1000);
+        ret.fromSecsSinceEpoch(it.value().toInt());
     }
     return ret;
 }
@@ -82,7 +82,7 @@ QDateTime KCupsJob::processedAt() const
     QDateTime ret;
     const auto it = m_arguments.constFind(KCUPS_TIME_AT_PROCESSING);
     if (it != m_arguments.constEnd()) {
-        ret.fromMSecsSinceEpoch(it.value().toInt() * 1000);
+        ret.fromSecsSinceEpoch(it.value().toInt());
     }
     return ret;
 }

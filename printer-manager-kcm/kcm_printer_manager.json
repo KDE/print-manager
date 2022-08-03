@@ -91,10 +91,7 @@
         "Name[uk]": "Принтери",
         "Name[x-test]": "xxPrintersxx",
         "Name[zh_CN]": "打印机",
-        "Name[zh_TW]": "印表機",
-        "ServiceTypes": [
-            "KCModule"
-        ]
+        "Name[zh_TW]": "印表機"
     },
     "X-KDE-Keywords": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer",
     "X-KDE-Keywords[az]": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,printerlər,kağız,çap,çap etmə,uzaq printer,şəbəkə printeri,printeri paylaşmaq",

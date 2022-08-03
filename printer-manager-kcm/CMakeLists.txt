@@ -11,6 +11,7 @@ ki18n_wrap_ui(kcm_print_SRCS
 
 add_library(kcm_printer_manager MODULE ${kcm_print_SRCS})
 
+kcmutils_generate_desktop_file(kcm_printer_manager)
 target_link_libraries(kcm_printer_manager
     Qt::Core
     Qt::Widgets
@@ -22,4 +23,3 @@ target_link_libraries(kcm_printer_manager
 )
 
 install(TARGETS kcm_printer_manager DESTINATION ${KDE_INSTALL_PLUGINDIR}/plasma/kcms/systemsettings_qwidgets)
-install(FILES kcm_printer_manager.desktop DESTINATION ${KDE_INSTALL_APPDIR})

@@ -95,7 +95,6 @@ Comment[zh_TW]=設定您的印表機
 Exec=configure-printer
 Icon=printer
 Type=Application
-Terminal=false
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.ConfigurePrinter
 Categories=Qt;KDE;Printing;Utility;

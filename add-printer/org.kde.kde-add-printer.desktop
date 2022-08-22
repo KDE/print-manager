@@ -93,6 +93,5 @@ Comment[zh_TW]=新增印表機工具
 Exec=kde-add-printer
 Icon=printer
 Type=Application
-Terminal=false
 NoDisplay=true
 Categories=Qt;KDE;Printing;Utility;

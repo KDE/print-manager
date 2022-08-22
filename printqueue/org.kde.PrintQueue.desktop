@@ -92,7 +92,6 @@ Comment[zh_TW]=檢視列印工作
 Exec=kde-print-queue
 Icon=printer
 Type=Application
-Terminal=false
 X-DBUS-StartupType=Unique
 X-DBUS-ServiceName=org.kde.PrintQueue
 NoDisplay=true

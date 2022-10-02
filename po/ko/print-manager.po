@@ -1,0 +1,1620 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2013, 2014, 2015, 2018, 2019, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"PO-Revision-Date: 2020-04-21 00:37+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 19.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: add-printer/AddPrinterAssistant.cpp:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Add a New Printer"
+msgstr "새 프린터 추가"
+
+#: add-printer/AddPrinterAssistant.cpp:69 add-printer/ChooseLpd.cpp:25
+#: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
+#: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
+#: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
+#: add-printer/PageChoosePrinters.cpp:24 add-printer/PageDestinations.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Printer to Add"
+msgstr "추가할 프린터 선택"
+
+#: add-printer/AddPrinterAssistant.cpp:73
+#: add-printer/AddPrinterAssistant.cpp:80
+#: add-printer/AddPrinterAssistant.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Pick a Driver"
+msgstr "드라이버 선택"
+
+#: add-printer/AddPrinterAssistant.cpp:85
+#: add-printer/AddPrinterAssistant.cpp:106
+#, kde-format
+msgctxt "@title:window"
+msgid "Please describe your printer"
+msgstr "프린터 설명을 입력하십시오"
+
+#: add-printer/AddPrinterAssistant.cpp:102
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure your connection"
+msgstr "연결 설정"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseLpd.ui:26
+#, kde-format
+msgid "Address:"
+msgstr "주소:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseLpd.ui:36
+#, kde-format
+msgid "Queue:"
+msgstr "대기열:"
+
+#. i18n: ectx: property (text), widget (QPushButton, detectPB)
+#: add-printer/ChooseLpd.ui:51
+#, kde-format
+msgid "Detect"
+msgstr "감지"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: add-printer/ChooseSamba.ui:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Windows Printer via SAMBA"
+msgstr "SAMBA로 연결된 Windows 프린터"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: add-printer/ChooseSamba.ui:41
+#, kde-format
+msgctxt ""
+"@label samba URL markup example, this is preceded by a label containing "
+"smb://"
+msgid "smb://[workgroup/]server[:port]/printer"
+msgstr "smb://[workgroup/]server[:port]/printer"
+
+#. i18n: ectx: property (text), widget (QPushButton, browsePB)
+#: add-printer/ChooseSamba.ui:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Browse"
+msgstr "탐색"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: add-printer/ChooseSamba.ui:64
+#, kde-format
+msgctxt "@title:group"
+msgid "Authentication"
+msgstr "인증"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseSamba.ui:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Username:"
+msgstr "사용자 이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSamba.ui:86
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "암호"
+
+#: add-printer/ChooseSerial.cpp:25 add-printer/ChooseSerial.cpp:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "None"
+msgstr "없음"
+
+#: add-printer/ChooseSerial.cpp:26
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Even"
+msgstr "짝수"
+
+#: add-printer/ChooseSerial.cpp:27
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Odd"
+msgstr "홀수"
+
+#: add-printer/ChooseSerial.cpp:30
+#, kde-format
+msgctxt "@label:listbox"
+msgid "XON/XOFF (Software)"
+msgstr "XON/XOFF (소프트웨어)"
+
+#: add-printer/ChooseSerial.cpp:31
+#, kde-format
+msgctxt "@label:listbox"
+msgid "RTS/CTS (Hardware)"
+msgstr "RTS/CTS (하드웨어)"
+
+#: add-printer/ChooseSerial.cpp:32
+#, kde-format
+msgctxt "@label:listbox"
+msgid "DTR/DSR (Hardware)"
+msgstr "DTR/DSR (하드웨어)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSerial.ui:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Baud Rate:"
+msgstr "전송률:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSerial.ui:42
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Parity:"
+msgstr "패리티:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSerial.ui:55
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Data Bits:"
+msgstr "데이터 비트:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: add-printer/ChooseSerial.ui:79
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Flow Control:"
+msgstr "흐름 제어:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSocket.ui:29
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "주소:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSocket.ui:42
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Port:"
+msgstr "포트:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseUri.ui:41
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr "연결:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseUri.ui:82
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Examples:\n"
+"<PRE>\n"
+"    http://hostname:631/ipp/\n"
+"    http://hostname:631/ipp/port1\n"
+"\n"
+"    ipp://hostname/ipp/\n"
+"    ipp://hostname/ipp/port1\n"
+"\n"
+"    lpd://hostname/queue\n"
+"\n"
+"    socket://hostname\n"
+"    socket://hostname:9100\n"
+"</PRE>\n"
+"\n"
+"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Network\n"
+"Printers\"</A> for the correct URI to use with your printer.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+msgstr ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>예제:\n"
+"<PRE>\n"
+"    http://hostname:631/ipp/\n"
+"    http://hostname:631/ipp/port1\n"
+"\n"
+"    ipp://hostname/ipp/\n"
+"    ipp://hostname/ipp/port1\n"
+"\n"
+"    lpd://hostname/queue\n"
+"\n"
+"    socket://hostname\n"
+"    socket://hostname:9100\n"
+"</PRE>\n"
+"\n"
+"<P>프린터에 사용할 수 있는 URI 예제를 보려면\n"
+"<A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">\"네트워"
+"크\n"
+"프린터\"</A>를 참고하십시오.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+
+#: add-printer/DevicesModel.cpp:39
+#, kde-format
+msgctxt "@item"
+msgid "Manual URI"
+msgstr "수동 URI"
+
+#: add-printer/DevicesModel.cpp:115
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "장치 목록을 가져올 수 없음: '%1'"
+
+#: add-printer/DevicesModel.cpp:238
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "병렬 포트에 연결된 프린터"
+
+#: add-printer/DevicesModel.cpp:241
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "USB 포트에 연결된 프린터"
+
+#: add-printer/DevicesModel.cpp:244
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "블루투스로 연결된 프린터"
+
+#: add-printer/DevicesModel.cpp:247
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr "HAL에서 감지한 로컬 프린터"
+
+#: add-printer/DevicesModel.cpp:251
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr "프린터나 복합기의 인쇄 기능을 담당하는 HPLIP 소프트웨어"
+
+#: add-printer/DevicesModel.cpp:255
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "팩스나 복합기의 팩스 기능을 담당하는 HPLIP 소프트웨어"
+
+#: add-printer/DevicesModel.cpp:260
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "DNS-SD로 연결된 원격 CUPS 프린터"
+
+#: add-printer/DevicesModel.cpp:278
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "발견한 네트워크 프린터"
+
+#: add-printer/DevicesModel.cpp:282
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "기타 네트워크 프린터"
+
+#: add-printer/DevicesModel.cpp:286
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "로컬 프린터"
+
+#: add-printer/DevicesModel.cpp:328
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "장치를 묶을 수 없음: '%1'"
+
+#. i18n: ectx: property (text), widget (QToolButton, addTB)
+#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#, kde-format
+msgid "Add Printer"
+msgstr "프린터 추가"
+
+#: add-printer/main.cpp:30
+#, kde-format
+msgid "Tool for adding new printers"
+msgstr "새 프린터 추가 도구"
+
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30
+#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(C) 2010-2018 Daniel Nicoletti"
+
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32
+#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Qt 5/Plasma 5 포팅"
+
+#: add-printer/main.cpp:41
+#, kde-format
+msgid "Parent Window ID"
+msgstr "부모 창 ID"
+
+#: add-printer/main.cpp:44
+#, kde-format
+msgid "Add a new printer"
+msgstr "새 프린터 추가"
+
+#: add-printer/main.cpp:47
+#, kde-format
+msgid "Add a new printer class"
+msgstr "새 프린터 클래스 추가"
+
+#: add-printer/main.cpp:50
+#, kde-format
+msgid "Changes the PPD of a given printer"
+msgstr "선택한 프린터의 PPD 변경"
+
+#: add-printer/main.cpp:53
+#, kde-format
+msgid "Changes the PPD of a given printer/deviceid"
+msgstr "선택한 프린터/장치 ID의 PPD 변경"
+
+#: add-printer/PageAddPrinter.cpp:122
+#, kde-format
+msgctxt "@info"
+msgid "Failed to add class: '%1'"
+msgstr "클래스를 추가할 수 없음: '%1'"
+
+#: add-printer/PageAddPrinter.cpp:124
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: '%1'"
+msgstr "프린터를 설정할 수 없음: '%1'"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/PageAddPrinter.ui:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Name:"
+msgstr "이름:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
+#: add-printer/PageAddPrinter.ui:38
+#, kde-format
+msgid "May contain any printable characters except \"/\", \"#\", and space"
+msgstr "\"/\", \"#\", 공백을 제외한 출력 가능한 문자를 사용할 수 있음"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/PageAddPrinter.ui:45
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "설명:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/PageAddPrinter.ui:55
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr "위치:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, shareCB)
+#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
+#: add-printer/PageAddPrinter.ui:65
+#: printer-manager-kcm/PrinterDescription.ui:119
+#, kde-format
+msgctxt "@option:check"
+msgid "Share this printer"
+msgstr "이 프린터 공유"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageChoosePrinters.ui:96
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Members:"
+msgstr "구성원:"
+
+#: add-printer/PageDestinations.cpp:189
+#, kde-format
+msgid "A printer connected to the parallel port."
+msgstr "병렬 포트에 연결된 프린터입니다."
+
+#: add-printer/PageDestinations.cpp:192
+#, kde-format
+msgid "A printer connected to a USB port."
+msgstr "USB 포트에 연결된 프린터입니다."
+
+#: add-printer/PageDestinations.cpp:195
+#, kde-format
+msgid "A printer connected via Bluetooth."
+msgstr "블루투스로 연결된 프린터입니다."
+
+#: add-printer/PageDestinations.cpp:198
+#, kde-format
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
+msgstr "HAL로 감지된 로컬 프린터입니다."
+
+#: add-printer/PageDestinations.cpp:202
+#, kde-format
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device."
+msgstr "프린터나 복합기의 인쇄 기능을 담당하는 HPLIP 소프트웨어입니다."
+
+#: add-printer/PageDestinations.cpp:206
+#, kde-format
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device."
+msgstr "팩스나 복합기의 팩스 기능을 담당하는 HPLIP 소프트웨어입니다."
+
+#: add-printer/PageDestinations.cpp:214 add-printer/PageDestinations.cpp:373
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "DNS-SD로 연결된 원격 CUPS 프린터"
+
+#: add-printer/PageDestinations.cpp:226 add-printer/PageDestinations.cpp:382
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "DNS-SD로 연결된 네트워크 프린터"
+
+#: add-printer/PageDestinations.cpp:228
+#, kde-format
+msgid "%1 network printer via DNS-SD"
+msgstr "DNS-SD로 연결된 %1 네트워크 프린터"
+
+#: add-printer/PageDestinations.cpp:333
+#, kde-format
+msgid "Parallel Port"
+msgstr "병렬 포트"
+
+#: add-printer/PageDestinations.cpp:335
+#, kde-format
+msgid "Serial Port"
+msgstr "직렬 포트"
+
+#: add-printer/PageDestinations.cpp:337
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: add-printer/PageDestinations.cpp:339
+#, kde-format
+msgid "Bluetooth"
+msgstr "블루투스"
+
+#: add-printer/PageDestinations.cpp:341
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "팩스 - HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:343
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:345
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "HAL"
+
+#: add-printer/PageDestinations.cpp:347
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: add-printer/PageDestinations.cpp:352
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "LPD/LPR 대기열"
+
+#: add-printer/PageDestinations.cpp:354
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "LPD/LPR 대기열 %1"
+
+#: add-printer/PageDestinations.cpp:357
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "SAMBA로 연결된 Windows 프린터"
+
+#: add-printer/PageDestinations.cpp:362
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: add-printer/PageDestinations.cpp:364
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: add-printer/PageDestinations.cpp:367
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: add-printer/PageDestinations.cpp:376
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "DNS-SD로 연결된 IPP 네트워크 프린터"
+
+#: add-printer/PageDestinations.cpp:378
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "DNS-SD로 연결된 LPD 네트워크 프린터"
+
+#: add-printer/PageDestinations.cpp:380
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "DNS-SD로 연결된 AppSocket/JetDirect 네트워크 프린터"
+
+#. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
+#: add-printer/PageDestinations.ui:62
+#, kde-format
+msgid "Connections"
+msgstr "연결"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageDestinations.ui:97
+#, kde-format
+msgid "Please choose an item on the list"
+msgstr "목록에서 항목을 선택하십시오"
+
+#: configure-printer/ConfigureDialog.cpp:88
+#, kde-format
+msgid "Modify Printer"
+msgstr "프린터 수정"
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#. i18n: ectx: property (text), widget (QPushButton, configurePB)
+#: configure-printer/ConfigureDialog.cpp:89
+#: print-manager-kded/NewPrinterNotification.cpp:240
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "설정"
+
+#: configure-printer/ConfigureDialog.cpp:99
+#, kde-format
+msgid "Printer Options"
+msgstr "프린터 옵션"
+
+#: configure-printer/ConfigureDialog.cpp:100
+#, kde-format
+msgid "Set the Default Printer Options"
+msgstr "기본 프린터 옵션 설정"
+
+#: configure-printer/ConfigureDialog.cpp:110
+#: configure-printer/ConfigureDialog.cpp:111
+#, kde-format
+msgid "Banners, Policies and Allowed Users"
+msgstr "배너, 정책, 허용된 사용자"
+
+#: configure-printer/ConfigureDialog.cpp:184
+#, kde-format
+msgid ""
+"The current page has changes.\n"
+"Do you want to save them?"
+msgstr ""
+"현재 페이지에 변경된 사항이 있습니다.\n"
+"변경 사항을 저장하시겠습니까?"
+
+#: configure-printer/main.cpp:26
+#, kde-format
+msgid "Configure Printer"
+msgstr "프린터 설정"
+
+#: configure-printer/main.cpp:28
+#, kde-format
+msgid "ConfigurePrinter"
+msgstr "ConfigurePrinter"
+
+#: configure-printer/main.cpp:39
+#, kde-format
+msgid "Printer to be configured"
+msgstr "설정할 프린터"
+
+#: configure-printer/ModifyPrinter.cpp:125
+#, kde-format
+msgid "Current - %1"
+msgstr "현재 - %1"
+
+#: configure-printer/ModifyPrinter.cpp:128
+#, kde-format
+msgid "Select a custom driver"
+msgstr "사용자 정의 드라이버 선택"
+
+#: configure-printer/ModifyPrinter.cpp:227
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class"
+msgstr "클래스를 설정할 수 없음"
+
+#: configure-printer/ModifyPrinter.cpp:228
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer"
+msgstr "프린터를 설정할 수 없음"
+
+#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#, kde-format
+msgctxt "@title:window"
+msgid "Failed"
+msgstr "실패"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, nameL)
+#: configure-printer/ModifyPrinter.ui:25
+#: printer-manager-kcm/PrinterDescription.ui:234
+#, kde-format
+msgid "Name:"
+msgstr "이름:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configure-printer/ModifyPrinter.ui:32
+#, kde-format
+msgid "Description:"
+msgstr "설명:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
+#: configure-printer/ModifyPrinter.ui:42
+#, kde-format
+msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
+msgstr "\"양면 인쇄가 장착된 HP LasetJet\"과 같은 읽기 쉬운 설명"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configure-printer/ModifyPrinter.ui:52
+#, kde-format
+msgid "Location:"
+msgstr "위치:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
+#: configure-printer/ModifyPrinter.ui:62
+#, kde-format
+msgid "Human-readable location such as \"Lab 1\""
+msgstr "\"랩 1\"과 같은 읽기 쉬운 위치"
+
+#. i18n: ectx: property (text), widget (QLabel, connectionL)
+#: configure-printer/ModifyPrinter.ui:79
+#, kde-format
+msgid "Connection:"
+msgstr "연결:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
+#: configure-printer/ModifyPrinter.ui:103
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">Examples:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+"p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">예제:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+"p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, membersL)
+#: configure-printer/ModifyPrinter.ui:113
+#, kde-format
+msgid "Members"
+msgstr "구성원"
+
+#. i18n: ectx: property (text), widget (QLabel, driverL)
+#: configure-printer/ModifyPrinter.ui:126
+#, kde-format
+msgid "Driver:"
+msgstr "드라이버:"
+
+#: configure-printer/PrinterBehavior.cpp:199
+#, kde-format
+msgid "Abort job"
+msgstr "작업 중지"
+
+#: configure-printer/PrinterBehavior.cpp:201
+#, kde-format
+msgid "Retry current job"
+msgstr "현재 작업 다시 시도"
+
+#: configure-printer/PrinterBehavior.cpp:203
+#, kde-format
+msgid "Retry job"
+msgstr "작업 다시 시도"
+
+#: configure-printer/PrinterBehavior.cpp:205
+#, kde-format
+msgid "Stop printer"
+msgstr "프린터 정지"
+
+#: configure-printer/PrinterBehavior.cpp:214
+#, kde-format
+msgid "Authenticated"
+msgstr "인증됨"
+
+#: configure-printer/PrinterBehavior.cpp:216
+#, kde-format
+msgid "Default"
+msgstr "기본값"
+
+#: configure-printer/PrinterBehavior.cpp:225
+#, kde-format
+msgid "None"
+msgstr "없음"
+
+#: configure-printer/PrinterBehavior.cpp:227
+#, kde-format
+msgid "Classified"
+msgstr "인가자 전용"
+
+#: configure-printer/PrinterBehavior.cpp:229
+#, kde-format
+msgid "Confidential"
+msgstr "기밀"
+
+#: configure-printer/PrinterBehavior.cpp:231
+#, kde-format
+msgid "Secret"
+msgstr "비밀"
+
+#: configure-printer/PrinterBehavior.cpp:233
+#, kde-format
+msgid "Standard"
+msgstr "표준"
+
+#: configure-printer/PrinterBehavior.cpp:235
+#, kde-format
+msgid "Topsecret"
+msgstr "일급 기밀"
+
+#: configure-printer/PrinterBehavior.cpp:237
+#, kde-format
+msgid "Unclassified"
+msgstr "분류되지 않음"
+
+#. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
+#: configure-printer/PrinterBehavior.ui:29
+#, kde-format
+msgid "Banners"
+msgstr "배너"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configure-printer/PrinterBehavior.ui:35
+#, kde-format
+msgid "Starting Banner:"
+msgstr "시작 배너:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: configure-printer/PrinterBehavior.ui:55
+#, kde-format
+msgid "Ending Banner:"
+msgstr "종료 배너:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
+#: configure-printer/PrinterBehavior.ui:84
+#, kde-format
+msgid "Policies"
+msgstr "정책"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configure-printer/PrinterBehavior.ui:90
+#, kde-format
+msgid "Operation Policy:"
+msgstr "작업 정책:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configure-printer/PrinterBehavior.ui:103
+#, kde-format
+msgid "Error Policy:"
+msgstr "오류 정책:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
+#: configure-printer/PrinterBehavior.ui:133
+#, kde-format
+msgid "Allowed Users"
+msgstr "허용된 사용자"
+
+#. i18n: ectx: property (text), widget (QRadioButton, preventRB)
+#: configure-printer/PrinterBehavior.ui:139
+#, kde-format
+msgid "Pre&vent these users from printing "
+msgstr "다음 사용자는 인쇄 금지(&V)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, allowRB)
+#: configure-printer/PrinterBehavior.ui:146
+#, kde-format
+msgid "A&llow these users to print"
+msgstr "다음 사용자는 인쇄 허용(&L)"
+
+#: configure-printer/PrinterOptions.cpp:50
+#, kde-format
+msgid "Set Default Options"
+msgstr "기본 옵션 설정"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
+#: configure-printer/PrinterOptions.ui:26
+#, kde-format
+msgid "Query Printer for Default Options"
+msgstr "프린터에 기본 옵션 질의"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: configure-printer/SelectMakeModelDialog.cpp:25
+#: libkcups/SelectMakeModel.ui:14
+#, kde-format
+msgid "Select a Driver"
+msgstr "드라이버 선택"
+
+#: libkcups/JobModel.cpp:26
+#, kde-format
+msgid "Status"
+msgstr "상태"
+
+#: libkcups/JobModel.cpp:27
+#, kde-format
+msgid "Name"
+msgstr "이름"
+
+#: libkcups/JobModel.cpp:28
+#, kde-format
+msgid "User"
+msgstr "사용자"
+
+#: libkcups/JobModel.cpp:29
+#, kde-format
+msgid "Created"
+msgstr "생성됨"
+
+#: libkcups/JobModel.cpp:30 libkcups/JobModel.cpp:604
+#, kde-format
+msgid "Completed"
+msgstr "완료됨"
+
+#: libkcups/JobModel.cpp:31
+#, kde-format
+msgid "Pages"
+msgstr "쪽 수"
+
+#: libkcups/JobModel.cpp:32
+#, kde-format
+msgid "Processed"
+msgstr "진행됨"
+
+#: libkcups/JobModel.cpp:33
+#, kde-format
+msgid "Size"
+msgstr "크기"
+
+#: libkcups/JobModel.cpp:34
+#, kde-format
+msgid "Status Message"
+msgstr "상태 메시지"
+
+#: libkcups/JobModel.cpp:35
+#, kde-format
+msgid "Printer"
+msgstr "프린터"
+
+#: libkcups/JobModel.cpp:36
+#, kde-format
+msgid "From Hostname"
+msgstr "호스트 이름에서"
+
+#: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
+#, kde-format
+msgid "Failed to move '%1' to '%2'"
+msgstr "'%1'을(를) '%2'(으)로 이동할 수 없음"
+
+#: libkcups/JobModel.cpp:521 printqueue/PrintQueueUi.cpp:496
+#, kde-format
+msgid "Failed"
+msgstr "실패"
+
+#: libkcups/JobModel.cpp:598
+#, kde-format
+msgid "Pending"
+msgstr "대기 중"
+
+#: libkcups/JobModel.cpp:599
+#, kde-format
+msgid "On hold"
+msgstr "일시 정지됨"
+
+#: libkcups/JobModel.cpp:601
+#, kde-format
+msgid "Stopped"
+msgstr "정지됨"
+
+#: libkcups/JobModel.cpp:602
+#, kde-format
+msgid "Canceled"
+msgstr "취소됨"
+
+#: libkcups/JobModel.cpp:603
+#, kde-format
+msgid "Aborted"
+msgstr "중단됨"
+
+#: libkcups/KCupsConnection.cpp:860
+#, kde-format
+msgid "A CUPS connection requires authentication: \"%1\""
+msgstr "CUPS 연결에 인증이 필요함: \"%1\""
+
+#: libkcups/KCupsPasswordDialog.cpp:22
+#, kde-format
+msgid "Enter an username and a password to complete the task"
+msgstr "작업을 완료하려면 사용자 이름과 암호를 입력하십시오"
+
+#: libkcups/KCupsPasswordDialog.cpp:44
+#, kde-format
+msgid "Wrong username or password"
+msgstr "잘못된 사용자 이름이나 암호"
+
+#: libkcups/KCupsRequest.cpp:32
+#, kde-format
+msgid "Print service is unavailable"
+msgstr "인쇄 서비스를 사용할 수 없음"
+
+#: libkcups/KCupsRequest.cpp:34
+#, kde-format
+msgid "Not found"
+msgstr "찾을 수 없음"
+
+#: libkcups/KCupsRequest.cpp:401
+#, kde-format
+msgid "Test Page"
+msgstr "테스트 페이지"
+
+#: libkcups/KCupsRequest.cpp:433
+#, kde-format
+msgid "Unable to send command to printer driver!"
+msgstr "프린터 드라이버에 명령을 보낼 수 없음!"
+
+#: libkcups/KCupsRequest.cpp:567
+#, kde-format
+msgid "Failed to invoke method: %1"
+msgstr "메서드를 호출할 수 없음: %1"
+
+#: libkcups/PPDModel.cpp:32
+#, kde-format
+msgid "Recommended Drivers"
+msgstr "추천 드라이버"
+
+#: libkcups/PrinterModel.cpp:163
+#, kde-format
+msgid "Printers"
+msgstr "프린터"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle"
+msgstr "대기"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle, rejecting jobs"
+msgstr "대기, 작업 거부 중"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle - '%1'"
+msgstr "대기 - '%1'"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle, rejecting jobs - '%1'"
+msgstr "대기, 작업 거부 중 - '%1'"
+
+#: libkcups/PrinterModel.cpp:372
+#, kde-format
+msgid "In use"
+msgstr "사용 중"
+
+#: libkcups/PrinterModel.cpp:374
+#, kde-format
+msgid "In use - '%1'"
+msgstr "사용 중 - '%1'"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused"
+msgstr "일시 정지됨"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused, rejecting jobs"
+msgstr "일시 정지됨, 작업 거부 중"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused - '%1'"
+msgstr "일시 정지됨 - '%1'"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused, rejecting jobs - '%1'"
+msgstr "일시 정지됨, 작업 거부 중 - '%1'"
+
+#: libkcups/PrinterModel.cpp:384
+#, kde-format
+msgid "Unknown"
+msgstr "알 수 없음"
+
+#: libkcups/PrinterModel.cpp:386
+#, kde-format
+msgid "Unknown - '%1'"
+msgstr "알 수 없음 - '%1'"
+
+#: libkcups/SelectMakeModel.cpp:138
+#, kde-format
+msgid "Failed to get a list of drivers: '%1'"
+msgstr "드라이버 목록을 가져올 수 없음: '%1'"
+
+#: libkcups/SelectMakeModel.cpp:228
+#, kde-format
+msgid "Failed to search for a recommended driver: '%1'"
+msgstr "추천 드라이버를 찾을 수 없음: '%1'"
+
+#. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
+#: libkcups/SelectMakeModel.ui:44
+#, kde-format
+msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
+msgstr "*.ppd *.ppd.gz|포스트스크립트 프린터 정의 파일"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#: libkcups/SelectMakeModel.ui:82
+#, kde-format
+msgid "Choose &the driver from the list"
+msgstr "목록에서 드라이버 선택(&T)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
+#: libkcups/SelectMakeModel.ui:94
+#, kde-format
+msgid "Ma&nually Provide a PPD File:"
+msgstr "수동으로 PPD 파일 지정(&N):"
+
+#: print-manager-kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "새 프린터가 감지됨"
+
+#: print-manager-kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "새 프린터 설정..."
+
+#: print-manager-kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "새 프린터가 추가됨"
+
+#: print-manager-kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "새 프린터의 드라이버가 없음"
+
+#: print-manager-kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "프린터 드라이버 없음"
+
+#: print-manager-kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "%1 %2에 대한 프린터 드라이버가 없습니다."
+
+#: print-manager-kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "%1에 대한 프린터 드라이버가 없습니다."
+
+#: print-manager-kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "이 프린터에 대한 드라이버가 없습니다."
+
+#: print-manager-kded/NewPrinterNotification.cpp:173
+#, kde-format
+msgid "Search"
+msgstr "찾기"
+
+#: print-manager-kded/NewPrinterNotification.cpp:239
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "'%1'이(가) 추가되었으며 드라이버를 확인하십시오."
+
+#: print-manager-kded/NewPrinterNotification.cpp:243
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "'%1'이(가) 추가되었으며 드라이버 '%2'을(를) 사용합니다."
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#, kde-format
+msgid "Print test page"
+msgstr "테스트 페이지 인쇄"
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#, kde-format
+msgid "Find driver"
+msgstr "드라이버 찾기"
+
+#: print-manager-kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "'%1'에서 인쇄할 수 있습니다."
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this class"
+msgstr "이 클래스 공유"
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this printer"
+msgstr "이 프린터 공유"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:220
+#: printer-manager-kcm/PrinterDescription.ui:293
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "프린터 헤드 청소"
+
+#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:229
+#: printer-manager-kcm/PrinterDescription.ui:301
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "자가 진단 페이지 인쇄"
+
+#: printer-manager-kcm/PrinterDescription.cpp:235
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "요청을 처리할 수 없음: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, printerNameL)
+#: printer-manager-kcm/PrinterDescription.ui:83
+#, kde-format
+msgctxt "@title"
+msgid "Printer name or description"
+msgstr "프린터 이름 및 설명"
+
+#. i18n: ectx: property (text), widget (QLabel, statusL)
+#: printer-manager-kcm/PrinterDescription.ui:102
+#, kde-format
+msgid "Current status"
+msgstr "현재 상태"
+
+#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
+#: printer-manager-kcm/PrinterDescription.ui:109
+#, kde-format
+msgctxt "@option:check"
+msgid "Default printer"
+msgstr "기본 프린터"
+
+#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
+#: printer-manager-kcm/PrinterDescription.ui:126
+#, kde-format
+msgid "Reject print jobs"
+msgstr "인쇄 작업 거부"
+
+#. i18n: ectx: property (text), widget (QLabel, locationL)
+#: printer-manager-kcm/PrinterDescription.ui:135
+#, kde-format
+msgctxt "@label location of printer"
+msgid "Location:"
+msgstr "위치:"
+
+#. i18n: ectx: property (text), widget (QLabel, kindL)
+#: printer-manager-kcm/PrinterDescription.ui:164
+#, kde-format
+msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
+msgid "Kind:"
+msgstr "종류:"
+
+#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
+#: printer-manager-kcm/PrinterDescription.ui:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Maintenance"
+msgstr "관리"
+
+#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
+#: printer-manager-kcm/PrinterDescription.ui:225
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Print Queue"
+msgstr "인쇄 대기열 열기"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:288
+#, kde-format
+msgid "Print Test Page"
+msgstr "테스트 페이지 인쇄"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:298
+#, kde-format
+msgid "Print Self Test Page"
+msgstr "자가 진단 페이지 인쇄"
+
+#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
+#, kde-format
+msgid "Print settings"
+msgstr "인쇄 설정"
+
+#: printer-manager-kcm/PrintKCM.cpp:56
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Add a Printer Class"
+msgstr "프린터 클래스 추가"
+
+#: printer-manager-kcm/PrintKCM.cpp:59
+#, kde-format
+msgid "Add a new printer or a printer class"
+msgstr "새 프린터나 프린터 클래스 추가"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTB)
+#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#, kde-format
+msgid "Remove Printer"
+msgstr "프린터 삭제"
+
+#: printer-manager-kcm/PrintKCM.cpp:68
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show printers shared by other systems"
+msgstr "다른 시스템에서 공유한 프린터 표시"
+
+#: printer-manager-kcm/PrintKCM.cpp:72
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Share printers connected to this system"
+msgstr "이 시스템에 연결된 프린터 공유"
+
+#: printer-manager-kcm/PrintKCM.cpp:74
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow printing from the Internet"
+msgstr "인터넷 인쇄 허용하기"
+
+#: printer-manager-kcm/PrintKCM.cpp:80
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow remote administration"
+msgstr "원격 관리 허용하기"
+
+#: printer-manager-kcm/PrintKCM.cpp:82
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow users to cancel any job (not just their own)"
+msgstr "다른 사용자의 작업도 취소할 수 있도록 허용하기"
+
+#: printer-manager-kcm/PrintKCM.cpp:86
+#, kde-format
+msgid "Configure the global preferences"
+msgstr "전역 설정 변경"
+
+#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#, kde-format
+msgid "No printers have been configured or discovered"
+msgstr "설정되거나 발견된 프린터 없음"
+
+#: printer-manager-kcm/PrintKCM.cpp:262
+#, kde-format
+msgid "Remove class"
+msgstr "클래스 삭제"
+
+#: printer-manager-kcm/PrintKCM.cpp:263
+#, kde-format
+msgid "Are you sure you want to remove the class '%1'?"
+msgstr "클래스 '%1'을(를) 삭제하시겠습니까?"
+
+#: printer-manager-kcm/PrintKCM.cpp:266
+#, kde-format
+msgid "Remove printer"
+msgstr "프린터 삭제"
+
+#: printer-manager-kcm/PrintKCM.cpp:267
+#, kde-format
+msgid "Are you sure you want to remove the printer '%1'?"
+msgstr "프린터 '%1'을(를) 삭제하시겠습니까?"
+
+#: printer-manager-kcm/PrintKCM.cpp:309
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "서버 설정을 가져올 수 없음"
+
+#: printer-manager-kcm/PrintKCM.cpp:340
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "서버를 설정할 수 없음"
+
+#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
+#: printer-manager-kcm/PrintKCM.ui:52
+#, kde-format
+msgid "System Preferences"
+msgstr "시스템 설정"
+
+#. i18n: ectx: property (text), widget (QLabel, errorComment)
+#: printer-manager-kcm/PrintKCM.ui:196
+#, kde-format
+msgid "TextLabel"
+msgstr "TextLabel"
+
+#. i18n: ectx: property (text), widget (QLabel, errorText)
+#: printer-manager-kcm/PrintKCM.ui:206
+#, kde-format
+msgid "Error Title"
+msgstr "오류 제목"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
+#: printer-manager-kcm/PrintKCM.ui:231
+#, kde-format
+msgid "Click here to add a new printer"
+msgstr "새 프린터를 추가하려면 클릭하십시오"
+
+#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#, kde-format
+msgid "Print Queue"
+msgstr "인쇄 대기열"
+
+#: printqueue/main.cpp:39
+#, kde-format
+msgid "Show printer queue(s)"
+msgstr "인쇄 대기열 표시"
+
+#: printqueue/PrintQueueUi.cpp:195
+#, kde-format
+msgid "Printer ready"
+msgstr "프린터 준비됨"
+
+#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
+#: printqueue/PrintQueueUi.cpp:196 printqueue/PrintQueueUi.cpp:207
+#: printqueue/PrintQueueUi.ui:118
+#, kde-format
+msgid "Pause Printer"
+msgstr "프린터 일시 정지"
+
+#: printqueue/PrintQueueUi.cpp:203
+#, kde-format
+msgid "Printing..."
+msgstr "인쇄 중..."
+
+#: printqueue/PrintQueueUi.cpp:205
+#, kde-format
+msgid "Printing '%1'"
+msgstr "'%1' 인쇄 중"
+
+#: printqueue/PrintQueueUi.cpp:213
+#, kde-format
+msgid "Printer paused"
+msgstr "프린터 일시 정지됨"
+
+#: printqueue/PrintQueueUi.cpp:214
+#, kde-format
+msgid "Resume Printer"
+msgstr "프린터 다시 시작"
+
+#: printqueue/PrintQueueUi.cpp:218
+#, kde-format
+msgid "Printer state unknown"
+msgstr "프린터 상태 알 수 없음"
+
+#: printqueue/PrintQueueUi.cpp:263
+#, kde-format
+msgid "Move to"
+msgstr "다음으로 이동"
+
+#: printqueue/PrintQueueUi.cpp:294
+#, kde-format
+msgid "Authenticate"
+msgstr "인증"
+
+#: printqueue/PrintQueueUi.cpp:404
+#, kde-format
+msgid "All Printers (%1 Job)"
+msgid_plural "All Printers (%1 Jobs)"
+msgstr[0] "모든 프린터(작업 %1개)"
+
+#: printqueue/PrintQueueUi.cpp:406
+#, kde-format
+msgid "%2 (%1 Job)"
+msgid_plural "%2 (%1 Jobs)"
+msgstr[0] "%2(작업 %1개)"
+
+#: printqueue/PrintQueueUi.cpp:409
+#, kde-format
+msgid "All Printers"
+msgstr "모든 프린터"
+
+#: printqueue/PrintQueueUi.cpp:478
+#, kde-format
+msgid "Failed to cancel '%1'"
+msgstr "'%1'을(를) 취소할 수 없음"
+
+#: printqueue/PrintQueueUi.cpp:481
+#, kde-format
+msgid "Failed to hold '%1'"
+msgstr "'%1'을(를) 대기시킬 수 없음"
+
+#: printqueue/PrintQueueUi.cpp:484
+#, kde-format
+msgid "Failed to release '%1'"
+msgstr "'%1'을(를) 다시 시작할 수 없음"
+
+#: printqueue/PrintQueueUi.cpp:487
+#, kde-format
+msgid "Failed to reprint '%1'"
+msgstr "'%1'을(를) 다시 인쇄할 수 없음"
+
+#: printqueue/PrintQueueUi.cpp:561
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "<b>%1</b>에서 인쇄할 때 사용할 인증 정보 입력"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
+#: printqueue/PrintQueueUi.ui:20
+#, kde-format
+msgid "my printer (x jobs)"
+msgstr "내 프린터(작업 x개)"
+
+#. i18n: ectx: property (text), widget (QLabel, iconL)
+#: printqueue/PrintQueueUi.ui:49
+#, kde-format
+msgid "Printer Icon"
+msgstr "프린터 아이콘"
+
+#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
+#: printqueue/PrintQueueUi.ui:233
+#, kde-format
+msgid "Cancel"
+msgstr "취소"
+
+#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
+#: printqueue/PrintQueueUi.ui:253
+#, kde-format
+msgid "Hold"
+msgstr "대기"
+
+#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
+#: printqueue/PrintQueueUi.ui:266
+#, kde-format
+msgid "Resume"
+msgstr "다시 시작"
+
+#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
+#: printqueue/PrintQueueUi.ui:279
+#, kde-format
+msgid "Reprint"
+msgstr "다시 인쇄"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:312
+#, kde-format
+msgid "Active Jobs"
+msgstr "활성 작업"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:317
+#, kde-format
+msgid "Completed Jobs"
+msgstr "완료된 작업"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:322
+#, kde-format
+msgid "All Jobs"
+msgstr "모든 작업"
+
+#~ msgid "Daniel Nicoletti"
+#~ msgstr "Daniel Nicoletti"
+
+#~ msgid "AddPrinter"
+#~ msgstr "AddPrinter"
+
+#~ msgid "Configure printer"
+#~ msgstr "프린터 설정"
+
+#~ msgid "A short binary option"
+#~ msgstr "짧은 바이너리 옵션"

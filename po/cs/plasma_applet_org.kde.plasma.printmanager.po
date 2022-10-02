@@ -1,0 +1,88 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Vit Pelcak <vit@pelcak.org>, 2013, 2015, 2016, 2018, 2020, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2021-05-13 13:47+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.04.0\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr "Hledat…"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Nebyly nalezeny či nastaveny žádné tiskárny"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr "Žádné shody"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Resume printing"
+msgstr "Pokračovat v tisku"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr "Pozastavit tisk"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr "Nastavit tiskárnu..."
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr "Zobrazit frontu tisku"
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr "Tiskárny"
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "Ve frontě tisku je jedna úloha"
+msgstr[1] "Ve frontě tisku jsou %1 úlohy"
+msgstr[2] "Ve frontě tisku je %1 úloh"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr "Tisknu %1 pomocí %2"
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr "Tisknu pomocí '%1'"
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "Fronta tisku je prázdná"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+msgid "Show All Jobs"
+msgstr "Zobrazit všechny úlohy"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+msgid "Show Only Completed Jobs"
+msgstr "Zobrazit pouze dokončené úlohy"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+msgid "Show Only Active Jobs"
+msgstr "Zobrazit pouze aktivní úlohy"
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr "Nastavit tis&kárny..."

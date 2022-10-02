@@ -1,0 +1,1662 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Sergiu Bivol <sergiu@cip.md>, 2012, 2013, 2014, 2020, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"PO-Revision-Date: 2021-06-02 21:03+0100\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#: add-printer/AddPrinterAssistant.cpp:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Add a New Printer"
+msgstr "Adaugă o imprimantă nouă"
+
+#: add-printer/AddPrinterAssistant.cpp:69 add-printer/ChooseLpd.cpp:25
+#: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
+#: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
+#: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
+#: add-printer/PageChoosePrinters.cpp:24 add-printer/PageDestinations.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Printer to Add"
+msgstr "Alegeți imprimanta de adăugat"
+
+#: add-printer/AddPrinterAssistant.cpp:73
+#: add-printer/AddPrinterAssistant.cpp:80
+#: add-printer/AddPrinterAssistant.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Pick a Driver"
+msgstr "Alegeți un driver"
+
+#: add-printer/AddPrinterAssistant.cpp:85
+#: add-printer/AddPrinterAssistant.cpp:106
+#, kde-format
+msgctxt "@title:window"
+msgid "Please describe your printer"
+msgstr "Descrieți-vă imprimanta"
+
+#: add-printer/AddPrinterAssistant.cpp:102
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure your connection"
+msgstr "Configurați conexiunea"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseLpd.ui:26
+#, kde-format
+msgid "Address:"
+msgstr "Adresă:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseLpd.ui:36
+#, kde-format
+msgid "Queue:"
+msgstr "Coadă:"
+
+#. i18n: ectx: property (text), widget (QPushButton, detectPB)
+#: add-printer/ChooseLpd.ui:51
+#, kde-format
+msgid "Detect"
+msgstr "Detectează"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: add-printer/ChooseSamba.ui:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Windows Printer via SAMBA"
+msgstr "Imprimantă Windows prin SAMBA"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: add-printer/ChooseSamba.ui:41
+#, kde-format
+msgctxt ""
+"@label samba URL markup example, this is preceded by a label containing "
+"smb://"
+msgid "smb://[workgroup/]server[:port]/printer"
+msgstr "smb://[grup de lucru/]server[:port]/imprimantă"
+
+#. i18n: ectx: property (text), widget (QPushButton, browsePB)
+#: add-printer/ChooseSamba.ui:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Browse"
+msgstr "Răsfoiește"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: add-printer/ChooseSamba.ui:64
+#, kde-format
+msgctxt "@title:group"
+msgid "Authentication"
+msgstr "Autentificare"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseSamba.ui:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Username:"
+msgstr "Utilizator:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSamba.ui:86
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Parolă"
+
+#: add-printer/ChooseSerial.cpp:25 add-printer/ChooseSerial.cpp:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "None"
+msgstr "Niciuna"
+
+#: add-printer/ChooseSerial.cpp:26
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Even"
+msgstr "Pară"
+
+#: add-printer/ChooseSerial.cpp:27
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Odd"
+msgstr "Impară"
+
+#: add-printer/ChooseSerial.cpp:30
+#, kde-format
+msgctxt "@label:listbox"
+msgid "XON/XOFF (Software)"
+msgstr "XON/XOFF (Software)"
+
+#: add-printer/ChooseSerial.cpp:31
+#, kde-format
+msgctxt "@label:listbox"
+msgid "RTS/CTS (Hardware)"
+msgstr "RTS/CTS (Echipament)"
+
+#: add-printer/ChooseSerial.cpp:32
+#, kde-format
+msgctxt "@label:listbox"
+msgid "DTR/DSR (Hardware)"
+msgstr "DTR/DSR (Echipament)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSerial.ui:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Baud Rate:"
+msgstr "Rată simboluri:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSerial.ui:42
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Parity:"
+msgstr "Paritate:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSerial.ui:55
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Data Bits:"
+msgstr "Biți de date:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: add-printer/ChooseSerial.ui:79
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Flow Control:"
+msgstr "Controlul fluxului:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSocket.ui:29
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "Adresă:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSocket.ui:42
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseUri.ui:41
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr "Conexiune:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseUri.ui:82
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Examples:\n"
+"<PRE>\n"
+"    http://hostname:631/ipp/\n"
+"    http://hostname:631/ipp/port1\n"
+"\n"
+"    ipp://hostname/ipp/\n"
+"    ipp://hostname/ipp/port1\n"
+"\n"
+"    lpd://hostname/queue\n"
+"\n"
+"    socket://hostname\n"
+"    socket://hostname:9100\n"
+"</PRE>\n"
+"\n"
+"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Network\n"
+"Printers\"</A> for the correct URI to use with your printer.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+msgstr ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Exemple:\n"
+"<PRE>\n"
+"    http://gazdă:631/ipp/\n"
+"    http://gazdă:631/ipp/port1\n"
+"\n"
+"    ipp://gazdă/ipp/\n"
+"    ipp://gazdă/ipp/port1\n"
+"\n"
+"    lpd://gazdă/coadă\n"
+"\n"
+"    socket://gazdă\n"
+"    socket://gazdă:9100\n"
+"</PRE>\n"
+"\n"
+"<P>Vedeți <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
+"\">„Imprimante\n"
+"de rețea”</A> pentru URI-ul corect de utilizat cu imprimanta dumneavoastră.</"
+"P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+
+#: add-printer/DevicesModel.cpp:39
+#, kde-format
+msgctxt "@item"
+msgid "Manual URI"
+msgstr "URI manual"
+
+#: add-printer/DevicesModel.cpp:115
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "Obținerea listei de dispozitive a eșuat: „%1”"
+
+#: add-printer/DevicesModel.cpp:238
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "Imprimantă conectată la portul paralel"
+
+#: add-printer/DevicesModel.cpp:241
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "Imprimantă conectată la un port USB"
+
+#: add-printer/DevicesModel.cpp:244
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "Imprimantă conectată prin Bluetooth"
+
+#: add-printer/DevicesModel.cpp:247
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr ""
+"Imprimantă locală detectată de Stratul de Abstractizare a Echipamentului "
+"(HAL)"
+
+#: add-printer/DevicesModel.cpp:251
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr ""
+"Programe HPLIP pilotând o imprimantă sau funcția de imprimare a unui "
+"dispozitiv multifuncțional"
+
+#: add-printer/DevicesModel.cpp:255
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr ""
+"Programe HPLIP pilotând o mașină de fax sau funcția de fax a unui dispozitiv "
+"multifuncțional"
+
+#: add-printer/DevicesModel.cpp:260
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Imprimantă distantă CUPS prin DNS-SD"
+
+#: add-printer/DevicesModel.cpp:278
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "Imprimante de rețea descoperite"
+
+#: add-printer/DevicesModel.cpp:282
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "Alte imprimante de rețea"
+
+#: add-printer/DevicesModel.cpp:286
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "Imprimante locale"
+
+#: add-printer/DevicesModel.cpp:328
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Gruparea dispozitivelor a eșuat: „%1”"
+
+#. i18n: ectx: property (text), widget (QToolButton, addTB)
+#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#, kde-format
+msgid "Add Printer"
+msgstr "Adaugă imprimantă"
+
+#: add-printer/main.cpp:30
+#, kde-format
+msgid "Tool for adding new printers"
+msgstr "Unealtă pentru adăugarea de noi imprimante"
+
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30
+#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(C) 2010-2018 Daniel Nicoletti"
+
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32
+#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Portare la Qt 5 / Plasma 5"
+
+#: add-printer/main.cpp:41
+#, kde-format
+msgid "Parent Window ID"
+msgstr "Identificator fereastră părinte"
+
+#: add-printer/main.cpp:44
+#, kde-format
+msgid "Add a new printer"
+msgstr "Adaugă o imprimantă nouă"
+
+#: add-printer/main.cpp:47
+#, kde-format
+msgid "Add a new printer class"
+msgstr "Adaugă o clasă de imprimante nouă"
+
+#: add-printer/main.cpp:50
+#, kde-format
+msgid "Changes the PPD of a given printer"
+msgstr "Schimbă PPD-ul imprimantei date"
+
+#: add-printer/main.cpp:53
+#, kde-format
+msgid "Changes the PPD of a given printer/deviceid"
+msgstr "Schimbă PPD-ul imprimantei sau identificatorului de dispozitiv"
+
+#: add-printer/PageAddPrinter.cpp:122
+#, kde-format
+msgctxt "@info"
+msgid "Failed to add class: '%1'"
+msgstr "Adăugarea clasei a eșuat: „%1”"
+
+#: add-printer/PageAddPrinter.cpp:124
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: '%1'"
+msgstr "Configurarea imprimantei a eșuat: „%1”"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/PageAddPrinter.ui:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Name:"
+msgstr "Denumire:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
+#: add-printer/PageAddPrinter.ui:38
+#, kde-format
+msgid "May contain any printable characters except \"/\", \"#\", and space"
+msgstr ""
+"Poate conține orice caractere imprimabile, cu excepția „/”, „#” și a "
+"spațiului"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/PageAddPrinter.ui:45
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "Descriere:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/PageAddPrinter.ui:55
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr "Amplasare:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, shareCB)
+#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
+#: add-printer/PageAddPrinter.ui:65
+#: printer-manager-kcm/PrinterDescription.ui:119
+#, kde-format
+msgctxt "@option:check"
+msgid "Share this printer"
+msgstr "Partajează imprimanta"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageChoosePrinters.ui:96
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Members:"
+msgstr "Membri:"
+
+#: add-printer/PageDestinations.cpp:189
+#, kde-format
+msgid "A printer connected to the parallel port."
+msgstr "Imprimantă conectată la portul paralel."
+
+#: add-printer/PageDestinations.cpp:192
+#, kde-format
+msgid "A printer connected to a USB port."
+msgstr "Imprimantă conectată la un port USB."
+
+#: add-printer/PageDestinations.cpp:195
+#, kde-format
+msgid "A printer connected via Bluetooth."
+msgstr "Imprimantă conectată prin Bluetooth."
+
+#: add-printer/PageDestinations.cpp:198
+#, kde-format
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
+msgstr ""
+"Imprimantă locală detectată de Stratul de Abstractizare a Echipamentului "
+"(HAL)."
+
+#: add-printer/PageDestinations.cpp:202
+#, kde-format
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device."
+msgstr ""
+"Programe HPLIP pilotând o imprimantă sau funcția de imprimare a unui "
+"dispozitiv multifuncțional."
+
+#: add-printer/PageDestinations.cpp:206
+#, kde-format
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device."
+msgstr ""
+"Programe HPLIP pilotând o mașină de fax sau funcția de fax a unui dispozitiv "
+"multifuncțional."
+
+#: add-printer/PageDestinations.cpp:214 add-printer/PageDestinations.cpp:373
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Imprimantă distantă CUPS prin DNS-SD"
+
+#: add-printer/PageDestinations.cpp:226 add-printer/PageDestinations.cpp:382
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "Imprimantă de rețea prin DNS-SD"
+
+#: add-printer/PageDestinations.cpp:228
+#, kde-format
+msgid "%1 network printer via DNS-SD"
+msgstr "%1 imprimantă de rețea prin DNS-SD"
+
+#: add-printer/PageDestinations.cpp:333
+#, kde-format
+msgid "Parallel Port"
+msgstr "Port paralel"
+
+#: add-printer/PageDestinations.cpp:335
+#, kde-format
+msgid "Serial Port"
+msgstr "Port serial"
+
+#: add-printer/PageDestinations.cpp:337
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: add-printer/PageDestinations.cpp:339
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: add-printer/PageDestinations.cpp:341
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "Fax - HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:343
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:345
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "Stratul de Abstractizare a Echipamentului (HAL)"
+
+#: add-printer/PageDestinations.cpp:347
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: add-printer/PageDestinations.cpp:352
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "Coadă LPD/LPR"
+
+#: add-printer/PageDestinations.cpp:354
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "Coadă LPD/LPR %1"
+
+#: add-printer/PageDestinations.cpp:357
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "Imprimantă Windows prin SAMBA"
+
+#: add-printer/PageDestinations.cpp:362
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: add-printer/PageDestinations.cpp:364
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: add-printer/PageDestinations.cpp:367
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: add-printer/PageDestinations.cpp:376
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "Imprimantă de rețea IPP prin DNS-SD"
+
+#: add-printer/PageDestinations.cpp:378
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "Imprimantă de rețea LPD prin DNS-SD"
+
+#: add-printer/PageDestinations.cpp:380
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "Imprimantă de rețea AppSocket/JetDirect prin DNS-SD"
+
+#. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
+#: add-printer/PageDestinations.ui:62
+#, kde-format
+msgid "Connections"
+msgstr "Conexiuni"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageDestinations.ui:97
+#, kde-format
+msgid "Please choose an item on the list"
+msgstr "Alegeți un element din listă"
+
+#: configure-printer/ConfigureDialog.cpp:88
+#, kde-format
+msgid "Modify Printer"
+msgstr "Modifică imprimanta"
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#. i18n: ectx: property (text), widget (QPushButton, configurePB)
+#: configure-printer/ConfigureDialog.cpp:89
+#: print-manager-kded/NewPrinterNotification.cpp:240
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Configurează"
+
+#: configure-printer/ConfigureDialog.cpp:99
+#, kde-format
+msgid "Printer Options"
+msgstr "Opțiuni imprimantă"
+
+#: configure-printer/ConfigureDialog.cpp:100
+#, kde-format
+msgid "Set the Default Printer Options"
+msgstr "Stabilește opțiunile implicite ale imprimantei"
+
+#: configure-printer/ConfigureDialog.cpp:110
+#: configure-printer/ConfigureDialog.cpp:111
+#, kde-format
+msgid "Banners, Policies and Allowed Users"
+msgstr "Banere, politici și utilizatori permiși"
+
+#: configure-printer/ConfigureDialog.cpp:184
+#, kde-format
+msgid ""
+"The current page has changes.\n"
+"Do you want to save them?"
+msgstr ""
+"Pagina actuală conține modificări.\n"
+"Doriți să fie salvate?"
+
+#: configure-printer/main.cpp:26
+#, kde-format
+msgid "Configure Printer"
+msgstr "Configurare imprimantă"
+
+#: configure-printer/main.cpp:28
+#, kde-format
+msgid "ConfigurePrinter"
+msgstr "ConfigurareImprimantă"
+
+#: configure-printer/main.cpp:39
+#, kde-format
+msgid "Printer to be configured"
+msgstr "Imprimantă de configurat"
+
+#: configure-printer/ModifyPrinter.cpp:125
+#, kde-format
+msgid "Current - %1"
+msgstr "Curent - %1"
+
+#: configure-printer/ModifyPrinter.cpp:128
+#, kde-format
+msgid "Select a custom driver"
+msgstr "Alege un driver personalizat"
+
+#: configure-printer/ModifyPrinter.cpp:227
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class"
+msgstr "Configurarea clasei a eșuat"
+
+#: configure-printer/ModifyPrinter.cpp:228
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer"
+msgstr "Configurarea imprimantei a eșuat"
+
+#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#, kde-format
+msgctxt "@title:window"
+msgid "Failed"
+msgstr "Eșuat"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, nameL)
+#: configure-printer/ModifyPrinter.ui:25
+#: printer-manager-kcm/PrinterDescription.ui:234
+#, kde-format
+msgid "Name:"
+msgstr "Denumire:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configure-printer/ModifyPrinter.ui:32
+#, kde-format
+msgid "Description:"
+msgstr "Descriere:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
+#: configure-printer/ModifyPrinter.ui:42
+#, kde-format
+msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
+msgstr "Descriere lizibilă, cum ar fi „HP LaserJet cu duplexator”"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configure-printer/ModifyPrinter.ui:52
+#, kde-format
+msgid "Location:"
+msgstr "Amplasare:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
+#: configure-printer/ModifyPrinter.ui:62
+#, kde-format
+msgid "Human-readable location such as \"Lab 1\""
+msgstr "Amplasare lizibilă, cum ar fi „Laboratorul 1”"
+
+#. i18n: ectx: property (text), widget (QLabel, connectionL)
+#: configure-printer/ModifyPrinter.ui:79
+#, kde-format
+msgid "Connection:"
+msgstr "Conexiune:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
+#: configure-printer/ModifyPrinter.ui:103
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">Examples:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+"p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">Exemple:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://gazdă:631/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://gazdă:631/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://gazdă/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://gazdă/coadă</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://gazdă</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://gazdă:9100</p></"
+"body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, membersL)
+#: configure-printer/ModifyPrinter.ui:113
+#, kde-format
+msgid "Members"
+msgstr "Membri"
+
+#. i18n: ectx: property (text), widget (QLabel, driverL)
+#: configure-printer/ModifyPrinter.ui:126
+#, kde-format
+msgid "Driver:"
+msgstr "Driver:"
+
+#: configure-printer/PrinterBehavior.cpp:199
+#, kde-format
+msgid "Abort job"
+msgstr "Anulează lucrarea"
+
+#: configure-printer/PrinterBehavior.cpp:201
+#, kde-format
+msgid "Retry current job"
+msgstr "Reîncearcă lucrarea actuală"
+
+#: configure-printer/PrinterBehavior.cpp:203
+#, kde-format
+msgid "Retry job"
+msgstr "Reîncearcă lucrarea"
+
+#: configure-printer/PrinterBehavior.cpp:205
+#, kde-format
+msgid "Stop printer"
+msgstr "Oprește imprimanta"
+
+#: configure-printer/PrinterBehavior.cpp:214
+#, kde-format
+msgid "Authenticated"
+msgstr "Autentificat"
+
+#: configure-printer/PrinterBehavior.cpp:216
+#, kde-format
+msgid "Default"
+msgstr "Implicit"
+
+#: configure-printer/PrinterBehavior.cpp:225
+#, kde-format
+msgid "None"
+msgstr "Niciunul"
+
+#: configure-printer/PrinterBehavior.cpp:227
+#, kde-format
+msgid "Classified"
+msgstr "Clasificat"
+
+#: configure-printer/PrinterBehavior.cpp:229
+#, kde-format
+msgid "Confidential"
+msgstr "Confidențial"
+
+#: configure-printer/PrinterBehavior.cpp:231
+#, kde-format
+msgid "Secret"
+msgstr "Secret"
+
+#: configure-printer/PrinterBehavior.cpp:233
+#, kde-format
+msgid "Standard"
+msgstr "Standard"
+
+#: configure-printer/PrinterBehavior.cpp:235
+#, kde-format
+msgid "Topsecret"
+msgstr "Absolut secret"
+
+#: configure-printer/PrinterBehavior.cpp:237
+#, kde-format
+msgid "Unclassified"
+msgstr "Neclasificat"
+
+#. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
+#: configure-printer/PrinterBehavior.ui:29
+#, kde-format
+msgid "Banners"
+msgstr "Banere"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configure-printer/PrinterBehavior.ui:35
+#, kde-format
+msgid "Starting Banner:"
+msgstr "Baner de început:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: configure-printer/PrinterBehavior.ui:55
+#, kde-format
+msgid "Ending Banner:"
+msgstr "Banner de sfârșit:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
+#: configure-printer/PrinterBehavior.ui:84
+#, kde-format
+msgid "Policies"
+msgstr "Politici"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configure-printer/PrinterBehavior.ui:90
+#, kde-format
+msgid "Operation Policy:"
+msgstr "Politică de operare:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configure-printer/PrinterBehavior.ui:103
+#, kde-format
+msgid "Error Policy:"
+msgstr "Politică de erori:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
+#: configure-printer/PrinterBehavior.ui:133
+#, kde-format
+msgid "Allowed Users"
+msgstr "Utilizatori permiși"
+
+#. i18n: ectx: property (text), widget (QRadioButton, preventRB)
+#: configure-printer/PrinterBehavior.ui:139
+#, kde-format
+msgid "Pre&vent these users from printing "
+msgstr "Inter&zice tipărirea pentru acești utilizatori "
+
+#. i18n: ectx: property (text), widget (QRadioButton, allowRB)
+#: configure-printer/PrinterBehavior.ui:146
+#, kde-format
+msgid "A&llow these users to print"
+msgstr "Permite acestor uti&lizatori să tipărească"
+
+#: configure-printer/PrinterOptions.cpp:50
+#, kde-format
+msgid "Set Default Options"
+msgstr "Stabilește opțiuni implicite"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
+#: configure-printer/PrinterOptions.ui:26
+#, kde-format
+msgid "Query Printer for Default Options"
+msgstr "Interoghează imprimanta pentru opțiuni implicite"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: configure-printer/SelectMakeModelDialog.cpp:25
+#: libkcups/SelectMakeModel.ui:14
+#, kde-format
+msgid "Select a Driver"
+msgstr "Alegeți un driver"
+
+#: libkcups/JobModel.cpp:26
+#, kde-format
+msgid "Status"
+msgstr "Stare"
+
+#: libkcups/JobModel.cpp:27
+#, kde-format
+msgid "Name"
+msgstr "Denumire"
+
+#: libkcups/JobModel.cpp:28
+#, kde-format
+msgid "User"
+msgstr "Utilizator"
+
+#: libkcups/JobModel.cpp:29
+#, kde-format
+msgid "Created"
+msgstr "Creat"
+
+#: libkcups/JobModel.cpp:30 libkcups/JobModel.cpp:604
+#, kde-format
+msgid "Completed"
+msgstr "Încheiat"
+
+#: libkcups/JobModel.cpp:31
+#, kde-format
+msgid "Pages"
+msgstr "Pagini"
+
+#: libkcups/JobModel.cpp:32
+#, kde-format
+msgid "Processed"
+msgstr "Prelucrat"
+
+#: libkcups/JobModel.cpp:33
+#, kde-format
+msgid "Size"
+msgstr "Dimensiune"
+
+#: libkcups/JobModel.cpp:34
+#, kde-format
+msgid "Status Message"
+msgstr "Mesaj de stare"
+
+#: libkcups/JobModel.cpp:35
+#, kde-format
+msgid "Printer"
+msgstr "Imprimantă"
+
+#: libkcups/JobModel.cpp:36
+#, kde-format
+msgid "From Hostname"
+msgstr "De la gazda"
+
+#: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
+#, kde-format
+msgid "Failed to move '%1' to '%2'"
+msgstr "Mutarea „%1” către „%2” a eșuat"
+
+#: libkcups/JobModel.cpp:521 printqueue/PrintQueueUi.cpp:496
+#, kde-format
+msgid "Failed"
+msgstr "Eșuat"
+
+#: libkcups/JobModel.cpp:598
+#, kde-format
+msgid "Pending"
+msgstr "În așteptare"
+
+#: libkcups/JobModel.cpp:599
+#, kde-format
+msgid "On hold"
+msgstr "Reținut"
+
+#: libkcups/JobModel.cpp:601
+#, kde-format
+msgid "Stopped"
+msgstr "Oprit"
+
+#: libkcups/JobModel.cpp:602
+#, kde-format
+msgid "Canceled"
+msgstr "Anulat"
+
+#: libkcups/JobModel.cpp:603
+#, kde-format
+msgid "Aborted"
+msgstr "Abandonat"
+
+#: libkcups/KCupsConnection.cpp:860
+#, kde-format
+msgid "A CUPS connection requires authentication: \"%1\""
+msgstr "O conexiune CUPS cere autentificarea: „%1”"
+
+#: libkcups/KCupsPasswordDialog.cpp:22
+#, kde-format
+msgid "Enter an username and a password to complete the task"
+msgstr ""
+"Introduceți un nume de utilizator și o parolă pentru a finaliza sarcina"
+
+#: libkcups/KCupsPasswordDialog.cpp:44
+#, kde-format
+msgid "Wrong username or password"
+msgstr "Nume de utilizator greșit sau parolă incorectă"
+
+#: libkcups/KCupsRequest.cpp:32
+#, kde-format
+msgid "Print service is unavailable"
+msgstr "Serviciul de tipărire nu este disponibil"
+
+#: libkcups/KCupsRequest.cpp:34
+#, kde-format
+msgid "Not found"
+msgstr "Nu a fost găsit"
+
+#: libkcups/KCupsRequest.cpp:401
+#, kde-format
+msgid "Test Page"
+msgstr "Pagină de test"
+
+#: libkcups/KCupsRequest.cpp:433
+#, kde-format
+msgid "Unable to send command to printer driver!"
+msgstr "Comanda nu a putut fi trimisă către driverul imprimantei!"
+
+#: libkcups/KCupsRequest.cpp:567
+#, kde-format
+msgid "Failed to invoke method: %1"
+msgstr "Metoda nu a putut fi invocată: %1"
+
+#: libkcups/PPDModel.cpp:32
+#, kde-format
+msgid "Recommended Drivers"
+msgstr "Drivere recomandate"
+
+#: libkcups/PrinterModel.cpp:163
+#, kde-format
+msgid "Printers"
+msgstr "Imprimante"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle"
+msgstr "Inactivă"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle, rejecting jobs"
+msgstr "Inactivă, respinge lucrări"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle - '%1'"
+msgstr "Inactivă - „%1”"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle, rejecting jobs - '%1'"
+msgstr "Inactivă, respinge lucrări - „%1”"
+
+#: libkcups/PrinterModel.cpp:372
+#, kde-format
+msgid "In use"
+msgstr "În uz"
+
+#: libkcups/PrinterModel.cpp:374
+#, kde-format
+msgid "In use - '%1'"
+msgstr "În uz - „%1”"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused"
+msgstr "În pauză"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused, rejecting jobs"
+msgstr "În pauză, respinge lucrări"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused - '%1'"
+msgstr "Întreruptă - „%1”"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused, rejecting jobs - '%1'"
+msgstr "În pauză, respinge lucrări - „%1”"
+
+#: libkcups/PrinterModel.cpp:384
+#, kde-format
+msgid "Unknown"
+msgstr "Necunoscută"
+
+#: libkcups/PrinterModel.cpp:386
+#, kde-format
+msgid "Unknown - '%1'"
+msgstr "Necunoscută - „%1”"
+
+#: libkcups/SelectMakeModel.cpp:138
+#, kde-format
+msgid "Failed to get a list of drivers: '%1'"
+msgstr "Obținerea listei de drivere a eșuat: „%1”"
+
+#: libkcups/SelectMakeModel.cpp:228
+#, kde-format
+msgid "Failed to search for a recommended driver: '%1'"
+msgstr "Căutarea unui driver recomandat a eșuat: „%1”"
+
+#. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
+#: libkcups/SelectMakeModel.ui:44
+#, kde-format
+msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
+msgstr "*.ppd *.ppd.gz|Fișiere PostScript Printer Description"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#: libkcups/SelectMakeModel.ui:82
+#, kde-format
+msgid "Choose &the driver from the list"
+msgstr "Alegeți driverul din lis&tă"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
+#: libkcups/SelectMakeModel.ui:94
+#, kde-format
+msgid "Ma&nually Provide a PPD File:"
+msgstr "Furnizați ma&nual un fișier PPD:"
+
+#: print-manager-kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "A fost descoperită o nouă imprimantă"
+
+#: print-manager-kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "Se configurează noua imprimantă..."
+
+#: print-manager-kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "Noua imprimantă a fost adăugată"
+
+#: print-manager-kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "Lipsesc driverele pentru noua imprimantă"
+
+#: print-manager-kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "Driverul de imprimantă lipsește"
+
+#: print-manager-kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "Niciun driver de imprimantă pentru %1 %2."
+
+#: print-manager-kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "Niciun driver de imprimantă pentru %1."
+
+#: print-manager-kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "Niciun driver pentru această imprimantă."
+
+#: print-manager-kded/NewPrinterNotification.cpp:173
+#, kde-format
+msgid "Search"
+msgstr "Caută"
+
+#: print-manager-kded/NewPrinterNotification.cpp:239
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "„%1” a fost adăugată, verificați-i driverul."
+
+#: print-manager-kded/NewPrinterNotification.cpp:243
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "„%1” a fost adăugată, folosind driverul „%2”."
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#, kde-format
+msgid "Print test page"
+msgstr "Tipărește pagină de test"
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#, kde-format
+msgid "Find driver"
+msgstr "Caută driver"
+
+#: print-manager-kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "„%1” e gata să tipărească."
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this class"
+msgstr "Partajează această clasă"
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this printer"
+msgstr "Partajează imprimanta"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:220
+#: printer-manager-kcm/PrinterDescription.ui:293
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Curăță capul de imprimare"
+
+#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:229
+#: printer-manager-kcm/PrinterDescription.ui:301
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Tipărește pagină de test propriu"
+
+#: printer-manager-kcm/PrinterDescription.cpp:235
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Efectuarea cererii a eșuat: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, printerNameL)
+#: printer-manager-kcm/PrinterDescription.ui:83
+#, kde-format
+msgctxt "@title"
+msgid "Printer name or description"
+msgstr "Denumirea sau descrierea imprimantei"
+
+#. i18n: ectx: property (text), widget (QLabel, statusL)
+#: printer-manager-kcm/PrinterDescription.ui:102
+#, kde-format
+msgid "Current status"
+msgstr "Stare curentă"
+
+#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
+#: printer-manager-kcm/PrinterDescription.ui:109
+#, kde-format
+msgctxt "@option:check"
+msgid "Default printer"
+msgstr "Imprimantă implicită"
+
+#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
+#: printer-manager-kcm/PrinterDescription.ui:126
+#, kde-format
+msgid "Reject print jobs"
+msgstr "Respinge lucrările de tipărire"
+
+#. i18n: ectx: property (text), widget (QLabel, locationL)
+#: printer-manager-kcm/PrinterDescription.ui:135
+#, kde-format
+msgctxt "@label location of printer"
+msgid "Location:"
+msgstr "Amplasare:"
+
+#. i18n: ectx: property (text), widget (QLabel, kindL)
+#: printer-manager-kcm/PrinterDescription.ui:164
+#, kde-format
+msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
+msgid "Kind:"
+msgstr "Tip:"
+
+#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
+#: printer-manager-kcm/PrinterDescription.ui:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Maintenance"
+msgstr "Întreținere"
+
+#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
+#: printer-manager-kcm/PrinterDescription.ui:225
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Print Queue"
+msgstr "Deschide coada de tipărire"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:288
+#, kde-format
+msgid "Print Test Page"
+msgstr "Tipărește pagină de test"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:298
+#, kde-format
+msgid "Print Self Test Page"
+msgstr "Tipărește pagină de test propriu"
+
+#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
+#, kde-format
+msgid "Print settings"
+msgstr "Configurări de tipărire"
+
+#: printer-manager-kcm/PrintKCM.cpp:56
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Add a Printer Class"
+msgstr "Adaugă o clasă de imprimante"
+
+#: printer-manager-kcm/PrintKCM.cpp:59
+#, kde-format
+msgid "Add a new printer or a printer class"
+msgstr "Adaugă o nouă imprimantă sau clasă de imprimante"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTB)
+#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#, kde-format
+msgid "Remove Printer"
+msgstr "Elimină imprimanta"
+
+#: printer-manager-kcm/PrintKCM.cpp:68
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show printers shared by other systems"
+msgstr "Arată imprimante partajate de alte sisteme"
+
+#: printer-manager-kcm/PrintKCM.cpp:72
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Share printers connected to this system"
+msgstr "Partajează imprimantele conectate la acest sistem"
+
+#: printer-manager-kcm/PrintKCM.cpp:74
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow printing from the Internet"
+msgstr "Permite tipărirea din Internet"
+
+#: printer-manager-kcm/PrintKCM.cpp:80
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow remote administration"
+msgstr "Permite administrarea de la distanță"
+
+#: printer-manager-kcm/PrintKCM.cpp:82
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow users to cancel any job (not just their own)"
+msgstr "Permite utilizatorilor să anuleze orice lucrare (nu doar a lor)"
+
+#: printer-manager-kcm/PrintKCM.cpp:86
+#, kde-format
+msgid "Configure the global preferences"
+msgstr "Configurează preferințele globale"
+
+#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#, kde-format
+msgid "No printers have been configured or discovered"
+msgstr "Nicio imprimantă nu a fost configurată sau descoperită"
+
+#: printer-manager-kcm/PrintKCM.cpp:262
+#, kde-format
+msgid "Remove class"
+msgstr "Elimină clasa"
+
+#: printer-manager-kcm/PrintKCM.cpp:263
+#, kde-format
+msgid "Are you sure you want to remove the class '%1'?"
+msgstr "Sigur doriți să eliminați clasa „%1”?"
+
+#: printer-manager-kcm/PrintKCM.cpp:266
+#, kde-format
+msgid "Remove printer"
+msgstr "Elimină imprimanta"
+
+#: printer-manager-kcm/PrintKCM.cpp:267
+#, kde-format
+msgid "Are you sure you want to remove the printer '%1'?"
+msgstr "Sigur doriți să eliminați imprimanta „%1”?"
+
+#: printer-manager-kcm/PrintKCM.cpp:309
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "Obținerea parametrilor serverului a eșuat"
+
+#: printer-manager-kcm/PrintKCM.cpp:340
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "Configurarea parametrilor serverului a eșuat"
+
+#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
+#: printer-manager-kcm/PrintKCM.ui:52
+#, kde-format
+msgid "System Preferences"
+msgstr "Preferințe de sistem"
+
+#. i18n: ectx: property (text), widget (QLabel, errorComment)
+#: printer-manager-kcm/PrintKCM.ui:196
+#, kde-format
+msgid "TextLabel"
+msgstr "EtichetăText"
+
+#. i18n: ectx: property (text), widget (QLabel, errorText)
+#: printer-manager-kcm/PrintKCM.ui:206
+#, kde-format
+msgid "Error Title"
+msgstr "Titlu eroare"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
+#: printer-manager-kcm/PrintKCM.ui:231
+#, kde-format
+msgid "Click here to add a new printer"
+msgstr "Apăsați aici pentru a adăuga o nouă imprimantă"
+
+#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#, kde-format
+msgid "Print Queue"
+msgstr "Coadă de imprimare"
+
+#: printqueue/main.cpp:39
+#, kde-format
+msgid "Show printer queue(s)"
+msgstr "Arată coada de imprimare"
+
+#: printqueue/PrintQueueUi.cpp:195
+#, kde-format
+msgid "Printer ready"
+msgstr "Imprimantă pregătită"
+
+#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
+#: printqueue/PrintQueueUi.cpp:196 printqueue/PrintQueueUi.cpp:207
+#: printqueue/PrintQueueUi.ui:118
+#, kde-format
+msgid "Pause Printer"
+msgstr "Întrerupe imprimanta"
+
+#: printqueue/PrintQueueUi.cpp:203
+#, kde-format
+msgid "Printing..."
+msgstr "Se tipărește..."
+
+#: printqueue/PrintQueueUi.cpp:205
+#, kde-format
+msgid "Printing '%1'"
+msgstr "Se tipărește „%1”"
+
+#: printqueue/PrintQueueUi.cpp:213
+#, kde-format
+msgid "Printer paused"
+msgstr "Imprimantă întreruptă"
+
+#: printqueue/PrintQueueUi.cpp:214
+#, kde-format
+msgid "Resume Printer"
+msgstr "Reia imprimanta"
+
+#: printqueue/PrintQueueUi.cpp:218
+#, kde-format
+msgid "Printer state unknown"
+msgstr "Starea imprimantei nu e cunoscută"
+
+#: printqueue/PrintQueueUi.cpp:263
+#, kde-format
+msgid "Move to"
+msgstr "Mută la"
+
+#: printqueue/PrintQueueUi.cpp:294
+#, kde-format
+msgid "Authenticate"
+msgstr "Autentifică"
+
+#: printqueue/PrintQueueUi.cpp:404
+#, kde-format
+msgid "All Printers (%1 Job)"
+msgid_plural "All Printers (%1 Jobs)"
+msgstr[0] "Toate imprimantele (%1 lucrare)"
+msgstr[1] "Toate imprimantele (%1 lucrări)"
+msgstr[2] "Toate imprimantele (%1 de lucrări)"
+
+#: printqueue/PrintQueueUi.cpp:406
+#, kde-format
+msgid "%2 (%1 Job)"
+msgid_plural "%2 (%1 Jobs)"
+msgstr[0] "%2 (%1 lucrare)"
+msgstr[1] "%2 (%1 lucrări)"
+msgstr[2] "%2 (%1 de lucrări)"
+
+#: printqueue/PrintQueueUi.cpp:409
+#, kde-format
+msgid "All Printers"
+msgstr "Toate imprimantele"
+
+#: printqueue/PrintQueueUi.cpp:478
+#, kde-format
+msgid "Failed to cancel '%1'"
+msgstr "Anularea „%1” a eșuat"
+
+#: printqueue/PrintQueueUi.cpp:481
+#, kde-format
+msgid "Failed to hold '%1'"
+msgstr "Reținerea „%1” a eșuat"
+
+#: printqueue/PrintQueueUi.cpp:484
+#, kde-format
+msgid "Failed to release '%1'"
+msgstr "Eliberarea „%1” a eșuat"
+
+#: printqueue/PrintQueueUi.cpp:487
+#, kde-format
+msgid "Failed to reprint '%1'"
+msgstr "Reimprimarea „%1” a eșuat"
+
+#: printqueue/PrintQueueUi.cpp:561
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Introduceți acreditări pentru a imprima de la <b>%1</b>"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
+#: printqueue/PrintQueueUi.ui:20
+#, kde-format
+msgid "my printer (x jobs)"
+msgstr "imprimanta mea (x lucrări)"
+
+#. i18n: ectx: property (text), widget (QLabel, iconL)
+#: printqueue/PrintQueueUi.ui:49
+#, kde-format
+msgid "Printer Icon"
+msgstr "Pictograma imprimantei"
+
+#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
+#: printqueue/PrintQueueUi.ui:233
+#, kde-format
+msgid "Cancel"
+msgstr "Anulează"
+
+#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
+#: printqueue/PrintQueueUi.ui:253
+#, kde-format
+msgid "Hold"
+msgstr "Reține"
+
+#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
+#: printqueue/PrintQueueUi.ui:266
+#, kde-format
+msgid "Resume"
+msgstr "Reia"
+
+#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
+#: printqueue/PrintQueueUi.ui:279
+#, kde-format
+msgid "Reprint"
+msgstr "Retipărește"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:312
+#, kde-format
+msgid "Active Jobs"
+msgstr "Lucrări active"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:317
+#, kde-format
+msgid "Completed Jobs"
+msgstr "Lucrări finalizate"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:322
+#, kde-format
+msgid "All Jobs"
+msgstr "Toate lucrările"
+
+#~ msgid "Daniel Nicoletti"
+#~ msgstr "Daniel Nicoletti"
+
+#~ msgid "AddPrinter"
+#~ msgstr "AdăugareImprimantă"
+
+#~ msgid "Configure printer"
+#~ msgstr "Configurează imprimanta"
+
+#, fuzzy
+#~| msgid "All Jobs"
+#~ msgid "All jobs"
+#~ msgstr "Toate lucrările"
+
+#, fuzzy
+#~| msgid "Completed Jobs"
+#~ msgid "Completed jobs only"
+#~ msgstr "Lucrări finalizate"
+
+#, fuzzy
+#~| msgid "Active Jobs"
+#~ msgid "Active jobs only"
+#~ msgstr "Lucrări active"
+
+#~ msgid "A short binary option"
+#~ msgstr "O opțiune binară scurtă"
+
+#, fuzzy
+#~| msgid "Completed Jobs"
+#~ msgid "Show only completed jobs"
+#~ msgstr "Lucrări finalizate"
+
+#~ msgid "All printers"
+#~ msgstr "Toate imprimantele"

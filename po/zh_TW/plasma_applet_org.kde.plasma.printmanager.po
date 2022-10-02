@@ -1,0 +1,122 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Franklin Weng <franklin at goodhorse dot idv dot tw>, 2013, 2015.
+# pan93412 <pan93412@gmail.com>, 2018, 2020.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2022-06-12 04:38+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 22.04.2\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr "搜尋…"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "沒有設定或發現任何印表機"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Resume printing"
+msgstr "繼續列印"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr "暫停列印"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr "設定印表機…"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr "檢視列印佇列"
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr "印表機"
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "有 %1 個列印工作在佇列中"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr "透過 %2 列印 %1"
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr "透過 %1 列印"
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "列印佇列是空的"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+#, fuzzy
+#| msgid "All jobs"
+msgid "Show All Jobs"
+msgstr "所有工作"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+#, fuzzy
+#| msgid "Completed jobs only"
+msgid "Show Only Completed Jobs"
+msgstr "只顯示已完成的工作"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+#, fuzzy
+#| msgid "One active job"
+#| msgid_plural "%1 active jobs"
+msgid "Show Only Active Jobs"
+msgstr "%1 個進行中的工作"
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr "設定印表機(&C)..."
+
+#~ msgid "Search for a printer..."
+#~ msgstr "搜尋印表機..."
+
+#~ msgid "General"
+#~ msgstr "一般"
+
+#~ msgid "Active jobs only"
+#~ msgstr "只顯示進行中的工作"
+
+#~ msgid "%1, no active jobs"
+#~ msgstr "%1，無進行中工作"
+
+#~ msgid "%1, %2 active job"
+#~ msgid_plural "%1, %2 active jobs"
+#~ msgstr[0] "%1，%2 份進行中工作"
+
+#~ msgid "%1, no jobs"
+#~ msgstr "%1，無工作"
+
+#~ msgid "%1, %2 job"
+#~ msgid_plural "%1, %2 jobs"
+#~ msgstr[0] "%1，%2 份工作"
+
+#~ msgid "One job"
+#~ msgid_plural "%1 jobs"
+#~ msgstr[0] "%1 個工作"

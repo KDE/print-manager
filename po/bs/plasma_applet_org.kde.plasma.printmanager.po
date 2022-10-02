@@ -1,0 +1,153 @@
+# Bosnian translations for kde package.
+# Copyright (C) 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kde package.
+# Samir Ribic <megaribi@epn.ba>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kde 49i410\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2013-10-18 22:34+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2013-10-19 05:24+0000\n"
+"X-Generator: Launchpad (build 16807)\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Nijedan štampač nije konfigurisan ili otkriven"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+#, fuzzy
+#| msgid "Reprint"
+msgid "Resume printing"
+msgstr "Ponovo štampaj"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "Ima %1 posao štampanja u redu čekanja"
+msgstr[1] "Ima %1 posla štampanja u redu čekanja"
+msgstr[2] "Ima %1 poslova štampanja u redu čekanja"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "Red čekanja štampača je prazan"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+#, fuzzy
+#| msgid "All jobs"
+msgid "Show All Jobs"
+msgstr "Svi poslovi"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+#, fuzzy
+#| msgid "Completed jobs only"
+msgid "Show Only Completed Jobs"
+msgstr "Samo završeni poslovi"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+#, fuzzy
+#| msgid "Active jobs only"
+msgid "Show Only Active Jobs"
+msgstr "Samo aktivni poslovi"
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr ""
+
+#~ msgid "Active jobs only"
+#~ msgstr "Samo aktivni poslovi"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "%1, no active jobs"
+#~ msgstr "Samo aktivni poslovi"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "%1, %2 active job"
+#~ msgid_plural "%1, %2 active jobs"
+#~ msgstr[0] "Samo aktivni poslovi"
+#~ msgstr[1] "Samo aktivni poslovi"
+#~ msgstr[2] "Samo aktivni poslovi"
+
+#, fuzzy
+#~| msgid "All jobs"
+#~ msgid "%1, no jobs"
+#~ msgstr "Svi poslovi"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "One active job"
+#~ msgid_plural "%1 active jobs"
+#~ msgstr[0] "Samo aktivni poslovi"
+#~ msgstr[1] "Samo aktivni poslovi"
+#~ msgstr[2] "Samo aktivni poslovi"
+
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Prikaži samo poslove sljedećih štampača:"
+
+#~ msgid "Cancel"
+#~ msgstr "Otkaži"
+
+#~ msgid "Hold"
+#~ msgstr "Zadrži"
+
+#~ msgid "Release"
+#~ msgstr "Otpusti"
+
+#~ msgid "Owner:"
+#~ msgstr "Vlasnik:"
+
+#~ msgid "Size:"
+#~ msgstr "Veličina:"
+
+#~ msgid "Created:"
+#~ msgstr "Kreirano:"
+
+#~ msgid ""
+#~ "There is currently no available printer matching the selected filters"
+#~ msgstr "Trenutno nema dostupnog štampača kome odgovaraju izabrani filteri"

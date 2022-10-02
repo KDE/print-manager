@@ -1,0 +1,161 @@
+# Lithuanian translations for l package.
+# Copyright (C) 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the l package.
+#
+# Automatically generated, 2012.
+# Liudas Ališauskas <liudas@akmc.lt>, 2012, 2013.
+# Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: l 10n\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2021-06-15 22:39+0300\n"
+"Last-Translator: Moo\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.0\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Nėra sukonfigūruota ar atrasta jokių spausdintuvų"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Resume printing"
+msgstr "Pratęsti spausdinimą"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr "Pristabdyti spausdinimą"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr "Konfigūruoti spausdintuvą..."
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr "Rodyti spausdinimo eilę"
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr "Spausdintuvai"
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "Eilėje yra vienas spausdinimo darbas"
+msgstr[1] "Eilėje yra %1 spausdinimo darbai"
+msgstr[2] "Eilėje yra %1 spausdinimo darbų"
+msgstr[3] "Eilėje yra %1 spausdinimo darbas"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr "Spausdinama %1 naudojant %2"
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr "Spausdinama naudojant %1"
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "Spausdinimo eilė tuščia"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+msgid "Show All Jobs"
+msgstr "Rodyti visus darbus"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+msgid "Show Only Completed Jobs"
+msgstr "Rodyti tik užbaigtus darbus"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+msgid "Show Only Active Jobs"
+msgstr "Rodyti tik aktyvius darbus"
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr "&Konfigūruoti spausdintuvus..."
+
+#~ msgid "Search for a printer..."
+#~ msgstr "Ieškoti spausdintuvo..."
+
+#~ msgid "General"
+#~ msgstr "Bendri"
+
+#~ msgid "Active jobs only"
+#~ msgstr "Tik aktyvūs darbai"
+
+#~ msgid "%1, no active jobs"
+#~ msgstr "%1, nėra aktyvių darbų"
+
+#~ msgid "%1, %2 active job"
+#~ msgid_plural "%1, %2 active jobs"
+#~ msgstr[0] "%1, %2 aktyvus darbas"
+#~ msgstr[1] "%1, %2 aktyvūs darbai"
+#~ msgstr[2] "%1, %2 aktyvių darbų"
+#~ msgstr[3] "%1, %2 aktyvus darbas"
+
+#~ msgid "%1, no jobs"
+#~ msgstr "%1, darbų nėra"
+
+#~ msgid "%1, %2 job"
+#~ msgid_plural "%1, %2 jobs"
+#~ msgstr[0] "%1, %2 darbas"
+#~ msgstr[1] "%1, %2 darbai"
+#~ msgstr[2] "%1, %2 darbų"
+#~ msgstr[3] "%1, %2 darbas"
+
+#~ msgid "One active job"
+#~ msgid_plural "%1 active jobs"
+#~ msgstr[0] "Vienas aktyvus darbas"
+#~ msgstr[1] "%1 aktyvūs darbai"
+#~ msgstr[2] "%1 aktyvių darbų"
+#~ msgstr[3] "%1 aktyvus darbas"
+
+#~ msgid "One job"
+#~ msgid_plural "%1 jobs"
+#~ msgstr[0] "Vienas darbas"
+#~ msgstr[1] "%1 darbai"
+#~ msgstr[2] "%1 darbų"
+#~ msgstr[3] "%1 darbas"
+
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Rodyti tik šių spausdintuvų užduotis:"
+
+#~ msgid "Cancel"
+#~ msgstr "Atšaukti"
+
+#~ msgid "Hold"
+#~ msgstr "Sulaikyti"
+
+#~ msgid "Release"
+#~ msgstr "Paleisti"
+
+#~ msgid "Owner:"
+#~ msgstr "Savininkas:"
+
+#~ msgid "Size:"
+#~ msgstr "Dydis:"
+
+#~ msgid "Created:"
+#~ msgstr "Sukurta:"
+
+#~ msgid ""
+#~ "There is currently no available printer matching the selected filters"
+#~ msgstr "Šiuo metu nėra spausdintuvų atitinkančių pasirinktus filtrus"

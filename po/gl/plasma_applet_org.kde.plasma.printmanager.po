@@ -1,0 +1,161 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Marce Villarino <mvillarino@kde-espana.es>, 2013.
+# Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2018, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2020-02-16 08:54+0100\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.08.3\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Non se configurou nin descubriu ningunha impresora."
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Resume printing"
+msgstr "Continuar a impresión"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr "Poñer en pausa a impresión"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+#, fuzzy
+#| msgid "Configure printer"
+msgid "Configure printer..."
+msgstr "Configurar a impresora"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+#, fuzzy
+#| msgid "Open print queue"
+msgid "View print queue"
+msgstr "Abrir a cola de impresión"
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr "Impresoras"
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "Hai un traballo de impresión na cola."
+msgstr[1] "Hai %1 traballos de impresión na cola."
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr "Imprimindo %1 con %2."
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr "Imprimindo con %1."
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "A cola de impresión está baleira."
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+#, fuzzy
+#| msgid "All jobs"
+msgid "Show All Jobs"
+msgstr "Todas as tarefas"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+#, fuzzy
+#| msgid "Completed jobs only"
+msgid "Show Only Completed Jobs"
+msgstr "Só as tarefas completadas"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+#, fuzzy
+#| msgid "No active jobs"
+msgid "Show Only Active Jobs"
+msgstr "Non hai tarefas activas."
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr "&Configurar as impresoras…"
+
+#~ msgid "Search for a printer..."
+#~ msgstr "Buscar unha impresora…"
+
+#~ msgid "General"
+#~ msgstr "Xeral"
+
+#~ msgid "Active jobs only"
+#~ msgstr "Só as tarefas activas"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "%1, no active jobs"
+#~ msgstr "Só as tarefas activas"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "%1, %2 active job"
+#~ msgid_plural "%1, %2 active jobs"
+#~ msgstr[0] "Só as tarefas activas"
+#~ msgstr[1] "Só as tarefas activas"
+
+#, fuzzy
+#~| msgid "No jobs"
+#~ msgid "%1, no jobs"
+#~ msgstr "Non hai tarefas activas."
+
+#~ msgid "One active job"
+#~ msgid_plural "%1 active jobs"
+#~ msgstr[0] "Hai unha tarefa activa."
+#~ msgstr[1] "Hai %1 tarefas activas."
+
+#~ msgid "One job"
+#~ msgid_plural "%1 jobs"
+#~ msgstr[0] "Unha tarefa"
+#~ msgstr[1] "%1 tarefas"
+
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Só mostrar tarefas das seguintes impresoras:"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Hold"
+#~ msgstr "Pór en espera"
+
+#~ msgid "Release"
+#~ msgstr "Liberar"
+
+#~ msgid "Owner:"
+#~ msgstr "Propietario:"
+
+#~ msgid "Size:"
+#~ msgstr "Tamaño:"
+
+#~ msgid "Created:"
+#~ msgstr "Creación:"
+
+#~ msgid ""
+#~ "There is currently no available printer matching the selected filters"
+#~ msgstr ""
+#~ "Non hai actualmente ningunha impresora que pase os filtros seleccionados."

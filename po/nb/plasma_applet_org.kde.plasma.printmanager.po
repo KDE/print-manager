@@ -1,0 +1,89 @@
+# Translation of plasma_applet_org.kde.plasma.printmanager to Norwegian Bokmål
+#
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2013-08-11 17:25+0200\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Ingen skrivere er funnet eller satt opp"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Resume printing"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "Det er en utskriftsjobb i køen"
+msgstr[1] "Det er %1 utskriftsjobber i køen"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "Skrivekøen er tom"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+msgid "Show All Jobs"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+msgid "Show Only Completed Jobs"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+msgid "Show Only Active Jobs"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr ""

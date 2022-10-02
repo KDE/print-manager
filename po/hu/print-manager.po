@@ -1,0 +1,1675 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2012, 2015, 2020.
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"PO-Revision-Date: 2020-12-27 13:14+0100\n"
+"Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.03.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kiszel.kristof@gmail.com"
+
+#: add-printer/AddPrinterAssistant.cpp:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Add a New Printer"
+msgstr "Új nyomtató hozzáadása"
+
+#: add-printer/AddPrinterAssistant.cpp:69 add-printer/ChooseLpd.cpp:25
+#: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
+#: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
+#: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
+#: add-printer/PageChoosePrinters.cpp:24 add-printer/PageDestinations.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Printer to Add"
+msgstr "Válassza ki a hozzáadni kívánt nyomtatót"
+
+#: add-printer/AddPrinterAssistant.cpp:73
+#: add-printer/AddPrinterAssistant.cpp:80
+#: add-printer/AddPrinterAssistant.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Pick a Driver"
+msgstr "Illesztőprogram-választás"
+
+#: add-printer/AddPrinterAssistant.cpp:85
+#: add-printer/AddPrinterAssistant.cpp:106
+#, kde-format
+msgctxt "@title:window"
+msgid "Please describe your printer"
+msgstr "Nyomtatóleírás"
+
+#: add-printer/AddPrinterAssistant.cpp:102
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure your connection"
+msgstr "A kapcsolat beállítása"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseLpd.ui:26
+#, kde-format
+msgid "Address:"
+msgstr "Cím:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseLpd.ui:36
+#, kde-format
+msgid "Queue:"
+msgstr "Nyomtatási sor:"
+
+#. i18n: ectx: property (text), widget (QPushButton, detectPB)
+#: add-printer/ChooseLpd.ui:51
+#, kde-format
+msgid "Detect"
+msgstr "Felismerés"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: add-printer/ChooseSamba.ui:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Windows Printer via SAMBA"
+msgstr "Windows nyomtató SAMBA-n keresztül"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: add-printer/ChooseSamba.ui:41
+#, kde-format
+msgctxt ""
+"@label samba URL markup example, this is preceded by a label containing "
+"smb://"
+msgid "smb://[workgroup/]server[:port]/printer"
+msgstr "smb://[munkacsoport/]kiszolgálónév[:port]/nyomtatónév"
+
+#. i18n: ectx: property (text), widget (QPushButton, browsePB)
+#: add-printer/ChooseSamba.ui:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Browse"
+msgstr "Böngészés"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: add-printer/ChooseSamba.ui:64
+#, kde-format
+msgctxt "@title:group"
+msgid "Authentication"
+msgstr "Hitelesítés"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseSamba.ui:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSamba.ui:86
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Jelszó"
+
+#: add-printer/ChooseSerial.cpp:25 add-printer/ChooseSerial.cpp:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "None"
+msgstr "Nincs"
+
+#: add-printer/ChooseSerial.cpp:26
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Even"
+msgstr "Páros"
+
+#: add-printer/ChooseSerial.cpp:27
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Odd"
+msgstr "Páratlan"
+
+#: add-printer/ChooseSerial.cpp:30
+#, kde-format
+msgctxt "@label:listbox"
+msgid "XON/XOFF (Software)"
+msgstr "XON/XOFF (szoftver)"
+
+#: add-printer/ChooseSerial.cpp:31
+#, kde-format
+msgctxt "@label:listbox"
+msgid "RTS/CTS (Hardware)"
+msgstr "RTS/CTS (hardver)"
+
+#: add-printer/ChooseSerial.cpp:32
+#, kde-format
+msgctxt "@label:listbox"
+msgid "DTR/DSR (Hardware)"
+msgstr "DTR/DSR (hardver)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSerial.ui:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Baud Rate:"
+msgstr "Baudráta:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSerial.ui:42
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Parity:"
+msgstr "Paritás:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSerial.ui:55
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Data Bits:"
+msgstr "Adatbitek:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: add-printer/ChooseSerial.ui:79
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Flow Control:"
+msgstr "Folyamatirányítás:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSocket.ui:29
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "Cím:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSocket.ui:42
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseUri.ui:41
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr "Kapcsolat:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseUri.ui:82
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Examples:\n"
+"<PRE>\n"
+"    http://hostname:631/ipp/\n"
+"    http://hostname:631/ipp/port1\n"
+"\n"
+"    ipp://hostname/ipp/\n"
+"    ipp://hostname/ipp/port1\n"
+"\n"
+"    lpd://hostname/queue\n"
+"\n"
+"    socket://hostname\n"
+"    socket://hostname:9100\n"
+"</PRE>\n"
+"\n"
+"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Network\n"
+"Printers\"</A> for the correct URI to use with your printer.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+msgstr ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Példák:\n"
+"<PRE>\n"
+"    http://gépnév:631/ipp/\n"
+"    http://gépnév:631/ipp/port1\n"
+"\n"
+"    ipp://gépnév/ipp/\n"
+"    ipp://gépnév/ipp/port1\n"
+"\n"
+"    lpd://gépnév/queue\n"
+"\n"
+"    socket://gépnév\n"
+"    socket://gépnév:9100\n"
+"</PRE>\n"
+"\n"
+"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Network\n"
+"Printers\"</A> for the correct URI to use with your printer.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+
+#: add-printer/DevicesModel.cpp:39
+#, kde-format
+msgctxt "@item"
+msgid "Manual URI"
+msgstr "Kézi URI"
+
+#: add-printer/DevicesModel.cpp:115
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "Nem sikerült megszerezni az eszközök listáját: „%1”"
+
+#: add-printer/DevicesModel.cpp:238
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "Nyomtató csatlakoztatva a párhuzamos portra"
+
+#: add-printer/DevicesModel.cpp:241
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "Nyomtató csatlakoztatva egy USB portra"
+
+#: add-printer/DevicesModel.cpp:244
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "Nyomtató csatlakoztatva Bluetoothon keresztül"
+
+#: add-printer/DevicesModel.cpp:247
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr "A HAL helyi nyomtatót észlelt"
+
+#: add-printer/DevicesModel.cpp:251
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr ""
+"A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós eszköz nyomtató részét"
+
+#: add-printer/DevicesModel.cpp:255
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr ""
+"A HPLIP csomag kezeli a faxot vagy a multifunkcionális eszköz faxkezelő "
+"részét"
+
+#: add-printer/DevicesModel.cpp:260
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Távoli CUPS nyomtató DNS-SD-n keresztül"
+
+#: add-printer/DevicesModel.cpp:278
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "Felfedezett hálózati nyomtatók"
+
+#: add-printer/DevicesModel.cpp:282
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "Egyéb hálózati nyomtatók"
+
+#: add-printer/DevicesModel.cpp:286
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "Helyi nyomtatók"
+
+#: add-printer/DevicesModel.cpp:328
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Nem sikerült csoportosítani az eszközöket: „%1”"
+
+#. i18n: ectx: property (text), widget (QToolButton, addTB)
+#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#, kde-format
+msgid "Add Printer"
+msgstr "Nyomtató hozzáadása"
+
+#: add-printer/main.cpp:30
+#, kde-format
+msgid "Tool for adding new printers"
+msgstr "Segédprogram új nyomtatók hozzáadáshoz"
+
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30
+#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "© Daniel Nicoletti, 2010-2018."
+
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32
+#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Portolás Qt 5-re/Plasma 5-re"
+
+#: add-printer/main.cpp:41
+#, kde-format
+msgid "Parent Window ID"
+msgstr "Szülőablak azonosítója"
+
+#: add-printer/main.cpp:44
+#, kde-format
+msgid "Add a new printer"
+msgstr "Új nyomtató hozzáadása"
+
+#: add-printer/main.cpp:47
+#, kde-format
+msgid "Add a new printer class"
+msgstr "Új nyomtatóosztály hozzáadása"
+
+#: add-printer/main.cpp:50
+#, kde-format
+msgid "Changes the PPD of a given printer"
+msgstr "Megváltoztatja a megadott nyomtató PPD-jét"
+
+#: add-printer/main.cpp:53
+#, kde-format
+msgid "Changes the PPD of a given printer/deviceid"
+msgstr "Megváltoztatja a megadott nyomtató/eszközazonosító PPD-jét"
+
+#: add-printer/PageAddPrinter.cpp:122
+#, kde-format
+msgctxt "@info"
+msgid "Failed to add class: '%1'"
+msgstr "Nem sikerült osztályt hozzáadni: „%1”"
+
+#: add-printer/PageAddPrinter.cpp:124
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: '%1'"
+msgstr "Nem sikerült beállítani a nyomtatót: „%1”"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/PageAddPrinter.ui:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Name:"
+msgstr "Név:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
+#: add-printer/PageAddPrinter.ui:38
+#, kde-format
+msgid "May contain any printable characters except \"/\", \"#\", and space"
+msgstr "Tartalmazhat minden nyomtatható karaktert, kivéve „/”, „#” és szóköz"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/PageAddPrinter.ui:45
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "Leírás:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/PageAddPrinter.ui:55
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr "Hely:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, shareCB)
+#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
+#: add-printer/PageAddPrinter.ui:65
+#: printer-manager-kcm/PrinterDescription.ui:119
+#, kde-format
+msgctxt "@option:check"
+msgid "Share this printer"
+msgstr "Nyomtató megosztása"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageChoosePrinters.ui:96
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Members:"
+msgstr "Tagok:"
+
+#: add-printer/PageDestinations.cpp:189
+#, kde-format
+msgid "A printer connected to the parallel port."
+msgstr "Nyomtató csatlakozik a párhuzamos csatlakozóhoz."
+
+#: add-printer/PageDestinations.cpp:192
+#, kde-format
+msgid "A printer connected to a USB port."
+msgstr "Nyomtató csatlakozik az USB-csatlakozóhoz."
+
+#: add-printer/PageDestinations.cpp:195
+#, kde-format
+msgid "A printer connected via Bluetooth."
+msgstr "Nyomtató csatlakoztatva Bluetoothon keresztül."
+
+#: add-printer/PageDestinations.cpp:198
+#, kde-format
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
+msgstr "Helyi nyomtatót ismert fel a HAL (Hardware Abstraction Layer) modul."
+
+#: add-printer/PageDestinations.cpp:202
+#, kde-format
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device."
+msgstr ""
+"A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós eszköz nyomtató "
+"részét."
+
+#: add-printer/PageDestinations.cpp:206
+#, kde-format
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device."
+msgstr ""
+"A HPLIP csomag kezeli a faxot vagy a multifunkcionális eszköz faxkezelő "
+"részét."
+
+#: add-printer/PageDestinations.cpp:214 add-printer/PageDestinations.cpp:373
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Távoli CUPS nyomtató DNS-SD-n keresztül"
+
+#: add-printer/PageDestinations.cpp:226 add-printer/PageDestinations.cpp:382
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "Hálózati nyomtató DNS-SD-n keresztül"
+
+#: add-printer/PageDestinations.cpp:228
+#, kde-format
+msgid "%1 network printer via DNS-SD"
+msgstr "%1 hálózati nyomtató DNS-SD-n keresztül"
+
+#: add-printer/PageDestinations.cpp:333
+#, kde-format
+msgid "Parallel Port"
+msgstr "Párhuzamos port"
+
+#: add-printer/PageDestinations.cpp:335
+#, kde-format
+msgid "Serial Port"
+msgstr "Soros port"
+
+#: add-printer/PageDestinations.cpp:337
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: add-printer/PageDestinations.cpp:339
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: add-printer/PageDestinations.cpp:341
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "Fax - HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:343
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:345
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "Hardware Abstraction Layer (HAL)"
+
+#: add-printer/PageDestinations.cpp:347
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: add-printer/PageDestinations.cpp:352
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "LPD/LPR nyomtatási sor"
+
+#: add-printer/PageDestinations.cpp:354
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "LPD/LPR nyomtatási sor: %1"
+
+#: add-printer/PageDestinations.cpp:357
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "Windows nyomtató SAMBA-n keresztül"
+
+#: add-printer/PageDestinations.cpp:362
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: add-printer/PageDestinations.cpp:364
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: add-printer/PageDestinations.cpp:367
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: add-printer/PageDestinations.cpp:376
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "IPP hálózati nyomtató DNS-SD-n keresztül"
+
+#: add-printer/PageDestinations.cpp:378
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "LPD hálózati nyomtató DNS-SD-n keresztül"
+
+#: add-printer/PageDestinations.cpp:380
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "AppSocket/JetDirect hálózati nyomtató DNS-SD-n keresztül"
+
+#. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
+#: add-printer/PageDestinations.ui:62
+#, kde-format
+msgid "Connections"
+msgstr "Kapcsolatok"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageDestinations.ui:97
+#, kde-format
+msgid "Please choose an item on the list"
+msgstr "Válasszon egy elemet a listából"
+
+#: configure-printer/ConfigureDialog.cpp:88
+#, kde-format
+msgid "Modify Printer"
+msgstr "Nyomtató módosítása"
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#. i18n: ectx: property (text), widget (QPushButton, configurePB)
+#: configure-printer/ConfigureDialog.cpp:89
+#: print-manager-kded/NewPrinterNotification.cpp:240
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Beállítás"
+
+#: configure-printer/ConfigureDialog.cpp:99
+#, kde-format
+msgid "Printer Options"
+msgstr "Nyomtatóbeállítások"
+
+#: configure-printer/ConfigureDialog.cpp:100
+#, kde-format
+msgid "Set the Default Printer Options"
+msgstr "Alapértelmezett nyomtató lehetőségeinek beállítása"
+
+#: configure-printer/ConfigureDialog.cpp:110
+#: configure-printer/ConfigureDialog.cpp:111
+#, kde-format
+msgid "Banners, Policies and Allowed Users"
+msgstr "Kísérőoldal, házirendek és engedélyezett felhasználók"
+
+#: configure-printer/ConfigureDialog.cpp:184
+#, kde-format
+msgid ""
+"The current page has changes.\n"
+"Do you want to save them?"
+msgstr ""
+"A jelenlegi oldalon változások vannak.\n"
+"Szeretné menteni őket?"
+
+#: configure-printer/main.cpp:26
+#, kde-format
+msgid "Configure Printer"
+msgstr "Nyomtató beállítása"
+
+#: configure-printer/main.cpp:28
+#, kde-format
+msgid "ConfigurePrinter"
+msgstr "Nyomtató beállítása"
+
+#: configure-printer/main.cpp:39
+#, kde-format
+msgid "Printer to be configured"
+msgstr "A beállítandó nyomtató"
+
+#: configure-printer/ModifyPrinter.cpp:125
+#, kde-format
+msgid "Current - %1"
+msgstr "Jelenlegi - %1"
+
+#: configure-printer/ModifyPrinter.cpp:128
+#, kde-format
+msgid "Select a custom driver"
+msgstr "Egyéni illesztőprogram kiválasztása"
+
+#: configure-printer/ModifyPrinter.cpp:227
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class"
+msgstr "Nem sikerült beállítani az osztályt"
+
+#: configure-printer/ModifyPrinter.cpp:228
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer"
+msgstr "Nem sikerült beállítani a nyomtatót"
+
+#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#, kde-format
+msgctxt "@title:window"
+msgid "Failed"
+msgstr "Sikertelen"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, nameL)
+#: configure-printer/ModifyPrinter.ui:25
+#: printer-manager-kcm/PrinterDescription.ui:234
+#, kde-format
+msgid "Name:"
+msgstr "Név:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configure-printer/ModifyPrinter.ui:32
+#, kde-format
+msgid "Description:"
+msgstr "Leírás:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
+#: configure-printer/ModifyPrinter.ui:42
+#, kde-format
+msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
+msgstr "Emberek által olvasható leírás, úgymint „HP LaserJet Duplexerrel”"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configure-printer/ModifyPrinter.ui:52
+#, kde-format
+msgid "Location:"
+msgstr "Hely:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
+#: configure-printer/ModifyPrinter.ui:62
+#, kde-format
+msgid "Human-readable location such as \"Lab 1\""
+msgstr "Emberek által olvasható hely, úgymint „1-es labor”"
+
+#. i18n: ectx: property (text), widget (QLabel, connectionL)
+#: configure-printer/ModifyPrinter.ui:79
+#, kde-format
+msgid "Connection:"
+msgstr "Kapcsolat:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
+#: configure-printer/ModifyPrinter.ui:103
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">Examples:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+"p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">Példák:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+"p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, membersL)
+#: configure-printer/ModifyPrinter.ui:113
+#, kde-format
+msgid "Members"
+msgstr "Tagok"
+
+#. i18n: ectx: property (text), widget (QLabel, driverL)
+#: configure-printer/ModifyPrinter.ui:126
+#, kde-format
+msgid "Driver:"
+msgstr "Illesztőprogram:"
+
+#: configure-printer/PrinterBehavior.cpp:199
+#, kde-format
+msgid "Abort job"
+msgstr "Feladat megszakítása"
+
+#: configure-printer/PrinterBehavior.cpp:201
+#, kde-format
+msgid "Retry current job"
+msgstr "Jelenlegi feladat újrapróbálása"
+
+#: configure-printer/PrinterBehavior.cpp:203
+#, kde-format
+msgid "Retry job"
+msgstr "Feladat újrapróbálása"
+
+#: configure-printer/PrinterBehavior.cpp:205
+#, kde-format
+msgid "Stop printer"
+msgstr "Nyomtató leállítása"
+
+#: configure-printer/PrinterBehavior.cpp:214
+#, kde-format
+msgid "Authenticated"
+msgstr "Hitelesítve"
+
+#: configure-printer/PrinterBehavior.cpp:216
+#, kde-format
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: configure-printer/PrinterBehavior.cpp:225
+#, kde-format
+msgid "None"
+msgstr "Nincs"
+
+#: configure-printer/PrinterBehavior.cpp:227
+#, kde-format
+msgid "Classified"
+msgstr "Védett"
+
+#: configure-printer/PrinterBehavior.cpp:229
+#, kde-format
+msgid "Confidential"
+msgstr "Bizalmas"
+
+#: configure-printer/PrinterBehavior.cpp:231
+#, kde-format
+msgid "Secret"
+msgstr "Titkos"
+
+#: configure-printer/PrinterBehavior.cpp:233
+#, kde-format
+msgid "Standard"
+msgstr "Szabványos"
+
+#: configure-printer/PrinterBehavior.cpp:235
+#, kde-format
+msgid "Topsecret"
+msgstr "Szigorúan bizalmas"
+
+#: configure-printer/PrinterBehavior.cpp:237
+#, kde-format
+msgid "Unclassified"
+msgstr "Nem minősített"
+
+#. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
+#: configure-printer/PrinterBehavior.ui:29
+#, kde-format
+msgid "Banners"
+msgstr "Kísérőlapok"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configure-printer/PrinterBehavior.ui:35
+#, kde-format
+msgid "Starting Banner:"
+msgstr "Kísérőoldal az elején:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: configure-printer/PrinterBehavior.ui:55
+#, kde-format
+msgid "Ending Banner:"
+msgstr "Kísérőoldal a végén:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
+#: configure-printer/PrinterBehavior.ui:84
+#, kde-format
+msgid "Policies"
+msgstr "Házirendek"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configure-printer/PrinterBehavior.ui:90
+#, kde-format
+msgid "Operation Policy:"
+msgstr "Művelet házirendje:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configure-printer/PrinterBehavior.ui:103
+#, kde-format
+msgid "Error Policy:"
+msgstr "Hiba házirend:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
+#: configure-printer/PrinterBehavior.ui:133
+#, kde-format
+msgid "Allowed Users"
+msgstr "Engedélyezett felhasználók"
+
+#. i18n: ectx: property (text), widget (QRadioButton, preventRB)
+#: configure-printer/PrinterBehavior.ui:139
+#, kde-format
+msgid "Pre&vent these users from printing "
+msgstr "Ezen felhasználók nyomtatásának megakadályo&zása "
+
+#. i18n: ectx: property (text), widget (QRadioButton, allowRB)
+#: configure-printer/PrinterBehavior.ui:146
+#, kde-format
+msgid "A&llow these users to print"
+msgstr "Ezen fe&lhasználók nyomtatásának engedélyezése"
+
+#: configure-printer/PrinterOptions.cpp:50
+#, kde-format
+msgid "Set Default Options"
+msgstr "Alapértelmezett lehetőségek beállítása"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
+#: configure-printer/PrinterOptions.ui:26
+#, kde-format
+msgid "Query Printer for Default Options"
+msgstr "Nyomtató lekérése az alapértelmezett beállításokhoz"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: configure-printer/SelectMakeModelDialog.cpp:25
+#: libkcups/SelectMakeModel.ui:14
+#, kde-format
+msgid "Select a Driver"
+msgstr "Illesztőprogram-választás"
+
+#: libkcups/JobModel.cpp:26
+#, kde-format
+msgid "Status"
+msgstr "Állapot"
+
+#: libkcups/JobModel.cpp:27
+#, kde-format
+msgid "Name"
+msgstr "Név"
+
+#: libkcups/JobModel.cpp:28
+#, kde-format
+msgid "User"
+msgstr "Felhasználó"
+
+#: libkcups/JobModel.cpp:29
+#, kde-format
+msgid "Created"
+msgstr "Létrehozva"
+
+#: libkcups/JobModel.cpp:30 libkcups/JobModel.cpp:604
+#, kde-format
+msgid "Completed"
+msgstr "Befejezve"
+
+#: libkcups/JobModel.cpp:31
+#, kde-format
+msgid "Pages"
+msgstr "Oldalak"
+
+#: libkcups/JobModel.cpp:32
+#, kde-format
+msgid "Processed"
+msgstr "Feldolgozva"
+
+#: libkcups/JobModel.cpp:33
+#, kde-format
+msgid "Size"
+msgstr "Méret"
+
+#: libkcups/JobModel.cpp:34
+#, kde-format
+msgid "Status Message"
+msgstr "Állapotüzenet"
+
+#: libkcups/JobModel.cpp:35
+#, kde-format
+msgid "Printer"
+msgstr "Nyomtató"
+
+#: libkcups/JobModel.cpp:36
+#, kde-format
+msgid "From Hostname"
+msgstr "Gépnévről"
+
+#: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
+#, kde-format
+msgid "Failed to move '%1' to '%2'"
+msgstr "Nem sikerült átmozgatni ezt: „%1” ide: „%2”"
+
+#: libkcups/JobModel.cpp:521 printqueue/PrintQueueUi.cpp:496
+#, kde-format
+msgid "Failed"
+msgstr "Sikertelen"
+
+#: libkcups/JobModel.cpp:598
+#, kde-format
+msgid "Pending"
+msgstr "Függőben"
+
+#: libkcups/JobModel.cpp:599
+#, kde-format
+msgid "On hold"
+msgstr "Tartva"
+
+#: libkcups/JobModel.cpp:601
+#, kde-format
+msgid "Stopped"
+msgstr "Leállítva"
+
+#: libkcups/JobModel.cpp:602
+#, kde-format
+msgid "Canceled"
+msgstr "Lemondva"
+
+#: libkcups/JobModel.cpp:603
+#, kde-format
+msgid "Aborted"
+msgstr "Megszakítva"
+
+#: libkcups/KCupsConnection.cpp:860
+#, kde-format
+msgid "A CUPS connection requires authentication: \"%1\""
+msgstr "A CUPS kapcsolat hitelesítést kér: „%1”"
+
+#: libkcups/KCupsPasswordDialog.cpp:22
+#, kde-format
+msgid "Enter an username and a password to complete the task"
+msgstr "Adjon meg egy felhasználónevet és egy jelszót a feladat befejezéséhez"
+
+#: libkcups/KCupsPasswordDialog.cpp:44
+#, kde-format
+msgid "Wrong username or password"
+msgstr "Rossz felhasználónév vagy jelszó"
+
+#: libkcups/KCupsRequest.cpp:32
+#, kde-format
+msgid "Print service is unavailable"
+msgstr "A nyomtatási szolgáltatás nem érhető el"
+
+#: libkcups/KCupsRequest.cpp:34
+#, kde-format
+msgid "Not found"
+msgstr "Nem található"
+
+#: libkcups/KCupsRequest.cpp:401
+#, kde-format
+msgid "Test Page"
+msgstr "Tesztoldal"
+
+#: libkcups/KCupsRequest.cpp:433
+#, kde-format
+msgid "Unable to send command to printer driver!"
+msgstr "Nem sikerült a parancsot elküldeni a nyomtató illesztőprogramjának!"
+
+#: libkcups/KCupsRequest.cpp:567
+#, kde-format
+msgid "Failed to invoke method: %1"
+msgstr "Nem sikerült a metódus hívása: %1"
+
+#: libkcups/PPDModel.cpp:32
+#, kde-format
+msgid "Recommended Drivers"
+msgstr "Ajánlott illesztőprogramok"
+
+#: libkcups/PrinterModel.cpp:163
+#, kde-format
+msgid "Printers"
+msgstr "Nyomtatók"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle"
+msgstr "Üresjárat"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle, rejecting jobs"
+msgstr "Üresjárat, feladatok elutasítása"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle - '%1'"
+msgstr "Üresjárat - „%1”"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle, rejecting jobs - '%1'"
+msgstr "Üresjárat, feladatok elutasítása - „%1”"
+
+#: libkcups/PrinterModel.cpp:372
+#, kde-format
+msgid "In use"
+msgstr "Használatban"
+
+#: libkcups/PrinterModel.cpp:374
+#, kde-format
+msgid "In use - '%1'"
+msgstr "Használatban - „%1”"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused"
+msgstr "Szüneteltetve"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused, rejecting jobs"
+msgstr "Szüneteltetve, feladatok elutasítása"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused - '%1'"
+msgstr "Szüneteltetve - „%1”"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused, rejecting jobs - '%1'"
+msgstr "Szüneteltetve, feladatok elutasítása - „%1”"
+
+#: libkcups/PrinterModel.cpp:384
+#, kde-format
+msgid "Unknown"
+msgstr "Ismeretlen"
+
+#: libkcups/PrinterModel.cpp:386
+#, kde-format
+msgid "Unknown - '%1'"
+msgstr "Ismeretlen - „%1”"
+
+#: libkcups/SelectMakeModel.cpp:138
+#, kde-format
+msgid "Failed to get a list of drivers: '%1'"
+msgstr "Nem sikerült megszerezni az illesztőprogramok listáját: „%1”"
+
+#: libkcups/SelectMakeModel.cpp:228
+#, kde-format
+msgid "Failed to search for a recommended driver: '%1'"
+msgstr "Nem sikerült megkeresni az ajánlott illesztőprogramot: „%1”"
+
+#. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
+#: libkcups/SelectMakeModel.ui:44
+#, kde-format
+msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
+msgstr "*.ppd *.ppd.gz|PostScript nyomtatóleíró fájlok"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#: libkcups/SelectMakeModel.ui:82
+#, kde-format
+msgid "Choose &the driver from the list"
+msgstr "Válassza ki az illesz&tőprogramot a listából"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
+#: libkcups/SelectMakeModel.ui:94
+#, kde-format
+msgid "Ma&nually Provide a PPD File:"
+msgstr "PPD-fájl kézi &megadása:"
+
+#: print-manager-kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "Új nyomtató csatlakoztatva"
+
+#: print-manager-kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "Új nyomtató beállítása…"
+
+#: print-manager-kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "Az új nyomtató felvéve"
+
+#: print-manager-kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "Az új nyomtatóhoz hiányzik az illesztőprogram"
+
+#: print-manager-kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "Hiányzó nyomtató-illesztőprogram"
+
+#: print-manager-kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "Nincs nyomtató-illesztőprogram ehhez: %1 %2."
+
+#: print-manager-kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "Nincs nyomtató-illesztőprogram ehhez: %1."
+
+#: print-manager-kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "Nincs nyomtató-illesztőprogram ehhez nyomtatóhoz."
+
+#: print-manager-kded/NewPrinterNotification.cpp:173
+#, kde-format
+msgid "Search"
+msgstr "Keresés"
+
+#: print-manager-kded/NewPrinterNotification.cpp:239
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "„%1” felvéve, ellenőrizze az illesztőprogramját."
+
+#: print-manager-kded/NewPrinterNotification.cpp:243
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "„%1” felvéve „%2” illesztőprogram használatával."
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#, kde-format
+msgid "Print test page"
+msgstr "Tesztoldal nyomtatása"
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#, kde-format
+msgid "Find driver"
+msgstr "Illesztőprogram keresése"
+
+#: print-manager-kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "Készen áll nyomtatásra: „%1”."
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this class"
+msgstr "Osztály megosztása"
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this printer"
+msgstr "Nyomtató megosztása"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:220
+#: printer-manager-kcm/PrinterDescription.ui:293
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Nyomtatófej-tisztítás"
+
+#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:229
+#: printer-manager-kcm/PrinterDescription.ui:301
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Önellenőrző oldal nyomtatása"
+
+#: printer-manager-kcm/PrinterDescription.cpp:235
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Nem sikerült végrehajtani a kérést: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, printerNameL)
+#: printer-manager-kcm/PrinterDescription.ui:83
+#, kde-format
+msgctxt "@title"
+msgid "Printer name or description"
+msgstr "Nyomtatónév vagy leírás"
+
+#. i18n: ectx: property (text), widget (QLabel, statusL)
+#: printer-manager-kcm/PrinterDescription.ui:102
+#, kde-format
+msgid "Current status"
+msgstr "Jelenlegi állapot"
+
+#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
+#: printer-manager-kcm/PrinterDescription.ui:109
+#, kde-format
+msgctxt "@option:check"
+msgid "Default printer"
+msgstr "Alapértelmezett nyomtató"
+
+#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
+#: printer-manager-kcm/PrinterDescription.ui:126
+#, kde-format
+msgid "Reject print jobs"
+msgstr "Nyomtatási feladatok elutasítása"
+
+#. i18n: ectx: property (text), widget (QLabel, locationL)
+#: printer-manager-kcm/PrinterDescription.ui:135
+#, kde-format
+msgctxt "@label location of printer"
+msgid "Location:"
+msgstr "Hely:"
+
+#. i18n: ectx: property (text), widget (QLabel, kindL)
+#: printer-manager-kcm/PrinterDescription.ui:164
+#, kde-format
+msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
+msgid "Kind:"
+msgstr "Fajta:"
+
+#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
+#: printer-manager-kcm/PrinterDescription.ui:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Maintenance"
+msgstr "Karbantartás"
+
+#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
+#: printer-manager-kcm/PrinterDescription.ui:225
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Print Queue"
+msgstr "Nyomtatási sor megnyitása"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:288
+#, kde-format
+msgid "Print Test Page"
+msgstr "Tesztoldal nyomtatása"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:298
+#, kde-format
+msgid "Print Self Test Page"
+msgstr "Önellenőrző oldal nyomtatása"
+
+#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
+#, kde-format
+msgid "Print settings"
+msgstr "Nyomtatási beállítások"
+
+#: printer-manager-kcm/PrintKCM.cpp:56
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Add a Printer Class"
+msgstr "Nyomtatóosztály hozzáadása"
+
+#: printer-manager-kcm/PrintKCM.cpp:59
+#, kde-format
+msgid "Add a new printer or a printer class"
+msgstr "Új nyomtató vagy nyomtatóosztály hozzáadása"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTB)
+#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#, kde-format
+msgid "Remove Printer"
+msgstr "Nyomtató eltávolítása"
+
+#: printer-manager-kcm/PrintKCM.cpp:68
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show printers shared by other systems"
+msgstr "A más gépeken megosztott nyomtatók megjelenítése"
+
+#: printer-manager-kcm/PrintKCM.cpp:72
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Share printers connected to this system"
+msgstr "A rendszerhez csatlakoztatott nyomtatók megosztása"
+
+#: printer-manager-kcm/PrintKCM.cpp:74
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow printing from the Internet"
+msgstr "Nyomtatás engedélyezése az internetről"
+
+#: printer-manager-kcm/PrintKCM.cpp:80
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow remote administration"
+msgstr "Távoli adminisztráció engedélyezve"
+
+#: printer-manager-kcm/PrintKCM.cpp:82
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow users to cancel any job (not just their own)"
+msgstr "A nyomtatási feladatokat bárki törölhesse (nem csak a tulajdonos)"
+
+#: printer-manager-kcm/PrintKCM.cpp:86
+#, kde-format
+msgid "Configure the global preferences"
+msgstr "A globális beállítások módosítása"
+
+#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#, kde-format
+msgid "No printers have been configured or discovered"
+msgstr "Nincs beállított vagy felfedezett nyomtató"
+
+#: printer-manager-kcm/PrintKCM.cpp:262
+#, kde-format
+msgid "Remove class"
+msgstr "Osztály eltávolítása"
+
+#: printer-manager-kcm/PrintKCM.cpp:263
+#, kde-format
+msgid "Are you sure you want to remove the class '%1'?"
+msgstr "Biztosan el szeretné távolítani ezt az osztályt: „%1”?"
+
+#: printer-manager-kcm/PrintKCM.cpp:266
+#, kde-format
+msgid "Remove printer"
+msgstr "Nyomtató eltávolítása"
+
+#: printer-manager-kcm/PrintKCM.cpp:267
+#, kde-format
+msgid "Are you sure you want to remove the printer '%1'?"
+msgstr "Biztosan el szeretné távolítani ezt a nyomtatót: „%1”?"
+
+#: printer-manager-kcm/PrintKCM.cpp:309
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "A kiszolgáló beállításainak lekérése nem sikerült"
+
+#: printer-manager-kcm/PrintKCM.cpp:340
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "A kiszolgáló beállításainak módosítása nem sikerült"
+
+#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
+#: printer-manager-kcm/PrintKCM.ui:52
+#, kde-format
+msgid "System Preferences"
+msgstr "Rendszerbeállítások"
+
+#. i18n: ectx: property (text), widget (QLabel, errorComment)
+#: printer-manager-kcm/PrintKCM.ui:196
+#, kde-format
+msgid "TextLabel"
+msgstr "Szövegcímke"
+
+#. i18n: ectx: property (text), widget (QLabel, errorText)
+#: printer-manager-kcm/PrintKCM.ui:206
+#, kde-format
+msgid "Error Title"
+msgstr "Címhiba"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
+#: printer-manager-kcm/PrintKCM.ui:231
+#, kde-format
+msgid "Click here to add a new printer"
+msgstr "Kattintson ide új nyomtató hozzáadásához"
+
+#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#, kde-format
+msgid "Print Queue"
+msgstr "Nyomtatási sor"
+
+#: printqueue/main.cpp:39
+#, kde-format
+msgid "Show printer queue(s)"
+msgstr "Nyomtatási sorok megjelenítése"
+
+#: printqueue/PrintQueueUi.cpp:195
+#, kde-format
+msgid "Printer ready"
+msgstr "A nyomtató kész"
+
+#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
+#: printqueue/PrintQueueUi.cpp:196 printqueue/PrintQueueUi.cpp:207
+#: printqueue/PrintQueueUi.ui:118
+#, kde-format
+msgid "Pause Printer"
+msgstr "Nyomtató szüneteltetése"
+
+#: printqueue/PrintQueueUi.cpp:203
+#, kde-format
+msgid "Printing..."
+msgstr "Nyomtatás…"
+
+#: printqueue/PrintQueueUi.cpp:205
+#, kde-format
+msgid "Printing '%1'"
+msgstr "„%1” nyomtatása"
+
+#: printqueue/PrintQueueUi.cpp:213
+#, kde-format
+msgid "Printer paused"
+msgstr "Nyomtató szüneteltetve"
+
+#: printqueue/PrintQueueUi.cpp:214
+#, kde-format
+msgid "Resume Printer"
+msgstr "Nyomtató folytatása"
+
+#: printqueue/PrintQueueUi.cpp:218
+#, kde-format
+msgid "Printer state unknown"
+msgstr "Nyomtatóállapot ismeretlen"
+
+#: printqueue/PrintQueueUi.cpp:263
+#, kde-format
+msgid "Move to"
+msgstr "Mozgatás ide"
+
+#: printqueue/PrintQueueUi.cpp:294
+#, kde-format
+msgid "Authenticate"
+msgstr "Hitelesítés"
+
+#: printqueue/PrintQueueUi.cpp:404
+#, kde-format
+msgid "All Printers (%1 Job)"
+msgid_plural "All Printers (%1 Jobs)"
+msgstr[0] "Minden nyomtató (%1 feladat)"
+msgstr[1] "Minden nyomtató (%1 feladat)"
+
+#: printqueue/PrintQueueUi.cpp:406
+#, kde-format
+msgid "%2 (%1 Job)"
+msgid_plural "%2 (%1 Jobs)"
+msgstr[0] "%2 (%1 feladat)"
+msgstr[1] "%2 (%1 feladat)"
+
+#: printqueue/PrintQueueUi.cpp:409
+#, kde-format
+msgid "All Printers"
+msgstr "Minden nyomtató"
+
+#: printqueue/PrintQueueUi.cpp:478
+#, kde-format
+msgid "Failed to cancel '%1'"
+msgstr "Nem sikerült megszakítani: „%1”"
+
+#: printqueue/PrintQueueUi.cpp:481
+#, kde-format
+msgid "Failed to hold '%1'"
+msgstr "Nem sikerült tartani: „%1”"
+
+#: printqueue/PrintQueueUi.cpp:484
+#, kde-format
+msgid "Failed to release '%1'"
+msgstr "Nem sikerült kiadni: „%1”"
+
+#: printqueue/PrintQueueUi.cpp:487
+#, kde-format
+msgid "Failed to reprint '%1'"
+msgstr "Nem sikerült újranyomtatni: „%1”"
+
+#: printqueue/PrintQueueUi.cpp:561
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Adja meg a hitelesítési adatokat a(z) <b>%1</b> címről nyomtatáshoz"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
+#: printqueue/PrintQueueUi.ui:20
+#, kde-format
+msgid "my printer (x jobs)"
+msgstr "Saját nyomtató (x feladat)"
+
+#. i18n: ectx: property (text), widget (QLabel, iconL)
+#: printqueue/PrintQueueUi.ui:49
+#, kde-format
+msgid "Printer Icon"
+msgstr "Nyomtató ikon"
+
+#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
+#: printqueue/PrintQueueUi.ui:233
+#, kde-format
+msgid "Cancel"
+msgstr "Mégsem"
+
+#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
+#: printqueue/PrintQueueUi.ui:253
+#, kde-format
+msgid "Hold"
+msgstr "Tartás"
+
+#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
+#: printqueue/PrintQueueUi.ui:266
+#, kde-format
+msgid "Resume"
+msgstr "Folytatás"
+
+#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
+#: printqueue/PrintQueueUi.ui:279
+#, kde-format
+msgid "Reprint"
+msgstr "Újranyomtatás"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:312
+#, kde-format
+msgid "Active Jobs"
+msgstr "Aktív feladatok"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:317
+#, kde-format
+msgid "Completed Jobs"
+msgstr "Befejezett feladatok"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:322
+#, kde-format
+msgid "All Jobs"
+msgstr "Minden feladat"
+
+#~ msgid "Daniel Nicoletti"
+#~ msgstr "Daniel Nicoletti"
+
+#~ msgid "AddPrinter"
+#~ msgstr "AddPrinter"
+
+#~ msgid "Configure printer"
+#~ msgstr "Nyomtató beállítása"
+
+#, fuzzy
+#~| msgid "Only Jobs from Printer:"
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Csak feladatok a nyomtatóról:"
+
+#, fuzzy
+#~| msgid "All Jobs"
+#~ msgid "All jobs"
+#~ msgstr "Minden feladat"
+
+#, fuzzy
+#~| msgid "Completed Jobs"
+#~ msgid "Completed jobs only"
+#~ msgstr "Befejezett feladatok"
+
+#, fuzzy
+#~| msgid "Active Jobs"
+#~ msgid "Active jobs only"
+#~ msgstr "Aktív feladatok"
+
+#~ msgid "A short binary option"
+#~ msgstr "Rövid bináris beállítás"
+
+#, fuzzy
+#~| msgid "Completed Jobs"
+#~ msgid "Show all jobs"
+#~ msgstr "Befejezett feladatok"
+
+#, fuzzy
+#~| msgid "Completed Jobs"
+#~ msgid "Show only active jobs"
+#~ msgstr "Befejezett feladatok"
+
+#, fuzzy
+#~| msgid "Completed Jobs"
+#~ msgid "Show only completed jobs"
+#~ msgstr "Befejezett feladatok"
+
+#, fuzzy
+#~| msgid "PrintQueue"
+#~ msgid "Print queue is empty"
+#~ msgstr "Nyomtatási sor"
+
+#~ msgid "All printers"
+#~ msgstr "Minden nyomtató"
+
+#~ msgid "Conexion:"
+#~ msgstr "Kapcsolat:"

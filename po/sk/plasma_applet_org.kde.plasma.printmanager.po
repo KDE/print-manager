@@ -1,0 +1,154 @@
+# translation of plasma_applet_org.kde.printmanager.po to Slovak
+# Roman Paholík <wizzardsk@gmail.com>, 2013, 2015, 2021, 2022.
+# Mthw <jari_45@hotmail.com>, 2019.
+# Dušan Kazik <prescott66@gmail.com>, 2020.
+# Matej Mrenica <matejm98mthw@gmail.com>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_org.kde.printmanager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2022-04-09 20:17+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr "Hľadať..."
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Žiadne tlačiarne neboli nastavené alebo nájdené"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr "Žiadne zhody"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Resume printing"
+msgstr "Pokračovať v tlači"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr "Pozastaviť tlač"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr "Nastaviť tlačiareň..."
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr "Otvoriť tlačovú frontu"
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr "Tlačiarne"
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "Vo fronte je jedna tlačová úloha"
+msgstr[1] "Vo fronte sú %1 tlačové úlohy"
+msgstr[2] "Vo fronte je %1 tlačových úloh"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr "Tlačí sa dokument %1 na tlačiarni %2"
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr "Tlačí sa na tlačiarni %1"
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "Tlačová fronta je prázdna"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+msgid "Show All Jobs"
+msgstr "Zobraziť všetky úlohy"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+msgid "Show Only Completed Jobs"
+msgstr "Zobraziť iba dokončené úlohy"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+msgid "Show Only Active Jobs"
+msgstr "Zobraziť iba aktívne úlohy"
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr "&Nastaviť tlačiarne..."
+
+#~ msgid "Search for a printer..."
+#~ msgstr "Vyhľadať tlačiareň..."
+
+#~ msgid "General"
+#~ msgstr "Všeobecné"
+
+#~ msgid "Active jobs only"
+#~ msgstr "Iba aktívne úlohy"
+
+#~ msgid "%1, no active jobs"
+#~ msgstr "%1, žiadne aktívne úlohy"
+
+#~ msgid "%1, %2 active job"
+#~ msgid_plural "%1, %2 active jobs"
+#~ msgstr[0] "%1, %2 aktívna úloha"
+#~ msgstr[1] "%1, %2 aktívne úlohy"
+#~ msgstr[2] "%1, %2 aktívnych úloh"
+
+#~ msgid "%1, no jobs"
+#~ msgstr "%1, žiadne úlohy"
+
+#~ msgid "%1, %2 job"
+#~ msgid_plural "%1, %2 jobs"
+#~ msgstr[0] "%1, %2 úloha"
+#~ msgstr[1] "%1, %2 úlohy"
+#~ msgstr[2] "%1, %2 úloh"
+
+#~ msgid "One active job"
+#~ msgid_plural "%1 active jobs"
+#~ msgstr[0] "Jedna aktívne úloha"
+#~ msgstr[1] "%1 aktívne úlohy"
+#~ msgstr[2] "%1 aktívnych úloh"
+
+#~ msgid "One job"
+#~ msgid_plural "%1 jobs"
+#~ msgstr[0] "Jedna úloha"
+#~ msgstr[1] "%1 úlohy"
+#~ msgstr[2] "%1 úloh"
+
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Zobraziť úlohy iba pre nasledovné tlačiarne:"
+
+#~ msgid "Cancel"
+#~ msgstr "Zrušiť"
+
+#~ msgid "Hold"
+#~ msgstr "Pozdržať"
+
+#~ msgid "Release"
+#~ msgstr "Uvoľniť"
+
+#~ msgid "Owner:"
+#~ msgstr "Vlastník:"
+
+#~ msgid "Size:"
+#~ msgstr "Veľkosť:"
+
+#~ msgid "Created:"
+#~ msgstr "Vytvorené:"
+
+#~ msgid ""
+#~ "There is currently no available printer matching the selected filters"
+#~ msgstr ""
+#~ "Aktuálne nie je žiadna dostupná tlačiareň vyhovujúca vybraným filtrom"

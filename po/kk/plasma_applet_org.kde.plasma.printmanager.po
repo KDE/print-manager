@@ -1,0 +1,144 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sairan Kikkarin <sairan@computer.org>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2013-06-13 06:34+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Бапталған не табылған принтерлер жоқ"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+#, fuzzy
+#| msgid "Reprint"
+msgid "Resume printing"
+msgstr "Қайталап басу"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr ""
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "Кезекте %1 басу тапсырма бар"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr ""
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "Басу кезегі бос"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+#, fuzzy
+#| msgid "All jobs"
+msgid "Show All Jobs"
+msgstr "Бүкіл тапсырмалар"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+#, fuzzy
+#| msgid "Completed jobs only"
+msgid "Show Only Completed Jobs"
+msgstr "Біткен тапсырмалар ғана"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+#, fuzzy
+#| msgid "Active jobs only"
+msgid "Show Only Active Jobs"
+msgstr "Белсеңді таапсырмалар ғана"
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr ""
+
+#~ msgid "Active jobs only"
+#~ msgstr "Белсеңді таапсырмалар ғана"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "%1, no active jobs"
+#~ msgstr "Белсеңді таапсырмалар ғана"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "%1, %2 active job"
+#~ msgid_plural "%1, %2 active jobs"
+#~ msgstr[0] "Белсеңді таапсырмалар ғана"
+
+#, fuzzy
+#~| msgid "All jobs"
+#~ msgid "%1, no jobs"
+#~ msgstr "Бүкіл тапсырмалар"
+
+#, fuzzy
+#~| msgid "Active jobs only"
+#~ msgid "One active job"
+#~ msgid_plural "%1 active jobs"
+#~ msgstr[0] "Белсеңді таапсырмалар ғана"
+
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Тек мынау принтерлердің тапсырмалары көрсетілсін:"
+
+#~ msgid "Cancel"
+#~ msgstr "Айну"
+
+#~ msgid "Hold"
+#~ msgstr "Аялдау"
+
+#~ msgid "Release"
+#~ msgstr "Аялдатқанды жіберу"
+
+#~ msgid "Owner:"
+#~ msgstr "Иесі: "
+
+#~ msgid "Size:"
+#~ msgstr "Мөлшері: "
+
+#~ msgid "Created:"
+#~ msgstr "Құрылған кезі:"
+
+#~ msgid ""
+#~ "There is currently no available printer matching the selected filters"
+#~ msgstr "Таңдалған сүзгілерге сәйкесті қол жетімді принтер жоқ"

@@ -1,0 +1,163 @@
+# Translation of plasma_applet_org.kde.plasma.printmanager.po to Ukrainian
+# Copyright (C) 2013-2020 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2015, 2018, 2020, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"PO-Revision-Date: 2022-03-31 08:46+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:26
+msgid "Search…"
+msgstr "Шукати…"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: plasmoid/package/contents/ui/printmanager.qml:52
+msgid "No printers have been configured or discovered"
+msgstr "Не налаштовано або не виявлено жодного принтера"
+
+#: plasmoid/package/contents/ui/PopupDialog.qml:71
+msgid "No matches"
+msgstr "Немає відповідників"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Resume printing"
+msgstr "Відновити друк"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:25
+msgid "Pause printing"
+msgstr "Призупинити друк"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:37
+msgid "Configure printer..."
+msgstr "Налаштувати принтер…"
+
+#: plasmoid/package/contents/ui/PrinterItem.qml:42
+msgid "View print queue"
+msgstr "Переглянути чергу друку"
+
+#: plasmoid/package/contents/ui/printmanager.qml:31
+msgid "Printers"
+msgstr "Принтери"
+
+#: plasmoid/package/contents/ui/printmanager.qml:36
+msgid "There is one print job in the queue"
+msgid_plural "There are %1 print jobs in the queue"
+msgstr[0] "У черзі перебуває %1 завдання"
+msgstr[1] "У черзі перебуває %1 завдання"
+msgstr[2] "У черзі перебуває %1 завдань"
+msgstr[3] "У черзі перебуває одне завдання"
+
+#: plasmoid/package/contents/ui/printmanager.qml:45
+msgctxt "Printing document name with printer name"
+msgid "Printing %1 with %2"
+msgstr "Друкуємо %1 за допомогою %2"
+
+#: plasmoid/package/contents/ui/printmanager.qml:47
+msgctxt "Printing with printer name"
+msgid "Printing with %1"
+msgstr "Друкуємо за допомогою %1"
+
+#: plasmoid/package/contents/ui/printmanager.qml:50
+msgid "Print queue is empty"
+msgstr "Черга друку порожня"
+
+#: plasmoid/package/contents/ui/printmanager.qml:126
+msgid "Show All Jobs"
+msgstr "Показати всі завдання"
+
+#: plasmoid/package/contents/ui/printmanager.qml:132
+msgid "Show Only Completed Jobs"
+msgstr "Показати лише завершені завдання"
+
+#: plasmoid/package/contents/ui/printmanager.qml:138
+msgid "Show Only Active Jobs"
+msgstr "Показати лише активні завдання"
+
+#: plasmoid/package/contents/ui/printmanager.qml:149
+msgid "&Configure Printers..."
+msgstr "&Налаштовування принтерів…"
+
+#~ msgid "Search for a printer..."
+#~ msgstr "Пошук принтера…"
+
+#~ msgid "General"
+#~ msgstr "Загальне"
+
+#~ msgid "Active jobs only"
+#~ msgstr "Лише активні завдання"
+
+#~ msgid "%1, no active jobs"
+#~ msgstr "%1, немає активних завдань"
+
+#~ msgid "%1, %2 active job"
+#~ msgid_plural "%1, %2 active jobs"
+#~ msgstr[0] "%1, %2 активне завдання"
+#~ msgstr[1] "%1, %2 активних завдання"
+#~ msgstr[2] "%1, %2 активних завдань"
+#~ msgstr[3] "%1, %2 активне завдання"
+
+#~ msgid "%1, no jobs"
+#~ msgstr "%1, немає завдань"
+
+#~ msgid "%1, %2 job"
+#~ msgid_plural "%1, %2 jobs"
+#~ msgstr[0] "%1, %2 завдання"
+#~ msgstr[1] "%1, %2 завдання"
+#~ msgstr[2] "%1, %2 завдань"
+#~ msgstr[3] "%1, %2 завдання"
+
+#~ msgid "One active job"
+#~ msgid_plural "%1 active jobs"
+#~ msgstr[0] "%1 активне завдання"
+#~ msgstr[1] "%1 активних завдання"
+#~ msgstr[2] "%1 активних завдань"
+#~ msgstr[3] "Одне активне завдання"
+
+#~ msgid "No jobs"
+#~ msgstr "Немає завдань"
+
+#~ msgid "One job"
+#~ msgid_plural "%1 jobs"
+#~ msgstr[0] "%1 завдання"
+#~ msgstr[1] "%1 завдання"
+#~ msgstr[2] "%1 завдань"
+#~ msgstr[3] "Одна завдання"
+
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Показувати завдання лише для вказаних нижче принтерів:"
+
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgid "Hold"
+#~ msgstr "Призупинити"
+
+#~ msgid "Release"
+#~ msgstr "Випустити"
+
+#~ msgid "Owner:"
+#~ msgstr "Власник:"
+
+#~ msgid "Size:"
+#~ msgstr "Розмір:"
+
+#~ msgid "Created:"
+#~ msgstr "Створено:"
+
+#~ msgid ""
+#~ "There is currently no available printer matching the selected filters"
+#~ msgstr "Вказаним параметрам фільтрування зараз не відповідає жоден принтер"

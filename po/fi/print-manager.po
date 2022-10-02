@@ -1,0 +1,1669 @@
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+# Tommi Nieminen <translator@legisign.org>, 2012, 2018, 2019, 2020.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2015.
+# Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: add-printer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"PO-Revision-Date: 2020-07-21 19:52+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POT-Import-Date: 2012-12-01 22:25:43+0000\n"
+"X-Generator: Lokalize 20.04.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen,Jiri Grönroos"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org,jiri.gronroos+kde@iki.fi"
+
+#: add-printer/AddPrinterAssistant.cpp:27
+#, kde-format
+msgctxt "@title:window"
+msgid "Add a New Printer"
+msgstr "Lisää uusi tulostin"
+
+#: add-printer/AddPrinterAssistant.cpp:69 add-printer/ChooseLpd.cpp:25
+#: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
+#: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
+#: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
+#: add-printer/PageChoosePrinters.cpp:24 add-printer/PageDestinations.cpp:77
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Printer to Add"
+msgstr "Valitse lisättävä tulostin"
+
+#: add-printer/AddPrinterAssistant.cpp:73
+#: add-printer/AddPrinterAssistant.cpp:80
+#: add-printer/AddPrinterAssistant.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Pick a Driver"
+msgstr "Valitse ajuri"
+
+#: add-printer/AddPrinterAssistant.cpp:85
+#: add-printer/AddPrinterAssistant.cpp:106
+#, kde-format
+msgctxt "@title:window"
+msgid "Please describe your printer"
+msgstr "Anna tulostimelle kuvaus"
+
+#: add-printer/AddPrinterAssistant.cpp:102
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure your connection"
+msgstr "Määritä yhteysasetukset"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseLpd.ui:26
+#, kde-format
+msgid "Address:"
+msgstr "Osoite:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseLpd.ui:36
+#, kde-format
+msgid "Queue:"
+msgstr "Jono:"
+
+#. i18n: ectx: property (text), widget (QPushButton, detectPB)
+#: add-printer/ChooseLpd.ui:51
+#, kde-format
+msgid "Detect"
+msgstr "Tunnista"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: add-printer/ChooseSamba.ui:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Windows Printer via SAMBA"
+msgstr "Windows-tulostin Samban kautta"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: add-printer/ChooseSamba.ui:41
+#, kde-format
+msgctxt ""
+"@label samba URL markup example, this is preceded by a label containing "
+"smb://"
+msgid "smb://[workgroup/]server[:port]/printer"
+msgstr "smb://[työryhmä/]palvelin[:portti]/tulostin"
+
+#. i18n: ectx: property (text), widget (QPushButton, browsePB)
+#: add-printer/ChooseSamba.ui:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Browse"
+msgstr "Selaa"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: add-printer/ChooseSamba.ui:64
+#, kde-format
+msgctxt "@title:group"
+msgid "Authentication"
+msgstr "Todennus"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseSamba.ui:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Username:"
+msgstr "Käyttäjätunnus:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSamba.ui:86
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr "Salasana:"
+
+#: add-printer/ChooseSerial.cpp:25 add-printer/ChooseSerial.cpp:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "None"
+msgstr "Ei mitään"
+
+#: add-printer/ChooseSerial.cpp:26
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Even"
+msgstr "Parillinen"
+
+#: add-printer/ChooseSerial.cpp:27
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Odd"
+msgstr "Pariton"
+
+#: add-printer/ChooseSerial.cpp:30
+#, kde-format
+msgctxt "@label:listbox"
+msgid "XON/XOFF (Software)"
+msgstr "XON/XOFF (ohjelmisto)"
+
+#: add-printer/ChooseSerial.cpp:31
+#, kde-format
+msgctxt "@label:listbox"
+msgid "RTS/CTS (Hardware)"
+msgstr "RTS/CTS (laitteisto)"
+
+#: add-printer/ChooseSerial.cpp:32
+#, kde-format
+msgctxt "@label:listbox"
+msgid "DTR/DSR (Hardware)"
+msgstr "DTR/DSR (laitteisto)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSerial.ui:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Baud Rate:"
+msgstr "Baudinopeus:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSerial.ui:42
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Parity:"
+msgstr "Pariteetti:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/ChooseSerial.ui:55
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Data Bits:"
+msgstr "Databitit:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: add-printer/ChooseSerial.ui:79
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Flow Control:"
+msgstr "Vuonhallinta:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseSocket.ui:29
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "Osoite:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/ChooseSocket.ui:42
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Port:"
+msgstr "Portti:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/ChooseUri.ui:41
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr "Yhteys:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/ChooseUri.ui:82
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Examples:\n"
+"<PRE>\n"
+"    http://hostname:631/ipp/\n"
+"    http://hostname:631/ipp/port1\n"
+"\n"
+"    ipp://hostname/ipp/\n"
+"    ipp://hostname/ipp/port1\n"
+"\n"
+"    lpd://hostname/queue\n"
+"\n"
+"    socket://hostname\n"
+"    socket://hostname:9100\n"
+"</PRE>\n"
+"\n"
+"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Network\n"
+"Printers\"</A> for the correct URI to use with your printer.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+msgstr ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Esimerkkejä:\n"
+"<PRE>\n"
+"    http://konenimi:631/ipp/\n"
+"    http://konenimi:631/ipp/portti1\n"
+"\n"
+"    ipp://konenimi/ipp/\n"
+"    ipp://konenimi/ipp/portti1\n"
+"\n"
+"    lpd://konenimi/jono\n"
+"\n"
+"    socket://konenimi\n"
+"    socket://konenimi:9100\n"
+"</PRE>\n"
+"\n"
+"<P>Ks. <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Verkkotulostimet\"</A> löytääksesi oikean URIn tulostimellesi.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+
+#: add-printer/DevicesModel.cpp:39
+#, kde-format
+msgctxt "@item"
+msgid "Manual URI"
+msgstr "Mukautettu URI"
+
+#: add-printer/DevicesModel.cpp:115
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "Laiteluetteloa ei saatu noudetuksi: ”%1”"
+
+#: add-printer/DevicesModel.cpp:238
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "Rinnakkaisporttiin liitetty tulostin"
+
+#: add-printer/DevicesModel.cpp:241
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "USB-porttiin liitetty tulostin"
+
+#: add-printer/DevicesModel.cpp:244
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "Bluetooth-yhteyden kautta liitetty tulostin"
+
+#: add-printer/DevicesModel.cpp:247
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr "HALin (Hardware Abstraction Layer) tunnistama paikallinen tulostin"
+
+#: add-printer/DevicesModel.cpp:251
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr ""
+"Tulostinta ohjaava HPLIP-ohjelmisto tai monitoimilaitteen tulostintoiminto"
+
+#: add-printer/DevicesModel.cpp:255
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "Faksia ohjaava HPLIP-ohjelmisto tai monitoimilaitteen faksitoiminto"
+
+#: add-printer/DevicesModel.cpp:260
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "CUPS-etätulostin DNS-SD:n kautta"
+
+#: add-printer/DevicesModel.cpp:278
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "Havaitut verkkotulostimet"
+
+#: add-printer/DevicesModel.cpp:282
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "Muut verkkotulostimet"
+
+#: add-printer/DevicesModel.cpp:286
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "Paikalliset tulostimet"
+
+#: add-printer/DevicesModel.cpp:328
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Laitteiden ryhmittely epäonnistui: ”%1”"
+
+#. i18n: ectx: property (text), widget (QToolButton, addTB)
+#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#, kde-format
+msgid "Add Printer"
+msgstr "Lisää tulostin"
+
+#: add-printer/main.cpp:30
+#, kde-format
+msgid "Tool for adding new printers"
+msgstr "Uusien tulostinten lisäämistyökalu"
+
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30
+#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "© 2010–18 Daniel Nicoletti"
+
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32
+#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Siirros Qt 5:een / Plasma 5:een"
+
+#: add-printer/main.cpp:41
+#, kde-format
+msgid "Parent Window ID"
+msgstr "Emoikkunan tunniste"
+
+#: add-printer/main.cpp:44
+#, kde-format
+msgid "Add a new printer"
+msgstr "Lisää uusi tulostin"
+
+#: add-printer/main.cpp:47
+#, kde-format
+msgid "Add a new printer class"
+msgstr "Lisää uusi tulostinluokka"
+
+#: add-printer/main.cpp:50
+#, kde-format
+msgid "Changes the PPD of a given printer"
+msgstr "Vaihtaa valitun tulostimen PPD:n"
+
+#: add-printer/main.cpp:53
+#, kde-format
+msgid "Changes the PPD of a given printer/deviceid"
+msgstr "Vaihtaa valitun tulostimen/laitetunnisteen PPD:n"
+
+#: add-printer/PageAddPrinter.cpp:122
+#, kde-format
+msgctxt "@info"
+msgid "Failed to add class: '%1'"
+msgstr "Luokan lisääminen epäonnistui: ”%1”"
+
+#: add-printer/PageAddPrinter.cpp:124
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: '%1'"
+msgstr "Tulostimen määritys epäonnistui: ”%1\""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: add-printer/PageAddPrinter.ui:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Name:"
+msgstr "Nimi:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
+#: add-printer/PageAddPrinter.ui:38
+#, kde-format
+msgid "May contain any printable characters except \"/\", \"#\", and space"
+msgstr ""
+"Voi sisältää mitä tahansa tulostettavia merkkejä paitsi ”/”:n, ”#”:n ja "
+"välilyönnin"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: add-printer/PageAddPrinter.ui:45
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "Kuvaus:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: add-printer/PageAddPrinter.ui:55
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr "Sijainti:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, shareCB)
+#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
+#: add-printer/PageAddPrinter.ui:65
+#: printer-manager-kcm/PrinterDescription.ui:119
+#, kde-format
+msgctxt "@option:check"
+msgid "Share this printer"
+msgstr "Jaa tämä tulostin"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageChoosePrinters.ui:96
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Members:"
+msgstr "Jäsenet:"
+
+#: add-printer/PageDestinations.cpp:189
+#, kde-format
+msgid "A printer connected to the parallel port."
+msgstr "Rinnakkaisporttiin kytketty tulostin."
+
+#: add-printer/PageDestinations.cpp:192
+#, kde-format
+msgid "A printer connected to a USB port."
+msgstr "USB-porttiin kytketty tulostin."
+
+#: add-printer/PageDestinations.cpp:195
+#, kde-format
+msgid "A printer connected via Bluetooth."
+msgstr "Bluetoothin kautta kytketty tulostin."
+
+#: add-printer/PageDestinations.cpp:198
+#, kde-format
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
+msgstr "HALin (Hardware Abstraction Layer) tunnistama paikallinen tulostin."
+
+#: add-printer/PageDestinations.cpp:202
+#, kde-format
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device."
+msgstr ""
+"Tulostinta ohjaava HPLIP-ohjelmisto tai monitoimilaitteen tulostintoiminto."
+
+#: add-printer/PageDestinations.cpp:206
+#, kde-format
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device."
+msgstr "Faksia ohjaava HPLIP-ohjelmisto tai monitoimilaitteen faksitoiminto."
+
+#: add-printer/PageDestinations.cpp:214 add-printer/PageDestinations.cpp:373
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "CUPS-etätulostin DNS-SD:n kautta"
+
+#: add-printer/PageDestinations.cpp:226 add-printer/PageDestinations.cpp:382
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "Verkkotulostin DNS-SD:n kautta"
+
+#: add-printer/PageDestinations.cpp:228
+#, kde-format
+msgid "%1 network printer via DNS-SD"
+msgstr "%1-verkkotulostin DNS-SD:n kautta"
+
+#: add-printer/PageDestinations.cpp:333
+#, kde-format
+msgid "Parallel Port"
+msgstr "Rinnakkaisportti"
+
+#: add-printer/PageDestinations.cpp:335
+#, kde-format
+msgid "Serial Port"
+msgstr "Sarjaportti"
+
+#: add-printer/PageDestinations.cpp:337
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: add-printer/PageDestinations.cpp:339
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: add-printer/PageDestinations.cpp:341
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "Faksi – HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:343
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "HP Linux Imaging and Printing (HPLIP)"
+
+#: add-printer/PageDestinations.cpp:345
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "Hardware Abstraction Layer (HAL)"
+
+#: add-printer/PageDestinations.cpp:347
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: add-printer/PageDestinations.cpp:352
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "LPD/LPR-jono"
+
+#: add-printer/PageDestinations.cpp:354
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "LPD/LPR-jono %1"
+
+#: add-printer/PageDestinations.cpp:357
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "Windows-tulostin Samban kautta"
+
+#: add-printer/PageDestinations.cpp:362
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: add-printer/PageDestinations.cpp:364
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: add-printer/PageDestinations.cpp:367
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: add-printer/PageDestinations.cpp:376
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "IPP-verkkotulostin DNS-SD:n kautta"
+
+#: add-printer/PageDestinations.cpp:378
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "LPD-verkkotulostin DNS-SD:n kautta"
+
+#: add-printer/PageDestinations.cpp:380
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "AppSocket/JetDirect-verkkotulostin DNS-SD:n kautta"
+
+#. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
+#: add-printer/PageDestinations.ui:62
+#, kde-format
+msgid "Connections"
+msgstr "Yhteydet"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: add-printer/PageDestinations.ui:97
+#, kde-format
+msgid "Please choose an item on the list"
+msgstr "Valitse tietue luettelosta"
+
+#: configure-printer/ConfigureDialog.cpp:88
+#, kde-format
+msgid "Modify Printer"
+msgstr "Muuta tulostinta"
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#. i18n: ectx: property (text), widget (QPushButton, configurePB)
+#: configure-printer/ConfigureDialog.cpp:89
+#: print-manager-kded/NewPrinterNotification.cpp:240
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Asetukset"
+
+#: configure-printer/ConfigureDialog.cpp:99
+#, kde-format
+msgid "Printer Options"
+msgstr "Tulostimen asetukset"
+
+#: configure-printer/ConfigureDialog.cpp:100
+#, kde-format
+msgid "Set the Default Printer Options"
+msgstr "Aseta oletustulostusasetukset"
+
+#: configure-printer/ConfigureDialog.cpp:110
+#: configure-printer/ConfigureDialog.cpp:111
+#, kde-format
+msgid "Banners, Policies and Allowed Users"
+msgstr "Välilehdet, käytänteet ja sallitut käyttäjät"
+
+#: configure-printer/ConfigureDialog.cpp:184
+#, kde-format
+msgid ""
+"The current page has changes.\n"
+"Do you want to save them?"
+msgstr ""
+"Tällä sivulla on muutoksia.\n"
+"Haluatko tallentaa ne?"
+
+#: configure-printer/main.cpp:26
+#, kde-format
+msgid "Configure Printer"
+msgstr "Tulostimen asettaminen"
+
+#: configure-printer/main.cpp:28
+#, kde-format
+msgid "ConfigurePrinter"
+msgstr "Tulostimen asettaminen"
+
+#: configure-printer/main.cpp:39
+#, kde-format
+msgid "Printer to be configured"
+msgstr "Asetettava tulostin"
+
+#: configure-printer/ModifyPrinter.cpp:125
+#, kde-format
+msgid "Current - %1"
+msgstr "Nykyinen – %1"
+
+#: configure-printer/ModifyPrinter.cpp:128
+#, kde-format
+msgid "Select a custom driver"
+msgstr "Valitse oma ajuri"
+
+#: configure-printer/ModifyPrinter.cpp:227
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class"
+msgstr "Luokan määritys epäonnistui"
+
+#: configure-printer/ModifyPrinter.cpp:228
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer"
+msgstr "Tulostimen määritys epäonnistui"
+
+#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#, kde-format
+msgctxt "@title:window"
+msgid "Failed"
+msgstr "Epäonnistui"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#. i18n: ectx: property (text), widget (QLabel, nameL)
+#: configure-printer/ModifyPrinter.ui:25
+#: printer-manager-kcm/PrinterDescription.ui:234
+#, kde-format
+msgid "Name:"
+msgstr "Nimi:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: configure-printer/ModifyPrinter.ui:32
+#, kde-format
+msgid "Description:"
+msgstr "Kuvaus:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
+#: configure-printer/ModifyPrinter.ui:42
+#, kde-format
+msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
+msgstr "Ihmisen luettavissa oleva kuvaus, esim. ”HP LaserJet duplex-yksiköllä”"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: configure-printer/ModifyPrinter.ui:52
+#, kde-format
+msgid "Location:"
+msgstr "Sijainti:"
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
+#: configure-printer/ModifyPrinter.ui:62
+#, kde-format
+msgid "Human-readable location such as \"Lab 1\""
+msgstr "Ihmisen luettavissa oleva sijainti, esim. ”Labra 1”"
+
+#. i18n: ectx: property (text), widget (QLabel, connectionL)
+#: configure-printer/ModifyPrinter.ui:79
+#, kde-format
+msgid "Connection:"
+msgstr "Yhteys:"
+
+#. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
+#: configure-printer/ModifyPrinter.ui:103
+#, kde-format
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">Examples:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+"p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+"size:10pt;\">Esimerkkejä:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://konenimi:631/ipp/"
+"portti1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://konenimi/ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://konenimi/ipp/"
+"portti1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://konenimi/jono</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://konenimi</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://konenimi:9100</"
+"p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, membersL)
+#: configure-printer/ModifyPrinter.ui:113
+#, kde-format
+msgid "Members"
+msgstr "Jäsenet"
+
+#. i18n: ectx: property (text), widget (QLabel, driverL)
+#: configure-printer/ModifyPrinter.ui:126
+#, kde-format
+msgid "Driver:"
+msgstr "Ajuri:"
+
+#: configure-printer/PrinterBehavior.cpp:199
+#, kde-format
+msgid "Abort job"
+msgstr "Keskeytä työ"
+
+#: configure-printer/PrinterBehavior.cpp:201
+#, kde-format
+msgid "Retry current job"
+msgstr "Yritä uudelleen nykyistä työtä"
+
+#: configure-printer/PrinterBehavior.cpp:203
+#, kde-format
+msgid "Retry job"
+msgstr "Yritä uudelleen työtä"
+
+#: configure-printer/PrinterBehavior.cpp:205
+#, kde-format
+msgid "Stop printer"
+msgstr "Pysäytä tulostin"
+
+# konteksti - operation policy (?): Tämä tuntuu luontevimmalta käännökseltä
+#: configure-printer/PrinterBehavior.cpp:214
+#, kde-format
+msgid "Authenticated"
+msgstr "Todennettu"
+
+#: configure-printer/PrinterBehavior.cpp:216
+#, kde-format
+msgid "Default"
+msgstr "Oletus"
+
+#: configure-printer/PrinterBehavior.cpp:225
+#, kde-format
+msgid "None"
+msgstr "Ei mitään"
+
+#: configure-printer/PrinterBehavior.cpp:227
+#, kde-format
+msgid "Classified"
+msgstr "Luokiteltu"
+
+#: configure-printer/PrinterBehavior.cpp:229
+#, kde-format
+msgid "Confidential"
+msgstr "Luottamuksellinen"
+
+#: configure-printer/PrinterBehavior.cpp:231
+#, kde-format
+msgid "Secret"
+msgstr "Salainen"
+
+#: configure-printer/PrinterBehavior.cpp:233
+#, kde-format
+msgid "Standard"
+msgstr "Standardi"
+
+#: configure-printer/PrinterBehavior.cpp:235
+#, kde-format
+msgid "Topsecret"
+msgstr "Erittäin salainen"
+
+#: configure-printer/PrinterBehavior.cpp:237
+#, kde-format
+msgid "Unclassified"
+msgstr "Luokittamaton"
+
+#. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
+#: configure-printer/PrinterBehavior.ui:29
+#, kde-format
+msgid "Banners"
+msgstr "Välilehdet"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: configure-printer/PrinterBehavior.ui:35
+#, kde-format
+msgid "Starting Banner:"
+msgstr "Alkulehti:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: configure-printer/PrinterBehavior.ui:55
+#, kde-format
+msgid "Ending Banner:"
+msgstr "Loppulehti:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
+#: configure-printer/PrinterBehavior.ui:84
+#, kde-format
+msgid "Policies"
+msgstr "Käytänteet"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: configure-printer/PrinterBehavior.ui:90
+#, kde-format
+msgid "Operation Policy:"
+msgstr "Toimintakäytänne:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: configure-printer/PrinterBehavior.ui:103
+#, kde-format
+msgid "Error Policy:"
+msgstr "Virhekäytänne:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
+#: configure-printer/PrinterBehavior.ui:133
+#, kde-format
+msgid "Allowed Users"
+msgstr "Sallitut käyttäjät"
+
+#. i18n: ectx: property (text), widget (QRadioButton, preventRB)
+#: configure-printer/PrinterBehavior.ui:139
+#, kde-format
+msgid "Pre&vent these users from printing "
+msgstr "&Estä tulostus näiltä käyttäjiltä"
+
+#. i18n: ectx: property (text), widget (QRadioButton, allowRB)
+#: configure-printer/PrinterBehavior.ui:146
+#, kde-format
+msgid "A&llow these users to print"
+msgstr "&Salli näiden käyttäjien tulostaa"
+
+#: configure-printer/PrinterOptions.cpp:50
+#, kde-format
+msgid "Set Default Options"
+msgstr "Aseta oletusasetukset"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
+#: configure-printer/PrinterOptions.ui:26
+#, kde-format
+msgid "Query Printer for Default Options"
+msgstr "Kysy tulostimelta oletusasetukset"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: configure-printer/SelectMakeModelDialog.cpp:25
+#: libkcups/SelectMakeModel.ui:14
+#, kde-format
+msgid "Select a Driver"
+msgstr "Valitse ajuri"
+
+#: libkcups/JobModel.cpp:26
+#, kde-format
+msgid "Status"
+msgstr "Tila"
+
+#: libkcups/JobModel.cpp:27
+#, kde-format
+msgid "Name"
+msgstr "Nimi"
+
+#: libkcups/JobModel.cpp:28
+#, kde-format
+msgid "User"
+msgstr "Käyttäjä"
+
+#: libkcups/JobModel.cpp:29
+#, kde-format
+msgid "Created"
+msgstr "Luotu"
+
+#: libkcups/JobModel.cpp:30 libkcups/JobModel.cpp:604
+#, kde-format
+msgid "Completed"
+msgstr "Valmis"
+
+#: libkcups/JobModel.cpp:31
+#, kde-format
+msgid "Pages"
+msgstr "Sivuja"
+
+#: libkcups/JobModel.cpp:32
+#, kde-format
+msgid "Processed"
+msgstr "Käsitelty"
+
+#: libkcups/JobModel.cpp:33
+#, kde-format
+msgid "Size"
+msgstr "Koko"
+
+#: libkcups/JobModel.cpp:34
+#, kde-format
+msgid "Status Message"
+msgstr "Tilaviesti"
+
+#: libkcups/JobModel.cpp:35
+#, kde-format
+msgid "Printer"
+msgstr "Tulostin"
+
+#: libkcups/JobModel.cpp:36
+#, kde-format
+msgid "From Hostname"
+msgstr "Koneelta"
+
+# %1 on ilmeisesti työn nimi ja %2 se tulostin, jolle sitä oltiin siirtämässä
+#: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
+#, kde-format
+msgid "Failed to move '%1' to '%2'"
+msgstr "Työtä ”%1” ei saatu siirrettyä tulostimelle ”%2”"
+
+#: libkcups/JobModel.cpp:521 printqueue/PrintQueueUi.cpp:496
+#, kde-format
+msgid "Failed"
+msgstr "Epäonnistui"
+
+#: libkcups/JobModel.cpp:598
+#, kde-format
+msgid "Pending"
+msgstr "Odottaa"
+
+#: libkcups/JobModel.cpp:599
+#, kde-format
+msgid "On hold"
+msgstr "Pidossa"
+
+#: libkcups/JobModel.cpp:601
+#, kde-format
+msgid "Stopped"
+msgstr "Pysäytetty"
+
+#: libkcups/JobModel.cpp:602
+#, kde-format
+msgid "Canceled"
+msgstr "Peruutettu"
+
+#: libkcups/JobModel.cpp:603
+#, kde-format
+msgid "Aborted"
+msgstr "Keskeytetty"
+
+#: libkcups/KCupsConnection.cpp:860
+#, kde-format
+msgid "A CUPS connection requires authentication: \"%1\""
+msgstr "CUPS-komento vaatii tunnistautumisen: ”%1”"
+
+#: libkcups/KCupsPasswordDialog.cpp:22
+#, kde-format
+msgid "Enter an username and a password to complete the task"
+msgstr "Viimeistele syöttämällä käyttäjätunnus ja salasana"
+
+#: libkcups/KCupsPasswordDialog.cpp:44
+#, kde-format
+msgid "Wrong username or password"
+msgstr "Käyttäjätunnus tai salasana väärin"
+
+#: libkcups/KCupsRequest.cpp:32
+#, kde-format
+msgid "Print service is unavailable"
+msgstr "Tulostuspalvelu ei ole käytettävissä"
+
+#: libkcups/KCupsRequest.cpp:34
+#, kde-format
+msgid "Not found"
+msgstr "Ei löytynyt"
+
+#: libkcups/KCupsRequest.cpp:401
+#, kde-format
+msgid "Test Page"
+msgstr "Testisivu"
+
+#: libkcups/KCupsRequest.cpp:433
+#, kde-format
+msgid "Unable to send command to printer driver!"
+msgstr "Komentoa ei voitu lähettää tulostinajurille!"
+
+#: libkcups/KCupsRequest.cpp:567
+#, kde-format
+msgid "Failed to invoke method: %1"
+msgstr "Menetelmän kutsu epäonnistui: %1"
+
+#: libkcups/PPDModel.cpp:32
+#, kde-format
+msgid "Recommended Drivers"
+msgstr "Suositellut ajurit"
+
+#: libkcups/PrinterModel.cpp:163
+#, kde-format
+msgid "Printers"
+msgstr "Tulostimet"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle"
+msgstr "Jouten"
+
+#: libkcups/PrinterModel.cpp:366
+#, kde-format
+msgid "Idle, rejecting jobs"
+msgstr "Jouten, hylkää tulostustyöt"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle - '%1'"
+msgstr "Jouten – ”%1”"
+
+#: libkcups/PrinterModel.cpp:368
+#, kde-format
+msgid "Idle, rejecting jobs - '%1'"
+msgstr "Jouten, hylkää tulostustyöt – ”%1”"
+
+#: libkcups/PrinterModel.cpp:372
+#, kde-format
+msgid "In use"
+msgstr "Käytössä"
+
+#: libkcups/PrinterModel.cpp:374
+#, kde-format
+msgid "In use - '%1'"
+msgstr "Käytössä – ”%1”"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused"
+msgstr "Keskeytetty"
+
+#: libkcups/PrinterModel.cpp:378
+#, kde-format
+msgid "Paused, rejecting jobs"
+msgstr "Keskeytetty, hylkää tulostustyöt"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused - '%1'"
+msgstr "Keskeytetty – ”%1”"
+
+#: libkcups/PrinterModel.cpp:380
+#, kde-format
+msgid "Paused, rejecting jobs - '%1'"
+msgstr "Keskeytetty, hylkää tulostustyöt – ”%1”"
+
+#: libkcups/PrinterModel.cpp:384
+#, kde-format
+msgid "Unknown"
+msgstr "Tuntematon"
+
+#: libkcups/PrinterModel.cpp:386
+#, kde-format
+msgid "Unknown - '%1'"
+msgstr "Tuntematon - \"%1\""
+
+#: libkcups/SelectMakeModel.cpp:138
+#, kde-format
+msgid "Failed to get a list of drivers: '%1'"
+msgstr "Ei saatu noudettua ajuriluetteloa: ”%1”"
+
+#: libkcups/SelectMakeModel.cpp:228
+#, kde-format
+msgid "Failed to search for a recommended driver: '%1'"
+msgstr "Ei saatu noudettua suositusajuria: ”%1”"
+
+#. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
+#: libkcups/SelectMakeModel.ui:44
+#, kde-format
+msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
+msgstr "*.ppd *.ppd.gz|PostScript-tulostinkuvaustiedostot"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#: libkcups/SelectMakeModel.ui:82
+#, kde-format
+msgid "Choose &the driver from the list"
+msgstr "&Valitse ajuri luettelosta"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
+#: libkcups/SelectMakeModel.ui:94
+#, kde-format
+msgid "Ma&nually Provide a PPD File:"
+msgstr "A&nna itse PPD-tiedosto:"
+
+#: print-manager-kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "Havaittiin uusi tulostin"
+
+#: print-manager-kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "Asetetaan uutta tulostinta…"
+
+#: print-manager-kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "Lisättiin uusi tulostin"
+
+#: print-manager-kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "Uudelta tulostimelta puuttuu ajuri"
+
+#: print-manager-kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "Tulostinajuri puuttuu"
+
+#: print-manager-kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "Ei tulostinajuria laitteelle %1 %2."
+
+#: print-manager-kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "Ei tulostinajuria laitteelle %1."
+
+#: print-manager-kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "Tälle tulostimelle ei ole ajuria."
+
+#: print-manager-kded/NewPrinterNotification.cpp:173
+#, kde-format
+msgid "Search"
+msgstr "Etsi"
+
+#: print-manager-kded/NewPrinterNotification.cpp:239
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "”%1” on lisätty, tarkista sen ajuri."
+
+#: print-manager-kded/NewPrinterNotification.cpp:243
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "”%1” on lisätty (käyttää ajuria ”%2”)."
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#: print-manager-kded/NewPrinterNotification.cpp:256
+#, kde-format
+msgid "Print test page"
+msgstr "Tulosta testisivu"
+
+#: print-manager-kded/NewPrinterNotification.cpp:244
+#, kde-format
+msgid "Find driver"
+msgstr "Etsi ajuria"
+
+#: print-manager-kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "”%1” on valmis tulostamaan."
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this class"
+msgstr "Jaa tämä luokka"
+
+#: printer-manager-kcm/PrinterDescription.cpp:99
+#, kde-format
+msgid "Share this printer"
+msgstr "Jaa tämä tulostin"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:220
+#: printer-manager-kcm/PrinterDescription.ui:293
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Puhdista tulostuspäät"
+
+#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.cpp:229
+#: printer-manager-kcm/PrinterDescription.ui:301
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Tulosta itsetestaussivu"
+
+#: printer-manager-kcm/PrinterDescription.cpp:235
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Pyynnön toteuttaminen epäonnistui: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, printerNameL)
+#: printer-manager-kcm/PrinterDescription.ui:83
+#, kde-format
+msgctxt "@title"
+msgid "Printer name or description"
+msgstr "Tulostimen nimi tai kuvaus"
+
+#. i18n: ectx: property (text), widget (QLabel, statusL)
+#: printer-manager-kcm/PrinterDescription.ui:102
+#, kde-format
+msgid "Current status"
+msgstr "Nykyinen tila"
+
+#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
+#: printer-manager-kcm/PrinterDescription.ui:109
+#, kde-format
+msgctxt "@option:check"
+msgid "Default printer"
+msgstr "Oletustulostin"
+
+#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
+#: printer-manager-kcm/PrinterDescription.ui:126
+#, kde-format
+msgid "Reject print jobs"
+msgstr "Hylkää tulostustyöt"
+
+#. i18n: ectx: property (text), widget (QLabel, locationL)
+#: printer-manager-kcm/PrinterDescription.ui:135
+#, kde-format
+msgctxt "@label location of printer"
+msgid "Location:"
+msgstr "Sijainti:"
+
+#. i18n: ectx: property (text), widget (QLabel, kindL)
+#: printer-manager-kcm/PrinterDescription.ui:164
+#, kde-format
+msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
+msgid "Kind:"
+msgstr "Laji:"
+
+#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
+#: printer-manager-kcm/PrinterDescription.ui:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Maintenance"
+msgstr "Ylläpito"
+
+#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
+#: printer-manager-kcm/PrinterDescription.ui:225
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Print Queue"
+msgstr "Avaa tulostusjono"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:288
+#, kde-format
+msgid "Print Test Page"
+msgstr "Tulosta testisivu"
+
+#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
+#: printer-manager-kcm/PrinterDescription.ui:298
+#, kde-format
+msgid "Print Self Test Page"
+msgstr "Tulosta itsetestaussivu"
+
+#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
+#, kde-format
+msgid "Print settings"
+msgstr "Tulostusasetukset"
+
+#: printer-manager-kcm/PrintKCM.cpp:56
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Add a Printer Class"
+msgstr "Lisää uusi tulostinluokka"
+
+#: printer-manager-kcm/PrintKCM.cpp:59
+#, kde-format
+msgid "Add a new printer or a printer class"
+msgstr "Lisää uusi tulostin tai tulostinluokka"
+
+#. i18n: ectx: property (text), widget (QToolButton, removeTB)
+#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#, kde-format
+msgid "Remove Printer"
+msgstr "Poista tulostin"
+
+#: printer-manager-kcm/PrintKCM.cpp:68
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Show printers shared by other systems"
+msgstr "Näytä muiden järjestelmien jakamat tulostimet"
+
+#: printer-manager-kcm/PrintKCM.cpp:72
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Share printers connected to this system"
+msgstr "Jaa tähän järjestelmään kytkettyjä tulostimia"
+
+#: printer-manager-kcm/PrintKCM.cpp:74
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow printing from the Internet"
+msgstr "Salli tulostus internetin kautta"
+
+#: printer-manager-kcm/PrintKCM.cpp:80
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow remote administration"
+msgstr "Salli etähallinta"
+
+#: printer-manager-kcm/PrintKCM.cpp:82
+#, kde-format
+msgctxt "@action:intoolbar"
+msgid "Allow users to cancel any job (not just their own)"
+msgstr "Salli käyttäjien perua mikä tahansa työ (ei vain omiaan)"
+
+#: printer-manager-kcm/PrintKCM.cpp:86
+#, kde-format
+msgid "Configure the global preferences"
+msgstr "Aseta järjestelmänlaajuiset asetukset"
+
+#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#, kde-format
+msgid "No printers have been configured or discovered"
+msgstr "Tulostimia ei ole havaittu tai määritetty"
+
+#: printer-manager-kcm/PrintKCM.cpp:262
+#, kde-format
+msgid "Remove class"
+msgstr "Poista luokka"
+
+#: printer-manager-kcm/PrintKCM.cpp:263
+#, kde-format
+msgid "Are you sure you want to remove the class '%1'?"
+msgstr "Haluatko varmasti poistaa luokan ”%1”?"
+
+#: printer-manager-kcm/PrintKCM.cpp:266
+#, kde-format
+msgid "Remove printer"
+msgstr "Poista tulostin"
+
+#: printer-manager-kcm/PrintKCM.cpp:267
+#, kde-format
+msgid "Are you sure you want to remove the printer '%1'?"
+msgstr "Haluatko varmasti poistaa tulostimen ”%1”?"
+
+#: printer-manager-kcm/PrintKCM.cpp:309
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "Palvelinasetusten nouto epäonnistui"
+
+#: printer-manager-kcm/PrintKCM.cpp:340
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "Palvelinasetusten määritys epäonnistui"
+
+#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
+#: printer-manager-kcm/PrintKCM.ui:52
+#, kde-format
+msgid "System Preferences"
+msgstr "Järjestelmäasetukset"
+
+#. i18n: ectx: property (text), widget (QLabel, errorComment)
+#: printer-manager-kcm/PrintKCM.ui:196
+#, kde-format
+msgid "TextLabel"
+msgstr "Tekstinimiö"
+
+#. i18n: ectx: property (text), widget (QLabel, errorText)
+#: printer-manager-kcm/PrintKCM.ui:206
+#, kde-format
+msgid "Error Title"
+msgstr "Virheen otsikko"
+
+#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
+#: printer-manager-kcm/PrintKCM.ui:231
+#, kde-format
+msgid "Click here to add a new printer"
+msgstr "Lisää uusi tulostin napsauttamalla tästä"
+
+#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#, kde-format
+msgid "Print Queue"
+msgstr "Tulostusjono"
+
+#: printqueue/main.cpp:39
+#, kde-format
+msgid "Show printer queue(s)"
+msgstr "Näytä tulostinjonot"
+
+#: printqueue/PrintQueueUi.cpp:195
+#, kde-format
+msgid "Printer ready"
+msgstr "Tulostin valmiina"
+
+#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
+#: printqueue/PrintQueueUi.cpp:196 printqueue/PrintQueueUi.cpp:207
+#: printqueue/PrintQueueUi.ui:118
+#, kde-format
+msgid "Pause Printer"
+msgstr "Keskeytä tulostus"
+
+#: printqueue/PrintQueueUi.cpp:203
+#, kde-format
+msgid "Printing..."
+msgstr "Tulostetaan…"
+
+#: printqueue/PrintQueueUi.cpp:205
+#, kde-format
+msgid "Printing '%1'"
+msgstr "Tulostetaan ”%1”"
+
+#: printqueue/PrintQueueUi.cpp:213
+#, kde-format
+msgid "Printer paused"
+msgstr "Tulostus keskeytetty"
+
+#: printqueue/PrintQueueUi.cpp:214
+#, kde-format
+msgid "Resume Printer"
+msgstr "Jatka tulostusta"
+
+#: printqueue/PrintQueueUi.cpp:218
+#, kde-format
+msgid "Printer state unknown"
+msgstr "Tulostimen tila tuntematon"
+
+#: printqueue/PrintQueueUi.cpp:263
+#, kde-format
+msgid "Move to"
+msgstr "Siirrä kohteeseen"
+
+# konteksti - operation policy (?): Tämä tuntuu luontevimmalta käännökseltä
+#: printqueue/PrintQueueUi.cpp:294
+#, kde-format
+msgid "Authenticate"
+msgstr "Todenna"
+
+#: printqueue/PrintQueueUi.cpp:404
+#, kde-format
+msgid "All Printers (%1 Job)"
+msgid_plural "All Printers (%1 Jobs)"
+msgstr[0] "Kaikki tulostimet (%1 työ)"
+msgstr[1] "Kaikki tulostimet (%1 työtä)"
+
+#: printqueue/PrintQueueUi.cpp:406
+#, kde-format
+msgid "%2 (%1 Job)"
+msgid_plural "%2 (%1 Jobs)"
+msgstr[0] "%2 (%1 työ)"
+msgstr[1] "%2 (%1 työtä)"
+
+#: printqueue/PrintQueueUi.cpp:409
+#, kde-format
+msgid "All Printers"
+msgstr "Kaikki tulostimet"
+
+#: printqueue/PrintQueueUi.cpp:478
+#, kde-format
+msgid "Failed to cancel '%1'"
+msgstr "Peruminen epäonnistui: ”%1”"
+
+#: printqueue/PrintQueueUi.cpp:481
+#, kde-format
+msgid "Failed to hold '%1'"
+msgstr "Pito epäonnistui: ”%1”"
+
+#: printqueue/PrintQueueUi.cpp:484
+#, kde-format
+msgid "Failed to release '%1'"
+msgstr "Vapautus epäonnistui: ”%1”"
+
+#: printqueue/PrintQueueUi.cpp:487
+#, kde-format
+msgid "Failed to reprint '%1'"
+msgstr "Tulostaminen uudelleen epäonnistui: ”%1”"
+
+#: printqueue/PrintQueueUi.cpp:561
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Anna tulostuksen tunnistautumistiedot: <b>%1</b>"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
+#: printqueue/PrintQueueUi.ui:20
+#, kde-format
+msgid "my printer (x jobs)"
+msgstr "minun tulostimeni (x työtä)"
+
+#. i18n: ectx: property (text), widget (QLabel, iconL)
+#: printqueue/PrintQueueUi.ui:49
+#, kde-format
+msgid "Printer Icon"
+msgstr "Tulostimen kuvake"
+
+#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
+#: printqueue/PrintQueueUi.ui:233
+#, kde-format
+msgid "Cancel"
+msgstr "Peru"
+
+#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
+#: printqueue/PrintQueueUi.ui:253
+#, kde-format
+msgid "Hold"
+msgstr "Pidä"
+
+#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
+#: printqueue/PrintQueueUi.ui:266
+#, kde-format
+msgid "Resume"
+msgstr "Jatka"
+
+#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
+#: printqueue/PrintQueueUi.ui:279
+#, kde-format
+msgid "Reprint"
+msgstr "Tulosta uudelleen"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:312
+#, kde-format
+msgid "Active Jobs"
+msgstr "Aktiiviset työt"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:317
+#, kde-format
+msgid "Completed Jobs"
+msgstr "Valmiit työt"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: printqueue/PrintQueueUi.ui:322
+#, kde-format
+msgid "All Jobs"
+msgstr "Kaikki työt"
+
+#~ msgid "Daniel Nicoletti"
+#~ msgstr "Daniel Nicoletti"
+
+# Tulostimen lisäämisohjelman nimi
+#~ msgid "AddPrinter"
+#~ msgstr "Tulostimen lisääminen"
+
+#~ msgid "Configure printer"
+#~ msgstr "Aseta tulostin"
+
+#~ msgid "Only show jobs from the following printers:"
+#~ msgstr "Näytä vain seuraavien tulostimien työt:"
+
+#~ msgid "All jobs"
+#~ msgstr "Kaikki työt"
+
+#~ msgid "Completed jobs only"
+#~ msgstr "Vain valmiit työt"
+
+#~ msgid "Active jobs only"
+#~ msgstr "Vain aktiiviset työt"
+
+#~ msgid "A short binary option"
+#~ msgstr "Lyhyt binaarivalinta"
+
+#~ msgid "Show all jobs"
+#~ msgstr "Näytä kaikki työt"
+
+#~ msgid "Show only active jobs"
+#~ msgstr "Näytä vain aktiiviset työt"
+
+#~ msgid "Show only completed jobs"
+#~ msgstr "Näytä vain valmiit työt"
+
+#~ msgid "Print queue is empty"
+#~ msgstr "Tulostusjono on tyhjä"
+
+#~ msgid "There is one print job in the queue"
+#~ msgid_plural "There are %1 print jobs in the queue"
+#~ msgstr[0] "Jonossa on yksi tulostustyö"
+#~ msgstr[1] "Jonossa on %1 tulostustyötä"
+
+#~ msgid "Behavior"
+#~ msgstr "Toiminta"
+
+#~ msgid "All printers"
+#~ msgstr "Kaikki tulostimet"
+
+#~ msgid "Only Jobs from Printer:"
+#~ msgstr "Työt vain tulostimelta:"

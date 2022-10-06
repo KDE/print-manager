@@ -20,8 +20,6 @@
 
 ClassListWidget::ClassListWidget(QWidget *parent) : QListView(parent)
 {
-    KConfigDialogManager::changedMap()->insert(QLatin1String("ClassListWidget"), SIGNAL(changed(QString)));
-
     m_model = new QStandardItemModel(this);
     setModel(m_model);
     setItemDelegate(new NoSelectionRectDelegate(this));

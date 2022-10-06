@@ -17,7 +17,7 @@ class KCupsRequest;
 class Q_DECL_EXPORT ClassListWidget : public QListView
 {
     Q_OBJECT
-    Q_PROPERTY(QString selectedPrinters READ selectedPrinters WRITE setSelectedPrinters USER true)
+    Q_PROPERTY(QString selectedPrinters READ selectedPrinters WRITE setSelectedPrinters NOTIFY changed USER true)
     Q_PROPERTY(bool showClasses READ showClasses WRITE setShowClasses)
 public:
     explicit ClassListWidget(QWidget *parent = nullptr);

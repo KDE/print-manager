@@ -305,7 +305,7 @@ void PrintKCM::getServerSettingsFinished(KCupsRequest *request)
 
     if (error) {
         if (request->property("interactive").toBool()) {
-            KMessageBox::detailedSorry(this,
+            KMessageBox::detailedError(this,
                                        i18nc("@info", "Failed to get server settings"),
                                        request->errorMsg(),
                                        i18nc("@title:window", "Failed"));
@@ -336,7 +336,7 @@ void PrintKCM::updateServerFinished(KCupsRequest *request)
             // Server is restarting, or auth was canceled, update the settings in one second
             QTimer::singleShot(1000, this, &PrintKCM::update);
         } else {
-            KMessageBox::detailedSorry(this,
+            KMessageBox::detailedError(this,
                                        i18nc("@info", "Failed to configure server settings"),
                                        request->errorMsg(),
                                        request->serverError());

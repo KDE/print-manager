@@ -223,7 +223,7 @@ void ModifyPrinter::save()
                     setValues(printer);
                 }
             } else {
-                KMessageBox::detailedSorry(this,
+                KMessageBox::detailedError(this,
                                            m_isClass ? i18nc("@info", "Failed to configure class") :
                                                        i18nc("@info", "Failed to configure printer"),
                                            request->errorMsg(),

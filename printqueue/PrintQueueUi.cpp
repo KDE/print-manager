@@ -490,7 +490,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
                     msg = i18n("Failed to move '%1' to '%2'", jobName, destName);
                     break;
                 }
-                KMessageBox::detailedSorry(this,
+                KMessageBox::detailedError(this,
                                            msg,
                                            request->errorMsg(),
                                            i18n("Failed"));

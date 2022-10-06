@@ -514,7 +514,7 @@ bool JobModel::dropMimeData(const QMimeData *data,
             if (request->hasError()) {
                 // failed to move one job
                 // we return here to avoid more password tries
-                KMessageBox::detailedSorryWId(m_parentId,
+                KMessageBox::detailedErrorWId(m_parentId,
                                               i18n("Failed to move '%1' to '%2'",
                                                    displayName, m_destName),
                                               request->errorMsg(),

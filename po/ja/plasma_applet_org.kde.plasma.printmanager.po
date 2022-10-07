@@ -94,6 +94,3 @@ msgstr "アクティブなジョブなし"
 #: plasmoid/package/contents/ui/printmanager.qml:149
 msgid "&Configure Printers..."
 msgstr "プリンタを設定(&C)..."
-
-#~ msgid "Search for a printer..."
-#~ msgstr "プリンタを検索..."

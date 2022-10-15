@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-05-16 00:48+0000\n"
-"PO-Revision-Date: 2022-09-21 09:56+0000\n"
+"PO-Revision-Date: 2022-10-14 11:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -239,6 +239,28 @@ msgid ""
 "</TR>\n"
 "</TABLE>"
 msgstr ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Dæmi:\n"
+"<PRE>\n"
+"    http://hostname:631/ipp/\n"
+"    http://hostname:631/ipp/port1\n"
+"\n"
+"    ipp://hostname/ipp/\n"
+"    ipp://hostname/ipp/port1\n"
+"\n"
+"    lpd://hostname/queue\n"
+"\n"
+"    socket://hostname\n"
+"    socket://hostname:9100\n"
+"</PRE>\n"
+"\n"
+"<P>Skoðaðu <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
+"\">\"Network\n"
+"Printers\"</A> til að finna rétta URI-slóð fyrir prentarann þinn.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
 
 #: add-printer/DevicesModel.cpp:39
 #, kde-format
@@ -347,7 +369,7 @@ msgstr "Aðlögun að Qt 5 / Plasma 5"
 #: add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
-msgstr ""
+msgstr "Auðkenni yfirglugga"
 
 #: add-printer/main.cpp:44
 #, kde-format
@@ -362,24 +384,24 @@ msgstr "Bæta við nýjum flokki prentara"
 #: add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
-msgstr ""
+msgstr "Breytir PPD-skrá prentarans"
 
 #: add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
-msgstr ""
+msgstr "Breytir PPD-skrá prentarans/tækisauðkennis"
 
 #: add-printer/PageAddPrinter.cpp:122
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr ""
+msgstr "Mistókst að bæta við flokki: '%1'"
 
 #: add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr ""
+msgstr "Mistókst að stilla prentara: '%1'"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/PageAddPrinter.ui:31
@@ -392,7 +414,7 @@ msgstr "Heiti:"
 #: add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr ""
+msgstr "Má innihalda alla prentanlega stafi nema \"/\", \"#\", og bilstafi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/PageAddPrinter.ui:45
@@ -467,12 +489,12 @@ msgstr "Fjartengdur CUPS-prentari í gegnum DNS-SD"
 #: add-printer/PageDestinations.cpp:226 add-printer/PageDestinations.cpp:382
 #, kde-format
 msgid "Network printer via DNS-SD"
-msgstr ""
+msgstr "Netprentari í gegnum DNS-SD"
 
 #: add-printer/PageDestinations.cpp:228
 #, kde-format
 msgid "%1 network printer via DNS-SD"
-msgstr ""
+msgstr "%1 netprentari í gegnum DNS-SD"
 
 #: add-printer/PageDestinations.cpp:333
 #, kde-format
@@ -497,7 +519,7 @@ msgstr "Bluetooth"
 #: add-printer/PageDestinations.cpp:341
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr ""
+msgstr "Fax - HP Linux Imaging and Printing (HPLIP)"
 
 #: add-printer/PageDestinations.cpp:343
 #, kde-format
@@ -547,17 +569,17 @@ msgstr "HTTP"
 #: add-printer/PageDestinations.cpp:376
 #, kde-format
 msgid "IPP network printer via DNS-SD"
-msgstr ""
+msgstr "IPP-netprentari í gegnum DNS-SD"
 
 #: add-printer/PageDestinations.cpp:378
 #, kde-format
 msgid "LPD network printer via DNS-SD"
-msgstr ""
+msgstr "LPD-netprentari í gegnum DNS-SD"
 
 #: add-printer/PageDestinations.cpp:380
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr ""
+msgstr "AppSocket/JetDirect netprentari í gegnum DNS-SD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
 #: add-printer/PageDestinations.ui:62
@@ -569,7 +591,7 @@ msgstr "Tengingar"
 #: add-printer/PageDestinations.ui:97
 #, kde-format
 msgid "Please choose an item on the list"
-msgstr ""
+msgstr "Veldu atriði á listanum"
 
 #: configure-printer/ConfigureDialog.cpp:88
 #, kde-format
@@ -594,13 +616,13 @@ msgstr "Valkostir prentara"
 #: configure-printer/ConfigureDialog.cpp:100
 #, kde-format
 msgid "Set the Default Printer Options"
-msgstr ""
+msgstr "Stilla sjálfgefna valkosti prentarans"
 
 #: configure-printer/ConfigureDialog.cpp:110
 #: configure-printer/ConfigureDialog.cpp:111
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
-msgstr ""
+msgstr "Borðar, stefnur og leyfðir notendur"
 
 #: configure-printer/ConfigureDialog.cpp:184
 #, kde-format
@@ -608,6 +630,8 @@ msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr ""
+"Núverandi síðu hefur verið breytt.\n"
+"Viltu vista breytingarnar?"
 
 #: configure-printer/main.cpp:26
 #, kde-format
@@ -617,7 +641,7 @@ msgstr "Stilla prentara"
 #: configure-printer/main.cpp:28
 #, kde-format
 msgid "ConfigurePrinter"
-msgstr ""
+msgstr "Stilla prentara"
 
 #: configure-printer/main.cpp:39
 #, kde-format
@@ -881,7 +905,7 @@ msgstr "Stefna fyrir aðgerðir:"
 #: configure-printer/PrinterBehavior.ui:103
 #, kde-format
 msgid "Error Policy:"
-msgstr ""
+msgstr "Stefna varðandi villur:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
 #: configure-printer/PrinterBehavior.ui:133
@@ -893,13 +917,13 @@ msgstr "Leyfðir notendur"
 #: configure-printer/PrinterBehavior.ui:139
 #, kde-format
 msgid "Pre&vent these users from printing "
-msgstr ""
+msgstr "Koma í &veg fyrir að þessir notendur prenti"
 
 #. i18n: ectx: property (text), widget (QRadioButton, allowRB)
 #: configure-printer/PrinterBehavior.ui:146
 #, kde-format
 msgid "A&llow these users to print"
-msgstr ""
+msgstr "&Leyfa þessum notendum að prenta"
 
 #: configure-printer/PrinterOptions.cpp:50
 #, kde-format
@@ -910,7 +934,7 @@ msgstr "Stilla sjálfgefna valkosti"
 #: configure-printer/PrinterOptions.ui:26
 #, kde-format
 msgid "Query Printer for Default Options"
-msgstr ""
+msgstr "Spyrja prentara um sjálfgefna valkosti"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
 #: configure-printer/SelectMakeModelDialog.cpp:25
@@ -972,7 +996,7 @@ msgstr "Prentari"
 #: libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
-msgstr ""
+msgstr "Úr heiti hýsilvélar"
 
 #: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
 #, kde-format
@@ -1012,7 +1036,7 @@ msgstr "Hætt við"
 #: libkcups/KCupsConnection.cpp:860
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr ""
+msgstr "CUPS-tenging krefst auðkenningar: \"%1\""
 
 #: libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
@@ -1122,12 +1146,12 @@ msgstr "Óþekkt - '%1'"
 #: libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
-msgstr ""
+msgstr "Gat ekki náð í lista yfir rekla: '%1'"
 
 #: libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
-msgstr ""
+msgstr "Tókst ekki að leita að rekli sem mælt er með: '%1'"
 
 #. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
 #: libkcups/SelectMakeModel.ui:44
@@ -1180,7 +1204,7 @@ msgstr "Enginn prentrekill fyrir %1 %2."
 #: print-manager-kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "No printer driver for %1."
-msgstr ""
+msgstr "Enginn prentrekill fyrir %1."
 
 #: print-manager-kded/NewPrinterNotification.cpp:170
 #, kde-format
@@ -1245,7 +1269,7 @@ msgstr "Prenta innbyggða prufusíðu"
 #: printer-manager-kcm/PrinterDescription.cpp:235
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr ""
+msgstr "Mistókst að framkvæma beiðni: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, printerNameL)
 #: printer-manager-kcm/PrinterDescription.ui:83
@@ -1368,22 +1392,22 @@ msgstr "Leyfa notendum að hætta hvaða verki sem er (ekki bara þeirra eigin)"
 #: printer-manager-kcm/PrintKCM.cpp:86
 #, kde-format
 msgid "Configure the global preferences"
-msgstr ""
+msgstr "Sýsla með víðværar kjörstillingar"
 
 #: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
 #, kde-format
 msgid "No printers have been configured or discovered"
-msgstr ""
+msgstr "Engir prentarar hafa verið stilltir eða fundist"
 
 #: printer-manager-kcm/PrintKCM.cpp:262
 #, kde-format
 msgid "Remove class"
-msgstr ""
+msgstr "Fjarlægja flokk"
 
 #: printer-manager-kcm/PrintKCM.cpp:263
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir fjarlægja flokkinn '%1'?"
 
 #: printer-manager-kcm/PrintKCM.cpp:266
 #, kde-format
@@ -1393,19 +1417,19 @@ msgstr "Fjarlægja prentara"
 #: printer-manager-kcm/PrintKCM.cpp:267
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
-msgstr ""
+msgstr "Ertu viss um að þú viljir fjarlægja prentarann '%1'?"
 
 #: printer-manager-kcm/PrintKCM.cpp:309
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
-msgstr ""
+msgstr "Mistókst að ná í stillingar prentþjóns"
 
 #: printer-manager-kcm/PrintKCM.cpp:340
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
-msgstr ""
+msgstr "Mistókst að stilla prentþjón"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
 #: printer-manager-kcm/PrintKCM.ui:52
@@ -1423,7 +1447,7 @@ msgstr "Textamerking"
 #: printer-manager-kcm/PrintKCM.ui:206
 #, kde-format
 msgid "Error Title"
-msgstr ""
+msgstr "Titill villu"
 
 #. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
 #: printer-manager-kcm/PrintKCM.ui:231
@@ -1439,7 +1463,7 @@ msgstr "Prentröð"
 #: printqueue/main.cpp:39
 #, kde-format
 msgid "Show printer queue(s)"
-msgstr ""
+msgstr "Sýna prentröð (prentraðir)"
 
 #: printqueue/PrintQueueUi.cpp:195
 #, kde-format
@@ -1515,12 +1539,12 @@ msgstr "Mistókst að hætta við '%1'"
 #: printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr ""
+msgstr "Mistókst að halda '%1'"
 
 #: printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr ""
+msgstr "Mistókst að sleppa '%1'"
 
 #: printqueue/PrintQueueUi.cpp:487
 #, kde-format

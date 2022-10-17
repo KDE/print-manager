@@ -45,7 +45,7 @@ msgstr "Afig una impressora nova"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
-msgstr "Seleccioneu la impressora a afegir"
+msgstr "Seleccioneu la impressora que s'ha d'afegir"
 
 #: add-printer/AddPrinterAssistant.cpp:73
 #: add-printer/AddPrinterAssistant.cpp:80
@@ -260,8 +260,8 @@ msgstr ""
 "</PRE>\n"
 "\n"
 "<P>Vegeu <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-"\">«Network Printers»</A> per a trobar l'URI correcte a utilitzar amb la "
-"impressora.</P>\n"
+"\">«Network Printers»</A> per a trobar l'URI correcte que s'utilitzarà amb "
+"la impressora.</P>\n"
 "</TD>\n"
 "</TR>\n"
 "</TABLE>"

@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Print Queue
 Name[ar]=صفّ الطّباعة
-Name[ast]=Cola d'imprentación
 Name[az]=Çap növbəsi
 Name[be]=Чарга друку
 Name[bg]=Опашка за печат
@@ -49,7 +48,6 @@ Name[zh_CN]=打印队列
 Name[zh_TW]=列印佇列
 Comment=View the print jobs
 Comment[ar]=اعرض مهامّ الطّباعة
-Comment[ast]=Visualiza los trabayos d'imprentación
 Comment[az]=Çap tapşırıqlarına baxmaq
 Comment[be]=Прагляд задач друку
 Comment[bg]=Преглед на заданията за печат

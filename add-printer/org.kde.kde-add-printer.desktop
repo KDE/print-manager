@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Add Printer
 Name[ar]=أضف طابعة
-Name[ast]=Amestar una imprentadora
 Name[az]=Printer əlavə edin
 Name[be]=Дадаць прынтар
 Name[bg]=Добавяне на принтер
@@ -50,7 +49,6 @@ Name[zh_CN]=添加打印机
 Name[zh_TW]=新增印表機
 Comment=Tool for adding new printers
 Comment[ar]=أداة لإضافة طابعات جديدة
-Comment[ast]=Una ferramienta p'amestar imprentadores nueves
 Comment[az]=Əlavə edilmiş yeni printerlər üç. alətlər
 Comment[be]=Інструмент для дадання новых прынтараў
 Comment[bg]=Инструмент за добавяне на нови принтери

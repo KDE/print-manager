@@ -656,7 +656,7 @@ msgstr "ConfiguracióImpressora"
 #: configure-printer/main.cpp:39
 #, kde-format
 msgid "Printer to be configured"
-msgstr "Impressora a configurar"
+msgstr "Impressora que s'ha de configurar"
 
 #: configure-printer/ModifyPrinter.cpp:125
 #, kde-format

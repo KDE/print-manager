@@ -40,8 +40,7 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
     connect(ui->descriptionLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
     connect(ui->locationLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
     connect(ui->connectionLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
-    connect(ui->membersLV, static_cast<void(ClassListWidget::*)(bool)>(&ClassListWidget::changed),
-            this, &ModifyPrinter::modelChanged);
+    connect(ui->membersLV, &ClassListWidget::changed, this, &ModifyPrinter::modelChanged);
 }
 
 ModifyPrinter::~ModifyPrinter()

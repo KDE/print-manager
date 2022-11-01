@@ -38,8 +38,7 @@ PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent
     painter.drawPixmap(startPoint, preferencesIcon);
     ui->printerL->setPixmap(printerIcon);
 
-    connect(ui->membersLV, static_cast<void (ClassListWidget::*) (bool)>(&ClassListWidget::changed),
-            this, &PageChoosePrinters::allowProceed);
+    connect(ui->membersLV, &ClassListWidget::changed, this, &PageChoosePrinters::allowProceed);
 
     if (!args.isEmpty()) {
         setValues(args);

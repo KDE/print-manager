@@ -33,7 +33,6 @@ public:
 
 signals:
     void changed(bool changed);
-    void changed(const QString &selected);
 
 private slots:
     void init();

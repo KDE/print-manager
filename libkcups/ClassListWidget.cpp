@@ -20,8 +20,6 @@
 
 ClassListWidget::ClassListWidget(QWidget *parent) : QListView(parent)
 {
-    KConfigDialogManager::changedMap()->insert(QLatin1String("ClassListWidget"), SIGNAL(changed(QString)));
-
     m_model = new QStandardItemModel(this);
     setModel(m_model);
     setItemDelegate(new NoSelectionRectDelegate(this));
@@ -100,7 +98,6 @@ void ClassListWidget::modelChanged()
 
     m_changed = m_selectedPrinters != currentMembers;
 
-    Q_EMIT changed(selectedPrinters());
     Q_EMIT changed(m_changed);
 }
 

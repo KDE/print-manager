@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"POT-Creation-Date: 2022-11-06 00:50+0000\n"
 "PO-Revision-Date: 2013-08-11 17:27+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -234,8 +234,8 @@ msgid ""
 "    socket://hostname:9100\n"
 "</PRE>\n"
 "\n"
-"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
-"\"Network\n"
+"<P>See <A HREF=\"http://localhost:631/help/network.html\" "
+"TARGET=\"_blank\">\"Network\n"
 "Printers\"</A> for the correct URI to use with your printer.</P>\n"
 "</TD>\n"
 "</TR>\n"
@@ -257,8 +257,8 @@ msgstr ""
 "    socket://vertsnavn:9100\n"
 "</PRE>\n"
 "\n"
-"<P>Se <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
-"\"Nettverks-\n"
+"<P>Se <A HREF=\"http://localhost:631/help/network.html\" "
+"TARGET=\"_blank\">\"Nettverks-\n"
 "skrivere\"</A> for hjelp til å finne riktig URI å bruke med din skriver.</"
 "P>\n"
 "</TD>\n"
@@ -657,29 +657,29 @@ msgstr "Sett opp Skriver"
 msgid "Printer to be configured"
 msgstr ""
 
-#: configure-printer/ModifyPrinter.cpp:125
+#: configure-printer/ModifyPrinter.cpp:124
 #, kde-format
 msgid "Current - %1"
 msgstr "Gjeldende – %1"
 
-#: configure-printer/ModifyPrinter.cpp:128
+#: configure-printer/ModifyPrinter.cpp:127
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Velg en tilpasset driver"
 
-#: configure-printer/ModifyPrinter.cpp:227
+#: configure-printer/ModifyPrinter.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Klarte ikke å sette opp klasse"
 
-#: configure-printer/ModifyPrinter.cpp:228
+#: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Klarte ikke å sette opp skriver"
 
-#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -729,8 +729,8 @@ msgstr "Tilkobling:"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+"css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"
@@ -767,8 +767,8 @@ msgid ""
 msgstr ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+"css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
 "weight:400; font-style:normal;\">\n"

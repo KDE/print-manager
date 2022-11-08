@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"POT-Creation-Date: 2022-11-06 00:50+0000\n"
 "PO-Revision-Date: 2019-11-16 16:45+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -654,29 +654,29 @@ msgstr "Configura stampante"
 msgid "Printer to be configured"
 msgstr "Stampante da configurare"
 
-#: configure-printer/ModifyPrinter.cpp:125
+#: configure-printer/ModifyPrinter.cpp:124
 #, kde-format
 msgid "Current - %1"
 msgstr "Corrente - %1"
 
-#: configure-printer/ModifyPrinter.cpp:128
+#: configure-printer/ModifyPrinter.cpp:127
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Seleziona un driver personalizzato"
 
-#: configure-printer/ModifyPrinter.cpp:227
+#: configure-printer/ModifyPrinter.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Configurazione della classe non riuscita"
 
-#: configure-printer/ModifyPrinter.cpp:228
+#: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Configurazione della stampante non riuscita"
 
-#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"

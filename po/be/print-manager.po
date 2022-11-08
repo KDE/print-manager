@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"POT-Creation-Date: 2022-11-06 00:50+0000\n"
 "PO-Revision-Date: 2022-10-11 04:00\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -658,29 +658,29 @@ msgstr "Наладжванне прынтара"
 msgid "Printer to be configured"
 msgstr "Прынтар, які трэба наладзіць"
 
-#: configure-printer/ModifyPrinter.cpp:125
+#: configure-printer/ModifyPrinter.cpp:124
 #, kde-format
 msgid "Current - %1"
 msgstr "Бягучы - %1"
 
-#: configure-printer/ModifyPrinter.cpp:128
+#: configure-printer/ModifyPrinter.cpp:127
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Абраць адвольны драйвер"
 
-#: configure-printer/ModifyPrinter.cpp:227
+#: configure-printer/ModifyPrinter.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Не ўдалося наладзіць клас"
 
-#: configure-printer/ModifyPrinter.cpp:228
+#: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Не ўдалося наладзіць прынтар"
 
-#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"

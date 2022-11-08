@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"POT-Creation-Date: 2022-11-06 00:50+0000\n"
 "PO-Revision-Date: 2019-11-10 14:05+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -669,29 +669,29 @@ msgstr "Konfiguratu inprimagailua"
 msgid "Printer to be configured"
 msgstr "Konfiguratu beharreko inprimagailua"
 
-#: configure-printer/ModifyPrinter.cpp:125
+#: configure-printer/ModifyPrinter.cpp:124
 #, kde-format
 msgid "Current - %1"
 msgstr "Unekoa - %1"
 
-#: configure-printer/ModifyPrinter.cpp:128
+#: configure-printer/ModifyPrinter.cpp:127
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Hautatu gidari pertsonalizatu bat"
 
-#: configure-printer/ModifyPrinter.cpp:227
+#: configure-printer/ModifyPrinter.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Huts egin du klasea konfiguratzeak"
 
-#: configure-printer/ModifyPrinter.cpp:228
+#: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Huts egin du inprimagailua konfiguratzeak"
 
-#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"

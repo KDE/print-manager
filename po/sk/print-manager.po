@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-05-16 00:48+0000\n"
+"POT-Creation-Date: 2022-11-06 00:50+0000\n"
 "PO-Revision-Date: 2020-03-22 12:01+0100\n"
 "Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -654,29 +654,29 @@ msgstr "Nastaviť tlačiareň"
 msgid "Printer to be configured"
 msgstr "Tlačiareň na nastavenie"
 
-#: configure-printer/ModifyPrinter.cpp:125
+#: configure-printer/ModifyPrinter.cpp:124
 #, kde-format
 msgid "Current - %1"
 msgstr "Aktuálny - %1"
 
-#: configure-printer/ModifyPrinter.cpp:128
+#: configure-printer/ModifyPrinter.cpp:127
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Vybrať vlastný ovládač"
 
-#: configure-printer/ModifyPrinter.cpp:227
+#: configure-printer/ModifyPrinter.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Zlyhalo nastavenie triedy"
 
-#: configure-printer/ModifyPrinter.cpp:228
+#: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Zlyhalo nastavenie tlačiarne"
 
-#: configure-printer/ModifyPrinter.cpp:230 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"

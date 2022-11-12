@@ -24,6 +24,7 @@
   <name xml:lang="hu">Nyomtatóbeállítás</name>
   <name xml:lang="ia">Configuration de imprimitor</name>
   <name xml:lang="id">Konfigurasi Printer</name>
+  <name xml:lang="is">Prentarastillingar</name>
   <name xml:lang="it">Configurazione della stampante</name>
   <name xml:lang="ka">პრინტერის მორგება</name>
   <name xml:lang="ko">프린터 설정</name>
@@ -65,6 +66,7 @@
   <summary xml:lang="hu">Nyomtatók telepítése és beállítása</summary>
   <summary xml:lang="ia">Configura imprimitores</summary>
   <summary xml:lang="id">Siapkan dan konfigurasikan printer</summary>
+  <summary xml:lang="is">Setja upp og stilla prentara</summary>
   <summary xml:lang="it">Imposta e configura le stampanti</summary>
   <summary xml:lang="ka">დააყენეთ და მოირგეთ პრინტერები</summary>
   <summary xml:lang="ko">프린터 설치 및 설정</summary>
@@ -152,6 +154,7 @@
       <caption xml:lang="hu">Nyomtatóbeállítások.</caption>
       <caption xml:lang="ia">Preferentias de imprimitor.</caption>
       <caption xml:lang="id">Pengaturan printer.</caption>
+      <caption xml:lang="is">Stillingar prentara.</caption>
       <caption xml:lang="it">Impostazioni della stampante.</caption>
       <caption xml:lang="ka">პრინტერის მორგება.</caption>
       <caption xml:lang="ko">프린터 설정입니다.</caption>

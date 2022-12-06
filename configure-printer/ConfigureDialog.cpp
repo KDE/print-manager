@@ -19,6 +19,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KWindowConfig>
+#include <kwidgetsaddons_version.h>
 
 #include <QList>
 #include <QPointer>
@@ -179,11 +180,20 @@ void ConfigureDialog::closeEvent(QCloseEvent *event)
 bool ConfigureDialog::savePage(PrinterPage *page)
 {
     if (page->hasChanges()) {
-        int ret;
-        ret = KMessageBox::warningYesNoCancel(this,
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        const int ret = KMessageBox::warningTwoActionsCancel(this,
+                                               i18n("The current page has changes.\n"
+                                                    "Do you want to save them?"), i18n("Save"), KStandardGuiItem::save(), KStandardGuiItem::discard());
+#else
+        const int ret = KMessageBox::warningYesNoCancel(this,
                                                i18n("The current page has changes.\n"
                                                     "Do you want to save them?"));
+#endif
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        if (ret == KMessageBox::PrimaryAction) {
+#else
         if (ret == KMessageBox::Yes) {
+#endif
             page->save();
         } else if (ret == KMessageBox::Cancel) {
             return false;

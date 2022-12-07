@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-06 00:50+0000\n"
+"POT-Creation-Date: 2022-12-07 00:51+0000\n"
 "PO-Revision-Date: 2012-06-29 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -607,7 +607,7 @@ msgstr "ការ​តភ្ជាប់ ៖"
 msgid "Please choose an item on the list"
 msgstr "សូម​ជ្រើស​ធាតុ​មួយ​នៅ​ក្នុង​បញ្ជី"
 
-#: configure-printer/ConfigureDialog.cpp:88
+#: configure-printer/ConfigureDialog.cpp:89
 #, fuzzy, kde-format
 #| msgid "AddPrinter"
 msgid "Modify Printer"
@@ -615,7 +615,7 @@ msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
-#: configure-printer/ConfigureDialog.cpp:89
+#: configure-printer/ConfigureDialog.cpp:90
 #: print-manager-kded/NewPrinterNotification.cpp:240
 #: print-manager-kded/NewPrinterNotification.cpp:256
 #: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
@@ -623,27 +623,33 @@ msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 msgid "Configure"
 msgstr "កំណត់​រចនាសម្ព័ន្ធ"
 
-#: configure-printer/ConfigureDialog.cpp:99
+#: configure-printer/ConfigureDialog.cpp:100
 #, kde-format
 msgid "Printer Options"
 msgstr ""
 
-#: configure-printer/ConfigureDialog.cpp:100
+#: configure-printer/ConfigureDialog.cpp:101
 #, kde-format
 msgid "Set the Default Printer Options"
 msgstr ""
 
-#: configure-printer/ConfigureDialog.cpp:110
 #: configure-printer/ConfigureDialog.cpp:111
+#: configure-printer/ConfigureDialog.cpp:112
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr ""
 
-#: configure-printer/ConfigureDialog.cpp:184
+#: configure-printer/ConfigureDialog.cpp:185
+#: configure-printer/ConfigureDialog.cpp:189
 #, kde-format
 msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
+msgstr ""
+
+#: configure-printer/ConfigureDialog.cpp:186
+#, kde-format
+msgid "Save"
 msgstr ""
 
 #: configure-printer/main.cpp:26

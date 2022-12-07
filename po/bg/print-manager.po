@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-06 00:50+0000\n"
+"POT-Creation-Date: 2022-12-07 00:51+0000\n"
 "PO-Revision-Date: 2022-08-26 23:00+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -601,14 +601,14 @@ msgstr "Връзки"
 msgid "Please choose an item on the list"
 msgstr "Моля изберете елемент на списъка"
 
-#: configure-printer/ConfigureDialog.cpp:88
+#: configure-printer/ConfigureDialog.cpp:89
 #, kde-format
 msgid "Modify Printer"
 msgstr "Промяна настройките на принтера"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
-#: configure-printer/ConfigureDialog.cpp:89
+#: configure-printer/ConfigureDialog.cpp:90
 #: print-manager-kded/NewPrinterNotification.cpp:240
 #: print-manager-kded/NewPrinterNotification.cpp:256
 #: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
@@ -616,23 +616,24 @@ msgstr "Промяна настройките на принтера"
 msgid "Configure"
 msgstr "Настройване"
 
-#: configure-printer/ConfigureDialog.cpp:99
+#: configure-printer/ConfigureDialog.cpp:100
 #, kde-format
 msgid "Printer Options"
 msgstr "Настройки на принтер"
 
-#: configure-printer/ConfigureDialog.cpp:100
+#: configure-printer/ConfigureDialog.cpp:101
 #, kde-format
 msgid "Set the Default Printer Options"
 msgstr "Задаване на стандартните настройки за принтера"
 
-#: configure-printer/ConfigureDialog.cpp:110
 #: configure-printer/ConfigureDialog.cpp:111
+#: configure-printer/ConfigureDialog.cpp:112
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Банери, политики и права на достъп"
 
-#: configure-printer/ConfigureDialog.cpp:184
+#: configure-printer/ConfigureDialog.cpp:185
+#: configure-printer/ConfigureDialog.cpp:189
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -640,6 +641,11 @@ msgid ""
 msgstr ""
 "Текущата страница е променена.\n"
 "Желаете ли да запазите промените?"
+
+#: configure-printer/ConfigureDialog.cpp:186
+#, kde-format
+msgid "Save"
+msgstr ""
 
 #: configure-printer/main.cpp:26
 #, kde-format

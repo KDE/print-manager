@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-06 00:50+0000\n"
+"POT-Creation-Date: 2022-12-07 00:51+0000\n"
 "PO-Revision-Date: 2020-12-27 13:14+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -599,14 +599,14 @@ msgstr "Kapcsolatok"
 msgid "Please choose an item on the list"
 msgstr "Válasszon egy elemet a listából"
 
-#: configure-printer/ConfigureDialog.cpp:88
+#: configure-printer/ConfigureDialog.cpp:89
 #, kde-format
 msgid "Modify Printer"
 msgstr "Nyomtató módosítása"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
-#: configure-printer/ConfigureDialog.cpp:89
+#: configure-printer/ConfigureDialog.cpp:90
 #: print-manager-kded/NewPrinterNotification.cpp:240
 #: print-manager-kded/NewPrinterNotification.cpp:256
 #: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
@@ -614,23 +614,24 @@ msgstr "Nyomtató módosítása"
 msgid "Configure"
 msgstr "Beállítás"
 
-#: configure-printer/ConfigureDialog.cpp:99
+#: configure-printer/ConfigureDialog.cpp:100
 #, kde-format
 msgid "Printer Options"
 msgstr "Nyomtatóbeállítások"
 
-#: configure-printer/ConfigureDialog.cpp:100
+#: configure-printer/ConfigureDialog.cpp:101
 #, kde-format
 msgid "Set the Default Printer Options"
 msgstr "Alapértelmezett nyomtató lehetőségeinek beállítása"
 
-#: configure-printer/ConfigureDialog.cpp:110
 #: configure-printer/ConfigureDialog.cpp:111
+#: configure-printer/ConfigureDialog.cpp:112
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Kísérőoldal, házirendek és engedélyezett felhasználók"
 
-#: configure-printer/ConfigureDialog.cpp:184
+#: configure-printer/ConfigureDialog.cpp:185
+#: configure-printer/ConfigureDialog.cpp:189
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -638,6 +639,11 @@ msgid ""
 msgstr ""
 "A jelenlegi oldalon változások vannak.\n"
 "Szeretné menteni őket?"
+
+#: configure-printer/ConfigureDialog.cpp:186
+#, kde-format
+msgid "Save"
+msgstr ""
 
 #: configure-printer/main.cpp:26
 #, kde-format

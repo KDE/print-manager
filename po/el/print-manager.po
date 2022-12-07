@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-06 00:50+0000\n"
+"POT-Creation-Date: 2022-12-07 00:51+0000\n"
 "PO-Revision-Date: 2020-05-03 08:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -601,14 +601,14 @@ msgstr "Συνδέσεις"
 msgid "Please choose an item on the list"
 msgstr "Παρακαλώ επιλέξτε ένα αντικείμενο από τη λίστα"
 
-#: configure-printer/ConfigureDialog.cpp:88
+#: configure-printer/ConfigureDialog.cpp:89
 #, kde-format
 msgid "Modify Printer"
 msgstr "Τροποποίηση εκτυπωτή"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
-#: configure-printer/ConfigureDialog.cpp:89
+#: configure-printer/ConfigureDialog.cpp:90
 #: print-manager-kded/NewPrinterNotification.cpp:240
 #: print-manager-kded/NewPrinterNotification.cpp:256
 #: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
@@ -616,23 +616,24 @@ msgstr "Τροποποίηση εκτυπωτή"
 msgid "Configure"
 msgstr "Διαμόρφωση"
 
-#: configure-printer/ConfigureDialog.cpp:99
+#: configure-printer/ConfigureDialog.cpp:100
 #, kde-format
 msgid "Printer Options"
 msgstr "Επιλογές εκτυπωτή"
 
-#: configure-printer/ConfigureDialog.cpp:100
+#: configure-printer/ConfigureDialog.cpp:101
 #, kde-format
 msgid "Set the Default Printer Options"
 msgstr "Ορισμός επιλογών προκαθορισμένου εκτυπωτή"
 
-#: configure-printer/ConfigureDialog.cpp:110
 #: configure-printer/ConfigureDialog.cpp:111
+#: configure-printer/ConfigureDialog.cpp:112
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Λογότυπα, πολιτικές και επιτρεπόμενοι χρήστες"
 
-#: configure-printer/ConfigureDialog.cpp:184
+#: configure-printer/ConfigureDialog.cpp:185
+#: configure-printer/ConfigureDialog.cpp:189
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -640,6 +641,11 @@ msgid ""
 msgstr ""
 "Υπάρχουν αλλαγές στην τρέχουσα σελίδα.\n"
 "Θέλετε να τις αποθηκεύσετε;"
+
+#: configure-printer/ConfigureDialog.cpp:186
+#, kde-format
+msgid "Save"
+msgstr ""
 
 #: configure-printer/main.cpp:26
 #, kde-format

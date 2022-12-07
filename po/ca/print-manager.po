@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-06 00:50+0000\n"
+"POT-Creation-Date: 2022-12-07 00:51+0000\n"
 "PO-Revision-Date: 2021-10-23 23:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -603,14 +603,14 @@ msgstr "Connexions"
 msgid "Please choose an item on the list"
 msgstr "Si us plau, escolliu un element de la llista"
 
-#: configure-printer/ConfigureDialog.cpp:88
+#: configure-printer/ConfigureDialog.cpp:89
 #, kde-format
 msgid "Modify Printer"
 msgstr "Modifica la impressora"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
-#: configure-printer/ConfigureDialog.cpp:89
+#: configure-printer/ConfigureDialog.cpp:90
 #: print-manager-kded/NewPrinterNotification.cpp:240
 #: print-manager-kded/NewPrinterNotification.cpp:256
 #: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
@@ -618,23 +618,24 @@ msgstr "Modifica la impressora"
 msgid "Configure"
 msgstr "Configura"
 
-#: configure-printer/ConfigureDialog.cpp:99
+#: configure-printer/ConfigureDialog.cpp:100
 #, kde-format
 msgid "Printer Options"
 msgstr "Opcions de la impressora"
 
-#: configure-printer/ConfigureDialog.cpp:100
+#: configure-printer/ConfigureDialog.cpp:101
 #, kde-format
 msgid "Set the Default Printer Options"
 msgstr "Defineix les opcions per defecte de la impressora"
 
-#: configure-printer/ConfigureDialog.cpp:110
 #: configure-printer/ConfigureDialog.cpp:111
+#: configure-printer/ConfigureDialog.cpp:112
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Bàners, polítiques i usuaris permesos"
 
-#: configure-printer/ConfigureDialog.cpp:184
+#: configure-printer/ConfigureDialog.cpp:185
+#: configure-printer/ConfigureDialog.cpp:189
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -642,6 +643,11 @@ msgid ""
 msgstr ""
 "La pàgina actual té canvis.\n"
 "Desitgeu desar-la?"
+
+#: configure-printer/ConfigureDialog.cpp:186
+#, kde-format
+msgid "Save"
+msgstr ""
 
 #: configure-printer/main.cpp:26
 #, kde-format

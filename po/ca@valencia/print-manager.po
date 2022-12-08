@@ -1300,7 +1300,7 @@ msgstr "Estat actual"
 #, kde-format
 msgctxt "@option:check"
 msgid "Default printer"
-msgstr "Impressora per defecte"
+msgstr "Impressora predeterminada"
 
 #. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
 #: printer-manager-kcm/PrinterDescription.ui:126

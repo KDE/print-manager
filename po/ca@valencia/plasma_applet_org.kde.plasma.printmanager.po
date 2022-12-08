@@ -57,8 +57,8 @@ msgstr "Impressores"
 #: plasmoid/package/contents/ui/printmanager.qml:36
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
-msgstr[0] "Hi ha un treball d'impressió a la cua"
-msgstr[1] "Hi ha %1 treballs d'impressió a la cua"
+msgstr[0] "Hi ha un treball d'impressió en la cua"
+msgstr[1] "Hi ha %1 treballs d'impressió en la cua"
 
 #: plasmoid/package/contents/ui/printmanager.qml:45
 msgctxt "Printing document name with printer name"

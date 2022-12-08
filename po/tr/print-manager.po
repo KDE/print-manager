@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2022-04-07 13:56+0300\n"
+"PO-Revision-Date: 2022-12-07 17:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -43,7 +43,7 @@ msgstr "Yeni Bir Yazıcı Ekle"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
-msgstr "Eklenecek Bir Yazıcı Seçin"
+msgstr "Eklenecek Bir Yazıcı Seç"
 
 #: add-printer/AddPrinterAssistant.cpp:73
 #: add-printer/AddPrinterAssistant.cpp:80
@@ -51,7 +51,7 @@ msgstr "Eklenecek Bir Yazıcı Seçin"
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
-msgstr "Bir Sürücü Seçin"
+msgstr "Bir Sürücü Seç"
 
 #: add-printer/AddPrinterAssistant.cpp:85
 #: add-printer/AddPrinterAssistant.cpp:106
@@ -169,7 +169,7 @@ msgstr "DTR/DSR (Donanım)"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
-msgstr "Baud Oranı:"
+msgstr "Baud Hızı:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/ChooseSerial.ui:42
@@ -645,7 +645,7 @@ msgstr ""
 #: configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: configure-printer/main.cpp:26
 #, kde-format
@@ -1469,7 +1469,7 @@ msgstr "Hata Başlığı"
 #: printer-manager-kcm/PrintKCM.ui:231
 #, kde-format
 msgid "Click here to add a new printer"
-msgstr "Yeni yazıcı eklemek için buraya tıklayın"
+msgstr "Yeni yazıcı eklemek için buraya tıkla"
 
 #: printqueue/main.cpp:25 printqueue/main.cpp:27
 #, kde-format

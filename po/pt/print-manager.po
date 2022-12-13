@@ -649,7 +649,7 @@ msgstr ""
 #: configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Gravar"
 
 #: configure-printer/main.cpp:26
 #, kde-format

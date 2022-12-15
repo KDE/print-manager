@@ -19,6 +19,7 @@ msgstr ""
 "X-POFile-SpellExtra: LPR AppSocket LPD multifunções Ultra\n"
 "X-POFile-IgnoreConsistency: Status\n"
 "X-POFile-IgnoreConsistency: Name\n"
+"X-POFile-IgnoreConsistency: Secret\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"

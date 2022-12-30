@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2022-12-08 06:37+0100\n"
+"PO-Revision-Date: 2022-12-30 03:31+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -88,7 +88,7 @@ msgstr "დადგენა"
 #, kde-format
 msgctxt "@title:group"
 msgid "Windows Printer via SAMBA"
-msgstr "პრინტერი Windows-ზე SAMBA-ს გამოყენებით"
+msgstr "პრინტერი Windows-ზე SAMBA-ის გამოყენებით"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: add-printer/ChooseSamba.ui:41
@@ -290,7 +290,7 @@ msgstr "USB პორტზე მიერთებული პრინტე
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
-msgstr "Bluetooth-ით მიერთებული პრინტერი"
+msgstr "ბლუთუზით მიერთებული პრინტერი"
 
 #: add-printer/DevicesModel.cpp:247
 #, kde-format
@@ -461,7 +461,7 @@ msgstr "USB პორტზე დაერთებული პრინტე
 #: add-printer/PageDestinations.cpp:195
 #, kde-format
 msgid "A printer connected via Bluetooth."
-msgstr "Bluetooth-ით დაერთებული პრინტერი."
+msgstr "ბლუთუზით დაერთებული პრინტერი."
 
 #: add-printer/PageDestinations.cpp:198
 #, kde-format
@@ -520,7 +520,7 @@ msgstr "USB"
 #: add-printer/PageDestinations.cpp:339
 #, kde-format
 msgid "Bluetooth"
-msgstr "Bluetooth"
+msgstr "ბლუთუზი"
 
 #: add-printer/PageDestinations.cpp:341
 #, kde-format
@@ -555,7 +555,7 @@ msgstr "LPD/LPR რიგი %1"
 #: add-printer/PageDestinations.cpp:357
 #, kde-format
 msgid "Windows Printer via SAMBA"
-msgstr "პრინტერი Windows-ზე SAMBA-ს გამოყენებით"
+msgstr "პრინტერი Windows-ზე SAMBA-ის გამოყენებით"
 
 #: add-printer/PageDestinations.cpp:362
 #, kde-format

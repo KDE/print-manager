@@ -40,7 +40,8 @@
                 "Name[tr]": "Daniel Nicoletti",
                 "Name[uk]": "Daniel Nicoletti",
                 "Name[x-test]": "xxDaniel Nicolettixx",
-                "Name[zh_CN]": "Daniel Nicoletti"
+                "Name[zh_CN]": "Daniel Nicoletti",
+                "Name[zh_TW]": "Daniel Nicoletti"
             }
         ],
         "Category": "Utilities",
@@ -82,6 +83,7 @@
         "Description[uk]": "Показ списку завдань і керування ними",
         "Description[x-test]": "xxList print jobs and manage themxx",
         "Description[zh_CN]": "显示和管理打印任务",
+        "Description[zh_TW]": "列出列印工作並管理它們",
         "EnabledByDefault": true,
         "Icon": "printer",
         "Id": "org.kde.plasma.printmanager",

@@ -39,6 +39,7 @@
         "Description[uk]": "Налаштування ваших принтерів",
         "Description[x-test]": "xxConfigure your printersxx",
         "Description[zh_CN]": "配置打印机",
+        "Description[zh_TW]": "設定您的印表機",
         "Icon": "preferences-devices-printer",
         "Name": "Printers",
         "Name[ar]": "الطّابعات",

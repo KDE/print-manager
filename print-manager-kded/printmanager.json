@@ -38,6 +38,7 @@
         "Description[uk]": "Повідомлення щодо виявлення принтера та щодо проблем з принтером",
         "Description[x-test]": "xxInform when a new printer is detected, and print problemsxx",
         "Description[zh_CN]": "检测到新打印机和打印故障时通知",
+        "Description[zh_TW]": "偵測到新印表機時告知，並印出問題",
         "Name": "Print Manager",
         "Name[ar]": "مدير الطّباعة",
         "Name[az]": "Cap Meneceri",

@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:46+0000\n"
-"PO-Revision-Date: 2022-06-12 04:38+0900\n"
+"PO-Revision-Date: 2022-12-30 19:33+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: plasmoid/package/contents/ui/PopupDialog.qml:26
 msgid "Search…"
@@ -30,7 +30,7 @@ msgstr "沒有設定或發現任何印表機"
 
 #: plasmoid/package/contents/ui/PopupDialog.qml:71
 msgid "No matches"
-msgstr ""
+msgstr "無相符項目"
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:25
 msgid "Resume printing"
@@ -72,23 +72,16 @@ msgid "Print queue is empty"
 msgstr "列印佇列是空的"
 
 #: plasmoid/package/contents/ui/printmanager.qml:126
-#, fuzzy
-#| msgid "All jobs"
 msgid "Show All Jobs"
-msgstr "所有工作"
+msgstr "顯示所有工作"
 
 #: plasmoid/package/contents/ui/printmanager.qml:132
-#, fuzzy
-#| msgid "Completed jobs only"
 msgid "Show Only Completed Jobs"
 msgstr "只顯示已完成的工作"
 
 #: plasmoid/package/contents/ui/printmanager.qml:138
-#, fuzzy
-#| msgid "One active job"
-#| msgid_plural "%1 active jobs"
 msgid "Show Only Active Jobs"
-msgstr "%1 個進行中的工作"
+msgstr "只顯示活躍的工作"
 
 #: plasmoid/package/contents/ui/printmanager.qml:149
 msgid "&Configure Printers..."

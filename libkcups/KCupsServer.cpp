@@ -15,9 +15,9 @@ KCupsServer::KCupsServer()
 {
 }
 
-KCupsServer::KCupsServer(const QVariantHash &arguments)
+KCupsServer::KCupsServer(const QVariantHash &arguments) :
+    m_arguments(arguments)
 {
-    m_arguments = arguments;
 }
 
 bool KCupsServer::allowRemoteAdmin() const

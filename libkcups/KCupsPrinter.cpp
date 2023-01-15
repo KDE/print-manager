@@ -18,10 +18,10 @@ KCupsPrinter::KCupsPrinter(const QString &printer, bool isClass) :
 }
 
 KCupsPrinter::KCupsPrinter(const QVariantHash &arguments) :
-    m_arguments(arguments)
+    m_arguments(arguments),
+    m_printer(arguments[QLatin1String(KCUPS_PRINTER_NAME)].toString()),
+    m_isClass(arguments[QLatin1String(KCUPS_PRINTER_TYPE)].toInt() & CUPS_PRINTER_CLASS)
 {
-    m_printer = arguments[QLatin1String(KCUPS_PRINTER_NAME)].toString();
-    m_isClass = arguments[QLatin1String(KCUPS_PRINTER_TYPE)].toInt() & CUPS_PRINTER_CLASS;
 }
 
 QString KCupsPrinter::name() const

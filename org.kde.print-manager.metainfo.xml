@@ -9,7 +9,7 @@
   <name xml:lang="be">Канфігурацыя прынтараў</name>
   <name xml:lang="bg">Настройки на принтер</name>
   <name xml:lang="ca">Configuració de la impressora</name>
-  <name xml:lang="ca-valencia">Configuració de la impressora</name>
+  <name xml:lang="ca-valencia">Configureu la impressora</name>
   <name xml:lang="cs">Nastavení tiskárny</name>
   <name xml:lang="da">Printerkonfiguration</name>
   <name xml:lang="de">Druckereinrichtung</name>
@@ -137,7 +137,7 @@
       <caption xml:lang="be">Налады прынтара.</caption>
       <caption xml:lang="bg">Настройки на принтер.</caption>
       <caption xml:lang="ca">Configuració de la impressora.</caption>
-      <caption xml:lang="ca-valencia">Configuració de la impressora.</caption>
+      <caption xml:lang="ca-valencia">Configureu la impressora.</caption>
       <caption xml:lang="cs">Nastavení tiskárny.</caption>
       <caption xml:lang="da">Printerindstillinger.</caption>
       <caption xml:lang="de">Druckereinstellungen</caption>

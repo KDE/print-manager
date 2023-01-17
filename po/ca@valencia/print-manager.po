@@ -66,7 +66,7 @@ msgstr "Descripció de la impressora"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
-msgstr "Configuració de la connexió"
+msgstr "Configureu la connexió"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/ChooseLpd.ui:26
@@ -646,7 +646,7 @@ msgstr ""
 #: configure-printer/main.cpp:26
 #, kde-format
 msgid "Configure Printer"
-msgstr "Configuració de la impressora"
+msgstr "Configureu la impressora"
 
 #: configure-printer/main.cpp:28
 #, kde-format

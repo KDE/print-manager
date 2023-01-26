@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022.
+# Giovanni Sora <g.sora@tiscali.it>, 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2022-12-05 18:11+0100\n"
+"PO-Revision-Date: 2023-01-25 16:12+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -646,7 +646,7 @@ msgstr ""
 #: configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Salveguarda"
 
 #: configure-printer/main.cpp:26
 #, kde-format

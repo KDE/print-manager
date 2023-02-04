@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the print-manager package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# gummi <gudmundure@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:46+0000\n"
-"PO-Revision-Date: 2022-11-11 19:12+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2023-01-08 22:06+0000\n"
+"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: plasmoid/package/contents/ui/PopupDialog.qml:26
 msgid "Search…"
@@ -24,7 +25,7 @@ msgstr "Leita…"
 #: plasmoid/package/contents/ui/PopupDialog.qml:71
 #: plasmoid/package/contents/ui/printmanager.qml:52
 msgid "No printers have been configured or discovered"
-msgstr "Engir prentarar hafa verið stilltir eða fundist"
+msgstr "Engir prentarar hafa verið grunnstilltir eða fundist"
 
 #: plasmoid/package/contents/ui/PopupDialog.qml:71
 msgid "No matches"
@@ -32,15 +33,15 @@ msgstr "Engar samsvaranir"
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:25
 msgid "Resume printing"
-msgstr "Halda áfram með prentun"
+msgstr "Halda áfram að prenta"
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:25
 msgid "Pause printing"
-msgstr "Setja prentun í bið"
+msgstr "Gera hlé á prentun"
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:37
 msgid "Configure printer..."
-msgstr "Stilla prentara..."
+msgstr "Grunnstilla prentara..."
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:42
 msgid "View print queue"
@@ -72,16 +73,16 @@ msgstr "Prentröð er tóm"
 
 #: plasmoid/package/contents/ui/printmanager.qml:126
 msgid "Show All Jobs"
-msgstr "Birta öll prentverk"
+msgstr "Sýna öll prentverk"
 
 #: plasmoid/package/contents/ui/printmanager.qml:132
 msgid "Show Only Completed Jobs"
-msgstr "Birta aðeins kláruð prentverk"
+msgstr "Sýna bara prentverk sem er lokið"
 
 #: plasmoid/package/contents/ui/printmanager.qml:138
 msgid "Show Only Active Jobs"
-msgstr "Birta aðeins virk prentverk"
+msgstr "Sýna bara virk prentverk"
 
 #: plasmoid/package/contents/ui/printmanager.qml:149
 msgid "&Configure Printers..."
-msgstr "&Stilla prentara..."
+msgstr "&Grunnstilla prentara..."

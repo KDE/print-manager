@@ -1,31 +1,32 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2022, 2023.
+# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# gummi <gudmundure@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2023-02-02 14:44+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"PO-Revision-Date: 2023-02-03 11:23+0000\n"
+"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Sveinn í Felli"
+msgstr "Sveinn í Felli,Guðmundur Erlingsson"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sv1@fellsnet.is"
+msgstr "sv1@fellsnet.is,gudmundure@gmail.com"
 
 #: add-printer/AddPrinterAssistant.cpp:27
 #, kde-format
@@ -41,7 +42,7 @@ msgstr "Bæta við nýjum prentara"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
-msgstr "Veldu þann prentara sem á að bæta við"
+msgstr "Veldu prentara sem á að bæta við"
 
 #: add-printer/AddPrinterAssistant.cpp:73
 #: add-printer/AddPrinterAssistant.cpp:80
@@ -62,7 +63,7 @@ msgstr "Lýstu prentaranum þínum"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
-msgstr "Stilla tenginguna þína"
+msgstr "Grunnstilltu tenginguna þína"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/ChooseLpd.ui:26
@@ -80,14 +81,14 @@ msgstr "Prentröð:"
 #: add-printer/ChooseLpd.ui:51
 #, kde-format
 msgid "Detect"
-msgstr "Skynja"
+msgstr "Finna"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: add-printer/ChooseSamba.ui:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Windows Printer via SAMBA"
-msgstr "Windows prentari í gegnum SAMBA"
+msgstr "Windows-prentari í gegnum SAMBA"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: add-printer/ChooseSamba.ui:41
@@ -96,14 +97,14 @@ msgctxt ""
 "@label samba URL markup example, this is preceded by a label containing "
 "smb://"
 msgid "smb://[workgroup/]server[:port]/printer"
-msgstr "smb://[vinnuhópur/]miðlari[:gátt]/prentari"
+msgstr "smb://[vinnuhópur/]þjónn[:gátt]/prentari"
 
 #. i18n: ectx: property (text), widget (QPushButton, browsePB)
 #: add-printer/ChooseSamba.ui:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Browse"
-msgstr "Flakka"
+msgstr "Fletta"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: add-printer/ChooseSamba.ui:64
@@ -167,14 +168,14 @@ msgstr "DTR/DSR (vélbúnaðar)"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
-msgstr "Sendingarhraði (baud rate):"
+msgstr "Hraði í botum (baud rate):"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/ChooseSerial.ui:42
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Parity:"
-msgstr "Pörun (parity):"
+msgstr "Samsvörun:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: add-printer/ChooseSerial.ui:55
@@ -271,7 +272,7 @@ msgstr "Handvirk slóð"
 #: add-printer/DevicesModel.cpp:115
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "Gat ekki náð í lista yfir tæki: '%1'"
+msgstr "Mistókst að ná í lista yfir tæki: '%1'"
 
 #: add-printer/DevicesModel.cpp:238
 #, kde-format
@@ -283,7 +284,7 @@ msgstr "Prentari tengdur í raðtengið"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
-msgstr "Prentari tengdur í USB tengi"
+msgstr "Prentari tengdur í USB-tengi"
 
 #: add-printer/DevicesModel.cpp:244
 #, kde-format
@@ -295,7 +296,7 @@ msgstr "Prentari tengdur í gegnum Bluetooth"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
-msgstr "Staðvær prentari sem sjálfvirk vélbúnaðarkönnun (HAL) hefur fundið"
+msgstr "Staðbundinn prentari sem sjálfvirk vélbúnaðarkönnun (HAL) hefur fundið"
 
 #: add-printer/DevicesModel.cpp:251
 #, kde-format
@@ -303,8 +304,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
-msgstr ""
-"HPLIP hugbúnaður til keyrslu á prentara, eða prentmöguleikum fjölnotatækis"
+msgstr "HPLIP-hugbúnaður til að keyra prentara eða prentvirkni fjölnotatækis"
 
 #: add-printer/DevicesModel.cpp:255
 #, kde-format
@@ -312,7 +312,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
-msgstr "HPLIP hugbúnaður til fax-sendinga, eða faxmöguleikum fjölnotatækis"
+msgstr "HPLIP-hugbúnaður til keyra faxtæki eða faxvirkni fjölnotatækis"
 
 #: add-printer/DevicesModel.cpp:260
 #, kde-format
@@ -336,12 +336,12 @@ msgstr "Aðrir prentarar á neti"
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
-msgstr "Staðtengdir prentarar"
+msgstr "Staðbundnir prentarar"
 
 #: add-printer/DevicesModel.cpp:328
 #, kde-format
 msgid "Failed to group devices: '%1'"
-msgstr "Mistókst að hópa tæki: '%1'"
+msgstr "Mistókst að flokka tæki: '%1'"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
 #: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
@@ -384,12 +384,12 @@ msgstr "Bæta við nýjum flokki prentara"
 #: add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
-msgstr "Breytir PPD-skrá prentarans"
+msgstr "Breytir PPD-skrá tiltekins prentara"
 
 #: add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
-msgstr "Breytir PPD-skrá prentarans/tækisauðkennis"
+msgstr "Breytir PPD-skrá tiltekins prentara/tækisauðkennis"
 
 #: add-printer/PageAddPrinter.cpp:122
 #, kde-format
@@ -401,7 +401,7 @@ msgstr "Mistókst að bæta við flokki: '%1'"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr "Mistókst að stilla prentara: '%1'"
+msgstr "Mistókst að grunnstilla prentara: '%1'"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/PageAddPrinter.ui:31
@@ -414,7 +414,7 @@ msgstr "Heiti:"
 #: add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr "Má innihalda alla prentanlega stafi nema \"/\", \"#\", og bilstafi"
+msgstr "Má innihalda alla prenthæfa stafi nema \"/\", \"#\", og bilstafi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/PageAddPrinter.ui:45
@@ -437,7 +437,7 @@ msgstr "Staðsetning:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
-msgstr "Deila þessum prentara"
+msgstr "Samnýta þennan prentara"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: add-printer/PageChoosePrinters.ui:96
@@ -464,22 +464,22 @@ msgstr "Prentari tengdur í gegnum Bluetooth."
 #: add-printer/PageDestinations.cpp:198
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-msgstr "Staðvær prentari sem sjálfvirk vélbúnaðarkönnun (HAL) hefur fundið."
+msgstr ""
+"Staðbundinn prentari sem sjálfvirk vélbúnaðarkönnun (HAL) hefur fundið."
 
 #: add-printer/PageDestinations.cpp:202
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device."
-msgstr ""
-"HPLIP hugbúnaður til keyrslu á prentara, eða prentmöguleikum fjölnotatækis."
+msgstr "HPLIP-hugbúnaður til að keyra prentara eða prentvirkni fjölnotatækis."
 
 #: add-printer/PageDestinations.cpp:206
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device."
-msgstr "HPLIP hugbúnaður til fax-sendinga, eða faxmöguleikum fjölnotatækis."
+msgstr "HPLIP-hugbúnaður til keyra faxtæki eða faxvirkni fjölnotatækis."
 
 #: add-printer/PageDestinations.cpp:214 add-printer/PageDestinations.cpp:373
 #, kde-format
@@ -499,7 +499,7 @@ msgstr "%1 netprentari í gegnum DNS-SD"
 #: add-printer/PageDestinations.cpp:333
 #, kde-format
 msgid "Parallel Port"
-msgstr "Hliðtengi (parallel)"
+msgstr "Samhliðatengi (parallel)"
 
 #: add-printer/PageDestinations.cpp:335
 #, kde-format
@@ -539,17 +539,17 @@ msgstr "AppSocket/HP JetDirect"
 #: add-printer/PageDestinations.cpp:352
 #, kde-format
 msgid "LPD/LPR queue"
-msgstr "LPD/LPR prentröð"
+msgstr "LPD/LPR-prentröð"
 
 #: add-printer/PageDestinations.cpp:354
 #, kde-format
 msgid "LPD/LPR queue %1"
-msgstr "LPD/LPR prentröð %1"
+msgstr "LPD/LPR-prentröð %1"
 
 #: add-printer/PageDestinations.cpp:357
 #, kde-format
 msgid "Windows Printer via SAMBA"
-msgstr "Windows prentari í gegnum SAMBA"
+msgstr "Windows-prentari í gegnum SAMBA"
 
 #: add-printer/PageDestinations.cpp:362
 #, kde-format
@@ -579,7 +579,7 @@ msgstr "LPD-netprentari í gegnum DNS-SD"
 #: add-printer/PageDestinations.cpp:380
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr "AppSocket/JetDirect netprentari í gegnum DNS-SD"
+msgstr "AppSocket/JetDirect-netprentari í gegnum DNS-SD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
 #: add-printer/PageDestinations.ui:62
@@ -606,7 +606,7 @@ msgstr "Breyta prentara"
 #: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
-msgstr "Stilla"
+msgstr "Grunnstilla"
 
 #: configure-printer/ConfigureDialog.cpp:100
 #, kde-format
@@ -622,7 +622,7 @@ msgstr "Stilla sjálfgefna valkosti prentarans"
 #: configure-printer/ConfigureDialog.cpp:112
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
-msgstr "Borðar, stefnur og leyfðir notendur"
+msgstr "Borðar, reglur og leyfðir notendur"
 
 #: configure-printer/ConfigureDialog.cpp:185
 #: configure-printer/ConfigureDialog.cpp:189
@@ -642,17 +642,17 @@ msgstr "Vista"
 #: configure-printer/main.cpp:26
 #, kde-format
 msgid "Configure Printer"
-msgstr "Stilla prentara"
+msgstr "Grunnstilla prentara"
 
 #: configure-printer/main.cpp:28
 #, kde-format
 msgid "ConfigurePrinter"
-msgstr "Stilla prentara"
+msgstr "Grunnstilla prentara"
 
 #: configure-printer/main.cpp:39
 #, kde-format
 msgid "Printer to be configured"
-msgstr "Prentari sem á að stilla"
+msgstr "Prentari sem á að grunnstilla"
 
 #: configure-printer/ModifyPrinter.cpp:124
 #, kde-format
@@ -668,13 +668,13 @@ msgstr "Velja sérsniðinn rekil"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
-msgstr "Mistókst að stilla flokk"
+msgstr "Mistókst að grunnstilla flokk"
 
 #: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
-msgstr "Mistókst að stilla prentara"
+msgstr "Mistókst að grunnstilla prentara"
 
 #: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
 #, kde-format
@@ -870,7 +870,7 @@ msgstr "Staðlað"
 #: configure-printer/PrinterBehavior.cpp:235
 #, kde-format
 msgid "Topsecret"
-msgstr "Leyndarmál"
+msgstr "Háleynilegt"
 
 #: configure-printer/PrinterBehavior.cpp:237
 #, kde-format
@@ -899,19 +899,19 @@ msgstr "Endaborði:"
 #: configure-printer/PrinterBehavior.ui:84
 #, kde-format
 msgid "Policies"
-msgstr "Stefnur"
+msgstr "Reglur"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: configure-printer/PrinterBehavior.ui:90
 #, kde-format
 msgid "Operation Policy:"
-msgstr "Stefna fyrir aðgerðir:"
+msgstr "Aðgerðaregla:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: configure-printer/PrinterBehavior.ui:103
 #, kde-format
 msgid "Error Policy:"
-msgstr "Stefna varðandi villur:"
+msgstr "Villuregla:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
 #: configure-printer/PrinterBehavior.ui:133
@@ -1002,7 +1002,7 @@ msgstr "Prentari"
 #: libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
-msgstr "Úr heiti hýsilvélar"
+msgstr "Úr vélarheiti"
 
 #: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
 #, kde-format
@@ -1037,7 +1037,7 @@ msgstr "Hætt við"
 #: libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Aborted"
-msgstr "Hætt við"
+msgstr "Slitið"
 
 #: libkcups/KCupsConnection.cpp:860
 #, kde-format
@@ -1077,7 +1077,7 @@ msgstr "Mistókst að senda skipun á prentrekil!"
 #: libkcups/KCupsRequest.cpp:567
 #, kde-format
 msgid "Failed to invoke method: %1"
-msgstr "Gat ekki kallað á aðferð: %1"
+msgstr "Mistókst að kalla fram aðferð: %1"
 
 #: libkcups/PPDModel.cpp:32
 #, kde-format
@@ -1185,12 +1185,12 @@ msgstr "Nýr prentari fannst"
 #: print-manager-kded/NewPrinterNotification.cpp:60
 #, kde-format
 msgid "Configuring new printer..."
-msgstr "Stilli nýjan prentara..."
+msgstr "Grunnstilli nýjan prentara..."
 
 #: print-manager-kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
-msgstr "Nýja prentaranum bætt við"
+msgstr "Nýja prentaranum var bætt við"
 
 #: print-manager-kded/NewPrinterNotification.cpp:102
 #, kde-format
@@ -1230,7 +1230,7 @@ msgstr "'%1' hefur verið bætt við, athugaðu rekilinn fyrir hann."
 #: print-manager-kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
-msgstr "'%1' hefur verið bætt við, notar '%2' rekilinn."
+msgstr "'%1' hefur verið bætt við, notar rekilinn '%2'."
 
 #: print-manager-kded/NewPrinterNotification.cpp:244
 #: print-manager-kded/NewPrinterNotification.cpp:256
@@ -1246,17 +1246,17 @@ msgstr "Finna rekil"
 #: print-manager-kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr "'%1' er tilbúinn til prentunar."
+msgstr "'%1' er tilbúið til prentunar."
 
 #: printer-manager-kcm/PrinterDescription.cpp:99
 #, kde-format
 msgid "Share this class"
-msgstr "Deila þessum flokki"
+msgstr "Samnýta þennan flokk"
 
 #: printer-manager-kcm/PrinterDescription.cpp:99
 #, kde-format
 msgid "Share this printer"
-msgstr "Deila þessum prentara"
+msgstr "Samnýta þennan prentara"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
 #: printer-manager-kcm/PrinterDescription.cpp:220
@@ -1369,13 +1369,13 @@ msgstr "Fjarlægja prentara"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
-msgstr "Sýna prentara sem deilt er af öðrum kerfum"
+msgstr "Sýna prentara sem samnýttur er af öðrum kerfum"
 
 #: printer-manager-kcm/PrintKCM.cpp:72
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
-msgstr "Deila prenturum sem tengdir eru við þetta kerfi"
+msgstr "Samnýta prentara sem tengdir eru við þetta kerfi"
 
 #: printer-manager-kcm/PrintKCM.cpp:74
 #, kde-format
@@ -1387,18 +1387,18 @@ msgstr "Leyfa prentun frá internetinu"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
-msgstr "Leyfa fjartengda netstjórnun"
+msgstr "Leyfa fjartengda stjórnun"
 
 #: printer-manager-kcm/PrintKCM.cpp:82
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr "Leyfa notendum að hætta hvaða verki sem er (ekki bara þeirra eigin)"
+msgstr "Leyfa notendum að hætta við hvaða verk sem er (ekki bara þeirra eigin)"
 
 #: printer-manager-kcm/PrintKCM.cpp:86
 #, kde-format
 msgid "Configure the global preferences"
-msgstr "Sýsla með víðværar kjörstillingar"
+msgstr "Grunnstilla almennar kjörstillingar"
 
 #: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
 #, kde-format
@@ -1435,7 +1435,7 @@ msgstr "Mistókst að ná í stillingar prentþjóns"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
-msgstr "Mistókst að stilla prentþjón"
+msgstr "Mistókst að grunnstilla prentþjón"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
 #: printer-manager-kcm/PrintKCM.ui:52
@@ -1572,7 +1572,7 @@ msgstr "prentaranum mínum (x verk)"
 #: printqueue/PrintQueueUi.ui:49
 #, kde-format
 msgid "Printer Icon"
-msgstr "Táknmynd prentara"
+msgstr "Tákn prentara"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
 #: printqueue/PrintQueueUi.ui:233
@@ -1608,7 +1608,7 @@ msgstr "Virk prentverk"
 #: printqueue/PrintQueueUi.ui:317
 #, kde-format
 msgid "Completed Jobs"
-msgstr "Frágengin verk"
+msgstr "Verk sem er lokið"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: printqueue/PrintQueueUi.ui:322

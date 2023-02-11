@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2022-10-11 04:00\n"
+"PO-Revision-Date: 2023-02-09 14:47\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -647,7 +647,7 @@ msgstr "На бягучай старонцы ёсць змены. Хочаце �
 #: configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Захаваць"
 
 #: configure-printer/main.cpp:26
 #, kde-format

@@ -87,14 +87,14 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->systemPreferencesTB->setMenu(systemMenu);
 
     m_model = new PrinterModel(this);
-    auto sortModel = new PrinterSortFilterModel(this);
-    sortModel->setSourceModel(m_model);
-    ui->printersTV->setModel(sortModel);
+    m_sortModel = new PrinterSortFilterModel(this);
+    m_sortModel->setSourceModel(m_model);
+    ui->printersTV->setModel(m_sortModel);
     ui->printersTV->setItemDelegate(new NoSelectionRectDelegate(this));
     ui->printersTV->setItemDelegate(new PrinterDelegate(this));
     connect(ui->printersTV->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PrintKCM::update);
-    connect(sortModel, &PrinterSortFilterModel::rowsInserted, this, &PrintKCM::update);
-    connect(sortModel, &PrinterSortFilterModel::rowsRemoved, this, &PrintKCM::update);
+    connect(m_sortModel, &PrinterSortFilterModel::rowsInserted, this, &PrintKCM::update);
+    connect(m_sortModel, &PrinterSortFilterModel::rowsRemoved, this, &PrintKCM::update);
     connect(m_model, &PrinterModel::dataChanged, this, &PrintKCM::update);
     connect(m_model, &PrinterModel::error, this, &PrintKCM::error);
 
@@ -179,8 +179,8 @@ void PrintKCM::showInfo(const QIcon &icon, const QString &title, const QString &
 
 void PrintKCM::update()
 {
-    if (m_model->rowCount()) {
-        m_lastError = -1; // if the model has printers reset the error code
+    if (m_sortModel->rowCount()) {
+        m_lastError = IPP_OK; // if the model has printers reset the error code
         if (ui->stackedWidget->currentIndex() != 0) {
             ui->stackedWidget->setCurrentIndex(0);
         }
@@ -190,7 +190,7 @@ void PrintKCM::update()
         selection = ui->printersTV->selectionModel()->selection();
         // select the first printer if there are printers
         if (selection.indexes().isEmpty()) {
-            ui->printersTV->selectionModel()->select(m_model->index(0, 0), QItemSelectionModel::Select);
+            ui->printersTV->selectionModel()->select(m_sortModel->index(0, 0), QItemSelectionModel::Select);
             return;
         }
 
@@ -206,7 +206,7 @@ void PrintKCM::update()
         ui->printerDesc->setDestName(index.data(PrinterModel::DestName).toString(),
                                      index.data(PrinterModel::DestDescription).toString(),
                                      index.data(PrinterModel::DestIsClass).toBool(),
-                                     m_model->rowCount() == 1);
+                                     m_sortModel->rowCount() == 1);
         ui->printerDesc->setDestStatus(index.data(PrinterModel::DestStatus).toString());
         ui->printerDesc->setLocation(index.data(PrinterModel::DestLocation).toString());
         ui->printerDesc->setKind(index.data(PrinterModel::DestKind).toString());
@@ -220,7 +220,7 @@ void PrintKCM::update()
         ui->removeTB->show();
         ui->lineTB->show();
         // Show the printer list only if there are more than 1 printer
-        ui->printersTV->setVisible(m_model->rowCount() > 1);
+        ui->printersTV->setVisible(m_sortModel->rowCount() > 1);
     } else {
         // disable the printer action buttons if there is nothing to selected
         ui->removeTB->setEnabled(false);

@@ -20,6 +20,7 @@ class PrintKCM;
 }
 class KCupsRequest;
 class PrinterModel;
+class PrinterSortFilterModel;
 class PrintKCM : public KCModule
 {
     Q_OBJECT
@@ -44,6 +45,7 @@ private slots:
 private:
     Ui::PrintKCM *ui;
     PrinterModel *m_model;
+    PrinterSortFilterModel *m_sortModel;
     int m_lastError = -1; // Force the error to run on the first time
 
     KCupsRequest *m_serverRequest = nullptr;

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2023-02-07 11:02\n"
+"PO-Revision-Date: 2023-02-15 11:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -20,12 +20,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "KDE 中国"
+msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org"
+msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
 
 #: add-printer/AddPrinterAssistant.cpp:27
 #, kde-format
@@ -49,7 +49,7 @@ msgstr "选择要添加的打印机"
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
-msgstr "选择驱动"
+msgstr "选择驱动程序"
 
 #: add-printer/AddPrinterAssistant.cpp:85
 #: add-printer/AddPrinterAssistant.cpp:106
@@ -80,14 +80,14 @@ msgstr "队列："
 #: add-printer/ChooseLpd.ui:51
 #, kde-format
 msgid "Detect"
-msgstr "探测"
+msgstr "检测"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: add-printer/ChooseSamba.ui:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Windows Printer via SAMBA"
-msgstr "经由 SAMBA 的 Windows 打印机"
+msgstr "Windows 打印机 (通过 SAMBA)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: add-printer/ChooseSamba.ui:41
@@ -110,7 +110,7 @@ msgstr "浏览"
 #, kde-format
 msgctxt "@title:group"
 msgid "Authentication"
-msgstr "认证"
+msgstr "身份验证"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: add-printer/ChooseSamba.ui:73
@@ -181,7 +181,7 @@ msgstr "奇偶性："
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Data Bits:"
-msgstr "数据比特"
+msgstr "数据比特："
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: add-printer/ChooseSerial.ui:79
@@ -255,9 +255,9 @@ msgstr ""
 "    socket://hostname:9100\n"
 "</PRE>\n"
 "\n"
-"<P>打开 <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
-"\"网络\n"
-"打印机\"</A>，此页面包含了打印机的正确URI。</P>\n"
+"<P>如需查询您的打印机的正确 URI，请打开 <A HREF=\"http://localhost:631/help/"
+"network.html\" TARGET=\"_blank\"> 页面，查看其中的“网络打印机 (Network "
+"Printer) ”一节</A>。</P>\n"
 "</TD>\n"
 "</TR>\n"
 "</TABLE>"
@@ -266,24 +266,24 @@ msgstr ""
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
-msgstr "人工 URI"
+msgstr "手动输入 URI"
 
 #: add-printer/DevicesModel.cpp:115
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "无法获取设备列表：%1"
+msgstr "获取设备列表失败：“%1”"
 
 #: add-printer/DevicesModel.cpp:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
-msgstr "连接到串行口的打印机"
+msgstr "通过并行端口连接的打印机"
 
 #: add-printer/DevicesModel.cpp:241
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
-msgstr "连接到 USB 端口的打印机"
+msgstr "通过 USB 端口连接的打印机"
 
 #: add-printer/DevicesModel.cpp:244
 #, kde-format
@@ -295,7 +295,7 @@ msgstr "通过蓝牙连接的打印机"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
-msgstr "硬件抽象层(HAL)检测到本地打印机"
+msgstr "硬件抽象层 (HAL) 检测到的本地打印机"
 
 #: add-printer/DevicesModel.cpp:251
 #, kde-format
@@ -303,7 +303,7 @@ msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
-msgstr "HPLIP 软件包可以驱动打印机或带打印功能的多功能一体机"
+msgstr "HPLIP 软件包驱动的打印机，或者多功能一体机的打印功能"
 
 #: add-printer/DevicesModel.cpp:255
 #, kde-format
@@ -311,19 +311,19 @@ msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
-msgstr "HPLIP 软件包可以驱动传真机或带传真功能的多功能一体机"
+msgstr "HPLIP 软件包驱动的传真机，或者多功能一体机的传真功能"
 
 #: add-printer/DevicesModel.cpp:260
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
-msgstr "通过 DNS-SD 远程连接 CUPS 打印机"
+msgstr "通过 DNS-SD 连接的远程 CUPS 打印机"
 
 #: add-printer/DevicesModel.cpp:278
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
-msgstr "找到的网络打印机"
+msgstr "已发现的网络打印机"
 
 #: add-printer/DevicesModel.cpp:282
 #, kde-format
@@ -340,7 +340,7 @@ msgstr "本地打印机"
 #: add-printer/DevicesModel.cpp:328
 #, kde-format
 msgid "Failed to group devices: '%1'"
-msgstr "无法连接组设备：%1"
+msgstr "设备编组失败：“%1”"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
 #: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
@@ -351,7 +351,7 @@ msgstr "添加打印机"
 #: add-printer/main.cpp:30
 #, kde-format
 msgid "Tool for adding new printers"
-msgstr "添加新打印机的工具"
+msgstr "添加新打印机的工具程序"
 
 #: add-printer/main.cpp:32 configure-printer/main.cpp:30
 #: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
@@ -383,24 +383,24 @@ msgstr "添加新打印机类"
 #: add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
-msgstr "更改所选打印机的 PPD 文件"
+msgstr "更改指定打印机的 PPD 文件"
 
 #: add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
-msgstr "更改所选打印机/设备编号的 PPD 文件"
+msgstr "更改指定打印机/设备 ID 的 PPD 文件"
 
 #: add-printer/PageAddPrinter.cpp:122
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr "无法添加类：%1"
+msgstr "添加打印机类失败：“%1”"
 
 #: add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr "无法配置打印机：%1"
+msgstr "配置打印机失败：“%1”"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/PageAddPrinter.ui:31
@@ -413,7 +413,7 @@ msgstr "名称："
 #: add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr "可以包含除“/”，“#”和空格外的任何可打印字符"
+msgstr "可以包含除“/”、“#”和空格符之外的任何可打印字符"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/PageAddPrinter.ui:45
@@ -448,41 +448,41 @@ msgstr "成员："
 #: add-printer/PageDestinations.cpp:189
 #, kde-format
 msgid "A printer connected to the parallel port."
-msgstr "连接到串行口的打印机。"
+msgstr "通过并行端口连接的打印机。"
 
 #: add-printer/PageDestinations.cpp:192
 #, kde-format
 msgid "A printer connected to a USB port."
-msgstr "连接到 USB 端口的打印机。"
+msgstr "通过 USB 端口连接的打印机。"
 
 #: add-printer/PageDestinations.cpp:195
 #, kde-format
 msgid "A printer connected via Bluetooth."
-msgstr "通过蓝牙连接的打印机."
+msgstr "通过蓝牙连接的打印机。"
 
 #: add-printer/PageDestinations.cpp:198
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-msgstr "硬件抽象层(HAL)检测到本地打印机。"
+msgstr "硬件抽象层 (HAL) 检测到的本地打印机。"
 
 #: add-printer/PageDestinations.cpp:202
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device."
-msgstr "HPLIP 软件包可以驱动打印机或带打印功能的多功能一体机。"
+msgstr "HPLIP 软件包驱动的打印机，或者多功能一体机的打印功能。"
 
 #: add-printer/PageDestinations.cpp:206
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device."
-msgstr "HPLIP 软件包可以驱动传真机或带传真功能的多功能一体机。"
+msgstr "HPLIP 软件包驱动的传真机，或者多功能一体机的传真功能。"
 
 #: add-printer/PageDestinations.cpp:214 add-printer/PageDestinations.cpp:373
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
-msgstr "通过 DNS-SD 远程连接 CUPS 打印机"
+msgstr "通过 DNS-SD 连接的远程 CUPS 打印机"
 
 #: add-printer/PageDestinations.cpp:226 add-printer/PageDestinations.cpp:382
 #, kde-format
@@ -502,7 +502,7 @@ msgstr "并行端口"
 #: add-printer/PageDestinations.cpp:335
 #, kde-format
 msgid "Serial Port"
-msgstr "串口"
+msgstr "串行端口"
 
 #: add-printer/PageDestinations.cpp:337
 #, kde-format
@@ -517,12 +517,12 @@ msgstr "蓝牙"
 #: add-printer/PageDestinations.cpp:341
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr "Fax - HP Linux 成像与打印 (HPLIP)"
+msgstr "Fax - HP Linux Imaging and Printing (HPLIP)"
 
 #: add-printer/PageDestinations.cpp:343
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
-msgstr "HP Linux 成像与打印 (HPLIP)"
+msgstr "HP Linux Imaging and Printing (HPLIP)"
 
 #: add-printer/PageDestinations.cpp:345
 #, kde-format
@@ -547,7 +547,7 @@ msgstr "LPD/LPR 队列 %1"
 #: add-printer/PageDestinations.cpp:357
 #, kde-format
 msgid "Windows Printer via SAMBA"
-msgstr "经由 SAMBA 的 Windows 打印机"
+msgstr "Windows 打印机 (通过 SAMBA)"
 
 #: add-printer/PageDestinations.cpp:362
 #, kde-format
@@ -594,7 +594,7 @@ msgstr "请从列表中选择一项"
 #: configure-printer/ConfigureDialog.cpp:89
 #, kde-format
 msgid "Modify Printer"
-msgstr "修改打印机"
+msgstr "调整打印机"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
@@ -629,8 +629,8 @@ msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr ""
-"当前页面已修改。\n"
-"您想保存它们吗？"
+"当前页面已被更改。\n"
+"您想要保存这些更改吗？"
 
 #: configure-printer/ConfigureDialog.cpp:186
 #, kde-format
@@ -660,19 +660,19 @@ msgstr "当前 - %1"
 #: configure-printer/ModifyPrinter.cpp:127
 #, kde-format
 msgid "Select a custom driver"
-msgstr "选择自定义驱动"
+msgstr "选择自定义驱动程序"
 
 #: configure-printer/ModifyPrinter.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
-msgstr "无法配置类"
+msgstr "配置打印机类失败"
 
 #: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
-msgstr "无法配置打印机"
+msgstr "配置打印机失败"
 
 #: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
 #, kde-format
@@ -698,7 +698,7 @@ msgstr "描述："
 #: configure-printer/ModifyPrinter.ui:42
 #, kde-format
 msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-msgstr "人类可读的描述，例如“HP Laserjet 双面打印机”"
+msgstr "方便人类理解的描述信息，例如“HP LaserJet 双面打印机”"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: configure-printer/ModifyPrinter.ui:52
@@ -710,7 +710,7 @@ msgstr "位置："
 #: configure-printer/ModifyPrinter.ui:62
 #, kde-format
 msgid "Human-readable location such as \"Lab 1\""
-msgstr "人类可读的位置，例如“实验室1”"
+msgstr "方便人类理解的位置信息，例如“实验室 1”"
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
 #: configure-printer/ModifyPrinter.ui:79
@@ -808,7 +808,7 @@ msgstr "成员"
 #: configure-printer/ModifyPrinter.ui:126
 #, kde-format
 msgid "Driver:"
-msgstr "驱动："
+msgstr "驱动程序："
 
 #: configure-printer/PrinterBehavior.cpp:199
 #, kde-format
@@ -833,7 +833,7 @@ msgstr "停止打印机"
 #: configure-printer/PrinterBehavior.cpp:214
 #, kde-format
 msgid "Authenticated"
-msgstr "通过身份验证"
+msgstr "已通过身份验证"
 
 #: configure-printer/PrinterBehavior.cpp:216
 #, kde-format
@@ -879,7 +879,7 @@ msgstr "无密级"
 #: configure-printer/PrinterBehavior.ui:29
 #, kde-format
 msgid "Banners"
-msgstr "标题"
+msgstr "横幅"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: configure-printer/PrinterBehavior.ui:35
@@ -945,7 +945,7 @@ msgstr "查询打印机默认选项"
 #: libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"
-msgstr "选择驱动"
+msgstr "选择驱动程序"
 
 #: libkcups/JobModel.cpp:26
 #, kde-format
@@ -1005,22 +1005,22 @@ msgstr "来自主机名"
 #: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr "无法移动 %1 到 %2"
+msgstr "移动“%1”到“%2”失败"
 
 #: libkcups/JobModel.cpp:521 printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
-msgstr "失败"
+msgstr "已失败"
 
 #: libkcups/JobModel.cpp:598
 #, kde-format
 msgid "Pending"
-msgstr "等待"
+msgstr "等待处理"
 
 #: libkcups/JobModel.cpp:599
 #, kde-format
 msgid "On hold"
-msgstr "暂停"
+msgstr "已暂停"
 
 #: libkcups/JobModel.cpp:601
 #, kde-format
@@ -1040,17 +1040,17 @@ msgstr "已中止"
 #: libkcups/KCupsConnection.cpp:860
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr "有一个 CUPS 连接要求进行身份验证：%1"
+msgstr "CUPS 连接要求进行身份验证：“%1”"
 
 #: libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
 msgid "Enter an username and a password to complete the task"
-msgstr "输入用户名和密码完成任务"
+msgstr "输入用户名和密码以完成打印任务"
 
 #: libkcups/KCupsPasswordDialog.cpp:44
 #, kde-format
 msgid "Wrong username or password"
-msgstr "错误的用户名或密码"
+msgstr "用户名或者密码错误"
 
 #: libkcups/KCupsRequest.cpp:32
 #, kde-format
@@ -1075,12 +1075,12 @@ msgstr "无法发送命令到打印机驱动！"
 #: libkcups/KCupsRequest.cpp:567
 #, kde-format
 msgid "Failed to invoke method: %1"
-msgstr "无法调用方法：%1"
+msgstr "调用方法失败：%1"
 
 #: libkcups/PPDModel.cpp:32
 #, kde-format
 msgid "Recommended Drivers"
-msgstr "建议的驱动"
+msgstr "推荐的驱动程序"
 
 #: libkcups/PrinterModel.cpp:163
 #, kde-format
@@ -1100,7 +1100,7 @@ msgstr "空闲，拒绝任务"
 #: libkcups/PrinterModel.cpp:368
 #, kde-format
 msgid "Idle - '%1'"
-msgstr "空闲 - ”%1“"
+msgstr "空闲 - “%1”"
 
 #: libkcups/PrinterModel.cpp:368
 #, kde-format
@@ -1115,7 +1115,7 @@ msgstr "使用中"
 #: libkcups/PrinterModel.cpp:374
 #, kde-format
 msgid "In use - '%1'"
-msgstr "使用中 - %1"
+msgstr "使用中 - “%1”"
 
 #: libkcups/PrinterModel.cpp:378
 #, kde-format
@@ -1125,12 +1125,12 @@ msgstr "已暂停"
 #: libkcups/PrinterModel.cpp:378
 #, kde-format
 msgid "Paused, rejecting jobs"
-msgstr "暂停，拒绝任务"
+msgstr "已暂停，拒绝任务"
 
 #: libkcups/PrinterModel.cpp:380
 #, kde-format
 msgid "Paused - '%1'"
-msgstr "已暂停 - %1"
+msgstr "已暂停 - “%1”"
 
 #: libkcups/PrinterModel.cpp:380
 #, kde-format
@@ -1145,17 +1145,17 @@ msgstr "未知"
 #: libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr "未知 - %1"
+msgstr "未知 - “%1”"
 
 #: libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
-msgstr "无法获取驱动列表：%1"
+msgstr "获取驱动程序列表失败：“%1”"
 
 #: libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
-msgstr "无法搜索建议驱动：%1"
+msgstr "搜索推荐的驱动程序失败：“%1”"
 
 #. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
 #: libkcups/SelectMakeModel.ui:44
@@ -1167,7 +1167,7 @@ msgstr "*.ppd *.ppd.gz|PostScript 打印机描述文件"
 #: libkcups/SelectMakeModel.ui:82
 #, kde-format
 msgid "Choose &the driver from the list"
-msgstr "从列表中选择驱动(&T)"
+msgstr "选择列表中的驱动程序(&T)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: libkcups/SelectMakeModel.ui:94
@@ -1178,7 +1178,7 @@ msgstr "手动提供 PPD 文件(&N)："
 #: print-manager-kded/NewPrinterNotification.cpp:59
 #, kde-format
 msgid "A New Printer was detected"
-msgstr "检测到一个新的打印机"
+msgstr "检测到新打印机"
 
 #: print-manager-kded/NewPrinterNotification.cpp:60
 #, kde-format
@@ -1188,32 +1188,32 @@ msgstr "正在配置新打印机..."
 #: print-manager-kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
-msgstr "添加了新打印机"
+msgstr "新打印机添加完成"
 
 #: print-manager-kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer is Missing Drivers"
-msgstr "新打印机缺少驱动"
+msgstr "新打印机缺少驱动程序"
 
 #: print-manager-kded/NewPrinterNotification.cpp:164
 #, kde-format
 msgid "Missing printer driver"
-msgstr "缺失打印机驱动"
+msgstr "缺少打印机驱动程序"
 
 #: print-manager-kded/NewPrinterNotification.cpp:166
 #, kde-format
 msgid "No printer driver for %1 %2."
-msgstr "没有 %1 %2 打印机的驱动。"
+msgstr "没有 %1 %2 的打印机驱动程序。"
 
 #: print-manager-kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "No printer driver for %1."
-msgstr "没有 %1 打印机的驱动。"
+msgstr "没有 %1 的打印机驱动程序。"
 
 #: print-manager-kded/NewPrinterNotification.cpp:170
 #, kde-format
 msgid "No driver for this printer."
-msgstr "没有此打印机的驱动。"
+msgstr "没有此打印机的驱动程序。"
 
 #: print-manager-kded/NewPrinterNotification.cpp:173
 #, kde-format
@@ -1223,33 +1223,33 @@ msgstr "搜索"
 #: print-manager-kded/NewPrinterNotification.cpp:239
 #, kde-format
 msgid "'%1' has been added, please check its driver."
-msgstr "%1 已被添加，请检查驱动。"
+msgstr "“%1”添加完成，请检查它的驱动程序是否正确。"
 
 #: print-manager-kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
-msgstr "“%1”已被添加，使用“%2”驱动。"
+msgstr "“%1”添加完成，它使用的是“%2”驱动程序。"
 
 #: print-manager-kded/NewPrinterNotification.cpp:244
 #: print-manager-kded/NewPrinterNotification.cpp:256
 #, kde-format
 msgid "Print test page"
-msgstr "打印测试页面"
+msgstr "打印测试页"
 
 #: print-manager-kded/NewPrinterNotification.cpp:244
 #, kde-format
 msgid "Find driver"
-msgstr "查找驱动"
+msgstr "查找驱动程序"
 
 #: print-manager-kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr "“%1”已准备打印。"
+msgstr "“%1”已准备好打印。"
 
 #: printer-manager-kcm/PrinterDescription.cpp:99
 #, kde-format
 msgid "Share this class"
-msgstr "共享此类"
+msgstr "共享此打印机类"
 
 #: printer-manager-kcm/PrinterDescription.cpp:99
 #, kde-format
@@ -1261,7 +1261,7 @@ msgstr "共享此打印机"
 #: printer-manager-kcm/PrinterDescription.ui:293
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "清除打印报头"
+msgstr "清洗打印头"
 
 #. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
 #: printer-manager-kcm/PrinterDescription.cpp:229
@@ -1280,7 +1280,7 @@ msgstr "执行请求失败：%1"
 #, kde-format
 msgctxt "@title"
 msgid "Printer name or description"
-msgstr "打印机名称或描述"
+msgstr "打印机名称或者描述"
 
 #. i18n: ectx: property (text), widget (QLabel, statusL)
 #: printer-manager-kcm/PrinterDescription.ui:102
@@ -1333,7 +1333,7 @@ msgstr "打开打印队列"
 #: printer-manager-kcm/PrinterDescription.ui:288
 #, kde-format
 msgid "Print Test Page"
-msgstr "打印测试页面"
+msgstr "打印测试页"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
 #: printer-manager-kcm/PrinterDescription.ui:298
@@ -1355,13 +1355,13 @@ msgstr "添加打印机类"
 #: printer-manager-kcm/PrintKCM.cpp:59
 #, kde-format
 msgid "Add a new printer or a printer class"
-msgstr "添加新打印机或打印机类"
+msgstr "添加新打印机或者打印机类"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
 #: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
-msgstr "删除打印机"
+msgstr "移除打印机"
 
 #: printer-manager-kcm/PrintKCM.cpp:68
 #, kde-format
@@ -1373,7 +1373,7 @@ msgstr "显示其他系统共享的打印机"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
-msgstr "共享链接到此系统的打印机"
+msgstr "连接到本机的共享打印机"
 
 #: printer-manager-kcm/PrintKCM.cpp:74
 #, kde-format
@@ -1391,27 +1391,27 @@ msgstr "允许远程管理"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr "允许用户中止任何任务(不仅是自己的任务)"
+msgstr "允许用户中止任意任务 (不仅是他们发起的任务)"
 
 #: printer-manager-kcm/PrintKCM.cpp:86
 #, kde-format
 msgid "Configure the global preferences"
-msgstr "配置全局选项"
+msgstr "配置全局首选项"
 
 #: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
 #, kde-format
 msgid "No printers have been configured or discovered"
-msgstr "未配置或未发现打印机"
+msgstr "尚未配置，或者尚未发现打印机"
 
 #: printer-manager-kcm/PrintKCM.cpp:262
 #, kde-format
 msgid "Remove class"
-msgstr "移除类"
+msgstr "移除打印机类"
 
 #: printer-manager-kcm/PrintKCM.cpp:263
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
-msgstr "您确定要移除类 %1 吗？"
+msgstr "您确定要移除打印机类“%1”吗？"
 
 #: printer-manager-kcm/PrintKCM.cpp:266
 #, kde-format
@@ -1421,19 +1421,19 @@ msgstr "移除打印机"
 #: printer-manager-kcm/PrintKCM.cpp:267
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
-msgstr "您确定要移除打印机 %1 吗？"
+msgstr "您确定要移除打印机“%1”吗？"
 
 #: printer-manager-kcm/PrintKCM.cpp:309
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
-msgstr "无法获取服务器设置"
+msgstr "获取服务器设置失败"
 
 #: printer-manager-kcm/PrintKCM.cpp:340
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
-msgstr "无法配置服务器设置"
+msgstr "配置服务器设置失败"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
 #: printer-manager-kcm/PrintKCM.ui:52
@@ -1489,17 +1489,17 @@ msgstr "正在打印..."
 #: printqueue/PrintQueueUi.cpp:205
 #, kde-format
 msgid "Printing '%1'"
-msgstr "打印 %1"
+msgstr "正在打印“%1”"
 
 #: printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Printer paused"
-msgstr "打印机已暂停"
+msgstr "打印已暂停"
 
 #: printqueue/PrintQueueUi.cpp:214
 #, kde-format
 msgid "Resume Printer"
-msgstr "恢复打印机"
+msgstr "继续打印"
 
 #: printqueue/PrintQueueUi.cpp:218
 #, kde-format
@@ -1520,13 +1520,13 @@ msgstr "身份验证"
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "所有打印机 (%1 任务)"
+msgstr[0] "所有打印机 (%1 个任务)"
 
 #: printqueue/PrintQueueUi.cpp:406
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 任务)"
+msgstr[0] "%2 (%1 个任务)"
 
 #: printqueue/PrintQueueUi.cpp:409
 #, kde-format
@@ -1536,22 +1536,22 @@ msgstr "所有打印机"
 #: printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr "无法取消 %1"
+msgstr "取消“%1”失败"
 
 #: printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr "无法保留 %1"
+msgstr "暂停“%1”失败"
 
 #: printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr "无法释放 %1"
+msgstr "释放“%1”失败"
 
 #: printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr "重新打印失败“%1”"
+msgstr "重新打印“%1”失败"
 
 #: printqueue/PrintQueueUi.cpp:561
 #, kde-format
@@ -1562,7 +1562,7 @@ msgstr "请输入身份验证信息，以使用 <b>%1</b> 打印"
 #: printqueue/PrintQueueUi.ui:20
 #, kde-format
 msgid "my printer (x jobs)"
-msgstr "我的打印机 (x 任务)"
+msgstr "我的打印机 (x 个任务)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
 #: printqueue/PrintQueueUi.ui:49
@@ -1610,4 +1610,4 @@ msgstr "已完成任务"
 #: printqueue/PrintQueueUi.ui:322
 #, kde-format
 msgid "All Jobs"
-msgstr "全部任务"
+msgstr "所有任务"

@@ -87,14 +87,12 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->systemPreferencesTB->setMenu(systemMenu);
 
     m_model = new PrinterModel(this);
-    auto sortModel = new PrinterSortFilterModel(this);
-    sortModel->setSourceModel(m_model);
-    ui->printersTV->setModel(sortModel);
+    ui->printersTV->setModel(m_model);
     ui->printersTV->setItemDelegate(new NoSelectionRectDelegate(this));
     ui->printersTV->setItemDelegate(new PrinterDelegate(this));
     connect(ui->printersTV->selectionModel(), &QItemSelectionModel::selectionChanged, this, &PrintKCM::update);
-    connect(sortModel, &PrinterSortFilterModel::rowsInserted, this, &PrintKCM::update);
-    connect(sortModel, &PrinterSortFilterModel::rowsRemoved, this, &PrintKCM::update);
+    connect(m_model, &PrinterModel::rowsInserted, this, &PrintKCM::update);
+    connect(m_model, &PrinterModel::rowsRemoved, this, &PrintKCM::update);
     connect(m_model, &PrinterModel::dataChanged, this, &PrintKCM::update);
     connect(m_model, &PrinterModel::error, this, &PrintKCM::error);
 

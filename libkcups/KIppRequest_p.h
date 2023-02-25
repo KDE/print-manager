@@ -40,7 +40,7 @@ static const char **qStringListToCharPtrPtr(const QStringList &list, QList<QByte
         qbaList.append(qba);
         ptr[i] = qba.constData();
     }
-    ptr[list.size()] = 0;
+    ptr[list.size()] = nullptr;
     return ptr;
 }
 

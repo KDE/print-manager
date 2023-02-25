@@ -538,7 +538,7 @@ KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newD
 
     if (row < 0 || row >= rowCount()) {
         qCWarning(LIBKCUPS) << "Row number is invalid:" << row;
-        return 0;
+        return nullptr;
     }
 
     QStandardItem *job = item(row, ColStatus);
@@ -550,7 +550,7 @@ KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newD
     if ((state == IPP_JOB_HELD && action == Hold) ||
         (state == IPP_JOB_CANCELED && action == Cancel) ||
         (state != IPP_JOB_HELD && action == Release)) {
-        return 0;
+        return nullptr;
     }
 
     auto request = new KCupsRequest;
@@ -572,7 +572,7 @@ KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newD
         break;
     default:
         qCWarning(LIBKCUPS) << "Unknown ACTION called!!!" << action;
-        return 0;
+        return nullptr;
     }
 
     return request;

@@ -2,6 +2,9 @@ set(kcm_print_SRCS
     PrinterDelegate.cpp
     PrinterDescription.cpp
     PrintKCM.cpp
+    PrinterDelegate.h
+    PrinterDescription.h
+    PrintKCM.h
 )
 
 ki18n_wrap_ui(kcm_print_SRCS

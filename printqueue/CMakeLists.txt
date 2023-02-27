@@ -2,6 +2,8 @@ set(queuemanager_SRCS
     main.cpp
     PrintQueue.cpp
     PrintQueueUi.cpp
+    PrintQueue.h
+    PrintQueueUi.h
 )
 
 ki18n_wrap_ui(queuemanager_SRCS

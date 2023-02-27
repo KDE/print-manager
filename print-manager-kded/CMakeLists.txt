@@ -2,6 +2,9 @@ set(printmanagerkded_SRCS
     Debug.cpp
     NewPrinterNotification.cpp
     PrintManagerKded.cpp
+    Debug.h
+    NewPrinterNotification.h
+    PrintManagerKded.h
 )
 
 qt_add_dbus_adaptor(printmanagerkded_SRCS

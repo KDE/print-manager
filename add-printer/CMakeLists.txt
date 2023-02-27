@@ -13,6 +13,20 @@ set(addprinter_SRCS
     PageChoosePPD.cpp
     PageAddPrinter.cpp
     AddPrinterAssistant.cpp
+
+    AddPrinter.h
+    DevicesModel.h
+    GenericPage.h
+    PageDestinations.h
+    ChooseLpd.h
+    ChooseSamba.h
+    ChooseSerial.h
+    ChooseSocket.h
+    ChooseUri.h
+    PageChoosePrinters.h
+    PageChoosePPD.h
+    PageAddPrinter.h
+    AddPrinterAssistant.h
 )
 
 ki18n_wrap_ui(addprinter_SRCS

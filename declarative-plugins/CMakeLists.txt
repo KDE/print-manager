@@ -1,5 +1,6 @@
 set(printmanager_qml_plugin_SRCS
    qmlplugins.cpp
+   qmlplugins.h
 )
 
 add_library(printmanager SHARED ${printmanager_qml_plugin_SRCS})

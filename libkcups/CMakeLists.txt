@@ -16,6 +16,24 @@ set(libkcups_SRCS
     JobModel.cpp
     JobSortFilterModel.cpp
     ProcessRunner.cpp
+
+    Debug.h
+    KIppRequest.h
+    KCupsPasswordDialog.h
+    KCupsConnection.h
+    KCupsJob.h
+    KCupsPrinter.h
+    KCupsServer.h
+    KCupsRequest.h
+    ClassListWidget.h
+    PPDModel.h
+    SelectMakeModel.h
+    NoSelectionRectDelegate.h
+    PrinterModel.h
+    PrinterSortFilterModel.h
+    JobModel.h
+    JobSortFilterModel.h
+    ProcessRunner.h
 )
 
 ki18n_wrap_ui(libkcups_SRCS

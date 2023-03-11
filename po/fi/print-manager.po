@@ -1,7 +1,7 @@
 # KDE Finnish translation sprint participants:
 # Author: Artnay
 # Author: Lliehu
-# Tommi Nieminen <translator@legisign.org>, 2012, 2018, 2019, 2020.
+# Tommi Nieminen <translator@legisign.org>, 2012, 2018, 2019, 2020, 2023.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2015.
 # Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2020-07-21 19:52+0300\n"
+"PO-Revision-Date: 2023-03-06 20:03+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-POT-Import-Date: 2012-12-01 22:25:43+0000\n"
-"X-Generator: Lokalize 20.04.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -641,7 +641,7 @@ msgstr ""
 #: configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: configure-printer/main.cpp:26
 #, kde-format

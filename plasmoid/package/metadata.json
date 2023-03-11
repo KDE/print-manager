@@ -21,7 +21,6 @@
                 "Name[hu]": "Daniel Nicoletti",
                 "Name[ia]": "Daniel Nicoletti",
                 "Name[id]": "Daniel Nicoletti",
-                "Name[is]": "Daniel Nicoletti",
                 "Name[it]": "Daniel Nicoletti",
                 "Name[ka]": "დენიელ ნიკოლეტი",
                 "Name[ko]": "Daniel Nicoletti",
@@ -40,8 +39,7 @@
                 "Name[tr]": "Daniel Nicoletti",
                 "Name[uk]": "Daniel Nicoletti",
                 "Name[x-test]": "xxDaniel Nicolettixx",
-                "Name[zh_CN]": "Daniel Nicoletti",
-                "Name[zh_TW]": "Daniel Nicoletti"
+                "Name[zh_CN]": "Daniel Nicoletti"
             }
         ],
         "Category": "Utilities",
@@ -63,7 +61,6 @@
         "Description[hu]": "Nyomtatási feladatok listázása és kezelése",
         "Description[ia]": "Lista cargas de imprimer e gere los",
         "Description[id]": "Daftar tugas cetak dan mengelolanya",
-        "Description[is]": "Telja upp prentverk og stjórna þeim",
         "Description[it]": "Elenca e gestisci i processi di stampa",
         "Description[ka]": "ბეჭდვის დავალებების სია და მისი მართვა",
         "Description[ko]": "인쇄 작업을 보고 관리",
@@ -83,7 +80,6 @@
         "Description[uk]": "Показ списку завдань і керування ними",
         "Description[x-test]": "xxList print jobs and manage themxx",
         "Description[zh_CN]": "显示和管理打印任务",
-        "Description[zh_TW]": "列出列印工作並管理它們",
         "EnabledByDefault": true,
         "Icon": "printer",
         "Id": "org.kde.plasma.printmanager",
@@ -111,7 +107,6 @@
         "Name[hu]": "Nyomtatók",
         "Name[ia]": "Imprimitores",
         "Name[id]": "Printer",
-        "Name[is]": "Prentarar",
         "Name[it]": "Stampanti",
         "Name[ja]": "プリンタ",
         "Name[ka]": "პრინტერები",

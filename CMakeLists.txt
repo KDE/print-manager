@@ -9,7 +9,7 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 project(print-manager VERSION ${RELEASE_SERVICE_VERSION})
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF_MIN_VERSION "5.98.0")
+set(KF_MIN_VERSION "5.100.0")
 
 
 ################# set KDE specific information #################
@@ -38,7 +38,7 @@ endif()
 
 find_package(Cups "1.5" REQUIRED)
 
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
+find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
              Notifications Plasma WidgetsAddons WindowSystem)
 
 find_package(CupsSmb)

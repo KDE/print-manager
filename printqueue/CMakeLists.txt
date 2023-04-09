@@ -17,13 +17,13 @@ add_executable(kde-print-queue
 target_link_libraries(kde-print-queue
     Qt::Core
     Qt::Widgets
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::KIOCore
-    KF5::KIOWidgets
-    KF5::WidgetsAddons
-    KF5::DBusAddons
-    KF5::ConfigCore
+    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::KIOCore
+    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF${QT_MAJOR_VERSION}::WidgetsAddons
+    KF${QT_MAJOR_VERSION}::DBusAddons
+    KF${QT_MAJOR_VERSION}::ConfigCore
     kcupslib
 )
 

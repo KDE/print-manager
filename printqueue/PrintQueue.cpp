@@ -14,6 +14,9 @@
 #include <QDebug>
 
 #include <KWindowSystem>
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+#include <KX11Extras>
+#endif
 
 PrintQueue::PrintQueue(int &argc, char **argv) :
     QApplication(argc, argv)
@@ -86,7 +89,11 @@ void PrintQueue::showQueue(const QString &destName)
 
     // Check if it's not reserved
     if (m_uis.value(destName)) {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+        KX11Extras::forceActiveWindow(m_uis.value(destName)->winId());
+#else
         KWindowSystem::forceActiveWindow(m_uis.value(destName)->winId());
+#endif
     }
 }
 

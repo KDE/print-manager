@@ -16,6 +16,7 @@
 #include <QDBusConnection>
 #include <QTimer>
 #include <KWindowSystem>
+#include <KX11Extras>
 #include <QDialog>
 
 ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent) :
@@ -90,7 +91,11 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 
     // Check if it's not reserved
     if (m_uis.value(destName)) {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+        KX11Extras::forceActiveWindow(m_uis.value(destName)->winId());
+#else
         KWindowSystem::forceActiveWindow(m_uis.value(destName)->winId());
+#endif
     }
 }
 

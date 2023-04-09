@@ -18,8 +18,8 @@ set_target_properties(kded_printmanager PROPERTIES OUTPUT_NAME printmanager)
 
 target_link_libraries(kded_printmanager
     Qt::Core
-    KF5::DBusAddons
-    KF5::Notifications
+    KF${QT_MAJOR_VERSION}::DBusAddons
+    KF${QT_MAJOR_VERSION}::Notifications
     kcupslib
 )
 

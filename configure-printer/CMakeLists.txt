@@ -27,17 +27,23 @@ add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
     Qt::Core
     Qt::Widgets
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::IconThemes
-    KF5::KIOCore
-    KF5::KIOWidgets
-    KF5::WidgetsAddons
-    KF5::DBusAddons
-    KF5::ConfigCore
+    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::IconThemes
+    KF${QT_MAJOR_VERSION}::KIOCore
+    KF${QT_MAJOR_VERSION}::KIOWidgets
+    KF${QT_MAJOR_VERSION}::WidgetsAddons
+    KF${QT_MAJOR_VERSION}::DBusAddons
+    KF${QT_MAJOR_VERSION}::ConfigCore
     Cups::Cups
     kcupslib
 )
+
+if(${QT_MAJOR_VERSION} EQUAL "6")
+    target_link_libraries(configure-printer
+        Qt6::Core5Compat
+    )
+endif()
 
 install(TARGETS configure-printer DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(PROGRAMS org.kde.ConfigurePrinter.desktop DESTINATION ${KDE_INSTALL_APPDIR})

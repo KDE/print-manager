@@ -18,9 +18,9 @@ kcmutils_generate_desktop_file(kcm_printer_manager)
 target_link_libraries(kcm_printer_manager
     Qt::Core
     Qt::Widgets
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::KCMUtils
+    KF${QT_MAJOR_VERSION}::CoreAddons
+    KF${QT_MAJOR_VERSION}::I18n
+    KF${QT_MAJOR_VERSION}::KCMUtils
     kcupslib
     Cups::Cups
 )

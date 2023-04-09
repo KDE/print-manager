@@ -10,6 +10,9 @@
 
 #include <KCupsRequest.h>
 #include <KWindowSystem>
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+#include <KX11Extras>
+#endif
 
 #include <QPointer>
 
@@ -96,7 +99,11 @@ void AddPrinter::newPrinterFromDevice(qulonglong wid, const QString &name, const
 void AddPrinter::show(QWidget *widget, qulonglong wid) const
 {
     widget->show();
-    KWindowSystem::forceActiveWindow(widget->winId());
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+        KX11Extras::forceActiveWindow(widget->winId());
+#else
+        KWindowSystem::forceActiveWindow(widget->winId());
+#endif
     widget->setAttribute(Qt::WA_NativeWindow, true);
     KWindowSystem::setMainWindow(widget->windowHandle(), wid);
 }

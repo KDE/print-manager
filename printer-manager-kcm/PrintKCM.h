@@ -25,7 +25,11 @@ class PrintKCM : public KCModule
 {
     Q_OBJECT
 public:
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    PrintKCM(QObject *parent, const QVariantList &args);
+#else
     PrintKCM(QWidget *parent, const QVariantList &args);
+#endif
     ~PrintKCM() override;
 
 private slots:

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:51+0000\n"
+"POT-Creation-Date: 2023-04-09 00:50+0000\n"
 "PO-Revision-Date: 2019-11-06 12:22+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -359,14 +359,12 @@ msgstr "Přidat tiskárnu"
 msgid "Tool for adding new printers"
 msgstr "Nástroj pro přidávání nových tiskáren"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30
-#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32
-#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Port na Qt 5 / Plasma 5"
@@ -681,7 +679,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Nastavení tiskárny selhalo"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1050,12 +1048,12 @@ msgstr "Přerušeno"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Připojené k CUPS vyžaduje ověření totožnosti: \"%1\""
 
-#: libkcups/KCupsPasswordDialog.cpp:22
+#: libkcups/KCupsPasswordDialog.cpp:25
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Pro dokončení úlohy zadejte uživatelské jméno a heslo"
 
-#: libkcups/KCupsPasswordDialog.cpp:44
+#: libkcups/KCupsPasswordDialog.cpp:47
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Špatné uživatelské jméno nebo heslo"
@@ -1349,95 +1347,90 @@ msgstr "Vytisknout testovací stránku"
 msgid "Print Self Test Page"
 msgstr "Vytisknout testovací stránku"
 
-#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
-#, kde-format
-msgid "Print settings"
-msgstr "Nastavení tisku"
-
-#: printer-manager-kcm/PrintKCM.cpp:56
+#: printer-manager-kcm/PrintKCM.cpp:59
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Přidat třídu tiskáren"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:62
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Přidat novou tiskárnu nebo třídu tiskáren"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Odstranit tiskárnu"
 
-#: printer-manager-kcm/PrintKCM.cpp:68
+#: printer-manager-kcm/PrintKCM.cpp:76
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Zobrazit tiskárny sdílené ostatními systémy"
 
-#: printer-manager-kcm/PrintKCM.cpp:72
+#: printer-manager-kcm/PrintKCM.cpp:80
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Sdílené tiskárny připojené k tomuto systému"
 
-#: printer-manager-kcm/PrintKCM.cpp:74
+#: printer-manager-kcm/PrintKCM.cpp:82
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Povolit tisk z internetu"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:88
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Povolit vzdálenou správu"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:90
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Povolit uživatelům zrušit jakoukoliv úlohu (ne jen ty, které vlastní)"
 
-#: printer-manager-kcm/PrintKCM.cpp:86
+#: printer-manager-kcm/PrintKCM.cpp:94
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Nastavit globální předvolby"
 
-#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Nebyly nalezeny či nastaveny žádné tiskárny"
 
-#: printer-manager-kcm/PrintKCM.cpp:262
+#: printer-manager-kcm/PrintKCM.cpp:270
 #, kde-format
 msgid "Remove class"
 msgstr "Odebrat třídu"
 
-#: printer-manager-kcm/PrintKCM.cpp:263
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Určitě si přejete odstranit třídu '%1'?"
 
-#: printer-manager-kcm/PrintKCM.cpp:266
+#: printer-manager-kcm/PrintKCM.cpp:274
 #, kde-format
 msgid "Remove printer"
 msgstr "Odstranit tiskárnu"
 
-#: printer-manager-kcm/PrintKCM.cpp:267
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Určitě si přejete odstranit tiskárnu '%1'?"
 
-#: printer-manager-kcm/PrintKCM.cpp:309
+#: printer-manager-kcm/PrintKCM.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Selhalo získání nastavení serveru"
 
-#: printer-manager-kcm/PrintKCM.cpp:340
+#: printer-manager-kcm/PrintKCM.cpp:360
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
@@ -1623,3 +1616,6 @@ msgstr "Dokončené úlohy"
 #, kde-format
 msgid "All Jobs"
 msgstr "Všechny úlohy"
+
+#~ msgid "Print settings"
+#~ msgstr "Nastavení tisku"

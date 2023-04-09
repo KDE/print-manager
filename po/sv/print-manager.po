@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:51+0000\n"
+"POT-Creation-Date: 2023-04-09 00:50+0000\n"
 "PO-Revision-Date: 2019-11-06 17:51+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -358,14 +358,12 @@ msgstr "Lägg till skrivare"
 msgid "Tool for adding new printers"
 msgstr "Verktyg för att lägga till nya skrivare"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30
-#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© 2010-2018 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32
-#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Konvertering till Qt 5 och Plasma 5"
@@ -683,7 +681,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Misslyckades anpassa skrivare"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1051,12 +1049,12 @@ msgstr "Avbruten"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "En anslutning till CUPS kräver behörighetskontroll: \"%1\""
 
-#: libkcups/KCupsPasswordDialog.cpp:22
+#: libkcups/KCupsPasswordDialog.cpp:25
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Skriv in ett användarnamn och lösenord för att slutföra uppgiften"
 
-#: libkcups/KCupsPasswordDialog.cpp:44
+#: libkcups/KCupsPasswordDialog.cpp:47
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Fel användarnamn eller lösenord"
@@ -1350,95 +1348,90 @@ msgstr "Skriv ut testsida"
 msgid "Print Self Test Page"
 msgstr "Skriv ut självtestsida"
 
-#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
-#, kde-format
-msgid "Print settings"
-msgstr "Skrivarinställningar"
-
-#: printer-manager-kcm/PrintKCM.cpp:56
+#: printer-manager-kcm/PrintKCM.cpp:59
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Lägg till skrivarklass"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:62
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Lägg till en ny skrivare eller skrivarklass"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Ta bort skrivare"
 
-#: printer-manager-kcm/PrintKCM.cpp:68
+#: printer-manager-kcm/PrintKCM.cpp:76
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Visa skrivare delade av andra datorer"
 
-#: printer-manager-kcm/PrintKCM.cpp:72
+#: printer-manager-kcm/PrintKCM.cpp:80
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Dela skrivare som är anslutna till systemet"
 
-#: printer-manager-kcm/PrintKCM.cpp:74
+#: printer-manager-kcm/PrintKCM.cpp:82
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Tillåt utskrift från Internet"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:88
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Tillåt fjärradministration"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:90
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Tillåt användare att avsluta alla jobb (inte bara egna)"
 
-#: printer-manager-kcm/PrintKCM.cpp:86
+#: printer-manager-kcm/PrintKCM.cpp:94
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Anpassa allmänna inställningar"
 
-#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Inga skrivare har ställts in eller upptäckts"
 
-#: printer-manager-kcm/PrintKCM.cpp:262
+#: printer-manager-kcm/PrintKCM.cpp:270
 #, kde-format
 msgid "Remove class"
 msgstr "Ta bort klass"
 
-#: printer-manager-kcm/PrintKCM.cpp:263
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Är du säker på att du vill ta bort klassen '%1'?"
 
-#: printer-manager-kcm/PrintKCM.cpp:266
+#: printer-manager-kcm/PrintKCM.cpp:274
 #, kde-format
 msgid "Remove printer"
 msgstr "Ta bort skrivare"
 
-#: printer-manager-kcm/PrintKCM.cpp:267
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Är du säker på att du vill ta bort skrivaren '%1'?"
 
-#: printer-manager-kcm/PrintKCM.cpp:309
+#: printer-manager-kcm/PrintKCM.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Misslyckades hämta serverinställningar"
 
-#: printer-manager-kcm/PrintKCM.cpp:340
+#: printer-manager-kcm/PrintKCM.cpp:360
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
@@ -1622,6 +1615,9 @@ msgstr "Klara jobb"
 #, kde-format
 msgid "All Jobs"
 msgstr "Alla jobb"
+
+#~ msgid "Print settings"
+#~ msgstr "Skrivarinställningar"
 
 #~ msgid "Daniel Nicoletti"
 #~ msgstr "Daniel Nicoletti"

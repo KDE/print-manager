@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:51+0000\n"
+"POT-Creation-Date: 2023-04-09 00:50+0000\n"
 "PO-Revision-Date: 2023-02-28 22:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -354,14 +354,12 @@ msgstr "프린터 추가"
 msgid "Tool for adding new printers"
 msgstr "새 프린터 추가 도구"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30
-#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32
-#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Qt 5/Plasma 5 포팅"
@@ -675,7 +673,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "프린터를 설정할 수 없음"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1043,12 +1041,12 @@ msgstr "중단됨"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS 연결에 인증이 필요함: \"%1\""
 
-#: libkcups/KCupsPasswordDialog.cpp:22
+#: libkcups/KCupsPasswordDialog.cpp:25
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "작업을 완료하려면 사용자 이름과 암호를 입력하십시오"
 
-#: libkcups/KCupsPasswordDialog.cpp:44
+#: libkcups/KCupsPasswordDialog.cpp:47
 #, kde-format
 msgid "Wrong username or password"
 msgstr "잘못된 사용자 이름이나 암호"
@@ -1342,95 +1340,90 @@ msgstr "테스트 페이지 인쇄"
 msgid "Print Self Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
-#, kde-format
-msgid "Print settings"
-msgstr "인쇄 설정"
-
-#: printer-manager-kcm/PrintKCM.cpp:56
+#: printer-manager-kcm/PrintKCM.cpp:59
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "프린터 클래스 추가"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:62
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "새 프린터나 프린터 클래스 추가"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "프린터 삭제"
 
-#: printer-manager-kcm/PrintKCM.cpp:68
+#: printer-manager-kcm/PrintKCM.cpp:76
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "다른 시스템에서 공유한 프린터 표시"
 
-#: printer-manager-kcm/PrintKCM.cpp:72
+#: printer-manager-kcm/PrintKCM.cpp:80
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "이 시스템에 연결된 프린터 공유"
 
-#: printer-manager-kcm/PrintKCM.cpp:74
+#: printer-manager-kcm/PrintKCM.cpp:82
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "인터넷 인쇄 허용하기"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:88
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "원격 관리 허용하기"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:90
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "다른 사용자의 작업도 취소할 수 있도록 허용하기"
 
-#: printer-manager-kcm/PrintKCM.cpp:86
+#: printer-manager-kcm/PrintKCM.cpp:94
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "전역 설정 변경"
 
-#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "설정되거나 발견된 프린터 없음"
 
-#: printer-manager-kcm/PrintKCM.cpp:262
+#: printer-manager-kcm/PrintKCM.cpp:270
 #, kde-format
 msgid "Remove class"
 msgstr "클래스 삭제"
 
-#: printer-manager-kcm/PrintKCM.cpp:263
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "클래스 '%1'을(를) 삭제하시겠습니까?"
 
-#: printer-manager-kcm/PrintKCM.cpp:266
+#: printer-manager-kcm/PrintKCM.cpp:274
 #, kde-format
 msgid "Remove printer"
 msgstr "프린터 삭제"
 
-#: printer-manager-kcm/PrintKCM.cpp:267
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "프린터 '%1'을(를) 삭제하시겠습니까?"
 
-#: printer-manager-kcm/PrintKCM.cpp:309
+#: printer-manager-kcm/PrintKCM.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "서버 설정을 가져올 수 없음"
 
-#: printer-manager-kcm/PrintKCM.cpp:340
+#: printer-manager-kcm/PrintKCM.cpp:360
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
@@ -1612,6 +1605,9 @@ msgstr "완료된 작업"
 #, kde-format
 msgid "All Jobs"
 msgstr "모든 작업"
+
+#~ msgid "Print settings"
+#~ msgstr "인쇄 설정"
 
 #~ msgid "Daniel Nicoletti"
 #~ msgstr "Daniel Nicoletti"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:51+0000\n"
+"POT-Creation-Date: 2023-04-09 00:50+0000\n"
 "PO-Revision-Date: 2014-02-21 00:53+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
@@ -360,15 +360,13 @@ msgstr "Drucker tofögen"
 msgid "Tool for adding new printers"
 msgstr "Warktüüch för't Tofögen vun nieg Druckers"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30
-#: printer-manager-kcm/PrintKCM.cpp:41 printqueue/main.cpp:29
+#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "(C) 2010-2013 Daniel Nicoletti"
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2013 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32
-#: printer-manager-kcm/PrintKCM.cpp:43 printqueue/main.cpp:32
+#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
@@ -691,7 +689,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Drucker lett sik nich inrichten"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:311
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1063,13 +1061,13 @@ msgstr "Afbraken"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr ""
 
-#: libkcups/KCupsPasswordDialog.cpp:22
+#: libkcups/KCupsPasswordDialog.cpp:25
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr ""
 "Giff en Brukernaam un en Passwoort in, wenn Du de Ännern nu afsluten wullt"
 
-#: libkcups/KCupsPasswordDialog.cpp:44
+#: libkcups/KCupsPasswordDialog.cpp:47
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Leeg Brukernaam oder Passwoort"
@@ -1365,95 +1363,90 @@ msgstr "Testsiet drucken"
 msgid "Print Self Test Page"
 msgstr "Sülvtest-Siet drucken"
 
-#: printer-manager-kcm/PrintKCM.cpp:37 printer-manager-kcm/PrintKCM.cpp:39
-#, kde-format
-msgid "Print settings"
-msgstr "Instellen drucken"
-
-#: printer-manager-kcm/PrintKCM.cpp:56
+#: printer-manager-kcm/PrintKCM.cpp:59
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "En Druckerklass tofögen"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:62
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "En nieg Drucker oder Druckerklass tofögen"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:63 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Drucker wegmaken"
 
-#: printer-manager-kcm/PrintKCM.cpp:68
+#: printer-manager-kcm/PrintKCM.cpp:76
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Druckers wiesen, de vun anner Systemen deelt warrt"
 
-#: printer-manager-kcm/PrintKCM.cpp:72
+#: printer-manager-kcm/PrintKCM.cpp:80
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Druckers delen, de dit Systeem tokoppelt sünd"
 
-#: printer-manager-kcm/PrintKCM.cpp:74
+#: printer-manager-kcm/PrintKCM.cpp:82
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Drucken ut't Internet tolaten"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:88
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Feernpleeg tolaten"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:90
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Brukers dat afbreken vun all (nich bloots ehr egen) Opgaven verlöven"
 
-#: printer-manager-kcm/PrintKCM.cpp:86
+#: printer-manager-kcm/PrintKCM.cpp:94
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Globaal Instellen fastleggen"
 
-#: printer-manager-kcm/PrintKCM.cpp:131 printer-manager-kcm/PrintKCM.cpp:231
+#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Keen Drucker wöör opdeckt oder inricht"
 
-#: printer-manager-kcm/PrintKCM.cpp:262
+#: printer-manager-kcm/PrintKCM.cpp:270
 #, kde-format
 msgid "Remove class"
 msgstr "Klass wegmaken"
 
-#: printer-manager-kcm/PrintKCM.cpp:263
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Wullt Du de Klass \"%1\" redig wegmaken?"
 
-#: printer-manager-kcm/PrintKCM.cpp:266
+#: printer-manager-kcm/PrintKCM.cpp:274
 #, kde-format
 msgid "Remove printer"
 msgstr "Drucker wegmaken"
 
-#: printer-manager-kcm/PrintKCM.cpp:267
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Wullt Du den Drucker \"%1\" redig wegmaken?"
 
-#: printer-manager-kcm/PrintKCM.cpp:309
+#: printer-manager-kcm/PrintKCM.cpp:325
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Serverinstellen laat sik nich halen"
 
-#: printer-manager-kcm/PrintKCM.cpp:340
+#: printer-manager-kcm/PrintKCM.cpp:360
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
@@ -1640,6 +1633,9 @@ msgstr "Afslaten Opgaven"
 #, kde-format
 msgid "All Jobs"
 msgstr "All Opgaven"
+
+#~ msgid "Print settings"
+#~ msgstr "Instellen drucken"
 
 #~ msgid "Daniel Nicoletti"
 #~ msgstr "Daniel Nicoletti"

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2019, 2022.
+# This file is distributed under the same license as the print-manager package.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2019, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-07 00:51+0000\n"
-"PO-Revision-Date: 2022-12-08 00:20+0100\n"
+"PO-Revision-Date: 2023-04-26 01:50+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -255,9 +255,9 @@ msgstr ""
 "    socket://nomehost:9100\n"
 "</PRE>\n"
 "\n"
-"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
-"\"Network\n"
-"Printers\"</A> for the correct URI to use with your printer.</P>\n"
+"<P>Vedi <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Stampanti di\n"
+"rete\"</A> per l'URI corretto da usare con la tua stampante.</P>\n"
 "</TD>\n"
 "</TR>\n"
 "</TABLE>"
@@ -1079,7 +1079,7 @@ msgstr "Pagina di prova"
 #: libkcups/KCupsRequest.cpp:433
 #, kde-format
 msgid "Unable to send command to printer driver!"
-msgstr "Impossibile inviare il comando al driver della stampante!"
+msgstr "Impossibile inviare il comando al driver della stampante"
 
 #: libkcups/KCupsRequest.cpp:567
 #, kde-format

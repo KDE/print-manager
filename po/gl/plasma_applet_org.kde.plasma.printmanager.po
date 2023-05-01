@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2018, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2018, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-03-31 00:46+0000\n"
-"PO-Revision-Date: 2020-02-16 08:54+0100\n"
+"PO-Revision-Date: 2023-04-30 10:11+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: plasmoid/package/contents/ui/PopupDialog.qml:26
 msgid "Search…"
-msgstr ""
+msgstr "Buscar…"
 
 #: plasmoid/package/contents/ui/PopupDialog.qml:71
 #: plasmoid/package/contents/ui/printmanager.qml:52
@@ -30,7 +30,7 @@ msgstr "Non se configurou nin descubriu ningunha impresora."
 
 #: plasmoid/package/contents/ui/PopupDialog.qml:71
 msgid "No matches"
-msgstr ""
+msgstr "Non hai coincidencias"
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:25
 msgid "Resume printing"
@@ -41,16 +41,12 @@ msgid "Pause printing"
 msgstr "Poñer en pausa a impresión"
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:37
-#, fuzzy
-#| msgid "Configure printer"
 msgid "Configure printer..."
-msgstr "Configurar a impresora"
+msgstr "Configurar a impresora…"
 
 #: plasmoid/package/contents/ui/PrinterItem.qml:42
-#, fuzzy
-#| msgid "Open print queue"
 msgid "View print queue"
-msgstr "Abrir a cola de impresión"
+msgstr "Ver a cola de impresión"
 
 #: plasmoid/package/contents/ui/printmanager.qml:31
 msgid "Printers"
@@ -77,22 +73,16 @@ msgid "Print queue is empty"
 msgstr "A cola de impresión está baleira."
 
 #: plasmoid/package/contents/ui/printmanager.qml:126
-#, fuzzy
-#| msgid "All jobs"
 msgid "Show All Jobs"
-msgstr "Todas as tarefas"
+msgstr "Mostrar todas as tarefas"
 
 #: plasmoid/package/contents/ui/printmanager.qml:132
-#, fuzzy
-#| msgid "Completed jobs only"
 msgid "Show Only Completed Jobs"
-msgstr "Só as tarefas completadas"
+msgstr "Mostrar só as tarefas completadas"
 
 #: plasmoid/package/contents/ui/printmanager.qml:138
-#, fuzzy
-#| msgid "No active jobs"
 msgid "Show Only Active Jobs"
-msgstr "Non hai tarefas activas."
+msgstr "Mostrar só as tarefas activas"
 
 #: plasmoid/package/contents/ui/printmanager.qml:149
 msgid "&Configure Printers..."

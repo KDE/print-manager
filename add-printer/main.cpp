@@ -20,7 +20,9 @@ Q_LOGGING_CATEGORY(PM_ADD_PRINTER, "pm.add.printer")
 
 int main(int argc, char **argv)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+#endif
     AddPrinter app(argc, argv);
     app.setOrganizationDomain(QLatin1String("org.kde"));
 

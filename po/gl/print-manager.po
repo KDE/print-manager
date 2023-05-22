@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:50+0000\n"
+"POT-Creation-Date: 2023-05-22 00:51+0000\n"
 "PO-Revision-Date: 2023-04-30 11:07+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -351,47 +351,47 @@ msgid "Failed to group devices: '%1'"
 msgstr "Non se puideron agrupar os dispositivos: «%1»."
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#: add-printer/main.cpp:30 printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "Engadir unha impresora"
 
-#: add-printer/main.cpp:30
+#: add-printer/main.cpp:32
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "Ferramenta para engadir novas impresoras."
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
+#: add-printer/main.cpp:34 configure-printer/main.cpp:32 printqueue/main.cpp:31
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© 2010-2018 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
+#: add-printer/main.cpp:37 configure-printer/main.cpp:34 printqueue/main.cpp:34
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Adaptación a Qt 5 e Plasma 5."
 
-#: add-printer/main.cpp:41
+#: add-printer/main.cpp:43
 #, kde-format
 msgid "Parent Window ID"
 msgstr "Identificador da xanela nai"
 
-#: add-printer/main.cpp:44
+#: add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer"
 msgstr "Engadir unha nova impresora"
 
-#: add-printer/main.cpp:47
+#: add-printer/main.cpp:49
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Engadir unha nova clase de impresora"
 
-#: add-printer/main.cpp:50
+#: add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Cambia os PPD da impresora indicada"
 
-#: add-printer/main.cpp:53
+#: add-printer/main.cpp:55
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Cambia os PPD da impresora ou identificador de dispositivo indicado"
@@ -650,17 +650,17 @@ msgstr ""
 msgid "Save"
 msgstr "Gardar"
 
-#: configure-printer/main.cpp:26
+#: configure-printer/main.cpp:28
 #, kde-format
 msgid "Configure Printer"
 msgstr "Configurar a impresora"
 
-#: configure-printer/main.cpp:28
+#: configure-printer/main.cpp:30
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "Configurar a impresora"
 
-#: configure-printer/main.cpp:39
+#: configure-printer/main.cpp:41
 #, kde-format
 msgid "Printer to be configured"
 msgstr "Impresora para configurar"
@@ -1469,12 +1469,12 @@ msgstr "Título do erro"
 msgid "Click here to add a new printer"
 msgstr "Prema aquí para engadir unha nova impresora."
 
-#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#: printqueue/main.cpp:27 printqueue/main.cpp:29
 #, kde-format
 msgid "Print Queue"
 msgstr "Cola de impresión"
 
-#: printqueue/main.cpp:39
+#: printqueue/main.cpp:41
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "Mostrar as colas de impresión"

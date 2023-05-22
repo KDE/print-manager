@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:50+0000\n"
+"POT-Creation-Date: 2023-05-22 00:51+0000\n"
 "PO-Revision-Date: 2013-06-16 06:28+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -349,48 +349,48 @@ msgid "Failed to group devices: '%1'"
 msgstr "Құрылғыларды топтастыру жаңылысы: '%1'"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#: add-printer/main.cpp:30 printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "Принтер жазуын қосу"
 
-#: add-printer/main.cpp:30
+#: add-printer/main.cpp:32
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "Жаңа принтерлердің жазуларын қосу құралы"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
+#: add-printer/main.cpp:34 configure-printer/main.cpp:32 printqueue/main.cpp:31
 #, fuzzy, kde-format
 #| msgid "(C) 2010-2013 Daniel Nicoletti"
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2013 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
+#: add-printer/main.cpp:37 configure-printer/main.cpp:34 printqueue/main.cpp:34
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: add-printer/main.cpp:41
+#: add-printer/main.cpp:43
 #, kde-format
 msgid "Parent Window ID"
 msgstr "Аталық терезесінің ID-і"
 
-#: add-printer/main.cpp:44
+#: add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer"
 msgstr "Жаңа принтерін қосу"
 
-#: add-printer/main.cpp:47
+#: add-printer/main.cpp:49
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Жаңа принтер класын қосу"
 
-#: add-printer/main.cpp:50
+#: add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Көрсетілген принтердің PPD-ін өзгерту"
 
-#: add-printer/main.cpp:53
+#: add-printer/main.cpp:55
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Көрсетілген принтер/құрылғыдың PPD-ін өзгерту"
@@ -645,18 +645,18 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: configure-printer/main.cpp:26
+#: configure-printer/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "ConfigurePrinter"
 msgid "Configure Printer"
 msgstr "Принтерді баптау"
 
-#: configure-printer/main.cpp:28
+#: configure-printer/main.cpp:30
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "Принтерді баптау"
 
-#: configure-printer/main.cpp:39
+#: configure-printer/main.cpp:41
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -1469,13 +1469,13 @@ msgstr "Атауы қате"
 msgid "Click here to add a new printer"
 msgstr "Жаңа принтерді қосу үшін осында түртіңіз"
 
-#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#: printqueue/main.cpp:27 printqueue/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "PrintQueue"
 msgid "Print Queue"
 msgstr "БасуКезегі"
 
-#: printqueue/main.cpp:39
+#: printqueue/main.cpp:41
 #, fuzzy, kde-format
 #| msgid "Show printer queue"
 msgid "Show printer queue(s)"

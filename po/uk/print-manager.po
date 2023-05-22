@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:50+0000\n"
+"POT-Creation-Date: 2023-05-22 00:51+0000\n"
 "PO-Revision-Date: 2022-12-07 07:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -350,47 +350,47 @@ msgid "Failed to group devices: '%1'"
 msgstr "Не вдалося згрупувати пристрої: «%1»"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#: add-printer/main.cpp:30 printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "Додати принтер"
 
-#: add-printer/main.cpp:30
+#: add-printer/main.cpp:32
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "Інструмент для додавання нових записів принтерів"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
+#: add-printer/main.cpp:34 configure-printer/main.cpp:32 printqueue/main.cpp:31
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© Daniel Nicoletti, 2010–2018"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
+#: add-printer/main.cpp:37 configure-printer/main.cpp:34 printqueue/main.cpp:34
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Портування на Qt 5 / Plasma 5"
 
-#: add-printer/main.cpp:41
+#: add-printer/main.cpp:43
 #, kde-format
 msgid "Parent Window ID"
 msgstr "Ід. батьківського вікна"
 
-#: add-printer/main.cpp:44
+#: add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer"
 msgstr "Додати новий принтер"
 
-#: add-printer/main.cpp:47
+#: add-printer/main.cpp:49
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Додати новий клас принтерів"
 
-#: add-printer/main.cpp:50
+#: add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Змінює PPD вказаного принтера"
 
-#: add-printer/main.cpp:53
+#: add-printer/main.cpp:55
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Змінює PPD вказаного принтера або пристрою з певним ідентифікатором"
@@ -646,17 +646,17 @@ msgstr ""
 msgid "Save"
 msgstr "Зберегти"
 
-#: configure-printer/main.cpp:26
+#: configure-printer/main.cpp:28
 #, kde-format
 msgid "Configure Printer"
 msgstr "Налаштувати принтер"
 
-#: configure-printer/main.cpp:28
+#: configure-printer/main.cpp:30
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "Налаштування принтера"
 
-#: configure-printer/main.cpp:39
+#: configure-printer/main.cpp:41
 #, kde-format
 msgid "Printer to be configured"
 msgstr "Принтер, який слід налаштувати"
@@ -1465,12 +1465,12 @@ msgstr "Заголовок помилки"
 msgid "Click here to add a new printer"
 msgstr "Натисніть тут, щоб додати новий принтер"
 
-#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#: printqueue/main.cpp:27 printqueue/main.cpp:29
 #, kde-format
 msgid "Print Queue"
 msgstr "Черга друку"
 
-#: printqueue/main.cpp:39
+#: printqueue/main.cpp:41
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "Показ черги завдань принтерів"

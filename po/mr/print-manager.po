@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:50+0000\n"
+"POT-Creation-Date: 2023-05-22 00:51+0000\n"
 "PO-Revision-Date: 2013-03-15 15:30+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -323,52 +323,52 @@ msgid "Failed to group devices: '%1'"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#: add-printer/main.cpp:30 printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "छपाईयंत्र जोडा"
 
-#: add-printer/main.cpp:30
+#: add-printer/main.cpp:32
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "नवीन छपाईयंत्र जोडण्याकरिताचे साधन"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
+#: add-printer/main.cpp:34 configure-printer/main.cpp:32 printqueue/main.cpp:31
 #, fuzzy, kde-format
 #| msgid "(C) 2010-2012 Daniel Nicoletti"
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2012 डेनियल निलोलेट्टी"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
+#: add-printer/main.cpp:37 configure-printer/main.cpp:34 printqueue/main.cpp:34
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: add-printer/main.cpp:41
+#: add-printer/main.cpp:43
 #, kde-format
 msgid "Parent Window ID"
 msgstr ""
 
-#: add-printer/main.cpp:44
+#: add-printer/main.cpp:46
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
 msgid "Add a new printer"
 msgstr "नवीन छपाईयंत्र जोडा"
 
-#: add-printer/main.cpp:47
+#: add-printer/main.cpp:49
 #, fuzzy, kde-format
 #| msgctxt "@action:intoolbar"
 #| msgid "Add a Printer Class"
 msgid "Add a new printer class"
 msgstr "नवीन छपाईयंत्र वर्ग जोडा"
 
-#: add-printer/main.cpp:50
+#: add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr ""
 
-#: add-printer/main.cpp:53
+#: add-printer/main.cpp:55
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr ""
@@ -618,18 +618,18 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: configure-printer/main.cpp:26
+#: configure-printer/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "ConfigurePrinter"
 msgid "Configure Printer"
 msgstr "छपाईयंत्र संयोजीत करा"
 
-#: configure-printer/main.cpp:28
+#: configure-printer/main.cpp:30
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "छपाईयंत्र संयोजीत करा"
 
-#: configure-printer/main.cpp:39
+#: configure-printer/main.cpp:41
 #, fuzzy, kde-format
 #| msgid "Printer Icon"
 msgid "Printer to be configured"
@@ -1403,13 +1403,13 @@ msgstr "त्रुटी शिर्षक"
 msgid "Click here to add a new printer"
 msgstr "नवीन छपाईयंत्र प्रकार जोडण्याकरिता येथे क्लिक करा"
 
-#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#: printqueue/main.cpp:27 printqueue/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "PrintQueue"
 msgid "Print Queue"
 msgstr "छपाई रांग"
 
-#: printqueue/main.cpp:39
+#: printqueue/main.cpp:41
 #, fuzzy, kde-format
 #| msgid "Show printer queue"
 msgid "Show printer queue(s)"

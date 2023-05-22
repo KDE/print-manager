@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:50+0000\n"
+"POT-Creation-Date: 2023-05-22 00:51+0000\n"
 "PO-Revision-Date: 2023-02-28 22:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -344,47 +344,47 @@ msgid "Failed to group devices: '%1'"
 msgstr "장치를 묶을 수 없음: '%1'"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#: add-printer/main.cpp:30 printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "프린터 추가"
 
-#: add-printer/main.cpp:30
+#: add-printer/main.cpp:32
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "새 프린터 추가 도구"
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
+#: add-printer/main.cpp:34 configure-printer/main.cpp:32 printqueue/main.cpp:31
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
+#: add-printer/main.cpp:37 configure-printer/main.cpp:34 printqueue/main.cpp:34
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Qt 5/Plasma 5 포팅"
 
-#: add-printer/main.cpp:41
+#: add-printer/main.cpp:43
 #, kde-format
 msgid "Parent Window ID"
 msgstr "부모 창 ID"
 
-#: add-printer/main.cpp:44
+#: add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer"
 msgstr "새 프린터 추가"
 
-#: add-printer/main.cpp:47
+#: add-printer/main.cpp:49
 #, kde-format
 msgid "Add a new printer class"
 msgstr "새 프린터 클래스 추가"
 
-#: add-printer/main.cpp:50
+#: add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "선택한 프린터의 PPD 변경"
 
-#: add-printer/main.cpp:53
+#: add-printer/main.cpp:55
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "선택한 프린터/장치 ID의 PPD 변경"
@@ -636,17 +636,17 @@ msgstr ""
 msgid "Save"
 msgstr "저장"
 
-#: configure-printer/main.cpp:26
+#: configure-printer/main.cpp:28
 #, kde-format
 msgid "Configure Printer"
 msgstr "프린터 설정"
 
-#: configure-printer/main.cpp:28
+#: configure-printer/main.cpp:30
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "ConfigurePrinter"
 
-#: configure-printer/main.cpp:39
+#: configure-printer/main.cpp:41
 #, kde-format
 msgid "Printer to be configured"
 msgstr "설정할 프린터"
@@ -1453,12 +1453,12 @@ msgstr "오류 제목"
 msgid "Click here to add a new printer"
 msgstr "새 프린터를 추가하려면 클릭하십시오"
 
-#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#: printqueue/main.cpp:27 printqueue/main.cpp:29
 #, kde-format
 msgid "Print Queue"
 msgstr "인쇄 대기열"
 
-#: printqueue/main.cpp:39
+#: printqueue/main.cpp:41
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "인쇄 대기열 표시"

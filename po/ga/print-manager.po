@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:50+0000\n"
+"POT-Creation-Date: 2023-05-22 00:51+0000\n"
 "PO-Revision-Date: 2012-07-31 09:30-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -324,50 +324,50 @@ msgid "Failed to group devices: '%1'"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:28 printer-manager-kcm/PrintKCM.ui:19
+#: add-printer/main.cpp:30 printer-manager-kcm/PrintKCM.ui:19
 #, fuzzy, kde-format
 #| msgid "All Printers"
 msgid "Add Printer"
 msgstr "Gach Printéir"
 
-#: add-printer/main.cpp:30
+#: add-printer/main.cpp:32
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr ""
 
-#: add-printer/main.cpp:32 configure-printer/main.cpp:30 printqueue/main.cpp:29
+#: add-printer/main.cpp:34 configure-printer/main.cpp:32 printqueue/main.cpp:31
 #, fuzzy, kde-format
 #| msgid "(C) 2010-2012 Daniel Nicoletti"
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© 2010-2012 Daniel Nicoletti"
 
-#: add-printer/main.cpp:35 configure-printer/main.cpp:32 printqueue/main.cpp:32
+#: add-printer/main.cpp:37 configure-printer/main.cpp:34 printqueue/main.cpp:34
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: add-printer/main.cpp:41
+#: add-printer/main.cpp:43
 #, kde-format
 msgid "Parent Window ID"
 msgstr ""
 
-#: add-printer/main.cpp:44
+#: add-printer/main.cpp:46
 #, fuzzy, kde-format
 #| msgid "All Printers"
 msgid "Add a new printer"
 msgstr "Gach Printéir"
 
-#: add-printer/main.cpp:47
+#: add-printer/main.cpp:49
 #, kde-format
 msgid "Add a new printer class"
 msgstr ""
 
-#: add-printer/main.cpp:50
+#: add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr ""
 
-#: add-printer/main.cpp:53
+#: add-printer/main.cpp:55
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr ""
@@ -621,18 +621,18 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: configure-printer/main.cpp:26
+#: configure-printer/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "Configure"
 msgid "Configure Printer"
 msgstr "Cumraigh"
 
-#: configure-printer/main.cpp:28
+#: configure-printer/main.cpp:30
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr ""
 
-#: configure-printer/main.cpp:39
+#: configure-printer/main.cpp:41
 #, fuzzy, kde-format
 #| msgid "Printer Options"
 msgid "Printer to be configured"
@@ -1408,13 +1408,13 @@ msgstr ""
 msgid "Click here to add a new printer"
 msgstr ""
 
-#: printqueue/main.cpp:25 printqueue/main.cpp:27
+#: printqueue/main.cpp:27 printqueue/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "PrintQueue"
 msgid "Print Queue"
 msgstr "Ciú Priontála"
 
-#: printqueue/main.cpp:39
+#: printqueue/main.cpp:41
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr ""

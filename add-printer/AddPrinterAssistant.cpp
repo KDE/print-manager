@@ -22,6 +22,10 @@
 #include <KSharedConfig>
 #include <KWindowConfig>
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <KPixmapSequenceLoader>
+#endif
+
 AddPrinterAssistant::AddPrinterAssistant()
 {
     setWindowTitle(i18nc("@title:window", "Add a New Printer"));
@@ -39,7 +43,11 @@ AddPrinterAssistant::AddPrinterAssistant()
 
     // Setup the busy cursor
     m_busySeq = new KPixmapSequenceOverlayPainter(this);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     m_busySeq->setSequence(KIconLoader::global()->loadPixmapSequence(QLatin1String("process-working"), KIconLoader::SizeSmallMedium));
+#else
+    m_busySeq->setSequence(KPixmapSequenceLoader::load(QLatin1String("process-working"), KIconLoader::SizeSmallMedium));
+#endif
     m_busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
     m_busySeq->setWidget(helpButton);
 

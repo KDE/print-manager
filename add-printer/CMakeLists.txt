@@ -58,7 +58,7 @@ target_link_libraries(kde-add-printer
     kcupslib
 )
 if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(kde-add-printer Qt6::Core5Compat)
+    target_link_libraries(kde-add-printer Qt6::Core5Compat KF6::IconWidgets)
 endif()
 
 install(TARGETS kde-add-printer DESTINATION ${KDE_INSTALL_BINDIR})

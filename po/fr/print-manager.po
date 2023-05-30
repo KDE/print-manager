@@ -5,13 +5,13 @@
 # Vincent Pinon <vpinon@kde.org>, 2017.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2019.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2022.
+# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
 #
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-22 00:51+0000\n"
+"POT-Creation-Date: 2023-05-30 00:49+0000\n"
 "PO-Revision-Date: 2023-01-13 21:27+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -35,13 +35,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "jcorn@free.fr, sdepiets@gmail.com"
 
-#: add-printer/AddPrinterAssistant.cpp:27
+#: add-printer/AddPrinterAssistant.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "Ajouter une nouvelle imprimante"
 
-#: add-printer/AddPrinterAssistant.cpp:69 add-printer/ChooseLpd.cpp:25
+#: add-printer/AddPrinterAssistant.cpp:77 add-printer/ChooseLpd.cpp:25
 #: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
 #: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
 #: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
@@ -51,22 +51,22 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Sélectionner une imprimante à ajouter"
 
-#: add-printer/AddPrinterAssistant.cpp:73
-#: add-printer/AddPrinterAssistant.cpp:80
-#: add-printer/AddPrinterAssistant.cpp:124
+#: add-printer/AddPrinterAssistant.cpp:81
+#: add-printer/AddPrinterAssistant.cpp:88
+#: add-printer/AddPrinterAssistant.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
 msgstr "Choisissez un pilote"
 
-#: add-printer/AddPrinterAssistant.cpp:85
-#: add-printer/AddPrinterAssistant.cpp:106
+#: add-printer/AddPrinterAssistant.cpp:93
+#: add-printer/AddPrinterAssistant.cpp:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Veuillez décrire votre imprimante"
 
-#: add-printer/AddPrinterAssistant.cpp:102
+#: add-printer/AddPrinterAssistant.cpp:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
@@ -962,7 +962,7 @@ msgid "Query Printer for Default Options"
 msgstr "Consulter les options par défaut de l'imprimante"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: configure-printer/SelectMakeModelDialog.cpp:25
+#: configure-printer/SelectMakeModelDialog.cpp:29
 #: libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"

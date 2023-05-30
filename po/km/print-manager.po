@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-22 00:51+0000\n"
+"POT-Creation-Date: 2023-05-30 00:49+0000\n"
 "PO-Revision-Date: 2012-06-29 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -31,13 +31,13 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: add-printer/AddPrinterAssistant.cpp:27
+#: add-printer/AddPrinterAssistant.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព"
 
-#: add-printer/AddPrinterAssistant.cpp:69 add-printer/ChooseLpd.cpp:25
+#: add-printer/AddPrinterAssistant.cpp:77 add-printer/ChooseLpd.cpp:25
 #: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
 #: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
 #: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
@@ -47,16 +47,16 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "ជ្រើស​ម៉ាស៊ីន​បោះពុម្ព​ដើម្បី​បន្ថែម​​"
 
-#: add-printer/AddPrinterAssistant.cpp:73
-#: add-printer/AddPrinterAssistant.cpp:80
-#: add-printer/AddPrinterAssistant.cpp:124
+#: add-printer/AddPrinterAssistant.cpp:81
+#: add-printer/AddPrinterAssistant.cpp:88
+#: add-printer/AddPrinterAssistant.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
 msgstr "ជ្រើស​កម្មវិធី​បញ្ជា"
 
-#: add-printer/AddPrinterAssistant.cpp:85
-#: add-printer/AddPrinterAssistant.cpp:106
+#: add-printer/AddPrinterAssistant.cpp:93
+#: add-printer/AddPrinterAssistant.cpp:114
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Please describe you printer"
@@ -64,7 +64,7 @@ msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "សូម​អ្នក​ពិពណ៌នា​ពី​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: add-printer/AddPrinterAssistant.cpp:102
+#: add-printer/AddPrinterAssistant.cpp:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
@@ -941,7 +941,7 @@ msgid "Query Printer for Default Options"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: configure-printer/SelectMakeModelDialog.cpp:25
+#: configure-printer/SelectMakeModelDialog.cpp:29
 #: libkcups/SelectMakeModel.ui:14
 #, fuzzy, kde-format
 #| msgctxt "@title:window"

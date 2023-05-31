@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-22 00:51+0000\n"
+"POT-Creation-Date: 2023-05-30 00:49+0000\n"
 "PO-Revision-Date: 2019-11-02 00:09+0900\n"
 "Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 19.08.2\n"
@@ -27,13 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: add-printer/AddPrinterAssistant.cpp:27
+#: add-printer/AddPrinterAssistant.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "新しいプリンタを追加"
 
-#: add-printer/AddPrinterAssistant.cpp:69 add-printer/ChooseLpd.cpp:25
+#: add-printer/AddPrinterAssistant.cpp:77 add-printer/ChooseLpd.cpp:25
 #: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
 #: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
 #: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
@@ -43,22 +43,22 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "追加するプリンタを選択"
 
-#: add-printer/AddPrinterAssistant.cpp:73
-#: add-printer/AddPrinterAssistant.cpp:80
-#: add-printer/AddPrinterAssistant.cpp:124
+#: add-printer/AddPrinterAssistant.cpp:81
+#: add-printer/AddPrinterAssistant.cpp:88
+#: add-printer/AddPrinterAssistant.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
 msgstr "ドライバを選択"
 
-#: add-printer/AddPrinterAssistant.cpp:85
-#: add-printer/AddPrinterAssistant.cpp:106
+#: add-printer/AddPrinterAssistant.cpp:93
+#: add-printer/AddPrinterAssistant.cpp:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr ""
 
-#: add-printer/AddPrinterAssistant.cpp:102
+#: add-printer/AddPrinterAssistant.cpp:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
@@ -900,7 +900,7 @@ msgid "Query Printer for Default Options"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: configure-printer/SelectMakeModelDialog.cpp:25
+#: configure-printer/SelectMakeModelDialog.cpp:29
 #: libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"
@@ -1476,14 +1476,12 @@ msgstr "認証済み"
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] ""
-msgstr[1] ""
 
 #: printqueue/PrintQueueUi.cpp:406
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] ""
-msgstr[1] ""
 
 #: printqueue/PrintQueueUi.cpp:409
 #, kde-format

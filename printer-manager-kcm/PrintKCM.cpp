@@ -30,11 +30,12 @@
 K_PLUGIN_CLASS_WITH_JSON(PrintKCM, "kcm_printer_manager.json")
 
 #if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
-PrintKCM::PrintKCM(QObject *parent, const QVariantList &args) :
+PrintKCM::PrintKCM(QObject *parent) :
+    KCModule(parent),
 #else
 PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
-#endif
     KCModule(parent, args),
+#endif
     ui(new Ui::PrintKCM)
 {
     setButtons(NoAdditionalButton);

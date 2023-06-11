@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-30 00:49+0000\n"
+"POT-Creation-Date: 2023-06-11 00:51+0000\n"
 "PO-Revision-Date: 2020-05-03 08:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -682,7 +682,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Απέτυχε η διαμόρφωση εκτυπωτή"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:328
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1349,48 +1349,48 @@ msgstr "Εκτύπωση δοκιμαστικής σελίδας"
 msgid "Print Self Test Page"
 msgstr "Εκτύπωση δοκιμαστικής σελίδας"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:60
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Προσθήκη κλάσης εκτυπωτή"
 
-#: printer-manager-kcm/PrintKCM.cpp:62
+#: printer-manager-kcm/PrintKCM.cpp:63
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Προσθήκη νέου εκτυπωτή ή κλάσης"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:67 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Αφαίρεση εκτυπωτή"
 
-#: printer-manager-kcm/PrintKCM.cpp:76
+#: printer-manager-kcm/PrintKCM.cpp:77
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Εμφάνιση εκτυπωτών κοινόχρηστων από άλλα συστήματα"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Κοινή χρήση εκτυπωτών που είναι συνδεδεμένοι στο σύστημα"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:83
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Να επιτρέπονται οι εκτυπώσεις από το διαδίκτυο"
 
-#: printer-manager-kcm/PrintKCM.cpp:88
+#: printer-manager-kcm/PrintKCM.cpp:89
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Να επιτρέπεται η απομακρυσμένη διαχείριση"
 
-#: printer-manager-kcm/PrintKCM.cpp:90
+#: printer-manager-kcm/PrintKCM.cpp:91
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
@@ -1398,43 +1398,43 @@ msgstr ""
 "Να επιτρέπεται στους χρήστες να ακυρώνουν οποιαδήποτε εργασία (όχι μόνο τις "
 "δικές τους)"
 
-#: printer-manager-kcm/PrintKCM.cpp:94
+#: printer-manager-kcm/PrintKCM.cpp:95
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Διαμόρφωση των καθολικών προτιμήσεων"
 
-#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
+#: printer-manager-kcm/PrintKCM.cpp:140 printer-manager-kcm/PrintKCM.cpp:240
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Δεν έχουν διαμορφωθεί εκτυπωτές ή δεν εντοπίστηκαν"
 
-#: printer-manager-kcm/PrintKCM.cpp:270
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Remove class"
 msgstr "Αφαίρεση κλάσης"
 
-#: printer-manager-kcm/PrintKCM.cpp:271
+#: printer-manager-kcm/PrintKCM.cpp:272
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγραφεί η κλάση '%1';"
 
-#: printer-manager-kcm/PrintKCM.cpp:274
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Remove printer"
 msgstr "Αφαίρεση εκτυπωτή"
 
-#: printer-manager-kcm/PrintKCM.cpp:275
+#: printer-manager-kcm/PrintKCM.cpp:276
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγραφεί ο εκτυπωτής '%1';"
 
-#: printer-manager-kcm/PrintKCM.cpp:325
+#: printer-manager-kcm/PrintKCM.cpp:326
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
 
-#: printer-manager-kcm/PrintKCM.cpp:360
+#: printer-manager-kcm/PrintKCM.cpp:361
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"

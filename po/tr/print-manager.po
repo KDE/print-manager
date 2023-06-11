@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-30 00:49+0000\n"
+"POT-Creation-Date: 2023-06-11 00:51+0000\n"
 "PO-Revision-Date: 2022-12-11 20:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -682,7 +682,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Yazıcı yapılandırma başarısız"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:328
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1350,91 +1350,91 @@ msgstr "Deneme Sayfası Yazdır"
 msgid "Print Self Test Page"
 msgstr "Yazıcı Sınama Sayfası Yazdır"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:60
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Bir Yazıcı Sınıfı Ekle"
 
-#: printer-manager-kcm/PrintKCM.cpp:62
+#: printer-manager-kcm/PrintKCM.cpp:63
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Yeni bir yazıcı veya yazıcı sınıfı ekle"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:67 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Yazıcıyı Kaldır"
 
-#: printer-manager-kcm/PrintKCM.cpp:76
+#: printer-manager-kcm/PrintKCM.cpp:77
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Diğer sistemler tarafından paylaşılan yazıcıları göster"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Bu sisteme bağlı yazıcıları paylaş"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:83
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "İnternet üzerinden yazdırmaya izin ver"
 
-#: printer-manager-kcm/PrintKCM.cpp:88
+#: printer-manager-kcm/PrintKCM.cpp:89
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Uzak yönetime izin ver"
 
-#: printer-manager-kcm/PrintKCM.cpp:90
+#: printer-manager-kcm/PrintKCM.cpp:91
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr ""
 "Kullanıcıların işleri iptal etmesine izin ver (yalnızca kendilerinkini değil)"
 
-#: printer-manager-kcm/PrintKCM.cpp:94
+#: printer-manager-kcm/PrintKCM.cpp:95
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Genel tercihleri yapılandır"
 
-#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
+#: printer-manager-kcm/PrintKCM.cpp:140 printer-manager-kcm/PrintKCM.cpp:240
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Hiçbir yazıcı yapılandırılmadı veya algılanmadı"
 
-#: printer-manager-kcm/PrintKCM.cpp:270
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Remove class"
 msgstr "Sınıfı kaldır"
 
-#: printer-manager-kcm/PrintKCM.cpp:271
+#: printer-manager-kcm/PrintKCM.cpp:272
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "'%1' sınıfını kaldırmak istediğinizden emin misiniz?"
 
-#: printer-manager-kcm/PrintKCM.cpp:274
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Remove printer"
 msgstr "Yazıcıyı kaldır"
 
-#: printer-manager-kcm/PrintKCM.cpp:275
+#: printer-manager-kcm/PrintKCM.cpp:276
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "'%1' yazıcısını kaldırmak istediğinize emin misiniz?"
 
-#: printer-manager-kcm/PrintKCM.cpp:325
+#: printer-manager-kcm/PrintKCM.cpp:326
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Sunucu ayarlarını alma başarısız"
 
-#: printer-manager-kcm/PrintKCM.cpp:360
+#: printer-manager-kcm/PrintKCM.cpp:361
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"

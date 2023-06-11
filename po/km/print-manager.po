@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-30 00:49+0000\n"
+"POT-Creation-Date: 2023-06-11 00:51+0000\n"
 "PO-Revision-Date: 2012-06-29 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -695,7 +695,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:328
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1374,7 +1374,7 @@ msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
 msgid "Print Self Test Page"
 msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:60
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
@@ -1382,26 +1382,26 @@ msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព"
 
-#: printer-manager-kcm/PrintKCM.cpp:62
+#: printer-manager-kcm/PrintKCM.cpp:63
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព​ថ្មី ឬ​ថ្នាក់​ម៉ាស៊ីន​បោះពុម្ព"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:67 printer-manager-kcm/PrintKCM.ui:32
 #, fuzzy, kde-format
 #| msgctxt "@item"
 #| msgid "Local Printers"
 msgid "Remove Printer"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន"
 
-#: printer-manager-kcm/PrintKCM.cpp:76
+#: printer-manager-kcm/PrintKCM.cpp:77
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "បង្ហាញ​ម៉ាស៊ីន​បោះពុម្ព​ដែល​បាន​ចែក​រំលែក​ដោយ​ប្រព័ន្ធ​ផ្សេង​ៗ​ទៀត"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:81
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid "A printer connected to a USB port"
@@ -1409,61 +1409,61 @@ msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​​បាន​តភ្ជាប់​ទៅកាន់​ច្រក USB"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:83
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "អនុញ្ញាត​ឲ្យ​បោះពុម្ព​​ពី​អ៊ីនធឺណិត"
 
-#: printer-manager-kcm/PrintKCM.cpp:88
+#: printer-manager-kcm/PrintKCM.cpp:89
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "អនុញ្ញាត​ការ​គ្រប់គ្រង​ពីចម្ងាយ"
 
-#: printer-manager-kcm/PrintKCM.cpp:90
+#: printer-manager-kcm/PrintKCM.cpp:91
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "អនុញ្ញាត​ឲ្យ​អ្នក​ប្រើ​បោះបង់​​កិច្ចការ​មួយ​ចំនួន (មិន​មែន​កិច្ចការ​ផ្ទាល់ខ្លួន​របស់​ពួកគេ​ទេ)"
 
-#: printer-manager-kcm/PrintKCM.cpp:94
+#: printer-manager-kcm/PrintKCM.cpp:95
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "កំណត់​រចនាសម្ព័ន្ធ​ចំណូលចិត្ត​សកល"
 
-#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
+#: printer-manager-kcm/PrintKCM.cpp:140 printer-manager-kcm/PrintKCM.cpp:240
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "គ្មាន​ម៉ាស៊ីន​បោះពុម្ព​ត្រូវ​បាន​កំណត់​រចនាសម្ព័ន្ធ ឬ​រក​ឃើញ​ឡើយ"
 
-#: printer-manager-kcm/PrintKCM.cpp:270
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Remove class"
 msgstr "យក​ថ្នាក់​ចេញ"
 
-#: printer-manager-kcm/PrintKCM.cpp:271
+#: printer-manager-kcm/PrintKCM.cpp:272
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​យក​ថ្នាក់ '%1' ចេញ​ឬ ?"
 
-#: printer-manager-kcm/PrintKCM.cpp:274
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Remove printer"
 msgstr "យក​ម៉ាស៊ីន​បោះពុម្ព​ចេញ"
 
-#: printer-manager-kcm/PrintKCM.cpp:275
+#: printer-manager-kcm/PrintKCM.cpp:276
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​យក​ម៉ាស៊ីន​បោះពុម្ព '%1' ចេញ​ឬ ?"
 
-#: printer-manager-kcm/PrintKCM.cpp:325
+#: printer-manager-kcm/PrintKCM.cpp:326
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "បាន​បរាជ័យ​ក្នុងការ​ទទួល​យក​ការកំណត់​របស់​ម៉ាស៊ីន​បម្រើ"
 
-#: printer-manager-kcm/PrintKCM.cpp:360
+#: printer-manager-kcm/PrintKCM.cpp:361
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"

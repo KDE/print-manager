@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-30 00:49+0000\n"
+"POT-Creation-Date: 2023-06-11 00:51+0000\n"
 "PO-Revision-Date: 2013-08-11 17:27+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -683,7 +683,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Klarte ikke å sette opp skriver"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:327
+#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:328
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1350,90 +1350,90 @@ msgstr "Skriv ut testside"
 msgid "Print Self Test Page"
 msgstr "Skriv ut selvtest-side"
 
-#: printer-manager-kcm/PrintKCM.cpp:59
+#: printer-manager-kcm/PrintKCM.cpp:60
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Legg til en skriverklasse"
 
-#: printer-manager-kcm/PrintKCM.cpp:62
+#: printer-manager-kcm/PrintKCM.cpp:63
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Legg til en ny skriver eller en skriverklasse"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:66 printer-manager-kcm/PrintKCM.ui:32
+#: printer-manager-kcm/PrintKCM.cpp:67 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Fjern skriver"
 
-#: printer-manager-kcm/PrintKCM.cpp:76
+#: printer-manager-kcm/PrintKCM.cpp:77
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Vis skrivere som er delt av andre systemer"
 
-#: printer-manager-kcm/PrintKCM.cpp:80
+#: printer-manager-kcm/PrintKCM.cpp:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Del skrivere koblet til dette systemet"
 
-#: printer-manager-kcm/PrintKCM.cpp:82
+#: printer-manager-kcm/PrintKCM.cpp:83
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Tillat utskrift fra Internett"
 
-#: printer-manager-kcm/PrintKCM.cpp:88
+#: printer-manager-kcm/PrintKCM.cpp:89
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Tillat administrasjon fra nettverket"
 
-#: printer-manager-kcm/PrintKCM.cpp:90
+#: printer-manager-kcm/PrintKCM.cpp:91
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Tillat brukere å avbryte alle jobber (ikke bare sine egne)"
 
-#: printer-manager-kcm/PrintKCM.cpp:94
+#: printer-manager-kcm/PrintKCM.cpp:95
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Sett opp globale innstillinger"
 
-#: printer-manager-kcm/PrintKCM.cpp:139 printer-manager-kcm/PrintKCM.cpp:239
+#: printer-manager-kcm/PrintKCM.cpp:140 printer-manager-kcm/PrintKCM.cpp:240
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Ingen skrivere er satt opp eller oppdaget"
 
-#: printer-manager-kcm/PrintKCM.cpp:270
+#: printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Remove class"
 msgstr "Fjern klasse"
 
-#: printer-manager-kcm/PrintKCM.cpp:271
+#: printer-manager-kcm/PrintKCM.cpp:272
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Er du sikker på at du vil fjerne klassen %1?"
 
-#: printer-manager-kcm/PrintKCM.cpp:274
+#: printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Remove printer"
 msgstr "Fjern skriver"
 
-#: printer-manager-kcm/PrintKCM.cpp:275
+#: printer-manager-kcm/PrintKCM.cpp:276
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Er du sikker på at du vil fjerne skriveren %1 ?"
 
-#: printer-manager-kcm/PrintKCM.cpp:325
+#: printer-manager-kcm/PrintKCM.cpp:326
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Klarte ikke å hente tjenerinnstillinger"
 
-#: printer-manager-kcm/PrintKCM.cpp:360
+#: printer-manager-kcm/PrintKCM.cpp:361
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"

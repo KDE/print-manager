@@ -18,7 +18,6 @@ public:
 public Q_SLOTS:
     void configurePrinter(const QString &printerName);
     void openPrintQueue(const QString &printerName);
-    void openPrintKCM();
 };
 
 #endif // PROCESS_RUNNER_H

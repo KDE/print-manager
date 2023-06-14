@@ -25,7 +25,11 @@ void ProcessRunner::openPrintQueue(const QString& printerName)
 
 void ProcessRunner::openPrintKCM()
 {
+#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
+    QProcess::startDetached(QLatin1String("kcmshell6"), {QLatin1String("kcm_printer_manager")});
+#else
     QProcess::startDetached(QLatin1String("kcmshell5"), {QLatin1String("kcm_printer_manager")});
+#endif
 }
 
 #include "moc_ProcessRunner.cpp"

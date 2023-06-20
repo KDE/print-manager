@@ -1384,7 +1384,7 @@ msgstr "Retirar a impresora"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
-msgstr "Mostrar as impresoras compartidas por outros sistemas."
+msgstr "Amosar as impresoras compartidas por outros sistemas."
 
 #: printer-manager-kcm/PrintKCM.cpp:72
 #, kde-format
@@ -1484,7 +1484,7 @@ msgstr "Cola de impresión"
 #: printqueue/main.cpp:39
 #, kde-format
 msgid "Show printer queue(s)"
-msgstr "Mostrar as colas de impresión"
+msgstr "Amosar as colas de impresión"
 
 #: printqueue/PrintQueueUi.cpp:195
 #, kde-format

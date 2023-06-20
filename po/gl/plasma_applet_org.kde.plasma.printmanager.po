@@ -74,15 +74,15 @@ msgstr "A cola de impresión está baleira."
 
 #: plasmoid/package/contents/ui/printmanager.qml:126
 msgid "Show All Jobs"
-msgstr "Mostrar todas as tarefas"
+msgstr "Amosar todas as tarefas"
 
 #: plasmoid/package/contents/ui/printmanager.qml:132
 msgid "Show Only Completed Jobs"
-msgstr "Mostrar só as tarefas completadas"
+msgstr "Amosar só as tarefas completadas"
 
 #: plasmoid/package/contents/ui/printmanager.qml:138
 msgid "Show Only Active Jobs"
-msgstr "Mostrar só as tarefas activas"
+msgstr "Amosar só as tarefas activas"
 
 #: plasmoid/package/contents/ui/printmanager.qml:149
 msgid "&Configure Printers..."

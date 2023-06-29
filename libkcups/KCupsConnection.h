@@ -14,8 +14,9 @@
 #include <QWidget>
 #include <QMetaMethod>
 #include <QMutex>
-
 #include <QUrl>
+
+#include <kcupslib_export.h>
 
 #include <cups/cups.h>
 
@@ -104,7 +105,7 @@ typedef QList<QVariantHash> ReturnArguments;
 
 class KIppRequest;
 class KCupsPasswordDialog;
-class Q_DECL_EXPORT KCupsConnection : public QThread
+class KCUPSLIB_EXPORT KCupsConnection : public QThread
 {
     Q_OBJECT
 public:

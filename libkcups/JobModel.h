@@ -9,11 +9,13 @@
 
 #include <QStandardItemModel>
 
+#include <kcupslib_export.h>
+
 #include <cups/cups.h>
 
 class KCupsJob;
 class KCupsRequest;
-class Q_DECL_EXPORT JobModel : public QStandardItemModel
+class KCUPSLIB_EXPORT JobModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_ENUMS(JobAction)

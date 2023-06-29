@@ -9,7 +9,9 @@
 
 #include <QObject>
 
-class Q_DECL_EXPORT ProcessRunner : public QObject
+#include <kcupslib_export.h>
+
+class KCUPSLIB_EXPORT ProcessRunner : public QObject
 {
     Q_OBJECT
 public:

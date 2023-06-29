@@ -1,3 +1,5 @@
+include(GenerateExportHeader)
+
 set(libkcups_SRCS
     Debug.cpp
     KIppRequest.cpp
@@ -41,6 +43,8 @@ ki18n_wrap_ui(libkcups_SRCS
 )
 
 add_library(kcupslib SHARED ${libkcups_SRCS})
+
+generate_export_header(kcupslib)
 
 target_link_libraries(kcupslib
     Qt::Core

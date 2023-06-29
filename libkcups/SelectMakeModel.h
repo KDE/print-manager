@@ -10,6 +10,8 @@
 #include <QWidget>
 #include <QDBusMessage>
 
+#include <kcupslib_export.h>
+
 #include "KCupsConnection.h"
 #include "PPDModel.h"
 
@@ -18,7 +20,7 @@ namespace Ui {
 }
 
 class KCupsRequest;
-class Q_DECL_EXPORT SelectMakeModel : public QWidget
+class KCUPSLIB_EXPORT SelectMakeModel : public QWidget
 {
     Q_OBJECT
 public:

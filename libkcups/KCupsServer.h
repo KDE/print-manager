@@ -9,8 +9,9 @@
 
 #include <QString>
 #include <KCupsConnection.h>
+#include <kcupslib_export.h>
 
-class Q_DECL_EXPORT KCupsServer
+class KCUPSLIB_EXPORT KCupsServer
 {
 public:
     KCupsServer();

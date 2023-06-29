@@ -11,8 +11,9 @@
 #include <QIcon>
 
 #include <KCupsConnection.h>
+#include <kcupslib_export.h>
 
-class Q_DECL_EXPORT KCupsPrinter
+class KCUPSLIB_EXPORT KCupsPrinter
 {
     Q_ENUMS(Attribute)
 public:

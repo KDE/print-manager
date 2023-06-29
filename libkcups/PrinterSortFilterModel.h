@@ -8,8 +8,9 @@
 #define PRINTERSORTFILTERMODEL_H
 
 #include <QSortFilterProxyModel>
+#include <kcupslib_export.h>
 
-class Q_DECL_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
+class KCUPSLIB_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY filteredPrintersChanged)

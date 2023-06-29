@@ -10,13 +10,15 @@
 #include <QObject>
 #include <QEventLoop>
 
+#include <kcupslib_export.h>
+
 #include "KCupsConnection.h"
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
 #include "KCupsServer.h"
 #include "KIppRequest.h"
 
-class Q_DECL_EXPORT KCupsRequest : public QObject
+class KCUPSLIB_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT
 public:

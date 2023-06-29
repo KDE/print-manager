@@ -11,10 +11,11 @@
 #include <QListView>
 #include <QTimer>
 
+#include <kcupslib_export.h>
 #include <KPixmapSequenceOverlayPainter>
 
 class KCupsRequest;
-class Q_DECL_EXPORT ClassListWidget : public QListView
+class KCUPSLIB_EXPORT ClassListWidget : public QListView
 {
     Q_OBJECT
     Q_PROPERTY(QString selectedPrinters READ selectedPrinters WRITE setSelectedPrinters USER true)

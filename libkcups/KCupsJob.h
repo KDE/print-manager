@@ -11,8 +11,9 @@
 #include <QDateTime>
 
 #include <KCupsConnection.h>
+#include <kcupslib_export.h>
 
-class Q_DECL_EXPORT KCupsJob
+class KCUPSLIB_EXPORT KCupsJob
 {
     Q_ENUMS(Attribute)
 public:

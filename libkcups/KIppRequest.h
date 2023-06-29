@@ -8,9 +8,10 @@
 #define KIPPREQUEST_H
 
 #include <KCupsConnection.h>
+#include <kcupslib_export.h>
 
 class KIppRequestPrivate;
-class Q_DECL_EXPORT KIppRequest
+class KCUPSLIB_EXPORT KIppRequest
 {
     Q_DECLARE_PRIVATE(KIppRequest)
 public:

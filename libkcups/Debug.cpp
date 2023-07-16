@@ -6,4 +6,4 @@
 
 #include "Debug.h"
 
-Q_LOGGING_CATEGORY(LIBKCUPS, "libkcups")
+Q_LOGGING_CATEGORY(LIBKCUPS, "libkcups", QtWarningMsg)

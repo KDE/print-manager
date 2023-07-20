@@ -246,7 +246,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
 {
     // store if the printer is the network default
     bool isDefault = printer.isDefault();
-    if (isDefault != destItem->data(DestIsDefault).toBool()) {
+    if (destItem->data(DestIsDefault).isNull() || isDefault != destItem->data(DestIsDefault).toBool()) {
         destItem->setData(isDefault, DestIsDefault);
     }
 

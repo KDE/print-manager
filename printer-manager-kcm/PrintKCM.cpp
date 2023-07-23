@@ -385,3 +385,5 @@ void PrintKCM::systemPreferencesTriggered()
 }
 
 #include "PrintKCM.moc"
+
+#include "moc_PrintKCM.cpp"

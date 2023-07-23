@@ -24,3 +24,5 @@ PrintManagerKded::~PrintManagerKded()
 }
 
 #include "PrintManagerKded.moc"
+
+#include "moc_PrintManagerKded.cpp"

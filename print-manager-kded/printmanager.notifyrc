@@ -156,8 +156,8 @@ Name[uk]=Виявлено новий принтер
 Name[x-test]=xxA New Printer was detectedxx
 Name[zh_CN]=检测到新打印机
 Name[zh_TW]=偵測到新印表機
-Action=Sound|Popup
-Sound=KDE-Sys-App-Positive.ogg
+Action=Popup
+Sound=device-added
 
 [Event/NewPrinterNotification]
 Name=The New Printer was added

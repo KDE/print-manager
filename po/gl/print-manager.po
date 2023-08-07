@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:51+0000\n"
-"PO-Revision-Date: 2023-04-30 11:07+0200\n"
+"PO-Revision-Date: 2023-08-06 05:23+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -325,7 +325,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
-msgstr "Impresora de CUPS remota mediante DNS-SD"
+msgstr "Impresora de CUPS remota mediante DNS-SD."
 
 #: add-printer/DevicesModel.cpp:278
 #, kde-format
@@ -443,7 +443,7 @@ msgstr "Lugar:"
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
-msgstr "Compartir a impresora"
+msgstr "Compartir a impresora."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: add-printer/PageChoosePrinters.ui:96
@@ -1283,7 +1283,7 @@ msgstr "Limpar os cabezais de impresión"
 #: printer-manager-kcm/PrinterDescription.ui:301
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "Imprimir unha páxina de proba"
+msgstr "Imprimir unha páxina de proba."
 
 #: printer-manager-kcm/PrinterDescription.cpp:235
 #, kde-format
@@ -1308,13 +1308,13 @@ msgstr "Estado actual"
 #, kde-format
 msgctxt "@option:check"
 msgid "Default printer"
-msgstr "Impresora predeterminada"
+msgstr "Impresora predeterminada."
 
 #. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
 #: printer-manager-kcm/PrinterDescription.ui:126
 #, kde-format
 msgid "Reject print jobs"
-msgstr "Traballos de impresión recentes"
+msgstr "Traballos de impresión recentes."
 
 #. i18n: ectx: property (text), widget (QLabel, locationL)
 #: printer-manager-kcm/PrinterDescription.ui:135

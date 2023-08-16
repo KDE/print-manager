@@ -2,35 +2,39 @@
     SPDX-FileCopyrightText: 2012-2013 Daniel Nicoletti <dantti12@gmail.com>
     SPDX-FileCopyrightText: 2014 Jan Grulich <jgrulich@redhat.com>
     SPDX-FileCopyrightText: 2021 Nate Graham <nate@kde.org>
+    SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 2.2
+import QtQuick
+import QtQuick.Layouts // fullRepresentation sizing
 import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.kquickcontrolsaddons 2.0
-import org.kde.plasma.printmanager 0.2 as PrintManager
+import org.kde.plasma.core as PlasmaCore
+import org.kde.kirigami 2 as Kirigami
+import org.kde.config // KAuthorized
+import org.kde.kcmutils // KCMLauncher
+import org.kde.plasma.printmanager as PrintManager
 
 PlasmoidItem {
-    id: printmanager
 
     property bool cfg_allJobs
     property bool cfg_completedJobs
     property bool cfg_activeJobs
 
-    property int jobsFilter: printmanager.Plasmoid.configuration.allJobs ? PrintManager.JobModel.WhichAll :
-                             printmanager.Plasmoid.configuration.completedJobs ? PrintManager.JobModel.WhichCompleted : PrintManager.JobModel.WhichActive
+    property int jobsFilter: Plasmoid.configuration.allJobs 
+                                ? PrintManager.JobModel.WhichAll 
+                                : Plasmoid.configuration.completedJobs 
+                                    ? PrintManager.JobModel.WhichCompleted 
+                                    : PrintManager.JobModel.WhichActive
+
+    readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
+        || Plasmoid.location === PlasmaCore.Types.RightEdge
+        || Plasmoid.location === PlasmaCore.Types.BottomEdge
+        || Plasmoid.location === PlasmaCore.Types.LeftEdge)
 
     property alias serverUnavailable: printersModel.serverUnavailable
     property string printersModelError: ""
-
-    readonly property string kcmName: "kcm_printer_manager"
-    readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
-    readonly property bool inPanel: (plasmoid.location === PlasmaCore.Types.TopEdge
-        || plasmoid.location === PlasmaCore.Types.RightEdge
-        || plasmoid.location === PlasmaCore.Types.BottomEdge
-        || plasmoid.location === PlasmaCore.Types.LeftEdge)
 
     toolTipMainText: i18n("Printers")
     toolTipSubText: {
@@ -56,16 +60,19 @@ PlasmoidItem {
             return i18n("No printers have been configured or discovered");
         }
     }
+    
     Plasmoid.icon: inPanel ? "printer-symbolic" : "printer"
+    
     fullRepresentation: FullRepresentation {
-        id: dialogItem
-
-        anchors.fill: parent
         focus: true
-    }
+        // as a desktop widget, we need to start with a reasonable size
+        Layout.preferredWidth: inPanel ? -1 : Kirigami.Units.gridUnit * 24
+        Layout.preferredHeight: inPanel ? -1 : Kirigami.Units.gridUnit * 24
+}
 
-    switchWidth: units.gridUnit * 10
-    switchHeight: units.gridUnit * 10
+    switchWidth: Kirigami.Units.gridUnit * 10
+    switchHeight: Kirigami.Units.gridUnit * 10
+    
     Plasmoid.status: {
         if (activeJobsFilterModel.activeCount > 0) {
             return PlasmaCore.Types.ActiveStatus;
@@ -80,7 +87,7 @@ PlasmoidItem {
 
     PrintManager.PrinterModel {
         id: printersModel
-        onError: printersModelError = errorTitle
+        onError: (lastError, errorTitle, errorMsg) => printersModelError = errorTitle
     }
 
     PrintManager.JobSortFilterModel {
@@ -88,7 +95,7 @@ PlasmoidItem {
 
         sourceModel: PrintManager.JobModel {
             id: jobsModel
-            Component.onCompleted: setWhichJobs(printmanager.jobsFilter)
+            Component.onCompleted: setWhichJobs(jobsFilter)
         }
     }
 
@@ -99,58 +106,55 @@ PlasmoidItem {
         }
     }
 
+    Plasmoid.contextualActions: [
+        PlasmaCore.Action {
+            text: i18n("Show All Jobs")
+            icon.name: "view-list-details"
+            checkable: true
+            checked: Plasmoid.configuration.allJobs
+            onTriggered: {
+                Plasmoid.configuration.allJobs = true;
+                Plasmoid.configuration.completedJobs = false;
+                Plasmoid.configuration.activeJobs = false;
+            }
+        }
+        , PlasmaCore.Action {
+            text: i18n("Show Only Completed Jobs")
+            icon.name: "task-complete"
+            checkable: true
+            checked: Plasmoid.configuration.completedJobs
+            onTriggered: {
+                Plasmoid.configuration.allJobs = false;
+                Plasmoid.configuration.completedJobs = true;
+                Plasmoid.configuration.activeJobs = false;
+            }
+        }
+        , PlasmaCore.Action {
+            text: i18n("Show Only Active Jobs")
+            icon.name: "task-recurring"
+            checkable: true
+            checked: Plasmoid.configuration.activeJobs
+            onTriggered: {
+                Plasmoid.configuration.allJobs = false;
+                Plasmoid.configuration.completedJobs = false;
+                Plasmoid.configuration.activeJobs = true;
+            }
+        }
+        , PlasmaCore.Action {
+            isSeparator: true
+        }
 
-    property var showAllJobsAction
-    property var showCompletedJobsOnlyAction
-    property var showActiveJobsOnlyAction
+    ]
 
-    function action_showAllJobs() {
-        Plasmoid.configuration.allJobs = true;
-        Plasmoid.configuration.completedJobs = false;
-        Plasmoid.configuration.activeJobs = false;
+    // Overwrite default configure menu item
+    PlasmaCore.Action {
+        id: configAction
+        text: i18n("&Configure Printers...")
+        icon.name: "configure"
+        shortcut: "alt+d,s"
+        enabled: KAuthorized.authorizeControlModule("kcm_printer_manager")
+        onTriggered: KCMLauncher.openSystemSettings("kcm_printer_manager", "")
     }
 
-    function action_showCompletedJobsOnly() {
-        Plasmoid.configuration.allJobs = false;
-        Plasmoid.configuration.completedJobs = true;
-        Plasmoid.configuration.activeJobs = false;
-    }
-
-    function action_showActiveJobsOnly() {
-        Plasmoid.configuration.allJobs = false;
-        Plasmoid.configuration.completedJobs = false;
-        Plasmoid.configuration.activeJobs = true;
-    }
-
-    function action_configure() {
-        KCMShell.openSystemSettings(printmanager.kcmName);
-    }
-
-    Component.onCompleted: {
-        Plasmoid.setAction("showAllJobs", i18n("Show All Jobs"));
-        printmanager.showAllJobsAction = Plasmoid.action("showAllJobs");
-        printmanager.showAllJobsAction.checkable = true;
-        printmanager.showAllJobsAction.checked = Qt.binding(() => {return Plasmoid.configuration.allJobs;});
-        Plasmoid.setActionGroup("showAllJobs", "jobsShown");
-
-        Plasmoid.setAction("showCompletedJobsOnly", i18n("Show Only Completed Jobs"));
-        printmanager.showCompletedJobsOnlyAction = Plasmoid.action("showCompletedJobsOnly");
-        printmanager.showCompletedJobsOnlyAction.checkable = true;
-        printmanager.showCompletedJobsOnlyAction.checked = Qt.binding(() => {return Plasmoid.configuration.completedJobs;});
-        Plasmoid.setActionGroup("showCompletedJobsOnly", "jobsShown");
-
-        Plasmoid.setAction("showActiveJobsOnly", i18n("Show Only Active Jobs"));
-        printmanager.showActiveJobsOnlyAction = Plasmoid.action("showActiveJobsOnly");
-        printmanager.showActiveJobsOnlyAction.checkable = true;
-        printmanager.showActiveJobsOnlyAction.checked = Qt.binding(() => {return Plasmoid.configuration.activeJobs;});
-        Plasmoid.setActionGroup("showActiveJobsOnly", "jobsShown");
-
-        // TODO: remove this separator once the configure action doesn't redundantly
-        // appear in the hamburger menu
-        Plasmoid.setActionSeparator("sep");
-
-        Plasmoid.removeAction("configure");
-        Plasmoid.setAction("configure", i18n("&Configure Printers..."), "configure");
-        Plasmoid.action("configure").enabled = Qt.binding(() => {return kcmAllowed;});
-    }
+    Component.onCompleted: Plasmoid.setInternalAction("configure", configAction)
 }

@@ -27,6 +27,10 @@ PlasmoidItem {
 
     readonly property string kcmName: "kcm_printer_manager"
     readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
+    readonly property bool inPanel: (plasmoid.location === PlasmaCore.Types.TopEdge
+        || plasmoid.location === PlasmaCore.Types.RightEdge
+        || plasmoid.location === PlasmaCore.Types.BottomEdge
+        || plasmoid.location === PlasmaCore.Types.LeftEdge)
 
     toolTipMainText: i18n("Printers")
     toolTipSubText: {
@@ -52,7 +56,7 @@ PlasmoidItem {
             return i18n("No printers have been configured or discovered");
         }
     }
-    Plasmoid.icon: "printer"
+    Plasmoid.icon: inPanel ? "printer-symbolic" : "printer"
     fullRepresentation: PopupDialog {
         id: dialogItem
 

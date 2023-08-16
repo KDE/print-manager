@@ -12,7 +12,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.kquickcontrolsaddons 2.0
 import org.kde.plasma.printmanager 0.2 as PrintManager
 
-Item {
+PlasmoidItem {
     id: printmanager
 
     property bool cfg_allJobs
@@ -28,8 +28,8 @@ Item {
     readonly property string kcmName: "kcm_printer_manager"
     readonly property bool kcmAllowed: KCMShell.authorize(kcmName + ".desktop").length > 0
 
-    Plasmoid.toolTipMainText: i18n("Printers")
-    Plasmoid.toolTipSubText: {
+    toolTipMainText: i18n("Printers")
+    toolTipSubText: {
         if (serverUnavailable && printersModelError) {
             return printersModelError;
         } else if (activeJobsFilterModel.activeCount > 1) {
@@ -53,15 +53,15 @@ Item {
         }
     }
     Plasmoid.icon: "printer"
-    Plasmoid.fullRepresentation: PopupDialog {
+    fullRepresentation: PopupDialog {
         id: dialogItem
 
         anchors.fill: parent
         focus: true
     }
 
-    Plasmoid.switchWidth: units.gridUnit * 10
-    Plasmoid.switchHeight: units.gridUnit * 10
+    switchWidth: units.gridUnit * 10
+    switchHeight: units.gridUnit * 10
     Plasmoid.status: {
         if (activeJobsFilterModel.activeCount > 0) {
             return PlasmaCore.Types.ActiveStatus;

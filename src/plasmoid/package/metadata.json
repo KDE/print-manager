@@ -152,9 +152,6 @@
         "Name[x-test]": "xxPrintersxx",
         "Name[zh_CN]": "打印机",
         "Name[zh_TW]": "印表機",
-        "ServiceTypes": [
-            "Plasma/Applet"
-        ],
         "Version": "0.3",
         "Website": "https://www.kde.org"
     },
@@ -163,8 +160,9 @@
         "kcm_printer_manager"
     ],
     "X-Plasma-DefaultSize": "650,270",
-    "X-Plasma-MainScript": "ui/printmanager.qml",
+    "X-Plasma-MainScript": "ui/main.qml",
     "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "Hardware",
-    "X-Plasma-OptionalExtensions": "LaunchApp"
+    "X-Plasma-OptionalExtensions": "LaunchApp",
+    "KPackageStructure": "Plasma/Applet"
 }

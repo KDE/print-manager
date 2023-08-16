@@ -53,7 +53,7 @@ Item {
         }
     }
     Plasmoid.icon: "printer"
-    Plasmoid.fullRepresentation: PopupDialog {
+    Plasmoid.fullRepresentation: FullRepresentation {
         id: dialogItem
 
         anchors.fill: parent

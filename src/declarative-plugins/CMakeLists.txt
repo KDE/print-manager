@@ -1,14 +1,16 @@
-set(printmanager_qml_plugin_SRCS
+include(ECMQmlModule)
+include(ECMGenerateQmlTypes)
+
+ecm_add_qml_module(printmanager URI "org.kde.plasma.printmanager")
+
+target_sources(printmanager PRIVATE
    qmlplugins.cpp
-   qmlplugins.h
 )
 
-add_library(printmanager SHARED ${printmanager_qml_plugin_SRCS})
 target_link_libraries(printmanager
-    Qt::Qml
-    Qt::Quick
+    Qt6::Qml
+    Qt6::Quick
     kcupslib
 )
 
-install(TARGETS printmanager DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/printmanager)
-install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/kde/plasma/printmanager)
+ecm_finalize_qml_module(printmanager DESTINATION ${KDE_INSTALL_QMLDIR})

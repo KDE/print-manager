@@ -161,8 +161,9 @@
         "kcm_printer_manager"
     ],
     "X-Plasma-DefaultSize": "650,270",
-    "X-Plasma-MainScript": "ui/printmanager.qml",
+    "X-Plasma-MainScript": "ui/main.qml",
     "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "Hardware",
-    "X-Plasma-OptionalExtensions": "LaunchApp"
+    "X-Plasma-OptionalExtensions": "LaunchApp",
+    "KPackageStructure": "Plasma/Applet"
 }

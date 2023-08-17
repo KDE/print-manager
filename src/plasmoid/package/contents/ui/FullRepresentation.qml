@@ -61,7 +61,7 @@ PlasmaExtras.Representation {
             highlight: PlasmaExtras.Highlight {}
             highlightMoveDuration: 0
             highlightResizeDuration: 0
-            delegate: PrinterItem {}
+            delegate: PrinterDelegate {}
 
             Loader {
                 anchors.centerIn: parent

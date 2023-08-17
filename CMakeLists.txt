@@ -70,14 +70,7 @@ install(FILES org.kde.print-manager.metainfo.xml DESTINATION "${KDE_INSTALL_META
 
 add_definitions(-DTRANSLATION_DOMAIN="print-manager")
 
-add_subdirectory(libkcups)
-add_subdirectory(configure-printer)
-add_subdirectory(add-printer)
-add_subdirectory(printer-manager-kcm)
-add_subdirectory(printqueue)
-add_subdirectory(print-manager-kded)
-add_subdirectory(plasmoid)
-add_subdirectory(declarative-plugins)
+add_subdirectory(src)
 
 ki18n_install(po)
 

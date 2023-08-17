@@ -57,7 +57,7 @@ PlasmoidItem {
         }
     }
     Plasmoid.icon: inPanel ? "printer-symbolic" : "printer"
-    Plasmoid.fullRepresentation: FullRepresentation {
+    fullRepresentation: FullRepresentation {
         id: dialogItem
 
         anchors.fill: parent

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"POT-Creation-Date: 2023-08-18 00:48+0000\n"
 "PO-Revision-Date: 2022-07-29 14:01+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -21,74 +21,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.04.3\n"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:26
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:26
 msgid "Search…"
 msgstr "Bilatu…"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:71
-#: plasmoid/package/contents/ui/printmanager.qml:52
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/main.qml:52
 msgid "No printers have been configured or discovered"
 msgstr "Ez da inprimagailurik konfiguratu edo aurkitu"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "Ez dago bat datorrenik"
 
-#: plasmoid/package/contents/ui/PrinterItem.qml:25
-msgid "Resume printing"
-msgstr "Jarraitu inprimatzen"
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:25
-msgid "Pause printing"
-msgstr "Gelditu inprimatzea"
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:37
-msgid "Configure printer..."
-msgstr "Konfiguratu inprimagailua..."
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:42
-msgid "View print queue"
-msgstr "Ikusi inprimaketa-ilara"
-
-#: plasmoid/package/contents/ui/printmanager.qml:31
+#: src/plasmoid/package/contents/ui/main.qml:31
 msgid "Printers"
 msgstr "Inprimagailuak"
 
-#: plasmoid/package/contents/ui/printmanager.qml:36
+#: src/plasmoid/package/contents/ui/main.qml:36
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Inprimaketa-lan bat dago ilaran"
 msgstr[1] "%1 inprimaketa-lan daude ilaran"
 
-#: plasmoid/package/contents/ui/printmanager.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 honekin inprimatzen: %2"
 
-#: plasmoid/package/contents/ui/printmanager.qml:47
+#: src/plasmoid/package/contents/ui/main.qml:47
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Honekin inprimatzen: %1"
 
-#: plasmoid/package/contents/ui/printmanager.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "Print queue is empty"
 msgstr "Inprimaketa-ilara hutsik dago"
 
-#: plasmoid/package/contents/ui/printmanager.qml:126
+#: src/plasmoid/package/contents/ui/main.qml:126
 msgid "Show All Jobs"
 msgstr "Erakutsi lan guztiak"
 
-#: plasmoid/package/contents/ui/printmanager.qml:132
+#: src/plasmoid/package/contents/ui/main.qml:132
 msgid "Show Only Completed Jobs"
 msgstr "Erakutsi osatutako lanak soilik"
 
-#: plasmoid/package/contents/ui/printmanager.qml:138
+#: src/plasmoid/package/contents/ui/main.qml:138
 msgid "Show Only Active Jobs"
 msgstr "Erakutsi aktibo dauden lanak soilik"
 
-#: plasmoid/package/contents/ui/printmanager.qml:149
+#: src/plasmoid/package/contents/ui/main.qml:149
 msgid "&Configure Printers..."
 msgstr "&Konfiguratu inprimagailuak..."
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
+msgid "Resume printing"
+msgstr "Jarraitu inprimatzen"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
+msgid "Pause printing"
+msgstr "Gelditu inprimatzea"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:37
+msgid "Configure printer..."
+msgstr "Konfiguratu inprimagailua..."
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+msgid "View print queue"
+msgstr "Ikusi inprimaketa-ilara"
 
 #~ msgid "Search for a printer..."
 #~ msgstr "Bilatu inprimagailu bat..."

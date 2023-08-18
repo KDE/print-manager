@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-06-11 00:51+0000\n"
+"POT-Creation-Date: 2023-08-18 00:48+0000\n"
 "PO-Revision-Date: 2022-12-15 11:03-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -29,70 +29,71 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org"
 
-#: add-printer/AddPrinterAssistant.cpp:31
+#: src/add-printer/AddPrinterAssistant.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "Adicionar uma nova impressora"
 
-#: add-printer/AddPrinterAssistant.cpp:77 add-printer/ChooseLpd.cpp:25
-#: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
-#: add-printer/ChooseSocket.cpp:23 add-printer/ChooseUri.cpp:26
-#: add-printer/PageAddPrinter.cpp:26 add-printer/PageChoosePPD.cpp:30
-#: add-printer/PageChoosePrinters.cpp:24 add-printer/PageDestinations.cpp:77
+#: src/add-printer/AddPrinterAssistant.cpp:77 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
+#: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
+#: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
+#: src/add-printer/PageChoosePrinters.cpp:24
+#: src/add-printer/PageDestinations.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Selecione uma impressora a adicionar"
 
-#: add-printer/AddPrinterAssistant.cpp:81
-#: add-printer/AddPrinterAssistant.cpp:88
-#: add-printer/AddPrinterAssistant.cpp:132
+#: src/add-printer/AddPrinterAssistant.cpp:81
+#: src/add-printer/AddPrinterAssistant.cpp:88
+#: src/add-printer/AddPrinterAssistant.cpp:132
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
 msgstr "Selecione um driver"
 
-#: add-printer/AddPrinterAssistant.cpp:93
-#: add-printer/AddPrinterAssistant.cpp:114
+#: src/add-printer/AddPrinterAssistant.cpp:93
+#: src/add-printer/AddPrinterAssistant.cpp:114
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Descreva sua impressora"
 
-#: add-printer/AddPrinterAssistant.cpp:110
+#: src/add-printer/AddPrinterAssistant.cpp:110
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "Configure sua conexão"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseLpd.ui:26
+#: src/add-printer/ChooseLpd.ui:26
 #, kde-format
 msgid "Address:"
 msgstr "Endereço:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/ChooseLpd.ui:36
+#: src/add-printer/ChooseLpd.ui:36
 #, kde-format
 msgid "Queue:"
 msgstr "Fila:"
 
 #. i18n: ectx: property (text), widget (QPushButton, detectPB)
-#: add-printer/ChooseLpd.ui:51
+#: src/add-printer/ChooseLpd.ui:51
 #, kde-format
 msgid "Detect"
 msgstr "Detectar"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: add-printer/ChooseSamba.ui:35
+#: src/add-printer/ChooseSamba.ui:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Windows Printer via SAMBA"
 msgstr "Impressora do Windows via SAMBA"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: add-printer/ChooseSamba.ui:41
+#: src/add-printer/ChooseSamba.ui:41
 #, kde-format
 msgctxt ""
 "@label samba URL markup example, this is preceded by a label containing "
@@ -101,120 +102,120 @@ msgid "smb://[workgroup/]server[:port]/printer"
 msgstr "smb://[grupo_de_trabalho/]servidor[:porta]/impressora"
 
 #. i18n: ectx: property (text), widget (QPushButton, browsePB)
-#: add-printer/ChooseSamba.ui:54
+#: src/add-printer/ChooseSamba.ui:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Browse"
 msgstr "Escolher"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: add-printer/ChooseSamba.ui:64
+#: src/add-printer/ChooseSamba.ui:64
 #, kde-format
 msgctxt "@title:group"
 msgid "Authentication"
 msgstr "Autenticação"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/ChooseSamba.ui:73
+#: src/add-printer/ChooseSamba.ui:73
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Nome de usuário:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: add-printer/ChooseSamba.ui:86
+#: src/add-printer/ChooseSamba.ui:86
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Senha"
 
-#: add-printer/ChooseSerial.cpp:25 add-printer/ChooseSerial.cpp:29
+#: src/add-printer/ChooseSerial.cpp:25 src/add-printer/ChooseSerial.cpp:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "None"
 msgstr "Nenhum"
 
-#: add-printer/ChooseSerial.cpp:26
+#: src/add-printer/ChooseSerial.cpp:26
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Even"
 msgstr "Par"
 
-#: add-printer/ChooseSerial.cpp:27
+#: src/add-printer/ChooseSerial.cpp:27
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Odd"
 msgstr "Ímpar"
 
-#: add-printer/ChooseSerial.cpp:30
+#: src/add-printer/ChooseSerial.cpp:30
 #, kde-format
 msgctxt "@label:listbox"
 msgid "XON/XOFF (Software)"
 msgstr "XON/XOFF (Software)"
 
-#: add-printer/ChooseSerial.cpp:31
+#: src/add-printer/ChooseSerial.cpp:31
 #, kde-format
 msgctxt "@label:listbox"
 msgid "RTS/CTS (Hardware)"
 msgstr "RTS/CTS (Hardware)"
 
-#: add-printer/ChooseSerial.cpp:32
+#: src/add-printer/ChooseSerial.cpp:32
 #, kde-format
 msgctxt "@label:listbox"
 msgid "DTR/DSR (Hardware)"
 msgstr "DTR/DSR (Hardware)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseSerial.ui:29
+#: src/add-printer/ChooseSerial.ui:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
 msgstr "Taxa de dados:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/ChooseSerial.ui:42
+#: src/add-printer/ChooseSerial.ui:42
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Parity:"
 msgstr "Paridade:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: add-printer/ChooseSerial.ui:55
+#: src/add-printer/ChooseSerial.ui:55
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Data Bits:"
 msgstr "Bits de dados:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: add-printer/ChooseSerial.ui:79
+#: src/add-printer/ChooseSerial.ui:79
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Flow Control:"
 msgstr "Controle de fluxo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseSocket.ui:29
+#: src/add-printer/ChooseSocket.ui:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
 msgstr "Endereço:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/ChooseSocket.ui:42
+#: src/add-printer/ChooseSocket.ui:42
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Port:"
 msgstr "Porta:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseUri.ui:41
+#: src/add-printer/ChooseUri.ui:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Conexão:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/ChooseUri.ui:82
+#: src/add-printer/ChooseUri.ui:82
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -264,42 +265,42 @@ msgstr ""
 "</TR>\n"
 "</TABLE>"
 
-#: add-printer/DevicesModel.cpp:39
+#: src/add-printer/DevicesModel.cpp:39
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "URI manual"
 
-#: add-printer/DevicesModel.cpp:115
+#: src/add-printer/DevicesModel.cpp:115
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Falha ao obter uma lista de dispositivos: '%1'"
 
-#: add-printer/DevicesModel.cpp:238
+#: src/add-printer/DevicesModel.cpp:238
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Uma impressora conectada à porta paralela"
 
-#: add-printer/DevicesModel.cpp:241
+#: src/add-printer/DevicesModel.cpp:241
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Uma impressora conectada a uma porta USB"
 
-#: add-printer/DevicesModel.cpp:244
+#: src/add-printer/DevicesModel.cpp:244
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Uma impressora conectada via Bluetooth"
 
-#: add-printer/DevicesModel.cpp:247
+#: src/add-printer/DevicesModel.cpp:247
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Impressora local detectada pelo HAL (Hardware Abstraction Layer)"
 
-#: add-printer/DevicesModel.cpp:251
+#: src/add-printer/DevicesModel.cpp:251
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -309,7 +310,7 @@ msgstr ""
 "Programa HPLIP controlando uma impressora ou a função de impressão de uma "
 "multifuncional"
 
-#: add-printer/DevicesModel.cpp:255
+#: src/add-printer/DevicesModel.cpp:255
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -318,115 +319,117 @@ msgid ""
 msgstr ""
 "Programa HPLIP controlando um fax ou a função de fax de uma multifuncional"
 
-#: add-printer/DevicesModel.cpp:260
+#: src/add-printer/DevicesModel.cpp:260
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Impressora CUPS remota por DNS-SD"
 
-#: add-printer/DevicesModel.cpp:278
+#: src/add-printer/DevicesModel.cpp:278
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Impressoras de rede descobertas"
 
-#: add-printer/DevicesModel.cpp:282
+#: src/add-printer/DevicesModel.cpp:282
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Outras impressoras de rede"
 
-#: add-printer/DevicesModel.cpp:286
+#: src/add-printer/DevicesModel.cpp:286
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Impressoras locais"
 
-#: add-printer/DevicesModel.cpp:328
+#: src/add-printer/DevicesModel.cpp:328
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Falha ao agrupar os dispositivos: '%1'"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:30 printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:30 src/printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "Adicionar impressora"
 
-#: add-printer/main.cpp:32
+#: src/add-printer/main.cpp:32
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "Ferramenta para adicionar novas impressoras"
 
-#: add-printer/main.cpp:34 configure-printer/main.cpp:32 printqueue/main.cpp:31
+#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:32
+#: src/printqueue/main.cpp:31
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: add-printer/main.cpp:37 configure-printer/main.cpp:34 printqueue/main.cpp:34
+#: src/add-printer/main.cpp:37 src/configure-printer/main.cpp:34
+#: src/printqueue/main.cpp:34
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Migração para o Qt 5 / Plasma 5"
 
-#: add-printer/main.cpp:43
+#: src/add-printer/main.cpp:43
 #, kde-format
 msgid "Parent Window ID"
 msgstr "ID da janela-mãe"
 
-#: add-printer/main.cpp:46
+#: src/add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer"
 msgstr "Adicionar uma nova impressora"
 
-#: add-printer/main.cpp:49
+#: src/add-printer/main.cpp:49
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Adicionar uma nova classe de impressora"
 
-#: add-printer/main.cpp:52
+#: src/add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Altera o PPD de uma determinada impressora"
 
-#: add-printer/main.cpp:55
+#: src/add-printer/main.cpp:55
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Altera o PPD de uma determinada impressora/ID de dispositivo"
 
-#: add-printer/PageAddPrinter.cpp:122
+#: src/add-printer/PageAddPrinter.cpp:122
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Não foi possível adicionar a classe: '%1'"
 
-#: add-printer/PageAddPrinter.cpp:124
+#: src/add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
 msgstr "Não foi possível configurar a impressora: '%1'"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/PageAddPrinter.ui:31
+#: src/add-printer/PageAddPrinter.ui:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Name:"
 msgstr "Nome:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
-#: add-printer/PageAddPrinter.ui:38
+#: src/add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
 msgstr "Pode conter qualquer caractere visível, exceto \"/\", \"#\" e espaço"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/PageAddPrinter.ui:45
+#: src/add-printer/PageAddPrinter.ui:45
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Descrição:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: add-printer/PageAddPrinter.ui:55
+#: src/add-printer/PageAddPrinter.ui:55
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
@@ -434,41 +437,41 @@ msgstr "Localização:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
 #. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
-#: add-printer/PageAddPrinter.ui:65
-#: printer-manager-kcm/PrinterDescription.ui:119
+#: src/add-printer/PageAddPrinter.ui:65
+#: src/printer-manager-kcm/PrinterDescription.ui:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
 msgstr "Compartilhar esta impressora"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/PageChoosePrinters.ui:96
+#: src/add-printer/PageChoosePrinters.ui:96
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "Membros:"
 
-#: add-printer/PageDestinations.cpp:189
+#: src/add-printer/PageDestinations.cpp:189
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr "Uma impressora conectada à porta paralela."
 
-#: add-printer/PageDestinations.cpp:192
+#: src/add-printer/PageDestinations.cpp:192
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr "Uma impressora conectada a uma porta USB."
 
-#: add-printer/PageDestinations.cpp:195
+#: src/add-printer/PageDestinations.cpp:195
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr "Uma impressora conectada por Bluetooth."
 
-#: add-printer/PageDestinations.cpp:198
+#: src/add-printer/PageDestinations.cpp:198
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr "Impressora local detectada pelo HAL (Hardware Abstraction Layer)."
 
-#: add-printer/PageDestinations.cpp:202
+#: src/add-printer/PageDestinations.cpp:202
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -477,7 +480,7 @@ msgstr ""
 "Programa HPLIP controlando uma impressora ou uma função de impressora de uma "
 "multifuncional."
 
-#: add-printer/PageDestinations.cpp:206
+#: src/add-printer/PageDestinations.cpp:206
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -486,151 +489,154 @@ msgstr ""
 "Programa HPLIP controlando um aparelho de fax ou a função de fax de uma "
 "multifuncional."
 
-#: add-printer/PageDestinations.cpp:214 add-printer/PageDestinations.cpp:373
+#: src/add-printer/PageDestinations.cpp:214
+#: src/add-printer/PageDestinations.cpp:373
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Impressora CUPS remota por DNS-SD"
 
-#: add-printer/PageDestinations.cpp:226 add-printer/PageDestinations.cpp:382
+#: src/add-printer/PageDestinations.cpp:226
+#: src/add-printer/PageDestinations.cpp:382
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Impressora de rede por DNS-SD"
 
-#: add-printer/PageDestinations.cpp:228
+#: src/add-printer/PageDestinations.cpp:228
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "Impressora de rede %1 por DNS-SD"
 
-#: add-printer/PageDestinations.cpp:333
+#: src/add-printer/PageDestinations.cpp:333
 #, kde-format
 msgid "Parallel Port"
 msgstr "Porta paralela"
 
-#: add-printer/PageDestinations.cpp:335
+#: src/add-printer/PageDestinations.cpp:335
 #, kde-format
 msgid "Serial Port"
 msgstr "Porta serial"
 
-#: add-printer/PageDestinations.cpp:337
+#: src/add-printer/PageDestinations.cpp:337
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: add-printer/PageDestinations.cpp:339
+#: src/add-printer/PageDestinations.cpp:339
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: add-printer/PageDestinations.cpp:341
+#: src/add-printer/PageDestinations.cpp:341
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax - HPLIP (HP Linux Imaging and Printing)"
 
-#: add-printer/PageDestinations.cpp:343
+#: src/add-printer/PageDestinations.cpp:343
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HPLIP (HP Linux Imaging and Printing)"
 
-#: add-printer/PageDestinations.cpp:345
+#: src/add-printer/PageDestinations.cpp:345
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "HAL (Hardware Abstraction Layer)"
 
-#: add-printer/PageDestinations.cpp:347
+#: src/add-printer/PageDestinations.cpp:347
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: add-printer/PageDestinations.cpp:352
+#: src/add-printer/PageDestinations.cpp:352
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "Fila LPD/LPR"
 
-#: add-printer/PageDestinations.cpp:354
+#: src/add-printer/PageDestinations.cpp:354
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "Fila LPD/LPR %1"
 
-#: add-printer/PageDestinations.cpp:357
+#: src/add-printer/PageDestinations.cpp:357
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Impressora do Windows via SAMBA"
 
-#: add-printer/PageDestinations.cpp:362
+#: src/add-printer/PageDestinations.cpp:362
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: add-printer/PageDestinations.cpp:364
+#: src/add-printer/PageDestinations.cpp:364
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: add-printer/PageDestinations.cpp:367
+#: src/add-printer/PageDestinations.cpp:367
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: add-printer/PageDestinations.cpp:376
+#: src/add-printer/PageDestinations.cpp:376
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "Impressora de rede IPP por DNS-SD"
 
-#: add-printer/PageDestinations.cpp:378
+#: src/add-printer/PageDestinations.cpp:378
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "Impressora de rede LPD por DNS-SD"
 
-#: add-printer/PageDestinations.cpp:380
+#: src/add-printer/PageDestinations.cpp:380
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "Impressora de rede AppSocket/JetDirect por DNS-SD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
-#: add-printer/PageDestinations.ui:62
+#: src/add-printer/PageDestinations.ui:62
 #, kde-format
 msgid "Connections"
 msgstr "Conexões"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/PageDestinations.ui:97
+#: src/add-printer/PageDestinations.ui:97
 #, kde-format
 msgid "Please choose an item on the list"
 msgstr "Selecione um item na lista"
 
-#: configure-printer/ConfigureDialog.cpp:89
+#: src/configure-printer/ConfigureDialog.cpp:89
 #, kde-format
 msgid "Modify Printer"
 msgstr "Modificar impressora"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
-#: configure-printer/ConfigureDialog.cpp:90
-#: print-manager-kded/NewPrinterNotification.cpp:240
-#: print-manager-kded/NewPrinterNotification.cpp:256
-#: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
+#: src/configure-printer/ConfigureDialog.cpp:90
+#: src/print-manager-kded/NewPrinterNotification.cpp:240
+#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/printer-manager-kcm/PrinterDescription.ui:198
+#: src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
 
-#: configure-printer/ConfigureDialog.cpp:100
+#: src/configure-printer/ConfigureDialog.cpp:100
 #, kde-format
 msgid "Printer Options"
 msgstr "Opções da impressora"
 
-#: configure-printer/ConfigureDialog.cpp:101
+#: src/configure-printer/ConfigureDialog.cpp:101
 #, kde-format
 msgid "Set the Default Printer Options"
 msgstr "Definir as opções padrão da impressora"
 
-#: configure-printer/ConfigureDialog.cpp:111
-#: configure-printer/ConfigureDialog.cpp:112
+#: src/configure-printer/ConfigureDialog.cpp:111
+#: src/configure-printer/ConfigureDialog.cpp:112
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Separadores, políticas e usuários permitidos"
 
-#: configure-printer/ConfigureDialog.cpp:185
-#: configure-printer/ConfigureDialog.cpp:189
+#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:189
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -639,49 +645,50 @@ msgstr ""
 "A página atual possui alterações.\n"
 "Deseja salvá-las?"
 
-#: configure-printer/ConfigureDialog.cpp:186
+#: src/configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
 msgstr "Salvar"
 
-#: configure-printer/main.cpp:28
+#: src/configure-printer/main.cpp:28
 #, kde-format
 msgid "Configure Printer"
 msgstr "Configurar impressora"
 
-#: configure-printer/main.cpp:30
+#: src/configure-printer/main.cpp:30
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "Configurar impressora"
 
-#: configure-printer/main.cpp:41
+#: src/configure-printer/main.cpp:41
 #, kde-format
 msgid "Printer to be configured"
 msgstr "Impressora a ser configurada"
 
-#: configure-printer/ModifyPrinter.cpp:124
+#: src/configure-printer/ModifyPrinter.cpp:124
 #, kde-format
 msgid "Current - %1"
 msgstr "Atual - %1"
 
-#: configure-printer/ModifyPrinter.cpp:127
+#: src/configure-printer/ModifyPrinter.cpp:127
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Selecione um driver personalizado"
 
-#: configure-printer/ModifyPrinter.cpp:226
+#: src/configure-printer/ModifyPrinter.cpp:226
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Não foi possível configurar a classe"
 
-#: configure-printer/ModifyPrinter.cpp:227
+#: src/configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Não foi possível configurar a impressora"
 
-#: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:328
+#: src/configure-printer/ModifyPrinter.cpp:229
+#: src/printer-manager-kcm/PrintKCM.cpp:328
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -689,44 +696,44 @@ msgstr "Falhou"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #. i18n: ectx: property (text), widget (QLabel, nameL)
-#: configure-printer/ModifyPrinter.ui:25
-#: printer-manager-kcm/PrinterDescription.ui:234
+#: src/configure-printer/ModifyPrinter.ui:25
+#: src/printer-manager-kcm/PrinterDescription.ui:234
 #, kde-format
 msgid "Name:"
 msgstr "Nome:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: configure-printer/ModifyPrinter.ui:32
+#: src/configure-printer/ModifyPrinter.ui:32
 #, kde-format
 msgid "Description:"
 msgstr "Descrição:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
-#: configure-printer/ModifyPrinter.ui:42
+#: src/configure-printer/ModifyPrinter.ui:42
 #, kde-format
 msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
 msgstr "Descrição legível, tal como \"HP LaserJet com Duplexer\""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: configure-printer/ModifyPrinter.ui:52
+#: src/configure-printer/ModifyPrinter.ui:52
 #, kde-format
 msgid "Location:"
 msgstr "Localização:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
-#: configure-printer/ModifyPrinter.ui:62
+#: src/configure-printer/ModifyPrinter.ui:62
 #, kde-format
 msgid "Human-readable location such as \"Lab 1\""
 msgstr "Localização legível, tal como \"Laboratório 1\""
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
-#: configure-printer/ModifyPrinter.ui:79
+#: src/configure-printer/ModifyPrinter.ui:79
 #, kde-format
 msgid "Connection:"
 msgstr "Conexão:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
-#: configure-printer/ModifyPrinter.ui:103
+#: src/configure-printer/ModifyPrinter.ui:103
 #, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -806,813 +813,815 @@ msgstr ""
 "body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, membersL)
-#: configure-printer/ModifyPrinter.ui:113
+#: src/configure-printer/ModifyPrinter.ui:113
 #, kde-format
 msgid "Members"
 msgstr "Membros"
 
 #. i18n: ectx: property (text), widget (QLabel, driverL)
-#: configure-printer/ModifyPrinter.ui:126
+#: src/configure-printer/ModifyPrinter.ui:126
 #, kde-format
 msgid "Driver:"
 msgstr "Driver:"
 
-#: configure-printer/PrinterBehavior.cpp:199
+#: src/configure-printer/PrinterBehavior.cpp:199
 #, kde-format
 msgid "Abort job"
 msgstr "Cancelar trabalho"
 
-#: configure-printer/PrinterBehavior.cpp:201
+#: src/configure-printer/PrinterBehavior.cpp:201
 #, kde-format
 msgid "Retry current job"
 msgstr "Repetir o trabalho atual"
 
-#: configure-printer/PrinterBehavior.cpp:203
+#: src/configure-printer/PrinterBehavior.cpp:203
 #, kde-format
 msgid "Retry job"
 msgstr "Repetir o trabalho"
 
-#: configure-printer/PrinterBehavior.cpp:205
+#: src/configure-printer/PrinterBehavior.cpp:205
 #, kde-format
 msgid "Stop printer"
 msgstr "Parar a impressora"
 
-#: configure-printer/PrinterBehavior.cpp:214
+#: src/configure-printer/PrinterBehavior.cpp:214
 #, kde-format
 msgid "Authenticated"
 msgstr "Autenticado"
 
-#: configure-printer/PrinterBehavior.cpp:216
+#: src/configure-printer/PrinterBehavior.cpp:216
 #, kde-format
 msgid "Default"
 msgstr "Padrão"
 
-#: configure-printer/PrinterBehavior.cpp:225
+#: src/configure-printer/PrinterBehavior.cpp:225
 #, kde-format
 msgid "None"
 msgstr "Nenhum"
 
-#: configure-printer/PrinterBehavior.cpp:227
+#: src/configure-printer/PrinterBehavior.cpp:227
 #, kde-format
 msgid "Classified"
 msgstr "Classificado"
 
-#: configure-printer/PrinterBehavior.cpp:229
+#: src/configure-printer/PrinterBehavior.cpp:229
 #, kde-format
 msgid "Confidential"
 msgstr "Confidencial"
 
-#: configure-printer/PrinterBehavior.cpp:231
+#: src/configure-printer/PrinterBehavior.cpp:231
 #, kde-format
 msgid "Secret"
 msgstr "Secreto"
 
-#: configure-printer/PrinterBehavior.cpp:233
+#: src/configure-printer/PrinterBehavior.cpp:233
 #, kde-format
 msgid "Standard"
 msgstr "Padrão"
 
-#: configure-printer/PrinterBehavior.cpp:235
+#: src/configure-printer/PrinterBehavior.cpp:235
 #, kde-format
 msgid "Topsecret"
 msgstr "Muito secreto"
 
-#: configure-printer/PrinterBehavior.cpp:237
+#: src/configure-printer/PrinterBehavior.cpp:237
 #, kde-format
 msgid "Unclassified"
 msgstr "Sem classificação"
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
-#: configure-printer/PrinterBehavior.ui:29
+#: src/configure-printer/PrinterBehavior.ui:29
 #, kde-format
 msgid "Banners"
 msgstr "Separador"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: configure-printer/PrinterBehavior.ui:35
+#: src/configure-printer/PrinterBehavior.ui:35
 #, kde-format
 msgid "Starting Banner:"
 msgstr "Separador inicial:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: configure-printer/PrinterBehavior.ui:55
+#: src/configure-printer/PrinterBehavior.ui:55
 #, kde-format
 msgid "Ending Banner:"
 msgstr "Separador final:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
-#: configure-printer/PrinterBehavior.ui:84
+#: src/configure-printer/PrinterBehavior.ui:84
 #, kde-format
 msgid "Policies"
 msgstr "Políticas"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: configure-printer/PrinterBehavior.ui:90
+#: src/configure-printer/PrinterBehavior.ui:90
 #, kde-format
 msgid "Operation Policy:"
 msgstr "Política de operação:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: configure-printer/PrinterBehavior.ui:103
+#: src/configure-printer/PrinterBehavior.ui:103
 #, kde-format
 msgid "Error Policy:"
 msgstr "Política de erro:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
-#: configure-printer/PrinterBehavior.ui:133
+#: src/configure-printer/PrinterBehavior.ui:133
 #, kde-format
 msgid "Allowed Users"
 msgstr "Usuários permitidos"
 
 #. i18n: ectx: property (text), widget (QRadioButton, preventRB)
-#: configure-printer/PrinterBehavior.ui:139
+#: src/configure-printer/PrinterBehavior.ui:139
 #, kde-format
 msgid "Pre&vent these users from printing "
 msgstr "Im&pedir impressão por estes usuários "
 
 #. i18n: ectx: property (text), widget (QRadioButton, allowRB)
-#: configure-printer/PrinterBehavior.ui:146
+#: src/configure-printer/PrinterBehavior.ui:146
 #, kde-format
 msgid "A&llow these users to print"
 msgstr "Pe&rmitir impressão por estes usuários"
 
-#: configure-printer/PrinterOptions.cpp:50
+#: src/configure-printer/PrinterOptions.cpp:50
 #, kde-format
 msgid "Set Default Options"
 msgstr "Definir as opções padrão"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
-#: configure-printer/PrinterOptions.ui:26
+#: src/configure-printer/PrinterOptions.ui:26
 #, kde-format
 msgid "Query Printer for Default Options"
 msgstr "Consultar as opções padrão da impressora"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: configure-printer/SelectMakeModelDialog.cpp:29
-#: libkcups/SelectMakeModel.ui:14
+#: src/configure-printer/SelectMakeModelDialog.cpp:29
+#: src/libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"
 msgstr "Selecione um driver"
 
-#: libkcups/JobModel.cpp:26
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "Status"
 
-#: libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "Nome"
 
-#: libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "Usuário"
 
-#: libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "Criado em"
 
-#: libkcups/JobModel.cpp:30 libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:604
 #, kde-format
 msgid "Completed"
 msgstr "Concluído"
 
-#: libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "Páginas"
 
-#: libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "Processado"
 
-#: libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "Tamanho"
 
-#: libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "Mensagem de status"
 
-#: libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "Impressora"
 
-#: libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr "Do nome da máquina"
 
-#: libkcups/JobModel.cpp:518 printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:518 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Não foi possível mover '%1' para '%2'"
 
-#: libkcups/JobModel.cpp:521 printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:521 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Falhou"
 
-#: libkcups/JobModel.cpp:598
+#: src/libkcups/JobModel.cpp:598
 #, kde-format
 msgid "Pending"
 msgstr "Pendente"
 
-#: libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:599
 #, kde-format
 msgid "On hold"
 msgstr "Aguardando"
 
-#: libkcups/JobModel.cpp:601
+#: src/libkcups/JobModel.cpp:601
 #, kde-format
 msgid "Stopped"
 msgstr "Parado"
 
-#: libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:602
 #, kde-format
 msgid "Canceled"
 msgstr "Cancelado"
 
-#: libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Aborted"
 msgstr "Interrompido"
 
-#: libkcups/KCupsConnection.cpp:860
+#: src/libkcups/KCupsConnection.cpp:860
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Uma conexão do CUPS necessita autenticação: \"%1\""
 
-#: libkcups/KCupsPasswordDialog.cpp:25
+#: src/libkcups/KCupsPasswordDialog.cpp:25
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Indique um usuário e senha para concluir o trabalho"
 
-#: libkcups/KCupsPasswordDialog.cpp:47
+#: src/libkcups/KCupsPasswordDialog.cpp:47
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Usuário ou senha inválido"
 
-#: libkcups/KCupsRequest.cpp:32
+#: src/libkcups/KCupsRequest.cpp:32
 #, kde-format
 msgid "Print service is unavailable"
 msgstr "O serviço de impressão não está disponível"
 
-#: libkcups/KCupsRequest.cpp:34
+#: src/libkcups/KCupsRequest.cpp:34
 #, kde-format
 msgid "Not found"
 msgstr "Não encontrado"
 
-#: libkcups/KCupsRequest.cpp:401
+#: src/libkcups/KCupsRequest.cpp:401
 #, kde-format
 msgid "Test Page"
 msgstr "Página de teste"
 
-#: libkcups/KCupsRequest.cpp:433
+#: src/libkcups/KCupsRequest.cpp:433
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "Não foi possível enviar o comando para o driver da impressora!"
 
-#: libkcups/KCupsRequest.cpp:567
+#: src/libkcups/KCupsRequest.cpp:567
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "Não foi possível chamar o método: %1"
 
-#: libkcups/PPDModel.cpp:32
+#: src/libkcups/PPDModel.cpp:32
 #, kde-format
 msgid "Recommended Drivers"
 msgstr "Drivers recomendados"
 
-#: libkcups/PrinterModel.cpp:163
+#: src/libkcups/PrinterModel.cpp:163
 #, kde-format
 msgid "Printers"
 msgstr "Impressoras"
 
-#: libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:366
 #, kde-format
 msgid "Idle"
 msgstr "Ociosa"
 
-#: libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:366
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Ociosa, rejeitando trabalhos de impressão"
 
-#: libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:368
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Ociosa - '%1'"
 
-#: libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:368
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Ociosa, rejeitando trabalhos de impressão - '%1'"
 
-#: libkcups/PrinterModel.cpp:372
+#: src/libkcups/PrinterModel.cpp:372
 #, kde-format
 msgid "In use"
 msgstr "Em uso"
 
-#: libkcups/PrinterModel.cpp:374
+#: src/libkcups/PrinterModel.cpp:374
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Em uso - '%1'"
 
-#: libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:378
 #, kde-format
 msgid "Paused"
 msgstr "Pausada"
 
-#: libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:378
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Pausada, rejeitando trabalhos de impressão"
 
-#: libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:380
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Pausada - '%1'"
 
-#: libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:380
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Pausada, rejeitando trabalhos de impressão - '%1'"
 
-#: libkcups/PrinterModel.cpp:384
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecida"
 
-#: libkcups/PrinterModel.cpp:386
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Desconhecida - '%1'"
 
-#: libkcups/SelectMakeModel.cpp:138
+#: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "Não foi possível obter a lista de drivers: '%1'"
 
-#: libkcups/SelectMakeModel.cpp:228
+#: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Não foi possível localizar um driver para recomendar: '%1'"
 
 #. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
-#: libkcups/SelectMakeModel.ui:44
+#: src/libkcups/SelectMakeModel.ui:44
 #, kde-format
 msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
 msgstr "*.ppd *.ppd.gz|Arquivos de descrição da impressora em PostScript"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
-#: libkcups/SelectMakeModel.ui:82
+#: src/libkcups/SelectMakeModel.ui:82
 #, kde-format
 msgid "Choose &the driver from the list"
 msgstr "&Escolha o driver na lista"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
-#: libkcups/SelectMakeModel.ui:94
+#: src/libkcups/SelectMakeModel.ui:94
 #, kde-format
 msgid "Ma&nually Provide a PPD File:"
 msgstr "Indique ma&nualmente um arquivo PPD:"
 
-#: print-manager-kded/NewPrinterNotification.cpp:59
+#: src/print-manager-kded/NewPrinterNotification.cpp:59
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Uma nova impressora foi detectada"
 
-#: print-manager-kded/NewPrinterNotification.cpp:60
+#: src/print-manager-kded/NewPrinterNotification.cpp:60
 #, kde-format
 msgid "Configuring new printer..."
 msgstr "Configurando a nova impressora..."
 
-#: print-manager-kded/NewPrinterNotification.cpp:100
+#: src/print-manager-kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
 msgstr "A nova impressora foi adicionada"
 
-#: print-manager-kded/NewPrinterNotification.cpp:102
+#: src/print-manager-kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr "Falta o driver para a nova impressora"
 
-#: print-manager-kded/NewPrinterNotification.cpp:164
+#: src/print-manager-kded/NewPrinterNotification.cpp:164
 #, kde-format
 msgid "Missing printer driver"
 msgstr "Falta o driver da impressora"
 
-#: print-manager-kded/NewPrinterNotification.cpp:166
+#: src/print-manager-kded/NewPrinterNotification.cpp:166
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr "Não existe o driver de impressora para a %1 %2."
 
-#: print-manager-kded/NewPrinterNotification.cpp:168
+#: src/print-manager-kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "No printer driver for %1."
 msgstr "Não existe o driver de impressora para a %1."
 
-#: print-manager-kded/NewPrinterNotification.cpp:170
+#: src/print-manager-kded/NewPrinterNotification.cpp:170
 #, kde-format
 msgid "No driver for this printer."
 msgstr "Não existe um driver para esta impressora."
 
-#: print-manager-kded/NewPrinterNotification.cpp:173
+#: src/print-manager-kded/NewPrinterNotification.cpp:173
 #, kde-format
 msgid "Search"
 msgstr "Pesquisar"
 
-#: print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:239
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "'%1' foi adicionada, verifique seu driver."
 
-#: print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "'%1' foi adicionada, usando o driver '%2'."
 
-#: print-manager-kded/NewPrinterNotification.cpp:244
-#: print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:244
+#: src/print-manager-kded/NewPrinterNotification.cpp:256
 #, kde-format
 msgid "Print test page"
 msgstr "Imprimir página de teste"
 
-#: print-manager-kded/NewPrinterNotification.cpp:244
+#: src/print-manager-kded/NewPrinterNotification.cpp:244
 #, kde-format
 msgid "Find driver"
 msgstr "Localizar driver"
 
-#: print-manager-kded/NewPrinterNotification.cpp:255
+#: src/print-manager-kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' está pronta para impressão."
 
-#: printer-manager-kcm/PrinterDescription.cpp:99
+#: src/printer-manager-kcm/PrinterDescription.cpp:99
 #, kde-format
 msgid "Share this class"
 msgstr "Compartilhar esta classe"
 
-#: printer-manager-kcm/PrinterDescription.cpp:99
+#: src/printer-manager-kcm/PrinterDescription.cpp:99
 #, kde-format
 msgid "Share this printer"
 msgstr "Compartilhar esta impressora"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.cpp:220
-#: printer-manager-kcm/PrinterDescription.ui:293
+#: src/printer-manager-kcm/PrinterDescription.cpp:220
+#: src/printer-manager-kcm/PrinterDescription.ui:293
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpar cabeças de impressão"
 
 #. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.cpp:229
-#: printer-manager-kcm/PrinterDescription.ui:301
+#: src/printer-manager-kcm/PrinterDescription.cpp:229
+#: src/printer-manager-kcm/PrinterDescription.ui:301
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir página de teste"
 
-#: printer-manager-kcm/PrinterDescription.cpp:235
+#: src/printer-manager-kcm/PrinterDescription.cpp:235
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Falha ao efetuar a solicitação: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, printerNameL)
-#: printer-manager-kcm/PrinterDescription.ui:83
+#: src/printer-manager-kcm/PrinterDescription.ui:83
 #, kde-format
 msgctxt "@title"
 msgid "Printer name or description"
 msgstr "Nome da impressora ou descrição"
 
 #. i18n: ectx: property (text), widget (QLabel, statusL)
-#: printer-manager-kcm/PrinterDescription.ui:102
+#: src/printer-manager-kcm/PrinterDescription.ui:102
 #, kde-format
 msgid "Current status"
 msgstr "Status atual"
 
 #. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
-#: printer-manager-kcm/PrinterDescription.ui:109
+#: src/printer-manager-kcm/PrinterDescription.ui:109
 #, kde-format
 msgctxt "@option:check"
 msgid "Default printer"
 msgstr "Impressora padrão"
 
 #. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
-#: printer-manager-kcm/PrinterDescription.ui:126
+#: src/printer-manager-kcm/PrinterDescription.ui:126
 #, kde-format
 msgid "Reject print jobs"
 msgstr "Rejeitar os trabalhos de impressão"
 
 #. i18n: ectx: property (text), widget (QLabel, locationL)
-#: printer-manager-kcm/PrinterDescription.ui:135
+#: src/printer-manager-kcm/PrinterDescription.ui:135
 #, kde-format
 msgctxt "@label location of printer"
 msgid "Location:"
 msgstr "Localização:"
 
 #. i18n: ectx: property (text), widget (QLabel, kindL)
-#: printer-manager-kcm/PrinterDescription.ui:164
+#: src/printer-manager-kcm/PrinterDescription.ui:164
 #, kde-format
 msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
 msgid "Kind:"
 msgstr "Tipo:"
 
 #. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
-#: printer-manager-kcm/PrinterDescription.ui:205
+#: src/printer-manager-kcm/PrinterDescription.ui:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Maintenance"
 msgstr "Manutenção"
 
 #. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
-#: printer-manager-kcm/PrinterDescription.ui:225
+#: src/printer-manager-kcm/PrinterDescription.ui:225
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "Abrir a fila de impressão"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.ui:288
+#: src/printer-manager-kcm/PrinterDescription.ui:288
 #, kde-format
 msgid "Print Test Page"
 msgstr "Imprimir página de teste"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.ui:298
+#: src/printer-manager-kcm/PrinterDescription.ui:298
 #, kde-format
 msgid "Print Self Test Page"
 msgstr "Imprimir página de teste automático"
 
-#: printer-manager-kcm/PrintKCM.cpp:60
+#: src/printer-manager-kcm/PrintKCM.cpp:60
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Adicionar uma classe de impressora"
 
-#: printer-manager-kcm/PrintKCM.cpp:63
+#: src/printer-manager-kcm/PrintKCM.cpp:63
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Adicionar uma nova impressora ou classe de impressora"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:67 printer-manager-kcm/PrintKCM.ui:32
+#: src/printer-manager-kcm/PrintKCM.cpp:67
+#: src/printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Remover impressora"
 
-#: printer-manager-kcm/PrintKCM.cpp:77
+#: src/printer-manager-kcm/PrintKCM.cpp:77
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Mostrar impressoras compartilhadas por outros sistemas"
 
-#: printer-manager-kcm/PrintKCM.cpp:81
+#: src/printer-manager-kcm/PrintKCM.cpp:81
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Compartilhar impressoras conectadas ao sistema"
 
-#: printer-manager-kcm/PrintKCM.cpp:83
+#: src/printer-manager-kcm/PrintKCM.cpp:83
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Permitir impressão pela Internet"
 
-#: printer-manager-kcm/PrintKCM.cpp:89
+#: src/printer-manager-kcm/PrintKCM.cpp:89
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Permitir administração remota"
 
-#: printer-manager-kcm/PrintKCM.cpp:91
+#: src/printer-manager-kcm/PrintKCM.cpp:91
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr ""
 "Permitir que usuários cancelem qualquer trabalho (não apenas os próprios)"
 
-#: printer-manager-kcm/PrintKCM.cpp:95
+#: src/printer-manager-kcm/PrintKCM.cpp:95
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Configure as preferências globais"
 
-#: printer-manager-kcm/PrintKCM.cpp:140 printer-manager-kcm/PrintKCM.cpp:240
+#: src/printer-manager-kcm/PrintKCM.cpp:140
+#: src/printer-manager-kcm/PrintKCM.cpp:240
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Nenhuma impressora foi configurada ou identificada"
 
-#: printer-manager-kcm/PrintKCM.cpp:271
+#: src/printer-manager-kcm/PrintKCM.cpp:271
 #, kde-format
 msgid "Remove class"
 msgstr "Remover classe"
 
-#: printer-manager-kcm/PrintKCM.cpp:272
+#: src/printer-manager-kcm/PrintKCM.cpp:272
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Deseja realmente remover a classe '%1'?"
 
-#: printer-manager-kcm/PrintKCM.cpp:275
+#: src/printer-manager-kcm/PrintKCM.cpp:275
 #, kde-format
 msgid "Remove printer"
 msgstr "Remover impressora"
 
-#: printer-manager-kcm/PrintKCM.cpp:276
+#: src/printer-manager-kcm/PrintKCM.cpp:276
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Deseja realmente remover a impressora '%1'?"
 
-#: printer-manager-kcm/PrintKCM.cpp:326
+#: src/printer-manager-kcm/PrintKCM.cpp:326
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Não foi possível obter as opções do servidor"
 
-#: printer-manager-kcm/PrintKCM.cpp:361
+#: src/printer-manager-kcm/PrintKCM.cpp:361
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
 msgstr "Não foi possível configurar as opções do servidor"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: printer-manager-kcm/PrintKCM.ui:52
+#: src/printer-manager-kcm/PrintKCM.ui:52
 #, kde-format
 msgid "System Preferences"
 msgstr "Preferências do sistema"
 
 #. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: printer-manager-kcm/PrintKCM.ui:196
+#: src/printer-manager-kcm/PrintKCM.ui:196
 #, kde-format
 msgid "TextLabel"
 msgstr "Etiqueta de texto"
 
 #. i18n: ectx: property (text), widget (QLabel, errorText)
-#: printer-manager-kcm/PrintKCM.ui:206
+#: src/printer-manager-kcm/PrintKCM.ui:206
 #, kde-format
 msgid "Error Title"
 msgstr "Erro no título"
 
 #. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: printer-manager-kcm/PrintKCM.ui:231
+#: src/printer-manager-kcm/PrintKCM.ui:231
 #, kde-format
 msgid "Click here to add a new printer"
 msgstr "Clique para adicionar uma nova impressora"
 
-#: printqueue/main.cpp:27 printqueue/main.cpp:29
+#: src/printqueue/main.cpp:27 src/printqueue/main.cpp:29
 #, kde-format
 msgid "Print Queue"
 msgstr "Fila de impressão"
 
-#: printqueue/main.cpp:41
+#: src/printqueue/main.cpp:41
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "Mostrar a(s) fila(s) de impressão"
 
-#: printqueue/PrintQueueUi.cpp:195
+#: src/printqueue/PrintQueueUi.cpp:195
 #, kde-format
 msgid "Printer ready"
 msgstr "Impressora pronta"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: printqueue/PrintQueueUi.cpp:196 printqueue/PrintQueueUi.cpp:207
-#: printqueue/PrintQueueUi.ui:118
+#: src/printqueue/PrintQueueUi.cpp:196 src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Pausar impressora"
 
-#: printqueue/PrintQueueUi.cpp:203
+#: src/printqueue/PrintQueueUi.cpp:203
 #, kde-format
 msgid "Printing..."
 msgstr "Imprimindo..."
 
-#: printqueue/PrintQueueUi.cpp:205
+#: src/printqueue/PrintQueueUi.cpp:205
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Imprimindo '%1'"
 
-#: printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Printer paused"
 msgstr "Impressora pausada"
 
-#: printqueue/PrintQueueUi.cpp:214
+#: src/printqueue/PrintQueueUi.cpp:214
 #, kde-format
 msgid "Resume Printer"
 msgstr "Reativar a impressora"
 
-#: printqueue/PrintQueueUi.cpp:218
+#: src/printqueue/PrintQueueUi.cpp:218
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Estado da impressora desconhecido"
 
-#: printqueue/PrintQueueUi.cpp:263
+#: src/printqueue/PrintQueueUi.cpp:263
 #, kde-format
 msgid "Move to"
 msgstr "Mover para"
 
-#: printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
 msgstr "Autenticado"
 
-#: printqueue/PrintQueueUi.cpp:404
+#: src/printqueue/PrintQueueUi.cpp:404
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Todas as impressoras (%1 trabalho)"
 msgstr[1] "Todas as impressoras (%1 trabalhos)"
 
-#: printqueue/PrintQueueUi.cpp:406
+#: src/printqueue/PrintQueueUi.cpp:406
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 trabalho)"
 msgstr[1] "%2 (%1 trabalhos)"
 
-#: printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers"
 msgstr "Todas as impressoras"
 
-#: printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Não foi possível cancelar '%1'"
 
-#: printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Não foi possível colocar em espera '%1'"
 
-#: printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Não foi possível liberar a '%1'"
 
-#: printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Ocorreu uma falha na reimpressão '%1'"
 
-#: printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Digite as credenciais para imprimir em <b>%1</b>"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: printqueue/PrintQueueUi.ui:20
+#: src/printqueue/PrintQueueUi.ui:20
 #, kde-format
 msgid "my printer (x jobs)"
 msgstr "minha impressora (x trabalhos)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
-#: printqueue/PrintQueueUi.ui:49
+#: src/printqueue/PrintQueueUi.ui:49
 #, kde-format
 msgid "Printer Icon"
 msgstr "Ícone da impressora"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: printqueue/PrintQueueUi.ui:233
+#: src/printqueue/PrintQueueUi.ui:233
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: printqueue/PrintQueueUi.ui:253
+#: src/printqueue/PrintQueueUi.ui:253
 #, kde-format
 msgid "Hold"
 msgstr "Aguardar"
 
 #. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: printqueue/PrintQueueUi.ui:266
+#: src/printqueue/PrintQueueUi.ui:266
 #, kde-format
 msgid "Resume"
 msgstr "Continuar"
 
 #. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: printqueue/PrintQueueUi.ui:279
+#: src/printqueue/PrintQueueUi.ui:279
 #, kde-format
 msgid "Reprint"
 msgstr "Reimprimir"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: printqueue/PrintQueueUi.ui:312
+#: src/printqueue/PrintQueueUi.ui:312
 #, kde-format
 msgid "Active Jobs"
 msgstr "Trabalhos ativos"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: printqueue/PrintQueueUi.ui:317
+#: src/printqueue/PrintQueueUi.ui:317
 #, kde-format
 msgid "Completed Jobs"
 msgstr "Trabalhos concluídos"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: printqueue/PrintQueueUi.ui:322
+#: src/printqueue/PrintQueueUi.ui:322
 #, kde-format
 msgid "All Jobs"
 msgstr "Todos os trabalhos"

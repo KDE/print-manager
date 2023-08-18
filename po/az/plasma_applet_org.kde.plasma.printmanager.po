@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"POT-Creation-Date: 2023-08-18 00:48+0000\n"
 "PO-Revision-Date: 2022-04-01 19:08+0400\n"
 "Last-Translator: Kheyyam Gojayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -17,74 +17,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:26
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:26
 msgid "Search…"
 msgstr "Axtarış…"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:71
-#: plasmoid/package/contents/ui/printmanager.qml:52
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/main.qml:52
 msgid "No printers have been configured or discovered"
 msgstr "Ayarlanacaq və ya aşkar ediləcək heç bir printer yoxdur"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "Uyğun gələn yoxdur"
 
-#: plasmoid/package/contents/ui/PrinterItem.qml:25
-msgid "Resume printing"
-msgstr "Çapı davam etdirmək"
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:25
-msgid "Pause printing"
-msgstr "Çapa fasilə"
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:37
-msgid "Configure printer..."
-msgstr "Printeri tənzimləmək..."
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:42
-msgid "View print queue"
-msgstr "Çap növbəsini göstərmək"
-
-#: plasmoid/package/contents/ui/printmanager.qml:31
+#: src/plasmoid/package/contents/ui/main.qml:31
 msgid "Printers"
 msgstr "Printerlər"
 
-#: plasmoid/package/contents/ui/printmanager.qml:36
+#: src/plasmoid/package/contents/ui/main.qml:36
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Növbədə %1 çap tapşırığı var"
 msgstr[1] "Növbədə %1 çap tapşırığı var"
 
-#: plasmoid/package/contents/ui/printmanager.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%2 ilə %1 çap edilir"
 
-#: plasmoid/package/contents/ui/printmanager.qml:47
+#: src/plasmoid/package/contents/ui/main.qml:47
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 ilə çap edilir"
 
-#: plasmoid/package/contents/ui/printmanager.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "Print queue is empty"
 msgstr "Çap növbəsi boşdur"
 
-#: plasmoid/package/contents/ui/printmanager.qml:126
+#: src/plasmoid/package/contents/ui/main.qml:126
 msgid "Show All Jobs"
 msgstr "Bütün tapşırıqları göstərmək"
 
-#: plasmoid/package/contents/ui/printmanager.qml:132
+#: src/plasmoid/package/contents/ui/main.qml:132
 msgid "Show Only Completed Jobs"
 msgstr "Yalnız tamamlanmış tapşırıqları göstərmək"
 
-#: plasmoid/package/contents/ui/printmanager.qml:138
+#: src/plasmoid/package/contents/ui/main.qml:138
 msgid "Show Only Active Jobs"
 msgstr "Yalnız aktiv tapşırıqları göstərmək"
 
-#: plasmoid/package/contents/ui/printmanager.qml:149
+#: src/plasmoid/package/contents/ui/main.qml:149
 msgid "&Configure Printers..."
 msgstr "Printerləri &tənzimləyin..."
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
+msgid "Resume printing"
+msgstr "Çapı davam etdirmək"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
+msgid "Pause printing"
+msgstr "Çapa fasilə"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:37
+msgid "Configure printer..."
+msgstr "Printeri tənzimləmək..."
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+msgid "View print queue"
+msgstr "Çap növbəsini göstərmək"
 
 #~ msgid "Search for a printer..."
 #~ msgstr "Printer axtarmaq..."

@@ -164,6 +164,5 @@
     "X-Plasma-MainScript": "ui/main.qml",
     "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "Hardware",
-    "X-Plasma-OptionalExtensions": "LaunchApp",
-    "KPackageStructure": "Plasma/Applet"
+    "X-Plasma-OptionalExtensions": "LaunchApp"
 }

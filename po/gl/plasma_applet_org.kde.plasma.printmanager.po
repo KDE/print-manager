@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-03-31 00:46+0000\n"
+"POT-Creation-Date: 2023-08-18 00:48+0000\n"
 "PO-Revision-Date: 2023-04-30 10:11+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -19,74 +19,74 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.04.0\n"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:26
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:26
 msgid "Search…"
 msgstr "Buscar…"
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:71
-#: plasmoid/package/contents/ui/printmanager.qml:52
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/main.qml:52
 msgid "No printers have been configured or discovered"
 msgstr "Non se configurou nin descubriu ningunha impresora."
 
-#: plasmoid/package/contents/ui/PopupDialog.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "Non hai coincidencias"
 
-#: plasmoid/package/contents/ui/PrinterItem.qml:25
-msgid "Resume printing"
-msgstr "Continuar a impresión"
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:25
-msgid "Pause printing"
-msgstr "Poñer en pausa a impresión"
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:37
-msgid "Configure printer..."
-msgstr "Configurar a impresora…"
-
-#: plasmoid/package/contents/ui/PrinterItem.qml:42
-msgid "View print queue"
-msgstr "Ver a cola de impresión"
-
-#: plasmoid/package/contents/ui/printmanager.qml:31
+#: src/plasmoid/package/contents/ui/main.qml:31
 msgid "Printers"
 msgstr "Impresoras"
 
-#: plasmoid/package/contents/ui/printmanager.qml:36
+#: src/plasmoid/package/contents/ui/main.qml:36
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Hai un traballo de impresión na cola."
 msgstr[1] "Hai %1 traballos de impresión na cola."
 
-#: plasmoid/package/contents/ui/printmanager.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Imprimindo %1 con %2."
 
-#: plasmoid/package/contents/ui/printmanager.qml:47
+#: src/plasmoid/package/contents/ui/main.qml:47
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Imprimindo con %1."
 
-#: plasmoid/package/contents/ui/printmanager.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "Print queue is empty"
 msgstr "A cola de impresión está baleira."
 
-#: plasmoid/package/contents/ui/printmanager.qml:126
+#: src/plasmoid/package/contents/ui/main.qml:126
 msgid "Show All Jobs"
 msgstr "Amosar todas as tarefas"
 
-#: plasmoid/package/contents/ui/printmanager.qml:132
+#: src/plasmoid/package/contents/ui/main.qml:132
 msgid "Show Only Completed Jobs"
 msgstr "Amosar só as tarefas completadas"
 
-#: plasmoid/package/contents/ui/printmanager.qml:138
+#: src/plasmoid/package/contents/ui/main.qml:138
 msgid "Show Only Active Jobs"
 msgstr "Amosar só as tarefas activas"
 
-#: plasmoid/package/contents/ui/printmanager.qml:149
+#: src/plasmoid/package/contents/ui/main.qml:149
 msgid "&Configure Printers..."
 msgstr "&Configurar as impresoras…"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
+msgid "Resume printing"
+msgstr "Continuar a impresión"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
+msgid "Pause printing"
+msgstr "Poñer en pausa a impresión"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:37
+msgid "Configure printer..."
+msgstr "Configurar a impresora…"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+msgid "View print queue"
+msgstr "Ver a cola de impresión"
 
 #~ msgid "Search for a printer..."
 #~ msgstr "Buscar unha impresora…"

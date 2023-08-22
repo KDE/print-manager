@@ -8,8 +8,8 @@ set (RELEASE_SERVICE_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE
 
 project(print-manager VERSION ${RELEASE_SERVICE_VERSION})
 
-set(QT_MIN_VERSION "5.15.2")
-set(KF_MIN_VERSION "5.100.0")
+set(QT_MIN_VERSION "6.5.0")
+set(KF_MIN_VERSION "5.240.0")
 
 
 ################# set KDE specific information #################
@@ -17,9 +17,13 @@ set(KF_MIN_VERSION "5.100.0")
 find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEGitCommitHooks)
 
 include(ECMOptionalAddSubdirectory)
 include(FeatureSummary)
@@ -38,8 +42,27 @@ endif()
 
 find_package(Cups "1.5" REQUIRED)
 
-find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED Config ConfigWidgets CoreAddons DBusAddons IconThemes I18n KCMUtils KIO
-             Notifications Plasma WidgetsAddons WindowSystem)
+find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED 
+    Config 
+    ConfigWidgets 
+    CoreAddons 
+    DBusAddons 
+    IconThemes 
+    I18n 
+    KCMUtils 
+    Kirigami2
+    KIO
+    Notifications 
+    Plasma 
+    WidgetsAddons 
+    WindowSystem 
+)
+set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Kirigami application UI framework"
+)
+
+find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.10 REQUIRED)
 
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES

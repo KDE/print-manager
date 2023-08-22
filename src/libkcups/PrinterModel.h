@@ -17,10 +17,21 @@ class KCupsRequest;
 class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
+    
     Q_ENUMS(JobAction)
     Q_ENUMS(Role)
+    
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
+    /**
+     * Whether or not to actually display the location of the printer
+     * 
+     * Only show the location if there is more than one printer
+     * and at least two distinct locations exist.  If there is only one
+     * printer or 2 or more printers have the same location, this will be false
+     */
+    Q_PROPERTY(bool displayLocationHint READ displayLocationHint NOTIFY displayLocationHintChanged)
+    
 public:
     enum Role {
         DestStatus = Qt::UserRole,
@@ -72,6 +83,7 @@ signals:
     void countChanged(int count);
     void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
+    void displayLocationHintChanged();
 
 private slots:
     void insertUpdatePrinterName(const QString &printerName);
@@ -90,12 +102,16 @@ private slots:
     void printerShutdown(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void serverChanged(const QString &text);
+    
+    bool displayLocationHint() const;
 
 private:
     WId m_parentId;
     QHash<int, QByteArray> m_roles;
     bool m_unavailable = true;
+    bool m_displayLocationHint = true;
 
+    void setDisplayLocationHint();
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);

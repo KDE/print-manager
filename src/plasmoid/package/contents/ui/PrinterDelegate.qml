@@ -8,22 +8,22 @@
 */
 
 import QtQuick 
-import QtQuick.Controls
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami 2 as Kirigami
 
 PlasmaExtras.ExpandableListItem {
     readonly property bool isPaused: model.printerState === 5
-
+    
     icon: model.iconName
     iconEmblem: isPaused ? "emblem-pause" : ""
-    title: model.printerName
+    title: model.printerName + (printersModel.displayLocationHint ? " (%1)".arg(model.location) : "")
     subtitle: model.stateMessage
     isDefault: model.isDefault
 
     defaultActionButtonAction: Kirigami.Action {
         icon.name: isPaused ? "media-playback-start" : "media-playback-pause"
-        text: isPaused ? i18n("Resume printing") : i18n("Pause printing")
+        text: isPaused ? i18n("Resume") : i18n("Pause")
+
         onTriggered: {
             if (isPaused) {
                 printersModel.resumePrinter(model.printerName);
@@ -36,12 +36,12 @@ PlasmaExtras.ExpandableListItem {
     contextualActionsModel: [
         Kirigami.Action {
             icon.name: "configure"
-            text: i18n("Configure printer...")
+            text: i18n("Configure printer…")
             onTriggered: processRunner.configurePrinter(model.printerName);
         },
         Kirigami.Action {
             icon.name: "view-list-details"
-            text: i18n("View print queue")
+            text: i18n("View print queue…")
             onTriggered: processRunner.openPrintQueue(model.printerName);
         }
     ]

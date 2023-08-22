@@ -22,12 +22,6 @@ PlasmoidItem {
     property bool cfg_completedJobs
     property bool cfg_activeJobs
 
-    property int jobsFilter: Plasmoid.configuration.allJobs 
-                                ? PrintManager.JobModel.WhichAll 
-                                : Plasmoid.configuration.completedJobs 
-                                    ? PrintManager.JobModel.WhichCompleted 
-                                    : PrintManager.JobModel.WhichActive
-
     readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
         || Plasmoid.location === PlasmaCore.Types.RightEdge
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
@@ -35,6 +29,36 @@ PlasmoidItem {
 
     property alias serverUnavailable: printersModel.serverUnavailable
     property string printersModelError: ""
+
+    property int jobsFilter: Plasmoid.configuration.allJobs 
+                                ? PrintManager.JobModel.WhichAll 
+                                : Plasmoid.configuration.completedJobs 
+                                    ? PrintManager.JobModel.WhichCompleted 
+                                    : PrintManager.JobModel.WhichActive
+
+    onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
+
+    PrintManager.PrinterModel {
+        id: printersModel
+        onError: (lastError, errorTitle, errorMsg) => printersModelError = errorTitle
+    }
+
+    PrintManager.JobSortFilterModel {
+        id: jobsFilterModel
+        
+        sourceModel: PrintManager.JobModel {
+            id: jobsModel
+            Component.onCompleted: setWhichJobs(jobsFilter)
+        }
+    }
+
+    PrintManager.JobSortFilterModel {
+        id: activeJobsFilterModel
+        
+        sourceModel: PrintManager.JobModel {
+            Component.onCompleted: setWhichJobs(PrintManager.JobModel.WhichActive)
+        }
+    }
 
     toolTipMainText: i18n("Printers")
     toolTipSubText: {
@@ -46,9 +70,9 @@ PlasmoidItem {
                          activeJobsFilterModel.activeCount);
         // If there is only one job, show more information about it
         } else if (activeJobsFilterModel.activeCount === 1) {
-            var idx = activeJobsFilterModel.index(0, 0);
-            var jobName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobName);
-            var printerName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobPrinter);
+            const idx = activeJobsFilterModel.index(0, 0);
+            const jobName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobName);
+            const printerName = activeJobsFilterModel.data(idx, PrintManager.JobModel.RoleJobPrinter);
             if (jobName) {
                 return i18nc("Printing document name with printer name", "Printing %1 with %2", jobName, printerName);
             } else {
@@ -68,7 +92,7 @@ PlasmoidItem {
         // as a desktop widget, we need to start with a reasonable size
         Layout.preferredWidth: inPanel ? -1 : Kirigami.Units.gridUnit * 24
         Layout.preferredHeight: inPanel ? -1 : Kirigami.Units.gridUnit * 24
-}
+    }
 
     switchWidth: Kirigami.Units.gridUnit * 10
     switchHeight: Kirigami.Units.gridUnit * 10
@@ -80,29 +104,6 @@ PlasmoidItem {
             return PlasmaCore.Types.PassiveStatus;
         } else {
             return PlasmaCore.Types.HiddenStatus;
-        }
-    }
-
-    onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
-
-    PrintManager.PrinterModel {
-        id: printersModel
-        onError: (lastError, errorTitle, errorMsg) => printersModelError = errorTitle
-    }
-
-    PrintManager.JobSortFilterModel {
-        id: jobsFilterModel
-
-        sourceModel: PrintManager.JobModel {
-            id: jobsModel
-            Component.onCompleted: setWhichJobs(jobsFilter)
-        }
-    }
-
-    PrintManager.JobSortFilterModel {
-        id: activeJobsFilterModel
-        sourceModel: PrintManager.JobModel {
-            Component.onCompleted: setWhichJobs(PrintManager.JobModel.WhichActive)
         }
     }
 

@@ -147,9 +147,34 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
             removeRow(rowCount() - 1);
         }
 
+        setDisplayLocationHint();
+        
         Q_EMIT error(IPP_OK, QString(), QString());
     }
     request->deleteLater();
+}
+
+void PrinterModel::setDisplayLocationHint() 
+{
+    QStringList locList;
+
+    // get location list
+    for (int i = 0; i < rowCount(); i++) {
+        const auto val = item(i)->data(DestLocation).toString();
+        if (!val.isEmpty()) {
+            locList.append(val);
+        }
+    }
+    // only show the location if there is more than one printer
+    // and at least two distinct locations exist
+    locList.removeDuplicates();
+    m_displayLocationHint = rowCount() > 1 && locList.count() > 1;
+    Q_EMIT displayLocationHintChanged();
+}
+
+bool PrinterModel::displayLocationHint() const
+{
+    return m_displayLocationHint;
 }
 
 void PrinterModel::slotCountChanged()
@@ -443,6 +468,7 @@ void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
             }
         }
     }
+    setDisplayLocationHint();
     request->deleteLater();
 }
 
@@ -455,6 +481,7 @@ void PrinterModel::printerRemovedName(const QString &printerName)
     if (dest_row != -1) {
         removeRows(dest_row, 1);
     }
+    setDisplayLocationHint();
 }
 
 void PrinterModel::printerRemoved(const QString &text,
@@ -477,6 +504,7 @@ void PrinterModel::printerRemoved(const QString &text,
     if (dest_row != -1) {
         removeRows(dest_row, 1);
     }
+    setDisplayLocationHint();
 }
 
 void PrinterModel::printerStateChanged(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
@@ -501,6 +529,7 @@ void PrinterModel::printerShutdown(const QString &text, const QString &printerUr
 void PrinterModel::printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
 {
     qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    setDisplayLocationHint();
 }
 
 void PrinterModel::serverChanged(const QString &text)

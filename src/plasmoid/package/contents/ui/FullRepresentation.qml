@@ -8,7 +8,6 @@
 */
 
 import QtQuick
-import QtQuick.Controls
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami 2 as Kirigami
@@ -27,14 +26,12 @@ PlasmaExtras.Representation {
     PrintManager.ProcessRunner {
         id: processRunner
     }
-
+   
     PlasmaComponents3.ScrollView {
         anchors.fill: parent
         contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
 
         contentItem: ListView {
-            id: printersView
-
             focus: true
             currentIndex: -1
 
@@ -42,7 +39,7 @@ PlasmaExtras.Representation {
                 id: printersFilterModel
                 sourceModel: printersModel
             }
-
+            
             topMargin: Kirigami.Units.smallSpacing * 2
             bottomMargin: Kirigami.Units.smallSpacing * 2
             leftMargin: Kirigami.Units.smallSpacing * 2

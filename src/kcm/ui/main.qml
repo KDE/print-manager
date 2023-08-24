@@ -54,7 +54,7 @@ KCM.ScrollViewKCM {
         }
 
         delegate: Kirigami.BasicListItem {
-            text: model.printerName + (model.location ? " (%1)".arg(model.location) : "")
+            text: model.printerName + (kcm.printerModel.displayLocationHint ? " (%1)".arg(model.location) : "")
             subtitle: model.stateMessage
             icon.name: model.iconName
 

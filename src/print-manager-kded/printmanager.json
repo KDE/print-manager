@@ -5,6 +5,8 @@
         "Description[eo]": "Sciigi kiam nova printilo estas ekkonata, aŭ kiam estas problemoj pri printtaskoj",
         "Description[es]": "Notificar cuando se detecta una nueva impresora o si existen problemas con algún trabajo de impresión",
         "Description[eu]": "Jakinarazi inprimagailu berri bat antzeman edo inprimatzeko lan batekin arazoak daudenean",
+        "Description[it]": "Notifica quando viene rilevata una nuova stampante o ci sono problemi con un processo di stampa",
+        "Description[ka]": "შეტყობინება ახალი პრინტერის პოვნისა და ბეჭდვის პრობლემების შესახებ",
         "Description[nl]": "Melden wanneer een nieuwe printer is ontdekt of er een probleem met een afdruktaak is",
         "Description[sl]": "Obveščaj ob zaznavi novih tiskalnikov ali ob težavah s posli tiskanja",
         "Description[tr]": "Yeni bir yazıcı algılandığında veya bir yazdırma işinde sorun varsa bildir",

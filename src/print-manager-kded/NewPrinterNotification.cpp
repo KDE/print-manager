@@ -169,9 +169,8 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify, con
     } else {
         notify->setText(i18n("No driver for this printer."));
     }
-
-    notify->setActions({ i18n("Search") });
-    connect(notify, &KNotification::action1Activated, this, [notify, arg] () {
+    auto searchAction = notify->addAction(i18n("Search"));
+    connect(searchAction, &KNotificationAction::activated, this, [arg] () {
         qCDebug(PM_KDED);
         // This function will show the PPD browser dialog
         // to choose a better PPD, queue name, location
@@ -237,13 +236,14 @@ void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, co
         // The cups request might have failed
         if (driver.isEmpty()) {
             notify->setText(i18n("'%1' has been added, please check its driver.", name));
-            notify->setActions({ i18n("Configure") });
-            connect(notify, &KNotification::action1Activated, this, &NewPrinterNotification::configurePrinter);
+            auto configAction = notify->addAction(i18n("Configure"));
+            connect(configAction, &KNotificationAction::activated, this, &NewPrinterNotification::configurePrinter);
         } else {
             notify->setText(i18n("'%1' has been added, using the '%2' driver.", name, driver));
-            notify->setActions({ i18n("Print test page"), i18n("Find driver") });
-            connect(notify, &KNotification::action1Activated, this, &NewPrinterNotification::printTestPage);
-            connect(notify, &KNotification::action2Activated, this, &NewPrinterNotification::findDriver);
+            auto testAction = notify->addAction(i18n("Print test page"));
+            connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);           
+            auto findAction = notify->addAction(i18n("Find driver"));
+            connect(findAction, &KNotificationAction::activated, this, &NewPrinterNotification::findDriver);
         }
         notify->sendEvent();
     });
@@ -253,9 +253,13 @@ void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, co
 void NewPrinterNotification::printerReadyNotification(KNotification *notify, const QString &name)
 {
     notify->setText(i18n("'%1' is ready for printing.", name));
-    notify->setActions({ i18n("Print test page"), i18n("Configure") });
-    connect(notify, &KNotification::action1Activated, this, &NewPrinterNotification::printTestPage);
-    connect(notify, &KNotification::action2Activated, this, &NewPrinterNotification::configurePrinter);
+
+    auto testAction = notify->addAction(i18n("Print test page"));
+    connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);
+
+    auto configAction = notify->addAction(i18n("Configure"));
+    connect(configAction, &KNotificationAction::activated, this, &NewPrinterNotification::configurePrinter);
+
     notify->sendEvent();
 }
 

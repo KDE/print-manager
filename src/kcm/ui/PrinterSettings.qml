@@ -16,7 +16,7 @@ KCM.SimpleKCM {
 
     property var modelData
 
-    title: modelData.printerName + (kcm.printerModel.displayLocationHint ? ` (${modelData.location})` : "")
+    title: modelData.printerName + (kcm.printerModel.sourceModel.displayLocationHint ? " (%1)".arg(modelData.location) : "")
 
     actions: [
         Kirigami.Action {

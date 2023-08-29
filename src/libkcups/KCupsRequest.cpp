@@ -134,7 +134,7 @@ void KCupsRequest::getPrinters(QStringList attributes, int mask)
 
         const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
 
-        for (const QVariantHash &arguments : ret) {
+        for (const QVariantMap &arguments : ret) {
             m_printers << KCupsPrinter(arguments);
         }
 
@@ -156,9 +156,9 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
 
         const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
 
-        for (const QVariantHash &arguments : ret) {
+        for (const QVariantMap &arguments : ret) {
             // Inject the printer name back to the arguments hash
-            QVariantHash args = arguments;
+            QVariantMap args = arguments;
             args[KCUPS_PRINTER_NAME] = printerName;
             m_printers << KCupsPrinter(args);
         }
@@ -190,7 +190,7 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
 
         const ReturnArguments ret = m_connection->request(request, IPP_TAG_JOB);
 
-        for (const QVariantHash &arguments : ret) {
+        for (const QVariantMap &arguments : ret) {
             m_jobs << KCupsJob(arguments);
         }
 
@@ -214,7 +214,7 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
 
         const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
 
-        for (const QVariantHash &arguments : ret) {
+        for (const QVariantMap &arguments : ret) {
             m_jobs << KCupsJob(arguments);
         }
 
@@ -231,7 +231,7 @@ void KCupsRequest::getServerSettings()
         do {
             int num_settings;
             cups_option_t *settings;
-            QVariantHash arguments;
+            QVariantMap arguments;
             int ret = cupsAdminGetServerSettings(CUPS_HTTP_DEFAULT, &num_settings, &settings);
             for (int i = 0; i < num_settings; ++i) {
                 QString name = QString::fromUtf8(settings[i].name);
@@ -274,11 +274,11 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
 {
     if (m_connection->readyToStart()) {
         do {
-            QVariantHash args = server.arguments();
+            QVariantMap args = server.arguments();
             int num_settings = 0;
             cups_option_t *settings;
 
-            QVariantHash::const_iterator i = args.constBegin();
+            QVariantMap::const_iterator i = args.constBegin();
             while (i != args.constEnd()) {
                 num_settings = cupsAddOption(qUtf8Printable(i.key()),
                                              qUtf8Printable(i.value().toString()),
@@ -297,7 +297,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
     }
 }
 
-void KCupsRequest::addOrModifyPrinter(const QString &printerName, const QVariantHash &attributes, const QString &filename)
+void KCupsRequest::addOrModifyPrinter(const QString &printerName, const QVariantMap &attributes, const QString &filename)
 {
     KIppRequest request(CUPS_ADD_MODIFY_PRINTER, QLatin1String("/admin/"), filename);
     request.addPrinterUri(printerName);
@@ -306,7 +306,7 @@ void KCupsRequest::addOrModifyPrinter(const QString &printerName, const QVariant
     process(request);
 }
 
-void KCupsRequest::addOrModifyClass(const QString &printerName, const QVariantHash &attributes)
+void KCupsRequest::addOrModifyClass(const QString &printerName, const QVariantMap &attributes)
 {
     KIppRequest request(CUPS_ADD_MODIFY_CLASS, QLatin1String("/admin/"));
     request.addPrinterUri(printerName, true);

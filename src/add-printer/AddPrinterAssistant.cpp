@@ -68,7 +68,7 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    QVariantHash args({
+    QVariantMap args({
                           {ADDING_PRINTER, true}
                       });
 
@@ -101,7 +101,7 @@ void AddPrinterAssistant::initAddClass()
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    const QVariantHash args({
+    const QVariantMap args({
                                 {ADDING_PRINTER, false},
                                 {KCUPS_DEVICE_LOCATION, QHostInfo::localHostName()}
                             });
@@ -122,7 +122,7 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    const QVariantHash args({
+    const QVariantMap args({
                                 {ADDING_PRINTER, true},
                                 {KCUPS_DEVICE_URI, deviceUri},
                                 {KCUPS_PRINTER_NAME, printer},
@@ -156,7 +156,7 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // we don't set (or even unset values),
     // and we only call setValues on the next page if
     // the currentPage() has changes.
-    const QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
+    const QVariantMap args = qobject_cast<GenericPage*>(currentPage->widget())->values();
     if (currentPage == m_devicesPage) {
         qobject_cast<GenericPage*>(m_choosePPDPage->widget())->setValues(args);
         setCurrentPage(m_choosePPDPage);

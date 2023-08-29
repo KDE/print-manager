@@ -35,7 +35,7 @@ ChooseUri::~ChooseUri()
     delete ui;
 }
 
-void ChooseUri::setValues(const QVariantHash &args)
+void ChooseUri::setValues(const QVariantMap &args)
 {
     m_args = args;
     bool visible = false;
@@ -52,9 +52,9 @@ void ChooseUri::setValues(const QVariantHash &args)
     ui->addressLE->setFocus();
 }
 
-QVariantHash ChooseUri::values() const
+QVariantMap ChooseUri::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
 
     ret[KCUPS_DEVICE_URI] = parsedURL(ui->addressLE->text()).toString();
 
@@ -64,7 +64,7 @@ QVariantHash ChooseUri::values() const
 bool ChooseUri::isValid() const
 {
     const QString urlDefault = m_args[KCUPS_DEVICE_URI].toString();
-    const QVariantHash args = values();
+    const QVariantMap args = values();
     const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
     QUrl url(deviceUri);
 //    qCDebug(PM_ADD_PRINTER) << url << url.isValid() << url.isEmpty() << url.scheme().isEmpty() << url.host() << url.toString();

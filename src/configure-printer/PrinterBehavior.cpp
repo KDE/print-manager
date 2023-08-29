@@ -4,11 +4,12 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "KCupsRequest.h"
 #include "PrinterBehavior.h"
 #include "ui_PrinterBehavior.h"
 
 #include "Debug.h"
-
+#include <KLocalizedString>
 #include <QPointer>
 
 PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent) :
@@ -242,7 +243,7 @@ QString PrinterBehavior::jobSheetsString(const QString &policy) const
 void PrinterBehavior::save()
 {
     if (m_changes) {
-        QVariantHash changedValues = m_changedValues;
+        QVariantMap changedValues = m_changedValues;
         // since a QStringList might be big we get it here instead
         // of adding it at edit time.
         if (ui->usersELB->property("different").toBool()) {

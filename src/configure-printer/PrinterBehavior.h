@@ -8,8 +8,6 @@
 #define PRINTER_BEHAVIOR_H
 
 #include "PrinterPage.h"
-
-#include "KCupsRequest.h"
 #include <QWidget>
 
 namespace Ui {
@@ -42,7 +40,7 @@ private:
     Ui::PrinterBehavior *ui;
     QString m_destName;
     bool m_isClass;
-    QVariantHash m_changedValues;
+    QVariantMap m_changedValues;
     int m_changes = 0;
 };
 

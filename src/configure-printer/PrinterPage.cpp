@@ -14,9 +14,9 @@ PrinterPage::PrinterPage(QWidget *parent)
 {
 }
 
-QVariantHash PrinterPage::modifiedValues() const
+QVariantMap PrinterPage::modifiedValues() const
 {
-    return QVariantHash();
+    return QVariantMap();
 }
 
 void PrinterPage::setRemote(bool)

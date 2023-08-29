@@ -573,7 +573,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
     ReturnArguments ret;
 
 #if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
-    QVariantHash destAttributes;
+    QVariantMap destAttributes;
     for (attr = ippFirstAttribute(response); attr != nullptr; attr = ippNextAttribute(response)) {
         // We hit an attribute separator
         if (ippGetName(attr) == nullptr) {
@@ -621,7 +621,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
         /*
          * Pull the needed attributes from this printer...
          */
-        QVariantHash destAttributes;
+        QVariantMap destAttributes;
         for (; attr && attr->group_tag == group_tag; attr = attr->next) {
             if (attr->value_tag != IPP_TAG_INTEGER &&
                 attr->value_tag != IPP_TAG_ENUM &&

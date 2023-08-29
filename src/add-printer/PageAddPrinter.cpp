@@ -56,7 +56,7 @@ PageAddPrinter::~PageAddPrinter()
     delete ui;
 }
 
-void PageAddPrinter::setValues(const QVariantHash &args)
+void PageAddPrinter::setValues(const QVariantMap &args)
 {
     if (m_args != args) {
         QString name;
@@ -98,7 +98,7 @@ bool PageAddPrinter::canProceed() const
 bool PageAddPrinter::finishClicked()
 {
     bool ret = false;
-    QVariantHash args = values();
+    QVariantMap args = values();
     args[KCUPS_PRINTER_IS_ACCEPTING_JOBS] = true;
     args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
 
@@ -134,9 +134,9 @@ bool PageAddPrinter::finishClicked()
     return ret;
 }
 
-QVariantHash PageAddPrinter::values() const
+QVariantMap PageAddPrinter::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     ret[KCUPS_PRINTER_NAME] = ui->nameLE->text();
     ret[KCUPS_PRINTER_LOCATION] = ui->locationLE->text();
     ret[KCUPS_PRINTER_INFO] = ui->descriptionLE->text();

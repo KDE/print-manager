@@ -163,7 +163,7 @@ public:
      * @param filename The file name in case of changing the PPD
      */
     void addOrModifyPrinter(const QString &printerName,
-                            const QVariantHash &attributes,
+                            const QVariantMap &attributes,
                             const QString &filename = QString());
 
     /**
@@ -172,7 +172,7 @@ public:
      * @param attributes The new attributes of the printer
      */
     void addOrModifyClass(const QString &className,
-                          const QVariantHash &attributes);
+                          const QVariantMap &attributes);
 
     /**
      * Set if a given printer should be shared among other cups

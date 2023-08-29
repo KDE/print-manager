@@ -750,7 +750,7 @@ void PrinterOptions::save()
         return;
     }
 
-    QVariantHash values; // we need null values
+    QVariantMap values; // we need null values
     QPointer<KCupsRequest> request = new KCupsRequest;
     if (m_isClass) {
         request->addOrModifyClass(m_destName, values);

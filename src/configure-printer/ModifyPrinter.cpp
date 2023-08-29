@@ -191,7 +191,7 @@ void ModifyPrinter::textChanged(const QString &text)
 void ModifyPrinter::save()
 {
     if (m_changes) {
-        QVariantHash args = m_changedValues;
+        QVariantMap args = m_changedValues;
         QString fileName;
         qCDebug(PM_CONFIGURE_PRINTER) << args;
         if (args.contains(QLatin1String("ppd-name")) &&
@@ -233,7 +233,7 @@ void ModifyPrinter::save()
     }
 }
 
-QVariantHash ModifyPrinter::modifiedValues() const
+QVariantMap ModifyPrinter::modifiedValues() const
 {
     return m_changedValues;
 }

@@ -22,12 +22,12 @@ class PageChoosePPD : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit PageChoosePPD(const QVariantHash &args = QVariantHash(), QWidget *parent = nullptr);
+    explicit PageChoosePPD(const QVariantMap &args = QVariantMap(), QWidget *parent = nullptr);
     ~PageChoosePPD() override;
 
     bool canProceed() const override;
-    void setValues(const QVariantHash &args) override;
-    QVariantHash values() const override;
+    void setValues(const QVariantMap &args) override;
+    QVariantMap values() const override;
     bool isValid() const override;
 
 private slots:

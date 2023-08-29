@@ -63,14 +63,14 @@ public:
     static QString iconName(cups_ptype_e type);
 
 protected:
-    KCupsPrinter(const QVariantHash &arguments);
+    KCupsPrinter(const QVariantMap &arguments);
 
 private:
     friend class KCupsRequest;
 
     QString m_printer;
     bool    m_isClass;
-    QVariantHash m_arguments;
+    QVariantMap m_arguments;
 };
 
 typedef QList<KCupsPrinter> KCupsPrinters;

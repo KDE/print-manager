@@ -28,7 +28,7 @@ ChooseSocket::~ChooseSocket()
     delete ui;
 }
 
-void ChooseSocket::setValues(const QVariantHash &args)
+void ChooseSocket::setValues(const QVariantMap &args)
 {
     if (m_args == args) {
         return;
@@ -48,9 +48,9 @@ void ChooseSocket::setValues(const QVariantHash &args)
     m_isValid = true;
 }
 
-QVariantHash ChooseSocket::values() const
+QVariantMap ChooseSocket::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     QUrl url = QUrl(QLatin1String("socket://") + ui->addressLE->text());
     url.setPort(ui->portISB->value());
     ret[KCUPS_DEVICE_URI] = url.toDisplayString();

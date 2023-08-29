@@ -9,7 +9,7 @@
 
 #include <QThread>
 #include <QTimer>
-#include <QVariantHash>
+#include <QVariantMap>
 #include <QStringList>
 #include <QWidget>
 #include <QMetaMethod>
@@ -101,7 +101,7 @@
 #define KCUPS_AUTH_INFO          QLatin1String("auth-info")
 #define KCUPS_AUTH_INFO_REQUIRED QLatin1String("auth-info-required")
 
-typedef QList<QVariantHash> ReturnArguments;
+typedef QList<QVariantMap> ReturnArguments;
 
 class KIppRequest;
 class KCupsPasswordDialog;

@@ -31,15 +31,15 @@ public:
     bool allowPrintingFromInternet() const;
     void setAllowPrintingFromInternet(bool allow);
 
-    QVariantHash arguments() const;
+    QVariantMap arguments() const;
 
 protected:
-    KCupsServer(const QVariantHash &arguments);
+    KCupsServer(const QVariantMap &arguments);
 
 private:
     friend class KCupsRequest;
 
-    QVariantHash m_arguments;
+    QVariantMap m_arguments;
 };
 
 Q_DECLARE_METATYPE(KCupsServer)

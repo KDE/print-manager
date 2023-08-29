@@ -26,12 +26,12 @@ void GenericPage::notWorking()
     }
 }
 
-QVariantHash GenericPage::values() const
+QVariantMap GenericPage::values() const
 {
     return m_args;
 }
 
-void GenericPage::setValues(const QVariantHash &args)
+void GenericPage::setValues(const QVariantMap &args)
 {
     m_args = args;
 }

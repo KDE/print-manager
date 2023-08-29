@@ -19,7 +19,7 @@
 #include <QUrl>
 #include <QTemporaryFile>
 
-PageChoosePPD::PageChoosePPD(const QVariantHash &args, QWidget *parent) :
+PageChoosePPD::PageChoosePPD(const QVariantMap &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageChoosePPD)
 {
@@ -52,7 +52,7 @@ PageChoosePPD::~PageChoosePPD()
     delete ui;
 }
 
-void PageChoosePPD::setValues(const QVariantHash &args)
+void PageChoosePPD::setValues(const QVariantMap &args)
 {
     m_args = args;
 
@@ -126,13 +126,13 @@ bool PageChoosePPD::isValid() const
     return m_isValid;
 }
 
-QVariantHash PageChoosePPD::values() const
+QVariantMap PageChoosePPD::values() const
 {
     if (!isValid()) {
         return m_args;
     }
 
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     if (canProceed()) {
         if (!m_ppdFile.isNull()) {
             ret[FILENAME] = m_ppdFile;

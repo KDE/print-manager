@@ -23,8 +23,8 @@ public:
     virtual bool canProceed() const { return true; }
     virtual bool isValid() const { return true; }
     virtual bool isWorking() const { return m_working; }
-    virtual void setValues(const QVariantHash &args);
-    virtual QVariantHash values() const;
+    virtual void setValues(const QVariantMap &args);
+    virtual QVariantMap values() const;
 
     virtual bool finishClicked() { return false; }
 
@@ -39,7 +39,7 @@ protected slots:
     void notWorking();
 
 protected:
-    QVariantHash m_args;
+    QVariantMap m_args;
     int m_working;
 };
 

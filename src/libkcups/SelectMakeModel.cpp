@@ -19,6 +19,7 @@
 #include <QDBusReply>
 #include <QDBusMetaType>
 
+#include <KLocalizedString>
 #include <KMessageBox>
 
 // Marshall the MyStructure data into a D-Bus argument

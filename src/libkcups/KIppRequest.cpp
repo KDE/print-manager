@@ -99,7 +99,7 @@ void KIppRequest::addBoolean(ipp_tag_t group, const QString &name, bool value)
     d->addRequest(group, IPP_TAG_ZERO, name, value);
 }
 
-void KIppRequest::addVariantValues(const QVariantHash &values)
+void KIppRequest::addVariantValues(const QVariantMap &values)
 {
     auto i = values.constBegin();
     while (i != values.constEnd()) {

@@ -48,14 +48,14 @@ public:
     static bool releaseEnabled(ipp_jstate_t state);
 
 protected:
-    KCupsJob(const QVariantHash &arguments);
+    KCupsJob(const QVariantMap &arguments);
 
 private:
     friend class KCupsRequest;
 
     int     m_jobId;
     QString m_printer;
-    QVariantHash m_arguments;
+    QVariantMap m_arguments;
 };
 
 typedef QList<KCupsJob> KCupsJobs;

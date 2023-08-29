@@ -9,6 +9,16 @@ set(configureprinter_SRCS
     ConfigurePrinter.cpp
     SelectMakeModelDialog.cpp
     main.cpp
+
+    ConfigurePrinterInterface.h
+    Debug.h
+    ModifyPrinter.h
+    PrinterPage.h
+    PrinterOptions.h
+    PrinterBehavior.h
+    ConfigureDialog.h
+    ConfigurePrinter.h
+    SelectMakeModelDialog.h
 )
 
 ki18n_wrap_ui(configureprinter_SRCS

@@ -17,10 +17,10 @@ class KCupsRequest;
 class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
-    
+
     Q_ENUMS(JobAction)
     Q_ENUMS(Role)
-    
+
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
     /**
@@ -33,7 +33,7 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
     Q_PROPERTY(bool displayLocationHint READ displayLocationHint NOTIFY displayLocationHintChanged)
     
 public:
-    enum Role {
+    enum Role{
         DestStatus = Qt::UserRole,
         DestState,
         DestName,
@@ -102,7 +102,7 @@ private slots:
     void printerShutdown(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void serverChanged(const QString &text);
-    
+
     bool displayLocationHint() const;
 
 private:

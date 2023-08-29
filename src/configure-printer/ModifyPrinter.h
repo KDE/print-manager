@@ -33,7 +33,7 @@ public:
     ~ModifyPrinter() override;
 
     bool hasChanges() override;
-    QVariantHash modifiedValues() const override;
+    QVariantMap modifiedValues() const override;
     QStringList neededValues() const override;
     void setRemote(bool remote) override;
 
@@ -57,7 +57,7 @@ private:
     Ui::ModifyPrinter *ui;
     QString m_destName, m_make, m_makeAndModel;
     bool m_isClass;
-    QVariantHash m_changedValues;
+    QVariantMap m_changedValues;
     int m_changes = 0;
 };
 

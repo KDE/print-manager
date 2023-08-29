@@ -36,7 +36,7 @@ void ChooseLpd::on_addressLE_textChanged(const QString &text)
 //    qDebug() << text;
 }
 
-void ChooseLpd::setValues(const QVariantHash &args)
+void ChooseLpd::setValues(const QVariantMap &args)
 {
     m_args = args;
     const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
@@ -50,9 +50,9 @@ void ChooseLpd::setValues(const QVariantHash &args)
     ui->addressLE->setFocus();
 }
 
-QVariantHash ChooseLpd::values() const
+QVariantMap ChooseLpd::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     ret[KCUPS_DEVICE_URI] = static_cast<QString>(QLatin1String("lpd://") + ui->addressLE->text());
     return ret;
 }

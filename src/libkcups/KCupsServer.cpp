@@ -15,7 +15,7 @@ KCupsServer::KCupsServer()
 {
 }
 
-KCupsServer::KCupsServer(const QVariantHash &arguments) :
+KCupsServer::KCupsServer(const QVariantMap &arguments) :
     m_arguments(arguments)
 {
 }
@@ -78,7 +78,7 @@ void KCupsServer::setAllowPrintingFromInternet(bool allow)
     m_arguments[QLatin1String(CUPS_SERVER_REMOTE_ANY)] = allow ? QLatin1String("1") : QLatin1String("0");
 }
 
-QVariantHash KCupsServer::arguments() const
+QVariantMap KCupsServer::arguments() const
 {
     return m_arguments;
 }

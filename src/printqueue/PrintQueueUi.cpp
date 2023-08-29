@@ -58,7 +58,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     if (printer.info().isEmpty()) {
         m_title = printer.name();
     } else {
-        m_title = printer.name() % QLatin1String(" - ") % printer.info();
+        m_title = printer.info();
     }
     setWindowTitle(m_title);
     setSizeGripEnabled(true);
@@ -382,7 +382,7 @@ void PrintQueueUi::getAttributesFinished(KCupsRequest *request)
     if (printer.info().isEmpty()) {
         m_title = printer.name();
     } else {
-        m_title = printer.name() + QLatin1String(" - ") + printer.info();
+        m_title = printer.info();
     }
 
     // get printer-state

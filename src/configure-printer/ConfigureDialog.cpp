@@ -58,6 +58,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     }
     if (!request->hasError() && !request->printers().isEmpty()){
         printer = request->printers().first();
+        setWindowTitle(printer.info());
     }
 //    qCDebug(PM_CONFIGURE_PRINTER) << "VALUES" << printer.argument();
 //    qCDebug(PM_CONFIGURE_PRINTER) << "marker" << values["marker-levels"].value<QList<int> >();
@@ -86,8 +87,8 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
 
     modifyPrinter->setRemote(isRemote);
     modifyPrinter->setValues(printer);
-    page = new KPageWidgetItem(modifyPrinter, i18n("Modify Printer"));
-    page->setHeader(i18n("Configure"));
+    page = new KPageWidgetItem(modifyPrinter, i18n("Printer Settings"));
+    page->setHeader(i18n("Printer Settings"));
     page->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
     // CONNECT this signal ONLY to the first Page
     connect(modifyPrinter, &ModifyPrinter::changed, this, &ConfigureDialog::enableButtonApply);
@@ -97,8 +98,8 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         // At least on localhost:631 modify printer does not show printer options
         // for classes
         printerOptions = new PrinterOptions(destName, isClass, isRemote, this);
-        page = new KPageWidgetItem(printerOptions, i18n("Printer Options"));
-        page->setHeader(i18n("Set the Default Printer Options"));
+        page = new KPageWidgetItem(printerOptions, i18n("Media Settings"));
+        page->setHeader(i18n("Media Settings"));
         page->setIcon(QIcon::fromTheme(QLatin1String("view-pim-tasks")));
         addPage(page);
         connect(modifyPrinter, &ModifyPrinter::ppdChanged, this, &ConfigureDialog::ppdChanged);

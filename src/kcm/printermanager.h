@@ -1,6 +1,7 @@
 /**
  * SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
  * SPDX-FileCopyrightText: 2022 Nicolas Fella <nicolas.fella@gmx.de>
+ * SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
@@ -8,68 +9,116 @@
 #define PRINTERMANAGER_H
 
 #include <KQuickConfigModule>
+#include <QDBusMessage>
 #include <QObject>
 
-#include "KCupsRequest.h"
-#include "PrinterSortFilterModel.h"
+namespace PMTypes
+{
+    Q_NAMESPACE
+    enum PPDType {
+        Manual = 0,
+        Auto,
+        Custom
+    };
+    Q_ENUM_NS(PPDType)
+}
+
+class KCupsRequest;
 
 class PrinterManager : public KQuickConfigModule
 {
     Q_OBJECT
-    Q_PROPERTY(PrinterSortFilterModel *printerModel READ printerModel CONSTANT)
-    Q_PROPERTY(bool shareConnectedPrinters READ shareConnectedPrinters WRITE setShareConnectedPrinters NOTIFY settingsChanged)
-    Q_PROPERTY(bool allowPrintingFromInternet READ allowPrintingFromInternet WRITE setAllowPrintingFromInternet NOTIFY settingsChanged)
-    Q_PROPERTY(bool allowRemoteAdmin READ allowRemoteAdmin WRITE setAllowRemoteAdmin NOTIFY settingsChanged)
-    Q_PROPERTY(bool allowUserCancelAnyJobs READ allowUserCancelAnyJobs WRITE setAllowUserCancelAnyJobs NOTIFY settingsChanged);
+
+    Q_PROPERTY(QVariantList remotePrinters
+               READ remotePrinters
+               NOTIFY remotePrintersLoaded)
+
+    Q_PROPERTY(QVariantList recommendedDrivers
+               READ recommendedDrivers
+               NOTIFY recommendedDriversLoaded)
+
+    Q_PROPERTY(QVariantMap serverSettings
+               READ serverSettings
+               NOTIFY serverSettingsChanged)
+
+    Q_PROPERTY(bool serverSettingsLoaded
+               READ serverSettingsLoaded
+               NOTIFY serverSettingsChanged)
+
+    Q_PROPERTY(bool shareConnectedPrinters
+               READ shareConnectedPrinters
+               NOTIFY serverSettingsChanged)
+
+    Q_PROPERTY(bool allowPrintingFromInternet
+               READ allowPrintingFromInternet
+               NOTIFY serverSettingsChanged)
+
+    Q_PROPERTY(bool allowRemoteAdmin
+               READ allowRemoteAdmin
+               NOTIFY serverSettingsChanged)
+
+    Q_PROPERTY(bool allowUserCancelAnyJobs
+               READ allowUserCancelAnyJobs
+               NOTIFY serverSettingsChanged)
 
 public:
     PrinterManager(QObject *parent, const KPluginMetaData &metaData);
-    PrinterSortFilterModel *printerModel() const;
 
-    Q_INVOKABLE void addPrinter();
     Q_INVOKABLE void removePrinter(const QString &name);
-    Q_INVOKABLE void configurePrinter(const QString &name);
-    Q_INVOKABLE void openPrintQueue(const QString &name);
+
     Q_INVOKABLE void makePrinterDefault(const QString &name);
     Q_INVOKABLE void makePrinterShared(const QString &name, bool shared, bool isClass);
     Q_INVOKABLE void makePrinterRejectJobs(const QString &name, bool reject);
+
     Q_INVOKABLE void printTestPage(const QString &name, bool isClass);
     Q_INVOKABLE void printSelfTestPage(const QString &name);
     Q_INVOKABLE void cleanPrintHeads(const QString &name);
+
     Q_INVOKABLE void pausePrinter(const QString &name);
     Q_INVOKABLE void resumePrinter(const QString &name);
 
     bool shareConnectedPrinters() const;
-    void setShareConnectedPrinters(bool share);
-
     bool allowPrintingFromInternet() const;
-    void setAllowPrintingFromInternet(bool allow);
-
     bool allowRemoteAdmin() const;
-    void setAllowRemoteAdmin(bool allow);
-
     bool allowUserCancelAnyJobs() const;
-    void setAllowUserCancelAnyJobs(bool allow);
+
+public Q_SLOTS:
+    void savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass);
+    QVariantMap getPrinterPPD(const QString &name);
+    void getServerSettings();
+    void saveServerSettings(const QVariantMap &settings);
+
+    void getRemotePrinters(const QString &uri, const QString &uriScheme);
+    void getRecommendedDrivers(const QString &deviceId
+                                   , const QString &makeAndModel
+                                   , const QString &deviceUri);
+    void clearRemotePrinters();
+    void clearRecommendedDrivers();
 
 Q_SIGNALS:
     void requestError(const QString &errorMessage);
-    void removeComplete(bool removed);
-    void settingsChanged();
+    void removeDone();
+    void saveDone();
+    void serverSettingsChanged();
+    void remotePrintersLoaded();
+    void recommendedDriversLoaded();
+
+private Q_SLOTS:
+    void getDriversFinished(const QDBusMessage &message);
+    void getDriversFailed(const QDBusError &error, const QDBusMessage &message);
 
 private:
-    void requestFinished(KCupsRequest *request);
-    void updateServerFinished(KCupsRequest *request);
-    void getServerSettings();
-    KCupsRequest *setupRequest();
-    KCupsRequest *setupServerRequest();
+    KCupsRequest *setupRequest(std::function<void()> finished = [](){});
+    QVariantList remotePrinters() const;
+    QVariantList recommendedDrivers() const;
+    QVariantMap serverSettings() const;
+    bool serverSettingsLoaded() const;
+    void serverEvent(const QString &event, bool reload, const QString &msg = QString());
 
-    PrinterSortFilterModel *m_model;
-    bool m_shareConnectedPrinters = false;
-    bool m_allowPrintingFromInternet = false;
-    bool m_allowRemoteAdmin = false;
-    bool m_allowUserCancelAnyJob = false;
-    bool m_removing = false;
-    int m_saveCount = 0;
+    QVariantMap m_serverSettings;
+    bool m_serverSettingsLoaded = false;
+    QVariantList m_remotePrinters;
+    QVariantList m_recommendedDrivers;
 };
 
 #endif

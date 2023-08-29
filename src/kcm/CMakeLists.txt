@@ -12,7 +12,6 @@ ecm_qt_declare_logging_category(kcm_printer_manager
 )
 
 target_link_libraries(kcm_printer_manager PRIVATE
-    Qt6::Core5Compat
     Qt6::DBus
     Qt6::Qml
     KF6::KCMUtilsQuick

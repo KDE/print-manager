@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Notify when a new printer is detected, or there are problems with a print job",
+        "Description[bg]": "Известяване при откриване на нов принтер или при проблеми с печата",
         "Description[ca@valencia]": "Notifica quan es detecta una impressora nova, o dels problemes amb un treball d'impressió",
         "Description[ca]": "Notifica quan es detecta una impressora nova, o dels problemes amb un treball d'impressió",
         "Description[eo]": "Sciigi kiam nova printilo estas ekkonata, aŭ kiam estas problemoj pri printtaskoj",

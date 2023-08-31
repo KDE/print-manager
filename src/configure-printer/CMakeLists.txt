@@ -27,19 +27,19 @@ add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
     Qt::Core
     Qt::Widgets
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::IconThemes
-    KF${QT_MAJOR_VERSION}::KIOCore
-    KF${QT_MAJOR_VERSION}::KIOWidgets
-    KF${QT_MAJOR_VERSION}::WidgetsAddons
-    KF${QT_MAJOR_VERSION}::DBusAddons
-    KF${QT_MAJOR_VERSION}::ConfigCore
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::IconThemes
+    KF6::KIOCore
+    KF6::KIOWidgets
+    KF6::WidgetsAddons
+    KF6::DBusAddons
+    KF6::ConfigCore
     Cups::Cups
     kcupslib
 )
 
-if(${QT_MAJOR_VERSION} EQUAL "6")
+if(6 EQUAL "6")
     target_link_libraries(configure-printer
         Qt6::Core5Compat
         KF6::IconWidgets

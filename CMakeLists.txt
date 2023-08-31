@@ -28,7 +28,7 @@ include(KDEGitCommitHooks)
 include(ECMOptionalAddSubdirectory)
 include(FeatureSummary)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
     DBus
     Network
@@ -36,13 +36,11 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Qml
     Quick
 )
-if (QT_MAJOR_VERSION STREQUAL "6")
-    find_package(Qt6Core5Compat)
-endif()
+find_package(Qt6Core5Compat)
 
 find_package(Cups "1.5" REQUIRED)
 
-find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED 
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED 
     Config 
     ConfigWidgets 
     CoreAddons 
@@ -57,12 +55,12 @@ find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
     WidgetsAddons 
     WindowSystem 
 )
-set_package_properties(KF${QT_MAJOR_VERSION}Kirigami2 PROPERTIES
+set_package_properties(KF6Kirigami2 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Kirigami application UI framework"
 )
 
-find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.10 REQUIRED)
+find_package(KF6KirigamiAddons 0.10 REQUIRED)
 
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES

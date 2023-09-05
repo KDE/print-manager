@@ -7,7 +7,7 @@ target_sources(printmanager PRIVATE
    qmlplugins.cpp
 )
 
-target_link_libraries(printmanager
+target_link_libraries(printmanager PRIVATE
     Qt6::Qml
     Qt6::Quick
     kcupslib

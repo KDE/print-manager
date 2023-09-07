@@ -21,6 +21,10 @@ ChooseSocket::ChooseSocket(QWidget *parent) :
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
+
+    connect(ui->addressLE, &QLineEdit::textChanged, this, [this](const QString &) {
+        Q_EMIT allowProceed(canProceed());
+    });
 }
 
 ChooseSocket::~ChooseSocket()
@@ -65,12 +69,6 @@ bool ChooseSocket::isValid() const
 bool ChooseSocket::canProceed() const
 {
     return !ui->addressLE->text().isEmpty();
-}
-
-void ChooseSocket::on_addressLE_textChanged(const QString &text)
-{
-    Q_UNUSED(text)
-    Q_EMIT allowProceed(canProceed());
 }
 
 #include "moc_ChooseSocket.cpp"

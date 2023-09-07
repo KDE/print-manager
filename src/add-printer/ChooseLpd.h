@@ -24,9 +24,6 @@ public:
     bool isValid() const override;
     bool canProceed() const override;
 
-public slots:
-    void on_addressLE_textChanged(const QString &text);
-
 private slots:
     void checkSelected();
 

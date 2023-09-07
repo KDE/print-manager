@@ -68,8 +68,9 @@ void ChooseSerial::setValues(const QVariantMap &args)
 
     // Find out the max baud rate
     int maxrate;
-    if (m_rx.indexIn(deviceUri) != -1) {
-        maxrate = m_rx.cap(1).toInt();
+    const auto match = m_rx.match(deviceUri);
+    if (match.hasMatch()) {
+        maxrate = match.captured(1).toInt();
     } else {
         maxrate = 19200;
     }

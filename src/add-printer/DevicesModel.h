@@ -9,7 +9,7 @@
 
 #include <QStandardItemModel>
 #include <QDBusMessage>
-#include <QRegExp>
+#include <QRegularExpression>
 
 #include <KCupsPrinter.h>
 
@@ -88,7 +88,7 @@ private:
 
     KCupsRequest *m_request;
     MapSMapSS m_mappedDevices;
-    QRegExp m_rx;
+    QRegularExpression m_rx;
     QStringList m_blacklistedURIs;
 };
 

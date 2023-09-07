@@ -44,6 +44,9 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
     const QRegularExpression rx(QLatin1String("[^/#\\ ]*"));
     auto validator = new QRegularExpressionValidator(rx, this);
     ui->nameLE->setValidator(validator);
+    connect(ui->nameLE, &QLineEdit::textChanged, this, [this](const QString &text) {
+        Q_EMIT allowProceed(!text.isEmpty());
+    });
 
     // Hide the message widget
     ui->messageWidget->setWordWrap(true);
@@ -144,11 +147,6 @@ QVariantMap PageAddPrinter::values() const
          ret[KCUPS_PRINTER_IS_SHARED] = ui->shareCB->isChecked();
     }
     return ret;
-}
-
-void PageAddPrinter::on_nameLE_textChanged(const QString &text)
-{
-    Q_EMIT allowProceed(!text.isEmpty());
 }
 
 void PageAddPrinter::checkSelected()

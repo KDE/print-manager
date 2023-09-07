@@ -9,7 +9,7 @@
 
 #include "GenericPage.h"
 
-#include <QRegExp>
+#include <QRegularExpression>
 
 namespace Ui {
     class ChooseSerial;
@@ -31,7 +31,7 @@ public slots:
 
 private:
     Ui::ChooseSerial *ui;
-    QRegExp m_rx;
+    QRegularExpression m_rx;
     bool m_isValid = false;
 };
 

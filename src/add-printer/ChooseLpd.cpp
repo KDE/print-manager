@@ -30,12 +30,6 @@ ChooseLpd::~ChooseLpd()
     delete ui;
 }
 
-void ChooseLpd::on_addressLE_textChanged(const QString &text)
-{
-    Q_UNUSED(text)
-//    qDebug() << text;
-}
-
 void ChooseLpd::setValues(const QVariantMap &args)
 {
     m_args = args;

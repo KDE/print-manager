@@ -44,7 +44,7 @@ signals:
 
 private slots:
     void checkSelected();
-    void on_addressLE_textChanged(const QString &text);
+    void textChanged(const QString &text);
     void findPrinters();
     void getPrintersFinished(KCupsRequest *request);
 

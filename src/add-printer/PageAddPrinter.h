@@ -31,7 +31,6 @@ public slots:
 
 private slots:
     void checkSelected();
-    void on_nameLE_textChanged(const QString &text);
 
 private:
     Ui::PageAddPrinter *ui;

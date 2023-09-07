@@ -25,7 +25,7 @@ ChooseUri::ChooseUri(QWidget *parent) :
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseUri::checkSelected);
+    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseUri::textChanged);
     connect(ui->addressLE, &QLineEdit::returnPressed, this, &ChooseUri::findPrinters);
     connect(ui->searchTB, &QToolButton::clicked, this, &ChooseUri::findPrinters);
 }
@@ -86,7 +86,7 @@ void ChooseUri::checkSelected()
     Q_EMIT allowProceed(isValid());
 }
 
-void ChooseUri::on_addressLE_textChanged(const QString &text)
+void ChooseUri::textChanged(const QString &text)
 {
     QUrl url = parsedURL(text);
 
@@ -100,6 +100,8 @@ void ChooseUri::on_addressLE_textChanged(const QString &text)
     } else {
         ui->searchTB->setEnabled(false);
     }
+
+    checkSelected();
 }
 
 void ChooseUri::findPrinters()

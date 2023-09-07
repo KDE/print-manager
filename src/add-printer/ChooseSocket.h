@@ -24,9 +24,6 @@ public:
     bool isValid() const override;
     bool canProceed() const override;
 
-private slots:
-    void on_addressLE_textChanged(const QString &text);
-
 private:
     Ui::ChooseSocket *ui;
     bool m_isValid = false;

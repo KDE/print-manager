@@ -200,7 +200,8 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
     Kind kind;
     // Store the kind of the device
     if (device_class == QLatin1String("network")) {
-        if (m_rx.indexIn(device_uri) > -1) {
+        const auto match = m_rx.match(device_uri);
+        if (match.hasMatch()) {
             kind = Networked;
         } else {
             // other network devices looks like

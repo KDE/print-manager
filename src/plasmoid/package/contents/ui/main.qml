@@ -9,9 +9,9 @@
 
 import QtQuick
 import QtQuick.Layouts // fullRepresentation sizing
-import org.kde.plasma.plasmoid 2.0
+import org.kde.plasma.plasmoid
 import org.kde.plasma.core as PlasmaCore
-import org.kde.kirigami 2 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.config // KAuthorized
 import org.kde.kcmutils // KCMLauncher
 import org.kde.plasma.printmanager as PrintManager

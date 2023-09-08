@@ -9,7 +9,7 @@
 
 import QtQuick 
 import org.kde.plasma.extras as PlasmaExtras
-import org.kde.kirigami 2 as Kirigami
+import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PrintManager
 
 PlasmaExtras.ExpandableListItem {

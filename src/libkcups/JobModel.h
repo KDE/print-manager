@@ -8,19 +8,19 @@
 #define JOB_MODEL_H
 
 #include <QStandardItemModel>
+#include <qqmlregistration.h>
 
 #include <kcupslib_export.h>
-
 #include <cups/cups.h>
 
 class KCupsJob;
 class KCupsRequest;
+
 class KCUPSLIB_EXPORT JobModel : public QStandardItemModel
 {
     Q_OBJECT
-    Q_ENUMS(JobAction)
-    Q_ENUMS(Role)
-    Q_ENUMS(WhichJobs)
+    QML_ELEMENT
+
 public:
     enum Role {
         RoleJobId = Qt::UserRole + 2,
@@ -39,6 +39,7 @@ public:
         RoleJobOriginatingHostName,
         RoleJobAuthenticationRequired
     };
+    Q_ENUM(Role)
 
     enum JobAction {
         Cancel,
@@ -47,12 +48,14 @@ public:
         Move,
         Reprint
     };
+    Q_ENUM(JobAction)
 
     enum WhichJobs {
         WhichAll,
         WhichActive,
         WhichCompleted
     };
+    Q_ENUM(WhichJobs)
 
     enum Columns {
         ColStatus = 0,

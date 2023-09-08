@@ -7,6 +7,7 @@
 #ifndef PRINTER_MODEL_H
 #define PRINTER_MODEL_H
 
+#include <qqmlregistration.h>
 #include <QStandardItemModel>
 #include <QTimer>
 
@@ -17,6 +18,8 @@ class KCupsRequest;
 class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
+    QML_ELEMENT
+      
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
     /**

@@ -8,11 +8,14 @@
 #define PRINTERSORTFILTERMODEL_H
 
 #include <QSortFilterProxyModel>
+#include <qqmlregistration.h>
 #include <kcupslib_export.h>
 
 class KCUPSLIB_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
     Q_PROPERTY(QString filteredPrinters READ filteredPrinters WRITE setFilteredPrinters NOTIFY filteredPrintersChanged)
     Q_PROPERTY(QAbstractItemModel *sourceModel READ sourceModel WRITE setModel NOTIFY sourceModelChanged)
     Q_PROPERTY(int count READ count NOTIFY countChanged)

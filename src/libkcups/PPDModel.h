@@ -8,6 +8,7 @@
 #ifndef PPD_MODEL_H
 #define PPD_MODEL_H
 
+#include <qqmlregistration.h>
 #include <QStandardItemModel>
 #include <kcupslib_export.h>
 
@@ -22,6 +23,7 @@ class KCUPSLIB_EXPORT PPDModel : public QStandardItemModel
 {
     Q_OBJECT
     Q_PROPERTY(int count READ count NOTIFY countChanged)
+    QML_ELEMENT
 
 public:
     enum Role {

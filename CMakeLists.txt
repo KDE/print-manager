@@ -25,6 +25,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEGitCommitHooks)
 
+include(ECMQmlModule)
 include(ECMOptionalAddSubdirectory)
 include(FeatureSummary)
 

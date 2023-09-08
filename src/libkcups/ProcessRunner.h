@@ -8,12 +8,14 @@
 #define PROCESS_RUNNER_H
 
 #include <QObject>
-
+#include <QtQml/qqmlregistration.h>
 #include <kcupslib_export.h>
 
 class KCUPSLIB_EXPORT ProcessRunner : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
+
 public:
     explicit ProcessRunner(QObject *parent = nullptr);
 

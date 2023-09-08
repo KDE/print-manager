@@ -22,10 +22,6 @@ PlasmaExtras.Representation {
             onAccepted: printersFilterModel.setFilterWildcard(text)
         }
     }
-
-    PrintManager.ProcessRunner {
-        id: processRunner
-    }
    
     PlasmaComponents3.ScrollView {
         anchors.fill: parent

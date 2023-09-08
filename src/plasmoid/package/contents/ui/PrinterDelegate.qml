@@ -10,6 +10,7 @@
 import QtQuick 
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami 2 as Kirigami
+import org.kde.plasma.printmanager as PrintManager
 
 PlasmaExtras.ExpandableListItem {
     readonly property bool isPaused: model.printerState === 5
@@ -37,12 +38,12 @@ PlasmaExtras.ExpandableListItem {
         Kirigami.Action {
             icon.name: "configure"
             text: i18n("Configure printer…")
-            onTriggered: processRunner.configurePrinter(model.printerName);
+            onTriggered: PrintManager.ProcessRunner.configurePrinter(model.printerName);
         },
         Kirigami.Action {
             icon.name: "view-list-details"
             text: i18n("View print queue…")
-            onTriggered: processRunner.openPrintQueue(model.printerName);
+            onTriggered: PrintManager.ProcessRunner.openPrintQueue(model.printerName);
         }
     ]
 }

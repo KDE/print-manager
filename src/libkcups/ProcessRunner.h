@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2015 Jan Grulich <jgrulich@redhat.com>
+    SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -15,13 +16,18 @@ class KCUPSLIB_EXPORT ProcessRunner : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_SINGLETON
 
 public:
     explicit ProcessRunner(QObject *parent = nullptr);
 
 public Q_SLOTS:
-    void configurePrinter(const QString &printerName);
-    void openPrintQueue(const QString &printerName);
+    static void configurePrinter(const QString &printerName);
+    static void openPrintQueue(const QString &printerName);
+    static void addPrinter();
+
+private:
+    static void exec(const QString &cmd, const QStringList &args);
 };
 
 #endif // PROCESS_RUNNER_H

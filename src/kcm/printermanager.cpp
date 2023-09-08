@@ -14,11 +14,11 @@
 #include <KAboutData>
 #include <KIO/CommandLauncherJob>
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <KPluginFactory>
 
-#include "PrinterModel.h"
-
-#include <KMessageBox>
+#include <PrinterModel.h>
+#include <ProcessRunner.h>
 
 using namespace Qt::StringLiterals;
 
@@ -62,8 +62,7 @@ void PrinterManager::resumePrinter(const QString &name)
 
 void PrinterManager::addPrinter()
 {
-    auto job = new KIO::CommandLauncherJob("kde-add-printer"_L1, {"--add-printer"_L1});
-    job->start();
+    ProcessRunner::addPrinter();
 }
 
 KCupsRequest *PrinterManager::setupRequest() {
@@ -88,14 +87,12 @@ void PrinterManager::removePrinter(const QString &name)
 
 void PrinterManager::configurePrinter(const QString &name)
 {
-    auto job = new KIO::CommandLauncherJob("configure-printer"_L1, {name});
-    job->start();
+    ProcessRunner::configurePrinter(name);
 }
 
 void PrinterManager::openPrintQueue(const QString &name)
 {
-    auto job = new KIO::CommandLauncherJob("kde-print-queue"_L1, {name});
-    job->start();
+    ProcessRunner::openPrintQueue(name);
 }
 
 void PrinterManager::makePrinterDefault(const QString &name)

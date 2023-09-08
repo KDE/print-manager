@@ -7,6 +7,7 @@
 #include "PrintQueueUi.h"
 #include "ui_PrintQueueUi.h"
 
+#include <ProcessRunner.h>
 #include <JobModel.h>
 #include <JobSortFilterModel.h>
 
@@ -17,7 +18,6 @@
 #include <QToolBar>
 #include <QMenu>
 #include <QByteArray>
-#include <QProcess>
 #include <QDebug>
 #include <QPointer>
 #include <QShortcut>
@@ -519,7 +519,7 @@ void PrintQueueUi::pausePrinter()
 
 void PrintQueueUi::configurePrinter()
 {
-    QProcess::startDetached(QLatin1String("configure-printer"), {m_destName});
+    ProcessRunner::configurePrinter(m_destName);
 }
 
 void PrintQueueUi::cancelJob()

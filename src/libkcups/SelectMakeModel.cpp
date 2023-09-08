@@ -114,6 +114,7 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)
 {
+    ui->radioButtonSelectDriver->setText(i18n("Choose the driver for %1", makeAndModel));
     if (!m_ppdRequest) {
         // We won't try to get the best driver
         // we should be we need more info and testing

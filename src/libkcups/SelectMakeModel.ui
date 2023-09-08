@@ -77,9 +77,9 @@
    <item row="1" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="radioButtonSelectDriver">
        <property name="text">
-        <string>Choose &amp;the driver from the list</string>
+        <string>Choose &amp;the driver</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -148,7 +148,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>radioButton_2</sender>
+   <sender>radioButtonSelectDriver</sender>
    <signal>toggled(bool)</signal>
    <receiver>makeView</receiver>
    <slot>setEnabled(bool)</slot>
@@ -164,7 +164,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>radioButton_2</sender>
+   <sender>radioButtonSelectDriver</sender>
    <signal>toggled(bool)</signal>
    <receiver>ppdsLV</receiver>
    <slot>setEnabled(bool)</slot>

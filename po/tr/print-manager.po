@@ -3,13 +3,13 @@
 #
 # Translators:
 # Volkan Gezer <volkangezer@gmail.com>, 2013.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-18 00:48+0000\n"
-"PO-Revision-Date: 2022-12-11 20:31+0300\n"
+"PO-Revision-Date: 2023-09-08 05:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -170,7 +170,7 @@ msgstr "DTR/DSR (Donanım)"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
-msgstr "Baud Hızı:"
+msgstr "Baud hızı:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/ChooseSerial.ui:42
@@ -184,14 +184,14 @@ msgstr "Eşlik:"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Data Bits:"
-msgstr "Veri Bitleri:"
+msgstr "Veri bitleri:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/add-printer/ChooseSerial.ui:79
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Flow Control:"
-msgstr "Akış Denetimi:"
+msgstr "Akış denetimi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSocket.ui:29
@@ -1081,7 +1081,7 @@ msgstr "Bulunamadı"
 #: src/libkcups/KCupsRequest.cpp:401
 #, kde-format
 msgid "Test Page"
-msgstr "Deneme Sayfası"
+msgstr "Sınama Sayfası"
 
 #: src/libkcups/KCupsRequest.cpp:433
 #, kde-format
@@ -1250,7 +1250,7 @@ msgstr "'%1' eklendi, '%2' sürücüsü kullanıyor."
 #: src/print-manager-kded/NewPrinterNotification.cpp:256
 #, kde-format
 msgid "Print test page"
-msgstr "Deneme sayfası yazdır"
+msgstr "Sınama sayfası yazdır"
 
 #: src/print-manager-kded/NewPrinterNotification.cpp:244
 #, kde-format
@@ -1284,7 +1284,7 @@ msgstr "Yazıcı Başlığını Temizle"
 #: src/printer-manager-kcm/PrinterDescription.ui:301
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "Yazıcı Sınama Sayfası Yazdır"
+msgstr "Öz Sınama Sayfası Yazdır"
 
 #: src/printer-manager-kcm/PrinterDescription.cpp:235
 #, kde-format
@@ -1349,13 +1349,13 @@ msgstr "Yazdırma Kuyruğunu Aç"
 #: src/printer-manager-kcm/PrinterDescription.ui:288
 #, kde-format
 msgid "Print Test Page"
-msgstr "Deneme Sayfası Yazdır"
+msgstr "Sınama Sayfası Yazdır"
 
 #. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
 #: src/printer-manager-kcm/PrinterDescription.ui:298
 #, kde-format
 msgid "Print Self Test Page"
-msgstr "Yazıcı Sınama Sayfası Yazdır"
+msgstr "Öz Sınama Sayfası Yazdır"
 
 #: src/printer-manager-kcm/PrintKCM.cpp:60
 #, kde-format
@@ -1471,7 +1471,7 @@ msgstr "Hata Başlığı"
 #: src/printer-manager-kcm/PrintKCM.ui:231
 #, kde-format
 msgid "Click here to add a new printer"
-msgstr "Yeni yazıcı eklemek için buraya tıkla"
+msgstr "Yeni Yazıcı Ekle"
 
 #: src/printqueue/main.cpp:27 src/printqueue/main.cpp:29
 #, kde-format
@@ -1608,7 +1608,7 @@ msgstr "Sürdür"
 #: src/printqueue/PrintQueueUi.ui:279
 #, kde-format
 msgid "Reprint"
-msgstr "Yeniden yazdır"
+msgstr "Yeniden Yazdır"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:312

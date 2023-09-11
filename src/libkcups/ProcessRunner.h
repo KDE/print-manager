@@ -9,7 +9,7 @@
 #define PROCESS_RUNNER_H
 
 #include <QObject>
-#include <QtQml/qqmlregistration.h>
+#include <qqmlregistration.h>
 #include <kcupslib_export.h>
 
 class KCUPSLIB_EXPORT ProcessRunner : public QObject
@@ -24,7 +24,10 @@ public:
 public Q_SLOTS:
     static void configurePrinter(const QString &printerName);
     static void openPrintQueue(const QString &printerName);
+
     static void addPrinter();
+    static void addClass();
+    static void changePrinterPPD(const QString &printerName);
 
 private:
     static void exec(const QString &cmd, const QStringList &args);

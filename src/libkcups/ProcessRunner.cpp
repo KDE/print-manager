@@ -10,24 +10,33 @@
 
 using namespace Qt::StringLiterals;
 
-ProcessRunner::ProcessRunner(QObject* parent)
+ProcessRunner::ProcessRunner(QObject* parent) : QObject(parent)
 {
-    Q_UNUSED(parent);
 }
 
 void ProcessRunner::configurePrinter(const QString& printerName)
 {
-    exec("configure-printer"_L1, {printerName});
+    exec(u"configure-printer"_s, {printerName});
 }
 
 void ProcessRunner::openPrintQueue(const QString& printerName)
 {
-    exec("kde-print-queue"_L1, {printerName});
+    exec(u"kde-print-queue"_s, {printerName});
 }
 
 void ProcessRunner::addPrinter()
 {
-    exec("kde-add-printer"_L1, {"--add-printer"_L1});
+    exec(u"kde-add-printer"_s, {u"--add-printer"_s});
+}
+
+void ProcessRunner::addClass()
+{
+    exec(u"kde-add-printer"_s, {u"--add-class"_s});
+}
+
+void ProcessRunner::changePrinterPPD(const QString &printerName)
+{
+    exec(u"kde-add-printer"_s, {u"--change-ppd"_s, printerName});
 }
 
 void ProcessRunner::exec(const QString &cmd, const QStringList &args)

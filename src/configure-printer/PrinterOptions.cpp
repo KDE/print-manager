@@ -27,6 +27,7 @@
 #include <QListView>
 #include <QGroupBox>
 #include <QPointer>
+#include <QTextCodec>
 
 #include <ctype.h>
 

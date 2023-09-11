@@ -3,8 +3,6 @@ set(configureprinter_SRCS
     ConfigurePrinterInterface.h
     Debug.cpp
     Debug.h
-    ModifyPrinter.cpp
-    ModifyPrinter.h
     PrinterPage.cpp
     PrinterPage.h
     PrinterOptions.cpp
@@ -15,23 +13,10 @@ set(configureprinter_SRCS
     ConfigureDialog.h
     ConfigurePrinter.cpp
     ConfigurePrinter.h
-    SelectMakeModelDialog.cpp
-    SelectMakeModelDialog.h
     main.cpp
-
-    ConfigurePrinterInterface.h
-    Debug.h
-    ModifyPrinter.h
-    PrinterPage.h
-    PrinterOptions.h
-    PrinterBehavior.h
-    ConfigureDialog.h
-    ConfigurePrinter.h
-    SelectMakeModelDialog.h
 )
 
 ki18n_wrap_ui(configureprinter_SRCS
-    ModifyPrinter.ui
     PrinterOptions.ui
     PrinterBehavior.ui
 )
@@ -44,12 +29,13 @@ qt_add_dbus_adaptor(configureprinter_SRCS
 
 add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
-    Qt::Core
-    Qt::Widgets
+    Qt6::Core
+    Qt6::Widgets
     Qt6::Core5Compat
     KF6::CoreAddons
     KF6::I18n
     KF6::IconThemes
+    KF6::IconWidgets
     KF6::KIOCore
     KF6::KIOWidgets
     KF6::WidgetsAddons

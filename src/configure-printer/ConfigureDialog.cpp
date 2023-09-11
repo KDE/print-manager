@@ -7,7 +7,6 @@
 #include "ConfigureDialog.h"
 #include "PrinterPage.h"
 
-#include "ModifyPrinter.h"
 #include "PrinterBehavior.h"
 #include "PrinterOptions.h"
 
@@ -21,6 +20,7 @@
 #include <KWindowConfig>
 #include <kwidgetsaddons_version.h>
 
+#include <QCloseEvent>
 #include <QList>
 #include <QPointer>
 #include <QPushButton>
@@ -42,12 +42,13 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     QStringList attr;
     KPageWidgetItem *page;
 
-    modifyPrinter = new ModifyPrinter(destName, isClass, this);
     auto printerBehavior = new PrinterBehavior(destName, isClass, this);
-    attr << modifyPrinter->neededValues();
     attr << printerBehavior->neededValues();
     attr << KCUPS_PRINTER_TYPE; // needed to know if it's a remote printer
     attr << KCUPS_PRINTER_MAKE_AND_MODEL;
+    attr << KCUPS_PRINTER_INFO;
+    attr << KCUPS_PRINTER_LOCATION;
+    attr << KCUPS_DEVICE_URI;
 
     KCupsPrinter printer;
     QPointer<KCupsRequest> request = new KCupsRequest;
@@ -85,15 +86,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         qCDebug(PM_CONFIGURE_PRINTER) << "CUPS_PRINTER_MFP";
     }
 
-    modifyPrinter->setRemote(isRemote);
-    modifyPrinter->setValues(printer);
-    page = new KPageWidgetItem(modifyPrinter, i18n("Printer Settings"));
-    page->setHeader(i18n("Printer Settings"));
-    page->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
-    // CONNECT this signal ONLY to the first Page
-    connect(modifyPrinter, &ModifyPrinter::changed, this, &ConfigureDialog::enableButtonApply);
-    addPage(page);
-
     if (!isClass) {
         // At least on localhost:631 modify printer does not show printer options
         // for classes
@@ -102,9 +94,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
         page->setHeader(i18n("Media Settings"));
         page->setIcon(QIcon::fromTheme(QLatin1String("view-pim-tasks")));
         addPage(page);
-        connect(modifyPrinter, &ModifyPrinter::ppdChanged, this, &ConfigureDialog::ppdChanged);
-        modifyPrinter->setCurrentMake(printerOptions->currentMake());
-        modifyPrinter->setCurrentMakeAndModel(printerOptions->currentMakeAndModel());
     }
 
     printerBehavior->setRemote(isRemote);
@@ -126,8 +115,6 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
 void ConfigureDialog::ppdChanged()
 {
     printerOptions->reloadPPD();
-    modifyPrinter->setCurrentMake(printerOptions->currentMake());
-    modifyPrinter->setCurrentMakeAndModel(printerOptions->currentMakeAndModel());
 }
 
 ConfigureDialog::~ConfigureDialog()

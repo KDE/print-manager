@@ -8,15 +8,14 @@
 #define PRINTER_OPTIONS_H
 
 #include "PrinterPage.h"
-
 #include <cups/ppd.h>
-#include <QTextCodec>
-#include <QAbstractButton>
-#include <QHash>
 
 namespace Ui {
     class PrinterOptions;
 }
+
+class QAbstractButton;
+class QTextCodec;
 
 class PrinterOptions : public PrinterPage
 {

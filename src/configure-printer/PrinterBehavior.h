@@ -14,6 +14,8 @@ namespace Ui {
     class PrinterBehavior;
 }
 
+class QWidget;
+
 class PrinterBehavior : public PrinterPage
 {
     Q_OBJECT

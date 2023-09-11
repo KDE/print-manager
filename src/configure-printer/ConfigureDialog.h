@@ -7,13 +7,13 @@
 #ifndef CONFIGURE_DIALOG_H
 #define CONFIGURE_DIALOG_H
 
-#include <QAbstractButton>
-#include <QCloseEvent>
 #include <KPageDialog>
 
 class PrinterPage;
 class ModifyPrinter;
 class PrinterOptions;
+class QAbstractButton;
+class QCloseEvent;
 
 class Q_DECL_EXPORT ConfigureDialog : public KPageDialog
 {

@@ -7,7 +7,6 @@
 #ifndef PRINTER_PAGE_H
 #define PRINTER_PAGE_H
 
-#include <QWidget>
 #include <KCupsPrinter.h>
 
 class PrinterPage : public QWidget

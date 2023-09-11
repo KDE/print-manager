@@ -7,7 +7,7 @@
 #include "KCupsRequest.h"
 #include "PrinterBehavior.h"
 #include "ui_PrinterBehavior.h"
-
+#include <KCupsRequest.h>
 #include "Debug.h"
 #include <KLocalizedString>
 #include <QPointer>

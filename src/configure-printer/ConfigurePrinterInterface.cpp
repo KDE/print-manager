@@ -13,11 +13,11 @@
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 
+#include <KX11Extras>
 #include <QDBusConnection>
 #include <QTimer>
-#include <KWindowSystem>
-#include <KX11Extras>
 #include <QDialog>
+#include <QPointer>
 
 ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent) :
     QObject(parent)

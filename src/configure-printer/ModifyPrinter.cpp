@@ -9,6 +9,7 @@
 #include "ui_ModifyPrinter.h"
 
 #include "Debug.h"
+#include <KCupsRequest.h>
 #include "SelectMakeModel.h"
 #include "SelectMakeModelDialog.h"
 
@@ -41,6 +42,7 @@ ModifyPrinter::ModifyPrinter(const QString &destName, bool isClass, QWidget *par
     connect(ui->locationLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
     connect(ui->connectionLE, &QLineEdit::textChanged, this, &ModifyPrinter::textChanged);
     connect(ui->membersLV, &ClassListWidget::changed, this, &ModifyPrinter::modelChanged);
+    connect(ui->makeCB, &QComboBox::activated, this, &ModifyPrinter::makeActivated);
 }
 
 ModifyPrinter::~ModifyPrinter()
@@ -48,7 +50,7 @@ ModifyPrinter::~ModifyPrinter()
     delete ui;
 }
 
-void ModifyPrinter::on_makeCB_activated(int index)
+void ModifyPrinter::makeActivated(int index)
 {
     bool isDifferent = true;
     if (ui->makeCB->itemData(index).toUInt() == PPDList) {
@@ -89,14 +91,14 @@ void ModifyPrinter::ppdSelectionAccepted()
         QString fileName = widget->selectedPPDFileName();
         ui->makeCB->insertItem(0, fileName, PPDFile);
         ui->makeCB->setCurrentIndex(0);
-        on_makeCB_activated(0);
+        makeActivated(0);
     } else if (!widget->selectedPPDName().isEmpty()) {
         QString makeAndModel = widget->selectedPPDMakeAndModel();
         QString ppdName = widget->selectedPPDName();
         ui->makeCB->insertItem(0, makeAndModel, PPDCustom);
         ui->makeCB->setItemData(0, ppdName, PPDName);
         ui->makeCB->setCurrentIndex(0);
-        on_makeCB_activated(0);
+        makeActivated(0);
     } else {
         ui->makeCB->setCurrentIndex(ui->makeCB->property("lastIndex").toInt());
     }

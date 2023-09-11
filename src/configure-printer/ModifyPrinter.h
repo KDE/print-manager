@@ -9,8 +9,6 @@
 
 #include "PrinterPage.h"
 
-#include "KCupsRequest.h"
-
 #include <QWidget>
 
 namespace Ui {
@@ -20,15 +18,16 @@ namespace Ui {
 class ModifyPrinter : public PrinterPage
 {
     Q_OBJECT
-    Q_ENUMS(Role)
 public:
-    typedef enum {
+    enum Role{
         PPDDefault,
         PPDCustom,
         PPDFile,
         PPDList,
         PPDName = Qt::UserRole + 1
-    } Role;
+    };
+    Q_ENUM(Role)
+
     explicit ModifyPrinter(const QString &destName, bool isClass, QWidget *parent = nullptr);
     ~ModifyPrinter() override;
 
@@ -48,7 +47,7 @@ signals:
 
 private slots:
     void textChanged(const QString &text);
-    void on_makeCB_activated(int index);
+    void makeActivated(int index);
     void ppdSelectionAccepted();
     void ppdSelectionRejected();
     void modelChanged();

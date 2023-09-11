@@ -34,7 +34,7 @@ public:
     void save() override;
 
 private slots:
-    void on_autoConfigurePB_clicked();
+    void autoConfigureClicked();
     void currentIndexChangedCB(int index);
     void radioBtClicked(QAbstractButton *button);
 

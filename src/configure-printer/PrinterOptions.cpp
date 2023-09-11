@@ -40,11 +40,12 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
     m_isRemote(isRemote)
 {
     ui->setupUi(this);
+    connect(ui->autoConfigurePB, &QPushButton::clicked, this, &PrinterOptions::autoConfigureClicked);
 
     reloadPPD();
 }
 
-void PrinterOptions::on_autoConfigurePB_clicked()
+void PrinterOptions::autoConfigureClicked()
 {
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->printCommand(m_destName, QLatin1String("AutoConfigure"), i18n("Set Default Options"));
@@ -553,6 +554,8 @@ PrinterOptions::get_option_value(
 
             snprintf(buffer, bufsize, "Custom.%s", val);
             break;
+        case PPD_CUSTOM_UNKNOWN :
+            break;
         }
     } else {
         const char *prefix = "{";           /* Prefix string */
@@ -656,6 +659,8 @@ PrinterOptions::get_option_value(
                 *bufptr++ = '\"';
                 *bufptr   = '\0';
                 bufend ++;
+                break;
+            case PPD_CUSTOM_UNKNOWN :
                 break;
             }
 

@@ -771,15 +771,10 @@ bool KCupsConnection::retry(const char *resource, int operation) const
         // to create a new CUPS connection
         qCWarning(LIBKCUPS) << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
-        // TODO maybe reconnect is enough
-//        httpClearCookie(CUPS_HTTP_DEFAULT);
-
         // Reconnect to CUPS
-        if (httpReconnect(CUPS_HTTP_DEFAULT)) {
+        int cancel = 0;
+        if (httpReconnect2(CUPS_HTTP_DEFAULT, 10000, &cancel)) {
             qCWarning(LIBKCUPS) << "Failed to reconnect" << cupsLastErrorString();
-
-            // Server might be restarting sleep for a few ms
-            msleep(500);
         }
 
         // Try the request again

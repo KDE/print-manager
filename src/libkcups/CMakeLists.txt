@@ -46,7 +46,7 @@ add_library(kcupslib SHARED ${libkcups_SRCS})
 
 generate_export_header(kcupslib)
 
-target_link_libraries(kcupslib
+target_link_libraries(kcupslib PUBLIC
     Qt::Core
     Qt::DBus
     Qt::Widgets
@@ -60,5 +60,8 @@ target_link_libraries(kcupslib
     KF6::WindowSystem
     Cups::Cups
 )
+
+ecm_add_qml_module(kcupslib URI "org.kde.plasma.printmanager" GENERATE_PLUGIN_SOURCE)
+ecm_finalize_qml_module(kcupslib)
 
 install(TARGETS kcupslib ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

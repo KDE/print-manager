@@ -5,5 +5,4 @@ add_subdirectory(kcm)
 add_subdirectory(printqueue)
 add_subdirectory(print-manager-kded)
 add_subdirectory(plasmoid)
-add_subdirectory(declarative-plugins)
 

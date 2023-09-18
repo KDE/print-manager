@@ -1629,6 +1629,3 @@ msgstr "Treballs completats"
 #, kde-format
 msgid "All Jobs"
 msgstr "Tots els treballs"
-
-#~ msgid "Print settings"
-#~ msgstr "Configuració de la impressió"

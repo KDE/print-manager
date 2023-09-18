@@ -21,16 +21,15 @@ typedef QList<DriverMatch> DriverMatchList;
 class KCUPSLIB_EXPORT PPDModel : public QStandardItemModel
 {
     Q_OBJECT
-    Q_ENUMS(Role)
-
     Q_PROPERTY(int count READ count NOTIFY countChanged)
 
 public:
-    typedef enum {
+    enum Role {
         PPDName = Qt::UserRole,
         PPDMake,
         PPDMakeAndModel
-    } Role;
+    };
+    Q_ENUM(Role)
 
     explicit PPDModel(QObject *parent = nullptr);
     void setPPDs(const QList<QVariantMap> &ppds, const DriverMatchList &driverMatch = DriverMatchList());

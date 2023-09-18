@@ -17,10 +17,6 @@ class KCupsRequest;
 class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
-
-    Q_ENUMS(JobAction)
-    Q_ENUMS(Role)
-
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
     /**
@@ -52,6 +48,7 @@ public:
         DestIconName,
         DestRemote
     };
+    Q_ENUM(Role)
 
     enum JobAction {
         Cancel,
@@ -59,6 +56,7 @@ public:
         Release,
         Move
     };
+    Q_ENUM(JobAction)
 
     explicit PrinterModel(QObject *parent = nullptr);
 
@@ -103,8 +101,6 @@ private slots:
     void printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
     void serverChanged(const QString &text);
 
-    bool displayLocationHint() const;
-
 private:
     WId m_parentId;
     QHash<int, QByteArray> m_roles;
@@ -112,6 +108,7 @@ private:
     bool m_displayLocationHint = true;
 
     void setDisplayLocationHint();
+    bool displayLocationHint() const;
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);

@@ -31,9 +31,18 @@ PlasmaExtras.Representation {
             focus: true
             currentIndex: -1
 
+            section {
+                property: printersModel.printersOnly ? "" : "isClass"
+                delegate: Kirigami.ListSectionHeader {
+                    required property bool section
+                    label: !section ? i18n("Printers") : i18n("Printer Groups")
+                }
+            }
+
             model: PrintManager.PrinterSortFilterModel {
                 id: printersFilterModel
                 sourceModel: printersModel
+                sortRole: PrintManager.PrinterModel.DestIsClass
             }
 
             topMargin: Kirigami.Units.smallSpacing * 2

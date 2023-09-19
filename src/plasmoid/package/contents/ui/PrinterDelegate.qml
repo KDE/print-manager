@@ -17,7 +17,9 @@ PlasmaExtras.ExpandableListItem {
 
     icon: model.iconName
     iconEmblem: isPaused ? "emblem-pause" : ""
-    title: model.info + (printersModel.displayLocationHint ? " (%1)".arg(model.location) : "")
+    title: model.info + (model.location && printersModel.displayLocationHint 
+            ? " (%1)".arg(model.location) 
+            : "")
     subtitle: model.stateMessage
     isDefault: model.isDefault
 

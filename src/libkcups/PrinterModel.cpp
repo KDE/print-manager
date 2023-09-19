@@ -37,7 +37,10 @@ const static QStringList attrs(QStringList{
                                    KCUPS_MARKER_COLORS,
                                    KCUPS_MARKER_LEVELS,
                                    KCUPS_MARKER_NAMES,
-                                   KCUPS_MARKER_TYPES
+                                   KCUPS_MARKER_TYPES,
+                                   KCUPS_DEVICE_URI,
+                                   KCUPS_PRINTER_URI_SUPPORTED,
+                                   KCUPS_MEMBER_NAMES
                                });
 
 PrinterModel::PrinterModel(QObject *parent) :
@@ -61,6 +64,9 @@ PrinterModel::PrinterModel(QObject *parent) :
     m_roles[DestMarkers] = "markers";
     m_roles[DestIconName] = "iconName";
     m_roles[DestRemote] = "remote";
+    m_roles[DestUri] = "printerUri";
+    m_roles[DestUriSupported] = "uriSupported";
+    m_roles[DestMemberNames] = "memberNames";
 
     // This is emitted when a printer is added
     connect(KCupsConnection::global(), &KCupsConnection::printerAdded, this, &PrinterModel::insertUpdatePrinter);
@@ -170,6 +176,15 @@ void PrinterModel::setDisplayLocationHint()
     locList.removeDuplicates();
     m_displayLocationHint = rowCount() > 1 && locList.count() > 1;
     Q_EMIT displayLocationHintChanged();
+}
+
+bool PrinterModel::printersOnly() const {
+    for (int i = 0; i < rowCount(); i++) {
+        if (item(i)->data(DestIsClass).toBool()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 bool PrinterModel::displayLocationHint() const
@@ -322,7 +337,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
 
     // store the printer location
     QString location = printer.location();
-    if (location != destItem->data(DestLocation).toString()) {
+    if (location.isEmpty() || location != destItem->data(DestLocation).toString()) {
         destItem->setData(location, DestLocation);
     }
 
@@ -333,14 +348,12 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     }
 
     if (destItem->data(DestName).toString() != destItem->text()){
-        if (destItem->text() != destItem->data(DestName).toString()){
-            destItem->setText(destItem->data(DestName).toString());
-        }
+        destItem->setText(destItem->data(DestName).toString());
     }
 
     // store the printer description
     QString description = printer.info();
-    if (description != destItem->data(DestDescription).toString()){
+    if (description.isEmpty() || description != destItem->data(DestDescription).toString()){
         destItem->setData(description, DestDescription);
     }
 
@@ -355,6 +368,24 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     if (commands != destItem->data(DestCommands)) {
         destItem->setData(commands, DestCommands);
     }
+
+    // store the printer URI
+    QString uri = printer.deviceUri();
+    if (uri != destItem->data(DestUri).toString()) {
+        destItem->setData(uri, DestUri);
+    }
+
+    QString us = printer.uriSupported();
+    if (us != destItem->data(DestUriSupported).toString()) {
+        destItem->setData(us, DestUriSupported);
+    }
+
+    // printer member names for type=class
+    const auto members = printer.memberNames();
+    if (members != destItem->data(DestMemberNames)) {
+        destItem->setData(members, DestMemberNames);
+    }
+
 
     int markerChangeTime = printer.markerChangeTime();
     if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
@@ -411,11 +442,6 @@ QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &mess
             return i18n("Unknown - '%1'", message);
         }
     }
-}
-
-void PrinterModel::clear()
-{
-    removeRows(0, rowCount());
 }
 
 Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const

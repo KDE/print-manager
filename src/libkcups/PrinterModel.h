@@ -30,7 +30,11 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
      * printer or 2 or more printers have the same location, this will be false
      */
     Q_PROPERTY(bool displayLocationHint READ displayLocationHint NOTIFY displayLocationHintChanged)
-    
+    /**
+     * true if model only contains printers (not classes)
+     */
+    Q_PROPERTY(bool printersOnly READ printersOnly NOTIFY countChanged)
+
 public:
     enum Role{
         DestStatus = Qt::UserRole,
@@ -49,7 +53,10 @@ public:
         DestMarkerChangeTime,
         DestMarkers,
         DestIconName,
-        DestRemote
+        DestRemote,
+        DestUri,
+        DestUriSupported,
+        DestMemberNames
     };
     Q_ENUM(Role)
 
@@ -74,6 +81,8 @@ public:
     Q_INVOKABLE void resumePrinter(const QString &printerName);
     Q_INVOKABLE void rejectJobs(const QString &printerName);
     Q_INVOKABLE void acceptJobs(const QString &printerName);
+
+    bool displayLocationHint() const;
 
 public slots:
     void update();
@@ -111,13 +120,12 @@ private:
     bool m_displayLocationHint = true;
 
     void setDisplayLocationHint();
-    bool displayLocationHint() const;
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
-    void clear();
+    bool printersOnly() const;
 };
 
 #endif // PRINTER_MODEL_H

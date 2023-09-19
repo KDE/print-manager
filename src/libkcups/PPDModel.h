@@ -40,8 +40,11 @@ public:
     virtual QHash<int,QByteArray> roleNames() const override;
     int count() const;
 
+    Q_INVOKABLE void load();
+
 Q_SIGNALS:
     void countChanged();
+    void error(const QString &msg);
 
 private:
     QStandardItem* createPPDItem(const QVariantMap &ppd, bool recommended);

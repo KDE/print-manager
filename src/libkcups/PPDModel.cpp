@@ -6,7 +6,11 @@
 */
 
 #include "PPDModel.h"
+#include "kcupslib_log.h"
+
 #include <KLocalizedString>
+
+#include <KCupsRequest.h>
 
 PPDModel::PPDModel(QObject *parent) :
     QStandardItemModel(parent)
@@ -83,6 +87,31 @@ Qt::ItemFlags PPDModel::flags(const QModelIndex &index) const
 int PPDModel::count() const
 {
     return rowCount();
+}
+
+void PPDModel::load()
+{
+    qCDebug(LIBKCUPS) << "LOADING PPD Model";
+
+    const auto req = new KCupsRequest;
+    connect(req, &KCupsRequest::finished, this, [this](KCupsRequest *request) {
+
+        if (request->hasError()) {
+            Q_EMIT error(request->errorMsg());
+            qCDebug(LIBKCUPS) << "PPD Model:" << request->errorMsg();
+        } else {
+            const auto ppds = request->ppds();
+            if (!ppds.isEmpty()) {
+                setPPDs(ppds);
+            } else {
+                Q_EMIT error(i18n("Empty ppd model"));
+            }
+            qCDebug(LIBKCUPS) << "PPD Model Loaded:" << count();
+        }
+        request->deleteLater();
+    });
+
+    req->getPPDS();
 }
 
 QStandardItem *PPDModel::createPPDItem(const QVariantMap &ppd, bool recommended)

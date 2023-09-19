@@ -27,6 +27,7 @@ include(KDEGitCommitHooks)
 
 include(ECMQmlModule)
 include(ECMOptionalAddSubdirectory)
+include(ECMQtDeclareLoggingCategory)
 include(FeatureSummary)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
@@ -93,6 +94,11 @@ install(FILES org.kde.print-manager.metainfo.xml DESTINATION "${KDE_INSTALL_META
 add_definitions(-DTRANSLATION_DOMAIN="print-manager")
 
 add_subdirectory(src)
+
+ecm_qt_install_logging_categories(
+    EXPORT PMLOGS
+    DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 ki18n_install(po)
 

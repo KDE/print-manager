@@ -5,6 +5,7 @@
  */
 
 #include "printermanager.h"
+#include "pmkcm_log.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>

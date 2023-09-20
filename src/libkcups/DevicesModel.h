@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -11,15 +12,21 @@
 #include <QDBusMessage>
 #include <QRegularExpression>
 
-#include <KCupsPrinter.h>
+#include <qqmlregistration.h>
+
+#include <KCupsRequest.h>
+#include <kcupslib_export.h>
 
 typedef QMap<QString, QString> MapSS;
 typedef QMap<QString, MapSS> MapSMapSS;
 
 class KCupsRequest;
-class DevicesModel : public QStandardItemModel
+
+class KCUPSLIB_EXPORT DevicesModel : public QStandardItemModel
 {
     Q_OBJECT
+    QML_ELEMENT
+
 public:
     enum Role {
         DeviceClass = Qt::UserRole + 2,
@@ -28,7 +35,8 @@ public:
         DeviceMakeAndModel,
         DeviceUri,
         DeviceUris,
-        DeviceLocation
+        DeviceLocation,
+        DeviceDescription
     };
     Q_ENUM(Role)
 
@@ -41,13 +49,14 @@ public:
     Q_ENUM(Kind)
 
     explicit DevicesModel(QObject *parent = nullptr);
+    virtual QHash<int,QByteArray> roleNames() const override;
 
-signals:
+Q_SIGNALS:
     void loaded();
     void parentAdded(const QModelIndex &index);
     void errorMessage(const QString &message);
 
-public slots:
+public Q_SLOTS:
     void update();
     void insertDevice(const QString &device_class,
                       const QString &device_id,
@@ -56,6 +65,7 @@ public slots:
                       const QString &device_uri,
                       const QString &device_location,
                       const QStringList &grouped_uris = QStringList());
+
     void insertDevice(const QString &device_class,
                       const QString &device_id,
                       const QString &device_info,
@@ -64,7 +74,7 @@ public slots:
                       const QString &device_location,
                       const KCupsPrinters &grouped_printers);
 
-private slots:
+private Q_SLOTS:
     QStandardItem* createItem(const QString &device_class,
                               const QString &device_id,
                               const QString &device_info,
@@ -72,12 +82,14 @@ private slots:
                               const QString &device_uri,
                               const QString &device_location,
                               bool grouped);
+
     void gotDevice(const QString &device_class,
                    const QString &device_id,
                    const QString &device_info,
                    const QString &device_make_and_model,
                    const QString &device_uri,
                    const QString &device_location);
+
     void finished();
     void getGroupedDevicesSuccess(const QDBusMessage &message);
     void getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message);
@@ -85,11 +97,13 @@ private slots:
 
 private:
     QStandardItem *findCreateCategory(const QString &category, Kind kind);
+    QString deviceDescription(const QString &uri) const;
 
     KCupsRequest *m_request = nullptr;
     MapSMapSS m_mappedDevices;
     QRegularExpression m_rx;
     QStringList m_blacklistedURIs;
+    QHash<int, QByteArray> m_roles;
 };
 
 Q_DECLARE_METATYPE(MapSS)

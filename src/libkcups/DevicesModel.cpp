@@ -1,21 +1,22 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
 #include "DevicesModel.h"
 
-#include <KCupsRequest.h>
+#include <kcupslib_log.h>
+#include <KCupsPrinter.h>
 
 #include <KLocalizedString>
-#include <KMessageBox>
 
 #include <QHostInfo>
 #include <QDBusMetaType>
 #include <QDBusConnection>
 
-#include <QDebug>
+using namespace Qt::StringLiterals;
 
 DevicesModel::DevicesModel(QObject *parent) : QStandardItemModel(parent)
   , m_request(nullptr)
@@ -30,6 +31,16 @@ DevicesModel::DevicesModel(QObject *parent) : QStandardItemModel(parent)
                       QLatin1String("delete")
                       })
 {
+    m_roles = QStandardItemModel::roleNames();
+    m_roles[DeviceClass]        = "deviceClass";
+    m_roles[DeviceId]           = "deviceId";
+    m_roles[DeviceInfo]         = "deviceInfo";
+    m_roles[DeviceMakeAndModel] = "deviceMakeModel";
+    m_roles[DeviceUri]          = "deviceUri";
+    m_roles[DeviceUris]         = "deviceUris";
+    m_roles[DeviceLocation]     = "deviceLocation";
+    m_roles[DeviceDescription]  = "deviceDescription";
+
     qDBusRegisterMetaType<MapSS>();
     qDBusRegisterMetaType<MapSMapSS>();
 
@@ -40,6 +51,54 @@ DevicesModel::DevicesModel(QObject *parent) : QStandardItemModel(parent)
                  QString(),
                  QLatin1String("other"),
                  QString());
+}
+
+QHash<int, QByteArray> DevicesModel::roleNames() const
+{
+    return m_roles;
+}
+
+QString DevicesModel::deviceDescription(const QString &uri) const {
+    static QMap<QString, QString> descriptions({
+        {u"parallel"_s, i18nc("@info:tooltip", "A printer connected to the parallel port")}
+       , {u"bluetooth"_s, i18nc("@info:tooltip", "A printer connected via Bluetooth")}
+       , {u"hal"_s, i18nc("@info:tooltip", "Local printer detected by the Hardware Abstraction Layer (HAL)")}
+       , {u"hpfax"_s, i18nc("@info:tooltip", "HPLIP software driving a fax machine,\nor the fax function of a multi-function device")}
+       , {u"hp"_s, i18nc("@info:tooltip", "HPLIP software driving a printer,\nor the printer function of a multi-function device")}
+       , {u"ipp"_s, i18nc("@info:tooltip", "IPP Network printer via IPP")}
+       , {u"usb"_s, i18nc("@info:tooltip", "A printer connected to a USB port")}
+    });
+
+    QString ret;
+
+    if (uri.startsWith(u"dnssd"_s) || uri.startsWith(u"mdns"_s)) {
+        if (uri.contains(u"cups"_s)) {
+            ret = i18nc("@info:tooltip", "Remote CUPS printer via DNS-SD");
+        } else {
+            QString protocol;
+            if (uri.contains(u"._ipp"_s)) {
+                protocol = u"IPP"_s;
+            } else if (uri.contains(u"._printer"_s)) {
+                protocol = u"LPD"_s;
+            } else if (uri.contains(u"._pdl-datastream"_s)) {
+                protocol = u"AppSocket/JetDirect"_s;
+            }
+
+            if (protocol.isEmpty()) {
+                ret = i18nc("@info:tooltip", "Network printer via DNS-SD");
+            } else {
+                ret = i18nc("@info:tooltip", "%1 network printer via DNS-SD", protocol);
+            }
+        }
+    } else {
+        for (auto i = descriptions.cbegin(), end = descriptions.cend(); i != end; ++i) {
+            if (uri.startsWith(i.key())) {
+                return i.value();
+            }
+        }
+    }
+
+    return ret.isEmpty() ? uri : ret;
 }
 
 void DevicesModel::update()
@@ -60,7 +119,6 @@ void DevicesModel::update()
     m_request->getDevices(10);
 }
 
-
 void DevicesModel::gotDevice(const QString &device_class,
                              const QString &device_id,
                              const QString &device_info,
@@ -69,17 +127,17 @@ void DevicesModel::gotDevice(const QString &device_class,
                              const QString &device_location)
 {
     // "direct"
-    qDebug() << device_class;
+    qCWarning(LIBKCUPS) << device_class;
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
-    qDebug() << device_id;
+    qCWarning(LIBKCUPS) << device_id;
     // "Samsung SCX-4200 Series"
-    qDebug() << device_info;
+    qCWarning(LIBKCUPS) << device_info;
     // "Samsung SCX-4200 Series"
-    qDebug() << device_make_and_model;
+    qCWarning(LIBKCUPS) << device_make_and_model;
     // "usb://Samsung/SCX-4200%20Series"
-    qDebug() << device_uri;
+    qCWarning(LIBKCUPS) << device_uri;
     // ""
-    qDebug() << device_location;
+    qCWarning(LIBKCUPS) << device_location;
 
     if (m_blacklistedURIs.contains(device_uri)) {
         // ignore black listed uri's
@@ -185,17 +243,17 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
                                         bool grouped)
 {
     // "direct"
-    qDebug() << device_class;
+    qCWarning(LIBKCUPS) << device_class;
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
-    qDebug() << device_id;
+    qCWarning(LIBKCUPS) << device_id;
     // "Samsung SCX-4200 Series"
-    qDebug() << device_info;
+    qCWarning(LIBKCUPS) << device_info;
     // "Samsung SCX-4200 Series"
-    qDebug() << device_make_and_model;
+    qCWarning(LIBKCUPS) << device_make_and_model;
     // "usb://Samsung/SCX-4200%20Series"
-    qDebug() << device_uri;
+    qCWarning(LIBKCUPS) << device_uri;
     // ""
-    qDebug() << device_location;
+    qCWarning(LIBKCUPS) << device_location;
 
     Kind kind;
     // Store the kind of the device
@@ -234,32 +292,7 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
 
     QString toolTip;
     if (!grouped) {
-        if (device_uri.startsWith(QLatin1String("parallel"))) {
-            toolTip = i18nc("@info:tooltip",
-                            "A printer connected to the parallel port");
-        } else if (device_uri.startsWith(QLatin1String("usb"))) {
-            toolTip = i18nc("@info:tooltip",
-                            "A printer connected to a USB port");
-        } else if (device_uri.startsWith(QLatin1String("bluetooth"))) {
-            toolTip = i18nc("@info:tooltip",
-                            "A printer connected via Bluetooth");
-        } else if (device_uri.startsWith(QLatin1String("hal"))) {
-            toolTip = i18nc("@info:tooltip",
-                            "Local printer detected by the "
-                            "Hardware Abstraction Layer (HAL)");
-        } else if (device_uri.startsWith(QLatin1String("hp"))) {
-            toolTip = i18nc("@info:tooltip",
-                            "HPLIP software driving a printer, "
-                            "or the printer function of a multi-function device");
-        } else if (device_uri.startsWith(QLatin1String("hpfax"))) {
-            toolTip = i18nc("@info:tooltip",
-                            "HPLIP software driving a fax machine, "
-                            "or the fax function of a multi-function device");
-        } else if (device_uri.startsWith(QLatin1String("dnssd")) ||
-                   device_uri.startsWith(QLatin1String("mdns"))) {
-            toolTip = i18nc("@info:tooltip",
-                            "Remote CUPS printer via DNS-SD");
-        }
+        toolTip = deviceDescription(device_uri);
     }
 
     auto stdItem = new QStandardItem;
@@ -271,6 +304,7 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
     stdItem->setData(device_uri, DeviceUri);
     stdItem->setData(device_make_and_model, DeviceMakeAndModel);
     stdItem->setData(device_location, DeviceLocation);
+    stdItem->setData(deviceDescription(device_uri), DeviceDescription);
 
     // Find the proper category to our item
     QStandardItem *catItem;
@@ -299,8 +333,8 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
 {
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
         const auto argument = message.arguments().first().value<QDBusArgument>();
-        const auto groupeDevices = qdbus_cast<QList<QStringList> >(argument);
-        for (const QStringList &list : groupeDevices) {
+        const auto groupedDevices = qdbus_cast<QList<QStringList> >(argument);
+        for (const QStringList &list : groupedDevices) {
             if (list.isEmpty()) {
                 continue;
             }

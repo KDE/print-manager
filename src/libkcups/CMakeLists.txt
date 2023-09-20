@@ -17,6 +17,7 @@ set(libkcups_SRCS
     JobModel.cpp
     JobSortFilterModel.cpp
     ProcessRunner.cpp
+    DevicesModel.cpp
 
     KIppRequest.h
     KCupsPasswordDialog.h
@@ -34,6 +35,7 @@ set(libkcups_SRCS
     JobModel.h
     JobSortFilterModel.h
     ProcessRunner.h
+    DevicesModel.h
 )
 
 ki18n_wrap_ui(libkcups_SRCS

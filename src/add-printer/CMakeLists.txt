@@ -1,7 +1,6 @@
 set(addprinter_SRCS
     main.cpp
     AddPrinter.cpp
-    DevicesModel.cpp
     GenericPage.cpp
     PageDestinations.cpp
     ChooseLpd.cpp
@@ -15,7 +14,6 @@ set(addprinter_SRCS
     AddPrinterAssistant.cpp
 
     AddPrinter.h
-    DevicesModel.h
     GenericPage.h
     PageDestinations.h
     ChooseLpd.h

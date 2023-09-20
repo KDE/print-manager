@@ -7,7 +7,7 @@
 #include "KIppRequest.h"
 #include "KIppRequest_p.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 
 KIppRequest::KIppRequest() :
     d_ptr(new KIppRequestPrivate)

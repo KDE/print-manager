@@ -7,7 +7,7 @@
 #include "SelectMakeModel.h"
 #include "ui_SelectMakeModel.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 #include "KCupsRequest.h"
 #include "NoSelectionRectDelegate.h"
 

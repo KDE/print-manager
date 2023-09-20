@@ -7,7 +7,7 @@
 
 #include "KCupsConnection.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 #include "KCupsPasswordDialog.h"
 #include "KIppRequest.h"
 

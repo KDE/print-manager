@@ -6,7 +6,7 @@
 
 #include "PrinterModel.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 
 #include <QDateTime>
 #include <QMimeData>

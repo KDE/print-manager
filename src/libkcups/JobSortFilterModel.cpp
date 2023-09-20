@@ -6,7 +6,7 @@
 
 #include "JobSortFilterModel.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 #include "JobModel.h"
 
 JobSortFilterModel::JobSortFilterModel(QObject *parent) :

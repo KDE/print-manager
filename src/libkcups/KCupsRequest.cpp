@@ -6,7 +6,7 @@
 
 #include "KCupsRequest.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 
 #include <KLocalizedString>
 

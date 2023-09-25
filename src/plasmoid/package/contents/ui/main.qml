@@ -30,22 +30,24 @@ PlasmoidItem {
     property alias serverUnavailable: printersModel.serverUnavailable
     property string printersModelError: ""
 
-    property int jobsFilter: Plasmoid.configuration.allJobs 
-                                ? PrintManager.JobModel.WhichAll 
-                                : Plasmoid.configuration.completedJobs 
-                                    ? PrintManager.JobModel.WhichCompleted 
+    property int jobsFilter: Plasmoid.configuration.allJobs
+                                ? PrintManager.JobModel.WhichAll
+                                : Plasmoid.configuration.completedJobs
+                                    ? PrintManager.JobModel.WhichCompleted
                                     : PrintManager.JobModel.WhichActive
 
     onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
 
     PrintManager.PrinterModel {
         id: printersModel
-        onError: (lastError, errorTitle, errorMsg) => printersModelError = errorTitle
+        onError: (lastError, errorTitle, errorMsg) => {
+            printersModelError = errorTitle;
+        }
     }
 
     PrintManager.JobSortFilterModel {
         id: jobsFilterModel
-        
+
         sourceModel: PrintManager.JobModel {
             id: jobsModel
             Component.onCompleted: setWhichJobs(jobsFilter)
@@ -54,7 +56,7 @@ PlasmoidItem {
 
     PrintManager.JobSortFilterModel {
         id: activeJobsFilterModel
-        
+
         sourceModel: PrintManager.JobModel {
             Component.onCompleted: setWhichJobs(PrintManager.JobModel.WhichActive)
         }
@@ -84,9 +86,9 @@ PlasmoidItem {
             return i18n("No printers have been configured or discovered");
         }
     }
-    
+
     Plasmoid.icon: inPanel ? "printer-symbolic" : "printer"
-    
+
     fullRepresentation: FullRepresentation {
         focus: true
         // as a desktop widget, we need to start with a reasonable size
@@ -96,7 +98,7 @@ PlasmoidItem {
 
     switchWidth: Kirigami.Units.gridUnit * 10
     switchHeight: Kirigami.Units.gridUnit * 10
-    
+
     Plasmoid.status: {
         if (activeJobsFilterModel.activeCount > 0) {
             return PlasmaCore.Types.ActiveStatus;
@@ -118,8 +120,8 @@ PlasmoidItem {
                 Plasmoid.configuration.completedJobs = false;
                 Plasmoid.configuration.activeJobs = false;
             }
-        }
-        , PlasmaCore.Action {
+        },
+        PlasmaCore.Action {
             text: i18n("Show Only Completed Jobs")
             icon.name: "task-complete"
             checkable: true
@@ -129,8 +131,8 @@ PlasmoidItem {
                 Plasmoid.configuration.completedJobs = true;
                 Plasmoid.configuration.activeJobs = false;
             }
-        }
-        , PlasmaCore.Action {
+        },
+        PlasmaCore.Action {
             text: i18n("Show Only Active Jobs")
             icon.name: "task-recurring"
             checkable: true
@@ -140,21 +142,20 @@ PlasmoidItem {
                 Plasmoid.configuration.completedJobs = false;
                 Plasmoid.configuration.activeJobs = true;
             }
-        }
-        , PlasmaCore.Action {
+        },
+        PlasmaCore.Action {
             isSeparator: true
         }
-
     ]
 
     // Overwrite default configure menu item
     PlasmaCore.Action {
         id: configAction
-        text: i18n("&Configure Printers...")
+        text: i18n("&Configure Printers…")
         icon.name: "configure"
         shortcut: "alt+d,s"
         enabled: KAuthorized.authorizeControlModule("kcm_printer_manager")
-        onTriggered: KCMLauncher.openSystemSettings("kcm_printer_manager", "")
+        onTriggered: KCMLauncher.openSystemSettings("kcm_printer_manager")
     }
 
     Component.onCompleted: Plasmoid.setInternalAction("configure", configAction)

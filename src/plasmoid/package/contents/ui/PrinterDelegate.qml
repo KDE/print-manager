@@ -7,14 +7,14 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-import QtQuick 
+import QtQuick
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PrintManager
 
 PlasmaExtras.ExpandableListItem {
     readonly property bool isPaused: model.printerState === 5
-    
+
     icon: model.iconName
     iconEmblem: isPaused ? "emblem-pause" : ""
     title: model.info + (printersModel.displayLocationHint ? " (%1)".arg(model.location) : "")

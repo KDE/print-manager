@@ -22,7 +22,7 @@ PlasmaExtras.Representation {
             onAccepted: printersFilterModel.setFilterWildcard(text)
         }
     }
-   
+
     PlasmaComponents3.ScrollView {
         anchors.fill: parent
         contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
@@ -35,7 +35,7 @@ PlasmaExtras.Representation {
                 id: printersFilterModel
                 sourceModel: printersModel
             }
-            
+
             topMargin: Kirigami.Units.smallSpacing * 2
             bottomMargin: Kirigami.Units.smallSpacing * 2
             leftMargin: Kirigami.Units.smallSpacing * 2

@@ -16,8 +16,8 @@ qt_add_dbus_adaptor(printmanagerkded_SRCS
 add_library(kded_printmanager MODULE ${printmanagerkded_SRCS})
 set_target_properties(kded_printmanager PROPERTIES OUTPUT_NAME printmanager)
 
-target_link_libraries(kded_printmanager
-    Qt::Core
+target_link_libraries(kded_printmanager PRIVATE
+    Qt6::Core
     KF6::DBusAddons
     KF6::Notifications
     kcupslib

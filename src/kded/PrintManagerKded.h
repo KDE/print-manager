@@ -8,9 +8,6 @@
 #define PRINTMANAGERKDED_H
 
 #include <KDEDModule>
-#include <KPluginFactory>
-
-#include <QVariantList>
 
 class PrintManagerKded : public KDEDModule
 {

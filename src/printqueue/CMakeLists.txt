@@ -15,8 +15,8 @@ add_executable(kde-print-queue
 )
 
 target_link_libraries(kde-print-queue
-    Qt::Core
-    Qt::Widgets
+    Qt6::Core
+    Qt6::Widgets
     KF6::CoreAddons
     KF6::I18n
     KF6::KIOCore

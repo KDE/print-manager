@@ -17,9 +17,6 @@
 
 int main(int argc, char **argv)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     PrintQueue app(argc, argv);
     app.setOrganizationDomain(QLatin1String("org.kde"));
 
@@ -32,6 +29,7 @@ int main(int argc, char **argv)
 
     about.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), QLatin1String("dantti12@gmail.com"));
     about.addAuthor(QStringLiteral("Lukáš Tinkl"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("ltinkl@redhat.com"));
+    about.addAuthor(QStringLiteral("Mike Noe"), i18n("Port to Qt 6 / Plasma 6"), QStringLiteral("noeerover@gmail.com"));
 
     KAboutData::setApplicationData(about);
     KDBusService service(KDBusService::Unique);

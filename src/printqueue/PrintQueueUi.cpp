@@ -31,7 +31,7 @@
 #include <KUserTimestamp>
 #include <KPasswdServerClient>
 
-#define PRINTER_ICON_SIZE 92
+static constexpr uint PRINTER_ICON_SIZE = 92;
 
 PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     QDialog(parent),

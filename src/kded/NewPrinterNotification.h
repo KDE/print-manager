@@ -8,6 +8,7 @@
 #define NEW_PRINTER_NOTIFICATION_H
 
 #include <QDBusContext>
+#include <QObject>
 
 class KNotification;
 class NewPrinterNotification : public QObject, protected QDBusContext

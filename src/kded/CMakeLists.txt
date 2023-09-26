@@ -1,8 +1,6 @@
 set(printmanagerkded_SRCS
-    Debug.cpp
     NewPrinterNotification.cpp
     PrintManagerKded.cpp
-    Debug.h
     NewPrinterNotification.h
     PrintManagerKded.h
 )
@@ -21,6 +19,14 @@ target_link_libraries(kded_printmanager PRIVATE
     KF6::DBusAddons
     KF6::Notifications
     kcupslib
+)
+
+ecm_qt_declare_logging_category(kded_printmanager
+    HEADER pmkded_log.h
+    IDENTIFIER PMKDED
+    CATEGORY_NAME org.kde.plasma.printmanager.kded
+    DESCRIPTION "Print Manager (kded)"
+    EXPORT PMLOGS
 )
 
 install(TARGETS kded_printmanager DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kded)

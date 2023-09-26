@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -7,13 +8,13 @@
 #include "NewPrinterNotification.h"
 #include "newprinternotificationadaptor.h"
 
-#include "Debug.h"
+#include "pmkded_log.h"
 
 #include <KLocalizedString>
 #include <KNotification>
-#include <KIO/CommandLauncherJob>
 
 #include <KCupsRequest.h>
+#include <ProcessRunner.h>
 
 #include <QDBusMessage>
 #include <QDBusConnection>
@@ -51,7 +52,7 @@ NewPrinterNotification::~NewPrinterNotification()
 
 void NewPrinterNotification::GetReady()
 {
-    qCDebug(PM_KDED) << "GetReady";
+    qCDebug(PMKDED) << "GetReady";
     // This method is all about telling the user a new printer was detected
     auto notify = new KNotification(QLatin1String("GetReady"));
     notify->setComponentName(QLatin1String("printmanager"));
@@ -74,7 +75,7 @@ void NewPrinterNotification::NewPrinter(int status,
                                         const QString &description,
                                         const QString &cmd)
 {
-    qCDebug(PM_KDED) << status << name << make << model << description << cmd;
+    qCDebug(PMKDED) << status << name << make << model << description << cmd;
 
     // 1
     // "usb://Samsung/SCX-3400%20Series?serial=Z6Y1BQAC500079K&interface=1"
@@ -116,12 +117,12 @@ void NewPrinterNotification::NewPrinter(int status,
 bool NewPrinterNotification::registerService()
 {
     if (!QDBusConnection::systemBus().registerService(QLatin1String("com.redhat.NewPrinterNotification"))) {
-        qCWarning(PM_KDED) << "unable to register service to dbus";
+        qCWarning(PMKDED) << "unable to register service to dbus";
         return false;
     }
 
     if (!QDBusConnection::systemBus().registerObject(QLatin1String("/com/redhat/NewPrinterNotification"), this)) {
-        qCWarning(PM_KDED) << "unable to register object to dbus";
+        qCWarning(PMKDED) << "unable to register object to dbus";
         return false;
     }
     return true;
@@ -130,14 +131,14 @@ bool NewPrinterNotification::registerService()
 void NewPrinterNotification::configurePrinter()
 {
     const QString printerName = sender()->property(PRINTER_NAME).toString();
-    qCDebug(PM_KDED) << "configure printer tool" << printerName;
-    QProcess::startDetached(QLatin1String("configure-printer"), { printerName });
+    qCDebug(PMKDED) << "configure printer tool" << printerName;
+    ProcessRunner::configurePrinter(printerName);
 }
 
 void NewPrinterNotification::printTestPage()
 {
     const QString printerName = sender()->property(PRINTER_NAME).toString();
-    qCDebug(PM_KDED) << "printing test page for" << printerName;
+    qCDebug(PMKDED) << "printing test page for" << printerName;
 
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, request, &KCupsRequest::deleteLater);
@@ -147,14 +148,11 @@ void NewPrinterNotification::printTestPage()
 void NewPrinterNotification::findDriver()
 {
     const QString printerName = sender()->property(PRINTER_NAME).toString();
-    qCDebug(PM_KDED) << "find driver for" << printerName;
+    qCDebug(PMKDED) << "find driver for" << printerName;
 
     // This function will show the PPD browser dialog
     // to choose a better PPD to the already added printer
-
-    auto job = new KIO::CommandLauncherJob(QStringLiteral("kde-add-printer"), {QStringLiteral("--change-ppd"), printerName});
-    job->setDesktopName(QStringLiteral("org.kde.kde-add-printer"));
-    job->start();
+    ProcessRunner::changePrinterPPD(printerName);
 }
 
 void NewPrinterNotification::setupPrinterNotification(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg)
@@ -175,9 +173,7 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify, con
         // This function will show the PPD browser dialog
         // to choose a better PPD, queue name, location
         // in this case the printer was not added
-        auto job = new KIO::CommandLauncherJob(QStringLiteral("kde-add-printer"), {QLatin1String("--new-printer-from-device"), arg});
-        job->setDesktopName(QStringLiteral("org.kde.PrintQueue"));
-        job->start();
+        ProcessRunner::addPrinterFromDevice(arg);
     });
 
     notify->sendEvent();
@@ -185,7 +181,7 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify, con
 
 void NewPrinterNotification::getMissingExecutables(KNotification *notify, int status, const QString &name, const QString &ppdFileName)
 {
-    qCDebug(PM_KDED) << "get missing executables" << ppdFileName;
+    qCDebug(PMKDED) << "get missing executables" << ppdFileName;
     QDBusMessage message = QDBusMessage::createMethodCall(
                 QLatin1String("org.fedoraproject.Config.Printing"),
                 QLatin1String("/org/fedoraproject/Config/Printing"),
@@ -199,7 +195,7 @@ void NewPrinterNotification::getMissingExecutables(KNotification *notify, int st
         watcher->deleteLater();
         QDBusPendingReply<QStringList> reply = *watcher;
         if (!reply.isValid()) {
-            qCWarning(PM_KDED) << "Invalid reply" << reply.error();
+            qCWarning(PMKDED) << "Invalid reply" << reply.error();
             notify->deleteLater();
             return;
         }
@@ -207,7 +203,7 @@ void NewPrinterNotification::getMissingExecutables(KNotification *notify, int st
         const QStringList missingExecutables = reply;
         if (!missingExecutables.isEmpty()) {
             // TODO check with PackageKit about missing drivers
-            qCWarning(PM_KDED) << "Missing executables:" << missingExecutables;
+            qCWarning(PMKDED) << "Missing executables:" << missingExecutables;
             notify->deleteLater();
             return;
         } else if (status == STATUS_SUCCESS) {

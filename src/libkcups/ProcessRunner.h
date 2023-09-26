@@ -26,11 +26,12 @@ public Q_SLOTS:
     static void openPrintQueue(const QString &printerName);
 
     static void addPrinter();
+    static void addPrinterFromDevice(const QString &device);
     static void addClass();
     static void changePrinterPPD(const QString &printerName);
 
 private:
-    static void exec(const QString &cmd, const QStringList &args);
+    static void exec(const QString &cmd, const QStringList &args, const QString &desktopFile = QString());
 };
 
 #endif // PROCESS_RUNNER_H

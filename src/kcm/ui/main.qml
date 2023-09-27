@@ -7,97 +7,273 @@
 import QtQuick 
 import QtQuick.Layouts 
 import QtQuick.Controls as QQC2
+import org.kde.plasma.components as PComp
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
+import org.kde.kitemmodels as KSFM
+import org.kde.plasma.printmanager as PM
+
+/** Note: CUPS has nomenclature for groups of printers called a "Class".
+* For user-facing elements, we will use the term "Group".
+*
+* For CUPS auth and global (print server) settings we will check if
+* server settings are loaded before each maint action.  Getting server
+* settings forces CUPS auth.
+*/
 
 KCM.ScrollViewKCM {
     id: root
 
-    readonly property bool isPaused: kcm.printerModel.printerState === 5
+    readonly property bool isPaused: pmModel.printerState === 5
 
-    implicitHeight: Kirigami.Units.gridUnit * 28
-    implicitWidth: Kirigami.Units.gridUnit * 28
+    function newPrinter(isPrinter = true, addlObj, ppdObj) {
+        const obj = {
+            printerName: isPrinter ? i18n("new_queue") : i18n("new_group")
+            , isClass: !isPrinter
+            , kind: ""
+            , remote: false
+            , isDefault: false
+            , isShared: false
+            , isAcceptingJobs: true
+            , iconName: isPrinter ? "printer" : "folder-print"
+            , memberNames: []
+            , commands: []
+        }
+
+        if (addlObj !== undefined && typeof addlObj === "object") {
+            Object.assign(obj, addlObj)
+        }
+
+        kcm.push("PrinterSettings.qml"
+                , {modelData: Object.assign({}, obj)
+                , ppd: Object.assign({}, ppdObj)
+                , addMode: true
+                , printerModel: pmModel
+                , ppdModel: ppdModel
+                })
+    }
+
+    function checkServerSettings() {
+        if (!kcm.serverSettingsLoaded) {
+            // Calls CUPS Auth
+            kcm.getServerSettings()
+        }
+    }
 
     extraFooterTopPadding: false
 
     actions: [
         Kirigami.Action {
-            text: i18n("Add…")
-            icon.name: "list-add-symbolic"
-            onTriggered: kcm.addPrinter()
+            text: i18nc("@action:button", "Add Printer")
+            icon.name: "printer-symbolic"
+            onTriggered: {
+                checkServerSettings()
+                const dlg = findComp.createObject(root)
+                dlg.open()
+            }
         }
         , Kirigami.Action {
-            text: i18n("Configure Global Settings")
+            text: i18nc("@action:button", "Add Group")
+            icon.name: "folder-print-symbolic"
+            visible: list.count > 1
+            onTriggered: {
+                checkServerSettings()
+                newPrinter(false)
+            }
+        }
+        , Kirigami.Action {
+            text: i18nc("@action:button", "Configure Print Server")
             icon.name: "configure-symbolic"
             onTriggered: kcm.push("Global.qml")
         }
     ]
 
+    Connections {
+        target: kcm
+
+        // when a successful save is done
+        function onSaveDone() {
+            kcm.pop()
+        }
+
+        // when a printer/class is removed
+        function onRemoveDone() {
+            kcm.pop()
+        }
+
+    }
+
+    Component {
+        id: findComp
+
+        FindPrinter {
+            anchors.centerIn: parent
+            implicitWidth: Math.ceil(parent.width*.90)
+            implicitHeight: Math.ceil(parent.height*.90)
+
+            // Selected printer and/or driver
+            // ppd-name contains the driver file name
+            onSetValues: configMap => {
+                const cfgObj = {info: configMap["printer-info"]
+                             , printerUri: configMap["device-uri"]
+                             , location: configMap["printer-location"]
+                             , "ppd-type": configMap["ppd-type"]
+                             , "ppd-name": configMap["ppd-name"] ?? ""}
+
+                if (configMap.hasOwnProperty("printer-model")) {
+                    cfgObj.printerName = configMap["printer-model"].replace(/ /g, "_")
+                }
+
+                // Set the PPD attrs
+                const ppdObj = {make: configMap["printer-make"]
+                             , makeModel: configMap["printer-make-and-model"]
+                             , type: configMap["ppd-type"]
+                             , file: configMap["ppd-name"] ?? ""}
+
+                // if we have device file
+                // strip out the base file name
+                if (ppdObj.file) {
+                     cfgObj.kind = ppdObj.makeModel
+                     const i = ppdObj.file.lastIndexOf('/')
+                     if (i !== -1) {
+                         ppdObj.pcfile = ppdObj.file.slice(-(ppdObj.file.length-i-1))
+                     } else {
+                         ppdObj.pcfile = ppdObj.file
+                     }
+                } else {
+                    cfgObj.kind = ""
+                    ppdObj.pcfile = ""
+                }
+
+                root.newPrinter(true, cfgObj, ppdObj)
+
+            }
+        }
+    }
+
+    PM.PrinterModel {
+        id: pmModel
+    }
+
+    // Not heavy, but slow (timeout?), loads on-demand
+    PM.PPDModel {
+        id: ppdModel
+    }
+
     view: ListView {
         id: list
         clip: true
+        spacing: Kirigami.Units.largeSpacing
 
-        model: kcm.printerModel
+        Keys.onPressed: event => {
+            if (event.key === Qt.Key_Home) {
+                positionViewAtBeginning();
+                currentIndex = 0;
+                event.accepted = true;
+            }
+            else if (event.key === Qt.Key_End) {
+                positionViewAtEnd();
+                currentIndex = count - 1;
+                event.accepted = true;
+            }
+        }
 
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
             visible: list.count === 0
             icon.name: "printer-symbolic"
-            text: i18n("No printers are currently set up")
-
-            helpfulAction: Kirigami.Action {
-                icon.name: "list-add-symbolic"
-                text: i18n("Add Printer…")
-                onTriggered: kcm.addPrinter()
+            text: i18nc("@info:status", "No printers are currently set up")
+            explanation: i18nc("@info:usagetip", "Choose 'Add Printer' to set up a new printer on this computer")
+        }
+        
+        // If there is a mix of printers and classes (groups), then show
+        // the section header
+        section {
+            property: pmModel.printersOnly ? "" : "isClass"
+            delegate: Kirigami.ListSectionHeader {
+                width: ListView.view.width
+                required property bool section
+                label: !section ? i18n("Printers") : i18n("Printer Groups")
             }
         }
 
-        delegate: Kirigami.BasicListItem {
-            text: model.info + (kcm.printerModel.sourceModel.displayLocationHint ? " (%1)".arg(model.location) : "")
-            subtitle: model.stateMessage
-            icon.name: model.iconName
-           
-            font.bold: list.count > 1 && model.isDefault
+        model: KSFM.KSortFilterProxyModel {
+            sourceModel: pmModel
+            sortRole: PM.PrinterModel.DestIsClass
+        }
+
+        delegate: PComp.ItemDelegate {
+            width: ListView.view.width
+
             hoverEnabled: false
             highlighted: false
-
-            // TODO: Attempting to "nullify" a pressed or clicked event,
-            // apparently both of these have to be present.  The "new" way
-            // should just need the background: null
-            background: null
             down: false
 
-            trailing: RowLayout {
-                spacing: Kirigami.Units.smallSpacing
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
 
-                QQC2.ToolButton {
-                    text: i18n("Quick Settings")
+                Kirigami.SubtitleDelegate {
+                    Layout.fillWidth: true
+                    text: model.info
+                          + (model.location && pmModel.displayLocationHint
+                             ? " (%1)".arg(model.location)
+                             : "")
+                    subtitle: model.stateMessage
+                    icon.name: model.remote
+                            ? "folder-network-symbolic"
+                            : (model.isClass ? "folder-print" : model.iconName)
+
+                    font.bold: list.count > 1 & model.isDefault
+
+                    hoverEnabled: false
+                    highlighted: false
+                    down: false
+                }
+
+                PComp.ToolButton {
+                    text: i18nc("@action:button", "Configure…")
                     icon.name: "configure-symbolic"
                     display: QQC2.AbstractButton.IconOnly
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
-                    QQC2.ToolTip {
-                        text: parent.text
+                    onClicked: {
+                        checkServerSettings()
+                        kcm.push("PrinterSettings.qml"
+                                        , { modelData: model
+                                        , addMode: false
+                                        , printerModel: pmModel
+                                        , ppdModel: ppdModel
+                                        })
                     }
 
-                    onClicked: kcm.push("PrinterSettings.qml", { modelData: model })
+                    PComp.ToolTip {
+                        text: parent.text
+                    }
                 }
 
-                QQC2.ToolButton {
-                    text: i18n("Open Print Queue…")
+                PComp.ToolButton {
+                    text: i18nc("@action:button", "Open Print Queue…")
                     icon.name: "view-list-details-symbolic"
                     display: QQC2.AbstractButton.IconOnly
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
-                    QQC2.ToolTip {
+                    onClicked: PM.ProcessRunner.openPrintQueue(model.printerName)
+
+                    PComp.ToolTip {
                         text: parent.text
                     }
-
-                    onClicked: kcm.openPrintQueue(model.printerName)
                 }
 
-                QQC2.ToolButton {
-                    icon.name: isPaused ? "media-playback-start-symbolic" : "media-playback-pause-symbolic"
-                    text: isPaused ? i18n("Resume") : i18n("Pause")
+                PComp.ToolButton {
+                    icon.name: isPaused
+                               ? "media-playback-start-symbolic"
+                               : "media-playback-pause-symbolic"
+                    text: isPaused
+                          ? i18nc("@action:button Resume printing", "Resume")
+                          : i18nc("@action:button Pause printing", "Pause")
+
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: {
                         if (isPaused) {
@@ -107,13 +283,14 @@ KCM.ScrollViewKCM {
                         }
                     }
 
-                    QQC2.ToolTip {
-                        text: isPaused ? i18n("Resume printing") : i18n("Pause printing")
+                    PComp.ToolTip {
+                        text: isPaused
+                              ? i18nc("@info:tooltip", "Resume printing")
+                              : i18nc("@info:tooltip", "Pause printing")
                     }
                 }
-
             }
-
         }
     }
+
 }

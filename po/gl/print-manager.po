@@ -274,7 +274,7 @@ msgstr "URI Manual"
 #: src/add-printer/DevicesModel.cpp:115
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "Non se puido obter unha lista de dispositivos: «%1»."
+msgstr "Non foi posíbel obter unha lista de dispositivos: «%1»."
 
 #: src/add-printer/DevicesModel.cpp:238
 #, kde-format
@@ -349,7 +349,7 @@ msgstr "Impresoras locais"
 #: src/add-printer/DevicesModel.cpp:328
 #, kde-format
 msgid "Failed to group devices: '%1'"
-msgstr "Non se puideron agrupar os dispositivos: «%1»."
+msgstr "Non foi posíbel agrupar os dispositivos: «%1»."
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
 #: src/add-printer/main.cpp:30 src/printer-manager-kcm/PrintKCM.ui:19
@@ -403,13 +403,13 @@ msgstr "Cambia os PPD da impresora ou identificador de dispositivo indicado"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr "Non se puido engadir a clase: «%1»."
+msgstr "Non foi posíbel engadir a clase: «%1»."
 
 #: src/add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr "Non se puido configurar a impresora: «%1»."
+msgstr "Non foi posíbel configurar a impresora: «%1»."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/PageAddPrinter.ui:31
@@ -685,13 +685,13 @@ msgstr "Seleccionar un controlador personalizado"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
-msgstr "Non se puido configurar a clase."
+msgstr "Non foi posíbel configurar a clase."
 
 #: src/configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
-msgstr "Non se puido configurar a impresora."
+msgstr "Non foi posíbel configurar a impresora."
 
 #: src/configure-printer/ModifyPrinter.cpp:229
 #: src/printer-manager-kcm/PrintKCM.cpp:328
@@ -1027,7 +1027,7 @@ msgstr "Desde o servidor"
 #: src/libkcups/JobModel.cpp:518 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr "Non se puido mover «%1» a «%2»."
+msgstr "Non foi posíbel mover «%1» a «%2»."
 
 #: src/libkcups/JobModel.cpp:521 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
@@ -1092,12 +1092,12 @@ msgstr "Páxina de proba"
 #: src/libkcups/KCupsRequest.cpp:433
 #, kde-format
 msgid "Unable to send command to printer driver!"
-msgstr "Non se pode enviar a orde ao controlador da impresora!"
+msgstr "Non é posíbel enviar a orde ao controlador da impresora!"
 
 #: src/libkcups/KCupsRequest.cpp:567
 #, kde-format
 msgid "Failed to invoke method: %1"
-msgstr "Non se puido invocar o método: %1"
+msgstr "Non foi posíbel invocar o método: %1"
 
 #: src/libkcups/PPDModel.cpp:32
 #, kde-format
@@ -1172,12 +1172,12 @@ msgstr "Descoñecido — «%1»"
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
-msgstr "Non se puido obter unha lista de controladores: «%1»."
+msgstr "Non foi posíbel obter unha lista de controladores: «%1»."
 
 #: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
-msgstr "Non se puido buscar un controlador recomendado: «%1»."
+msgstr "Non foi posíbel buscar un controlador recomendado: «%1»."
 
 #. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
 #: src/libkcups/SelectMakeModel.ui:44
@@ -1295,7 +1295,7 @@ msgstr "Imprimir unha páxina de proba."
 #: src/printer-manager-kcm/PrinterDescription.cpp:235
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr "Non se puido efectuar a solicitude: %1."
+msgstr "Non foi posíbel efectuar a solicitude: %1."
 
 #. i18n: ectx: property (text), widget (QLabel, printerNameL)
 #: src/printer-manager-kcm/PrinterDescription.ui:83
@@ -1446,13 +1446,13 @@ msgstr "Seguro que quere retirar a impresora «%1»?"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
-msgstr "Non se puido obter a configuración do servidor."
+msgstr "Non foi posíbel obter a configuración do servidor."
 
 #: src/printer-manager-kcm/PrintKCM.cpp:361
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
-msgstr "Non se puideron configurar as preferencias do servidor."
+msgstr "Non foi posíbel configurar as preferencias do servidor."
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
 #: src/printer-manager-kcm/PrintKCM.ui:52
@@ -1557,7 +1557,7 @@ msgstr "Todas as impresoras"
 #: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr "Non se puido cancelar «%1»."
+msgstr "Non foi posíbel cancelar «%1»."
 
 #: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
@@ -1567,12 +1567,12 @@ msgstr "Non se puido pór en espera «%1»."
 #: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr "Non se puideron retomar os traballos en «%1»."
+msgstr "Non foi posíbel retomar os traballos en «%1»."
 
 #: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr "Non se puido volver imprimir «%1»."
+msgstr "Non foi posíbel volver imprimir «%1»."
 
 #: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format

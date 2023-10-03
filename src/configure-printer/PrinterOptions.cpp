@@ -554,7 +554,12 @@ PrinterOptions::get_option_value(
 
             snprintf(buffer, bufsize, "Custom.%s", val);
             break;
+#if (CUPS_VERSION_MAJOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR == 2 && CUPS_VERSION_PATCH >= 12)
         case PPD_CUSTOM_UNKNOWN :
+#endif
+        default :
             break;
         }
     } else {
@@ -660,7 +665,12 @@ PrinterOptions::get_option_value(
                 *bufptr   = '\0';
                 bufend ++;
                 break;
+#if (CUPS_VERSION_MAJOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR == 2 && CUPS_VERSION_PATCH >= 12)
             case PPD_CUSTOM_UNKNOWN :
+#endif                
+            default :
                 break;
             }
 

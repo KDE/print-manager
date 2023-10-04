@@ -19,10 +19,6 @@ PPDModel::PPDModel(QObject *parent) :
     m_roles[PPDName] = "ppdName";
     m_roles[PPDMake] = "ppdMake";
     m_roles[PPDMakeAndModel] = "ppdMakeModel";
-    
-    connect(this, &PPDModel::rowsInserted, this, &PPDModel::countChanged);
-    connect(this, &PPDModel::rowsRemoved, this, &PPDModel::countChanged);
-    connect(this, &PPDModel::modelReset, this, &PPDModel::countChanged);
 }
 
 QHash<int, QByteArray> PPDModel::roleNames() const
@@ -84,11 +80,6 @@ Qt::ItemFlags PPDModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
-int PPDModel::count() const
-{
-    return rowCount();
-}
-
 void PPDModel::load()
 {
     qCDebug(LIBKCUPS) << "LOADING PPD Model";
@@ -106,7 +97,7 @@ void PPDModel::load()
             } else {
                 Q_EMIT error(i18n("Empty ppd model"));
             }
-            qCDebug(LIBKCUPS) << "PPD Model Loaded:" << count();
+            qCDebug(LIBKCUPS) << "PPD Model Loaded";
         }
         request->deleteLater();
     });

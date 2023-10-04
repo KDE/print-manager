@@ -22,7 +22,6 @@ typedef QList<DriverMatch> DriverMatchList;
 class KCUPSLIB_EXPORT PPDModel : public QStandardItemModel
 {
     Q_OBJECT
-    Q_PROPERTY(int count READ count NOTIFY countChanged)
     QML_ELEMENT
 
 public:
@@ -38,12 +37,10 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     virtual QHash<int,QByteArray> roleNames() const override;
-    int count() const;
 
     Q_INVOKABLE void load();
 
 Q_SIGNALS:
-    void countChanged();
     void error(const QString &msg);
 
 private:

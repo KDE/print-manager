@@ -21,6 +21,7 @@
 
 #include <QIcon>
 #include <QMenu>
+#include <QPointer>
 #include <KCupsRequest.h>
 #include <NoSelectionRectDelegate.h>
 

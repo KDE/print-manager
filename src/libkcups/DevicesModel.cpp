@@ -58,6 +58,68 @@ QHash<int, QByteArray> DevicesModel::roleNames() const
     return m_roles;
 }
 
+QString DevicesModel::uriDevice(const QString &uri) const
+{
+    QString ret;
+    if (uri.startsWith(QLatin1String("parallel"))) {
+        ret = i18n("Parallel Port");
+    } else if (uri.startsWith(QLatin1String("serial"))) {
+        ret = i18n("Serial Port");
+    } else if (uri.startsWith(QLatin1String("usb"))) {
+        ret = i18n("USB");
+    } else if (uri.startsWith(QLatin1String("bluetooth")) ){
+        ret = i18n("Bluetooth");
+    } else if (uri.startsWith(QLatin1String("hpfax"))) {
+        ret = i18n("Fax - HP Linux Imaging and Printing (HPLIP)");
+    } else if (uri.startsWith(QLatin1String("hp"))) {
+        ret = i18n("HP Linux Imaging and Printing (HPLIP)");
+    } else if (uri.startsWith(QLatin1String("hal"))) {
+        ret = i18n("Hardware Abstraction Layer (HAL)");
+    } else if (uri.startsWith(QLatin1String("socket"))) {
+        ret = i18n("AppSocket/HP JetDirect");
+    } else if (uri.startsWith(QLatin1String("lpd"))) {
+        // Check if the queue name is defined
+        const QString queue = uri.section(QLatin1Char('/'), -1, -1);
+        if (queue.isEmpty()) {
+            ret = i18n("LPD/LPR queue");
+        } else {
+            ret = i18n("LPD/LPR queue %1", queue);
+        }
+    } else if (uri.startsWith(QLatin1String("smb"))) {
+        ret = i18n("Windows Printer via SAMBA");
+    } else if (uri.startsWith(QLatin1String("ipp"))) {
+        // Check if the queue name (fileName) is defined
+        const QString queue = uri.section(QLatin1Char('/'), -1, -1);
+        if (queue.isEmpty()) {
+            ret = i18n("IPP");
+        } else {
+            ret = i18n("IPP %1", queue);
+        }
+    } else if (uri.startsWith(QLatin1String("https"))) {
+        ret = i18n("HTTP");
+    } else if (uri.startsWith(QLatin1String("dnssd")) ||
+               uri.startsWith(QLatin1String("mdns"))) {
+        // TODO this needs testing...
+        QString text;
+        if (uri.contains(QLatin1String("cups"))) {
+            text = i18n("Remote CUPS printer via DNS-SD");
+        } else {
+            if (uri.contains(QLatin1String("._ipp"))) {
+                ret = i18n("IPP network printer via DNS-SD");
+            } else if (uri.contains(QLatin1String("._printer"))) {
+                ret = i18n("LPD network printer via DNS-SD");
+            } else if (uri.contains(QLatin1String("._pdl-datastream"))) {
+                ret = i18n("AppSocket/JetDirect network printer via DNS-SD");
+            } else {
+                ret = i18n("Network printer via DNS-SD");
+            }
+        }
+    } else {
+        ret = uri;
+    }
+    return ret;
+}
+
 QString DevicesModel::deviceDescription(const QString &uri) const {
     static QMap<QString, QString> descriptions({
         {u"parallel"_s, i18nc("@info:tooltip", "A printer connected to the parallel port")}

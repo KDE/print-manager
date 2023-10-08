@@ -74,6 +74,8 @@ public Q_SLOTS:
                       const QString &device_location,
                       const KCupsPrinters &grouped_printers);
 
+    QString uriDevice(const QString &uri) const;
+
 private Q_SLOTS:
     QStandardItem* createItem(const QString &device_class,
                               const QString &device_id,

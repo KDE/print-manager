@@ -823,13 +823,15 @@ bool KCupsConnection::retry(const char *resource, int operation) const
 
     if (forceAuth) {
         // force authentication
-        qCDebug(LIBKCUPS) << "Calling cupsDoAuthentication() password_retries:" << password_retries;
         int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
-        qCDebug(LIBKCUPS) << "Called cupsDoAuthentication(), success:" << (ret == 0);
+        qCWarning(LIBKCUPS) << "cupsDoAuthentication, return:"
+                            << ret
+                            << "password_retries:"
+                            << password_retries;
 
         // If the authentication was successful
         // sometimes just trying to be root works
-        return ret == 0;
+        return ret != 0;
     }
 
     // the action was not forbidden

@@ -48,7 +48,6 @@ private slots:
                       const KCupsPrinters &grouped_printers);
 
 private:
-    QString uriText(const QString &uri) const;
     QVariantMap selectedItemValues() const;
     void setCurrentPage(QWidget *widget, const QVariantMap &args);
 

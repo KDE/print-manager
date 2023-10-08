@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:48+0000\n"
+"POT-Creation-Date: 2023-10-08 00:44+0000\n"
 "PO-Revision-Date: 2022-12-30 19:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -681,7 +681,7 @@ msgid "Failed to configure printer"
 msgstr "設定印表機失敗"
 
 #: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:328
+#: src/printer-manager-kcm/PrintKCM.cpp:329
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1348,92 +1348,92 @@ msgstr "列印測試頁"
 msgid "Print Self Test Page"
 msgstr "列印自我測試頁"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:60
+#: src/printer-manager-kcm/PrintKCM.cpp:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "新增印表機類別"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:63
+#: src/printer-manager-kcm/PrintKCM.cpp:64
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "新增印表機或印表機類別"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:67
+#: src/printer-manager-kcm/PrintKCM.cpp:68
 #: src/printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "移除印表機"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:77
+#: src/printer-manager-kcm/PrintKCM.cpp:78
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "顯示其他系統共享的印表機"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:81
+#: src/printer-manager-kcm/PrintKCM.cpp:82
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "分享連線到此系統的印表機"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:83
+#: src/printer-manager-kcm/PrintKCM.cpp:84
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "允許從網際網路上列印"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:89
+#: src/printer-manager-kcm/PrintKCM.cpp:90
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "允許遠端管理"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:91
+#: src/printer-manager-kcm/PrintKCM.cpp:92
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "允許使用者取消任何工作（而不是只能取消他們自己的工作）"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:95
+#: src/printer-manager-kcm/PrintKCM.cpp:96
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "設定全域喜好設定"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:140
-#: src/printer-manager-kcm/PrintKCM.cpp:240
+#: src/printer-manager-kcm/PrintKCM.cpp:141
+#: src/printer-manager-kcm/PrintKCM.cpp:241
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "沒有設定或發現任何印表機"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:271
+#: src/printer-manager-kcm/PrintKCM.cpp:272
 #, kde-format
 msgid "Remove class"
 msgstr "移除類別"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:272
+#: src/printer-manager-kcm/PrintKCM.cpp:273
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "您確定要移除類別 '%1' 嗎？"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:275
+#: src/printer-manager-kcm/PrintKCM.cpp:276
 #, kde-format
 msgid "Remove printer"
 msgstr "移除印表機"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:276
+#: src/printer-manager-kcm/PrintKCM.cpp:277
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "您確定要移除印表機 '%1' 嗎？"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:326
+#: src/printer-manager-kcm/PrintKCM.cpp:327
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "取得伺服器設定失敗"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:361
+#: src/printer-manager-kcm/PrintKCM.cpp:362
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"

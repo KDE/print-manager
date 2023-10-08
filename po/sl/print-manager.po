@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-08-18 00:48+0000\n"
+"POT-Creation-Date: 2023-10-08 00:44+0000\n"
 "PO-Revision-Date: 2022-12-08 09:55+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -691,7 +691,7 @@ msgid "Failed to configure printer"
 msgstr "Nastavitev tiskalnika ni uspela"
 
 #: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:328
+#: src/printer-manager-kcm/PrintKCM.cpp:329
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -1358,92 +1358,92 @@ msgstr "Natisni preizkusno stran"
 msgid "Print Self Test Page"
 msgstr "Natisni stran samo-preizkusa"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:60
+#: src/printer-manager-kcm/PrintKCM.cpp:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Dodaj razred tiskalnikov"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:63
+#: src/printer-manager-kcm/PrintKCM.cpp:64
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Dodaj nov tiskalnik ali razred tiskalnikov"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:67
+#: src/printer-manager-kcm/PrintKCM.cpp:68
 #: src/printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Odstrani tiskalnik"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:77
+#: src/printer-manager-kcm/PrintKCM.cpp:78
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Pokaži tiskalnike, ki jih delijo drugi sistemi"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:81
+#: src/printer-manager-kcm/PrintKCM.cpp:82
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Deli tiskalnike priključene na ta sistem"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:83
+#: src/printer-manager-kcm/PrintKCM.cpp:84
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Dovoli tiskanje iz interneta"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:89
+#: src/printer-manager-kcm/PrintKCM.cpp:90
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Dovoli oddaljeno skrbništvo"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:91
+#: src/printer-manager-kcm/PrintKCM.cpp:92
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Uporabnikom dovoli preklic vseh poslov (ne le svojih)"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:95
+#: src/printer-manager-kcm/PrintKCM.cpp:96
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Nastavite splošne možnosti"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:140
-#: src/printer-manager-kcm/PrintKCM.cpp:240
+#: src/printer-manager-kcm/PrintKCM.cpp:141
+#: src/printer-manager-kcm/PrintKCM.cpp:241
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Nastavljenega ali odkritega ni bilo nobenega tiskalnika"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:271
+#: src/printer-manager-kcm/PrintKCM.cpp:272
 #, kde-format
 msgid "Remove class"
 msgstr "Odstrani razred"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:272
+#: src/printer-manager-kcm/PrintKCM.cpp:273
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Ali resnično želite odstraniti razred »%1«?"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:275
+#: src/printer-manager-kcm/PrintKCM.cpp:276
 #, kde-format
 msgid "Remove printer"
 msgstr "Odstrani tiskalnik"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:276
+#: src/printer-manager-kcm/PrintKCM.cpp:277
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Ali resnično želite odstraniti tiskalnik »%1«?"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:326
+#: src/printer-manager-kcm/PrintKCM.cpp:327
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Pridobivanje nastavitev strežnika ni uspelo"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:361
+#: src/printer-manager-kcm/PrintKCM.cpp:362
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"

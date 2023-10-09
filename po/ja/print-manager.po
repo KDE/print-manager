@@ -1575,6 +1575,3 @@ msgstr "完了したジョブ"
 #, kde-format
 msgid "All Jobs"
 msgstr "すべてのジョブ"
-
-#~ msgid "Print settings"
-#~ msgstr "印刷設定"

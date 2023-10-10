@@ -1616,6 +1616,3 @@ msgstr "Приключени задачи"
 #, kde-format
 msgid "All Jobs"
 msgstr "Всички задачи"
-
-#~ msgid "Print settings"
-#~ msgstr "Настройки за печат"

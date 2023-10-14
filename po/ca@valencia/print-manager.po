@@ -1525,7 +1525,7 @@ msgstr "Estat desconegut de la impressora"
 #: src/printqueue/PrintQueueUi.cpp:263
 #, kde-format
 msgid "Move to"
-msgstr "Mou a"
+msgstr "Mou cap a"
 
 #: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format

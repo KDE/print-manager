@@ -42,6 +42,7 @@ public:
 
 Q_SIGNALS:
     void error(const QString &msg);
+    void loaded();
 
 private:
     QStandardItem* createPPDItem(const QVariantMap &ppd, bool recommended);

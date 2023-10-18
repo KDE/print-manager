@@ -100,6 +100,7 @@ void PPDModel::load()
             qCDebug(LIBKCUPS) << "PPD Model Loaded";
         }
         request->deleteLater();
+        Q_EMIT loaded();
     });
 
     req->getPPDS();

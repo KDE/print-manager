@@ -36,7 +36,8 @@ public:
         DeviceUri,
         DeviceUris,
         DeviceLocation,
-        DeviceDescription
+        DeviceDescription,
+        DeviceCategory
     };
     Q_ENUM(Role)
 

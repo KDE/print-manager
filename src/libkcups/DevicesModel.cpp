@@ -40,6 +40,7 @@ DevicesModel::DevicesModel(QObject *parent) : QStandardItemModel(parent)
     m_roles[DeviceUris]         = "deviceUris";
     m_roles[DeviceLocation]     = "deviceLocation";
     m_roles[DeviceDescription]  = "deviceDescription";
+    m_roles[DeviceCategory]     = "deviceCategory";
 
     qDBusRegisterMetaType<MapSS>();
     qDBusRegisterMetaType<MapSMapSS>();
@@ -189,17 +190,17 @@ void DevicesModel::gotDevice(const QString &device_class,
                              const QString &device_location)
 {
     // "direct"
-    qCWarning(LIBKCUPS) << device_class;
+    qCDebug(LIBKCUPS) << device_class;
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
-    qCWarning(LIBKCUPS) << device_id;
+    qCDebug(LIBKCUPS) << device_id;
     // "Samsung SCX-4200 Series"
-    qCWarning(LIBKCUPS) << device_info;
+    qCDebug(LIBKCUPS) << device_info;
     // "Samsung SCX-4200 Series"
-    qCWarning(LIBKCUPS) << device_make_and_model;
+    qCDebug(LIBKCUPS) << device_make_and_model;
     // "usb://Samsung/SCX-4200%20Series"
-    qCWarning(LIBKCUPS) << device_uri;
+    qCDebug(LIBKCUPS) << device_uri;
     // ""
-    qCWarning(LIBKCUPS) << device_location;
+    qCDebug(LIBKCUPS) << device_location;
 
     if (m_blacklistedURIs.contains(device_uri)) {
         // ignore black listed uri's
@@ -305,17 +306,17 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
                                         bool grouped)
 {
     // "direct"
-    qCWarning(LIBKCUPS) << device_class;
+    qCDebug(LIBKCUPS) << device_class;
     // "MFG:Samsung;CMD:GDI;MDL:SCX-4200 Series;CLS:PRINTER;MODE:PCL;STATUS:IDLE;"
-    qCWarning(LIBKCUPS) << device_id;
+    qCDebug(LIBKCUPS) << device_id;
     // "Samsung SCX-4200 Series"
-    qCWarning(LIBKCUPS) << device_info;
+    qCDebug(LIBKCUPS) << device_info;
     // "Samsung SCX-4200 Series"
-    qCWarning(LIBKCUPS) << device_make_and_model;
+    qCDebug(LIBKCUPS) << device_make_and_model;
     // "usb://Samsung/SCX-4200%20Series"
-    qCWarning(LIBKCUPS) << device_uri;
+    qCDebug(LIBKCUPS) << device_uri;
     // ""
-    qCWarning(LIBKCUPS) << device_location;
+    qCDebug(LIBKCUPS) << device_location;
 
     Kind kind;
     // Store the kind of the device
@@ -370,21 +371,29 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
 
     // Find the proper category to our item
     QStandardItem *catItem;
+    QString cat;
     switch (kind) {
     case Networked:
-        catItem = findCreateCategory(i18nc("@item", "Discovered Network Printers"), kind);
+        cat = i18nc("@item", "Discovered Network Printers");
+        catItem = findCreateCategory(cat, kind);
+        stdItem->setData(u"Network"_s, DeviceCategory);
         catItem->appendRow(stdItem);
         break;
     case OtherNetworked:
-        catItem = findCreateCategory(i18nc("@item", "Other Network Printers"), kind);
+        cat = i18nc("@item", "Other Network Printers");
+        catItem = findCreateCategory(cat, kind);
+        stdItem->setData(u"Manual"_s, DeviceCategory);
         catItem->appendRow(stdItem);
         break;
     case Local:
-        catItem = findCreateCategory(i18nc("@item", "Local Printers"), kind);
+        cat = i18nc("@item", "Local Printers");
+        catItem = findCreateCategory(cat, kind);
+        stdItem->setData(u"Local"_s, DeviceCategory);
         catItem->appendRow(stdItem);
         break;
     default:
         stdItem->setData(kind, Qt::UserRole);
+        stdItem->setData(u"Manual"_s, DeviceCategory);
         appendRow(stdItem);
     }
 

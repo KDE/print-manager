@@ -1379,7 +1379,7 @@ msgstr "Mostra les impressores compartides per altres sistemes"
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
-msgstr "Compartix les impressores connectades a este sistema"
+msgstr "Compartix les impressores connectades amb este sistema"
 
 #: printer-manager-kcm/PrintKCM.cpp:83
 #, kde-format

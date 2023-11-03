@@ -49,12 +49,12 @@ target_link_libraries(kde-add-printer
     Qt::Core
     Qt::Widgets
     Qt::Network
-    KF${QT_MAJOR_VERSION}::CoreAddons
-    KF${QT_MAJOR_VERSION}::I18n
-    KF${QT_MAJOR_VERSION}::IconThemes
-    KF${QT_MAJOR_VERSION}::KIOCore
-    KF${QT_MAJOR_VERSION}::KIOWidgets
-    KF${QT_MAJOR_VERSION}::ConfigCore
+    KF6::CoreAddons
+    KF6::I18n
+    KF6::IconThemes
+    KF6::KIOCore
+    KF6::KIOWidgets
+    KF6::ConfigCore
     kcupslib
 )
 if (QT_MAJOR_VERSION STREQUAL "6")

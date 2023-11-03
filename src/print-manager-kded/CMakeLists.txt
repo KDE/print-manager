@@ -18,10 +18,10 @@ set_target_properties(kded_printmanager PROPERTIES OUTPUT_NAME printmanager)
 
 target_link_libraries(kded_printmanager
     Qt::Core
-    KF${QT_MAJOR_VERSION}::DBusAddons
-    KF${QT_MAJOR_VERSION}::Notifications
+    KF6::DBusAddons
+    KF6::Notifications
     kcupslib
 )
 
-install(TARGETS kded_printmanager DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/kded)
+install(TARGETS kded_printmanager DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kded)
 install(FILES printmanager.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})

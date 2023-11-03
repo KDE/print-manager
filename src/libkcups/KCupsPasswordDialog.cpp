@@ -12,9 +12,7 @@
 
 #include <KPasswordDialog>
 #include <KWindowSystem>
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 #include <KX11Extras>
-#endif
 #include <KLocalizedString>
 
 KCupsPasswordDialog::KCupsPasswordDialog(QObject *parent) :
@@ -52,11 +50,7 @@ void KCupsPasswordDialog::exec(const QString &username, bool wrongPassword)
         dialog->setAttribute(Qt::WA_NativeWindow, true);
         KWindowSystem::setMainWindow(dialog->windowHandle(), m_mainwindow);
     }
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     KX11Extras::forceActiveWindow(dialog->winId());
-#else
-    KWindowSystem::forceActiveWindow(dialog->winId());
-#endif
 
     // Do not return from this method now
     dialog->exec();

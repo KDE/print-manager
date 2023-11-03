@@ -40,9 +40,6 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="filter">
-      <string>*.ppd *.ppd.gz|PostScript Printer Description files</string>
-     </property>
     </widget>
    </item>
    <item row="2" column="0" colspan="2">

@@ -30,22 +30,13 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PrintKCM, "kcm_printer_manager.json")
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
 PrintKCM::PrintKCM(QObject *parent) :
     KCModule(parent),
-#else
-PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
-    KCModule(parent, args),
-#endif
     ui(new Ui::PrintKCM)
 {
     setButtons(NoAdditionalButton);
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     ui->setupUi(widget());
-#else
-    ui->setupUi(this);
-#endif
 
     connect(ui->printerDesc, &PrinterDescription::updateNeeded, this, &PrintKCM::update);
 
@@ -53,11 +44,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     // default dialog icon size is 32, this times 6 is 192 which is roughly the original width
     ui->printersTV->setMinimumWidth(192);
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     auto addMenu = new QMenu(widget());
-#else
-    auto addMenu = new QMenu(this);
-#endif
     addMenu->addAction(i18nc("@action:intoolbar","Add a Printer Class"),
                        this, &PrintKCM::addClass);
     ui->addTB->setIcon(QIcon::fromTheme(QLatin1String("list-add")));
@@ -67,11 +54,7 @@ PrintKCM::PrintKCM(QWidget *parent, const QVariantList &args) :
     ui->removeTB->setIcon(QIcon::fromTheme(QLatin1String("list-remove")));
     ui->removeTB->setToolTip(i18n("Remove Printer"));
 
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
     auto systemMenu = new QMenu(widget());
-#else
-    auto systemMenu = new QMenu(this);
-#endif
 
     connect(systemMenu, &QMenu::triggered, this, &PrintKCM::systemPreferencesTriggered);
 #if CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6
@@ -277,11 +260,7 @@ void PrintKCM::on_removeTB_clicked()
             msg = i18n("Are you sure you want to remove the printer '%1'?",
                        index.data(Qt::DisplayRole).toString());
         }
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
         resp = KMessageBox::warningTwoActions(widget(), msg, title, KStandardGuiItem::remove(), KStandardGuiItem::cancel());
-#else
-        resp = KMessageBox::warningTwoActions(this, msg, title, KStandardGuiItem::remove(), KStandardGuiItem::cancel());
-#endif
         if (resp == KMessageBox::PrimaryAction) {
             QPointer<KCupsRequest> request = new KCupsRequest;
             request->deletePrinter(index.data(PrinterModel::DestName).toString());
@@ -319,11 +298,7 @@ void PrintKCM::getServerSettingsFinished(KCupsRequest *request)
 
     if (error) {
         if (request->property("interactive").toBool()) {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
             KMessageBox::detailedError(widget(),
-#else
-            KMessageBox::detailedError(this,
-#endif
                                        i18nc("@info", "Failed to get server settings"),
                                        request->errorMsg(),
                                        i18nc("@title:window", "Failed"));
@@ -354,11 +329,7 @@ void PrintKCM::updateServerFinished(KCupsRequest *request)
             // Server is restarting, or auth was canceled, update the settings in one second
             QTimer::singleShot(1000, this, &PrintKCM::update);
         } else {
-#if QT_VERSION > QT_VERSION_CHECK(6, 0, 0)
             KMessageBox::detailedError(widget(),
-#else
-            KMessageBox::detailedError(this,
-#endif
                                        i18nc("@info", "Failed to configure server settings"),
                                        request->errorMsg(),
                                        request->serverError());

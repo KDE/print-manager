@@ -17,9 +17,7 @@
 #include <KIconLoader>
 #include <KPixmapSequence>
 
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 #include <KPixmapSequenceLoader>
-#endif
 
 #include "Debug.h"
 
@@ -51,11 +49,7 @@ SelectMakeModelDialog::SelectMakeModelDialog(const QString &make, const QString 
 
     // Setup the busy cursor
     auto busySeq = new KPixmapSequenceOverlayPainter(this);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    busySeq->setSequence(KIconLoader::global()->loadPixmapSequence(QLatin1String("process-working"), KIconLoader::SizeSmallMedium));
-#else
     busySeq->setSequence(KPixmapSequenceLoader::load(QLatin1String("process-working"), KIconLoader::SizeSmallMedium));
-#endif
     busySeq->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
     busySeq->setWidget(button);
     busySeq->start();

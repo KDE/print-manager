@@ -56,10 +56,9 @@ target_link_libraries(kde-add-printer
     KF6::KIOWidgets
     KF6::ConfigCore
     kcupslib
+    Qt6::Core5Compat
+    KF6::IconWidgets
 )
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(kde-add-printer Qt6::Core5Compat KF6::IconWidgets)
-endif()
 
 install(TARGETS kde-add-printer DESTINATION ${KDE_INSTALL_BINDIR})
 install(PROGRAMS org.kde.kde-add-printer.desktop DESTINATION ${KDE_INSTALL_APPDIR})

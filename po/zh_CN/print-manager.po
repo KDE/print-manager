@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 00:44+0000\n"
+"POT-Creation-Date: 2023-11-04 00:44+0000\n"
 "PO-Revision-Date: 2023-10-21 13:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -27,13 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
 
-#: src/add-printer/AddPrinterAssistant.cpp:31
+#: src/add-printer/AddPrinterAssistant.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "添加新打印机"
 
-#: src/add-printer/AddPrinterAssistant.cpp:77 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
 #: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
@@ -44,22 +44,22 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "选择要添加的打印机"
 
-#: src/add-printer/AddPrinterAssistant.cpp:81
-#: src/add-printer/AddPrinterAssistant.cpp:88
-#: src/add-printer/AddPrinterAssistant.cpp:132
+#: src/add-printer/AddPrinterAssistant.cpp:75
+#: src/add-printer/AddPrinterAssistant.cpp:82
+#: src/add-printer/AddPrinterAssistant.cpp:126
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
 msgstr "选择驱动程序"
 
-#: src/add-printer/AddPrinterAssistant.cpp:93
-#: src/add-printer/AddPrinterAssistant.cpp:114
+#: src/add-printer/AddPrinterAssistant.cpp:87
+#: src/add-printer/AddPrinterAssistant.cpp:108
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "请描述您的打印机"
 
-#: src/add-printer/AddPrinterAssistant.cpp:110
+#: src/add-printer/AddPrinterAssistant.cpp:104
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
@@ -344,49 +344,49 @@ msgid "Failed to group devices: '%1'"
 msgstr "设备编组失败：“%1”"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: src/add-printer/main.cpp:30 src/printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:27 src/printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "添加打印机"
 
-#: src/add-printer/main.cpp:32
+#: src/add-printer/main.cpp:29
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "添加新打印机的工具程序"
 
-#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:32
-#: src/printqueue/main.cpp:31
+#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:29
+#: src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: src/add-printer/main.cpp:37 src/configure-printer/main.cpp:34
-#: src/printqueue/main.cpp:34
+#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:31
+#: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "移植到 Qt 5 / Plasma 5"
 
-#: src/add-printer/main.cpp:43
+#: src/add-printer/main.cpp:40
 #, kde-format
 msgid "Parent Window ID"
 msgstr "父窗口 ID"
 
-#: src/add-printer/main.cpp:46
+#: src/add-printer/main.cpp:43
 #, kde-format
 msgid "Add a new printer"
 msgstr "添加新打印机"
 
-#: src/add-printer/main.cpp:49
+#: src/add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer class"
 msgstr "添加新打印机类"
 
-#: src/add-printer/main.cpp:52
+#: src/add-printer/main.cpp:49
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "更改指定打印机的 PPD 文件"
 
-#: src/add-printer/main.cpp:55
+#: src/add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "更改指定打印机/设备 ID 的 PPD 文件"
@@ -626,8 +626,7 @@ msgstr "设置默认打印机选项"
 msgid "Banners, Policies and Allowed Users"
 msgstr "横幅、策略、允许的用户"
 
-#: src/configure-printer/ConfigureDialog.cpp:185
-#: src/configure-printer/ConfigureDialog.cpp:189
+#: src/configure-printer/ConfigureDialog.cpp:184
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -636,22 +635,22 @@ msgstr ""
 "当前页面已被更改。\n"
 "您想要保存这些更改吗？"
 
-#: src/configure-printer/ConfigureDialog.cpp:186
+#: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
 msgid "Save"
 msgstr "保存"
 
-#: src/configure-printer/main.cpp:28
+#: src/configure-printer/main.cpp:25
 #, kde-format
 msgid "Configure Printer"
 msgstr "配置打印机"
 
-#: src/configure-printer/main.cpp:30
+#: src/configure-printer/main.cpp:27
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "配置打印机"
 
-#: src/configure-printer/main.cpp:41
+#: src/configure-printer/main.cpp:38
 #, kde-format
 msgid "Printer to be configured"
 msgstr "要配置的打印机"
@@ -679,7 +678,7 @@ msgid "Failed to configure printer"
 msgstr "配置打印机失败"
 
 #: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:329
+#: src/printer-manager-kcm/PrintKCM.cpp:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -946,7 +945,7 @@ msgid "Query Printer for Default Options"
 msgstr "查询打印机默认选项"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: src/configure-printer/SelectMakeModelDialog.cpp:29
+#: src/configure-printer/SelectMakeModelDialog.cpp:27
 #: src/libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"
@@ -1047,12 +1046,12 @@ msgstr "已中止"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS 连接要求进行身份验证：“%1”"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:25
+#: src/libkcups/KCupsPasswordDialog.cpp:23
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "输入用户名和密码以完成打印任务"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:47
+#: src/libkcups/KCupsPasswordDialog.cpp:45
 #, kde-format
 msgid "Wrong username or password"
 msgstr "用户名或者密码错误"
@@ -1162,20 +1161,14 @@ msgstr "获取驱动程序列表失败：“%1”"
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "搜索推荐的驱动程序失败：“%1”"
 
-#. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
-#: src/libkcups/SelectMakeModel.ui:44
-#, kde-format
-msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-msgstr "*.ppd *.ppd.gz|PostScript 打印机描述文件"
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
-#: src/libkcups/SelectMakeModel.ui:82
+#: src/libkcups/SelectMakeModel.ui:79
 #, kde-format
 msgid "Choose &the driver from the list"
 msgstr "选择列表中的驱动程序(&T)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
-#: src/libkcups/SelectMakeModel.ui:94
+#: src/libkcups/SelectMakeModel.ui:91
 #, kde-format
 msgid "Ma&nually Provide a PPD File:"
 msgstr "手动提供 PPD 文件(&N)："
@@ -1346,92 +1339,92 @@ msgstr "打印测试页"
 msgid "Print Self Test Page"
 msgstr "打印自检页"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:61
+#: src/printer-manager-kcm/PrintKCM.cpp:48
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "添加打印机类"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:64
+#: src/printer-manager-kcm/PrintKCM.cpp:51
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "添加新打印机或者打印机类"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:68
+#: src/printer-manager-kcm/PrintKCM.cpp:55
 #: src/printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "移除打印机"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:78
+#: src/printer-manager-kcm/PrintKCM.cpp:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "显示其他系统共享的打印机"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:82
+#: src/printer-manager-kcm/PrintKCM.cpp:65
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "连接到本机的共享打印机"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:84
+#: src/printer-manager-kcm/PrintKCM.cpp:67
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "允许来自互联网的打印请求"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:90
+#: src/printer-manager-kcm/PrintKCM.cpp:73
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "允许远程管理"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:92
+#: src/printer-manager-kcm/PrintKCM.cpp:75
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "允许用户中止任意任务 (不仅是他们发起的任务)"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:96
+#: src/printer-manager-kcm/PrintKCM.cpp:79
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "配置全局首选项"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:141
-#: src/printer-manager-kcm/PrintKCM.cpp:241
+#: src/printer-manager-kcm/PrintKCM.cpp:124
+#: src/printer-manager-kcm/PrintKCM.cpp:224
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "尚未配置，或者尚未发现打印机"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:272
+#: src/printer-manager-kcm/PrintKCM.cpp:255
 #, kde-format
 msgid "Remove class"
 msgstr "移除打印机类"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:273
+#: src/printer-manager-kcm/PrintKCM.cpp:256
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "您确定要移除打印机类“%1”吗？"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:276
+#: src/printer-manager-kcm/PrintKCM.cpp:259
 #, kde-format
 msgid "Remove printer"
 msgstr "移除打印机"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:277
+#: src/printer-manager-kcm/PrintKCM.cpp:260
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "您确定要移除打印机“%1”吗？"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:327
+#: src/printer-manager-kcm/PrintKCM.cpp:302
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "获取服务器设置失败"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:362
+#: src/printer-manager-kcm/PrintKCM.cpp:333
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
@@ -1461,12 +1454,12 @@ msgstr "错误标题"
 msgid "Click here to add a new printer"
 msgstr "单击此处添加新打印机"
 
-#: src/printqueue/main.cpp:27 src/printqueue/main.cpp:29
+#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
 msgstr "打印队列"
 
-#: src/printqueue/main.cpp:41
+#: src/printqueue/main.cpp:38
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "显示打印队列"
@@ -1613,3 +1606,6 @@ msgstr "已完成任务"
 #, kde-format
 msgid "All Jobs"
 msgstr "所有任务"
+
+#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
+#~ msgstr "*.ppd *.ppd.gz|PostScript 打印机描述文件"

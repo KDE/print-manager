@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-08 00:44+0000\n"
+"POT-Creation-Date: 2023-11-04 00:44+0000\n"
 "PO-Revision-Date: 2022-09-27 17:15+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -28,13 +28,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "wantoyek@gmail.com,linerly@protonmail.com"
 
-#: src/add-printer/AddPrinterAssistant.cpp:31
+#: src/add-printer/AddPrinterAssistant.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "Tambahkan sebuah Printer Baru"
 
-#: src/add-printer/AddPrinterAssistant.cpp:77 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
 #: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
@@ -45,22 +45,22 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Pilih sebuah Printer untuk Ditambahkan"
 
-#: src/add-printer/AddPrinterAssistant.cpp:81
-#: src/add-printer/AddPrinterAssistant.cpp:88
-#: src/add-printer/AddPrinterAssistant.cpp:132
+#: src/add-printer/AddPrinterAssistant.cpp:75
+#: src/add-printer/AddPrinterAssistant.cpp:82
+#: src/add-printer/AddPrinterAssistant.cpp:126
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver"
 msgstr "Pilih sebuah Driver"
 
-#: src/add-printer/AddPrinterAssistant.cpp:93
-#: src/add-printer/AddPrinterAssistant.cpp:114
+#: src/add-printer/AddPrinterAssistant.cpp:87
+#: src/add-printer/AddPrinterAssistant.cpp:108
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Silakan deskripsikan printer Anda"
 
-#: src/add-printer/AddPrinterAssistant.cpp:110
+#: src/add-printer/AddPrinterAssistant.cpp:104
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
@@ -350,49 +350,49 @@ msgid "Failed to group devices: '%1'"
 msgstr "Gagal mengelompokkan peranti: '%1'"
 
 #. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: src/add-printer/main.cpp:30 src/printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:27 src/printer-manager-kcm/PrintKCM.ui:19
 #, kde-format
 msgid "Add Printer"
 msgstr "Tambahkan Printer"
 
-#: src/add-printer/main.cpp:32
+#: src/add-printer/main.cpp:29
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "Alat untuk menambahkan printer baru"
 
-#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:32
-#: src/printqueue/main.cpp:31
+#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:29
+#: src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: src/add-printer/main.cpp:37 src/configure-printer/main.cpp:34
-#: src/printqueue/main.cpp:34
+#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:31
+#: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Port ke Qt 5 / Plasma 5"
 
-#: src/add-printer/main.cpp:43
+#: src/add-printer/main.cpp:40
 #, kde-format
 msgid "Parent Window ID"
 msgstr "ID Jendela Induk"
 
-#: src/add-printer/main.cpp:46
+#: src/add-printer/main.cpp:43
 #, kde-format
 msgid "Add a new printer"
 msgstr "Tambahkan sebuah printer baru"
 
-#: src/add-printer/main.cpp:49
+#: src/add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Tambahkan sebuah kelas printer baru"
 
-#: src/add-printer/main.cpp:52
+#: src/add-printer/main.cpp:49
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Mengubah PPD dari printer yang diberikan"
 
-#: src/add-printer/main.cpp:55
+#: src/add-printer/main.cpp:52
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Mengubah PPD dari printer/id-peranti yang diberikan"
@@ -638,8 +638,7 @@ msgstr "Atur Opsi Printer Baku"
 msgid "Banners, Policies and Allowed Users"
 msgstr "Spanduk, Kebijakan dan Pengguna yang Diizinkan"
 
-#: src/configure-printer/ConfigureDialog.cpp:185
-#: src/configure-printer/ConfigureDialog.cpp:189
+#: src/configure-printer/ConfigureDialog.cpp:184
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -648,22 +647,22 @@ msgstr ""
 "Halaman saat ini telah berubah.\n"
 "Apakah Anda ingin menyimpannya?"
 
-#: src/configure-printer/ConfigureDialog.cpp:186
+#: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
 msgid "Save"
 msgstr ""
 
-#: src/configure-printer/main.cpp:28
+#: src/configure-printer/main.cpp:25
 #, kde-format
 msgid "Configure Printer"
 msgstr "Konfigurasikan Printer"
 
-#: src/configure-printer/main.cpp:30
+#: src/configure-printer/main.cpp:27
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "ConfigurePrinter"
 
-#: src/configure-printer/main.cpp:41
+#: src/configure-printer/main.cpp:38
 #, kde-format
 msgid "Printer to be configured"
 msgstr "Printer menjadi terkonfigurasi"
@@ -691,7 +690,7 @@ msgid "Failed to configure printer"
 msgstr "Gagal mengkonfigurasi printer"
 
 #: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:329
+#: src/printer-manager-kcm/PrintKCM.cpp:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -959,7 +958,7 @@ msgid "Query Printer for Default Options"
 msgstr "Query Printer untuk Opsi Baku"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: src/configure-printer/SelectMakeModelDialog.cpp:29
+#: src/configure-printer/SelectMakeModelDialog.cpp:27
 #: src/libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"
@@ -1060,12 +1059,12 @@ msgstr "Digugurkan"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Sebuah koneksi CUPS memerlukan autentikasi: \"%1\""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:25
+#: src/libkcups/KCupsPasswordDialog.cpp:23
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Masukkan sebuah nama pengguna dan kata sandi untuk melengkapi tugas"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:47
+#: src/libkcups/KCupsPasswordDialog.cpp:45
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Nama pengguna atau kata sandi salah"
@@ -1175,20 +1174,14 @@ msgstr "Gagal mendapatkan sebuah daftar perangkat: '%1'"
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Gagal pencarian untuk sebuah driver yang dianjurkan: '%1'"
 
-#. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
-#: src/libkcups/SelectMakeModel.ui:44
-#, kde-format
-msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-msgstr "File-file Deskripsi Printer *.ppd *.ppd.gz|PostScript"
-
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
-#: src/libkcups/SelectMakeModel.ui:82
+#: src/libkcups/SelectMakeModel.ui:79
 #, kde-format
 msgid "Choose &the driver from the list"
 msgstr "Pilih driver dari daf&tar"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
-#: src/libkcups/SelectMakeModel.ui:94
+#: src/libkcups/SelectMakeModel.ui:91
 #, kde-format
 msgid "Ma&nually Provide a PPD File:"
 msgstr "Se&diakan sebuah File PPD Secara Manual:"
@@ -1359,92 +1352,92 @@ msgstr "Cetak Halaman Uji"
 msgid "Print Self Test Page"
 msgstr "Cetak Halaman Uji Diri"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:61
+#: src/printer-manager-kcm/PrintKCM.cpp:48
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Add a Printer Class"
 msgstr "Tambahkan sebuah Kelas Printer"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:64
+#: src/printer-manager-kcm/PrintKCM.cpp:51
 #, kde-format
 msgid "Add a new printer or a printer class"
 msgstr "Tambahkan sebuah printer baru atau kelas printer"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:68
+#: src/printer-manager-kcm/PrintKCM.cpp:55
 #: src/printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
 msgstr "Hapus Printer"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:78
+#: src/printer-manager-kcm/PrintKCM.cpp:61
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Show printers shared by other systems"
 msgstr "Tampilkan printer yang dibagikan oleh sistem lain"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:82
+#: src/printer-manager-kcm/PrintKCM.cpp:65
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Share printers connected to this system"
 msgstr "Bagikan printer yang terhubung ke sistem ini"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:84
+#: src/printer-manager-kcm/PrintKCM.cpp:67
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow printing from the Internet"
 msgstr "Izinkan pencetakan dari Internet"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:90
+#: src/printer-manager-kcm/PrintKCM.cpp:73
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow remote administration"
 msgstr "Izinkan administrasi jarak jauh"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:92
+#: src/printer-manager-kcm/PrintKCM.cpp:75
 #, kde-format
 msgctxt "@action:intoolbar"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Izinkan pengguna membatalkan tugas apa pun (tidak hanya miliknya saja)"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:96
+#: src/printer-manager-kcm/PrintKCM.cpp:79
 #, kde-format
 msgid "Configure the global preferences"
 msgstr "Konfigurasikan preferensi global"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:141
-#: src/printer-manager-kcm/PrintKCM.cpp:241
+#: src/printer-manager-kcm/PrintKCM.cpp:124
+#: src/printer-manager-kcm/PrintKCM.cpp:224
 #, kde-format
 msgid "No printers have been configured or discovered"
 msgstr "Tidak ada printer yang sudah dikonfigurasikan atau diketemukan"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:272
+#: src/printer-manager-kcm/PrintKCM.cpp:255
 #, kde-format
 msgid "Remove class"
 msgstr "Hapus kelas"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:273
+#: src/printer-manager-kcm/PrintKCM.cpp:256
 #, kde-format
 msgid "Are you sure you want to remove the class '%1'?"
 msgstr "Apakah Anda yakin ingin menghapus kelas '%1'?"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:276
+#: src/printer-manager-kcm/PrintKCM.cpp:259
 #, kde-format
 msgid "Remove printer"
 msgstr "Hapus printer"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:277
+#: src/printer-manager-kcm/PrintKCM.cpp:260
 #, kde-format
 msgid "Are you sure you want to remove the printer '%1'?"
 msgstr "Apakah Anda yakin ingin menghapus printer '%1'?"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:327
+#: src/printer-manager-kcm/PrintKCM.cpp:302
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings"
 msgstr "Gagal mendapatkan pengaturan server"
 
-#: src/printer-manager-kcm/PrintKCM.cpp:362
+#: src/printer-manager-kcm/PrintKCM.cpp:333
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure server settings"
@@ -1474,12 +1467,12 @@ msgstr "Judul Error"
 msgid "Click here to add a new printer"
 msgstr "Klik di sini untuk menambah sebuah printer baru"
 
-#: src/printqueue/main.cpp:27 src/printqueue/main.cpp:29
+#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
 msgstr "Antrean Cetak"
 
-#: src/printqueue/main.cpp:41
+#: src/printqueue/main.cpp:38
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "Tampilkan antrean printer"
@@ -1628,6 +1621,9 @@ msgstr "Tugas Selesai"
 #, kde-format
 msgid "All Jobs"
 msgstr "Semua Tugas"
+
+#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
+#~ msgstr "File-file Deskripsi Printer *.ppd *.ppd.gz|PostScript"
 
 #~ msgid "Print settings"
 #~ msgstr "Pengaturan cetak"

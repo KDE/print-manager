@@ -58,7 +58,6 @@ private:
 
     QString m_currentUri;
     ChooseLpd      *m_chooseLpd;
-    ChoosePrinters *m_choosePrinters;
     ChooseSamba    *m_chooseSamba;
     ChooseSerial   *m_chooseSerial;
     ChooseSocket   *m_chooseSocket;

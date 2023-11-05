@@ -62,10 +62,10 @@ private:
     void setState(int state, const QString &message);
     void modifyJob(int action, const QString &destName = QString());
 
-    Ui::PrintQueueUi *ui;
-    QToolButton *m_filterJobs;
-    JobSortFilterModel *m_proxyModel;
-    JobModel *m_model;
+    Ui::PrintQueueUi *const ui;
+    QToolButton *m_filterJobs = nullptr;
+    JobSortFilterModel *m_proxyModel = nullptr;
+    JobModel *m_model = nullptr;
     QString m_destName;
     QString m_title;
     QPixmap m_printerIcon;

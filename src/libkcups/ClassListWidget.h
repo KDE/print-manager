@@ -45,11 +45,11 @@ private:
 
     QString m_printerName;
     QStringList m_selectedPrinters;
-    KPixmapSequenceOverlayPainter *m_busySeq;
+    KPixmapSequenceOverlayPainter *m_busySeq = nullptr;
     KCupsRequest *m_request = nullptr;
     bool m_changed;
     bool m_showClasses = false;
-    QStandardItemModel *m_model;
+    QStandardItemModel *m_model = nullptr;
     QTimer m_delayedInit;
 };
 

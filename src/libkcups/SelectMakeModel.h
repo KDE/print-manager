@@ -55,8 +55,8 @@ private:
     DriverMatchList m_driverMatchList;
     QString m_make;
     QString m_makeAndModel;
-    Ui::SelectMakeModel *ui;
-    PPDModel *m_sourceModel;
+    Ui::SelectMakeModel *const ui;
+    PPDModel *m_sourceModel = nullptr;
     KCupsRequest *m_ppdRequest = nullptr;
     bool m_gotBestDrivers = false;
     bool m_hasRecommended = false;

@@ -21,8 +21,8 @@ public:
 
     SelectMakeModel * mainWidget() const;
 private:
-    SelectMakeModel * m_widget;
-    QDialogButtonBox * m_bbox;
+    SelectMakeModel * m_widget = nullptr;
+    QDialogButtonBox * m_bbox = nullptr;
 };
 
 #endif // SELECTMAKEMODELDIALOG_H

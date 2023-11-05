@@ -56,7 +56,7 @@ private slots:
     void requestFinished(KCupsRequest *request);
 
 private:
-    Ui::PrinterDescription *ui;
+    Ui::PrinterDescription *const ui;
     QString m_destName;
     bool m_isClass = false;
     bool m_isShared;

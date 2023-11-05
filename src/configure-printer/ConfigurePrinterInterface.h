@@ -27,7 +27,7 @@ public slots:
     void RemovePrinter();
 
 private:
-    QTimer *m_updateUi;
+    QTimer *m_updateUi = nullptr;
     QHash<QString, QWidget *> m_uis;
 };
 

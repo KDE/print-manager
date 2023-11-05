@@ -19,7 +19,7 @@ public:
 
     void configurePrinter(const QString &printer);
 private:
-    ConfigurePrinterInterface *m_cpInterface;
+    ConfigurePrinterInterface *m_cpInterface = nullptr;
 };
 
 #endif // CONFIGURE_PRINTER_H

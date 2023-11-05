@@ -43,17 +43,17 @@ private slots:
     void systemPreferencesTriggered();
 
 private:
-    Ui::PrintKCM *ui;
-    PrinterModel *m_model;
-    PrinterSortFilterModel *m_sortModel;
+    Ui::PrintKCM *const ui;
+    PrinterModel *m_model = nullptr;
+    PrinterSortFilterModel *m_sortModel = nullptr;
     int m_lastError = -1; // Force the error to run on the first time
 
     KCupsRequest *m_serverRequest = nullptr;
-    QAction *m_showSharedPrinters;
-    QAction *m_shareConnectedPrinters;
-    QAction *m_allowPrintringFromInternet;
-    QAction *m_allowRemoteAdmin;
-    QAction *m_allowUsersCancelAnyJob;
+    QAction *m_showSharedPrinters = nullptr;
+    QAction *m_shareConnectedPrinters = nullptr;
+    QAction *m_allowPrintringFromInternet = nullptr;
+    QAction *m_allowRemoteAdmin = nullptr;
+    QAction *m_allowUsersCancelAnyJob = nullptr;
 };
 
 #endif

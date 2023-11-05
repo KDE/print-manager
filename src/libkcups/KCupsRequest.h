@@ -297,7 +297,7 @@ private:
     void setError(http_status_t httpStatus, ipp_status_t error, const QString &errorMsg);
     void setFinished(bool delayed = false);
 
-    KCupsConnection *m_connection;
+    KCupsConnection *m_connection = nullptr;
     QEventLoop m_loop;
     bool m_finished = true;
     ipp_status_t m_error = IPP_OK;

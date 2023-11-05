@@ -52,16 +52,16 @@ private:
     QVariantHash selectedItemValues() const;
     void setCurrentPage(QWidget *widget, const QVariantHash &args);
 
-    Ui::PageDestinations *ui;
-    DevicesModel *m_model;
+    Ui::PageDestinations *const ui;
+    DevicesModel *m_model = nullptr;
 
     QString m_currentUri;
-    ChooseLpd      *m_chooseLpd;
-    ChooseSamba    *m_chooseSamba;
-    ChooseSerial   *m_chooseSerial;
-    ChooseSocket   *m_chooseSocket;
-    ChooseUri      *m_chooseUri;
-    QLabel         *m_chooseLabel;
+    ChooseLpd      *m_chooseLpd = nullptr;
+    ChooseSamba    *m_chooseSamba = nullptr;
+    ChooseSerial   *m_chooseSerial = nullptr;
+    ChooseSocket   *m_chooseSocket = nullptr;
+    ChooseUri      *m_chooseUri = nullptr;
+    QLabel         *m_chooseLabel = nullptr;
 };
 
 #endif

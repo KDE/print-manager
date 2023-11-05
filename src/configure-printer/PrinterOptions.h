@@ -48,14 +48,14 @@ private:
 
     void createGroups();
 
-    Ui::PrinterOptions *ui;
+    Ui::PrinterOptions *const ui;
     QString m_destName;
     bool m_isClass;
     bool m_isRemote;
     QString m_filename;
     ppd_file_t *m_ppd = nullptr;
     int m_changes = 0;
-    QTextCodec *m_codec;
+    QTextCodec *m_codec = nullptr;
     QHash<QString, QObject*> m_customValues;
     QString m_make, m_makeAndModel;
 };

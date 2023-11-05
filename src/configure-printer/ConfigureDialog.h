@@ -28,8 +28,8 @@ private:
     void slotButtonClicked(QAbstractButton * pressedButton);
     void ppdChanged();
 
-    ModifyPrinter *modifyPrinter;
-    PrinterOptions *printerOptions;
+    ModifyPrinter *modifyPrinter = nullptr;
+    PrinterOptions *printerOptions = nullptr;
     void closeEvent(QCloseEvent *event) override;
     // return false if the dialog was canceled
     bool savePage(PrinterPage *page);

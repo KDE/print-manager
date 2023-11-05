@@ -54,7 +54,7 @@ private slots:
     void modelChanged();
 
 private:
-    Ui::ModifyPrinter *ui;
+    Ui::ModifyPrinter *const ui;
     QString m_destName, m_make, m_makeAndModel;
     bool m_isClass;
     QVariantHash m_changedValues;

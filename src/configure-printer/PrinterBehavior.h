@@ -39,7 +39,7 @@ private:
     QString operationPolicyString(const QString &policy) const;
     QString jobSheetsString(const QString &policy) const;
 
-    Ui::PrinterBehavior *ui;
+    Ui::PrinterBehavior *const ui;
     QString m_destName;
     bool m_isClass;
     QVariantHash m_changedValues;

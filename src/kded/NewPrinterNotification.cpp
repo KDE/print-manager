@@ -6,7 +6,6 @@
 */
 
 #include "NewPrinterNotification.h"
-#include "newprinternotificationadaptor.h"
 
 #include "pmkded_log.h"
 
@@ -32,7 +31,7 @@
 NewPrinterNotification::NewPrinterNotification(QObject *parent) : QObject(parent)
 {
     // Creates our new adaptor
-    (void) new NewPrinterNotificationAdaptor(this);
+    (void) new NewPrinterNotification(this);
 
     // Register the com.redhat.NewPrinterNotification interface
     if (!registerService()) {
@@ -169,7 +168,7 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify, con
     }
     auto searchAction = notify->addAction(i18n("Search"));
     connect(searchAction, &KNotificationAction::activated, this, [arg] () {
-        qCDebug(PM_KDED);
+        qCDebug(PMKDED);
         // This function will show the PPD browser dialog
         // to choose a better PPD, queue name, location
         // in this case the printer was not added

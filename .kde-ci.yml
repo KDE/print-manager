@@ -16,4 +16,4 @@ Dependencies:
     'frameworks/knotifications': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
-    'frameworks/plasma-framework': '@latest-kf6'
+    'plasma/plasma-framework': '@latest-kf6'

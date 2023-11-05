@@ -20,7 +20,6 @@ namespace Ui {
 
 class DevicesModel;
 class ChooseLpd;
-class ChoosePrinters;
 class ChooseSamba;
 class ChooseSerial;
 class ChooseSocket;

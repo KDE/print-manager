@@ -9,7 +9,6 @@
 
 #include <QApplication>
 
-class AddPrinterInterface;
 class AddPrinter : public QApplication
 {
     Q_OBJECT

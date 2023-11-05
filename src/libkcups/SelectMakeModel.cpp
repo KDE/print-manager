@@ -7,7 +7,7 @@
 #include "SelectMakeModel.h"
 #include "ui_SelectMakeModel.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 #include "KCupsRequest.h"
 #include "NoSelectionRectDelegate.h"
 
@@ -19,6 +19,7 @@
 #include <QDBusReply>
 #include <QDBusMetaType>
 
+#include <KLocalizedString>
 #include <KMessageBox>
 
 // Marshall the MyStructure data into a D-Bus argument
@@ -113,6 +114,7 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
 
 void SelectMakeModel::setMakeModel(const QString &make, const QString &makeAndModel)
 {
+    ui->radioButtonSelectDriver->setText(i18n("Choose the driver for %1", makeAndModel));
     if (!m_ppdRequest) {
         // We won't try to get the best driver
         // we should be we need more info and testing

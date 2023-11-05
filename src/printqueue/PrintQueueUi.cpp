@@ -7,6 +7,7 @@
 #include "PrintQueueUi.h"
 #include "ui_PrintQueueUi.h"
 
+#include <ProcessRunner.h>
 #include <JobModel.h>
 #include <JobSortFilterModel.h>
 
@@ -17,7 +18,6 @@
 #include <QToolBar>
 #include <QMenu>
 #include <QByteArray>
-#include <QProcess>
 #include <QDebug>
 #include <QPointer>
 #include <QShortcut>
@@ -31,7 +31,7 @@
 #include <KUserTimestamp>
 #include <KPasswdServerClient>
 
-#define PRINTER_ICON_SIZE 92
+static constexpr uint PRINTER_ICON_SIZE = 92;
 
 PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     QDialog(parent),
@@ -58,7 +58,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     if (printer.info().isEmpty()) {
         m_title = printer.name();
     } else {
-        m_title = printer.name() % QLatin1String(" - ") % printer.info();
+        m_title = printer.info();
     }
     setWindowTitle(m_title);
     setSizeGripEnabled(true);
@@ -382,7 +382,7 @@ void PrintQueueUi::getAttributesFinished(KCupsRequest *request)
     if (printer.info().isEmpty()) {
         m_title = printer.name();
     } else {
-        m_title = printer.name() + QLatin1String(" - ") + printer.info();
+        m_title = printer.info();
     }
 
     // get printer-state
@@ -519,7 +519,7 @@ void PrintQueueUi::pausePrinter()
 
 void PrintQueueUi::configurePrinter()
 {
-    QProcess::startDetached(QLatin1String("configure-printer"), {m_destName});
+    ProcessRunner::configurePrinter(m_destName);
 }
 
 void PrintQueueUi::cancelJob()

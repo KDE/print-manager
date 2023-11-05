@@ -42,7 +42,7 @@ bool ChooseSerial::isValid() const
     return m_isValid;
 }
 
-void ChooseSerial::setValues(const QVariantHash &args)
+void ChooseSerial::setValues(const QVariantMap &args)
 {
     m_args = args;
     const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
@@ -68,8 +68,9 @@ void ChooseSerial::setValues(const QVariantHash &args)
 
     // Find out the max baud rate
     int maxrate;
-    if (m_rx.indexIn(deviceUri) != -1) {
-        maxrate = m_rx.cap(1).toInt();
+    const auto match = m_rx.match(deviceUri);
+    if (match.hasMatch()) {
+        maxrate = match.captured(1).toInt();
     } else {
         maxrate = 19200;
     }
@@ -90,9 +91,9 @@ void ChooseSerial::load()
 {
 }
 
-QVariantHash ChooseSerial::values() const
+QVariantMap ChooseSerial::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     QString deviceUri = m_args[KCUPS_DEVICE_URI].toString();
     const int pos = deviceUri.indexOf(QLatin1Char('?'));
     const QString baudRate = ui->baudRateCB->currentText();

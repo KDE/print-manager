@@ -21,6 +21,10 @@ ChooseSocket::ChooseSocket(QWidget *parent) :
 
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
+
+    connect(ui->addressLE, &QLineEdit::textChanged, this, [this](const QString &) {
+        Q_EMIT allowProceed(canProceed());
+    });
 }
 
 ChooseSocket::~ChooseSocket()
@@ -28,7 +32,7 @@ ChooseSocket::~ChooseSocket()
     delete ui;
 }
 
-void ChooseSocket::setValues(const QVariantHash &args)
+void ChooseSocket::setValues(const QVariantMap &args)
 {
     if (m_args == args) {
         return;
@@ -48,9 +52,9 @@ void ChooseSocket::setValues(const QVariantHash &args)
     m_isValid = true;
 }
 
-QVariantHash ChooseSocket::values() const
+QVariantMap ChooseSocket::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     QUrl url = QUrl(QLatin1String("socket://") + ui->addressLE->text());
     url.setPort(ui->portISB->value());
     ret[KCUPS_DEVICE_URI] = url.toDisplayString();
@@ -65,12 +69,6 @@ bool ChooseSocket::isValid() const
 bool ChooseSocket::canProceed() const
 {
     return !ui->addressLE->text().isEmpty();
-}
-
-void ChooseSocket::on_addressLE_textChanged(const QString &text)
-{
-    Q_UNUSED(text)
-    Q_EMIT allowProceed(canProceed());
 }
 
 #include "moc_ChooseSocket.cpp"

@@ -7,7 +7,7 @@
 
 #include "KCupsConnection.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 #include "KCupsPasswordDialog.h"
 #include "KIppRequest.h"
 
@@ -573,7 +573,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
     ReturnArguments ret;
 
 #if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
-    QVariantHash destAttributes;
+    QVariantMap destAttributes;
     for (attr = ippFirstAttribute(response); attr != nullptr; attr = ippNextAttribute(response)) {
         // We hit an attribute separator
         if (ippGetName(attr) == nullptr) {
@@ -621,7 +621,7 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
         /*
          * Pull the needed attributes from this printer...
          */
-        QVariantHash destAttributes;
+        QVariantMap destAttributes;
         for (; attr && attr->group_tag == group_tag; attr = attr->next) {
             if (attr->value_tag != IPP_TAG_INTEGER &&
                 attr->value_tag != IPP_TAG_ENUM &&
@@ -771,15 +771,10 @@ bool KCupsConnection::retry(const char *resource, int operation) const
         // to create a new CUPS connection
         qCWarning(LIBKCUPS) << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
-        // TODO maybe reconnect is enough
-//        httpClearCookie(CUPS_HTTP_DEFAULT);
-
         // Reconnect to CUPS
-        if (httpReconnect(CUPS_HTTP_DEFAULT)) {
+        int cancel = 0;
+        if (httpReconnect2(CUPS_HTTP_DEFAULT, 10000, &cancel)) {
             qCWarning(LIBKCUPS) << "Failed to reconnect" << cupsLastErrorString();
-
-            // Server might be restarting sleep for a few ms
-            msleep(500);
         }
 
         // Try the request again

@@ -7,6 +7,7 @@
 #ifndef PRINTER_MODEL_H
 #define PRINTER_MODEL_H
 
+#include <qqmlregistration.h>
 #include <QStandardItemModel>
 #include <QTimer>
 
@@ -17,12 +18,21 @@ class KCupsRequest;
 class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
-    Q_ENUMS(JobAction)
-    Q_ENUMS(Role)
+    QML_ELEMENT
+      
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
+    /**
+     * Whether or not to actually display the location of the printer
+     * 
+     * Only show the location if there is more than one printer
+     * and at least two distinct locations exist.  If there is only one
+     * printer or 2 or more printers have the same location, this will be false
+     */
+    Q_PROPERTY(bool displayLocationHint READ displayLocationHint NOTIFY displayLocationHintChanged)
+    
 public:
-    enum Role {
+    enum Role{
         DestStatus = Qt::UserRole,
         DestState,
         DestName,
@@ -41,6 +51,7 @@ public:
         DestIconName,
         DestRemote
     };
+    Q_ENUM(Role)
 
     enum JobAction {
         Cancel,
@@ -48,6 +59,7 @@ public:
         Release,
         Move
     };
+    Q_ENUM(JobAction)
 
     explicit PrinterModel(QObject *parent = nullptr);
 
@@ -72,6 +84,7 @@ signals:
     void countChanged(int count);
     void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
+    void displayLocationHintChanged();
 
 private slots:
     void insertUpdatePrinterName(const QString &printerName);
@@ -95,7 +108,10 @@ private:
     WId m_parentId;
     QHash<int, QByteArray> m_roles;
     bool m_unavailable = true;
+    bool m_displayLocationHint = true;
 
+    void setDisplayLocationHint();
+    bool displayLocationHint() const;
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);

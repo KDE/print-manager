@@ -13,7 +13,6 @@
 #include <KX11Extras>
 
 #include <QPointer>
-
 #include <QLoggingCategory>
 
 Q_DECLARE_LOGGING_CATEGORY(PM_ADD_PRINTER)

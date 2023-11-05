@@ -6,7 +6,8 @@
 
 #include "JobModel.h"
 
-#include <Debug.h>
+#include "kcupslib_log.h"
+
 #include <KCupsRequest.h>
 #include <KCupsPrinter.h>
 #include <KCupsJob.h>

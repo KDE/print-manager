@@ -14,7 +14,7 @@
 
 #include <QPainter>
 
-PageChoosePrinters::PageChoosePrinters(const QVariantHash &args, QWidget *parent) :
+PageChoosePrinters::PageChoosePrinters(const QVariantMap &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageChoosePrinters)
 {
@@ -50,16 +50,16 @@ PageChoosePrinters::~PageChoosePrinters()
     delete ui;
 }
 
-void PageChoosePrinters::setValues(const QVariantHash &args)
+void PageChoosePrinters::setValues(const QVariantMap &args)
 {
     if (m_args != args) {
         m_args = args;
     }
 }
 
-QVariantHash PageChoosePrinters::values() const
+QVariantMap PageChoosePrinters::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     ret[KCUPS_MEMBER_URIS] = ui->membersLV->currentSelected(true);
     return ret;
 }

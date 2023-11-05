@@ -57,15 +57,15 @@ ChooseSamba::~ChooseSamba()
     delete ui;
 }
 
-void ChooseSamba::setValues(const QVariantHash &args)
+void ChooseSamba::setValues(const QVariantMap &args)
 {
     m_args = args;
     ui->addressLE->setFocus();
 }
 
-QVariantHash ChooseSamba::values() const
+QVariantMap ChooseSamba::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
 
     const QString address = ui->addressLE->text().trimmed();
     QUrl url;
@@ -115,7 +115,7 @@ QVariantHash ChooseSamba::values() const
 
 bool ChooseSamba::isValid() const
 {
-    const QVariantHash args = values();
+    const QVariantMap args = values();
     const QUrl url(args[KCUPS_DEVICE_URI].toString());
 
     return url.isValid() &&

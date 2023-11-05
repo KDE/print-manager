@@ -21,7 +21,6 @@
 #include <KIconLoader>
 #include <KSharedConfig>
 #include <KWindowConfig>
-
 #include <KPixmapSequenceLoader>
 
 AddPrinterAssistant::AddPrinterAssistant()
@@ -62,7 +61,7 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    QVariantHash args({
+    QVariantMap args({
                           {ADDING_PRINTER, true}
                       });
 
@@ -72,14 +71,14 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
         addPage(m_devicesPage);
         currentPage = m_devicesPage;
 
-        m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD, i18nc("@title:window", "Pick a Driver"));
+        m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD);
         addPage(m_choosePPDPage);
     } else {
         args[KCUPS_DEVICE_URI] = printer;
         args[KCUPS_DEVICE_ID] = deviceId;
         args[KCUPS_DEVICE_LOCATION] = QHostInfo::localHostName();
 
-        m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
+        m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args));
         addPage(m_choosePPDPage);
         currentPage = m_choosePPDPage;
     }
@@ -95,7 +94,7 @@ void AddPrinterAssistant::initAddClass()
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    const QVariantHash args({
+    const QVariantMap args({
                                 {ADDING_PRINTER, false},
                                 {KCUPS_DEVICE_LOCATION, QHostInfo::localHostName()}
                             });
@@ -116,14 +115,14 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
 {
     // setup our hash args with the information if we are
     // adding a new printer or a class
-    const QVariantHash args({
+    const QVariantMap args({
                                 {ADDING_PRINTER, true},
                                 {KCUPS_DEVICE_URI, deviceUri},
                                 {KCUPS_PRINTER_NAME, printer},
                                 {KCUPS_PRINTER_MAKE_AND_MODEL, makeAndModel}
                             });
 
-    m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args), i18nc("@title:window", "Pick a Driver"));
+    m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args));
     addPage(m_choosePPDPage);
     setCurrentPage(m_choosePPDPage);
 }
@@ -150,7 +149,7 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // we don't set (or even unset values),
     // and we only call setValues on the next page if
     // the currentPage() has changes.
-    const QVariantHash args = qobject_cast<GenericPage*>(currentPage->widget())->values();
+    const QVariantMap args = qobject_cast<GenericPage*>(currentPage->widget())->values();
     if (currentPage == m_devicesPage) {
         qobject_cast<GenericPage*>(m_choosePPDPage->widget())->setValues(args);
         setCurrentPage(m_choosePPDPage);
@@ -185,6 +184,11 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
             m_busySeq->start();
         } else {
             m_busySeq->stop();
+        }
+
+        if(page == m_choosePPDPage) {
+            QVariantMap args = qobject_cast<GenericPage*>(page->widget())->values();
+            m_choosePPDPage->setName(i18nc("@title:window", "Pick a Driver for %1", args[KCUPS_DEVICE_MAKE_AND_MODEL].toString()));
         }
 
         // When ChangePPD() is called addPrinterPage is zero

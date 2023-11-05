@@ -19,13 +19,10 @@ public:
     explicit ChooseLpd(QWidget *parent = nullptr);
     ~ChooseLpd() override;
 
-    void setValues(const QVariantHash &args) override;
-    QVariantHash values() const override;
+    void setValues(const QVariantMap &args) override;
+    QVariantMap values() const override;
     bool isValid() const override;
     bool canProceed() const override;
-
-public slots:
-    void on_addressLE_textChanged(const QString &text);
 
 private slots:
     void checkSelected();

@@ -25,7 +25,7 @@ ChooseUri::ChooseUri(QWidget *parent) :
     // setup default options
     setWindowTitle(i18nc("@title:window", "Select a Printer to Add"));
 
-    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseUri::checkSelected);
+    connect(ui->addressLE, &QLineEdit::textChanged, this, &ChooseUri::textChanged);
     connect(ui->addressLE, &QLineEdit::returnPressed, this, &ChooseUri::findPrinters);
     connect(ui->searchTB, &QToolButton::clicked, this, &ChooseUri::findPrinters);
 }
@@ -35,7 +35,7 @@ ChooseUri::~ChooseUri()
     delete ui;
 }
 
-void ChooseUri::setValues(const QVariantHash &args)
+void ChooseUri::setValues(const QVariantMap &args)
 {
     m_args = args;
     bool visible = false;
@@ -52,9 +52,9 @@ void ChooseUri::setValues(const QVariantHash &args)
     ui->addressLE->setFocus();
 }
 
-QVariantHash ChooseUri::values() const
+QVariantMap ChooseUri::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
 
     ret[KCUPS_DEVICE_URI] = parsedURL(ui->addressLE->text()).toString();
 
@@ -64,7 +64,7 @@ QVariantHash ChooseUri::values() const
 bool ChooseUri::isValid() const
 {
     const QString urlDefault = m_args[KCUPS_DEVICE_URI].toString();
-    const QVariantHash args = values();
+    const QVariantMap args = values();
     const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
     QUrl url(deviceUri);
 //    qCDebug(PM_ADD_PRINTER) << url << url.isValid() << url.isEmpty() << url.scheme().isEmpty() << url.host() << url.toString();
@@ -86,7 +86,7 @@ void ChooseUri::checkSelected()
     Q_EMIT allowProceed(isValid());
 }
 
-void ChooseUri::on_addressLE_textChanged(const QString &text)
+void ChooseUri::textChanged(const QString &text)
 {
     QUrl url = parsedURL(text);
 
@@ -100,6 +100,8 @@ void ChooseUri::on_addressLE_textChanged(const QString &text)
     } else {
         ui->searchTB->setEnabled(false);
     }
+
+    checkSelected();
 }
 
 void ChooseUri::findPrinters()

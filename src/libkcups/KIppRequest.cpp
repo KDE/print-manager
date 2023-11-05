@@ -7,7 +7,7 @@
 #include "KIppRequest.h"
 #include "KIppRequest_p.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 
 KIppRequest::KIppRequest() :
     d_ptr(new KIppRequestPrivate)
@@ -99,7 +99,7 @@ void KIppRequest::addBoolean(ipp_tag_t group, const QString &name, bool value)
     d->addRequest(group, IPP_TAG_ZERO, name, value);
 }
 
-void KIppRequest::addVariantValues(const QVariantHash &values)
+void KIppRequest::addVariantValues(const QVariantMap &values)
 {
     auto i = values.constBegin();
     while (i != values.constEnd()) {

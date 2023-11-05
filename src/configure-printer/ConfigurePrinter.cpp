@@ -5,9 +5,7 @@
 */
 
 #include "ConfigurePrinter.h"
-
 #include "ConfigurePrinterInterface.h"
-#include "Debug.h"
 
 #include <QTimer>
 

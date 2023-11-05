@@ -40,11 +40,12 @@ PrinterOptions::PrinterOptions(const QString &destName, bool isClass, bool isRem
     m_isRemote(isRemote)
 {
     ui->setupUi(this);
+    connect(ui->autoConfigurePB, &QPushButton::clicked, this, &PrinterOptions::autoConfigureClicked);
 
     reloadPPD();
 }
 
-void PrinterOptions::on_autoConfigurePB_clicked()
+void PrinterOptions::autoConfigureClicked()
 {
     QPointer<KCupsRequest> request = new KCupsRequest;
     request->printCommand(m_destName, QLatin1String("AutoConfigure"), i18n("Set Default Options"));
@@ -553,6 +554,13 @@ PrinterOptions::get_option_value(
 
             snprintf(buffer, bufsize, "Custom.%s", val);
             break;
+#if (CUPS_VERSION_MAJOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR == 2 && CUPS_VERSION_PATCH >= 12)
+        case PPD_CUSTOM_UNKNOWN :
+#endif
+        default :
+            break;
         }
     } else {
         const char *prefix = "{";           /* Prefix string */
@@ -657,6 +665,13 @@ PrinterOptions::get_option_value(
                 *bufptr   = '\0';
                 bufend ++;
                 break;
+#if (CUPS_VERSION_MAJOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR >= 3) || \
+    (CUPS_VERSION_MAJOR == 2 && CUPS_VERSION_MINOR == 2 && CUPS_VERSION_PATCH >= 12)
+            case PPD_CUSTOM_UNKNOWN :
+#endif                
+            default :
+                break;
             }
 
             bufptr += strlen(bufptr);
@@ -750,7 +765,7 @@ void PrinterOptions::save()
         return;
     }
 
-    QVariantHash values; // we need null values
+    QVariantMap values; // we need null values
     QPointer<KCupsRequest> request = new KCupsRequest;
     if (m_isClass) {
         request->addOrModifyClass(m_destName, values);

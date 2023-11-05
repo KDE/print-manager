@@ -6,14 +6,12 @@
 
 #include "KCupsPasswordDialog.h"
 
-#include "Debug.h"
-
 #include <QPointer>
 
+#include <KLocalizedString>
 #include <KPasswordDialog>
 #include <KWindowSystem>
 #include <KX11Extras>
-#include <KLocalizedString>
 
 KCupsPasswordDialog::KCupsPasswordDialog(QObject *parent) :
     QObject(parent),

@@ -9,7 +9,6 @@
 
 #include <QDialog>
 #include <QModelIndex>
-#include <QToolButton>
 
 namespace Ui {
     class PrintQueueUi;
@@ -19,9 +18,12 @@ class KCupsRequest;
 class KCupsPrinter;
 class JobSortFilterModel;
 class JobModel;
+class QToolButton;
+
 class PrintQueueUi : public QDialog
 {
     Q_OBJECT
+
 public:
     explicit PrintQueueUi(const KCupsPrinter &printer, QWidget *parent = nullptr);
     ~PrintQueueUi() override;

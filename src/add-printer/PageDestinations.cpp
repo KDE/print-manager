@@ -23,7 +23,7 @@
 #include <QDebug>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
-PageDestinations::PageDestinations(const QVariantHash &args, QWidget *parent) :
+PageDestinations::PageDestinations(const QVariantMap &args, QWidget *parent) :
     GenericPage(parent),
     ui(new Ui::PageDestinations),
     m_chooseLpd(new ChooseLpd(this)),
@@ -104,7 +104,7 @@ PageDestinations::~PageDestinations()
     delete ui;
 }
 
-void PageDestinations::setValues(const QVariantHash &args)
+void PageDestinations::setValues(const QVariantMap &args)
 {
     m_args = args;
     if (args[ADDING_PRINTER].toBool()) {
@@ -121,9 +121,9 @@ bool PageDestinations::isValid() const
     return true;
 }
 
-QVariantHash PageDestinations::values() const
+QVariantMap PageDestinations::values() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     auto page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
     if (page) {
         ret = page->values();
@@ -180,7 +180,7 @@ void PageDestinations::deviceChanged()
 void PageDestinations::deviceUriChanged()
 {
     // Get the selected values
-    QVariantHash args = selectedItemValues();
+    QVariantMap args = selectedItemValues();
 
     // "beh" is excluded from the list
     QString deviceUri = args[KCUPS_DEVICE_URI].toString();
@@ -267,9 +267,9 @@ void PageDestinations::insertDevice(const QString &device_class, const QString &
                           grouped_printers);
 }
 
-QVariantHash PageDestinations::selectedItemValues() const
+QVariantMap PageDestinations::selectedItemValues() const
 {
-    QVariantHash ret = m_args;
+    QVariantMap ret = m_args;
     if (!ui->devicesTV->selectionModel()->selectedIndexes().isEmpty() &&
             ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
         QModelIndex index = ui->devicesTV->selectionModel()->selectedIndexes().first();
@@ -303,7 +303,7 @@ QVariantHash PageDestinations::selectedItemValues() const
     return ret;
 }
 
-void PageDestinations::setCurrentPage(QWidget *widget, const QVariantHash &args)
+void PageDestinations::setCurrentPage(QWidget *widget, const QVariantMap &args)
 {
     auto page = qobject_cast<GenericPage*>(widget);
     if (page) {

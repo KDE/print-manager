@@ -6,8 +6,6 @@
 
 #include "KCupsJob.h"
 
-#include "Debug.h"
-
 KCupsJob::KCupsJob() :
     m_jobId(0)
 {
@@ -20,7 +18,7 @@ KCupsJob::KCupsJob(int jobId, const QString &printer) :
     m_arguments[KCUPS_JOB_ID] = QString::number(jobId);
 }
 
-KCupsJob::KCupsJob(const QVariantHash &arguments) :
+KCupsJob::KCupsJob(const QVariantMap &arguments) :
     m_arguments(arguments)
 {
     m_jobId = arguments[KCUPS_JOB_ID].toInt();

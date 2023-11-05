@@ -9,7 +9,7 @@
 
 #include "GenericPage.h"
 
-#include <QRegExp>
+#include <QRegularExpression>
 
 namespace Ui {
     class ChooseSerial;
@@ -22,8 +22,8 @@ public:
     explicit ChooseSerial(QWidget *parent = nullptr);
     ~ChooseSerial() override;
 
-    void setValues(const QVariantHash &args) override;
-    QVariantHash values() const override;
+    void setValues(const QVariantMap &args) override;
+    QVariantMap values() const override;
     bool isValid() const override;
 
 public slots:
@@ -31,7 +31,7 @@ public slots:
 
 private:
     Ui::ChooseSerial *const ui;
-    QRegExp m_rx;
+    QRegularExpression m_rx;
     bool m_isValid = false;
 };
 

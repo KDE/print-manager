@@ -24,8 +24,8 @@ public:
     explicit ChooseUri(QWidget *parent = nullptr);
     ~ChooseUri() override;
 
-    void setValues(const QVariantHash &args) override;
-    QVariantHash values() const override;
+    void setValues(const QVariantMap &args) override;
+    QVariantMap values() const override;
     bool isValid() const override;
     bool canProceed() const override;
 
@@ -44,7 +44,7 @@ signals:
 
 private slots:
     void checkSelected();
-    void on_addressLE_textChanged(const QString &text);
+    void textChanged(const QString &text);
     void findPrinters();
     void getPrintersFinished(KCupsRequest *request);
 

@@ -6,7 +6,7 @@
 
 #include "PrinterSortFilterModel.h"
 
-#include "Debug.h"
+#include "kcupslib_log.h"
 #include "PrinterModel.h"
 
 PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :

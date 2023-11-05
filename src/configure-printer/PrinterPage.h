@@ -19,7 +19,7 @@ public:
 
 public:
     virtual void save() {}
-    virtual QVariantHash modifiedValues() const;
+    virtual QVariantMap modifiedValues() const;
     virtual QStringList neededValues() const { return QStringList(); }
     virtual void setRemote(bool remote);
 

@@ -28,12 +28,12 @@ class PageDestinations : public GenericPage
 {
     Q_OBJECT
 public:
-    explicit PageDestinations(const QVariantHash &args = QVariantHash(), QWidget *parent = nullptr);
+    explicit PageDestinations(const QVariantMap &args = QVariantMap(), QWidget *parent = nullptr);
     ~PageDestinations() override;
 
     bool canProceed() const override;
-    void setValues(const QVariantHash &args) override;
-    QVariantHash values() const override;
+    void setValues(const QVariantMap &args) override;
+    QVariantMap values() const override;
     bool isValid() const override;
 
 private slots:
@@ -49,8 +49,8 @@ private slots:
 
 private:
     QString uriText(const QString &uri) const;
-    QVariantHash selectedItemValues() const;
-    void setCurrentPage(QWidget *widget, const QVariantHash &args);
+    QVariantMap selectedItemValues() const;
+    void setCurrentPage(QWidget *widget, const QVariantMap &args);
 
     Ui::PageDestinations *const ui;
     DevicesModel *m_model = nullptr;

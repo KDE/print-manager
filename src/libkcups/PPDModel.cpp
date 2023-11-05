@@ -1,28 +1,39 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
 #include "PPDModel.h"
-
-#include "Debug.h"
-
 #include <KLocalizedString>
 
 PPDModel::PPDModel(QObject *parent) :
     QStandardItemModel(parent)
 {
+    m_roles = QStandardItemModel::roleNames();
+    m_roles[PPDName] = "ppdName";
+    m_roles[PPDMake] = "ppdMake";
+    m_roles[PPDMakeAndModel] = "ppdMakeModel";
+    
+    connect(this, &PPDModel::rowsInserted, this, &PPDModel::countChanged);
+    connect(this, &PPDModel::rowsRemoved, this, &PPDModel::countChanged);
+    connect(this, &PPDModel::modelReset, this, &PPDModel::countChanged);
 }
 
-void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &driverMatch)
+QHash<int, QByteArray> PPDModel::roleNames() const
+{
+    return m_roles;
+}
+
+void PPDModel::setPPDs(const QList<QVariantMap> &ppds, const DriverMatchList &driverMatch)
 {
     clear();
 
     QStandardItem *recommended = nullptr;
     for (const DriverMatch &driver : driverMatch) {
         // Find the matched PPD on the PPDs list
-        for (const QVariantHash &ppd : ppds) {
+        for (const QVariantMap &ppd : ppds) {
             if (ppd[QLatin1String("ppd-name")].toString() == driver.ppd) {
                 // Create the PPD
                 QStandardItem *ppdItem = createPPDItem(ppd, true);
@@ -39,7 +50,7 @@ void PPDModel::setPPDs(const QList<QVariantHash> &ppds, const DriverMatchList &d
         }
     }
 
-    for (const QVariantHash &ppd : ppds) {
+    for (const QVariantMap &ppd : ppds) {
         // Find or create the PPD parent (printer Make)
         QStandardItem *makeItem = findCreateMake(ppd[QLatin1String("ppd-make")].toString());
 
@@ -69,13 +80,12 @@ Qt::ItemFlags PPDModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
-void PPDModel::clear()
+int PPDModel::count() const
 {
-    // Remove all rows from the model
-    removeRows(0, rowCount());
+    return rowCount();
 }
 
-QStandardItem *PPDModel::createPPDItem(const QVariantHash &ppd, bool recommended)
+QStandardItem *PPDModel::createPPDItem(const QVariantMap &ppd, bool recommended)
 {
     auto ret = new QStandardItem;
 

@@ -46,12 +46,13 @@ add_executable(kde-add-printer
 )
 
 target_link_libraries(kde-add-printer
-    Qt::Core
-    Qt::Widgets
-    Qt::Network
+    Qt6::Core
+    Qt6::Widgets
+    Qt6::Network
     KF6::CoreAddons
     KF6::I18n
     KF6::IconThemes
+    KF6::IconWidgets
     KF6::KIOCore
     KF6::KIOWidgets
     KF6::ConfigCore

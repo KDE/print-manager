@@ -1,13 +1,22 @@
 set(configureprinter_SRCS
     ConfigurePrinterInterface.cpp
+    ConfigurePrinterInterface.h
     Debug.cpp
+    Debug.h
     ModifyPrinter.cpp
+    ModifyPrinter.h
     PrinterPage.cpp
+    PrinterPage.h
     PrinterOptions.cpp
+    PrinterOptions.h
     PrinterBehavior.cpp
+    PrinterBehavior.h
     ConfigureDialog.cpp
+    ConfigureDialog.h
     ConfigurePrinter.cpp
+    ConfigurePrinter.h
     SelectMakeModelDialog.cpp
+    SelectMakeModelDialog.h
     main.cpp
 )
 

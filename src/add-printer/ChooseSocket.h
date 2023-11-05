@@ -28,7 +28,7 @@ private slots:
     void on_addressLE_textChanged(const QString &text);
 
 private:
-    Ui::ChooseSocket *ui;
+    Ui::ChooseSocket *const ui;
     bool m_isValid = false;
 };
 

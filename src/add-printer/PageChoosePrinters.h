@@ -25,7 +25,7 @@ public:
     bool canProceed() const override;
 
 private:
-    Ui::PageChoosePrinters *ui;
+    Ui::PageChoosePrinters *const ui;
 };
 
 #endif

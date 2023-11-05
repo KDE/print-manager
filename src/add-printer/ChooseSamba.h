@@ -31,7 +31,7 @@ private slots:
     void checkSelected();
 
 private:
-    Ui::ChooseSamba *ui;
+    Ui::ChooseSamba *const ui;
 };
 
 #endif

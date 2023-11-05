@@ -31,7 +31,7 @@ private slots:
     void checkSelected();
 
 private:
-    Ui::ChooseLpd *ui;
+    Ui::ChooseLpd *const ui;
     bool m_isValid;
 };
 

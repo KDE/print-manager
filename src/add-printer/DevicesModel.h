@@ -86,7 +86,7 @@ private slots:
 private:
     QStandardItem *findCreateCategory(const QString &category, Kind kind);
 
-    KCupsRequest *m_request;
+    KCupsRequest *m_request = nullptr;
     MapSMapSS m_mappedDevices;
     QRegExp m_rx;
     QStringList m_blacklistedURIs;

@@ -30,7 +30,7 @@ public slots:
     void load();
 
 private:
-    Ui::ChooseSerial *ui;
+    Ui::ChooseSerial *const ui;
     QRegExp m_rx;
     bool m_isValid = false;
 };

@@ -34,7 +34,7 @@ private slots:
     void on_nameLE_textChanged(const QString &text);
 
 private:
-    Ui::PageAddPrinter *ui;
+    Ui::PageAddPrinter *const ui;
 };
 
 #endif

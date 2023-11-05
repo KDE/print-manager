@@ -51,7 +51,7 @@ private slots:
 private:
     QUrl parsedURL(const QString &text) const;
 
-    Ui::ChooseUri *ui;
+    Ui::ChooseUri *const ui;
 };
 
 #endif

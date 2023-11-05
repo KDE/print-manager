@@ -38,10 +38,10 @@ private slots:
 private:
     void removeTempPPD();
 
-    Ui::PageChoosePPD *ui;
+    Ui::PageChoosePPD *const ui;
     bool m_isValid = false;
-    SelectMakeModel *m_selectMM;
-    QStackedLayout *m_layout;
+    SelectMakeModel *m_selectMM = nullptr;
+    QStackedLayout *m_layout = nullptr;
     QString m_ppdFile;
 };
 

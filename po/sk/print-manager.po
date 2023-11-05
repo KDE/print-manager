@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 00:44+0000\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2020-03-22 12:01+0100\n"
 "Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -610,8 +610,8 @@ msgstr "Upraviť tlačiareň"
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:240
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:260
 #: src/printer-manager-kcm/PrinterDescription.ui:198
 #: src/printqueue/PrintQueueUi.ui:131
 #, kde-format
@@ -1221,28 +1221,28 @@ msgstr "Žiadny ovládač tlačiarne pre %1."
 msgid "No driver for this printer."
 msgstr "Ovládač pre tlačiareň nie je k dispozícii."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:173
+#: src/print-manager-kded/NewPrinterNotification.cpp:172
 #, kde-format
 msgid "Search"
 msgstr "Hľadať"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "\"%1\" bola pridaná, prosím skontrolujte jej ovládač."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "Tlačiareň \"%1\" bola pridaná použitím ovládača '%2'."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Print test page"
 msgstr "Vytlačiť skúšobnú stránku"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
+#: src/print-manager-kded/NewPrinterNotification.cpp:245
 #, kde-format
 msgid "Find driver"
 msgstr "Nájsť ovládač"
@@ -1360,7 +1360,7 @@ msgstr "Pridať novú tlačiareň alebo triedu tlačiarne"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
 #: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:32
+#: src/printer-manager-kcm/PrintKCM.ui:35
 #, kde-format
 msgid "Remove Printer"
 msgstr "Odstrániť tlačiareň"
@@ -1439,25 +1439,25 @@ msgid "Failed to configure server settings"
 msgstr "Zlyhalo nastavenie servera"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:52
+#: src/printer-manager-kcm/PrintKCM.ui:55
 #, kde-format
 msgid "System Preferences"
 msgstr "Systémové nastavenia"
 
 #. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:196
+#: src/printer-manager-kcm/PrintKCM.ui:199
 #, kde-format
 msgid "TextLabel"
 msgstr "TextLabel"
 
 #. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:206
+#: src/printer-manager-kcm/PrintKCM.ui:209
 #, kde-format
 msgid "Error Title"
 msgstr "Titulok chyby"
 
 #. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:231
+#: src/printer-manager-kcm/PrintKCM.ui:234
 #, kde-format
 msgid "Click here to add a new printer"
 msgstr "Kliknite sem na pridanie novej tlačiarne"

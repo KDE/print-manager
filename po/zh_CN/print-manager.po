@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 00:44+0000\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2023-10-21 13:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -602,8 +602,8 @@ msgstr "调整打印机"
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:240
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:260
 #: src/printer-manager-kcm/PrinterDescription.ui:198
 #: src/printqueue/PrintQueueUi.ui:131
 #, kde-format
@@ -1213,28 +1213,28 @@ msgstr "没有 %1 的打印机驱动程序。"
 msgid "No driver for this printer."
 msgstr "没有此打印机的驱动程序。"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:173
+#: src/print-manager-kded/NewPrinterNotification.cpp:172
 #, kde-format
 msgid "Search"
 msgstr "搜索"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "“%1”添加完成，请检查它的驱动程序是否正确。"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "“%1”添加完成，它使用的是“%2”驱动程序。"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Print test page"
 msgstr "打印测试页"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
+#: src/print-manager-kded/NewPrinterNotification.cpp:245
 #, kde-format
 msgid "Find driver"
 msgstr "查找驱动程序"
@@ -1352,7 +1352,7 @@ msgstr "添加新打印机或者打印机类"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
 #: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:32
+#: src/printer-manager-kcm/PrintKCM.ui:35
 #, kde-format
 msgid "Remove Printer"
 msgstr "移除打印机"
@@ -1431,25 +1431,25 @@ msgid "Failed to configure server settings"
 msgstr "配置服务器设置失败"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:52
+#: src/printer-manager-kcm/PrintKCM.ui:55
 #, kde-format
 msgid "System Preferences"
 msgstr "系统首选项"
 
 #. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:196
+#: src/printer-manager-kcm/PrintKCM.ui:199
 #, kde-format
 msgid "TextLabel"
 msgstr "文本标签"
 
 #. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:206
+#: src/printer-manager-kcm/PrintKCM.ui:209
 #, kde-format
 msgid "Error Title"
 msgstr "错误标题"
 
 #. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:231
+#: src/printer-manager-kcm/PrintKCM.ui:234
 #, kde-format
 msgid "Click here to add a new printer"
 msgstr "单击此处添加新打印机"

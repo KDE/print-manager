@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 00:44+0000\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2023-02-03 11:23+0000\n"
 "Last-Translator: gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -604,8 +604,8 @@ msgstr "Breyta prentara"
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:240
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:260
 #: src/printer-manager-kcm/PrinterDescription.ui:198
 #: src/printqueue/PrintQueueUi.ui:131
 #, kde-format
@@ -1215,28 +1215,28 @@ msgstr "Enginn prentrekill fyrir %1."
 msgid "No driver for this printer."
 msgstr "Enginn rekill fyrir þennan prentara"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:173
+#: src/print-manager-kded/NewPrinterNotification.cpp:172
 #, kde-format
 msgid "Search"
 msgstr "Leita"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "'%1' hefur verið bætt við, athugaðu rekilinn fyrir hann."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "'%1' hefur verið bætt við, notar rekilinn '%2'."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Print test page"
 msgstr "Prenta prufusíðu"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
+#: src/print-manager-kded/NewPrinterNotification.cpp:245
 #, kde-format
 msgid "Find driver"
 msgstr "Finna rekil"
@@ -1354,7 +1354,7 @@ msgstr "Bæta við nýjum prentara eða flokki prentara"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
 #: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:32
+#: src/printer-manager-kcm/PrintKCM.ui:35
 #, kde-format
 msgid "Remove Printer"
 msgstr "Fjarlægja prentara"
@@ -1433,25 +1433,25 @@ msgid "Failed to configure server settings"
 msgstr "Mistókst að grunnstilla prentþjón"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:52
+#: src/printer-manager-kcm/PrintKCM.ui:55
 #, kde-format
 msgid "System Preferences"
 msgstr "Kjörstillingar kerfis"
 
 #. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:196
+#: src/printer-manager-kcm/PrintKCM.ui:199
 #, kde-format
 msgid "TextLabel"
 msgstr "Textamerking"
 
 #. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:206
+#: src/printer-manager-kcm/PrintKCM.ui:209
 #, kde-format
 msgid "Error Title"
 msgstr "Titill villu"
 
 #. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:231
+#: src/printer-manager-kcm/PrintKCM.ui:234
 #, kde-format
 msgid "Click here to add a new printer"
 msgstr "Smelltu hér til að bæta við nýjum prentara"

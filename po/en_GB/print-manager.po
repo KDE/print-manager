@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 00:44+0000\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2022-12-31 15:20+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -610,8 +610,8 @@ msgstr "Modify Printer"
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:240
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:260
 #: src/printer-manager-kcm/PrinterDescription.ui:198
 #: src/printqueue/PrintQueueUi.ui:131
 #, kde-format
@@ -1221,28 +1221,28 @@ msgstr "No printer driver for %1."
 msgid "No driver for this printer."
 msgstr "No driver for this printer."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:173
+#: src/print-manager-kded/NewPrinterNotification.cpp:172
 #, kde-format
 msgid "Search"
 msgstr "Search"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "'%1' has been added, please check its driver."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "'%1' has been added, using the '%2' driver."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Print test page"
 msgstr "Print test page"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
+#: src/print-manager-kded/NewPrinterNotification.cpp:245
 #, kde-format
 msgid "Find driver"
 msgstr "Find driver"
@@ -1360,7 +1360,7 @@ msgstr "Add a new printer or a printer class"
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
 #: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:32
+#: src/printer-manager-kcm/PrintKCM.ui:35
 #, kde-format
 msgid "Remove Printer"
 msgstr "Remove Printer"
@@ -1439,25 +1439,25 @@ msgid "Failed to configure server settings"
 msgstr "Failed to configure server settings"
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:52
+#: src/printer-manager-kcm/PrintKCM.ui:55
 #, kde-format
 msgid "System Preferences"
 msgstr "System Preferences"
 
 #. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:196
+#: src/printer-manager-kcm/PrintKCM.ui:199
 #, kde-format
 msgid "TextLabel"
 msgstr "TextLabel"
 
 #. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:206
+#: src/printer-manager-kcm/PrintKCM.ui:209
 #, kde-format
 msgid "Error Title"
 msgstr "Error Title"
 
 #. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:231
+#: src/printer-manager-kcm/PrintKCM.ui:234
 #, kde-format
 msgid "Click here to add a new printer"
 msgstr "Click here to add a new printer"

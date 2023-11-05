@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-04 00:44+0000\n"
+"POT-Creation-Date: 2023-11-05 12:36+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -585,8 +585,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:240
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:260
 #: src/printer-manager-kcm/PrinterDescription.ui:198
 #: src/printqueue/PrintQueueUi.ui:131
 #, kde-format
@@ -1158,28 +1158,28 @@ msgstr ""
 msgid "No driver for this printer."
 msgstr "بۇ پرىنتېرنىڭ قوزغاتقۇسى يوق."
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:173
+#: src/print-manager-kded/NewPrinterNotification.cpp:172
 #, kde-format
 msgid "Search"
 msgstr "ئىزدە"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
+#: src/print-manager-kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr ""
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr ""
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
-#: src/print-manager-kded/NewPrinterNotification.cpp:256
+#: src/print-manager-kded/NewPrinterNotification.cpp:243
+#: src/print-manager-kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Print test page"
 msgstr "سىناق بەتنى بېسىش"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:244
+#: src/print-manager-kded/NewPrinterNotification.cpp:245
 #, kde-format
 msgid "Find driver"
 msgstr "قوزغاتقۇ تېپىش"
@@ -1297,7 +1297,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, removeTB)
 #: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:32
+#: src/printer-manager-kcm/PrintKCM.ui:35
 #, kde-format
 msgid "Remove Printer"
 msgstr "پرىنتېر چىقىرىۋېتىش"
@@ -1378,25 +1378,25 @@ msgid "Failed to configure server settings"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:52
+#: src/printer-manager-kcm/PrintKCM.ui:55
 #, kde-format
 msgid "System Preferences"
 msgstr "سىستېما مايىللىقى"
 
 #. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:196
+#: src/printer-manager-kcm/PrintKCM.ui:199
 #, kde-format
 msgid "TextLabel"
 msgstr "تېكىستلىك ئەن"
 
 #. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:206
+#: src/printer-manager-kcm/PrintKCM.ui:209
 #, kde-format
 msgid "Error Title"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:231
+#: src/printer-manager-kcm/PrintKCM.ui:234
 #, kde-format
 msgid "Click here to add a new printer"
 msgstr ""

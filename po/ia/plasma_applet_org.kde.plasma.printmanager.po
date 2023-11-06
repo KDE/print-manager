@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2022-06-29 14:38+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,74 +17,85 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:26
-msgid "Search…"
-msgstr "Cerca…"
-
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:52
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "On non trovava alcun imprimitor configurate o discoperite"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
 msgid "No matches"
 msgstr "Nulle correspondentias"
 
-#: src/plasmoid/package/contents/ui/main.qml:31
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Imprimitores"
 
-#: src/plasmoid/package/contents/ui/main.qml:36
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Il ha un carga de imprimer in le cauda"
 msgstr[1] "Il ha %1 cargas de imrimer in le cauda"
 
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:79
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Imprimer %1 con %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:47
+#: src/plasmoid/package/contents/ui/main.qml:81
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Imprimer  con %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:84
 msgid "Print queue is empty"
 msgstr "Cauda de imprimer es vacue"
 
-#: src/plasmoid/package/contents/ui/main.qml:126
+#: src/plasmoid/package/contents/ui/main.qml:114
 msgid "Show All Jobs"
 msgstr "Monstra omne cargas"
 
-#: src/plasmoid/package/contents/ui/main.qml:132
+#: src/plasmoid/package/contents/ui/main.qml:125
 msgid "Show Only Completed Jobs"
 msgstr "Monstra solmente cargas completate"
 
-#: src/plasmoid/package/contents/ui/main.qml:138
+#: src/plasmoid/package/contents/ui/main.qml:136
 msgid "Show Only Active Jobs"
 msgstr "Monstra solmente cargas active"
 
-#: src/plasmoid/package/contents/ui/main.qml:149
-msgid "&Configure Printers..."
+#: src/plasmoid/package/contents/ui/main.qml:154
+#, fuzzy
+#| msgid "&Configure Printers..."
+msgid "&Configure Printers…"
 msgstr "&Configura imprimitores..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
-msgid "Resume printing"
-msgstr "Reinitia imprimer"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+msgid "Resume"
+msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
-msgid "Pause printing"
-msgstr "Pausar Imprimer"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+msgid "Pause"
+msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:37
-msgid "Configure printer..."
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#, fuzzy
+#| msgid "Configure printer..."
+msgid "Configure printer…"
 msgstr "Configura imprimitor..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-msgid "View print queue"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#, fuzzy
+#| msgid "View print queue"
+msgid "View print queue…"
 msgstr "Vider cauda de imprimer"
+
+#~ msgid "Search…"
+#~ msgstr "Cerca…"
+
+#~ msgid "Resume printing"
+#~ msgstr "Reinitia imprimer"
+
+#~ msgid "Pause printing"
+#~ msgstr "Pausar Imprimer"
 
 #~ msgid "Search for a printer..."
 #~ msgstr "Cerca un imprimitor..."

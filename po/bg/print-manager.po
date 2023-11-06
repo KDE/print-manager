@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2022-12-07 19:10+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -29,13 +29,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "svetlisashkov@yahoo.com"
 
-#: src/add-printer/AddPrinterAssistant.cpp:29
+#: src/add-printer/AddPrinterAssistant.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "Добавяне на нов принтер"
 
-#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
 #: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
@@ -46,26 +46,26 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Изберете принтер за добавяне"
 
-#: src/add-printer/AddPrinterAssistant.cpp:75
-#: src/add-printer/AddPrinterAssistant.cpp:82
-#: src/add-printer/AddPrinterAssistant.cpp:126
-#, kde-format
-msgctxt "@title:window"
-msgid "Pick a Driver"
-msgstr "Изберете драйвер"
-
-#: src/add-printer/AddPrinterAssistant.cpp:87
-#: src/add-printer/AddPrinterAssistant.cpp:108
+#: src/add-printer/AddPrinterAssistant.cpp:86
+#: src/add-printer/AddPrinterAssistant.cpp:107
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Моля, дайте описание на принтера"
 
-#: src/add-printer/AddPrinterAssistant.cpp:104
+#: src/add-printer/AddPrinterAssistant.cpp:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "Настройте връзката си"
+
+#: src/add-printer/AddPrinterAssistant.cpp:191
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Pick a Driver"
+msgctxt "@title:window"
+msgid "Pick a Driver for %1"
+msgstr "Изберете драйвер"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -74,7 +74,7 @@ msgid "Address:"
 msgstr "Адрес:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36
+#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
 #, kde-format
 msgid "Queue:"
 msgstr "Опашка:"
@@ -276,31 +276,31 @@ msgstr "Ръчен URI"
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Неуспешно получаване на списъка с устройства: '%1'"
 
-#: src/add-printer/DevicesModel.cpp:238
+#: src/add-printer/DevicesModel.cpp:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Принтер свързан на паралелния порт"
 
-#: src/add-printer/DevicesModel.cpp:241
+#: src/add-printer/DevicesModel.cpp:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Принтер свързан на USB порт"
 
-#: src/add-printer/DevicesModel.cpp:244
+#: src/add-printer/DevicesModel.cpp:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Принтер, свързан през Bluetooth"
 
-#: src/add-printer/DevicesModel.cpp:247
+#: src/add-printer/DevicesModel.cpp:248
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Локален принтер открит от хардуерния слой на абстракция (HAL)."
 
-#: src/add-printer/DevicesModel.cpp:251
+#: src/add-printer/DevicesModel.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -310,7 +310,7 @@ msgstr ""
 "HPLIP софтуерно управляван принтер или принтер функция на многофункционално "
 "устройство"
 
-#: src/add-printer/DevicesModel.cpp:255
+#: src/add-printer/DevicesModel.cpp:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -320,37 +320,36 @@ msgstr ""
 "HPLIP софтуерно управлявана факс машина или факс функция на "
 "многофункционално устройство"
 
-#: src/add-printer/DevicesModel.cpp:260
+#: src/add-printer/DevicesModel.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Отдалечен CUPS принтер през DNS-SD"
 
-#: src/add-printer/DevicesModel.cpp:278
+#: src/add-printer/DevicesModel.cpp:279
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Открити мрежови принтери"
 
-#: src/add-printer/DevicesModel.cpp:282
+#: src/add-printer/DevicesModel.cpp:283
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Други мрежови принтери"
 
-#: src/add-printer/DevicesModel.cpp:286
+#: src/add-printer/DevicesModel.cpp:287
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Локални принтери"
 
-#: src/add-printer/DevicesModel.cpp:328
+#: src/add-printer/DevicesModel.cpp:329
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Неуспешно групиране на устройства: '%1'"
 
-#. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: src/add-printer/main.cpp:27 src/printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
 msgstr "Добавяне на принтер"
@@ -372,38 +371,44 @@ msgstr "(C) 2010-2018 Daniel Nicoletti"
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Порт към Qt 5 / Plasma 5"
 
-#: src/add-printer/main.cpp:40
+#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
+#, fuzzy, kde-format
+#| msgid "Port to Qt 5 / Plasma 5"
+msgid "Port to Qt 6 / Plasma 6"
+msgstr "Порт към Qt 5 / Plasma 5"
+
+#: src/add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
 msgstr "ИД на главния прозорец"
 
-#: src/add-printer/main.cpp:43
+#: src/add-printer/main.cpp:44
 #, kde-format
 msgid "Add a new printer"
 msgstr "Добавяне на нов принтер"
 
-#: src/add-printer/main.cpp:46
+#: src/add-printer/main.cpp:47
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Добавяне на нов клас принтери"
 
-#: src/add-printer/main.cpp:49
+#: src/add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Променя PPD на даден принтер"
 
-#: src/add-printer/main.cpp:52
+#: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Променя PPD на идентификатора даден принтер/устройство"
 
-#: src/add-printer/PageAddPrinter.cpp:122
+#: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Неуспешно добавяне на клас: '%1'"
 
-#: src/add-printer/PageAddPrinter.cpp:124
+#: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -437,9 +442,7 @@ msgid "Location:"
 msgstr "Адрес:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
-#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
 #: src/add-printer/PageAddPrinter.ui:65
-#: src/printer-manager-kcm/PrinterDescription.ui:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
@@ -604,39 +607,26 @@ msgstr "Връзки"
 msgid "Please choose an item on the list"
 msgstr "Моля изберете елемент на списъка"
 
-#: src/configure-printer/ConfigureDialog.cpp:89
-#, kde-format
-msgid "Modify Printer"
-msgstr "Промяна настройките на принтера"
-
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
-#: src/print-manager-kded/NewPrinterNotification.cpp:260
-#: src/printer-manager-kcm/PrinterDescription.ui:198
-#: src/printqueue/PrintQueueUi.ui:131
-#, kde-format
-msgid "Configure"
-msgstr "Настройване"
-
-#: src/configure-printer/ConfigureDialog.cpp:100
-#, kde-format
-msgid "Printer Options"
+#: src/configure-printer/ConfigureDialog.cpp:91
+#, fuzzy, kde-format
+#| msgid "Printer Options"
+msgid "Printer Settings"
 msgstr "Настройки на принтер"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
+#: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
-msgid "Set the Default Printer Options"
-msgstr "Задаване на стандартните настройки за принтера"
+msgid "Media Settings"
+msgstr ""
 
-#: src/configure-printer/ConfigureDialog.cpp:111
 #: src/configure-printer/ConfigureDialog.cpp:112
+#: src/configure-printer/ConfigureDialog.cpp:113
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Банери, политики и права на достъп"
 
-#: src/configure-printer/ConfigureDialog.cpp:184
+#: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -645,7 +635,7 @@ msgstr ""
 "Текущата страница е променена.\n"
 "Желаете ли да запазите промените?"
 
-#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
 msgstr "Запазване"
@@ -665,47 +655,39 @@ msgstr "Настройване на принтер"
 msgid "Printer to be configured"
 msgstr "Принтер за настройване"
 
-#: src/configure-printer/ModifyPrinter.cpp:124
+#: src/configure-printer/ModifyPrinter.cpp:126
 #, kde-format
 msgid "Current - %1"
 msgstr "Текущ - %1"
 
-#: src/configure-printer/ModifyPrinter.cpp:127
+#: src/configure-printer/ModifyPrinter.cpp:129
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Изберете потребителски драйвер"
 
-#: src/configure-printer/ModifyPrinter.cpp:226
+#: src/configure-printer/ModifyPrinter.cpp:228
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Неуспешно настройване на клас"
 
-#: src/configure-printer/ModifyPrinter.cpp:227
+#: src/configure-printer/ModifyPrinter.cpp:229
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Неуспешно настройване на принтер"
 
-#: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:304
+#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
 msgstr "Неуспешно"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: ectx: property (text), widget (QLabel, nameL)
-#: src/configure-printer/ModifyPrinter.ui:25
-#: src/printer-manager-kcm/PrinterDescription.ui:234
-#, kde-format
-msgid "Name:"
-msgstr "Име:"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/configure-printer/ModifyPrinter.ui:32
-#, kde-format
-msgid "Description:"
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "&Description:"
 msgstr "Описание:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
@@ -716,8 +698,9 @@ msgstr "Разбираемо за човек описание като \"HP Lase
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/configure-printer/ModifyPrinter.ui:52
-#, kde-format
-msgid "Location:"
+#, fuzzy, kde-format
+#| msgid "Location:"
+msgid "&Location:"
 msgstr "Адрес:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
@@ -728,8 +711,9 @@ msgstr "Разбираемо за човек местоположение кат
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
 #: src/configure-printer/ModifyPrinter.ui:79
-#, kde-format
-msgid "Connection:"
+#, fuzzy, kde-format
+#| msgid "Connection:"
+msgid "Connec&tion:"
 msgstr "Връзка"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
@@ -824,67 +808,67 @@ msgstr "Членове"
 msgid "Driver:"
 msgstr "Драйвер:"
 
-#: src/configure-printer/PrinterBehavior.cpp:199
+#: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
 msgid "Abort job"
 msgstr "Прекъсване на задачата"
 
-#: src/configure-printer/PrinterBehavior.cpp:201
+#: src/configure-printer/PrinterBehavior.cpp:202
 #, kde-format
 msgid "Retry current job"
 msgstr "Повторно опитване на текущата задача"
 
-#: src/configure-printer/PrinterBehavior.cpp:203
+#: src/configure-printer/PrinterBehavior.cpp:204
 #, kde-format
 msgid "Retry job"
 msgstr "Повторен опит"
 
-#: src/configure-printer/PrinterBehavior.cpp:205
+#: src/configure-printer/PrinterBehavior.cpp:206
 #, kde-format
 msgid "Stop printer"
 msgstr "Спиране на принтера"
 
-#: src/configure-printer/PrinterBehavior.cpp:214
+#: src/configure-printer/PrinterBehavior.cpp:215
 #, kde-format
 msgid "Authenticated"
 msgstr "Удостоверен"
 
-#: src/configure-printer/PrinterBehavior.cpp:216
+#: src/configure-printer/PrinterBehavior.cpp:217
 #, kde-format
 msgid "Default"
 msgstr "По подразбиране"
 
-#: src/configure-printer/PrinterBehavior.cpp:225
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "None"
 msgstr "Без"
 
-#: src/configure-printer/PrinterBehavior.cpp:227
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Classified"
 msgstr "Класифицирано"
 
-#: src/configure-printer/PrinterBehavior.cpp:229
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Confidential"
 msgstr "Поверително"
 
-#: src/configure-printer/PrinterBehavior.cpp:231
+#: src/configure-printer/PrinterBehavior.cpp:232
 #, kde-format
 msgid "Secret"
 msgstr "Секретно"
 
-#: src/configure-printer/PrinterBehavior.cpp:233
+#: src/configure-printer/PrinterBehavior.cpp:234
 #, kde-format
 msgid "Standard"
 msgstr "Стандартно"
 
-#: src/configure-printer/PrinterBehavior.cpp:235
+#: src/configure-printer/PrinterBehavior.cpp:236
 #, kde-format
 msgid "Topsecret"
 msgstr "Свръхсекретно"
 
-#: src/configure-printer/PrinterBehavior.cpp:237
+#: src/configure-printer/PrinterBehavior.cpp:238
 #, kde-format
 msgid "Unclassified"
 msgstr "Публично"
@@ -943,7 +927,7 @@ msgstr "&Забраняване на тези потребители да печ
 msgid "A&llow these users to print"
 msgstr "&Разрешаване на тези потребители да печатат"
 
-#: src/configure-printer/PrinterOptions.cpp:50
+#: src/configure-printer/PrinterOptions.cpp:51
 #, kde-format
 msgid "Set Default Options"
 msgstr "Задаване на стандартните настройки"
@@ -961,107 +945,212 @@ msgstr "Получаване на стандартните настройки о
 msgid "Select a Driver"
 msgstr "Изберете драйвер"
 
-#: src/libkcups/JobModel.cpp:26
+#: src/kcm/printermanager.cpp:108
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Неуспешно използване на заявкатаt: %1"
+
+#: src/kcm/printermanager.cpp:130
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "Неуспешно получаване на настройките на сървъра"
+
+#: src/kcm/printermanager.cpp:156
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "Неуспешно настройване на настройките на сървъра"
+
+#: src/kcm/printermanager.cpp:243
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Печат на само-тестова страница"
+
+#: src/kcm/printermanager.cpp:249
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Почистване на главите"
+
+#: src/kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "Засечен е нов принтер"
+
+#: src/kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "Настройване на новият принтер..."
+
+#: src/kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "Новият принтер беше добавен"
+
+#: src/kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "Липсват драйвери за новия принтер"
+
+#: src/kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "Липсва драйвер за принтера"
+
+#: src/kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "Няма драйвер за принтера %1 %2."
+
+#: src/kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "Няма драйвер за принтера %1."
+
+#: src/kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "Липсва драйвер за този принтер."
+
+#: src/kded/NewPrinterNotification.cpp:172
+#, kde-format
+msgid "Search"
+msgstr "Търсене"
+
+#: src/kded/NewPrinterNotification.cpp:238
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "'%1' беше добавен, моля проверете драйвера му."
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Настройване"
+
+#: src/kded/NewPrinterNotification.cpp:242
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "'%1' беше добавен. Използва бе драйвера '%2' driver."
+
+#: src/kded/NewPrinterNotification.cpp:243
+#: src/kded/NewPrinterNotification.cpp:257
+#, kde-format
+msgid "Print test page"
+msgstr "Отпечатване на тестова страница"
+
+#: src/kded/NewPrinterNotification.cpp:245
+#, kde-format
+msgid "Find driver"
+msgstr "Търсене на драйвер"
+
+#: src/kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "'%1' е готов за печат"
+
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "Състояние"
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Name"
 msgstr "Име"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "User"
 msgstr "Потребител"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "Created"
 msgstr "Създаден"
 
-#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
 #, kde-format
 msgid "Completed"
 msgstr "Завършен"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Pages"
 msgstr "Страници"
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Processed"
 msgstr "Обработен"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Size"
 msgstr "Големина"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Status Message"
 msgstr "Съобщение за състоянието"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Printer"
 msgstr "Принтер"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "From Hostname"
 msgstr "От името на хоста"
 
-#: src/libkcups/JobModel.cpp:518 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Неуспешно преместване на '%1' в '%2'"
 
-#: src/libkcups/JobModel.cpp:521 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Неуспех"
 
-#: src/libkcups/JobModel.cpp:598
+#: src/libkcups/JobModel.cpp:599
 #, kde-format
 msgid "Pending"
 msgstr "На опашката"
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:600
 #, kde-format
 msgid "On hold"
 msgstr "Задържане"
 
-#: src/libkcups/JobModel.cpp:601
+#: src/libkcups/JobModel.cpp:602
 #, kde-format
 msgid "Stopped"
 msgstr "Спряна"
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Canceled"
 msgstr "Отказана"
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:604
 #, kde-format
 msgid "Aborted"
 msgstr "Прекъсната"
 
-#: src/libkcups/KCupsConnection.cpp:860
+#: src/libkcups/KCupsConnection.cpp:855
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Връзката с CUPS изисква удостоверяване: \"%1\""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:23
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Въведете име и парола, за да завършите задачата"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:45
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Неправилно име или парола"
@@ -1091,90 +1180,97 @@ msgstr "Не може да се изпрати команда към драйв�
 msgid "Failed to invoke method: %1"
 msgstr "Неуспешно извикване на метод: %1"
 
-#: src/libkcups/PPDModel.cpp:32
+#: src/libkcups/PPDModel.cpp:43
 #, kde-format
 msgid "Recommended Drivers"
 msgstr "Препоръчителни драйвери"
 
-#: src/libkcups/PrinterModel.cpp:163
+#: src/libkcups/PrinterModel.cpp:188
 #, kde-format
 msgid "Printers"
 msgstr "Принтери"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle"
 msgstr "В покой"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "В покой, отхвърля задачите"
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "В покой - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "В покой, отхвърля задачите - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:372
+#: src/libkcups/PrinterModel.cpp:397
 #, kde-format
 msgid "In use"
 msgstr "Използва се"
 
-#: src/libkcups/PrinterModel.cpp:374
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Използва се - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused"
 msgstr "На пауза"
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "На пауза, отхвърля задачите"
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "На пауза - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "На пауза, отхвърля задачите - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:384
+#: src/libkcups/PrinterModel.cpp:409
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: src/libkcups/PrinterModel.cpp:386
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Неизвестно - '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:138
+#: src/libkcups/SelectMakeModel.cpp:117
+#, fuzzy, kde-format
+#| msgid "Choose &the driver from the list"
+msgid "Choose the driver for %1"
+msgstr "&Избиране на драйвер от списъка"
+
+#: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "Неуспешно получаване на списък с драйвери: '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:228
+#: src/libkcups/SelectMakeModel.cpp:230
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Неуспешно търсене за препоръчителен драйвер: '%1'"
 
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, kde-format
-msgid "Choose &the driver from the list"
+#, fuzzy, kde-format
+#| msgid "Choose &the driver from the list"
+msgid "Choose &the driver"
 msgstr "&Избиране на драйвер от списъка"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
@@ -1183,293 +1279,12 @@ msgstr "&Избиране на драйвер от списъка"
 msgid "Ma&nually Provide a PPD File:"
 msgstr "&Ръчно задаване на PPD файл:"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:59
-#, kde-format
-msgid "A New Printer was detected"
-msgstr "Засечен е нов принтер"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:60
-#, kde-format
-msgid "Configuring new printer..."
-msgstr "Настройване на новият принтер..."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:100
-#, kde-format
-msgid "The New Printer was Added"
-msgstr "Новият принтер беше добавен"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:102
-#, kde-format
-msgid "The New Printer is Missing Drivers"
-msgstr "Липсват драйвери за новия принтер"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:164
-#, kde-format
-msgid "Missing printer driver"
-msgstr "Липсва драйвер за принтера"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:166
-#, kde-format
-msgid "No printer driver for %1 %2."
-msgstr "Няма драйвер за принтера %1 %2."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:168
-#, kde-format
-msgid "No printer driver for %1."
-msgstr "Няма драйвер за принтера %1."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:170
-#, kde-format
-msgid "No driver for this printer."
-msgstr "Липсва драйвер за този принтер."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:172
-#, kde-format
-msgid "Search"
-msgstr "Търсене"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:238
-#, kde-format
-msgid "'%1' has been added, please check its driver."
-msgstr "'%1' беше добавен, моля проверете драйвера му."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:242
-#, kde-format
-msgid "'%1' has been added, using the '%2' driver."
-msgstr "'%1' беше добавен. Използва бе драйвера '%2' driver."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
-#: src/print-manager-kded/NewPrinterNotification.cpp:257
-#, kde-format
-msgid "Print test page"
-msgstr "Отпечатване на тестова страница"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:245
-#, kde-format
-msgid "Find driver"
-msgstr "Търсене на драйвер"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:255
-#, kde-format
-msgid "'%1' is ready for printing."
-msgstr "'%1' е готов за печат"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, kde-format
-msgid "Share this class"
-msgstr "Споделяне на класа"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, kde-format
-msgid "Share this printer"
-msgstr "Споделяне на принтера"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:220
-#: src/printer-manager-kcm/PrinterDescription.ui:293
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "Почистване на главите"
-
-#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:229
-#: src/printer-manager-kcm/PrinterDescription.ui:301
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "Печат на само-тестова страница"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:235
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "Неуспешно използване на заявкатаt: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, printerNameL)
-#: src/printer-manager-kcm/PrinterDescription.ui:83
-#, kde-format
-msgctxt "@title"
-msgid "Printer name or description"
-msgstr "Има или описание на принтера"
-
-#. i18n: ectx: property (text), widget (QLabel, statusL)
-#: src/printer-manager-kcm/PrinterDescription.ui:102
-#, kde-format
-msgid "Current status"
-msgstr "Текущо състояние"
-
-#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:109
-#, kde-format
-msgctxt "@option:check"
-msgid "Default printer"
-msgstr "Принтер по подразбиране"
-
-#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:126
-#, kde-format
-msgid "Reject print jobs"
-msgstr "Отхвърляне на задачите за печат"
-
-#. i18n: ectx: property (text), widget (QLabel, locationL)
-#: src/printer-manager-kcm/PrinterDescription.ui:135
-#, kde-format
-msgctxt "@label location of printer"
-msgid "Location:"
-msgstr "Адрес:"
-
-#. i18n: ectx: property (text), widget (QLabel, kindL)
-#: src/printer-manager-kcm/PrinterDescription.ui:164
-#, kde-format
-msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
-msgid "Kind:"
-msgstr "Вид:"
-
-#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:205
-#, kde-format
-msgctxt "@action:button"
-msgid "Maintenance"
-msgstr "Поддръжка"
-
-#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Print Queue"
-msgstr "Отваряне на опашката за печат"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:288
-#, kde-format
-msgid "Print Test Page"
-msgstr "Печат на тестова страница"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:298
-#, kde-format
-msgid "Print Self Test Page"
-msgstr "Печат на само-тестова страница"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:48
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Add a Printer Class"
-msgstr "Добавяне на нов клас принтери"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:51
-#, kde-format
-msgid "Add a new printer or a printer class"
-msgstr "Добавяне на нов принтер или клас принтери"
-
-#. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:35
-#, kde-format
-msgid "Remove Printer"
-msgstr "Премахване на принтер"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:61
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show printers shared by other systems"
-msgstr "Показване на споделените принтери от други системи"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:65
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Share printers connected to this system"
-msgstr "Споделяне на принтерите, свързани към тази система"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:67
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow printing from the Internet"
-msgstr "Разрешаване печат от Интернет"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:73
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow remote administration"
-msgstr "Разрешаване на отдалечена администрация"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:75
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow users to cancel any job (not just their own)"
-msgstr "Разрешаване на потребителите да спират задачи (не само своите)"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:79
-#, kde-format
-msgid "Configure the global preferences"
-msgstr "Настройване на глобалните настройки"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:124
-#: src/printer-manager-kcm/PrintKCM.cpp:224
-#, kde-format
-msgid "No printers have been configured or discovered"
-msgstr "Няма настроени или открити принтери"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:255
-#, kde-format
-msgid "Remove class"
-msgstr "Премахване на клас"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:256
-#, kde-format
-msgid "Are you sure you want to remove the class '%1'?"
-msgstr "Сигурни ли сте, че желаете да премахнете класа '%1'?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:259
-#, kde-format
-msgid "Remove printer"
-msgstr "Премахване на принтер"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:260
-#, kde-format
-msgid "Are you sure you want to remove the printer '%1'?"
-msgstr "Сигурни ли сте, че желаете да премахнете принтера '%1'?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:302
-#, kde-format
-msgctxt "@info"
-msgid "Failed to get server settings"
-msgstr "Неуспешно получаване на настройките на сървъра"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:333
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "Неуспешно настройване на настройките на сървъра"
-
-#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:55
-#, kde-format
-msgid "System Preferences"
-msgstr "Системни настройки"
-
-#. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:199
-#, kde-format
-msgid "TextLabel"
-msgstr "Текстов етикет"
-
-#. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:209
-#, kde-format
-msgid "Error Title"
-msgstr "Име на грешката"
-
-#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:234
-#, kde-format
-msgid "Click here to add a new printer"
-msgstr "Натиснете тук, за да добавите нов принтер"
-
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
 msgstr "Опашка за печат"
 
-#: src/printqueue/main.cpp:38
+#: src/printqueue/main.cpp:39
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "Показване на опашката за отпечатване"
@@ -1618,6 +1433,118 @@ msgstr "Приключени задачи"
 #, kde-format
 msgid "All Jobs"
 msgstr "Всички задачи"
+
+#~ msgid "Modify Printer"
+#~ msgstr "Промяна настройките на принтера"
+
+#~ msgid "Set the Default Printer Options"
+#~ msgstr "Задаване на стандартните настройки за принтера"
+
+#~ msgid "Name:"
+#~ msgstr "Име:"
+
+#~ msgid "Share this class"
+#~ msgstr "Споделяне на класа"
+
+#~ msgid "Share this printer"
+#~ msgstr "Споделяне на принтера"
+
+#~ msgctxt "@title"
+#~ msgid "Printer name or description"
+#~ msgstr "Има или описание на принтера"
+
+#~ msgid "Current status"
+#~ msgstr "Текущо състояние"
+
+#~ msgctxt "@option:check"
+#~ msgid "Default printer"
+#~ msgstr "Принтер по подразбиране"
+
+#~ msgid "Reject print jobs"
+#~ msgstr "Отхвърляне на задачите за печат"
+
+#~ msgctxt "@label location of printer"
+#~ msgid "Location:"
+#~ msgstr "Адрес:"
+
+#~ msgctxt ""
+#~ "@label kind of printer, could be driver name or \"local raw socket\""
+#~ msgid "Kind:"
+#~ msgstr "Вид:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Maintenance"
+#~ msgstr "Поддръжка"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Print Queue"
+#~ msgstr "Отваряне на опашката за печат"
+
+#~ msgid "Print Test Page"
+#~ msgstr "Печат на тестова страница"
+
+#~ msgid "Print Self Test Page"
+#~ msgstr "Печат на само-тестова страница"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add a Printer Class"
+#~ msgstr "Добавяне на нов клас принтери"
+
+#~ msgid "Add a new printer or a printer class"
+#~ msgstr "Добавяне на нов принтер или клас принтери"
+
+#~ msgid "Remove Printer"
+#~ msgstr "Премахване на принтер"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Show printers shared by other systems"
+#~ msgstr "Показване на споделените принтери от други системи"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Share printers connected to this system"
+#~ msgstr "Споделяне на принтерите, свързани към тази система"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow printing from the Internet"
+#~ msgstr "Разрешаване печат от Интернет"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow remote administration"
+#~ msgstr "Разрешаване на отдалечена администрация"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow users to cancel any job (not just their own)"
+#~ msgstr "Разрешаване на потребителите да спират задачи (не само своите)"
+
+#~ msgid "Configure the global preferences"
+#~ msgstr "Настройване на глобалните настройки"
+
+#~ msgid "No printers have been configured or discovered"
+#~ msgstr "Няма настроени или открити принтери"
+
+#~ msgid "Remove class"
+#~ msgstr "Премахване на клас"
+
+#~ msgid "Are you sure you want to remove the class '%1'?"
+#~ msgstr "Сигурни ли сте, че желаете да премахнете класа '%1'?"
+
+#~ msgid "Remove printer"
+#~ msgstr "Премахване на принтер"
+
+#~ msgid "Are you sure you want to remove the printer '%1'?"
+#~ msgstr "Сигурни ли сте, че желаете да премахнете принтера '%1'?"
+
+#~ msgid "System Preferences"
+#~ msgstr "Системни настройки"
+
+#~ msgid "TextLabel"
+#~ msgstr "Текстов етикет"
+
+#~ msgid "Error Title"
+#~ msgstr "Име на грешката"
+
+#~ msgid "Click here to add a new printer"
+#~ msgstr "Натиснете тук, за да добавите нов принтер"
 
 #~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
 #~ msgstr "*.ppd *.ppd.gz|Файлове-описания на PostScript принтери"

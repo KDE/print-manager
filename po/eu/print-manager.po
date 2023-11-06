@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2022-12-08 21:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -30,13 +30,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "xalba@ni.eus"
 
-#: src/add-printer/AddPrinterAssistant.cpp:29
+#: src/add-printer/AddPrinterAssistant.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "Gehitu inprimagailu bat"
 
-#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
 #: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
@@ -47,26 +47,26 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Hautatu gehitu beharreko inprimagailua"
 
-#: src/add-printer/AddPrinterAssistant.cpp:75
-#: src/add-printer/AddPrinterAssistant.cpp:82
-#: src/add-printer/AddPrinterAssistant.cpp:126
-#, kde-format
-msgctxt "@title:window"
-msgid "Pick a Driver"
-msgstr "Aukeratu gidari bat"
-
-#: src/add-printer/AddPrinterAssistant.cpp:87
-#: src/add-printer/AddPrinterAssistant.cpp:108
+#: src/add-printer/AddPrinterAssistant.cpp:86
+#: src/add-printer/AddPrinterAssistant.cpp:107
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Deskribatu zure inprimagailua"
 
-#: src/add-printer/AddPrinterAssistant.cpp:104
+#: src/add-printer/AddPrinterAssistant.cpp:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "Konfiguratu zure konexioa"
+
+#: src/add-printer/AddPrinterAssistant.cpp:191
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Pick a Driver"
+msgctxt "@title:window"
+msgid "Pick a Driver for %1"
+msgstr "Aukeratu gidari bat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -75,7 +75,7 @@ msgid "Address:"
 msgstr "Helbidea:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36
+#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
 #, kde-format
 msgid "Queue:"
 msgstr "Ilara:"
@@ -279,25 +279,25 @@ msgstr "Sartu eskuz URI"
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Gailuen zerrenda bat eskuratzeak huts egin du: '%1\""
 
-#: src/add-printer/DevicesModel.cpp:238
+#: src/add-printer/DevicesModel.cpp:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Ataka paralelora konektatuta dagoen inprimagailu bat"
 
-#: src/add-printer/DevicesModel.cpp:241
+#: src/add-printer/DevicesModel.cpp:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "USB ataka batera konektatuta dagoen inprimagailu bat"
 
-#: src/add-printer/DevicesModel.cpp:244
+#: src/add-printer/DevicesModel.cpp:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Bluetooth bidez konektatuta dagoen inprimagailu bat"
 
-#: src/add-printer/DevicesModel.cpp:247
+#: src/add-printer/DevicesModel.cpp:248
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
@@ -306,7 +306,7 @@ msgstr ""
 "HAL)"
 
 # zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
-#: src/add-printer/DevicesModel.cpp:251
+#: src/add-printer/DevicesModel.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -317,7 +317,7 @@ msgstr ""
 "inprimatzeko funtzioa gidatzen"
 
 # zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
-#: src/add-printer/DevicesModel.cpp:255
+#: src/add-printer/DevicesModel.cpp:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -327,37 +327,36 @@ msgstr ""
 "HPLIP softwarea fax makina bat edo funtzio anitzeko gailu baten fax funtzioa "
 "gidatzen"
 
-#: src/add-printer/DevicesModel.cpp:260
+#: src/add-printer/DevicesModel.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Urruneko CUPS inprimagailua DNS-SD bidez"
 
-#: src/add-printer/DevicesModel.cpp:278
+#: src/add-printer/DevicesModel.cpp:279
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Aurkitutako sareko inprimagailuak"
 
-#: src/add-printer/DevicesModel.cpp:282
+#: src/add-printer/DevicesModel.cpp:283
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Beste sareko inprimagailu batzuk"
 
-#: src/add-printer/DevicesModel.cpp:286
+#: src/add-printer/DevicesModel.cpp:287
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Bertako inprimagailuak"
 
-#: src/add-printer/DevicesModel.cpp:328
+#: src/add-printer/DevicesModel.cpp:329
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Huts egin du gailuak taldekatzean: '%1'"
 
-#. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: src/add-printer/main.cpp:27 src/printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
 msgstr "Gehitu inprimagailua"
@@ -379,38 +378,44 @@ msgstr "(C) 2010-2018 Daniel Nicoletti"
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Qt 5 / Plasma 5-era egokitzea"
 
-#: src/add-printer/main.cpp:40
+#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
+#, fuzzy, kde-format
+#| msgid "Port to Qt 5 / Plasma 5"
+msgid "Port to Qt 6 / Plasma 6"
+msgstr "Qt 5 / Plasma 5-era egokitzea"
+
+#: src/add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
 msgstr "Guraso-leihoaren ID"
 
-#: src/add-printer/main.cpp:43
+#: src/add-printer/main.cpp:44
 #, kde-format
 msgid "Add a new printer"
 msgstr "Gehitu inprimagailu berri bat"
 
-#: src/add-printer/main.cpp:46
+#: src/add-printer/main.cpp:47
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Gehitu inprimagailu klase berri bat"
 
-#: src/add-printer/main.cpp:49
+#: src/add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Adierazitako inprimagailuaren PPD aldatzen du"
 
-#: src/add-printer/main.cpp:52
+#: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Adierazitako inprimagailu/gailuID-aren PPD aldatzen du"
 
-#: src/add-printer/PageAddPrinter.cpp:122
+#: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Huts egin du klasea gehitzean: '%1'"
 
-#: src/add-printer/PageAddPrinter.cpp:124
+#: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -446,9 +451,7 @@ msgid "Location:"
 msgstr "Kokalekua:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
-#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
 #: src/add-printer/PageAddPrinter.ui:65
-#: src/printer-manager-kcm/PrinterDescription.ui:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
@@ -616,39 +619,27 @@ msgstr "Konexioak"
 msgid "Please choose an item on the list"
 msgstr "Hautatu zerrendako gai bat"
 
-#: src/configure-printer/ConfigureDialog.cpp:89
-#, kde-format
-msgid "Modify Printer"
-msgstr "Aldatu inprimagailua"
-
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
-#: src/print-manager-kded/NewPrinterNotification.cpp:260
-#: src/printer-manager-kcm/PrinterDescription.ui:198
-#: src/printqueue/PrintQueueUi.ui:131
-#, kde-format
-msgid "Configure"
-msgstr "Konfiguratu"
-
-#: src/configure-printer/ConfigureDialog.cpp:100
-#, kde-format
-msgid "Printer Options"
-msgstr "Inprimagailuaren aukerak"
+#: src/configure-printer/ConfigureDialog.cpp:91
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Printer Settings"
+msgstr "Inprimaketa ezarpenak"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
-#, kde-format
-msgid "Set the Default Printer Options"
-msgstr "Ezarri inprimagailuaren aukera lehenetsiak"
+#: src/configure-printer/ConfigureDialog.cpp:102
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Media Settings"
+msgstr "Inprimaketa ezarpenak"
 
-#: src/configure-printer/ConfigureDialog.cpp:111
 #: src/configure-printer/ConfigureDialog.cpp:112
+#: src/configure-printer/ConfigureDialog.cpp:113
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Iragarki-bandak, gidalerroak eta baimendutako erabiltzaileak"
 
-#: src/configure-printer/ConfigureDialog.cpp:184
+#: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -657,7 +648,7 @@ msgstr ""
 "Uneko orria aldatu egin da.\n"
 "Aldaketak gorde nahi dituzu?"
 
-#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
 msgstr "Gorde"
@@ -677,47 +668,39 @@ msgstr "Konfiguratu inprimagailua"
 msgid "Printer to be configured"
 msgstr "Konfiguratu beharreko inprimagailua"
 
-#: src/configure-printer/ModifyPrinter.cpp:124
+#: src/configure-printer/ModifyPrinter.cpp:126
 #, kde-format
 msgid "Current - %1"
 msgstr "Unekoa - %1"
 
-#: src/configure-printer/ModifyPrinter.cpp:127
+#: src/configure-printer/ModifyPrinter.cpp:129
 #, kde-format
 msgid "Select a custom driver"
 msgstr "Hautatu gidari pertsonalizatu bat"
 
-#: src/configure-printer/ModifyPrinter.cpp:226
+#: src/configure-printer/ModifyPrinter.cpp:228
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Huts egin du klasea konfiguratzeak"
 
-#: src/configure-printer/ModifyPrinter.cpp:227
+#: src/configure-printer/ModifyPrinter.cpp:229
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Huts egin du inprimagailua konfiguratzeak"
 
-#: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:304
+#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
 msgstr "Huts egin du"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: ectx: property (text), widget (QLabel, nameL)
-#: src/configure-printer/ModifyPrinter.ui:25
-#: src/printer-manager-kcm/PrinterDescription.ui:234
-#, kde-format
-msgid "Name:"
-msgstr "Izena:"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/configure-printer/ModifyPrinter.ui:32
-#, kde-format
-msgid "Description:"
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "&Description:"
 msgstr "Azalpena:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
@@ -728,8 +711,9 @@ msgstr "Ulertzeko moduko deskribapena, adib. \"HP Laserjet bi aldeetatik\""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/configure-printer/ModifyPrinter.ui:52
-#, kde-format
-msgid "Location:"
+#, fuzzy, kde-format
+#| msgid "Location:"
+msgid "&Location:"
 msgstr "Kokapena:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
@@ -740,8 +724,9 @@ msgstr "Ulertzeko moduko kokalekua, adib. \"Lab 1\""
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
 #: src/configure-printer/ModifyPrinter.ui:79
-#, kde-format
-msgid "Connection:"
+#, fuzzy, kde-format
+#| msgid "Connection:"
+msgid "Connec&tion:"
 msgstr "Konexioa:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
@@ -839,67 +824,67 @@ msgstr "Partaideak"
 msgid "Driver:"
 msgstr "Gidaria:"
 
-#: src/configure-printer/PrinterBehavior.cpp:199
+#: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
 msgid "Abort job"
 msgstr "Abortatu lana"
 
-#: src/configure-printer/PrinterBehavior.cpp:201
+#: src/configure-printer/PrinterBehavior.cpp:202
 #, kde-format
 msgid "Retry current job"
 msgstr "Saiatu berriz uneko lanarekin"
 
-#: src/configure-printer/PrinterBehavior.cpp:203
+#: src/configure-printer/PrinterBehavior.cpp:204
 #, kde-format
 msgid "Retry job"
 msgstr "Saiatu berriz lanarekin"
 
-#: src/configure-printer/PrinterBehavior.cpp:205
+#: src/configure-printer/PrinterBehavior.cpp:206
 #, kde-format
 msgid "Stop printer"
 msgstr "Gelditu inprimagailua"
 
-#: src/configure-printer/PrinterBehavior.cpp:214
+#: src/configure-printer/PrinterBehavior.cpp:215
 #, kde-format
 msgid "Authenticated"
 msgstr "Autentifikatuta"
 
-#: src/configure-printer/PrinterBehavior.cpp:216
+#: src/configure-printer/PrinterBehavior.cpp:217
 #, kde-format
 msgid "Default"
 msgstr "Lehenetsia"
 
-#: src/configure-printer/PrinterBehavior.cpp:225
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "None"
 msgstr "Bat ere ez"
 
-#: src/configure-printer/PrinterBehavior.cpp:227
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Classified"
 msgstr "Sailkatua"
 
-#: src/configure-printer/PrinterBehavior.cpp:229
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Confidential"
 msgstr "Isilpekoa"
 
-#: src/configure-printer/PrinterBehavior.cpp:231
+#: src/configure-printer/PrinterBehavior.cpp:232
 #, kde-format
 msgid "Secret"
 msgstr "Sekretua"
 
-#: src/configure-printer/PrinterBehavior.cpp:233
+#: src/configure-printer/PrinterBehavior.cpp:234
 #, kde-format
 msgid "Standard"
 msgstr "Estandarra"
 
-#: src/configure-printer/PrinterBehavior.cpp:235
+#: src/configure-printer/PrinterBehavior.cpp:236
 #, kde-format
 msgid "Topsecret"
 msgstr "Sekretu-gorena"
 
-#: src/configure-printer/PrinterBehavior.cpp:237
+#: src/configure-printer/PrinterBehavior.cpp:238
 #, kde-format
 msgid "Unclassified"
 msgstr "Sailkatu gabekoa"
@@ -958,7 +943,7 @@ msgstr "Galara&zi erabiltzaile hauek inprimatzea"
 msgid "A&llow these users to print"
 msgstr "O&nartu erabiltzaile hauei inprimatzea"
 
-#: src/configure-printer/PrinterOptions.cpp:50
+#: src/configure-printer/PrinterOptions.cpp:51
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ezarri lehenetsitako aukerak"
@@ -976,107 +961,212 @@ msgstr "Itaundu inprimagailuari lehenetsitako aukerak"
 msgid "Select a Driver"
 msgstr "Hautatu gidari bat"
 
-#: src/libkcups/JobModel.cpp:26
+#: src/kcm/printermanager.cpp:108
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Huts egin du eskaera gauzatzeak: %1"
+
+#: src/kcm/printermanager.cpp:130
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "Huts egin du zerbitzariaren ezarpenak jasotzeak"
+
+#: src/kcm/printermanager.cpp:156
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "Huts egin du zerbitzari-ezarpenak konfiguratzeak"
+
+#: src/kcm/printermanager.cpp:243
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Inprimatu berezko proba-orria"
+
+#: src/kcm/printermanager.cpp:249
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Garbitu inprimatzeko buruak"
+
+#: src/kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "Inprimagailu berri bat detektatu da"
+
+#: src/kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "Inprimagailu berria konfiguratzen..."
+
+#: src/kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "Inprimagailu berria gehitu da"
+
+#: src/kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "Inprimagailu berriak gidariak falta ditu"
+
+#: src/kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "Inprimagailuaren gidaria falta da"
+
+#: src/kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "Inprimagailu gidaririk ez %1 %2-(r)entzako."
+
+#: src/kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "Inprimagailu gidaririk ez %1-(r)entzako."
+
+#: src/kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "Gidaririk ez inprimagailu honentzako."
+
+#: src/kded/NewPrinterNotification.cpp:172
+#, kde-format
+msgid "Search"
+msgstr "Bilatu"
+
+#: src/kded/NewPrinterNotification.cpp:238
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "'%1' gehitu da, egiaztatu bere gidaria."
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Konfiguratu"
+
+#: src/kded/NewPrinterNotification.cpp:242
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "'%1' gehitu da, '%2' gidaria erabiliz."
+
+#: src/kded/NewPrinterNotification.cpp:243
+#: src/kded/NewPrinterNotification.cpp:257
+#, kde-format
+msgid "Print test page"
+msgstr "Inprimatu probako orria"
+
+#: src/kded/NewPrinterNotification.cpp:245
+#, kde-format
+msgid "Find driver"
+msgstr "Bilatu gidaria"
+
+#: src/kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "'%1' inprimatzeko prest dago."
+
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "Egoera"
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Name"
 msgstr "Izena"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "User"
 msgstr "Erabiltzailea"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "Created"
 msgstr "Sortua"
 
-#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
 #, kde-format
 msgid "Completed"
 msgstr "Osatua"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Pages"
 msgstr "Orriak"
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Processed"
 msgstr "Prozesatuta"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Size"
 msgstr "Neurria"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Status Message"
 msgstr "Egoera-mezua"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Printer"
 msgstr "Inprimagailua"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "From Hostname"
 msgstr "Ostalari-izenetik"
 
-#: src/libkcups/JobModel.cpp:518 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Huts egin du '%1' '%2'-ra mugitzeak"
 
-#: src/libkcups/JobModel.cpp:521 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Huts egin du"
 
-#: src/libkcups/JobModel.cpp:598
+#: src/libkcups/JobModel.cpp:599
 #, kde-format
 msgid "Pending"
 msgstr "Burutu gabe"
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:600
 #, kde-format
 msgid "On hold"
 msgstr "Zain"
 
-#: src/libkcups/JobModel.cpp:601
+#: src/libkcups/JobModel.cpp:602
 #, kde-format
 msgid "Stopped"
 msgstr "Geldituta"
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Canceled"
 msgstr "Bertan behera utzita"
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:604
 #, kde-format
 msgid "Aborted"
 msgstr "Abortatuta"
 
-#: src/libkcups/KCupsConnection.cpp:860
+#: src/libkcups/KCupsConnection.cpp:855
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS konexio batek autentifikazioa behar du: \"%1\""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:23
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Sartu erabiltzaile-izen bat eta pasahitz bat eginkizun hau burutzeko"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:45
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Okerreko erabiltzaile-izena edo pasahitza"
@@ -1106,90 +1196,97 @@ msgstr "Ezin zaio bidali komandoa inprimagailu-gidariari!"
 msgid "Failed to invoke method: %1"
 msgstr "Huts egin du metodoa deitzeak: %1"
 
-#: src/libkcups/PPDModel.cpp:32
+#: src/libkcups/PPDModel.cpp:43
 #, kde-format
 msgid "Recommended Drivers"
 msgstr "Gomendatutako gidariak"
 
-#: src/libkcups/PrinterModel.cpp:163
+#: src/libkcups/PrinterModel.cpp:188
 #, kde-format
 msgid "Printers"
 msgstr "Inprimagailuak"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle"
 msgstr "Inaktibo"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Ez aktibo, lanak baztertzen"
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Ez aktibo - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Ez aktibo, lanak baztertzen - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:372
+#: src/libkcups/PrinterModel.cpp:397
 #, kde-format
 msgid "In use"
 msgstr "Erabiltzen"
 
-#: src/libkcups/PrinterModel.cpp:374
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Erabiltzen - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused"
 msgstr "Etenarazita"
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Etenarazita, lanak baztertzen"
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Etenarazita - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Etenarazita, lanak baztertzen - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:384
+#: src/libkcups/PrinterModel.cpp:409
 #, kde-format
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: src/libkcups/PrinterModel.cpp:386
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Ezezaguna - '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:138
+#: src/libkcups/SelectMakeModel.cpp:117
+#, fuzzy, kde-format
+#| msgid "Choose &the driver from the list"
+msgid "Choose the driver for %1"
+msgstr "Hautatu &gidaria zerrendatik"
+
+#: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "Huts egin du gidari zerrenda bat eskuratzeak: '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:228
+#: src/libkcups/SelectMakeModel.cpp:230
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Huts egin du gomendatutako gidari bat bilatzeak: '%1'"
 
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, kde-format
-msgid "Choose &the driver from the list"
+#, fuzzy, kde-format
+#| msgid "Choose &the driver from the list"
+msgid "Choose &the driver"
 msgstr "Hautatu &gidaria zerrendatik"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
@@ -1198,293 +1295,12 @@ msgstr "Hautatu &gidaria zerrendatik"
 msgid "Ma&nually Provide a PPD File:"
 msgstr "Es&kuz hornitu PPD fitxategi bat:"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:59
-#, kde-format
-msgid "A New Printer was detected"
-msgstr "Inprimagailu berri bat detektatu da"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:60
-#, kde-format
-msgid "Configuring new printer..."
-msgstr "Inprimagailu berria konfiguratzen..."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:100
-#, kde-format
-msgid "The New Printer was Added"
-msgstr "Inprimagailu berria gehitu da"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:102
-#, kde-format
-msgid "The New Printer is Missing Drivers"
-msgstr "Inprimagailu berriak gidariak falta ditu"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:164
-#, kde-format
-msgid "Missing printer driver"
-msgstr "Inprimagailuaren gidaria falta da"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:166
-#, kde-format
-msgid "No printer driver for %1 %2."
-msgstr "Inprimagailu gidaririk ez %1 %2-(r)entzako."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:168
-#, kde-format
-msgid "No printer driver for %1."
-msgstr "Inprimagailu gidaririk ez %1-(r)entzako."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:170
-#, kde-format
-msgid "No driver for this printer."
-msgstr "Gidaririk ez inprimagailu honentzako."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:172
-#, kde-format
-msgid "Search"
-msgstr "Bilatu"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:238
-#, kde-format
-msgid "'%1' has been added, please check its driver."
-msgstr "'%1' gehitu da, egiaztatu bere gidaria."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:242
-#, kde-format
-msgid "'%1' has been added, using the '%2' driver."
-msgstr "'%1' gehitu da, '%2' gidaria erabiliz."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
-#: src/print-manager-kded/NewPrinterNotification.cpp:257
-#, kde-format
-msgid "Print test page"
-msgstr "Inprimatu probako orria"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:245
-#, kde-format
-msgid "Find driver"
-msgstr "Bilatu gidaria"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:255
-#, kde-format
-msgid "'%1' is ready for printing."
-msgstr "'%1' inprimatzeko prest dago."
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, kde-format
-msgid "Share this class"
-msgstr "Partekatu klase hau"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, kde-format
-msgid "Share this printer"
-msgstr "Partekatu inprimagailu hau"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:220
-#: src/printer-manager-kcm/PrinterDescription.ui:293
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "Garbitu inprimatzeko buruak"
-
-#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:229
-#: src/printer-manager-kcm/PrinterDescription.ui:301
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "Inprimatu berezko proba-orria"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:235
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "Huts egin du eskaera gauzatzeak: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, printerNameL)
-#: src/printer-manager-kcm/PrinterDescription.ui:83
-#, kde-format
-msgctxt "@title"
-msgid "Printer name or description"
-msgstr "Inprimagailuaren izena edo azalpena"
-
-#. i18n: ectx: property (text), widget (QLabel, statusL)
-#: src/printer-manager-kcm/PrinterDescription.ui:102
-#, kde-format
-msgid "Current status"
-msgstr "Uneko egoera"
-
-#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:109
-#, kde-format
-msgctxt "@option:check"
-msgid "Default printer"
-msgstr "Lehenetsitako inprimagailua"
-
-#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:126
-#, kde-format
-msgid "Reject print jobs"
-msgstr "Baztertu inprimaketa-lanak"
-
-#. i18n: ectx: property (text), widget (QLabel, locationL)
-#: src/printer-manager-kcm/PrinterDescription.ui:135
-#, kde-format
-msgctxt "@label location of printer"
-msgid "Location:"
-msgstr "Kokalekua:"
-
-#. i18n: ectx: property (text), widget (QLabel, kindL)
-#: src/printer-manager-kcm/PrinterDescription.ui:164
-#, kde-format
-msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
-msgid "Kind:"
-msgstr "Mota:"
-
-#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:205
-#, kde-format
-msgctxt "@action:button"
-msgid "Maintenance"
-msgstr "Mantentzea"
-
-#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Print Queue"
-msgstr "Ireki inprimaketa-ilara"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:288
-#, kde-format
-msgid "Print Test Page"
-msgstr "Inprimatu probako orria"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:298
-#, kde-format
-msgid "Print Self Test Page"
-msgstr "Inprimatu berezko proba-orria"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:48
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Add a Printer Class"
-msgstr "Gehitu inprimagailu klase bat"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:51
-#, kde-format
-msgid "Add a new printer or a printer class"
-msgstr "Gehitu inprimagailu berri bat edo inprimagailu klase bat"
-
-#. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:35
-#, kde-format
-msgid "Remove Printer"
-msgstr "Kendu inprimagailua"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:61
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show printers shared by other systems"
-msgstr "Erakutsi beste sistemek partekatutako inprimagailuak"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:65
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Share printers connected to this system"
-msgstr "Partekatu sistema honetara konektatutako inprimagailuak"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:67
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow printing from the Internet"
-msgstr "Onartu Internetetik inprimatzea"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:73
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow remote administration"
-msgstr "Onartu urruneko administrazioa"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:75
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow users to cancel any job (not just their own)"
-msgstr "Onartu erabiltzaileei edozein lan galaraztea (ez bakarrik beraienak)"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:79
-#, kde-format
-msgid "Configure the global preferences"
-msgstr "Konfiguratu hobespen orokorrak"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:124
-#: src/printer-manager-kcm/PrintKCM.cpp:224
-#, kde-format
-msgid "No printers have been configured or discovered"
-msgstr "Ez da inprimagailurik konfiguratu edo aurkitu"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:255
-#, kde-format
-msgid "Remove class"
-msgstr "Kendu klasea"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:256
-#, kde-format
-msgid "Are you sure you want to remove the class '%1'?"
-msgstr "Ziur zaude '%1' klasea ezabatu nahi duzula?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:259
-#, kde-format
-msgid "Remove printer"
-msgstr "Kendu inprimagailua"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:260
-#, kde-format
-msgid "Are you sure you want to remove the printer '%1'?"
-msgstr "Ziur zaude '%1' inprimagailua kendu nahi duzula?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:302
-#, kde-format
-msgctxt "@info"
-msgid "Failed to get server settings"
-msgstr "Huts egin du zerbitzariaren ezarpenak jasotzeak"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:333
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "Huts egin du zerbitzari-ezarpenak konfiguratzeak"
-
-#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:55
-#, kde-format
-msgid "System Preferences"
-msgstr "Sistemaren hobespenak"
-
-#. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:199
-#, kde-format
-msgid "TextLabel"
-msgstr "Testu-etiketa"
-
-#. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:209
-#, kde-format
-msgid "Error Title"
-msgstr "Errore Izenburua"
-
-#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:234
-#, kde-format
-msgid "Click here to add a new printer"
-msgstr "Klikatu hemen inprimagailu berri bat gehitzeko"
-
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
 msgstr "Inprimaketa-ilara"
 
-#: src/printqueue/main.cpp:38
+#: src/printqueue/main.cpp:39
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "Erakutsi inprimaketa-ilara(k)"
@@ -1634,11 +1450,124 @@ msgstr "Osatutako lanak"
 msgid "All Jobs"
 msgstr "Lan guztiak"
 
+#~ msgid "Modify Printer"
+#~ msgstr "Aldatu inprimagailua"
+
+#~ msgid "Printer Options"
+#~ msgstr "Inprimagailuaren aukerak"
+
+#~ msgid "Set the Default Printer Options"
+#~ msgstr "Ezarri inprimagailuaren aukera lehenetsiak"
+
+#~ msgid "Name:"
+#~ msgstr "Izena:"
+
+#~ msgid "Share this class"
+#~ msgstr "Partekatu klase hau"
+
+#~ msgid "Share this printer"
+#~ msgstr "Partekatu inprimagailu hau"
+
+#~ msgctxt "@title"
+#~ msgid "Printer name or description"
+#~ msgstr "Inprimagailuaren izena edo azalpena"
+
+#~ msgid "Current status"
+#~ msgstr "Uneko egoera"
+
+#~ msgctxt "@option:check"
+#~ msgid "Default printer"
+#~ msgstr "Lehenetsitako inprimagailua"
+
+#~ msgid "Reject print jobs"
+#~ msgstr "Baztertu inprimaketa-lanak"
+
+#~ msgctxt "@label location of printer"
+#~ msgid "Location:"
+#~ msgstr "Kokalekua:"
+
+#~ msgctxt ""
+#~ "@label kind of printer, could be driver name or \"local raw socket\""
+#~ msgid "Kind:"
+#~ msgstr "Mota:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Maintenance"
+#~ msgstr "Mantentzea"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Print Queue"
+#~ msgstr "Ireki inprimaketa-ilara"
+
+#~ msgid "Print Test Page"
+#~ msgstr "Inprimatu probako orria"
+
+#~ msgid "Print Self Test Page"
+#~ msgstr "Inprimatu berezko proba-orria"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add a Printer Class"
+#~ msgstr "Gehitu inprimagailu klase bat"
+
+#~ msgid "Add a new printer or a printer class"
+#~ msgstr "Gehitu inprimagailu berri bat edo inprimagailu klase bat"
+
+#~ msgid "Remove Printer"
+#~ msgstr "Kendu inprimagailua"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Show printers shared by other systems"
+#~ msgstr "Erakutsi beste sistemek partekatutako inprimagailuak"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Share printers connected to this system"
+#~ msgstr "Partekatu sistema honetara konektatutako inprimagailuak"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow printing from the Internet"
+#~ msgstr "Onartu Internetetik inprimatzea"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow remote administration"
+#~ msgstr "Onartu urruneko administrazioa"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow users to cancel any job (not just their own)"
+#~ msgstr ""
+#~ "Onartu erabiltzaileei edozein lan galaraztea (ez bakarrik beraienak)"
+
+#~ msgid "Configure the global preferences"
+#~ msgstr "Konfiguratu hobespen orokorrak"
+
+#~ msgid "No printers have been configured or discovered"
+#~ msgstr "Ez da inprimagailurik konfiguratu edo aurkitu"
+
+#~ msgid "Remove class"
+#~ msgstr "Kendu klasea"
+
+#~ msgid "Are you sure you want to remove the class '%1'?"
+#~ msgstr "Ziur zaude '%1' klasea ezabatu nahi duzula?"
+
+#~ msgid "Remove printer"
+#~ msgstr "Kendu inprimagailua"
+
+#~ msgid "Are you sure you want to remove the printer '%1'?"
+#~ msgstr "Ziur zaude '%1' inprimagailua kendu nahi duzula?"
+
+#~ msgid "System Preferences"
+#~ msgstr "Sistemaren hobespenak"
+
+#~ msgid "TextLabel"
+#~ msgstr "Testu-etiketa"
+
+#~ msgid "Error Title"
+#~ msgstr "Errore Izenburua"
+
+#~ msgid "Click here to add a new printer"
+#~ msgstr "Klikatu hemen inprimagailu berri bat gehitzeko"
+
 #~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
 #~ msgstr "*.ppd *.ppd.gz|PostScript inPrimagailu Deskribapen fitxategiak"
-
-#~ msgid "Print settings"
-#~ msgstr "Inprimaketa ezarpenak"
 
 #~ msgid "Daniel Nicoletti"
 #~ msgstr "Daniel Nicoletti"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2021-07-07 12:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -20,74 +20,82 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:26
-msgid "Search…"
-msgstr ""
-
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:52
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Δεν έχουν διαμορφωθεί εκτυπωτές ή δεν εντοπίστηκαν"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:31
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Εκτυπωτές"
 
-#: src/plasmoid/package/contents/ui/main.qml:36
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Μια εργασία βρίσκεται στη λίστα αναμονής"
 msgstr[1] "%1 εργασίες βρίσκονται στη λίστα αναμονής"
 
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:79
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Εκτύπωση %1 με %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:47
+#: src/plasmoid/package/contents/ui/main.qml:81
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Εκτύπωση με %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:84
 msgid "Print queue is empty"
 msgstr "Η λίστα αναμονής είναι κενή"
 
-#: src/plasmoid/package/contents/ui/main.qml:126
+#: src/plasmoid/package/contents/ui/main.qml:114
 msgid "Show All Jobs"
 msgstr "Εμφάνιση όλων των εργασιών"
 
-#: src/plasmoid/package/contents/ui/main.qml:132
+#: src/plasmoid/package/contents/ui/main.qml:125
 msgid "Show Only Completed Jobs"
 msgstr "Να εμφανίζονται μόνο ολοκληρωμένες εργασίες"
 
-#: src/plasmoid/package/contents/ui/main.qml:138
+#: src/plasmoid/package/contents/ui/main.qml:136
 msgid "Show Only Active Jobs"
 msgstr "Να εμφανίζονται μόνο ενεργές εργασίες"
 
-#: src/plasmoid/package/contents/ui/main.qml:149
-msgid "&Configure Printers..."
+#: src/plasmoid/package/contents/ui/main.qml:154
+#, fuzzy
+#| msgid "&Configure Printers..."
+msgid "&Configure Printers…"
 msgstr "&Διαμόρφωση εκτυπωτών..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
-msgid "Resume printing"
-msgstr "Συνέχεια εκτύπωσης"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+msgid "Resume"
+msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
-msgid "Pause printing"
-msgstr "Παύση εκτύπωσης"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+msgid "Pause"
+msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:37
-msgid "Configure printer..."
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#, fuzzy
+#| msgid "Configure printer..."
+msgid "Configure printer…"
 msgstr "Διαμόρφωση εκτυπωτή..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-msgid "View print queue"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#, fuzzy
+#| msgid "View print queue"
+msgid "View print queue…"
 msgstr "Προβολή λίστας αναμονής εκτύπωσης"
+
+#~ msgid "Resume printing"
+#~ msgstr "Συνέχεια εκτύπωσης"
+
+#~ msgid "Pause printing"
+#~ msgstr "Παύση εκτύπωσης"
 
 #~ msgid "Search for a printer..."
 #~ msgstr "Αναζήτηση εκτυπωτή..."

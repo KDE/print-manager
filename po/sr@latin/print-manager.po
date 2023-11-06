@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-04-08 03:31+0200\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -28,32 +28,25 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "caslav.ilic@gmx.net"
 
-#: add-printer/AddPrinterAssistant.cpp:41
+#: src/add-printer/AddPrinterAssistant.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "Dodavanje novog štampača"
 
-#: add-printer/AddPrinterAssistant.cpp:83 add-printer/ChooseLpd.cpp:39
-#: add-printer/ChooseSamba.cpp:38 add-printer/ChooseSerial.cpp:37
-#: add-printer/ChooseSocket.cpp:37 add-printer/ChooseUri.cpp:40
-#: add-printer/PageAddPrinter.cpp:42 add-printer/PageChoosePPD.cpp:44
-#: add-printer/PageChoosePrinters.cpp:40 add-printer/PageDestinations.cpp:91
+#: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
+#: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
+#: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
+#: src/add-printer/PageChoosePrinters.cpp:24
+#: src/add-printer/PageDestinations.cpp:77
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Izbor štampača za dodavanje"
 
-#: add-printer/AddPrinterAssistant.cpp:87
-#: add-printer/AddPrinterAssistant.cpp:94
-#: add-printer/AddPrinterAssistant.cpp:138
-#, kde-format
-msgctxt "@title:window"
-msgid "Pick a Driver"
-msgstr "Izbor drajvera"
-
-#: add-printer/AddPrinterAssistant.cpp:99
-#: add-printer/AddPrinterAssistant.cpp:120
+#: src/add-printer/AddPrinterAssistant.cpp:86
+#: src/add-printer/AddPrinterAssistant.cpp:107
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Please describe you printer"
@@ -61,39 +54,47 @@ msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Opis štampača"
 
-#: add-printer/AddPrinterAssistant.cpp:116
+#: src/add-printer/AddPrinterAssistant.cpp:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "Podešavanje veze"
 
+#: src/add-printer/AddPrinterAssistant.cpp:191
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Pick a Driver"
+msgctxt "@title:window"
+msgid "Pick a Driver for %1"
+msgstr "Izbor drajvera"
+
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseLpd.ui:26
+#: src/add-printer/ChooseLpd.ui:26
 #, kde-format
 msgid "Address:"
 msgstr "Adresa:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/ChooseLpd.ui:36
+#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
 #, kde-format
 msgid "Queue:"
 msgstr "Red:"
 
 #. i18n: ectx: property (text), widget (QPushButton, detectPB)
-#: add-printer/ChooseLpd.ui:51
+#: src/add-printer/ChooseLpd.ui:51
 #, kde-format
 msgid "Detect"
 msgstr "Otkrij"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: add-printer/ChooseSamba.ui:35
+#: src/add-printer/ChooseSamba.ui:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Windows Printer via SAMBA"
 msgstr "Windows štampač preko Sambe"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: add-printer/ChooseSamba.ui:41
+#: src/add-printer/ChooseSamba.ui:41
 #, kde-format
 msgctxt ""
 "@label samba URL markup example, this is preceded by a label containing "
@@ -102,119 +103,119 @@ msgid "smb://[workgroup/]server[:port]/printer"
 msgstr "smb://[radna_grupa/]server[:port]/stampac"
 
 #. i18n: ectx: property (text), widget (QPushButton, browsePB)
-#: add-printer/ChooseSamba.ui:54
+#: src/add-printer/ChooseSamba.ui:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Browse"
 msgstr "Pregledaj"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: add-printer/ChooseSamba.ui:64
+#: src/add-printer/ChooseSamba.ui:64
 #, kde-format
 msgctxt "@title:group"
 msgid "Authentication"
 msgstr "Autentifikacija"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/ChooseSamba.ui:73
+#: src/add-printer/ChooseSamba.ui:73
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
 msgstr "Korisničko ime:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: add-printer/ChooseSamba.ui:86
+#: src/add-printer/ChooseSamba.ui:86
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
 msgstr "Lozinka"
 
 # >> @item:inlistbox Parity:
-#: add-printer/ChooseSerial.cpp:39 add-printer/ChooseSerial.cpp:43
+#: src/add-printer/ChooseSerial.cpp:25 src/add-printer/ChooseSerial.cpp:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "None"
 msgstr "ništa"
 
 # >> @item:inlistbox Parity:
-#: add-printer/ChooseSerial.cpp:40
+#: src/add-printer/ChooseSerial.cpp:26
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Even"
 msgstr "parno"
 
 # >> @item:inlistbox Parity:
-#: add-printer/ChooseSerial.cpp:41
+#: src/add-printer/ChooseSerial.cpp:27
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Odd"
 msgstr "neparno"
 
 # >> @item:inlistbox Flow control:
-#: add-printer/ChooseSerial.cpp:44
+#: src/add-printer/ChooseSerial.cpp:30
 #, kde-format
 msgctxt "@label:listbox"
 msgid "XON/XOFF (Software)"
 msgstr "XON/XOFF (softverska)"
 
 # >> @item:inlistbox Flow control:
-#: add-printer/ChooseSerial.cpp:45
+#: src/add-printer/ChooseSerial.cpp:31
 #, kde-format
 msgctxt "@label:listbox"
 msgid "RTS/CTS (Hardware)"
 msgstr "RTS/CTS (hardverska)"
 
 # >> @item:inlistbox Flow control:
-#: add-printer/ChooseSerial.cpp:46
+#: src/add-printer/ChooseSerial.cpp:32
 #, kde-format
 msgctxt "@label:listbox"
 msgid "DTR/DSR (Hardware)"
 msgstr "DTR/DSR (hardverska)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseSerial.ui:29
+#: src/add-printer/ChooseSerial.ui:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
 msgstr "Protok u bodima:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/ChooseSerial.ui:42
+#: src/add-printer/ChooseSerial.ui:42
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Parity:"
 msgstr "Paritet:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: add-printer/ChooseSerial.ui:55
+#: src/add-printer/ChooseSerial.ui:55
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Data Bits:"
 msgstr "Bitova podataka:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: add-printer/ChooseSerial.ui:79
+#: src/add-printer/ChooseSerial.ui:79
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Flow Control:"
 msgstr "Upravljanje tokom:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseSocket.ui:29
+#: src/add-printer/ChooseSocket.ui:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
 msgstr "Adresa:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/ChooseSocket.ui:42
+#: src/add-printer/ChooseSocket.ui:42
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Port:"
 msgstr "Port:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/ChooseUri.ui:41
+#: src/add-printer/ChooseUri.ui:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
@@ -222,7 +223,7 @@ msgstr "Veza:"
 
 # literal-segment: TABLE
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/ChooseUri.ui:82
+#: src/add-printer/ChooseUri.ui:82
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -267,43 +268,43 @@ msgstr ""
 "</tr>\n"
 "</table>"
 
-#: add-printer/DevicesModel.cpp:53
+#: src/add-printer/DevicesModel.cpp:39
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "ručni URI"
 
-#: add-printer/DevicesModel.cpp:129
+#: src/add-printer/DevicesModel.cpp:115
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Ne mogu da dobavim spisak uređaja: „%1“"
 
-#: add-printer/DevicesModel.cpp:252
+#: src/add-printer/DevicesModel.cpp:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Štampač povezan na paralelni port."
 
-#: add-printer/DevicesModel.cpp:255
+#: src/add-printer/DevicesModel.cpp:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Štampač povezan na USB port."
 
-#: add-printer/DevicesModel.cpp:258
+#: src/add-printer/DevicesModel.cpp:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Štampač povezan preko Bluetootha."
 
 # rewrite-msgid: /Hardware Abstraction Layer//
-#: add-printer/DevicesModel.cpp:261
+#: src/add-printer/DevicesModel.cpp:248
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Lokalni štampač otkriven preko HAL‑a."
 
-#: add-printer/DevicesModel.cpp:265
+#: src/add-printer/DevicesModel.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -313,7 +314,7 @@ msgstr ""
 "Štampač pod HPLIP‑ovim softverom, ili štampačka funkcija višefunkcijskog "
 "uređaja."
 
-#: add-printer/DevicesModel.cpp:269
+#: src/add-printer/DevicesModel.cpp:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -322,161 +323,164 @@ msgid ""
 msgstr ""
 "Faks pod HPLIP‑ovim softverom, ili faks funkcija višefunkcijskog uređaja."
 
-#: add-printer/DevicesModel.cpp:274
+#: src/add-printer/DevicesModel.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Udaljeni CUPS štampač preko DNSSD‑a."
 
-#: add-printer/DevicesModel.cpp:292
+#: src/add-printer/DevicesModel.cpp:279
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "otkriveni mrežni štampači"
 
-#: add-printer/DevicesModel.cpp:296
+#: src/add-printer/DevicesModel.cpp:283
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "drugi mrežni štampači"
 
-#: add-printer/DevicesModel.cpp:300
+#: src/add-printer/DevicesModel.cpp:287
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "lokalni štampači"
 
-#: add-printer/DevicesModel.cpp:342
+#: src/add-printer/DevicesModel.cpp:329
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Neuspelo grupisanje uređaja: „%1“"
 
-#. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: add-printer/main.cpp:41 printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
 msgstr "Dodaj štampač"
 
-#: add-printer/main.cpp:43
+#: src/add-printer/main.cpp:29
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "Alatka za dodavanje novih štampača"
 
-#: add-printer/main.cpp:45 configure-printer/main.cpp:43
-#: printer-manager-kcm/PrintKCM.cpp:54 printqueue/main.cpp:42
+#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:29
+#: src/printqueue/main.cpp:28
 #, fuzzy, kde-format
 #| msgid "(C) 2010-2013 Daniel Nicoletti"
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© 2010–2013, Danijel Nikoleti"
 
-#: add-printer/main.cpp:48 configure-printer/main.cpp:45
-#: printer-manager-kcm/PrintKCM.cpp:56 printqueue/main.cpp:45
+#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:31
+#: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Prenos na Qt5 i Plasmu 5"
 
-#: add-printer/main.cpp:54
+#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
+#, fuzzy, kde-format
+#| msgid "Port to Qt 5 / Plasma 5"
+msgid "Port to Qt 6 / Plasma 6"
+msgstr "Prenos na Qt5 i Plasmu 5"
+
+#: src/add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
 msgstr "ID roditeljskog prozora"
 
-#: add-printer/main.cpp:57
+#: src/add-printer/main.cpp:44
 #, kde-format
 msgid "Add a new printer"
 msgstr "Dodaj novi štampač"
 
-#: add-printer/main.cpp:60
+#: src/add-printer/main.cpp:47
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Dodaj novu klasu štampača"
 
-#: add-printer/main.cpp:63
+#: src/add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Promeni PPD zadatog štampača"
 
-#: add-printer/main.cpp:66
+#: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Promeni PPD zadatog štampača/ID‑a uređaja"
 
-#: add-printer/PageAddPrinter.cpp:143
+#: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Neuspelo dodavanje klase: „%1“"
 
-#: add-printer/PageAddPrinter.cpp:145
+#: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
 msgstr "Neuspelo podešavanje štampača: „%1“"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: add-printer/PageAddPrinter.ui:31
+#: src/add-printer/PageAddPrinter.ui:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Name:"
 msgstr "Ime:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
-#: add-printer/PageAddPrinter.ui:38
+#: src/add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
 msgstr "Može da sadrži bilo koji ispisiv znak osim ‘/’, ‘#’ i razmaka."
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: add-printer/PageAddPrinter.ui:45
+#: src/add-printer/PageAddPrinter.ui:45
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Opis:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: add-printer/PageAddPrinter.ui:55
+#: src/add-printer/PageAddPrinter.ui:55
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Lokacija:"
 
-#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
-#: add-printer/PageAddPrinter.ui:65
-#: printer-manager-kcm/PrinterDescription.ui:119
+#: src/add-printer/PageAddPrinter.ui:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
 msgstr "Deli ovaj štampač"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/PageChoosePrinters.ui:96
+#: src/add-printer/PageChoosePrinters.ui:96
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "Članovi:"
 
-#: add-printer/PageDestinations.cpp:203
+#: src/add-printer/PageDestinations.cpp:189
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr "Štampač povezan na paralelni port."
 
-#: add-printer/PageDestinations.cpp:206
+#: src/add-printer/PageDestinations.cpp:192
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr "Štampač povezan na USB port."
 
-#: add-printer/PageDestinations.cpp:209
+#: src/add-printer/PageDestinations.cpp:195
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr "Štampač povezan preko Bluetootha."
 
 # rewrite-msgid: /Hardware Abstraction Layer//
-#: add-printer/PageDestinations.cpp:212
+#: src/add-printer/PageDestinations.cpp:198
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr "Lokalni štampač otkriven preko HAL‑a."
 
-#: add-printer/PageDestinations.cpp:216
+#: src/add-printer/PageDestinations.cpp:202
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -485,7 +489,7 @@ msgstr ""
 "Štampač pod HPLIP‑ovim softverom, ili štampačka funkcija višefunkcijskog "
 "uređaja."
 
-#: add-printer/PageDestinations.cpp:220
+#: src/add-printer/PageDestinations.cpp:206
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -493,175 +497,163 @@ msgid ""
 msgstr ""
 "Faks pod HPLIP‑ovim softverom, ili faks funkcija višefunkcijskog uređaja."
 
-#: add-printer/PageDestinations.cpp:228 add-printer/PageDestinations.cpp:387
+#: src/add-printer/PageDestinations.cpp:214
+#: src/add-printer/PageDestinations.cpp:373
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Udaljeni CUPS štampač preko DNSSD‑a."
 
-#: add-printer/PageDestinations.cpp:240 add-printer/PageDestinations.cpp:396
+#: src/add-printer/PageDestinations.cpp:226
+#: src/add-printer/PageDestinations.cpp:382
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Mrežni štampač preko DNSSD‑a."
 
 # >! Unpuzzle.
-#: add-printer/PageDestinations.cpp:242
+#: src/add-printer/PageDestinations.cpp:228
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 mrežni štampač preko DNSSD‑a."
 
 # >> @item
-#: add-printer/PageDestinations.cpp:347
+#: src/add-printer/PageDestinations.cpp:333
 #, kde-format
 msgid "Parallel Port"
 msgstr "paralelni port"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:349
+#: src/add-printer/PageDestinations.cpp:335
 #, kde-format
 msgid "Serial Port"
 msgstr "serijski port"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:351
+#: src/add-printer/PageDestinations.cpp:337
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:353
+#: src/add-printer/PageDestinations.cpp:339
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
 # >> @item
 # rewrite-msgid: /HP Linux Imaging and Printing//
-#: add-printer/PageDestinations.cpp:355
+#: src/add-printer/PageDestinations.cpp:341
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "faks preko HPLIP‑a"
 
 # >> @item
 # rewrite-msgid: /HP Linux Imaging and Printing//
-#: add-printer/PageDestinations.cpp:357
+#: src/add-printer/PageDestinations.cpp:343
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HPLIP"
 
 # >> @item
 # rewrite-msgid: /Hardware Abstraction Layer//
-#: add-printer/PageDestinations.cpp:359
+#: src/add-printer/PageDestinations.cpp:345
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "HAL"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:361
+#: src/add-printer/PageDestinations.cpp:347
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP‑ov JetDirect"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:366
+#: src/add-printer/PageDestinations.cpp:352
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR red"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:368
+#: src/add-printer/PageDestinations.cpp:354
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR red %1"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:371
+#: src/add-printer/PageDestinations.cpp:357
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "windows štampač preko Sambe"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:376
+#: src/add-printer/PageDestinations.cpp:362
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:378
+#: src/add-printer/PageDestinations.cpp:364
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:381
+#: src/add-printer/PageDestinations.cpp:367
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:390
+#: src/add-printer/PageDestinations.cpp:376
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "IPP mrežni štampač preko DNSSD‑a"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:392
+#: src/add-printer/PageDestinations.cpp:378
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "LPD mrežni štampač preko DNSSD‑a"
 
 # >> @item
-#: add-printer/PageDestinations.cpp:394
+#: src/add-printer/PageDestinations.cpp:380
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "AppSocket/JetDirect mrežni štampač preko DNSSD‑a"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
-#: add-printer/PageDestinations.ui:62
+#: src/add-printer/PageDestinations.ui:62
 #, kde-format
 msgid "Connections"
 msgstr "Veze"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: add-printer/PageDestinations.ui:97
+#: src/add-printer/PageDestinations.ui:97
 #, kde-format
 msgid "Please choose an item on the list"
 msgstr "Izaberite stavku sa spiska"
 
-# >> @title:group
-#: configure-printer/ConfigureDialog.cpp:102
-#, kde-format
-msgid "Modify Printer"
-msgstr "Izmena štampača"
+#: src/configure-printer/ConfigureDialog.cpp:90
+#: src/configure-printer/ConfigureDialog.cpp:91
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Printer Settings"
+msgstr "Postavke štampača"
 
-# >! Contexts.
-#. i18n: ectx: property (text), widget (QPushButton, configurePB)
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: configure-printer/ConfigureDialog.cpp:103
-#: print-manager-kded/NewPrinterNotification.cpp:255
-#: print-manager-kded/NewPrinterNotification.cpp:271
-#: printer-manager-kcm/PrinterDescription.ui:198 printqueue/PrintQueueUi.ui:131
-#, kde-format
-msgid "Configure"
-msgstr "Podesi"
+#: src/configure-printer/ConfigureDialog.cpp:101
+#: src/configure-printer/ConfigureDialog.cpp:102
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Media Settings"
+msgstr "Postavke štampača"
 
 # >> @title:group
-#: configure-printer/ConfigureDialog.cpp:113
-#, kde-format
-msgid "Printer Options"
-msgstr "Opcije štampača"
-
-#: configure-printer/ConfigureDialog.cpp:114
-#, kde-format
-msgid "Set the Default Printer Options"
-msgstr "Postavite podrazumevane opcije štampača"
-
-# >> @title:group
-#: configure-printer/ConfigureDialog.cpp:124
-#: configure-printer/ConfigureDialog.cpp:125
+#: src/configure-printer/ConfigureDialog.cpp:112
+#: src/configure-printer/ConfigureDialog.cpp:113
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Barjaci, smernice i dozvoljeni korisnici"
 
-#: configure-printer/ConfigureDialog.cpp:198
+#: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -670,92 +662,92 @@ msgstr ""
 "Na tekućoj stranici ima izmena.\n"
 "Želite li da ih sačuvate?"
 
-#: configure-printer/main.cpp:39
+#: src/configure-printer/ConfigureDialog.cpp:186
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: src/configure-printer/main.cpp:25
 #, kde-format
 msgid "Configure Printer"
 msgstr "Podešavanje štampača"
 
-#: configure-printer/main.cpp:41
+#: src/configure-printer/main.cpp:27
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "Podešavanje štampača"
 
-#: configure-printer/main.cpp:52
+#: src/configure-printer/main.cpp:38
 #, kde-format
 msgid "Printer to be configured"
 msgstr "Štampač za podešavanje"
 
 # >> @item:inlistbox
 # >> %1 is printer make and model
-#: configure-printer/ModifyPrinter.cpp:141
+#: src/configure-printer/ModifyPrinter.cpp:126
 #, kde-format
 msgid "Current - %1"
 msgstr "trenutni — %1"
 
 # >> @item:inlistbox
-#: configure-printer/ModifyPrinter.cpp:144
+#: src/configure-printer/ModifyPrinter.cpp:129
 #, kde-format
 msgid "Select a custom driver"
 msgstr "posebni drajver"
 
-#: configure-printer/ModifyPrinter.cpp:243
+#: src/configure-printer/ModifyPrinter.cpp:228
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Neuspelo podešavanje klase."
 
-#: configure-printer/ModifyPrinter.cpp:244
+#: src/configure-printer/ModifyPrinter.cpp:229
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Neuspelo podešavanje štampača."
 
-#: configure-printer/ModifyPrinter.cpp:246 printer-manager-kcm/PrintKCM.cpp:324
+#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
 msgstr "Neuspeh"
 
-#. i18n: ectx: property (text), widget (QLabel, nameL)
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: configure-printer/ModifyPrinter.ui:25
-#: printer-manager-kcm/PrinterDescription.ui:234
-#, kde-format
-msgid "Name:"
-msgstr "Ime:"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: configure-printer/ModifyPrinter.ui:32
-#, kde-format
-msgid "Description:"
+#: src/configure-printer/ModifyPrinter.ui:32
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "&Description:"
 msgstr "Opis:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
-#: configure-printer/ModifyPrinter.ui:42
+#: src/configure-printer/ModifyPrinter.ui:42
 #, kde-format
 msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
 msgstr "Lako prepoznatljiv opis, poput „HP‑ov LaserJet sa duplekserom“."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: configure-printer/ModifyPrinter.ui:52
-#, kde-format
-msgid "Location:"
+#: src/configure-printer/ModifyPrinter.ui:52
+#, fuzzy, kde-format
+#| msgid "Location:"
+msgid "&Location:"
 msgstr "Lokacija:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
-#: configure-printer/ModifyPrinter.ui:62
+#: src/configure-printer/ModifyPrinter.ui:62
 #, kde-format
 msgid "Human-readable location such as \"Lab 1\""
 msgstr "Lako prepoznatljiva lokacija, poput „laboratorija 1“."
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
-#: configure-printer/ModifyPrinter.ui:79
-#, kde-format
-msgid "Connection:"
+#: src/configure-printer/ModifyPrinter.ui:79
+#, fuzzy, kde-format
+#| msgid "Connection:"
+msgid "Connec&tion:"
 msgstr "Veza:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
-#: configure-printer/ModifyPrinter.ui:103
+#: src/configure-printer/ModifyPrinter.ui:103
 #, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
@@ -801,773 +793,594 @@ msgstr ""
 "domacin/red</p><p>socket://domacin<br/>socket://domacin:9100</p></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, membersL)
-#: configure-printer/ModifyPrinter.ui:113
+#: src/configure-printer/ModifyPrinter.ui:113
 #, kde-format
 msgid "Members"
 msgstr "Članovi"
 
 #. i18n: ectx: property (text), widget (QLabel, driverL)
-#: configure-printer/ModifyPrinter.ui:126
+#: src/configure-printer/ModifyPrinter.ui:126
 #, kde-format
 msgid "Driver:"
 msgstr "Drajver:"
 
 # >> @item error policy
-#: configure-printer/PrinterBehavior.cpp:213
+#: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
 msgid "Abort job"
 msgstr "obustavljanje posla"
 
 # >> @item error policy
-#: configure-printer/PrinterBehavior.cpp:215
+#: src/configure-printer/PrinterBehavior.cpp:202
 #, kde-format
 msgid "Retry current job"
 msgstr "ponavljanje tekućeg posla"
 
 # >> @item error policy
-#: configure-printer/PrinterBehavior.cpp:217
+#: src/configure-printer/PrinterBehavior.cpp:204
 #, kde-format
 msgid "Retry job"
 msgstr "ponavljanje posla"
 
 # >> @item error policy
-#: configure-printer/PrinterBehavior.cpp:219
+#: src/configure-printer/PrinterBehavior.cpp:206
 #, kde-format
 msgid "Stop printer"
 msgstr "zaustavljanje štampača"
 
 # >> @item operation policy
-#: configure-printer/PrinterBehavior.cpp:228
+#: src/configure-printer/PrinterBehavior.cpp:215
 #, kde-format
 msgid "Authenticated"
 msgstr "autentifikovano"
 
 # >> @item operation policy
-#: configure-printer/PrinterBehavior.cpp:230
+#: src/configure-printer/PrinterBehavior.cpp:217
 #, kde-format
 msgid "Default"
 msgstr "podrazumevano"
 
 # >> @item job sheets
-#: configure-printer/PrinterBehavior.cpp:239
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "None"
 msgstr "ništa"
 
 # >> @item job sheets
-#: configure-printer/PrinterBehavior.cpp:241
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Classified"
 msgstr "poverljivo"
 
 # >> @item job sheets
-#: configure-printer/PrinterBehavior.cpp:243
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Confidential"
 msgstr "strogo poverljivo"
 
 # >> @item job sheets
-#: configure-printer/PrinterBehavior.cpp:245
+#: src/configure-printer/PrinterBehavior.cpp:232
 #, kde-format
 msgid "Secret"
 msgstr "tajno"
 
 # >> @item job sheets
-#: configure-printer/PrinterBehavior.cpp:247
+#: src/configure-printer/PrinterBehavior.cpp:234
 #, kde-format
 msgid "Standard"
 msgstr "standardno"
 
 # >> @item job sheets
-#: configure-printer/PrinterBehavior.cpp:249
+#: src/configure-printer/PrinterBehavior.cpp:236
 #, kde-format
 msgid "Topsecret"
 msgstr "vrhunski tajno"
 
 # >> @item job sheets
-#: configure-printer/PrinterBehavior.cpp:251
+#: src/configure-printer/PrinterBehavior.cpp:238
 #, kde-format
 msgid "Unclassified"
 msgstr "otvoreno"
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
-#: configure-printer/PrinterBehavior.ui:29
+#: src/configure-printer/PrinterBehavior.ui:29
 #, kde-format
 msgid "Banners"
 msgstr "Barjaci"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: configure-printer/PrinterBehavior.ui:35
+#: src/configure-printer/PrinterBehavior.ui:35
 #, kde-format
 msgid "Starting Banner:"
 msgstr "Početni barjak:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: configure-printer/PrinterBehavior.ui:55
+#: src/configure-printer/PrinterBehavior.ui:55
 #, kde-format
 msgid "Ending Banner:"
 msgstr "Završni barjak:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
-#: configure-printer/PrinterBehavior.ui:84
+#: src/configure-printer/PrinterBehavior.ui:84
 #, kde-format
 msgid "Policies"
 msgstr "Smernice"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: configure-printer/PrinterBehavior.ui:90
+#: src/configure-printer/PrinterBehavior.ui:90
 #, kde-format
 msgid "Operation Policy:"
 msgstr "Smernica rada:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: configure-printer/PrinterBehavior.ui:103
+#: src/configure-printer/PrinterBehavior.ui:103
 #, kde-format
 msgid "Error Policy:"
 msgstr "Smernica grešaka:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
-#: configure-printer/PrinterBehavior.ui:133
+#: src/configure-printer/PrinterBehavior.ui:133
 #, kde-format
 msgid "Allowed Users"
 msgstr "Dozvoljeni korisnici"
 
 #. i18n: ectx: property (text), widget (QRadioButton, preventRB)
-#: configure-printer/PrinterBehavior.ui:139
+#: src/configure-printer/PrinterBehavior.ui:139
 #, kde-format
 msgid "Pre&vent these users from printing "
 msgstr "&Spreči ove korisnike da štampaju"
 
 #. i18n: ectx: property (text), widget (QRadioButton, allowRB)
-#: configure-printer/PrinterBehavior.ui:146
+#: src/configure-printer/PrinterBehavior.ui:146
 #, kde-format
 msgid "A&llow these users to print"
 msgstr "&Dozvoli ovim korisnicima da štampaju"
 
-#: configure-printer/PrinterOptions.cpp:69
+#: src/configure-printer/PrinterOptions.cpp:51
 #, kde-format
 msgid "Set Default Options"
 msgstr "Postavi podrazumevane opcije"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
-#: configure-printer/PrinterOptions.ui:26
+#: src/configure-printer/PrinterOptions.ui:26
 #, kde-format
 msgid "Query Printer for Default Options"
 msgstr "Zatraži od štampača podrazumevane opcije"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: configure-printer/SelectMakeModelDialog.cpp:38
-#: libkcups/SelectMakeModel.ui:14
+#: src/configure-printer/SelectMakeModelDialog.cpp:27
+#: src/libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"
 msgstr "Izbor drajvera"
 
+#: src/kcm/printermanager.cpp:108
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Neuspelo izvršavanje zahteva: %1"
+
+#: src/kcm/printermanager.cpp:130
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "Ne mogu da dobavim postavke servera"
+
+#: src/kcm/printermanager.cpp:156
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "Ne mogu da podesim postavke servera"
+
+#: src/kcm/printermanager.cpp:243
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Odštampaj stranicu za samoprobu"
+
+#: src/kcm/printermanager.cpp:249
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Očisti štamparske glave"
+
+#: src/kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "Otkriven je novi štampač"
+
+#: src/kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "Podešavam novi štampač..."
+
+#: src/kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "Dodaj je novi štampač"
+
+#: src/kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "Novom štampaču nedostaje drajver"
+
+#: src/kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "Nema drajvera za štampač"
+
+# >> %1 %2 make and model
+#: src/kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "Nema drajvera za štampač %1 %2."
+
+#: src/kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "Nema drajvera za štampač %1."
+
+#: src/kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "Nema drajvera za ovaj štampač."
+
+#: src/kded/NewPrinterNotification.cpp:172
+#, kde-format
+msgid "Search"
+msgstr "Potraži"
+
+#: src/kded/NewPrinterNotification.cpp:238
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "„%1“ je dodat, proverite mu drajver."
+
+# >! Contexts.
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Podesi"
+
+#: src/kded/NewPrinterNotification.cpp:242
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "„%1“ je dodat, pod drajverom „%2“."
+
+#: src/kded/NewPrinterNotification.cpp:243
+#: src/kded/NewPrinterNotification.cpp:257
+#, kde-format
+msgid "Print test page"
+msgstr "Odštampaj probnu stranicu"
+
+#: src/kded/NewPrinterNotification.cpp:245
+#, kde-format
+msgid "Find driver"
+msgstr "Nađi drajver"
+
+#: src/kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "„%1“ spreman za štampanje."
+
 # >> @title:column
-#: libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "stanje"
 
 # >> @title:column
-#: libkcups/JobModel.cpp:39
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Name"
 msgstr "ime"
 
 # >> @title:column
-#: libkcups/JobModel.cpp:40
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "User"
 msgstr "korisnik"
 
 # >> @title:column job created on
-#: libkcups/JobModel.cpp:41
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "Created"
 msgstr "napravljen"
 
 # >> @title:column completed job
-#: libkcups/JobModel.cpp:42 libkcups/JobModel.cpp:616
+#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
 #, kde-format
 msgid "Completed"
 msgstr "završen"
 
 # >> @title:column
-#: libkcups/JobModel.cpp:43
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Pages"
 msgstr "stranica"
 
 # >> @title:column job processed
-#: libkcups/JobModel.cpp:44
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Processed"
 msgstr "obrađen"
 
 # >> @title:column
-#: libkcups/JobModel.cpp:45
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Size"
 msgstr "veličina"
 
 # >> @title:column
-#: libkcups/JobModel.cpp:46
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Status Message"
 msgstr "poruka stanja"
 
 # >> @title:column
-#: libkcups/JobModel.cpp:47
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Printer"
 msgstr "štampač"
 
 # rewrite-msgid: /Hostname/Host/
 # >> @title:column
-#: libkcups/JobModel.cpp:48
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "From Hostname"
 msgstr "od domaćina"
 
-#: libkcups/JobModel.cpp:530 printqueue/PrintQueueUi.cpp:530
+#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Ne mogu da premestim „%1“ na „%2“."
 
-#: libkcups/JobModel.cpp:533 printqueue/PrintQueueUi.cpp:536
+#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Neuspeh"
 
 # >> @item job
-#: libkcups/JobModel.cpp:610
+#: src/libkcups/JobModel.cpp:599
 #, kde-format
 msgid "Pending"
 msgstr "nastupa"
 
 # >> @item job
-#: libkcups/JobModel.cpp:611
+#: src/libkcups/JobModel.cpp:600
 #, kde-format
 msgid "On hold"
 msgstr "zadržan"
 
 # >> @item job
-#: libkcups/JobModel.cpp:613
+#: src/libkcups/JobModel.cpp:602
 #, kde-format
 msgid "Stopped"
 msgstr "zaustavljen"
 
 # >> @item job
-#: libkcups/JobModel.cpp:614
+#: src/libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Canceled"
 msgstr "otkazan"
 
 # >> @item job
-#: libkcups/JobModel.cpp:615
+#: src/libkcups/JobModel.cpp:604
 #, kde-format
 msgid "Aborted"
 msgstr "obustavljen"
 
-#: libkcups/KCupsConnection.cpp:875
+#: src/libkcups/KCupsConnection.cpp:855
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr ""
 
-#: libkcups/KCupsPasswordDialog.cpp:36
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Unesite korisničko ime i lozinku radi dovršavanja zadatka"
 
-#: libkcups/KCupsPasswordDialog.cpp:58
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Pogrešno korisničko ime ili lozinka"
 
-#: libkcups/KCupsRequest.cpp:49
+#: src/libkcups/KCupsRequest.cpp:32
 #, kde-format
 msgid "Print service is unavailable"
 msgstr "Servis štampanja je nedostupan"
 
-#: libkcups/KCupsRequest.cpp:51
+#: src/libkcups/KCupsRequest.cpp:34
 #, kde-format
 msgid "Not found"
 msgstr "Nije nađeno"
 
-#: libkcups/KCupsRequest.cpp:418
+#: src/libkcups/KCupsRequest.cpp:401
 #, kde-format
 msgid "Test Page"
 msgstr "Probna stranica"
 
-#: libkcups/KCupsRequest.cpp:450
+#: src/libkcups/KCupsRequest.cpp:433
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "Ne mogu da pošaljem naredbu drajveru štampača."
 
-#: libkcups/KCupsRequest.cpp:584
+#: src/libkcups/KCupsRequest.cpp:567
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "Ne mogu da pozovem metod: %1"
 
-#: libkcups/PPDModel.cpp:45
+#: src/libkcups/PPDModel.cpp:43
 #, kde-format
 msgid "Recommended Drivers"
 msgstr "Preporučeni drajveri"
 
 # >> @title:column
-#: libkcups/PrinterModel.cpp:177
+#: src/libkcups/PrinterModel.cpp:188
 #, kde-format
 msgid "Printers"
 msgstr "štampači"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle"
 msgstr "miruje"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "miruje, odbacuje poslove"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:382
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "miruje — %1"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:382
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "miruje, odbacuje poslove — %1"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:386
+#: src/libkcups/PrinterModel.cpp:397
 #, kde-format
 msgid "In use"
 msgstr "u upotrebi"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:388
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "In use - '%1'"
 msgstr "u upotrebi — %1"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:392
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused"
 msgstr "pauziran"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:392
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "pauziran, odbacuje poslove"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:394
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "pauziran — %1"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:394
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "pauziran, odbacuje poslove — %1"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:398
+#: src/libkcups/PrinterModel.cpp:409
 #, kde-format
 msgid "Unknown"
 msgstr "nepoznato"
 
 # >> @item printer state
-#: libkcups/PrinterModel.cpp:400
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "nepoznato — %1"
 
-#: libkcups/SelectMakeModel.cpp:153
+#: src/libkcups/SelectMakeModel.cpp:117
+#, fuzzy, kde-format
+#| msgid "Choose &the driver from the list"
+msgid "Choose the driver for %1"
+msgstr "Izaberite &drajver sa spiska"
+
+#: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "Ne mogu da dobavim spisak drajvera: „%1“"
 
-#: libkcups/SelectMakeModel.cpp:243
+#: src/libkcups/SelectMakeModel.cpp:230
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Ne mogu da potražim preporučeni drajver: „%1“"
 
-#. i18n: ectx: property (filter), widget (KUrlRequester, ppdFilePathUrl)
-#: libkcups/SelectMakeModel.ui:44
-#, kde-format
-msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-msgstr "*.ppd *.ppd.gz|opisni fajlovi PostScript štampača"
-
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
-#: libkcups/SelectMakeModel.ui:82
-#, kde-format
-msgid "Choose &the driver from the list"
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
+#: src/libkcups/SelectMakeModel.ui:79
+#, fuzzy, kde-format
+#| msgid "Choose &the driver from the list"
+msgid "Choose &the driver"
 msgstr "Izaberite &drajver sa spiska"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
-#: libkcups/SelectMakeModel.ui:94
+#: src/libkcups/SelectMakeModel.ui:91
 #, kde-format
 msgid "Ma&nually Provide a PPD File:"
 msgstr "&Ručno zadajte PPD fajl:"
 
-#: print-manager-kded/NewPrinterNotification.cpp:73
-#, kde-format
-msgid "A New Printer was detected"
-msgstr "Otkriven je novi štampač"
-
-#: print-manager-kded/NewPrinterNotification.cpp:74
-#, kde-format
-msgid "Configuring new printer..."
-msgstr "Podešavam novi štampač..."
-
-#: print-manager-kded/NewPrinterNotification.cpp:114
-#, kde-format
-msgid "The New Printer was Added"
-msgstr "Dodaj je novi štampač"
-
-#: print-manager-kded/NewPrinterNotification.cpp:116
-#, kde-format
-msgid "The New Printer is Missing Drivers"
-msgstr "Novom štampaču nedostaje drajver"
-
-#: print-manager-kded/NewPrinterNotification.cpp:178
-#, kde-format
-msgid "Missing printer driver"
-msgstr "Nema drajvera za štampač"
-
-# >> %1 %2 make and model
-#: print-manager-kded/NewPrinterNotification.cpp:180
-#, kde-format
-msgid "No printer driver for %1 %2."
-msgstr "Nema drajvera za štampač %1 %2."
-
-#: print-manager-kded/NewPrinterNotification.cpp:182
-#, kde-format
-msgid "No printer driver for %1."
-msgstr "Nema drajvera za štampač %1."
-
-#: print-manager-kded/NewPrinterNotification.cpp:184
-#, kde-format
-msgid "No driver for this printer."
-msgstr "Nema drajvera za ovaj štampač."
-
-#: print-manager-kded/NewPrinterNotification.cpp:187
-#, kde-format
-msgid "Search"
-msgstr "Potraži"
-
-#: print-manager-kded/NewPrinterNotification.cpp:254
-#, kde-format
-msgid "'%1' has been added, please check its driver."
-msgstr "„%1“ je dodat, proverite mu drajver."
-
-#: print-manager-kded/NewPrinterNotification.cpp:258
-#, kde-format
-msgid "'%1' has been added, using the '%2' driver."
-msgstr "„%1“ je dodat, pod drajverom „%2“."
-
-#: print-manager-kded/NewPrinterNotification.cpp:259
-#: print-manager-kded/NewPrinterNotification.cpp:271
-#, kde-format
-msgid "Print test page"
-msgstr "Odštampaj probnu stranicu"
-
-#: print-manager-kded/NewPrinterNotification.cpp:259
-#, kde-format
-msgid "Find driver"
-msgstr "Nađi drajver"
-
-#: print-manager-kded/NewPrinterNotification.cpp:270
-#, kde-format
-msgid "'%1' is ready for printing."
-msgstr "„%1“ spreman za štampanje."
-
-#: printer-manager-kcm/PrinterDescription.cpp:123
-#, kde-format
-msgid "Share this class"
-msgstr "Deli ovu klasu"
-
-#: printer-manager-kcm/PrinterDescription.cpp:123
-#, kde-format
-msgid "Share this printer"
-msgstr "Deli ovaj štampač"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.cpp:244
-#: printer-manager-kcm/PrinterDescription.ui:293
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "Očisti štamparske glave"
-
-#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.cpp:253
-#: printer-manager-kcm/PrinterDescription.ui:301
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "Odštampaj stranicu za samoprobu"
-
-#: printer-manager-kcm/PrinterDescription.cpp:259
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "Neuspelo izvršavanje zahteva: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, printerNameL)
-#: printer-manager-kcm/PrinterDescription.ui:83
-#, kde-format
-msgctxt "@title"
-msgid "Printer name or description"
-msgstr "Ime ili opis štampača"
-
-#. i18n: ectx: property (text), widget (QLabel, statusL)
-#: printer-manager-kcm/PrinterDescription.ui:102
-#, kde-format
-msgid "Current status"
-msgstr "Trenutno stanje"
-
-#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
-#: printer-manager-kcm/PrinterDescription.ui:109
-#, kde-format
-msgctxt "@option:check"
-msgid "Default printer"
-msgstr "Podrazumevani štampač"
-
-#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
-#: printer-manager-kcm/PrinterDescription.ui:126
-#, kde-format
-msgid "Reject print jobs"
-msgstr "Odbacuj poslove štampanja"
-
-#. i18n: ectx: property (text), widget (QLabel, locationL)
-#: printer-manager-kcm/PrinterDescription.ui:135
-#, kde-format
-msgctxt "@label location of printer"
-msgid "Location:"
-msgstr "Lokacija:"
-
-#. i18n: ectx: property (text), widget (QLabel, kindL)
-#: printer-manager-kcm/PrinterDescription.ui:164
-#, kde-format
-msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
-msgid "Kind:"
-msgstr "Vrsta:"
-
-#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
-#: printer-manager-kcm/PrinterDescription.ui:205
-#, kde-format
-msgctxt "@action:button"
-msgid "Maintenance"
-msgstr "Održavanje"
-
-#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
-#: printer-manager-kcm/PrinterDescription.ui:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Print Queue"
-msgstr "Otvori red za štampanje"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.ui:288
-#, kde-format
-msgid "Print Test Page"
-msgstr "Odštampaj probnu stranicu"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: printer-manager-kcm/PrinterDescription.ui:298
-#, kde-format
-msgid "Print Self Test Page"
-msgstr "Odštampaj stranicu za samoprobu"
-
-#: printer-manager-kcm/PrintKCM.cpp:50 printer-manager-kcm/PrintKCM.cpp:52
-#, kde-format
-msgid "Print settings"
-msgstr "Postavke štampača"
-
-#: printer-manager-kcm/PrintKCM.cpp:69
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Add a Printer Class"
-msgstr "Dodaj klasu štampača"
-
-#: printer-manager-kcm/PrintKCM.cpp:72
-#, kde-format
-msgid "Add a new printer or a printer class"
-msgstr "Dodaj novi štampač ili klasu štampača"
-
-#. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: printer-manager-kcm/PrintKCM.cpp:76 printer-manager-kcm/PrintKCM.ui:32
-#, kde-format
-msgid "Remove Printer"
-msgstr "Ukloni štampač"
-
-#: printer-manager-kcm/PrintKCM.cpp:81
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show printers shared by other systems"
-msgstr "Prikaži štampače koje dele drugi sistemi"
-
-#: printer-manager-kcm/PrintKCM.cpp:85
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Share printers connected to this system"
-msgstr "Podeli štampače povezane na ovaj sistem"
-
-#: printer-manager-kcm/PrintKCM.cpp:87
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow printing from the Internet"
-msgstr "Dozvoli štampanje preko Interneta"
-
-#: printer-manager-kcm/PrintKCM.cpp:93
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow remote administration"
-msgstr "Dozvoli udaljeno administriranje"
-
-#: printer-manager-kcm/PrintKCM.cpp:95
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow users to cancel any job (not just their own)"
-msgstr "Dozvoli korisnicima da otkažu bilo koji posao (ne samo sopstveni)"
-
-#: printer-manager-kcm/PrintKCM.cpp:99
-#, kde-format
-msgid "Configure the global preferences"
-msgstr "Podesi globalne postavke"
-
-#: printer-manager-kcm/PrintKCM.cpp:144 printer-manager-kcm/PrintKCM.cpp:244
-#, kde-format
-msgid "No printers have been configured or discovered"
-msgstr "Nijedan štampač nije podešen niti otkriven"
-
-# >> @title:window
-#: printer-manager-kcm/PrintKCM.cpp:275
-#, kde-format
-msgid "Remove class"
-msgstr "Uklanjanje klase"
-
-#: printer-manager-kcm/PrintKCM.cpp:276
-#, kde-format
-msgid "Are you sure you want to remove the class '%1'?"
-msgstr "Želite li zaista da uklonite klasu „%1“?"
-
-# >> @title:window
-#: printer-manager-kcm/PrintKCM.cpp:279
-#, kde-format
-msgid "Remove printer"
-msgstr "Uklanjanje štampača"
-
-#: printer-manager-kcm/PrintKCM.cpp:280
-#, kde-format
-msgid "Are you sure you want to remove the printer '%1'?"
-msgstr "Želite li zaista da uklonite štampač „%1“?"
-
-#: printer-manager-kcm/PrintKCM.cpp:322
-#, kde-format
-msgctxt "@info"
-msgid "Failed to get server settings"
-msgstr "Ne mogu da dobavim postavke servera"
-
-#: printer-manager-kcm/PrintKCM.cpp:353
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "Ne mogu da podesim postavke servera"
-
-#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: printer-manager-kcm/PrintKCM.ui:52
-#, kde-format
-msgid "System Preferences"
-msgstr "Sistemske postavke"
-
-#. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: printer-manager-kcm/PrintKCM.ui:196
-#, kde-format
-msgid "TextLabel"
-msgstr "Tekstualna etiketa"
-
-#. i18n: ectx: property (text), widget (QLabel, errorText)
-#: printer-manager-kcm/PrintKCM.ui:206
-#, kde-format
-msgid "Error Title"
-msgstr "Naslov greške"
-
-#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: printer-manager-kcm/PrintKCM.ui:231
-#, kde-format
-msgid "Click here to add a new printer"
-msgstr "Kliknite da dodate novi štampač"
-
-#: printqueue/main.cpp:38 printqueue/main.cpp:40
+#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
 msgstr "Red za štampanje"
 
-#: printqueue/main.cpp:52
+#: src/printqueue/main.cpp:39
 #, kde-format
 msgid "Show printer queue(s)"
 msgstr "Prikaži red štampača"
 
-#: printqueue/PrintQueueUi.cpp:222
+#: src/printqueue/PrintQueueUi.cpp:195
 #, kde-format
 msgid "Printer ready"
 msgstr "Štampač spreman"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: printqueue/PrintQueueUi.cpp:223 printqueue/PrintQueueUi.cpp:234
-#: printqueue/PrintQueueUi.ui:118
+#: src/printqueue/PrintQueueUi.cpp:196 src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Pauziraj štampač"
 
-#: printqueue/PrintQueueUi.cpp:230
+#: src/printqueue/PrintQueueUi.cpp:203
 #, kde-format
 msgid "Printing..."
 msgstr "Štampam..."
 
 # rewrite-msgid: /$/.../
-#: printqueue/PrintQueueUi.cpp:232
+#: src/printqueue/PrintQueueUi.cpp:205
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Štampam „%1“..."
 
-#: printqueue/PrintQueueUi.cpp:240
+#: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Printer paused"
 msgstr "Štampač pauziran"
 
-#: printqueue/PrintQueueUi.cpp:241
+#: src/printqueue/PrintQueueUi.cpp:214
 #, kde-format
 msgid "Resume Printer"
 msgstr "Nastavi štampanje"
 
-#: printqueue/PrintQueueUi.cpp:256
+#: src/printqueue/PrintQueueUi.cpp:218
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Stanje štampača nepoznato"
 
-#: printqueue/PrintQueueUi.cpp:303
+#: src/printqueue/PrintQueueUi.cpp:263
 #, kde-format
 msgid "Move to"
 msgstr "Premesti na"
 
 # >> @item operation policy
-#: printqueue/PrintQueueUi.cpp:334
+#: src/printqueue/PrintQueueUi.cpp:294
 #, fuzzy, kde-format
 #| msgid "Authenticated"
 msgid "Authenticate"
 msgstr "autentifikovano"
 
-#: printqueue/PrintQueueUi.cpp:444
+#: src/printqueue/PrintQueueUi.cpp:404
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1576,7 +1389,7 @@ msgstr[1] "Svi štampači (%1 posla)"
 msgstr[2] "Svi štampači (%1 poslova)"
 msgstr[3] "Svi štampači (%1 posao)"
 
-#: printqueue/PrintQueueUi.cpp:446
+#: src/printqueue/PrintQueueUi.cpp:406
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1585,86 +1398,208 @@ msgstr[1] "%2 (%1 posla)"
 msgstr[2] "%2 (%1 poslova)"
 msgstr[3] "%2 (%1 posao)"
 
-#: printqueue/PrintQueueUi.cpp:449
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers"
 msgstr "Svi štampači"
 
-#: printqueue/PrintQueueUi.cpp:518
+#: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Ne mogu da otkažem „%1“."
 
-#: printqueue/PrintQueueUi.cpp:521
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Ne mogu da zadržim „%1“."
 
-#: printqueue/PrintQueueUi.cpp:524
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Ne mogu da pustim „%1“."
 
-#: printqueue/PrintQueueUi.cpp:527
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Propalo ponovno štampanje „%1“"
 
-#: printqueue/PrintQueueUi.cpp:601
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: printqueue/PrintQueueUi.ui:20
+#: src/printqueue/PrintQueueUi.ui:20
 #, kde-format
 msgid "my printer (x jobs)"
 msgstr "Moj štampač (× poslova)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
-#: printqueue/PrintQueueUi.ui:49
+#: src/printqueue/PrintQueueUi.ui:49
 #, kde-format
 msgid "Printer Icon"
 msgstr "Ikonica štampača"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: printqueue/PrintQueueUi.ui:233
+#: src/printqueue/PrintQueueUi.ui:233
 #, kde-format
 msgid "Cancel"
 msgstr "Odustani"
 
 #. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: printqueue/PrintQueueUi.ui:253
+#: src/printqueue/PrintQueueUi.ui:253
 #, kde-format
 msgid "Hold"
 msgstr "Zadrži"
 
 #. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: printqueue/PrintQueueUi.ui:266
+#: src/printqueue/PrintQueueUi.ui:266
 #, kde-format
 msgid "Resume"
 msgstr "Nastavi"
 
 #. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: printqueue/PrintQueueUi.ui:279
+#: src/printqueue/PrintQueueUi.ui:279
 #, kde-format
 msgid "Reprint"
 msgstr "Štampaj ponovo"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: printqueue/PrintQueueUi.ui:312
+#: src/printqueue/PrintQueueUi.ui:312
 #, kde-format
 msgid "Active Jobs"
 msgstr "aktivni poslovi"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: printqueue/PrintQueueUi.ui:317
+#: src/printqueue/PrintQueueUi.ui:317
 #, kde-format
 msgid "Completed Jobs"
 msgstr "završeni poslovi"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: printqueue/PrintQueueUi.ui:322
+#: src/printqueue/PrintQueueUi.ui:322
 #, kde-format
 msgid "All Jobs"
 msgstr "svi poslovi"
+
+# >> @title:group
+#~ msgid "Modify Printer"
+#~ msgstr "Izmena štampača"
+
+# >> @title:group
+#~ msgid "Printer Options"
+#~ msgstr "Opcije štampača"
+
+#~ msgid "Set the Default Printer Options"
+#~ msgstr "Postavite podrazumevane opcije štampača"
+
+#~ msgid "Name:"
+#~ msgstr "Ime:"
+
+#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
+#~ msgstr "*.ppd *.ppd.gz|opisni fajlovi PostScript štampača"
+
+#~ msgid "Share this class"
+#~ msgstr "Deli ovu klasu"
+
+#~ msgid "Share this printer"
+#~ msgstr "Deli ovaj štampač"
+
+#~ msgctxt "@title"
+#~ msgid "Printer name or description"
+#~ msgstr "Ime ili opis štampača"
+
+#~ msgid "Current status"
+#~ msgstr "Trenutno stanje"
+
+#~ msgctxt "@option:check"
+#~ msgid "Default printer"
+#~ msgstr "Podrazumevani štampač"
+
+#~ msgid "Reject print jobs"
+#~ msgstr "Odbacuj poslove štampanja"
+
+#~ msgctxt "@label location of printer"
+#~ msgid "Location:"
+#~ msgstr "Lokacija:"
+
+#~ msgctxt ""
+#~ "@label kind of printer, could be driver name or \"local raw socket\""
+#~ msgid "Kind:"
+#~ msgstr "Vrsta:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Maintenance"
+#~ msgstr "Održavanje"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Print Queue"
+#~ msgstr "Otvori red za štampanje"
+
+#~ msgid "Print Test Page"
+#~ msgstr "Odštampaj probnu stranicu"
+
+#~ msgid "Print Self Test Page"
+#~ msgstr "Odštampaj stranicu za samoprobu"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add a Printer Class"
+#~ msgstr "Dodaj klasu štampača"
+
+#~ msgid "Add a new printer or a printer class"
+#~ msgstr "Dodaj novi štampač ili klasu štampača"
+
+#~ msgid "Remove Printer"
+#~ msgstr "Ukloni štampač"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Show printers shared by other systems"
+#~ msgstr "Prikaži štampače koje dele drugi sistemi"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Share printers connected to this system"
+#~ msgstr "Podeli štampače povezane na ovaj sistem"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow printing from the Internet"
+#~ msgstr "Dozvoli štampanje preko Interneta"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow remote administration"
+#~ msgstr "Dozvoli udaljeno administriranje"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow users to cancel any job (not just their own)"
+#~ msgstr "Dozvoli korisnicima da otkažu bilo koji posao (ne samo sopstveni)"
+
+#~ msgid "Configure the global preferences"
+#~ msgstr "Podesi globalne postavke"
+
+#~ msgid "No printers have been configured or discovered"
+#~ msgstr "Nijedan štampač nije podešen niti otkriven"
+
+# >> @title:window
+#~ msgid "Remove class"
+#~ msgstr "Uklanjanje klase"
+
+#~ msgid "Are you sure you want to remove the class '%1'?"
+#~ msgstr "Želite li zaista da uklonite klasu „%1“?"
+
+# >> @title:window
+#~ msgid "Remove printer"
+#~ msgstr "Uklanjanje štampača"
+
+#~ msgid "Are you sure you want to remove the printer '%1'?"
+#~ msgstr "Želite li zaista da uklonite štampač „%1“?"
+
+#~ msgid "System Preferences"
+#~ msgstr "Sistemske postavke"
+
+#~ msgid "TextLabel"
+#~ msgstr "Tekstualna etiketa"
+
+#~ msgid "Error Title"
+#~ msgstr "Naslov greške"
+
+#~ msgid "Click here to add a new printer"
+#~ msgstr "Kliknite da dodate novi štampač"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2014-02-21 00:53+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
@@ -27,13 +27,13 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "s_dibbern@web.de"
 
-#: src/add-printer/AddPrinterAssistant.cpp:29
+#: src/add-printer/AddPrinterAssistant.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "En nieg Drucker tofögen"
 
-#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
 #: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
@@ -44,16 +44,8 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Drucker to'n Tofögen utsöken"
 
-#: src/add-printer/AddPrinterAssistant.cpp:75
-#: src/add-printer/AddPrinterAssistant.cpp:82
-#: src/add-printer/AddPrinterAssistant.cpp:126
-#, kde-format
-msgctxt "@title:window"
-msgid "Pick a Driver"
-msgstr "Driever utsöken"
-
-#: src/add-printer/AddPrinterAssistant.cpp:87
-#: src/add-printer/AddPrinterAssistant.cpp:108
+#: src/add-printer/AddPrinterAssistant.cpp:86
+#: src/add-printer/AddPrinterAssistant.cpp:107
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Please describe you printer"
@@ -61,11 +53,19 @@ msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Drucker beschrieven"
 
-#: src/add-printer/AddPrinterAssistant.cpp:104
+#: src/add-printer/AddPrinterAssistant.cpp:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "Verbinnen instellen"
+
+#: src/add-printer/AddPrinterAssistant.cpp:191
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Pick a Driver"
+msgctxt "@title:window"
+msgid "Pick a Driver for %1"
+msgstr "Driever utsöken"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -74,7 +74,7 @@ msgid "Address:"
 msgstr "Adress:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36
+#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
 #, kde-format
 msgid "Queue:"
 msgstr "Töövreeg:"
@@ -276,32 +276,32 @@ msgstr "URI vun Hand"
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Reedschaplist lett sik nich halen: \"%1\""
 
-#: src/add-printer/DevicesModel.cpp:238
+#: src/add-printer/DevicesModel.cpp:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "En Drucker, de de Parallelkoppelsteed tokoppelt is"
 
-#: src/add-printer/DevicesModel.cpp:241
+#: src/add-printer/DevicesModel.cpp:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "En Drucker, de en USB-Koppelsteed tokoppelt is"
 
-#: src/add-printer/DevicesModel.cpp:244
+#: src/add-printer/DevicesModel.cpp:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "En Drucker, de över Bluetooth tokoppelt is"
 
-#: src/add-printer/DevicesModel.cpp:247
+#: src/add-printer/DevicesModel.cpp:248
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr ""
 "Lokaal Drucker, de vun de Hardware-Afstraktschoonlaag (HAL) opdeckt wöör"
 
-#: src/add-printer/DevicesModel.cpp:251
+#: src/add-printer/DevicesModel.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -311,7 +311,7 @@ msgstr ""
 "HPLIP-Software, de en Drucker oder de Druckfunkschoon vun en "
 "Mehrfunkschonenreedschap drievt"
 
-#: src/add-printer/DevicesModel.cpp:255
+#: src/add-printer/DevicesModel.cpp:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -321,37 +321,36 @@ msgstr ""
 "HPLIP-Software, de en Fax oder de Faxfunkschoon vun en "
 "Mehrfunkschonenreedschap drievt"
 
-#: src/add-printer/DevicesModel.cpp:260
+#: src/add-printer/DevicesModel.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Feern CUPS-Drucker, över DNS-SD"
 
-#: src/add-printer/DevicesModel.cpp:278
+#: src/add-printer/DevicesModel.cpp:279
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Opdeckt Nettwarkdruckers"
 
-#: src/add-printer/DevicesModel.cpp:282
+#: src/add-printer/DevicesModel.cpp:283
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Anner Nettwarkdruckers"
 
-#: src/add-printer/DevicesModel.cpp:286
+#: src/add-printer/DevicesModel.cpp:287
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Lokaal Druckers"
 
-#: src/add-printer/DevicesModel.cpp:328
+#: src/add-printer/DevicesModel.cpp:329
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Reedschappen laat sik nich koppeln: \"%1\""
 
-#. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: src/add-printer/main.cpp:27 src/printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
 msgstr "Drucker tofögen"
@@ -374,38 +373,43 @@ msgstr "(C) 2010-2013 Daniel Nicoletti"
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: src/add-printer/main.cpp:40
+#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 6 / Plasma 6"
+msgstr ""
+
+#: src/add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
 msgstr "Böverfinster-ID"
 
-#: src/add-printer/main.cpp:43
+#: src/add-printer/main.cpp:44
 #, kde-format
 msgid "Add a new printer"
 msgstr "En nieg Drucker tofögen"
 
-#: src/add-printer/main.cpp:46
+#: src/add-printer/main.cpp:47
 #, kde-format
 msgid "Add a new printer class"
 msgstr "En nieg Druckerklass tofögen"
 
-#: src/add-printer/main.cpp:49
+#: src/add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "De PPD vun en angeven Drucker ännern"
 
-#: src/add-printer/main.cpp:52
+#: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "De PPD vun en angeven Drucker/Reedschap-ID ännern"
 
-#: src/add-printer/PageAddPrinter.cpp:122
+#: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Klass lett sik nich tofögen: \"%1\""
 
-#: src/add-printer/PageAddPrinter.cpp:124
+#: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -440,9 +444,7 @@ msgid "Location:"
 msgstr "Steed:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
-#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
 #: src/add-printer/PageAddPrinter.ui:65
-#: src/printer-manager-kcm/PrinterDescription.ui:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
@@ -608,39 +610,27 @@ msgstr "Verbinnen"
 msgid "Please choose an item on the list"
 msgstr "Bitte en Indrag op de List utsöken"
 
-#: src/configure-printer/ConfigureDialog.cpp:89
-#, kde-format
-msgid "Modify Printer"
-msgstr "Drucker ännern"
-
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
-#: src/print-manager-kded/NewPrinterNotification.cpp:260
-#: src/printer-manager-kcm/PrinterDescription.ui:198
-#: src/printqueue/PrintQueueUi.ui:131
-#, kde-format
-msgid "Configure"
-msgstr "Instellen"
-
-#: src/configure-printer/ConfigureDialog.cpp:100
-#, kde-format
-msgid "Printer Options"
-msgstr "Druckeroptschonen"
+#: src/configure-printer/ConfigureDialog.cpp:91
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Printer Settings"
+msgstr "Instellen drucken"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
-#, kde-format
-msgid "Set the Default Printer Options"
-msgstr "De Standard-Druckeroptschonen fastleggen"
+#: src/configure-printer/ConfigureDialog.cpp:102
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Media Settings"
+msgstr "Instellen drucken"
 
-#: src/configure-printer/ConfigureDialog.cpp:111
 #: src/configure-printer/ConfigureDialog.cpp:112
+#: src/configure-printer/ConfigureDialog.cpp:113
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Scheedsieden, Regeln un tolaten Brukers"
 
-#: src/configure-printer/ConfigureDialog.cpp:184
+#: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -649,7 +639,7 @@ msgstr ""
 "Op disse Siet gifft dat Ännern.\n"
 "Wullt Du de övernehmen?"
 
-#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
 msgstr ""
@@ -672,47 +662,39 @@ msgstr "Drucker inrichten"
 msgid "Printer to be configured"
 msgstr "Klass lett sik nich inrichten"
 
-#: src/configure-printer/ModifyPrinter.cpp:124
+#: src/configure-printer/ModifyPrinter.cpp:126
 #, kde-format
 msgid "Current - %1"
 msgstr "Aktuell - %1"
 
-#: src/configure-printer/ModifyPrinter.cpp:127
+#: src/configure-printer/ModifyPrinter.cpp:129
 #, kde-format
 msgid "Select a custom driver"
 msgstr "En egen Driever utsöken"
 
-#: src/configure-printer/ModifyPrinter.cpp:226
+#: src/configure-printer/ModifyPrinter.cpp:228
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "Klass lett sik nich inrichten"
 
-#: src/configure-printer/ModifyPrinter.cpp:227
+#: src/configure-printer/ModifyPrinter.cpp:229
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Drucker lett sik nich inrichten"
 
-#: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:304
+#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
 msgstr "Fehlslaan"
 
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: ectx: property (text), widget (QLabel, nameL)
-#: src/configure-printer/ModifyPrinter.ui:25
-#: src/printer-manager-kcm/PrinterDescription.ui:234
-#, kde-format
-msgid "Name:"
-msgstr "Naam:"
-
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/configure-printer/ModifyPrinter.ui:32
-#, kde-format
-msgid "Description:"
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgid "&Description:"
 msgstr "Beschrieven:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
@@ -723,8 +705,9 @@ msgstr "Minschenleesbor Beschrieven as \"HP LaserJet mit Beedsieden-Druck\""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/configure-printer/ModifyPrinter.ui:52
-#, kde-format
-msgid "Location:"
+#, fuzzy, kde-format
+#| msgid "Location:"
+msgid "&Location:"
 msgstr "Steed:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
@@ -735,8 +718,9 @@ msgstr "Minschenleesbor Beschrieven as \"Kontor 1\""
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
 #: src/configure-printer/ModifyPrinter.ui:79
-#, kde-format
-msgid "Connection:"
+#, fuzzy, kde-format
+#| msgid "Connection:"
+msgid "Connec&tion:"
 msgstr "Verbinnen:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
@@ -833,67 +817,67 @@ msgstr "Liddmaten"
 msgid "Driver:"
 msgstr "Driever:"
 
-#: src/configure-printer/PrinterBehavior.cpp:199
+#: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
 msgid "Abort job"
 msgstr "Opgaav afbreken"
 
-#: src/configure-printer/PrinterBehavior.cpp:201
+#: src/configure-printer/PrinterBehavior.cpp:202
 #, kde-format
 msgid "Retry current job"
 msgstr "Aktuell Opgaav wedderhalen"
 
-#: src/configure-printer/PrinterBehavior.cpp:203
+#: src/configure-printer/PrinterBehavior.cpp:204
 #, kde-format
 msgid "Retry job"
 msgstr "Opgaav wedderhalen"
 
-#: src/configure-printer/PrinterBehavior.cpp:205
+#: src/configure-printer/PrinterBehavior.cpp:206
 #, kde-format
 msgid "Stop printer"
 msgstr "Drucker anhollen"
 
-#: src/configure-printer/PrinterBehavior.cpp:214
+#: src/configure-printer/PrinterBehavior.cpp:215
 #, kde-format
 msgid "Authenticated"
 msgstr "Anmeldt"
 
-#: src/configure-printer/PrinterBehavior.cpp:216
+#: src/configure-printer/PrinterBehavior.cpp:217
 #, kde-format
 msgid "Default"
 msgstr "Standard"
 
-#: src/configure-printer/PrinterBehavior.cpp:225
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "None"
 msgstr "Keen"
 
-#: src/configure-printer/PrinterBehavior.cpp:227
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Classified"
 msgstr "Intern Saak"
 
-#: src/configure-printer/PrinterBehavior.cpp:229
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Confidential"
 msgstr "Vertrolich"
 
-#: src/configure-printer/PrinterBehavior.cpp:231
+#: src/configure-printer/PrinterBehavior.cpp:232
 #, kde-format
 msgid "Secret"
 msgstr "Geheem"
 
-#: src/configure-printer/PrinterBehavior.cpp:233
+#: src/configure-printer/PrinterBehavior.cpp:234
 #, kde-format
 msgid "Standard"
 msgstr "Standard"
 
-#: src/configure-printer/PrinterBehavior.cpp:235
+#: src/configure-printer/PrinterBehavior.cpp:236
 #, kde-format
 msgid "Topsecret"
 msgstr "Streng geheem"
 
-#: src/configure-printer/PrinterBehavior.cpp:237
+#: src/configure-printer/PrinterBehavior.cpp:238
 #, kde-format
 msgid "Unclassified"
 msgstr "Apen Saak"
@@ -954,7 +938,7 @@ msgstr "Disse Brukers nich drucken laten "
 msgid "A&llow these users to print"
 msgstr "Disse Brukers drucken laten"
 
-#: src/configure-printer/PrinterOptions.cpp:50
+#: src/configure-printer/PrinterOptions.cpp:51
 #, kde-format
 msgid "Set Default Options"
 msgstr "Standardoptschonen fastleggen"
@@ -972,108 +956,213 @@ msgstr "Drucker na Standardoptschonen fragen"
 msgid "Select a Driver"
 msgstr "En Driever utsöken"
 
-#: src/libkcups/JobModel.cpp:26
+#: src/kcm/printermanager.cpp:108
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Anfraag lett sik nich utföhren: %1"
+
+#: src/kcm/printermanager.cpp:130
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "Serverinstellen laat sik nich halen"
+
+#: src/kcm/printermanager.cpp:156
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "Serverinstellen laat sik nich inrichten"
+
+#: src/kcm/printermanager.cpp:243
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Sülvtest-Siet drucken"
+
+#: src/kcm/printermanager.cpp:249
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Druckköpp reenmaken"
+
+#: src/kded/NewPrinterNotification.cpp:59
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "En nieg Drucker wöör funnen"
+
+#: src/kded/NewPrinterNotification.cpp:60
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "Nieg Drucker warrt inricht..."
+
+#: src/kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "De niege Drucker wöör toföögt"
+
+#: src/kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "Den niegen Drucker fehlt en Driever"
+
+#: src/kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr "Druckerdriever fehlt"
+
+#: src/kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "Keen Druckerdriever för %1 %2."
+
+#: src/kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "Keen Druckerdriever för %1."
+
+#: src/kded/NewPrinterNotification.cpp:170
+#, kde-format
+msgid "No driver for this printer."
+msgstr "Keen Driever för dissen Drucker."
+
+#: src/kded/NewPrinterNotification.cpp:172
+#, kde-format
+msgid "Search"
+msgstr "Söken"
+
+#: src/kded/NewPrinterNotification.cpp:238
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "\"%1\" wöör toföögt, kuntrulleer bitte sien Driever."
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Instellen"
+
+#: src/kded/NewPrinterNotification.cpp:242
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "\"%1\" wöör toföögt, he bruukt den Driever \"%2\"."
+
+#: src/kded/NewPrinterNotification.cpp:243
+#: src/kded/NewPrinterNotification.cpp:257
+#, kde-format
+msgid "Print test page"
+msgstr "Testsiet drucken"
+
+#: src/kded/NewPrinterNotification.cpp:245
+#, kde-format
+msgid "Find driver"
+msgstr "Driever söken"
+
+#: src/kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "\"%1\" steiht praat för't Drucken."
+
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Status"
 msgstr "Tostand"
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Name"
 msgstr "Naam"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "User"
 msgstr "Bruker"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "Created"
 msgstr "Opstellt"
 
-#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
 #, kde-format
 msgid "Completed"
 msgstr "Afslaten"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Pages"
 msgstr "Sieden"
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Processed"
 msgstr "Verarbeidt"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Size"
 msgstr "Grött"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Status Message"
 msgstr "Tostandmellen"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Printer"
 msgstr "Drucker"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "From Hostname"
 msgstr "Vun Reekner"
 
-#: src/libkcups/JobModel.cpp:518 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Bewegen vun \"%1\" na \"%2\" fehlslaan"
 
-#: src/libkcups/JobModel.cpp:521 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Fehlslaan"
 
-#: src/libkcups/JobModel.cpp:598
+#: src/libkcups/JobModel.cpp:599
 #, kde-format
 msgid "Pending"
 msgstr "Utstahn"
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:600
 #, kde-format
 msgid "On hold"
 msgstr "Anhollen"
 
-#: src/libkcups/JobModel.cpp:601
+#: src/libkcups/JobModel.cpp:602
 #, kde-format
 msgid "Stopped"
 msgstr "Ophollen"
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Canceled"
 msgstr "Torüchtrocken"
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:604
 #, kde-format
 msgid "Aborted"
 msgstr "Afbraken"
 
-#: src/libkcups/KCupsConnection.cpp:860
+#: src/libkcups/KCupsConnection.cpp:855
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr ""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:23
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr ""
 "Giff en Brukernaam un en Passwoort in, wenn Du de Ännern nu afsluten wullt"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:45
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Leeg Brukernaam oder Passwoort"
@@ -1103,91 +1192,97 @@ msgstr "Befehl lett sik den Druckerdriever nich tostüern!"
 msgid "Failed to invoke method: %1"
 msgstr "Metood lett sik nich opropen: %1"
 
-#: src/libkcups/PPDModel.cpp:32
+#: src/libkcups/PPDModel.cpp:43
 #, kde-format
 msgid "Recommended Drivers"
 msgstr "Anraadt Drievers"
 
-#: src/libkcups/PrinterModel.cpp:163
+#: src/libkcups/PrinterModel.cpp:188
 #, kde-format
 msgid "Printers"
 msgstr "Druckers"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle"
 msgstr "Deit nix"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Deit nix, wiest Opgaven af"
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Deit nix - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Deit nix, wiest Opgaven af - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:372
+#: src/libkcups/PrinterModel.cpp:397
 #, kde-format
 msgid "In use"
 msgstr "In Bruuk"
 
-#: src/libkcups/PrinterModel.cpp:374
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "In use - '%1'"
 msgstr "In Bruuk - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused"
 msgstr "Anhollen"
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Anhollen, wiest Opgaven af"
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Anhollen - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Anhollen, wiest Opgaven af - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:384
+#: src/libkcups/PrinterModel.cpp:409
 #, kde-format
 msgid "Unknown"
 msgstr "Nich begäng"
 
-#: src/libkcups/PrinterModel.cpp:386
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Nich begäng - \"%1\""
 
-#: src/libkcups/SelectMakeModel.cpp:138
+#: src/libkcups/SelectMakeModel.cpp:117
+#, fuzzy, kde-format
+#| msgid "Choose the driver from the list"
+msgid "Choose the driver for %1"
+msgstr "Den Driever op de List utsöken"
+
+#: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "Drieverlist lett sik nich halen: \"%1\""
 
-#: src/libkcups/SelectMakeModel.cpp:228
+#: src/libkcups/SelectMakeModel.cpp:230
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Dor lett sik keen anraadt Driever finnen: \"%1\""
 
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
 #, fuzzy, kde-format
 #| msgid "Choose the driver from the list"
-msgid "Choose &the driver from the list"
+msgid "Choose &the driver"
 msgstr "Den Driever op de List utsöken"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
@@ -1197,294 +1292,13 @@ msgstr "Den Driever op de List utsöken"
 msgid "Ma&nually Provide a PPD File:"
 msgstr "En PPD-Datei vun Hand praatstellen:"
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:59
-#, kde-format
-msgid "A New Printer was detected"
-msgstr "En nieg Drucker wöör funnen"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:60
-#, kde-format
-msgid "Configuring new printer..."
-msgstr "Nieg Drucker warrt inricht..."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:100
-#, kde-format
-msgid "The New Printer was Added"
-msgstr "De niege Drucker wöör toföögt"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:102
-#, kde-format
-msgid "The New Printer is Missing Drivers"
-msgstr "Den niegen Drucker fehlt en Driever"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:164
-#, kde-format
-msgid "Missing printer driver"
-msgstr "Druckerdriever fehlt"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:166
-#, kde-format
-msgid "No printer driver for %1 %2."
-msgstr "Keen Druckerdriever för %1 %2."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:168
-#, kde-format
-msgid "No printer driver for %1."
-msgstr "Keen Druckerdriever för %1."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:170
-#, kde-format
-msgid "No driver for this printer."
-msgstr "Keen Driever för dissen Drucker."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:172
-#, kde-format
-msgid "Search"
-msgstr "Söken"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:238
-#, kde-format
-msgid "'%1' has been added, please check its driver."
-msgstr "\"%1\" wöör toföögt, kuntrulleer bitte sien Driever."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:242
-#, kde-format
-msgid "'%1' has been added, using the '%2' driver."
-msgstr "\"%1\" wöör toföögt, he bruukt den Driever \"%2\"."
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
-#: src/print-manager-kded/NewPrinterNotification.cpp:257
-#, kde-format
-msgid "Print test page"
-msgstr "Testsiet drucken"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:245
-#, kde-format
-msgid "Find driver"
-msgstr "Driever söken"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:255
-#, kde-format
-msgid "'%1' is ready for printing."
-msgstr "\"%1\" steiht praat för't Drucken."
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, kde-format
-msgid "Share this class"
-msgstr "Disse Klass delen"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, kde-format
-msgid "Share this printer"
-msgstr "Dissen Drucker delen"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:220
-#: src/printer-manager-kcm/PrinterDescription.ui:293
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "Druckköpp reenmaken"
-
-#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:229
-#: src/printer-manager-kcm/PrinterDescription.ui:301
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "Sülvtest-Siet drucken"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:235
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "Anfraag lett sik nich utföhren: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, printerNameL)
-#: src/printer-manager-kcm/PrinterDescription.ui:83
-#, kde-format
-msgctxt "@title"
-msgid "Printer name or description"
-msgstr "Druckernaam oder -beschrieven"
-
-#. i18n: ectx: property (text), widget (QLabel, statusL)
-#: src/printer-manager-kcm/PrinterDescription.ui:102
-#, kde-format
-msgid "Current status"
-msgstr "Aktuell Tostand"
-
-#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:109
-#, kde-format
-msgctxt "@option:check"
-msgid "Default printer"
-msgstr "Standarddrucker"
-
-#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:126
-#, kde-format
-msgid "Reject print jobs"
-msgstr "Druckopgaven afwiesen"
-
-#. i18n: ectx: property (text), widget (QLabel, locationL)
-#: src/printer-manager-kcm/PrinterDescription.ui:135
-#, kde-format
-msgctxt "@label location of printer"
-msgid "Location:"
-msgstr "Steed:"
-
-#. i18n: ectx: property (text), widget (QLabel, kindL)
-#: src/printer-manager-kcm/PrinterDescription.ui:164
-#, kde-format
-msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
-msgid "Kind:"
-msgstr "Oort:"
-
-#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:205
-#, kde-format
-msgctxt "@action:button"
-msgid "Maintenance"
-msgstr "Pleeg"
-
-#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Print Queue"
-msgstr "Töövreeg opmaken"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:288
-#, kde-format
-msgid "Print Test Page"
-msgstr "Testsiet drucken"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:298
-#, kde-format
-msgid "Print Self Test Page"
-msgstr "Sülvtest-Siet drucken"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:48
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Add a Printer Class"
-msgstr "En Druckerklass tofögen"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:51
-#, kde-format
-msgid "Add a new printer or a printer class"
-msgstr "En nieg Drucker oder Druckerklass tofögen"
-
-#. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:35
-#, kde-format
-msgid "Remove Printer"
-msgstr "Drucker wegmaken"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:61
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show printers shared by other systems"
-msgstr "Druckers wiesen, de vun anner Systemen deelt warrt"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:65
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Share printers connected to this system"
-msgstr "Druckers delen, de dit Systeem tokoppelt sünd"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:67
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow printing from the Internet"
-msgstr "Drucken ut't Internet tolaten"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:73
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow remote administration"
-msgstr "Feernpleeg tolaten"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:75
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow users to cancel any job (not just their own)"
-msgstr "Brukers dat afbreken vun all (nich bloots ehr egen) Opgaven verlöven"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:79
-#, kde-format
-msgid "Configure the global preferences"
-msgstr "Globaal Instellen fastleggen"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:124
-#: src/printer-manager-kcm/PrintKCM.cpp:224
-#, kde-format
-msgid "No printers have been configured or discovered"
-msgstr "Keen Drucker wöör opdeckt oder inricht"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:255
-#, kde-format
-msgid "Remove class"
-msgstr "Klass wegmaken"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:256
-#, kde-format
-msgid "Are you sure you want to remove the class '%1'?"
-msgstr "Wullt Du de Klass \"%1\" redig wegmaken?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:259
-#, kde-format
-msgid "Remove printer"
-msgstr "Drucker wegmaken"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:260
-#, kde-format
-msgid "Are you sure you want to remove the printer '%1'?"
-msgstr "Wullt Du den Drucker \"%1\" redig wegmaken?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:302
-#, kde-format
-msgctxt "@info"
-msgid "Failed to get server settings"
-msgstr "Serverinstellen laat sik nich halen"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:333
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "Serverinstellen laat sik nich inrichten"
-
-#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:55
-#, kde-format
-msgid "System Preferences"
-msgstr "Systeeminstellen"
-
-#. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:199
-#, kde-format
-msgid "TextLabel"
-msgstr "TextOpbacker"
-
-#. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:209
-#, kde-format
-msgid "Error Title"
-msgstr "Fehlertitel"
-
-#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:234
-#, kde-format
-msgid "Click here to add a new printer"
-msgstr "Klick hier, wenn Du en niegen Drucker tofögen wullt"
-
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, fuzzy, kde-format
 #| msgid "PrintQueue"
 msgid "Print Queue"
 msgstr "TöövReeg"
 
-#: src/printqueue/main.cpp:38
+#: src/printqueue/main.cpp:39
 #, fuzzy, kde-format
 #| msgid "Show printer queue"
 msgid "Show printer queue(s)"
@@ -1636,11 +1450,124 @@ msgstr "Afslaten Opgaven"
 msgid "All Jobs"
 msgstr "All Opgaven"
 
+#~ msgid "Modify Printer"
+#~ msgstr "Drucker ännern"
+
+#~ msgid "Printer Options"
+#~ msgstr "Druckeroptschonen"
+
+#~ msgid "Set the Default Printer Options"
+#~ msgstr "De Standard-Druckeroptschonen fastleggen"
+
+#~ msgid "Name:"
+#~ msgstr "Naam:"
+
+#~ msgid "Share this class"
+#~ msgstr "Disse Klass delen"
+
+#~ msgid "Share this printer"
+#~ msgstr "Dissen Drucker delen"
+
+#~ msgctxt "@title"
+#~ msgid "Printer name or description"
+#~ msgstr "Druckernaam oder -beschrieven"
+
+#~ msgid "Current status"
+#~ msgstr "Aktuell Tostand"
+
+#~ msgctxt "@option:check"
+#~ msgid "Default printer"
+#~ msgstr "Standarddrucker"
+
+#~ msgid "Reject print jobs"
+#~ msgstr "Druckopgaven afwiesen"
+
+#~ msgctxt "@label location of printer"
+#~ msgid "Location:"
+#~ msgstr "Steed:"
+
+#~ msgctxt ""
+#~ "@label kind of printer, could be driver name or \"local raw socket\""
+#~ msgid "Kind:"
+#~ msgstr "Oort:"
+
+#~ msgctxt "@action:button"
+#~ msgid "Maintenance"
+#~ msgstr "Pleeg"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Print Queue"
+#~ msgstr "Töövreeg opmaken"
+
+#~ msgid "Print Test Page"
+#~ msgstr "Testsiet drucken"
+
+#~ msgid "Print Self Test Page"
+#~ msgstr "Sülvtest-Siet drucken"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add a Printer Class"
+#~ msgstr "En Druckerklass tofögen"
+
+#~ msgid "Add a new printer or a printer class"
+#~ msgstr "En nieg Drucker oder Druckerklass tofögen"
+
+#~ msgid "Remove Printer"
+#~ msgstr "Drucker wegmaken"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Show printers shared by other systems"
+#~ msgstr "Druckers wiesen, de vun anner Systemen deelt warrt"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Share printers connected to this system"
+#~ msgstr "Druckers delen, de dit Systeem tokoppelt sünd"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow printing from the Internet"
+#~ msgstr "Drucken ut't Internet tolaten"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow remote administration"
+#~ msgstr "Feernpleeg tolaten"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow users to cancel any job (not just their own)"
+#~ msgstr ""
+#~ "Brukers dat afbreken vun all (nich bloots ehr egen) Opgaven verlöven"
+
+#~ msgid "Configure the global preferences"
+#~ msgstr "Globaal Instellen fastleggen"
+
+#~ msgid "No printers have been configured or discovered"
+#~ msgstr "Keen Drucker wöör opdeckt oder inricht"
+
+#~ msgid "Remove class"
+#~ msgstr "Klass wegmaken"
+
+#~ msgid "Are you sure you want to remove the class '%1'?"
+#~ msgstr "Wullt Du de Klass \"%1\" redig wegmaken?"
+
+#~ msgid "Remove printer"
+#~ msgstr "Drucker wegmaken"
+
+#~ msgid "Are you sure you want to remove the printer '%1'?"
+#~ msgstr "Wullt Du den Drucker \"%1\" redig wegmaken?"
+
+#~ msgid "System Preferences"
+#~ msgstr "Systeeminstellen"
+
+#~ msgid "TextLabel"
+#~ msgstr "TextOpbacker"
+
+#~ msgid "Error Title"
+#~ msgstr "Fehlertitel"
+
+#~ msgid "Click here to add a new printer"
+#~ msgstr "Klick hier, wenn Du en niegen Drucker tofögen wullt"
+
 #~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
 #~ msgstr "*.ppd *.ppd.gz|PostScript-Druckerbeschrievendateien"
-
-#~ msgid "Print settings"
-#~ msgstr "Instellen drucken"
 
 #~ msgid "Daniel Nicoletti"
 #~ msgstr "Daniel Nicoletti"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2022-11-10 12:15\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -22,24 +22,20 @@ msgstr ""
 "printmanager.po\n"
 "X-Crowdin-File-ID: 8695\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:26
-msgid "Search…"
-msgstr "Пошук…"
-
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:52
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Прынтары не знойдзеныя і не наладжаныя"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
 msgid "No matches"
 msgstr "Няма супадзенняў"
 
-#: src/plasmoid/package/contents/ui/main.qml:31
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Прынтары"
 
-#: src/plasmoid/package/contents/ui/main.qml:36
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "У чарзе %1 задача друку"
@@ -47,48 +43,63 @@ msgstr[1] "У чарзе %1 задачы друку"
 msgstr[2] "У чарзе %1 задач друку"
 msgstr[3] "У чарзе %1 задачы друку"
 
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:79
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Друкаванне %1 з дапамогай %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:47
+#: src/plasmoid/package/contents/ui/main.qml:81
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Друкаванне з дапамогай %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:84
 msgid "Print queue is empty"
 msgstr "Чарга друку пустая"
 
-#: src/plasmoid/package/contents/ui/main.qml:126
+#: src/plasmoid/package/contents/ui/main.qml:114
 msgid "Show All Jobs"
 msgstr "Паказваць усе задачы"
 
-#: src/plasmoid/package/contents/ui/main.qml:132
+#: src/plasmoid/package/contents/ui/main.qml:125
 msgid "Show Only Completed Jobs"
 msgstr "Паказваць толькі завершаныя задачы"
 
-#: src/plasmoid/package/contents/ui/main.qml:138
+#: src/plasmoid/package/contents/ui/main.qml:136
 msgid "Show Only Active Jobs"
 msgstr "Паказваць толькі актыўныя задачы"
 
-#: src/plasmoid/package/contents/ui/main.qml:149
-msgid "&Configure Printers..."
+#: src/plasmoid/package/contents/ui/main.qml:154
+#, fuzzy
+#| msgid "&Configure Printers..."
+msgid "&Configure Printers…"
 msgstr "&Наладжванне прынтараў..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
-msgid "Resume printing"
-msgstr "Узнавіць друкаванне"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+msgid "Resume"
+msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:25
-msgid "Pause printing"
-msgstr "Прыпыніць друкаванне"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+msgid "Pause"
+msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:37
-msgid "Configure printer..."
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#, fuzzy
+#| msgid "Configure printer..."
+msgid "Configure printer…"
 msgstr "Наладжванне прынтара..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-msgid "View print queue"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#, fuzzy
+#| msgid "View print queue"
+msgid "View print queue…"
 msgstr "Паглядзець чаргу друку"
+
+#~ msgid "Search…"
+#~ msgstr "Пошук…"
+
+#~ msgid "Resume printing"
+#~ msgstr "Узнавіць друкаванне"
+
+#~ msgid "Pause printing"
+#~ msgstr "Прыпыніць друкаванне"

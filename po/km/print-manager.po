@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:36+0000\n"
+"POT-Creation-Date: 2023-11-06 01:40+0000\n"
 "PO-Revision-Date: 2012-06-29 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -31,13 +31,13 @@ msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
 
-#: src/add-printer/AddPrinterAssistant.cpp:29
+#: src/add-printer/AddPrinterAssistant.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
 #: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:30
@@ -48,16 +48,8 @@ msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "ជ្រើស​ម៉ាស៊ីន​បោះពុម្ព​ដើម្បី​បន្ថែម​​"
 
-#: src/add-printer/AddPrinterAssistant.cpp:75
-#: src/add-printer/AddPrinterAssistant.cpp:82
-#: src/add-printer/AddPrinterAssistant.cpp:126
-#, kde-format
-msgctxt "@title:window"
-msgid "Pick a Driver"
-msgstr "ជ្រើស​កម្មវិធី​បញ្ជា"
-
-#: src/add-printer/AddPrinterAssistant.cpp:87
-#: src/add-printer/AddPrinterAssistant.cpp:108
+#: src/add-printer/AddPrinterAssistant.cpp:86
+#: src/add-printer/AddPrinterAssistant.cpp:107
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Please describe you printer"
@@ -65,11 +57,19 @@ msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "សូម​អ្នក​ពិពណ៌នា​ពី​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/add-printer/AddPrinterAssistant.cpp:104
+#: src/add-printer/AddPrinterAssistant.cpp:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "កំណត់​រចនាសម្ព័ន្ធ​ការ​តភ្ជាប់​របស់​អ្នក"
+
+#: src/add-printer/AddPrinterAssistant.cpp:191
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Pick a Driver"
+msgctxt "@title:window"
+msgid "Pick a Driver for %1"
+msgstr "ជ្រើស​កម្មវិធី​បញ្ជា"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -78,7 +78,7 @@ msgid "Address:"
 msgstr "អាសយដ្ឋាន ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36
+#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
 #, kde-format
 msgid "Queue:"
 msgstr "ជួរ ៖"
@@ -280,31 +280,31 @@ msgstr "URI សៀវភៅ​ដៃ"
 msgid "Failed to get a list of devices: '%1'"
 msgstr ""
 
-#: src/add-printer/DevicesModel.cpp:238
+#: src/add-printer/DevicesModel.cpp:239
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​បាន​តភ្ជាប់​ទៅកាន់​ច្រក​ប៉ារ៉ាឡែល"
 
-#: src/add-printer/DevicesModel.cpp:241
+#: src/add-printer/DevicesModel.cpp:242
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​​បាន​តភ្ជាប់​ទៅកាន់​ច្រក USB"
 
-#: src/add-printer/DevicesModel.cpp:244
+#: src/add-printer/DevicesModel.cpp:245
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​បាន​តភ្ជាប់​​តាម​ប៊្លូធូស"
 
-#: src/add-printer/DevicesModel.cpp:247
+#: src/add-printer/DevicesModel.cpp:248
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន​បាន​រក​ឃើញ​ដោយ Hardware Abstraction Layer (HAL)"
 
-#: src/add-printer/DevicesModel.cpp:251
+#: src/add-printer/DevicesModel.cpp:252
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -312,7 +312,7 @@ msgid ""
 "function device"
 msgstr "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​បោះពុម្ព ឬ​មុខងារ​ម៉ាស៊ីន​បោះពុម្ព​នៃ​​ឧបករណ៍​ដែល​មាន​មុខងារ​ច្រើន"
 
-#: src/add-printer/DevicesModel.cpp:255
+#: src/add-printer/DevicesModel.cpp:256
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -320,37 +320,36 @@ msgid ""
 "function device"
 msgstr "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​ហ្វាក់ ឬ​មុខងារ​​ហ្វាក់​របស់​ឧបករណ៍​មុខងារ​ច្រើន"
 
-#: src/add-printer/DevicesModel.cpp:260
+#: src/add-printer/DevicesModel.cpp:261
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព CUPS ពី​ចម្ងាយ​តាម DNS-SD"
 
-#: src/add-printer/DevicesModel.cpp:278
+#: src/add-printer/DevicesModel.cpp:279
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​បណ្ដាញ​ដែល​បាន​រក​ឃើញ"
 
-#: src/add-printer/DevicesModel.cpp:282
+#: src/add-printer/DevicesModel.cpp:283
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​បណ្ដាញ​ផ្សេង​ទៀត"
 
-#: src/add-printer/DevicesModel.cpp:286
+#: src/add-printer/DevicesModel.cpp:287
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន"
 
-#: src/add-printer/DevicesModel.cpp:328
+#: src/add-printer/DevicesModel.cpp:329
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QToolButton, addTB)
-#: src/add-printer/main.cpp:27 src/printer-manager-kcm/PrintKCM.ui:19
+#: src/add-printer/main.cpp:27
 #, fuzzy, kde-format
 #| msgid "AddPrinter"
 msgid "Add Printer"
@@ -374,36 +373,41 @@ msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០១០-២០�
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: src/add-printer/main.cpp:40
+#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 6 / Plasma 6"
+msgstr ""
+
+#: src/add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
 msgstr ""
 
-#: src/add-printer/main.cpp:43
+#: src/add-printer/main.cpp:44
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
 msgid "Add a new printer"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/add-printer/main.cpp:46
+#: src/add-printer/main.cpp:47
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
 msgid "Add a new printer class"
 msgstr "ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/add-printer/main.cpp:49
+#: src/add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr ""
 
-#: src/add-printer/main.cpp:52
+#: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr ""
 
-#: src/add-printer/PageAddPrinter.cpp:122
+#: src/add-printer/PageAddPrinter.cpp:125
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to add class"
@@ -411,7 +415,7 @@ msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បន្ថែម class"
 
-#: src/add-printer/PageAddPrinter.cpp:124
+#: src/add-printer/PageAddPrinter.cpp:127
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -447,9 +451,7 @@ msgid "Location:"
 msgstr "ទីតាំង ៖"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
-#. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
 #: src/add-printer/PageAddPrinter.ui:65
-#: src/printer-manager-kcm/PrinterDescription.ui:119
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
@@ -610,47 +612,34 @@ msgstr "ការ​តភ្ជាប់ ៖"
 msgid "Please choose an item on the list"
 msgstr "សូម​ជ្រើស​ធាតុ​មួយ​នៅ​ក្នុង​បញ្ជី"
 
-#: src/configure-printer/ConfigureDialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "AddPrinter"
-msgid "Modify Printer"
-msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
-
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#. i18n: ectx: property (text), widget (QPushButton, configurePB)
 #: src/configure-printer/ConfigureDialog.cpp:90
-#: src/print-manager-kded/NewPrinterNotification.cpp:239
-#: src/print-manager-kded/NewPrinterNotification.cpp:260
-#: src/printer-manager-kcm/PrinterDescription.ui:198
-#: src/printqueue/PrintQueueUi.ui:131
-#, kde-format
-msgid "Configure"
-msgstr "កំណត់​រចនាសម្ព័ន្ធ"
-
-#: src/configure-printer/ConfigureDialog.cpp:100
-#, kde-format
-msgid "Printer Options"
-msgstr ""
+#: src/configure-printer/ConfigureDialog.cpp:91
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Printer Settings"
+msgstr "ការ​កំណត់​បោះពុម្ព"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
-#, kde-format
-msgid "Set the Default Printer Options"
-msgstr ""
+#: src/configure-printer/ConfigureDialog.cpp:102
+#, fuzzy, kde-format
+#| msgid "Print settings"
+msgid "Media Settings"
+msgstr "ការ​កំណត់​បោះពុម្ព"
 
-#: src/configure-printer/ConfigureDialog.cpp:111
 #: src/configure-printer/ConfigureDialog.cpp:112
+#: src/configure-printer/ConfigureDialog.cpp:113
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr ""
 
-#: src/configure-printer/ConfigureDialog.cpp:184
+#: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
 msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr ""
 
-#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
 msgstr ""
@@ -674,17 +663,17 @@ msgstr ""
 msgid "Printer to be configured"
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/configure-printer/ModifyPrinter.cpp:124
+#: src/configure-printer/ModifyPrinter.cpp:126
 #, kde-format
 msgid "Current - %1"
 msgstr ""
 
-#: src/configure-printer/ModifyPrinter.cpp:127
+#: src/configure-printer/ModifyPrinter.cpp:129
 #, kde-format
 msgid "Select a custom driver"
 msgstr ""
 
-#: src/configure-printer/ModifyPrinter.cpp:226
+#: src/configure-printer/ModifyPrinter.cpp:228
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -692,7 +681,7 @@ msgctxt "@info"
 msgid "Failed to configure class"
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/configure-printer/ModifyPrinter.cpp:227
+#: src/configure-printer/ModifyPrinter.cpp:229
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -700,29 +689,18 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/configure-printer/ModifyPrinter.cpp:229
-#: src/printer-manager-kcm/PrintKCM.cpp:304
+#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
 msgstr "បាន​បរាជ័យ"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#. i18n: ectx: property (text), widget (QLabel, nameL)
-#: src/configure-printer/ModifyPrinter.ui:25
-#: src/printer-manager-kcm/PrinterDescription.ui:234
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Name:"
-msgid "Name:"
-msgstr "ឈ្មោះ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/configure-printer/ModifyPrinter.ui:32
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Description:"
-msgid "Description:"
+msgid "&Description:"
 msgstr "សេចក្ដី​ពិពណ៌នា ៖"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
@@ -736,7 +714,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Location:"
-msgid "Location:"
+msgid "&Location:"
 msgstr "ទីតាំង ៖"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
@@ -750,7 +728,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Connection:"
-msgid "Connection:"
+msgid "Connec&tion:"
 msgstr "ការ​តភ្ជាប់ ៖"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
@@ -810,73 +788,73 @@ msgstr "សមាជិក ៖"
 msgid "Driver:"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:199
+#: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
 msgid "Abort job"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:201
+#: src/configure-printer/PrinterBehavior.cpp:202
 #, kde-format
 msgid "Retry current job"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:203
+#: src/configure-printer/PrinterBehavior.cpp:204
 #, kde-format
 msgid "Retry job"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:205
+#: src/configure-printer/PrinterBehavior.cpp:206
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Share this printer"
 msgid "Stop printer"
 msgstr "ចែករំលែក​ម៉ាស៊ីន​បោះពុម្ព​នេះ"
 
-#: src/configure-printer/PrinterBehavior.cpp:214
+#: src/configure-printer/PrinterBehavior.cpp:215
 #, fuzzy, kde-format
 #| msgctxt "@title:group"
 #| msgid "Authentication"
 msgid "Authenticated"
 msgstr "ការ​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ"
 
-#: src/configure-printer/PrinterBehavior.cpp:216
+#: src/configure-printer/PrinterBehavior.cpp:217
 #, kde-format
 msgid "Default"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:225
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, fuzzy, kde-format
 #| msgctxt "@label:listbox"
 #| msgid "None"
 msgid "None"
 msgstr "គ្មាន"
 
-#: src/configure-printer/PrinterBehavior.cpp:227
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Classified"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:229
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Confidential"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:231
+#: src/configure-printer/PrinterBehavior.cpp:232
 #, kde-format
 msgid "Secret"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:233
+#: src/configure-printer/PrinterBehavior.cpp:234
 #, kde-format
 msgid "Standard"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:235
+#: src/configure-printer/PrinterBehavior.cpp:236
 #, kde-format
 msgid "Topsecret"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:237
+#: src/configure-printer/PrinterBehavior.cpp:238
 #, kde-format
 msgid "Unclassified"
 msgstr ""
@@ -935,7 +913,7 @@ msgstr ""
 msgid "A&llow these users to print"
 msgstr ""
 
-#: src/configure-printer/PrinterOptions.cpp:50
+#: src/configure-printer/PrinterOptions.cpp:51
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
@@ -955,114 +933,230 @@ msgstr ""
 msgid "Select a Driver"
 msgstr "ជ្រើស​កម្មវិធី​បញ្ជា"
 
-#: src/libkcups/JobModel.cpp:26
+#: src/kcm/printermanager.cpp:108
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to add class"
+msgid "Failed to perform request: %1"
+msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បន្ថែម class"
+
+#: src/kcm/printermanager.cpp:130
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "បាន​បរាជ័យ​ក្នុងការ​ទទួល​យក​ការកំណត់​របស់​ម៉ាស៊ីន​បម្រើ"
+
+#: src/kcm/printermanager.cpp:156
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure printer"
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
+
+#: src/kcm/printermanager.cpp:243
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
+
+#: src/kcm/printermanager.cpp:249
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "សម្អាត​​ក្បាល​បោះពុម្ព"
+
+#: src/kded/NewPrinterNotification.cpp:59
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add a New Printer"
+msgid "A New Printer was detected"
+msgstr "ម៉ាស៊ីន​បោះពុម្ព"
+
+#: src/kded/NewPrinterNotification.cpp:60
+#, fuzzy, kde-format
+#| msgid "Tool for adding new printers"
+msgid "Configuring new printer..."
+msgstr "ឧបករណ៍​សម្រាប់​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព​ថ្មី"
+
+#: src/kded/NewPrinterNotification.cpp:100
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Other Network Printers"
+msgid "The New Printer was Added"
+msgstr "ម៉ាស៊ីន​បោះពុម្ព​បណ្ដាញ​ផ្សេង​ទៀត"
+
+#: src/kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:164
+#, kde-format
+msgid "Missing printer driver"
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:166
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:168
+#, kde-format
+msgid "No printer driver for %1."
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:170
+#, fuzzy, kde-format
+#| msgctxt "@option:check"
+#| msgid "Share this printer"
+msgid "No driver for this printer."
+msgstr "ចែករំលែក​ម៉ាស៊ីន​បោះពុម្ព​នេះ"
+
+#: src/kded/NewPrinterNotification.cpp:172
+#, kde-format
+msgid "Search"
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:238
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "កំណត់​រចនាសម្ព័ន្ធ"
+
+#: src/kded/NewPrinterNotification.cpp:242
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:243
+#: src/kded/NewPrinterNotification.cpp:257
+#, kde-format
+msgid "Print test page"
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:245
+#, kde-format
+msgid "Find driver"
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr ""
+
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Status"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Name:"
 msgid "Name"
 msgstr "ឈ្មោះ ៖"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Username:"
 msgid "User"
 msgstr "ឈ្មោះ​អ្នក​ប្រើ ៖"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "Created"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
 #, kde-format
 msgid "Completed"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Pages"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Processed"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Size"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Status Message"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, fuzzy, kde-format
 #| msgid "AddPrinter"
 msgid "Printer"
 msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "From Hostname"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:518 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:521 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Failed"
 msgid "Failed"
 msgstr "បាន​បរាជ័យ"
 
-#: src/libkcups/JobModel.cpp:598
+#: src/libkcups/JobModel.cpp:599
 #, kde-format
 msgid "Pending"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:600
 #, kde-format
 msgid "On hold"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:601
+#: src/libkcups/JobModel.cpp:602
 #, kde-format
 msgid "Stopped"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Canceled"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:604
 #, kde-format
 msgid "Aborted"
 msgstr ""
 
-#: src/libkcups/KCupsConnection.cpp:860
+#: src/libkcups/KCupsConnection.cpp:855
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr ""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:23
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr ""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:45
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr ""
@@ -1092,97 +1186,103 @@ msgstr ""
 msgid "Failed to invoke method: %1"
 msgstr ""
 
-#: src/libkcups/PPDModel.cpp:32
+#: src/libkcups/PPDModel.cpp:43
 #, kde-format
 msgid "Recommended Drivers"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:163
+#: src/libkcups/PrinterModel.cpp:188
 #, fuzzy, kde-format
 #| msgid "AddPrinter"
 msgid "Printers"
 msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle"
 msgstr "ទំនេរ"
 
-#: src/libkcups/PrinterModel.cpp:366
+#: src/libkcups/PrinterModel.cpp:391
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "ទំនេរ '%1'"
 
-#: src/libkcups/PrinterModel.cpp:368
+#: src/libkcups/PrinterModel.cpp:393
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:372
+#: src/libkcups/PrinterModel.cpp:397
 #, kde-format
 msgid "In use"
 msgstr "កំពុង​ប្រើ"
 
-#: src/libkcups/PrinterModel.cpp:374
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "In use - '%1'"
 msgstr "កំពុងប្រើ '%1'"
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused"
 msgstr "បាន​ផ្អាក"
 
-#: src/libkcups/PrinterModel.cpp:378
+#: src/libkcups/PrinterModel.cpp:403
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "បាន​ផ្អាក '%1'"
 
-#: src/libkcups/PrinterModel.cpp:380
+#: src/libkcups/PrinterModel.cpp:405
 #, fuzzy, kde-format
 #| msgid "Paused - '%1'"
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "បាន​ផ្អាក '%1'"
 
-#: src/libkcups/PrinterModel.cpp:384
+#: src/libkcups/PrinterModel.cpp:409
 #, kde-format
 msgid "Unknown"
 msgstr "មិន​ស្គាល់"
 
-#: src/libkcups/PrinterModel.cpp:386
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "មិន​ស្គាល់ '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:138
+#: src/libkcups/SelectMakeModel.cpp:117
+#, fuzzy, kde-format
+#| msgid "Please choose an item on the list"
+msgid "Choose the driver for %1"
+msgstr "សូម​ជ្រើស​ធាតុ​មួយ​នៅ​ក្នុង​បញ្ជី"
+
+#: src/libkcups/SelectMakeModel.cpp:140
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to add class"
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បន្ថែម class"
 
-#: src/libkcups/SelectMakeModel.cpp:228
+#: src/libkcups/SelectMakeModel.cpp:230
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_2)
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
 #, fuzzy, kde-format
 #| msgid "Please choose an item on the list"
-msgid "Choose &the driver from the list"
+msgid "Choose &the driver"
 msgstr "សូម​ជ្រើស​ធាតុ​មួយ​នៅ​ក្នុង​បញ្ជី"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
@@ -1191,320 +1291,13 @@ msgstr "សូម​ជ្រើស​ធាតុ​មួយ​នៅ​ក្
 msgid "Ma&nually Provide a PPD File:"
 msgstr ""
 
-#: src/print-manager-kded/NewPrinterNotification.cpp:59
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add a New Printer"
-msgid "A New Printer was detected"
-msgstr "ម៉ាស៊ីន​បោះពុម្ព"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:60
-#, fuzzy, kde-format
-#| msgid "Tool for adding new printers"
-msgid "Configuring new printer..."
-msgstr "ឧបករណ៍​សម្រាប់​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព​ថ្មី"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Other Network Printers"
-msgid "The New Printer was Added"
-msgstr "ម៉ាស៊ីន​បោះពុម្ព​បណ្ដាញ​ផ្សេង​ទៀត"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:102
-#, kde-format
-msgid "The New Printer is Missing Drivers"
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:164
-#, kde-format
-msgid "Missing printer driver"
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:166
-#, kde-format
-msgid "No printer driver for %1 %2."
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:168
-#, kde-format
-msgid "No printer driver for %1."
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:170
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Share this printer"
-msgid "No driver for this printer."
-msgstr "ចែករំលែក​ម៉ាស៊ីន​បោះពុម្ព​នេះ"
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:172
-#, kde-format
-msgid "Search"
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:238
-#, kde-format
-msgid "'%1' has been added, please check its driver."
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:242
-#, kde-format
-msgid "'%1' has been added, using the '%2' driver."
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:243
-#: src/print-manager-kded/NewPrinterNotification.cpp:257
-#, kde-format
-msgid "Print test page"
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:245
-#, kde-format
-msgid "Find driver"
-msgstr ""
-
-#: src/print-manager-kded/NewPrinterNotification.cpp:255
-#, kde-format
-msgid "'%1' is ready for printing."
-msgstr ""
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Share this printer"
-msgid "Share this class"
-msgstr "ចែករំលែក​ម៉ាស៊ីន​បោះពុម្ព​នេះ"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:99
-#, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Share this printer"
-msgid "Share this printer"
-msgstr "ចែករំលែក​ម៉ាស៊ីន​បោះពុម្ព​នេះ"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:220
-#: src/printer-manager-kcm/PrinterDescription.ui:293
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "សម្អាត​​ក្បាល​បោះពុម្ព"
-
-#. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.cpp:229
-#: src/printer-manager-kcm/PrinterDescription.ui:301
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
-
-#: src/printer-manager-kcm/PrinterDescription.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to add class"
-msgid "Failed to perform request: %1"
-msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បន្ថែម class"
-
-#. i18n: ectx: property (text), widget (QLabel, printerNameL)
-#: src/printer-manager-kcm/PrinterDescription.ui:83
-#, kde-format
-msgctxt "@title"
-msgid "Printer name or description"
-msgstr "សេចក្ដី​ពិពណ៌នា​ ឬ​ឈ្មោះ​ម៉ាស៊ីន​បោះពុម្ព"
-
-#. i18n: ectx: property (text), widget (QLabel, statusL)
-#: src/printer-manager-kcm/PrinterDescription.ui:102
-#, kde-format
-msgid "Current status"
-msgstr "ស្ថានភាព​បច្ចុប្បន្ន"
-
-#. i18n: ectx: property (text), widget (QCheckBox, defaultCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:109
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Local Printers"
-msgctxt "@option:check"
-msgid "Default printer"
-msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន"
-
-#. i18n: ectx: property (text), widget (QCheckBox, rejectPrintJobsCB)
-#: src/printer-manager-kcm/PrinterDescription.ui:126
-#, kde-format
-msgid "Reject print jobs"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, locationL)
-#: src/printer-manager-kcm/PrinterDescription.ui:135
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Location:"
-msgctxt "@label location of printer"
-msgid "Location:"
-msgstr "ទីតាំង ៖"
-
-#. i18n: ectx: property (text), widget (QLabel, kindL)
-#: src/printer-manager-kcm/PrinterDescription.ui:164
-#, kde-format
-msgctxt "@label kind of printer, could be driver name or \"local raw socket\""
-msgid "Kind:"
-msgstr "ប្រភេទ ៖"
-
-#. i18n: ectx: property (text), widget (QPushButton, maintenancePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:205
-#, kde-format
-msgctxt "@action:button"
-msgid "Maintenance"
-msgstr "តំហែទាំ"
-
-#. i18n: ectx: property (text), widget (QPushButton, openQueuePB)
-#: src/printer-manager-kcm/PrinterDescription.ui:225
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Print Queue"
-msgstr "បើក​ជួរ​បោះពុម្ព"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:288
-#, kde-format
-msgid "Print Test Page"
-msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
-
-#. i18n: ectx: property (text), widget (KMessageWidget, errorMessage)
-#: src/printer-manager-kcm/PrinterDescription.ui:298
-#, kde-format
-msgid "Print Self Test Page"
-msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add a New Printer"
-msgctxt "@action:intoolbar"
-msgid "Add a Printer Class"
-msgstr "ម៉ាស៊ីន​បោះពុម្ព"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:51
-#, kde-format
-msgid "Add a new printer or a printer class"
-msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព​ថ្មី ឬ​ថ្នាក់​ម៉ាស៊ីន​បោះពុម្ព"
-
-#. i18n: ectx: property (text), widget (QToolButton, removeTB)
-#: src/printer-manager-kcm/PrintKCM.cpp:55
-#: src/printer-manager-kcm/PrintKCM.ui:35
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Local Printers"
-msgid "Remove Printer"
-msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:61
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Show printers shared by other systems"
-msgstr "បង្ហាញ​ម៉ាស៊ីន​បោះពុម្ព​ដែល​បាន​ចែក​រំលែក​ដោយ​ប្រព័ន្ធ​ផ្សេង​ៗ​ទៀត"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:65
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "A printer connected to a USB port"
-msgctxt "@action:intoolbar"
-msgid "Share printers connected to this system"
-msgstr "ម៉ាស៊ីន​បោះពុម្ព​​បាន​តភ្ជាប់​ទៅកាន់​ច្រក USB"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:67
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow printing from the Internet"
-msgstr "អនុញ្ញាត​ឲ្យ​បោះពុម្ព​​ពី​អ៊ីនធឺណិត"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:73
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow remote administration"
-msgstr "អនុញ្ញាត​ការ​គ្រប់គ្រង​ពីចម្ងាយ"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:75
-#, kde-format
-msgctxt "@action:intoolbar"
-msgid "Allow users to cancel any job (not just their own)"
-msgstr "អនុញ្ញាត​ឲ្យ​អ្នក​ប្រើ​បោះបង់​​កិច្ចការ​មួយ​ចំនួន (មិន​មែន​កិច្ចការ​ផ្ទាល់ខ្លួន​របស់​ពួកគេ​ទេ)"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:79
-#, kde-format
-msgid "Configure the global preferences"
-msgstr "កំណត់​រចនាសម្ព័ន្ធ​ចំណូលចិត្ត​សកល"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:124
-#: src/printer-manager-kcm/PrintKCM.cpp:224
-#, kde-format
-msgid "No printers have been configured or discovered"
-msgstr "គ្មាន​ម៉ាស៊ីន​បោះពុម្ព​ត្រូវ​បាន​កំណត់​រចនាសម្ព័ន្ធ ឬ​រក​ឃើញ​ឡើយ"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:255
-#, kde-format
-msgid "Remove class"
-msgstr "យក​ថ្នាក់​ចេញ"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:256
-#, kde-format
-msgid "Are you sure you want to remove the class '%1'?"
-msgstr "តើ​អ្នក​ពិត​ជា​ចង់​យក​ថ្នាក់ '%1' ចេញ​ឬ ?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:259
-#, kde-format
-msgid "Remove printer"
-msgstr "យក​ម៉ាស៊ីន​បោះពុម្ព​ចេញ"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:260
-#, kde-format
-msgid "Are you sure you want to remove the printer '%1'?"
-msgstr "តើ​អ្នក​ពិត​ជា​ចង់​យក​ម៉ាស៊ីន​បោះពុម្ព '%1' ចេញ​ឬ ?"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:302
-#, kde-format
-msgctxt "@info"
-msgid "Failed to get server settings"
-msgstr "បាន​បរាជ័យ​ក្នុងការ​ទទួល​យក​ការកំណត់​របស់​ម៉ាស៊ីន​បម្រើ"
-
-#: src/printer-manager-kcm/PrintKCM.cpp:333
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
-msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
-
-#. i18n: ectx: property (text), widget (QToolButton, systemPreferencesTB)
-#: src/printer-manager-kcm/PrintKCM.ui:55
-#, kde-format
-msgid "System Preferences"
-msgstr "ចំណូលចិត្ត​ប្រព័ន្ធ"
-
-#. i18n: ectx: property (text), widget (QLabel, errorComment)
-#: src/printer-manager-kcm/PrintKCM.ui:199
-#, kde-format
-msgid "TextLabel"
-msgstr "TextLabel"
-
-#. i18n: ectx: property (text), widget (QLabel, errorText)
-#: src/printer-manager-kcm/PrintKCM.ui:209
-#, kde-format
-msgid "Error Title"
-msgstr "កំហុស​ចំណងជើង"
-
-#. i18n: ectx: property (text), widget (QPushButton, addPrinterBtn)
-#: src/printer-manager-kcm/PrintKCM.ui:234
-#, fuzzy, kde-format
-#| msgid "Tool for adding new printers"
-msgid "Click here to add a new printer"
-msgstr "ឧបករណ៍​សម្រាប់​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព​ថ្មី"
-
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, fuzzy, kde-format
 #| msgid "Queue:"
 msgid "Print Queue"
 msgstr "ជួរ ៖"
 
-#: src/printqueue/main.cpp:38
+#: src/printqueue/main.cpp:39
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Share this printer"
@@ -1671,8 +1464,139 @@ msgstr ""
 msgid "All Jobs"
 msgstr ""
 
-#~ msgid "Print settings"
-#~ msgstr "ការ​កំណត់​បោះពុម្ព"
+#, fuzzy
+#~| msgid "AddPrinter"
+#~ msgid "Modify Printer"
+#~ msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
+
+#, fuzzy
+#~| msgctxt "@label:textbox"
+#~| msgid "Name:"
+#~ msgid "Name:"
+#~ msgstr "ឈ្មោះ ៖"
+
+#, fuzzy
+#~| msgctxt "@option:check"
+#~| msgid "Share this printer"
+#~ msgid "Share this class"
+#~ msgstr "ចែករំលែក​ម៉ាស៊ីន​បោះពុម្ព​នេះ"
+
+#, fuzzy
+#~| msgctxt "@option:check"
+#~| msgid "Share this printer"
+#~ msgid "Share this printer"
+#~ msgstr "ចែករំលែក​ម៉ាស៊ីន​បោះពុម្ព​នេះ"
+
+#~ msgctxt "@title"
+#~ msgid "Printer name or description"
+#~ msgstr "សេចក្ដី​ពិពណ៌នា​ ឬ​ឈ្មោះ​ម៉ាស៊ីន​បោះពុម្ព"
+
+#~ msgid "Current status"
+#~ msgstr "ស្ថានភាព​បច្ចុប្បន្ន"
+
+#, fuzzy
+#~| msgctxt "@item"
+#~| msgid "Local Printers"
+#~ msgctxt "@option:check"
+#~ msgid "Default printer"
+#~ msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន"
+
+#, fuzzy
+#~| msgctxt "@label:textbox"
+#~| msgid "Location:"
+#~ msgctxt "@label location of printer"
+#~ msgid "Location:"
+#~ msgstr "ទីតាំង ៖"
+
+#~ msgctxt ""
+#~ "@label kind of printer, could be driver name or \"local raw socket\""
+#~ msgid "Kind:"
+#~ msgstr "ប្រភេទ ៖"
+
+#~ msgctxt "@action:button"
+#~ msgid "Maintenance"
+#~ msgstr "តំហែទាំ"
+
+#~ msgctxt "@action:button"
+#~ msgid "Open Print Queue"
+#~ msgstr "បើក​ជួរ​បោះពុម្ព"
+
+#~ msgid "Print Test Page"
+#~ msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
+
+#~ msgid "Print Self Test Page"
+#~ msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Add a New Printer"
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Add a Printer Class"
+#~ msgstr "ម៉ាស៊ីន​បោះពុម្ព"
+
+#~ msgid "Add a new printer or a printer class"
+#~ msgstr "បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព​ថ្មី ឬ​ថ្នាក់​ម៉ាស៊ីន​បោះពុម្ព"
+
+#, fuzzy
+#~| msgctxt "@item"
+#~| msgid "Local Printers"
+#~ msgid "Remove Printer"
+#~ msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Show printers shared by other systems"
+#~ msgstr "បង្ហាញ​ម៉ាស៊ីន​បោះពុម្ព​ដែល​បាន​ចែក​រំលែក​ដោយ​ប្រព័ន្ធ​ផ្សេង​ៗ​ទៀត"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid "A printer connected to a USB port"
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Share printers connected to this system"
+#~ msgstr "ម៉ាស៊ីន​បោះពុម្ព​​បាន​តភ្ជាប់​ទៅកាន់​ច្រក USB"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow printing from the Internet"
+#~ msgstr "អនុញ្ញាត​ឲ្យ​បោះពុម្ព​​ពី​អ៊ីនធឺណិត"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow remote administration"
+#~ msgstr "អនុញ្ញាត​ការ​គ្រប់គ្រង​ពីចម្ងាយ"
+
+#~ msgctxt "@action:intoolbar"
+#~ msgid "Allow users to cancel any job (not just their own)"
+#~ msgstr "អនុញ្ញាត​ឲ្យ​អ្នក​ប្រើ​បោះបង់​​កិច្ចការ​មួយ​ចំនួន (មិន​មែន​កិច្ចការ​ផ្ទាល់ខ្លួន​របស់​ពួកគេ​ទេ)"
+
+#~ msgid "Configure the global preferences"
+#~ msgstr "កំណត់​រចនាសម្ព័ន្ធ​ចំណូលចិត្ត​សកល"
+
+#~ msgid "No printers have been configured or discovered"
+#~ msgstr "គ្មាន​ម៉ាស៊ីន​បោះពុម្ព​ត្រូវ​បាន​កំណត់​រចនាសម្ព័ន្ធ ឬ​រក​ឃើញ​ឡើយ"
+
+#~ msgid "Remove class"
+#~ msgstr "យក​ថ្នាក់​ចេញ"
+
+#~ msgid "Are you sure you want to remove the class '%1'?"
+#~ msgstr "តើ​អ្នក​ពិត​ជា​ចង់​យក​ថ្នាក់ '%1' ចេញ​ឬ ?"
+
+#~ msgid "Remove printer"
+#~ msgstr "យក​ម៉ាស៊ីន​បោះពុម្ព​ចេញ"
+
+#~ msgid "Are you sure you want to remove the printer '%1'?"
+#~ msgstr "តើ​អ្នក​ពិត​ជា​ចង់​យក​ម៉ាស៊ីន​បោះពុម្ព '%1' ចេញ​ឬ ?"
+
+#~ msgid "System Preferences"
+#~ msgstr "ចំណូលចិត្ត​ប្រព័ន្ធ"
+
+#~ msgid "TextLabel"
+#~ msgstr "TextLabel"
+
+#~ msgid "Error Title"
+#~ msgstr "កំហុស​ចំណងជើង"
+
+#, fuzzy
+#~| msgid "Tool for adding new printers"
+#~ msgid "Click here to add a new printer"
+#~ msgstr "ឧបករណ៍​សម្រាប់​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព​ថ្មី"
 
 #~ msgid "Daniel Nicoletti"
 #~ msgstr "Daniel Nicoletti"

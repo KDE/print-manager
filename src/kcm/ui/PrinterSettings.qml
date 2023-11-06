@@ -58,7 +58,7 @@ KCM.SimpleKCM {
     Kirigami.PromptDialog {
         id: removePrompt
         title: i18n("Remove Printer")
-        subtitle: "%1 %2?".arg(i18n("Are you sure you really want to remove")).arg(modelData.printerName)
+        subtitle: i18n("Are you sure you really want to remove %1", modelData.printerName)
 
         standardButtons: Kirigami.Dialog.NoButton
 

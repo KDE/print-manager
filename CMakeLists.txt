@@ -4,18 +4,15 @@ set(PROJECT_VERSION "5.27.80")
 cmake_minimum_required(VERSION 3.16)
 
 set(QT_MIN_VERSION "6.5.0")
-set(KF_MIN_VERSION "5.240.0")
+set(KF6_MIN_VERSION "5.240.0")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ################# set KDE specific information #################
 
-find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
@@ -39,7 +36,7 @@ find_package(Qt6Core5Compat)
 
 find_package(Cups "1.5" REQUIRED)
 
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED 
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED 
     Config 
     ConfigWidgets 
     CoreAddons 
@@ -50,10 +47,12 @@ find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     Kirigami2
     KIO
     Notifications 
-    Plasma 
     WidgetsAddons 
     WindowSystem 
 )
+
+find_package(KF6 ${PROJECT_VERSION} REQUIRED COMPONENTS Plasma)
+
 set_package_properties(KF6Kirigami2 PROPERTIES
     TYPE REQUIRED
     PURPOSE "Kirigami application UI framework"

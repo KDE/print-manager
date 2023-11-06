@@ -117,7 +117,7 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     // connect this after ALL pages were added, otherwise the slot will be called
     connect(this, &ConfigureDialog::currentPageChanged, this, &ConfigureDialog::currentPageChangedSlot);
 
-    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), "ConfigureDialog");
+    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("ConfigureDialog"));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
 
     connect(buttonBox(), &QDialogButtonBox::clicked, this, &ConfigureDialog::slotButtonClicked);
@@ -132,7 +132,7 @@ void ConfigureDialog::ppdChanged()
 
 ConfigureDialog::~ConfigureDialog()
 {
-    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), "ConfigureDialog");
+    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("ConfigureDialog"));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

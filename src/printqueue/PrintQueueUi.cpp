@@ -110,7 +110,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     header->setSectionResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
     header->setSectionResizeMode(JobModel::ColPrinter,       QHeaderView::ResizeToContents);
 
-    KConfigGroup printQueue(KSharedConfig::openConfig(QLatin1String("print-manager")), "PrintQueue");
+    KConfigGroup printQueue(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("PrintQueue"));
     if (printQueue.hasKey("ColumnState")) {
         // restore the header state order
         header->restoreState(printQueue.readEntry("ColumnState", QByteArray()));
@@ -150,7 +150,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     updatePrinterByName(m_destName);
 
     // Restore the dialog size
-    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "PrintQueue");
+    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("PrintQueue"));
     KWindowConfig::restoreWindowSize(windowHandle(), configGroup);
 
     auto delJobShortcut = new QShortcut(QKeySequence::Delete, ui->jobsView);
@@ -160,7 +160,7 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
 
 PrintQueueUi::~PrintQueueUi()
 {
-    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "PrintQueue");
+    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("PrintQueue"));
     // save the header state order
     configGroup.writeEntry("ColumnState", ui->jobsView->header()->saveState());
 

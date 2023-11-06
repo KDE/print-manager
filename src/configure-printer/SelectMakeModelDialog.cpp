@@ -57,7 +57,7 @@ SelectMakeModelDialog::SelectMakeModelDialog(const QString &make, const QString 
     qCDebug(PM_CONFIGURE_PRINTER) << make << makeModel;
 
     // restore dlg size
-    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), "PPDDialog");
+    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("PPDDialog"));
     KWindowConfig::restoreWindowSize(windowHandle(), group);
 
     // set data
@@ -67,7 +67,7 @@ SelectMakeModelDialog::SelectMakeModelDialog(const QString &make, const QString 
 SelectMakeModelDialog::~SelectMakeModelDialog()
 {
     // save dlg size
-    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "PPDDialog");
+    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("PPDDialog"));
     KWindowConfig::saveWindowSize(windowHandle(), configGroup);
 }
 

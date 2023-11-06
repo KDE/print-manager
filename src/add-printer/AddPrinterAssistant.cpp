@@ -47,13 +47,13 @@ AddPrinterAssistant::AddPrinterAssistant()
     connect(finishButton(), &QPushButton::clicked, this, &AddPrinterAssistant::slotFinishButtonClicked);
 
     // Restore the dialog size
-    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "AddPrinterAssistant");
+    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("AddPrinterAssistant"));
     KWindowConfig::restoreWindowSize(windowHandle(), configGroup);
 }
 
 AddPrinterAssistant::~AddPrinterAssistant()
 {
-    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), "AddPrinterAssistant");
+    KConfigGroup configGroup(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("AddPrinterAssistant"));
     KWindowConfig::saveWindowSize(windowHandle(), configGroup);
 }
 

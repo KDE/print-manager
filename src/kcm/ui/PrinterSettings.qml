@@ -43,7 +43,7 @@ KCM.SimpleKCM {
             if (removed) {
                 kcm.currentIndex = 0
             } else {
-                error.text = i18n("Failed to remove the printer: ") + error.text
+                error.text = i18n("Failed to remove the printer %1: ", error.text)
             }
         }
     }

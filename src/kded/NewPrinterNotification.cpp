@@ -6,6 +6,7 @@
 */
 
 #include "NewPrinterNotification.h"
+#include "newprinternotificationadaptor.h"
 
 #include "pmkded_log.h"
 
@@ -31,7 +32,7 @@
 NewPrinterNotification::NewPrinterNotification(QObject *parent) : QObject(parent)
 {
     // Creates our new adaptor
-    (void) new NewPrinterNotification(this);
+    (void) new NewPrinterNotificationAdaptor(this);
 
     // Register the com.redhat.NewPrinterNotification interface
     if (!registerService()) {

@@ -1,106 +1,90 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2023 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-07 02:44+0000\n"
-"PO-Revision-Date: 2022-09-12 20:12+0200\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
-"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
-"Language: ka\n"
+"PO-Revision-Date: 2023-11-07 00:27+0100\n"
+"Last-Translator: Enol P. <enolp@softastur.org>\n"
+"Language-Team: \n"
+"Language: ast_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
-msgstr "პრინტერები"
+msgstr "Imprentadores"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
 #, fuzzy
 #| msgid "Printers"
 msgid "Printer Groups"
-msgstr "პრინტერები"
+msgstr "Imprentadores"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
-msgstr "ნაპოვნი ან მორგებული პრინტერების გარეშე"
+msgstr "Nun se configuró nin descubrió nenguna imprentadora"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 msgid "No matches"
-msgstr "დამთხვევა არ არსებობს"
+msgstr "Nun hai nenguna coincidencia"
 
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
-msgstr[0] "პრინტერის რიგში 1 დავალებაა"
-msgstr[1] "პრინტერის რიგში %1 დავალებაა"
+msgstr[0] "Hai un trabayu d'imprentación na cola"
+msgstr[1] "Hai %1 trabayos d'imprentación na cola"
 
 #: src/plasmoid/package/contents/ui/main.qml:79
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
-msgstr "%1-ის %2-ით დაბეჭდვა"
+msgstr "Imprentado «%1» con «%2»"
 
 #: src/plasmoid/package/contents/ui/main.qml:81
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
-msgstr "%1-ით ბეჭდვა"
+msgstr "Imprentando con «%1»"
 
 #: src/plasmoid/package/contents/ui/main.qml:84
 msgid "Print queue is empty"
-msgstr "ბეჭდვის რიგი ცარიელია"
+msgstr "La cola d'imprentación ta balera"
 
 #: src/plasmoid/package/contents/ui/main.qml:114
 msgid "Show All Jobs"
-msgstr "ყველა დავალების ჩვენება"
+msgstr "Amosar tolos trabayos"
 
 #: src/plasmoid/package/contents/ui/main.qml:125
 msgid "Show Only Completed Jobs"
-msgstr "მხოლოდ დასრულებული დავალებების ჩვენება"
+msgstr "Amosar namás los trabayos completaos"
 
 #: src/plasmoid/package/contents/ui/main.qml:136
 msgid "Show Only Active Jobs"
-msgstr "მხოლოდ აქტიური დავალებების ჩვენება"
+msgstr "Amosar namás los trabayos activos"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&პრინტერების მორგება..."
+msgstr "&Configurar imprentadores…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Siguir"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Posar"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "პრინტერის მორგება..."
+msgstr "Configurar la imprentadora…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "ბეჭდვის რიგის ნახვა"
-
-#~ msgid "Search…"
-#~ msgstr "ძებნა…"
-
-#~ msgid "Resume printing"
-#~ msgstr "დაბეჭდვის გაგრძელება"
-
-#~ msgid "Pause printing"
-#~ msgstr "დაბეჭდვის შეჩერება"
+msgstr "Ver la cola d'imprentación…"

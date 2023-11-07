@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2022-09-27 17:15+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -265,90 +265,6 @@ msgstr ""
 "</TR>\n"
 "</TABLE>"
 
-#: src/add-printer/DevicesModel.cpp:39
-#, kde-format
-msgctxt "@item"
-msgid "Manual URI"
-msgstr "URI manual"
-
-#: src/add-printer/DevicesModel.cpp:115
-#, kde-format
-msgid "Failed to get a list of devices: '%1'"
-msgstr "Gagal untuk mendapatkan sebuah daftar peranti: '%1'"
-
-#: src/add-printer/DevicesModel.cpp:239
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected to the parallel port"
-msgstr "Sebuah printer terhubung ke colokan paralel"
-
-#: src/add-printer/DevicesModel.cpp:242
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected to a USB port"
-msgstr "Sebuah printer terhubung ke sebuah colokan USB"
-
-#: src/add-printer/DevicesModel.cpp:245
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected via Bluetooth"
-msgstr "Sebuah printer terhubung via Bluetooth"
-
-#: src/add-printer/DevicesModel.cpp:248
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
-msgstr "Printer lokal terdeteksi oleh Hardware Abstraction Layer (HAL)"
-
-#: src/add-printer/DevicesModel.cpp:252
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"HPLIP software driving a printer, or the printer function of a multi-"
-"function device"
-msgstr ""
-"Software HPLIP menggerakkan sebuah printer, atau fungsi printer dari peranti "
-"multi-fungsi"
-
-#: src/add-printer/DevicesModel.cpp:256
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"HPLIP software driving a fax machine, or the fax function of a multi-"
-"function device"
-msgstr ""
-"Software HPLIP menggerakkan sebuah mesin fax, atau fungsi fax dari peranti "
-"multi-fungsi"
-
-#: src/add-printer/DevicesModel.cpp:261
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Remote CUPS printer via DNS-SD"
-msgstr "Printer CUP jarak jauh via DNS-SD"
-
-#: src/add-printer/DevicesModel.cpp:279
-#, kde-format
-msgctxt "@item"
-msgid "Discovered Network Printers"
-msgstr "Printer Jaringan yang Ditemukan"
-
-#: src/add-printer/DevicesModel.cpp:283
-#, kde-format
-msgctxt "@item"
-msgid "Other Network Printers"
-msgstr "Printer Jaringan Lain"
-
-#: src/add-printer/DevicesModel.cpp:287
-#, kde-format
-msgctxt "@item"
-msgid "Local Printers"
-msgstr "Printer Lokal"
-
-#: src/add-printer/DevicesModel.cpp:329
-#, kde-format
-msgid "Failed to group devices: '%1'"
-msgstr "Gagal mengelompokkan peranti: '%1'"
-
 #: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
@@ -495,14 +411,12 @@ msgstr ""
 "Software HPLIP menggerakkan sebuah mesin fax, atau fungsi fax dari peranti "
 "multi-fungsi."
 
-#: src/add-printer/PageDestinations.cpp:214
-#: src/add-printer/PageDestinations.cpp:373
+#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:105
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Printer CUP jarak jauh via DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:226
-#: src/add-printer/PageDestinations.cpp:382
+#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:114
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Printer jaringan via DNS-SD"
@@ -511,91 +425,6 @@ msgstr "Printer jaringan via DNS-SD"
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 printer jaringan via DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:333
-#, kde-format
-msgid "Parallel Port"
-msgstr "Colokan Paralel"
-
-#: src/add-printer/PageDestinations.cpp:335
-#, kde-format
-msgid "Serial Port"
-msgstr "Colokan Serial"
-
-#: src/add-printer/PageDestinations.cpp:337
-#, kde-format
-msgid "USB"
-msgstr "USB"
-
-#: src/add-printer/PageDestinations.cpp:339
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: src/add-printer/PageDestinations.cpp:341
-#, kde-format
-msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr "Fax - HP Linux Imaging dan Printing (HPLIP)"
-
-#: src/add-printer/PageDestinations.cpp:343
-#, kde-format
-msgid "HP Linux Imaging and Printing (HPLIP)"
-msgstr "HP Linux Imaging dan Printing (HPLIP)"
-
-#: src/add-printer/PageDestinations.cpp:345
-#, kde-format
-msgid "Hardware Abstraction Layer (HAL)"
-msgstr "Hardware Abstraction Layer (HAL)"
-
-#: src/add-printer/PageDestinations.cpp:347
-#, kde-format
-msgid "AppSocket/HP JetDirect"
-msgstr "AppSocket/HP JetDirect"
-
-#: src/add-printer/PageDestinations.cpp:352
-#, kde-format
-msgid "LPD/LPR queue"
-msgstr "Antrean LPD/LPR"
-
-#: src/add-printer/PageDestinations.cpp:354
-#, kde-format
-msgid "LPD/LPR queue %1"
-msgstr "Antrean LPD/LPR %1"
-
-#: src/add-printer/PageDestinations.cpp:357
-#, kde-format
-msgid "Windows Printer via SAMBA"
-msgstr "Printer Windows via SAMBA"
-
-#: src/add-printer/PageDestinations.cpp:362
-#, kde-format
-msgid "IPP"
-msgstr "IPP"
-
-#: src/add-printer/PageDestinations.cpp:364
-#, kde-format
-msgid "IPP %1"
-msgstr "IPP %1"
-
-#: src/add-printer/PageDestinations.cpp:367
-#, kde-format
-msgid "HTTP"
-msgstr "HTTP"
-
-#: src/add-printer/PageDestinations.cpp:376
-#, kde-format
-msgid "IPP network printer via DNS-SD"
-msgstr "Printer jaringan IPP via DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:378
-#, kde-format
-msgid "LPD network printer via DNS-SD"
-msgstr "Printer jaringan LPD via DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:380
-#, kde-format
-msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr "Printer jaringan AppSocket/JetDirect via DNS-SD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
 #: src/add-printer/PageDestinations.ui:62
@@ -976,83 +805,281 @@ msgstr "Cetak Halaman Uji Diri"
 msgid "Clean Print Heads"
 msgstr "Bersihkan Kepala Cetak"
 
-#: src/kded/NewPrinterNotification.cpp:59
+#: src/kded/NewPrinterNotification.cpp:60
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Sebuah Printer Baru telah terdeteksi"
 
-#: src/kded/NewPrinterNotification.cpp:60
+#: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "Configuring new printer..."
 msgstr "Mengkonfigurasi printer baru..."
 
-#: src/kded/NewPrinterNotification.cpp:100
+#: src/kded/NewPrinterNotification.cpp:101
 #, kde-format
 msgid "The New Printer was Added"
 msgstr "Printer Baru telah Ditambahkan"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:103
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr "Printer Baru telah Kehilangan Driver"
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:162
 #, kde-format
 msgid "Missing printer driver"
 msgstr "Kehilangan driver printer"
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:164
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr "Tidak ada driver printer untuk %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:166
 #, kde-format
 msgid "No printer driver for %1."
 msgstr "Tidak ada driver printer untuk %1."
 
-#: src/kded/NewPrinterNotification.cpp:170
+#: src/kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "No driver for this printer."
 msgstr "Tidak ada driver untuk printer ini."
 
-#: src/kded/NewPrinterNotification.cpp:172
+#: src/kded/NewPrinterNotification.cpp:170
 #, kde-format
 msgid "Search"
 msgstr "Cari"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:234
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "'%1' sudah ditambahkan, silakan periksa driver-nya."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:239
-#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:235
+#: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Konfigurasikan"
 
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "'%1' sudah ditambahkan, menggunakan driver '%2'."
 
-#: src/kded/NewPrinterNotification.cpp:243
-#: src/kded/NewPrinterNotification.cpp:257
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "Print test page"
 msgstr "Cetak halaman uji"
 
-#: src/kded/NewPrinterNotification.cpp:245
+#: src/kded/NewPrinterNotification.cpp:241
 #, kde-format
 msgid "Find driver"
 msgstr "Temukan driver"
 
-#: src/kded/NewPrinterNotification.cpp:255
+#: src/kded/NewPrinterNotification.cpp:251
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' sudah siap untuk mencetak."
+
+#: src/libkcups/DevicesModel.cpp:50
+#, kde-format
+msgctxt "@item"
+msgid "Manual URI"
+msgstr "URI manual"
+
+#: src/libkcups/DevicesModel.cpp:65
+#, kde-format
+msgid "Parallel Port"
+msgstr "Colokan Paralel"
+
+#: src/libkcups/DevicesModel.cpp:67
+#, kde-format
+msgid "Serial Port"
+msgstr "Colokan Serial"
+
+#: src/libkcups/DevicesModel.cpp:69
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: src/libkcups/DevicesModel.cpp:71
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/libkcups/DevicesModel.cpp:73
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "Fax - HP Linux Imaging dan Printing (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:75
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "HP Linux Imaging dan Printing (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:77
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "Hardware Abstraction Layer (HAL)"
+
+#: src/libkcups/DevicesModel.cpp:79
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: src/libkcups/DevicesModel.cpp:84
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "Antrean LPD/LPR"
+
+#: src/libkcups/DevicesModel.cpp:86
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "Antrean LPD/LPR %1"
+
+#: src/libkcups/DevicesModel.cpp:89
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "Printer Windows via SAMBA"
+
+#: src/libkcups/DevicesModel.cpp:94
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: src/libkcups/DevicesModel.cpp:96
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: src/libkcups/DevicesModel.cpp:99
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: src/libkcups/DevicesModel.cpp:108
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "Printer jaringan IPP via DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:110
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "Printer jaringan LPD via DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:112
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "Printer jaringan AppSocket/JetDirect via DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:125
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "Sebuah printer terhubung ke colokan paralel"
+
+#: src/libkcups/DevicesModel.cpp:126
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "Sebuah printer terhubung via Bluetooth"
+
+#: src/libkcups/DevicesModel.cpp:127
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr "Printer lokal terdeteksi oleh Hardware Abstraction Layer (HAL)"
+
+#: src/libkcups/DevicesModel.cpp:128
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device"
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine,\n"
+"or the fax function of a multi-function device"
+msgstr ""
+"Software HPLIP menggerakkan sebuah mesin fax, atau fungsi fax dari peranti "
+"multi-fungsi"
+
+#: src/libkcups/DevicesModel.cpp:129
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device"
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer,\n"
+"or the printer function of a multi-function device"
+msgstr ""
+"Software HPLIP menggerakkan sebuah printer, atau fungsi printer dari peranti "
+"multi-fungsi"
+
+#: src/libkcups/DevicesModel.cpp:130
+#, fuzzy, kde-format
+#| msgid "IPP network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "IPP Network printer via IPP"
+msgstr "Printer jaringan IPP via DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:131
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "Sebuah printer terhubung ke sebuah colokan USB"
+
+#: src/libkcups/DevicesModel.cpp:138
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Printer CUP jarak jauh via DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "Network printer via DNS-SD"
+msgstr "Printer jaringan via DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:152
+#, fuzzy, kde-format
+#| msgid "%1 network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "%1 network printer via DNS-SD"
+msgstr "%1 printer jaringan via DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:235
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "Gagal untuk mendapatkan sebuah daftar peranti: '%1'"
+
+#: src/libkcups/DevicesModel.cpp:375
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "Printer Jaringan yang Ditemukan"
+
+#: src/libkcups/DevicesModel.cpp:379
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "Printer Jaringan Lain"
+
+#: src/libkcups/DevicesModel.cpp:383
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "Printer Lokal"
+
+#: src/libkcups/DevicesModel.cpp:425
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Gagal mengelompokkan peranti: '%1'"
 
 #: src/libkcups/JobModel.cpp:27
 #, kde-format
@@ -1144,7 +1171,7 @@ msgstr "Dibatalkan"
 msgid "Aborted"
 msgstr "Digugurkan"
 
-#: src/libkcups/KCupsConnection.cpp:855
+#: src/libkcups/KCupsConnection.cpp:857
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Sebuah koneksi CUPS memerlukan autentikasi: \"%1\""
@@ -1189,67 +1216,72 @@ msgstr "Gagal memanggil metode: %1"
 msgid "Recommended Drivers"
 msgstr "Driver yang Dianjurkan"
 
-#: src/libkcups/PrinterModel.cpp:188
+#: src/libkcups/PPDModel.cpp:98
+#, kde-format
+msgid "Empty ppd model"
+msgstr ""
+
+#: src/libkcups/PrinterModel.cpp:203
 #, kde-format
 msgid "Printers"
 msgstr "Printer"
 
-#: src/libkcups/PrinterModel.cpp:391
+#: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle"
 msgstr "Idle"
 
-#: src/libkcups/PrinterModel.cpp:391
+#: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Idle, menolak tugas"
 
-#: src/libkcups/PrinterModel.cpp:393
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Idle - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:393
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Idle, menolak tugas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:397
+#: src/libkcups/PrinterModel.cpp:428
 #, kde-format
 msgid "In use"
 msgstr "Sedang digunakan"
 
-#: src/libkcups/PrinterModel.cpp:399
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Sedang digunakan - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:403
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused"
 msgstr "Dijeda"
 
-#: src/libkcups/PrinterModel.cpp:403
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Dijeda, menolak tugas"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Dijeda - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Dijeda, menolak tugas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:409
+#: src/libkcups/PrinterModel.cpp:440
 #, kde-format
 msgid "Unknown"
 msgstr "Tidak diketahui"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Tidak diketahui - '%1'"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2023-09-08 05:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -265,90 +265,6 @@ msgstr ""
 "</TR>\n"
 "</TABLE>"
 
-#: src/add-printer/DevicesModel.cpp:39
-#, kde-format
-msgctxt "@item"
-msgid "Manual URI"
-msgstr "Elle URI"
-
-#: src/add-printer/DevicesModel.cpp:115
-#, kde-format
-msgid "Failed to get a list of devices: '%1'"
-msgstr "Aygıt listesi alınamadı: '%1'"
-
-#: src/add-printer/DevicesModel.cpp:239
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected to the parallel port"
-msgstr "Paralel bağlantı kapısına bir yazıcı bağlandı"
-
-#: src/add-printer/DevicesModel.cpp:242
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected to a USB port"
-msgstr "USB kapısına bir yazıcı bağlandı"
-
-#: src/add-printer/DevicesModel.cpp:245
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected via Bluetooth"
-msgstr "Bluetooth ile bir yazıcı bağlandı"
-
-#: src/add-printer/DevicesModel.cpp:248
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
-msgstr "Donanım Soyutlama Katmanı (HAL) tarafından yerel bir yazıcı algılandı"
-
-#: src/add-printer/DevicesModel.cpp:252
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"HPLIP software driving a printer, or the printer function of a multi-"
-"function device"
-msgstr ""
-"HPLIP yazılımı bir yazıcıyı sürüyor veya yazıcı fonksiyonu çok işlevli bir "
-"aygıt"
-
-#: src/add-printer/DevicesModel.cpp:256
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"HPLIP software driving a fax machine, or the fax function of a multi-"
-"function device"
-msgstr ""
-"HPLIP yazılımı bir faks makinesini sürüyor veya faks makinesi fonksiyonu çok "
-"işlevli bir aygıt"
-
-#: src/add-printer/DevicesModel.cpp:261
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Remote CUPS printer via DNS-SD"
-msgstr "DNS-SD ile Uzak CUPS yazıcısı"
-
-#: src/add-printer/DevicesModel.cpp:279
-#, kde-format
-msgctxt "@item"
-msgid "Discovered Network Printers"
-msgstr "Bulunan Ağ Yazıcıları"
-
-#: src/add-printer/DevicesModel.cpp:283
-#, kde-format
-msgctxt "@item"
-msgid "Other Network Printers"
-msgstr "Diğer Ağ Yazıcıları"
-
-#: src/add-printer/DevicesModel.cpp:287
-#, kde-format
-msgctxt "@item"
-msgid "Local Printers"
-msgstr "Yerel Yazıcılar"
-
-#: src/add-printer/DevicesModel.cpp:329
-#, kde-format
-msgid "Failed to group devices: '%1'"
-msgstr "Aygıtları gruplama başarısız: '%1'"
-
 #: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
@@ -493,14 +409,12 @@ msgstr ""
 "HPLIP yazılımı bir faks makinesini sürüyor veya faks makinesi fonksiyonu çok "
 "işlevli bir aygıt."
 
-#: src/add-printer/PageDestinations.cpp:214
-#: src/add-printer/PageDestinations.cpp:373
+#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:105
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD ile Uzak CUPS yazıcısı"
 
-#: src/add-printer/PageDestinations.cpp:226
-#: src/add-printer/PageDestinations.cpp:382
+#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:114
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD ile ağ yazıcısı"
@@ -509,91 +423,6 @@ msgstr "DNS-SD ile ağ yazıcısı"
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "DNS-SD ile %1 ağ yazıcısı"
-
-#: src/add-printer/PageDestinations.cpp:333
-#, kde-format
-msgid "Parallel Port"
-msgstr "Paralel Kapı"
-
-#: src/add-printer/PageDestinations.cpp:335
-#, kde-format
-msgid "Serial Port"
-msgstr "Seri Kapı"
-
-#: src/add-printer/PageDestinations.cpp:337
-#, kde-format
-msgid "USB"
-msgstr "USB"
-
-#: src/add-printer/PageDestinations.cpp:339
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: src/add-printer/PageDestinations.cpp:341
-#, kde-format
-msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr "Faks - HP Linux Görüntüleme ve Yazdırma (HPLIP)"
-
-#: src/add-printer/PageDestinations.cpp:343
-#, kde-format
-msgid "HP Linux Imaging and Printing (HPLIP)"
-msgstr "HP Linux Görüntüleme ve Yazdırma (HPLIP)"
-
-#: src/add-printer/PageDestinations.cpp:345
-#, kde-format
-msgid "Hardware Abstraction Layer (HAL)"
-msgstr "Donanım Soyutlama Katmanı (HAL)"
-
-#: src/add-printer/PageDestinations.cpp:347
-#, kde-format
-msgid "AppSocket/HP JetDirect"
-msgstr "AppSocket/HP JetDirect"
-
-#: src/add-printer/PageDestinations.cpp:352
-#, kde-format
-msgid "LPD/LPR queue"
-msgstr "LPD/LPR kuyruğu"
-
-#: src/add-printer/PageDestinations.cpp:354
-#, kde-format
-msgid "LPD/LPR queue %1"
-msgstr "LPD/LPR kuyruğu %1"
-
-#: src/add-printer/PageDestinations.cpp:357
-#, kde-format
-msgid "Windows Printer via SAMBA"
-msgstr "SAMBA ile Windows Yazıcısı"
-
-#: src/add-printer/PageDestinations.cpp:362
-#, kde-format
-msgid "IPP"
-msgstr "IPP"
-
-#: src/add-printer/PageDestinations.cpp:364
-#, kde-format
-msgid "IPP %1"
-msgstr "IPP %1"
-
-#: src/add-printer/PageDestinations.cpp:367
-#, kde-format
-msgid "HTTP"
-msgstr "HTTP"
-
-#: src/add-printer/PageDestinations.cpp:376
-#, kde-format
-msgid "IPP network printer via DNS-SD"
-msgstr "DNS-SD ile IPP ağ yazıcısı"
-
-#: src/add-printer/PageDestinations.cpp:378
-#, kde-format
-msgid "LPD network printer via DNS-SD"
-msgstr "DNS-SD ile LPD ağ yazıcısı"
-
-#: src/add-printer/PageDestinations.cpp:380
-#, kde-format
-msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr "DNS-SD ile AppSocket/JetDirect ağ yazıcısı"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
 #: src/add-printer/PageDestinations.ui:62
@@ -974,83 +803,281 @@ msgstr "Öz Sınama Sayfası Yazdır"
 msgid "Clean Print Heads"
 msgstr "Yazıcı Başlığını Temizle"
 
-#: src/kded/NewPrinterNotification.cpp:59
+#: src/kded/NewPrinterNotification.cpp:60
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Yeni Bir Yazıcı tespit edildi"
 
-#: src/kded/NewPrinterNotification.cpp:60
+#: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "Configuring new printer..."
 msgstr "Yeni yazıcı yapılandırılıyor..."
 
-#: src/kded/NewPrinterNotification.cpp:100
+#: src/kded/NewPrinterNotification.cpp:101
 #, kde-format
 msgid "The New Printer was Added"
 msgstr "Yeni Yazıcı Eklendi"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:103
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr "Yeni Yazıcı Sürücüsü Eksik"
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:162
 #, kde-format
 msgid "Missing printer driver"
 msgstr "Yazıcı sürücüsü eksik"
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:164
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr "%1 %2 için yazıcı sürücüsü yok."
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:166
 #, kde-format
 msgid "No printer driver for %1."
 msgstr "%1 için yazıcı sürücüsü yok."
 
-#: src/kded/NewPrinterNotification.cpp:170
+#: src/kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "No driver for this printer."
 msgstr "Bu yazıcı için sürücü yok."
 
-#: src/kded/NewPrinterNotification.cpp:172
+#: src/kded/NewPrinterNotification.cpp:170
 #, kde-format
 msgid "Search"
 msgstr "Ara"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:234
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "'%1' eklendi, lütfen sürücüsünü denetleyin."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:239
-#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:235
+#: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "'%1' eklendi, '%2' sürücüsü kullanıyor."
 
-#: src/kded/NewPrinterNotification.cpp:243
-#: src/kded/NewPrinterNotification.cpp:257
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "Print test page"
 msgstr "Sınama sayfası yazdır"
 
-#: src/kded/NewPrinterNotification.cpp:245
+#: src/kded/NewPrinterNotification.cpp:241
 #, kde-format
 msgid "Find driver"
 msgstr "Sürücü bul"
 
-#: src/kded/NewPrinterNotification.cpp:255
+#: src/kded/NewPrinterNotification.cpp:251
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' yazdırılmak üzere hazır."
+
+#: src/libkcups/DevicesModel.cpp:50
+#, kde-format
+msgctxt "@item"
+msgid "Manual URI"
+msgstr "Elle URI"
+
+#: src/libkcups/DevicesModel.cpp:65
+#, kde-format
+msgid "Parallel Port"
+msgstr "Paralel Kapı"
+
+#: src/libkcups/DevicesModel.cpp:67
+#, kde-format
+msgid "Serial Port"
+msgstr "Seri Kapı"
+
+#: src/libkcups/DevicesModel.cpp:69
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: src/libkcups/DevicesModel.cpp:71
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/libkcups/DevicesModel.cpp:73
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "Faks - HP Linux Görüntüleme ve Yazdırma (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:75
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "HP Linux Görüntüleme ve Yazdırma (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:77
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "Donanım Soyutlama Katmanı (HAL)"
+
+#: src/libkcups/DevicesModel.cpp:79
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: src/libkcups/DevicesModel.cpp:84
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "LPD/LPR kuyruğu"
+
+#: src/libkcups/DevicesModel.cpp:86
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "LPD/LPR kuyruğu %1"
+
+#: src/libkcups/DevicesModel.cpp:89
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "SAMBA ile Windows Yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:94
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: src/libkcups/DevicesModel.cpp:96
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: src/libkcups/DevicesModel.cpp:99
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: src/libkcups/DevicesModel.cpp:108
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "DNS-SD ile IPP ağ yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:110
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "DNS-SD ile LPD ağ yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:112
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "DNS-SD ile AppSocket/JetDirect ağ yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:125
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "Paralel bağlantı kapısına bir yazıcı bağlandı"
+
+#: src/libkcups/DevicesModel.cpp:126
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "Bluetooth ile bir yazıcı bağlandı"
+
+#: src/libkcups/DevicesModel.cpp:127
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr "Donanım Soyutlama Katmanı (HAL) tarafından yerel bir yazıcı algılandı"
+
+#: src/libkcups/DevicesModel.cpp:128
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device"
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine,\n"
+"or the fax function of a multi-function device"
+msgstr ""
+"HPLIP yazılımı bir faks makinesini sürüyor veya faks makinesi fonksiyonu çok "
+"işlevli bir aygıt"
+
+#: src/libkcups/DevicesModel.cpp:129
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device"
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer,\n"
+"or the printer function of a multi-function device"
+msgstr ""
+"HPLIP yazılımı bir yazıcıyı sürüyor veya yazıcı fonksiyonu çok işlevli bir "
+"aygıt"
+
+#: src/libkcups/DevicesModel.cpp:130
+#, fuzzy, kde-format
+#| msgid "IPP network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "IPP Network printer via IPP"
+msgstr "DNS-SD ile IPP ağ yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:131
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "USB kapısına bir yazıcı bağlandı"
+
+#: src/libkcups/DevicesModel.cpp:138
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "DNS-SD ile Uzak CUPS yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "Network printer via DNS-SD"
+msgstr "DNS-SD ile ağ yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:152
+#, fuzzy, kde-format
+#| msgid "%1 network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "%1 network printer via DNS-SD"
+msgstr "DNS-SD ile %1 ağ yazıcısı"
+
+#: src/libkcups/DevicesModel.cpp:235
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "Aygıt listesi alınamadı: '%1'"
+
+#: src/libkcups/DevicesModel.cpp:375
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "Bulunan Ağ Yazıcıları"
+
+#: src/libkcups/DevicesModel.cpp:379
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "Diğer Ağ Yazıcıları"
+
+#: src/libkcups/DevicesModel.cpp:383
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "Yerel Yazıcılar"
+
+#: src/libkcups/DevicesModel.cpp:425
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Aygıtları gruplama başarısız: '%1'"
 
 #: src/libkcups/JobModel.cpp:27
 #, kde-format
@@ -1142,7 +1169,7 @@ msgstr "İptal edildi"
 msgid "Aborted"
 msgstr "İptal edildi"
 
-#: src/libkcups/KCupsConnection.cpp:855
+#: src/libkcups/KCupsConnection.cpp:857
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Bir CUPS bağlantısı kimlik doğrulama gerektirir: \"%1\""
@@ -1187,67 +1214,72 @@ msgstr "Yöntem çalıştırılamadı: %1"
 msgid "Recommended Drivers"
 msgstr "Önerilen Sürücüler"
 
-#: src/libkcups/PrinterModel.cpp:188
+#: src/libkcups/PPDModel.cpp:98
+#, kde-format
+msgid "Empty ppd model"
+msgstr ""
+
+#: src/libkcups/PrinterModel.cpp:203
 #, kde-format
 msgid "Printers"
 msgstr "Yazıcılar"
 
-#: src/libkcups/PrinterModel.cpp:391
+#: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle"
 msgstr "Boşta"
 
-#: src/libkcups/PrinterModel.cpp:391
+#: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Boşta, işler reddediliyor"
 
-#: src/libkcups/PrinterModel.cpp:393
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Boşta - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:393
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Boşta, işler reddediliyor - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:397
+#: src/libkcups/PrinterModel.cpp:428
 #, kde-format
 msgid "In use"
 msgstr "Kullanımda"
 
-#: src/libkcups/PrinterModel.cpp:399
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Kullanımda - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:403
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused"
 msgstr "Duraklatıldı"
 
-#: src/libkcups/PrinterModel.cpp:403
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Duraklatıldı, işler reddediliyor"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Duraklatıldı - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Duraklatıldı, işler reddediliyor - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:409
+#: src/libkcups/PrinterModel.cpp:440
 #, kde-format
 msgid "Unknown"
 msgstr "Bilinmiyor"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Bilinmiyor - '%1'"

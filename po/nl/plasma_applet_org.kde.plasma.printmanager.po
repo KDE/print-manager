@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2013, 2015, 2018, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2013, 2015, 2018, 2020, 2021, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
-"PO-Revision-Date: 2022-03-31 10:40+0200\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
+"PO-Revision-Date: 2023-11-06 10:36+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,20 +15,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/main.qml:65
+msgid "Printers"
+msgstr "Printers"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#, fuzzy
+#| msgid "Printers"
+msgid "Printer Groups"
+msgstr "Printers"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Er zijn geen printers ingesteld of ontdekt"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 msgid "No matches"
 msgstr "Geen overeenkomsten"
-
-#: src/plasmoid/package/contents/ui/main.qml:65
-msgid "Printers"
-msgstr "Printers"
 
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
@@ -63,30 +70,24 @@ msgid "Show Only Active Jobs"
 msgstr "Alleen actieve taken tonen"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&Printers instellen..."
+msgstr "Printers &configureren…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Hervatten"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Pauzeren"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
-#, fuzzy
-#| msgid "Configure printer..."
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
 msgid "Configure printer…"
-msgstr "Printer configureren..."
+msgstr "Printer configureren…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
-#, fuzzy
-#| msgid "View print queue"
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
-msgstr "Afdrukwachtrij bekijken"
+msgstr "Afdrukwachtrij bekijken…"
 
 #~ msgid "Search…"
 #~ msgstr "Zoeken…"

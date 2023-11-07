@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2022-04-30 20:19+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -19,18 +19,25 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 22.03.70\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/main.qml:65
+msgid "Printers"
+msgstr "Drukarki"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#, fuzzy
+#| msgid "Printers"
+msgid "Printer Groups"
+msgstr "Drukarki"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Nie ustawiono, ani nie wykryto żadnych drukarek"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 msgid "No matches"
 msgstr "Brak pasujących wyrażeń"
-
-#: src/plasmoid/package/contents/ui/main.qml:65
-msgid "Printers"
-msgstr "Drukarki"
 
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
@@ -71,21 +78,21 @@ msgstr "Pokaż tylko wykonywane zadania"
 msgid "&Configure Printers…"
 msgstr "&Ustawienia drukarek..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
 #, fuzzy
 #| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Ustawienia drukarki..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 #, fuzzy
 #| msgid "View print queue"
 msgid "View print queue…"

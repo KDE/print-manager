@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2014-02-20 14:57+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
@@ -17,17 +17,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/main.qml:65
+msgid "Printers"
+msgstr ""
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+msgid "Printer Groups"
+msgstr ""
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Keen Drucker wöör opdeckt oder inricht"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 msgid "No matches"
-msgstr ""
-
-#: src/plasmoid/package/contents/ui/main.qml:65
-msgid "Printers"
 msgstr ""
 
 #: src/plasmoid/package/contents/ui/main.qml:70
@@ -72,19 +77,19 @@ msgstr "Bloots aktive Opgaven"
 msgid "&Configure Printers…"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
 msgid "Configure printer…"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr ""
 

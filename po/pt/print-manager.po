@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: printer-applet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2019-11-06 11:47+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -267,91 +267,6 @@ msgstr ""
 "</TR>\n"
 "</TABLE>"
 
-#: src/add-printer/DevicesModel.cpp:39
-#, kde-format
-msgctxt "@item"
-msgid "Manual URI"
-msgstr "URI Manual"
-
-#: src/add-printer/DevicesModel.cpp:115
-#, kde-format
-msgid "Failed to get a list of devices: '%1'"
-msgstr "Não foi possível obter uma lista de dispositivos: '%1'"
-
-#: src/add-printer/DevicesModel.cpp:239
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected to the parallel port"
-msgstr "Uma impressora ligada à porta paralela"
-
-#: src/add-printer/DevicesModel.cpp:242
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected to a USB port"
-msgstr "Uma impressora ligada a uma porta USB"
-
-#: src/add-printer/DevicesModel.cpp:245
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "A printer connected via Bluetooth"
-msgstr "Uma impressora ligada por Bluetooth"
-
-#: src/add-printer/DevicesModel.cpp:248
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
-msgstr ""
-"Impressora local detectada pela Camada de Abstracção de 'Hardware' (HAL)"
-
-#: src/add-printer/DevicesModel.cpp:252
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"HPLIP software driving a printer, or the printer function of a multi-"
-"function device"
-msgstr ""
-"Aplicação HPLIP que controla uma impressora ou a função de impressão de um "
-"dispositivo multi-funções"
-
-#: src/add-printer/DevicesModel.cpp:256
-#, kde-format
-msgctxt "@info:tooltip"
-msgid ""
-"HPLIP software driving a fax machine, or the fax function of a multi-"
-"function device"
-msgstr ""
-"Aplicação HPLIP que controla um fax ou a função de fax de um dispositivo "
-"multi-funções"
-
-#: src/add-printer/DevicesModel.cpp:261
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Remote CUPS printer via DNS-SD"
-msgstr "Impressora CUPS remota por DNS-SD"
-
-#: src/add-printer/DevicesModel.cpp:279
-#, kde-format
-msgctxt "@item"
-msgid "Discovered Network Printers"
-msgstr "Impressoras Descobertas na Rede"
-
-#: src/add-printer/DevicesModel.cpp:283
-#, kde-format
-msgctxt "@item"
-msgid "Other Network Printers"
-msgstr "Outras Impressoras na Rede"
-
-#: src/add-printer/DevicesModel.cpp:287
-#, kde-format
-msgctxt "@item"
-msgid "Local Printers"
-msgstr "Impressoras Locais"
-
-#: src/add-printer/DevicesModel.cpp:329
-#, kde-format
-msgid "Failed to group devices: '%1'"
-msgstr "Não foi possível agrupar os dispositivos: '%1'"
-
 #: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
@@ -498,14 +413,12 @@ msgstr ""
 "A aplicação HPLIP a controlar uma máquina de fax ou a função de fax de um "
 "dispositivo multifunções."
 
-#: src/add-printer/PageDestinations.cpp:214
-#: src/add-printer/PageDestinations.cpp:373
+#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:105
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Impressora CUPS remota por DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:226
-#: src/add-printer/PageDestinations.cpp:382
+#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:114
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Impressora de rede remota por DNS-SD"
@@ -514,91 +427,6 @@ msgstr "Impressora de rede remota por DNS-SD"
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "Impressora de rede %1 por DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:333
-#, kde-format
-msgid "Parallel Port"
-msgstr "Porta Paralela"
-
-#: src/add-printer/PageDestinations.cpp:335
-#, kde-format
-msgid "Serial Port"
-msgstr "Porta Série"
-
-#: src/add-printer/PageDestinations.cpp:337
-#, kde-format
-msgid "USB"
-msgstr "USB"
-
-#: src/add-printer/PageDestinations.cpp:339
-#, kde-format
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: src/add-printer/PageDestinations.cpp:341
-#, kde-format
-msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr "Fax - Imagens e Impressão em Linux da HP (HPLIP)"
-
-#: src/add-printer/PageDestinations.cpp:343
-#, kde-format
-msgid "HP Linux Imaging and Printing (HPLIP)"
-msgstr "Imagens e Impressão em Linux da HP (HPLIP)"
-
-#: src/add-printer/PageDestinations.cpp:345
-#, kde-format
-msgid "Hardware Abstraction Layer (HAL)"
-msgstr "Camada de Abstracção de 'Hardware' (HAL)"
-
-#: src/add-printer/PageDestinations.cpp:347
-#, kde-format
-msgid "AppSocket/HP JetDirect"
-msgstr "AppSocket/HP JetDirect"
-
-#: src/add-printer/PageDestinations.cpp:352
-#, kde-format
-msgid "LPD/LPR queue"
-msgstr "Fila do LPD/LPR"
-
-#: src/add-printer/PageDestinations.cpp:354
-#, kde-format
-msgid "LPD/LPR queue %1"
-msgstr "Fila %1 do LPD/LPR"
-
-#: src/add-printer/PageDestinations.cpp:357
-#, kde-format
-msgid "Windows Printer via SAMBA"
-msgstr "Impressora do Windows por SAMBA"
-
-#: src/add-printer/PageDestinations.cpp:362
-#, kde-format
-msgid "IPP"
-msgstr "IPP"
-
-#: src/add-printer/PageDestinations.cpp:364
-#, kde-format
-msgid "IPP %1"
-msgstr "IPP %1"
-
-#: src/add-printer/PageDestinations.cpp:367
-#, kde-format
-msgid "HTTP"
-msgstr "HTTP"
-
-#: src/add-printer/PageDestinations.cpp:376
-#, kde-format
-msgid "IPP network printer via DNS-SD"
-msgstr "Impressora de rede IPP por DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:378
-#, kde-format
-msgid "LPD network printer via DNS-SD"
-msgstr "Impressora de rede LPD por DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:380
-#, kde-format
-msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr "Impressora de rede AppSocket/JetDirect por DNS-SD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
 #: src/add-printer/PageDestinations.ui:62
@@ -978,83 +806,282 @@ msgstr "Imprimir uma Página de Teste"
 msgid "Clean Print Heads"
 msgstr "Limpar as Cabeças de Impressão"
 
-#: src/kded/NewPrinterNotification.cpp:59
+#: src/kded/NewPrinterNotification.cpp:60
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Foi detectada uma nova impressora"
 
-#: src/kded/NewPrinterNotification.cpp:60
+#: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "Configuring new printer..."
 msgstr "A configurar a nova impressora..."
 
-#: src/kded/NewPrinterNotification.cpp:100
+#: src/kded/NewPrinterNotification.cpp:101
 #, kde-format
 msgid "The New Printer was Added"
 msgstr "A nova impressora foi adicionada"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:103
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr "Falta o Controlador à Nova Impressora"
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:162
 #, kde-format
 msgid "Missing printer driver"
 msgstr "Falta o controlador da impressora"
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:164
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr "Não existe o controlador de impressora para a %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:166
 #, kde-format
 msgid "No printer driver for %1."
 msgstr "Não existe o controlador de impressora para a %1."
 
-#: src/kded/NewPrinterNotification.cpp:170
+#: src/kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "No driver for this printer."
 msgstr "Não existe nenhum controlador para esta impressora."
 
-#: src/kded/NewPrinterNotification.cpp:172
+#: src/kded/NewPrinterNotification.cpp:170
 #, kde-format
 msgid "Search"
 msgstr "Procurar"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:234
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "A '%1' foi adicionada; verifique por favor o seu controlador."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:239
-#: src/kded/NewPrinterNotification.cpp:260 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:235
+#: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
 
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "A '%1' foi adicionada, usando o controlador `%2'."
 
-#: src/kded/NewPrinterNotification.cpp:243
-#: src/kded/NewPrinterNotification.cpp:257
+#: src/kded/NewPrinterNotification.cpp:239
+#: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "Print test page"
 msgstr "Imprimir a página de teste"
 
-#: src/kded/NewPrinterNotification.cpp:245
+#: src/kded/NewPrinterNotification.cpp:241
 #, kde-format
 msgid "Find driver"
 msgstr "Procurar o controlador"
 
-#: src/kded/NewPrinterNotification.cpp:255
+#: src/kded/NewPrinterNotification.cpp:251
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "A '%1' está pronta para imprimir."
+
+#: src/libkcups/DevicesModel.cpp:50
+#, kde-format
+msgctxt "@item"
+msgid "Manual URI"
+msgstr "URI Manual"
+
+#: src/libkcups/DevicesModel.cpp:65
+#, kde-format
+msgid "Parallel Port"
+msgstr "Porta Paralela"
+
+#: src/libkcups/DevicesModel.cpp:67
+#, kde-format
+msgid "Serial Port"
+msgstr "Porta Série"
+
+#: src/libkcups/DevicesModel.cpp:69
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: src/libkcups/DevicesModel.cpp:71
+#, kde-format
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/libkcups/DevicesModel.cpp:73
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "Fax - Imagens e Impressão em Linux da HP (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:75
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "Imagens e Impressão em Linux da HP (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:77
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "Camada de Abstracção de 'Hardware' (HAL)"
+
+#: src/libkcups/DevicesModel.cpp:79
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: src/libkcups/DevicesModel.cpp:84
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "Fila do LPD/LPR"
+
+#: src/libkcups/DevicesModel.cpp:86
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "Fila %1 do LPD/LPR"
+
+#: src/libkcups/DevicesModel.cpp:89
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "Impressora do Windows por SAMBA"
+
+#: src/libkcups/DevicesModel.cpp:94
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: src/libkcups/DevicesModel.cpp:96
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: src/libkcups/DevicesModel.cpp:99
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: src/libkcups/DevicesModel.cpp:108
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "Impressora de rede IPP por DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:110
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "Impressora de rede LPD por DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:112
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "Impressora de rede AppSocket/JetDirect por DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:125
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "Uma impressora ligada à porta paralela"
+
+#: src/libkcups/DevicesModel.cpp:126
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "Uma impressora ligada por Bluetooth"
+
+#: src/libkcups/DevicesModel.cpp:127
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr ""
+"Impressora local detectada pela Camada de Abstracção de 'Hardware' (HAL)"
+
+#: src/libkcups/DevicesModel.cpp:128
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device"
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine,\n"
+"or the fax function of a multi-function device"
+msgstr ""
+"Aplicação HPLIP que controla um fax ou a função de fax de um dispositivo "
+"multi-funções"
+
+#: src/libkcups/DevicesModel.cpp:129
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device"
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer,\n"
+"or the printer function of a multi-function device"
+msgstr ""
+"Aplicação HPLIP que controla uma impressora ou a função de impressão de um "
+"dispositivo multi-funções"
+
+#: src/libkcups/DevicesModel.cpp:130
+#, fuzzy, kde-format
+#| msgid "IPP network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "IPP Network printer via IPP"
+msgstr "Impressora de rede IPP por DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:131
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "Uma impressora ligada a uma porta USB"
+
+#: src/libkcups/DevicesModel.cpp:138
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Impressora CUPS remota por DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:150
+#, fuzzy, kde-format
+#| msgid "Network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "Network printer via DNS-SD"
+msgstr "Impressora de rede remota por DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:152
+#, fuzzy, kde-format
+#| msgid "%1 network printer via DNS-SD"
+msgctxt "@info:tooltip"
+msgid "%1 network printer via DNS-SD"
+msgstr "Impressora de rede %1 por DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:235
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "Não foi possível obter uma lista de dispositivos: '%1'"
+
+#: src/libkcups/DevicesModel.cpp:375
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "Impressoras Descobertas na Rede"
+
+#: src/libkcups/DevicesModel.cpp:379
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "Outras Impressoras na Rede"
+
+#: src/libkcups/DevicesModel.cpp:383
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "Impressoras Locais"
+
+#: src/libkcups/DevicesModel.cpp:425
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Não foi possível agrupar os dispositivos: '%1'"
 
 #: src/libkcups/JobModel.cpp:27
 #, kde-format
@@ -1146,7 +1173,7 @@ msgstr "Cancelada"
 msgid "Aborted"
 msgstr "Interrompida"
 
-#: src/libkcups/KCupsConnection.cpp:855
+#: src/libkcups/KCupsConnection.cpp:857
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "A ligação ao CUPS necessita de autenticação: \"%1\""
@@ -1191,67 +1218,72 @@ msgstr "Não foi possível invocar o método: %1"
 msgid "Recommended Drivers"
 msgstr "Controladores Recomendados"
 
-#: src/libkcups/PrinterModel.cpp:188
+#: src/libkcups/PPDModel.cpp:98
+#, kde-format
+msgid "Empty ppd model"
+msgstr ""
+
+#: src/libkcups/PrinterModel.cpp:203
 #, kde-format
 msgid "Printers"
 msgstr "Impressoras"
 
-#: src/libkcups/PrinterModel.cpp:391
+#: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle"
 msgstr "Inactivo"
 
-#: src/libkcups/PrinterModel.cpp:391
+#: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Inactiva, a rejeitar as tarefas"
 
-#: src/libkcups/PrinterModel.cpp:393
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Inactiva - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:393
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Inactiva, a rejeitar as tarefas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:397
+#: src/libkcups/PrinterModel.cpp:428
 #, kde-format
 msgid "In use"
 msgstr "Em uso"
 
-#: src/libkcups/PrinterModel.cpp:399
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Em uso - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:403
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused"
 msgstr "Em pausa"
 
-#: src/libkcups/PrinterModel.cpp:403
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Em pausa, a rejeitar as tarefas"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Em pausa - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Em pausa, a rejeitar as tarefas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:409
+#: src/libkcups/PrinterModel.cpp:440
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Desconhecido - '%1'"

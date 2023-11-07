@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2019-05-22 22:28+0900\n"
 "Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -16,18 +16,25 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 19.04.1\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/main.qml:65
+msgid "Printers"
+msgstr "プリンタ"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#, fuzzy
+#| msgid "Printers"
+msgid "Printer Groups"
+msgstr "プリンタ"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "設定または検出されたプリンタはありません"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 msgid "No matches"
 msgstr ""
-
-#: src/plasmoid/package/contents/ui/main.qml:65
-msgid "Printers"
-msgstr "プリンタ"
 
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
@@ -72,21 +79,21 @@ msgstr "アクティブなジョブなし"
 msgid "&Configure Printers…"
 msgstr "プリンタを設定(&C)..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
 #, fuzzy
 #| msgid "Configure printer"
 msgid "Configure printer…"
 msgstr "プリンタを設定"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 #, fuzzy
 #| msgid "Open print queue"
 msgid "View print queue…"

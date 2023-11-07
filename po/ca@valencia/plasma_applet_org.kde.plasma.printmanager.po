@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2022-03-31 09:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,18 +21,25 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 20.12.0\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/main.qml:65
+msgid "Printers"
+msgstr "Impressores"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#, fuzzy
+#| msgid "Printers"
+msgid "Printer Groups"
+msgstr "Impressores"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "No s'ha descobert o configurat cap impressora"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 msgid "No matches"
 msgstr "Sense coincidències"
-
-#: src/plasmoid/package/contents/ui/main.qml:65
-msgid "Printers"
-msgstr "Impressores"
 
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
@@ -72,21 +79,21 @@ msgstr "Mostra només els treballs actius"
 msgid "&Configure Printers…"
 msgstr "&Configura les impressores..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
 #, fuzzy
 #| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Configura una impressora..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 #, fuzzy
 #| msgid "View print queue"
 msgid "View print queue…"

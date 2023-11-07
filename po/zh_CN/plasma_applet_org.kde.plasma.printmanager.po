@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-06 01:40+0000\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
 "PO-Revision-Date: 2023-10-21 13:55\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -18,18 +18,25 @@ msgstr ""
 "plasma.printmanager.pot\n"
 "X-Crowdin-File-ID: 5746\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/main.qml:65
+msgid "Printers"
+msgstr "打印机"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#, fuzzy
+#| msgid "Printers"
+msgid "Printer Groups"
+msgstr "打印机"
+
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "未配置或未发现打印机"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:55
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 msgid "No matches"
 msgstr "无匹配"
-
-#: src/plasmoid/package/contents/ui/main.qml:65
-msgid "Printers"
-msgstr "打印机"
 
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "There is one print job in the queue"
@@ -68,21 +75,21 @@ msgstr "仅显示活动任务"
 msgid "&Configure Printers…"
 msgstr "配置打印机(&C)..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:26
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:40
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
 #, fuzzy
 #| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "配置打印机..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:45
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 #, fuzzy
 #| msgid "View print queue"
 msgid "View print queue…"

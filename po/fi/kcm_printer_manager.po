@@ -1,0 +1,195 @@
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+# Tommi Nieminen <translator@legisign.org>, 2012, 2018, 2019, 2020, 2023.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2015.
+# Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: add-printer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-07 02:44+0000\n"
+"PO-Revision-Date: 2023-03-06 20:03+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POT-Import-Date: 2012-12-01 22:25:43+0000\n"
+"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen,Jiri Grönroos"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org,jiri.gronroos+kde@iki.fi"
+
+#: printermanager.cpp:108
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Pyynnön toteuttaminen epäonnistui: %1"
+
+#: printermanager.cpp:130
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings"
+msgstr "Palvelinasetusten nouto epäonnistui"
+
+#: printermanager.cpp:130
+#, kde-format
+msgctxt "@title:window"
+msgid "Failed"
+msgstr "Epäonnistui"
+
+#: printermanager.cpp:156
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure server settings"
+msgstr "Palvelinasetusten määritys epäonnistui"
+
+#: printermanager.cpp:243 ui/PrinterSettings.qml:163
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Tulosta itsetestaussivu"
+
+#: printermanager.cpp:249 ui/PrinterSettings.qml:170
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Puhdista tulostuspäät"
+
+#: ui/Global.qml:13
+#, kde-format
+msgid "Global Settings"
+msgstr ""
+
+#: ui/Global.qml:19
+#, kde-format
+msgid "Share printers connected to this system"
+msgstr ""
+
+#: ui/Global.qml:27
+#, kde-format
+msgid "Allow printing from the Internet"
+msgstr ""
+
+#: ui/Global.qml:36
+#, kde-format
+msgid "Allow remote administration"
+msgstr ""
+
+#: ui/Global.qml:44
+#, kde-format
+msgid "Allow users to cancel any job (not just their own)"
+msgstr ""
+
+#: ui/main.qml:25
+#, kde-format
+msgid "Add…"
+msgstr ""
+
+#: ui/main.qml:30
+#, kde-format
+msgid "Configure Global Settings"
+msgstr ""
+
+#: ui/main.qml:47
+#, kde-format
+msgid "No printers are currently set up"
+msgstr ""
+
+#: ui/main.qml:51
+#, kde-format
+msgid "Add Printer…"
+msgstr ""
+
+#: ui/main.qml:75
+#, kde-format
+msgid "Quick Settings"
+msgstr ""
+
+#: ui/main.qml:87
+#, kde-format
+msgid "Open Print Queue…"
+msgstr ""
+
+#: ui/main.qml:100
+#, kde-format
+msgid "Resume"
+msgstr "Jatka"
+
+#: ui/main.qml:100
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: ui/main.qml:111
+#, kde-format
+msgid "Resume printing"
+msgstr ""
+
+#: ui/main.qml:111
+#, kde-format
+msgid "Pause printing"
+msgstr ""
+
+#: ui/PrinterSettings.qml:23
+#, kde-format
+msgid "Configure…"
+msgstr ""
+
+#: ui/PrinterSettings.qml:28 ui/PrinterSettings.qml:60
+#: ui/PrinterSettings.qml:67
+#, kde-format
+msgid "Remove Printer"
+msgstr "Poista tulostin"
+
+#: ui/PrinterSettings.qml:46
+#, kde-format
+msgid "Failed to remove the printer %1: "
+msgstr ""
+
+#: ui/PrinterSettings.qml:54
+#, kde-format
+msgid "Printer Config Error"
+msgstr ""
+
+#: ui/PrinterSettings.qml:61
+#, kde-format
+msgid "Are you sure you really want to remove %1"
+msgstr ""
+
+#: ui/PrinterSettings.qml:75
+#, kde-format
+msgid "Cancel"
+msgstr "Peru"
+
+#: ui/PrinterSettings.qml:111
+#, kde-format
+msgid "Default printer"
+msgstr ""
+
+#: ui/PrinterSettings.qml:117
+#, kde-format
+msgid "Share this class"
+msgstr "Jaa tämä luokka"
+
+#: ui/PrinterSettings.qml:117
+#, kde-format
+msgid "Share this printer"
+msgstr "Jaa tämä tulostin"
+
+#: ui/PrinterSettings.qml:124
+#, kde-format
+msgid "Reject print jobs"
+msgstr "Hylkää tulostustyöt"
+
+#: ui/PrinterSettings.qml:157
+#, kde-format
+msgid "Print Test Page"
+msgstr "Tulosta testisivu"

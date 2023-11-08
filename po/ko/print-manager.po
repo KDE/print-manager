@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:44+0000\n"
+"POT-Creation-Date: 2023-11-08 08:48+0000\n"
 "PO-Revision-Date: 2023-02-28 22:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -404,12 +404,12 @@ msgid ""
 "function device."
 msgstr "팩스나 복합기의 팩스 기능을 담당하는 HPLIP 소프트웨어입니다."
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:105
+#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD로 연결된 원격 CUPS 프린터"
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:114
+#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD로 연결된 네트워크 프린터"
@@ -502,7 +502,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "프린터를 설정할 수 없음"
 
-#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
+#: src/configure-printer/ModifyPrinter.cpp:231
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -752,7 +752,7 @@ msgstr "다음 사용자는 인쇄 금지(&V)"
 msgid "A&llow these users to print"
 msgstr "다음 사용자는 인쇄 허용(&L)"
 
-#: src/configure-printer/PrinterOptions.cpp:51
+#: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
 msgstr "기본 옵션 설정"
@@ -770,29 +770,47 @@ msgstr "프린터에 기본 옵션 질의"
 msgid "Select a Driver"
 msgstr "드라이버 선택"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:237
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure class"
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "클래스를 설정할 수 없음"
+
+#: src/kcm/printermanager.cpp:238
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure printer"
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "프린터를 설정할 수 없음"
+
+#: src/kcm/printermanager.cpp:379
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "요청을 처리할 수 없음: %1"
 
-#: src/kcm/printermanager.cpp:130
-#, kde-format
+#: src/kcm/printermanager.cpp:434
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
 msgctxt "@info"
-msgid "Failed to get server settings"
+msgid "Failed to get server settings: %1"
 msgstr "서버 설정을 가져올 수 없음"
 
-#: src/kcm/printermanager.cpp:156
+#: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "서버를 설정할 수 없음"
+msgid "Server error: (%1): %2"
+msgstr ""
 
-#: src/kcm/printermanager.cpp:243
+#: src/kcm/printermanager.cpp:528
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: src/kcm/printermanager.cpp:249
+#: src/kcm/printermanager.cpp:534
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"
@@ -875,116 +893,116 @@ msgstr "드라이버 찾기"
 msgid "'%1' is ready for printing."
 msgstr "'%1'에서 인쇄할 수 있습니다."
 
-#: src/libkcups/DevicesModel.cpp:50
+#: src/libkcups/DevicesModel.cpp:51
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "수동 URI"
 
-#: src/libkcups/DevicesModel.cpp:65
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Parallel Port"
 msgstr "병렬 포트"
 
-#: src/libkcups/DevicesModel.cpp:67
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Serial Port"
 msgstr "직렬 포트"
 
-#: src/libkcups/DevicesModel.cpp:69
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:71
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Bluetooth"
 msgstr "블루투스"
 
-#: src/libkcups/DevicesModel.cpp:73
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "팩스 - HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:75
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:77
+#: src/libkcups/DevicesModel.cpp:78
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "HAL"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:80
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:85
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR 대기열"
 
-#: src/libkcups/DevicesModel.cpp:86
+#: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR 대기열 %1"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:90
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "SAMBA로 연결된 Windows 프린터"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:95
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:96
+#: src/libkcups/DevicesModel.cpp:97
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:99
+#: src/libkcups/DevicesModel.cpp:100
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:108
+#: src/libkcups/DevicesModel.cpp:109
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "DNS-SD로 연결된 IPP 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:110
+#: src/libkcups/DevicesModel.cpp:111
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "DNS-SD로 연결된 LPD 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:112
+#: src/libkcups/DevicesModel.cpp:113
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "DNS-SD로 연결된 AppSocket/JetDirect 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "병렬 포트에 연결된 프린터"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "블루투스로 연결된 프린터"
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "HAL에서 감지한 로컬 프린터"
 
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -996,7 +1014,7 @@ msgid ""
 "or the fax function of a multi-function device"
 msgstr "팩스나 복합기의 팩스 기능을 담당하는 HPLIP 소프트웨어"
 
-#: src/libkcups/DevicesModel.cpp:129
+#: src/libkcups/DevicesModel.cpp:130
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -1008,63 +1026,63 @@ msgid ""
 "or the printer function of a multi-function device"
 msgstr "프린터나 복합기의 인쇄 기능을 담당하는 HPLIP 소프트웨어"
 
-#: src/libkcups/DevicesModel.cpp:130
+#: src/libkcups/DevicesModel.cpp:131
 #, fuzzy, kde-format
 #| msgid "IPP network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "DNS-SD로 연결된 IPP 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:131
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "USB 포트에 연결된 프린터"
 
-#: src/libkcups/DevicesModel.cpp:138
+#: src/libkcups/DevicesModel.cpp:139
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD로 연결된 원격 CUPS 프린터"
 
-#: src/libkcups/DevicesModel.cpp:150
+#: src/libkcups/DevicesModel.cpp:151
 #, fuzzy, kde-format
 #| msgid "Network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD로 연결된 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:152
+#: src/libkcups/DevicesModel.cpp:153
 #, fuzzy, kde-format
 #| msgid "%1 network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "DNS-SD로 연결된 %1 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:235
+#: src/libkcups/DevicesModel.cpp:236
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "장치 목록을 가져올 수 없음: '%1'"
 
-#: src/libkcups/DevicesModel.cpp:375
+#: src/libkcups/DevicesModel.cpp:377
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "발견한 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:379
+#: src/libkcups/DevicesModel.cpp:383
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "기타 네트워크 프린터"
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "로컬 프린터"
 
-#: src/libkcups/DevicesModel.cpp:425
+#: src/libkcups/DevicesModel.cpp:434
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "장치를 묶을 수 없음: '%1'"
@@ -1455,6 +1473,10 @@ msgstr "완료된 작업"
 #, kde-format
 msgid "All Jobs"
 msgstr "모든 작업"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure server settings"
+#~ msgstr "서버를 설정할 수 없음"
 
 #~ msgid "Modify Printer"
 #~ msgstr "프린터 수정"

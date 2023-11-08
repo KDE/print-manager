@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:44+0000\n"
-"PO-Revision-Date: 2023-11-06 09:47+0100\n"
+"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"PO-Revision-Date: 2023-11-08 07:26+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -408,12 +408,12 @@ msgstr ""
 "Programska oprema HPLIP, ki upravlja faks ali funkcijo faksiranja "
 "večfunkcijske naprave."
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:105
+#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Oddaljeni tiskalnik CUPS preko DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:114
+#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Omrežni tiskalnik prek DNS-SD"
@@ -504,7 +504,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Nastavitev tiskalnika ni uspela"
 
-#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
+#: src/configure-printer/ModifyPrinter.cpp:231
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -751,7 +751,7 @@ msgstr "Tem uporabnikom prepreči tiskanje "
 msgid "A&llow these users to print"
 msgstr "Tem uporabnikom dovo&li tiskanje"
 
-#: src/configure-printer/PrinterOptions.cpp:51
+#: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nastavi privzete možnosti"
@@ -769,29 +769,47 @@ msgstr "Poizvedi o privzetih možnostih tiskalnika"
 msgid "Select a Driver"
 msgstr "Izberite gonilnik"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:237
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure class"
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "Nastavitev razreda ni uspela"
+
+#: src/kcm/printermanager.cpp:238
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure printer"
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "Nastavitev tiskalnika ni uspela"
+
+#: src/kcm/printermanager.cpp:379
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Izvedba zahteve ni uspela: %1"
 
-#: src/kcm/printermanager.cpp:130
-#, kde-format
+#: src/kcm/printermanager.cpp:434
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
 msgctxt "@info"
-msgid "Failed to get server settings"
+msgid "Failed to get server settings: %1"
 msgstr "Pridobivanje nastavitev strežnika ni uspelo"
 
-#: src/kcm/printermanager.cpp:156
+#: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "Nastavljanje strežnika ni uspelo"
+msgid "Server error: (%1): %2"
+msgstr ""
 
-#: src/kcm/printermanager.cpp:243
+#: src/kcm/printermanager.cpp:528
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Natisni stran samo-preizkusa"
 
-#: src/kcm/printermanager.cpp:249
+#: src/kcm/printermanager.cpp:534
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Očisti tiskalne glave"
@@ -874,203 +892,192 @@ msgstr "Najdi gonilnik"
 msgid "'%1' is ready for printing."
 msgstr "»%1« je pripravljen za tiskanje."
 
-#: src/libkcups/DevicesModel.cpp:50
+#: src/libkcups/DevicesModel.cpp:51
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "Ročni URI"
 
-#: src/libkcups/DevicesModel.cpp:65
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Parallel Port"
 msgstr "Vzporedna vrata"
 
-#: src/libkcups/DevicesModel.cpp:67
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Serial Port"
 msgstr "Zaporedna vrata"
 
-#: src/libkcups/DevicesModel.cpp:69
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:71
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:73
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Faks – HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:75
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:77
+#: src/libkcups/DevicesModel.cpp:78
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "Hardware Abstraction Layer (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:80
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:85
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "Vrsta LPD/LPR"
 
-#: src/libkcups/DevicesModel.cpp:86
+#: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "Vrsta LPD/LPR %1"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:90
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Windows tiskalnik prek Samba"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:95
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:96
+#: src/libkcups/DevicesModel.cpp:97
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:99
+#: src/libkcups/DevicesModel.cpp:100
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:108
+#: src/libkcups/DevicesModel.cpp:109
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "Omrežni tiskalnik IPP prek DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:110
+#: src/libkcups/DevicesModel.cpp:111
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "Omrežni tiskalnik LPD prek DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:112
+#: src/libkcups/DevicesModel.cpp:113
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "Omrežni tiskalnik AppSocket/JetDirect prek DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Tiskalnik priključen na vzporedna vrata"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Tiskalnik priključen prek Bluetootha"
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Krajevni tiskalnik zaznan prek Hardware Abstraction Layer (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#: src/libkcups/DevicesModel.cpp:129
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"Programska oprema HPLIP, ki upravlja faks ali funkcijo faksiranja "
-"večfunkcijske naprave"
+"Programska oprema HPLIP, ki upravlja faks\n"
+"ali funkcijo faksiranja večfunkcijske naprave"
 
-#: src/libkcups/DevicesModel.cpp:129
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#: src/libkcups/DevicesModel.cpp:130
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"Programska oprema HPLIP, ki upravlja tiskalnik ali funkcijo tiskanja "
-"večfunkcijske naprave"
-
-#: src/libkcups/DevicesModel.cpp:130
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
-msgctxt "@info:tooltip"
-msgid "IPP Network printer via IPP"
-msgstr "Omrežni tiskalnik IPP prek DNS-SD"
+"Programska oprema HPLIPi upravlja tiskalnik\n"
+"ali funkcijo tiskanja večfunkcijske naprave"
 
 #: src/libkcups/DevicesModel.cpp:131
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "IPP Network printer via IPP"
+msgstr "IPP omrežni tiskalnik prek IPP"
+
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Tiskalnik priključen na vrata USB"
 
-#: src/libkcups/DevicesModel.cpp:138
+#: src/libkcups/DevicesModel.cpp:139
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Oddaljeni tiskalnik CUPS preko DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:150
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#: src/libkcups/DevicesModel.cpp:151
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Omrežni tiskalnik prek DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:152
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#: src/libkcups/DevicesModel.cpp:153
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "Omrežni tiskalnik %1 prek DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:235
+#: src/libkcups/DevicesModel.cpp:236
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "Pridobivanje seznama naprav ni uspelo: »%1«"
+msgstr "Pridobivanje seznama naprav ni uspelo: '%1'"
 
-#: src/libkcups/DevicesModel.cpp:375
+#: src/libkcups/DevicesModel.cpp:377
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Odkriti omrežni tiskalniki"
 
-#: src/libkcups/DevicesModel.cpp:379
+#: src/libkcups/DevicesModel.cpp:383
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Drugi omrežni tiskalniki"
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Krajevni tiskalniki"
 
-#: src/libkcups/DevicesModel.cpp:425
+#: src/libkcups/DevicesModel.cpp:434
 #, kde-format
 msgid "Failed to group devices: '%1'"
-msgstr "Združevanje naprav ni uspelo: »%1«"
+msgstr "Združevanje naprav ni uspelo: '%1'"
 
 #: src/libkcups/JobModel.cpp:27
 #, kde-format
@@ -1130,7 +1137,7 @@ msgstr "Od imena gostitelja"
 #: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr "Premikanje »%1« na »%2« ni uspelo"
+msgstr "Premikanje '%1' na '%2' ni uspelo"
 
 #: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
@@ -1210,7 +1217,7 @@ msgstr "Priporočeni gonilniki"
 #: src/libkcups/PPDModel.cpp:98
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Prazen model ppd"
 
 #: src/libkcups/PrinterModel.cpp:203
 #, kde-format
@@ -1334,7 +1341,7 @@ msgstr "Tiskanje ..."
 #: src/printqueue/PrintQueueUi.cpp:205
 #, kde-format
 msgid "Printing '%1'"
-msgstr "Tiskanje »%1«"
+msgstr "Tiskanje '%1'"
 
 #: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
@@ -1462,6 +1469,10 @@ msgstr "Zaključeni posli"
 #, kde-format
 msgid "All Jobs"
 msgstr "Vsi posli"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure server settings"
+#~ msgstr "Nastavljanje strežnika ni uspelo"
 
 #~ msgid "Modify Printer"
 #~ msgstr "Spremeni tiskalnik"

@@ -1,50 +1,58 @@
-# Copyright (C) 2023 This file is copyright:
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the print-manager package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# SPDX-FileCopyrightText: 2023 Enol P. <enolp@softastur.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2023-11-07 00:45+0100\n"
-"Last-Translator: Enol P. <enolp@softastur.org>\n"
-"Language-Team: \n"
-"Language: ast\n"
+"PO-Revision-Date: 2023-11-07 08:28+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Poedit 3.3.2\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 
 #: printermanager.cpp:229
 #, fuzzy, kde-format
 #| msgid "Default printer"
 msgid "Set Default Options"
-msgstr "Predeterminar la imprentadora"
+msgstr "מדפסת ברירת מחדל"
 
 #: printermanager.cpp:237
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure server settings"
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr ""
+msgstr "הגדרת השרת נכשלה"
 
 #: printermanager.cpp:238
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure server settings"
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr ""
+msgstr "הגדרת השרת נכשלה"
 
 #: printermanager.cpp:379
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr ""
+msgstr "ביצוע הבקשה נכשל: %1"
 
 #: printermanager.cpp:434
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr ""
+msgstr "משיכת הגדרות השרת נכשלה"
 
 #: printermanager.cpp:473
 #, kde-format
@@ -55,12 +63,12 @@ msgstr ""
 #: printermanager.cpp:528
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr ""
+msgstr "הדפסת עמוד לבדיקה עצמית"
 
 #: printermanager.cpp:534
 #, kde-format
 msgid "Clean Print Heads"
-msgstr ""
+msgstr "ניקוי ראשי ההדפסה"
 
 #: ui/Drivers.qml:52
 #, kde-format
@@ -119,7 +127,7 @@ msgstr ""
 #| msgid "Remove Printer"
 msgctxt "@action:button"
 msgid "Select Printer"
-msgstr "Quitar la imprentadora"
+msgstr "הסרת מדפסת"
 
 #: ui/FindPrinter.qml:239
 #, kde-format
@@ -171,10 +179,12 @@ msgid "This feature is not yet available (%1)"
 msgstr ""
 
 #: ui/Global.qml:14
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr ""
+msgstr "משיכת הגדרות השרת נכשלה"
 
 #: ui/Global.qml:28
 #, kde-format
@@ -199,29 +209,28 @@ msgstr ""
 #| msgid "Share printers connected to this system"
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr "Compartir les imprentadores conectaes a esti sistema"
+msgstr "שיתוף מדפסות שמחוברות למערכת הזאת"
 
 #: ui/Global.qml:117
 #, fuzzy, kde-format
 #| msgid "Allow printing from the Internet"
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr "Permitir la imprentación dende internet"
+msgstr "לאפשר הדפסה מהאינטרנט"
 
 #: ui/Global.qml:123
 #, fuzzy, kde-format
 #| msgid "Allow remote administration"
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr "Permitir l'alministración remota"
+msgstr "לאפשר ניהול מרחוק"
 
 #: ui/Global.qml:128
 #, fuzzy, kde-format
 #| msgid "Allow users to cancel any job (not just their own)"
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr ""
-"Permitir a los usuarios anular cualesquier trabayu (aparte del d'ellos)"
+msgstr "לאפשר למשתמשים לבטל כל משימה שהיא (לא רק של עצמם)"
 
 #: ui/main.qml:31
 #, kde-format
@@ -238,7 +247,7 @@ msgstr ""
 #| msgid "Add Printer…"
 msgctxt "@action:button"
 msgid "Add Printer"
-msgstr "Amestar una imprentadora…"
+msgstr "הוספת מדפסת…"
 
 #: ui/main.qml:76
 #, kde-format
@@ -257,7 +266,7 @@ msgstr ""
 #| msgid "No printers are currently set up"
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr "Nun hai nenguna imprentadora instalada"
+msgstr "לא מוגדרות מדפסות"
 
 #: ui/main.qml:187
 #, kde-format
@@ -269,7 +278,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Add Printer…"
 msgid "Printers"
-msgstr "Amestar una imprentadora…"
+msgstr "הוספת מדפסת…"
 
 #: ui/main.qml:197
 #, kde-format
@@ -281,42 +290,42 @@ msgstr ""
 #| msgid "Configure…"
 msgctxt "@action:button"
 msgid "Configure…"
-msgstr "Configurar…"
+msgstr "הגדרה…"
 
 #: ui/main.qml:256
 #, fuzzy, kde-format
 #| msgid "Open Print Queue…"
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr "Abrir la cola d'imprentación…"
+msgstr "פתיחת תור הדפסה…"
 
 #: ui/main.qml:273
 #, fuzzy, kde-format
 #| msgid "Resume"
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr "Siguir"
+msgstr "המשך"
 
 #: ui/main.qml:274
 #, fuzzy, kde-format
 #| msgid "Pause"
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr "Posar"
+msgstr "השהיה"
 
 #: ui/main.qml:288
 #, fuzzy, kde-format
 #| msgid "Resume printing"
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr "Siguir cola imprentación"
+msgstr "המשך הדפסה"
 
 #: ui/main.qml:289
 #, fuzzy, kde-format
 #| msgid "Pause printing"
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr "Posar la imprentación"
+msgstr "השהיית הדפסה"
 
 #: ui/MakeModel.qml:84
 #, kde-format
@@ -385,18 +394,18 @@ msgstr ""
 #| msgid "Add Printer…"
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr "Amestar una imprentadora…"
+msgstr "הוספת מדפסת…"
 
 #: ui/PrinterSettings.qml:55
 #, kde-format
 msgid "Configure…"
-msgstr "Configurar…"
+msgstr "הגדרה…"
 
 #: ui/PrinterSettings.qml:60
 #, fuzzy, kde-format
 #| msgid "Remove Printer"
 msgid "Remove"
-msgstr "Quitar la imprentadora"
+msgstr "הסרת מדפסת"
 
 #: ui/PrinterSettings.qml:76
 #, kde-format
@@ -409,13 +418,14 @@ msgstr ""
 #| msgid "Configure…"
 msgctxt "@option:check"
 msgid "Auto Configure"
-msgstr "Configurar…"
+msgstr "הגדרה…"
 
 #: ui/PrinterSettings.qml:93
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Add…"
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr ""
+msgstr "הוספה…"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -436,30 +446,32 @@ msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr ""
 
 #: ui/PrinterSettings.qml:160
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Failed to remove the printer %1: "
 msgid "Failed to remove the printer: %1"
-msgstr ""
+msgstr "הסרת המדפסת %1 נכשלה: "
 
 #: ui/PrinterSettings.qml:178
 #, fuzzy, kde-format
 #| msgid "Remove Printer"
 msgid "Remove Group"
-msgstr "Quitar la imprentadora"
+msgstr "הסרת מדפסת"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Remove Printer"
-msgstr "Quitar la imprentadora"
+msgstr "הסרת מדפסת"
 
 #: ui/PrinterSettings.qml:179
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Are you sure you really want to remove %1"
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr ""
+msgstr "להסיר את %1"
 
 #: ui/PrinterSettings.qml:196
 #, kde-format
 msgid "Cancel"
-msgstr "Compartir esta clas"
+msgstr "ביטול"
 
 #: ui/PrinterSettings.qml:342
 #, kde-format
@@ -472,55 +484,56 @@ msgstr ""
 #| msgid "Default printer"
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "Predeterminar la imprentadora"
+msgstr "מדפסת ברירת מחדל"
 
 #: ui/PrinterSettings.qml:391
 #, fuzzy, kde-format
 #| msgid "Share this printer"
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr "Compartir esta imprentadora"
+msgstr "שיתוף המדפסת הזאת"
 
 #: ui/PrinterSettings.qml:392
 #, fuzzy, kde-format
 #| msgid "Share this printer"
 msgctxt "@action:check"
 msgid "Share this printer"
-msgstr "Compartir esta imprentadora"
+msgstr "שיתוף המדפסת הזאת"
 
 #: ui/PrinterSettings.qml:399
 #, fuzzy, kde-format
 #| msgid "Reject print jobs"
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr "Refugar los trabayos d'imprentación"
+msgstr "דחיית משימות הדפסה"
 
 #: ui/PrinterSettings.qml:430
 #, fuzzy, kde-format
 #| msgid "Print Test Page"
 msgctxt "@action:button"
 msgid "Print Test Page"
-msgstr "Imprentar una páxina de prueba"
+msgstr "הדפסת עמוד בדיקה"
 
 #: ui/PrinterSettings.qml:436
 #, fuzzy, kde-format
-#| msgid "Print Test Page"
+#| msgid "Print Self-Test Page"
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr "Imprentar una páxina de prueba"
+msgstr "הדפסת עמוד לבדיקה עצמית"
 
 #: ui/PrinterSettings.qml:443
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Clean Print Heads"
 msgctxt "@action:button"
 msgid "Clean Print Heads"
-msgstr ""
+msgstr "ניקוי ראשי ההדפסה"
 
 #: ui/PrinterSettings.qml:463
 #, fuzzy, kde-format
 #| msgid "Add Printer…"
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr "Amestar una imprentadora…"
+msgstr "הוספת מדפסת…"
 
 #: ui/PrinterSettings.qml:471
 #, kde-format
@@ -551,7 +564,7 @@ msgstr ""
 #| msgid "Remove Printer"
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr "Quitar la imprentadora"
+msgstr "הסרת מדפסת"
 
 #: ui/PrinterSettings.qml:653
 #, kde-format
@@ -567,17 +580,27 @@ msgstr ""
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
-#~ msgstr "Softastur"
+#~ msgstr "צוות התרגום של KDE ישראל"
 
 #~ msgctxt "EMAIL OF TRANSLATORS"
 #~ msgid "Your emails"
-#~ msgstr "alministradores@softastur.org"
+#~ msgstr "kde-l10n-he@kde.org"
+
+#~ msgctxt "@title:window"
+#~ msgid "Failed"
+#~ msgstr "נכשלה"
 
 #~ msgid "Global Settings"
-#~ msgstr "Configuración global"
+#~ msgstr "הגדרות כלליות"
 
 #~ msgid "Configure Global Settings"
-#~ msgstr "Configura les opciones globales"
+#~ msgstr "הגדרות כלליות"
 
 #~ msgid "Quick Settings"
-#~ msgstr "Configuración rápida"
+#~ msgstr "הגדרות מהירות"
+
+#~ msgid "Printer Config Error"
+#~ msgstr "שגיאת הגדרות מדפסת"
+
+#~ msgid "Share this class"
+#~ msgstr "שיתוף המחלקה הזאת"

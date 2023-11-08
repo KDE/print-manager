@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:44+0000\n"
+"POT-Creation-Date: 2023-11-08 08:48+0000\n"
 "PO-Revision-Date: 2022-12-08 21:26+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque\n"
@@ -417,12 +417,12 @@ msgstr ""
 "HPLIP softwarea fax makina bat edo funtzio anitzeko gailu baten fax funtzioa "
 "gidatzen."
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:105
+#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Urruneko CUPS inprimagailua DNS-SD bidez"
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:114
+#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Sareko inprimagailua DNS-SD bidez"
@@ -515,7 +515,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Huts egin du inprimagailua konfiguratzeak"
 
-#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
+#: src/configure-printer/ModifyPrinter.cpp:231
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -768,7 +768,7 @@ msgstr "Galara&zi erabiltzaile hauek inprimatzea"
 msgid "A&llow these users to print"
 msgstr "O&nartu erabiltzaile hauei inprimatzea"
 
-#: src/configure-printer/PrinterOptions.cpp:51
+#: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ezarri lehenetsitako aukerak"
@@ -786,29 +786,47 @@ msgstr "Itaundu inprimagailuari lehenetsitako aukerak"
 msgid "Select a Driver"
 msgstr "Hautatu gidari bat"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:237
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure class"
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "Huts egin du klasea konfiguratzeak"
+
+#: src/kcm/printermanager.cpp:238
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure printer"
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "Huts egin du inprimagailua konfiguratzeak"
+
+#: src/kcm/printermanager.cpp:379
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Huts egin du eskaera gauzatzeak: %1"
 
-#: src/kcm/printermanager.cpp:130
-#, kde-format
+#: src/kcm/printermanager.cpp:434
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
 msgctxt "@info"
-msgid "Failed to get server settings"
+msgid "Failed to get server settings: %1"
 msgstr "Huts egin du zerbitzariaren ezarpenak jasotzeak"
 
-#: src/kcm/printermanager.cpp:156
+#: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "Huts egin du zerbitzari-ezarpenak konfiguratzeak"
+msgid "Server error: (%1): %2"
+msgstr ""
 
-#: src/kcm/printermanager.cpp:243
+#: src/kcm/printermanager.cpp:528
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Inprimatu berezko proba-orria"
 
-#: src/kcm/printermanager.cpp:249
+#: src/kcm/printermanager.cpp:534
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Garbitu inprimatzeko buruak"
@@ -891,110 +909,110 @@ msgstr "Bilatu gidaria"
 msgid "'%1' is ready for printing."
 msgstr "'%1' inprimatzeko prest dago."
 
-#: src/libkcups/DevicesModel.cpp:50
+#: src/libkcups/DevicesModel.cpp:51
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "Sartu eskuz URI"
 
-#: src/libkcups/DevicesModel.cpp:65
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Parallel Port"
 msgstr "Ataka paraleloa"
 
-#: src/libkcups/DevicesModel.cpp:67
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Serial Port"
 msgstr "Serieko ataka"
 
-#: src/libkcups/DevicesModel.cpp:69
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:71
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:73
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax - HPLIP (HP Linux Imaging and Printing)"
 
-#: src/libkcups/DevicesModel.cpp:75
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HPLIP (HP Linux Imaging and Printing)"
 
-#: src/libkcups/DevicesModel.cpp:77
+#: src/libkcups/DevicesModel.cpp:78
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "Hardware Abstrakzio Geruza (ingelesez HAL)"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:80
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:85
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR ilara"
 
-#: src/libkcups/DevicesModel.cpp:86
+#: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR ilara %1"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:90
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Windows-eko inprimagailua SAMBA bidez"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:95
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:96
+#: src/libkcups/DevicesModel.cpp:97
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:99
+#: src/libkcups/DevicesModel.cpp:100
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:108
+#: src/libkcups/DevicesModel.cpp:109
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "IPP sareko inprimagailua DNS-SD bidez"
 
-#: src/libkcups/DevicesModel.cpp:110
+#: src/libkcups/DevicesModel.cpp:111
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "LPD sareko inprimagailua DNS-SD bidez"
 
-#: src/libkcups/DevicesModel.cpp:112
+#: src/libkcups/DevicesModel.cpp:113
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "AppSocket/JetDirect sareko inprimagailua DNS-SD bidez"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Ataka paralelora konektatuta dagoen inprimagailu bat"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Bluetooth bidez konektatuta dagoen inprimagailu bat"
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
@@ -1003,7 +1021,7 @@ msgstr ""
 "HAL)"
 
 # zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -1018,7 +1036,7 @@ msgstr ""
 "gidatzen"
 
 # zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
-#: src/libkcups/DevicesModel.cpp:129
+#: src/libkcups/DevicesModel.cpp:130
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -1032,63 +1050,63 @@ msgstr ""
 "HPLIP softwarea inprimagailu bat edo funtzio anitzeko gailu baten "
 "inprimatzeko funtzioa gidatzen"
 
-#: src/libkcups/DevicesModel.cpp:130
+#: src/libkcups/DevicesModel.cpp:131
 #, fuzzy, kde-format
 #| msgid "IPP network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "IPP sareko inprimagailua DNS-SD bidez"
 
-#: src/libkcups/DevicesModel.cpp:131
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "USB ataka batera konektatuta dagoen inprimagailu bat"
 
-#: src/libkcups/DevicesModel.cpp:138
+#: src/libkcups/DevicesModel.cpp:139
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Urruneko CUPS inprimagailua DNS-SD bidez"
 
-#: src/libkcups/DevicesModel.cpp:150
+#: src/libkcups/DevicesModel.cpp:151
 #, fuzzy, kde-format
 #| msgid "Network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Sareko inprimagailua DNS-SD bidez"
 
-#: src/libkcups/DevicesModel.cpp:152
+#: src/libkcups/DevicesModel.cpp:153
 #, fuzzy, kde-format
 #| msgid "%1 network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 sareko inprimagailu DNS-SD bidez"
 
-#: src/libkcups/DevicesModel.cpp:235
+#: src/libkcups/DevicesModel.cpp:236
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Gailuen zerrenda bat eskuratzeak huts egin du: '%1\""
 
-#: src/libkcups/DevicesModel.cpp:375
+#: src/libkcups/DevicesModel.cpp:377
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Aurkitutako sareko inprimagailuak"
 
-#: src/libkcups/DevicesModel.cpp:379
+#: src/libkcups/DevicesModel.cpp:383
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Beste sareko inprimagailu batzuk"
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Bertako inprimagailuak"
 
-#: src/libkcups/DevicesModel.cpp:425
+#: src/libkcups/DevicesModel.cpp:434
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Huts egin du gailuak taldekatzean: '%1'"
@@ -1481,6 +1499,10 @@ msgstr "Osatutako lanak"
 #, kde-format
 msgid "All Jobs"
 msgstr "Lan guztiak"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure server settings"
+#~ msgstr "Huts egin du zerbitzari-ezarpenak konfiguratzeak"
 
 #~ msgid "Modify Printer"
 #~ msgstr "Aldatu inprimagailua"

@@ -8,31 +8,32 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2023-11-08 02:47+0100\n"
-"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
-"Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
-"Language: ka\n"
+"PO-Revision-Date: 2023-11-07 08:25+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Temuri Doghonadze"
+msgstr "צוות התרגום של KDE ישראל"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "Temuri.doghonadze@gmail.com"
+msgstr "kde-l10n-he@kde.org"
 
 #: src/add-printer/AddPrinterAssistant.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
-msgstr "ახალი პრინტერის დამატება"
+msgstr "הוספת מדפסת חדשה"
 
 #: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
@@ -43,51 +44,51 @@ msgstr "ახალი პრინტერის დამატება"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
-msgstr "აირჩიეთ დასამატებელი პრინტერი"
+msgstr "נא לבחור מדפסת להוספה"
 
 #: src/add-printer/AddPrinterAssistant.cpp:86
 #: src/add-printer/AddPrinterAssistant.cpp:107
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
-msgstr "თქვენი პრინტერის აღწერა"
+msgstr "נא לתאר את המדפסת שלך"
 
 #: src/add-printer/AddPrinterAssistant.cpp:103
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
-msgstr "მოირგეთ შეერთება"
+msgstr "הגדרת החיבור שלך"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "აირჩიეთ დრაივერი %1-სთვის"
+msgstr "נא לבחור מנהל התקן עבור %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
 #, kde-format
 msgid "Address:"
-msgstr "მისამართი:"
+msgstr "כתובת:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
 #, kde-format
 msgid "Queue:"
-msgstr "რიგი:"
+msgstr "תור"
 
 #. i18n: ectx: property (text), widget (QPushButton, detectPB)
 #: src/add-printer/ChooseLpd.ui:51
 #, kde-format
 msgid "Detect"
-msgstr "დადგენა"
+msgstr "איתור"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: src/add-printer/ChooseSamba.ui:35
 #, kde-format
 msgctxt "@title:group"
 msgid "Windows Printer via SAMBA"
-msgstr "პრინტერი Windows-ზე SAMBA-ის გამოყენებით"
+msgstr "מדפסת Windows דרך SAMBA"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/add-printer/ChooseSamba.ui:41
@@ -103,113 +104,113 @@ msgstr "smb://[workgroup/]server[:port]/printer"
 #, kde-format
 msgctxt "@action:button"
 msgid "Browse"
-msgstr "დათვალიერება"
+msgstr "עיון"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: src/add-printer/ChooseSamba.ui:64
 #, kde-format
 msgctxt "@title:group"
 msgid "Authentication"
-msgstr "ავთენტიკაცია"
+msgstr "אימות"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/ChooseSamba.ui:73
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
-msgstr "მომხმარებელი:"
+msgstr "שם משתמש:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/ChooseSamba.ui:86
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
-msgstr "პაროლი"
+msgstr "סיסמה"
 
 #: src/add-printer/ChooseSerial.cpp:25 src/add-printer/ChooseSerial.cpp:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "None"
-msgstr "არაფერი"
+msgstr "בלי"
 
 #: src/add-printer/ChooseSerial.cpp:26
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Even"
-msgstr "ლუწი"
+msgstr "זוגיים"
 
 #: src/add-printer/ChooseSerial.cpp:27
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Odd"
-msgstr "კენტი"
+msgstr "אי־זוגיים"
 
 #: src/add-printer/ChooseSerial.cpp:30
 #, kde-format
 msgctxt "@label:listbox"
 msgid "XON/XOFF (Software)"
-msgstr "XON/XOFF (პროგრამული)"
+msgstr "XON/XOFF (תוכנה)"
 
 #: src/add-printer/ChooseSerial.cpp:31
 #, kde-format
 msgctxt "@label:listbox"
 msgid "RTS/CTS (Hardware)"
-msgstr "RTS/CTS (აპარატურული)"
+msgstr "RTS/CTS (חומרה)"
 
 #: src/add-printer/ChooseSerial.cpp:32
 #, kde-format
 msgctxt "@label:listbox"
 msgid "DTR/DSR (Hardware)"
-msgstr "DTR/DSR (აპარატურული)"
+msgstr "DTR/DSR (חומרה)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSerial.ui:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
-msgstr "ბოდების სიჩქარე:"
+msgstr "קצב באוד:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/ChooseSerial.ui:42
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Parity:"
-msgstr "პარიტეტი:"
+msgstr "זוגיות:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/ChooseSerial.ui:55
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Data Bits:"
-msgstr "მონაცემების ბიტები:"
+msgstr "סיביות נתונים:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/add-printer/ChooseSerial.ui:79
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Flow Control:"
-msgstr "დინების კონტროლი:"
+msgstr "בקרת זרימה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSocket.ui:29
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr "მისამართი:"
+msgstr "כתובת:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/ChooseSocket.ui:42
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Port:"
-msgstr "პორტი:"
+msgstr "פתחה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseUri.ui:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr "შეერთება:"
+msgstr "חיבור:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/ChooseUri.ui:82
@@ -241,7 +242,7 @@ msgid ""
 msgstr ""
 "<TABLE>\n"
 "<TR>\n"
-"<TD>მაგალითად:\n"
+"<TD>דוגמאות:\n"
 "<PRE>\n"
 "    http://hostname:631/ipp/\n"
 "    http://hostname:631/ipp/port1\n"
@@ -255,9 +256,9 @@ msgstr ""
 "    socket://hostname:9100\n"
 "</PRE>\n"
 "\n"
-"თქვენი პრინტერის ზუსტი URI-ის საპოვნელად იხილეთ <P>იხილეთ <A HREF=\"http://"
-"localhost:631/help/network.html\" TARGET=\"_blank\">\"ქსელური\n"
-"პრინტერები\"</A>.</P>\n"
+"<P>ניתן לעיין ב<A HREF=\"http://localhost:631/help/network.html\" TARGET="
+"\"_blank\">„מדפסות\n"
+"רשת”</A> לאיתור הכתובת הנכונה לשימוש עם המדפסת שלך.</P>\n"
 "</TD>\n"
 "</TR>\n"
 "</TABLE>"
@@ -265,192 +266,186 @@ msgstr ""
 #: src/add-printer/main.cpp:27
 #, kde-format
 msgid "Add Printer"
-msgstr "პრინტერის დამატება"
+msgstr "הוספת מדפסת"
 
 #: src/add-printer/main.cpp:29
 #, kde-format
 msgid "Tool for adding new printers"
-msgstr "ახალი პრინტერების დამამატებლი ხელაწყო"
+msgstr "כלי להוספת מדפסות חדשות"
 
 #: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:29
 #: src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "(C) 2010-2018 დენიელ ნიკოლეტი"
+msgstr "(C) 2010-2018 דניאל ניקולטי"
 
 #: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:31
 #: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
-msgstr "Qt 5 / Plasma 5-ზე გადმოტანა"
+msgstr "הסבה ל־Qt 5 / פלזמה 5"
 
 #: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Qt 6 / Plasma 6-ზე გადმოტანა"
+msgstr "הסבה ל־Qt 6 / פלזמה 6"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
-msgstr "მშობელი ფანჯრის ID"
+msgstr "מזהה חלון הורה"
 
 #: src/add-printer/main.cpp:44
 #, kde-format
 msgid "Add a new printer"
-msgstr "ახალი პრინტერის დამატება"
+msgstr "הוספת מדפסת חדשה"
 
 #: src/add-printer/main.cpp:47
 #, kde-format
 msgid "Add a new printer class"
-msgstr "ახალი პრინტერის კლასის დამატება"
+msgstr "הוספת מחלקת מדפסות חדשה"
 
 #: src/add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
-msgstr "მოცემული პრინტერის PPD-ის შეცვლა"
+msgstr "משנה את ה־PPD של מדפסת מסוימת"
 
 #: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
-msgstr "მოცემული პრინტერის/მოწყობილობის PPD-ის შევლა"
+msgstr "משנה את ה־PPD של מדפסת/מזהה_התקן מסוימים"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr "კლასში ჩამატების შეცდომა: '%1'"
+msgstr "הוספת המחלקה נכשלה: ‚%1’"
 
 #: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr "პრინტერის მორგების შეცდომა: '%1'"
+msgstr "הגדרת המדפסת נכשלה: ‚%1’"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/PageAddPrinter.ui:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Name:"
-msgstr "სახელი:"
+msgstr "שם:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
 #: src/add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr ""
-"შეიძლება შეიცავდეს ნებისმიერი ბეჭდვად სიმბოლოს, \"/\", \"$\" და ჰარეს გარდა"
+msgstr "יכול להכיל את כל סוגי התווים הגלויים למעט „/”, „#” ורווח"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/PageAddPrinter.ui:45
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr "აღწერა:"
+msgstr "תיאור:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/PageAddPrinter.ui:55
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr "მდებარეობა:"
+msgstr "מקום:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
 #: src/add-printer/PageAddPrinter.ui:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
-msgstr "პრინტერის გაზიარება"
+msgstr "שיתוף המדפסת הזאת"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/PageChoosePrinters.ui:96
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Members:"
-msgstr "წევრები:"
+msgstr "חברים:"
 
 #: src/add-printer/PageDestinations.cpp:189
 #, kde-format
 msgid "A printer connected to the parallel port."
-msgstr "პარალელურ პორტზე დაერთებული პრინტერი."
+msgstr "מדפסת שמחוברת לפתחה המקבילית."
 
 #: src/add-printer/PageDestinations.cpp:192
 #, kde-format
 msgid "A printer connected to a USB port."
-msgstr "USB პორტზე დაერთებული პრინტერი."
+msgstr "מדפסת שמחוברת לפתחת USB."
 
 #: src/add-printer/PageDestinations.cpp:195
 #, kde-format
 msgid "A printer connected via Bluetooth."
-msgstr "ბლუთუზით დაერთებული პრინტერი."
+msgstr "מדפסת שמחוברת דרך בלוטות׳."
 
 #: src/add-printer/PageDestinations.cpp:198
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-msgstr ""
-"Hardware Abstraction Layer (HAL)-ის მიერ აღმოჩენილია ლოკალური პრინტერი."
+msgstr "מדפסת מקומית שאותרה על ידי שכבת הפשטת החומרה (HAL)."
 
 #: src/add-printer/PageDestinations.cpp:202
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device."
-msgstr ""
-"HPLIP პროგრამული უზრუნველყოფა მართავს პრინტერს, ან მრავალფუნქციური "
-"მოწყობილობის პრინტერის ფუნქციას."
+msgstr "תוכנת HPLIP שמפעילה מדפסת או את רכיב המדפסת במכונה משולבת."
 
 #: src/add-printer/PageDestinations.cpp:206
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device."
-msgstr ""
-"HPLIP პროგრამული უზრუნველყოფა მართავს ფაქსის აპარატს, ან მრავალფუნქციური "
-"მოწყობილობის ფაქსის ფუნქციას."
+msgstr "תוכנת HPLIP שמפעילה פקס או את רכיב הפקס במכונה משולבת."
 
 #: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
-msgstr "დაშორებული CUPS პრინტერი DNS-SD-ს გავლით"
+msgstr "מדפסת CUPS מרוחקת דרך DNS-SD"
 
 #: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
 #, kde-format
 msgid "Network printer via DNS-SD"
-msgstr "ქსელური პრინტერი DNS-SD-ს გავლით"
+msgstr "מדפסת רשת דרך DNS-SD"
 
 #: src/add-printer/PageDestinations.cpp:228
 #, kde-format
 msgid "%1 network printer via DNS-SD"
-msgstr "%1 ქსელური პრინტერი DNS-SD-ით"
+msgstr "מדפסת רשת %1 דרך DNS-SD"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
 #: src/add-printer/PageDestinations.ui:62
 #, kde-format
 msgid "Connections"
-msgstr "კავშირები"
+msgstr "חיבורים"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/PageDestinations.ui:97
 #, kde-format
 msgid "Please choose an item on the list"
-msgstr "აირჩეთ სიის ჩანაწერი"
+msgstr "נא לבחור פריט מהרשימה"
 
 #: src/configure-printer/ConfigureDialog.cpp:90
 #: src/configure-printer/ConfigureDialog.cpp:91
 #, kde-format
 msgid "Printer Settings"
-msgstr "პრინტერის მორგება"
+msgstr "הגדרות מדפסת"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
 msgid "Media Settings"
-msgstr "მედიის მორგება"
+msgstr "הגדרות מדיה"
 
 #: src/configure-printer/ConfigureDialog.cpp:112
 #: src/configure-printer/ConfigureDialog.cpp:113
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
-msgstr "ბანერები, წესები და ნებადართული მომხმარებლები"
+msgstr "כרזות, מדיניויות ומשתמשים מורשים"
 
 #: src/configure-printer/ConfigureDialog.cpp:185
 #, kde-format
@@ -458,86 +453,86 @@ msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr ""
-"მიმდინარე გვერდი შეიცვალა.\n"
-"გნებავთ ცვლილებების შენახვა?"
+"העמוד הנוכחי נערך.\n"
+"לשמור את השינויים?"
 
 #: src/configure-printer/ConfigureDialog.cpp:186
 #, kde-format
 msgid "Save"
-msgstr "შენახვა"
+msgstr "שמירה"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
 msgid "Configure Printer"
-msgstr "პრინტერის მორგება"
+msgstr "הגדרת מדפסת"
 
 #: src/configure-printer/main.cpp:27
 #, kde-format
 msgid "ConfigurePrinter"
-msgstr "პრინტერის მორგება"
+msgstr "הגדרת_מדפסת"
 
 #: src/configure-printer/main.cpp:38
 #, kde-format
 msgid "Printer to be configured"
-msgstr "მოსარგები პრინტერი"
+msgstr "מדפסת להגדרה"
 
 #: src/configure-printer/ModifyPrinter.cpp:126
 #, kde-format
 msgid "Current - %1"
-msgstr "მიმდინარე - %1"
+msgstr "נוכחית - %1"
 
 #: src/configure-printer/ModifyPrinter.cpp:129
 #, kde-format
 msgid "Select a custom driver"
-msgstr "დრაივერის ხელით მითითება"
+msgstr "נא לבחור מנהל התקן אחר"
 
 #: src/configure-printer/ModifyPrinter.cpp:228
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
-msgstr "კლასის მორგების შეცდომა"
+msgstr "הגדרת המחלקה נכשלה"
 
 #: src/configure-printer/ModifyPrinter.cpp:229
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
-msgstr "პრინერის მორგების შეცდომა"
+msgstr "הגדרת המדפסת נכשלה"
 
 #: src/configure-printer/ModifyPrinter.cpp:231
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
-msgstr "ჩაიშალა"
+msgstr "כשלון"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/configure-printer/ModifyPrinter.ui:32
 #, kde-format
 msgid "&Description:"
-msgstr "&აღწერა:"
+msgstr "&תיאור:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
 #: src/configure-printer/ModifyPrinter.ui:42
 #, kde-format
 msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-msgstr "ადამიანისთვის გასაგები აღწერა. მაგ. \"HP LaserJet with Duplexer\""
+msgstr "תיאור קריא לבני אדם כגון „HP LaserJet עם הופך דפים”"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/configure-printer/ModifyPrinter.ui:52
 #, kde-format
 msgid "&Location:"
-msgstr "&მდებარეობა:"
+msgstr "מ&קום:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
 #: src/configure-printer/ModifyPrinter.ui:62
 #, kde-format
 msgid "Human-readable location such as \"Lab 1\""
-msgstr "მდებარეობის ადამიანისთვის გასაგები აღწერა. მაგ: \"lab 1\""
+msgstr "מקום קריא לבני אדם כגון „מעבדה 1”"
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
 #: src/configure-printer/ModifyPrinter.ui:79
 #, kde-format
 msgid "Connec&tion:"
-msgstr "&შეერთება:"
+msgstr "&חיבור:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
 #: src/configure-printer/ModifyPrinter.ui:103
@@ -590,7 +585,7 @@ msgstr ""
 "weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:10pt;\">მაგალითად:</span></p>\n"
+"size:10pt;\">דוגמאות:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
 "p>\n"
@@ -623,150 +618,150 @@ msgstr ""
 #: src/configure-printer/ModifyPrinter.ui:113
 #, kde-format
 msgid "Members"
-msgstr "წევრები"
+msgstr "חברים"
 
 #. i18n: ectx: property (text), widget (QLabel, driverL)
 #: src/configure-printer/ModifyPrinter.ui:126
 #, kde-format
 msgid "Driver:"
-msgstr "დრაივერი:"
+msgstr "מנהל התקן:"
 
 #: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
 msgid "Abort job"
-msgstr "დავალებიის გაუქმება"
+msgstr "ביטול משימה באמצע"
 
 #: src/configure-printer/PrinterBehavior.cpp:202
 #, kde-format
 msgid "Retry current job"
-msgstr "მიმდინარე დავალების თავიდან ცდა"
+msgstr "לנסות שוב את המשימה הנוכחית"
 
 #: src/configure-printer/PrinterBehavior.cpp:204
 #, kde-format
 msgid "Retry job"
-msgstr "დავალების თავიდან ცდა"
+msgstr "לנסות משימה שוב"
 
 #: src/configure-printer/PrinterBehavior.cpp:206
 #, kde-format
 msgid "Stop printer"
-msgstr "პრინტერის გაჩერება"
+msgstr "עצירת המדפסת"
 
 #: src/configure-printer/PrinterBehavior.cpp:215
 #, kde-format
 msgid "Authenticated"
-msgstr "ავთენტიფიცირებული"
+msgstr "מאומת"
 
 #: src/configure-printer/PrinterBehavior.cpp:217
 #, kde-format
 msgid "Default"
-msgstr "ნაგულისხმები"
+msgstr "ברירת מחדל"
 
 #: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "None"
-msgstr "არაფერი"
+msgstr "ללא"
 
 #: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Classified"
-msgstr "საიდუმლო"
+msgstr "מסווג"
 
 #: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Confidential"
-msgstr "კონფიდენციალური"
+msgstr "חסוי"
 
 #: src/configure-printer/PrinterBehavior.cpp:232
 #, kde-format
 msgid "Secret"
-msgstr "სამხედრო საიდუმლო"
+msgstr "סוד"
 
 #: src/configure-printer/PrinterBehavior.cpp:234
 #, kde-format
 msgid "Standard"
-msgstr "სტანდარტული"
+msgstr "רגיל"
 
 #: src/configure-printer/PrinterBehavior.cpp:236
 #, kde-format
 msgid "Topsecret"
-msgstr "სრულიად საიდუმლო"
+msgstr "סודי ביותר"
 
 #: src/configure-printer/PrinterBehavior.cpp:238
 #, kde-format
 msgid "Unclassified"
-msgstr "არასაიდუმლო"
+msgstr "לא מסווג"
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
 #: src/configure-printer/PrinterBehavior.ui:29
 #, kde-format
 msgid "Banners"
-msgstr "ბანერები"
+msgstr "כרזות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/configure-printer/PrinterBehavior.ui:35
 #, kde-format
 msgid "Starting Banner:"
-msgstr "საწყისი ბანერი:"
+msgstr "כרזת פתיחה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/configure-printer/PrinterBehavior.ui:55
 #, kde-format
 msgid "Ending Banner:"
-msgstr "დასასრულის ბანერი:"
+msgstr "כרזת סיום:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
 #: src/configure-printer/PrinterBehavior.ui:84
 #, kde-format
 msgid "Policies"
-msgstr "წესები"
+msgstr "מדיניויות"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/configure-printer/PrinterBehavior.ui:90
 #, kde-format
 msgid "Operation Policy:"
-msgstr "მუშაობის წესები:"
+msgstr "מדיניות פעולה:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/configure-printer/PrinterBehavior.ui:103
 #, kde-format
 msgid "Error Policy:"
-msgstr "შეცდომების წესები:"
+msgstr "מדיניות שגיאה:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
 #: src/configure-printer/PrinterBehavior.ui:133
 #, kde-format
 msgid "Allowed Users"
-msgstr "დაშვებული მომხმარებლები"
+msgstr "משתמשים מורשים"
 
 #. i18n: ectx: property (text), widget (QRadioButton, preventRB)
 #: src/configure-printer/PrinterBehavior.ui:139
 #, kde-format
 msgid "Pre&vent these users from printing "
-msgstr "&ამ მომხმარებლისთვის ბეჭდვის აკრძალვა "
+msgstr "למ&נוע מהמשתמשים האלה להדפיס "
 
 #. i18n: ectx: property (text), widget (QRadioButton, allowRB)
 #: src/configure-printer/PrinterBehavior.ui:146
 #, kde-format
 msgid "A&llow these users to print"
-msgstr "&ამ მომხმარებლებისთვის ბეჭდვის ნების დართვა"
+msgstr "לא&פשר למשתמשים האלה להדפיס"
 
 #: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
-msgstr "ნაგულისხმევი მნიშვნელობების დაყენება"
+msgstr "הגדרת אפשרויות ברירת מחדל"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
 #: src/configure-printer/PrinterOptions.ui:26
 #, kde-format
 msgid "Query Printer for Default Options"
-msgstr "პრინტერიდან ნაგულისხმები პარამეტრების გამოთხოვა"
+msgstr "תשאול אפשרויות ברירת המחדל מהמדפסת"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
 #: src/configure-printer/SelectMakeModelDialog.cpp:27
 #: src/libkcups/SelectMakeModel.ui:14
 #, kde-format
 msgid "Select a Driver"
-msgstr "აირჩიეთ დრაივერი"
+msgstr "נא לבחור מנהל התקן"
 
 #: src/kcm/printermanager.cpp:237
 #, fuzzy, kde-format
@@ -774,7 +769,7 @@ msgstr "აირჩიეთ დრაივერი"
 #| msgid "Failed to configure class"
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "კლასის მორგების შეცდომა"
+msgstr "הגדרת המחלקה נכשלה"
 
 #: src/kcm/printermanager.cpp:238
 #, fuzzy, kde-format
@@ -782,12 +777,12 @@ msgstr "კლასის მორგების შეცდომა"
 #| msgid "Failed to configure printer"
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "პრინერის მორგების შეცდომა"
+msgstr "הגדרת המדפסת נכשלה"
 
 #: src/kcm/printermanager.cpp:379
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr "მოთხოვნის შესრულების შეცდომა: %1"
+msgstr "ביצוע הבקשה נכשל: %1"
 
 #: src/kcm/printermanager.cpp:434
 #, fuzzy, kde-format
@@ -795,7 +790,7 @@ msgstr "მოთხოვნის შესრულების შეცდ�
 #| msgid "Failed to get server settings"
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "სერვერის პარამეტრების მიღების შეცდომა"
+msgstr "משיכת הגדרות השרת נכשלה"
 
 #: src/kcm/printermanager.cpp:473
 #, kde-format
@@ -806,106 +801,106 @@ msgstr ""
 #: src/kcm/printermanager.cpp:528
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "შიდა სატესტო გვერდი"
+msgstr "הדפסת עמוד לבדיקה עצמית"
 
 #: src/kcm/printermanager.cpp:534
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "თავაკების გაწმენდა"
+msgstr "ניקוי ראשי ההדפסה"
 
 #: src/kded/NewPrinterNotification.cpp:60
 #, kde-format
 msgid "A New Printer was detected"
-msgstr "ნაპოვნია ახალი პრინტერი"
+msgstr "התגלתה מדפסת חדשה"
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "Configuring new printer..."
-msgstr "ახალი პრინტერის მორგება..."
+msgstr "המדפסת החדשה מוגדרת…"
 
 #: src/kded/NewPrinterNotification.cpp:101
 #, kde-format
 msgid "The New Printer was Added"
-msgstr "ახალი პრინტერი დამატებულია"
+msgstr "המדפסת החדשה נוספה"
 
 #: src/kded/NewPrinterNotification.cpp:103
 #, kde-format
 msgid "The New Printer is Missing Drivers"
-msgstr "ახალ პრინტერს დრაივერები აკლია"
+msgstr "למדפסת החדשה חסרים מנהלי התקן"
 
 #: src/kded/NewPrinterNotification.cpp:162
 #, kde-format
 msgid "Missing printer driver"
-msgstr "აკლია პრინტერის დრაივერი"
+msgstr "מנהל ההתקן של המדפסת חסר"
 
 #: src/kded/NewPrinterNotification.cpp:164
 #, kde-format
 msgid "No printer driver for %1 %2."
-msgstr "პრინტერის დრაივერის პოვნის შეცდომა: %1 %2."
+msgstr "אין מנהל התקן מדפסת עבור %1 %2."
 
 #: src/kded/NewPrinterNotification.cpp:166
 #, kde-format
 msgid "No printer driver for %1."
-msgstr "%1-სთვის პრინტერის დრაივერის პოვნის შეცდომა."
+msgstr "אין מנהל התקן מדפסת עבור %1."
 
 #: src/kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "No driver for this printer."
-msgstr "ამ პრინტერის დრაივერი არ აყენია."
+msgstr "אין מנהל התקן למדפסת הזאת."
 
 #: src/kded/NewPrinterNotification.cpp:170
 #, kde-format
 msgid "Search"
-msgstr "ძებნა"
+msgstr "חיפוש"
 
 #: src/kded/NewPrinterNotification.cpp:234
 #, kde-format
 msgid "'%1' has been added, please check its driver."
-msgstr "'%1' დამატებულია. შეამოწმეთ მისი დრაივერი."
+msgstr "‚%1’ נוספה, נא לבדוק את מנהל ההתקן שלה."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:235
 #: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
-msgstr "მორგება"
+msgstr "הגדרה"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
-msgstr "'%1' დამატებულია. დრაივერი: '%2'."
+msgstr "‚%1’ נוספה, עם מנהל ההתקן ‚%2’."
 
 #: src/kded/NewPrinterNotification.cpp:239
 #: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "Print test page"
-msgstr "სატესტო გვერდის დაბეჭდვა"
+msgstr "הדפסת עמוד בדיקה"
 
 #: src/kded/NewPrinterNotification.cpp:241
 #, kde-format
 msgid "Find driver"
-msgstr "დრაივერის მოძებნა"
+msgstr "איתור מדפסת"
 
 #: src/kded/NewPrinterNotification.cpp:251
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr "'%1' საბეჭდად მზადაა."
+msgstr "‚%1’ כבר מדפיסה"
 
 #: src/libkcups/DevicesModel.cpp:51
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
-msgstr "URI-ის ხელით მითითება"
+msgstr "כתובת מלאה ידנית"
 
 #: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Parallel Port"
-msgstr "პარალელური პორტი"
+msgstr "פתחה מקבילית"
 
 #: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Serial Port"
-msgstr "სერიული პორტი"
+msgstr "פתחה טורית"
 
 #: src/libkcups/DevicesModel.cpp:70
 #, kde-format
@@ -915,22 +910,22 @@ msgstr "USB"
 #: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Bluetooth"
-msgstr "ბლუთუზი"
+msgstr "בלוטות׳"
 
 #: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr "Fax - HP-ის სკანირება და ბეჭდვა ლინუქსისთვის (HPLIP)"
+msgstr "פקס - דימות והדפסה של HP בלינוקס (HPLIP)"
 
 #: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
-msgstr "HP ლინუქსის ბეჭდვა და სკანირება (HPLIP)"
+msgstr "דימות והדפסה של HP בלינוקס (HPLIP)"
 
 #: src/libkcups/DevicesModel.cpp:78
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
-msgstr "აპარატურის აბსტრაქციის ფენა (₾)"
+msgstr "שכבת הפשטת חומרה (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:80
 #, kde-format
@@ -940,17 +935,17 @@ msgstr "AppSocket/HP JetDirect"
 #: src/libkcups/DevicesModel.cpp:85
 #, kde-format
 msgid "LPD/LPR queue"
-msgstr "LPD/LPR რიგი"
+msgstr "תור LPD/LPR"
 
 #: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "LPD/LPR queue %1"
-msgstr "LPD/LPR რიგი %1"
+msgstr "תור LPD/LPR‏ %1"
 
 #: src/libkcups/DevicesModel.cpp:90
 #, kde-format
 msgid "Windows Printer via SAMBA"
-msgstr "პრინტერი Windows-ზე SAMBA-ის გამოყენებით"
+msgstr "מדפסת Windows דרך SAMBA"
 
 #: src/libkcups/DevicesModel.cpp:95
 #, kde-format
@@ -970,35 +965,35 @@ msgstr "HTTP"
 #: src/libkcups/DevicesModel.cpp:109
 #, kde-format
 msgid "IPP network printer via DNS-SD"
-msgstr "IPP ქსელური პრინტერი DNS-SD-ით"
+msgstr "מדפסת רשת IPP דרך DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:111
 #, kde-format
 msgid "LPD network printer via DNS-SD"
-msgstr "LPD ქსელური პრინტერი DNS-SD-ით"
+msgstr "מדפסת רשת LPD דרך DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:113
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr "AppSocket/JetDirect ქსელური პრინტერი DNS-SD-ით"
+msgstr "מדפסת רשת AppSocket/JetDirect דרך DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
-msgstr "პარალელურ პორტზე მიერთებული პრინტერი"
+msgstr "מדפסת שמחוברת לחיבור המקבילי"
 
 #: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
-msgstr "ბლუთუზით მიერთებული პრინტერი"
+msgstr "מדפסת שמחוברת דרך בלוטות׳"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
-msgstr "აპარატურის აბსტრაქციის ფენით (HAL) ნაპოვნი ლოკალური პრინტერი"
+msgstr "מדפסת מקומית שאותרה על ידי שכבת הפשטת החומרה (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:129
 #, kde-format
@@ -1007,8 +1002,8 @@ msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"HPLIP პროგრამულად მართული ფაქსი, ან\n"
-"მულტიფუნქციური მოწყობილობის ფაქსი"
+"תוכנת HPLIP שמפעילה פקס,\n"
+"או את רכיב הפקס במכונה משולבת"
 
 #: src/libkcups/DevicesModel.cpp:130
 #, kde-format
@@ -1017,574 +1012,458 @@ msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"HPLIP პროგრამულად მართული პრინტერი\n"
-"ან მულტიფუნქციური მოწყობილობის პრინტერი"
+"תוכנת HPLIP שמפעילה מדפסת,\n"
+"או את רכיב המדפסת במכונה משולבת"
 
 #: src/libkcups/DevicesModel.cpp:131
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "IPP ქსელური პრინტერი IPP-ის გავლით"
+msgstr "מדפסת רשת IPP דרך IPP"
 
 #: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
-msgstr "USB პორტზე მიერთებული პრინტერი"
+msgstr "מדפסת שמחוברת לפתחת USB"
 
 #: src/libkcups/DevicesModel.cpp:139
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
-msgstr "დაშორებული CUPS პრინტერი DNS-SD-ს გავლით"
+msgstr "מדפסת CUPS מרוחקת דרך DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:151
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
-msgstr "ქსელური პრინტერი DNS-SD-ს გავლით"
+msgstr "מדפסת רשת דרך DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:153
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
-msgstr "%1 ქსელური პრინტერი DNS-SD-ით"
+msgstr "מדפסת רשת %1 דרך DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:236
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "მოწყობილობების სიის მირების შეცდომა: '%1'"
+msgstr "משיכת רשימת המכשירים נכשלה: ‚%1’"
 
 #: src/libkcups/DevicesModel.cpp:377
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
-msgstr "აღმოჩენილი ქსელური პრინტერები"
+msgstr "מדפסות רשת שהתגלו"
 
 #: src/libkcups/DevicesModel.cpp:383
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
-msgstr "სხვა ქსელური პრინტერები"
+msgstr "מדפסות רשת אחרות"
 
 #: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
-msgstr "ლოკალური პრინტერები"
+msgstr "מדפסות מקומיות"
 
 #: src/libkcups/DevicesModel.cpp:434
 #, kde-format
 msgid "Failed to group devices: '%1'"
-msgstr "მოწყობილობების დაჯგუფების შედომა: %1"
+msgstr "קיבוץ המכשירים נכשל: ‚%1’"
 
 #: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Status"
-msgstr "სტატუსი"
+msgstr "מצב"
 
 #: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Name"
-msgstr "სახელი"
+msgstr "שם"
 
 #: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "User"
-msgstr "User"
+msgstr "משתמש"
 
 #: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "Created"
-msgstr "შექმნილია"
+msgstr "נוצרה"
 
 #: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
 #, kde-format
 msgid "Completed"
-msgstr "დასრულებულია"
+msgstr "הושלמה"
 
 #: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Pages"
-msgstr "გვერდები"
+msgstr "עמודים"
 
 #: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Processed"
-msgstr "დამუშავებულია"
+msgstr "עובדו"
 
 #: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Size"
-msgstr "ზომა"
+msgstr "גודל"
 
 #: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Status Message"
-msgstr "სტატუსის შეტყობინება"
+msgstr "הודעת מצב"
 
 #: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Printer"
-msgstr "პრინტერი"
+msgstr "מדפסת"
 
 #: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "From Hostname"
-msgstr "ჰოსტის სახელიდან"
+msgstr "ממארח"
 
 #: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr "%1-ის %2-ზე გადატანის შეცდომა"
+msgstr "העברת ‚%1’ אל ‚%2’ נכשלה"
 
 #: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
-msgstr "ჩაიშალა"
+msgstr "נכשלה"
 
 #: src/libkcups/JobModel.cpp:599
 #, kde-format
 msgid "Pending"
-msgstr "დარჩენილი"
+msgstr "ממתינה"
 
 #: src/libkcups/JobModel.cpp:600
 #, kde-format
 msgid "On hold"
-msgstr "დალოდება"
+msgstr "מוחזקת"
 
 #: src/libkcups/JobModel.cpp:602
 #, kde-format
 msgid "Stopped"
-msgstr "შეჩერებულია"
+msgstr "נעצרה"
 
 #: src/libkcups/JobModel.cpp:603
 #, kde-format
 msgid "Canceled"
-msgstr "გაუქმებულია"
+msgstr "בוטלה"
 
 #: src/libkcups/JobModel.cpp:604
 #, kde-format
 msgid "Aborted"
-msgstr "შეწყვეტილია"
+msgstr "בוטלה באמצע"
 
 #: src/libkcups/KCupsConnection.cpp:857
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr "CUPS-თან მიერთება ავთენტიკაცია სჭირდება: '%1'"
+msgstr "חיבור CUPS דורש אימות: „%1”"
 
 #: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
-msgstr "ამოცანის დასასრულებლად შეიყვანეთ მომხმარებლის სახელი და პაროლი"
+msgstr "נא למלא שם משתמש וסיסמה כדי להשלים את המשימה"
 
 #: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
-msgstr "მომხმარებელი ან პაროლი არასწრია"
+msgstr "שם המשתמש או הסיסמה שגויים"
 
 #: src/libkcups/KCupsRequest.cpp:32
 #, kde-format
 msgid "Print service is unavailable"
-msgstr "ბეჭდვის სერვისი მიუწვდომელია"
+msgstr "שירות ההדפסה לא זמין"
 
 #: src/libkcups/KCupsRequest.cpp:34
 #, kde-format
 msgid "Not found"
-msgstr "ნაპოვნი არაა"
+msgstr "לא נמצאה"
 
 #: src/libkcups/KCupsRequest.cpp:401
 #, kde-format
 msgid "Test Page"
-msgstr "სატესტო გვერდი"
+msgstr "עמוד בדיקה"
 
 #: src/libkcups/KCupsRequest.cpp:433
 #, kde-format
 msgid "Unable to send command to printer driver!"
-msgstr "პრინტერის დრაივერისთვის ბრძანების გაგზავნის შეცდომა!"
+msgstr "לא ניתן לשלוח פקודה למנהל ההתקן של המדפסת!"
 
 #: src/libkcups/KCupsRequest.cpp:567
 #, kde-format
 msgid "Failed to invoke method: %1"
-msgstr "მეთოდის ჩაწორების შეცდომა: %1"
+msgstr "הקריאה לשיטה נכשלה: %1"
 
 #: src/libkcups/PPDModel.cpp:43
 #, kde-format
 msgid "Recommended Drivers"
-msgstr "რეკომენდებული დრაივერები"
+msgstr "מנהלי התקנים מומלצים"
 
 #: src/libkcups/PPDModel.cpp:98
 #, kde-format
 msgid "Empty ppd model"
-msgstr "ცარიელი ppd მოდელი"
+msgstr "דגם ppd ריק"
 
 #: src/libkcups/PrinterModel.cpp:203
 #, kde-format
 msgid "Printers"
-msgstr "პრინტერები"
+msgstr "מדפסות"
 
 #: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle"
-msgstr "უმოქმედო"
+msgstr "בהמתנה"
 
 #: src/libkcups/PrinterModel.cpp:422
 #, kde-format
 msgid "Idle, rejecting jobs"
-msgstr "უქმე, უარყოფს დავალებებს"
+msgstr "בהמתנה, דוחה משימות"
 
 #: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle - '%1'"
-msgstr "უქმე - '%1'"
+msgstr "בהמתנה - ‚%1’"
 
 #: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
-msgstr "უქმე, უარყოფს დავალებებს - '%1'"
+msgstr "בהמתנה, דוחה משימות - ‚%1’"
 
 #: src/libkcups/PrinterModel.cpp:428
 #, kde-format
 msgid "In use"
-msgstr "გამოიყენება"
+msgstr "בשימוש"
 
 #: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use - '%1'"
-msgstr "გამოიყენება - %1"
+msgstr "בשימוש - ‚%1’"
 
 #: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused"
-msgstr "შეჩერებულია"
+msgstr "מושהית"
 
 #: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Paused, rejecting jobs"
-msgstr "შეჩერებულია, უარყოფს დავალებებს"
+msgstr "מושהית, דוחה משימות"
 
 #: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused - '%1'"
-msgstr "შეჩერებულია - '%1'"
+msgstr "מושהית - ‚%1’"
 
 #: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
-msgstr "შეჩერებულია, უარყოფს დავალებებს - '%1'"
+msgstr "מושהית, דוחה משימות - ‚%1’"
 
 #: src/libkcups/PrinterModel.cpp:440
 #, kde-format
 msgid "Unknown"
-msgstr "უცნობი"
+msgstr "לא ידוע"
 
 #: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr "უცნობი - %1"
+msgstr "לא ידוע - ‚%1’"
 
 #: src/libkcups/SelectMakeModel.cpp:117
 #, kde-format
 msgid "Choose the driver for %1"
-msgstr "აირჩიეთ დრაივერი %1-სთვის"
+msgstr "נא לבחור מנהל התקן עבור %1"
 
 #: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
-msgstr "დრაივერების სიის მიღების შეცდომა: '%1'"
+msgstr "משיכת רשימת מנהלי ההתקנים נכשלה: ‚%1’"
 
 #: src/libkcups/SelectMakeModel.cpp:230
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
-msgstr "რეკომენდებული დრაივერის მოძებნის შეცდოა: '%1'"
+msgstr "חיפוש מנהל ההתקן המומלץ נכשל: ‚%1’"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
 #, kde-format
 msgid "Choose &the driver"
-msgstr "აირჩიეთ &დრაივერი"
+msgstr "&בחירת מנהל ההתקן"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91
 #, kde-format
 msgid "Ma&nually Provide a PPD File:"
-msgstr "PPD ფაილის &ხელით მითითება:"
+msgstr "&אספקת קובץ PPD ידנית:"
 
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
-msgstr "ბეჭდვის რიგი"
+msgstr "תור הדפסה"
 
 #: src/printqueue/main.cpp:39
 #, kde-format
 msgid "Show printer queue(s)"
-msgstr "პრინტერის რიგის ჩვენება"
+msgstr "הצגת תורי המדפסות"
 
 #: src/printqueue/PrintQueueUi.cpp:195
 #, kde-format
 msgid "Printer ready"
-msgstr "პრინტერი მზადაა"
+msgstr "המדפסת מוכנה"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
 #: src/printqueue/PrintQueueUi.cpp:196 src/printqueue/PrintQueueUi.cpp:207
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
-msgstr "პრინტერის შეჩერება"
+msgstr "השהיית מדפסת"
 
 #: src/printqueue/PrintQueueUi.cpp:203
 #, kde-format
 msgid "Printing..."
-msgstr "დაბეჭდვა..."
+msgstr "מדפיסה…"
 
 #: src/printqueue/PrintQueueUi.cpp:205
 #, kde-format
 msgid "Printing '%1'"
-msgstr "'%1'-ის დაბეჭდვა"
+msgstr "‚%1’ מודפס"
 
 #: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Printer paused"
-msgstr "პრინტერი შეჩერებულია"
+msgstr "המדפסת הושהתה"
 
 #: src/printqueue/PrintQueueUi.cpp:214
 #, kde-format
 msgid "Resume Printer"
-msgstr "პრინტერის გაგრძელება"
+msgstr "המשך מדפסת"
 
 #: src/printqueue/PrintQueueUi.cpp:218
 #, kde-format
 msgid "Printer state unknown"
-msgstr "პრინტერის მდგომარეობა უცნობია"
+msgstr "מצב ההדפסה לא ידוע"
 
 #: src/printqueue/PrintQueueUi.cpp:263
 #, kde-format
 msgid "Move to"
-msgstr "გადაადგილება"
+msgstr "העברה אל"
 
 #: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
-msgstr "ავთენტიკაცია"
+msgstr "אימות"
 
 #: src/printqueue/PrintQueueUi.cpp:404
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "ყველა პრინტერი (%1 დავალება)"
-msgstr[1] "ყველა პრინტერი (%1 დავალება)"
+msgstr[0] "כל המדפסות (משימה)"
+msgstr[1] "כל המדפסות (שתי משימות)"
+msgstr[2] "כל המדפסות (%1 משימות)"
+msgstr[3] "כל המדפסות (%1 משימות)"
 
 #: src/printqueue/PrintQueueUi.cpp:406
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 დავალება)"
-msgstr[1] "%2 (%1 დავალება)"
+msgstr[0] "%2 (משימה)"
+msgstr[1] "%2 (שתי משימות)"
+msgstr[2] "%2 (%1 משימות)"
+msgstr[3] "%2 (%1 משימות)"
 
 #: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers"
-msgstr "ყველა პრინტერი"
+msgstr "כל המדפסות"
 
 #: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr "გაუქმების შეცდომა: %1"
+msgstr "הביטול של ‚%1’ נכשל"
 
 #: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr "შეყოვნების შეცდომა: %1"
+msgstr "ההחזקה של ‚%1’ נכשלה"
 
 #: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr "გაგრძელების შეცდომა; %1"
+msgstr "השחרור של ‚%1’ נכשל"
 
 #: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr "თავიდან დაბეჭდვის შეცდომა: %1"
+msgstr "הדפסה מחדש של ‚%1’ נכשלה"
 
 #: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr "<b>%1</b>-დან დასაბეჭდად შეიყვანეთ მომხმარებელი და პაროლი"
+msgstr "נא למלא פרטי גישה כדי להדפיס מ־<b>%1</b>"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
 #: src/printqueue/PrintQueueUi.ui:20
 #, kde-format
 msgid "my printer (x jobs)"
-msgstr "ჩემი პრინტერი (x დავალება)"
+msgstr "המדפסת שלי (x משימות)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
 #: src/printqueue/PrintQueueUi.ui:49
 #, kde-format
 msgid "Printer Icon"
-msgstr "პრინტერის ხატულა"
+msgstr "סמל מדפסת"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
 #: src/printqueue/PrintQueueUi.ui:233
 #, kde-format
 msgid "Cancel"
-msgstr "შეწყვეტა"
+msgstr "ביטול"
 
 #. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
 #: src/printqueue/PrintQueueUi.ui:253
 #, kde-format
 msgid "Hold"
-msgstr "შეყოვნება"
+msgstr "החזקה"
 
 #. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
 #: src/printqueue/PrintQueueUi.ui:266
 #, kde-format
 msgid "Resume"
-msgstr "გაგრძელება"
+msgstr "המשך"
 
 #. i18n: ectx: property (text), widget (QPushButton, reprintPB)
 #: src/printqueue/PrintQueueUi.ui:279
 #, kde-format
 msgid "Reprint"
-msgstr "თავიდან დაბეჭდვა"
+msgstr "הדפסה מחדש"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:312
 #, kde-format
 msgid "Active Jobs"
-msgstr "აქტიური დავალებები"
+msgstr "משימות פעילות"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:317
 #, kde-format
 msgid "Completed Jobs"
-msgstr "დასრულებული დავალებები"
+msgstr "משימות שהושלמו"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:322
 #, kde-format
 msgid "All Jobs"
-msgstr "ყველა დავალება"
+msgstr "כל המשימות"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure server settings"
-#~ msgstr "სერვერის პარამეტრების დაყენების შეცდომა"
-
-#~ msgid "Modify Printer"
-#~ msgstr "პრინტერის შეცვლა"
-
-#~ msgid "Printer Options"
-#~ msgstr "პრინტერის მორგება"
-
-#~ msgid "Set the Default Printer Options"
-#~ msgstr "პრინტერის ნაგულისხმები პარამეტრების დაყენაბა"
-
-#~ msgid "Name:"
-#~ msgstr "სახელი:"
-
-#~ msgid "Share this class"
-#~ msgstr "ამ კლასის გაზიარება"
-
-#~ msgid "Share this printer"
-#~ msgstr "ამ პრინტერის გაზიარება"
-
-#~ msgctxt "@title"
-#~ msgid "Printer name or description"
-#~ msgstr "პრინტერის სახელი ან აღწერა"
-
-#~ msgid "Current status"
-#~ msgstr "მიმდინარე სტატუსი"
-
-#~ msgctxt "@option:check"
-#~ msgid "Default printer"
-#~ msgstr "ნაგულისხმები პრინტერი"
-
-#~ msgid "Reject print jobs"
-#~ msgstr "ბეჭდვის დავალებების უარყოფა"
-
-#~ msgctxt "@label location of printer"
-#~ msgid "Location:"
-#~ msgstr "მდებარეობა:"
-
-#~ msgctxt ""
-#~ "@label kind of printer, could be driver name or \"local raw socket\""
-#~ msgid "Kind:"
-#~ msgstr "ტიპი:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Maintenance"
-#~ msgstr "შეკეთება"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open Print Queue"
-#~ msgstr "ბეჭდვის რიგის გახსნა"
-
-#~ msgid "Print Test Page"
-#~ msgstr "სატესტო გვერდის დაბეჭდვა"
-
-#~ msgid "Print Self Test Page"
-#~ msgstr "შიდა სატესტო გვერდის დაბეჭდვა"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add a Printer Class"
-#~ msgstr "პრინტერის კლასის დამატება"
-
-#~ msgid "Add a new printer or a printer class"
-#~ msgstr "ახალი პრინტერის ან კლასის დამატება"
-
-#~ msgid "Remove Printer"
-#~ msgstr "პრინტერის წაშლა"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Show printers shared by other systems"
-#~ msgstr "სხვა სისტემებიდან გაზიარებული პრინტერების ჩვენება"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Share printers connected to this system"
-#~ msgstr "ამ სისტემაზე მიერტებული პრინტერების გაზიარება"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow printing from the Internet"
-#~ msgstr "ინტერნეტიდან ბეჭდვის ნების დართვა"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow remote administration"
-#~ msgstr "დაშორებული ადმინისტრირების ნების დართვა"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow users to cancel any job (not just their own)"
-#~ msgstr ""
-#~ "მომხმარებლებისთვის ყველა ამოცანის გაუქმების უფლების მიცემა (არა მხოლოდ "
-#~ "თავისი)"
-
-#~ msgid "Configure the global preferences"
-#~ msgstr "გლობალური პარამეტრების დაყენება"
-
-#~ msgid "No printers have been configured or discovered"
-#~ msgstr "ნაპოვნი ან მორგებული პრინტერების გარეშე"
-
-#~ msgid "Remove class"
-#~ msgstr "კლასის წაშლა"
-
-#~ msgid "Are you sure you want to remove the class '%1'?"
-#~ msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ წაშალოთ კლასი %1?"
-
-#~ msgid "Remove printer"
-#~ msgstr "პრინტერის წაშლა"
-
-#~ msgid "Are you sure you want to remove the printer '%1'?"
-#~ msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ წაშალოთ პრინტერი %1?"
-
-#~ msgid "System Preferences"
-#~ msgstr "სისტემური პარამეტრები"
-
-#~ msgid "TextLabel"
-#~ msgstr "ტექსტური ჭდე"
-
-#~ msgid "Error Title"
-#~ msgstr "შეცდომის სათაური"
-
-#~ msgid "Click here to add a new printer"
-#~ msgstr "დააწკაპუნეთ აქ ახალი პრინტერის დასამატებლად"
-
-#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-#~ msgstr "*.ppd *.ppd.gz|PostScript პრინტერის აღწერის ფაილები"
+#~ msgstr "הגדרת השרת נכשלה"

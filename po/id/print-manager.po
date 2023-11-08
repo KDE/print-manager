@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:44+0000\n"
+"POT-Creation-Date: 2023-11-08 08:48+0000\n"
 "PO-Revision-Date: 2022-09-27 17:15+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -411,12 +411,12 @@ msgstr ""
 "Software HPLIP menggerakkan sebuah mesin fax, atau fungsi fax dari peranti "
 "multi-fungsi."
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:105
+#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Printer CUP jarak jauh via DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:114
+#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Printer jaringan via DNS-SD"
@@ -509,7 +509,7 @@ msgctxt "@info"
 msgid "Failed to configure printer"
 msgstr "Gagal mengkonfigurasi printer"
 
-#: src/configure-printer/ModifyPrinter.cpp:231 src/kcm/printermanager.cpp:130
+#: src/configure-printer/ModifyPrinter.cpp:231
 #, kde-format
 msgctxt "@title:window"
 msgid "Failed"
@@ -760,7 +760,7 @@ msgstr "Men&cegah pengguna tersebut dari pencetakan"
 msgid "A&llow these users to print"
 msgstr "Mengi&zinkan pengguna tersebut untuk mencetak"
 
-#: src/configure-printer/PrinterOptions.cpp:51
+#: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
 msgstr "Atur Opsi Baku"
@@ -778,29 +778,47 @@ msgstr "Query Printer untuk Opsi Baku"
 msgid "Select a Driver"
 msgstr "Pilih sebuah Driver"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:237
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure class"
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "Gagal mengkonfigurasi kelas"
+
+#: src/kcm/printermanager.cpp:238
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to configure printer"
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "Gagal mengkonfigurasi printer"
+
+#: src/kcm/printermanager.cpp:379
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Gagal melakukan permintaan: %1"
 
-#: src/kcm/printermanager.cpp:130
-#, kde-format
+#: src/kcm/printermanager.cpp:434
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
 msgctxt "@info"
-msgid "Failed to get server settings"
+msgid "Failed to get server settings: %1"
 msgstr "Gagal mendapatkan pengaturan server"
 
-#: src/kcm/printermanager.cpp:156
+#: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
-msgid "Failed to configure server settings"
-msgstr "Gagal mengkonfigurasi pengaturan server"
+msgid "Server error: (%1): %2"
+msgstr ""
 
-#: src/kcm/printermanager.cpp:243
+#: src/kcm/printermanager.cpp:528
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Cetak Halaman Uji Diri"
 
-#: src/kcm/printermanager.cpp:249
+#: src/kcm/printermanager.cpp:534
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Bersihkan Kepala Cetak"
@@ -883,116 +901,116 @@ msgstr "Temukan driver"
 msgid "'%1' is ready for printing."
 msgstr "'%1' sudah siap untuk mencetak."
 
-#: src/libkcups/DevicesModel.cpp:50
+#: src/libkcups/DevicesModel.cpp:51
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "URI manual"
 
-#: src/libkcups/DevicesModel.cpp:65
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Parallel Port"
 msgstr "Colokan Paralel"
 
-#: src/libkcups/DevicesModel.cpp:67
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Serial Port"
 msgstr "Colokan Serial"
 
-#: src/libkcups/DevicesModel.cpp:69
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:71
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:73
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax - HP Linux Imaging dan Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:75
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux Imaging dan Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:77
+#: src/libkcups/DevicesModel.cpp:78
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "Hardware Abstraction Layer (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:80
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:85
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "Antrean LPD/LPR"
 
-#: src/libkcups/DevicesModel.cpp:86
+#: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "Antrean LPD/LPR %1"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:90
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Printer Windows via SAMBA"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:95
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:96
+#: src/libkcups/DevicesModel.cpp:97
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:99
+#: src/libkcups/DevicesModel.cpp:100
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:108
+#: src/libkcups/DevicesModel.cpp:109
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "Printer jaringan IPP via DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:110
+#: src/libkcups/DevicesModel.cpp:111
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "Printer jaringan LPD via DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:112
+#: src/libkcups/DevicesModel.cpp:113
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "Printer jaringan AppSocket/JetDirect via DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Sebuah printer terhubung ke colokan paralel"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Sebuah printer terhubung via Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Printer lokal terdeteksi oleh Hardware Abstraction Layer (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:129
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -1006,7 +1024,7 @@ msgstr ""
 "Software HPLIP menggerakkan sebuah mesin fax, atau fungsi fax dari peranti "
 "multi-fungsi"
 
-#: src/libkcups/DevicesModel.cpp:129
+#: src/libkcups/DevicesModel.cpp:130
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -1020,63 +1038,63 @@ msgstr ""
 "Software HPLIP menggerakkan sebuah printer, atau fungsi printer dari peranti "
 "multi-fungsi"
 
-#: src/libkcups/DevicesModel.cpp:130
+#: src/libkcups/DevicesModel.cpp:131
 #, fuzzy, kde-format
 #| msgid "IPP network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "Printer jaringan IPP via DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:131
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Sebuah printer terhubung ke sebuah colokan USB"
 
-#: src/libkcups/DevicesModel.cpp:138
+#: src/libkcups/DevicesModel.cpp:139
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Printer CUP jarak jauh via DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:150
+#: src/libkcups/DevicesModel.cpp:151
 #, fuzzy, kde-format
 #| msgid "Network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Printer jaringan via DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:152
+#: src/libkcups/DevicesModel.cpp:153
 #, fuzzy, kde-format
 #| msgid "%1 network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 printer jaringan via DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:235
+#: src/libkcups/DevicesModel.cpp:236
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Gagal untuk mendapatkan sebuah daftar peranti: '%1'"
 
-#: src/libkcups/DevicesModel.cpp:375
+#: src/libkcups/DevicesModel.cpp:377
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Printer Jaringan yang Ditemukan"
 
-#: src/libkcups/DevicesModel.cpp:379
+#: src/libkcups/DevicesModel.cpp:383
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Printer Jaringan Lain"
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Printer Lokal"
 
-#: src/libkcups/DevicesModel.cpp:425
+#: src/libkcups/DevicesModel.cpp:434
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Gagal mengelompokkan peranti: '%1'"
@@ -1469,6 +1487,10 @@ msgstr "Tugas Selesai"
 #, kde-format
 msgid "All Jobs"
 msgstr "Semua Tugas"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure server settings"
+#~ msgstr "Gagal mengkonfigurasi pengaturan server"
 
 #~ msgid "Modify Printer"
 #~ msgstr "Modifikasikan Printer"

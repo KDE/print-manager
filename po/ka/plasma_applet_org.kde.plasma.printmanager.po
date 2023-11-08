@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-07 02:44+0000\n"
-"PO-Revision-Date: 2022-09-12 20:12+0200\n"
+"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"PO-Revision-Date: 2023-11-08 02:47+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -24,10 +24,8 @@ msgid "Printers"
 msgstr "პრინტერები"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "პრინტერები"
+msgstr "პრინტერის ჯგუფები"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -71,30 +69,24 @@ msgid "Show Only Active Jobs"
 msgstr "მხოლოდ აქტიური დავალებების ჩვენება"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&პრინტერების მორგება..."
+msgstr "&პრინტერების მორგება…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "გაგრძელება"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "გაჩერება"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "პრინტერის მორგება..."
+msgstr "პრინტერის მორგება…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "ბეჭდვის რიგის ნახვა"
+msgstr "ბეჭდვის რიგის ნახვა…"
 
 #~ msgid "Search…"
 #~ msgstr "ძებნა…"

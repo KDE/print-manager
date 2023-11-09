@@ -69,19 +69,28 @@ Kirigami.Dialog {
         } else {
             rbMake.checked = true
 
-            // make/model list selections
-            makesList.currentIndex = getMakeIndex(ppdData.make)
+            // Make/model list selections
+            // Default to first in the list if there is no make
+            if (ppdData.make === undefined) {
+                ppdData.make = model.data(model.index(0,0), Qt.DisplayRole).toString()
+                makesList.currentIndex = 0
+            } else {
+                makesList.currentIndex = getMakeIndex(ppdData.make)
+            }
             makesList.positionViewAtIndex(makesList.currentIndex, ListView.Center)
             printerModels.invalidateFilter()
-            // select the makeModel
-            Qt.callLater(() => {
-                makeModelList.currentIndex = getMakeModelIndex()
-                makeModelList.positionViewAtIndex(makeModelList.currentIndex, ListView.Center)
-                setCurrentMakeModel(makeModelList.currentIndex)
-            })
+            // Select the printer model
+            makeModelList.currentIndex = getMakeModelIndex()
+            makeModelList.positionViewAtIndex(makeModelList.currentIndex, ListView.Center)
+            setCurrentMakeModel(makeModelList.currentIndex)
         }
 
-        title = i18nc("@title:window", "Printer Driver (%1)", ppdData.makeModel)
+        if (ppdData.makeModel === undefined) {
+            title = i18nc("@title:window", "Select a printer make/model")
+        } else {
+            title = i18nc("@title:window", "Printer Driver (%1)", ppdData.makeModel)
+        }
+
     }
 
     signal saveValues(var data)
@@ -99,8 +108,10 @@ Kirigami.Dialog {
                 makesList.currentIndex = 0
                 makesList.positionViewAtBeginning()
                 ppdData.make = model.data(model.index(0,0), Qt.DisplayRole).toString()
-                printerModels.invalidateFilter()
-                Qt.callLater(setCurrentMakeModel)
+                if (ppdData.make.length > 0) {
+                    printerModels.invalidateFilter()
+                    setCurrentMakeModel()
+                }
             } else {
                 init()
             }
@@ -139,13 +150,21 @@ Kirigami.Dialog {
                     error.text = i18n("Select a PostScript Printer Description (PPD) file")
                     error.visible = true
                     fileButton.focus = true
-                } else {
-                    if (rbFile.checked) {
-                        ppdData.file = customFilename.text
-                    }
-                    saveValues(ppdData)
-                    root.close()
+                    return
                 }
+
+                if (rbMake.checked && makeModelList.currentIndex === -1) {
+                    error.text = i18n("Printer model is required.  Please select a printer model.")
+                    error.visible = true
+                    makeModelList.focus = true
+                    return
+                }
+
+                if (rbFile.checked) {
+                    ppdData.file = customFilename.text
+                }
+                saveValues(ppdData)
+                root.close()
             }
         }
     ]
@@ -202,7 +221,10 @@ Kirigami.Dialog {
             Kirigami.SearchField {
                 enabled: rbMake.checked && makesList.count > 0
                 placeholderText: i18nc("@info:placeholder", "Filter Models")
-                onAccepted: printerModels.filterString = text.toLowerCase()
+                onAccepted: {
+                    printerModels.filterString = text.toLowerCase()
+                    makeModelList.currentIndex = -1
+                }
             }
         }
 
@@ -234,8 +256,7 @@ Kirigami.Dialog {
                             printerModels.invalidateFilter()
                             makeModelList.currentIndex = 0
                             makeModelList.positionViewAtBeginning()
-
-                            Qt.callLater(setCurrentMakeModel)
+                            setCurrentMakeModel()
                         }
                     }
                 }

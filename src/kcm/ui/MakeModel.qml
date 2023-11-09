@@ -100,7 +100,7 @@ Kirigami.Dialog {
                 makesList.positionViewAtBeginning()
                 ppdData.make = model.data(model.index(0,0), Qt.DisplayRole).toString()
                 printerModels.invalidateFilter()
-                setCurrentMakeModel()
+                Qt.callLater(setCurrentMakeModel)
             } else {
                 init()
             }
@@ -139,21 +139,13 @@ Kirigami.Dialog {
                     error.text = i18n("Select a PostScript Printer Description (PPD) file")
                     error.visible = true
                     fileButton.focus = true
-                    return
+                } else {
+                    if (rbFile.checked) {
+                        ppdData.file = customFilename.text
+                    }
+                    saveValues(ppdData)
+                    root.close()
                 }
-
-                if (rbMake.checked && makeModelList.currentIndex === -1) {
-                    error.text = i18n("Printer model is required.  Please select a printer model.")
-                    error.visible = true
-                    makeModelList.focus = true
-                    return
-                }
-
-                if (rbFile.checked) {
-                    ppdData.file = customFilename.text
-                }
-                saveValues(ppdData)
-                root.close()
             }
         }
     ]
@@ -210,10 +202,7 @@ Kirigami.Dialog {
             Kirigami.SearchField {
                 enabled: rbMake.checked && makesList.count > 0
                 placeholderText: i18nc("@info:placeholder", "Filter Models")
-                onAccepted: {
-                    printerModels.filterString = text.toLowerCase()
-                    makeModelList.currentIndex = -1
-                }
+                onAccepted: printerModels.filterString = text.toLowerCase()
             }
         }
 
@@ -245,7 +234,8 @@ Kirigami.Dialog {
                             printerModels.invalidateFilter()
                             makeModelList.currentIndex = 0
                             makeModelList.positionViewAtBeginning()
-                            setCurrentMakeModel()
+
+                            Qt.callLater(setCurrentMakeModel)
                         }
                     }
                 }

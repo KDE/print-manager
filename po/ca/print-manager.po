@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2023-11-07 13:30+0100\n"
+"PO-Revision-Date: 2023-11-08 11:15+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -771,20 +771,16 @@ msgid "Select a Driver"
 msgstr "Selecciona un controlador"
 
 #: src/kcm/printermanager.cpp:237
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Ha fallat en configurar la classe"
+msgstr "Ha fallat en configurar la classe: "
 
 #: src/kcm/printermanager.cpp:238
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Ha fallat en configurar la impressora"
+msgstr "Ha fallat en configurar la impressora: "
 
 #: src/kcm/printermanager.cpp:379
 #, kde-format
@@ -792,18 +788,16 @@ msgid "Failed to perform request: %1"
 msgstr "Ha fallat en portar a terme la sol·licitud: %1"
 
 #: src/kcm/printermanager.cpp:434
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Ha fallat en obtenir els paràmetres del servidor"
+msgstr "Ha fallat en obtenir els paràmetres del servidor: %1"
 
 #: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Error del servidor: (%1): %2"
 
 #: src/kcm/printermanager.cpp:528
 #, kde-format
@@ -1466,7 +1460,3 @@ msgstr "Treballs completats"
 #, kde-format
 msgid "All Jobs"
 msgstr "Tots els treballs"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure server settings"
-#~ msgstr "Ha fallat en configurar els paràmetres del servidor"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2023-11-07 13:29+0200\n"
+"PO-Revision-Date: 2023-11-08 23:33+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -771,20 +771,16 @@ msgid "Select a Driver"
 msgstr "Виберіть драйвер"
 
 #: src/kcm/printermanager.cpp:237
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Не вдалося налаштувати клас"
+msgstr "Не вдалося налаштувати клас: "
 
 #: src/kcm/printermanager.cpp:238
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Не вдалося налаштувати принтер"
+msgstr "Не вдалося налаштувати принтер: "
 
 #: src/kcm/printermanager.cpp:379
 #, kde-format
@@ -792,18 +788,16 @@ msgid "Failed to perform request: %1"
 msgstr "Не вдалося виконати запит: %1"
 
 #: src/kcm/printermanager.cpp:434
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Не вдалося отримати параметри сервера"
+msgstr "Не вдалося отримати параметри сервера: %1"
 
 #: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Помилка сервера: (%1): %2"
 
 #: src/kcm/printermanager.cpp:528
 #, kde-format

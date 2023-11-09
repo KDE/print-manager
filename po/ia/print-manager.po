@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2023-11-06 16:50+0100\n"
+"PO-Revision-Date: 2023-11-08 15:43+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -771,20 +771,16 @@ msgid "Select a Driver"
 msgstr "Selige un driver"
 
 #: src/kcm/printermanager.cpp:237
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Il falleva configurar un classe"
+msgstr "Il falleva configurar classe:"
 
 #: src/kcm/printermanager.cpp:238
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Il falleva configurar un imprimitor"
+msgstr "Il falleva configurar imprimitor:"
 
 #: src/kcm/printermanager.cpp:379
 #, kde-format
@@ -792,18 +788,16 @@ msgid "Failed to perform request: %1"
 msgstr "Il falleva executar requesta: %1"
 
 #: src/kcm/printermanager.cpp:434
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Il falleva obtener preferentias de servitor"
+msgstr "Il falleva obtener preferentias de servitor:%1"
 
 #: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Error de servitor: (%1): %2"
 
 #: src/kcm/printermanager.cpp:528
 #, kde-format
@@ -1004,39 +998,30 @@ msgstr ""
 "Imprimitor local relevate per le Strato de Abstraction de Hardware (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:129
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"Software HPLIP ducente un machina fax, o le function de fax de un "
-"dispositivo multi-function"
+"Software HPLIP ducente un machina fax,\n"
+" o le function de fax de un dispositivo multi-function"
 
 #: src/libkcups/DevicesModel.cpp:130
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"Software HPLIP ducente un imprimitor, o le function de imprimer de un "
-"dispositivo multi-function"
+"Software HPLIP ducente un imprimitor,\n"
+"o le function de imprimer de un dispositivo multi-function"
 
 #: src/libkcups/DevicesModel.cpp:131
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "Imprimitor de rete IPP via DNS-SD"
+msgstr "Imprimitor de rete IPP via IPP"
 
 #: src/libkcups/DevicesModel.cpp:132
 #, kde-format
@@ -1051,15 +1036,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Imprimitor CUPS remote via DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Imprimitor de rete via DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:153
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 Imprimitor de rete via DNS-SD"
@@ -1230,7 +1213,7 @@ msgstr "Drivers recommendate"
 #: src/libkcups/PPDModel.cpp:98
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Vacua modello ppd"
 
 #: src/libkcups/PrinterModel.cpp:203
 #, kde-format

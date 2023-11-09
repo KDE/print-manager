@@ -1,16 +1,16 @@
 # Translation of print-manager.po to Catalan (Valencian)
-# Copyright (C) 2012-2022 This_file_is_part_of_KDE
+# Copyright (C) 2012-2023 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2012, 2013, 2015, 2018, 2019, 2020, 2021, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2012, 2013, 2015, 2018, 2019, 2020, 2021, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2015, 2018, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2022-12-07 13:26+0100\n"
+"PO-Revision-Date: 2023-11-08 11:15+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -62,12 +62,10 @@ msgid "Configure your connection"
 msgstr "Configureu la connexió"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "Seleccioneu un controlador"
+msgstr "Seleccioneu un controlador per a %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -248,16 +246,16 @@ msgstr ""
 "<TR>\n"
 "<TD>Exemples:\n"
 "<PRE>\n"
-"    http://hostname:631/ipp/\n"
-"    http://hostname:631/ipp/port1\n"
+"    http://nom_amfitrió:631/ipp/\n"
+"    http://nom_amfitrió:631/ipp/port1\n"
 "\n"
-"    ipp://hostname/ipp/\n"
-"    ipp://hostname/ipp/port1\n"
+"    ipp://nom_amfitrió/ipp/\n"
+"    ipp://nom_amfitrió/ipp/port1\n"
 "\n"
-"    lpd://hostname/queue\n"
+"    lpd://nom_amfitrió/queue\n"
 "\n"
-"    socket://hostname\n"
-"    socket://hostname:9100\n"
+"    socket://nom_amfitrió\n"
+"    socket://nom_amfitrió:9100\n"
 "</PRE>\n"
 "\n"
 "<P>Vegeu <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
@@ -290,10 +288,9 @@ msgid "Port to Qt 5 / Plasma 5"
 msgstr "Adaptació a les Qt 5 / Plasma 5"
 
 #: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Adaptació a les Qt 5 / Plasma 5"
+msgstr "Adaptació a les Qt 6 / Plasma 6"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -440,16 +437,15 @@ msgstr "Escolliu un element de la llista"
 
 #: src/configure-printer/ConfigureDialog.cpp:90
 #: src/configure-printer/ConfigureDialog.cpp:91
-#, fuzzy, kde-format
-#| msgid "Printer Options"
+#, kde-format
 msgid "Printer Settings"
-msgstr "Opcions de la impressora"
+msgstr "Configureu la impressora"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
 msgid "Media Settings"
-msgstr ""
+msgstr "Configureu el mitjà"
 
 #: src/configure-printer/ConfigureDialog.cpp:112
 #: src/configure-printer/ConfigureDialog.cpp:113
@@ -516,10 +512,9 @@ msgstr "No s'ha pogut"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/configure-printer/ModifyPrinter.ui:32
-#, fuzzy, kde-format
-#| msgid "Description:"
+#, kde-format
 msgid "&Description:"
-msgstr "Descripció:"
+msgstr "&Descripció:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
 #: src/configure-printer/ModifyPrinter.ui:42
@@ -530,10 +525,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/configure-printer/ModifyPrinter.ui:52
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "&Location:"
-msgstr "Ubicació:"
+msgstr "&Ubicació:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
 #: src/configure-printer/ModifyPrinter.ui:62
@@ -543,10 +537,9 @@ msgstr "Ubicació intel·ligible per les persones, com «Laboratori 1»"
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
 #: src/configure-printer/ModifyPrinter.ui:79
-#, fuzzy, kde-format
-#| msgid "Connection:"
+#, kde-format
 msgid "Connec&tion:"
-msgstr "Connexió:"
+msgstr "Conne&xió:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
 #: src/configure-printer/ModifyPrinter.ui:103
@@ -601,32 +594,34 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
 "size:10pt;\">Exemples:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://nom_amfitrió:631/"
+"ipp/</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://nom_amfitrió:631/"
+"ipp/port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
 "p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://nom_amfitrió/ipp/</"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://nom_amfitrió/ipp/"
 "port1</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
 "p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://nom_amfitrió/queue</"
 "p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
 "p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://nom_amfitrió</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-"p></body></html>"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://"
+"nom_amfitrió:9100</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, membersL)
 #: src/configure-printer/ModifyPrinter.ui:113
@@ -778,20 +773,16 @@ msgid "Select a Driver"
 msgstr "Selecciona un controlador"
 
 #: src/kcm/printermanager.cpp:237
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "No s'ha pogut configurar la classe"
+msgstr "No s'ha pogut configurar la classe: "
 
 #: src/kcm/printermanager.cpp:238
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "No s'ha pogut configurar la impressora"
+msgstr "No s'ha pogut configurar la impressora: "
 
 #: src/kcm/printermanager.cpp:379
 #, kde-format
@@ -799,18 +790,16 @@ msgid "Failed to perform request: %1"
 msgstr "No s'ha pogut portar a terme la sol·licitud: %1"
 
 #: src/kcm/printermanager.cpp:434
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "No s'han pogut obtindre els paràmetres del servidor"
+msgstr "No s'han pogut obtindre els paràmetres del servidor: %1"
 
 #: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "S'ha produït un error del servidor: (%1): %2"
 
 #: src/kcm/printermanager.cpp:528
 #, kde-format
@@ -1010,39 +999,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Impressora local detectada pel «Hardware Abstraction Layer» (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:129
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"El programari HPLIP que controla una màquina de fax, o la funció de fax d'un "
-"dispositiu multifuncional"
+"El programari HPLIP que controla una màquina de fax,\n"
+"o la funció de fax d'un dispositiu multifuncional"
 
 #: src/libkcups/DevicesModel.cpp:130
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"El programari HPLIP que controla una impressora, o la funció d'impressió "
-"d'un dispositiu multifuncional"
+"El programari HPLIP que controla una impressora,\n"
+"o la funció d'impressió d'un dispositiu multifuncional"
 
 #: src/libkcups/DevicesModel.cpp:131
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "Impressora de xarxa IPP via DNS-SD"
+msgstr "Impressora de xarxa IPP via IPP"
 
 #: src/libkcups/DevicesModel.cpp:132
 #, kde-format
@@ -1057,15 +1037,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Impressora remota CUPS via DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Impressora de xarxa via DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:153
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 impressora de xarxa via DNS-SD"
@@ -1151,7 +1129,7 @@ msgstr "Impressora"
 #: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "From Hostname"
-msgstr "Des del nom d'ordinador"
+msgstr "Des del nom d'amfitrió"
 
 #: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
@@ -1236,7 +1214,7 @@ msgstr "Controladors recomanats"
 #: src/libkcups/PPDModel.cpp:98
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Model «ppd» buit"
 
 #: src/libkcups/PrinterModel.cpp:203
 #, kde-format
@@ -1304,10 +1282,9 @@ msgid "Unknown - '%1'"
 msgstr "Desconegut - «%1»"
 
 #: src/libkcups/SelectMakeModel.cpp:117
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose the driver for %1"
-msgstr "Seleccioneu el con&trolador de la llista"
+msgstr "Seleccioneu el controlador per a %1"
 
 #: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
@@ -1321,10 +1298,9 @@ msgstr "No s'ha pogut buscar un controlador recomanat: «%1»"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose &the driver"
-msgstr "Seleccioneu el con&trolador de la llista"
+msgstr "Seleccioneu el con&trolador"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91
@@ -1486,123 +1462,3 @@ msgstr "Treballs completats"
 #, kde-format
 msgid "All Jobs"
 msgstr "Tots els treballs"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure server settings"
-#~ msgstr "No s'han pogut configurar els paràmetres del servidor"
-
-#~ msgid "Modify Printer"
-#~ msgstr "Modifica la impressora"
-
-#~ msgid "Set the Default Printer Options"
-#~ msgstr "Establix les opcions predeterminades de la impressora"
-
-#~ msgid "Name:"
-#~ msgstr "Nom:"
-
-#~ msgid "Share this class"
-#~ msgstr "Compartix esta classe"
-
-#~ msgid "Share this printer"
-#~ msgstr "Compartix esta impressora"
-
-#~ msgctxt "@title"
-#~ msgid "Printer name or description"
-#~ msgstr "Nom o descripció de la impressora"
-
-#~ msgid "Current status"
-#~ msgstr "Estat actual"
-
-#~ msgctxt "@option:check"
-#~ msgid "Default printer"
-#~ msgstr "Impressora predeterminada"
-
-#~ msgid "Reject print jobs"
-#~ msgstr "Rebutja els treballs d'impressió"
-
-#~ msgctxt "@label location of printer"
-#~ msgid "Location:"
-#~ msgstr "Ubicació:"
-
-#~ msgctxt ""
-#~ "@label kind of printer, could be driver name or \"local raw socket\""
-#~ msgid "Kind:"
-#~ msgstr "Tipus:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Maintenance"
-#~ msgstr "Manteniment"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open Print Queue"
-#~ msgstr "Obri la cua d'impressió"
-
-#~ msgid "Print Test Page"
-#~ msgstr "Imprimix una pàgina de prova"
-
-#~ msgid "Print Self Test Page"
-#~ msgstr "Imprimix la pàgina d'autocomprovació"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add a Printer Class"
-#~ msgstr "Afig una classe d'impressora"
-
-#~ msgid "Add a new printer or a printer class"
-#~ msgstr "Afig una impressora nova o una classe d'impressora"
-
-#~ msgid "Remove Printer"
-#~ msgstr "Elimina la impressora"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Show printers shared by other systems"
-#~ msgstr "Mostra les impressores compartides per altres sistemes"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Share printers connected to this system"
-#~ msgstr "Compartix les impressores connectades amb este sistema"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow printing from the Internet"
-#~ msgstr "Permet la impressió des d'Internet"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow remote administration"
-#~ msgstr "Permet l'administració remota"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow users to cancel any job (not just their own)"
-#~ msgstr ""
-#~ "Permet que els usuaris cancel·len qualsevol treball (no només els seus)"
-
-#~ msgid "Configure the global preferences"
-#~ msgstr "Configura les preferències globals"
-
-#~ msgid "No printers have been configured or discovered"
-#~ msgstr "No s'ha descobert o configurat cap impressora"
-
-#~ msgid "Remove class"
-#~ msgstr "Elimina la classe"
-
-#~ msgid "Are you sure you want to remove the class '%1'?"
-#~ msgstr "Segur que voleu eliminar la classe «%1»?"
-
-#~ msgid "Remove printer"
-#~ msgstr "Elimina la impressora"
-
-#~ msgid "Are you sure you want to remove the printer '%1'?"
-#~ msgstr "Segur que voleu eliminar la impressora «%1»?"
-
-#~ msgid "System Preferences"
-#~ msgstr "Preferències del sistema"
-
-#~ msgid "TextLabel"
-#~ msgstr "EtiquetaDeText"
-
-#~ msgid "Error Title"
-#~ msgstr "Títol d'error"
-
-#~ msgid "Click here to add a new printer"
-#~ msgstr "Feu clic ací per a afegir una impressora nova"
-
-#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-#~ msgstr "*.ppd *.ppd.gz|Fitxers PostScript Printer Description"

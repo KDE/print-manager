@@ -1,5 +1,5 @@
 project(print-manager)
-set(PROJECT_VERSION "5.27.80")
+set(PROJECT_VERSION "5.81.0")
 
 cmake_minimum_required(VERSION 3.16)
 

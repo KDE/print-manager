@@ -396,7 +396,96 @@ Kirigami.Dialog {
 
     Component {
         id: lpdComp
-        NotAvailable {}
+
+        BaseDevice {
+            id: lpdDevice
+            title: compLoader.info
+            subtitle: i18nc("@title:group", "Line Printer Daemon (LPD) Protocol")
+            helpText: i18nc("@info:usagetip", "Enter the address of the LPD device")
+
+            readonly property string scheme: compLoader.selector + "://"
+
+            actions: [
+                Kirigami.Action {
+                    text: i18nc("@action:button", "Save Printer")
+                    icon.name: "dialog-ok-symbolic"
+                    onTriggered: {
+                        let uriStr = uri.text + "/" + queue.text
+                        if (!uriStr.startsWith(lpdDevice.scheme)) {
+                            uriStr = lpdDevice.scheme + uriStr
+                        }
+                        // validate url
+                        const url = getUrl(uriStr)
+                        if (url) {
+                            settings.set({"device-uri": url.href
+                                         , "printer-info": "LPD Printer"})
+                            manualDriverSelect()
+                        } else {
+                            setError(i18n("Invalid LPD URL: %1", uriStr))
+                        }
+
+                    }
+                }
+            ]
+
+            Component.onCompleted: {
+                const url = getUrl(settings.value("device-uri"))
+                if (url) {
+                    uri.text = scheme + url.hostname
+                    queue.text = url.pathname + url.search
+                } else {
+                    uri.text = scheme
+                }
+            }
+
+            GridLayout {
+                columns: 2
+                columnSpacing: Kirigami.Units.largeSpacing
+                Layout.alignment: Qt.AlignHCenter
+
+                QQC2.Label {
+                    text: i18n("Host:")
+                    Layout.alignment: Qt.AlignRight
+                }
+
+                QQC2.TextField {
+                    id: uri
+                    placeholderText: i18nc("@info The lpd device address", "LPD device address")
+                    Layout.fillWidth: true
+                }
+
+                QQC2.Label {
+                    text: i18n("Queue:")
+                    Layout.alignment: Qt.AlignRight
+                }
+
+                QQC2.TextField {
+                    id: queue
+                    placeholderText: i18nc("@info The lpd device queue name", "LPD queue name")
+                    validator: RegularExpressionValidator { regularExpression: /[^/#\\ ]*/ }
+                    Layout.fillWidth: true
+                }
+
+            }
+
+            AddressExamples {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                examples: [
+                    "lpd://ip-addr/queue",
+                    "lpd://ip-addr/queue?format=l",
+                    "lpd://ip-addr/queue?format=l&reserve=rfc1179",
+                ]
+
+                onSelected: address => {
+                                const url = getUrl(address)
+                                uri.text = scheme + url.hostname
+                                queue.text = url.pathname + url.search
+                            }
+            }
+        }
     }
 
     Component {

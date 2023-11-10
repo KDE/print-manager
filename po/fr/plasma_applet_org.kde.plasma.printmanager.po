@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2022-03-31 18:25+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
+"PO-Revision-Date: 2023-11-07 18:25+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -76,30 +76,24 @@ msgid "Show Only Active Jobs"
 msgstr "Afficher uniquement les tâches actives"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
 msgstr "&Configurer les imprimantes…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Reprendre"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Mettre en pause"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "Configurer l'imprimante..."
+msgstr "Configurer une imprimante..."
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Afficher la file d'impression"
+msgstr "Afficher la file d'impression..."
 
 #~ msgid "Search…"
 #~ msgstr "Rechercher..."

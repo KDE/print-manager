@@ -96,7 +96,9 @@ void AddPrinter::newPrinterFromDevice(qulonglong wid, const QString &name, const
 void AddPrinter::show(QWidget *widget, qulonglong wid) const
 {
     widget->show();
-    KX11Extras::forceActiveWindow(widget->winId());
+    if (KWindowSystem::isPlatformX11()) {
+        KX11Extras::forceActiveWindow(widget->winId());
+    }
     widget->setAttribute(Qt::WA_NativeWindow, true);
     KWindowSystem::setMainWindow(widget->windowHandle(), wid);
 }

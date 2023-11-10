@@ -87,7 +87,9 @@ void PrintQueue::showQueue(const QString &destName)
 
     // Check if it's not reserved
     if (m_uis.value(destName)) {
-        KX11Extras::forceActiveWindow(m_uis.value(destName)->winId());
+        if (KWindowSystem::isPlatformX11()) {
+            KX11Extras::forceActiveWindow(m_uis.value(destName)->winId());
+        }
     }
 }
 

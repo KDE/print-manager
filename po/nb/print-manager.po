@@ -1,4 +1,4 @@
-# Translation of print-manager to Norwegian Bokmål
+# Translation of kcm_printer_manager to Norwegian Bokmål
 #
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2012, 2013.
 msgid ""
@@ -208,7 +208,9 @@ msgstr "Port:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/ChooseUri.ui:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Connection:"
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Tilkobling:"
@@ -301,7 +303,11 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Hardware Abstraction Layer (HAL) oppdaget en ny skriver"
 
 #: add-printer/DevicesModel.cpp:251
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device"
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -311,7 +317,11 @@ msgstr ""
 "flerfunksjonsenhet."
 
 #: add-printer/DevicesModel.cpp:255
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device"
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -422,14 +432,18 @@ msgstr "Kan inneholde ethvert skrivbart tegn unntatt  «/», «#» og mellomrom"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/PageAddPrinter.ui:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Description:"
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Beskrivelse:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: add-printer/PageAddPrinter.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Location:"
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Sted:"
@@ -939,7 +953,8 @@ msgid "A&llow these users to print"
 msgstr ""
 
 #: configure-printer/PrinterOptions.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set Default Options"
 msgid "Set Default Options"
 msgstr "Sett standard-alternativer"
 
@@ -1092,7 +1107,8 @@ msgid "Recommended Drivers"
 msgstr "Anbefalte drivere"
 
 #: libkcups/PrinterModel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Printers"
 msgid "Printers"
 msgstr "Skrivere"
 

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2020, 2021, 2022.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2022-04-01 23:49+0200\n"
+"PO-Revision-Date: 2023-11-08 14:31+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -23,10 +23,8 @@ msgid "Printers"
 msgstr "Stampanti"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Stampanti"
+msgstr "Gruppi di stampanti"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -70,30 +68,24 @@ msgid "Show Only Active Jobs"
 msgstr "Mostra solo i lavori attivi"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&Configura le stampanti..."
+msgstr "&Configura le stampanti…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Riprendi"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Metti in pausa"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "Configura la stampante..."
+msgstr "Configura la stampante…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Visualizza la coda di stampa..."
+msgstr "Visualizza la coda di stampa…"
 
 #~ msgid "Search…"
 #~ msgstr "Cerca…"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-11 01:44+0000\n"
 "PO-Revision-Date: 2012-06-29 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -78,7 +78,7 @@ msgid "Address:"
 msgstr "អាសយដ្ឋាន ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
+#: src/add-printer/ChooseLpd.ui:36
 #, kde-format
 msgid "Queue:"
 msgstr "ជួរ ៖"
@@ -293,7 +293,8 @@ msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០១០-២០�
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
+#: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
+#: src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr ""
@@ -445,34 +446,27 @@ msgstr "ការ​តភ្ជាប់ ៖"
 msgid "Please choose an item on the list"
 msgstr "សូម​ជ្រើស​ធាតុ​មួយ​នៅ​ក្នុង​បញ្ជី"
 
-#: src/configure-printer/ConfigureDialog.cpp:90
-#: src/configure-printer/ConfigureDialog.cpp:91
-#, fuzzy, kde-format
-#| msgid "Print settings"
-msgid "Printer Settings"
-msgstr "ការ​កំណត់​បោះពុម្ព"
-
-#: src/configure-printer/ConfigureDialog.cpp:101
-#: src/configure-printer/ConfigureDialog.cpp:102
+#: src/configure-printer/ConfigureDialog.cpp:93
+#: src/configure-printer/ConfigureDialog.cpp:94
 #, fuzzy, kde-format
 #| msgid "Print settings"
 msgid "Media Settings"
 msgstr "ការ​កំណត់​បោះពុម្ព"
 
-#: src/configure-printer/ConfigureDialog.cpp:112
-#: src/configure-printer/ConfigureDialog.cpp:113
+#: src/configure-printer/ConfigureDialog.cpp:101
+#: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr ""
 
-#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:172
 #, kde-format
 msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr ""
 
-#: src/configure-printer/ConfigureDialog.cpp:186
+#: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
 msgstr ""
@@ -489,137 +483,12 @@ msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​
 msgid "ConfigurePrinter"
 msgstr ""
 
-#: src/configure-printer/main.cpp:38
+#: src/configure-printer/main.cpp:39
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
 msgid "Printer to be configured"
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
-
-#: src/configure-printer/ModifyPrinter.cpp:126
-#, kde-format
-msgid "Current - %1"
-msgstr ""
-
-#: src/configure-printer/ModifyPrinter.cpp:129
-#, kde-format
-msgid "Select a custom driver"
-msgstr ""
-
-#: src/configure-printer/ModifyPrinter.cpp:228
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
-msgctxt "@info"
-msgid "Failed to configure class"
-msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
-
-#: src/configure-printer/ModifyPrinter.cpp:229
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
-msgctxt "@info"
-msgid "Failed to configure printer"
-msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
-
-#: src/configure-printer/ModifyPrinter.cpp:231
-#, kde-format
-msgctxt "@title:window"
-msgid "Failed"
-msgstr "បាន​បរាជ័យ"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/configure-printer/ModifyPrinter.ui:32
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Description:"
-msgid "&Description:"
-msgstr "សេចក្ដី​ពិពណ៌នា ៖"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
-#: src/configure-printer/ModifyPrinter.ui:42
-#, kde-format
-msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/configure-printer/ModifyPrinter.ui:52
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Location:"
-msgid "&Location:"
-msgstr "ទីតាំង ៖"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
-#: src/configure-printer/ModifyPrinter.ui:62
-#, kde-format
-msgid "Human-readable location such as \"Lab 1\""
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, connectionL)
-#: src/configure-printer/ModifyPrinter.ui:79
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Connection:"
-msgid "Connec&tion:"
-msgstr "ការ​តភ្ជាប់ ៖"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
-#: src/configure-printer/ModifyPrinter.ui:103
-#, kde-format
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:10pt;\">Examples:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-"port1</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
-"p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-"p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, membersL)
-#: src/configure-printer/ModifyPrinter.ui:113
-#, fuzzy, kde-format
-#| msgctxt "@label:listbox"
-#| msgid "Members:"
-msgid "Members"
-msgstr "សមាជិក ៖"
-
-#. i18n: ectx: property (text), widget (QLabel, driverL)
-#: src/configure-printer/ModifyPrinter.ui:126
-#, kde-format
-msgid "Driver:"
-msgstr ""
 
 #: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
@@ -746,7 +615,7 @@ msgstr ""
 msgid "A&llow these users to print"
 msgstr ""
 
-#: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
@@ -756,15 +625,6 @@ msgstr ""
 #, kde-format
 msgid "Query Printer for Default Options"
 msgstr ""
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: src/configure-printer/SelectMakeModelDialog.cpp:27
-#: src/libkcups/SelectMakeModel.ui:14
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
-msgid "Select a Driver"
-msgstr "ជ្រើស​កម្មវិធី​បញ្ជា"
 
 #: src/kcm/printermanager.cpp:237
 #, fuzzy, kde-format
@@ -1326,6 +1186,14 @@ msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បន្
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: src/libkcups/SelectMakeModel.ui:14
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Pick a Driver"
+msgid "Select a Driver"
+msgstr "ជ្រើស​កម្មវិធី​បញ្ជា"
+
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
 #, fuzzy, kde-format
@@ -1511,6 +1379,53 @@ msgstr ""
 #, kde-format
 msgid "All Jobs"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Print settings"
+#~ msgid "Printer Settings"
+#~ msgstr "ការ​កំណត់​បោះពុម្ព"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to configure printer"
+#~ msgctxt "@info"
+#~ msgid "Failed to configure class"
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to configure printer"
+#~ msgctxt "@info"
+#~ msgid "Failed to configure printer"
+#~ msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
+
+#~ msgctxt "@title:window"
+#~ msgid "Failed"
+#~ msgstr "បាន​បរាជ័យ"
+
+#, fuzzy
+#~| msgctxt "@label:textbox"
+#~| msgid "Description:"
+#~ msgid "&Description:"
+#~ msgstr "សេចក្ដី​ពិពណ៌នា ៖"
+
+#, fuzzy
+#~| msgctxt "@label:textbox"
+#~| msgid "Location:"
+#~ msgid "&Location:"
+#~ msgstr "ទីតាំង ៖"
+
+#, fuzzy
+#~| msgctxt "@label:textbox"
+#~| msgid "Connection:"
+#~ msgid "Connec&tion:"
+#~ msgstr "ការ​តភ្ជាប់ ៖"
+
+#, fuzzy
+#~| msgctxt "@label:listbox"
+#~| msgid "Members:"
+#~ msgid "Members"
+#~ msgstr "សមាជិក ៖"
 
 #, fuzzy
 #~| msgctxt "@info"

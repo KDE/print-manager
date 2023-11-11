@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# Vit Pelcak <vit@pelcak.org>, 2012, 2013, 2014, 2015, 2017, 2018, 2019.
+# SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2023 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2019-11-06 12:22+0100\n"
+"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"PO-Revision-Date: 2023-11-08 16:00+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 19.08.2\n"
+"X-Generator: Lokalize 23.08.2\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -61,12 +61,10 @@ msgid "Configure your connection"
 msgstr "Nastavte vaše spojení"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "Vybrat ovladač"
+msgstr "Vybrat ovladač pro %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -75,7 +73,7 @@ msgid "Address:"
 msgstr "Adresa:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
+#: src/add-printer/ChooseLpd.ui:36
 #, kde-format
 msgid "Queue:"
 msgstr "Fronta:"
@@ -288,11 +286,11 @@ msgstr "(C) 2010-2018 Daniel Nicoletti"
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Port na Qt 5 / Plasma 5"
 
-#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
+#: src/printqueue/main.cpp:32
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Port na Qt 5 / Plasma 5"
+msgstr "Port na Qt 6 / Plasma 6"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -436,33 +434,26 @@ msgstr "Spojení"
 msgid "Please choose an item on the list"
 msgstr "Prosím, vyberte položku ze seznamu"
 
-#: src/configure-printer/ConfigureDialog.cpp:90
-#: src/configure-printer/ConfigureDialog.cpp:91
-#, fuzzy, kde-format
-#| msgid "Printer Options"
-msgid "Printer Settings"
-msgstr "Možnosti tiskárny"
+#: src/configure-printer/ConfigureDialog.cpp:93
+#: src/configure-printer/ConfigureDialog.cpp:94
+#, kde-format
+msgid "Media Settings"
+msgstr "Nastavení multimédií"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
-msgid "Media Settings"
-msgstr ""
-
-#: src/configure-printer/ConfigureDialog.cpp:112
-#: src/configure-printer/ConfigureDialog.cpp:113
-#, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Nadpisy, chování a povolení uživatelé"
 
-#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:172
 #, kde-format
 msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr "Aktuální stránka obsahuje změny. Přejete si je uložit?"
 
-#: src/configure-printer/ConfigureDialog.cpp:186
+#: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
 msgstr "Uložit"
@@ -477,164 +468,10 @@ msgstr "Nastavit tiskárnu"
 msgid "ConfigurePrinter"
 msgstr "ConfigurePrinter"
 
-#: src/configure-printer/main.cpp:38
+#: src/configure-printer/main.cpp:39
 #, kde-format
 msgid "Printer to be configured"
 msgstr "Tiskárna k nastavení"
-
-#: src/configure-printer/ModifyPrinter.cpp:126
-#, kde-format
-msgid "Current - %1"
-msgstr "Současná - %1"
-
-#: src/configure-printer/ModifyPrinter.cpp:129
-#, kde-format
-msgid "Select a custom driver"
-msgstr "Vybrat vlastní ovladač"
-
-#: src/configure-printer/ModifyPrinter.cpp:228
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class"
-msgstr "Nastavení třídy selhalo"
-
-#: src/configure-printer/ModifyPrinter.cpp:229
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer"
-msgstr "Nastavení tiskárny selhalo"
-
-#: src/configure-printer/ModifyPrinter.cpp:231
-#, kde-format
-msgctxt "@title:window"
-msgid "Failed"
-msgstr "Selhalo"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/configure-printer/ModifyPrinter.ui:32
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "&Description:"
-msgstr "Popis:"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
-#: src/configure-printer/ModifyPrinter.ui:42
-#, kde-format
-msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-msgstr ""
-"Lidem srozumitelný popis jako např. \"HP LaserJet s oboustranným tiskem\""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/configure-printer/ModifyPrinter.ui:52
-#, fuzzy, kde-format
-#| msgid "Location:"
-msgid "&Location:"
-msgstr "Umístění:"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
-#: src/configure-printer/ModifyPrinter.ui:62
-#, kde-format
-msgid "Human-readable location such as \"Lab 1\""
-msgstr "Lidem srozumitelné umístění jako např. \"Lab 1\""
-
-#. i18n: ectx: property (text), widget (QLabel, connectionL)
-#: src/configure-printer/ModifyPrinter.ui:79
-#, fuzzy, kde-format
-#| msgid "Connection:"
-msgid "Connec&tion:"
-msgstr "Spojení:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
-#: src/configure-printer/ModifyPrinter.ui:103
-#, kde-format
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:10pt;\">Examples:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-"port1</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
-"p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-"p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:10pt;\">Examples:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-"port1</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
-"p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-"p></body></html>"
-
-#. i18n: ectx: property (text), widget (QLabel, membersL)
-#: src/configure-printer/ModifyPrinter.ui:113
-#, kde-format
-msgid "Members"
-msgstr "Členové"
-
-#. i18n: ectx: property (text), widget (QLabel, driverL)
-#: src/configure-printer/ModifyPrinter.ui:126
-#, kde-format
-msgid "Driver:"
-msgstr "Ovladač:"
 
 #: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
@@ -755,7 +592,7 @@ msgstr "Zakázat těmto uži&vatelům tisk"
 msgid "A&llow these users to print"
 msgstr "Povo&lit těmto uživatelům tisk"
 
-#: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nastavit výchozí volby"
@@ -766,28 +603,17 @@ msgstr "Nastavit výchozí volby"
 msgid "Query Printer for Default Options"
 msgstr "Dotázat se tiskárny na výchozí volby"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: src/configure-printer/SelectMakeModelDialog.cpp:27
-#: src/libkcups/SelectMakeModel.ui:14
-#, kde-format
-msgid "Select a Driver"
-msgstr "Vyberte ovladač"
-
 #: src/kcm/printermanager.cpp:237
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Nastavení třídy selhalo"
+msgstr "Nastavení třídy selhalo: "
 
 #: src/kcm/printermanager.cpp:238
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Nastavení tiskárny selhalo"
+msgstr "Nastavení tiskárny selhalo: "
 
 #: src/kcm/printermanager.cpp:379
 #, kde-format
@@ -795,18 +621,16 @@ msgid "Failed to perform request: %1"
 msgstr "Vykonání požadavku selhalo: %1"
 
 #: src/kcm/printermanager.cpp:434
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Selhalo získání nastavení serveru"
+msgstr "Selhalo získání nastavení serveru: %1"
 
 #: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Chyba serveru: (%1): %2"
 
 #: src/kcm/printermanager.cpp:528
 #, kde-format
@@ -1006,38 +830,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Místní tiskárna detekována pomocí HAL"
 
 #: src/libkcups/DevicesModel.cpp:129
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"HPLIP software ovládající fax, nebo funkce faxu na multifunkčním zařízení"
+"HPLIP software ovládající fax,\n"
+"nebo funkce faxu na multifunkčním zařízení"
 
 #: src/libkcups/DevicesModel.cpp:130
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"HPLIP software ovládající tiskárnu, nebo funkce tisku na multifunkčním "
-"zařízení"
+"HPLIP software ovládající tiskárnu,\n"
+"nebo funkce tisku na multifunkčním zařízení"
 
 #: src/libkcups/DevicesModel.cpp:131
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "IPP síťová tiskárna skrze DNS-SD"
+msgstr "IPP síťová tiskárna skrze IPP"
 
 #: src/libkcups/DevicesModel.cpp:132
 #, kde-format
@@ -1052,15 +868,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Vzdálená tiskárna CUPS skrze DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Síťová tiskárna skrze DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:153
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "Síťová tiskárna %1 přes DNS-SD"
@@ -1231,7 +1045,7 @@ msgstr "Doporučované ovladače"
 #: src/libkcups/PPDModel.cpp:98
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Prázdný panel ppd"
 
 #: src/libkcups/PrinterModel.cpp:203
 #, kde-format
@@ -1299,10 +1113,9 @@ msgid "Unknown - '%1'"
 msgstr "Neznámá - '%1'"
 
 #: src/libkcups/SelectMakeModel.cpp:117
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose the driver for %1"
-msgstr "Vyber&te ovladač ze seznamu"
+msgstr "Vyberte ovladač pro %1"
 
 #: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
@@ -1314,12 +1127,17 @@ msgstr "Získání seznamu ovladačů selhalo: '%1'"
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Vyhledání doporučovaného ovladače selhalo: '%1'"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: src/libkcups/SelectMakeModel.ui:14
+#, kde-format
+msgid "Select a Driver"
+msgstr "Vyberte ovladač"
+
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose &the driver"
-msgstr "Vyber&te ovladač ze seznamu"
+msgstr "Vyber&te ovladač"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91
@@ -1484,122 +1302,126 @@ msgstr "Dokončené úlohy"
 msgid "All Jobs"
 msgstr "Všechny úlohy"
 
+#~ msgid "Printer Settings"
+#~ msgstr "Nastavení tiskárny"
+
+#~ msgid "Current - %1"
+#~ msgstr "Současná - %1"
+
+#~ msgid "Select a custom driver"
+#~ msgstr "Vybrat vlastní ovladač"
+
 #~ msgctxt "@info"
-#~ msgid "Failed to configure server settings"
-#~ msgstr "Selhalo nastavení možností serveru"
+#~ msgid "Failed to configure class"
+#~ msgstr "Nastavení třídy selhalo"
 
-#~ msgid "Modify Printer"
-#~ msgstr "Upravit tiskárnu"
+#~ msgctxt "@info"
+#~ msgid "Failed to configure printer"
+#~ msgstr "Nastavení tiskárny selhalo"
 
-#~ msgid "Set the Default Printer Options"
-#~ msgstr "Nastavit výchozí volby tiskárny"
+#~ msgctxt "@title:window"
+#~ msgid "Failed"
+#~ msgstr "Selhalo"
 
-#~ msgid "Name:"
-#~ msgstr "Název:"
+#~ msgid "&Description:"
+#~ msgstr "&Popis:"
 
-#~ msgid "Share this class"
-#~ msgstr "Sdílet tuto třídu"
-
-#~ msgid "Share this printer"
-#~ msgstr "Sdílet tuto tiskárnu"
-
-#~ msgctxt "@title"
-#~ msgid "Printer name or description"
-#~ msgstr "Název, nebo popisek tiskárny"
-
-#~ msgid "Current status"
-#~ msgstr "Současný stav"
-
-#~ msgctxt "@option:check"
-#~ msgid "Default printer"
-#~ msgstr "Výchozí tiskárna"
-
-#~ msgid "Reject print jobs"
-#~ msgstr "Odmítat tiskové úlohy"
-
-#~ msgctxt "@label location of printer"
-#~ msgid "Location:"
-#~ msgstr "Umístění:"
-
-#~ msgctxt ""
-#~ "@label kind of printer, could be driver name or \"local raw socket\""
-#~ msgid "Kind:"
-#~ msgstr "Typ:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Maintenance"
-#~ msgstr "Správa"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open Print Queue"
-#~ msgstr "Otevřít frontu tisku"
-
-#~ msgid "Print Test Page"
-#~ msgstr "Vytisknout testovací stránku"
-
-#~ msgid "Print Self Test Page"
-#~ msgstr "Vytisknout testovací stránku"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add a Printer Class"
-#~ msgstr "Přidat třídu tiskáren"
-
-#~ msgid "Add a new printer or a printer class"
-#~ msgstr "Přidat novou tiskárnu nebo třídu tiskáren"
-
-#~ msgid "Remove Printer"
-#~ msgstr "Odstranit tiskárnu"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Show printers shared by other systems"
-#~ msgstr "Zobrazit tiskárny sdílené ostatními systémy"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Share printers connected to this system"
-#~ msgstr "Sdílené tiskárny připojené k tomuto systému"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow printing from the Internet"
-#~ msgstr "Povolit tisk z internetu"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow remote administration"
-#~ msgstr "Povolit vzdálenou správu"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow users to cancel any job (not just their own)"
+#~ msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
 #~ msgstr ""
-#~ "Povolit uživatelům zrušit jakoukoliv úlohu (ne jen ty, které vlastní)"
+#~ "Lidem srozumitelný popis jako např. \"HP LaserJet s oboustranným tiskem\""
 
-#~ msgid "Configure the global preferences"
-#~ msgstr "Nastavit globální předvolby"
+#~ msgid "&Location:"
+#~ msgstr "&Umístění:"
 
-#~ msgid "No printers have been configured or discovered"
-#~ msgstr "Nebyly nalezeny či nastaveny žádné tiskárny"
+#~ msgid "Human-readable location such as \"Lab 1\""
+#~ msgstr "Lidem srozumitelné umístění jako např. \"Lab 1\""
 
-#~ msgid "Remove class"
-#~ msgstr "Odebrat třídu"
+#~ msgid "Connec&tion:"
+#~ msgstr "Připo&jení:"
 
-#~ msgid "Are you sure you want to remove the class '%1'?"
-#~ msgstr "Určitě si přejete odstranit třídu '%1'?"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "size:10pt;\">Examples:</span></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+#~ "</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+#~ "port1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</"
+#~ "p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/"
+#~ "port1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</"
+#~ "p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "size:10pt;\">Examples:</span></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+#~ "</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+#~ "port1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</"
+#~ "p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/"
+#~ "port1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</"
+#~ "p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+#~ "p></body></html>"
 
-#~ msgid "Remove printer"
-#~ msgstr "Odstranit tiskárnu"
+#~ msgid "Members"
+#~ msgstr "Členové"
 
-#~ msgid "Are you sure you want to remove the printer '%1'?"
-#~ msgstr "Určitě si přejete odstranit tiskárnu '%1'?"
-
-#~ msgid "System Preferences"
-#~ msgstr "Systémové nastavení"
-
-#~ msgid "TextLabel"
-#~ msgstr "Textový štítek"
-
-#~ msgid "Error Title"
-#~ msgstr "Název chyby"
-
-#~ msgid "Click here to add a new printer"
-#~ msgstr "Zde klikněte pro přidání nové tiskárny"
-
-#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-#~ msgstr "*.ppd *.ppd.gz|Soubory s popisem PS tiskáren"
+#~ msgid "Driver:"
+#~ msgstr "Ovladač:"

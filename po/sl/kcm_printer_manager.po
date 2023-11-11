@@ -1,0 +1,649 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"PO-Revision-Date: 2023-11-10 11:48+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: \n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#: printermanager.cpp:229
+#, kde-format
+msgid "Set Default Options"
+msgstr "Nastavite privzete možnosti"
+
+#: printermanager.cpp:237
+#, fuzzy, kde-format
+#| msgid "Failed to configure class: "
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "Razreda ni bilo mogoče konfigurirati: "
+
+#: printermanager.cpp:238
+#, fuzzy, kde-format
+#| msgid "Failed to configure printer: "
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "Tiskalnika ni bilo mogoče konfigurirati: "
+
+#: printermanager.cpp:379
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Zahteve ni bilo mogoče izvesti: %1"
+
+#: printermanager.cpp:434
+#, fuzzy, kde-format
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Failed to get server settings: %1"
+msgstr "Nastavitev strežnika ni bilo mogoče pridobiti: %1"
+
+#: printermanager.cpp:473
+#, fuzzy, kde-format
+#| msgid "Server error: (%1): %2"
+msgctxt "@info"
+msgid "Server error: (%1): %2"
+msgstr "Napaka strežnika: (%1): %2"
+
+#: printermanager.cpp:528
+#, fuzzy, kde-format
+#| msgctxt "printermanager.cpp:528"
+#| msgid "Print Self-Test Page"
+msgid "Print Self-Test Page"
+msgstr "Natisni stran za samopreizkus"
+
+#: printermanager.cpp:534
+#, fuzzy, kde-format
+#| msgctxt "printermanager.cpp:534"
+#| msgid "Clean Print Heads"
+msgid "Clean Print Heads"
+msgstr "Čisti tiskalne glave"
+
+#: ui/Drivers.qml:52
+#, fuzzy, kde-format
+#| msgid "Select Recommended Driver"
+msgctxt "@action:button"
+msgid "Select Recommended Driver"
+msgstr "Izberi priporočeni gonilnik"
+
+#: ui/Drivers.qml:58
+#, fuzzy, kde-format
+#| msgid ""
+#| "Recommended drivers are based on printer make/model and connection type"
+msgctxt "@info:tooltip"
+msgid "Recommended drivers are based on printer make/model and connection type"
+msgstr ""
+"Priporočeni gonilniki temeljijo na znamki/modelu tiskalnika in vrsti povezave"
+
+#: ui/FindPrinter.qml:87
+#, fuzzy, kde-format
+#| msgid "Set up a Printer Connection"
+msgctxt "@title:window"
+msgid "Set up a Printer Connection"
+msgstr "Nastavi povezavo s tiskalnikom"
+
+#: ui/FindPrinter.qml:94
+#, fuzzy, kde-format
+#| msgid "Show Detected Devices"
+msgctxt "@action:button"
+msgid "Show Detected Devices"
+msgstr "Pokaži zaznane naprave"
+
+#: ui/FindPrinter.qml:95
+#, fuzzy, kde-format
+#| msgid "Show Manual Options"
+msgctxt "@action:button"
+msgid "Show Manual Options"
+msgstr "Pokaži ročne možnosti"
+
+#: ui/FindPrinter.qml:114
+#, kde-format
+msgid "Refresh"
+msgstr "Osveži"
+
+#: ui/FindPrinter.qml:125
+#, kde-format
+msgid "CUPS Network Printers Help"
+msgstr "Pomoč za omrežne tiskalnike CUPS"
+
+#: ui/FindPrinter.qml:187
+#, fuzzy, kde-format
+#| msgid "Find remote printing devices"
+msgctxt "@title:group"
+msgid "Find remote printing devices"
+msgstr "Poišči oddaljene tiskalne naprave"
+
+#: ui/FindPrinter.qml:188
+#, fuzzy, kde-format
+#| msgid "Enter the address of the remote host/device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the remote host/device"
+msgstr "Vnesite naslov oddaljenega gostitelja/naprave"
+
+#: ui/FindPrinter.qml:209
+#, fuzzy, kde-format
+#| msgid "Select Printer"
+msgctxt "@action:button"
+msgid "Select Printer"
+msgstr "Izberi tiskalnik"
+
+#: ui/FindPrinter.qml:239
+#, fuzzy, kde-format
+#| msgid "Uri:"
+msgctxt "@label:textbox"
+msgid "Uri:"
+msgstr "Uri:"
+
+#: ui/FindPrinter.qml:247
+#, kde-format
+msgid "Enter host URI"
+msgstr "Vnesite URI gostitelja"
+
+#: ui/FindPrinter.qml:321
+#, fuzzy, kde-format
+#| msgid "Example Addresses"
+msgctxt "@info:usagetip"
+msgid "Example Addresses"
+msgstr "Primeri naslovov"
+
+#: ui/FindPrinter.qml:368
+#, fuzzy, kde-format
+#| msgid "Choose a device connection"
+msgctxt "@info:usagetip"
+msgid "Choose a device connection"
+msgstr "Izberite povezavo naprave"
+
+#: ui/FindPrinter.qml:458
+#, fuzzy, kde-format
+#| msgid "Unable to automatically discover any printing devices"
+msgctxt "@info:status"
+msgid "Unable to automatically discover any printing devices"
+msgstr "Ni mogoče samodejno odkriti nobene tiskalne naprave"
+
+#: ui/FindPrinter.qml:459
+#, fuzzy, kde-format
+#| msgid ""
+#| "Choose \"Refresh\" to try again or choose a manual configuration option "
+#| "from the list"
+msgctxt "@info:usagetip"
+msgid ""
+"Choose \"Refresh\" to try again or choose a manual configuration option from "
+"the list"
+msgstr ""
+"Izberite \"Osveži\", da poskusite znova, ali izberite možnost ročne "
+"konfiguracije s seznama"
+
+#: ui/FindPrinter.qml:468
+#, fuzzy, kde-format
+#| msgid "Choose a manual configuration option from the list"
+msgctxt "@info:usagetip"
+msgid "Choose a manual configuration option from the list"
+msgstr "Na seznamu izberite možnost ročne konfiguracije"
+
+#: ui/FindPrinter.qml:481
+#, fuzzy, kde-format
+#| msgid "This feature is not yet available (%1)"
+msgctxt "@info:status"
+msgid "This feature is not yet available (%1)"
+msgstr "Ta funkcija še ni na voljo (%1)"
+
+#: ui/Global.qml:14
+#, fuzzy, kde-format
+#| msgid "Print Server Settings"
+msgctxt "@title:window"
+msgid "Print Server Settings"
+msgstr "Nastavitve tiskalnega strežnika"
+
+#: ui/Global.qml:28
+#, fuzzy, kde-format
+#| msgid "CUPS Print Server Admin"
+msgctxt "@action:button"
+msgid "CUPS Print Server Admin"
+msgstr "Skrbnik tiskalniškega strežnika CUPS"
+
+#: ui/Global.qml:36
+#, fuzzy, kde-format
+#| msgid "Reset"
+msgctxt "@action:button Reset to current settings"
+msgid "Reset"
+msgstr "Ponastavi"
+
+#: ui/Global.qml:43
+#, fuzzy, kde-format
+#| msgctxt "ui/Global.qml:43"
+#| msgid "Apply"
+msgctxt "@action:button Apply new settings"
+msgid "Apply"
+msgstr "Uveljavi"
+
+#: ui/Global.qml:105
+#, fuzzy, kde-format
+#| msgid "Share printers connected to this system"
+msgctxt "@option:check"
+msgid "Share printers connected to this system"
+msgstr "Delite tiskalnike, povezane s tem sistemom"
+
+#: ui/Global.qml:117
+#, fuzzy, kde-format
+#| msgid "Allow printing from the Internet"
+msgctxt "@option:check"
+msgid "Allow printing from the Internet"
+msgstr "Dovoli tiskanje iz interneta"
+
+#: ui/Global.qml:123
+#, fuzzy, kde-format
+#| msgid "Allow remote administration"
+msgctxt "@option:check"
+msgid "Allow remote administration"
+msgstr "Dovoli oddaljeno upravljanje"
+
+#: ui/Global.qml:128
+#, fuzzy, kde-format
+#| msgid "Allow users to cancel any job (not just their own)"
+msgctxt "@option:check"
+msgid "Allow users to cancel any job (not just their own)"
+msgstr ""
+"Omogočite uporabnikom, da prekličejo katero koli opravilo (ne samo svojega)"
+
+#: ui/main.qml:31
+#, kde-format
+msgid "new_queue"
+msgstr "nova_čakalna vrsta"
+
+#: ui/main.qml:31
+#, kde-format
+msgid "new_group"
+msgstr "nova_skupina"
+
+#: ui/main.qml:67
+#, fuzzy, kde-format
+#| msgctxt "ui/main.qml:67"
+#| msgid "Add Printer"
+msgctxt "@action:button"
+msgid "Add Printer"
+msgstr "Dodaj tiskalnik"
+
+#: ui/main.qml:76
+#, fuzzy, kde-format
+#| msgctxt "ui/main.qml:76"
+#| msgid "Add Group"
+msgctxt "@action:button"
+msgid "Add Group"
+msgstr "Dodaj skupino"
+
+#: ui/main.qml:85
+#, fuzzy, kde-format
+#| msgid "Configure Print Server"
+msgctxt "@action:button"
+msgid "Configure Print Server"
+msgstr "Konfigurirajte tiskalni strežnik"
+
+#: ui/main.qml:186
+#, fuzzy, kde-format
+#| msgid "No printers are currently set up"
+msgctxt "@info:status"
+msgid "No printers are currently set up"
+msgstr "Trenutno ni nastavljenega nobenega tiskalnika"
+
+#: ui/main.qml:187
+#, fuzzy, kde-format
+#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+msgctxt "@info:usagetip"
+msgid "Choose 'Add Printer' to set up a new printer on this computer"
+msgstr ""
+"Izberite »Dodaj tiskalnik«, da nastavite nov tiskalnik v tem računalniku"
+
+#: ui/main.qml:197
+#, kde-format
+msgid "Printers"
+msgstr "Tiskalniki"
+
+#: ui/main.qml:197
+#, kde-format
+msgid "Printer Groups"
+msgstr "Skupine tiskalnikov"
+
+#: ui/main.qml:235
+#, fuzzy, kde-format
+#| msgctxt "ui/main.qml:235"
+#| msgid "Configure…"
+msgctxt "@action:button"
+msgid "Configure…"
+msgstr "Konfiguriraj…"
+
+#: ui/main.qml:256
+#, fuzzy, kde-format
+#| msgid "Open Print Queue…"
+msgctxt "@action:button"
+msgid "Open Print Queue…"
+msgstr "Odpri čakalno vrsto za tiskanje…"
+
+#: ui/main.qml:273
+#, fuzzy, kde-format
+#| msgid "Resume"
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "Nadaljuj"
+
+#: ui/main.qml:274
+#, fuzzy, kde-format
+#| msgid "Pause"
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "Pavza"
+
+#: ui/main.qml:288
+#, fuzzy, kde-format
+#| msgid "Resume printing"
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "Nadaljujte s tiskanjem"
+
+#: ui/main.qml:289
+#, fuzzy, kde-format
+#| msgid "Pause printing"
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "Začasna ustavitev tiskanja"
+
+#: ui/MakeModel.qml:84
+#, fuzzy, kde-format
+#| msgid "Printer Driver (%1)"
+msgctxt "@title:window"
+msgid "Printer Driver (%1)"
+msgstr "Gonilnik tiskalnika (%1)"
+
+#: ui/MakeModel.qml:89
+#, fuzzy, kde-format
+#| msgid "Printer Driver"
+msgctxt "@title:window"
+msgid "Printer Driver"
+msgstr "Gonilnik tiskalnika"
+
+#: ui/MakeModel.qml:134
+#, kde-format
+msgid "Save"
+msgstr "Shrani"
+
+#: ui/MakeModel.qml:139
+#, kde-format
+msgid "Select a PostScript Printer Description (PPD) file"
+msgstr "Izberite datoteko z opisom tiskalnika PostScript (PPD)"
+
+#: ui/MakeModel.qml:192
+#, fuzzy, kde-format
+#| msgid "Select Make and Model:"
+msgctxt "@option:radio"
+msgid "Select Make and Model:"
+msgstr "Izberite znamko in model:"
+
+#: ui/MakeModel.qml:204
+#, fuzzy, kde-format
+#| msgid "Filter Models"
+msgctxt "@info:placeholder"
+msgid "Filter Models"
+msgstr "Modeli filtrov"
+
+#: ui/MakeModel.qml:285
+#, fuzzy, kde-format
+#| msgid "PPD file:"
+msgctxt "@option:radio"
+msgid "PPD file:"
+msgstr "PPD datoteka:"
+
+#: ui/MakeModel.qml:307
+#, fuzzy, kde-format
+#| msgid "Select PPD File…"
+msgctxt "@action:button"
+msgid "Select PPD File…"
+msgstr "Izberite datoteko PPD…"
+
+#: ui/MakeModel.qml:314
+#, kde-format
+msgid "Select"
+msgstr "Izberite"
+
+#: ui/MakeModel.qml:315
+#, kde-format
+msgid "PostScript Printer Description Files (*.ppd)"
+msgstr "Datoteke z opisom tiskalnika PostScript (*.ppd)"
+
+#: ui/PrinterSettings.qml:43
+#, fuzzy, kde-format
+#| msgctxt "ui/main.qml:76"
+#| msgid "Add Group"
+msgctxt "@title:window"
+msgid "Add Group"
+msgstr "Dodaj skupino"
+
+#: ui/PrinterSettings.qml:44
+#, fuzzy, kde-format
+#| msgctxt "ui/main.qml:67"
+#| msgid "Add Printer"
+msgctxt "@title:window"
+msgid "Add Printer"
+msgstr "Dodaj tiskalnik"
+
+#: ui/PrinterSettings.qml:55
+#, fuzzy, kde-format
+#| msgctxt "ui/main.qml:235"
+#| msgid "Configure…"
+msgid "Configure…"
+msgstr "Konfiguriraj…"
+
+#: ui/PrinterSettings.qml:60
+#, kde-format
+msgid "Remove"
+msgstr "Odstrani"
+
+#: ui/PrinterSettings.qml:76
+#, fuzzy, kde-format
+#| msgid "CUPS Printers Overview Help"
+msgctxt "@action:button"
+msgid "CUPS Printers Overview Help"
+msgstr "Pomoč za pregled tiskalnikov CUPS"
+
+#: ui/PrinterSettings.qml:86
+#, fuzzy, kde-format
+#| msgid "Auto Configure"
+msgctxt "@option:check"
+msgid "Auto Configure"
+msgstr "Samodejna konfiguracija"
+
+#: ui/PrinterSettings.qml:93
+#, fuzzy, kde-format
+#| msgid "Add"
+msgctxt "@action:button Add printer"
+msgid "Add"
+msgstr "Dodaj"
+
+#: ui/PrinterSettings.qml:94
+#, fuzzy, kde-format
+#| msgctxt "ui/Global.qml:43"
+#| msgid "Apply"
+msgctxt "@action:button Apply changes"
+msgid "Apply"
+msgstr "Uveljavi"
+
+#: ui/PrinterSettings.qml:102
+#, fuzzy, kde-format
+#| msgid "Queue name is required.  Enter a unique queue name."
+msgctxt "@info:status"
+msgid "Queue name is required.  Enter a unique queue name."
+msgstr "Zahtevano je ime čakalne vrste. Vnesite edinstveno ime čakalne vrste."
+
+#: ui/PrinterSettings.qml:109
+#, fuzzy, kde-format
+#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+msgctxt "@info:status"
+msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+msgstr ""
+"Zahtevana je znamka/model. Izberite \"Izberi\", da izberete znamko/model"
+
+#: ui/PrinterSettings.qml:160
+#, kde-format
+msgid "Failed to remove the printer: %1"
+msgstr "Tiskalnika ni bilo mogoče odstraniti: %1"
+
+#: ui/PrinterSettings.qml:178
+#, kde-format
+msgid "Remove Group"
+msgstr "Odstrani skupino"
+
+#: ui/PrinterSettings.qml:178
+#, kde-format
+msgid "Remove Printer"
+msgstr "Odstrani tiskalnik"
+
+#: ui/PrinterSettings.qml:179
+#, kde-format
+msgid "Are you sure you really want to remove:  %1 (%2)?"
+msgstr "Ali ste prepričani, da res želite odstraniti: %1 (%2)?"
+
+#: ui/PrinterSettings.qml:196
+#, kde-format
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: ui/PrinterSettings.qml:342
+#, fuzzy, kde-format
+#| msgid "A <b>printer group</b> is used to pool printing resources."
+msgctxt "@info:whatsthis"
+msgid "A <b>printer group</b> is used to pool printing resources."
+msgstr "<b>Skupina tiskalnikov</b> se uporablja za združevanje virov tiskanja."
+
+#: ui/PrinterSettings.qml:384
+#, fuzzy, kde-format
+#| msgid "Default printer"
+msgctxt "@action:check Set default printer"
+msgid "Default printer"
+msgstr "Privzeti tiskalnik"
+
+#: ui/PrinterSettings.qml:391
+#, fuzzy, kde-format
+#| msgid "Share this group"
+msgctxt "@action:check"
+msgid "Share this group"
+msgstr "Delite to skupino"
+
+#: ui/PrinterSettings.qml:392
+#, fuzzy, kde-format
+#| msgid "Share this printer"
+msgctxt "@action:check"
+msgid "Share this printer"
+msgstr "Delite ta tiskalnik"
+
+#: ui/PrinterSettings.qml:399
+#, fuzzy, kde-format
+#| msgid "Accepting print jobs"
+msgctxt "@action:check"
+msgid "Accepting print jobs"
+msgstr "Sprejemanje tiskalnih opravil"
+
+#: ui/PrinterSettings.qml:430
+#, fuzzy, kde-format
+#| msgid "Print Test Page"
+msgctxt "@action:button"
+msgid "Print Test Page"
+msgstr "Natisni preizkusno stran"
+
+#: ui/PrinterSettings.qml:436
+#, fuzzy, kde-format
+#| msgctxt "printermanager.cpp:528"
+#| msgid "Print Self-Test Page"
+msgctxt "@action:button"
+msgid "Print Self-Test Page"
+msgstr "Natisni stran za samopreizkus"
+
+#: ui/PrinterSettings.qml:443
+#, fuzzy, kde-format
+#| msgctxt "printermanager.cpp:534"
+#| msgid "Clean Print Heads"
+msgctxt "@action:button"
+msgid "Clean Print Heads"
+msgstr "Čisti tiskalne glave"
+
+#: ui/PrinterSettings.qml:463
+#, fuzzy, kde-format
+#| msgid "Find a Printer…"
+msgctxt "@action:button"
+msgid "Find a Printer…"
+msgstr "Poišči tiskalnik…"
+
+#: ui/PrinterSettings.qml:471
+#, fuzzy, kde-format
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue Name:"
+msgstr "Ime čakalne vrste:"
+
+#: ui/PrinterSettings.qml:484
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "Opis:"
+
+#: ui/PrinterSettings.qml:496
+#, fuzzy, kde-format
+#| msgid "Location:"
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr "Lokacija:"
+
+#: ui/PrinterSettings.qml:508
+#, fuzzy, kde-format
+#| msgid "Connection:"
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr "Povezava:"
+
+#: ui/PrinterSettings.qml:522
+#, fuzzy, kde-format
+#| msgid "Member Printers:"
+msgctxt "@label:listbox"
+msgid "Member Printers:"
+msgstr "Članski tiskalniki:"
+
+#: ui/PrinterSettings.qml:653
+#, fuzzy, kde-format
+#| msgid "Make/Model:"
+msgctxt "@label:textbox"
+msgid "Make/Model:"
+msgstr "Znamka/model:"
+
+#: ui/PrinterSettings.qml:668
+#, fuzzy, kde-format
+#| msgid "Select…"
+msgctxt "@action:button Select printer make/model"
+msgid "Select…"
+msgstr "Izberite…"
+
+#~ msgctxt "ui/PrinterSettings.qml:43"
+#~ msgid "Add Group"
+#~ msgstr "Dodaj skupino"
+
+#~ msgctxt "ui/PrinterSettings.qml:44"
+#~ msgid "Add Printer"
+#~ msgstr "Dodaj tiskalnik"
+
+#~ msgctxt "ui/PrinterSettings.qml:55"
+#~ msgid "Configure…"
+#~ msgstr "Konfiguriraj…"
+
+#~ msgctxt "ui/PrinterSettings.qml:94"
+#~ msgid "Apply"
+#~ msgstr "Uveljavi"
+
+#~ msgctxt "ui/PrinterSettings.qml:436"
+#~ msgid "Print Self-Test Page"
+#~ msgstr "Natisni stran za samopreizkus"
+
+#~ msgctxt "ui/PrinterSettings.qml:443"
+#~ msgid "Clean Print Heads"
+#~ msgstr "Čisti tiskalne glave"

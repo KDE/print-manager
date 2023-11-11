@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2023-04-26 01:50+0200\n"
+"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"PO-Revision-Date: 2023-11-08 14:42+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -58,12 +58,10 @@ msgid "Configure your connection"
 msgstr "Configura la connessione"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "Scegli un driver"
+msgstr "Scegli un driver per %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -72,7 +70,7 @@ msgid "Address:"
 msgstr "Indirizzo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36 src/configure-printer/ModifyPrinter.ui:25
+#: src/add-printer/ChooseLpd.ui:36
 #, kde-format
 msgid "Queue:"
 msgstr "Coda:"
@@ -285,11 +283,11 @@ msgstr "(C) 2010-2018 Daniel Nicoletti"
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Conversione a Qt 5 / Plasma 5"
 
-#: src/add-printer/main.cpp:35 src/printqueue/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
+#: src/printqueue/main.cpp:32
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Conversione a Qt 5 / Plasma 5"
+msgstr "Conversione a Qt 6 / Plasma 6"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -434,27 +432,19 @@ msgstr "Connessioni"
 msgid "Please choose an item on the list"
 msgstr "Scegli un elemento da questo elenco"
 
-#: src/configure-printer/ConfigureDialog.cpp:90
-#: src/configure-printer/ConfigureDialog.cpp:91
-#, fuzzy, kde-format
-#| msgid "Print settings"
-msgid "Printer Settings"
-msgstr "Impostazioni stampa"
+#: src/configure-printer/ConfigureDialog.cpp:93
+#: src/configure-printer/ConfigureDialog.cpp:94
+#, kde-format
+msgid "Media Settings"
+msgstr "Impostazioni del supporto"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
-#, fuzzy, kde-format
-#| msgid "Print settings"
-msgid "Media Settings"
-msgstr "Impostazioni stampa"
-
-#: src/configure-printer/ConfigureDialog.cpp:112
-#: src/configure-printer/ConfigureDialog.cpp:113
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Striscioni, politiche e utenti autorizzati"
 
-#: src/configure-printer/ConfigureDialog.cpp:185
+#: src/configure-printer/ConfigureDialog.cpp:172
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -463,7 +453,7 @@ msgstr ""
 "La pagina corrente è stata modificata.\n"
 "Vuoi salvare le modifiche?"
 
-#: src/configure-printer/ConfigureDialog.cpp:186
+#: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
 msgstr "Salva"
@@ -478,164 +468,10 @@ msgstr "Configura la stampante"
 msgid "ConfigurePrinter"
 msgstr "Configura stampante"
 
-#: src/configure-printer/main.cpp:38
+#: src/configure-printer/main.cpp:39
 #, kde-format
 msgid "Printer to be configured"
 msgstr "Stampante da configurare"
-
-#: src/configure-printer/ModifyPrinter.cpp:126
-#, kde-format
-msgid "Current - %1"
-msgstr "Corrente - %1"
-
-#: src/configure-printer/ModifyPrinter.cpp:129
-#, kde-format
-msgid "Select a custom driver"
-msgstr "Seleziona un driver personalizzato"
-
-#: src/configure-printer/ModifyPrinter.cpp:228
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class"
-msgstr "Configurazione della classe non riuscita"
-
-#: src/configure-printer/ModifyPrinter.cpp:229
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer"
-msgstr "Configurazione della stampante non riuscita"
-
-#: src/configure-printer/ModifyPrinter.cpp:231
-#, kde-format
-msgctxt "@title:window"
-msgid "Failed"
-msgstr "Non riuscito"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/configure-printer/ModifyPrinter.ui:32
-#, fuzzy, kde-format
-#| msgid "Description:"
-msgid "&Description:"
-msgstr "Descrizione:"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
-#: src/configure-printer/ModifyPrinter.ui:42
-#, kde-format
-msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-msgstr ""
-"Descrizione leggibile, come ad esempio «HP LaserJet con stampa fronte/retro»"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/configure-printer/ModifyPrinter.ui:52
-#, fuzzy, kde-format
-#| msgid "Location:"
-msgid "&Location:"
-msgstr "Posizione:"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
-#: src/configure-printer/ModifyPrinter.ui:62
-#, kde-format
-msgid "Human-readable location such as \"Lab 1\""
-msgstr "Posizione leggibile, come ad esempio «Lab 1»"
-
-#. i18n: ectx: property (text), widget (QLabel, connectionL)
-#: src/configure-printer/ModifyPrinter.ui:79
-#, fuzzy, kde-format
-#| msgid "Connection:"
-msgid "Connec&tion:"
-msgstr "Connessione:"
-
-#. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
-#: src/configure-printer/ModifyPrinter.ui:103
-#, kde-format
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:10pt;\">Examples:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-"port1</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
-"p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-"p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-"size:10pt;\">Esempi:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://nomehost:631/ipp/</"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://nomehost:631/ipp/"
-"porta1</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://nomehost/ipp/</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://nomehost/ipp/porta1</"
-"p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://nomehost/coda</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://nomehost</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://nomehost:9100</"
-"p></body></html>"
-
-#. i18n: ectx: property (text), widget (QLabel, membersL)
-#: src/configure-printer/ModifyPrinter.ui:113
-#, kde-format
-msgid "Members"
-msgstr "Membri:"
-
-#. i18n: ectx: property (text), widget (QLabel, driverL)
-#: src/configure-printer/ModifyPrinter.ui:126
-#, kde-format
-msgid "Driver:"
-msgstr "Driver:"
 
 #: src/configure-printer/PrinterBehavior.cpp:200
 #, kde-format
@@ -756,7 +592,7 @@ msgstr "Impedi&sci a questi utenti di stampare "
 msgid "A&llow these users to print"
 msgstr "P&ermetti a questi utenti di stampare"
 
-#: src/configure-printer/PrinterOptions.cpp:51 src/kcm/printermanager.cpp:229
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:229
 #, kde-format
 msgid "Set Default Options"
 msgstr "Imposta le opzioni predefinite"
@@ -767,28 +603,17 @@ msgstr "Imposta le opzioni predefinite"
 msgid "Query Printer for Default Options"
 msgstr "Interroga la stampante per le opzioni predefinite"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: src/configure-printer/SelectMakeModelDialog.cpp:27
-#: src/libkcups/SelectMakeModel.ui:14
-#, kde-format
-msgid "Select a Driver"
-msgstr "Seleziona un driver"
-
 #: src/kcm/printermanager.cpp:237
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Configurazione della classe non riuscita"
+msgstr "Configurazione della classe non riuscita: "
 
 #: src/kcm/printermanager.cpp:238
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Configurazione della stampante non riuscita"
+msgstr "Configurazione della stampante non riuscita: "
 
 #: src/kcm/printermanager.cpp:379
 #, kde-format
@@ -796,18 +621,16 @@ msgid "Failed to perform request: %1"
 msgstr "Impossibile eseguire la richiesta: %1"
 
 #: src/kcm/printermanager.cpp:434
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Impossibile recuperare le impostazioni del server"
+msgstr "Impossibile recuperare le impostazioni del server: %1"
 
 #: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Errore del server: (%1): %2"
 
 #: src/kcm/printermanager.cpp:528
 #, kde-format
@@ -1007,39 +830,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Stampante locale rilevata da Hardware Abstraction Layer (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:129
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"Software HPLIP che gestisce un fax o la funzionalità di fax di un "
-"dispositivo multifunzione"
+"Software HPLIP che gestisce un fax o\n"
+"la funzionalità di fax di un dispositivo multifunzione"
 
 #: src/libkcups/DevicesModel.cpp:130
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"Software HPLIP che gestisce una stampante o la funzionalità di stampa di un "
-"dispositivo multifunzione"
+"Software HPLIP che gestisce una stampante o\n"
+"la funzionalità di stampa di un dispositivo multifunzione"
 
 #: src/libkcups/DevicesModel.cpp:131
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "Stampante di rete IPP tramite DNS-SD"
+msgstr "Stampante di rete IPP tramite IPP"
 
 #: src/libkcups/DevicesModel.cpp:132
 #, kde-format
@@ -1054,15 +868,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Stampante CUPS remota tramite DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:151
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Stampante di rete tramite DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:153
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "Stampante di rete %1 tramite DNS-SD"
@@ -1233,7 +1045,7 @@ msgstr "Driver consigliati"
 #: src/libkcups/PPDModel.cpp:98
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Modello PPD vuoto"
 
 #: src/libkcups/PrinterModel.cpp:203
 #, kde-format
@@ -1301,10 +1113,9 @@ msgid "Unknown - '%1'"
 msgstr "Sconosciuto - «%1»"
 
 #: src/libkcups/SelectMakeModel.cpp:117
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose the driver for %1"
-msgstr "Scegli i&l driver dall'elenco"
+msgstr "Scegli il driver per %1"
 
 #: src/libkcups/SelectMakeModel.cpp:140
 #, kde-format
@@ -1316,12 +1127,17 @@ msgstr "Impossibile recuperare un elenco di driver: «%1»"
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Impossibile trovare un driver consigliato: «%1»"
 
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: src/libkcups/SelectMakeModel.ui:14
+#, kde-format
+msgid "Select a Driver"
+msgstr "Seleziona un driver"
+
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose &the driver"
-msgstr "Scegli i&l driver dall'elenco"
+msgstr "Scegli i&l driver"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91
@@ -1483,6 +1299,131 @@ msgstr "Processi completati"
 #, kde-format
 msgid "All Jobs"
 msgstr "Tutti i processi"
+
+#~ msgid "Printer Settings"
+#~ msgstr "Impostazioni della stampante"
+
+#~ msgid "Current - %1"
+#~ msgstr "Corrente - %1"
+
+#~ msgid "Select a custom driver"
+#~ msgstr "Seleziona un driver personalizzato"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure class"
+#~ msgstr "Configurazione della classe non riuscita"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure printer"
+#~ msgstr "Configurazione della stampante non riuscita"
+
+#~ msgctxt "@title:window"
+#~ msgid "Failed"
+#~ msgstr "Non riuscito"
+
+#~ msgid "&Description:"
+#~ msgstr "&Descrizione:"
+
+#~ msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
+#~ msgstr ""
+#~ "Descrizione leggibile, come ad esempio «HP LaserJet con stampa fronte/"
+#~ "retro»"
+
+#~ msgid "&Location:"
+#~ msgstr "&Posizione:"
+
+#~ msgid "Human-readable location such as \"Lab 1\""
+#~ msgstr "Posizione leggibile, come ad esempio «Lab 1»"
+
+#~ msgid "Connec&tion:"
+#~ msgstr "Connes&sione:"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "size:10pt;\">Examples:</span></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+#~ "</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+#~ "port1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</"
+#~ "p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/"
+#~ "port1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</"
+#~ "p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+#~ "p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
+#~ "size:10pt;\">Esempi:</span></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://nomehost:631/ipp/"
+#~ "</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://nomehost:631/ipp/"
+#~ "porta1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://nomehost/ipp/</"
+#~ "p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://nomehost/ipp/"
+#~ "porta1</p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://nomehost/coda</"
+#~ "p>\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://nomehost</p>\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://nomehost:9100</"
+#~ "p></body></html>"
+
+#~ msgid "Members"
+#~ msgstr "Membri:"
+
+#~ msgid "Driver:"
+#~ msgstr "Driver:"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure server settings"

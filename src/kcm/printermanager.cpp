@@ -422,19 +422,16 @@ void PrinterManager::makePrinterDefault(const QString &name)
 
 void PrinterManager::getServerSettings()
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
-    request->getServerSettings();
-    request->waitTillFinished();
-
-    if (request) {
+    const auto request = new KCupsRequest();
+    connect(request, &KCupsRequest::finished, this, [this](KCupsRequest *r) {
         // When we don't have any destinations, error is set to IPP_NOT_FOUND
         // we can safely ignore the error since it DOES bring the server
         // settings
-        if (request->hasError() && request->error() != IPP_NOT_FOUND) {
-            Q_EMIT requestError(i18nc("@info", "Failed to get server settings: %1", request->errorMsg()));
+        if (r->hasError() && r->error() != IPP_NOT_FOUND) {
+            Q_EMIT requestError(i18nc("@info", "Failed to get server settings: %1", r->errorMsg()));
             m_serverSettingsLoaded = false;
         } else {
-            KCupsServer server = request->serverSettings();
+            KCupsServer server = r->serverSettings();
             m_serverSettings[QLatin1String(CUPS_SERVER_USER_CANCEL_ANY)] = server.allowUserCancelAnyJobs();
             m_serverSettings[QLatin1String(CUPS_SERVER_SHARE_PRINTERS)] = server.sharePrinters();
             m_serverSettings[QLatin1String(CUPS_SERVER_REMOTE_ANY)] = server.allowPrintingFromInternet();
@@ -443,9 +440,10 @@ void PrinterManager::getServerSettings()
             m_serverSettingsLoaded = true;
             Q_EMIT serverSettingsChanged();
         }
+        r->deleteLater();
+    });
 
-        request->deleteLater();
-    }
+    request->getServerSettings();
 }
 
 void PrinterManager::saveServerSettings(const QVariantMap &settings)

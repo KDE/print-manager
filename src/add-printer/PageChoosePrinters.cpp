@@ -14,9 +14,9 @@
 
 #include <QPainter>
 
-PageChoosePrinters::PageChoosePrinters(const QVariantMap &args, QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::PageChoosePrinters)
+PageChoosePrinters::PageChoosePrinters(const QVariantMap &args, QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::PageChoosePrinters)
 {
     ui->setupUi(this);
 
@@ -33,8 +33,7 @@ PageChoosePrinters::PageChoosePrinters(const QVariantMap &args, QWidget *parent)
     QPainter painter(&printerIcon);
 
     // bottom right corner
-    const QPoint startPoint = QPoint(printerSize - overlaySize - 2,
-                                     printerSize - overlaySize - 2);
+    const QPoint startPoint = QPoint(printerSize - overlaySize - 2, printerSize - overlaySize - 2);
     painter.drawPixmap(startPoint, preferencesIcon);
     ui->printerL->setPixmap(printerIcon);
 

@@ -14,12 +14,20 @@ class PrinterPage : public QWidget
     Q_OBJECT
 public:
     explicit PrinterPage(QWidget *parent = nullptr);
-    virtual bool hasChanges() { return false; }
+    virtual bool hasChanges()
+    {
+        return false;
+    }
 
 public:
-    virtual void save() {}
+    virtual void save()
+    {
+    }
     virtual QVariantMap modifiedValues() const;
-    virtual QStringList neededValues() const { return QStringList(); }
+    virtual QStringList neededValues() const
+    {
+        return QStringList();
+    }
     virtual void setRemote(bool remote);
 
 signals:

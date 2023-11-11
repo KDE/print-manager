@@ -8,12 +8,12 @@
 
 #include <config.h>
 
-#include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QCommandLineParser>
 
-#include <KLocalizedString>
 #include <KAboutData>
 #include <KDBusService>
+#include <KLocalizedString>
 
 int main(int argc, char **argv)
 {

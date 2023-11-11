@@ -12,13 +12,13 @@
 #include <KWindowSystem>
 #include <KX11Extras>
 
-#include <QPointer>
 #include <QLoggingCategory>
+#include <QPointer>
 
 Q_DECLARE_LOGGING_CATEGORY(PM_ADD_PRINTER)
 
-AddPrinter::AddPrinter(int &argc, char **argv) :
-    QApplication(argc, argv)
+AddPrinter::AddPrinter(int &argc, char **argv)
+    : QApplication(argc, argv)
 {
     setQuitOnLastWindowClosed(true);
 }
@@ -45,11 +45,9 @@ void AddPrinter::changePPD(qulonglong wid, const QString &name)
 {
     // Fist we need to get the printer attributes
     QPointer<KCupsRequest> request = new KCupsRequest;
-    const QStringList attr({
-                               KCUPS_PRINTER_TYPE, // needed to know if it's a remote printer
-                               KCUPS_PRINTER_MAKE_AND_MODEL,
-                               KCUPS_DEVICE_URI
-                           });
+    const QStringList attr({KCUPS_PRINTER_TYPE, // needed to know if it's a remote printer
+                            KCUPS_PRINTER_MAKE_AND_MODEL,
+                            KCUPS_DEVICE_URI});
     request->getPrinterAttributes(name, false, attr);
     request->waitTillFinished();
     if (request) {

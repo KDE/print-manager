@@ -8,8 +8,8 @@
 #define PRINTERSORTFILTERMODEL_H
 
 #include <QSortFilterProxyModel>
-#include <qqmlregistration.h>
 #include <kcupslib_export.h>
+#include <qqmlregistration.h>
 
 class KCUPSLIB_EXPORT PrinterSortFilterModel : public QSortFilterProxyModel
 {
@@ -34,7 +34,7 @@ signals:
 
 private:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
-//    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+    //    bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
     QStringList m_filteredPrinters;
 };

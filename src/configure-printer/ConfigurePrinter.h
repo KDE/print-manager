@@ -14,10 +14,11 @@ class ConfigurePrinter : public QApplication
 {
     Q_OBJECT
 public:
-    ConfigurePrinter(int & argc, char ** argv);
+    ConfigurePrinter(int &argc, char **argv);
     ~ConfigurePrinter() override;
 
     void configurePrinter(const QString &printer);
+
 private:
     ConfigurePrinterInterface *m_cpInterface = nullptr;
 };

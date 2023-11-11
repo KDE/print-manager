@@ -11,14 +11,15 @@
 #include "KCupsRequest.h"
 #include "NoSelectionRectDelegate.h"
 
-#include <QPointer>
 #include <QFileDialog>
+#include <QPointer>
 
+#include <KConfigDialogManager>
 #include <KIconLoader>
 #include <KPixmapSequence>
-#include <KConfigDialogManager>
 
-ClassListWidget::ClassListWidget(QWidget *parent) : QListView(parent)
+ClassListWidget::ClassListWidget(QWidget *parent)
+    : QListView(parent)
 {
     m_model = new QStandardItemModel(this);
     setModel(m_model);
@@ -56,8 +57,7 @@ void ClassListWidget::init()
     if (m_showClasses) {
         m_request->getPrinters(att);
     } else {
-        m_request->getPrinters(att,
-                               CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT);
+        m_request->getPrinters(att, CUPS_PRINTER_CLASS | CUPS_PRINTER_REMOTE | CUPS_PRINTER_IMPLICIT);
     }
 }
 

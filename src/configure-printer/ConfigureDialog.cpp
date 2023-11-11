@@ -13,10 +13,10 @@
 #include "Debug.h"
 #include "KCupsRequest.h"
 
-#include <KSharedConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KSharedConfig>
 #include <KWindowConfig>
 #include <kwidgetsaddons_version.h>
 
@@ -27,8 +27,8 @@
 
 Q_DECLARE_METATYPE(QList<int>)
 
-ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent) :
-    KPageDialog(parent)
+ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent)
+    : KPageDialog(parent)
 {
     setFaceType(List);
     setModal(false);
@@ -57,12 +57,12 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     if (!request) {
         return;
     }
-    if (!request->hasError() && !request->printers().isEmpty()){
+    if (!request->hasError() && !request->printers().isEmpty()) {
         printer = request->printers().first();
         setWindowTitle(printer.info());
     }
-//    qCDebug(PM_CONFIGURE_PRINTER) << "VALUES" << printer.argument();
-//    qCDebug(PM_CONFIGURE_PRINTER) << "marker" << values["marker-levels"].value<QList<int> >();
+    //    qCDebug(PM_CONFIGURE_PRINTER) << "VALUES" << printer.argument();
+    //    qCDebug(PM_CONFIGURE_PRINTER) << "marker" << values["marker-levels"].value<QList<int> >();
 
     request->deleteLater();
 
@@ -125,8 +125,8 @@ ConfigureDialog::~ConfigureDialog()
 
 void ConfigureDialog::currentPageChangedSlot(KPageWidgetItem *current, KPageWidgetItem *before)
 {
-    auto currentPage = qobject_cast<PrinterPage*>(current->widget());
-    auto beforePage = qobject_cast<PrinterPage*>(before->widget());
+    auto currentPage = qobject_cast<PrinterPage *>(current->widget());
+    auto beforePage = qobject_cast<PrinterPage *>(before->widget());
 
     qCDebug(PM_CONFIGURE_PRINTER) << "currentPageChanged" << beforePage << currentPage;
     // Check if the before page has changes
@@ -146,18 +146,17 @@ void ConfigureDialog::enableButtonApply(bool enable)
     button(QDialogButtonBox::QDialogButtonBox::Apply)->setEnabled(enable);
 }
 
-void ConfigureDialog::slotButtonClicked(QAbstractButton * pressedButton)
+void ConfigureDialog::slotButtonClicked(QAbstractButton *pressedButton)
 {
     auto page = qobject_cast<PrinterPage *>(currentPage()->widget());
-    if (pressedButton == button(QDialogButtonBox::Ok) ||
-        pressedButton == button(QDialogButtonBox::Apply)) {
+    if (pressedButton == button(QDialogButtonBox::Ok) || pressedButton == button(QDialogButtonBox::Apply)) {
         page->save();
     }
 }
 
 void ConfigureDialog::closeEvent(QCloseEvent *event)
 {
-    auto page = qobject_cast<PrinterPage*>(currentPage()->widget());
+    auto page = qobject_cast<PrinterPage *>(currentPage()->widget());
     if (savePage(page)) {
         event->accept();
     } else {
@@ -169,8 +168,11 @@ bool ConfigureDialog::savePage(PrinterPage *page)
 {
     if (page->hasChanges()) {
         const int ret = KMessageBox::warningTwoActionsCancel(this,
-                                               i18n("The current page has changes.\n"
-                                                    "Do you want to save them?"), i18n("Save"), KStandardGuiItem::save(), KStandardGuiItem::discard());
+                                                             i18n("The current page has changes.\n"
+                                                                  "Do you want to save them?"),
+                                                             i18n("Save"),
+                                                             KStandardGuiItem::save(),
+                                                             KStandardGuiItem::discard());
         if (ret == KMessageBox::PrimaryAction) {
             page->save();
         } else if (ret == KMessageBox::Cancel) {

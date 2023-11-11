@@ -41,4 +41,4 @@ private:
     void show(QWidget *widget, qulonglong wid) const;
 };
 
-#endif //ADDPRINTER_H
+#endif // ADDPRINTER_H

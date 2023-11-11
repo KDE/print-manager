@@ -32,7 +32,7 @@ public slots:
 private:
     void next(KPageWidgetItem *currentPage);
     void setCurrentPage(KPageWidgetItem *page);
-    void showEvent(QShowEvent * event) override;
+    void showEvent(QShowEvent *event) override;
 
     KPageWidgetItem *m_devicesPage = nullptr;
     KPageWidgetItem *m_chooseClassPage = nullptr;

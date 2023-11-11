@@ -7,16 +7,17 @@
 #ifndef SELECT_MAKE_MODEL_H
 #define SELECT_MAKE_MODEL_H
 
-#include <QWidget>
 #include <QDBusMessage>
+#include <QWidget>
 
 #include <kcupslib_export.h>
 
 #include "KCupsConnection.h"
 #include "PPDModel.h"
 
-namespace Ui {
-    class SelectMakeModel;
+namespace Ui
+{
+class SelectMakeModel;
 }
 
 class KCupsRequest;

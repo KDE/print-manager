@@ -7,51 +7,45 @@
 
 #include "DevicesModel.h"
 
-#include <kcupslib_log.h>
 #include <KCupsPrinter.h>
+#include <kcupslib_log.h>
 
 #include <KLocalizedString>
 
-#include <QHostInfo>
-#include <QDBusMetaType>
 #include <QDBusConnection>
+#include <QDBusMetaType>
+#include <QHostInfo>
 
 using namespace Qt::StringLiterals;
 
-DevicesModel::DevicesModel(QObject *parent) : QStandardItemModel(parent)
-  , m_request(nullptr)
-  , m_rx(QLatin1String("[a-z]+://.*"))
-  , m_blacklistedURIs({
-                      QLatin1String("hp"),
-                      QLatin1String("hpfax"),
-                      QLatin1String("hal"),
-                      QLatin1String("beh"),
-                      QLatin1String("scsi"),
-                      QLatin1String("http"),
-                      QLatin1String("delete")
-                      })
+DevicesModel::DevicesModel(QObject *parent)
+    : QStandardItemModel(parent)
+    , m_request(nullptr)
+    , m_rx(QLatin1String("[a-z]+://.*"))
+    , m_blacklistedURIs({QLatin1String("hp"),
+                         QLatin1String("hpfax"),
+                         QLatin1String("hal"),
+                         QLatin1String("beh"),
+                         QLatin1String("scsi"),
+                         QLatin1String("http"),
+                         QLatin1String("delete")})
 {
     m_roles = QStandardItemModel::roleNames();
-    m_roles[DeviceClass]        = "deviceClass";
-    m_roles[DeviceId]           = "deviceId";
-    m_roles[DeviceInfo]         = "deviceInfo";
+    m_roles[DeviceClass] = "deviceClass";
+    m_roles[DeviceId] = "deviceId";
+    m_roles[DeviceInfo] = "deviceInfo";
     m_roles[DeviceMakeAndModel] = "deviceMakeModel";
-    m_roles[DeviceUri]          = "deviceUri";
-    m_roles[DeviceUris]         = "deviceUris";
-    m_roles[DeviceLocation]     = "deviceLocation";
-    m_roles[DeviceDescription]  = "deviceDescription";
-    m_roles[DeviceCategory]     = "deviceCategory";
+    m_roles[DeviceUri] = "deviceUri";
+    m_roles[DeviceUris] = "deviceUris";
+    m_roles[DeviceLocation] = "deviceLocation";
+    m_roles[DeviceDescription] = "deviceDescription";
+    m_roles[DeviceCategory] = "deviceCategory";
 
     qDBusRegisterMetaType<MapSS>();
     qDBusRegisterMetaType<MapSMapSS>();
 
     // Adds the other device which is meant for manual URI input
-    insertDevice(QLatin1String("other"),
-                 QString(),
-                 i18nc("@item", "Manual URI"),
-                 QString(),
-                 QLatin1String("other"),
-                 QString());
+    insertDevice(QLatin1String("other"), QString(), i18nc("@item", "Manual URI"), QString(), QLatin1String("other"), QString());
 }
 
 QHash<int, QByteArray> DevicesModel::roleNames() const
@@ -68,7 +62,7 @@ QString DevicesModel::uriDevice(const QString &uri) const
         ret = i18n("Serial Port");
     } else if (uri.startsWith(QLatin1String("usb"))) {
         ret = i18n("USB");
-    } else if (uri.startsWith(QLatin1String("bluetooth")) ){
+    } else if (uri.startsWith(QLatin1String("bluetooth"))) {
         ret = i18n("Bluetooth");
     } else if (uri.startsWith(QLatin1String("hpfax"))) {
         ret = i18n("Fax - HP Linux Imaging and Printing (HPLIP)");
@@ -98,8 +92,7 @@ QString DevicesModel::uriDevice(const QString &uri) const
         }
     } else if (uri.startsWith(QLatin1String("https"))) {
         ret = i18n("HTTP");
-    } else if (uri.startsWith(QLatin1String("dnssd")) ||
-               uri.startsWith(QLatin1String("mdns"))) {
+    } else if (uri.startsWith(QLatin1String("dnssd")) || uri.startsWith(QLatin1String("mdns"))) {
         // TODO this needs testing...
         QString text;
         if (uri.contains(QLatin1String("cups"))) {
@@ -121,16 +114,16 @@ QString DevicesModel::uriDevice(const QString &uri) const
     return ret;
 }
 
-QString DevicesModel::deviceDescription(const QString &uri) const {
-    static QMap<QString, QString> descriptions({
-        {u"parallel"_s, i18nc("@info:tooltip", "A printer connected to the parallel port")}
-       , {u"bluetooth"_s, i18nc("@info:tooltip", "A printer connected via Bluetooth")}
-       , {u"hal"_s, i18nc("@info:tooltip", "Local printer detected by the Hardware Abstraction Layer (HAL)")}
-       , {u"hpfax"_s, i18nc("@info:tooltip", "HPLIP software driving a fax machine,\nor the fax function of a multi-function device")}
-       , {u"hp"_s, i18nc("@info:tooltip", "HPLIP software driving a printer,\nor the printer function of a multi-function device")}
-       , {u"ipp"_s, i18nc("@info:tooltip", "IPP Network printer via IPP")}
-       , {u"usb"_s, i18nc("@info:tooltip", "A printer connected to a USB port")}
-    });
+QString DevicesModel::deviceDescription(const QString &uri) const
+{
+    static QMap<QString, QString> descriptions(
+        {{u"parallel"_s, i18nc("@info:tooltip", "A printer connected to the parallel port")},
+         {u"bluetooth"_s, i18nc("@info:tooltip", "A printer connected via Bluetooth")},
+         {u"hal"_s, i18nc("@info:tooltip", "Local printer detected by the Hardware Abstraction Layer (HAL)")},
+         {u"hpfax"_s, i18nc("@info:tooltip", "HPLIP software driving a fax machine,\nor the fax function of a multi-function device")},
+         {u"hp"_s, i18nc("@info:tooltip", "HPLIP software driving a printer,\nor the printer function of a multi-function device")},
+         {u"ipp"_s, i18nc("@info:tooltip", "IPP Network printer via IPP")},
+         {u"usb"_s, i18nc("@info:tooltip", "A printer connected to a USB port")}});
 
     QString ret;
 
@@ -208,23 +201,15 @@ void DevicesModel::gotDevice(const QString &device_class,
     }
 
     // For the protocols, not real devices
-    if (device_id.isEmpty() &&
-            device_make_and_model == QLatin1String("Unknown")) {
-        insertDevice(device_class,
-                     device_id,
-                     device_info,
-                     device_make_and_model,
-                     device_uri,
-                     device_location);
+    if (device_id.isEmpty() && device_make_and_model == QLatin1String("Unknown")) {
+        insertDevice(device_class, device_id, device_info, device_make_and_model, device_uri, device_location);
     } else {
         // Map the devices so later we try to group them
-        const MapSS mapSS({
-                              {KCUPS_DEVICE_CLASS, device_class},
-                              {KCUPS_DEVICE_ID, device_id},
-                              {KCUPS_DEVICE_INFO, device_info},
-                              {KCUPS_DEVICE_MAKE_AND_MODEL, device_make_and_model},
-                              {KCUPS_DEVICE_LOCATION, device_location}
-                          });
+        const MapSS mapSS({{KCUPS_DEVICE_CLASS, device_class},
+                           {KCUPS_DEVICE_ID, device_id},
+                           {KCUPS_DEVICE_INFO, device_info},
+                           {KCUPS_DEVICE_MAKE_AND_MODEL, device_make_and_model},
+                           {KCUPS_DEVICE_LOCATION, device_location}});
         m_mappedDevices[device_uri] = mapSS;
     }
 }
@@ -252,7 +237,7 @@ void DevicesModel::finished()
     QDBusConnection::sessionBus().callWithCallback(message,
                                                    this,
                                                    SLOT(getGroupedDevicesSuccess(QDBusMessage)),
-                                                   SLOT(getGroupedDevicesFailed(QDBusError,QDBusMessage)));
+                                                   SLOT(getGroupedDevicesFailed(QDBusError, QDBusMessage)));
 }
 
 void DevicesModel::insertDevice(const QString &device_class,
@@ -264,13 +249,7 @@ void DevicesModel::insertDevice(const QString &device_class,
                                 const QStringList &grouped_uris)
 {
     QStandardItem *stdItem;
-    stdItem = createItem(device_class,
-                         device_id,
-                         device_info,
-                         device_make_and_model,
-                         device_uri,
-                         device_location,
-                         !grouped_uris.isEmpty());
+    stdItem = createItem(device_class, device_id, device_info, device_make_and_model, device_uri, device_location, !grouped_uris.isEmpty());
     if (!grouped_uris.isEmpty()) {
         stdItem->setData(grouped_uris, DeviceUris);
     }
@@ -285,13 +264,7 @@ void DevicesModel::insertDevice(const QString &device_class,
                                 const KCupsPrinters &grouped_printers)
 {
     QStandardItem *stdItem;
-    stdItem = createItem(device_class,
-                         device_id,
-                         device_info,
-                         device_make_and_model,
-                         device_uri,
-                         device_location,
-                         !grouped_printers.isEmpty());
+    stdItem = createItem(device_class, device_id, device_info, device_make_and_model, device_uri, device_location, !grouped_printers.isEmpty());
     if (!grouped_printers.isEmpty()) {
         stdItem->setData(QVariant::fromValue(grouped_printers), DeviceUris);
     }
@@ -329,8 +302,7 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
             // just "http"
             kind = OtherNetworked;
         }
-    } else if (device_class == QLatin1String("other") &&
-               device_uri == QLatin1String("other")) {
+    } else if (device_class == QLatin1String("other") && device_uri == QLatin1String("other")) {
         kind = Other;
     } else {
         // If device class is not network assume local
@@ -345,9 +317,7 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
     }
 
     QString text;
-    if (!device_make_and_model.isEmpty() &&
-            !grouped &&
-            device_make_and_model.compare(QLatin1String("unknown"), Qt::CaseInsensitive)) {
+    if (!device_make_and_model.isEmpty() && !grouped && device_make_and_model.compare(QLatin1String("unknown"), Qt::CaseInsensitive)) {
         text = device_info + QLatin1String(" (") + device_make_and_model + QLatin1Char(')');
     } else {
         text = device_info;
@@ -404,7 +374,7 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
 {
     if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
         const auto argument = message.arguments().first().value<QDBusArgument>();
-        const auto groupedDevices = qdbus_cast<QList<QStringList> >(argument);
+        const auto groupedDevices = qdbus_cast<QList<QStringList>>(argument);
         for (const QStringList &list : groupedDevices) {
             if (list.isEmpty()) {
                 continue;
@@ -429,7 +399,7 @@ void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
 
 void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)
 {
-    qWarning() << error <<  message;
+    qWarning() << error << message;
     groupedDevicesFallback();
     Q_EMIT errorMessage(i18n("Failed to group devices: '%1'", error.message()));
     Q_EMIT loaded();
@@ -450,7 +420,7 @@ void DevicesModel::groupedDevicesFallback()
     }
 }
 
-QStandardItem* DevicesModel::findCreateCategory(const QString &category, Kind kind)
+QStandardItem *DevicesModel::findCreateCategory(const QString &category, Kind kind)
 {
     for (int i = 0; i < rowCount(); ++i) {
         QStandardItem *catItem = item(i);

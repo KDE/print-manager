@@ -14,10 +14,10 @@
 
 #include <QUrl>
 
-ChooseLpd::ChooseLpd(QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::ChooseLpd),
-    m_isValid(false)
+ChooseLpd::ChooseLpd(QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::ChooseLpd)
+    , m_isValid(false)
 {
     ui->setupUi(this);
 
@@ -68,7 +68,7 @@ bool ChooseLpd::isValid() const
 
 void ChooseLpd::checkSelected()
 {
-//     Q_EMIT allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+    //     Q_EMIT allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
 
 #include "moc_ChooseLpd.cpp"

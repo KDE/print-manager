@@ -10,8 +10,9 @@
 #include "PrinterPage.h"
 #include <QWidget>
 
-namespace Ui {
-    class PrinterBehavior;
+namespace Ui
+{
+class PrinterBehavior;
 }
 
 class QWidget;

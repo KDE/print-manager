@@ -8,13 +8,13 @@
 
 #include <config.h>
 
-#include <KLocalizedString>
 #include <KAboutData>
 #include <KDBusService>
+#include <KLocalizedString>
 
-#include <QCommandLineParser>
-#include <QCommandLineOption>
 #include "Debug.h"
+#include <QCommandLineOption>
+#include <QCommandLineParser>
 
 int main(int argc, char **argv)
 {
@@ -22,11 +22,11 @@ int main(int argc, char **argv)
     app.setOrganizationDomain(QLatin1String("org.kde"));
 
     KAboutData aboutData(QLatin1String("ConfigurePrinter"),
-                     i18n("Configure Printer"),
-                     QLatin1String(PM_VERSION),
-                     i18n("ConfigurePrinter"),
-                     KAboutLicense::GPL,
-                     i18n("(C) 2010-2018 Daniel Nicoletti"));
+                         i18n("Configure Printer"),
+                         QLatin1String(PM_VERSION),
+                         i18n("ConfigurePrinter"),
+                         KAboutLicense::GPL,
+                         i18n("(C) 2010-2018 Daniel Nicoletti"));
     aboutData.addAuthor(QStringLiteral("Daniel Nicoletti"), QString(), QLatin1String("dantti12@gmail.com"));
     aboutData.addAuthor(QStringLiteral("Jan Grulich"), i18n("Port to Qt 5 / Plasma 5"), QStringLiteral("jgrulich@redhat.com"));
     aboutData.addAuthor(QStringLiteral("Mike Noe"), i18n("Port to Qt 6 / Plasma 6"), QStringLiteral("noeerover@gmail.com"));

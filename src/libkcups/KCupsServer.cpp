@@ -15,8 +15,8 @@ KCupsServer::KCupsServer()
 {
 }
 
-KCupsServer::KCupsServer(const QVariantMap &arguments) :
-    m_arguments(arguments)
+KCupsServer::KCupsServer(const QVariantMap &arguments)
+    : m_arguments(arguments)
 {
 }
 

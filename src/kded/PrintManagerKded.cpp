@@ -10,8 +10,8 @@
 
 K_PLUGIN_CLASS_WITH_JSON(PrintManagerKded, "printmanager.json")
 
-PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args) :
-    KDEDModule(parent)
+PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args)
+    : KDEDModule(parent)
 {
     Q_UNUSED(args)
 

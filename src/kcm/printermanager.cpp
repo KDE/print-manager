@@ -15,10 +15,10 @@
 
 #include <KLocalizedString>
 
-#include <cups/ppd.h>
-#include <cups/adminutil.h>
 #include <KCupsRequest.h>
 #include <PPDModel.h>
+#include <cups/adminutil.h>
+#include <cups/ppd.h>
 
 using namespace Qt::StringLiterals;
 
@@ -42,10 +42,10 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driv
 
 PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
     : KQuickConfigModule(parent, metaData)
-    , m_serverSettings({{QLatin1String(CUPS_SERVER_USER_CANCEL_ANY), false}
-                       , {QLatin1String(CUPS_SERVER_SHARE_PRINTERS), false}
-                       , {QLatin1String(CUPS_SERVER_REMOTE_ANY), false}
-                       , {QLatin1String(CUPS_SERVER_REMOTE_ADMIN), false}})
+    , m_serverSettings({{QLatin1String(CUPS_SERVER_USER_CANCEL_ANY), false},
+                        {QLatin1String(CUPS_SERVER_SHARE_PRINTERS), false},
+                        {QLatin1String(CUPS_SERVER_REMOTE_ANY), false},
+                        {QLatin1String(CUPS_SERVER_REMOTE_ADMIN), false}})
 {
     setButtons(KQuickConfigModule::NoAdditionalButton);
 
@@ -64,16 +64,16 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
         serverEvent(u"RESTARTED"_s, true, msg);
     });
 
-    qmlRegisterUncreatableMetaObject(
-        PMTypes::staticMetaObject,
-        "org.kde.plasma.printmanager", // use same namespace as kcupslib
-        1, 0,
-        "PPDType", // QML qualifier
-        u"Error: for only enums"_s
-    );
+    qmlRegisterUncreatableMetaObject(PMTypes::staticMetaObject,
+                                     "org.kde.plasma.printmanager", // use same namespace as kcupslib
+                                     1,
+                                     0,
+                                     "PPDType", // QML qualifier
+                                     u"Error: for only enums"_s);
 }
 
-void PrinterManager::serverEvent(const QString &event, bool reload, const QString &msg) {
+void PrinterManager::serverEvent(const QString &event, bool reload, const QString &msg)
+{
     qCWarning(PMKCM) << "SERVER" << event << msg << reload;
     if (reload) {
         QTimer::singleShot(500, this, &PrinterManager::getServerSettings);
@@ -82,7 +82,8 @@ void PrinterManager::serverEvent(const QString &event, bool reload, const QStrin
     }
 }
 
-void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriScheme) {
+void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriScheme)
+{
     QUrl url(QUrl::fromUserInput(uri));
     if (url.host().isEmpty() && !uri.contains(u"://"_s)) {
         url = QUrl();
@@ -99,15 +100,14 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
     auto conn = new KCupsConnection(url, this);
     auto request = new KCupsRequest(conn);
 
-    request->getPrinters({  KCUPS_PRINTER_NAME,
-                            KCUPS_PRINTER_STATE,
-                            KCUPS_PRINTER_IS_SHARED,
-                            KCUPS_PRINTER_IS_ACCEPTING_JOBS,
-                            KCUPS_PRINTER_TYPE,
-                            KCUPS_PRINTER_LOCATION,
-                            KCUPS_PRINTER_INFO,
-                            KCUPS_PRINTER_MAKE_AND_MODEL
-                        });
+    request->getPrinters({KCUPS_PRINTER_NAME,
+                          KCUPS_PRINTER_STATE,
+                          KCUPS_PRINTER_IS_SHARED,
+                          KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                          KCUPS_PRINTER_TYPE,
+                          KCUPS_PRINTER_LOCATION,
+                          KCUPS_PRINTER_INFO,
+                          KCUPS_PRINTER_MAKE_AND_MODEL});
 
     request->waitTillFinished();
 
@@ -117,24 +117,22 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
         if (request->hasError()) {
             Q_EMIT requestError(request->errorMsg());
         } else {
-            for (const auto &p: printers) {
+            for (const auto &p : printers) {
                 const auto mm = p.makeAndModel();
                 const auto make = mm.split(u" "_s).at(0);
-                m_remotePrinters.append(QVariantMap({
-                                        { KCUPS_DEVICE_URI, QVariant::fromValue(QString(url.url() + u"/printers/"_s + p.name())) }
-                                       ,{ u"printer-is-class"_s, p.isClass() }
-                                       ,{ u"iconName"_s, p.iconName() }
-                                       ,{ u"remote"_s, QVariant::fromValue<bool>(p.type() & CUPS_PRINTER_REMOTE) }
-                                       ,{ KCUPS_PRINTER_NAME, p.name() }
-                                       ,{ KCUPS_PRINTER_STATE, p.state() }
-                                       ,{ KCUPS_PRINTER_IS_SHARED, p.isShared() }
-                                       ,{ KCUPS_PRINTER_IS_ACCEPTING_JOBS, p.isAcceptingJobs() }
-                                       ,{ KCUPS_PRINTER_TYPE, p.type() }
-                                       ,{ KCUPS_PRINTER_LOCATION, p.location() }
-                                       ,{ KCUPS_PRINTER_INFO, p.info() }
-                                       ,{ u"printer-make"_s, make }
-                                       ,{ KCUPS_PRINTER_MAKE_AND_MODEL, mm }
-                                   }));
+                m_remotePrinters.append(QVariantMap({{KCUPS_DEVICE_URI, QVariant::fromValue(QString(url.url() + u"/printers/"_s + p.name()))},
+                                                     {u"printer-is-class"_s, p.isClass()},
+                                                     {u"iconName"_s, p.iconName()},
+                                                     {u"remote"_s, QVariant::fromValue<bool>(p.type() & CUPS_PRINTER_REMOTE)},
+                                                     {KCUPS_PRINTER_NAME, p.name()},
+                                                     {KCUPS_PRINTER_STATE, p.state()},
+                                                     {KCUPS_PRINTER_IS_SHARED, p.isShared()},
+                                                     {KCUPS_PRINTER_IS_ACCEPTING_JOBS, p.isAcceptingJobs()},
+                                                     {KCUPS_PRINTER_TYPE, p.type()},
+                                                     {KCUPS_PRINTER_LOCATION, p.location()},
+                                                     {KCUPS_PRINTER_INFO, p.info()},
+                                                     {u"printer-make"_s, make},
+                                                     {KCUPS_PRINTER_MAKE_AND_MODEL, mm}}));
             }
         }
 
@@ -145,7 +143,8 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
     conn->deleteLater();
 }
 
-void PrinterManager::clearRemotePrinters() {
+void PrinterManager::clearRemotePrinters()
+{
     m_remotePrinters.clear();
 }
 
@@ -165,17 +164,12 @@ void PrinterManager::getDriversFinished(const QDBusMessage &message)
                 continue;
             }
 
-            m_recommendedDrivers.append(QVariantMap({
-                                        {u"match"_s, driverMatch.match}
-                                        ,{u"ppd-name"_s, driverMatch.ppd}
-                                        ,{u"ppd-type"_s, PMTypes::Auto}
-                                        }));
+            m_recommendedDrivers.append(QVariantMap({{u"match"_s, driverMatch.match}, {u"ppd-name"_s, driverMatch.ppd}, {u"ppd-type"_s, PMTypes::Auto}}));
         }
     } else {
         qCWarning(PMKCM) << "Unexpected message" << message;
     }
     Q_EMIT recommendedDriversLoaded();
-
 }
 
 void PrinterManager::getDriversFailed(const QDBusError &error, const QDBusMessage &message)
@@ -234,14 +228,12 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
         if (!request->hasError()) {
             Q_EMIT saveDone();
         } else {
-            Q_EMIT requestError((isClass ? i18nc("@info", "Failed to configure class: ")
-                                        : i18nc("@info", "Failed to configure printer: "))
-                                 + request->errorMsg());
+            Q_EMIT requestError((isClass ? i18nc("@info", "Failed to configure class: ") : i18nc("@info", "Failed to configure printer: "))
+                                + request->errorMsg());
             qCWarning(PMKCM) << "Failed to save printer/class" << name << request->errorMsg();
         }
         request->deleteLater();
     }
-
 }
 
 QVariantMap PrinterManager::getPrinterPPD(const QString &name)
@@ -276,19 +268,19 @@ QVariantMap PrinterManager::getPrinterPPD(const QString &name)
     lang_encoding = ppd->lang_encoding;
     QStringDecoder codec;
 
-    if (lang_encoding && !strcasecmp (lang_encoding, "UTF-8")) {
+    if (lang_encoding && !strcasecmp(lang_encoding, "UTF-8")) {
         codec = QStringDecoder(QStringDecoder::Utf8);
-    } else if (lang_encoding && !strcasecmp (lang_encoding, "ISOLatin1")) {
+    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin1")) {
         codec = QStringDecoder(QStringDecoder::Latin1);
-    } else if (lang_encoding && !strcasecmp (lang_encoding, "ISOLatin2")) {
+    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin2")) {
         codec = QStringDecoder("ISO-8859-2");
-    } else if (lang_encoding && !strcasecmp (lang_encoding, "ISOLatin5")) {
+    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin5")) {
         codec = QStringDecoder("ISO-8859-5");
-    } else if (lang_encoding && !strcasecmp (lang_encoding, "JIS83-RKSJ")) {
+    } else if (lang_encoding && !strcasecmp(lang_encoding, "JIS83-RKSJ")) {
         codec = QStringDecoder("SHIFT-JIS");
-    } else if (lang_encoding && !strcasecmp (lang_encoding, "MacStandard")) {
+    } else if (lang_encoding && !strcasecmp(lang_encoding, "MacStandard")) {
         codec = QStringDecoder("MACINTOSH");
-    } else if (lang_encoding && !strcasecmp (lang_encoding, "WindowsANSI")) {
+    } else if (lang_encoding && !strcasecmp(lang_encoding, "WindowsANSI")) {
         codec = QStringDecoder("WINDOWS-1252");
     } else {
         qCWarning(PMKCM) << "Unknown ENCODING:" << lang_encoding;
@@ -299,7 +291,7 @@ QVariantMap PrinterManager::getPrinterPPD(const QString &name)
         codec = QStringDecoder(QStringDecoder::Utf8);
     }
 
-    qCWarning(PMKCM) << codec(ppd->pcfilename) << codec(ppd->modelname)  << codec(ppd->shortnickname);
+    qCWarning(PMKCM) << codec(ppd->pcfilename) << codec(ppd->modelname) << codec(ppd->shortnickname);
 
     QString make, makeAndModel, file;
     if (ppd->manufacturer) {
@@ -310,18 +302,17 @@ QVariantMap PrinterManager::getPrinterPPD(const QString &name)
         makeAndModel = codec(ppd->nickname);
     }
 
-    if (ppd->pcfilename){
+    if (ppd->pcfilename) {
         file = codec(ppd->pcfilename);
     }
 
     ppd_attr_t *ppdattr;
     bool autoConfig = false;
-    if (ppd->num_filters == 0 ||
-        ((ppdattr = ppdFindAttr(ppd, "cupsCommands", nullptr)) != nullptr &&
-           ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
+    if (ppd->num_filters == 0
+        || ((ppdattr = ppdFindAttr(ppd, "cupsCommands", nullptr)) != nullptr && ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
         autoConfig = true;
     } else {
-        for (int i = 0; i < ppd->num_filters; ++i ) {
+        for (int i = 0; i < ppd->num_filters; ++i) {
             if (!strncmp(ppd->filters[i], "application/vnd.cups-postscript", 31)) {
                 autoConfig = true;
                 break;
@@ -329,14 +320,12 @@ QVariantMap PrinterManager::getPrinterPPD(const QString &name)
         }
     }
 
-    return {
-        {u"autoConfig"_s, autoConfig}
-        , {u"file"_s, QString()}
-        , {u"pcfile"_s, file}
-        , {u"type"_s, QVariant(PMTypes::PPDType::Custom)}
-        , {u"make"_s, make}
-        , {u"makeModel"_s, makeAndModel}
-    };
+    return {{u"autoConfig"_s, autoConfig},
+            {u"file"_s, QString()},
+            {u"pcfile"_s, file},
+            {u"type"_s, QVariant(PMTypes::PPDType::Custom)},
+            {u"make"_s, make},
+            {u"makeModel"_s, makeAndModel}};
 }
 
 void PrinterManager::pausePrinter(const QString &name)
@@ -351,9 +340,7 @@ void PrinterManager::resumePrinter(const QString &name)
     request->resumePrinter(name);
 }
 
-void PrinterManager::getRecommendedDrivers(const QString &deviceId
-                                           , const QString &makeAndModel
-                                           , const QString &deviceUri)
+void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri)
 {
     qCDebug(PMKCM) << deviceId << makeAndModel << deviceUri;
 
@@ -366,21 +353,19 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId
     message << deviceId;
     message << makeAndModel;
     message << deviceUri;
-    QDBusConnection::sessionBus().callWithCallback(message,
-                                                   this,
-                                                   SLOT(getDriversFinished(QDBusMessage)),
-                                                   SLOT(getDriversFailed(QDBusError,QDBusMessage)));
+    QDBusConnection::sessionBus().callWithCallback(message, this, SLOT(getDriversFinished(QDBusMessage)), SLOT(getDriversFailed(QDBusError, QDBusMessage)));
 }
 
-KCupsRequest *PrinterManager::setupRequest(std::function<void()> finished) {
+KCupsRequest *PrinterManager::setupRequest(std::function<void()> finished)
+{
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, [this, finished](KCupsRequest *r) {
-       if (r->hasError()) {
-           Q_EMIT requestError(i18n("Failed to perform request: %1", r->errorMsg()));
-       } else {
-           finished();
-       }
-       r->deleteLater();
+        if (r->hasError()) {
+            Q_EMIT requestError(i18n("Failed to perform request: %1", r->errorMsg()));
+        } else {
+            finished();
+        }
+        r->deleteLater();
     });
 
     return request;
@@ -408,9 +393,9 @@ bool PrinterManager::serverSettingsLoaded() const
 
 void PrinterManager::removePrinter(const QString &name)
 {
-    const auto request = setupRequest(
-                [this]
-                () -> void { Q_EMIT removeDone(); });
+    const auto request = setupRequest([this]() -> void {
+        Q_EMIT removeDone();
+    });
     request->deletePrinter(name);
 }
 
@@ -459,12 +444,10 @@ void PrinterManager::saveServerSettings(const QVariantMap &settings)
     request->waitTillFinished();
 
     if (request->hasError()) {
-        if (request->error() == IPP_SERVICE_UNAVAILABLE
-                || request->error() == IPP_INTERNAL_ERROR
-                || request->error() == IPP_AUTHENTICATION_CANCELED) {
+        if (request->error() == IPP_SERVICE_UNAVAILABLE || request->error() == IPP_INTERNAL_ERROR || request->error() == IPP_AUTHENTICATION_CANCELED) {
             qCWarning(PMKCM) << "Server error:" << request->serverError() << request->errorMsg();
             // Server is restarting, or auth was canceled, update the settings in one second
-//            QTimer::singleShot(1000, this, &PrinterManager::getServerSettings);
+            //            QTimer::singleShot(1000, this, &PrinterManager::getServerSettings);
         } else {
             // Force the settings to be retrieved again
             getServerSettings();

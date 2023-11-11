@@ -9,19 +9,19 @@
 
 #include "kcupslib_log.h"
 
-KIppRequest::KIppRequest() :
-    d_ptr(new KIppRequestPrivate)
+KIppRequest::KIppRequest()
+    : d_ptr(new KIppRequestPrivate)
 {
 }
 
-KIppRequest::KIppRequest(const KIppRequest &other) :
-    d_ptr(new KIppRequestPrivate)
+KIppRequest::KIppRequest(const KIppRequest &other)
+    : d_ptr(new KIppRequestPrivate)
 {
     *this = other;
 }
 
-KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename) :
-    d_ptr(new KIppRequestPrivate)
+KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename)
+    : d_ptr(new KIppRequestPrivate)
 {
     Q_D(KIppRequest);
 
@@ -127,9 +127,7 @@ void KIppRequest::addVariantValues(const QVariantMap &values)
             if (key == QLatin1String(KCUPS_DEVICE_URI)) {
                 // device uri has a different TAG
                 addString(IPP_TAG_PRINTER, IPP_TAG_URI, key, value.toString());
-            } else if (key == QLatin1String(KCUPS_PRINTER_OP_POLICY) ||
-                       key == QLatin1String(KCUPS_PRINTER_ERROR_POLICY) ||
-                       key == QLatin1String("ppd-name")) {
+            } else if (key == QLatin1String(KCUPS_PRINTER_OP_POLICY) || key == QLatin1String(KCUPS_PRINTER_ERROR_POLICY) || key == QLatin1String("ppd-name")) {
                 // printer-op-policy has a different TAG
                 addString(IPP_TAG_PRINTER, IPP_TAG_NAME, key, value.toString());
             } else if (key == QLatin1String(KCUPS_JOB_NAME)) {
@@ -165,7 +163,7 @@ void KIppRequest::addPrinterUri(const QString &printerName, bool isClass)
 
 QString KIppRequest::assembleUrif(const QString &name, bool isClass)
 {
-    char  uri[HTTP_MAX_URI]; // printer URI
+    char uri[HTTP_MAX_URI]; // printer URI
 
     QString destination;
     if (isClass) {
@@ -174,12 +172,11 @@ QString KIppRequest::assembleUrif(const QString &name, bool isClass)
         destination = QLatin1String("/printers/") + name;
     }
 
-    httpAssembleURI(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost",
-                    ippPort(), destination.toUtf8().constData());
+    httpAssembleURI(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost", ippPort(), destination.toUtf8().constData());
     return QString::fromLatin1(uri);
 }
 
-KIppRequest &KIppRequest::operator =(const KIppRequest &other)
+KIppRequest &KIppRequest::operator=(const KIppRequest &other)
 {
     Q_D(KIppRequest);
     if (this == &other)
@@ -204,52 +201,33 @@ void KIppRequestPrivate::addRequest(ipp_tag_t group, ipp_tag_t valueTag, const Q
 void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
 {
     // sort the values as CUPS requires it
-    std::sort(rawRequests.begin(), rawRequests.end(), [] (const KCupsRawRequest &a, const KCupsRawRequest &b) {
+    std::sort(rawRequests.begin(), rawRequests.end(), [](const KCupsRawRequest &a, const KCupsRawRequest &b) {
         return a.group < b.group;
     });
 
     const QList<KCupsRawRequest> &requests = rawRequests;
-    for (const KCupsRawRequest &request :requests) {
+    for (const KCupsRawRequest &request : requests) {
         switch (request.value.type()) {
         case QVariant::Bool:
-            ippAddBoolean(ipp,
-                          request.group,
-                          request.name.toUtf8().constData(),
-                          request.value.toBool());
+            ippAddBoolean(ipp, request.group, request.name.toUtf8().constData(), request.value.toBool());
             break;
         case QVariant::Int:
         case QVariant::UInt:
-            ippAddInteger(ipp,
-                          request.group,
-                          request.valueTag,
-                          request.name.toUtf8().constData(),
-                          request.value.toInt());
+            ippAddInteger(ipp, request.group, request.valueTag, request.name.toUtf8().constData(), request.value.toInt());
             break;
         case QVariant::String:
-            ippAddString(ipp,
-                         request.group,
-                         request.valueTag,
-                         request.name.toUtf8().constData(),
-                         "utf-8",
-                         request.value.toString().toUtf8().constData());
+            ippAddString(ipp, request.group, request.valueTag, request.name.toUtf8().constData(), "utf-8", request.value.toString().toUtf8().constData());
             break;
-        case QVariant::StringList:
-        {
+        case QVariant::StringList: {
             QStringList list = request.value.toStringList();
             QList<QByteArray> valuesQByteArrayList;
             const char **values = qStringListToCharPtrPtr(list, valuesQByteArrayList);
 
-            ippAddStrings(ipp,
-                          request.group,
-                          request.valueTag,
-                          request.name.toUtf8().constData(),
-                          list.size(),
-                          "utf-8",
-                          values);
+            ippAddStrings(ipp, request.group, request.valueTag, request.name.toUtf8().constData(), list.size(), "utf-8", values);
 
             // ippAddStrings deep copies everything so we can throw away the values.
             // the QBAList and content is auto discarded when going out of scope.
-            delete [] values;
+            delete[] values;
             break;
         }
         default:

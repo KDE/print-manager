@@ -10,8 +10,8 @@
 #include <QStandardItemModel>
 #include <qqmlregistration.h>
 
-#include <kcupslib_export.h>
 #include <cups/cups.h>
+#include <kcupslib_export.h>
 
 class KCupsJob;
 class KCupsRequest;
@@ -41,20 +41,10 @@ public:
     };
     Q_ENUM(Role)
 
-    enum JobAction {
-        Cancel,
-        Hold,
-        Release,
-        Move,
-        Reprint
-    };
+    enum JobAction { Cancel, Hold, Release, Move, Reprint };
     Q_ENUM(JobAction)
 
-    enum WhichJobs {
-        WhichAll,
-        WhichActive,
-        WhichCompleted
-    };
+    enum WhichJobs { WhichAll, WhichActive, WhichCompleted };
     Q_ENUM(WhichJobs)
 
     enum Columns {
@@ -86,16 +76,12 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     QStringList mimeTypes() const override;
     Qt::DropActions supportedDropActions() const override;
-    QMimeData* mimeData(const QModelIndexList &indexes) const override;
-    bool dropMimeData(const QMimeData *data,
-                      Qt::DropAction action,
-                      int row,
-                      int column,
-                      const QModelIndex &parent) override;
-    virtual QHash<int,QByteArray> roleNames() const override;
+    QMimeData *mimeData(const QModelIndexList &indexes) const override;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
+    virtual QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void setWhichJobs(WhichJobs whichjobs);
-    KCupsRequest* modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
+    KCupsRequest *modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 private slots:
     void getJobs();

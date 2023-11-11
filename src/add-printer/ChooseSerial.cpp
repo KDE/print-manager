@@ -12,10 +12,10 @@
 
 #include <QPainter>
 
-ChooseSerial::ChooseSerial(QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::ChooseSerial),
-    m_rx(QLatin1String("\\?baud=(\\d+)"))
+ChooseSerial::ChooseSerial(QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::ChooseSerial)
+    , m_rx(QLatin1String("\\?baud=(\\d+)"))
 {
     ui->setupUi(this);
 
@@ -24,12 +24,12 @@ ChooseSerial::ChooseSerial(QWidget *parent) :
 
     ui->parityCB->addItem(i18nc("@label:listbox", "None"), QLatin1String("none"));
     ui->parityCB->addItem(i18nc("@label:listbox", "Even"), QLatin1String("even"));
-    ui->parityCB->addItem(i18nc("@label:listbox", "Odd"),  QLatin1String("odd"));
+    ui->parityCB->addItem(i18nc("@label:listbox", "Odd"), QLatin1String("odd"));
 
     ui->flowCB->addItem(i18nc("@label:listbox", "None"), QLatin1String("none"));
     ui->flowCB->addItem(i18nc("@label:listbox", "XON/XOFF (Software)"), QLatin1String("soft"));
-    ui->flowCB->addItem(i18nc("@label:listbox", "RTS/CTS (Hardware)"),  QLatin1String("hard"));
-    ui->flowCB->addItem(i18nc("@label:listbox", "DTR/DSR (Hardware)"),  QLatin1String("dtrdsr"));
+    ui->flowCB->addItem(i18nc("@label:listbox", "RTS/CTS (Hardware)"), QLatin1String("hard"));
+    ui->flowCB->addItem(i18nc("@label:listbox", "DTR/DSR (Hardware)"), QLatin1String("dtrdsr"));
 }
 
 ChooseSerial::~ChooseSerial()
@@ -52,19 +52,19 @@ void ChooseSerial::setValues(const QVariantMap &args)
     }
     m_isValid = true;
 
-    static int    baudrates[] =       /* Baud rates */
-    {
-        1200,
-        2400,
-        4800,
-        9600,
-        19200,
-        38400,
-        57600,
-        115200,
-        230400,
-        460800
-    };
+    static int baudrates[] = /* Baud rates */
+        {
+            1200,
+            2400,
+            4800,
+            9600,
+            19200,
+            38400,
+            57600,
+            115200,
+            230400,
+            460800,
+        };
 
     // Find out the max baud rate
     int maxrate;
@@ -76,7 +76,7 @@ void ChooseSerial::setValues(const QVariantMap &args)
     }
 
     ui->baudRateCB->clear();
-    for (int i = 0; i < 10; i ++) {
+    for (int i = 0; i < 10; i++) {
         if (baudrates[i] > maxrate) {
             break;
         } else {
@@ -100,8 +100,7 @@ QVariantMap ChooseSerial::values() const
     const QString bits = ui->bitsCB->currentText();
     const QString parity = ui->baudRateCB->itemData(ui->baudRateCB->currentIndex()).toString();
     const QString flow = ui->flowCB->itemData(ui->flowCB->currentIndex()).toString();
-    const QString replace = QString::fromLatin1("?baud=%1+bits=%2+parity=%3+flow=%4")
-            .arg(baudRate, bits, parity, flow);
+    const QString replace = QString::fromLatin1("?baud=%1+bits=%2+parity=%3+flow=%4").arg(baudRate, bits, parity, flow);
     deviceUri.replace(pos, deviceUri.size() - pos, replace);
     ret[KCUPS_DEVICE_URI] = deviceUri;
     return ret;

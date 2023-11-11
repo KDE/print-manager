@@ -16,9 +16,9 @@
 #include <QPainter>
 #include <QUrl>
 
-ChooseSamba::ChooseSamba(QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::ChooseSamba)
+ChooseSamba::ChooseSamba(QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::ChooseSamba)
 {
     // Opt into printer listing in the KIO SMB worker.
     qputenv("KIO_SMB_PRINTERS", QByteArrayLiteral("1"));
@@ -77,8 +77,7 @@ QVariantMap ChooseSamba::values() const
         url = QUrl(QLatin1String("smb") + address);
     } else if (address.startsWith(QLatin1String("smb://"))) {
         url = QUrl(address);
-    } else if (!QUrl::fromUserInput(address).scheme().isEmpty() &&
-               QUrl::fromUserInput(address).scheme() != QStringLiteral("smb")) {
+    } else if (!QUrl::fromUserInput(address).scheme().isEmpty() && QUrl::fromUserInput(address).scheme() != QStringLiteral("smb")) {
         url = QUrl::fromUserInput(address);
         url.setScheme(QStringLiteral("smb"));
     } else {
@@ -95,7 +94,7 @@ QVariantMap ChooseSamba::values() const
     }
 
     qDebug() << 2 << url;
-    qDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1);// same as url.fileName()
+    qDebug() << 3 << url.url() << url.path().section(QLatin1Char('/'), -1, -1); // same as url.fileName()
     qDebug() << 4 << url.fileName();
     qDebug() << 5 << url.host() << url.url().section(QLatin1Char('/'), 3, 3).toLower();
 
@@ -118,13 +117,15 @@ bool ChooseSamba::isValid() const
     const QVariantMap args = values();
     const QUrl url(args[KCUPS_DEVICE_URI].toString());
 
+    // clang-format off
     return url.isValid() &&
-            !url.isEmpty() &&
-            !url.scheme().isEmpty() &&
-            !url.host().isEmpty() &&
-            !url.path().isEmpty() &&
-            !url.fileName().isEmpty() &&
-            url.url().count(QLatin1Char('/')) <= 4;
+    !url.isEmpty() &&
+    !url.scheme().isEmpty() &&
+    !url.host().isEmpty() &&
+    !url.path().isEmpty() &&
+    !url.fileName().isEmpty() &&
+    url.url().count(QLatin1Char('/')) <= 4;
+    // clang-format on
 }
 
 bool ChooseSamba::canProceed() const

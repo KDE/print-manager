@@ -8,33 +8,34 @@
 
 #include "kcupslib_log.h"
 
-#include <KCupsRequest.h>
-#include <KCupsPrinter.h>
 #include <KCupsJob.h>
+#include <KCupsPrinter.h>
+#include <KCupsRequest.h>
 
 #include <QDateTime>
+#include <QIODevice>
 #include <QMimeData>
 #include <QPointer>
-#include <QIODevice>
 
 #include <KFormat>
-#include <KUser>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KUser>
 
-JobModel::JobModel(QObject *parent) : QStandardItemModel(parent)
+JobModel::JobModel(QObject *parent)
+    : QStandardItemModel(parent)
 {
-    setHorizontalHeaderItem(ColStatus,        new QStandardItem(i18n("Status")));
-    setHorizontalHeaderItem(ColName,          new QStandardItem(i18n("Name")));
-    setHorizontalHeaderItem(ColUser,          new QStandardItem(i18n("User")));
-    setHorizontalHeaderItem(ColCreated,       new QStandardItem(i18n("Created")));
-    setHorizontalHeaderItem(ColCompleted,     new QStandardItem(i18n("Completed")));
-    setHorizontalHeaderItem(ColPages,         new QStandardItem(i18n("Pages")));
-    setHorizontalHeaderItem(ColProcessed,     new QStandardItem(i18n("Processed")));
-    setHorizontalHeaderItem(ColSize,          new QStandardItem(i18n("Size")));
+    setHorizontalHeaderItem(ColStatus, new QStandardItem(i18n("Status")));
+    setHorizontalHeaderItem(ColName, new QStandardItem(i18n("Name")));
+    setHorizontalHeaderItem(ColUser, new QStandardItem(i18n("User")));
+    setHorizontalHeaderItem(ColCreated, new QStandardItem(i18n("Created")));
+    setHorizontalHeaderItem(ColCompleted, new QStandardItem(i18n("Completed")));
+    setHorizontalHeaderItem(ColPages, new QStandardItem(i18n("Pages")));
+    setHorizontalHeaderItem(ColProcessed, new QStandardItem(i18n("Processed")));
+    setHorizontalHeaderItem(ColSize, new QStandardItem(i18n("Size")));
     setHorizontalHeaderItem(ColStatusMessage, new QStandardItem(i18n("Status Message")));
-    setHorizontalHeaderItem(ColPrinter,       new QStandardItem(i18n("Printer")));
-    setHorizontalHeaderItem(ColFromHost,      new QStandardItem(i18n("From Hostname")));
+    setHorizontalHeaderItem(ColPrinter, new QStandardItem(i18n("Printer")));
+    setHorizontalHeaderItem(ColFromHost, new QStandardItem(i18n("From Hostname")));
 
     m_roles = QStandardItemModel::roleNames();
     m_roles[RoleJobId] = "jobId";
@@ -138,26 +139,24 @@ void JobModel::getJobs()
     m_jobRequest = new KCupsRequest;
     connect(m_jobRequest, &KCupsRequest::finished, this, &JobModel::getJobFinished);
 
-    const static QStringList attrs({
-                                       KCUPS_JOB_ID,
-                                       KCUPS_JOB_NAME,
-                                       KCUPS_JOB_K_OCTETS,
-                                       KCUPS_JOB_K_OCTETS_PROCESSED,
-                                       KCUPS_JOB_STATE,
-                                       KCUPS_JOB_STATE_REASONS,
-                                       KCUPS_JOB_HOLD_UNTIL,
-                                       KCUPS_TIME_AT_COMPLETED,
-                                       KCUPS_TIME_AT_CREATION,
-                                       KCUPS_TIME_AT_PROCESSING,
-                                       KCUPS_JOB_PRINTER_URI,
-                                       KCUPS_JOB_ORIGINATING_USER_NAME,
-                                       KCUPS_JOB_ORIGINATING_HOST_NAME,
-                                       KCUPS_JOB_MEDIA_PROGRESS,
-                                       KCUPS_JOB_MEDIA_SHEETS,
-                                       KCUPS_JOB_MEDIA_SHEETS_COMPLETED,
-                                       KCUPS_JOB_PRINTER_STATE_MESSAGE,
-                                       KCUPS_JOB_PRESERVED
-                                   });
+    const static QStringList attrs({KCUPS_JOB_ID,
+                                    KCUPS_JOB_NAME,
+                                    KCUPS_JOB_K_OCTETS,
+                                    KCUPS_JOB_K_OCTETS_PROCESSED,
+                                    KCUPS_JOB_STATE,
+                                    KCUPS_JOB_STATE_REASONS,
+                                    KCUPS_JOB_HOLD_UNTIL,
+                                    KCUPS_TIME_AT_COMPLETED,
+                                    KCUPS_TIME_AT_CREATION,
+                                    KCUPS_TIME_AT_PROCESSING,
+                                    KCUPS_JOB_PRINTER_URI,
+                                    KCUPS_JOB_ORIGINATING_USER_NAME,
+                                    KCUPS_JOB_ORIGINATING_HOST_NAME,
+                                    KCUPS_JOB_MEDIA_PROGRESS,
+                                    KCUPS_JOB_MEDIA_SHEETS,
+                                    KCUPS_JOB_MEDIA_SHEETS_COMPLETED,
+                                    KCUPS_JOB_PRINTER_STATE_MESSAGE,
+                                    KCUPS_JOB_PRESERVED});
     m_jobRequest->getJobs(m_destName, false, m_whichjobs, attrs);
 
     m_processingJob.clear();
@@ -232,16 +231,16 @@ void JobModel::getJobFinished(KCupsRequest *request)
 }
 
 void JobModel::jobCompleted(const QString &text,
-                                   const QString &printerUri,
-                                   const QString &printerName,
-                                   uint printerState,
-                                   const QString &printerStateReasons,
-                                   bool printerIsAcceptingJobs,
-                                   uint jobId,
-                                   uint jobState,
-                                   const QString &jobStateReasons,
-                                   const QString &jobName,
-                                   uint jobImpressionsCompleted)
+                            const QString &printerUri,
+                            const QString &printerName,
+                            uint printerState,
+                            const QString &printerStateReasons,
+                            bool printerIsAcceptingJobs,
+                            uint jobId,
+                            uint jobState,
+                            const QString &jobStateReasons,
+                            const QString &jobName,
+                            uint jobImpressionsCompleted)
 {
     // REALLY? all these parameters just to say foo was deleted??
     Q_UNUSED(text)
@@ -261,16 +260,16 @@ void JobModel::jobCompleted(const QString &text,
 }
 
 void JobModel::insertUpdateJob(const QString &text,
-                                      const QString &printerUri,
-                                      const QString &printerName,
-                                      uint printerState,
-                                      const QString &printerStateReasons,
-                                      bool printerIsAcceptingJobs,
-                                      uint jobId,
-                                      uint jobState,
-                                      const QString &jobStateReasons,
-                                      const QString &jobName,
-                                      uint jobImpressionsCompleted)
+                               const QString &printerUri,
+                               const QString &printerName,
+                               uint printerState,
+                               const QString &printerStateReasons,
+                               bool printerIsAcceptingJobs,
+                               uint jobId,
+                               uint jobState,
+                               const QString &jobStateReasons,
+                               const QString &jobName,
+                               uint jobImpressionsCompleted)
 {
     // REALLY? all these parameters just to say foo was created??
     Q_UNUSED(text)
@@ -292,7 +291,7 @@ void JobModel::insertUpdateJob(const QString &text,
 void JobModel::insertJob(int pos, const KCupsJob &job)
 {
     // insert the first column which has the job state and id
-    QList<QStandardItem*> row;
+    QList<QStandardItem *> row;
     ipp_jstate_e jobState = job.state();
     auto statusItem = new QStandardItem(jobStatus(jobState));
     statusItem->setData(jobState, RoleJobState);
@@ -349,8 +348,8 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
         colStatus->setData(job.reprintEnabled(), RoleJobRestartEnabled);
     }
 
-    const QString pages = job.processedPages() ? QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.processedPages())
-                                               : QString::number(job.pages());
+    const QString pages =
+        job.processedPages() ? QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.processedPages()) : QString::number(job.pages());
     if (colStatus->data(RoleJobPages) != pages) {
         colStatus->setData(pages, RoleJobPages);
     }
@@ -450,7 +449,7 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
 
 QStringList JobModel::mimeTypes() const
 {
-    return { QStringLiteral("application/x-cupsjobs") };
+    return {QStringLiteral("application/x-cupsjobs")};
 }
 
 Qt::DropActions JobModel::supportedDropActions() const
@@ -458,7 +457,7 @@ Qt::DropActions JobModel::supportedDropActions() const
     return Qt::MoveAction;
 }
 
-QMimeData* JobModel::mimeData(const QModelIndexList &indexes) const
+QMimeData *JobModel::mimeData(const QModelIndexList &indexes) const
 {
     auto mimeData = new QMimeData();
     QByteArray encodedData;
@@ -468,9 +467,7 @@ QMimeData* JobModel::mimeData(const QModelIndexList &indexes) const
     for (const QModelIndex &index : indexes) {
         if (index.isValid() && index.column() == 0) {
             // serialize the jobId and fromDestName
-            stream << data(index, RoleJobId).toInt()
-                   << data(index, RoleJobPrinter).toString()
-                   << item(index.row(), ColName)->text();
+            stream << data(index, RoleJobId).toInt() << data(index, RoleJobPrinter).toString() << item(index.row(), ColName)->text();
         }
     }
 
@@ -478,11 +475,7 @@ QMimeData* JobModel::mimeData(const QModelIndexList &indexes) const
     return mimeData;
 }
 
-bool JobModel::dropMimeData(const QMimeData *data,
-                                   Qt::DropAction action,
-                                   int row,
-                                   int column,
-                                   const QModelIndex &parent)
+bool JobModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
     Q_UNUSED(row)
     Q_UNUSED(column)
@@ -515,11 +508,7 @@ bool JobModel::dropMimeData(const QMimeData *data,
             if (request->hasError()) {
                 // failed to move one job
                 // we return here to avoid more password tries
-                KMessageBox::detailedErrorWId(m_parentId,
-                                              i18n("Failed to move '%1' to '%2'",
-                                                   displayName, m_destName),
-                                              request->errorMsg(),
-                                              i18n("Failed"));
+                KMessageBox::detailedErrorWId(m_parentId, i18n("Failed to move '%1' to '%2'", displayName, m_destName), request->errorMsg(), i18n("Failed"));
             }
             request->deleteLater();
             ret = !request->hasError();
@@ -533,7 +522,7 @@ QHash<int, QByteArray> JobModel::roleNames() const
     return m_roles;
 }
 
-KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
+KCupsRequest *JobModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
 {
     Q_UNUSED(parent)
 
@@ -548,9 +537,7 @@ KCupsRequest* JobModel::modifyJob(int row, JobAction action, const QString &newD
 
     // ignore some jobs
     ipp_jstate_t state = static_cast<ipp_jstate_t>(job->data(RoleJobState).toInt());
-    if ((state == IPP_JOB_HELD && action == Hold) ||
-        (state == IPP_JOB_CANCELED && action == Cancel) ||
-        (state != IPP_JOB_HELD && action == Release)) {
+    if ((state == IPP_JOB_HELD && action == Hold) || (state == IPP_JOB_CANCELED && action == Cancel) || (state != IPP_JOB_HELD && action == Release)) {
         return nullptr;
     }
 
@@ -583,8 +570,7 @@ int JobModel::jobRow(int jobId)
 {
     // find the position of the jobId inside the model
     for (int i = 0; i < rowCount(); i++) {
-        if (jobId == item(i)->data(RoleJobId).toInt())
-        {
+        if (jobId == item(i)->data(RoleJobId).toInt()) {
             return i;
         }
     }
@@ -594,17 +580,23 @@ int JobModel::jobRow(int jobId)
 
 QString JobModel::jobStatus(ipp_jstate_e job_state)
 {
-  switch (job_state)
-  {
-    case IPP_JOB_PENDING    : return i18n("Pending");
-    case IPP_JOB_HELD       : return i18n("On hold");
-    case IPP_JOB_PROCESSING : return QLatin1String("-");
-    case IPP_JOB_STOPPED    : return i18n("Stopped");
-    case IPP_JOB_CANCELED   : return i18n("Canceled");
-    case IPP_JOB_ABORTED    : return i18n("Aborted");
-    case IPP_JOB_COMPLETED  : return i18n("Completed");
-  }
-  return QLatin1String("-");
+    switch (job_state) {
+    case IPP_JOB_PENDING:
+        return i18n("Pending");
+    case IPP_JOB_HELD:
+        return i18n("On hold");
+    case IPP_JOB_PROCESSING:
+        return QLatin1String("-");
+    case IPP_JOB_STOPPED:
+        return i18n("Stopped");
+    case IPP_JOB_CANCELED:
+        return i18n("Canceled");
+    case IPP_JOB_ABORTED:
+        return i18n("Aborted");
+    case IPP_JOB_COMPLETED:
+        return i18n("Completed");
+    }
+    return QLatin1String("-");
 }
 
 void JobModel::clear()
@@ -633,8 +625,7 @@ Qt::ItemFlags JobModel::flags(const QModelIndex &index) const
 {
     if (index.isValid()) {
         ipp_jstate_t state = static_cast<ipp_jstate_t>(item(index.row(), ColStatus)->data(RoleJobState).toInt());
-        if (state == IPP_JOB_PENDING ||
-            state == IPP_JOB_PROCESSING) {
+        if (state == IPP_JOB_PENDING || state == IPP_JOB_PROCESSING) {
             return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
         }
     }

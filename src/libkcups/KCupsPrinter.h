@@ -7,8 +7,8 @@
 #ifndef KCUPSPRINTER_H
 #define KCUPSPRINTER_H
 
-#include <QString>
 #include <QIcon>
+#include <QString>
 
 #include <KCupsConnection.h>
 #include <kcupslib_export.h>
@@ -17,11 +17,7 @@ class KCUPSLIB_EXPORT KCupsPrinter
 {
     Q_ENUMS(Attribute)
 public:
-    typedef enum {
-        Idle = 3,
-        Printing,
-        Stopped
-    } Status;
+    typedef enum { Idle = 3, Printing, Stopped } Status;
     KCupsPrinter();
     explicit KCupsPrinter(const QString &printer, bool isClass = false);
 
@@ -54,9 +50,9 @@ public:
     QVariant argument(const QString &name) const;
 
     /**
-      * Requires enum PrinterType to work properly
-      *
-      */
+     * Requires enum PrinterType to work properly
+     *
+     */
     QIcon icon() const;
     static QIcon icon(cups_ptype_e type);
     QString iconName() const;
@@ -69,7 +65,7 @@ private:
     friend class KCupsRequest;
 
     QString m_printer;
-    bool    m_isClass;
+    bool m_isClass;
     QVariantMap m_arguments;
 };
 

@@ -7,12 +7,12 @@
 #ifndef CLASS_LIST_WIDGET_H
 #define CLASS_LIST_WIDGET_H
 
-#include <QStandardItemModel>
 #include <QListView>
+#include <QStandardItemModel>
 #include <QTimer>
 
-#include <kcupslib_export.h>
 #include <KPixmapSequenceOverlayPainter>
+#include <kcupslib_export.h>
 
 class KCupsRequest;
 class KCUPSLIB_EXPORT ClassListWidget : public QListView

@@ -10,7 +10,7 @@
 #include <QVariant>
 
 PrinterPage::PrinterPage(QWidget *parent)
- : QWidget(parent)
+    : QWidget(parent)
 {
 }
 

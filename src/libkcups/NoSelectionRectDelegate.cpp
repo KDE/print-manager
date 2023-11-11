@@ -6,14 +6,12 @@
 
 #include "NoSelectionRectDelegate.h"
 
-NoSelectionRectDelegate::NoSelectionRectDelegate(QObject *parent) :
-    QStyledItemDelegate(parent)
+NoSelectionRectDelegate::NoSelectionRectDelegate(QObject *parent)
+    : QStyledItemDelegate(parent)
 {
 }
 
-void NoSelectionRectDelegate::paint(QPainter *painter,
-                                    const QStyleOptionViewItem &option,
-                                    const QModelIndex &index) const
+void NoSelectionRectDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // For some reason some styles don't honor the views SelectionRectVisible
     // and I just hate that selection rect thing...

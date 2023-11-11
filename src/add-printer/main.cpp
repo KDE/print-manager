@@ -8,13 +8,13 @@
 
 #include <config.h>
 
-#include <QCommandLineParser>
 #include <QCommandLineOption>
+#include <QCommandLineParser>
 
 #include <QLoggingCategory>
 
-#include <KLocalizedString>
 #include <KAboutData>
+#include <KLocalizedString>
 
 Q_LOGGING_CATEGORY(PM_ADD_PRINTER, "pm.add.printer")
 
@@ -50,7 +50,8 @@ int main(int argc, char **argv)
     QCommandLineOption changePpdOpt(QLatin1String("change-ppd"), i18n("Changes the PPD of a given printer"), QLatin1String("printer-name"));
     parser.addOption(changePpdOpt);
 
-    QCommandLineOption newPrinterDevOpt(QLatin1String("new-printer-from-device"), i18n("Changes the PPD of a given printer/deviceid"),
+    QCommandLineOption newPrinterDevOpt(QLatin1String("new-printer-from-device"),
+                                        i18n("Changes the PPD of a given printer/deviceid"),
                                         QLatin1String("printername/deviceid"));
     parser.addOption(newPrinterDevOpt);
 

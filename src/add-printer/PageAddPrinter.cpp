@@ -10,14 +10,14 @@
 #include <KCupsRequest.h>
 #include <KLocalizedString>
 
+#include <QDebug>
 #include <QPainter>
 #include <QPointer>
 #include <QRegularExpressionValidator>
-#include <QDebug>
 
-PageAddPrinter::PageAddPrinter(QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::PageAddPrinter)
+PageAddPrinter::PageAddPrinter(QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::PageAddPrinter)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -34,8 +34,7 @@ PageAddPrinter::PageAddPrinter(QWidget *parent) :
     QPainter painter(&printerIcon);
 
     // bottom right corner
-    const QPoint startPoint = QPoint(printerSize - overlaySize - 2,
-                                     printerSize - overlaySize - 2);
+    const QPoint startPoint = QPoint(printerSize - overlaySize - 2, printerSize - overlaySize - 2);
     painter.drawPixmap(startPoint, preferencesIcon);
 
     ui->printerL->setPixmap(printerIcon);
@@ -144,14 +143,14 @@ QVariantMap PageAddPrinter::values() const
     ret[KCUPS_PRINTER_LOCATION] = ui->locationLE->text();
     ret[KCUPS_PRINTER_INFO] = ui->descriptionLE->text();
     if (ret[ADDING_PRINTER].toBool()) {
-         ret[KCUPS_PRINTER_IS_SHARED] = ui->shareCB->isChecked();
+        ret[KCUPS_PRINTER_IS_SHARED] = ui->shareCB->isChecked();
     }
     return ret;
 }
 
 void PageAddPrinter::checkSelected()
 {
-//     Q_EMIT allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
+    //     Q_EMIT allowProceed(!devicesLV->selectionModel()->selection().isEmpty());
 }
 
 #include "moc_PageAddPrinter.cpp"

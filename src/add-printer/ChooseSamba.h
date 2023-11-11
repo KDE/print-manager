@@ -9,8 +9,9 @@
 
 #include "GenericPage.h"
 
-namespace Ui {
-    class ChooseSamba;
+namespace Ui
+{
+class ChooseSamba;
 }
 class ChooseSamba : public GenericPage
 {

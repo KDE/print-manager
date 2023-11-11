@@ -10,8 +10,9 @@
 #include "PrinterPage.h"
 #include <cups/ppd.h>
 
-namespace Ui {
-    class PrinterOptions;
+namespace Ui
+{
+class PrinterOptions;
 }
 
 class QAbstractButton;
@@ -38,11 +39,11 @@ private slots:
     void radioBtClicked(QAbstractButton *button);
 
 private:
-    QWidget* pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
-    QWidget* pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
-    QWidget* pickOne(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
-    const char* getVariable(const char *name) const;
-    char * get_option_value(ppd_file_t *ppd, const char *name, char *buffer, size_t bufsize) const;
+    QWidget *pickBoolean(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    QWidget *pickMany(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    QWidget *pickOne(ppd_option_t *option, const QString &keyword, QWidget *parent) const;
+    const char *getVariable(const char *name) const;
+    char *get_option_value(ppd_file_t *ppd, const char *name, char *buffer, size_t bufsize) const;
     static double get_points(double number, const char *uval);
 
     void createGroups();
@@ -55,7 +56,7 @@ private:
     ppd_file_t *m_ppd = nullptr;
     int m_changes = 0;
     QTextCodec *m_codec = nullptr;
-    QHash<QString, QObject*> m_customValues;
+    QHash<QString, QObject *> m_customValues;
     QString m_make, m_makeAndModel;
 };
 

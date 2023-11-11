@@ -10,21 +10,21 @@
 #include "ConfigureDialog.h"
 #include "Debug.h"
 
-#include <KCupsRequest.h>
 #include <KCupsPrinter.h>
+#include <KCupsRequest.h>
 
 #include <KX11Extras>
 #include <KWindowSystem>
 #include <QDBusConnection>
-#include <QTimer>
 #include <QDialog>
 #include <QPointer>
+#include <QTimer>
 
-ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent) :
-    QObject(parent)
+ConfigurePrinterInterface::ConfigurePrinterInterface(QObject *parent)
+    : QObject(parent)
 {
     qCDebug(PM_CONFIGURE_PRINTER) << "Creating Helper";
-    (void) new ConfigurePrinterAdaptor(this);
+    (void)new ConfigurePrinterAdaptor(this);
     if (!QDBusConnection::sessionBus().registerService(QLatin1String("org.kde.ConfigurePrinter"))) {
         qCDebug(PM_CONFIGURE_PRINTER) << "another helper is already running";
         return;
@@ -53,7 +53,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 
         // Get destinations with these attributes
         QPointer<KCupsRequest> request = new KCupsRequest;
-        request->getPrinters({ KCUPS_PRINTER_NAME, KCUPS_PRINTER_TYPE });
+        request->getPrinters({KCUPS_PRINTER_NAME, KCUPS_PRINTER_TYPE});
         request->waitTillFinished();
         if (!request) {
             return;
@@ -73,7 +73,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 
         if (found) {
             auto ui = new ConfigureDialog(printer.name(), printer.isClass());
-            connect(m_updateUi, &QTimer::timeout, ui, static_cast<void(ConfigureDialog::*)()>(&ConfigureDialog::update));
+            connect(m_updateUi, &QTimer::timeout, ui, static_cast<void (ConfigureDialog::*)()>(&ConfigureDialog::update));
             connect(ui, &ConfigureDialog::finished, this, &ConfigurePrinterInterface::RemovePrinter);
             ui->show();
             m_uis[printer.name()] = ui;
@@ -84,7 +84,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
             // if no destination was found and we aren't showing
             // a queue quit the app
             if (m_uis.isEmpty()) {
-                 Q_EMIT quit();
+                Q_EMIT quit();
             }
             return;
         }
@@ -100,7 +100,7 @@ void ConfigurePrinterInterface::ConfigurePrinter(const QString &destName)
 
 void ConfigurePrinterInterface::RemovePrinter()
 {
-    auto ui = qobject_cast<QWidget*>(sender());
+    auto ui = qobject_cast<QWidget *>(sender());
     if (ui) {
         m_uis.remove(m_uis.key(ui));
     }
@@ -108,7 +108,7 @@ void ConfigurePrinterInterface::RemovePrinter()
     // if no destination was found and we aren't showing
     // a queue quit the app
     if (m_uis.isEmpty()) {
-         Q_EMIT quit();
+        Q_EMIT quit();
     }
 }
 

@@ -9,8 +9,8 @@
 #define PROCESS_RUNNER_H
 
 #include <QObject>
-#include <qqmlregistration.h>
 #include <kcupslib_export.h>
+#include <qqmlregistration.h>
 
 class KCUPSLIB_EXPORT ProcessRunner : public QObject
 {

@@ -6,20 +6,20 @@
 
 #include "KCupsJob.h"
 
-KCupsJob::KCupsJob() :
-    m_jobId(0)
+KCupsJob::KCupsJob()
+    : m_jobId(0)
 {
 }
 
-KCupsJob::KCupsJob(int jobId, const QString &printer) :
-    m_jobId(jobId),
-    m_printer(printer)
+KCupsJob::KCupsJob(int jobId, const QString &printer)
+    : m_jobId(jobId)
+    , m_printer(printer)
 {
     m_arguments[KCUPS_JOB_ID] = QString::number(jobId);
 }
 
-KCupsJob::KCupsJob(const QVariantMap &arguments) :
-    m_arguments(arguments)
+KCupsJob::KCupsJob(const QVariantMap &arguments)
+    : m_arguments(arguments)
 {
     m_jobId = arguments[KCUPS_JOB_ID].toInt();
     m_printer = arguments[KCUPS_JOB_PRINTER_URI].toString().section(QLatin1Char('/'), -1);
@@ -110,7 +110,7 @@ bool KCupsJob::preserved() const
 QString KCupsJob::iconName(ipp_jstate_t state)
 {
     QString ret;
-    switch (state){
+    switch (state) {
     case IPP_JOB_PENDING:
         ret = QLatin1String("chronometer");
         break;
@@ -200,8 +200,8 @@ bool KCupsJob::holdEnabled(ipp_jstate_t state)
 bool KCupsJob::releaseEnabled(ipp_jstate_t state)
 {
     switch (state) {
-    case IPP_JOB_HELD :
-    case IPP_JOB_STOPPED :
+    case IPP_JOB_HELD:
+    case IPP_JOB_STOPPED:
         return true;
     default:
         return false;

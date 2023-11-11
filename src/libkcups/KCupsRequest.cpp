@@ -13,10 +13,10 @@
 #include <cups/adminutil.h>
 #include <cups/ppd.h>
 
-#define CUPS_DATADIR    QLatin1String("/usr/share/cups")
+#define CUPS_DATADIR QLatin1String("/usr/share/cups")
 
-KCupsRequest::KCupsRequest(KCupsConnection *connection) :
-    m_connection(connection)
+KCupsRequest::KCupsRequest(KCupsConnection *connection)
+    : m_connection(connection)
 {
     // If no connection was specified use default one
     if (m_connection == nullptr) {
@@ -30,9 +30,9 @@ QString KCupsRequest::serverError() const
     switch (error()) {
     case IPP_SERVICE_UNAVAILABLE:
         return i18n("Print service is unavailable");
-    case IPP_NOT_FOUND :
+    case IPP_NOT_FOUND:
         return i18n("Not found");
-    default : // In this case we don't want to map all enums
+    default: // In this case we don't want to map all enums
         qCWarning(LIBKCUPS) << "status unrecognised: " << error();
         return QString::fromUtf8(ippErrorString(error()));
     }
@@ -55,18 +55,18 @@ void KCupsRequest::getPPDS(const QString &make)
     }
 }
 
-static void choose_device_cb(const char *device_class,           /* I - Class */
-                             const char *device_id,              /* I - 1284 device ID */
-                             const char *device_info,            /* I - Description */
-                             const char *device_make_and_model,  /* I - Make and model */
-                             const char *device_uri,             /* I - Device URI */
-                             const char *device_location,        /* I - Location */
-                             void *user_data)                    /* I - Result object */
+static void choose_device_cb(const char *device_class, /* I - Class */
+                             const char *device_id, /* I - 1284 device ID */
+                             const char *device_info, /* I - Description */
+                             const char *device_make_and_model, /* I - Make and model */
+                             const char *device_uri, /* I - Device URI */
+                             const char *device_location, /* I - Location */
+                             void *user_data) /* I - Result object */
 {
     /*
      * Add the device to the array...
      */
-    auto request = static_cast<KCupsRequest*>(user_data);
+    auto request = static_cast<KCupsRequest *>(user_data);
     QMetaObject::invokeMethod(request,
                               "device",
                               Qt::QueuedConnection,
@@ -102,12 +102,7 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
             }
 
             // Scan for devices for "timeout" seconds
-            cupsGetDevices(CUPS_HTTP_DEFAULT,
-                           timeout,
-                           include,
-                           exclude,
-                           (cups_device_cb_t) choose_device_cb,
-                           this);
+            cupsGetDevices(CUPS_HTTP_DEFAULT, timeout, include, exclude, (cups_device_cb_t)choose_device_cb, this);
         } while (m_connection->retry("/admin/", CUPS_GET_DEVICES));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished(true);
@@ -257,7 +252,7 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
 {
     if (m_connection->readyToStart()) {
         do {
-            const char  *filename;
+            const char *filename;
             filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName));
             qCDebug(LIBKCUPS) << filename;
             m_ppdFile = QString::fromUtf8(filename);
@@ -280,10 +275,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
 
             QVariantMap::const_iterator i = args.constBegin();
             while (i != args.constEnd()) {
-                num_settings = cupsAddOption(qUtf8Printable(i.key()),
-                                             qUtf8Printable(i.value().toString()),
-                                             num_settings,
-                                             &settings);
+                num_settings = cupsAddOption(qUtf8Printable(i.key()), qUtf8Printable(i.value().toString()), num_settings, &settings);
                 ++i;
             }
 
@@ -376,7 +368,7 @@ void KCupsRequest::printTestPage(const QString &printerName, bool isClass)
 {
     QString resource; /* POST resource path */
     QString filename; /* Test page filename */
-    QString datadir;  /* CUPS_DATADIR env var */
+    QString datadir; /* CUPS_DATADIR env var */
 
     /*
      * Locate the test page file...
@@ -407,10 +399,10 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
 {
     if (m_connection->readyToStart()) {
         do {
-            int           job_id;                 /* Command file job */
-            char          command_file[1024];     /* Command "file" */
-            http_status_t status;                 /* Document status */
-            cups_option_t hold_option;            /* job-hold-until option */
+            int job_id; /* Command file job */
+            char command_file[1024]; /* Command "file" */
+            http_status_t status; /* Document status */
+            cups_option_t hold_option; /* job-hold-until option */
 
             /*
              * Create the CUPS command file...
@@ -420,14 +412,10 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
             /*
              * Send the command file job...
              */
-            hold_option.name  = const_cast<char*>("job-hold-until");
-            hold_option.value = const_cast<char*>("no-hold");
+            hold_option.name = const_cast<char *>("job-hold-until");
+            hold_option.value = const_cast<char *>("no-hold");
 
-            if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT,
-                                        qUtf8Printable(printerName),
-                                        qUtf8Printable(title),
-                                        1,
-                                        &hold_option)) < 1) {
+            if ((job_id = cupsCreateJob(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName), qUtf8Printable(title), 1, &hold_option)) < 1) {
                 qCWarning(LIBKCUPS) << "Unable to send command to printer driver!";
 
                 setError(HTTP_OK, IPP_NOT_POSSIBLE, i18n("Unable to send command to printer driver!"));
@@ -435,15 +423,9 @@ void KCupsRequest::printCommand(const QString &printerName, const QString &comma
                 return;
             }
 
-            status = cupsStartDocument(CUPS_HTTP_DEFAULT,
-                                       qUtf8Printable(printerName),
-                                       job_id,
-                                       nullptr,
-                                       CUPS_FORMAT_COMMAND,
-                                       1);
+            status = cupsStartDocument(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName), job_id, nullptr, CUPS_FORMAT_COMMAND, 1);
             if (status == HTTP_CONTINUE) {
-                status = cupsWriteRequestData(CUPS_HTTP_DEFAULT, command_file,
-                                              strlen(command_file));
+                status = cupsWriteRequestData(CUPS_HTTP_DEFAULT, command_file, strlen(command_file));
             }
 
             if (status == HTTP_CONTINUE) {
@@ -651,7 +633,7 @@ void KCupsRequest::setFinished(bool delayed)
 {
     m_finished = true;
     if (delayed) {
-        QTimer::singleShot(0, this, [this] () {
+        QTimer::singleShot(0, this, [this]() {
             Q_EMIT finished(this);
         });
     } else {

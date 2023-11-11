@@ -9,15 +9,15 @@
 
 #include <KCupsRequest.h>
 
+#include <QDebug>
 #include <QPointer>
 #include <QTimer>
-#include <QDebug>
 
 #include <KWindowSystem>
 #include <KX11Extras>
 
-PrintQueue::PrintQueue(int &argc, char **argv) :
-    QApplication(argc, argv)
+PrintQueue::PrintQueue(int &argc, char **argv)
+    : QApplication(argc, argv)
 {
 }
 
@@ -49,7 +49,7 @@ void PrintQueue::showQueue(const QString &destName)
 
         // Get destinations with these attributes
         QPointer<KCupsRequest> request = new KCupsRequest;
-        request->getPrinters({ KCUPS_PRINTER_NAME, KCUPS_PRINTER_TYPE });
+        request->getPrinters({KCUPS_PRINTER_NAME, KCUPS_PRINTER_TYPE});
         request->waitTillFinished();
         if (!request) {
             return;
@@ -79,7 +79,7 @@ void PrintQueue::showQueue(const QString &destName)
             // if no destination was found and we aren't showing
             // a queue quit the app
             if (m_uis.isEmpty()) {
-                 Q_EMIT quit();
+                Q_EMIT quit();
             }
             return;
         }
@@ -95,7 +95,7 @@ void PrintQueue::showQueue(const QString &destName)
 
 void PrintQueue::removeQueue()
 {
-    auto ui = qobject_cast<QWidget*>(sender());
+    auto ui = qobject_cast<QWidget *>(sender());
     if (ui) {
         m_uis.remove(m_uis.key(ui));
     }
@@ -103,7 +103,7 @@ void PrintQueue::removeQueue()
     // if no destination was found and we aren't showing
     // a queue quit the app
     if (m_uis.isEmpty()) {
-         quit();
+        quit();
     }
 }
 

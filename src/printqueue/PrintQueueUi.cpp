@@ -7,36 +7,36 @@
 #include "PrintQueueUi.h"
 #include "ui_PrintQueueUi.h"
 
-#include <ProcessRunner.h>
 #include <JobModel.h>
 #include <JobSortFilterModel.h>
+#include <ProcessRunner.h>
 
-#include <KCupsRequest.h>
 #include <KCupsPrinter.h>
+#include <KCupsRequest.h>
 #include <NoSelectionRectDelegate.h>
 
-#include <QToolBar>
-#include <QMenu>
 #include <QByteArray>
 #include <QDebug>
+#include <QMenu>
 #include <QPointer>
 #include <QShortcut>
+#include <QToolBar>
 
-#include <KMessageBox>
-#include <KSharedConfig>
 #include <KConfigGroup>
-#include <KWindowConfig>
 #include <KIO/AuthInfo>
 #include <KIO/Job>
-#include <KUserTimestamp>
+#include <KMessageBox>
 #include <KPasswdServerClient>
+#include <KSharedConfig>
+#include <KUserTimestamp>
+#include <KWindowConfig>
 
 static constexpr uint PRINTER_ICON_SIZE = 92;
 
-PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::PrintQueueUi),
-    m_destName(printer.name())
+PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::PrintQueueUi)
+    , m_destName(printer.name())
 {
     ui->setupUi(this);
 
@@ -62,8 +62,8 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     }
     setWindowTitle(m_title);
     setSizeGripEnabled(true);
-    (void) minimumSizeHint(); //Force the dialog to be laid out now
-    layout()->setContentsMargins(0,0,0,0);
+    (void)minimumSizeHint(); // Force the dialog to be laid out now
+    layout()->setContentsMargins(0, 0, 0, 0);
 
     m_isClass = printer.isClass();
 
@@ -99,16 +99,16 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent) :
     QHeaderView *header = ui->jobsView->header();
     header->setSectionResizeMode(QHeaderView::Interactive);
     header->setStretchLastSection(false);
-    header->setSectionResizeMode(JobModel::ColStatus,        QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColName,          QHeaderView::Stretch);
-    header->setSectionResizeMode(JobModel::ColUser,          QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColCreated,       QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColCompleted,     QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColPages,         QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColProcessed,     QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColSize,          QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColStatus, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColName, QHeaderView::Stretch);
+    header->setSectionResizeMode(JobModel::ColUser, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColCreated, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColCompleted, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColPages, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColProcessed, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColSize, QHeaderView::ResizeToContents);
     header->setSectionResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColPrinter,       QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColPrinter, QHeaderView::ResizeToContents);
 
     KConfigGroup printQueue(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("PrintQueue"));
     if (printQueue.hasKey("ColumnState")) {
@@ -181,8 +181,7 @@ int PrintQueueUi::columnCount(const QModelIndex &parent) const
 void PrintQueueUi::setState(int state, const QString &message)
 {
     qDebug() << state << message;
-    if (state != m_lastState ||
-        ui->printerStatusMsgL->text() != message) {
+    if (state != m_lastState || ui->printerStatusMsgL->text() != message) {
         // save the last state so the ui doesn't need to keep updating
         if (ui->printerStatusMsgL->text() != message) {
             ui->printerStatusMsgL->setText(message);
@@ -214,7 +213,7 @@ void PrintQueueUi::setState(int state, const QString &message)
             ui->pausePrinterPB->setText(i18n("Resume Printer"));
             ui->pausePrinterPB->setIcon(QIcon::fromTheme(QLatin1String("media-playback-start")));
             break;
-        default :
+        default:
             ui->statusL->setText(i18n("Printer state unknown"));
             break;
         }
@@ -264,7 +263,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
 
         // get printers we can move to
         QPointer<KCupsRequest> request = new KCupsRequest;
-        request->getPrinters({ KCUPS_PRINTER_NAME, KCUPS_PRINTER_INFO });
+        request->getPrinters({KCUPS_PRINTER_NAME, KCUPS_PRINTER_INFO});
         request->waitTillFinished();
         if (!request) {
             return;
@@ -278,7 +277,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             if (printer.name() != m_destName) {
                 QAction *action = moveToMenu->addAction(printer.info());
                 action->setData(printer.name());
-                connect(action, &QAction::triggered, this, [=] () {
+                connect(action, &QAction::triggered, this, [=]() {
                     this->modifyJob(JobModel::Move, action->data().toString());
                 });
             }
@@ -338,18 +337,23 @@ void PrintQueueUi::updatePrinterByName(const QString &printer)
     }
 
     const QStringList attr({
-                               KCUPS_PRINTER_INFO,
-                               KCUPS_PRINTER_TYPE,
-                               KCUPS_PRINTER_STATE,
-                               KCUPS_PRINTER_STATE_MESSAGE,
-                           });
+        KCUPS_PRINTER_INFO,
+        KCUPS_PRINTER_TYPE,
+        KCUPS_PRINTER_STATE,
+        KCUPS_PRINTER_STATE_MESSAGE,
+    });
 
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrintQueueUi::getAttributesFinished);
     request->getPrinterAttributes(printer, m_isClass, attr);
 }
 
-void PrintQueueUi::updatePrinter(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs)
+void PrintQueueUi::updatePrinter(const QString &text,
+                                 const QString &printerUri,
+                                 const QString &printerName,
+                                 uint printerState,
+                                 const QString &printerStateReasons,
+                                 bool printerIsAcceptingJobs)
 {
     // REALLY? all these parameters just to say foo was added??
     Q_UNUSED(text)
@@ -425,18 +429,18 @@ void PrintQueueUi::updateButtons()
         for (const QModelIndex &index : indexes) {
             if (index.column() == 0) {
                 switch (static_cast<ipp_jstate_t>(index.data(JobModel::RoleJobState).toInt())) {
-                    case IPP_JOB_CANCELED :
-                    case IPP_JOB_COMPLETED :
-                    case IPP_JOB_ABORTED :
-                        break;
-                    case IPP_JOB_HELD :
-                    case IPP_JOB_STOPPED :
-                        release = true;
-                        cancel = true;
-                        break;
-                    default:
-                        cancel = hold = true;
-                        break;
+                case IPP_JOB_CANCELED:
+                case IPP_JOB_COMPLETED:
+                case IPP_JOB_ABORTED:
+                    break;
+                case IPP_JOB_HELD:
+                case IPP_JOB_STOPPED:
+                    release = true;
+                    cancel = true;
+                    break;
+                default:
+                    cancel = hold = true;
+                    break;
                 }
                 if (index.data(JobModel::RoleJobRestartEnabled).toBool()) {
                     reprint = true;
@@ -461,9 +465,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
     for (const QModelIndex &index : indexes) {
         if (index.column() == 0) {
             KCupsRequest *request;
-            request = m_model->modifyJob(index.row(),
-                                         static_cast<JobModel::JobAction>(action),
-                                         destName);
+            request = m_model->modifyJob(index.row(), static_cast<JobModel::JobAction>(action), destName);
             if (!request) {
                 // probably the job already has this state
                 // or this is an unknown action
@@ -490,10 +492,7 @@ void PrintQueueUi::modifyJob(int action, const QString &destName)
                     msg = i18n("Failed to move '%1' to '%2'", jobName, destName);
                     break;
                 }
-                KMessageBox::detailedError(this,
-                                           msg,
-                                           request->errorMsg(),
-                                           i18n("Failed"));
+                KMessageBox::detailedError(this, msg, request->errorMsg(), i18n("Failed"));
             }
             request->deleteLater();
         }
@@ -548,7 +547,7 @@ void PrintQueueUi::reprintJob()
 void PrintQueueUi::authenticateJob()
 {
     QScopedPointer<KCupsRequest> request(new KCupsRequest);
-    request->getPrinterAttributes(m_destName, m_isClass, { KCUPS_PRINTER_URI_SUPPORTED, KCUPS_AUTH_INFO_REQUIRED });
+    request->getPrinterAttributes(m_destName, m_isClass, {KCUPS_PRINTER_URI_SUPPORTED, KCUPS_AUTH_INFO_REQUIRED});
     request->waitTillFinished();
     if (request->hasError() || request->printers().size() != 1) {
         qWarning() << "Ignoring request, printer not found or error" << m_destName << request->errorMsg();
@@ -610,7 +609,6 @@ void PrintQueueUi::authenticateJob()
             }
         }
     }
-
 }
 
 void PrintQueueUi::whichJobsIndexChanged(int index)
@@ -626,7 +624,6 @@ void PrintQueueUi::whichJobsIndexChanged(int index)
         m_model->setWhichJobs(JobModel::WhichActive);
         break;
     }
-
 }
 
 void PrintQueueUi::setupButtons()

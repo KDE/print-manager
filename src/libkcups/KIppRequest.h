@@ -40,7 +40,6 @@ public:
      */
     KIppRequest &operator=(const KIppRequest &other);
 
-
 private:
     KIppRequestPrivate *d_ptr;
 };

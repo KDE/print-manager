@@ -7,55 +7,54 @@
 
 #include "KCupsConnection.h"
 
-#include "kcupslib_log.h"
 #include "KCupsPasswordDialog.h"
 #include "KIppRequest.h"
+#include "kcupslib_log.h"
 
 #include <config.h>
 
+#include <QByteArray>
 #include <QCoreApplication>
 #include <QDBusConnection>
-#include <QByteArray>
 #include <QMutexLocker>
 
 #include <KLocalizedString>
 
-
-#define RENEW_INTERVAL        3500
+#define RENEW_INTERVAL 3500
 #define SUBSCRIPTION_DURATION 3600
 
 #define DBUS_SERVER_RESTARTED "server-restarted" // ServerRestarted
-#define DBUS_SERVER_STARTED   "server-started"   // ServerStarted
-#define DBUS_SERVER_STOPPED   "server-stopped"   // ServerStopped
-#define DBUS_SERVER_AUDIT     "server-audit"     // ServerAudit
+#define DBUS_SERVER_STARTED "server-started" // ServerStarted
+#define DBUS_SERVER_STOPPED "server-stopped" // ServerStopped
+#define DBUS_SERVER_AUDIT "server-audit" // ServerAudit
 
-#define DBUS_PRINTER_RESTARTED          "printer-restarted"          // PrinterRestarted
-#define DBUS_PRINTER_SHUTDOWN           "printer-shutdown"           // PrinterShutdown
-#define DBUS_PRINTER_STOPPED            "printer-stopped"            // PrinterStopped
-#define DBUS_PRINTER_STATE_CHANGED      "printer-state-changed"      // PrinterStateChanged
+#define DBUS_PRINTER_RESTARTED "printer-restarted" // PrinterRestarted
+#define DBUS_PRINTER_SHUTDOWN "printer-shutdown" // PrinterShutdown
+#define DBUS_PRINTER_STOPPED "printer-stopped" // PrinterStopped
+#define DBUS_PRINTER_STATE_CHANGED "printer-state-changed" // PrinterStateChanged
 #define DBUS_PRINTER_FINISHINGS_CHANGED "printer-finishings-changed" // PrinterFinishingsChanged
-#define DBUS_PRINTER_MEDIA_CHANGED      "printer-media-changed"      // PrinterMediaChanged
-#define DBUS_PRINTER_ADDED              "printer-added"              // PrinterAdded
-#define DBUS_PRINTER_DELETED            "printer-deleted"            // PrinterDeleted
-#define DBUS_PRINTER_MODIFIED           "printer-modified"           // PrinterModified
+#define DBUS_PRINTER_MEDIA_CHANGED "printer-media-changed" // PrinterMediaChanged
+#define DBUS_PRINTER_ADDED "printer-added" // PrinterAdded
+#define DBUS_PRINTER_DELETED "printer-deleted" // PrinterDeleted
+#define DBUS_PRINTER_MODIFIED "printer-modified" // PrinterModified
 
-#define DBUS_JOB_STATE_CHANGED  "job-state-changed"  // JobState
-#define DBUS_JOB_CREATED        "job-created"        // JobCreated
-#define DBUS_JOB_COMPLETED      "job-completed"      // JobCompleted
-#define DBUS_JOB_STOPPED        "job-stopped"        // JobStopped
+#define DBUS_JOB_STATE_CHANGED "job-state-changed" // JobState
+#define DBUS_JOB_CREATED "job-created" // JobCreated
+#define DBUS_JOB_COMPLETED "job-completed" // JobCompleted
+#define DBUS_JOB_STOPPED "job-stopped" // JobStopped
 #define DBUS_JOB_CONFIG_CHANGED "job-config-changed" // JobConfigChanged
-#define DBUS_JOB_PROGRESS       "job-progress"       // JobProgress
+#define DBUS_JOB_PROGRESS "job-progress" // JobProgress
 
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
 
-KCupsConnection* KCupsConnection::m_instance = nullptr;
+KCupsConnection *KCupsConnection::m_instance = nullptr;
 static int password_retries = 0;
 static int total_retries = 0;
 static int internalErrorCount = 0;
-const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data);
+const char *password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data);
 
-KCupsConnection* KCupsConnection::global()
+KCupsConnection *KCupsConnection::global()
 {
     if (!m_instance) {
         m_instance = new KCupsConnection(qApp);
@@ -64,15 +63,15 @@ KCupsConnection* KCupsConnection::global()
     return m_instance;
 }
 
-KCupsConnection::KCupsConnection(QObject *parent) :
-    QThread(parent)
+KCupsConnection::KCupsConnection(QObject *parent)
+    : QThread(parent)
 {
     init();
 }
 
-KCupsConnection::KCupsConnection(const QUrl &server, QObject *parent) :
-    QThread(parent),
-    m_serverUrl(server)
+KCupsConnection::KCupsConnection(const QUrl &server, QObject *parent)
+    : QThread(parent)
+    , m_serverUrl(server)
 {
     qRegisterMetaType<KIppRequest>("KIppRequest");
     init();
@@ -106,101 +105,69 @@ void KCupsConnection::init()
 
     // Server related signals
     // ServerStarted
-    notifierConnect(QLatin1String("ServerStarted"),
-                    this,
-                    SIGNAL(serverStarted(QString)));
+    notifierConnect(QLatin1String("ServerStarted"), this, SIGNAL(serverStarted(QString)));
 
     // ServerStopped
-    notifierConnect(QLatin1String("ServerStopped"),
-                    this,
-                    SIGNAL(serverStopped(QString)));
+    notifierConnect(QLatin1String("ServerStopped"), this, SIGNAL(serverStopped(QString)));
 
     // ServerRestarted
-    notifierConnect(QLatin1String("ServerRestarted"),
-                    this,
-                    SIGNAL(serverRestarted(QString)));
+    notifierConnect(QLatin1String("ServerRestarted"), this, SIGNAL(serverRestarted(QString)));
 
     // ServerAudit
-    notifierConnect(QLatin1String("ServerAudit"),
-                    this,
-                    SIGNAL(serverAudit(QString)));
+    notifierConnect(QLatin1String("ServerAudit"), this, SIGNAL(serverAudit(QString)));
 
     // Printer related signals
     // PrinterAdded
-    notifierConnect(QLatin1String("PrinterAdded"),
-                    this,
-                    SIGNAL(printerAdded(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterAdded"), this, SIGNAL(printerAdded(QString, QString, QString, uint, QString, bool)));
 
     // PrinterModified
-    notifierConnect(QLatin1String("PrinterModified"),
-                    this,
-                    SIGNAL(printerModified(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterModified"), this, SIGNAL(printerModified(QString, QString, QString, uint, QString, bool)));
 
     // PrinterDeleted
-    notifierConnect(QLatin1String("PrinterDeleted"),
-                    this,
-                    SIGNAL(printerDeleted(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterDeleted"), this, SIGNAL(printerDeleted(QString, QString, QString, uint, QString, bool)));
 
     // PrinterStateChanged
-    notifierConnect(QLatin1String("PrinterStateChanged"),
-                    this,
-                    SIGNAL(printerStateChanged(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterStateChanged"), this, SIGNAL(printerStateChanged(QString, QString, QString, uint, QString, bool)));
 
     // PrinterStopped
-    notifierConnect(QLatin1String("PrinterStopped"),
-                    this,
-                    SIGNAL(printerStopped(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterStopped"), this, SIGNAL(printerStopped(QString, QString, QString, uint, QString, bool)));
 
     // PrinterShutdown
-    notifierConnect(QLatin1String("PrinterShutdown"),
-                    this,
-                    SIGNAL(printerShutdown(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterShutdown"), this, SIGNAL(printerShutdown(QString, QString, QString, uint, QString, bool)));
 
     // PrinterRestarted
-    notifierConnect(QLatin1String("PrinterRestarted"),
-                    this,
-                    SIGNAL(printerRestarted(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterRestarted"), this, SIGNAL(printerRestarted(QString, QString, QString, uint, QString, bool)));
 
     // PrinterMediaChanged
-    notifierConnect(QLatin1String("PrinterMediaChanged"),
-                    this,
-                    SIGNAL(printerMediaChanged(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterMediaChanged"), this, SIGNAL(printerMediaChanged(QString, QString, QString, uint, QString, bool)));
 
     // PrinterFinishingsChanged
-    notifierConnect(QLatin1String("PrinterFinishingsChanged"),
-                    this,
-                    SIGNAL(PrinterFinishingsChanged(QString,QString,QString,uint,QString,bool)));
+    notifierConnect(QLatin1String("PrinterFinishingsChanged"), this, SIGNAL(PrinterFinishingsChanged(QString, QString, QString, uint, QString, bool)));
 
     // Job related signals
     // JobState
-    notifierConnect(QLatin1String("JobState"),
-                    this,
-                    SIGNAL(jobState(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    notifierConnect(QLatin1String("JobState"), this, SIGNAL(jobState(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
 
     // JobCreated
-    notifierConnect(QLatin1String("JobCreated"),
-                    this,
-                    SIGNAL(jobCreated(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    notifierConnect(QLatin1String("JobCreated"), this, SIGNAL(jobCreated(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
 
     // JobStopped
-    notifierConnect(QLatin1String("JobStopped"),
-                    this,
-                    SIGNAL(jobStopped(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+    notifierConnect(QLatin1String("JobStopped"), this, SIGNAL(jobStopped(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
 
     // JobConfigChanged
     notifierConnect(QLatin1String("JobConfigChanged"),
                     this,
-                    SIGNAL(jobConfigChanged(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+                    SIGNAL(jobConfigChanged(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
 
     // JobProgress
     notifierConnect(QLatin1String("JobProgress"),
                     this,
-                    SIGNAL(jobProgress(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+                    SIGNAL(jobProgress(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
 
     // JobCompleted
     notifierConnect(QLatin1String("JobCompleted"),
                     this,
-                    SIGNAL(jobCompleted(QString,QString,QString,uint,QString,bool,uint,uint,QString,QString,uint)));
+                    SIGNAL(jobCompleted(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
 
     // This signal is needed since the cups registration thing
     // doesn't Q_EMIT printerAdded when we add a printer class
@@ -237,22 +204,20 @@ void KCupsConnection::init()
                                          QLatin1String("com.redhat.PrinterSpooler"),
                                          QLatin1String("JobQueuedLocal"),
                                          this,
-                                         SIGNAL(rhJobQueuedLocal(QString,uint,QString)));
+                                         SIGNAL(rhJobQueuedLocal(QString, uint, QString)));
 
     QDBusConnection::systemBus().connect(QLatin1String(""),
                                          QLatin1String("/com/redhat/PrinterSpooler"),
                                          QLatin1String("com.redhat.PrinterSpooler"),
                                          QLatin1String("JobStartedLocal"),
                                          this,
-                                         SIGNAL(rhJobStartedLocal(QString,uint,QString)));
+                                         SIGNAL(rhJobStartedLocal(QString, uint, QString)));
 
     // Creates the timer that will renew the DBus subscription
     m_renewTimer = new QTimer;
-    m_renewTimer->setInterval(RENEW_INTERVAL*1000);
+    m_renewTimer->setInterval(RENEW_INTERVAL * 1000);
     m_renewTimer->moveToThread(this);
-    connect(m_renewTimer, &QTimer::timeout,
-            this, static_cast<void(KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::DirectConnection);
-
+    connect(m_renewTimer, &QTimer::timeout, this, static_cast<void (KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::DirectConnection);
 
     // Creates the timer to merge updates on the DBus subscription
     m_subscriptionTimer = new QTimer;
@@ -264,7 +229,6 @@ void KCupsConnection::init()
     // Starts this thread
     start();
 }
-
 
 void KCupsConnection::run()
 {
@@ -305,7 +269,6 @@ bool KCupsConnection::readyToStart()
     return false;
 }
 
-
 ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t groupTag) const
 {
     ReturnArguments ret;
@@ -340,22 +303,16 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     }
 
     KIppRequest request(operation, QLatin1String("/"));
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI,
-                      KCUPS_PRINTER_URI, QLatin1String("/"));
-    request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER,
-                       KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("/"));
+    request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER, KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
 
     if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
         // Add the "notify-events" values to the request
-        request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
-                              KCUPS_NOTIFY_EVENTS, events);
-        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD,
-                          KCUPS_NOTIFY_PULL_METHOD, QLatin1String("ippget"));
-        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI,
-                          KCUPS_NOTIFY_RECIPIENT_URI, QLatin1String("dbus://"));
+        request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_EVENTS, events);
+        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_PULL_METHOD, QLatin1String("ippget"));
+        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI, KCUPS_NOTIFY_RECIPIENT_URI, QLatin1String("dbus://"));
     } else {
-        request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                           KCUPS_NOTIFY_SUBSCRIPTION_ID, subscriptionId);
+        request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_NOTIFY_SUBSCRIPTION_ID, subscriptionId);
     }
 
     ipp_t *response = nullptr;
@@ -373,9 +330,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         if (subscriptionId >= 0) {
             // Request was ok, just return the current subscription
             ret = subscriptionId;
-        } else if ((attr = ippFindAttribute(response,
-                                            "notify-subscription-id",
-                                            IPP_TAG_INTEGER)) == nullptr) {
+        } else if ((attr = ippFindAttribute(response, "notify-subscription-id", IPP_TAG_INTEGER)) == nullptr) {
             qCWarning(LIBKCUPS) << "No notify-subscription-id in response!";
             ret = -1;
         } else {
@@ -408,39 +363,30 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
 void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, const char *slot)
 {
     QDBusConnection systemBus = QDBusConnection::systemBus();
-    systemBus.connect(QString(),
-                      QStringLiteral("/org/cups/cupsd/Notifier"),
-                      QStringLiteral("org.cups.cupsd.Notifier"),
-                      signal,
-                      receiver,
-                      slot);
+    systemBus.connect(QString(), QStringLiteral("/org/cups/cupsd/Notifier"), QStringLiteral("org.cups.cupsd.Notifier"), signal, receiver, slot);
 }
 
-void KCupsConnection::connectNotify(const QMetaMethod & signal)
+void KCupsConnection::connectNotify(const QMetaMethod &signal)
 {
     QMutexLocker locker(&m_mutex);
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
         m_connectedEvents << event;
-        QMetaObject::invokeMethod(m_subscriptionTimer,
-                                  "start",
-                                  Qt::QueuedConnection);
+        QMetaObject::invokeMethod(m_subscriptionTimer, "start", Qt::QueuedConnection);
     }
 }
 
-void KCupsConnection::disconnectNotify(const QMetaMethod & signal)
+void KCupsConnection::disconnectNotify(const QMetaMethod &signal)
 {
     QMutexLocker locker(&m_mutex);
     QString event = eventForSignal(signal);
     if (!event.isNull()) {
         m_connectedEvents.removeOne(event);
-        QMetaObject::invokeMethod(m_subscriptionTimer,
-                                  "start",
-                                  Qt::QueuedConnection);
+        QMetaObject::invokeMethod(m_subscriptionTimer, "start", Qt::QueuedConnection);
     }
 }
 
-QString KCupsConnection::eventForSignal(const QMetaMethod & signal) const
+QString KCupsConnection::eventForSignal(const QMetaMethod &signal) const
 {
     // Server signals
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverAudit)) {
@@ -553,10 +499,8 @@ void KCupsConnection::renewDBusSubscription()
 void KCupsConnection::cancelDBusSubscription()
 {
     KIppRequest request(IPP_CANCEL_SUBSCRIPTION, QLatin1String("/"));
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI,
-                      KCUPS_PRINTER_URI, QLatin1String("/"));
-    request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER,
-                       KCUPS_NOTIFY_SUBSCRIPTION_ID, m_subscriptionId);
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("/"));
+    request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_NOTIFY_SUBSCRIPTION_ID, m_subscriptionId);
 
     do {
         // Do the request
@@ -583,18 +527,11 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
         }
 
         // Skip leading attributes until we hit a group which can be a printer, job...
-        if (ippGetGroupTag(attr) != group_tag ||
-                (ippGetValueTag(attr) != IPP_TAG_INTEGER &&
-                 ippGetValueTag(attr) != IPP_TAG_ENUM &&
-                 ippGetValueTag(attr) != IPP_TAG_BOOLEAN &&
-                 ippGetValueTag(attr) != IPP_TAG_TEXT &&
-                 ippGetValueTag(attr) != IPP_TAG_TEXTLANG &&
-                 ippGetValueTag(attr) != IPP_TAG_LANGUAGE &&
-                 ippGetValueTag(attr) != IPP_TAG_NAME &&
-                 ippGetValueTag(attr) != IPP_TAG_NAMELANG &&
-                 ippGetValueTag(attr) != IPP_TAG_KEYWORD &&
-                 ippGetValueTag(attr) != IPP_TAG_RANGE &&
-                 ippGetValueTag(attr) != IPP_TAG_URI)) {
+        if (ippGetGroupTag(attr) != group_tag
+            || (ippGetValueTag(attr) != IPP_TAG_INTEGER && ippGetValueTag(attr) != IPP_TAG_ENUM && ippGetValueTag(attr) != IPP_TAG_BOOLEAN
+                && ippGetValueTag(attr) != IPP_TAG_TEXT && ippGetValueTag(attr) != IPP_TAG_TEXTLANG && ippGetValueTag(attr) != IPP_TAG_LANGUAGE
+                && ippGetValueTag(attr) != IPP_TAG_NAME && ippGetValueTag(attr) != IPP_TAG_NAMELANG && ippGetValueTag(attr) != IPP_TAG_KEYWORD
+                && ippGetValueTag(attr) != IPP_TAG_RANGE && ippGetValueTag(attr) != IPP_TAG_URI)) {
             continue;
         }
 
@@ -607,9 +544,9 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
     }
 #else
     for (attr = response->attrs; attr != nullptr; attr = attr->next) {
-       /*
-        * Skip leading attributes until we hit a group which can be a printer, job...
-        */
+        /*
+         * Skip leading attributes until we hit a group which can be a printer, job...
+         */
         while (attr && attr->group_tag != group_tag) {
             attr = attr->next;
         }
@@ -623,17 +560,10 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
          */
         QVariantMap destAttributes;
         for (; attr && attr->group_tag == group_tag; attr = attr->next) {
-            if (attr->value_tag != IPP_TAG_INTEGER &&
-                attr->value_tag != IPP_TAG_ENUM &&
-                attr->value_tag != IPP_TAG_BOOLEAN &&
-                attr->value_tag != IPP_TAG_TEXT &&
-                attr->value_tag != IPP_TAG_TEXTLANG &&
-                attr->value_tag != IPP_TAG_LANGUAGE &&
-                attr->value_tag != IPP_TAG_NAME &&
-                attr->value_tag != IPP_TAG_NAMELANG &&
-                attr->value_tag != IPP_TAG_KEYWORD &&
-                attr->value_tag != IPP_TAG_RANGE &&
-                attr->value_tag != IPP_TAG_URI) {
+            if (attr->value_tag != IPP_TAG_INTEGER && attr->value_tag != IPP_TAG_ENUM && attr->value_tag != IPP_TAG_BOOLEAN && attr->value_tag != IPP_TAG_TEXT
+                && attr->value_tag != IPP_TAG_TEXTLANG && attr->value_tag != IPP_TAG_LANGUAGE && attr->value_tag != IPP_TAG_NAME
+                && attr->value_tag != IPP_TAG_NAMELANG && attr->value_tag != IPP_TAG_KEYWORD && attr->value_tag != IPP_TAG_RANGE
+                && attr->value_tag != IPP_TAG_URI) {
                 continue;
             }
 
@@ -672,7 +602,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
         }
         break;
     case IPP_TAG_BOOLEAN:
-        if (ippGetCount(attr)== 1) {
+        if (ippGetCount(attr) == 1) {
             ret = ippGetBoolean(attr, 0);
         } else {
             QList<bool> values;
@@ -682,8 +612,7 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             ret = QVariant::fromValue(values);
         }
         break;
-    case IPP_TAG_RANGE:
-    {
+    case IPP_TAG_RANGE: {
         QVariantList values;
         for (int i = 0; i < ippGetCount(attr); ++i) {
             int rangeUpper;
@@ -691,10 +620,9 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             values << rangeUpper;
         }
         ret = values;
-    }
-        break;
+    } break;
     default:
-        if (ippGetCount(attr)== 1) {
+        if (ippGetCount(attr) == 1) {
             ret = QString::fromUtf8(ippGetString(attr, 0, nullptr));
         } else {
             QStringList values;
@@ -729,16 +657,14 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             ret = QVariant::fromValue(values);
         }
         break;
-    case IPP_TAG_RANGE:
-    {
+    case IPP_TAG_RANGE: {
         QVariantList values;
         for (int i = 0; i < attr->num_values; ++i) {
             values << attr->values[i].range.lower;
             values << attr->values[i].range.upper;
         }
         ret = values;
-    }
-        break;
+    } break;
     default:
         if (attr->num_values == 1) {
             ret = QString::fromUtf8(attr->values[0].string.text);
@@ -784,20 +710,19 @@ bool KCupsConnection::retry(const char *resource, int operation) const
     total_retries++;
 
     if (total_retries > (password_retries + 3)) {
-       // Something is wrong.
-       // This will happen if the password_cb function is not called,
-       // which will for example be the case if the server has
-       // an IP blacklist and thus always return 403.
-       // In this case, there is nothing we can do.
-       return false;
+        // Something is wrong.
+        // This will happen if the password_cb function is not called,
+        // which will for example be the case if the server has
+        // an IP blacklist and thus always return 403.
+        // In this case, there is nothing we can do.
+        return false;
     }
 
     bool forceAuth = false;
     // If our user is forbidden to perform the
     // task we try again using the root user
     // ONLY if it was the first time
-    if (status == IPP_FORBIDDEN &&
-        password_retries == 0) {
+    if (status == IPP_FORBIDDEN && password_retries == 0) {
         // Pretend to be the root user
         // Sometimes setting this just works
         cupsSetUser("root");
@@ -806,8 +731,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
         forceAuth = true;
     }
 
-    if (status == IPP_NOT_AUTHORIZED ||
-        status == IPP_NOT_AUTHENTICATED) {
+    if (status == IPP_NOT_AUTHORIZED || status == IPP_NOT_AUTHENTICATED) {
         if (password_retries > 3 || password_retries == -1) {
             // the authentication failed 3 times
             // OR the dialog was canceled (-1)
@@ -824,10 +748,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
     if (forceAuth) {
         // force authentication
         int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
-        qCWarning(LIBKCUPS) << "cupsDoAuthentication, return:"
-                            << ret
-                            << "password_retries:"
-                            << password_retries;
+        qCWarning(LIBKCUPS) << "cupsDoAuthentication, return:" << ret << "password_retries:" << password_retries;
 
         // If the authentication was successful
         // sometimes just trying to be root works
@@ -838,7 +759,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
     return false;
 }
 
-const char * password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)
+const char *password_cb(const char *prompt, http_t *http, const char *method, const char *resource, void *user_data)
 {
     Q_UNUSED(http)
     Q_UNUSED(method)
@@ -858,11 +779,7 @@ const char * password_cb(const char *prompt, http_t *http, const char *method, c
 
     // This will block this thread until exec is not finished
     qCDebug(LIBKCUPS) << password_retries;
-    QMetaObject::invokeMethod(passwordDialog,
-                              "exec",
-                              Qt::BlockingQueuedConnection,
-                              Q_ARG(QString, QString::fromUtf8(cupsUser())),
-                              Q_ARG(bool, wrongPassword));
+    QMetaObject::invokeMethod(passwordDialog, "exec", Qt::BlockingQueuedConnection, Q_ARG(QString, QString::fromUtf8(cupsUser())), Q_ARG(bool, wrongPassword));
     qCDebug(LIBKCUPS) << passwordDialog->accepted();
 
     // The password dialog has just returned check the result

@@ -7,17 +7,17 @@
 #include "SelectMakeModel.h"
 #include "ui_SelectMakeModel.h"
 
-#include "kcupslib_log.h"
 #include "KCupsRequest.h"
 #include "NoSelectionRectDelegate.h"
+#include "kcupslib_log.h"
 
-#include <QStandardItemModel>
-#include <QLineEdit>
 #include <QItemSelection>
+#include <QLineEdit>
+#include <QStandardItemModel>
 
 #include <QDBusConnection>
-#include <QDBusReply>
 #include <QDBusMetaType>
+#include <QDBusReply>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -40,9 +40,9 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driv
     return argument;
 }
 
-SelectMakeModel::SelectMakeModel(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::SelectMakeModel)
+SelectMakeModel::SelectMakeModel(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::SelectMakeModel)
 {
     ui->setupUi(this);
 
@@ -63,12 +63,10 @@ SelectMakeModel::SelectMakeModel(QWidget *parent) :
     connect(m_sourceModel, &PPDModel::dataChanged, this, &SelectMakeModel::checkChanged);
 
     // Clear the PPD view selection, so the Next/Finish button gets disabled
-    connect(ui->makeView->selectionModel(), &QItemSelectionModel::currentChanged,
-            ui->ppdsLV->selectionModel(), &QItemSelectionModel::clearSelection);
+    connect(ui->makeView->selectionModel(), &QItemSelectionModel::currentChanged, ui->ppdsLV->selectionModel(), &QItemSelectionModel::clearSelection);
 
     // Make sure we update the Next/Finish button if a PPD is selected
-    connect(ui->ppdsLV->selectionModel(), &QItemSelectionModel::selectionChanged,
-            this, &SelectMakeModel::checkChanged);
+    connect(ui->ppdsLV->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SelectMakeModel::checkChanged);
 
     // When the radio button changes the signal must be emitted
     connect(ui->ppdFileRB, &QRadioButton::toggled, this, &SelectMakeModel::checkChanged);
@@ -103,7 +101,7 @@ void SelectMakeModel::setDeviceInfo(const QString &deviceId, const QString &make
     QDBusConnection::sessionBus().callWithCallback(message,
                                                    this,
                                                    SLOT(getBestDriversFinished(QDBusMessage)),
-                                                   SLOT(getBestDriversFailed(QDBusError,QDBusMessage)));
+                                                   SLOT(getBestDriversFailed(QDBusError, QDBusMessage)));
 
     if (!m_ppdRequest) {
         m_ppdRequest = new KCupsRequest;
@@ -255,22 +253,19 @@ void SelectMakeModel::selectFirstMake()
     selection = ui->makeView->selectionModel()->selection();
     // Make sure the first make is selected
     if (selection.indexes().isEmpty() && m_sourceModel->rowCount() > 0) {
-        ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0),
-                                                        QItemSelectionModel::SelectCurrent);
+        ui->makeView->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0), QItemSelectionModel::SelectCurrent);
     }
 }
 
 void SelectMakeModel::selectMakeModelPPD()
 {
-    const QList<QStandardItem*> makes = m_sourceModel->findItems(m_make);
+    const QList<QStandardItem *> makes = m_sourceModel->findItems(m_make);
     for (QStandardItem *make : makes) {
         // Check if the item is in this make
         for (int i = 0; i < make->rowCount(); i++) {
             if (make->child(i)->data(PPDModel::PPDMakeAndModel).toString() == m_makeAndModel) {
-                ui->makeView->selectionModel()->setCurrentIndex(make->index(),
-                                                                QItemSelectionModel::SelectCurrent);
-                ui->ppdsLV->selectionModel()->setCurrentIndex(make->child(i)->index(),
-                                                              QItemSelectionModel::SelectCurrent);
+                ui->makeView->selectionModel()->setCurrentIndex(make->index(), QItemSelectionModel::SelectCurrent);
+                ui->ppdsLV->selectionModel()->setCurrentIndex(make->child(i)->index(), QItemSelectionModel::SelectCurrent);
                 return;
             }
         }
@@ -278,8 +273,7 @@ void SelectMakeModel::selectMakeModelPPD()
 
     // the exact PPD wasn't found try to select just the make
     if (!makes.isEmpty()) {
-        ui->makeView->selectionModel()->setCurrentIndex(makes.first()->index(),
-                                                        QItemSelectionModel::SelectCurrent);
+        ui->makeView->selectionModel()->setCurrentIndex(makes.first()->index(), QItemSelectionModel::SelectCurrent);
     }
 }
 
@@ -293,8 +287,7 @@ void SelectMakeModel::selectRecommendedPPD()
         QItemSelection makeSelection = ui->makeView->selectionModel()->selection();
         QModelIndex parent = makeSelection.indexes().first();
         if (parent.isValid()) {
-            ui->ppdsLV->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0, parent),
-                                                          QItemSelectionModel::SelectCurrent);
+            ui->ppdsLV->selectionModel()->setCurrentIndex(m_sourceModel->index(0, 0, parent), QItemSelectionModel::SelectCurrent);
         }
     }
 }

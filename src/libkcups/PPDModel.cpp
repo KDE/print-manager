@@ -12,8 +12,8 @@
 
 #include <KCupsRequest.h>
 
-PPDModel::PPDModel(QObject *parent) :
-    QStandardItemModel(parent)
+PPDModel::PPDModel(QObject *parent)
+    : QStandardItemModel(parent)
 {
     m_roles = QStandardItemModel::roleNames();
     m_roles[PPDName] = "ppdName";
@@ -60,7 +60,7 @@ void PPDModel::setPPDs(const QList<QVariantMap> &ppds, const DriverMatchList &dr
     }
 }
 
-QStandardItem* PPDModel::findCreateMake(const QString &make)
+QStandardItem *PPDModel::findCreateMake(const QString &make)
 {
     for (int i = 0; i < rowCount(); ++i) {
         QStandardItem *makeItem = item(i);
@@ -86,7 +86,6 @@ void PPDModel::load()
 
     const auto req = new KCupsRequest;
     connect(req, &KCupsRequest::finished, this, [this](KCupsRequest *request) {
-
         if (request->hasError()) {
             Q_EMIT error(request->errorMsg());
             qCDebug(LIBKCUPS) << "PPD Model:" << request->errorMsg();
@@ -122,10 +121,7 @@ QStandardItem *PPDModel::createPPDItem(const QVariantMap &ppd, bool recommended)
 
     QString text;
     if (recommended) {
-        text = makeAndModel %
-                QLatin1String(" (") %
-                naturalLanguage %
-                QLatin1Char(')');
+        text = makeAndModel % QLatin1String(" (") % naturalLanguage % QLatin1Char(')');
     } else {
         // Removes the Make part of the string
         if (makeAndModel.startsWith(make)) {
@@ -133,10 +129,7 @@ QStandardItem *PPDModel::createPPDItem(const QVariantMap &ppd, bool recommended)
         }
 
         // Create the PPD
-        text = makeAndModel.trimmed() %
-                QLatin1String(" (") %
-                naturalLanguage %
-                QLatin1Char(')');
+        text = makeAndModel.trimmed() % QLatin1String(" (") % naturalLanguage % QLatin1Char(')');
     }
     ret->setText(text);
 

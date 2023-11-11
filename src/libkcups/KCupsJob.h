@@ -7,8 +7,8 @@
 #ifndef KCUPSJOB_H
 #define KCUPSJOB_H
 
-#include <QString>
 #include <QDateTime>
+#include <QString>
 
 #include <KCupsConnection.h>
 #include <kcupslib_export.h>
@@ -53,7 +53,7 @@ protected:
 private:
     friend class KCupsRequest;
 
-    int     m_jobId;
+    int m_jobId;
     QString m_printer;
     QVariantMap m_arguments;
 };

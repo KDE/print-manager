@@ -9,12 +9,12 @@
 
 #include <QTimer>
 
-ConfigurePrinter::ConfigurePrinter(int & argc, char ** argv) :
-    QApplication(argc, argv)
+ConfigurePrinter::ConfigurePrinter(int &argc, char **argv)
+    : QApplication(argc, argv)
 {
 }
 
-void ConfigurePrinter::configurePrinter(const QString& printer)
+void ConfigurePrinter::configurePrinter(const QString &printer)
 {
     m_cpInterface = new ConfigurePrinterInterface(this);
     connect(m_cpInterface, &ConfigurePrinterInterface::quit, this, &ConfigurePrinter::quit);

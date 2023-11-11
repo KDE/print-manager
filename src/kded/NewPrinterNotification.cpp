@@ -16,23 +16,24 @@
 #include <KCupsRequest.h>
 #include <ProcessRunner.h>
 
-#include <QDBusMessage>
 #include <QDBusConnection>
-#include <QDBusServiceWatcher>
-#include <QDBusPendingReply>
+#include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+#include <QDBusServiceWatcher>
 
-#define STATUS_SUCCESS        0
+#define STATUS_SUCCESS 0
 #define STATUS_MODEL_MISMATCH 1
 #define STATUS_GENERIC_DRIVER 2
-#define STATUS_NO_DRIVER      3
+#define STATUS_NO_DRIVER 3
 
 #define PRINTER_NAME "PrinterName"
 
-NewPrinterNotification::NewPrinterNotification(QObject *parent) : QObject(parent)
+NewPrinterNotification::NewPrinterNotification(QObject *parent)
+    : QObject(parent)
 {
     // Creates our new adaptor
-    (void) new NewPrinterNotificationAdaptor(this);
+    (void)new NewPrinterNotificationAdaptor(this);
 
     // Register the com.redhat.NewPrinterNotification interface
     if (!registerService()) {
@@ -62,12 +63,12 @@ void NewPrinterNotification::GetReady()
     notify->sendEvent();
 }
 
-//status: 0
-//name: PSC_1400_series
-//mfg: HP
-//mdl: PSC 1400 series
-//des:
-//cmd: LDL,MLC,PML,DYN
+// status: 0
+// name: PSC_1400_series
+// mfg: HP
+// mdl: PSC 1400 series
+// des:
+// cmd: LDL,MLC,PML,DYN
 void NewPrinterNotification::NewPrinter(int status,
                                         const QString &name,
                                         const QString &make,
@@ -88,10 +89,8 @@ void NewPrinterNotification::NewPrinter(int status,
     notify->setFlags(KNotification::Persistent);
 
     if (name.contains(QLatin1Char('/'))) {
-        const QString devid = QString::fromLatin1("MFG:%1;MDL:%2;DES:%3;CMD:%4;")
-                .arg(make, model, description, cmd);
-        setupPrinterNotification(notify, make, model, description,
-                                 name + QLatin1Char('/') + devid);
+        const QString devid = QString::fromLatin1("MFG:%1;MDL:%2;DES:%3;CMD:%4;").arg(make, model, description, cmd);
+        setupPrinterNotification(notify, make, model, description, name + QLatin1Char('/') + devid);
     } else {
         notify->setProperty(PRINTER_NAME, name);
         // name is the name of the queue which hal_lpadmin has set up
@@ -104,13 +103,13 @@ void NewPrinterNotification::NewPrinter(int status,
         }
 
         auto request = new KCupsRequest;
-        connect(request, &KCupsRequest::finished, this, [this, notify, status, name] (KCupsRequest *request) {
+        connect(request, &KCupsRequest::finished, this, [this, notify, status, name](KCupsRequest *request) {
             const QString ppdFileName = request->printerPPD();
             // Get a list of missing executables
             getMissingExecutables(notify, status, name, ppdFileName);
             request->deleteLater();
         });
-        request->getPrinterPPD(name);   
+        request->getPrinterPPD(name);
     }
 }
 
@@ -155,7 +154,11 @@ void NewPrinterNotification::findDriver()
     ProcessRunner::changePrinterPPD(printerName);
 }
 
-void NewPrinterNotification::setupPrinterNotification(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg)
+void NewPrinterNotification::setupPrinterNotification(KNotification *notify,
+                                                      const QString &make,
+                                                      const QString &model,
+                                                      const QString &description,
+                                                      const QString &arg)
 {
     // name is a URI, no queue was generated, because no suitable
     // driver was found
@@ -168,7 +171,7 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify, con
         notify->setText(i18n("No driver for this printer."));
     }
     auto searchAction = notify->addAction(i18n("Search"));
-    connect(searchAction, &KNotificationAction::activated, this, [arg] () {
+    connect(searchAction, &KNotificationAction::activated, this, [arg]() {
         qCDebug(PMKDED);
         // This function will show the PPD browser dialog
         // to choose a better PPD, queue name, location
@@ -182,16 +185,15 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify, con
 void NewPrinterNotification::getMissingExecutables(KNotification *notify, int status, const QString &name, const QString &ppdFileName)
 {
     qCDebug(PMKDED) << "get missing executables" << ppdFileName;
-    QDBusMessage message = QDBusMessage::createMethodCall(
-                QLatin1String("org.fedoraproject.Config.Printing"),
-                QLatin1String("/org/fedoraproject/Config/Printing"),
-                QLatin1String("org.fedoraproject.Config.Printing"),
-                QLatin1String("MissingExecutables"));
+    QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
+                                                          QLatin1String("/org/fedoraproject/Config/Printing"),
+                                                          QLatin1String("org.fedoraproject.Config.Printing"),
+                                                          QLatin1String("MissingExecutables"));
     message << ppdFileName;
 
     QDBusPendingReply<QStringList> reply = QDBusConnection::sessionBus().asyncCall(message);
     auto watcher = new QDBusPendingCallWatcher(reply, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher, notify, status, name] () {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher, notify, status, name]() {
         watcher->deleteLater();
         QDBusPendingReply<QStringList> reply = *watcher;
         if (!reply.isValid()) {
@@ -219,12 +221,12 @@ void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, co
 {
     // Get the new printer attributes
     auto request = new KCupsRequest;
-    connect(request, &KCupsRequest::finished, this, [this, notify, name] (KCupsRequest *request) {
+    connect(request, &KCupsRequest::finished, this, [this, notify, name](KCupsRequest *request) {
         request->deleteLater();
 
         QString driver;
         // Get the new printer driver
-        if (!request->printers().isEmpty()){
+        if (!request->printers().isEmpty()) {
             const KCupsPrinter &printer = request->printers().first();
             driver = printer.makeAndModel();
         }
@@ -237,13 +239,13 @@ void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, co
         } else {
             notify->setText(i18n("'%1' has been added, using the '%2' driver.", name, driver));
             auto testAction = notify->addAction(i18n("Print test page"));
-            connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);           
+            connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);
             auto findAction = notify->addAction(i18n("Find driver"));
             connect(findAction, &KNotificationAction::activated, this, &NewPrinterNotification::findDriver);
         }
         notify->sendEvent();
     });
-    request->getPrinterAttributes(name, false, { KCUPS_PRINTER_MAKE_AND_MODEL });
+    request->getPrinterAttributes(name, false, {KCUPS_PRINTER_MAKE_AND_MODEL});
 }
 
 void NewPrinterNotification::printerReadyNotification(KNotification *notify, const QString &name)

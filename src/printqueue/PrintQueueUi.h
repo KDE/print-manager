@@ -10,8 +10,9 @@
 #include <QDialog>
 #include <QModelIndex>
 
-namespace Ui {
-    class PrintQueueUi;
+namespace Ui
+{
+class PrintQueueUi;
 }
 
 class KCupsRequest;

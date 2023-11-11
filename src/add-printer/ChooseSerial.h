@@ -11,8 +11,9 @@
 
 #include <QRegularExpression>
 
-namespace Ui {
-    class ChooseSerial;
+namespace Ui
+{
+class ChooseSerial;
 }
 
 class ChooseSerial : public GenericPage

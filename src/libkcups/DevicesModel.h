@@ -8,9 +8,9 @@
 #ifndef DEVICES_MODEL_H
 #define DEVICES_MODEL_H
 
-#include <QStandardItemModel>
 #include <QDBusMessage>
 #include <QRegularExpression>
+#include <QStandardItemModel>
 
 #include <qqmlregistration.h>
 
@@ -41,16 +41,11 @@ public:
     };
     Q_ENUM(Role)
 
-    enum Kind {
-        Other,
-        Local,
-        Networked,
-        OtherNetworked
-    };
+    enum Kind { Other, Local, Networked, OtherNetworked };
     Q_ENUM(Kind)
 
     explicit DevicesModel(QObject *parent = nullptr);
-    virtual QHash<int,QByteArray> roleNames() const override;
+    virtual QHash<int, QByteArray> roleNames() const override;
 
 Q_SIGNALS:
     void loaded();
@@ -78,7 +73,7 @@ public Q_SLOTS:
     QString uriDevice(const QString &uri) const;
 
 private Q_SLOTS:
-    QStandardItem* createItem(const QString &device_class,
+    QStandardItem *createItem(const QString &device_class,
                               const QString &device_id,
                               const QString &device_info,
                               const QString &device_make_and_model,

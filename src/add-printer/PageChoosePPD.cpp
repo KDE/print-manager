@@ -9,19 +9,19 @@
 
 #include "DevicesModel.h"
 
-#include <SelectMakeModel.h>
 #include <KCupsRequest.h>
 #include <KLocalizedString>
+#include <SelectMakeModel.h>
 
-#include <QFileInfo>
-#include <QFile>
 #include <QDebug>
-#include <QUrl>
+#include <QFile>
+#include <QFileInfo>
 #include <QTemporaryFile>
+#include <QUrl>
 
-PageChoosePPD::PageChoosePPD(const QVariantMap &args, QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::PageChoosePPD)
+PageChoosePPD::PageChoosePPD(const QVariantMap &args, QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::PageChoosePPD)
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -57,7 +57,6 @@ void PageChoosePPD::setValues(const QVariantMap &args)
     m_args = args;
 
     if (args[ADDING_PRINTER].toBool()) {
-
         qDebug() << args;
         working();
         removeTempPPD();
@@ -77,10 +76,7 @@ void PageChoosePPD::setValues(const QVariantMap &args)
                 url.setPort(631);
             }
             qDebug() << deviceURI << url;
-            KJob *job = KIO::file_copy(url,
-                                      QUrl::fromLocalFile(tempFile->fileName()),
-                                      -1,
-                                      KIO::Overwrite | KIO::HideProgressInfo);
+            KJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tempFile->fileName()), -1, KIO::Overwrite | KIO::HideProgressInfo);
             job->setProperty("URI", deviceURI);
             connect(job, &KJob::result, this, &PageChoosePPD::resultJob);
         }
@@ -174,7 +170,7 @@ void PageChoosePPD::selectDefault()
 void PageChoosePPD::resultJob(KJob *job)
 {
     if (!job->error() && job->property("URI").toString() == m_args[KCUPS_DEVICE_URI].toString()) {
-        auto fileCopyJob = qobject_cast<KIO::FileCopyJob*>(job);
+        auto fileCopyJob = qobject_cast<KIO::FileCopyJob *>(job);
 
         // Make sure this job is for the current device
         m_ppdFile = fileCopyJob->destUrl().toLocalFile();

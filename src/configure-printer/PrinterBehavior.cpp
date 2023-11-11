@@ -4,31 +4,27 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "KCupsRequest.h"
 #include "PrinterBehavior.h"
+#include "Debug.h"
+#include "KCupsRequest.h"
 #include "ui_PrinterBehavior.h"
 #include <KCupsRequest.h>
-#include "Debug.h"
 #include <KLocalizedString>
 #include <QPointer>
 
-PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent) :
-    PrinterPage(parent),
-    ui(new Ui::PrinterBehavior),
-    m_destName(destName),
-    m_isClass(isClass)
+PrinterBehavior::PrinterBehavior(const QString &destName, bool isClass, QWidget *parent)
+    : PrinterPage(parent)
+    , ui(new Ui::PrinterBehavior)
+    , m_destName(destName)
+    , m_isClass(isClass)
 {
     ui->setupUi(this);
 
-    connect(ui->errorPolicyCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &PrinterBehavior::currentIndexChangedCB);
-    connect(ui->operationPolicyCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &PrinterBehavior::currentIndexChangedCB);
+    connect(ui->errorPolicyCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PrinterBehavior::currentIndexChangedCB);
+    connect(ui->operationPolicyCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PrinterBehavior::currentIndexChangedCB);
 
-    connect(ui->startingBannerCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &PrinterBehavior::currentIndexChangedCB);
-    connect(ui->endingBannerCB, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
-            this, &PrinterBehavior::currentIndexChangedCB);
+    connect(ui->startingBannerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PrinterBehavior::currentIndexChangedCB);
+    connect(ui->endingBannerCB, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &PrinterBehavior::currentIndexChangedCB);
 
     connect(ui->usersELB, &KEditListWidget::changed, this, &PrinterBehavior::userListChanged);
     connect(ui->allowRB, &QRadioButton::toggled, this, &PrinterBehavior::userListChanged);
@@ -127,11 +123,9 @@ void PrinterBehavior::setValues(const KCupsPrinter &printer)
 
 void PrinterBehavior::userListChanged()
 {
-    if (ui->usersELB->isEnabled() == false &&
-        (ui->allowRB->isChecked() ||
-         ui->preventRB->isChecked())) {
+    if (ui->usersELB->isEnabled() == false && (ui->allowRB->isChecked() || ui->preventRB->isChecked())) {
         // this only happen when the list was empty
-       ui-> usersELB->setEnabled(true);
+        ui->usersELB->setEnabled(true);
     }
 
     QStringList currentList = ui->usersELB->items();
@@ -159,7 +153,7 @@ void PrinterBehavior::userListChanged()
 
 void PrinterBehavior::currentIndexChangedCB(int index)
 {
-    auto comboBox = qobject_cast<QComboBox*>(sender());
+    auto comboBox = qobject_cast<QComboBox *>(sender());
     bool isDifferent = comboBox->property("defaultChoice").toInt() != index;
     qCDebug(PM_CONFIGURE_PRINTER) << Q_FUNC_INFO << "isDifferent" << isDifferent << this;
 
@@ -177,10 +171,8 @@ void PrinterBehavior::currentIndexChangedCB(int index)
     QVariant value;
     // job-sheets-default has always two values
     if (attribute == QLatin1String("job-sheets-default")) {
-        value = QStringList({
-                               ui->startingBannerCB->itemData(ui->startingBannerCB->currentIndex()).toString(),
-                                ui->endingBannerCB->itemData(ui->endingBannerCB->currentIndex()).toString()
-                            });
+        value = QStringList({ui->startingBannerCB->itemData(ui->startingBannerCB->currentIndex()).toString(),
+                             ui->endingBannerCB->itemData(ui->endingBannerCB->currentIndex()).toString()});
     } else {
         value = comboBox->itemData(index).toString();
     }
@@ -270,7 +262,7 @@ void PrinterBehavior::save()
             if (!request->hasError()) {
                 request->getPrinterAttributes(m_destName, m_isClass, neededValues());
                 request->waitTillFinished();
-                if (request && !request->hasError() && !request->printers().isEmpty()){
+                if (request && !request->hasError() && !request->printers().isEmpty()) {
                     KCupsPrinter printer = request->printers().first();
                     setValues(printer);
                 }
@@ -298,19 +290,17 @@ bool PrinterBehavior::hasChanges()
 
 QStringList PrinterBehavior::neededValues() const
 {
-    return QStringList({
-                           KCUPS_JOB_SHEETS_DEFAULT,
-                           KCUPS_JOB_SHEETS_SUPPORTED,
+    return QStringList({KCUPS_JOB_SHEETS_DEFAULT,
+                        KCUPS_JOB_SHEETS_SUPPORTED,
 
-                           KCUPS_PRINTER_ERROR_POLICY,
-                           KCUPS_PRINTER_ERROR_POLICY_SUPPORTED,
+                        KCUPS_PRINTER_ERROR_POLICY,
+                        KCUPS_PRINTER_ERROR_POLICY_SUPPORTED,
 
-                           KCUPS_PRINTER_OP_POLICY,
-                           KCUPS_PRINTER_OP_POLICY_SUPPORTED,
+                        KCUPS_PRINTER_OP_POLICY,
+                        KCUPS_PRINTER_OP_POLICY_SUPPORTED,
 
-                           KCUPS_REQUESTING_USER_NAME_ALLOWED,
-                           KCUPS_REQUESTING_USER_NAME_DENIED
-                       });
+                        KCUPS_REQUESTING_USER_NAME_ALLOWED,
+                        KCUPS_REQUESTING_USER_NAME_DENIED});
 }
 
 #include "moc_PrinterBehavior.cpp"

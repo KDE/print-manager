@@ -25,7 +25,7 @@ public:
 private:
     void currentPageChangedSlot(KPageWidgetItem *current, KPageWidgetItem *before);
     void enableButtonApply(bool enable);
-    void slotButtonClicked(QAbstractButton * pressedButton);
+    void slotButtonClicked(QAbstractButton *pressedButton);
     void ppdChanged();
 
     ModifyPrinter *modifyPrinter = nullptr;

@@ -7,8 +7,8 @@
 #ifndef KCUPS_REQUEST_H
 #define KCUPS_REQUEST_H
 
-#include <QObject>
 #include <QEventLoop>
+#include <QObject>
 
 #include <kcupslib_export.h>
 
@@ -48,7 +48,7 @@ public:
     QString serverError() const;
     QString errorMsg() const;
 
-    KCupsConnection* connection() const;
+    KCupsConnection *connection() const;
 
     /**
      * Non empty when getPrinters is called and finish is emitted
@@ -162,17 +162,14 @@ public:
      * @param attributes The new attributes of the printer
      * @param filename The file name in case of changing the PPD
      */
-    void addOrModifyPrinter(const QString &printerName,
-                            const QVariantMap &attributes,
-                            const QString &filename = QString());
+    void addOrModifyPrinter(const QString &printerName, const QVariantMap &attributes, const QString &filename = QString());
 
     /**
      * Add or Modify a Class
      * @param className The class to apply the change
      * @param attributes The new attributes of the printer
      */
-    void addOrModifyClass(const QString &className,
-                          const QVariantMap &attributes);
+    void addOrModifyClass(const QString &className, const QVariantMap &attributes);
 
     /**
      * Set if a given printer should be shared among other cups

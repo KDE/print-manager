@@ -14,13 +14,9 @@
 
 namespace PMTypes
 {
-    Q_NAMESPACE
-    enum PPDType {
-        Manual = 0,
-        Auto,
-        Custom
-    };
-    Q_ENUM_NS(PPDType)
+Q_NAMESPACE
+enum PPDType { Manual = 0, Auto, Custom };
+Q_ENUM_NS(PPDType)
 }
 
 class KCupsRequest;
@@ -29,37 +25,21 @@ class PrinterManager : public KQuickConfigModule
 {
     Q_OBJECT
 
-    Q_PROPERTY(QVariantList remotePrinters
-               READ remotePrinters
-               NOTIFY remotePrintersLoaded)
+    Q_PROPERTY(QVariantList remotePrinters READ remotePrinters NOTIFY remotePrintersLoaded)
 
-    Q_PROPERTY(QVariantList recommendedDrivers
-               READ recommendedDrivers
-               NOTIFY recommendedDriversLoaded)
+    Q_PROPERTY(QVariantList recommendedDrivers READ recommendedDrivers NOTIFY recommendedDriversLoaded)
 
-    Q_PROPERTY(QVariantMap serverSettings
-               READ serverSettings
-               NOTIFY serverSettingsChanged)
+    Q_PROPERTY(QVariantMap serverSettings READ serverSettings NOTIFY serverSettingsChanged)
 
-    Q_PROPERTY(bool serverSettingsLoaded
-               READ serverSettingsLoaded
-               NOTIFY serverSettingsChanged)
+    Q_PROPERTY(bool serverSettingsLoaded READ serverSettingsLoaded NOTIFY serverSettingsChanged)
 
-    Q_PROPERTY(bool shareConnectedPrinters
-               READ shareConnectedPrinters
-               NOTIFY serverSettingsChanged)
+    Q_PROPERTY(bool shareConnectedPrinters READ shareConnectedPrinters NOTIFY serverSettingsChanged)
 
-    Q_PROPERTY(bool allowPrintingFromInternet
-               READ allowPrintingFromInternet
-               NOTIFY serverSettingsChanged)
+    Q_PROPERTY(bool allowPrintingFromInternet READ allowPrintingFromInternet NOTIFY serverSettingsChanged)
 
-    Q_PROPERTY(bool allowRemoteAdmin
-               READ allowRemoteAdmin
-               NOTIFY serverSettingsChanged)
+    Q_PROPERTY(bool allowRemoteAdmin READ allowRemoteAdmin NOTIFY serverSettingsChanged)
 
-    Q_PROPERTY(bool allowUserCancelAnyJobs
-               READ allowUserCancelAnyJobs
-               NOTIFY serverSettingsChanged)
+    Q_PROPERTY(bool allowUserCancelAnyJobs READ allowUserCancelAnyJobs NOTIFY serverSettingsChanged)
 
 public:
     PrinterManager(QObject *parent, const KPluginMetaData &metaData);
@@ -89,9 +69,7 @@ public Q_SLOTS:
     void saveServerSettings(const QVariantMap &settings);
 
     void getRemotePrinters(const QString &uri, const QString &uriScheme);
-    void getRecommendedDrivers(const QString &deviceId
-                                   , const QString &makeAndModel
-                                   , const QString &deviceUri);
+    void getRecommendedDrivers(const QString &deviceId, const QString &makeAndModel, const QString &deviceUri);
     void clearRemotePrinters();
     void clearRecommendedDrivers();
 
@@ -108,7 +86,7 @@ private Q_SLOTS:
     void getDriversFailed(const QDBusError &error, const QDBusMessage &message);
 
 private:
-    KCupsRequest *setupRequest(std::function<void()> finished = [](){});
+    KCupsRequest *setupRequest(std::function<void()> finished = []() {});
     QVariantList remotePrinters() const;
     QVariantList recommendedDrivers() const;
     QVariantMap serverSettings() const;

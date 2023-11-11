@@ -13,8 +13,9 @@
 
 #include <KIO/Job>
 
-namespace Ui {
-    class PageChoosePPD;
+namespace Ui
+{
+class PageChoosePPD;
 }
 
 class SelectMakeModel;

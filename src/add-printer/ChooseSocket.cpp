@@ -13,9 +13,9 @@
 #include <QPainter>
 #include <QUrl>
 
-ChooseSocket::ChooseSocket(QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::ChooseSocket)
+ChooseSocket::ChooseSocket(QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::ChooseSocket)
 {
     ui->setupUi(this);
 

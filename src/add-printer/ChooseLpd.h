@@ -9,8 +9,9 @@
 
 #include "GenericPage.h"
 
-namespace Ui {
-    class ChooseLpd;
+namespace Ui
+{
+class ChooseLpd;
 }
 class ChooseLpd : public GenericPage
 {

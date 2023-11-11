@@ -6,11 +6,11 @@
 
 #include "JobSortFilterModel.h"
 
-#include "kcupslib_log.h"
 #include "JobModel.h"
+#include "kcupslib_log.h"
 
-JobSortFilterModel::JobSortFilterModel(QObject *parent) :
-    QSortFilterProxyModel(parent)
+JobSortFilterModel::JobSortFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setSortCaseSensitivity(Qt::CaseInsensitive);

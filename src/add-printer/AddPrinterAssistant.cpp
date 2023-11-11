@@ -6,22 +6,22 @@
 
 #include "AddPrinterAssistant.h"
 
-#include "PageDestinations.h"
-#include "PageChoosePrinters.h"
-#include "PageChoosePPD.h"
 #include "PageAddPrinter.h"
+#include "PageChoosePPD.h"
+#include "PageChoosePrinters.h"
+#include "PageDestinations.h"
 
 #include <KCupsRequest.h>
 
 #include <QHostInfo>
 #include <QPushButton>
 
+#include <KIconLoader>
 #include <KLocalizedString>
 #include <KPixmapSequence>
-#include <KIconLoader>
+#include <KPixmapSequenceLoader>
 #include <KSharedConfig>
 #include <KWindowConfig>
-#include <KPixmapSequenceLoader>
 
 AddPrinterAssistant::AddPrinterAssistant()
 {
@@ -62,8 +62,8 @@ void AddPrinterAssistant::initAddPrinter(const QString &printer, const QString &
     // setup our hash args with the information if we are
     // adding a new printer or a class
     QVariantMap args({
-                          {ADDING_PRINTER, true}
-                      });
+        {ADDING_PRINTER, true},
+    });
 
     KPageWidgetItem *currentPage;
     if (deviceId.isEmpty()) {
@@ -95,9 +95,9 @@ void AddPrinterAssistant::initAddClass()
     // setup our hash args with the information if we are
     // adding a new printer or a class
     const QVariantMap args({
-                                {ADDING_PRINTER, false},
-                                {KCUPS_DEVICE_LOCATION, QHostInfo::localHostName()}
-                            });
+        {ADDING_PRINTER, false},
+        {KCUPS_DEVICE_LOCATION, QHostInfo::localHostName()},
+    });
 
     KPageWidgetItem *currentPage;
     m_chooseClassPage = new KPageWidgetItem(new PageChoosePrinters(args), i18nc("@title:window", "Configure your connection"));
@@ -116,11 +116,11 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
     // setup our hash args with the information if we are
     // adding a new printer or a class
     const QVariantMap args({
-                                {ADDING_PRINTER, true},
-                                {KCUPS_DEVICE_URI, deviceUri},
-                                {KCUPS_PRINTER_NAME, printer},
-                                {KCUPS_PRINTER_MAKE_AND_MODEL, makeAndModel}
-                            });
+        {ADDING_PRINTER, true},
+        {KCUPS_DEVICE_URI, deviceUri},
+        {KCUPS_PRINTER_NAME, printer},
+        {KCUPS_PRINTER_MAKE_AND_MODEL, makeAndModel},
+    });
 
     m_choosePPDPage = new KPageWidgetItem(new PageChoosePPD(args));
     addPage(m_choosePPDPage);
@@ -130,9 +130,9 @@ void AddPrinterAssistant::initChangePPD(const QString &printer, const QString &d
 void AddPrinterAssistant::back()
 {
     KAssistantDialog::back();
-    auto currPage = qobject_cast<GenericPage*>(currentPage()->widget());
+    auto currPage = qobject_cast<GenericPage *>(currentPage()->widget());
     enableNextButton(currPage->canProceed());
-    if (!qobject_cast<GenericPage*>(currentPage()->widget())->isValid()) {
+    if (!qobject_cast<GenericPage *>(currentPage()->widget())->isValid()) {
         back();
     }
 }
@@ -149,12 +149,12 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     // we don't set (or even unset values),
     // and we only call setValues on the next page if
     // the currentPage() has changes.
-    const QVariantMap args = qobject_cast<GenericPage*>(currentPage->widget())->values();
+    const QVariantMap args = qobject_cast<GenericPage *>(currentPage->widget())->values();
     if (currentPage == m_devicesPage) {
-        qobject_cast<GenericPage*>(m_choosePPDPage->widget())->setValues(args);
+        qobject_cast<GenericPage *>(m_choosePPDPage->widget())->setValues(args);
         setCurrentPage(m_choosePPDPage);
-    } else if (currentPage == m_chooseClassPage ||currentPage == m_choosePPDPage) {
-        qobject_cast<GenericPage*>(m_addPrinterPage->widget())->setValues(args);
+    } else if (currentPage == m_chooseClassPage || currentPage == m_choosePPDPage) {
+        qobject_cast<GenericPage *>(m_addPrinterPage->widget())->setValues(args);
         setCurrentPage(m_addPrinterPage);
     }
 }
@@ -163,21 +163,21 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
 {
     // if after setting the values the page is still valid show
     // it up, if not call next with it so we can find the next page
-    if (qobject_cast<GenericPage*>(page->widget())->isValid()) {
+    if (qobject_cast<GenericPage *>(page->widget())->isValid()) {
         KAssistantDialog::setCurrentPage(page);
-        auto currPage = qobject_cast<GenericPage*>(currentPage()->widget());
-        auto nextPage = qobject_cast<GenericPage*>(page->widget());
+        auto currPage = qobject_cast<GenericPage *>(currentPage()->widget());
+        auto nextPage = qobject_cast<GenericPage *>(page->widget());
         // Disconnect the current page slots
         disconnect(currPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableNextButton);
         disconnect(currPage, &GenericPage::allowProceed, this, &AddPrinterAssistant::enableFinishButton);
-        disconnect(currPage, &GenericPage::proceed, this, static_cast<void(AddPrinterAssistant::*)()>(&AddPrinterAssistant::next));
+        disconnect(currPage, &GenericPage::proceed, this, static_cast<void (AddPrinterAssistant::*)()>(&AddPrinterAssistant::next));
         disconnect(currPage, &GenericPage::startWorking, m_busySeq, &KPixmapSequenceOverlayPainter::start);
         disconnect(currPage, &GenericPage::stopWorking, m_busySeq, &KPixmapSequenceOverlayPainter::stop);
 
         // Connect next page signals
         connect(nextPage, &GenericPage::startWorking, m_busySeq, &KPixmapSequenceOverlayPainter::start);
         connect(nextPage, &GenericPage::stopWorking, m_busySeq, &KPixmapSequenceOverlayPainter::stop);
-        connect(nextPage, &GenericPage::proceed, this, static_cast<void(AddPrinterAssistant::*)()>(&AddPrinterAssistant::next));
+        connect(nextPage, &GenericPage::proceed, this, static_cast<void (AddPrinterAssistant::*)()>(&AddPrinterAssistant::next));
 
         // check the working property
         if (nextPage->isWorking()) {
@@ -186,8 +186,8 @@ void AddPrinterAssistant::setCurrentPage(KPageWidgetItem *page)
             m_busySeq->stop();
         }
 
-        if(page == m_choosePPDPage) {
-            QVariantMap args = qobject_cast<GenericPage*>(page->widget())->values();
+        if (page == m_choosePPDPage) {
+            QVariantMap args = qobject_cast<GenericPage *>(page->widget())->values();
             m_choosePPDPage->setName(i18nc("@title:window", "Pick a Driver for %1", args[KCUPS_DEVICE_MAKE_AND_MODEL].toString()));
         }
 
@@ -215,10 +215,10 @@ void AddPrinterAssistant::showEvent(QShowEvent *event)
 
 void AddPrinterAssistant::slotFinishButtonClicked()
 {
-    auto page = qobject_cast<GenericPage*>(currentPage()->widget());
+    auto page = qobject_cast<GenericPage *>(currentPage()->widget());
     enableFinishButton(false);
     if (page->finishClicked()) {
-        //KAssistantDialog::slotButtonClicked(button); // FIXME next() really?
+        // KAssistantDialog::slotButtonClicked(button); // FIXME next() really?
         next();
     } else {
         enableFinishButton(true);

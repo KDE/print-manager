@@ -14,9 +14,9 @@
 
 Q_DECLARE_LOGGING_CATEGORY(PM_ADD_PRINTER)
 
-ChooseUri::ChooseUri(QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::ChooseUri)
+ChooseUri::ChooseUri(QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::ChooseUri)
 {
     ui->setupUi(this);
 
@@ -67,9 +67,8 @@ bool ChooseUri::isValid() const
     const QVariantMap args = values();
     const QString deviceUri = args[KCUPS_DEVICE_URI].toString();
     QUrl url(deviceUri);
-//    qCDebug(PM_ADD_PRINTER) << url << url.isValid() << url.isEmpty() << url.scheme().isEmpty() << url.host() << url.toString();
-    return (url.isValid() && !url.isEmpty() && !url.scheme().isEmpty() && !url.host().isEmpty())
-            || urlDefault == deviceUri;
+    //    qCDebug(PM_ADD_PRINTER) << url << url.isValid() << url.isEmpty() << url.scheme().isEmpty() << url.host() << url.toString();
+    return (url.isValid() && !url.isEmpty() && !url.scheme().isEmpty() && !url.host().isEmpty()) || urlDefault == deviceUri;
 }
 
 bool ChooseUri::canProceed() const
@@ -90,11 +89,9 @@ void ChooseUri::textChanged(const QString &text)
 {
     QUrl url = parsedURL(text);
 
-    if (url.isValid() &&
-            (url.scheme().isEmpty() ||
-             url.scheme() == QLatin1String("http") ||
-             url.scheme() == QLatin1String("https") ||
-             url.scheme() == QLatin1String("ipp"))) {
+    if (url.isValid()
+        && (url.scheme().isEmpty() || url.scheme() == QLatin1String("http") || url.scheme() == QLatin1String("https")
+            || url.scheme() == QLatin1String("ipp"))) {
         // TODO maybe cups library can connect to more protocols
         ui->searchTB->setEnabled(true);
     } else {
@@ -115,16 +112,14 @@ void ChooseUri::findPrinters()
     request->setProperty("URI", url);
 
     Q_EMIT startWorking();
-    request->getPrinters({
-                             KCUPS_PRINTER_NAME,
-                             KCUPS_PRINTER_STATE,
-                             KCUPS_PRINTER_IS_SHARED,
-                             KCUPS_PRINTER_IS_ACCEPTING_JOBS,
-                             KCUPS_PRINTER_TYPE,
-                             KCUPS_PRINTER_LOCATION,
-                             KCUPS_PRINTER_INFO,
-                             KCUPS_PRINTER_MAKE_AND_MODEL
-                         });
+    request->getPrinters({KCUPS_PRINTER_NAME,
+                          KCUPS_PRINTER_STATE,
+                          KCUPS_PRINTER_IS_SHARED,
+                          KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                          KCUPS_PRINTER_TYPE,
+                          KCUPS_PRINTER_LOCATION,
+                          KCUPS_PRINTER_INFO,
+                          KCUPS_PRINTER_MAKE_AND_MODEL});
 }
 
 void ChooseUri::getPrintersFinished(KCupsRequest *request)
@@ -138,13 +133,7 @@ void ChooseUri::getPrintersFinished(KCupsRequest *request)
     if (request->hasError()) {
         Q_EMIT errorMessage(request->errorMsg());
     } else {
-        Q_EMIT insertDevice(QLatin1String("network"),
-                          url.authority(),
-                          url.authority(),
-                          QString(),
-                          url.url(),
-                          QString(),
-                          printers);
+        Q_EMIT insertDevice(QLatin1String("network"), url.authority(), url.authority(), QString(), url.url(), QString(), printers);
     }
 
     request->deleteLater();

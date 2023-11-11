@@ -11,11 +11,12 @@
 
 #include <KCupsPrinter.h>
 
-#include <QUrl>
 #include <QLabel>
+#include <QUrl>
 
-namespace Ui {
-    class PageDestinations;
+namespace Ui
+{
+class PageDestinations;
 }
 
 class DevicesModel;
@@ -55,12 +56,12 @@ private:
     DevicesModel *m_model = nullptr;
 
     QString m_currentUri;
-    ChooseLpd      *m_chooseLpd = nullptr;
-    ChooseSamba    *m_chooseSamba = nullptr;
-    ChooseSerial   *m_chooseSerial = nullptr;
-    ChooseSocket   *m_chooseSocket = nullptr;
-    ChooseUri      *m_chooseUri = nullptr;
-    QLabel         *m_chooseLabel = nullptr;
+    ChooseLpd *m_chooseLpd = nullptr;
+    ChooseSamba *m_chooseSamba = nullptr;
+    ChooseSerial *m_chooseSerial = nullptr;
+    ChooseSocket *m_chooseSocket = nullptr;
+    ChooseUri *m_chooseUri = nullptr;
+    QLabel *m_chooseLabel = nullptr;
 };
 
 #endif

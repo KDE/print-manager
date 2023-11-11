@@ -9,8 +9,9 @@
 
 #include "GenericPage.h"
 
-namespace Ui {
-    class PageAddPrinter;
+namespace Ui
+{
+class PageAddPrinter;
 }
 
 class PageAddPrinter : public GenericPage

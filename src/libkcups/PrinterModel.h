@@ -7,9 +7,9 @@
 #ifndef PRINTER_MODEL_H
 #define PRINTER_MODEL_H
 
-#include <qqmlregistration.h>
 #include <QStandardItemModel>
 #include <QTimer>
+#include <qqmlregistration.h>
 
 #include <KCupsPrinter.h>
 #include <kcupslib_export.h>
@@ -19,12 +19,12 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
     QML_ELEMENT
-      
+
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
     /**
      * Whether or not to actually display the location of the printer
-     * 
+     *
      * Only show the location if there is more than one printer
      * and at least two distinct locations exist.  If there is only one
      * printer or 2 or more printers have the same location, this will be false
@@ -36,7 +36,7 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
     Q_PROPERTY(bool printersOnly READ printersOnly NOTIFY countChanged)
 
 public:
-    enum Role{
+    enum Role {
         DestStatus = Qt::UserRole,
         DestState,
         DestName,
@@ -60,12 +60,7 @@ public:
     };
     Q_ENUM(Role)
 
-    enum JobAction {
-        Cancel,
-        Hold,
-        Release,
-        Move
-    };
+    enum JobAction { Cancel, Hold, Release, Move };
     Q_ENUM(JobAction)
 
     explicit PrinterModel(QObject *parent = nullptr);
@@ -75,7 +70,7 @@ public:
     int count() const;
     bool serverUnavailable() const;
 
-    virtual QHash<int,QByteArray> roleNames() const override;
+    virtual QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void pausePrinter(const QString &printerName);
     Q_INVOKABLE void resumePrinter(const QString &printerName);
@@ -105,12 +100,42 @@ private slots:
                              bool printerIsAcceptingJobs);
     void insertUpdatePrinterFinished(KCupsRequest *request);
     void printerRemovedName(const QString &printerName);
-    void printerRemoved(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
-    void printerStateChanged(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
-    void printerStopped(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
-    void printerRestarted(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
-    void printerShutdown(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
-    void printerModified(const QString &text, const QString &printerUri, const QString &printerName, uint printerState, const QString &printerStateReasons, bool printerIsAcceptingJobs);
+    void printerRemoved(const QString &text,
+                        const QString &printerUri,
+                        const QString &printerName,
+                        uint printerState,
+                        const QString &printerStateReasons,
+                        bool printerIsAcceptingJobs);
+    void printerStateChanged(const QString &text,
+                             const QString &printerUri,
+                             const QString &printerName,
+                             uint printerState,
+                             const QString &printerStateReasons,
+                             bool printerIsAcceptingJobs);
+    void printerStopped(const QString &text,
+                        const QString &printerUri,
+                        const QString &printerName,
+                        uint printerState,
+                        const QString &printerStateReasons,
+                        bool printerIsAcceptingJobs);
+    void printerRestarted(const QString &text,
+                          const QString &printerUri,
+                          const QString &printerName,
+                          uint printerState,
+                          const QString &printerStateReasons,
+                          bool printerIsAcceptingJobs);
+    void printerShutdown(const QString &text,
+                         const QString &printerUri,
+                         const QString &printerName,
+                         uint printerState,
+                         const QString &printerStateReasons,
+                         bool printerIsAcceptingJobs);
+    void printerModified(const QString &text,
+                         const QString &printerUri,
+                         const QString &printerName,
+                         uint printerState,
+                         const QString &printerStateReasons,
+                         bool printerIsAcceptingJobs);
     void serverChanged(const QString &text);
 
 private:

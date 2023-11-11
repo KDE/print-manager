@@ -13,8 +13,9 @@
 
 #include <QUrl>
 
-namespace Ui {
-    class ChooseUri;
+namespace Ui
+{
+class ChooseUri;
 }
 class KCupsRequest;
 class ChooseUri : public GenericPage

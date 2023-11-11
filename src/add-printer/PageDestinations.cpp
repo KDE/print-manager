@@ -19,19 +19,19 @@
 #include <KLocalizedString>
 #include <NoSelectionRectDelegate.h>
 
-#include <QItemSelectionModel>
 #include <QDebug>
+#include <QItemSelectionModel>
 
 // system-config-printer --setup-printer='file:/tmp/printout' --devid='MFG:Ricoh;MDL:Aficio SP C820DN'
-PageDestinations::PageDestinations(const QVariantMap &args, QWidget *parent) :
-    GenericPage(parent),
-    ui(new Ui::PageDestinations),
-    m_chooseLpd(new ChooseLpd(this)),
-    m_chooseSamba(new ChooseSamba(this)),
-    m_chooseSerial(new ChooseSerial(this)),
-    m_chooseSocket(new ChooseSocket(this)),
-    m_chooseUri(new ChooseUri(this)),
-    m_chooseLabel(new QLabel(this))
+PageDestinations::PageDestinations(const QVariantMap &args, QWidget *parent)
+    : GenericPage(parent)
+    , ui(new Ui::PageDestinations)
+    , m_chooseLpd(new ChooseLpd(this))
+    , m_chooseSamba(new ChooseSamba(this))
+    , m_chooseSerial(new ChooseSerial(this))
+    , m_chooseSocket(new ChooseSocket(this))
+    , m_chooseUri(new ChooseUri(this))
+    , m_chooseLabel(new QLabel(this))
 {
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -108,11 +108,11 @@ void PageDestinations::setValues(const QVariantMap &args)
 {
     m_args = args;
     if (args[ADDING_PRINTER].toBool()) {
-//        m_isValid = true;
+        //        m_isValid = true;
         m_model->update();
-//        m_busySeq->start();
+        //        m_busySeq->start();
     } else {
-//        m_isValid = false;
+        //        m_isValid = false;
     }
 }
 
@@ -124,7 +124,7 @@ bool PageDestinations::isValid() const
 QVariantMap PageDestinations::values() const
 {
     QVariantMap ret = m_args;
-    auto page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
+    auto page = qobject_cast<GenericPage *>(ui->stackedWidget->currentWidget());
     if (page) {
         ret = page->values();
     } else if (canProceed()) {
@@ -137,7 +137,7 @@ bool PageDestinations::canProceed() const
 {
     bool ret = ui->stackedWidget->currentIndex() != 0;
 
-    auto page = qobject_cast<GenericPage*>(ui->stackedWidget->currentWidget());
+    auto page = qobject_cast<GenericPage *>(ui->stackedWidget->currentWidget());
     if (page) {
         ret = page->canProceed();
     }
@@ -148,8 +148,7 @@ bool PageDestinations::canProceed() const
 void PageDestinations::deviceChanged()
 {
     QItemSelectionModel *selection = ui->devicesTV->selectionModel();
-    if (!selection->selectedIndexes().isEmpty() &&
-            selection->selectedIndexes().size() == 1) {
+    if (!selection->selectedIndexes().isEmpty() && selection->selectedIndexes().size() == 1) {
         QModelIndex index = selection->selectedIndexes().first();
         QVariant uris = index.data(DevicesModel::DeviceUris);
         if (uris.isNull()) {
@@ -195,19 +194,21 @@ void PageDestinations::deviceUriChanged()
         m_chooseLabel->setText(i18n("A printer connected via Bluetooth."));
         setCurrentPage(m_chooseLabel, args);
     } else if (deviceUri.startsWith(QLatin1String("hal"))) {
-        m_chooseLabel->setText(i18n("Local printer detected by the "
-                                    "Hardware Abstraction Layer (HAL)."));
+        m_chooseLabel->setText(
+            i18n("Local printer detected by the "
+                 "Hardware Abstraction Layer (HAL)."));
         setCurrentPage(m_chooseLabel, args);
     } else if (deviceUri.startsWith(QLatin1String("hp"))) {
-        m_chooseLabel->setText(i18n("HPLIP software driving a printer, "
-                                    "or the printer function of a multi-function device."));
+        m_chooseLabel->setText(
+            i18n("HPLIP software driving a printer, "
+                 "or the printer function of a multi-function device."));
         setCurrentPage(m_chooseLabel, args);
     } else if (deviceUri.startsWith(QLatin1String("hpfax"))) {
-        m_chooseLabel->setText(i18n("HPLIP software driving a fax machine, "
-                                    "or the fax function of a multi-function device."));
+        m_chooseLabel->setText(
+            i18n("HPLIP software driving a fax machine, "
+                 "or the fax function of a multi-function device."));
         setCurrentPage(m_chooseLabel, args);
-    } else if (deviceUri.startsWith(QLatin1String("dnssd")) ||
-               deviceUri.startsWith(QLatin1String("mdns"))) {
+    } else if (deviceUri.startsWith(QLatin1String("dnssd")) || deviceUri.startsWith(QLatin1String("mdns"))) {
         // TODO this needs testing...
         QString text;
         if (deviceUri.contains(QLatin1String("cups"))) {
@@ -233,10 +234,8 @@ void PageDestinations::deviceUriChanged()
     } else if (deviceUri.startsWith(QLatin1String("socket"))) {
         qDebug() << "SOCKET";
         setCurrentPage(m_chooseSocket, args);
-    } else if (deviceUri.startsWith(QLatin1String("ipp")) ||
-               deviceUri.startsWith(QLatin1String("ipps")) ||
-               deviceUri.startsWith(QLatin1String("http")) ||
-               deviceUri.startsWith(QLatin1String("https"))) {
+    } else if (deviceUri.startsWith(QLatin1String("ipp")) || deviceUri.startsWith(QLatin1String("ipps")) || deviceUri.startsWith(QLatin1String("http"))
+               || deviceUri.startsWith(QLatin1String("https"))) {
         setCurrentPage(m_chooseUri, args);
     } else if (deviceUri.startsWith(QLatin1String("lpd"))) {
         setCurrentPage(m_chooseLpd, args);
@@ -256,22 +255,21 @@ void PageDestinations::deviceUriChanged()
     Q_EMIT allowProceed(canProceed());
 }
 
-void PageDestinations::insertDevice(const QString &device_class, const QString &device_id, const QString &device_info, const QString &device_make_and_model, const QString &device_uri, const QString &device_location, const KCupsPrinters &grouped_printers)
+void PageDestinations::insertDevice(const QString &device_class,
+                                    const QString &device_id,
+                                    const QString &device_info,
+                                    const QString &device_make_and_model,
+                                    const QString &device_uri,
+                                    const QString &device_location,
+                                    const KCupsPrinters &grouped_printers)
 {
-    m_model->insertDevice(device_class,
-                          device_id,
-                          device_info,
-                          device_make_and_model,
-                          device_uri,
-                          device_location,
-                          grouped_printers);
+    m_model->insertDevice(device_class, device_id, device_info, device_make_and_model, device_uri, device_location, grouped_printers);
 }
 
 QVariantMap PageDestinations::selectedItemValues() const
 {
     QVariantMap ret = m_args;
-    if (!ui->devicesTV->selectionModel()->selectedIndexes().isEmpty() &&
-            ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
+    if (!ui->devicesTV->selectionModel()->selectedIndexes().isEmpty() && ui->devicesTV->selectionModel()->selectedIndexes().size() == 1) {
         QModelIndex index = ui->devicesTV->selectionModel()->selectedIndexes().first();
         QVariant uri = index.data(DevicesModel::DeviceUri);
         QVariant uris = index.data(DevicesModel::DeviceUris);
@@ -305,15 +303,14 @@ QVariantMap PageDestinations::selectedItemValues() const
 
 void PageDestinations::setCurrentPage(QWidget *widget, const QVariantMap &args)
 {
-    auto page = qobject_cast<GenericPage*>(widget);
+    auto page = qobject_cast<GenericPage *>(widget);
     if (page) {
         page->setValues(args);
         if (ui->stackedWidget->currentWidget() != page) {
             ui->stackedWidget->setCurrentWidget(page);
         }
-    } else if (qobject_cast<QLabel*>(widget)) {
-        if (ui->connectionsGB->isVisible() &&
-                ui->connectionsCB->currentText() == m_chooseLabel->text()) {
+    } else if (qobject_cast<QLabel *>(widget)) {
+        if (ui->connectionsGB->isVisible() && ui->connectionsCB->currentText() == m_chooseLabel->text()) {
             // Don't show duplicated text for the user
             m_chooseLabel->clear();
         }

@@ -9,8 +9,9 @@
 
 #include "GenericPage.h"
 
-namespace Ui {
-    class ChooseSocket;
+namespace Ui
+{
+class ChooseSocket;
 }
 class ChooseSocket : public GenericPage
 {

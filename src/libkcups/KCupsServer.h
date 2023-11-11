@@ -7,8 +7,8 @@
 #ifndef KCUPSSERVER_H
 #define KCUPSSERVER_H
 
-#include <QString>
 #include <KCupsConnection.h>
+#include <QString>
 #include <kcupslib_export.h>
 
 class KCUPSLIB_EXPORT KCupsServer

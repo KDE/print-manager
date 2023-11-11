@@ -6,9 +6,9 @@
 
 #include "GenericPage.h"
 
-GenericPage::GenericPage(QWidget *parent) :
-    QWidget(parent),
-    m_working(0)
+GenericPage::GenericPage(QWidget *parent)
+    : QWidget(parent)
+    , m_working(0)
 {
 }
 

@@ -6,11 +6,11 @@
 
 #include "PrinterSortFilterModel.h"
 
-#include "kcupslib_log.h"
 #include "PrinterModel.h"
+#include "kcupslib_log.h"
 
-PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent) :
-    QSortFilterProxyModel(parent)
+PrinterSortFilterModel::PrinterSortFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
     setDynamicSortFilter(true);
     setSortCaseSensitivity(Qt::CaseInsensitive);
@@ -66,12 +66,12 @@ bool PrinterSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex 
     return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
 }
 
-//bool PrinterSortFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
+// bool PrinterSortFilterModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 //{
-//    bool leftIsRemote = sourceModel()->data(left, PrinterModel::DestRemote).toBool();
-//    bool rightIsRemote = sourceModel()->data(right, PrinterModel::DestRemote).toBool();
-//    bool leftDefault = sourceModel()->data(left, PrinterModel::DestIsDefault).toBool();
-//    bool rightDefault = sourceModel()->data(right, PrinterModel::DestIsDefault).toBool();
+//     bool leftIsRemote = sourceModel()->data(left, PrinterModel::DestRemote).toBool();
+//     bool rightIsRemote = sourceModel()->data(right, PrinterModel::DestRemote).toBool();
+//     bool leftDefault = sourceModel()->data(left, PrinterModel::DestIsDefault).toBool();
+//     bool rightDefault = sourceModel()->data(right, PrinterModel::DestIsDefault).toBool();
 
 //    if (leftDefault != rightDefault) {
 //        return leftDefault;

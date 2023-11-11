@@ -13,11 +13,11 @@ class PrintQueue : public QApplication
 {
     Q_OBJECT
 public:
-    PrintQueue(int & argc, char ** argv);
+    PrintQueue(int &argc, char **argv);
     ~PrintQueue() override;
 
 public slots:
-    void showQueues(const QStringList & queues, const QString & cwd = QString());
+    void showQueues(const QStringList &queues, const QString &cwd = QString());
 
 private slots:
     void removeQueue();

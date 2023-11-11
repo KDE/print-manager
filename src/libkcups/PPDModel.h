@@ -8,11 +8,11 @@
 #ifndef PPD_MODEL_H
 #define PPD_MODEL_H
 
-#include <qqmlregistration.h>
 #include <QStandardItemModel>
 #include <kcupslib_export.h>
+#include <qqmlregistration.h>
 
-struct DriverMatch{
+struct DriverMatch {
     QString ppd;
     QString match;
 };
@@ -25,18 +25,14 @@ class KCUPSLIB_EXPORT PPDModel : public QStandardItemModel
     QML_ELEMENT
 
 public:
-    enum Role {
-        PPDName = Qt::UserRole,
-        PPDMake,
-        PPDMakeAndModel
-    };
+    enum Role { PPDName = Qt::UserRole, PPDMake, PPDMakeAndModel };
     Q_ENUM(Role)
 
     explicit PPDModel(QObject *parent = nullptr);
     void setPPDs(const QList<QVariantMap> &ppds, const DriverMatchList &driverMatch = DriverMatchList());
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
-    virtual QHash<int,QByteArray> roleNames() const override;
+    virtual QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void load();
 
@@ -45,8 +41,8 @@ Q_SIGNALS:
     void loaded();
 
 private:
-    QStandardItem* createPPDItem(const QVariantMap &ppd, bool recommended);
-    QStandardItem* findCreateMake(const QString &make);
+    QStandardItem *createPPDItem(const QVariantMap &ppd, bool recommended);
+    QStandardItem *findCreateMake(const QString &make);
 
     QList<QVariantMap> m_ppds;
     QHash<int, QByteArray> m_roles;

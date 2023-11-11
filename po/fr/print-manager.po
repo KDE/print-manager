@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:51+0000\n"
-"PO-Revision-Date: 2023-11-07 18:34+0100\n"
+"PO-Revision-Date: 2023-11-09 14:41+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -20,9 +20,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 23.08.2\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -214,9 +214,7 @@ msgstr "Port :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/ChooseUri.ui:41
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Connection:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Connexion :"
@@ -310,32 +308,24 @@ msgstr ""
 "Imprimante locale détectée par la couche d'abstraction matérielle (HAL)"
 
 #: add-printer/DevicesModel.cpp:251
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"Logiciel « HPLIP » pilotant une imprimante ou la fonction imprimante d'un "
+"Logiciel « HPLIP » pilotant une imprimante ou la fonction d'impression d'un "
 "périphérique multi-fonction"
 
 #: add-printer/DevicesModel.cpp:255
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
-"Logiciel « HPLIP » pilotant un fax ou la fonction fax d'un périphérique "
-"multi-fonction"
+"Logiciel « HPLIP » pilotant un fax ou la fonction de fax d'un périphérique "
+"multi-fonction."
 
 #: add-printer/DevicesModel.cpp:260
 #, kde-format
@@ -442,18 +432,14 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/PageAddPrinter.ui:45
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Description :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: add-printer/PageAddPrinter.ui:55
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Location:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Emplacement :"
@@ -667,8 +653,7 @@ msgstr ""
 "Voulez-vous les enregistrer ?"
 
 #: configure-printer/ConfigureDialog.cpp:186
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -966,10 +951,9 @@ msgid "A&llow these users to print"
 msgstr "&Autoriser ces utilisateurs à imprimer"
 
 #: configure-printer/PrinterOptions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Set Default Options"
+#, kde-format
 msgid "Set Default Options"
-msgstr "Définir les options par défaut"
+msgstr "Définir les options par défaut "
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
 #: configure-printer/PrinterOptions.ui:26
@@ -1122,8 +1106,7 @@ msgid "Recommended Drivers"
 msgstr "Pilotes recommandés"
 
 #: libkcups/PrinterModel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Printers"
+#, kde-format
 msgid "Printers"
 msgstr "Imprimantes"
 

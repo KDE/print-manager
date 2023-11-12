@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
 "PO-Revision-Date: 2020-12-27 13:14+0100\n"
 "Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -629,7 +629,7 @@ msgstr "Nem sikerült beállítani a nyomtatót"
 msgid "Failed to perform request: %1"
 msgstr "Nem sikerült végrehajtani a kérést: %1"
 
-#: src/kcm/printermanager.cpp:434
+#: src/kcm/printermanager.cpp:431
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -637,18 +637,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "A kiszolgáló beállításainak lekérése nem sikerült"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:471
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:528
+#: src/kcm/printermanager.cpp:526
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Önellenőrző oldal nyomtatása"
 
-#: src/kcm/printermanager.cpp:534
+#: src/kcm/printermanager.cpp:532
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nyomtatófej-tisztítás"

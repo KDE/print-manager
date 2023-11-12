@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
 "PO-Revision-Date: 2013-03-15 15:30+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -609,7 +609,7 @@ msgstr "छपाईयंत्र संयोजीत करण्यास 
 msgid "Failed to perform request: %1"
 msgstr "'%1' हे सोडण्यास अपयश"
 
-#: src/kcm/printermanager.cpp:434
+#: src/kcm/printermanager.cpp:431
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer: '%1'"
@@ -617,18 +617,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:471
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:528
+#: src/kcm/printermanager.cpp:526
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्व-चाचणी पान छापा"
 
-#: src/kcm/printermanager.cpp:534
+#: src/kcm/printermanager.cpp:532
 #, kde-format
 msgid "Clean Print Heads"
 msgstr ""

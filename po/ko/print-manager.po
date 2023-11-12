@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-11 01:44+0000\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
 "PO-Revision-Date: 2023-02-28 22:44+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -625,7 +625,7 @@ msgstr "프린터를 설정할 수 없음"
 msgid "Failed to perform request: %1"
 msgstr "요청을 처리할 수 없음: %1"
 
-#: src/kcm/printermanager.cpp:434
+#: src/kcm/printermanager.cpp:431
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -633,18 +633,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "서버 설정을 가져올 수 없음"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:471
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:528
+#: src/kcm/printermanager.cpp:526
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: src/kcm/printermanager.cpp:534
+#: src/kcm/printermanager.cpp:532
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"

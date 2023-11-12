@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
 "PO-Revision-Date: 2023-11-08 13:27+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -41,24 +41,24 @@ msgstr "Ha fallat en configurar la impressora: "
 msgid "Failed to perform request: %1"
 msgstr "Ha fallat en portar a terme la sol·licitud: %1"
 
-#: printermanager.cpp:434
+#: printermanager.cpp:431
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ha fallat en obtenir els paràmetres del servidor: %1"
 
-#: printermanager.cpp:473
+#: printermanager.cpp:471
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Error del servidor: (%1): %2"
 
-#: printermanager.cpp:528
+#: printermanager.cpp:526
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimeix una pàgina d'autocomprovació"
 
-#: printermanager.cpp:534
+#: printermanager.cpp:532
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Neteja els capçals d'impressió"

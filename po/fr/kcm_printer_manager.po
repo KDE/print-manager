@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-11-12 01:38+0000\n"
 "PO-Revision-Date: 2023-11-09 14:41+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -47,24 +47,24 @@ msgstr "Configuration d'imprimante impossible :"
 msgid "Failed to perform request: %1"
 msgstr "Il est impossible d'effectuer la requête : %1"
 
-#: printermanager.cpp:434
+#: printermanager.cpp:431
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Obtention de la configuration du serveur impossible : %1"
 
-#: printermanager.cpp:473
+#: printermanager.cpp:471
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Erreur du serveur : (%1) : %2"
 
-#: printermanager.cpp:528
+#: printermanager.cpp:526
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimer sa propre page de test"
 
-#: printermanager.cpp:534
+#: printermanager.cpp:532
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nettoyer les têtes d'impression"

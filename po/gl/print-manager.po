@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2018, 2019, 2020, 2023.
+# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:51+0000\n"
-"PO-Revision-Date: 2023-08-06 05:23+0200\n"
+"PO-Revision-Date: 2023-11-11 16:27+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -308,8 +308,8 @@ msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"O software HPLIP que controla unha impresora, ou a función de impresión dun "
-"dispositivo multifunción."
+"O soporte lóxico de HPLIP que controla unha impresora, ou a función de "
+"impresión dun dispositivo multifunción."
 
 #: add-printer/DevicesModel.cpp:255
 #, kde-format
@@ -318,8 +318,8 @@ msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
-"O software HPLIP que controla un fax, ou a función de fax dun dispositivo "
-"multifunción."
+"O soporte lóxico HPLIP que controla un fax, ou a función de fax dun "
+"dispositivo multifunción."
 
 #: add-printer/DevicesModel.cpp:260
 #, kde-format
@@ -434,7 +434,7 @@ msgstr "Descrición:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr "Lugar:"
+msgstr "Localización:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
 #. i18n: ectx: property (text), widget (QCheckBox, sharedCB)
@@ -679,13 +679,13 @@ msgstr "Seleccionar un controlador personalizado"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
-msgstr "Non foi posíbel configurar a clase."
+msgstr "Non se puido configurar a clase."
 
 #: configure-printer/ModifyPrinter.cpp:227
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
-msgstr "Non foi posíbel configurar a impresora."
+msgstr "Non se puido configurar a impresora."
 
 #: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:328
 #, kde-format

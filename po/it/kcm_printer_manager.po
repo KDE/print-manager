@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2023-04-26 01:50+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,46 +17,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: printermanager.cpp:229
+#: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
 
-#: printermanager.cpp:237
+#: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr ""
 
-#: printermanager.cpp:238
+#: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr ""
 
-#: printermanager.cpp:379
+#: printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Impossibile eseguire la richiesta: %1"
 
-#: printermanager.cpp:431
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr ""
 
-#: printermanager.cpp:471
+#: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: printermanager.cpp:526
+#: printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Stampa pagina di prova automatica"
 
-#: printermanager.cpp:532
+#: printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Pulisci le testine della stampante"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2023-11-09 12:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -17,46 +17,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 23.11.70\n"
 
-#: printermanager.cpp:229
+#: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr "Öntanımlı Seçenekleri Ayarla"
 
-#: printermanager.cpp:237
+#: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Sınıf yapılandırılamadı: "
 
-#: printermanager.cpp:238
+#: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Yazıcı yapılandırılamadı: "
 
-#: printermanager.cpp:379
+#: printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "İstek gerçekleştirilemedi: %1"
 
-#: printermanager.cpp:431
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Sunucu ayarları alınamadı: %1"
 
-#: printermanager.cpp:471
+#: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Sunucu hatası: (%1): %2"
 
-#: printermanager.cpp:526
+#: printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Kendini Sınama Sayfası Yazdır"
 
-#: printermanager.cpp:532
+#: printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Yazdırma Kafalarını Temizle"

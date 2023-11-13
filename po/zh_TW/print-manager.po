@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2022-12-30 19:32+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
@@ -314,18 +314,18 @@ msgstr "新增印表機類別"
 msgid "Changes the PPD of a given printer"
 msgstr "變更指定印表機的 PPD"
 
-#: src/add-printer/main.cpp:53
+#: src/add-printer/main.cpp:54
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "變更指定印表機或裝置代碼的 PPD"
 
-#: src/add-printer/PageAddPrinter.cpp:125
+#: src/add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "加入類別失敗：'%1'"
 
-#: src/add-printer/PageAddPrinter.cpp:127
+#: src/add-printer/PageAddPrinter.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -372,17 +372,17 @@ msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "成員："
 
-#: src/add-printer/PageDestinations.cpp:189
+#: src/add-printer/PageDestinations.cpp:188
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr "有印表機連接到並列埠。"
 
-#: src/add-printer/PageDestinations.cpp:192
+#: src/add-printer/PageDestinations.cpp:191
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr "有印表機連接到 USB 埠。"
 
-#: src/add-printer/PageDestinations.cpp:195
+#: src/add-printer/PageDestinations.cpp:194
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr "有印表機連接到藍牙。"
@@ -392,31 +392,31 @@ msgstr "有印表機連接到藍牙。"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr "由 HAL 偵測到的本地印表機。"
 
-#: src/add-printer/PageDestinations.cpp:202
+#: src/add-printer/PageDestinations.cpp:203
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device."
 msgstr "HPLIP 軟體驅動一印表機，或是多功能裝置中的印表機功能。"
 
-#: src/add-printer/PageDestinations.cpp:206
+#: src/add-printer/PageDestinations.cpp:208
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device."
 msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能。"
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
+#: src/add-printer/PageDestinations.cpp:215 src/libkcups/DevicesModel.cpp:99
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD 上的遠端 CUPS 印表機"
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
+#: src/add-printer/PageDestinations.cpp:227 src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD 上的網路印表機"
 
-#: src/add-printer/PageDestinations.cpp:228
+#: src/add-printer/PageDestinations.cpp:229
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "DNS-SD 上的 %1 網路印表機"
@@ -446,7 +446,7 @@ msgstr "列印設定"
 msgid "Banners, Policies and Allowed Users"
 msgstr "橫幅，政策與允許的使用者"
 
-#: src/configure-printer/ConfigureDialog.cpp:172
+#: src/configure-printer/ConfigureDialog.cpp:171
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -475,67 +475,67 @@ msgstr "設定印表機"
 msgid "Printer to be configured"
 msgstr "要設定的印表機"
 
-#: src/configure-printer/PrinterBehavior.cpp:200
+#: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
 msgid "Abort job"
 msgstr "中止工作"
 
-#: src/configure-printer/PrinterBehavior.cpp:202
+#: src/configure-printer/PrinterBehavior.cpp:194
 #, kde-format
 msgid "Retry current job"
 msgstr "重試目前的工作"
 
-#: src/configure-printer/PrinterBehavior.cpp:204
+#: src/configure-printer/PrinterBehavior.cpp:196
 #, kde-format
 msgid "Retry job"
 msgstr "重試工作"
 
-#: src/configure-printer/PrinterBehavior.cpp:206
+#: src/configure-printer/PrinterBehavior.cpp:198
 #, kde-format
 msgid "Stop printer"
 msgstr "停止印表機"
 
-#: src/configure-printer/PrinterBehavior.cpp:215
+#: src/configure-printer/PrinterBehavior.cpp:207
 #, kde-format
 msgid "Authenticated"
 msgstr "已認證"
 
-#: src/configure-printer/PrinterBehavior.cpp:217
+#: src/configure-printer/PrinterBehavior.cpp:209
 #, kde-format
 msgid "Default"
 msgstr "預設"
 
-#: src/configure-printer/PrinterBehavior.cpp:226
+#: src/configure-printer/PrinterBehavior.cpp:218
 #, kde-format
 msgid "None"
 msgstr "無"
 
-#: src/configure-printer/PrinterBehavior.cpp:228
+#: src/configure-printer/PrinterBehavior.cpp:220
 #, kde-format
 msgid "Classified"
 msgstr "已分類"
 
-#: src/configure-printer/PrinterBehavior.cpp:230
+#: src/configure-printer/PrinterBehavior.cpp:222
 #, kde-format
 msgid "Confidential"
 msgstr "機密"
 
-#: src/configure-printer/PrinterBehavior.cpp:232
+#: src/configure-printer/PrinterBehavior.cpp:224
 #, kde-format
 msgid "Secret"
 msgstr "極機密"
 
-#: src/configure-printer/PrinterBehavior.cpp:234
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "Standard"
 msgstr "標準"
 
-#: src/configure-printer/PrinterBehavior.cpp:236
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Topsecret"
 msgstr "最高機密"
 
-#: src/configure-printer/PrinterBehavior.cpp:238
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Unclassified"
 msgstr "未分類"
@@ -594,7 +594,7 @@ msgstr "避免這些使用者進行列印(&V)"
 msgid "A&llow these users to print"
 msgstr "允許這些使用者進行列印(&L)"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:229
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr "設定預設選項"
@@ -605,7 +605,7 @@ msgstr "設定預設選項"
 msgid "Query Printer for Default Options"
 msgstr "查詢印表機的預設選項"
 
-#: src/kcm/printermanager.cpp:237
+#: src/kcm/printermanager.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -613,7 +613,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "設定類別失敗"
 
-#: src/kcm/printermanager.cpp:238
+#: src/kcm/printermanager.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -621,12 +621,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "設定印表機失敗"
 
-#: src/kcm/printermanager.cpp:379
+#: src/kcm/printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "執行要求失敗：%1"
 
-#: src/kcm/printermanager.cpp:431
+#: src/kcm/printermanager.cpp:416
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -634,210 +634,210 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "取得伺服器設定失敗"
 
-#: src/kcm/printermanager.cpp:471
+#: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:526
+#: src/kcm/printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "列印自我測試頁"
 
-#: src/kcm/printermanager.cpp:532
+#: src/kcm/printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清潔列印噴頭"
 
-#: src/kded/NewPrinterNotification.cpp:60
+#: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "偵測到新印表機"
 
-#: src/kded/NewPrinterNotification.cpp:61
+#: src/kded/NewPrinterNotification.cpp:62
 #, kde-format
 msgid "Configuring new printer..."
 msgstr "設定新印表機..."
 
-#: src/kded/NewPrinterNotification.cpp:101
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
 msgstr "新印表機已加入"
 
-#: src/kded/NewPrinterNotification.cpp:103
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr "新印表機缺少驅動程式"
 
-#: src/kded/NewPrinterNotification.cpp:162
+#: src/kded/NewPrinterNotification.cpp:165
 #, kde-format
 msgid "Missing printer driver"
 msgstr "遺失印表機驅動程式"
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:167
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr "沒有 %1 %2 的印表機驅動程式。"
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:169
 #, kde-format
 msgid "No printer driver for %1."
 msgstr "沒有 %1 的印表機驅動程式。"
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:171
 #, kde-format
 msgid "No driver for this printer."
 msgstr "沒有此印表機的驅動程式。"
 
-#: src/kded/NewPrinterNotification.cpp:170
+#: src/kded/NewPrinterNotification.cpp:173
 #, kde-format
 msgid "Search"
 msgstr "搜尋"
 
-#: src/kded/NewPrinterNotification.cpp:234
+#: src/kded/NewPrinterNotification.cpp:236
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "'%1' 已新增，請檢查它的驅動程式。"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:235
-#: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:237
+#: src/kded/NewPrinterNotification.cpp:258 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "設定"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "%1 已新增，使用驅動程式 %2。"
 
-#: src/kded/NewPrinterNotification.cpp:239
-#: src/kded/NewPrinterNotification.cpp:253
+#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "Print test page"
 msgstr "列印測試頁"
 
-#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "Find driver"
 msgstr "尋找驅動程式"
 
-#: src/kded/NewPrinterNotification.cpp:251
+#: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "%1 已就緒。"
 
-#: src/libkcups/DevicesModel.cpp:51
+#: src/libkcups/DevicesModel.cpp:48
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "手動輸入網址"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:60
 #, kde-format
 msgid "Parallel Port"
 msgstr "平行埠"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Serial Port"
 msgstr "序列埠"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "傳真 - HP Linux 影像與列印（HPLIP）"
 
-#: src/libkcups/DevicesModel.cpp:76
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux 影像與列印（HPLIP）"
 
-#: src/libkcups/DevicesModel.cpp:78
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "硬體抽象層（HAL）"
 
-#: src/libkcups/DevicesModel.cpp:80
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:85
+#: src/libkcups/DevicesModel.cpp:79
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR 佇列"
 
-#: src/libkcups/DevicesModel.cpp:87
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR 佇列 %1"
 
-#: src/libkcups/DevicesModel.cpp:90
+#: src/libkcups/DevicesModel.cpp:84
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "SAMBA 上的 Windows 印表機"
 
-#: src/libkcups/DevicesModel.cpp:95
+#: src/libkcups/DevicesModel.cpp:89
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:97
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:100
+#: src/libkcups/DevicesModel.cpp:94
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:109
+#: src/libkcups/DevicesModel.cpp:102
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "DNS-SD 上的 IPP 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:111
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "DNS-SD 上的 LPD 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:113
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "DNS-SD 上的 AppSocket/JetDirect 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:120
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "有印表機連接到並列埠"
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "有印表機連接到藍牙"
 
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "由 HAL 偵測到的本地印表機"
 
-#: src/libkcups/DevicesModel.cpp:129
+#: src/libkcups/DevicesModel.cpp:123
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -849,7 +849,7 @@ msgid ""
 "or the fax function of a multi-function device"
 msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能"
 
-#: src/libkcups/DevicesModel.cpp:130
+#: src/libkcups/DevicesModel.cpp:124
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -861,168 +861,168 @@ msgid ""
 "or the printer function of a multi-function device"
 msgstr "HPLIP 軟體驅動一印表機，或是多功能裝置中的印表機功能"
 
-#: src/libkcups/DevicesModel.cpp:131
+#: src/libkcups/DevicesModel.cpp:125
 #, fuzzy, kde-format
 #| msgid "IPP network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "DNS-SD 上的 IPP 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "有印表機連接到 USB 埠"
 
-#: src/libkcups/DevicesModel.cpp:139
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD 上的遠端 CUPS 印表機"
 
-#: src/libkcups/DevicesModel.cpp:151
+#: src/libkcups/DevicesModel.cpp:144
 #, fuzzy, kde-format
 #| msgid "Network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD 上的網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:153
+#: src/libkcups/DevicesModel.cpp:146
 #, fuzzy, kde-format
 #| msgid "%1 network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "DNS-SD 上的 %1 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:236
+#: src/libkcups/DevicesModel.cpp:221
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "取得裝置清單失敗：'%1'"
 
-#: src/libkcups/DevicesModel.cpp:377
+#: src/libkcups/DevicesModel.cpp:347
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "發現網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:353
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "其他網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:389
+#: src/libkcups/DevicesModel.cpp:359
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "本地印表機"
 
-#: src/libkcups/DevicesModel.cpp:434
+#: src/libkcups/DevicesModel.cpp:404
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "將裝置分組失敗：'%1'"
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Status"
 msgstr "狀態"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Name"
 msgstr "名稱"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "User"
 msgstr "使用者"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Created"
 msgstr "已建立"
 
-#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
 #, kde-format
 msgid "Completed"
 msgstr "已完成"
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Pages"
 msgstr "頁面"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Processed"
 msgstr "已處理"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Size"
 msgstr "大小"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Status Message"
 msgstr "狀態訊息"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "Printer"
 msgstr "印表機"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:38
 #, kde-format
 msgid "From Hostname"
 msgstr "從主機名稱"
 
-#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "將 '%1' 移動到 '%2' 失敗"
 
-#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
 #, kde-format
 msgid "Failed"
 msgstr "失敗"
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "Pending"
 msgstr "暫停"
 
-#: src/libkcups/JobModel.cpp:600
+#: src/libkcups/JobModel.cpp:587
 #, kde-format
 msgid "On hold"
 msgstr "保留中"
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Stopped"
 msgstr "已停止"
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Canceled"
 msgstr "已取消"
 
-#: src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Aborted"
 msgstr "已中止"
 
-#: src/libkcups/KCupsConnection.cpp:857
+#: src/libkcups/KCupsConnection.cpp:778
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "建立 CUPS 連線需要認證：「%1」"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:21
+#: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "輸入使用者名稱與密碼以完成此工作"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:43
+#: src/libkcups/KCupsPasswordDialog.cpp:44
 #, kde-format
 msgid "Wrong username or password"
 msgstr "錯誤的使用者名稱或密碼"
@@ -1037,17 +1037,17 @@ msgstr "列印服務無法使用"
 msgid "Not found"
 msgstr "找不到"
 
-#: src/libkcups/KCupsRequest.cpp:401
+#: src/libkcups/KCupsRequest.cpp:393
 #, kde-format
 msgid "Test Page"
 msgstr "測試頁"
 
-#: src/libkcups/KCupsRequest.cpp:433
+#: src/libkcups/KCupsRequest.cpp:421
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "無法傳送指令給印表機驅動程式。"
 
-#: src/libkcups/KCupsRequest.cpp:567
+#: src/libkcups/KCupsRequest.cpp:549
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "呼叫方法失敗：%1"
@@ -1057,88 +1057,88 @@ msgstr "呼叫方法失敗：%1"
 msgid "Recommended Drivers"
 msgstr "建議的驅動程式"
 
-#: src/libkcups/PPDModel.cpp:98
+#: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:203
+#: src/libkcups/PrinterModel.cpp:202
 #, kde-format
 msgid "Printers"
 msgstr "印表機"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle"
 msgstr "閒置"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "閒置，拒絕工作"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "閒置 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "閒置，拒絕工作 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:428
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use"
 msgstr "使用中"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "In use - '%1'"
 msgstr "使用中 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused"
 msgstr "已暫停"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "已暫停，拒絕工作"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "已暫停 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "已暫停，拒絕工作 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "未知 - '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:117
+#: src/libkcups/SelectMakeModel.cpp:115
 #, fuzzy, kde-format
 #| msgid "Choose &the driver from the list"
 msgid "Choose the driver for %1"
 msgstr "從清單中選擇驅動程式(&T)"
 
-#: src/libkcups/SelectMakeModel.cpp:140
+#: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "取得驅動程式清單失敗：'%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:230
+#: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "搜尋建議的驅動程式失敗：'%1'"
@@ -1172,91 +1172,91 @@ msgstr "列印佇列"
 msgid "Show printer queue(s)"
 msgstr "顯示列印佇列"
 
-#: src/printqueue/PrintQueueUi.cpp:195
+#: src/printqueue/PrintQueueUi.cpp:194
 #, kde-format
 msgid "Printer ready"
 msgstr "印表機已就緒"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:196 src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "暫停印表機"
 
-#: src/printqueue/PrintQueueUi.cpp:203
+#: src/printqueue/PrintQueueUi.cpp:202
 #, kde-format
 msgid "Printing..."
 msgstr "正在列印..."
 
-#: src/printqueue/PrintQueueUi.cpp:205
+#: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format
 msgid "Printing '%1'"
 msgstr "列印 '%1' 中"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format
 msgid "Printer paused"
 msgstr "印表機已暫停"
 
-#: src/printqueue/PrintQueueUi.cpp:214
+#: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Resume Printer"
 msgstr "回復印表機"
 
-#: src/printqueue/PrintQueueUi.cpp:218
+#: src/printqueue/PrintQueueUi.cpp:217
 #, kde-format
 msgid "Printer state unknown"
 msgstr "印表機狀態未知"
 
-#: src/printqueue/PrintQueueUi.cpp:263
+#: src/printqueue/PrintQueueUi.cpp:262
 #, kde-format
 msgid "Move to"
 msgstr "移動到"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:293
 #, kde-format
 msgid "Authenticate"
 msgstr "已認證"
 
-#: src/printqueue/PrintQueueUi.cpp:404
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "所有印表機（%1 個工作）"
 
-#: src/printqueue/PrintQueueUi.cpp:406
+#: src/printqueue/PrintQueueUi.cpp:410
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2（%1 個工作）"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:413
 #, kde-format
 msgid "All Printers"
 msgstr "所有印表機"
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:480
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "取消 '%1' 失敗"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:483
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "保留 '%1' 失敗"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:486
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "釋出 '%1' 失敗"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:489
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "重新列印 '%1' 失敗"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:560
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "輸入憑證以從 <b>%1</b> 列印"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2019-12-04 23:55+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -316,18 +316,18 @@ msgstr "Pridėti naują spausdintuvo klasę"
 msgid "Changes the PPD of a given printer"
 msgstr "Pakeičia nurodyto spausdintuvo PPD"
 
-#: src/add-printer/main.cpp:53
+#: src/add-printer/main.cpp:54
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Pakeičia nurodyto spausdintuvo/įrenginio id PPD"
 
-#: src/add-printer/PageAddPrinter.cpp:125
+#: src/add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Nepavyko pridėti klasės: „%1“"
 
-#: src/add-printer/PageAddPrinter.cpp:127
+#: src/add-printer/PageAddPrinter.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -376,17 +376,17 @@ msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "Nariai:"
 
-#: src/add-printer/PageDestinations.cpp:189
+#: src/add-printer/PageDestinations.cpp:188
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr "Spausdintuvas prijungtas prie lygiagrečiosios jungties."
 
-#: src/add-printer/PageDestinations.cpp:192
+#: src/add-printer/PageDestinations.cpp:191
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr "Spausdintuvas prijungtas prie USB jungties."
 
-#: src/add-printer/PageDestinations.cpp:195
+#: src/add-printer/PageDestinations.cpp:194
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr "Spausdintuvas prijungtas per Bluetooth."
@@ -398,7 +398,7 @@ msgstr ""
 "Vietinis spausdintuvas, aptiktas aparatinės įrangos abstrakcijos lygmens "
 "(HAL)."
 
-#: src/add-printer/PageDestinations.cpp:202
+#: src/add-printer/PageDestinations.cpp:203
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -407,7 +407,7 @@ msgstr ""
 "HPLIP programinė įranga, valdanti spausdintuvą ar daugiafunkcio įrenginio "
 "spausdinimo funkciją."
 
-#: src/add-printer/PageDestinations.cpp:206
+#: src/add-printer/PageDestinations.cpp:208
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -416,17 +416,17 @@ msgstr ""
 "HPLIP programinė įranga, valdanti faksą ar daugiafunkcio įrenginio fakso "
 "funkciją."
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
+#: src/add-printer/PageDestinations.cpp:215 src/libkcups/DevicesModel.cpp:99
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Nuotolinis CUPS spausdintuvas per DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
+#: src/add-printer/PageDestinations.cpp:227 src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Tinklo spausdintuvas per DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:228
+#: src/add-printer/PageDestinations.cpp:229
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 tinklo spausdintuvas per DNS-SD"
@@ -456,7 +456,7 @@ msgstr "Spausdinimo nustatymai"
 msgid "Banners, Policies and Allowed Users"
 msgstr "Stambios antraštės, politikos ir leidžiami naudotojai"
 
-#: src/configure-printer/ConfigureDialog.cpp:172
+#: src/configure-printer/ConfigureDialog.cpp:171
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -485,67 +485,67 @@ msgstr "KonfigūruotiSpausdintuvą"
 msgid "Printer to be configured"
 msgstr "Spausdintuvas, kurį konfigūruoti"
 
-#: src/configure-printer/PrinterBehavior.cpp:200
+#: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
 msgid "Abort job"
 msgstr "Nutraukti darbą"
 
-#: src/configure-printer/PrinterBehavior.cpp:202
+#: src/configure-printer/PrinterBehavior.cpp:194
 #, kde-format
 msgid "Retry current job"
 msgstr "Bandyti dabartinį darbą iš naujo"
 
-#: src/configure-printer/PrinterBehavior.cpp:204
+#: src/configure-printer/PrinterBehavior.cpp:196
 #, kde-format
 msgid "Retry job"
 msgstr "Bandyti darbą iš naujo"
 
-#: src/configure-printer/PrinterBehavior.cpp:206
+#: src/configure-printer/PrinterBehavior.cpp:198
 #, kde-format
 msgid "Stop printer"
 msgstr "Stabdyti spausdintuvą"
 
-#: src/configure-printer/PrinterBehavior.cpp:215
+#: src/configure-printer/PrinterBehavior.cpp:207
 #, kde-format
 msgid "Authenticated"
 msgstr "Tapatybė nustatyta"
 
-#: src/configure-printer/PrinterBehavior.cpp:217
+#: src/configure-printer/PrinterBehavior.cpp:209
 #, kde-format
 msgid "Default"
 msgstr "Numatytasis"
 
-#: src/configure-printer/PrinterBehavior.cpp:226
+#: src/configure-printer/PrinterBehavior.cpp:218
 #, kde-format
 msgid "None"
 msgstr "Nėra"
 
-#: src/configure-printer/PrinterBehavior.cpp:228
+#: src/configure-printer/PrinterBehavior.cpp:220
 #, kde-format
 msgid "Classified"
 msgstr "Įslaptinta"
 
-#: src/configure-printer/PrinterBehavior.cpp:230
+#: src/configure-printer/PrinterBehavior.cpp:222
 #, kde-format
 msgid "Confidential"
 msgstr "Konfidencialu"
 
-#: src/configure-printer/PrinterBehavior.cpp:232
+#: src/configure-printer/PrinterBehavior.cpp:224
 #, kde-format
 msgid "Secret"
 msgstr "Slapta"
 
-#: src/configure-printer/PrinterBehavior.cpp:234
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "Standard"
 msgstr "Standartinis"
 
-#: src/configure-printer/PrinterBehavior.cpp:236
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Topsecret"
 msgstr "Visiškai slapta"
 
-#: src/configure-printer/PrinterBehavior.cpp:238
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Unclassified"
 msgstr "Neįslaptinta"
@@ -604,7 +604,7 @@ msgstr "&Neleisti šiems naudotojams spausdinti "
 msgid "A&llow these users to print"
 msgstr "&Leisti šiems naudotojams spausdinti"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:229
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nustatyti numatytąsias parinktis"
@@ -615,7 +615,7 @@ msgstr "Nustatyti numatytąsias parinktis"
 msgid "Query Printer for Default Options"
 msgstr "Užklausti spausdintuvo numatytųjų parinkčių"
 
-#: src/kcm/printermanager.cpp:237
+#: src/kcm/printermanager.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -623,7 +623,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nepavyko sukonfigūruoti klasės"
 
-#: src/kcm/printermanager.cpp:238
+#: src/kcm/printermanager.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -631,12 +631,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nepavyko sukonfigūruoti spausdintuvo"
 
-#: src/kcm/printermanager.cpp:379
+#: src/kcm/printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nepavyko įvykdyti užklausos: %1"
 
-#: src/kcm/printermanager.cpp:431
+#: src/kcm/printermanager.cpp:416
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -644,204 +644,204 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nepavyko gauti serverio nustatymų"
 
-#: src/kcm/printermanager.cpp:471
+#: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:526
+#: src/kcm/printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Spausdinti savikontrolės puslapį"
 
-#: src/kcm/printermanager.cpp:532
+#: src/kcm/printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Išvalyti spausdinimo galvutes"
 
-#: src/kded/NewPrinterNotification.cpp:60
+#: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Aptiktas naujas spausdintuvas"
 
-#: src/kded/NewPrinterNotification.cpp:61
+#: src/kded/NewPrinterNotification.cpp:62
 #, kde-format
 msgid "Configuring new printer..."
 msgstr "Konfigūruojamas naujas spausdintuvas..."
 
-#: src/kded/NewPrinterNotification.cpp:101
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
 msgstr "Naujas spausdintuvas buvo pridėtas"
 
-#: src/kded/NewPrinterNotification.cpp:103
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr "Naujam spausdintuvui trūksta tvarkyklių"
 
-#: src/kded/NewPrinterNotification.cpp:162
+#: src/kded/NewPrinterNotification.cpp:165
 #, kde-format
 msgid "Missing printer driver"
 msgstr "Trūksta spausdintuvo tvarkyklės"
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:167
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr "Nėra tvarkyklės spausdintuvui %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:169
 #, kde-format
 msgid "No printer driver for %1."
 msgstr "Nėra tvarkyklės spausdintuvui %1 ."
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:171
 #, kde-format
 msgid "No driver for this printer."
 msgstr "Nėra tvarkyklės šiam spausdintuvui."
 
-#: src/kded/NewPrinterNotification.cpp:170
+#: src/kded/NewPrinterNotification.cpp:173
 #, kde-format
 msgid "Search"
 msgstr "Ieškoti"
 
-#: src/kded/NewPrinterNotification.cpp:234
+#: src/kded/NewPrinterNotification.cpp:236
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "„%1“ buvo pridėtas, patikrinkite jo tvarkyklę."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:235
-#: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:237
+#: src/kded/NewPrinterNotification.cpp:258 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Konfigūruoti"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "„%1“ buvo pridėtas, naudojama „%2“ tvarkyklė."
 
-#: src/kded/NewPrinterNotification.cpp:239
-#: src/kded/NewPrinterNotification.cpp:253
+#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "Print test page"
 msgstr "Spausdinti bandomąjį puslapį"
 
-#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "Find driver"
 msgstr "Rasti tvarkyklę"
 
-#: src/kded/NewPrinterNotification.cpp:251
+#: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "„%1“ pasiruošęs spausdinimui."
 
-#: src/libkcups/DevicesModel.cpp:51
+#: src/libkcups/DevicesModel.cpp:48
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "Rankinis URI"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:60
 #, kde-format
 msgid "Parallel Port"
 msgstr "Lygiagrečioji jungtis"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Serial Port"
 msgstr "Nuoseklioji jungtis"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Faksas - HP Linux vaizdavimas ir spausdinimas (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:76
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux vaizdavimas ir spausdinimas (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:78
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "Aparatinės įrangos abstrakcijos lygmuo (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:80
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:85
+#: src/libkcups/DevicesModel.cpp:79
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR eilė"
 
-#: src/libkcups/DevicesModel.cpp:87
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR eilė %1"
 
-#: src/libkcups/DevicesModel.cpp:90
+#: src/libkcups/DevicesModel.cpp:84
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Windows spausdintuvas per SAMBA"
 
-#: src/libkcups/DevicesModel.cpp:95
+#: src/libkcups/DevicesModel.cpp:89
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:97
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:100
+#: src/libkcups/DevicesModel.cpp:94
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:109
+#: src/libkcups/DevicesModel.cpp:102
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "IPP tinklo spausdintuvas per DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:111
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "LPD tinklo spausdintuvas per DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:113
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "AppSocket/JetDirect tinklo spausdintuvas per DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:120
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Spausdintuvas prijungtas prie lygiagrečiosios jungties"
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Spausdintuvas prijungtas per Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
@@ -849,7 +849,7 @@ msgstr ""
 "Vietinis spausdintuvas, aptiktas aparatinės įrangos abstrakcijos lygmens "
 "(HAL)"
 
-#: src/libkcups/DevicesModel.cpp:129
+#: src/libkcups/DevicesModel.cpp:123
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -863,7 +863,7 @@ msgstr ""
 "HPLIP programinė įranga, valdanti faksą ar daugiafunkcio įrenginio fakso "
 "funkciją"
 
-#: src/libkcups/DevicesModel.cpp:130
+#: src/libkcups/DevicesModel.cpp:124
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -877,168 +877,168 @@ msgstr ""
 "HPLIP programinė įranga, valdanti spausdintuvą ar daugiafunkcio įrenginio "
 "spausdinimo funkciją"
 
-#: src/libkcups/DevicesModel.cpp:131
+#: src/libkcups/DevicesModel.cpp:125
 #, fuzzy, kde-format
 #| msgid "IPP network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "IPP tinklo spausdintuvas per DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Spausdintuvas prijungtas prie USB jungties"
 
-#: src/libkcups/DevicesModel.cpp:139
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Nuotolinis CUPS spausdintuvas per DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:151
+#: src/libkcups/DevicesModel.cpp:144
 #, fuzzy, kde-format
 #| msgid "Network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Tinklo spausdintuvas per DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:153
+#: src/libkcups/DevicesModel.cpp:146
 #, fuzzy, kde-format
 #| msgid "%1 network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 tinklo spausdintuvas per DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:236
+#: src/libkcups/DevicesModel.cpp:221
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Nepavyko gauti įrenginių sąrašo: „%1“"
 
-#: src/libkcups/DevicesModel.cpp:377
+#: src/libkcups/DevicesModel.cpp:347
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Aptikti tinklo spausdintuvai"
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:353
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Kiti tinklo spausdintuvai"
 
-#: src/libkcups/DevicesModel.cpp:389
+#: src/libkcups/DevicesModel.cpp:359
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Vietiniai spausdintuvai"
 
-#: src/libkcups/DevicesModel.cpp:434
+#: src/libkcups/DevicesModel.cpp:404
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Nepavyko sugrupuoti įrenginių: „%1“"
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Status"
 msgstr "Būsena"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "User"
 msgstr "Naudotojas"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Created"
 msgstr "Sukurtas"
 
-#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
 #, kde-format
 msgid "Completed"
 msgstr "Užbaigtas"
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Pages"
 msgstr "Puslapiai"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Processed"
 msgstr "Apdorotas"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Size"
 msgstr "Dydis"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Status Message"
 msgstr "Būsenos žinutė"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "Printer"
 msgstr "Spausdintuvas"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:38
 #, kde-format
 msgid "From Hostname"
 msgstr "Iš mazgo pavadinimo"
 
-#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Nepavyko perkelti „%1“ į „%2“"
 
-#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
 #, kde-format
 msgid "Failed"
 msgstr "Nepavyko"
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "Pending"
 msgstr "Laukia"
 
-#: src/libkcups/JobModel.cpp:600
+#: src/libkcups/JobModel.cpp:587
 #, kde-format
 msgid "On hold"
 msgstr "Sulaikytas"
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Stopped"
 msgstr "Sustabdytas"
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Canceled"
 msgstr "Atsisakytas"
 
-#: src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Aborted"
 msgstr "Nutrauktas"
 
-#: src/libkcups/KCupsConnection.cpp:857
+#: src/libkcups/KCupsConnection.cpp:778
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Ryšys su CUPS reikalauja tapatybės nustatymo: \"%1\""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:21
+#: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Norėdami užbaigti užduotį, įveskite naudotojo vardą ir slaptažodį"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:43
+#: src/libkcups/KCupsPasswordDialog.cpp:44
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Neteisingas naudotojo vardas ar slaptažodis"
@@ -1053,17 +1053,17 @@ msgstr "Spausdinimo tarnyba yra neprieinama"
 msgid "Not found"
 msgstr "Nerasta"
 
-#: src/libkcups/KCupsRequest.cpp:401
+#: src/libkcups/KCupsRequest.cpp:393
 #, kde-format
 msgid "Test Page"
 msgstr "Bandomasis puslapis"
 
-#: src/libkcups/KCupsRequest.cpp:433
+#: src/libkcups/KCupsRequest.cpp:421
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "Nepavyksta nusiųsti komandos spausdintuvo tvarkyklei!"
 
-#: src/libkcups/KCupsRequest.cpp:567
+#: src/libkcups/KCupsRequest.cpp:549
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "Nepavyko iškviesti metodo: %1"
@@ -1073,88 +1073,88 @@ msgstr "Nepavyko iškviesti metodo: %1"
 msgid "Recommended Drivers"
 msgstr "Rekomenduojamos tvarkyklės"
 
-#: src/libkcups/PPDModel.cpp:98
+#: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:203
+#: src/libkcups/PrinterModel.cpp:202
 #, kde-format
 msgid "Printers"
 msgstr "Spausdintuvai"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle"
 msgstr "Neveiklus"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Neveiksnus, atmeta darbus"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Neveiklus - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Neveiklus, atmeta darbus - „%1“"
 
-#: src/libkcups/PrinterModel.cpp:428
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use"
 msgstr "Naudojamas"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Naudojamas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused"
 msgstr "Pristabdytas"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Pristabdytas, atmeta darbus"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Pristabdytas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Pristabdytas, atmeta darbus - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown"
 msgstr "Nežinoma"
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Nežinoma - '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:117
+#: src/libkcups/SelectMakeModel.cpp:115
 #, fuzzy, kde-format
 #| msgid "Choose &the driver from the list"
 msgid "Choose the driver for %1"
 msgstr "Pasirinkite &tvarkyklę iš sąrašo"
 
-#: src/libkcups/SelectMakeModel.cpp:140
+#: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "Nepavyko gauti tvarkyklių sąrašo: „%1“"
 
-#: src/libkcups/SelectMakeModel.cpp:230
+#: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Nepavyko ieškoti rekomenduojamos tvarkyklės: „%1“"
@@ -1188,54 +1188,54 @@ msgstr "Spausdinimo eilė"
 msgid "Show printer queue(s)"
 msgstr "Rodyti spausdinimo eilę(-es)"
 
-#: src/printqueue/PrintQueueUi.cpp:195
+#: src/printqueue/PrintQueueUi.cpp:194
 #, kde-format
 msgid "Printer ready"
 msgstr "Spausdintuvas pasiruošęs"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:196 src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Pristabdyti spausdintuvą"
 
-#: src/printqueue/PrintQueueUi.cpp:203
+#: src/printqueue/PrintQueueUi.cpp:202
 #, kde-format
 msgid "Printing..."
 msgstr "Spausdinama..."
 
-#: src/printqueue/PrintQueueUi.cpp:205
+#: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Spausdinama '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format
 msgid "Printer paused"
 msgstr "Spausdintuvas pristabdytas"
 
-#: src/printqueue/PrintQueueUi.cpp:214
+#: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Resume Printer"
 msgstr "Pratęsti spausdintuvą"
 
-#: src/printqueue/PrintQueueUi.cpp:218
+#: src/printqueue/PrintQueueUi.cpp:217
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Spausdintuvo būsena nežinoma"
 
-#: src/printqueue/PrintQueueUi.cpp:263
+#: src/printqueue/PrintQueueUi.cpp:262
 #, kde-format
 msgid "Move to"
 msgstr "Perkelti į"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:293
 #, kde-format
 msgid "Authenticate"
 msgstr "Nustatyti tapatybę"
 
-#: src/printqueue/PrintQueueUi.cpp:404
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1244,7 +1244,7 @@ msgstr[1] "Visi spausdintuvai (%1 darbai)"
 msgstr[2] "Visi spausdintuvai (%1 darbų)"
 msgstr[3] "Visi spausdintuvai (%1 darbas)"
 
-#: src/printqueue/PrintQueueUi.cpp:406
+#: src/printqueue/PrintQueueUi.cpp:410
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1253,32 +1253,32 @@ msgstr[1] "%2 (%1 darbai)"
 msgstr[2] "%2 (%1 darbų)"
 msgstr[3] "%2 (%1 darbas)"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:413
 #, kde-format
 msgid "All Printers"
 msgstr "Visi spausdintuvai"
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:480
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Nepavyko atsisakyti „%1“"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:483
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Nepavyko sulaikyti „%1“"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:486
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Nepavyko paleisti „%1“"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:489
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Nepavyko iš naujo spausdinti „%1“"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:560
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Įveskite prisijungimo duomenis, kad spausdintumėte iš <b>%1</b>"

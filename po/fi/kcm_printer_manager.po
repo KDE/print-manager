@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2023-03-06 20:03+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -20,12 +20,12 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: printermanager.cpp:229
+#: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
 
-#: printermanager.cpp:237
+#: printermanager.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure server settings"
@@ -33,7 +33,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Palvelinasetusten määritys epäonnistui"
 
-#: printermanager.cpp:238
+#: printermanager.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure server settings"
@@ -41,12 +41,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Palvelinasetusten määritys epäonnistui"
 
-#: printermanager.cpp:379
+#: printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Pyynnön toteuttaminen epäonnistui: %1"
 
-#: printermanager.cpp:431
+#: printermanager.cpp:416
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -54,18 +54,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Palvelinasetusten nouto epäonnistui"
 
-#: printermanager.cpp:471
+#: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: printermanager.cpp:526
+#: printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Tulosta itsetestaussivu"
 
-#: printermanager.cpp:532
+#: printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puhdista tulostuspäät"

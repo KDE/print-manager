@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2020-10-13 21:44-0700\n"
 "Last-Translator: A S Alam <aalam.yellow@gmail.com>\n"
 "Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
@@ -289,18 +289,18 @@ msgstr "ਨਵਾਂ ਪਰਿੰਟਰ ਕਲਾਸ ਜੋੜੋ"
 msgid "Changes the PPD of a given printer"
 msgstr ""
 
-#: src/add-printer/main.cpp:53
+#: src/add-printer/main.cpp:54
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr ""
 
-#: src/add-printer/PageAddPrinter.cpp:125
+#: src/add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr ""
 
-#: src/add-printer/PageAddPrinter.cpp:127
+#: src/add-printer/PageAddPrinter.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -347,17 +347,17 @@ msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "ਮੈਂਬਰ:"
 
-#: src/add-printer/PageDestinations.cpp:189
+#: src/add-printer/PageDestinations.cpp:188
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr ""
 
-#: src/add-printer/PageDestinations.cpp:192
+#: src/add-printer/PageDestinations.cpp:191
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr ""
 
-#: src/add-printer/PageDestinations.cpp:195
+#: src/add-printer/PageDestinations.cpp:194
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr ""
@@ -367,31 +367,31 @@ msgstr ""
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr ""
 
-#: src/add-printer/PageDestinations.cpp:202
+#: src/add-printer/PageDestinations.cpp:203
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device."
 msgstr ""
 
-#: src/add-printer/PageDestinations.cpp:206
+#: src/add-printer/PageDestinations.cpp:208
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device."
 msgstr ""
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
+#: src/add-printer/PageDestinations.cpp:215 src/libkcups/DevicesModel.cpp:99
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr ""
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
+#: src/add-printer/PageDestinations.cpp:227 src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr ""
 
-#: src/add-printer/PageDestinations.cpp:228
+#: src/add-printer/PageDestinations.cpp:229
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr ""
@@ -421,7 +421,7 @@ msgstr "ਪਰਿੰਟ ਸੈਟਿੰਗ"
 msgid "Banners, Policies and Allowed Users"
 msgstr ""
 
-#: src/configure-printer/ConfigureDialog.cpp:172
+#: src/configure-printer/ConfigureDialog.cpp:171
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -448,67 +448,67 @@ msgstr ""
 msgid "Printer to be configured"
 msgstr "ਸੰਰਚਨਾ ਕਰਨ ਲਈ ਪਰਿੰਟਰ"
 
-#: src/configure-printer/PrinterBehavior.cpp:200
+#: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
 msgid "Abort job"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:202
+#: src/configure-printer/PrinterBehavior.cpp:194
 #, kde-format
 msgid "Retry current job"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:204
+#: src/configure-printer/PrinterBehavior.cpp:196
 #, kde-format
 msgid "Retry job"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:206
+#: src/configure-printer/PrinterBehavior.cpp:198
 #, kde-format
 msgid "Stop printer"
 msgstr "ਪਰਿੰਟਰ ਰੋਕੋ"
 
-#: src/configure-printer/PrinterBehavior.cpp:215
+#: src/configure-printer/PrinterBehavior.cpp:207
 #, kde-format
 msgid "Authenticated"
 msgstr "ਪਰਮਾਣਿਤ"
 
-#: src/configure-printer/PrinterBehavior.cpp:217
+#: src/configure-printer/PrinterBehavior.cpp:209
 #, kde-format
 msgid "Default"
 msgstr "ਡਿਫਾਲਟ"
 
-#: src/configure-printer/PrinterBehavior.cpp:226
+#: src/configure-printer/PrinterBehavior.cpp:218
 #, kde-format
 msgid "None"
 msgstr "ਕੋਈ ਨਹੀਂ"
 
-#: src/configure-printer/PrinterBehavior.cpp:228
+#: src/configure-printer/PrinterBehavior.cpp:220
 #, kde-format
 msgid "Classified"
 msgstr "ਵਰਗਕ੍ਰਿਤ"
 
-#: src/configure-printer/PrinterBehavior.cpp:230
+#: src/configure-printer/PrinterBehavior.cpp:222
 #, kde-format
 msgid "Confidential"
 msgstr "ਗੁਪਤ"
 
-#: src/configure-printer/PrinterBehavior.cpp:232
+#: src/configure-printer/PrinterBehavior.cpp:224
 #, kde-format
 msgid "Secret"
 msgstr "ਗੁਪਤ"
 
-#: src/configure-printer/PrinterBehavior.cpp:234
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "Standard"
 msgstr "ਸਟੈਂਡਰਡ"
 
-#: src/configure-printer/PrinterBehavior.cpp:236
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Topsecret"
 msgstr ""
 
-#: src/configure-printer/PrinterBehavior.cpp:238
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Unclassified"
 msgstr "ਨਾ-ਵਰਗੀਕ੍ਰਿਤ"
@@ -567,7 +567,7 @@ msgstr ""
 msgid "A&llow these users to print"
 msgstr ""
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:229
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
@@ -578,234 +578,234 @@ msgstr ""
 msgid "Query Printer for Default Options"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:237
+#: src/kcm/printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr ""
 
-#: src/kcm/printermanager.cpp:238
+#: src/kcm/printermanager.cpp:231
 #, fuzzy, kde-format
 #| msgid "Configure Printer"
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "ਪਰਿੰਟਰ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
 
-#: src/kcm/printermanager.cpp:379
+#: src/kcm/printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:431
+#: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:471
+#: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:526
+#: src/kcm/printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:532
+#: src/kcm/printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:60
+#: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "A New Printer was detected"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:61
+#: src/kded/NewPrinterNotification.cpp:62
 #, kde-format
 msgid "Configuring new printer..."
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:101
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:103
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:162
+#: src/kded/NewPrinterNotification.cpp:165
 #, kde-format
 msgid "Missing printer driver"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:167
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:169
 #, kde-format
 msgid "No printer driver for %1."
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:171
 #, kde-format
 msgid "No driver for this printer."
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:170
+#: src/kded/NewPrinterNotification.cpp:173
 #, kde-format
 msgid "Search"
 msgstr "ਖੋਜ"
 
-#: src/kded/NewPrinterNotification.cpp:234
+#: src/kded/NewPrinterNotification.cpp:236
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:235
-#: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:237
+#: src/kded/NewPrinterNotification.cpp:258 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "ਸੰਰਚਨਾ"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:239
-#: src/kded/NewPrinterNotification.cpp:253
+#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "Print test page"
 msgstr "ਟੈਸਟ ਪੇਜ਼ ਪਰਿੰਟ ਕਰੋ"
 
-#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "Find driver"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:251
+#: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:51
+#: src/libkcups/DevicesModel.cpp:48
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:60
 #, kde-format
 msgid "Parallel Port"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Serial Port"
 msgstr "ਸੀਰੀਅਲ ਪੋਰਟ"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Bluetooth"
 msgstr "ਬਲਿਊਟੁੱਥ"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:76
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:78
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:80
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:85
+#: src/libkcups/DevicesModel.cpp:79
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:87
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:90
+#: src/libkcups/DevicesModel.cpp:84
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:95
+#: src/libkcups/DevicesModel.cpp:89
 #, kde-format
 msgid "IPP"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:97
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP %1"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:100
+#: src/libkcups/DevicesModel.cpp:94
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:109
+#: src/libkcups/DevicesModel.cpp:102
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:111
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:113
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:120
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:129
+#: src/libkcups/DevicesModel.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -813,7 +813,7 @@ msgid ""
 "or the fax function of a multi-function device"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:130
+#: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -821,165 +821,165 @@ msgid ""
 "or the printer function of a multi-function device"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:131
+#: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:139
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:151
+#: src/libkcups/DevicesModel.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:153
+#: src/libkcups/DevicesModel.cpp:146
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:236
+#: src/libkcups/DevicesModel.cpp:221
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:377
+#: src/libkcups/DevicesModel.cpp:347
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:353
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:389
+#: src/libkcups/DevicesModel.cpp:359
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr ""
 
-#: src/libkcups/DevicesModel.cpp:434
+#: src/libkcups/DevicesModel.cpp:404
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Status"
 msgstr "ਹਾਲਤ"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Name"
 msgstr "ਨਾਂ"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "User"
 msgstr "ਯੂਜ਼ਰ"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Created"
 msgstr "ਬਣਾਇਆ"
 
-#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
 #, kde-format
 msgid "Completed"
 msgstr "ਮੁਕੰਮਲ"
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Pages"
 msgstr "ਪੇਜ਼"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Processed"
 msgstr "ਕਾਰਵਾਈ ਹੋਈ"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Size"
 msgstr "ਸਾਈਜ਼"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Status Message"
 msgstr "ਹਾਲਤ ਸੁਨੇਹਾ"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "Printer"
 msgstr "ਪਰਿੰਟਰ"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:38
 #, kde-format
 msgid "From Hostname"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
 #, kde-format
 msgid "Failed"
 msgstr "ਫੇਲ੍ਹ ਹੈ"
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "Pending"
 msgstr "ਬਾਕੀ"
 
-#: src/libkcups/JobModel.cpp:600
+#: src/libkcups/JobModel.cpp:587
 #, kde-format
 msgid "On hold"
 msgstr "ਹੋਲਡ"
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Stopped"
 msgstr "ਰੁਕਿਆ"
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Canceled"
 msgstr "ਰੱਦ ਕੀਤਾ"
 
-#: src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Aborted"
 msgstr "ਅਧੂਰਾ ਛੱਡਿਆ"
 
-#: src/libkcups/KCupsConnection.cpp:857
+#: src/libkcups/KCupsConnection.cpp:778
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr ""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:21
+#: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr ""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:43
+#: src/libkcups/KCupsPasswordDialog.cpp:44
 #, kde-format
 msgid "Wrong username or password"
 msgstr "ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ ਜਾਂ ਪਾਸਵਰਡ"
@@ -994,17 +994,17 @@ msgstr ""
 msgid "Not found"
 msgstr "ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/libkcups/KCupsRequest.cpp:401
+#: src/libkcups/KCupsRequest.cpp:393
 #, kde-format
 msgid "Test Page"
 msgstr "ਟੈਸਟ ਪੇਜ਼"
 
-#: src/libkcups/KCupsRequest.cpp:433
+#: src/libkcups/KCupsRequest.cpp:421
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr ""
 
-#: src/libkcups/KCupsRequest.cpp:567
+#: src/libkcups/KCupsRequest.cpp:549
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr ""
@@ -1014,88 +1014,88 @@ msgstr ""
 msgid "Recommended Drivers"
 msgstr ""
 
-#: src/libkcups/PPDModel.cpp:98
+#: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:203
+#: src/libkcups/PrinterModel.cpp:202
 #, kde-format
 msgid "Printers"
 msgstr "ਪਰਿੰਟਰ"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle"
 msgstr "ਬੇਕਾਰ"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "ਬੇਕਾਰ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:428
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use"
 msgstr "ਵਰਤੋਂ ਅਧੀਨ"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "In use - '%1'"
 msgstr "ਵਰਤੋਂ ਵਿੱਚ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused"
 msgstr "ਵਿਰਾਮ"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "ਵਿਰਾਮ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, fuzzy, kde-format
 #| msgid "Paused - '%1'"
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "ਵਿਰਾਮ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown"
 msgstr "ਅਣਜਾਣ"
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "ਅਣਜਾਣ - '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:117
+#: src/libkcups/SelectMakeModel.cpp:115
 #, kde-format
 msgid "Choose the driver for %1"
 msgstr ""
 
-#: src/libkcups/SelectMakeModel.cpp:140
+#: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr ""
 
-#: src/libkcups/SelectMakeModel.cpp:230
+#: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr ""
@@ -1128,93 +1128,93 @@ msgstr "ਪਰਿੰਟ ਕਤਾਰ"
 msgid "Show printer queue(s)"
 msgstr "ਪਰਿੰਟਰ ਕਤਾਰ ਵੇਖੋ"
 
-#: src/printqueue/PrintQueueUi.cpp:195
+#: src/printqueue/PrintQueueUi.cpp:194
 #, kde-format
 msgid "Printer ready"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:196 src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:203
+#: src/printqueue/PrintQueueUi.cpp:202
 #, kde-format
 msgid "Printing..."
 msgstr "...ਛਾਪਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/printqueue/PrintQueueUi.cpp:205
+#: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format
 msgid "Printing '%1'"
 msgstr "'%1' ਛਾਪਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format
 msgid "Printer paused"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:214
+#: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Resume Printer"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:218
+#: src/printqueue/PrintQueueUi.cpp:217
 #, kde-format
 msgid "Printer state unknown"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:263
+#: src/printqueue/PrintQueueUi.cpp:262
 #, kde-format
 msgid "Move to"
 msgstr "ਇਸ 'ਤੇ ਭੇਜੋ"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:293
 #, kde-format
 msgid "Authenticate"
 msgstr "ਪਰਮਾਣਕਿਤਾ"
 
-#: src/printqueue/PrintQueueUi.cpp:404
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/printqueue/PrintQueueUi.cpp:406
+#: src/printqueue/PrintQueueUi.cpp:410
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 ਜਾਬ)"
 msgstr[1] "%2 (%1 ਜਾਬ)"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:413
 #, kde-format
 msgid "All Printers"
 msgstr "ਸਭ ਪਰਿੰਟਰ"
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:480
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:483
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:486
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:489
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:560
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""

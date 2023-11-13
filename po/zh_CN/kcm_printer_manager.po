@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2023-11-11 07:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,46 +17,46 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
 "X-Crowdin-File-ID: 48268\n"
 
-#: printermanager.cpp:229
+#: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
 
-#: printermanager.cpp:237
+#: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr ""
 
-#: printermanager.cpp:238
+#: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr ""
 
-#: printermanager.cpp:379
+#: printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr ""
 
-#: printermanager.cpp:431
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr ""
 
-#: printermanager.cpp:471
+#: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: printermanager.cpp:526
+#: printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr ""
 
-#: printermanager.cpp:532
+#: printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr ""

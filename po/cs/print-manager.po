@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-12 01:38+0000\n"
+"POT-Creation-Date: 2023-11-13 01:39+0000\n"
 "PO-Revision-Date: 2023-11-08 16:00+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -312,18 +312,18 @@ msgstr "Přidat novou třídu tiskáren"
 msgid "Changes the PPD of a given printer"
 msgstr "Změní PPD dané tiskárny"
 
-#: src/add-printer/main.cpp:53
+#: src/add-printer/main.cpp:54
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Změní PPD dané tiskárny/ID zařízení"
 
-#: src/add-printer/PageAddPrinter.cpp:125
+#: src/add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Přidání třídy selhalo: '%1'"
 
-#: src/add-printer/PageAddPrinter.cpp:127
+#: src/add-printer/PageAddPrinter.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -370,17 +370,17 @@ msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "Členové:"
 
-#: src/add-printer/PageDestinations.cpp:189
+#: src/add-printer/PageDestinations.cpp:188
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr "Tiskárna připojená k paralelnímu portu."
 
-#: src/add-printer/PageDestinations.cpp:192
+#: src/add-printer/PageDestinations.cpp:191
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr "Tiskárna připojená k USB portu."
 
-#: src/add-printer/PageDestinations.cpp:195
+#: src/add-printer/PageDestinations.cpp:194
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr "Tiskárna připojená pomocí Bluetooth."
@@ -390,7 +390,7 @@ msgstr "Tiskárna připojená pomocí Bluetooth."
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr "Místní tiskárna detekována pomocí HAL"
 
-#: src/add-printer/PageDestinations.cpp:202
+#: src/add-printer/PageDestinations.cpp:203
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -399,7 +399,7 @@ msgstr ""
 "HPLIP software ovládající tiskárnu, nebo funkce tisku na multifunkčním "
 "zařízení."
 
-#: src/add-printer/PageDestinations.cpp:206
+#: src/add-printer/PageDestinations.cpp:208
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -407,17 +407,17 @@ msgid ""
 msgstr ""
 "HPLIP software ovládající fax, nebo funkce faxu na multifunkčním zařízení."
 
-#: src/add-printer/PageDestinations.cpp:214 src/libkcups/DevicesModel.cpp:106
+#: src/add-printer/PageDestinations.cpp:215 src/libkcups/DevicesModel.cpp:99
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Vzdálená tiskárna CUPS skrze DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:226 src/libkcups/DevicesModel.cpp:115
+#: src/add-printer/PageDestinations.cpp:227 src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Síťová tiskárna skrze DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:228
+#: src/add-printer/PageDestinations.cpp:229
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "Síťová tiskárna %1 přes DNS-SD"
@@ -446,7 +446,7 @@ msgstr "Nastavení multimédií"
 msgid "Banners, Policies and Allowed Users"
 msgstr "Nadpisy, chování a povolení uživatelé"
 
-#: src/configure-printer/ConfigureDialog.cpp:172
+#: src/configure-printer/ConfigureDialog.cpp:171
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -473,67 +473,67 @@ msgstr "ConfigurePrinter"
 msgid "Printer to be configured"
 msgstr "Tiskárna k nastavení"
 
-#: src/configure-printer/PrinterBehavior.cpp:200
+#: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
 msgid "Abort job"
 msgstr "Zrušit úlohu"
 
-#: src/configure-printer/PrinterBehavior.cpp:202
+#: src/configure-printer/PrinterBehavior.cpp:194
 #, kde-format
 msgid "Retry current job"
 msgstr "Znovu zkusit aktuální úlohu"
 
-#: src/configure-printer/PrinterBehavior.cpp:204
+#: src/configure-printer/PrinterBehavior.cpp:196
 #, kde-format
 msgid "Retry job"
 msgstr "Znovu zkusit úlohu"
 
-#: src/configure-printer/PrinterBehavior.cpp:206
+#: src/configure-printer/PrinterBehavior.cpp:198
 #, kde-format
 msgid "Stop printer"
 msgstr "Zastavit tiskárnu"
 
-#: src/configure-printer/PrinterBehavior.cpp:215
+#: src/configure-printer/PrinterBehavior.cpp:207
 #, kde-format
 msgid "Authenticated"
 msgstr "Totožnost ověřena"
 
-#: src/configure-printer/PrinterBehavior.cpp:217
+#: src/configure-printer/PrinterBehavior.cpp:209
 #, kde-format
 msgid "Default"
 msgstr "Výchozí"
 
-#: src/configure-printer/PrinterBehavior.cpp:226
+#: src/configure-printer/PrinterBehavior.cpp:218
 #, kde-format
 msgid "None"
 msgstr "Žádný"
 
-#: src/configure-printer/PrinterBehavior.cpp:228
+#: src/configure-printer/PrinterBehavior.cpp:220
 #, kde-format
 msgid "Classified"
 msgstr "Utajovaný"
 
-#: src/configure-printer/PrinterBehavior.cpp:230
+#: src/configure-printer/PrinterBehavior.cpp:222
 #, kde-format
 msgid "Confidential"
 msgstr "Důvěrný"
 
-#: src/configure-printer/PrinterBehavior.cpp:232
+#: src/configure-printer/PrinterBehavior.cpp:224
 #, kde-format
 msgid "Secret"
 msgstr "Tajný"
 
-#: src/configure-printer/PrinterBehavior.cpp:234
+#: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "Standard"
 msgstr "Standardní"
 
-#: src/configure-printer/PrinterBehavior.cpp:236
+#: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Topsecret"
 msgstr "Přísně tajné"
 
-#: src/configure-printer/PrinterBehavior.cpp:238
+#: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Unclassified"
 msgstr "Neutajovaný"
@@ -592,7 +592,7 @@ msgstr "Zakázat těmto uži&vatelům tisk"
 msgid "A&llow these users to print"
 msgstr "Povo&lit těmto uživatelům tisk"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:229
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nastavit výchozí volby"
@@ -603,233 +603,233 @@ msgstr "Nastavit výchozí volby"
 msgid "Query Printer for Default Options"
 msgstr "Dotázat se tiskárny na výchozí volby"
 
-#: src/kcm/printermanager.cpp:237
+#: src/kcm/printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nastavení třídy selhalo: "
 
-#: src/kcm/printermanager.cpp:238
+#: src/kcm/printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nastavení tiskárny selhalo: "
 
-#: src/kcm/printermanager.cpp:379
+#: src/kcm/printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Vykonání požadavku selhalo: %1"
 
-#: src/kcm/printermanager.cpp:431
+#: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Selhalo získání nastavení serveru: %1"
 
-#: src/kcm/printermanager.cpp:471
+#: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Chyba serveru: (%1): %2"
 
-#: src/kcm/printermanager.cpp:526
+#: src/kcm/printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Vytisknout testovací stránku"
 
-#: src/kcm/printermanager.cpp:532
+#: src/kcm/printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Vyčistit tiskové hlavy"
 
-#: src/kded/NewPrinterNotification.cpp:60
+#: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Byla zjištěna nová tiskárna"
 
-#: src/kded/NewPrinterNotification.cpp:61
+#: src/kded/NewPrinterNotification.cpp:62
 #, kde-format
 msgid "Configuring new printer..."
 msgstr "Probíhá nastavení nové tiskárny..."
 
-#: src/kded/NewPrinterNotification.cpp:101
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
 msgstr "Nová tiskárna byla přidána"
 
-#: src/kded/NewPrinterNotification.cpp:103
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer is Missing Drivers"
 msgstr "Nové tiskárně chybí ovladače"
 
-#: src/kded/NewPrinterNotification.cpp:162
+#: src/kded/NewPrinterNotification.cpp:165
 #, kde-format
 msgid "Missing printer driver"
 msgstr "Chybí ovladač tiskárny"
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:167
 #, kde-format
 msgid "No printer driver for %1 %2."
 msgstr "Chybí ovladač tiskárny %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:169
 #, kde-format
 msgid "No printer driver for %1."
 msgstr "Chybí ovladač tiskárny %1."
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:171
 #, kde-format
 msgid "No driver for this printer."
 msgstr "Pro tuto tiskárnu není ovladač."
 
-#: src/kded/NewPrinterNotification.cpp:170
+#: src/kded/NewPrinterNotification.cpp:173
 #, kde-format
 msgid "Search"
 msgstr "Hledat"
 
-#: src/kded/NewPrinterNotification.cpp:234
+#: src/kded/NewPrinterNotification.cpp:236
 #, kde-format
 msgid "'%1' has been added, please check its driver."
 msgstr "'%1' byla přidána, prosím zkontrolujte její ovladač"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:235
-#: src/kded/NewPrinterNotification.cpp:256 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:237
+#: src/kded/NewPrinterNotification.cpp:258 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Nastavit"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
 msgstr "Byla přidána tiskárna '%1' s ovladačem '%2'."
 
-#: src/kded/NewPrinterNotification.cpp:239
-#: src/kded/NewPrinterNotification.cpp:253
+#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "Print test page"
 msgstr "Vytisknout testovací stránku"
 
-#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "Find driver"
 msgstr "Najít ovladač"
 
-#: src/kded/NewPrinterNotification.cpp:251
+#: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "Tiskárna '%1' připravena k tisku."
 
-#: src/libkcups/DevicesModel.cpp:51
+#: src/libkcups/DevicesModel.cpp:48
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "Ruční URI"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:60
 #, kde-format
 msgid "Parallel Port"
 msgstr "Paralelní port"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Serial Port"
 msgstr "Sériový port"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax - HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:76
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:78
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "HAL"
 
-#: src/libkcups/DevicesModel.cpp:80
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:85
+#: src/libkcups/DevicesModel.cpp:79
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "Fronta LPD/LPR"
 
-#: src/libkcups/DevicesModel.cpp:87
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "Fronta LPD/LPR %1"
 
-#: src/libkcups/DevicesModel.cpp:90
+#: src/libkcups/DevicesModel.cpp:84
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Tiskárna Windows skrze SAMBA"
 
-#: src/libkcups/DevicesModel.cpp:95
+#: src/libkcups/DevicesModel.cpp:89
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:97
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:100
+#: src/libkcups/DevicesModel.cpp:94
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:109
+#: src/libkcups/DevicesModel.cpp:102
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "IPP síťová tiskárna skrze DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:111
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "LDP síťová tiskárna skrze DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:113
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "AppSocket/JetDirect síťová tiskárna skrze DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:120
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Tiskárna připojená k paralelnímu portu"
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:121
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Tiskárna připojená pomocí Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Místní tiskárna detekována pomocí HAL"
 
-#: src/libkcups/DevicesModel.cpp:129
+#: src/libkcups/DevicesModel.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -839,7 +839,7 @@ msgstr ""
 "HPLIP software ovládající fax,\n"
 "nebo funkce faxu na multifunkčním zařízení"
 
-#: src/libkcups/DevicesModel.cpp:130
+#: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -849,165 +849,165 @@ msgstr ""
 "HPLIP software ovládající tiskárnu,\n"
 "nebo funkce tisku na multifunkčním zařízení"
 
-#: src/libkcups/DevicesModel.cpp:131
+#: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "IPP síťová tiskárna skrze IPP"
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Tiskárna připojená k usb portu"
 
-#: src/libkcups/DevicesModel.cpp:139
+#: src/libkcups/DevicesModel.cpp:132
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Vzdálená tiskárna CUPS skrze DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:151
+#: src/libkcups/DevicesModel.cpp:144
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Síťová tiskárna skrze DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:153
+#: src/libkcups/DevicesModel.cpp:146
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "Síťová tiskárna %1 přes DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:236
+#: src/libkcups/DevicesModel.cpp:221
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Chyba při získávání seznamu zařízení: '%1'"
 
-#: src/libkcups/DevicesModel.cpp:377
+#: src/libkcups/DevicesModel.cpp:347
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Objeveny síťové tiskárny"
 
-#: src/libkcups/DevicesModel.cpp:383
+#: src/libkcups/DevicesModel.cpp:353
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Ostatní síťové tiskárny"
 
-#: src/libkcups/DevicesModel.cpp:389
+#: src/libkcups/DevicesModel.cpp:359
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Místní tiskárny"
 
-#: src/libkcups/DevicesModel.cpp:434
+#: src/libkcups/DevicesModel.cpp:404
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Seskupení zařízení selhalo: '%1'"
 
-#: src/libkcups/JobModel.cpp:27
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "Status"
 msgstr "Stav"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Name"
 msgstr "Název"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:30
 #, kde-format
 msgid "User"
 msgstr "Uživatel"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Created"
 msgstr "Vytvořeno"
 
-#: src/libkcups/JobModel.cpp:31 src/libkcups/JobModel.cpp:605
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
 #, kde-format
 msgid "Completed"
 msgstr "Dokončeno"
 
-#: src/libkcups/JobModel.cpp:32
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Pages"
 msgstr "Strany"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Processed"
 msgstr "Zpracováno"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Size"
 msgstr "Velikost"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "Status Message"
 msgstr "Stavová zpráva"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:37
 #, kde-format
 msgid "Printer"
 msgstr "Tiskárna"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:38
 #, kde-format
 msgid "From Hostname"
 msgstr "Ze jména hostitele"
 
-#: src/libkcups/JobModel.cpp:519 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Selhalo přesunutí '%1' do '%2'"
 
-#: src/libkcups/JobModel.cpp:522 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
 #, kde-format
 msgid "Failed"
 msgstr "Selhalo"
 
-#: src/libkcups/JobModel.cpp:599
+#: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "Pending"
 msgstr "Čekající"
 
-#: src/libkcups/JobModel.cpp:600
+#: src/libkcups/JobModel.cpp:587
 #, kde-format
 msgid "On hold"
 msgstr "Pozastaveno"
 
-#: src/libkcups/JobModel.cpp:602
+#: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Stopped"
 msgstr "Zastaveno"
 
-#: src/libkcups/JobModel.cpp:603
+#: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Canceled"
 msgstr "Zrušeno"
 
-#: src/libkcups/JobModel.cpp:604
+#: src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Aborted"
 msgstr "Přerušeno"
 
-#: src/libkcups/KCupsConnection.cpp:857
+#: src/libkcups/KCupsConnection.cpp:778
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Připojené k CUPS vyžaduje ověření totožnosti: \"%1\""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:21
+#: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Pro dokončení úlohy zadejte uživatelské jméno a heslo"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:43
+#: src/libkcups/KCupsPasswordDialog.cpp:44
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Špatné uživatelské jméno nebo heslo"
@@ -1022,17 +1022,17 @@ msgstr "Služba tisku je nedostupná"
 msgid "Not found"
 msgstr "Nenalezeno"
 
-#: src/libkcups/KCupsRequest.cpp:401
+#: src/libkcups/KCupsRequest.cpp:393
 #, kde-format
 msgid "Test Page"
 msgstr "Testovací stránka"
 
-#: src/libkcups/KCupsRequest.cpp:433
+#: src/libkcups/KCupsRequest.cpp:421
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "Nelze poslat příkaz ovladači tiskárny."
 
-#: src/libkcups/KCupsRequest.cpp:567
+#: src/libkcups/KCupsRequest.cpp:549
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "Nelze spustit metodu: %1"
@@ -1042,87 +1042,87 @@ msgstr "Nelze spustit metodu: %1"
 msgid "Recommended Drivers"
 msgstr "Doporučované ovladače"
 
-#: src/libkcups/PPDModel.cpp:98
+#: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
 msgstr "Prázdný panel ppd"
 
-#: src/libkcups/PrinterModel.cpp:203
+#: src/libkcups/PrinterModel.cpp:202
 #, kde-format
 msgid "Printers"
 msgstr "Tiskárny"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle"
 msgstr "Nečinná"
 
-#: src/libkcups/PrinterModel.cpp:422
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Nečinná, odmítá úlohy"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Nečinná - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Nečinná, odmítá úlohy - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:428
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use"
 msgstr "Používá se"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Používá se - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused"
 msgstr "Pozastavena"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Pozastavena, odmítá úlohy"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Pozastavena - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Pozastavena, odmítá úlohy - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown"
 msgstr "Neznámá"
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Neznámá - '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:117
+#: src/libkcups/SelectMakeModel.cpp:115
 #, kde-format
 msgid "Choose the driver for %1"
 msgstr "Vyberte ovladač pro %1"
 
-#: src/libkcups/SelectMakeModel.cpp:140
+#: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
 msgstr "Získání seznamu ovladačů selhalo: '%1'"
 
-#: src/libkcups/SelectMakeModel.cpp:230
+#: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
 msgstr "Vyhledání doporučovaného ovladače selhalo: '%1'"
@@ -1155,54 +1155,54 @@ msgstr "Fronta tisku"
 msgid "Show printer queue(s)"
 msgstr "Zobrazit frontu(y) tiskárny"
 
-#: src/printqueue/PrintQueueUi.cpp:195
+#: src/printqueue/PrintQueueUi.cpp:194
 #, kde-format
 msgid "Printer ready"
 msgstr "Tiskárna připravena"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:196 src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Pozastavit tiskárnu"
 
-#: src/printqueue/PrintQueueUi.cpp:203
+#: src/printqueue/PrintQueueUi.cpp:202
 #, kde-format
 msgid "Printing..."
 msgstr "Probíhá tisk..."
 
-#: src/printqueue/PrintQueueUi.cpp:205
+#: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Tiskne se '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format
 msgid "Printer paused"
 msgstr "Tiskárna pozastavena"
 
-#: src/printqueue/PrintQueueUi.cpp:214
+#: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Resume Printer"
 msgstr "Obnovit tiskárnu"
 
-#: src/printqueue/PrintQueueUi.cpp:218
+#: src/printqueue/PrintQueueUi.cpp:217
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Stav tiskárny neznámý"
 
-#: src/printqueue/PrintQueueUi.cpp:263
+#: src/printqueue/PrintQueueUi.cpp:262
 #, kde-format
 msgid "Move to"
 msgstr "Přesunout do"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:293
 #, kde-format
 msgid "Authenticate"
 msgstr "Ověřit"
 
-#: src/printqueue/PrintQueueUi.cpp:404
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1210,7 +1210,7 @@ msgstr[0] "Všechny tiskárny (%1 úloha)"
 msgstr[1] "Všechny tiskárny (%1 úlohy)"
 msgstr[2] "Všechny tiskárny (%1 úloh)"
 
-#: src/printqueue/PrintQueueUi.cpp:406
+#: src/printqueue/PrintQueueUi.cpp:410
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1218,32 +1218,32 @@ msgstr[0] "%2 (%1 úloha)"
 msgstr[1] "%2 (%1 úlohy)"
 msgstr[2] "%2 (%1 úloh)"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:413
 #, kde-format
 msgid "All Printers"
 msgstr "Všechny tiskárny"
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:480
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Zrušení '%1' selhalo"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:483
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Pozastavení '%1' selhalo"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:486
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Uvolnění '%1' selhalo"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:489
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Nelze opakovaně vytisknout '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:560
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Zadejte přihlašovací údaje pro tisk z <b>%1</b>"

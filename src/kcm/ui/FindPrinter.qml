@@ -401,7 +401,77 @@ Kirigami.Dialog {
 
     Component {
         id: socketComp
-        NotAvailable {}
+
+        BaseDevice {
+            title: compLoader.info
+            subtitle: i18nc("@title:group", "AppSocket Protocol (aka JetDirect)")
+            helpText: i18nc("@info:usagetip", "Enter the address of the AppSocket device")
+
+            readonly property string scheme: compLoader.selector + "://"
+
+            actions: [
+                Kirigami.Action {
+                    text: i18nc("@action:button", "Save Printer")
+                    icon.name: "dialog-ok-symbolic"
+                    onTriggered: {
+                        let uriStr = uri.text
+                        if (!uriStr.startsWith(scheme)) {
+                            uriStr = scheme + uriStr
+                        }
+                        // validate url
+                        const url = getUrl(uriStr)
+                        if (url) {
+                            settings.set({"device-uri": url.href
+                                         , "printer-info": "AppSocket Printer"})
+                            manualDriverSelect()
+                        } else {
+                            setError(i18n("Invalid Socket URL: %1", uriStr))
+                        }
+                    }
+                }
+            ]
+
+            Component.onCompleted: {
+                const url = getUrl(settings.value("device-uri"))
+                if (url) {
+                    uri.text = url.href
+                } else {
+                    uri.text = scheme
+                }
+            }
+
+            RowLayout {
+                Layout.alignment: Qt.AlignHCenter
+
+                QQC2.Label {
+                    text: i18n("Uri:")
+                    Layout.alignment: Qt.AlignRight
+                }
+
+                QQC2.TextField {
+                    id: uri
+                    placeholderText: i18nc("@info The socket device address", "Socket device address")
+                    Layout.fillWidth: true
+                }
+
+            }
+
+            AddressExamples {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                examples: [
+                    "socket://ip-addr",
+                    "socket://ip-addr:port-number/?...",
+                    "socket://ip-addr/?contimeout=30",
+                    "socket://ip-addr/?waiteof=false",
+                    "socket://ip-addr/?contimeout=30&waiteof=false"
+                ]
+
+                onSelected: address => { uri.text = address }
+            }
+        }
     }
 
     Component {

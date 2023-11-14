@@ -22,9 +22,29 @@ ColumnLayout {
 
     property list<Kirigami.Action> actions: []
 
+    function setError(msg: string) {
+        errorMsg.text = msg
+        errorMsg.visible = true
+    }
+
+    // Return a URL, return null if it fails
+    function getUrl(uri : string) {
+        try {
+            const url = new URL(uri)
+            return url
+        } catch (error) {
+            return null
+        }
+    }
+
     Component.onDestruction: {
         kcm.clearRecommendedDrivers()
         kcm.clearRemotePrinters()
+    }
+
+    BannerWithTimer {
+        id: errorMsg
+        Layout.fillWidth: true
     }
 
     Kirigami.IconTitleSubtitle {

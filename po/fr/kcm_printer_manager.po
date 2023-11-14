@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-13 01:39+0000\n"
+"POT-Creation-Date: 2023-11-14 01:39+0000\n"
 "PO-Revision-Date: 2023-11-09 14:41+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "X-Text-Markup: kde4\n"
 
 #: printermanager.cpp:223
@@ -68,6 +68,12 @@ msgstr "Imprimer sa propre page de test"
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nettoyer les têtes d'impression"
+
+#: ui/AddressExamples.qml:36
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Example Addresses"
+msgstr "Exemples d'adresses"
 
 #: ui/Drivers.qml:52
 #, kde-format
@@ -123,42 +129,36 @@ msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Saisissez l'adresse de l'hôte / périphérique distant"
 
-#: ui/FindPrinter.qml:209
+#: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
 msgstr "Sélectionnez une imprimante"
 
-#: ui/FindPrinter.qml:239
+#: ui/FindPrinter.qml:223
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
 msgstr "URI :"
 
-#: ui/FindPrinter.qml:247
+#: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
 msgstr "Saisissez une URI d'hôte"
 
-#: ui/FindPrinter.qml:321
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Example Addresses"
-msgstr "Exemples d'adresses"
-
-#: ui/FindPrinter.qml:368
+#: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Sélectionnez une connexion à un périphérique"
 
-#: ui/FindPrinter.qml:458
+#: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Impossible de découvrir automatiquement des périphériques d'impression"
 
-#: ui/FindPrinter.qml:459
+#: ui/FindPrinter.qml:427
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -168,13 +168,13 @@ msgstr ""
 "Sélectionnez « Actualiser » pour essayer à nouveau ou une option de "
 "configuration manuelle dans la liste."
 
-#: ui/FindPrinter.qml:468
+#: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Sélectionnez une option de configuration manuelle à partir de la liste"
 
-#: ui/FindPrinter.qml:481
+#: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -318,59 +318,76 @@ msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Mettre l'impression en pause"
 
-#: ui/MakeModel.qml:84
+#: ui/MakeModel.qml:89
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
+msgctxt "@title:window"
+msgid "Select a printer make/model"
+msgstr "Sélectionnez une imprimante"
+
+#: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
 msgstr "Pilote d'imprimante (%1)"
 
-#: ui/MakeModel.qml:89
+#: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Pilote d'imprimante"
 
-#: ui/MakeModel.qml:134
+#: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
 msgstr "Enregistrer"
 
-#: ui/MakeModel.qml:139
+#: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr ""
 "Sélectionnez un fichier de description d'imprimante « PostScript » (PPD)"
 
-#: ui/MakeModel.qml:192
+#: ui/MakeModel.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+msgid "Printer model is required.  Please select a printer model."
+msgstr ""
+"Un fabricant / modèle est requis. Veuillez utiliser « Sélectionner » pour "
+"définir un fabricant / modèle."
+
+#: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Sélectionner le fabricant et le modèle :"
 
-#: ui/MakeModel.qml:204
+#: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Modèles de filtres"
 
-#: ui/MakeModel.qml:285
+#: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "Fichier « PPD » :"
 
-#: ui/MakeModel.qml:307
+#: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Sélectionnez un fichier « PPD »…"
 
-#: ui/MakeModel.qml:314
+#: ui/MakeModel.qml:335
 #, kde-format
 msgid "Select"
 msgstr "Sélectionner"
 
-#: ui/MakeModel.qml:315
+#: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "Fichiers de description d'imprimante « PostScript » (*.ppd)"

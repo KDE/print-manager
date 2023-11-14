@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-13 01:39+0000\n"
+"POT-Creation-Date: 2023-11-14 01:39+0000\n"
 "PO-Revision-Date: 2023-11-08 13:27+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -62,6 +62,12 @@ msgstr "Imprimeix una pàgina d'autocomprovació"
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Neteja els capçals d'impressió"
+
+#: ui/AddressExamples.qml:36
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Example Addresses"
+msgstr "Adreces d'exemple"
 
 #: ui/Drivers.qml:52
 #, kde-format
@@ -117,42 +123,36 @@ msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Introduïu l'adreça del servidor/dispositiu remot"
 
-#: ui/FindPrinter.qml:209
+#: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
 msgstr "Selecciona la impressora"
 
-#: ui/FindPrinter.qml:239
+#: ui/FindPrinter.qml:223
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
 msgstr "URI:"
 
-#: ui/FindPrinter.qml:247
+#: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
 msgstr "Introduïu l'URI del servidor"
 
-#: ui/FindPrinter.qml:321
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Example Addresses"
-msgstr "Adreces d'exemple"
-
-#: ui/FindPrinter.qml:368
+#: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Trieu una connexió del dispositiu"
 
-#: ui/FindPrinter.qml:458
+#: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "No s'ha pogut descobrir automàticament cap dispositiu d'impressió"
 
-#: ui/FindPrinter.qml:459
+#: ui/FindPrinter.qml:427
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -162,13 +162,13 @@ msgstr ""
 "Trieu «Actualitza» per a tornar a intentar-ho o trieu una opció de "
 "configuració manual de la llista"
 
-#: ui/FindPrinter.qml:468
+#: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Trieu una opció de configuració manual de la llista"
 
-#: ui/FindPrinter.qml:481
+#: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -311,58 +311,75 @@ msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Fa pausa de la impressió"
 
-#: ui/MakeModel.qml:84
+#: ui/MakeModel.qml:89
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
+msgctxt "@title:window"
+msgid "Select a printer make/model"
+msgstr "Selecciona la impressora"
+
+#: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
 msgstr "Controlador d'impressora (%1)"
 
-#: ui/MakeModel.qml:89
+#: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Controlador d'impressora"
 
-#: ui/MakeModel.qml:134
+#: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
 msgstr "Desa"
 
-#: ui/MakeModel.qml:139
+#: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Seleccioneu un fitxer PostScript Printer Description (PPD)"
 
-#: ui/MakeModel.qml:192
+#: ui/MakeModel.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+msgid "Printer model is required.  Please select a printer model."
+msgstr ""
+"Es requereix el fabricant i model. Trieu «Selecciona» per a escollir el "
+"Fabricant/Model"
+
+#: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Seleccioneu el fabricant i model:"
 
-#: ui/MakeModel.qml:204
+#: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Filtra els models"
 
-#: ui/MakeModel.qml:285
+#: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "Fitxer PPD:"
 
-#: ui/MakeModel.qml:307
+#: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Selecciona un fitxer PPD…"
 
-#: ui/MakeModel.qml:314
+#: ui/MakeModel.qml:335
 #, kde-format
 msgid "Select"
 msgstr "Selecciona"
 
-#: ui/MakeModel.qml:315
+#: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "Fitxers PostScript Printer Description (*.ppd)"

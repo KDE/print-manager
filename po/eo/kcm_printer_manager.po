@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-13 01:39+0000\n"
+"POT-Creation-Date: 2023-11-14 01:39+0000\n"
 "PO-Revision-Date: 2023-11-09 22:13+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -62,6 +62,12 @@ msgstr "Presi Memtestan Paĝon"
 msgid "Clean Print Heads"
 msgstr "Puraj Presaj Kapoj"
 
+#: ui/AddressExamples.qml:36
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Example Addresses"
+msgstr "Ekzemplaj Adresoj"
+
 #: ui/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
@@ -114,42 +120,36 @@ msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Enigu la adreson de la fora gastiganto/aparato"
 
-#: ui/FindPrinter.qml:209
+#: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
 msgstr "Elekti Presilon"
 
-#: ui/FindPrinter.qml:239
+#: ui/FindPrinter.qml:223
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
 msgstr "uri:"
 
-#: ui/FindPrinter.qml:247
+#: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
 msgstr "Enigi gastigantan URI"
 
-#: ui/FindPrinter.qml:321
-#, kde-format
-msgctxt "@info:usagetip"
-msgid "Example Addresses"
-msgstr "Ekzemplaj Adresoj"
-
-#: ui/FindPrinter.qml:368
+#: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Elekti aparato-konekton"
 
-#: ui/FindPrinter.qml:458
+#: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Ne eblas aŭtomate malkovri iujn ajn presajn aparatojn"
 
-#: ui/FindPrinter.qml:459
+#: ui/FindPrinter.qml:427
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -159,13 +159,13 @@ msgstr ""
 "Elektu \"Refreŝigi\" por provi denove aŭ elektu manan agordan opcion el la "
 "listo"
 
-#: ui/FindPrinter.qml:468
+#: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Elekti manan agordopcion el la listo"
 
-#: ui/FindPrinter.qml:481
+#: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -306,58 +306,74 @@ msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Paŭzi presadon"
 
-#: ui/MakeModel.qml:84
+#: ui/MakeModel.qml:89
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
+msgctxt "@title:window"
+msgid "Select a printer make/model"
+msgstr "Elekti Presilon"
+
+#: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
 msgstr "Presilo pelilo (%1)"
 
-#: ui/MakeModel.qml:89
+#: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Presilo pelilo"
 
-#: ui/MakeModel.qml:134
+#: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
 msgstr "Konservi"
 
-#: ui/MakeModel.qml:139
+#: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Elektu dosieron de PostScript Printer Description (PPD)."
 
-#: ui/MakeModel.qml:192
+#: ui/MakeModel.qml:157
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+msgid "Printer model is required.  Please select a printer model."
+msgstr ""
+"Faro/Modelo estas postulata. Elektu \"Elekti\" por elekti Markon/Modelon"
+
+#: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Elektu Markon kaj Modelon:"
 
-#: ui/MakeModel.qml:204
+#: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Filtrilaj Modeloj"
 
-#: ui/MakeModel.qml:285
+#: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD-dosiero:"
 
-#: ui/MakeModel.qml:307
+#: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Elekti PPD-dosieron…"
 
-#: ui/MakeModel.qml:314
+#: ui/MakeModel.qml:335
 #, kde-format
 msgid "Select"
 msgstr "Elekti"
 
-#: ui/MakeModel.qml:315
+#: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript Printer Priskribo Dosieroj (*.ppd)"

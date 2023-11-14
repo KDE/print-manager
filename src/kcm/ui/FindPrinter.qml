@@ -500,7 +500,93 @@ Kirigami.Dialog {
 
     Component {
         id: smbComp
-        NotAvailable {}
+
+        BaseDevice {
+            title: compLoader.info
+            subtitle: i18nc("@title:group", "Find Printers on the Windows Network")
+            helpText: i18nc("@info:usagetip", "Enter the address of the Windows Printer")
+
+            readonly property string scheme: compLoader.selector + "://"
+
+            actions: [
+                Kirigami.Action {
+                    text: i18nc("@action:button", "Save Printer")
+                    icon.name: "dialog-ok-symbolic"
+                    onTriggered: {
+                        let uriStr = uri.text
+                        if (!uriStr.startsWith(scheme)) {
+                            uriStr = scheme + uriStr
+                        }
+                        // validate url
+                        const url = getUrl(uriStr)
+                        if (url) {
+
+                            if (username.text) {
+                                url.username = username.text
+                                if (password.text) {
+                                    url.password = password.text
+                                }
+                            }
+
+                            settings.set({"device-uri": url.href
+                                         , "printer-info": "Windows Printer"})
+                            manualDriverSelect()
+                        } else {
+                            setError(i18n("Invalid Windows Printer URL: %1", uriStr))
+                        }
+
+                    }
+                }
+            ]
+
+            QQC2.TextField {
+                id: uri
+                text: scheme
+                focus: true
+                placeholderText: i18n("Windows printer address")
+
+                Layout.fillWidth: true
+
+                KeyNavigation.left: root.parent
+                KeyNavigation.backtab: KeyNavigation.left
+                KeyNavigation.tab: KeyNavigation.right
+
+            }
+
+            GridLayout {
+                Layout.alignment: Qt.AlignHCenter
+                columns: 2
+
+                QQC2.Label {
+                    text: i18n("Username:")
+                    Layout.alignment: Qt.AlignRight
+                }
+                QQC2.TextField {
+                    id: username
+                }
+
+                QQC2.Label {
+                    text: i18n("Password:")
+                    Layout.alignment: Qt.AlignRight
+                }
+                Kirigami.PasswordField {
+                    id: password
+                }
+            }
+
+            AddressExamples {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+
+                examples: [
+                    "smb://[workgroup/]server[:port]/printer",
+                    "smb://[user:password]@[workgroup/]server[:port]/printer"
+                ]
+
+                onSelected: address => uri.text = address
+            }
+        }
     }
 
     Component {
@@ -670,7 +756,7 @@ Kirigami.Dialog {
                     sourceComponent = socketComp
                     break
                 case "smb":
-                    sourceComponent = sambaComp
+                    sourceComponent = smbComp
                     break
                 case "serial":
                     sourceComponent = serialComp

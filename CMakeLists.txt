@@ -45,7 +45,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     IconThemes 
     I18n 
     KCMUtils 
-    Kirigami2
+    Kirigami
     KIO
     Notifications 
     WidgetsAddons 
@@ -54,7 +54,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
 
 find_package(KF6 ${PROJECT_VERSION} REQUIRED COMPONENTS Plasma)
 
-set_package_properties(KF6Kirigami2 PROPERTIES
+set_package_properties(KF6Kirigami PROPERTIES
     TYPE REQUIRED
     PURPOSE "Kirigami application UI framework"
 )

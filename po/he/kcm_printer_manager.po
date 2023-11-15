@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-09 14:34+0200\n"
+"PO-Revision-Date: 2023-11-14 04:50+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -305,12 +305,10 @@ msgid "Pause printing"
 msgstr "השהיית הדפסה"
 
 #: ui/MakeModel.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "בחירת מדפסת"
+msgstr "בחירת יצרן/דגם מדפסת"
 
 #: ui/MakeModel.qml:91
 #, kde-format
@@ -335,11 +333,9 @@ msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "נא לבחור קובץ תיאור מדפסת PostScript‏ (PPD)"
 
 #: ui/MakeModel.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "יצרן/דגם נחוצים. נא ללחוץ על „בחירה” כדי לבחור יצרן/דגם"
+msgstr "דגם המדפסת נחוץ. נא ללחוץ על „בחירה” כדי לבחור דגם."
 
 #: ui/MakeModel.qml:211
 #, kde-format

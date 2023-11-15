@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-09 12:02+0300\n"
+"PO-Revision-Date: 2023-11-14 18:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -307,12 +307,10 @@ msgid "Pause printing"
 msgstr "Yazdırmayı duraklat"
 
 #: ui/MakeModel.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "Yazıcı Seç"
+msgstr "Yazıcı Yapımı/Modeli Seç"
 
 #: ui/MakeModel.qml:91
 #, kde-format
@@ -337,11 +335,9 @@ msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Bir PostScript Yazıcı Açıklaması (PPD) dosyası seç"
 
 #: ui/MakeModel.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için \"Seç\" yapın"
+msgstr "Yazıcı modeli gerekiyor. Lütfen bir yazıcı modeli seçin."
 
 #: ui/MakeModel.qml:211
 #, kde-format

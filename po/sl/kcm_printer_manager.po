@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-11 09:14+0100\n"
+"PO-Revision-Date: 2023-11-14 07:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -305,12 +305,10 @@ msgid "Pause printing"
 msgstr "Začasna ustavitev tiskanja"
 
 #: ui/MakeModel.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "Izberi tiskalnik"
+msgstr "Izberi proizvajalca in model tiskalnika"
 
 #: ui/MakeModel.qml:91
 #, kde-format
@@ -335,12 +333,9 @@ msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Izberite datoteko z opisom tiskalnika PostScript (PPD)"
 
 #: ui/MakeModel.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr ""
-"Zahtevana je znamka/model. Izberite \"Izberi\", da izberete znamko/model"
+msgstr "Zahtevana je znamka/model. Izberite model tiskalnika,"
 
 #: ui/MakeModel.qml:211
 #, kde-format

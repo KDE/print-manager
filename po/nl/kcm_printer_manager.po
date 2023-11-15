@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-09 12:47+0100\n"
+"PO-Revision-Date: 2023-11-14 10:28+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -310,12 +310,10 @@ msgid "Pause printing"
 msgstr "Afdrukken pauzeren"
 
 #: ui/MakeModel.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "Printer selecteren"
+msgstr "Een merk/model van printer selecteren"
 
 #: ui/MakeModel.qml:91
 #, kde-format
@@ -340,11 +338,9 @@ msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Een PostScript Printer Description (PPD) bestand selecteren"
 
 #: ui/MakeModel.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "Merk/model is vereist. \"Selecteren\" kiezen om merk/model te kiezen"
+msgstr "Printer model is vereist. Selecteer een printermodel."
 
 #: ui/MakeModel.qml:211
 #, kde-format

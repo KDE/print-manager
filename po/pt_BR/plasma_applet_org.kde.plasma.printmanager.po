@@ -3,21 +3,21 @@
 # This file is distributed under the same license as the print-manager package.
 #
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2013, 2015, 2018, 2020.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2022-04-07 11:19-0300\n"
+"PO-Revision-Date: 2023-11-14 14:09-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -25,10 +25,8 @@ msgid "Printers"
 msgstr "Impressoras"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Impressoras"
+msgstr "Grupos de impressoras"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -72,30 +70,24 @@ msgid "Show Only Active Jobs"
 msgstr "Mostrar apenas os trabalhos ativos"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
 msgstr "&Configurar impressoras..."
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Continuar"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Pausar"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Configurar impressora..."
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Visualizar fila de impressão"
+msgstr "Visualizar fila de impressão..."
 
 #~ msgid "Search…"
 #~ msgstr "Pesquisar..."

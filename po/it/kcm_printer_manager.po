@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-04-26 01:50+0200\n"
+"PO-Revision-Date: 2023-11-14 22:57+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -20,19 +20,19 @@ msgstr ""
 #: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
-msgstr ""
+msgstr "Imposta le opzioni predefinite"
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr ""
+msgstr "Configurazione della classe non riuscita: "
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr ""
+msgstr "Configurazione della stampante non riuscita: "
 
 #: printermanager.cpp:364
 #, kde-format
@@ -43,13 +43,13 @@ msgstr "Impossibile eseguire la richiesta: %1"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr ""
+msgstr "Impossibile recuperare le impostazioni del server: %1"
 
 #: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Errore del server: (%1): %2"
 
 #: printermanager.cpp:509
 #, kde-format
@@ -65,88 +65,90 @@ msgstr "Pulisci le testine della stampante"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr ""
+msgstr "Indirizzi di esempio"
 
 #: ui/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr ""
+msgstr "Seleziona un driver consigliato"
 
 #: ui/Drivers.qml:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
+"I driver consigliati sono basati sul produttore/modello e sul tipo di "
+"connessione della stampante"
 
 #: ui/FindPrinter.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr ""
+msgstr "Imposta una connessione per una stampante"
 
 #: ui/FindPrinter.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
-msgstr ""
+msgstr "Mostra i dispositivi rilevati"
 
 #: ui/FindPrinter.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr ""
+msgstr "Mostra le opzioni manuali"
 
 #: ui/FindPrinter.qml:114
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Aggiorna"
 
 #: ui/FindPrinter.qml:125
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr ""
+msgstr "Aiuto sulle stampanti di rete di CUPS"
 
 #: ui/FindPrinter.qml:187
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr ""
+msgstr "Trova dispositivi di stampa remoti"
 
 #: ui/FindPrinter.qml:188
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr ""
+msgstr "Inserisci l'indirizzo dell'host/dispositivo remoto"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
-msgstr ""
+msgstr "Seleziona una stampante"
 
 #: ui/FindPrinter.qml:223
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
-msgstr ""
+msgstr "URI:"
 
 #: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
-msgstr ""
+msgstr "Inserisci l'URI dell'host"
 
 #: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr ""
+msgstr "Scegli un tipo di connessione per il dispositivo"
 
 #: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr ""
+msgstr "Impossibile individuare automaticamente alcun dispositivo di stampa"
 
 #: ui/FindPrinter.qml:427
 #, kde-format
@@ -155,287 +157,296 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
+"Scegli «Aggiorna» per riprovare o scegli un'opzione di configurazione "
+"manuale dall'elenco"
 
 #: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr ""
+msgstr "Scegli un'opzione di configurazione manuale dall'elenco"
 
 #: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr ""
+msgstr "Questa funzionalità non è ancora disponibile (%1)"
 
 #: ui/Global.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr ""
+msgstr "Impostazioni del server di stampa"
 
 #: ui/Global.qml:28
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr ""
+msgstr "Amministrazione server di stampa CUPS"
 
 #: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
-msgstr ""
+msgstr "Ripristina"
 
 #: ui/Global.qml:43
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 #: ui/Global.qml:105
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr ""
+msgstr "Condividi le stampanti connesse a questo sistema"
 
 #: ui/Global.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr ""
+msgstr "Permetti la stampa da Internet"
 
 #: ui/Global.qml:123
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr ""
+msgstr "Permetti l'amministrazione remota"
 
 #: ui/Global.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr ""
+"Permetti agli utenti di annullare qualsiasi processo di stampa (non solo i "
+"propri)"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_queue"
-msgstr ""
+msgstr "nuova_coda"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_group"
-msgstr ""
+msgstr "nuovo_gruppo"
 
 #: ui/main.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer"
-msgstr ""
+msgstr "Aggiungi stampante"
 
 #: ui/main.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group"
-msgstr ""
+msgstr "Aggiungi gruppo"
 
 #: ui/main.qml:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server"
-msgstr ""
+msgstr "Configura server di stampa"
 
 #: ui/main.qml:186
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr ""
+msgstr "Nessuna stampante è attualmente configurata"
 
 #: ui/main.qml:187
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose 'Add Printer' to set up a new printer on this computer"
 msgstr ""
+"Scegli «Aggiungi stampante» per impostare una nuova stampante su questo "
+"computer"
 
 #: ui/main.qml:197
 #, kde-format
 msgid "Printers"
-msgstr ""
+msgstr "Stampanti"
 
 #: ui/main.qml:197
 #, kde-format
 msgid "Printer Groups"
-msgstr ""
+msgstr "Gruppi di stampanti"
 
 #: ui/main.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
-msgstr ""
+msgstr "Configura…"
 
 #: ui/main.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr ""
+msgstr "Apri la coda di stampa…"
 
 #: ui/main.qml:273
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr ""
+msgstr "Riprendi"
 
 #: ui/main.qml:274
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr ""
+msgstr "Metti in pausa"
 
 #: ui/main.qml:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr ""
+msgstr "Riprendi la stampa"
 
 #: ui/main.qml:289
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr ""
+msgstr "Metti in pausa la stampa"
 
 #: ui/MakeModel.qml:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr ""
+msgstr "Seleziona un produttore/modello di stampante"
 
 #: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr ""
+msgstr "Driver di stampante (%1)"
 
 #: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr ""
+msgstr "Driver di stampante"
 
 #: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr ""
+msgstr "Seleziona un file PostScript Printer Description (PPD)"
 
 #: ui/MakeModel.qml:157
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr ""
+"Il modello della stampante è richiesto. Seleziona un modello di stampante."
 
 #: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr ""
+msgstr "Seleziona produttore e modello:"
 
 #: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr ""
+msgstr "Modelli di filtro"
 
 #: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
-msgstr ""
+msgstr "File PPD:"
 
 #: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr ""
+msgstr "Seleziona file PPD…"
 
 #: ui/MakeModel.qml:335
 #, kde-format
 msgid "Select"
-msgstr ""
+msgstr "Seleziona"
 
 #: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
-msgstr ""
+msgstr "File PostScript Printer Description (*.ppd)"
 
 #: ui/PrinterSettings.qml:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
-msgstr ""
+msgstr "Aggiungi gruppo"
 
 #: ui/PrinterSettings.qml:44
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr ""
+msgstr "Aggiungi stampante"
 
 #: ui/PrinterSettings.qml:55
 #, kde-format
 msgid "Configure…"
-msgstr ""
+msgstr "Configura…"
 
 #: ui/PrinterSettings.qml:60
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "Rimuovi"
 
 #: ui/PrinterSettings.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr ""
+msgstr "Aiuto sulla panoramica sulle stampanti CUPS"
 
 #: ui/PrinterSettings.qml:86
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
-msgstr ""
+msgstr "Configura automaticamente"
 
 #: ui/PrinterSettings.qml:93
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 #: ui/PrinterSettings.qml:102
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr ""
+msgstr "Il nome della coda è richiesto. Inserisci un nome unico per la coda."
 
 #: ui/PrinterSettings.qml:109
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr ""
+"Produttore/modello sono richiesti. Scegli «seleziona» per selezionare "
+"produttore/modello"
 
 #: ui/PrinterSettings.qml:160
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr ""
+msgstr "Rimozione della stampante non riuscita: %1"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Remove Group"
-msgstr ""
+msgstr "Rimuovi gruppo"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
@@ -445,7 +456,7 @@ msgstr "Rimuovi stampante"
 #: ui/PrinterSettings.qml:179
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr ""
+msgstr "Sei sicuro di voler davvero rimuovere: %1 (%2)?"
 
 #: ui/PrinterSettings.qml:196
 #, kde-format
@@ -457,93 +468,94 @@ msgstr "Annulla"
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
 msgstr ""
+"Un <b>gruppo di stampanti</b> è usato per raggruppare risorse di stampa."
 
 #: ui/PrinterSettings.qml:384
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr ""
+msgstr "Stampante predefinita"
 
 #: ui/PrinterSettings.qml:391
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr ""
+msgstr "Condividi questa stampante"
 
 #: ui/PrinterSettings.qml:392
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
-msgstr ""
+msgstr "Condividi questa stampante"
 
 #: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr ""
+msgstr "Le stampe sono accettate"
 
 #: ui/PrinterSettings.qml:430
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
-msgstr ""
+msgstr "Stampa pagina di prova"
 
 #: ui/PrinterSettings.qml:436
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr ""
+msgstr "Stampa pagina di prova automatica"
 
 #: ui/PrinterSettings.qml:443
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
-msgstr ""
+msgstr "Pulisci le testine della stampante"
 
 #: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr ""
+msgstr "Trova una stampante…"
 
 #: ui/PrinterSettings.qml:471
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr ""
+msgstr "Nome della coda:"
 
 #: ui/PrinterSettings.qml:484
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr ""
+msgstr "Descrizione:"
 
 #: ui/PrinterSettings.qml:496
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr ""
+msgstr "Posizione:"
 
 #: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr ""
+msgstr "Connessione:"
 
 #: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr ""
+msgstr "Stampanti membre:"
 
 #: ui/PrinterSettings.qml:653
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr ""
+msgstr "Produttore/modello:"
 
 #: ui/PrinterSettings.qml:668
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr ""
+msgstr "Seleziona…"

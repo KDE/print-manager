@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:51+0000\n"
-"PO-Revision-Date: 2023-04-26 01:50+0200\n"
+"PO-Revision-Date: 2023-11-14 22:57+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -661,7 +661,7 @@ msgstr "Stampante da configurare"
 #: configure-printer/ModifyPrinter.cpp:124
 #, kde-format
 msgid "Current - %1"
-msgstr "Corrente - %1"
+msgstr "Attuale - %1"
 
 #: configure-printer/ModifyPrinter.cpp:127
 #, kde-format
@@ -809,7 +809,7 @@ msgstr ""
 #: configure-printer/ModifyPrinter.ui:113
 #, kde-format
 msgid "Members"
-msgstr "Membri:"
+msgstr "Membri"
 
 #. i18n: ectx: property (text), widget (QLabel, driverL)
 #: configure-printer/ModifyPrinter.ui:126

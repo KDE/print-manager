@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-11 16:27+0100\n"
+"PO-Revision-Date: 2023-11-15 18:44+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -312,12 +312,10 @@ msgid "Pause printing"
 msgstr "Poñer en pausa a impresión"
 
 #: ui/MakeModel.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "Seleccionar a impresora"
+msgstr "Seleccione unha marca ou modelo de impresora"
 
 #: ui/MakeModel.qml:91
 #, kde-format
@@ -342,13 +340,9 @@ msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Seleccionar un ficheiro de descrición de impresora de PostScript (PPD)"
 
 #: ui/MakeModel.qml:157
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr ""
-"A marca ou modelo son necesarios. Escolla «Seleccionar» para escoller unha "
-"marca ou modelo."
+msgstr "O modelo da impresora é necesario. Seleccione un."
 
 #: ui/MakeModel.qml:211
 #, kde-format

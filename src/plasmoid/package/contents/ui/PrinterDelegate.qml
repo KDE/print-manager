@@ -36,7 +36,7 @@ PlasmaExtras.ExpandableListItem {
         }
     }
 
-    contextualActionsModel: [
+    contextualActions: [
         Kirigami.Action {
             icon.name: "configure"
             text: i18n("Configure printer…")

@@ -200,7 +200,7 @@ KCM.ScrollViewKCM {
 
         model: KSFM.KSortFilterProxyModel {
             sourceModel: pmModel
-            sortRole: PM.PrinterModel.DestIsClass
+            sortRoleName: "isClass"
         }
 
         delegate: PComp.ItemDelegate {

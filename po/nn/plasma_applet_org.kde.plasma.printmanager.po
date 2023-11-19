@@ -96,12 +96,3 @@ msgstr "Set opp skrivar …"
 #| msgid "View print queue"
 msgid "View print queue…"
 msgstr "Vis utskriftskø"
-
-#~ msgid "Search…"
-#~ msgstr "Søk …"
-
-#~ msgid "Resume printing"
-#~ msgstr "Hald fram med utskrift"
-
-#~ msgid "Pause printing"
-#~ msgstr "Pausa utskrift"

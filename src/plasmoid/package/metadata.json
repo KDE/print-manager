@@ -163,10 +163,10 @@
         "Website": "https://www.kde.org"
     },
     "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-API-Minimum-Version": "6.0",
     "X-Plasma-ConfigPlugins": [
         "kcm_printer_manager"
     ],
-    "X-Plasma-API-Minimum-Version": "6.0",
     "X-Plasma-DefaultSize": "650,270",
     "X-Plasma-NotificationArea": "true",
     "X-Plasma-NotificationAreaCategory": "Hardware",

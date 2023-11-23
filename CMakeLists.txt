@@ -52,7 +52,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     WindowSystem 
 )
 
-find_package(KF6 ${PROJECT_VERSION} REQUIRED COMPONENTS Plasma)
+find_package(Plasma ${PROJECT_VERSION} REQUIRED)
 
 set_package_properties(KF6Kirigami PROPERTIES
     TYPE REQUIRED

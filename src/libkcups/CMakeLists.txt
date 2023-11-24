@@ -43,6 +43,10 @@ ki18n_wrap_ui(libkcups_SRCS
 )
 
 add_library(kcupslib SHARED ${libkcups_SRCS})
+set_target_properties(kcupslib PROPERTIES
+    SOVERSION ${PROJECT_VERSION}
+    VERSION ${PROJECT_VERSION}
+)
 
 generate_export_header(kcupslib)
 

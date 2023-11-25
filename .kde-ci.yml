@@ -16,7 +16,7 @@ Dependencies:
     'frameworks/knotifications': '@stable'
     'frameworks/kwidgetsaddons': '@stable'
     'frameworks/kwindowsystem': '@stable'
-    'plasma/plasma-framework': 'kf5'
+    'plasma/libplasma': 'kf5'
 
 - 'on': ['Linux/Qt6', 'FreeBSD/Qt6']
   'require':
@@ -32,4 +32,4 @@ Dependencies:
     'frameworks/knotifications': '@latest-kf6'
     'frameworks/kwidgetsaddons': '@latest-kf6'
     'frameworks/kwindowsystem': '@latest-kf6'
-    'plasma/plasma-framework': 'kf5'
+    'plasma/libplasma': 'kf5'

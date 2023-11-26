@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:51+0000\n"
-"PO-Revision-Date: 2023-11-19 03:44\n"
+"PO-Revision-Date: 2023-11-25 02:33\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -25,7 +25,7 @@ msgstr "KDE 中国, Guo Yunhe, Tyson Tan"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.org, i@guoyunhe.me, tysontan@tysontan.com"
+msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 
 #: add-printer/AddPrinterAssistant.cpp:31
 #, kde-format
@@ -1259,7 +1259,7 @@ msgstr "共享此打印机"
 #: printer-manager-kcm/PrinterDescription.ui:293
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "清洗打印头"
+msgstr "清洁打印头"
 
 #. i18n: ectx: property (toolTip), widget (KMessageWidget, errorMessage)
 #: printer-manager-kcm/PrinterDescription.cpp:229

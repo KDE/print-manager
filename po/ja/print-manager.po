@@ -206,7 +206,9 @@ msgstr "ポート:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/ChooseUri.ui:41
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Connection:"
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "接続:"
@@ -415,14 +417,18 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/PageAddPrinter.ui:45
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Description:"
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "説明:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: add-printer/PageAddPrinter.ui:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Location:"
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "場所:"
@@ -765,7 +771,8 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, driverL)
 #: configure-printer/ModifyPrinter.ui:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Driver:"
 msgid "Driver:"
 msgstr "ドライバ:"
 
@@ -1042,7 +1049,8 @@ msgid "Recommended Drivers"
 msgstr ""
 
 #: libkcups/PrinterModel.cpp:163
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Printers"
 msgid "Printers"
 msgstr "プリンタ"
 

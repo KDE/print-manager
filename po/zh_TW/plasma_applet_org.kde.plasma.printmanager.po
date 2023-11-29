@@ -3,21 +3,21 @@
 #
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2013, 2015.
 # pan93412 <pan93412@gmail.com>, 2018, 2020.
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2022-12-30 19:33+0900\n"
+"PO-Revision-Date: 2023-11-29 19:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -25,10 +25,8 @@ msgid "Printers"
 msgstr "印表機"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "印表機"
+msgstr "印表機群組"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -71,30 +69,24 @@ msgid "Show Only Active Jobs"
 msgstr "只顯示活躍的工作"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "設定印表機(&C)..."
+msgstr "設定印表機(&C)…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "恢復"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "暫停"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "設定印表機…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "檢視列印佇列"
+msgstr "檢視列印佇列…"
 
 #~ msgid "Search…"
 #~ msgstr "搜尋…"

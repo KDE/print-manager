@@ -1,17 +1,16 @@
 # Translation for plasma_applet_org.kde.plasma.printmanager.po to Euskara/Basque (eu).
-# Copyright (C) 2017, Free Software Foundation.
-# Copyright (C) 2018-2022, This file is copyright:
+# Copyright (C) 2017-2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2013, 2017, 2019, 2020, 2021, 2022.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2013, 2017, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-08 08:48+0000\n"
-"PO-Revision-Date: 2022-07-29 14:01+0200\n"
+"PO-Revision-Date: 2023-12-02 22:06+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -19,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -27,10 +26,8 @@ msgid "Printers"
 msgstr "Inprimagailuak"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Inprimagailuak"
+msgstr "Inprimagailu taldeak"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -74,30 +71,24 @@ msgid "Show Only Active Jobs"
 msgstr "Erakutsi aktibo dauden lanak soilik"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
 msgstr "&Konfiguratu inprimagailuak..."
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Berrekin"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Etenaldia"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Konfiguratu inprimagailua..."
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Ikusi inprimaketa-ilara"
+msgstr "Ikusi inprimatze-ilara..."
 
 #~ msgid "Search…"
 #~ msgstr "Bilatu…"

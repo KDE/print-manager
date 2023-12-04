@@ -1,157 +1,153 @@
-# Translation for kcm_printer_manager.po to Euskara/Basque (eu).
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
-# Translators:
-# SPDX-FileCopyrightText: 2023 Iñigo Salvador Azurmendi <xalba@ni.eus>
+# Alexander Yavorsky <kekcuha@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-12-02 22:02+0100\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
-"Language-Team: Basque <kde-i18n-eu@kde.org>\n"
-"Language: eu\n"
+"PO-Revision-Date: 2023-11-14 22:28+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 21.08.3\n"
 
 #: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
-msgstr "Ezarri lehenetsitako aukerak"
+msgstr "Установить параметры по умолчанию"
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Klasea konfiguratzea huts egin du:"
+msgstr "Ошибка настройки класса: "
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Inprimagailua konfiguratzea huts egin du:"
+msgstr "Ошибка настройки принтера: "
 
 #: printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr "Eskaera egitea huts egin du: %1"
+msgstr "Ошибка при выполнении запроса: %1"
 
 #: printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
+msgstr "Ошибка получения параметров сервера: %1"
 
 #: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr "Zerbitzariaren errorea: (%1): %2"
+msgstr "Ошибка сервера: %1: %2"
 
 #: printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "Inprimatu autoprobako orrialdea"
+msgstr "Распечатать страницу самопроверки"
 
 #: printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "Garbitu inprimatzeko buruak"
+msgstr "Очистить печатающие головки"
 
 #: ui/AddressExamples.qml:36
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr "Adibideko helbideak"
+msgstr ""
 
 #: ui/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr "Aukeratu gomendatutako gidaria"
+msgstr ""
 
 #: ui/Drivers.qml:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
-"Gomendatutako gidariak, inprimagailu marka/ereduan eta konexio motan "
-"oinarritzen dira"
 
 #: ui/FindPrinter.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr "Ezarri inprimagailu konexio bat"
+msgstr ""
 
 #: ui/FindPrinter.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
-msgstr "Erakutsi antzemandako gailuak"
+msgstr "Показать обнаруженные устройства"
 
 #: ui/FindPrinter.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr "Erakutsi eskuzko aukerak"
+msgstr ""
 
 #: ui/FindPrinter.qml:114
-#, kde-format
+#, fuzzy, kde-format
 msgid "Refresh"
-msgstr "Berritu"
+msgstr "Обновить"
 
 #: ui/FindPrinter.qml:125
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr "CUPS sareko inprimagailuen laguntza"
+msgstr ""
 
 #: ui/FindPrinter.qml:187
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr "Aurkitu urruneko inprimatzeko gailuak"
+msgstr ""
 
 #: ui/FindPrinter.qml:188
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr "Sartu urruneko ostalari/gailuren helbidea"
+msgstr ""
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
-msgstr "Hautatu inprimagailua"
+msgstr ""
 
 #: ui/FindPrinter.qml:223
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
-msgstr "URI:"
+msgstr "URI"
 
 #: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
-msgstr "Sartu ostalariaren URI"
+msgstr ""
 
 #: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr "Hautatu gailu-konexio bat"
+msgstr ""
 
 #: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr "Ez da inprimatzeko gailurik automatikoki aurkitzeko gai"
+msgstr ""
 
 #: ui/FindPrinter.qml:427
 #, kde-format
@@ -160,405 +156,395 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"Aukeratu \"Berritu\" berriz saiatzeko edo hautatu zerrendatik, eskuz "
-"konfiguratzeko aukera bat"
 
 #: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr "Hautatu zerrendatik, eskuz konfiguratzeko aukera bat"
+msgstr ""
 
 #: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr "Ezaugarri hori oraindik ez dago erabilgarri (%1)"
+msgstr ""
 
 #: ui/Global.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr "Inprimatze zerbitzariaren ezarpenak"
+msgstr ""
 
 #: ui/Global.qml:28
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr "CUPS inprimatze zerbitzariaren administratzailea"
+msgstr ""
 
 #: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
-msgstr "Berrezarri"
+msgstr "Сброс"
 
 #: ui/Global.qml:43
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
-msgstr "Aplikatu"
+msgstr "Применить"
 
 #: ui/Global.qml:105
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr "Partekatu sistema honetara konektatutako inprimagailuak"
+msgstr "Открыть общий доступ к принтерам, подключённым к данному компьютеру"
 
 #: ui/Global.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr "Baimendu Internet bidez inprimatzea"
+msgstr "Принимать задания на печать из Интернета"
 
 #: ui/Global.qml:123
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr "Baimendu urrunetik administratzea"
+msgstr "Разрешить удалённое управление"
 
 #: ui/Global.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr ""
-"Baimendu erabiltzaileek edozein lan bertan behera uztea (ez norberarenak "
-"bakarrik)"
+msgstr "Разрешить пользователям снимать любые задания (не только свои)"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_queue"
-msgstr "ilara_berria"
+msgstr ""
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_group"
-msgstr "talde_berria"
+msgstr ""
 
 #: ui/main.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer"
-msgstr "Gehitu inprimagailua"
+msgstr "Добавить принтер"
 
 #: ui/main.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group"
-msgstr "Gehitu taldea"
+msgstr "Добавить группу"
 
 #: ui/main.qml:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server"
-msgstr "Konfiguratu inprimatze zerbitzaria"
+msgstr "Настроить сервер печати"
 
 #: ui/main.qml:186
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr "Une honetan ez dago ezarritako inprimagailurik"
+msgstr "Не настроено ни одного принтера"
 
 #: ui/main.qml:187
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose 'Add Printer' to set up a new printer on this computer"
 msgstr ""
-"Aukeratu 'Gehitu inprimagailua' ordenagailu honetan inprimagailu berri bat "
-"ezartzeko"
 
 #: ui/main.qml:197
 #, kde-format
 msgid "Printers"
-msgstr "Inprimagailuak"
+msgstr "Принтеры"
 
 #: ui/main.qml:197
 #, kde-format
 msgid "Printer Groups"
-msgstr "Inprimagailu taldeak"
+msgstr ""
 
 #: ui/main.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
-msgstr "Konfiguratu..."
+msgstr "Настроить…"
 
 #: ui/main.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr "Ireki inprimatze-ilara..."
+msgstr "Открыть очередь печати…"
 
 #: ui/main.qml:273
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr "Berrekin"
+msgstr "Возобновить"
 
 #: ui/main.qml:274
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr "Etenaldia"
+msgstr "Приостановить"
 
 #: ui/main.qml:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr "Berrekin inprimatzea"
+msgstr "Продолжить печать"
 
 #: ui/main.qml:289
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr "Eten inprimatzea"
+msgstr "Приостановить печать"
 
 #: ui/MakeModel.qml:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "Hautatu inprimagailu marka/eredu bat"
+msgstr "Выбор производителя и модели принтера"
 
 #: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr "Inprimagailu gidaria (%1)"
+msgstr "Драйвер принтера (%1)"
 
 #: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr "Inprimagailu gidaria"
+msgstr "Драйвер принтера"
 
 #: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
-msgstr "Gorde"
+msgstr "Сохранить"
 
 #: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr "Hautatu «PostScript» inprimagailu deskribapen (PPD) fitxategi bat"
+msgstr ""
 
 #: ui/MakeModel.qml:157
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr ""
-"Inprimagailu-eredua beharrezkoa da. Mesedez, hautatu inprimagailu-eredu bat."
 
 #: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr "Hautatu marka eta eredua:"
+msgstr ""
 
 #: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr "Iragazi ereduak:"
+msgstr ""
 
 #: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
-msgstr "PPD fitxategia:"
+msgstr "Файл PDD:"
 
 #: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "Hautatu PPD fitxategia..."
+msgstr ""
 
 #: ui/MakeModel.qml:335
-#, kde-format
+#, fuzzy, kde-format
 msgid "Select"
-msgstr "Hautatu"
+msgstr "Выбрать"
 
 #: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
-msgstr "«PostScript» inprimagailu deskribapen fitxategiak (*.ppd)"
+msgstr ""
 
 #: ui/PrinterSettings.qml:43
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
-msgstr "Gehitu taldea"
+msgstr "Создание группы"
 
 #: ui/PrinterSettings.qml:44
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr "Gehitu inprimagailua"
+msgstr "Добавить принтер"
 
 #: ui/PrinterSettings.qml:55
-#, kde-format
+#, fuzzy, kde-format
 msgid "Configure…"
-msgstr "Konfiguratu..."
+msgstr "Настроить…"
 
 #: ui/PrinterSettings.qml:60
-#, kde-format
+#, fuzzy, kde-format
 msgid "Remove"
-msgstr "Kendu"
+msgstr "Удалить"
 
 #: ui/PrinterSettings.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr "CUPS inprimagailuen ikuspegi orokorraren laguntza"
+msgstr ""
 
 #: ui/PrinterSettings.qml:86
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
-msgstr "Konfiguratu automatikoki"
+msgstr "Настроить автоматически"
 
 #: ui/PrinterSettings.qml:93
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr "Gehitu"
+msgstr "Добавить"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
-msgstr "Aplikatu"
+msgstr "Применить"
 
 #: ui/PrinterSettings.qml:102
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr "Ilararen izena beharrezkoa da. Sartu ilara-izen erabili gabe bat."
+msgstr ""
 
 #: ui/PrinterSettings.qml:109
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr ""
-"Marka/eredua beharrezkoa da. Aukeratu \"Aukeratu\" marka/eredua hautatzeko"
 
 #: ui/PrinterSettings.qml:160
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr "Inprimagailua kentzea huts egin du: %1"
+msgstr ""
 
 #: ui/PrinterSettings.qml:178
-#, kde-format
+#, fuzzy, kde-format
 msgid "Remove Group"
-msgstr "Kendu taldea"
+msgstr "Удалить группу"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Remove Printer"
-msgstr "Kendu inprimagailua"
+msgstr "Удалить принтер"
 
 #: ui/PrinterSettings.qml:179
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr "Ziur zaude benetan kendu nahi duzula: %1 (%2)?"
+msgstr ""
 
 #: ui/PrinterSettings.qml:196
-#, kde-format
+#, fuzzy, kde-format
 msgid "Cancel"
-msgstr "Utzi"
+msgstr "Отмена"
 
 #: ui/PrinterSettings.qml:342
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
 msgstr ""
-"<b>Inprimagailu talde</b> bat erabiltzen da inprimatzeko baliabideak "
-"biltzeko."
 
 #: ui/PrinterSettings.qml:384
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "Inprimagailu lehenetsia"
+msgstr "Принтер по умолчанию"
 
 #: ui/PrinterSettings.qml:391
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr "Partekatu talde hau"
+msgstr "Общий доступ к этой группе"
 
 #: ui/PrinterSettings.qml:392
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
-msgstr "Partekatu inprimagailu hau"
+msgstr "Общий доступ к этому принтеру"
 
 #: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr "Inprimatze lanak onartzea"
+msgstr ""
 
 #: ui/PrinterSettings.qml:430
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
-msgstr "Inprimatu probako orrialdea"
+msgstr "Напечатать пробную страницу"
 
 #: ui/PrinterSettings.qml:436
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr "Inprimatu autoprobako orrialdea"
+msgstr "Напечатать страницу самотестирования"
 
 #: ui/PrinterSettings.qml:443
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
-msgstr "Garbitu inprimatzeko buruak"
+msgstr "Очистить печатающие головки"
 
 #: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr "Aurkitu inprimagailua bat..."
+msgstr "Найти принтер…"
 
 #: ui/PrinterSettings.qml:471
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr "Ilararen izena:"
+msgstr "Имя очереди:"
 
 #: ui/PrinterSettings.qml:484
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr "Deskribapena:"
+msgstr "Описание:"
 
 #: ui/PrinterSettings.qml:496
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr "Kokalekua:"
+msgstr "Расположение:"
 
 #: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr "Konexioa:"
+msgstr "Подключение:"
 
 #: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr "Kide inprimagailuak:"
+msgstr ""
 
 #: ui/PrinterSettings.qml:653
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr "Marka/eredua:"
+msgstr "Производитель/модель:"
 
 #: ui/PrinterSettings.qml:668
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr "Hautatu..."
+msgstr "Выбрать"

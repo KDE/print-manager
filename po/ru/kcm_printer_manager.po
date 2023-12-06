@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# Alexander Yavorsky <kekcuha@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-14 22:28+0300\n"
+"PO-Revision-Date: 2023-12-05 22:19+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -66,25 +66,27 @@ msgstr "Очистить печатающие головки"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr ""
+msgstr "Пример адреса"
 
 #: ui/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr ""
+msgstr "Выбрать рекомендуемый драйвер"
 
 #: ui/Drivers.qml:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
+"Подбор рекомендованного драйвера основан на сведениях о производителе и "
+"модели принтера, а также типе подключения"
 
 #: ui/FindPrinter.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr ""
+msgstr "Настройка подключения принтера"
 
 #: ui/FindPrinter.qml:94
 #, kde-format
@@ -96,17 +98,17 @@ msgstr "Показать обнаруженные устройства"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr ""
+msgstr "Показать параметры для настройки вручную"
 
 #: ui/FindPrinter.qml:114
-#, fuzzy, kde-format
+#, kde-format
 msgid "Refresh"
 msgstr "Обновить"
 
 #: ui/FindPrinter.qml:125
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr ""
+msgstr "Справка о cетевых принтерах CUPS"
 
 #: ui/FindPrinter.qml:187
 #, kde-format
@@ -118,36 +120,36 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr ""
+msgstr "Введите адрес хоста или устройства в сети"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
-msgstr ""
+msgstr "Выбрать принтер"
 
 #: ui/FindPrinter.qml:223
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
-msgstr "URI"
+msgstr "URI:"
 
 #: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
-msgstr ""
+msgstr "Введите URI хоста"
 
 #: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr ""
+msgstr "Введите тип подключения устройства"
 
 #: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr ""
+msgstr "Не удалось обнаружить ни одного принтера"
 
 #: ui/FindPrinter.qml:427
 #, kde-format
@@ -155,7 +157,7 @@ msgctxt "@info:usagetip"
 msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
-msgstr ""
+msgstr "Нажмите «Повторить» или выберите вручную параметры из списка"
 
 #: ui/FindPrinter.qml:436
 #, kde-format
@@ -167,19 +169,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr ""
+msgstr "Поддержка %1 ещё не доступна"
 
 #: ui/Global.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr ""
+msgstr "Параметры сервера печати"
 
 #: ui/Global.qml:28
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr ""
+msgstr "Параметры сервера печати CUPS"
 
 #: ui/Global.qml:36
 #, kde-format
@@ -220,12 +222,12 @@ msgstr "Разрешить пользователям снимать любые 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_queue"
-msgstr ""
+msgstr "новая_очередь"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_group"
-msgstr ""
+msgstr "новая_группа"
 
 #: ui/main.qml:67
 #, kde-format
@@ -255,7 +257,7 @@ msgstr "Не настроено ни одного принтера"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose 'Add Printer' to set up a new printer on this computer"
-msgstr ""
+msgstr "Выберите «Добавить принтер» для настройки нового принтера"
 
 #: ui/main.qml:197
 #, kde-format
@@ -371,24 +373,24 @@ msgid "PostScript Printer Description Files (*.ppd)"
 msgstr ""
 
 #: ui/PrinterSettings.qml:43
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "Создание группы"
 
 #: ui/PrinterSettings.qml:44
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr "Добавить принтер"
+msgstr "Добавление принтера"
 
 #: ui/PrinterSettings.qml:55
-#, fuzzy, kde-format
+#, kde-format
 msgid "Configure…"
 msgstr "Настроить…"
 
 #: ui/PrinterSettings.qml:60
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove"
 msgstr "Удалить"
 
@@ -396,7 +398,7 @@ msgstr "Удалить"
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr ""
+msgstr "Справка о принтерах CUPS"
 
 #: ui/PrinterSettings.qml:86
 #, kde-format
@@ -420,21 +422,23 @@ msgstr "Применить"
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr ""
+msgstr "Необходимо указать уникальное имя очереди печати."
 
 #: ui/PrinterSettings.qml:109
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr ""
+"Необходимо указать производителя и модель принтера. Нажмите «Выбрать» для "
+"выбора из списка"
 
 #: ui/PrinterSettings.qml:160
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr ""
+msgstr "Не удалось удалить принтер: %1"
 
 #: ui/PrinterSettings.qml:178
-#, fuzzy, kde-format
+#, kde-format
 msgid "Remove Group"
 msgstr "Удалить группу"
 
@@ -446,10 +450,10 @@ msgstr "Удалить принтер"
 #: ui/PrinterSettings.qml:179
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr ""
+msgstr "Действительно удалить %1 (%2)?"
 
 #: ui/PrinterSettings.qml:196
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -481,22 +485,22 @@ msgstr "Общий доступ к этому принтеру"
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr ""
+msgstr "Принимать задания печати"
 
 #: ui/PrinterSettings.qml:430
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Напечатать пробную страницу"
 
 #: ui/PrinterSettings.qml:436
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr "Напечатать страницу самотестирования"
+msgstr "Напечатать страницу самопроверки"
 
 #: ui/PrinterSettings.qml:443
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Очистить печатающие головки"

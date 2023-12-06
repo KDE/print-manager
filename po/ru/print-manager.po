@@ -4,20 +4,20 @@
 # Yuri Efremov <yur.arh@gmail.com>, 2013.
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
 # Alexander Potashev <aspotashev@gmail.com>, 2015.
-# Alexander Yavorsky <kekcuha@gmail.com>, 2018, 2020, 2023.
+# SPDX-FileCopyrightText: 2018, 2020, 2023 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-13 01:39+0000\n"
-"PO-Revision-Date: 2023-01-12 11:14+0300\n"
+"PO-Revision-Date: 2023-12-05 22:12+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.08.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -65,12 +65,10 @@ msgid "Configure your connection"
 msgstr "Настройка подключения"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "Выбор драйвера"
+msgstr "Выбор драйвера %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -294,10 +292,9 @@ msgstr "Портирование на Qt 5 и Plasma 5"
 
 #: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Портирование на Qt 5 и Plasma 5"
+msgstr "Портирование на Qt 6 и Plasma 6"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -444,10 +441,9 @@ msgstr "Выберите пункт из списка"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Print settings"
+#, kde-format
 msgid "Media Settings"
-msgstr "Параметры печати"
+msgstr "Параметры носителя"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
@@ -615,20 +611,16 @@ msgid "Query Printer for Default Options"
 msgstr "Получить параметры по умолчанию от принтера"
 
 #: src/kcm/printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Ошибка настройки класса"
+msgstr "Ошибка настройки класса: "
 
 #: src/kcm/printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Ошибка настройки принтера"
+msgstr "Ошибка настройки принтера: "
 
 #: src/kcm/printermanager.cpp:364
 #, kde-format
@@ -636,23 +628,21 @@ msgid "Failed to perform request: %1"
 msgstr "Не удалось выполнить запрос: %1"
 
 #: src/kcm/printermanager.cpp:416
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Ошибка получения параметров сервера"
+msgstr "Ошибка получения параметров сервера: %1"
 
 #: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Ошибка сервера: %1: %2"
 
 #: src/kcm/printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "Распечатать страницу самопроверки"
+msgstr "Напечатать страницу самопроверки"
 
 #: src/kcm/printermanager.cpp:515
 #, kde-format
@@ -847,11 +837,7 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "HAL (Hardware Abstraction Layer) обнаружил локальный принтер."
 
 #: src/libkcups/DevicesModel.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
@@ -861,25 +847,20 @@ msgstr ""
 "устройства."
 
 #: src/libkcups/DevicesModel.cpp:124
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
 "Работу принтера обеспечивает HPLIP или функция принтера многофункционального "
-"устройства."
+"устройства. "
 
 #: src/libkcups/DevicesModel.cpp:125
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "Сетевой принтер IPP через DNS-SD"
+msgstr "Сетевой принтер через IPP"
 
 #: src/libkcups/DevicesModel.cpp:126
 #, kde-format
@@ -894,15 +875,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Удалённый принтер CUPS через DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:144
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Сетевой принтер через DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "Сетевой принтер %1 через DNS-SD"
@@ -1141,10 +1120,9 @@ msgid "Unknown - '%1'"
 msgstr "Неизвестно — «%1»"
 
 #: src/libkcups/SelectMakeModel.cpp:115
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose the driver for %1"
-msgstr "В&ыбрать драйвер из списка"
+msgstr "Выбрать драйвер для %1"
 
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
@@ -1164,10 +1142,9 @@ msgstr "Выбор драйвера"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose &the driver"
-msgstr "В&ыбрать драйвер из списка"
+msgstr "В&ыбрать драйвер"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91

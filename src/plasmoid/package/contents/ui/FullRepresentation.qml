@@ -34,6 +34,7 @@ PlasmaExtras.Representation {
             section {
                 property: printersModel.printersOnly ? "" : "isClass"
                 delegate: Kirigami.ListSectionHeader {
+                    width: ListView.view.width
                     required property bool section
                     label: !section ? i18n("Printers") : i18n("Printer Groups")
                 }

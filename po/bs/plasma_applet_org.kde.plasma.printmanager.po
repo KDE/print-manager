@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-12-07 01:42+0000\n"
 "PO-Revision-Date: 2013-10-18 22:34+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian\n"
@@ -20,21 +20,21 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-10-19 05:24+0000\n"
 "X-Generator: Launchpad (build 16807)\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 msgid "Printer Groups"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Nijedan štampač nije konfigurisan ili otkriven"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 msgid "No matches"
 msgstr ""
 

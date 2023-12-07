@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-12-07 01:42+0000\n"
 "PO-Revision-Date: 2023-11-08 14:31+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Stampanti"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 msgid "Printer Groups"
 msgstr "Gruppi di stampanti"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Nessuna stampante è stata configurata o trovata"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 msgid "No matches"
 msgstr "Nessuna corrispondenza"
 

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-12-07 01:42+0000\n"
 "PO-Revision-Date: 2022-06-18 14:50+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -19,23 +19,23 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Skrivarar"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #, fuzzy
 #| msgid "Printers"
 msgid "Printer Groups"
 msgstr "Skrivarar"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Ingen skrivarar er sette opp eller oppdaga"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 msgid "No matches"
 msgstr "Ingen treff"
 

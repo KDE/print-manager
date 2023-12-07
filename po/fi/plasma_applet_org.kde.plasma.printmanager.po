@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-12-07 01:42+0000\n"
 "PO-Revision-Date: 2022-04-04 13:37+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -18,23 +18,23 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 20.04.2\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Tulostimet"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #, fuzzy
 #| msgid "Printers"
 msgid "Printer Groups"
 msgstr "Tulostimet"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Tulostimia ei ole havaittu tai määritetty"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 msgid "No matches"
 msgstr "Ei osumia"
 

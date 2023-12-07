@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-08 08:48+0000\n"
+"POT-Creation-Date: 2023-12-07 01:42+0000\n"
 "PO-Revision-Date: 2019-05-22 22:28+0900\n"
 "Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -16,23 +16,23 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 19.04.1\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "プリンタ"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:38
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #, fuzzy
 #| msgid "Printers"
 msgid "Printer Groups"
 msgstr "プリンタ"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "設定または検出されたプリンタはありません"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:64
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 msgid "No matches"
 msgstr ""
 

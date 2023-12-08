@@ -3,7 +3,7 @@ set(PROJECT_VERSION "5.90.0")
 
 cmake_minimum_required(VERSION 3.16)
 
-set(QT_MIN_VERSION "6.5.0")
+set(QT_MIN_VERSION "6.6.0")
 set(KF6_MIN_VERSION "5.240.0")
 
 set(CMAKE_CXX_STANDARD 20)

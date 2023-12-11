@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# Kishore G <kishore96@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2023 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-13 01:39+0000\n"
-"PO-Revision-Date: 2022-12-08 21:23+0530\n"
+"PO-Revision-Date: 2023-12-10 10:58+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.11.90\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -58,12 +58,10 @@ msgid "Configure your connection"
 msgstr "உங்கள் இணைப்பை அமையுங்கள்"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "சாதனநிரலைத் தேர்ந்தெடுத்தல்"
+msgstr "%1 என்பதற்கு சாதனநிரலைத் தேர்ந்தெடுத்தல்"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -272,39 +270,39 @@ msgstr ""
 #: src/add-printer/main.cpp:41
 #, kde-format
 msgid "Parent Window ID"
-msgstr ""
+msgstr "தாய் சாளர அடையாளம்"
 
 #: src/add-printer/main.cpp:44
 #, kde-format
 msgid "Add a new printer"
-msgstr ""
+msgstr "புதிய அச்சுப்பொறியைச் சேர்"
 
 #: src/add-printer/main.cpp:47
 #, kde-format
 msgid "Add a new printer class"
-msgstr ""
+msgstr "புதிய அச்சுப்பொறி வகையைச் சேர்"
 
 #: src/add-printer/main.cpp:50
 #, kde-format
 msgid "Changes the PPD of a given printer"
-msgstr ""
+msgstr "குறிப்பிட்ட அச்சுப்பொறியின் PPDயை மாற்றும்"
 
 #: src/add-printer/main.cpp:54
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
-msgstr ""
+msgstr "குறிப்பிட்ட அச்சுப்பொறியின் அல்லது சாதன அடையாளத்தின் PPDயை மாற்றும்"
 
 #: src/add-printer/PageAddPrinter.cpp:124
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr ""
+msgstr "வகையை சேர்க்க முடியவில்லை: '%1'"
 
 #: src/add-printer/PageAddPrinter.cpp:126
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr ""
+msgstr "அச்சுப்பொறியை அமைக்க முடியவில்லை: '%1'"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/PageAddPrinter.ui:31
@@ -355,17 +353,19 @@ msgstr ""
 #: src/add-printer/PageDestinations.cpp:191
 #, kde-format
 msgid "A printer connected to a USB port."
-msgstr ""
+msgstr "USB புறை மூலமாக இணைந்துள்ள அச்சுப்பொறி."
 
 #: src/add-printer/PageDestinations.cpp:194
 #, kde-format
 msgid "A printer connected via Bluetooth."
-msgstr ""
+msgstr "ஊடலை மூலமாக இணைந்துள்ள அச்சுப்பொறி."
 
 #: src/add-printer/PageDestinations.cpp:198
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr ""
+"வன்பொருள் அருவமாக்க அடுக்கு (Hardware Abstraction Layer, HAL) கண்டறிந்த வட்டார "
+"அச்சுப்பொறி."
 
 #: src/add-printer/PageDestinations.cpp:203
 #, kde-format
@@ -412,13 +412,13 @@ msgstr "பட்டியலிலுள்ள ஒன்றைத் தேர�
 #: src/configure-printer/ConfigureDialog.cpp:94
 #, kde-format
 msgid "Media Settings"
-msgstr ""
+msgstr "ஊடக அமைப்புகள்"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
-msgstr ""
+msgstr "அட்டைப்பக்கங்கள், கொள்கைகள், மற்றும் அனுமதியுள்ள பயனர்கள்"
 
 #: src/configure-printer/ConfigureDialog.cpp:171
 #, kde-format
@@ -432,7 +432,7 @@ msgstr ""
 #: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "சேமி"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
@@ -472,7 +472,7 @@ msgstr "அச்சுப்பொறியை நிறுத்து"
 #: src/configure-printer/PrinterBehavior.cpp:207
 #, kde-format
 msgid "Authenticated"
-msgstr ""
+msgstr "அங்கீகரிக்கப்பட்டது"
 
 #: src/configure-printer/PrinterBehavior.cpp:209
 #, kde-format
@@ -518,37 +518,37 @@ msgstr ""
 #: src/configure-printer/PrinterBehavior.ui:29
 #, kde-format
 msgid "Banners"
-msgstr ""
+msgstr "அட்டைப்பக்கங்கள்"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: src/configure-printer/PrinterBehavior.ui:35
 #, kde-format
 msgid "Starting Banner:"
-msgstr ""
+msgstr "துவக்க அட்டைப்பக்கம்:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/configure-printer/PrinterBehavior.ui:55
 #, kde-format
 msgid "Ending Banner:"
-msgstr ""
+msgstr "முடிவு அட்டைப்பக்கம்:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
 #: src/configure-printer/PrinterBehavior.ui:84
 #, kde-format
 msgid "Policies"
-msgstr ""
+msgstr "கொள்கைகள்"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/configure-printer/PrinterBehavior.ui:90
 #, kde-format
 msgid "Operation Policy:"
-msgstr ""
+msgstr "பயன்பாட்டு கொள்கை:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/configure-printer/PrinterBehavior.ui:103
 #, kde-format
 msgid "Error Policy:"
-msgstr ""
+msgstr "சிக்கல் கொள்கை:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
 #: src/configure-printer/PrinterBehavior.ui:133
@@ -583,42 +583,40 @@ msgstr "அச்சுப்பொறியின் இயல்பிரு�
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr ""
+msgstr "அச்சுப்பொறி வகையை அமைக்க முடியவில்லை: "
 
 #: src/kcm/printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "அச்சுப்பொறியை அமை"
+msgstr "அச்சுப்பொறியை அமைக்க முடியவில்லை: "
 
 #: src/kcm/printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr ""
+msgstr "கோரிக்கையை நிறைவேற்ற முடியவில்லை: %1"
 
 #: src/kcm/printermanager.cpp:416
-#, fuzzy, kde-format
-#| msgid "Failed to get a list of devices: '%1'"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "சாதனங்களின் பட்டியலைப் பெற முடியவில்லை: '%1'"
+msgstr "சேவையக அமைப்புகளைப் பெற முடியவில்லை: %1"
 
 #: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "சேவையக சிக்கல்: (%1): %2"
 
 #: src/kcm/printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr ""
+msgstr "சோதனைப் பக்கத்தை அச்சிடு"
 
 #: src/kcm/printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
-msgstr ""
+msgstr "அச்சு முனைகளை சுத்தம் செய்"
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
@@ -633,32 +631,32 @@ msgstr "புதிய அச்சுப்பொறி அமைக்கப�
 #: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was Added"
-msgstr ""
+msgstr "புதிய அச்சுப்பொறி செர்க்கப்பட்டுள்ளது"
 
 #: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer is Missing Drivers"
-msgstr ""
+msgstr "புதிய அச்சுப்பொறிக்கான சாதனநிரலைக் காணவில்லை"
 
 #: src/kded/NewPrinterNotification.cpp:165
 #, kde-format
 msgid "Missing printer driver"
-msgstr ""
+msgstr "காணாத அச்சுப்பொறி சாதனநிரல்"
 
 #: src/kded/NewPrinterNotification.cpp:167
 #, kde-format
 msgid "No printer driver for %1 %2."
-msgstr ""
+msgstr "%1 %2 என்பதற்கான சாதனநிரல் இல்லை."
 
 #: src/kded/NewPrinterNotification.cpp:169
 #, kde-format
 msgid "No printer driver for %1."
-msgstr ""
+msgstr "%1 என்பதற்கான சாதனநிரல் இல்லை."
 
 #: src/kded/NewPrinterNotification.cpp:171
 #, kde-format
 msgid "No driver for this printer."
-msgstr ""
+msgstr "இந்த அச்சுப்பொறிக்கான சாதனநிரல் இல்லை."
 
 #: src/kded/NewPrinterNotification.cpp:173
 #, kde-format
@@ -668,7 +666,7 @@ msgstr "தேடு"
 #: src/kded/NewPrinterNotification.cpp:236
 #, kde-format
 msgid "'%1' has been added, please check its driver."
-msgstr ""
+msgstr "'%1' சேர்க்கப்பட்டுள்ளது, அதன் சாதனநிரலை சரிபார்க்கவும்."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:237
@@ -1016,7 +1014,7 @@ msgstr ""
 #: src/libkcups/PPDModel.cpp:43
 #, kde-format
 msgid "Recommended Drivers"
-msgstr ""
+msgstr "பரிந்துரைக்கப்படும் சாதனநிரல்கள்"
 
 #: src/libkcups/PPDModel.cpp:97
 #, kde-format
@@ -1031,7 +1029,7 @@ msgstr "அச்சுப்பொறிகள்"
 #: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle"
-msgstr ""
+msgstr "வேலையின்றி உள்ளது"
 
 #: src/libkcups/PrinterModel.cpp:424
 #, kde-format
@@ -1041,7 +1039,7 @@ msgstr ""
 #: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle - '%1'"
-msgstr ""
+msgstr "வேலையின்றி உள்ளது - '%1'"
 
 #: src/libkcups/PrinterModel.cpp:426
 #, kde-format
@@ -1051,17 +1049,17 @@ msgstr ""
 #: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "In use"
-msgstr ""
+msgstr "பயனில் உள்ளது"
 
 #: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "In use - '%1'"
-msgstr ""
+msgstr "பயனில் உள்ளது - '%1'"
 
 #: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்டுள்ளது"
 
 #: src/libkcups/PrinterModel.cpp:436
 #, kde-format
@@ -1071,7 +1069,7 @@ msgstr ""
 #: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused - '%1'"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்டுள்ளது - '%1'"
 
 #: src/libkcups/PrinterModel.cpp:438
 #, kde-format
@@ -1081,12 +1079,12 @@ msgstr ""
 #: src/libkcups/PrinterModel.cpp:442
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியாதது"
 
 #: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr ""
+msgstr "தெரியாதது - '%1'"
 
 #: src/libkcups/SelectMakeModel.cpp:115
 #, kde-format
@@ -1124,34 +1122,34 @@ msgstr ""
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
-msgstr ""
+msgstr "அச்சுவரிசை"
 
 #: src/printqueue/main.cpp:39
 #, kde-format
 msgid "Show printer queue(s)"
-msgstr ""
+msgstr "அச்சுவரிசையைக் காட்டு"
 
 #: src/printqueue/PrintQueueUi.cpp:194
 #, kde-format
 msgid "Printer ready"
-msgstr ""
+msgstr "அச்சுப்பொறி தயார்"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
 #: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
-msgstr ""
+msgstr "அச்சுப்பொறியை இடைநிறுத்து"
 
 #: src/printqueue/PrintQueueUi.cpp:202
 #, kde-format
 msgid "Printing..."
-msgstr ""
+msgstr "அச்சிடுகிறது..."
 
 #: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format
 msgid "Printing '%1'"
-msgstr ""
+msgstr "'%1' தனை அச்சிடுகிறது"
 
 #: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format

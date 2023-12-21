@@ -142,7 +142,7 @@
     <p xml:lang="zh-TW">這個 KDE 設定工具讓您設定並配置印表機。它會自動偵測新印表機、為您尋找可用的驅動程式，並讓您調整它們的設定。您可以影印測試頁面並設定分享屬性。</p>
   </description>
   <url type="homepage">https://www.kde.org/</url>
-  <url type="bugtracker">https://bugs.kde.org/buglist.cgi?component=general&amp;product=print-manager&amp;resolution=---</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=print-manager</url>
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <screenshots>

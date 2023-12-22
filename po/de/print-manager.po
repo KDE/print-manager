@@ -1,19 +1,20 @@
 # Frederik Schwarzer <schwarzer@kde.org>, 2012, 2013, 2018, 2023.
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2015, 2018, 2019, 2020.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-13 01:39+0000\n"
-"PO-Revision-Date: 2023-04-03 17:02+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-12-18 01:45+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,7 +30,7 @@ msgstr "schwarzer@kde.org"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
-msgstr "Einen neuen Drucker hinzufügen"
+msgstr "Neuen Drucker hinzufügen"
 
 #: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
@@ -56,12 +57,10 @@ msgid "Configure your connection"
 msgstr "Einrichtung Ihrer Verbindung"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "Wählen Sie einen Treiber"
+msgstr "Wählen Sie einen Treiber für %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -285,10 +284,9 @@ msgstr "Portierung auf Qt 5 / Plasma 5"
 
 #: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Portierung auf Qt 5 / Plasma 5"
+msgstr "Portierung auf Qt 6 / Plasma 6"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -440,10 +438,9 @@ msgstr "Bitte wählen Sie einen Eintrag aus der Liste"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Print settings"
+#, kde-format
 msgid "Media Settings"
-msgstr "Druckeinstellungen"
+msgstr "Papiereinstellungen"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
@@ -611,20 +608,16 @@ msgid "Query Printer for Default Options"
 msgstr "Standardeinstellungen des Druckers abfragen"
 
 #: src/kcm/printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Klasse kann nicht eingerichtet werden"
+msgstr "Klasse kann nicht eingerichtet werden: "
 
 #: src/kcm/printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Drucker kann nicht eingerichtet werden"
+msgstr "Drucker kann nicht eingerichtet werden: "
 
 #: src/kcm/printermanager.cpp:364
 #, kde-format
@@ -632,18 +625,16 @@ msgid "Failed to perform request: %1"
 msgstr "Auftrag kann nicht ausgeführt werden: %1"
 
 #: src/kcm/printermanager.cpp:416
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen"
+msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen: %1"
 
 #: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Server-Fehler: (%1): %2"
 
 #: src/kcm/printermanager.cpp:509
 #, kde-format
@@ -844,39 +835,30 @@ msgstr ""
 "Ein von der Hardware-Abstraktionsschicht (HAL) erkannter, lokaler Drucker"
 
 #: src/libkcups/DevicesModel.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"Ein mittels HPLIP betriebenes Fax oder die Faxfunktion eines "
-"Multifunktionsgerätes"
+"Ein mittels HPLIP betriebenes Fax\n"
+"oder die Faxfunktion eines Multifunktionsgerätes"
 
 #: src/libkcups/DevicesModel.cpp:124
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"Ein mittels HPLIP betriebener Drucker oder die Druckfunktion eines "
-"Multifunktionsgerätes"
+"Ein mittels HPLIP betriebener Drucker\n"
+"oder die Druckfunktion eines Multifunktionsgerätes"
 
 #: src/libkcups/DevicesModel.cpp:125
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "IPP-Netzwerkdrucker über DNS-SD"
+msgstr "IPP-Netzwerkdrucker über IPP"
 
 #: src/libkcups/DevicesModel.cpp:126
 #, kde-format
@@ -891,15 +873,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "CUPS-Drucker an Fremdrechner über DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:144
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Netzwerkdrucker über DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 Netzwerkdrucker über DNS-SD"
@@ -1072,7 +1052,7 @@ msgstr "Empfohlene Treiber"
 #: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Leeres PPD-Modell"
 
 #: src/libkcups/PrinterModel.cpp:202
 #, kde-format
@@ -1140,10 +1120,9 @@ msgid "Unknown - '%1'"
 msgstr "Unbekannt - „%1“"
 
 #: src/libkcups/SelectMakeModel.cpp:115
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose the driver for %1"
-msgstr "Bi&tte wählen Sie einen Drucker aus der Liste"
+msgstr "Bi&tte wählen Sie einen Treiber für %1"
 
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
@@ -1165,10 +1144,9 @@ msgstr "Wählen Sie einen Treiber"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose &the driver"
-msgstr "Bi&tte wählen Sie einen Drucker aus der Liste"
+msgstr "Bi&tte wählen Sie einen Treiber"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91

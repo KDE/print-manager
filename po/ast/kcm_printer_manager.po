@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2023-11-09 14:36+0100\n"
+"PO-Revision-Date: 2023-12-14 22:00+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
-"Language-Team: \n"
+"Language-Team: Assamese <alministradores@softastur.org>\n"
 "Language: ast\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -129,7 +129,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
-msgstr ""
+msgstr "URI:"
 
 #: ui/FindPrinter.qml:231
 #, kde-format
@@ -146,7 +146,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr ""
+msgstr "Nun ye posible descubrir automáticamente nengún preséu d'imprentación"
 
 #: ui/FindPrinter.qml:427
 #, kde-format
@@ -528,7 +528,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr ""
+msgstr "Conexón:"
 
 #: ui/PrinterSettings.qml:522
 #, kde-format

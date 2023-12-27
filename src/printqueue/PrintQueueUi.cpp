@@ -24,7 +24,7 @@
 
 #include <KConfigGroup>
 #include <KIO/AuthInfo>
-#include <KIO/Job>
+#include <KJob>
 #include <KMessageBox>
 #include <KPasswdServerClient>
 #include <KSharedConfig>

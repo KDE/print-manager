@@ -10,6 +10,7 @@
 #include "DevicesModel.h"
 
 #include <KCupsRequest.h>
+#include <KIO/FileCopyJob>
 #include <KLocalizedString>
 #include <SelectMakeModel.h>
 

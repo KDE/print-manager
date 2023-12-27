@@ -11,7 +11,7 @@
 
 #include <QStackedLayout>
 
-#include <KIO/Job>
+#include <KJob>
 
 namespace Ui
 {

@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2012, 2013, 2018, 2023.
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2015, 2018, 2019, 2020.
 msgid ""
@@ -5,15 +6,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:51+0000\n"
-"PO-Revision-Date: 2023-04-03 17:02+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-12-21 23:22+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -29,7 +30,7 @@ msgstr "schwarzer@kde.org"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
-msgstr "Einen neuen Drucker hinzufügen"
+msgstr "Neuen Drucker hinzufügen"
 
 #: add-printer/AddPrinterAssistant.cpp:77 add-printer/ChooseLpd.cpp:25
 #: add-printer/ChooseSamba.cpp:29 add-printer/ChooseSerial.cpp:23
@@ -204,9 +205,7 @@ msgstr "Port:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: add-printer/ChooseUri.ui:41
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Connection:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Verbindung:"
@@ -299,11 +298,7 @@ msgstr ""
 "Ein von der Hardware-Abstraktionsschicht (HAL) erkannter, lokaler Drucker"
 
 #: add-printer/DevicesModel.cpp:251
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -313,11 +308,7 @@ msgstr ""
 "Multifunktionsgerätes"
 
 #: add-printer/DevicesModel.cpp:255
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -432,18 +423,14 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: add-printer/PageAddPrinter.ui:45
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Description:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Beschreibung:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: add-printer/PageAddPrinter.ui:55
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Location:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Standort:"
@@ -657,8 +644,7 @@ msgstr ""
 "Möchten Sie sie speichern?"
 
 #: configure-printer/ConfigureDialog.cpp:186
-#, fuzzy, kde-format
-#| msgid "Save"
+#, kde-format
 msgid "Save"
 msgstr "Speichern"
 
@@ -678,32 +664,26 @@ msgid "Printer to be configured"
 msgstr "Einzurichtender Drucker"
 
 #: configure-printer/ModifyPrinter.cpp:124
-#, fuzzy, kde-format
-#| msgid "Current - %1"
+#, kde-format
 msgid "Current - %1"
 msgstr "Aktuell - %1"
 
 #: configure-printer/ModifyPrinter.cpp:127
-#, fuzzy, kde-format
-#| msgid "Select a custom driver"
+#, kde-format
 msgid "Select a custom driver"
-msgstr "Wählen Sie einen benutzerdefinierten Treiber"
+msgstr "Benutzerdefinierten Treiber auswählen"
 
 #: configure-printer/ModifyPrinter.cpp:226
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class"
-msgstr "Klasse kann nicht eingerichtet werden"
+msgstr "Das Einrichten der Klasse ist fehlgeschlagen"
 
 #: configure-printer/ModifyPrinter.cpp:227
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer"
-msgstr "Drucker kann nicht eingerichtet werden"
+msgstr "Das Einrichten des Druckers ist fehlgeschlagen"
 
 #: configure-printer/ModifyPrinter.cpp:229 printer-manager-kcm/PrintKCM.cpp:328
 #, kde-format
@@ -727,10 +707,11 @@ msgstr "Beschreibung:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, descriptionLE)
 #: configure-printer/ModifyPrinter.ui:42
-#, fuzzy, kde-format
-#| msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
+#, kde-format
 msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-msgstr "Menschenlesbare Beschreibung wie „HP LaserJet mit Duplexeinheit“"
+msgstr ""
+"Bitte geben Sie eine aussagekräftige Beschreibung wie „HP LaserJet mit "
+"Duplexeinheit“ ein"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: configure-printer/ModifyPrinter.ui:52
@@ -740,10 +721,9 @@ msgstr "Standort:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, locationLE)
 #: configure-printer/ModifyPrinter.ui:62
-#, fuzzy, kde-format
-#| msgid "Human-readable location such as \"Lab 1\""
+#, kde-format
 msgid "Human-readable location such as \"Lab 1\""
-msgstr "Menschenlesbarer Standort wie „Labor 1“"
+msgstr "Bitte geben Sie einen aussagekräftigen Ort wie „Labor 1“ ein"
 
 #. i18n: ectx: property (text), widget (QLabel, connectionL)
 #: configure-printer/ModifyPrinter.ui:79
@@ -753,47 +733,7 @@ msgstr "Verbindung:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, connectionLE)
 #: configure-printer/ModifyPrinter.ui:103
-#, fuzzy, kde-format
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\">\n"
-#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#| "css\">\n"
-#| "p, li { white-space: pre-wrap; }\n"
-#| "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
-#| "font-weight:400; font-style:normal;\">\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#| "size:10pt;\">Examples:</span></p>\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-#| "</p>\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-#| "port1</p>\n"
-#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#| "\"></p>\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</"
-#| "p>\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/"
-#| "port1</p>\n"
-#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#| "\"></p>\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</"
-#| "p>\n"
-#| "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#| "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#| "\"></p>\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-#| "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#| "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-#| "p></body></html>"
+#, kde-format
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -844,44 +784,44 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
 "size:10pt;\">Beispiele:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
-"p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://Rechnername:631/ipp/"
+"</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://Rechnername:631/ipp/"
 "port1</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
 "p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://Rechnername/ipp/</"
+"p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/port1</"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://Rechnername/ipp/"
+"port1</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
+"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
+"p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://Rechnername/queue</"
 "p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
 "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
 "p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p>\n"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://Rechnername</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">socket://Rechnername:9100</"
 "p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, membersL)
 #: configure-printer/ModifyPrinter.ui:113
-#, fuzzy, kde-format
-#| msgid "Members"
+#, kde-format
 msgid "Members"
-msgstr "Mitglieder:"
+msgstr "Mitglieder"
 
 #. i18n: ectx: property (text), widget (QLabel, driverL)
 #: configure-printer/ModifyPrinter.ui:126
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgid "Driver:"
 msgstr "Treiber:"
 
@@ -1005,8 +945,7 @@ msgid "A&llow these users to print"
 msgstr "Drucken zu&lassen für diese Benutzer"
 
 #: configure-printer/PrinterOptions.cpp:50
-#, fuzzy, kde-format
-#| msgid "Set Default Options"
+#, kde-format
 msgid "Set Default Options"
 msgstr "Standardeinstellungen festlegen"
 
@@ -1161,8 +1100,7 @@ msgid "Recommended Drivers"
 msgstr "Empfohlene Treiber"
 
 #: libkcups/PrinterModel.cpp:163
-#, fuzzy, kde-format
-#| msgid "Printers"
+#, kde-format
 msgid "Printers"
 msgstr "Drucker"
 
@@ -1437,7 +1375,7 @@ msgstr "Einen neuen Drucker oder eine neue Druckerklasse hinzufügen"
 #: printer-manager-kcm/PrintKCM.cpp:67 printer-manager-kcm/PrintKCM.ui:32
 #, kde-format
 msgid "Remove Printer"
-msgstr "Drucker entfernen "
+msgstr "Drucker entfernen"
 
 #: printer-manager-kcm/PrintKCM.cpp:77
 #, kde-format

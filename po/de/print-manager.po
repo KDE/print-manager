@@ -1,12 +1,12 @@
+# SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2012, 2013, 2018, 2023.
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2015, 2018, 2019, 2020.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:34+0000\n"
-"PO-Revision-Date: 2023-12-18 01:45+0100\n"
+"PO-Revision-Date: 2023-12-21 23:28+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -611,13 +611,13 @@ msgstr "Standardeinstellungen des Druckers abfragen"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Klasse kann nicht eingerichtet werden: "
+msgstr "Das Einrichten der Klasse ist fehlgeschlagen: "
 
 #: src/kcm/printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Drucker kann nicht eingerichtet werden: "
+msgstr "Das Einrichten des Druckers ist fehlgeschlagen: "
 
 #: src/kcm/printermanager.cpp:364
 #, kde-format
@@ -841,8 +841,8 @@ msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"Ein mittels HPLIP betriebenes Fax\n"
-"oder die Faxfunktion eines Multifunktionsgerätes"
+"Ein mittels HPLIP betriebenes Fax oder die Faxfunktion eines "
+"Multifunktionsgerätes"
 
 #: src/libkcups/DevicesModel.cpp:124
 #, kde-format

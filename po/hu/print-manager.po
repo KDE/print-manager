@@ -3,20 +3,21 @@
 #
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2012, 2015, 2020.
 # Balázs Úr <urbalazs@gmail.com>, 2012, 2013.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:34+0000\n"
-"PO-Revision-Date: 2020-12-27 13:14+0100\n"
-"Last-Translator: Kristóf Kiszel <kiszel.kristof@gmail.com>\n"
+"PO-Revision-Date: 2024-01-02 15:06+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.03.70\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -26,7 +27,7 @@ msgstr "Kiszel Kristóf"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kiszel.kristof@gmail.com"
+msgstr "ulysses@fsf.hu"
 
 #: src/add-printer/AddPrinterAssistant.cpp:28
 #, kde-format
@@ -59,12 +60,10 @@ msgid "Configure your connection"
 msgstr "A kapcsolat beállítása"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "Illesztőprogram-választás"
+msgstr "Illesztőprogram-választás ehhez: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -288,10 +287,9 @@ msgstr "Portolás Qt 5-re/Plasma 5-re"
 
 #: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Portolás Qt 5-re/Plasma 5-re"
+msgstr "Portolás Qt 6-ra/Plasma 6-ra"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -438,10 +436,9 @@ msgstr "Válasszon egy elemet a listából"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Print settings"
+#, kde-format
 msgid "Media Settings"
-msgstr "Nyomtatási beállítások"
+msgstr "Médiabeállítások"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
@@ -461,7 +458,7 @@ msgstr ""
 #: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
@@ -609,20 +606,16 @@ msgid "Query Printer for Default Options"
 msgstr "Nyomtató lekérése az alapértelmezett beállításokhoz"
 
 #: src/kcm/printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Nem sikerült beállítani az osztályt"
+msgstr "Nem sikerült beállítani az osztályt: "
 
 #: src/kcm/printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Nem sikerült beállítani a nyomtatót"
+msgstr "Nem sikerült beállítani a nyomtatót: "
 
 #: src/kcm/printermanager.cpp:364
 #, kde-format
@@ -630,18 +623,16 @@ msgid "Failed to perform request: %1"
 msgstr "Nem sikerült végrehajtani a kérést: %1"
 
 #: src/kcm/printermanager.cpp:416
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "A kiszolgáló beállításainak lekérése nem sikerült"
+msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
 
 #: src/kcm/printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Kiszolgálóhiba: (%1): %2"
 
 #: src/kcm/printermanager.cpp:509
 #, kde-format
@@ -841,38 +832,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "A HAL helyi nyomtatót észlelt"
 
 #: src/libkcups/DevicesModel.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"A HPLIP csomag kezeli a faxot vagy a multifunkcionális eszköz faxkezelő "
-"részét"
+"A HPLIP csomag kezeli a faxot vagy a multifunkcionális\n"
+"eszköz faxkezelő részét"
 
 #: src/libkcups/DevicesModel.cpp:124
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós eszköz nyomtató részét"
+"A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós\n"
+"eszköz nyomtató részét"
 
 #: src/libkcups/DevicesModel.cpp:125
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "IPP hálózati nyomtató DNS-SD-n keresztül"
+msgstr "IPP hálózati nyomtató IPP-n keresztül"
 
 #: src/libkcups/DevicesModel.cpp:126
 #, kde-format
@@ -887,15 +870,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Távoli CUPS nyomtató DNS-SD-n keresztül"
 
 #: src/libkcups/DevicesModel.cpp:144
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Hálózati nyomtató DNS-SD-n keresztül"
 
 #: src/libkcups/DevicesModel.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 hálózati nyomtató DNS-SD-n keresztül"
@@ -1066,7 +1047,7 @@ msgstr "Ajánlott illesztőprogramok"
 #: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Üres ppd modell"
 
 #: src/libkcups/PrinterModel.cpp:202
 #, kde-format
@@ -1134,10 +1115,9 @@ msgid "Unknown - '%1'"
 msgstr "Ismeretlen - „%1”"
 
 #: src/libkcups/SelectMakeModel.cpp:115
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose the driver for %1"
-msgstr "Válassza ki az illesz&tőprogramot a listából"
+msgstr "Válassza ki az illesztőprogramot ehhez: %1"
 
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
@@ -1157,10 +1137,9 @@ msgstr "Illesztőprogram-választás"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose &the driver"
-msgstr "Válassza ki az illesz&tőprogramot a listából"
+msgstr "Válassza ki az illesz&tőprogramot"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91

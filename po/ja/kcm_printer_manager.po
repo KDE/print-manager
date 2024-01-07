@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2023, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019.
 msgid ""
@@ -5,8 +6,8 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-14 01:39+0000\n"
-"PO-Revision-Date: 2019-11-02 00:09+0900\n"
-"Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
+"PO-Revision-Date: 2024-01-06 01:54+0900\n"
+"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -15,46 +16,46 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 19.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
-msgstr ""
+msgstr "既定のオプションを設定"
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr ""
+msgstr "クラスの設定に失敗しました:"
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr ""
+msgstr "プリンタの設定に失敗しました:"
 
 #: printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr ""
+msgstr "要求の実行に失敗しました: %1"
 
 #: printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr ""
+msgstr "サーバ設定の取得に失敗しました: %1"
 
 #: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "サーバエラー: (%1): %2"
 
 #: printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr ""
+msgstr "自己テストページを印刷"
 
 #: printermanager.cpp:515
 #, kde-format
@@ -65,88 +66,89 @@ msgstr "ヘッドクリーニング"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr ""
+msgstr "アドレスの例"
 
 #: ui/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr ""
+msgstr "おすすめドライバを選択"
 
 #: ui/Drivers.qml:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
+"おすすめドライバはプリンタのメーカー/モデルと接続タイプに基づいて決定されます"
 
 #: ui/FindPrinter.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr ""
+msgstr "プリンタの接続を設定"
 
 #: ui/FindPrinter.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
-msgstr ""
+msgstr "検出されたデバイスを表示"
 
 #: ui/FindPrinter.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr ""
+msgstr "手動のオプションを表示"
 
 #: ui/FindPrinter.qml:114
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "更新"
 
 #: ui/FindPrinter.qml:125
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr ""
+msgstr "CUPS ネットワークプリンタ ヘルプ"
 
 #: ui/FindPrinter.qml:187
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr ""
+msgstr "リモートの印刷デバイスを検索"
 
 #: ui/FindPrinter.qml:188
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr ""
+msgstr "リモートホスト/デバイスのアドレスを入力"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
-msgstr ""
+msgstr "プリンタを選択"
 
 #: ui/FindPrinter.qml:223
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
-msgstr ""
+msgstr "Uri:"
 
 #: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
-msgstr ""
+msgstr "ホスト URI を入力"
 
 #: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr ""
+msgstr "デバイスの接続を選択"
 
 #: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr ""
+msgstr "印刷デバイスを自動的に検出できません"
 
 #: ui/FindPrinter.qml:427
 #, kde-format
@@ -155,287 +157,289 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
+"「更新」を選択して再試行するか、リストから手動設定オプションを選択してくださ"
+"い"
 
 #: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr ""
+msgstr "リストから手動設定オプションを選択"
 
 #: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr ""
+msgstr "この機能はまだ使用できません (%1)"
 
 #: ui/Global.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr ""
+msgstr "プリントサーバのオプション"
 
 #: ui/Global.qml:28
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr ""
+msgstr "CUPS プリントサーバ管理者"
 
 #: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
-msgstr ""
+msgstr "リセット"
 
 #: ui/Global.qml:43
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 #: ui/Global.qml:105
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr ""
+msgstr "このシステムに接続されたプリンタを共有"
 
 #: ui/Global.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr ""
+msgstr "インターネットからの印刷を許可"
 
 #: ui/Global.qml:123
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr ""
+msgstr "リモート管理を許可"
 
 #: ui/Global.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr ""
+msgstr "ユーザにすべてのジョブのキャンセルを許可 (ユーザのキュー以外も)"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_queue"
-msgstr ""
+msgstr "new_queue"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_group"
-msgstr ""
+msgstr "new_group"
 
 #: ui/main.qml:67
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer"
-msgstr ""
+msgstr "プリンタを追加"
 
 #: ui/main.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group"
-msgstr ""
+msgstr "グループを追加"
 
 #: ui/main.qml:85
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server"
-msgstr ""
+msgstr "プリントサーバを設定"
 
 #: ui/main.qml:186
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr ""
+msgstr "設定されたプリンタはありません"
 
 #: ui/main.qml:187
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose 'Add Printer' to set up a new printer on this computer"
-msgstr ""
+msgstr "「プリンタを追加」を選択してこのコンピュータ上に新しいプリンタを設定"
 
 #: ui/main.qml:197
 #, kde-format
 msgid "Printers"
-msgstr ""
+msgstr "プリンタ"
 
 #: ui/main.qml:197
 #, kde-format
 msgid "Printer Groups"
-msgstr ""
+msgstr "プリンタのグループ"
 
 #: ui/main.qml:235
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
-msgstr ""
+msgstr "設定..."
 
 #: ui/main.qml:256
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr ""
+msgstr "印刷キューを開く..."
 
 #: ui/main.qml:273
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr ""
+msgstr "再開"
 
 #: ui/main.qml:274
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr ""
+msgstr "一時停止"
 
 #: ui/main.qml:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr ""
+msgstr "印刷を再開"
 
 #: ui/main.qml:289
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr ""
+msgstr "印刷を一時停止"
 
 #: ui/MakeModel.qml:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr ""
+msgstr "プリンタのモデルを選択"
 
 #: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr ""
+msgstr "プリンタのドライバ (%1)"
 
 #: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr ""
+msgstr "プリンタのドライバ"
 
 #: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr ""
+msgstr "PostScript Printer Description (PPD) ファイルを選択"
 
 #: ui/MakeModel.qml:157
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr ""
+msgstr "プリンタモデル名が必要です。プリンタモデルを選択してください。"
 
 #: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr ""
+msgstr "メーカー/モデルを選択:"
 
 #: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr ""
+msgstr "モデルをフィルタ"
 
 #: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
-msgstr ""
+msgstr "PPD ファイル:"
 
 #: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr ""
+msgstr "PPD ファイルを選択..."
 
 #: ui/MakeModel.qml:335
 #, kde-format
 msgid "Select"
-msgstr ""
+msgstr "選択"
 
 #: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
-msgstr ""
+msgstr "PostScript Printer Description ファイル (*.ppd)"
 
 #: ui/PrinterSettings.qml:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
-msgstr ""
+msgstr "グループを追加"
 
 #: ui/PrinterSettings.qml:44
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr ""
+msgstr "プリンタを追加"
 
 #: ui/PrinterSettings.qml:55
 #, kde-format
 msgid "Configure…"
-msgstr ""
+msgstr "設定..."
 
 #: ui/PrinterSettings.qml:60
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
 #: ui/PrinterSettings.qml:76
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr ""
+msgstr "CUPS プリンタ概要 ヘルプ"
 
 #: ui/PrinterSettings.qml:86
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
-msgstr ""
+msgstr "自動設定"
 
 #: ui/PrinterSettings.qml:93
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 #: ui/PrinterSettings.qml:102
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr ""
+msgstr "キューの名前が必要です。独自のキューの名前を入力してください。"
 
 #: ui/PrinterSettings.qml:109
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
-msgstr ""
+msgstr "メーカー/モデル名が必要です。メーカー/モデルを選択してください。"
 
 #: ui/PrinterSettings.qml:160
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr ""
+msgstr "プリンタの削除に失敗しました: %1"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Remove Group"
-msgstr ""
+msgstr "グループを削除"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
@@ -445,7 +449,7 @@ msgstr "プリンタを削除"
 #: ui/PrinterSettings.qml:179
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr ""
+msgstr "本当に %1 (%2) を削除しますか？"
 
 #: ui/PrinterSettings.qml:196
 #, kde-format
@@ -456,94 +460,94 @@ msgstr "キャンセル"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
-msgstr ""
+msgstr "<b>プリントグループ</b>は印刷リソースをプールするために利用されます。"
 
 #: ui/PrinterSettings.qml:384
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr ""
+msgstr "既定のプリンタ"
 
 #: ui/PrinterSettings.qml:391
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr ""
+msgstr "このグループを共有"
 
 #: ui/PrinterSettings.qml:392
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
-msgstr ""
+msgstr "このプリンタを共有"
 
 #: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr ""
+msgstr "印刷ジョブを受け付け中"
 
 #: ui/PrinterSettings.qml:430
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
-msgstr ""
+msgstr "テストページを印刷"
 
 #: ui/PrinterSettings.qml:436
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr ""
+msgstr "自己テストページを印刷"
 
 #: ui/PrinterSettings.qml:443
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
-msgstr ""
+msgstr "ヘッドクリーニング"
 
 #: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr ""
+msgstr "プリンタを検索..."
 
 #: ui/PrinterSettings.qml:471
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr ""
+msgstr "キューの名前:"
 
 #: ui/PrinterSettings.qml:484
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr ""
+msgstr "説明:"
 
 #: ui/PrinterSettings.qml:496
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr ""
+msgstr "場所:"
 
 #: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr ""
+msgstr "接続:"
 
 #: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr ""
+msgstr "メンバのプリンタ:"
 
 #: ui/PrinterSettings.qml:653
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr ""
+msgstr "メーカー/モデル:"
 
 #: ui/PrinterSettings.qml:668
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr ""
+msgstr "選択…"

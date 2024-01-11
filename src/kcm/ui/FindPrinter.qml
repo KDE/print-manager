@@ -77,7 +77,7 @@ Kirigami.Dialog {
             hasDetectedDevices = true
             // by default, select direct connect printer
             deviceList.currentIndex = directNdx !== -1 ? directNdx : netNdx
-            deviceList.itemAtIndex(deviceList.currentIndex).onClicked()
+            deviceList.itemAtIndex(deviceList.currentIndex).clicked()
         }
 
     }
@@ -212,7 +212,7 @@ Kirigami.Dialog {
 
                 function onRemotePrintersLoaded() {
                     if (list.count > 0) {
-                        list.itemAtIndex(0).onClicked()
+                        list.itemAtIndex(0).clicked()
                     }
                 }
             }

@@ -39,7 +39,7 @@ ColumnLayout {
             kcmConn.loading = false
             let found = kcm.recommendedDrivers.findIndex(d => {return d.match === "exact"})
             if (found >= 0) {
-                recmlist.itemAtIndex(found).onClicked()
+                recmlist.itemAtIndex(found).clicked()
             }
         }
     }

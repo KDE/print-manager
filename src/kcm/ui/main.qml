@@ -60,8 +60,6 @@ KCM.ScrollViewKCM {
         }
     }
 
-    extraFooterTopPadding: false
-
     actions: [
         Kirigami.Action {
             text: i18nc("@action:button", "Add Printer")

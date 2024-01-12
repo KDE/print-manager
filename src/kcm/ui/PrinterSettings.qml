@@ -35,8 +35,6 @@ KCM.AbstractKCM {
             dlg.open()
     }
 
-    extraFooterTopPadding: false
-
     title: {
         if (addMode) {
             return modelData.isClass

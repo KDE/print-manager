@@ -13,8 +13,6 @@ import org.kde.kirigami as Kirigami
 KCM.AbstractKCM {
     title: i18nc("@title:window", "Print Server Settings")
 
-    extraFooterTopPadding: false
-
     header: BannerWithTimer {
         id: error
 

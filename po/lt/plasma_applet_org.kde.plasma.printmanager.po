@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-07 01:42+0000\n"
-"PO-Revision-Date: 2022-11-18 14:47+0200\n"
+"PO-Revision-Date: 2024-01-11 16:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.1\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -27,10 +27,8 @@ msgid "Printers"
 msgstr "Spausdintuvai"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Spausdintuvai"
+msgstr "Spausdintuvų grupės"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -76,30 +74,24 @@ msgid "Show Only Active Jobs"
 msgstr "Rodyti tik aktyvius darbus"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&Konfigūruoti spausdintuvus..."
+msgstr "&Konfigūruoti spausdintuvus…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Pratęsti"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Pristabdyti"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "Konfigūruoti spausdintuvą..."
+msgstr "Konfigūruoti spausdintuvą…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Rodyti spausdinimo eilę"
+msgstr "Rodyti spausdinimo eilę…"
 
 #~ msgid "Search…"
 #~ msgstr "Ieškoti…"

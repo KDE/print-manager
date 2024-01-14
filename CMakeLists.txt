@@ -59,8 +59,6 @@ set_package_properties(KF6Kirigami PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
-find_package(KF6KirigamiAddons 0.10 REQUIRED)
-
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES
     TYPE RUNTIME

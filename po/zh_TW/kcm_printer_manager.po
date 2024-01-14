@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-14 01:39+0000\n"
+"POT-Creation-Date: 2024-01-14 03:09+0000\n"
 "PO-Revision-Date: 2023-12-02 20:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -174,43 +174,43 @@ msgctxt "@title:window"
 msgid "Print Server Settings"
 msgstr "列印伺服器設定"
 
-#: ui/Global.qml:28
+#: ui/Global.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
 msgstr "CUPS 列印伺服器管理"
 
-#: ui/Global.qml:36
+#: ui/Global.qml:34
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
 msgstr "重設"
 
-#: ui/Global.qml:43
+#: ui/Global.qml:41
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
 msgstr "套用"
 
-#: ui/Global.qml:105
+#: ui/Global.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
 msgstr "分享連線到這個系統的印表機"
 
-#: ui/Global.qml:117
+#: ui/Global.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
 msgstr "允許從網際網路進行列印"
 
-#: ui/Global.qml:123
+#: ui/Global.qml:121
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
 msgstr "允許遠端管理"
 
-#: ui/Global.qml:128
+#: ui/Global.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
@@ -226,77 +226,77 @@ msgstr "new_queue"
 msgid "new_group"
 msgstr "new_group"
 
-#: ui/main.qml:67
+#: ui/main.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer"
 msgstr "新增印表機"
 
-#: ui/main.qml:76
+#: ui/main.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group"
 msgstr "新增群組"
 
-#: ui/main.qml:85
+#: ui/main.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server"
 msgstr "設定列印伺服器"
 
-#: ui/main.qml:186
+#: ui/main.qml:184
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "目前沒有設定好的印表機"
 
-#: ui/main.qml:187
+#: ui/main.qml:185
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose 'Add Printer' to set up a new printer on this computer"
 msgstr "選擇「新增印表機」來為這台電腦設定新的印表機"
 
-#: ui/main.qml:197
+#: ui/main.qml:195
 #, kde-format
 msgid "Printers"
 msgstr "印表機"
 
-#: ui/main.qml:197
+#: ui/main.qml:195
 #, kde-format
 msgid "Printer Groups"
 msgstr "印表機群組"
 
-#: ui/main.qml:235
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "設定…"
 
-#: ui/main.qml:256
+#: ui/main.qml:254
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "開啟列印佇列…"
 
-#: ui/main.qml:273
+#: ui/main.qml:271
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "繼續"
 
-#: ui/main.qml:274
+#: ui/main.qml:272
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "暫停"
 
-#: ui/main.qml:288
+#: ui/main.qml:286
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "繼續列印"
 
-#: ui/main.qml:289
+#: ui/main.qml:287
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -369,180 +369,180 @@ msgstr "選取"
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript 印表機描述檔案 (*.ppd)"
 
-#: ui/PrinterSettings.qml:43
+#: ui/PrinterSettings.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "新增群組"
 
-#: ui/PrinterSettings.qml:44
+#: ui/PrinterSettings.qml:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "新增印表機"
 
-#: ui/PrinterSettings.qml:55
+#: ui/PrinterSettings.qml:53
 #, kde-format
 msgid "Configure…"
 msgstr "設定…"
 
-#: ui/PrinterSettings.qml:60
+#: ui/PrinterSettings.qml:58
 #, kde-format
 msgid "Remove"
 msgstr "移除"
 
-#: ui/PrinterSettings.qml:76
+#: ui/PrinterSettings.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "CUPS 印表機總覽說明"
 
-#: ui/PrinterSettings.qml:86
+#: ui/PrinterSettings.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
 msgstr "自動設定"
 
-#: ui/PrinterSettings.qml:93
+#: ui/PrinterSettings.qml:91
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "新增"
 
-#: ui/PrinterSettings.qml:94
+#: ui/PrinterSettings.qml:92
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "套用"
 
-#: ui/PrinterSettings.qml:102
+#: ui/PrinterSettings.qml:100
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
 msgstr "需要佇列名稱。請輸入一個獨特的佇列名稱。"
 
-#: ui/PrinterSettings.qml:109
+#: ui/PrinterSettings.qml:107
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr "需要製造商/型號。請選擇「選取」來選製造商/型號"
 
-#: ui/PrinterSettings.qml:160
+#: ui/PrinterSettings.qml:158
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "無法移除印表機：%1"
 
-#: ui/PrinterSettings.qml:178
+#: ui/PrinterSettings.qml:176
 #, kde-format
 msgid "Remove Group"
 msgstr "移除群組"
 
-#: ui/PrinterSettings.qml:178
+#: ui/PrinterSettings.qml:176
 #, kde-format
 msgid "Remove Printer"
 msgstr "移除印表機"
 
-#: ui/PrinterSettings.qml:179
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "您確定要移除：%1 (%2) 嗎？"
 
-#: ui/PrinterSettings.qml:196
+#: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: ui/PrinterSettings.qml:342
+#: ui/PrinterSettings.qml:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
 msgstr "<b>印表機群組</b>是用來組合列印資源的。"
 
-#: ui/PrinterSettings.qml:384
+#: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "預設印表機"
 
-#: ui/PrinterSettings.qml:391
+#: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "分享這個群組"
 
-#: ui/PrinterSettings.qml:392
+#: ui/PrinterSettings.qml:390
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "分享這個印表機"
 
-#: ui/PrinterSettings.qml:399
+#: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "正在接受列印工作"
 
-#: ui/PrinterSettings.qml:430
+#: ui/PrinterSettings.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "列印測試頁面"
 
-#: ui/PrinterSettings.qml:436
+#: ui/PrinterSettings.qml:434
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "列印自我測試頁面"
 
-#: ui/PrinterSettings.qml:443
+#: ui/PrinterSettings.qml:441
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "清潔列印噴頭"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:461
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "尋找印表機…"
 
-#: ui/PrinterSettings.qml:471
+#: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "佇列名稱："
 
-#: ui/PrinterSettings.qml:484
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "描述："
 
-#: ui/PrinterSettings.qml:496
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "位置："
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:506
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "連線："
 
-#: ui/PrinterSettings.qml:522
+#: ui/PrinterSettings.qml:520
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "成員印表機："
 
-#: ui/PrinterSettings.qml:653
+#: ui/PrinterSettings.qml:651
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "製造商/型號："
 
-#: ui/PrinterSettings.qml:668
+#: ui/PrinterSettings.qml:666
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

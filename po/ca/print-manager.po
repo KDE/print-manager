@@ -1,16 +1,16 @@
 # Translation of print-manager.po to Catalan
-# Copyright (C) 2012-2023 This_file_is_part_of_KDE
+# Copyright (C) 2012-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2012, 2013, 2015, 2018, 2019, 2020, 2021, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2012, 2013, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2015, 2018, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:34+0000\n"
-"PO-Revision-Date: 2023-11-08 11:15+0100\n"
+"PO-Revision-Date: 2024-01-14 17:02+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -374,7 +374,7 @@ msgstr "Membres:"
 #: src/add-printer/PageDestinations.cpp:188
 #, kde-format
 msgid "A printer connected to the parallel port."
-msgstr "Una impressora connectada al port paral·lel."
+msgstr "Una impressora connectada al port en paral·lel."
 
 #: src/add-printer/PageDestinations.cpp:191
 #, kde-format
@@ -733,12 +733,12 @@ msgstr "URI manual"
 #: src/libkcups/DevicesModel.cpp:60
 #, kde-format
 msgid "Parallel Port"
-msgstr "Port paral·lel"
+msgstr "Port en paral·lel"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Serial Port"
-msgstr "Port sèrie"
+msgstr "Port en sèrie"
 
 #: src/libkcups/DevicesModel.cpp:64
 #, kde-format
@@ -819,7 +819,7 @@ msgstr "Impressora de xarxa AppSocket/JetDirect via DNS-SD"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
-msgstr "Una impressora connectada al port paral·lel"
+msgstr "Una impressora connectada al port en paral·lel"
 
 #: src/libkcups/DevicesModel.cpp:121
 #, kde-format

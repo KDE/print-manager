@@ -1,0 +1,550 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+#
+# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-01-13 00:39+0000\n"
+"PO-Revision-Date: 2024-01-20 20:21+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.1\n"
+
+#: printermanager.cpp:223
+#, kde-format
+msgid "Set Default Options"
+msgstr "عيّن الخيارات الافتراضيّة"
+
+#: printermanager.cpp:231
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "فشل ضبط الصّنف: "
+
+#: printermanager.cpp:231
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "فشل ضبط الطّابعة: "
+
+#: printermanager.cpp:364
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "فشل تنفيذ الطّلب: %1"
+
+#: printermanager.cpp:416
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings: %1"
+msgstr "فشل جلب إعدادات الخادوم: %1"
+
+#: printermanager.cpp:454
+#, kde-format
+msgctxt "@info"
+msgid "Server error: (%1): %2"
+msgstr "خطأ خادم : (%1): %2"
+
+#: printermanager.cpp:509
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "اطبع صفحة اختبار الذاتية"
+
+#: printermanager.cpp:515
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "نظّف رؤوس الطّباعة"
+
+#: ui/AddressExamples.qml:36
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Example Addresses"
+msgstr "أمثلة للعناوين"
+
+#: ui/Drivers.qml:52
+#, kde-format
+msgctxt "@action:button"
+msgid "Select Recommended Driver"
+msgstr "حدد المعرف المستحسن"
+
+#: ui/Drivers.qml:58
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Recommended drivers are based on printer make/model and connection type"
+msgstr ""
+
+#: ui/FindPrinter.qml:87
+#, kde-format
+msgctxt "@title:window"
+msgid "Set up a Printer Connection"
+msgstr ""
+
+#: ui/FindPrinter.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Detected Devices"
+msgstr ""
+
+#: ui/FindPrinter.qml:95
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Manual Options"
+msgstr ""
+
+#: ui/FindPrinter.qml:114
+#, kde-format
+msgid "Refresh"
+msgstr "أنعش"
+
+#: ui/FindPrinter.qml:125
+#, kde-format
+msgid "CUPS Network Printers Help"
+msgstr ""
+
+#: ui/FindPrinter.qml:187
+#, kde-format
+msgctxt "@title:group"
+msgid "Find remote printing devices"
+msgstr ""
+
+#: ui/FindPrinter.qml:188
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Enter the address of the remote host/device"
+msgstr ""
+
+#: ui/FindPrinter.qml:193
+#, kde-format
+msgctxt "@action:button"
+msgid "Select Printer"
+msgstr "اختر طابعة:"
+
+#: ui/FindPrinter.qml:223
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Uri:"
+msgstr "العنوان:"
+
+#: ui/FindPrinter.qml:231
+#, kde-format
+msgid "Enter host URI"
+msgstr ""
+
+#: ui/FindPrinter.qml:336
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a device connection"
+msgstr ""
+
+#: ui/FindPrinter.qml:426
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to automatically discover any printing devices"
+msgstr ""
+
+#: ui/FindPrinter.qml:427
+#, kde-format
+msgctxt "@info:usagetip"
+msgid ""
+"Choose \"Refresh\" to try again or choose a manual configuration option from "
+"the list"
+msgstr ""
+
+#: ui/FindPrinter.qml:436
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a manual configuration option from the list"
+msgstr ""
+
+#: ui/FindPrinter.qml:449
+#, kde-format
+msgctxt "@info:status"
+msgid "This feature is not yet available (%1)"
+msgstr ""
+
+#: ui/Global.qml:14
+#, kde-format
+msgctxt "@title:window"
+msgid "Print Server Settings"
+msgstr "إعدادات خادوم الطابعة"
+
+#: ui/Global.qml:26
+#, kde-format
+msgctxt "@action:button"
+msgid "CUPS Print Server Admin"
+msgstr ""
+
+#: ui/Global.qml:34
+#, kde-format
+msgctxt "@action:button Reset to current settings"
+msgid "Reset"
+msgstr "صفّر"
+
+#: ui/Global.qml:41
+#, kde-format
+msgctxt "@action:button Apply new settings"
+msgid "Apply"
+msgstr "طبّق"
+
+#: ui/Global.qml:103
+#, kde-format
+msgctxt "@option:check"
+msgid "Share printers connected to this system"
+msgstr "أظهر الطّابعات المتّصل بهذا النّظام"
+
+#: ui/Global.qml:115
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow printing from the Internet"
+msgstr "اسمح بالطّباعة من الشّابكة"
+
+#: ui/Global.qml:121
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow remote administration"
+msgstr "اسمح بالإدارة البعيدة"
+
+#: ui/Global.qml:126
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow users to cancel any job (not just their own)"
+msgstr "اسمح للمستخدمين بإلغاء أيّ مهمّة (وليس فقط مهامّهم)"
+
+#: ui/main.qml:31
+#, kde-format
+msgid "new_queue"
+msgstr "طابور_جديد"
+
+#: ui/main.qml:31
+#, kde-format
+msgid "new_group"
+msgstr "مجموعة_جديدة"
+
+#: ui/main.qml:65
+#, kde-format
+msgctxt "@action:button"
+msgid "Add Printer"
+msgstr "أضف طابعة"
+
+#: ui/main.qml:74
+#, kde-format
+msgctxt "@action:button"
+msgid "Add Group"
+msgstr "أضف مجموعة"
+
+#: ui/main.qml:83
+#, kde-format
+msgctxt "@action:button"
+msgid "Configure Print Server"
+msgstr "اضبط خادم طباعة"
+
+#: ui/main.qml:184
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers are currently set up"
+msgstr ""
+
+#: ui/main.qml:185
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose 'Add Printer' to set up a new printer on this computer"
+msgstr ""
+
+#: ui/main.qml:195
+#, kde-format
+msgid "Printers"
+msgstr "الطّابعات"
+
+#: ui/main.qml:195
+#, kde-format
+msgid "Printer Groups"
+msgstr "مجموعات الطّابعة"
+
+#: ui/main.qml:233
+#, kde-format
+msgctxt "@action:button"
+msgid "Configure…"
+msgstr "اضبط..."
+
+#: ui/main.qml:254
+#, kde-format
+msgctxt "@action:button"
+msgid "Open Print Queue…"
+msgstr "افتح صفّ الطّباعة…"
+
+#: ui/main.qml:271
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "استكمل"
+
+#: ui/main.qml:272
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "ألبث"
+
+#: ui/main.qml:286
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "استأنف الطباعة"
+
+#: ui/main.qml:287
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "أوقف الطباعة"
+
+#: ui/MakeModel.qml:89
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a printer make/model"
+msgstr "حدد صانع/طراز الطابعة"
+
+#: ui/MakeModel.qml:91
+#, kde-format
+msgctxt "@title:window"
+msgid "Printer Driver (%1)"
+msgstr "معرف الطابعة (%1)"
+
+#: ui/MakeModel.qml:98
+#, kde-format
+msgctxt "@title:window"
+msgid "Printer Driver"
+msgstr "معرف الطابعة"
+
+#: ui/MakeModel.qml:145
+#, kde-format
+msgid "Save"
+msgstr "احفظ"
+
+#: ui/MakeModel.qml:150
+#, kde-format
+msgid "Select a PostScript Printer Description (PPD) file"
+msgstr ""
+
+#: ui/MakeModel.qml:157
+#, kde-format
+msgid "Printer model is required.  Please select a printer model."
+msgstr "طراز الطابعة مطلوب. الرجاء تحديد طراز الطابعة."
+
+#: ui/MakeModel.qml:211
+#, kde-format
+msgctxt "@option:radio"
+msgid "Select Make and Model:"
+msgstr "حدد صانع/طراز الطابعة:"
+
+#: ui/MakeModel.qml:223
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Filter Models"
+msgstr ""
+
+#: ui/MakeModel.qml:306
+#, kde-format
+msgctxt "@option:radio"
+msgid "PPD file:"
+msgstr "ملفّ PPD:"
+
+#: ui/MakeModel.qml:328
+#, kde-format
+msgctxt "@action:button"
+msgid "Select PPD File…"
+msgstr "اختر ملف PPD…"
+
+#: ui/MakeModel.qml:335
+#, kde-format
+msgid "Select"
+msgstr "اختر"
+
+#: ui/MakeModel.qml:336
+#, kde-format
+msgid "PostScript Printer Description Files (*.ppd)"
+msgstr ""
+
+#: ui/PrinterSettings.qml:41
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Group"
+msgstr "أضف مجموعة"
+
+#: ui/PrinterSettings.qml:42
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Printer"
+msgstr "أضف طابعة"
+
+#: ui/PrinterSettings.qml:53
+#, kde-format
+msgid "Configure…"
+msgstr "اضبط..."
+
+#: ui/PrinterSettings.qml:58
+#, kde-format
+msgid "Remove"
+msgstr "أزل"
+
+#: ui/PrinterSettings.qml:74
+#, kde-format
+msgctxt "@action:button"
+msgid "CUPS Printers Overview Help"
+msgstr ""
+
+#: ui/PrinterSettings.qml:84
+#, kde-format
+msgctxt "@option:check"
+msgid "Auto Configure"
+msgstr "ضبط آلي"
+
+#: ui/PrinterSettings.qml:91
+#, kde-format
+msgctxt "@action:button Add printer"
+msgid "Add"
+msgstr "أضف"
+
+#: ui/PrinterSettings.qml:92
+#, kde-format
+msgctxt "@action:button Apply changes"
+msgid "Apply"
+msgstr "طبّق"
+
+#: ui/PrinterSettings.qml:100
+#, kde-format
+msgctxt "@info:status"
+msgid "Queue name is required.  Enter a unique queue name."
+msgstr ""
+
+#: ui/PrinterSettings.qml:107
+#, kde-format
+msgctxt "@info:status"
+msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+msgstr ""
+
+#: ui/PrinterSettings.qml:158
+#, kde-format
+msgid "Failed to remove the printer: %1"
+msgstr ""
+
+#: ui/PrinterSettings.qml:176
+#, kde-format
+msgid "Remove Group"
+msgstr "أزل المجموعة"
+
+#: ui/PrinterSettings.qml:176
+#, kde-format
+msgid "Remove Printer"
+msgstr "أزل الطّابعة"
+
+#: ui/PrinterSettings.qml:177
+#, kde-format
+msgid "Are you sure you really want to remove:  %1 (%2)?"
+msgstr ""
+
+#: ui/PrinterSettings.qml:194
+#, kde-format
+msgid "Cancel"
+msgstr "ألغِ"
+
+#: ui/PrinterSettings.qml:340
+#, kde-format
+msgctxt "@info:whatsthis"
+msgid "A <b>printer group</b> is used to pool printing resources."
+msgstr ""
+
+#: ui/PrinterSettings.qml:382
+#, kde-format
+msgctxt "@action:check Set default printer"
+msgid "Default printer"
+msgstr "الطابعة المبدئية"
+
+#: ui/PrinterSettings.qml:389
+#, kde-format
+msgctxt "@action:check"
+msgid "Share this group"
+msgstr "شارك هذه المجموعة"
+
+#: ui/PrinterSettings.qml:390
+#, kde-format
+msgctxt "@action:check"
+msgid "Share this printer"
+msgstr "شارك هذه الطّابعة"
+
+#: ui/PrinterSettings.qml:397
+#, kde-format
+msgctxt "@action:check"
+msgid "Accepting print jobs"
+msgstr "يستقبل مهام الطباعة"
+
+#: ui/PrinterSettings.qml:428
+#, kde-format
+msgctxt "@action:button"
+msgid "Print Test Page"
+msgstr "اطبع صفحة اختبار"
+
+#: ui/PrinterSettings.qml:434
+#, kde-format
+msgctxt "@action:button"
+msgid "Print Self-Test Page"
+msgstr "اطبع صفحة اختبار الذاتية"
+
+#: ui/PrinterSettings.qml:441
+#, kde-format
+msgctxt "@action:button"
+msgid "Clean Print Heads"
+msgstr "نظّف رؤوس الطّباعة"
+
+#: ui/PrinterSettings.qml:461
+#, kde-format
+msgctxt "@action:button"
+msgid "Find a Printer…"
+msgstr "أعثر على طابعة…"
+
+#: ui/PrinterSettings.qml:469
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Queue Name:"
+msgstr "اسم الطابور:"
+
+#: ui/PrinterSettings.qml:482
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "الوصف:"
+
+#: ui/PrinterSettings.qml:494
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr "المكان:"
+
+#: ui/PrinterSettings.qml:506
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr "الاتّصال:"
+
+#: ui/PrinterSettings.qml:520
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Member Printers:"
+msgstr "عضو الطابعات:"
+
+#: ui/PrinterSettings.qml:651
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Make/Model:"
+msgstr "الصّانع/الطّراز:"
+
+#: ui/PrinterSettings.qml:666
+#, kde-format
+msgctxt "@action:button Select printer make/model"
+msgid "Select…"
+msgstr "اختر…"

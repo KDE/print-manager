@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 project(print-manager)
 set(PROJECT_VERSION "5.92.90")
 
+set(PROJECT_DEP_VERSION "6.0.80")
 set(QT_MIN_VERSION "6.6.0")
 set(KF6_MIN_VERSION "5.240.0")
 
@@ -52,7 +53,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     WindowSystem 
 )
 
-find_package(Plasma ${PROJECT_VERSION} REQUIRED)
+find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
 
 set_package_properties(KF6Kirigami PROPERTIES
     TYPE REQUIRED

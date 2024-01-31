@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-14 03:09+0000\n"
-"PO-Revision-Date: 2023-03-06 20:03+0200\n"
+"PO-Revision-Date: 2023-12-12 16:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -23,23 +23,19 @@ msgstr ""
 #: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
-msgstr ""
+msgstr "Aseta oletusvalinnat"
 
 #: printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Palvelinasetusten määritys epäonnistui"
+msgstr "Luokan määritys epäonnistui: "
 
 #: printermanager.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Palvelinasetusten määritys epäonnistui"
+msgstr "Tulostimen määritys epäonnistui: "
 
 #: printermanager.cpp:364
 #, kde-format
@@ -47,18 +43,16 @@ msgid "Failed to perform request: %1"
 msgstr "Pyynnön toteuttaminen epäonnistui: %1"
 
 #: printermanager.cpp:416
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Palvelinasetusten nouto epäonnistui"
+msgstr "Palvelinasetusten nouto epäonnistui: %1"
 
 #: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Palvelinvirhe: (%1): %2"
 
 #: printermanager.cpp:509
 #, kde-format
@@ -74,89 +68,90 @@ msgstr "Puhdista tulostuspäät"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr ""
+msgstr "Esimerkkiosoitteita"
 
 #: ui/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr ""
+msgstr "Valitse suositeltu ajuri"
 
 #: ui/Drivers.qml:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
+"Ajurisuositukset perustuvat tulostimen merkkiin ja malliin sekä yhteyden "
+"tyyppiin"
 
 #: ui/FindPrinter.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr ""
+msgstr "Aseta tulostinyhteys"
 
 #: ui/FindPrinter.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
-msgstr ""
+msgstr "Näytä havaitut laitteet"
 
 #: ui/FindPrinter.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr ""
+msgstr "Näytä käyttäjän lisävalinnat"
 
 #: ui/FindPrinter.qml:114
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Virkistä"
 
 #: ui/FindPrinter.qml:125
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr ""
+msgstr "CUPS-verkkotulostinohje"
 
 #: ui/FindPrinter.qml:187
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr ""
+msgstr "Etsi etätulostimia"
 
 #: ui/FindPrinter.qml:188
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr ""
+msgstr "Anna etäkoneen tai -laitteen osoite"
 
 #: ui/FindPrinter.qml:193
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
-msgstr "Poista tulostin"
+msgstr "Valitse tulostin"
 
 #: ui/FindPrinter.qml:223
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
-msgstr ""
+msgstr "URI:"
 
 #: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
-msgstr ""
+msgstr "Anna koneen URI"
 
 #: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr ""
+msgstr "Valitse laiteyhteys"
 
 #: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr ""
+msgstr "Tulostimia ei löytynyt automaattihaulla"
 
 #: ui/FindPrinter.qml:427
 #, kde-format
@@ -165,136 +160,132 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
+"Yritä uudelleen valitsemalla ”Virkistä” tai käytä käyttäjän asetustoimintoa"
 
 #: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr ""
+msgstr "Valitse luettelosta käyttäjän asetustoiminto"
 
 #: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr ""
+msgstr "Tämä ominaisuus ei ole vielä käytettävissä (%1)"
 
 #: ui/Global.qml:14
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr "Palvelinasetusten nouto epäonnistui"
+msgstr "Tulostinpalvelimen asetukset"
 
 #: ui/Global.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr ""
+msgstr "CUPS-tulostinpalvelimen ylläpito"
 
 #: ui/Global.qml:34
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
-msgstr ""
+msgstr "Palauta"
 
 #: ui/Global.qml:41
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
-msgstr ""
+msgstr "Käytä"
 
 #: ui/Global.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr ""
+msgstr "Jaa järjestelmään kytkettyjä tulostimia"
 
 #: ui/Global.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr ""
+msgstr "Salli tulostus internetitse"
 
 #: ui/Global.qml:121
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr ""
+msgstr "Salli etähallinta"
 
 #: ui/Global.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr ""
+msgstr "Salli käyttäjien perua mikä tahansa työ (ei vain omiaan)"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_queue"
-msgstr ""
+msgstr "uusi_jono"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_group"
-msgstr ""
+msgstr "uusi_ryhma"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer"
-msgstr "Poista tulostin"
+msgstr "Lisää tulostin"
 
 #: ui/main.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group"
-msgstr ""
+msgstr "Lisää ryhmä"
 
 #: ui/main.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server"
-msgstr ""
+msgstr "Tulostinpalvelimen asetukset"
 
 #: ui/main.qml:184
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr ""
+msgstr "Tulostimia ei ole vielä asetettu"
 
 #: ui/main.qml:185
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose 'Add Printer' to set up a new printer on this computer"
-msgstr ""
+msgstr "Aseta uusi tulostin valitsemalla ”Lisää tulostin”"
 
 #: ui/main.qml:195
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgid "Printers"
-msgstr "Poista tulostin"
+msgstr "Tulostimet"
 
 #: ui/main.qml:195
 #, kde-format
 msgid "Printer Groups"
-msgstr ""
+msgstr "Tulostinryhmät"
 
 #: ui/main.qml:233
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
-msgstr ""
+msgstr "Asetukset…"
 
 #: ui/main.qml:254
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr ""
+msgstr "Avaa tulostusjono…"
 
 #: ui/main.qml:271
-#, fuzzy, kde-format
-#| msgid "Resume"
+#, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Jatka"
@@ -303,160 +294,154 @@ msgstr "Jatka"
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr ""
+msgstr "Tauko"
 
 #: ui/main.qml:286
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr "Poista tulostin"
+msgstr "Jatka tulostusta"
 
 #: ui/main.qml:287
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr ""
+msgstr "Keskeytä tulostus"
 
 #: ui/MakeModel.qml:89
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "Poista tulostin"
+msgstr "Valitse tulostimen merkki ja malli"
 
 #: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr ""
+msgstr "Tulostinajuri (%1)"
 
 #: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr ""
+msgstr "Tulostinajuri"
 
 #: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr ""
+msgstr "Valitse PostScript-tulostinkuvaustiedosto (PPD)"
 
 #: ui/MakeModel.qml:157
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr ""
+msgstr "Tulostimen malli vaaditaan. Valitse se."
 
 #: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr ""
+msgstr "Valitse merkki ja malli:"
 
 #: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr ""
+msgstr "Suodata malleja"
 
 #: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
-msgstr ""
+msgstr "PPD-tiedosto:"
 
 #: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr ""
+msgstr "Valitse PPD-tiedosto…"
 
 #: ui/MakeModel.qml:335
 #, kde-format
 msgid "Select"
-msgstr ""
+msgstr "Valitse"
 
 #: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
-msgstr ""
+msgstr "PostScript-tulostinkuvaustiedostot (*.ppd)"
 
 #: ui/PrinterSettings.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
-msgstr ""
+msgstr "Lisää ryhmä"
 
 #: ui/PrinterSettings.qml:42
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr "Poista tulostin"
+msgstr "Lisää tulostin"
 
 #: ui/PrinterSettings.qml:53
 #, kde-format
 msgid "Configure…"
-msgstr ""
+msgstr "Asetukset…"
 
 #: ui/PrinterSettings.qml:58
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgid "Remove"
-msgstr "Poista tulostin"
+msgstr "Poista"
 
 #: ui/PrinterSettings.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr ""
+msgstr "CUPS-tulostinten yleiskuvan ohje"
 
 #: ui/PrinterSettings.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
-msgstr ""
+msgstr "Määritä automaattisesti"
 
 #: ui/PrinterSettings.qml:91
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: ui/PrinterSettings.qml:92
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
-msgstr ""
+msgstr "Käytä"
 
 #: ui/PrinterSettings.qml:100
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr ""
+msgstr "Jonon nimi vaaditaan. Anna ainutkertainen jonon nimi."
 
 #: ui/PrinterSettings.qml:107
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
-msgstr ""
+msgstr "Merkki ja malli vaaditaan. Valitse se painamalla ”Valitse”."
 
 #: ui/PrinterSettings.qml:158
-#, fuzzy, kde-format
-#| msgid "Failed to perform request: %1"
+#, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr "Pyynnön toteuttaminen epäonnistui: %1"
+msgstr "Tulostimen poistaminen epäonnistui: %1"
 
 #: ui/PrinterSettings.qml:176
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgid "Remove Group"
-msgstr "Poista tulostin"
+msgstr "Poista ryhmä"
 
 #: ui/PrinterSettings.qml:176
 #, kde-format
@@ -466,7 +451,7 @@ msgstr "Poista tulostin"
 #: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa: %1 (%2)?"
 
 #: ui/PrinterSettings.qml:194
 #, kde-format
@@ -477,53 +462,46 @@ msgstr "Peru"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
-msgstr ""
+msgstr "<b>Tulostinryhmää</b> käytetään tulostusresurssien jakamiseen."
 
 #: ui/PrinterSettings.qml:382
-#, fuzzy, kde-format
-#| msgid "Share this printer"
+#, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "Jaa tämä tulostin"
+msgstr "Oletustulostin"
 
 #: ui/PrinterSettings.qml:389
-#, fuzzy, kde-format
-#| msgid "Share this printer"
+#, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr "Jaa tämä tulostin"
+msgstr "Jaa tämä ryhmä"
 
 #: ui/PrinterSettings.qml:390
-#, fuzzy, kde-format
-#| msgid "Share this printer"
+#, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Jaa tämä tulostin"
 
 #: ui/PrinterSettings.qml:397
-#, fuzzy, kde-format
-#| msgid "Reject print jobs"
+#, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr "Hylkää tulostustyöt"
+msgstr "Hyväksyy tulostustyöt"
 
 #: ui/PrinterSettings.qml:428
-#, fuzzy, kde-format
-#| msgid "Print Test Page"
+#, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Tulosta testisivu"
 
 #: ui/PrinterSettings.qml:434
-#, fuzzy, kde-format
-#| msgid "Print Self-Test Page"
+#, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Tulosta itsetestaussivu"
 
 #: ui/PrinterSettings.qml:441
-#, fuzzy, kde-format
-#| msgid "Clean Print Heads"
+#, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Puhdista tulostuspäät"
@@ -532,50 +510,49 @@ msgstr "Puhdista tulostuspäät"
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr ""
+msgstr "Etsi tulostin…"
 
 #: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr ""
+msgstr "Jonon nimi:"
 
 #: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr ""
+msgstr "Kuvaus:"
 
 #: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr ""
+msgstr "Sijainti:"
 
 #: ui/PrinterSettings.qml:506
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr ""
+msgstr "Yhteys:"
 
 #: ui/PrinterSettings.qml:520
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr "Poista tulostin"
+msgstr "Jäsentulostimet:"
 
 #: ui/PrinterSettings.qml:651
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr ""
+msgstr "Merkki/malli:"
 
 #: ui/PrinterSettings.qml:666
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr ""
+msgstr "Valitse…"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

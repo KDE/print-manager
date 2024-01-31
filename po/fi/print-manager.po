@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-06-11 00:51+0000\n"
-"PO-Revision-Date: 2023-03-06 20:03+0200\n"
+"PO-Revision-Date: 2023-12-12 16:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -702,7 +702,9 @@ msgstr "Kuvaus:"
 #: configure-printer/ModifyPrinter.ui:42
 #, kde-format
 msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-msgstr "Ihmisen luettavissa oleva kuvaus, esim. ”HP LaserJet duplex-yksiköllä”"
+msgstr ""
+"Ihmisen luettavissa oleva kuvaus, esim. ”HP LaserJet kaksipuoleisen "
+"tulostuksen yksiköllä”"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: configure-printer/ModifyPrinter.ui:52
@@ -775,7 +777,7 @@ msgstr ""
 "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
 "size:10pt;\">Esimerkkejä:</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-"right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/</"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">http://konenimi:631/ipp/</"
 "p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
 "right:0px; -qt-block-indent:0; text-indent:0px;\">http://konenimi:631/ipp/"
@@ -937,7 +939,7 @@ msgstr "&Salli näiden käyttäjien tulostaa"
 #: configure-printer/PrinterOptions.cpp:50
 #, kde-format
 msgid "Set Default Options"
-msgstr "Aseta oletusasetukset"
+msgstr "Aseta oletusvalinnat"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
 #: configure-printer/PrinterOptions.ui:26

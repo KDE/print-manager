@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2015.
-# Tommi Nieminen <translator@legisign.org>, 2018, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2018, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-07 01:42+0000\n"
-"PO-Revision-Date: 2022-04-04 13:37+0300\n"
+"PO-Revision-Date: 2023-12-12 16:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -24,10 +24,8 @@ msgid "Printers"
 msgstr "Tulostimet"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Tulostimet"
+msgstr "Tulostinryhmät"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -71,30 +69,24 @@ msgid "Show Only Active Jobs"
 msgstr "Näytä vain aktiiviset työt"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "Tulostin&asetukset…"
+msgstr "T&ulostinasetukset…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Jatka"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Tauko"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Tulostinasetukset…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Näytä tulostusjono"
+msgstr "Näytä tulostusjono…"
 
 #~ msgid "Search…"
 #~ msgstr "Etsi…"

@@ -17,7 +17,7 @@ PlasmaExtras.Representation {
     collapseMarginsHint: true
 
     header: PlasmaExtras.PlasmoidHeading {
-        Kirigami.SearchField {
+        PlasmaExtras.SearchField {
             anchors.fill: parent
             onAccepted: printersFilterModel.setFilterWildcard(text)
         }

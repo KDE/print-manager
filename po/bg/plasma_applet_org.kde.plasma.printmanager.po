@@ -88,12 +88,3 @@ msgstr "Конфигуриране на принтер..."
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Показване на опашка за печат..."
-
-#~ msgid "Search…"
-#~ msgstr "Търсене…"
-
-#~ msgid "Resume printing"
-#~ msgstr "Продължаване на печата"
-
-#~ msgid "Pause printing"
-#~ msgstr "Паузиране на отпечатването"

@@ -1,152 +1,152 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2023, 2024 Shinjo Park <kde@peremen.name>
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-13 00:39+0000\n"
-"PO-Revision-Date: 2024-02-05 11:37\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-02-06 00:24+0100\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
-"X-Crowdin-File-ID: 48268\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
-msgstr "设置默认选项"
+msgstr "기본 옵션 설정"
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "配置打印机类失败："
+msgstr "클래스를 설정할 수 없음: "
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "配置打印机失败："
+msgstr "프린터를 설정할 수 없음: "
 
 #: printermanager.cpp:364
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr "执行请求失败：%1"
+msgstr "요청을 처리할 수 없음: %1"
 
 #: printermanager.cpp:416
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "获取服务器设置失败：%1"
+msgstr "서버 설정을 가져올 수 없음: %1"
 
 #: printermanager.cpp:454
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr "服务器错误：(%1)：%2"
+msgstr "서버 오류: (%1): %2"
 
 #: printermanager.cpp:509
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "打印自检页"
+msgstr "자가 진단 페이지 인쇄"
 
 #: printermanager.cpp:515
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "清洁打印头"
+msgstr "프린터 헤드 청소"
 
 #: ui/AddressExamples.qml:36
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr "示例地址"
+msgstr "예제 주소"
 
 #: ui/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr "选择推荐的驱动程序"
+msgstr "추천 드라이버 선택"
 
 #: ui/Drivers.qml:58
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
-msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
+msgstr "프린터 제조사/모델과 연결 방식에 따라서 추천 드라이버를 선택합니다"
 
 #: ui/FindPrinter.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr "创建打印机连接"
+msgstr "프린터 연결 설정"
 
 #: ui/FindPrinter.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
-msgstr "显示检测到的设备"
+msgstr "감지된 장치 표시"
 
 #: ui/FindPrinter.qml:95
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr "显示手动选项"
+msgstr "수동 옵션 표시"
 
 #: ui/FindPrinter.qml:114
 #, kde-format
 msgid "Refresh"
-msgstr "刷新"
+msgstr "새로 고침"
 
 #: ui/FindPrinter.qml:125
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr "CUPS 网络打印机帮助"
+msgstr "CUPS 네트워크 프린터 도움말"
 
 #: ui/FindPrinter.qml:187
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr "搜索远程打印设备"
+msgstr "원격 인쇄 장치 찾기"
 
 #: ui/FindPrinter.qml:188
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr "输入远程主机/设备的地址"
+msgstr "원격 호스트나 장치의 주소를 입력하십시오"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer"
-msgstr "选择打印机"
+msgstr "프린터 선택"
 
 #: ui/FindPrinter.qml:223
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Uri:"
-msgstr "URI："
+msgstr "URI:"
 
 #: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
-msgstr "输入主机 URI"
+msgstr "호스트 URI 입력"
 
 #: ui/FindPrinter.qml:336
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr "选择设备连接"
+msgstr "장치 연결 선택"
 
 #: ui/FindPrinter.qml:426
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr "无法自动发现任何打印设备"
+msgstr "자동으로 인쇄 장치를 발견할 수 없음"
 
 #: ui/FindPrinter.qml:427
 #, kde-format
@@ -154,396 +154,397 @@ msgctxt "@info:usagetip"
 msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
-msgstr "选择“刷新”重试，或者从选项列表中选择手动配置"
+msgstr ""
+"\"새로 고침\"을 선택하여 다시 시도하거나 목록에서 수동 옵션을 선택하십시오"
 
 #: ui/FindPrinter.qml:436
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr "从选项列表中选择手动配置"
+msgstr "목록에서 수동 설정 옵션 선택"
 
 #: ui/FindPrinter.qml:449
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr "此功能尚未完成开发 (%1)"
+msgstr "이 기능은 사용할 수 없음(%1)"
 
 #: ui/Global.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr "打印服务器设置"
+msgstr "인쇄 서버 설정"
 
 #: ui/Global.qml:26
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr "CUPS 打印服务器管理"
+msgstr "CUPS 인쇄 서버 관리"
 
 #: ui/Global.qml:34
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
-msgstr "重置"
+msgstr "초기화"
 
 #: ui/Global.qml:41
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
-msgstr "应用"
+msgstr "적용"
 
 #: ui/Global.qml:103
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr "连接到本机的共享打印机"
+msgstr "이 시스템에 연결된 프린터 공유"
 
 #: ui/Global.qml:115
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr "允许来自互联网的打印请求"
+msgstr "인터넷 인쇄 허용"
 
 #: ui/Global.qml:121
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr "允许远程管理"
+msgstr "원격 관리 허용"
 
 #: ui/Global.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr "允许用户中止任意任务 (不仅是他们发起的任务)"
+msgstr "다른 사용자의 작업도 취소할 수 있도록 허용"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_queue"
-msgstr "新队列"
+msgstr "new_queue"
 
 #: ui/main.qml:31
 #, kde-format
 msgid "new_group"
-msgstr "新打印机组"
+msgstr "new_group"
 
 #: ui/main.qml:65
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer"
-msgstr "添加打印机"
+msgstr "프린터 추가"
 
 #: ui/main.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group"
-msgstr "添加打印机组"
+msgstr "그룹 추가"
 
 #: ui/main.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server"
-msgstr "配置打印服务器"
+msgstr "인쇄 서버 설정"
 
 #: ui/main.qml:184
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr "当前没有创建打印机"
+msgstr "설정한 프린터 없음"
 
 #: ui/main.qml:185
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose 'Add Printer' to set up a new printer on this computer"
-msgstr "选择“添加打印机”可在本机中创建新打印机"
+msgstr "'프린터 추가'를 선택하면 이 컴퓨터에 새 프린터를 설정합니다"
 
 #: ui/main.qml:195
 #, kde-format
 msgid "Printers"
-msgstr "打印机"
+msgstr "프린터"
 
 #: ui/main.qml:195
 #, kde-format
 msgid "Printer Groups"
-msgstr "打印机组"
+msgstr "프린터 그룹"
 
 #: ui/main.qml:233
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
-msgstr "配置…"
+msgstr "설정…"
 
 #: ui/main.qml:254
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr "打开打印队列…"
+msgstr "인쇄 대기열 열기…"
 
 #: ui/main.qml:271
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr "继续"
+msgstr "다시 시작"
 
 #: ui/main.qml:272
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr "暂停"
+msgstr "일시 정지"
 
 #: ui/main.qml:286
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr "继续打印"
+msgstr "인쇄 다시 시작"
 
 #: ui/main.qml:287
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr "暂停打印"
+msgstr "인쇄 일시 정지"
 
 #: ui/MakeModel.qml:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "选择打印机的制造商/型号"
+msgstr "프린터 제조사/모델 선택"
 
 #: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr "打印机驱动程序 (%1)"
+msgstr "프린터 드라이버(%1)"
 
 #: ui/MakeModel.qml:98
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr "打印机驱动程序"
+msgstr "프린터 드라이버"
 
 #: ui/MakeModel.qml:145
 #, kde-format
 msgid "Save"
-msgstr "保存"
+msgstr "저장"
 
 #: ui/MakeModel.qml:150
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr "选择 PostScript 打印机描述 (PPD) 文件"
+msgstr "포스트스크립트 프린터 정의(PPD) 파일 선택"
 
 #: ui/MakeModel.qml:157
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "打印机模型是必需项。请选择一个打印机模型。"
+msgstr "프린터 모델이 필요합니다. 프린터 모델을 선택하십시오."
 
 #: ui/MakeModel.qml:211
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr "选择制造商和型号："
+msgstr "제조사와 모델 선택:"
 
 #: ui/MakeModel.qml:223
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr "过滤型号"
+msgstr "모델 필터"
 
 #: ui/MakeModel.qml:306
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
-msgstr "PPD 文件："
+msgstr "PPD 파일:"
 
 #: ui/MakeModel.qml:328
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "选择 PPD 文件…"
+msgstr "PPD 파일 선택…"
 
 #: ui/MakeModel.qml:335
 #, kde-format
 msgid "Select"
-msgstr "选择"
+msgstr "선택"
 
 #: ui/MakeModel.qml:336
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
-msgstr "PostScript 打印机描述文件 (*.ppd)"
+msgstr "포스트스크립트 프린터 정의 파일 (*.ppd)"
 
 #: ui/PrinterSettings.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
-msgstr "添加打印机组"
+msgstr "그룹 추가"
 
 #: ui/PrinterSettings.qml:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr "添加打印机"
+msgstr "프린터 추가"
 
 #: ui/PrinterSettings.qml:53
 #, kde-format
 msgid "Configure…"
-msgstr "配置…"
+msgstr "설정…"
 
 #: ui/PrinterSettings.qml:58
 #, kde-format
 msgid "Remove"
-msgstr "移除"
+msgstr "삭제"
 
 #: ui/PrinterSettings.qml:74
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr "CUPS 打印机概览帮助"
+msgstr "CUPS 프린터 요약 도움말"
 
 #: ui/PrinterSettings.qml:84
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
-msgstr "自动设置"
+msgstr "자동 설정"
 
 #: ui/PrinterSettings.qml:91
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr "添加"
+msgstr "추가"
 
 #: ui/PrinterSettings.qml:92
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
-msgstr "应用"
+msgstr "적용"
 
 #: ui/PrinterSettings.qml:100
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr "队列名称是必需项。请输入一个唯一的队列名称。"
+msgstr "대기열 이름이 필요합니다. 유일한 대기열 이름을 입력하십시오."
 
 #: ui/PrinterSettings.qml:107
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
-msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/型号"
+msgstr "제조사/모델이 필요합니다. \"선택\"을 눌러서 제조사/모델을 선택하십시오"
 
 #: ui/PrinterSettings.qml:158
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr "移除打印机失败：%1"
+msgstr "프린터를 삭제할 수 없음: %1"
 
 #: ui/PrinterSettings.qml:176
 #, kde-format
 msgid "Remove Group"
-msgstr "移除打印机组"
+msgstr "그룹 삭제"
 
 #: ui/PrinterSettings.qml:176
 #, kde-format
 msgid "Remove Printer"
-msgstr "移除打印机"
+msgstr "프린터 삭제"
 
 #: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr "您确定要删除：%1 (%2) 吗？"
+msgstr "다음 항목을 삭제하시겠습니까: %1(%2)?"
 
 #: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Cancel"
-msgstr "取消"
+msgstr "취소"
 
 #: ui/PrinterSettings.qml:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
-msgstr "<b>打印机组</b> 用于对打印资源进行集中管理。"
+msgstr "<b>프린터 그룹</b>은 인쇄 자원을 풀링하는 데 사용합니다."
 
 #: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "默认打印机"
+msgstr "기본 프린터"
 
 #: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr "共享此打印机组"
+msgstr "이 그룹 공유"
 
 #: ui/PrinterSettings.qml:390
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
-msgstr "共享此打印机"
+msgstr "이 프린터 공유"
 
 #: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr "正在接受打印任务"
+msgstr "인쇄 작업 수락 중"
 
 #: ui/PrinterSettings.qml:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
-msgstr "打印测试页"
+msgstr "테스트 페이지 인쇄"
 
 #: ui/PrinterSettings.qml:434
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr "打印自检页"
+msgstr "자가 진단 페이지 인쇄"
 
 #: ui/PrinterSettings.qml:441
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
-msgstr "清洁打印头"
+msgstr "프린터 헤드 청소"
 
 #: ui/PrinterSettings.qml:461
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr "搜索打印机…"
+msgstr "프린터 찾기…"
 
 #: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr "队列名称："
+msgstr "대기열 이름:"
 
 #: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr "描述："
+msgstr "설명:"
 
 #: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr "位置："
+msgstr "위치:"
 
 #: ui/PrinterSettings.qml:506
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr "连接："
+msgstr "연결:"
 
 #: ui/PrinterSettings.qml:520
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr "成员打印机："
+msgstr "구성 프린터:"
 
 #: ui/PrinterSettings.qml:651
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr "制造商/型号："
+msgstr "제조사/모델:"
 
 #: ui/PrinterSettings.qml:666
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr "选择…"
+msgstr "선택…"

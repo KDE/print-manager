@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Shinjo Park <kde@peremen.name>, 2013, 2015, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2013, 2015, 2019, 2020, 2021, 2022, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-07 01:42+0000\n"
-"PO-Revision-Date: 2022-04-16 01:25+0200\n"
+"PO-Revision-Date: 2024-02-06 00:15+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 21.08.1\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -23,10 +23,8 @@ msgid "Printers"
 msgstr "프린터"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "프린터"
+msgstr "프린터 그룹"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -69,30 +67,24 @@ msgid "Show Only Active Jobs"
 msgstr "활성 작업만 표시"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "프린터 설정(&C)..."
+msgstr "프린터 설정(&C)…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "다시 시작"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "일시 정지"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "프린터 설정..."
+msgstr "프린터 설정…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "인쇄 대기열 열기"
+msgstr "인쇄 대기열 열기…"
 
 #~ msgid "Search…"
 #~ msgstr "검색…"

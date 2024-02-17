@@ -62,7 +62,7 @@ KCM.ScrollViewKCM {
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action:button", "Add Printer")
+            text: i18nc("@action:button", "Add Printer…")
             icon.name: "printer-symbolic"
             onTriggered: {
                 checkServerSettings()
@@ -71,7 +71,7 @@ KCM.ScrollViewKCM {
             }
         }
         , Kirigami.Action {
-            text: i18nc("@action:button", "Add Group")
+            text: i18nc("@action:button", "Add Group…")
             icon.name: "folder-print-symbolic"
             visible: list.count > 1
             onTriggered: {
@@ -80,7 +80,7 @@ KCM.ScrollViewKCM {
             }
         }
         , Kirigami.Action {
-            text: i18nc("@action:button", "Configure Print Server")
+            text: i18nc("@action:button", "Configure Print Server…")
             icon.name: "configure-symbolic"
             onTriggered: kcm.push("Global.qml")
         }
@@ -180,9 +180,9 @@ KCM.ScrollViewKCM {
             anchors.centerIn: parent
             width: parent.width - (Kirigami.Units.largeSpacing * 4)
             visible: list.count === 0
-            icon.name: "printer-symbolic"
+            icon.name: "printer"
             text: i18nc("@info:status", "No printers are currently set up")
-            explanation: i18nc("@info:usagetip", "Choose 'Add Printer' to set up a new printer on this computer")
+            explanation: xi18nc("@info:usagetip", "Click <interface>Add Printer…</interface> to set up a new printer on this computer")
         }
         
         // If there is a mix of printers and classes (groups), then show

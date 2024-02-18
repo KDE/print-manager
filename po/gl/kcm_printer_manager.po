@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:39+0000\n"
+"POT-Creation-Date: 2024-02-18 00:39+0000\n"
 "PO-Revision-Date: 2023-11-15 18:44+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -234,21 +234,27 @@ msgid "new_group"
 msgstr "novo_grupo"
 
 #: ui/main.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add Printer"
 msgctxt "@action:button"
-msgid "Add Printer"
+msgid "Add Printer…"
 msgstr "Engadir unha impresora"
 
 #: ui/main.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add Group"
 msgctxt "@action:button"
-msgid "Add Group"
+msgid "Add Group…"
 msgstr "Engadir un grupo"
 
 #: ui/main.qml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure Print Server"
 msgctxt "@action:button"
-msgid "Configure Print Server"
+msgid "Configure Print Server…"
 msgstr "Configurar o servidor de impresión"
 
 #: ui/main.qml:184
@@ -258,9 +264,13 @@ msgid "No printers are currently set up"
 msgstr "Non hai impresoras configuradas."
 
 #: ui/main.qml:185
-#, kde-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:usagetip"
+#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
 msgctxt "@info:usagetip"
-msgid "Choose 'Add Printer' to set up a new printer on this computer"
+msgid ""
+"Click <interface>Add Printer…</interface> to set up a new printer on this "
+"computer"
 msgstr ""
 "Escolla «Engadir unha impresora» para configurar unha nova impresora neste "
 "computador."

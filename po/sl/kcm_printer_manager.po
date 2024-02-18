@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:39+0000\n"
+"POT-Creation-Date: 2024-02-18 00:39+0000\n"
 "PO-Revision-Date: 2023-11-14 07:23+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
@@ -228,21 +228,27 @@ msgid "new_group"
 msgstr "nova_skupina"
 
 #: ui/main.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add Printer"
 msgctxt "@action:button"
-msgid "Add Printer"
+msgid "Add Printer…"
 msgstr "Dodaj tiskalnik"
 
 #: ui/main.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add Group"
 msgctxt "@action:button"
-msgid "Add Group"
+msgid "Add Group…"
 msgstr "Dodaj skupino"
 
 #: ui/main.qml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure Print Server"
 msgctxt "@action:button"
-msgid "Configure Print Server"
+msgid "Configure Print Server…"
 msgstr "Konfiguriraj tiskalni strežnik"
 
 #: ui/main.qml:184
@@ -252,9 +258,13 @@ msgid "No printers are currently set up"
 msgstr "Trenutno ni nastavljenega nobenega tiskalnika"
 
 #: ui/main.qml:185
-#, kde-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:usagetip"
+#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
 msgctxt "@info:usagetip"
-msgid "Choose 'Add Printer' to set up a new printer on this computer"
+msgid ""
+"Click <interface>Add Printer…</interface> to set up a new printer on this "
+"computer"
 msgstr ""
 "Izberite »Dodaj tiskalnik«, da nastavite nov tiskalnik na tem računalniku"
 

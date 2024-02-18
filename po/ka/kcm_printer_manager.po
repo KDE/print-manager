@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-13 00:39+0000\n"
+"POT-Creation-Date: 2024-02-18 00:39+0000\n"
 "PO-Revision-Date: 2023-11-15 06:04+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -233,21 +233,27 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:65
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add Printer"
 msgctxt "@action:button"
-msgid "Add Printer"
+msgid "Add Printer…"
 msgstr "პრინტერის დამატება"
 
 #: ui/main.qml:74
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Add Group"
 msgctxt "@action:button"
-msgid "Add Group"
+msgid "Add Group…"
 msgstr "ჯგუფის დამატება"
 
 #: ui/main.qml:83
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure Print Server"
 msgctxt "@action:button"
-msgid "Configure Print Server"
+msgid "Configure Print Server…"
 msgstr "ბეჭდვის სერვერის მორგება"
 
 #: ui/main.qml:184
@@ -257,9 +263,13 @@ msgid "No printers are currently set up"
 msgstr "ამჟამად პრინტერები არ გაქვთ"
 
 #: ui/main.qml:185
-#, kde-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:usagetip"
+#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
 msgctxt "@info:usagetip"
-msgid "Choose 'Add Printer' to set up a new printer on this computer"
+msgid ""
+"Click <interface>Add Printer…</interface> to set up a new printer on this "
+"computer"
 msgstr "ამ კომპიუტერზე ახალი პრინტერის მოსარგებად 'პრინტერის დამატება' აირჩიეთ"
 
 #: ui/main.qml:195

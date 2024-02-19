@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2023-12-02 20:29+0900\n"
+"PO-Revision-Date: 2024-02-19 08:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -227,28 +227,22 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "新增印表機"
+msgstr "新增印表機…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "新增群組"
+msgstr "新增群組…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "設定列印伺服器"
+msgstr "設定列印伺服器…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -257,14 +251,12 @@ msgid "No printers are currently set up"
 msgstr "目前沒有設定好的印表機"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
-msgstr "選擇「新增印表機」來為這台電腦設定新的印表機"
+msgstr "點擊「新增印表機…」來為這台電腦設定新的印表機"
 
 #: ui/main.qml:195
 #, kde-format

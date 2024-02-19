@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the print-manager package.
 # Automatically generated, 2023.
 #
-# SPDX-FileCopyrightText: 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2023-11-14 17:51+0100\n"
+"PO-Revision-Date: 2024-02-18 19:37+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -235,28 +235,22 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Añadir impresora"
+msgstr "Añadir impresora..."
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Añadir grupo"
+msgstr "Añadir grupo..."
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Configurar el servidor de impresión"
+msgstr "Configurar el servidor de impresión..."
 
 #: ui/main.qml:184
 #, kde-format
@@ -265,15 +259,14 @@ msgid "No printers are currently set up"
 msgstr "No hay ninguna impresora configurada"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Use «Añadir impresora» para configurar una nueva impresora en este equipo"
+"Pulse <interface>Añadir impresora...</interface> para configurar una nueva "
+"impresora en este equipo"
 
 #: ui/main.qml:195
 #, kde-format

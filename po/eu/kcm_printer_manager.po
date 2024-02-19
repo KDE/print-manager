@@ -1,16 +1,16 @@
 # Translation for kcm_printer_manager.po to Euskara/Basque (eu).
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2023-2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
+# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
-# SPDX-FileCopyrightText: 2023 Iñigo Salvador Azurmendi <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 Iñigo Salvador Azurmendi <xalba@ni.eus>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2023-12-02 22:02+0100\n"
+"PO-Revision-Date: 2024-02-18 19:36+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -236,28 +236,22 @@ msgid "new_group"
 msgstr "talde_berria"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Gehitu inprimagailua"
+msgstr "Gehitu inprimagailua..."
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Gehitu taldea"
+msgstr "Gehitu taldea..."
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Konfiguratu inprimatze zerbitzaria"
+msgstr "Konfiguratu inprimatze zerbitzaria..."
 
 #: ui/main.qml:184
 #, kde-format
@@ -266,16 +260,14 @@ msgid "No printers are currently set up"
 msgstr "Une honetan ez dago ezarritako inprimagailurik"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Aukeratu 'Gehitu inprimagailua' ordenagailu honetan inprimagailu berri bat "
-"ezartzeko"
+"Egin klik <interface>Gehitu inprimagailua...</interface> aukeran ordenagailu "
+"honetan inprimagailu berri bat ezartzeko"
 
 #: ui/main.qml:195
 #, kde-format

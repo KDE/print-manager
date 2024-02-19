@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2023-11-14 07:50+0200\n"
+"PO-Revision-Date: 2024-02-18 08:41+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -232,28 +232,22 @@ msgid "new_group"
 msgstr "нова_група"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Додати принтер"
+msgstr "Додати принтер…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Додати групу"
+msgstr "Додати групу…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Налаштувати сервер друку"
+msgstr "Налаштувати сервер друку…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -262,15 +256,14 @@ msgid "No printers are currently set up"
 msgstr "Поки не налаштовано жодних принтерів"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Натисніть «Додати принтер», щоб налаштувати новий принтер на цьому комп'ютері"
+"Натисніть <interface>Додати принтер</interface>, щоб налаштувати новий "
+"принтер на цьому комп'ютері"
 
 #: ui/main.qml:195
 #, kde-format

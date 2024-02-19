@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2023-11-14 06:59+0100\n"
+"PO-Revision-Date: 2024-02-18 08:21+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -230,28 +230,22 @@ msgid "new_group"
 msgstr "nova_grupo"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Aldoni Presilon"
+msgstr "Aldoni Presilon…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Aldoni Grupon"
+msgstr "Aldoni Grupon…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Agordi Presan Servilon"
+msgstr "Agordi Presan Servilon…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -260,15 +254,14 @@ msgid "No printers are currently set up"
 msgstr "Neniuj presiloj estas nuntempe instalitaj"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Elektu 'Aldoni Presilon' por agordi novan presilon sur ĉi tiu komputilo"
+"Alklaku <interface>Aldoni Presilon…</interface> por agordi novan presilon "
+"sur ĉi tiu komputilo"
 
 #: ui/main.qml:195
 #, kde-format

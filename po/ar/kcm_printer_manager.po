@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2024-02-10 21:41+0400\n"
+"PO-Revision-Date: 2024-02-19 17:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -228,28 +228,22 @@ msgid "new_group"
 msgstr "مجموعة_جديدة"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "أضف طابعة"
+msgstr "أضف طابعة…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "أضف مجموعة"
+msgstr "أضف مجموعة…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "اضبط خادم طباعة"
+msgstr "اضبط خادم طباعة…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -258,14 +252,14 @@ msgid "No printers are currently set up"
 msgstr "لا يوجد طابعة"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
-msgstr "اختر \"أضف طابعة\" لإعداد طابعة جديدة على هذا الحاسوب"
+msgstr ""
+"انقر فوق <interface>أضف طابعة...</interface> لإعداد طابعة جديدة على هذا "
+"الحاسوب"
 
 #: ui/main.qml:195
 #, kde-format

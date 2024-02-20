@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2024-02-06 00:24+0100\n"
+"PO-Revision-Date: 2024-02-19 21:40+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -228,28 +228,22 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "프린터 추가"
+msgstr "프린터 추가…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "그룹 추가"
+msgstr "그룹 추가…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "인쇄 서버 설정"
+msgstr "인쇄 서버 설정…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -258,14 +252,14 @@ msgid "No printers are currently set up"
 msgstr "설정한 프린터 없음"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
-msgstr "'프린터 추가'를 선택하면 이 컴퓨터에 새 프린터를 설정합니다"
+msgstr ""
+"<interface>프린터 추가…</interface>를 선택하면 이 컴퓨터에 새 프린터를 설정합"
+"니다"
 
 #: ui/main.qml:195
 #, kde-format

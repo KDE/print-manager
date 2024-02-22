@@ -1,15 +1,15 @@
 # Translation of kcm_printer_manager.po to Catalan (Valencian)
-# Copyright (C) 2023 This_file_is_part_of_KDE
+# Copyright (C) 2023-2024 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2023-11-14 10:15+0100\n"
+"PO-Revision-Date: 2024-02-18 10:41+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -234,28 +234,22 @@ msgid "new_group"
 msgstr "grup_nou"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Afig una impressora"
+msgstr "Afig una impressora…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Afig un grup"
+msgstr "Afig un grup…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Configura el servidor d'impressió"
+msgstr "Configura el servidor d'impressió…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -264,16 +258,14 @@ msgid "No printers are currently set up"
 msgstr "Actualment no hi ha configurada cap impressora"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Seleccioneu «Afig una impressora» per a configurar una impressora nova en "
-"este ordinador"
+"Feu clic en <interface>Afig una impressora…</interface> per a configurar una "
+"impressora nova en este ordinador"
 
 #: ui/main.qml:195
 #, kde-format

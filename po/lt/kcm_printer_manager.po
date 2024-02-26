@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2024-01-24 02:18+0200\n"
+"PO-Revision-Date: 2024-02-26 01:26+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -233,28 +233,22 @@ msgid "new_group"
 msgstr "nauja_grupė"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Pridėti spausdintuvą"
+msgstr "Pridėti spausdintuvą…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Pridėti grupę"
+msgstr "Pridėti grupę…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Konfigūruoti spausdinimo serverį"
+msgstr "Konfigūruoti spausdinimo serverį…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -263,16 +257,14 @@ msgid "No printers are currently set up"
 msgstr "Šiuo metu nėra nustatytų spausdintuvų"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Pasirinkite „Pridėti spausdintuvą“ norėdami šiame kompiuteryje nustatyti "
-"naują spausdintuvą"
+"Spustelėkite <interface>Pridėti spausdintuvą…</interface> norėdami šiame "
+"kompiuteryje nustatyti naują spausdintuvą"
 
 #: ui/main.qml:195
 #, kde-format

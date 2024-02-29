@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the print-manager package.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2019, 2022, 2023.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2019, 2022, 2023, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2023-11-14 22:57+0100\n"
+"PO-Revision-Date: 2024-02-18 13:46+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -233,28 +233,22 @@ msgid "new_group"
 msgstr "nuovo_gruppo"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Aggiungi stampante"
+msgstr "Aggiungi stampante…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Aggiungi gruppo"
+msgstr "Aggiungi gruppo…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Configura server di stampa"
+msgstr "Configura server di stampa…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -263,16 +257,14 @@ msgid "No printers are currently set up"
 msgstr "Nessuna stampante è attualmente configurata"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Scegli «Aggiungi stampante» per impostare una nuova stampante su questo "
-"computer"
+"Fai clic su <interface>Aggiungi stampante…</interface> per impostare una "
+"nuova stampante su questo computer"
 
 #: ui/main.qml:195
 #, kde-format

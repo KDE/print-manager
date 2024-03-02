@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-18 00:39+0000\n"
-"PO-Revision-Date: 2024-01-03 13:33+0100\n"
+"PO-Revision-Date: 2024-03-01 11:44+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -231,28 +231,22 @@ msgid "new_group"
 msgstr "új_csoport"
 
 #: ui/main.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Nyomtató hozzáadása"
+msgstr "Nyomtató hozzáadása…"
 
 #: ui/main.qml:74
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Csoport hozzáadása"
+msgstr "Csoport hozzáadása…"
 
 #: ui/main.qml:83
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Nyomtatókiszolgáló beállítása"
+msgstr "Nyomtatókiszolgáló beállítása…"
 
 #: ui/main.qml:184
 #, kde-format
@@ -261,16 +255,14 @@ msgid "No printers are currently set up"
 msgstr "Nincsenek beállítva nyomtatók"
 
 #: ui/main.qml:185
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Válassza a „Nyomtató hozzáadását” új nyomtató beállításához ezen a "
-"számítógépen"
+"Kattintson a <interface>Nyomtató hozzáadása</interface> gombra új nyomtató "
+"beállításához ezen a számítógépen"
 
 #: ui/main.qml:195
 #, kde-format

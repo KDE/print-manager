@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Sergiu Bivol <sergiu@cip.md>, 2012, 2013, 2020, 2021, 2022.
+# Sergiu Bivol <sergiu@cip.md>, 2012, 2013, 2020, 2021, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-07 01:42+0000\n"
-"PO-Revision-Date: 2022-04-04 10:12+0100\n"
+"PO-Revision-Date: 2024-03-02 14:56+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -24,10 +24,8 @@ msgid "Printers"
 msgstr "Imprimante"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Imprimante"
+msgstr "Grupuri de imprimante"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -72,30 +70,24 @@ msgid "Show Only Active Jobs"
 msgstr "Arată numai lucrări active"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&Configurează imprimante..."
+msgstr "&Configurează imprimante…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Reia"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Întrerupe"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "Configurează imprimanta..."
+msgstr "Configurează imprimanta…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Vezi coada de imprimare"
+msgstr "Vezi coada de imprimare…"
 
 #~ msgid "Search…"
 #~ msgstr "Caută…"

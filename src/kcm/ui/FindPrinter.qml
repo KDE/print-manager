@@ -323,6 +323,8 @@ Kirigami.Dialog {
                     root.setValues(settings.pending)
                     close()
                 }
+
+                onDriverFallback: manualDriverSelect()
             }
         }
     }
@@ -390,6 +392,8 @@ Kirigami.Dialog {
                     root.setValues(settings.pending)
                     close()
                 }
+
+                onDriverFallback: manualDriverSelect()
             }
         }
     }

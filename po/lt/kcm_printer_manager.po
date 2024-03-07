@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-07 00:39+0000\n"
 "PO-Revision-Date: 2024-02-26 01:26+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -69,13 +69,27 @@ msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Pavyzdiniai adresai"
 
-#: ui/Drivers.qml:52
+#: ui/Drivers.qml:39
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid ""
+"Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
+"to try again or choose a driver manually."
+msgstr ""
+
+#: ui/Drivers.qml:46
+#, kde-format
+msgctxt "@action:button"
+msgid "Choose Driver…"
+msgstr ""
+
+#: ui/Drivers.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Pasirinkti rekomenduojamą tvarkyklę"
 
-#: ui/Drivers.qml:58
+#: ui/Drivers.qml:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -140,19 +154,19 @@ msgstr "URI:"
 msgid "Enter host URI"
 msgstr "Įvesti mazgo URI"
 
-#: ui/FindPrinter.qml:336
+#: ui/FindPrinter.qml:338
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Pasirinkite įrenginio sujungimą"
 
-#: ui/FindPrinter.qml:426
+#: ui/FindPrinter.qml:430
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Nepavyko automatiškai aptikti jokių spausdinimo įrenginių"
 
-#: ui/FindPrinter.qml:427
+#: ui/FindPrinter.qml:431
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -162,13 +176,13 @@ msgstr ""
 "Pasirinkite „Įkelti iš naujo“ norėdami bandyti dar kartą arba pasirinkite iš "
 "sąrašo rankinės konfigūracijos parinktį"
 
-#: ui/FindPrinter.qml:436
+#: ui/FindPrinter.qml:440
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Pasirinkite iš sąrašo rankinės konfigūracijos parinktį"
 
-#: ui/FindPrinter.qml:449
+#: ui/FindPrinter.qml:453
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -440,123 +454,123 @@ msgstr ""
 "Reikia nurodyti gamintoją/modelį.  Pasirinkite „Pasirinkti“ norėdami "
 "parinkti gamintoją/modelį"
 
-#: ui/PrinterSettings.qml:158
+#: ui/PrinterSettings.qml:163
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Nepavyko pašalinti spausdintuvo: %1"
 
-#: ui/PrinterSettings.qml:176
+#: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Remove Group"
 msgstr "Šalinti grupę"
 
-#: ui/PrinterSettings.qml:176
+#: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Remove Printer"
 msgstr "Šalinti spausdintuvą"
 
-#: ui/PrinterSettings.qml:177
+#: ui/PrinterSettings.qml:182
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "Ar tikrai norite pašalinti:  %1 (%2)?"
 
-#: ui/PrinterSettings.qml:194
+#: ui/PrinterSettings.qml:199
 #, kde-format
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: ui/PrinterSettings.qml:340
+#: ui/PrinterSettings.qml:345
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
 msgstr ""
 "<b>Spausdintuvų grupė</b> yra naudojama spausdinimo išteklių sutelkimui."
 
-#: ui/PrinterSettings.qml:382
+#: ui/PrinterSettings.qml:387
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Numatytasis spausdintuvas"
 
-#: ui/PrinterSettings.qml:389
+#: ui/PrinterSettings.qml:394
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Bendrinti šią grupę"
 
-#: ui/PrinterSettings.qml:390
+#: ui/PrinterSettings.qml:395
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Bendrinti šį spausdintuvą"
 
-#: ui/PrinterSettings.qml:397
+#: ui/PrinterSettings.qml:402
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Priima spausdinimo užduotis"
 
-#: ui/PrinterSettings.qml:428
+#: ui/PrinterSettings.qml:433
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Spausdinti bandomąjį puslapį"
 
-#: ui/PrinterSettings.qml:434
+#: ui/PrinterSettings.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Spausdinti savikontrolės puslapį"
 
-#: ui/PrinterSettings.qml:441
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Išvalyti spausdinimo galvutes"
 
-#: ui/PrinterSettings.qml:461
+#: ui/PrinterSettings.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Rasti spausdintuvą…"
 
-#: ui/PrinterSettings.qml:469
+#: ui/PrinterSettings.qml:474
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Eilės pavadinimas:"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Aprašas:"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:499
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Vieta:"
 
-#: ui/PrinterSettings.qml:506
+#: ui/PrinterSettings.qml:511
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Sujungimas:"
 
-#: ui/PrinterSettings.qml:520
+#: ui/PrinterSettings.qml:525
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Spausdintuvai nariai:"
 
-#: ui/PrinterSettings.qml:651
+#: ui/PrinterSettings.qml:656
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Gamintojas/Modelis:"
 
-#: ui/PrinterSettings.qml:666
+#: ui/PrinterSettings.qml:671
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-02-18 00:39+0000\n"
+"POT-Creation-Date: 2024-03-07 00:39+0000\n"
 "PO-Revision-Date: 2024-02-18 16:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -67,13 +67,27 @@ msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Örnek Adresler"
 
-#: ui/Drivers.qml:52
+#: ui/Drivers.qml:39
+#, kde-kuit-format
+msgctxt "@info:status"
+msgid ""
+"Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
+"to try again or choose a driver manually."
+msgstr ""
+
+#: ui/Drivers.qml:46
+#, kde-format
+msgctxt "@action:button"
+msgid "Choose Driver…"
+msgstr ""
+
+#: ui/Drivers.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Önerilen Sürücüyü Seç"
 
-#: ui/Drivers.qml:58
+#: ui/Drivers.qml:84
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -136,19 +150,19 @@ msgstr "URI:"
 msgid "Enter host URI"
 msgstr "Makine URI'sini gir"
 
-#: ui/FindPrinter.qml:336
+#: ui/FindPrinter.qml:338
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Bir aygıt bağlantısı seç"
 
-#: ui/FindPrinter.qml:426
+#: ui/FindPrinter.qml:430
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Kendiliğinden hiçbir yazdırma aygıtı algılanamadı"
 
-#: ui/FindPrinter.qml:427
+#: ui/FindPrinter.qml:431
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -158,13 +172,13 @@ msgstr ""
 "Bir kez daha denemek için \"Yenile\"yi veya listeden elle bir yapılandırma "
 "seçin"
 
-#: ui/FindPrinter.qml:436
+#: ui/FindPrinter.qml:440
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Listeden elle bir yapılandırma seçeneği seç"
 
-#: ui/FindPrinter.qml:449
+#: ui/FindPrinter.qml:453
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -435,32 +449,32 @@ msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için \"Seç\" yapın"
 
-#: ui/PrinterSettings.qml:158
+#: ui/PrinterSettings.qml:163
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Yazıcı kaldırılamadı: %1"
 
-#: ui/PrinterSettings.qml:176
+#: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Remove Group"
 msgstr "Grubu Kaldır"
 
-#: ui/PrinterSettings.qml:176
+#: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Remove Printer"
 msgstr "Yazıcıyı Kaldır"
 
-#: ui/PrinterSettings.qml:177
+#: ui/PrinterSettings.qml:182
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "Kaldırmak istediğinizden gerçekten emin misiniz: %1 (%2)?"
 
-#: ui/PrinterSettings.qml:194
+#: ui/PrinterSettings.qml:199
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: ui/PrinterSettings.qml:340
+#: ui/PrinterSettings.qml:345
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
@@ -468,91 +482,91 @@ msgstr ""
 "Yazdırma kaynaklarını bir araya toplamak için bir <b>yazıcı grubu</b> "
 "kullanılır."
 
-#: ui/PrinterSettings.qml:382
+#: ui/PrinterSettings.qml:387
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Öntanımlı yazıcı"
 
-#: ui/PrinterSettings.qml:389
+#: ui/PrinterSettings.qml:394
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Bu grubu paylaş"
 
-#: ui/PrinterSettings.qml:390
+#: ui/PrinterSettings.qml:395
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Bu yazıcıyı paylaş"
 
-#: ui/PrinterSettings.qml:397
+#: ui/PrinterSettings.qml:402
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Yazdırma işleri kabul ediliyor"
 
-#: ui/PrinterSettings.qml:428
+#: ui/PrinterSettings.qml:433
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Sınama Sayfası Yazdır"
 
-#: ui/PrinterSettings.qml:434
+#: ui/PrinterSettings.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Kendini Sınama Sayfası Yazdır"
 
-#: ui/PrinterSettings.qml:441
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Yazdırma Kafalarını Temizle"
 
-#: ui/PrinterSettings.qml:461
+#: ui/PrinterSettings.qml:466
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Bir Yazıcı Bul…"
 
-#: ui/PrinterSettings.qml:469
+#: ui/PrinterSettings.qml:474
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Kuyruk adı:"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Açıklama:"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:499
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Konum:"
 
-#: ui/PrinterSettings.qml:506
+#: ui/PrinterSettings.qml:511
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Bağlantı:"
 
-#: ui/PrinterSettings.qml:520
+#: ui/PrinterSettings.qml:525
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Üye yazıcılar:"
 
-#: ui/PrinterSettings.qml:651
+#: ui/PrinterSettings.qml:656
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Yapım/Model:"
 
-#: ui/PrinterSettings.qml:666
+#: ui/PrinterSettings.qml:671
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

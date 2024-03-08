@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-14 03:09+0000\n"
-"PO-Revision-Date: 2023-11-14 18:02+0300\n"
+"PO-Revision-Date: 2024-03-07 10:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.02.0\n"
 
 #: printermanager.cpp:223
 #, kde-format
@@ -134,7 +134,7 @@ msgstr "URI:"
 #: ui/FindPrinter.qml:231
 #, kde-format
 msgid "Enter host URI"
-msgstr "Makine URI'sini gir"
+msgstr "Makine URI’sini gir"
 
 #: ui/FindPrinter.qml:336
 #, kde-format
@@ -155,7 +155,7 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"Bir kez daha denemek için \"Yenile\"yi veya listeden elle bir yapılandırma "
+"Yeniden denemek için ‘Yenile’yi tıklayın veya listeden elle bir yapılandırma "
 "seçin"
 
 #: ui/FindPrinter.qml:436
@@ -429,7 +429,7 @@ msgstr "Kuyruk adı gerekiyor. Benzersiz bir kuyruk adı girin."
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
-msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için \"Seç\" yapın"
+msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için ‘Seç‘e tıklayın"
 
 #: ui/PrinterSettings.qml:158
 #, kde-format
@@ -449,7 +449,7 @@ msgstr "Yazıcıyı Kaldır"
 #: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr "Kaldırmak istediğinizden gerçekten emin misiniz: %1 (%2)?"
+msgstr "Kaldırmayı gerçekten istiyor musunuz: %1 (%2)?"
 
 #: ui/PrinterSettings.qml:194
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:39+0000\n"
-"PO-Revision-Date: 2024-02-18 19:37+0100\n"
+"PO-Revision-Date: 2024-03-07 23:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -76,12 +76,15 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
+"No se han podido localizar los controladores recomendados. Pulse "
+"<interface>Actualizar</interface> para volver a intentarlo o escoja un "
+"controlador manualmente."
 
 #: ui/Drivers.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr ""
+msgstr "Escoger controlador..."
 
 #: ui/Drivers.qml:78
 #, kde-format

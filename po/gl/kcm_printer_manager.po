@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:39+0000\n"
-"PO-Revision-Date: 2024-02-19 21:19+0100\n"
+"PO-Revision-Date: 2024-03-07 21:56+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -76,12 +76,15 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
+"Non é posíbel localizar os controladores recomendados. Prema "
+"<interface>Actualizar</interface> para intentalo de novo ou escolla un "
+"controlador manualmente."
 
 #: ui/Drivers.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr ""
+msgstr "Escoller un controlador…"
 
 #: ui/Drivers.qml:78
 #, kde-format

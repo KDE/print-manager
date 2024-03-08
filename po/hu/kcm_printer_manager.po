@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:39+0000\n"
-"PO-Revision-Date: 2024-03-01 11:44+0100\n"
+"PO-Revision-Date: 2024-03-07 09:53+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -74,12 +74,15 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
+"Nem lehet megtalálni az ajánlott illesztőprogramokat. Kattintson a "
+"<interface>Frissítés</interface> gombra egy újabb kísérlethez, vagy válassza "
+"ki az illesztőprogramot kézzel."
 
 #: ui/Drivers.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr ""
+msgstr "Illesztőprogram kiválasztása…"
 
 #: ui/Drivers.qml:78
 #, kde-format

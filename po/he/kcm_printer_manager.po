@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:39+0000\n"
-"PO-Revision-Date: 2024-02-18 08:27+0200\n"
+"PO-Revision-Date: 2024-03-07 06:30+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -75,12 +75,14 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
+"לא ניתן לאתר את מנהלי ההתקן המומלצים. יש ללחוץ על <interface>רענון</"
+"interface> כדי לנסות שוב או לבחור מנהל התקן ידנית."
 
 #: ui/Drivers.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr ""
+msgstr "בחירת מנהל התקן…"
 
 #: ui/Drivers.qml:78
 #, kde-format

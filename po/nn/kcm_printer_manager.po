@@ -1,12 +1,11 @@
 # Translation of kcm_printer_manager to Norwegian Nynorsk
 #
-# Karl Ove Hufthammer <karl@huftis.org>, 2015, 2016, 2018, 2019, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:39+0000\n"
-"PO-Revision-Date: 2023-01-15 12:23+0100\n"
+"PO-Revision-Date: 2024-03-09 18:51+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -14,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.4\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -22,19 +21,19 @@ msgstr ""
 #: printermanager.cpp:223
 #, kde-format
 msgid "Set Default Options"
-msgstr ""
+msgstr "Bruk standardvala"
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr ""
+msgstr "Klarte ikkje setja opp klasse: "
 
 #: printermanager.cpp:231
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr ""
+msgstr "Klarte ikkje setja opp skrivar: "
 
 #: printermanager.cpp:364
 #, kde-format
@@ -67,7 +66,7 @@ msgstr "Rens skrivarhovud"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr ""
+msgstr "Eksempeladresser"
 
 #: ui/Drivers.qml:39
 #, kde-kuit-format
@@ -81,13 +80,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr ""
+msgstr "Vel drivar …"
 
 #: ui/Drivers.qml:78
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr ""
+msgstr "Vil tilrådd drivar"
 
 #: ui/Drivers.qml:84
 #, kde-format

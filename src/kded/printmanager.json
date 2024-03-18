@@ -24,6 +24,7 @@
         "Description[ko]": "새 프린터가 감지되거나 인쇄 작업에 문제가 생겼을 때 알림",
         "Description[lt]": "Pranešti, kai yra aptiktas naujas spausdintuvas arba yra spausdinimo problemų",
         "Description[nl]": "Melden wanneer een nieuwe printer is ontdekt of er een probleem met een afdruktaak is",
+        "Description[nn]": "Varsla når ein ny skrivar vert kopla til eller ved feil med utskriftsjobb",
         "Description[pa]": "ਜਦੋਂ ਵੀ ਨਵਾਂ ਪਰਿੰਟਰ ਮਿਲੇ ਜਾਂ ਪਰਿੰਟ ਜੌਬ ਨਾਲ ਸਮੱਸਿਆਵਾਂ ਹੋਣ ਤਾਂ ਸੂਚਨਾ ਦਿਓ",
         "Description[pl]": "Powiadamia o wykryciu nowej drukarki i o kłopotach z wydrukiem",
         "Description[pt_BR]": "Notifica quando uma nova impressora for detectada ou ocorrerem problemas com um trabalho de impressão",

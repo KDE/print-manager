@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-07 00:39+0000\n"
-"PO-Revision-Date: 2024-02-24 16:42+0100\n"
+"PO-Revision-Date: 2024-03-17 11:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -75,12 +75,14 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
+"Nie można znaleźć zalecanych sterowników. Naciśnij <interface>Odśwież</"
+"interface>, aby spróbować ponownie lub wybierz sterownik ręcznie."
 
 #: ui/Drivers.qml:46
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr ""
+msgstr "Wybierz sterownik…"
 
 #: ui/Drivers.qml:78
 #, kde-format

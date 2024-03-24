@@ -53,8 +53,8 @@ PlasmaExtras.Representation {
             spacing: Kirigami.Units.smallSpacing
 
             highlight: PlasmaExtras.Highlight {}
-            highlightMoveDuration: 0
-            highlightResizeDuration: 0
+            highlightMoveDuration: Kirigami.Units.shortDuration
+            highlightResizeDuration: Kirigami.Units.shortDuration
             delegate: PrinterDelegate {}
 
             Loader {

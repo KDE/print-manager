@@ -247,9 +247,9 @@ KCM.AbstractKCM {
                     ppd.pcfile = ""
                 }
 
-                // If we have a driver file, then no need to offer
-                // the make/model selection
-                if (!config.value("remote") && ppd.file.length === 0) {
+                // Not a remote printer and no driver file
+                // then immediately offer make/model selection
+                if (!configMap["remote"] && ppd.file.length === 0) {
                     openMakeModelDlg()
                 }
             }

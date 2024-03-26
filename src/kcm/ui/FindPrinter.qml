@@ -177,6 +177,11 @@ Kirigami.Dialog {
         }
     }
 
+    /*
+     * This component is a catch-all for manually selected printers.
+     * A host can be queried for printers it advertises.  Additionally,
+     * a valid url can be entered for a specific printer on the network.
+    */
     Component {
         id: uriComp
 
@@ -190,35 +195,68 @@ Kirigami.Dialog {
 
             actions: [
                 Kirigami.Action {
-                    text: i18nc("@action:button", "Select Printer")
+                    text: i18nc("@action:button", "Select Printer…")
                     enabled: list.currentIndex !== -1
                     icon.name: "dialog-ok-symbolic"
                     onTriggered: {
                         settings.set(kcm.remotePrinters[list.currentIndex])
                         manualDriverSelect()
                     }
+                },
+                Kirigami.Action {
+                    text: i18nc("@action:button", "Continue with URI…")
+                    icon.name: "dialog-ok-symbolic"
+                    onTriggered: {
+                        if (uriItem.parseUri(connSearch.text)) {
+                            settings.add("device-uri", connSearch.text)
+                            manualDriverSelect()
+                        }
+                    }
                 }
             ]
 
-            Component.onCompleted: {
+            function setSearchPrefix() {
                 connSearch.text = compLoader.selector !== "other"
-                        ? compLoader.selector + "://"
-                        : "ipp://"
+                        ? compLoader.selector + ":"
+                        : "ipp:"
                 connSearch.forceActiveFocus()
             }
+
+            function parseUri(uri) {
+                try {
+                    const u = new URL(uri)
+                    return true
+                } catch (e) {
+                    // TypeError
+                    error.text = e.message
+                    error.visible = true
+                    return false
+                }
+            }
+
+            Component.onCompleted: setSearchPrefix()
 
             Connections {
                 target: kcm
 
                 function onRemotePrintersLoaded() {
+                    list.model = kcm.remotePrinters
                     if (list.count > 0) {
                         list.itemAtIndex(0).clicked()
                     }
                 }
             }
 
+            BannerWithTimer {
+                id: error
+                autoCloseInterval: 5000
+                Layout.fillWidth: true
+            }
+
             RowLayout {
+                spacing: Kirigami.Units.smallSpacing
                 Layout.alignment: Qt.AlignHCenter
+
                 QQC2.Label {
                     text: i18nc("@label:textbox", "Uri:")
                 }
@@ -239,11 +277,24 @@ Kirigami.Dialog {
                     KeyNavigation.backtab: KeyNavigation.left
                     KeyNavigation.tab: KeyNavigation.right
 
-                    onAccepted: {
-                        if (text.length > 0)
-                            kcm.getRemotePrinters(text, compLoader.selector)
-                        else
+                    onAccepted: searchButton.clicked()
+                }
+
+                PComp.ToolButton {
+                    id: searchButton
+                    icon.name: "search-symbolic"
+                    onClicked: {
+                        if (connSearch.text.length === 0) {
+                            return
+                        }
+
+                        if (uriItem.parseUri(connSearch.text)) {
+                            kcm.getRemotePrinters(connSearch.text, compLoader.selector)
+                        } else {
                             kcm.clearRemotePrinters()
+                            list.model = ""
+                            uriItem.setSearchPrefix()
+                        }
                     }
                 }
             }
@@ -257,9 +308,7 @@ Kirigami.Dialog {
                 contentItem: ListView {
                     id: list
                     currentIndex: -1
-                    highlight: PlasmaExtras.Highlight {}
-                    highlightMoveDuration: 0
-                    highlightResizeDuration: 0
+                    clip: true
 
                     activeFocusOnTab: true
                     keyNavigationWraps: true
@@ -273,8 +322,6 @@ Kirigami.Dialog {
                         event.accepted = false
                     }
 
-                    model: kcm.remotePrinters
-
                     delegate: Kirigami.SubtitleDelegate {
                         width: ListView.view.width
                         text: modelData["printer-info"]
@@ -283,9 +330,8 @@ Kirigami.Dialog {
                                     ? "folder-network-symbolic"
                                     : modelData["printer-is-class"] ? "folder" : modelData.iconName
 
-                        onClicked: {
-                            ListView.view.currentIndex = index
-                        }
+                        highlighted: ListView.view.currentIndex === index
+                        onClicked: ListView.view.currentIndex = index
                     }
                 }
             }

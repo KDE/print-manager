@@ -126,11 +126,6 @@ KCM.AbstractKCM {
             if (addMode) {
                 config.set({"ppd-name": modelData["ppd-name"]
                            , "ppd-type": modelData["ppd-type"]})
-
-                // there is no ppd info, so show make/model selection dialog initially
-                if (config.value("ppd-name") === "") {
-                    openMakeModelDlg()
-                }
             } else {
                 ppd = kcm.getPrinterPPD(modelData.printerName)
             }

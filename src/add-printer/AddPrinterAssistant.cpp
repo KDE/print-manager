@@ -13,6 +13,7 @@
 
 #include <KCupsRequest.h>
 
+#include <QCoreApplication>
 #include <QHostInfo>
 #include <QPushButton>
 
@@ -156,6 +157,9 @@ void AddPrinterAssistant::next(KPageWidgetItem *currentPage)
     } else if (currentPage == m_chooseClassPage || currentPage == m_choosePPDPage) {
         qobject_cast<GenericPage *>(m_addPrinterPage->widget())->setValues(args);
         setCurrentPage(m_addPrinterPage);
+    } else if (currentPage == m_addPrinterPage) {
+        // Finish button calls next, if we're here, the printer was added
+        qApp->quit();
     }
 }
 

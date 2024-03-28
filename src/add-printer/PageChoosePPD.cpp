@@ -7,14 +7,13 @@
 #include "PageChoosePPD.h"
 #include "ui_PageChoosePPD.h"
 
-#include "DevicesModel.h"
+#include <kde-add-printer_log.h>
 
 #include <KCupsRequest.h>
 #include <KIO/FileCopyJob>
 #include <KLocalizedString>
 #include <SelectMakeModel.h>
 
-#include <QDebug>
 #include <QFile>
 #include <QFileInfo>
 #include <QTemporaryFile>
@@ -58,7 +57,7 @@ void PageChoosePPD::setValues(const QVariantMap &args)
     m_args = args;
 
     if (args[ADDING_PRINTER].toBool()) {
-        qDebug() << args;
+        qCDebug(PM_ADD_PRINTER) << args;
         working();
         removeTempPPD();
         const QString deviceId = args[KCUPS_DEVICE_ID].toString();
@@ -76,7 +75,7 @@ void PageChoosePPD::setValues(const QVariantMap &args)
             if (url.port() < 0) {
                 url.setPort(631);
             }
-            qDebug() << deviceURI << url;
+            qCDebug(PM_ADD_PRINTER) << deviceURI << url;
             KJob *job = KIO::file_copy(url, QUrl::fromLocalFile(tempFile->fileName()), -1, KIO::Overwrite | KIO::HideProgressInfo);
             job->setProperty("URI", deviceURI);
             connect(job, &KJob::result, this, &PageChoosePPD::resultJob);
@@ -155,7 +154,7 @@ bool PageChoosePPD::canProceed() const
         allow = !m_selectMM->selectedPPDName().isNull();
     }
 
-    qDebug() << allow;
+    qCDebug(PM_ADD_PRINTER) << allow;
     return allow;
 }
 

@@ -5,18 +5,15 @@
 */
 
 #include "AddPrinter.h"
-
 #include <config.h>
+
+#include <kde-add-printer_log.h>
 
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 
-#include <QLoggingCategory>
-
 #include <KAboutData>
 #include <KLocalizedString>
-
-Q_LOGGING_CATEGORY(PM_ADD_PRINTER, "pm.add.printer")
 
 int main(int argc, char **argv)
 {

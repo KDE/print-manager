@@ -58,5 +58,13 @@ target_link_libraries(kde-add-printer
     KF6::IconWidgets
 )
 
+ecm_qt_declare_logging_category(kde-add-printer
+    HEADER kde-add-printer_log.h
+    IDENTIFIER PM_ADD_PRINTER
+    CATEGORY_NAME org.kde.plasma.printmanager.kde-add-printer
+    DESCRIPTION "Print Manager (legacy Add Printer App)"
+    EXPORT PMLOGS
+)
+
 install(TARGETS kde-add-printer DESTINATION ${KDE_INSTALL_BINDIR})
 install(PROGRAMS org.kde.kde-add-printer.desktop DESTINATION ${KDE_INSTALL_APPDIR})

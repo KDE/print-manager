@@ -7,10 +7,11 @@
 #include "PageAddPrinter.h"
 #include "ui_PageAddPrinter.h"
 
+#include <kde-add-printer_log.h>
+
 #include <KCupsRequest.h>
 #include <KLocalizedString>
 
-#include <QDebug>
 #include <QPainter>
 #include <QPointer>
 #include <QRegularExpressionValidator>
@@ -118,7 +119,7 @@ bool PageAddPrinter::finishClicked()
     request->waitTillFinished();
     if (request) {
         if (request->hasError()) {
-            qDebug() << request->error() << request->errorMsg();
+            qCDebug(PM_ADD_PRINTER) << request->error() << request->errorMsg();
             QString message;
             if (isClass) {
                 message = i18nc("@info", "Failed to add class: '%1'", request->errorMsg());

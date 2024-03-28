@@ -5,17 +5,15 @@
 */
 
 #include "AddPrinter.h"
-
 #include "AddPrinterAssistant.h"
+
+#include <kde-add-printer_log.h>
 
 #include <KCupsRequest.h>
 #include <KWindowSystem>
 #include <KX11Extras>
 
-#include <QLoggingCategory>
 #include <QPointer>
-
-Q_DECLARE_LOGGING_CATEGORY(PM_ADD_PRINTER)
 
 AddPrinter::AddPrinter(int &argc, char **argv)
     : QApplication(argc, argv)
@@ -61,7 +59,7 @@ void AddPrinter::changePPD(qulonglong wid, const QString &name)
                 show(wizard, wid);
             }
         } else {
-            qWarning() << "Ignoring request, printer not found" << name << request->errorMsg();
+            qCWarning(PM_ADD_PRINTER) << "Ignoring request, printer not found" << name << request->errorMsg();
         }
         request->deleteLater();
     }

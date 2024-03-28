@@ -7,6 +7,8 @@
 #include "PageDestinations.h"
 #include "ui_PageDestinations.h"
 
+#include <kde-add-printer_log.h>
+
 #include "DevicesModel.h"
 
 #include "ChooseLpd.h"
@@ -183,7 +185,7 @@ void PageDestinations::deviceUriChanged()
 
     // "beh" is excluded from the list
     QString deviceUri = args[KCUPS_DEVICE_URI].toString();
-    qDebug() << deviceUri;
+    qCDebug(PM_ADD_PRINTER) << deviceUri;
     if (deviceUri.startsWith(QLatin1String("parallel"))) {
         m_chooseLabel->setText(i18n("A printer connected to the parallel port."));
         setCurrentPage(m_chooseLabel, args);
@@ -232,7 +234,7 @@ void PageDestinations::deviceUriChanged()
         m_chooseLabel->setText(text);
         setCurrentPage(m_chooseLabel, args);
     } else if (deviceUri.startsWith(QLatin1String("socket"))) {
-        qDebug() << "SOCKET";
+        qCDebug(PM_ADD_PRINTER) << "SOCKET";
         setCurrentPage(m_chooseSocket, args);
     } else if (deviceUri.startsWith(QLatin1String("ipp")) || deviceUri.startsWith(QLatin1String("ipps")) || deviceUri.startsWith(QLatin1String("http"))
                || deviceUri.startsWith(QLatin1String("https"))) {
@@ -292,11 +294,11 @@ QVariantMap PageDestinations::selectedItemValues() const
             ret[KCUPS_DEVICE_URI] = url.url();
             ret[KCUPS_DEVICE_ID] = index.data(DevicesModel::DeviceId);
             ret[KCUPS_PRINTER_INFO] = printer.info();
-            qDebug() << KCUPS_PRINTER_INFO << printer.info();
+            qCDebug(PM_ADD_PRINTER) << KCUPS_PRINTER_INFO << printer.info();
             ret[KCUPS_PRINTER_NAME] = printer.name();
             ret[KCUPS_DEVICE_LOCATION] = printer.location();
         }
-        qDebug() << uri << ret;
+        qCDebug(PM_ADD_PRINTER) << uri << ret;
     }
     return ret;
 }

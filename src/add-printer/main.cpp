@@ -35,6 +35,8 @@ int main(int argc, char **argv)
     about.addAuthor(QStringLiteral("Mike Noe"), i18n("Port to Qt 6 / Plasma 6"), QStringLiteral("noeerover@gmail.com"));
     KAboutData::setApplicationData(about);
 
+    qCWarning(PM_ADD_PRINTER) << i18n("NOTE: This application is deprecated and will be removed from Plasma in a future release.");
+
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
 
@@ -75,7 +77,7 @@ int main(int argc, char **argv)
         if (values.size() == 2) {
             app.newPrinterFromDevice(wid, values.first(), values.last());
         } else {
-            qWarning() << "The expected input should be printer/deviceid";
+            qCWarning(PM_ADD_PRINTER) << i18n("The expected input should be printer/deviceid");
             exit(EXIT_FAILURE);
         }
     } else {

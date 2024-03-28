@@ -55,7 +55,6 @@ target_link_libraries(kde-add-printer
     KF6::KIOWidgets
     KF6::ConfigCore
     kcupslib
-    Qt6::Core5Compat
     KF6::IconWidgets
 )
 

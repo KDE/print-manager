@@ -266,6 +266,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
         request->getPrinters({KCUPS_PRINTER_NAME, KCUPS_PRINTER_INFO});
         request->waitTillFinished();
         if (!request) {
+            moveToMenu->deleteLater();
             return;
         }
         const KCupsPrinters printers = request->printers();
@@ -277,7 +278,7 @@ void PrintQueueUi::showContextMenu(const QPoint &point)
             if (printer.name() != m_destName) {
                 QAction *action = moveToMenu->addAction(printer.info());
                 action->setData(printer.name());
-                connect(action, &QAction::triggered, this, [=]() {
+                connect(action, &QAction::triggered, this, [this, action]() {
                     this->modifyJob(JobModel::Move, action->data().toString());
                 });
             }

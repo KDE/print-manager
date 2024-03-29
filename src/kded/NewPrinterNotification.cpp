@@ -226,9 +226,9 @@ void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, co
 
         QString driver;
         // Get the new printer driver
-        if (!request->printers().isEmpty()) {
-            const KCupsPrinter &printer = request->printers().first();
-            driver = printer.makeAndModel();
+        const auto printers = request->printers();
+        if (!printers.isEmpty()) {
+            driver = printers.first().makeAndModel();
         }
 
         // The cups request might have failed

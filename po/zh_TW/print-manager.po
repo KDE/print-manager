@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-03-29 00:39+0000\n"
 "PO-Revision-Date: 2023-12-08 22:22+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -29,37 +29,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw"
 
-#: src/add-printer/AddPrinterAssistant.cpp:28
+#: src/add-printer/AddPrinterAssistant.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "新增印表機"
 
-#: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
-#: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:31
+#: src/add-printer/PageAddPrinter.cpp:27 src/add-printer/PageChoosePPD.cpp:30
 #: src/add-printer/PageChoosePrinters.cpp:24
-#: src/add-printer/PageDestinations.cpp:77
+#: src/add-printer/PageDestinations.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "選擇要新增的印表機"
 
-#: src/add-printer/AddPrinterAssistant.cpp:86
-#: src/add-printer/AddPrinterAssistant.cpp:107
+#: src/add-printer/AddPrinterAssistant.cpp:87
+#: src/add-printer/AddPrinterAssistant.cpp:108
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "請描述您的印表機"
 
-#: src/add-printer/AddPrinterAssistant.cpp:103
+#: src/add-printer/AddPrinterAssistant.cpp:104
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "設定您的連線"
 
-#: src/add-printer/AddPrinterAssistant.cpp:191
+#: src/add-printer/AddPrinterAssistant.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
@@ -263,66 +263,79 @@ msgstr ""
 "</TR>\n"
 "</TABLE>"
 
-#: src/add-printer/main.cpp:27
+#: src/add-printer/main.cpp:24
 #, kde-format
 msgid "Add Printer"
 msgstr "新增印表機"
 
-#: src/add-printer/main.cpp:29
+#: src/add-printer/main.cpp:26
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "新增印表機工具"
 
-#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:29
+#: src/add-printer/main.cpp:28 src/configure-printer/main.cpp:29
 #: src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:31
+#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:31
 #: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "移植到 Plasma 5 / Qt 5"
 
-#: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
+#: src/add-printer/main.cpp:32 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "移植到 Qt 6 / Plasma 6"
 
-#: src/add-printer/main.cpp:41
+#: src/add-printer/main.cpp:35
+#, kde-format
+msgid ""
+"NOTE: This application is deprecated and will be removed from Plasma in a "
+"future release."
+msgstr ""
+
+#: src/add-printer/main.cpp:40
 #, kde-format
 msgid "Parent Window ID"
 msgstr "父視窗代碼"
 
-#: src/add-printer/main.cpp:44
+#: src/add-printer/main.cpp:43
 #, kde-format
 msgid "Add a new printer"
 msgstr "新增印表機。"
 
-#: src/add-printer/main.cpp:47
+#: src/add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer class"
 msgstr "新增印表機類別"
 
-#: src/add-printer/main.cpp:50
+#: src/add-printer/main.cpp:49
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "變更指定印表機的 PPD"
 
-#: src/add-printer/main.cpp:54
+#: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "變更指定印表機或裝置代碼的 PPD"
 
-#: src/add-printer/PageAddPrinter.cpp:124
+#: src/add-printer/main.cpp:77
+#, fuzzy, kde-format
+#| msgid "Changes the PPD of a given printer/deviceid"
+msgid "The expected input should be printer/deviceid"
+msgstr "變更指定印表機或裝置代碼的 PPD"
+
+#: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "加入類別失敗：'%1'"
 
-#: src/add-printer/PageAddPrinter.cpp:126
+#: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -369,51 +382,51 @@ msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "成員："
 
-#: src/add-printer/PageDestinations.cpp:188
+#: src/add-printer/PageDestinations.cpp:190
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr "有印表機連接到並列埠。"
 
-#: src/add-printer/PageDestinations.cpp:191
+#: src/add-printer/PageDestinations.cpp:193
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr "有印表機連接到 USB 埠。"
 
-#: src/add-printer/PageDestinations.cpp:194
+#: src/add-printer/PageDestinations.cpp:196
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr "有印表機連接到藍牙。"
 
-#: src/add-printer/PageDestinations.cpp:198
+#: src/add-printer/PageDestinations.cpp:200
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr "由 HAL 偵測到的本地印表機。"
 
-#: src/add-printer/PageDestinations.cpp:203
+#: src/add-printer/PageDestinations.cpp:205
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device."
 msgstr "HPLIP 軟體驅動一印表機，或是多功能裝置中的印表機功能。"
 
-#: src/add-printer/PageDestinations.cpp:208
+#: src/add-printer/PageDestinations.cpp:210
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device."
 msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能。"
 
-#: src/add-printer/PageDestinations.cpp:215 src/libkcups/DevicesModel.cpp:99
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:99
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD 上的遠端 CUPS 印表機"
 
-#: src/add-printer/PageDestinations.cpp:227 src/libkcups/DevicesModel.cpp:108
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD 上的網路印表機"
 
-#: src/add-printer/PageDestinations.cpp:229
+#: src/add-printer/PageDestinations.cpp:231
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "DNS-SD 上的 %1 網路印表機"

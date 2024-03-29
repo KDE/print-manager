@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-03-29 00:39+0000\n"
 "PO-Revision-Date: 2024-03-02 15:00+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -28,37 +28,37 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "sergiu@cip.md"
 
-#: src/add-printer/AddPrinterAssistant.cpp:28
+#: src/add-printer/AddPrinterAssistant.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
 msgstr "Adaugă o imprimantă nouă"
 
-#: src/add-printer/AddPrinterAssistant.cpp:70 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
 #: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
-#: src/add-printer/PageAddPrinter.cpp:26 src/add-printer/PageChoosePPD.cpp:31
+#: src/add-printer/PageAddPrinter.cpp:27 src/add-printer/PageChoosePPD.cpp:30
 #: src/add-printer/PageChoosePrinters.cpp:24
-#: src/add-printer/PageDestinations.cpp:77
+#: src/add-printer/PageDestinations.cpp:79
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
 msgstr "Alegeți imprimanta de adăugat"
 
-#: src/add-printer/AddPrinterAssistant.cpp:86
-#: src/add-printer/AddPrinterAssistant.cpp:107
+#: src/add-printer/AddPrinterAssistant.cpp:87
+#: src/add-printer/AddPrinterAssistant.cpp:108
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
 msgstr "Descrieți-vă imprimanta"
 
-#: src/add-printer/AddPrinterAssistant.cpp:103
+#: src/add-printer/AddPrinterAssistant.cpp:104
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
 msgstr "Configurați conexiunea"
 
-#: src/add-printer/AddPrinterAssistant.cpp:191
+#: src/add-printer/AddPrinterAssistant.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
@@ -263,66 +263,79 @@ msgstr ""
 "</TR>\n"
 "</TABLE>"
 
-#: src/add-printer/main.cpp:27
+#: src/add-printer/main.cpp:24
 #, kde-format
 msgid "Add Printer"
 msgstr "Adaugă imprimantă"
 
-#: src/add-printer/main.cpp:29
+#: src/add-printer/main.cpp:26
 #, kde-format
 msgid "Tool for adding new printers"
 msgstr "Unealtă pentru adăugarea de noi imprimante"
 
-#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:29
+#: src/add-printer/main.cpp:28 src/configure-printer/main.cpp:29
 #: src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: src/add-printer/main.cpp:34 src/configure-printer/main.cpp:31
+#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:31
 #: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Portare la Qt 5 / Plasma 5"
 
-#: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
+#: src/add-printer/main.cpp:32 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "Portare la Qt 6 / Plasma 6"
 
-#: src/add-printer/main.cpp:41
+#: src/add-printer/main.cpp:35
+#, kde-format
+msgid ""
+"NOTE: This application is deprecated and will be removed from Plasma in a "
+"future release."
+msgstr ""
+
+#: src/add-printer/main.cpp:40
 #, kde-format
 msgid "Parent Window ID"
 msgstr "Identificator fereastră părinte"
 
-#: src/add-printer/main.cpp:44
+#: src/add-printer/main.cpp:43
 #, kde-format
 msgid "Add a new printer"
 msgstr "Adaugă o imprimantă nouă"
 
-#: src/add-printer/main.cpp:47
+#: src/add-printer/main.cpp:46
 #, kde-format
 msgid "Add a new printer class"
 msgstr "Adaugă o clasă de imprimante nouă"
 
-#: src/add-printer/main.cpp:50
+#: src/add-printer/main.cpp:49
 #, kde-format
 msgid "Changes the PPD of a given printer"
 msgstr "Schimbă PPD-ul imprimantei date"
 
-#: src/add-printer/main.cpp:54
+#: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Schimbă PPD-ul imprimantei sau identificatorului de dispozitiv"
 
-#: src/add-printer/PageAddPrinter.cpp:124
+#: src/add-printer/main.cpp:77
+#, fuzzy, kde-format
+#| msgid "Changes the PPD of a given printer/deviceid"
+msgid "The expected input should be printer/deviceid"
+msgstr "Schimbă PPD-ul imprimantei sau identificatorului de dispozitiv"
+
+#: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
 msgstr "Adăugarea clasei a eșuat: „%1”"
 
-#: src/add-printer/PageAddPrinter.cpp:126
+#: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
@@ -371,29 +384,29 @@ msgctxt "@label:listbox"
 msgid "Members:"
 msgstr "Membri:"
 
-#: src/add-printer/PageDestinations.cpp:188
+#: src/add-printer/PageDestinations.cpp:190
 #, kde-format
 msgid "A printer connected to the parallel port."
 msgstr "Imprimantă conectată la portul paralel."
 
-#: src/add-printer/PageDestinations.cpp:191
+#: src/add-printer/PageDestinations.cpp:193
 #, kde-format
 msgid "A printer connected to a USB port."
 msgstr "Imprimantă conectată la un port USB."
 
-#: src/add-printer/PageDestinations.cpp:194
+#: src/add-printer/PageDestinations.cpp:196
 #, kde-format
 msgid "A printer connected via Bluetooth."
 msgstr "Imprimantă conectată prin Bluetooth."
 
-#: src/add-printer/PageDestinations.cpp:198
+#: src/add-printer/PageDestinations.cpp:200
 #, kde-format
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 msgstr ""
 "Imprimantă locală detectată de Stratul de Abstractizare a Echipamentului "
 "(HAL)."
 
-#: src/add-printer/PageDestinations.cpp:203
+#: src/add-printer/PageDestinations.cpp:205
 #, kde-format
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -402,7 +415,7 @@ msgstr ""
 "Programe HPLIP pilotând o imprimantă sau funcția de imprimare a unui "
 "dispozitiv multifuncțional."
 
-#: src/add-printer/PageDestinations.cpp:208
+#: src/add-printer/PageDestinations.cpp:210
 #, kde-format
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -411,17 +424,17 @@ msgstr ""
 "Programe HPLIP pilotând o mașină de fax sau funcția de fax a unui dispozitiv "
 "multifuncțional."
 
-#: src/add-printer/PageDestinations.cpp:215 src/libkcups/DevicesModel.cpp:99
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:99
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Imprimantă distantă CUPS prin DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:227 src/libkcups/DevicesModel.cpp:108
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Imprimantă de rețea prin DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:229
+#: src/add-printer/PageDestinations.cpp:231
 #, kde-format
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 imprimantă de rețea prin DNS-SD"

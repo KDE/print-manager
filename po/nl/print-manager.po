@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2019, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2019, 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-29 00:39+0000\n"
-"PO-Revision-Date: 2023-11-09 10:10+0100\n"
+"PO-Revision-Date: 2024-03-29 13:46+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - t/m 2023"
+msgstr "Freek de Kruijf - t/m 2024"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -295,6 +295,8 @@ msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
 msgstr ""
+"OPMERKING: deze toepassing wordt afgeraden en zal uit Plasma verwijderd "
+"worden in een toekomstige uitgave."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -322,10 +324,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Wijzigt de PPD van een gegeven printer/apparaat-id"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "Wijzigt de PPD van een gegeven printer/apparaat-id"
+msgstr "De verwachte invoer zou printer/apparaat-id moeten zijn"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format

@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Giovanni Sora <g.sora@tiscali.it>, 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-29 00:39+0000\n"
-"PO-Revision-Date: 2023-11-08 15:43+0100\n"
+"PO-Revision-Date: 2024-03-29 10:06+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -295,6 +295,8 @@ msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
 msgstr ""
+"NOTA. iste application es deprecate e essera removite ex Plasma in un "
+"version futur."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -322,10 +324,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Cambia le PPD de un date imprimitor/id de dispositivo"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "Cambia le PPD de un date imprimitor/id de dispositivo"
+msgstr "Le entrata expectate deberea esser  imprimitor/id de dispositivo"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format

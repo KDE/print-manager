@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2022, 2023 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-28 01:34+0000\n"
-"PO-Revision-Date: 2023-12-10 10:58+0530\n"
+"PO-Revision-Date: 2024-03-30 21:48+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -497,7 +497,7 @@ msgstr ""
 #: src/configure-printer/PrinterBehavior.cpp:224
 #, kde-format
 msgid "Secret"
-msgstr ""
+msgstr "ரகசியம்"
 
 #: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
@@ -507,7 +507,7 @@ msgstr ""
 #: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Topsecret"
-msgstr ""
+msgstr "அதிரகசியம்"
 
 #: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
@@ -678,23 +678,23 @@ msgstr "அமை"
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
-msgstr ""
+msgstr "'%2' சாதனநிரலுடன் '%1' சேர்க்கப்பட்டுள்ளது."
 
 #: src/kded/NewPrinterNotification.cpp:241
 #: src/kded/NewPrinterNotification.cpp:255
 #, kde-format
 msgid "Print test page"
-msgstr ""
+msgstr "சோதனைப் பக்கத்தை அச்சிடு"
 
 #: src/kded/NewPrinterNotification.cpp:243
 #, kde-format
 msgid "Find driver"
-msgstr ""
+msgstr "சாதனநிரலைக் கண்டுபிடி"
 
 #: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr ""
+msgstr "'%1' அச்சிட தயாராக உள்ளது"
 
 #: src/libkcups/DevicesModel.cpp:48
 #, kde-format
@@ -715,12 +715,12 @@ msgstr ""
 #: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "USB"
-msgstr ""
+msgstr "USB"
 
 #: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "Bluetooth"
-msgstr ""
+msgstr "ஊடலை"
 
 #: src/libkcups/DevicesModel.cpp:68
 #, kde-format
@@ -797,7 +797,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
-msgstr ""
+msgstr "ஊடலை மூலமாக இணைந்துள்ள அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:122
 #, kde-format
@@ -932,7 +932,7 @@ msgid "Printer"
 msgstr "அச்சுப்பொறி"
 
 #: src/libkcups/JobModel.cpp:38
-#, fuzzy, kde-format
+#, kde-format
 msgid "From Hostname"
 msgstr "புரவன் பெயரிலிருந்து"
 
@@ -974,7 +974,7 @@ msgstr "கைவிடப்பட்டது"
 #: src/libkcups/KCupsConnection.cpp:778
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr ""
+msgstr "CUPS இணைப்புக்கு உறுதிப்பாட்டு தேவை: \"%1\""
 
 #: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
@@ -1004,7 +1004,7 @@ msgstr "சோதனைப் பக்கம்"
 #: src/libkcups/KCupsRequest.cpp:421
 #, kde-format
 msgid "Unable to send command to printer driver!"
-msgstr ""
+msgstr "அச்சுப்பொறியின் சாதனநிரலுக்கு கட்டளையை அனுப்ப முடியவில்லை!"
 
 #: src/libkcups/KCupsRequest.cpp:549
 #, kde-format

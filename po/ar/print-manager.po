@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-29 00:39+0000\n"
-"PO-Revision-Date: 2024-01-20 20:09+0400\n"
+"PO-Revision-Date: 2024-03-30 10:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -296,7 +296,7 @@ msgstr "النّقل إلى كيوت 6 / بلازما 6"
 msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
-msgstr ""
+msgstr "ملاحظة: تقرر إهمال هذا التطبيق وسيزال من بلازما في إصدار مستقبلي."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -324,10 +324,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "يغيّر PPD للطّابعة/معرّف الجهاز المُعطى"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "يغيّر PPD للطّابعة/معرّف الجهاز المُعطى"
+msgstr "يجب أن يكون الإدخال المتوقع هو معرف الطابعة/الجهاز"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format

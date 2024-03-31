@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-03-29 00:39+0000\n"
-"PO-Revision-Date: 2024-02-24 21:40+0300\n"
+"PO-Revision-Date: 2024-03-30 13:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -297,6 +297,8 @@ msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
 msgstr ""
+"NOT: Bu uygulama artık kullanılmıyor ve Plasma’nın ileriki bir sürümünde "
+"kaldırılacak."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -324,10 +326,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Belirtilen yazıcının/aygıt kimliğinin PPD'sini değiştirir"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "Belirtilen yazıcının/aygıt kimliğinin PPD'sini değiştirir"
+msgstr "Beklenen girdi yazıcı veya aygıt kimliği olmalıdır"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format

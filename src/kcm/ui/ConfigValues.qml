@@ -51,7 +51,7 @@ QtObject {
     }
 
     function value(key : string) {
-        if (key === undefined || key.length === 0) {
+        if (key === undefined || key.length === 0 || !pending.hasOwnProperty(key)) {
             return ""
         } else {
             return pending[key]

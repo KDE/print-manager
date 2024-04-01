@@ -15,7 +15,7 @@ Kirigami.Dialog {
     id: root
 
     property bool loading: false
-    property bool showingManual: false
+    readonly property bool showingManual: deviceItems.filterString === "manual"
     property bool hasDetectedDevices: false
 
     // MFG:HP;MDL:ENVY 4520 series;CLS:PRINTER;DES:ENVY 4520 series;SN:TH6BN4M1390660;
@@ -55,8 +55,8 @@ Kirigami.Dialog {
         let netNdx = -1
         for (let i=0, len=deviceItems.rowCount(); i<len; ++i) {
             const ndx = deviceItems.mapToSource(deviceItems.index(i,0))
-            const cls = deviceItems.sourceModel.data(ndx, PM.DevicesModel.DeviceClass)
-            const devId = deviceItems.sourceModel.data(ndx, PM.DevicesModel.DeviceId)
+            const cls = deviceItems.sourceModel.data(ndx, PM.DestModel.DeviceClass)
+            const devId = deviceItems.sourceModel.data(ndx, PM.DestModel.DeviceId)
             if (cls.toString() === "direct") {
                 directNdx = i
             } else if (cls.toString() === "network" && devId.length > 0) {
@@ -70,7 +70,6 @@ Kirigami.Dialog {
         if (directNdx === -1 && netNdx === -1) {
             compLoader.sourceComponent = noDevicesComp
             hasDetectedDevices = false
-            showingManual = true
             deviceItems.invalidateFilter()
         } else {
             hasDetectedDevices = true
@@ -97,7 +96,7 @@ Kirigami.Dialog {
                     : "internet-services"
             visible: hasDetectedDevices
             onTriggered: {
-                showingManual = !showingManual
+                deviceItems.filterString = showingManual ? "network" : "manual"
                 deviceItems.invalidateFilter()
                 deviceList.currentIndex = -1
                 compLoader.sourceComponent = undefined
@@ -115,7 +114,7 @@ Kirigami.Dialog {
             icon.name: "view-refresh-symbolic"
             onTriggered: {
                 showingManual = false
-                devices.load()
+                devices.getDest()
             }
         }
     ]
@@ -133,47 +132,46 @@ Kirigami.Dialog {
     }
 
     // Filter the descendants to exclude "null" deviceClass
-    KSFM.KSortFilterProxyModel {
-        id: deviceItems
-        sortRole: PM.DevicesModel.DeviceCategory
+    // KSFM.KSortFilterProxyModel {
+    //     id: deviceItems
+    //     sortRole: PM.DevicesModel.DeviceClass
 
-        // Descendants are the actual printer devices
-        sourceModel: KSFM.KDescendantsProxyModel {
-            sourceModel: devices
-        }
+    //     // Descendants are the actual printer devices
+    //     sourceModel: KSFM.KDescendantsProxyModel {
+    //         sourceModel: devices
+    //     }
 
-        filterRowCallback: (source_row, source_parent) => {
-           const ndx = sourceModel.index(source_row, 0, source_parent)
-           if (sourceModel.data(ndx, PM.DevicesModel.DeviceClass) === undefined) {
-               return false
-           }
-           const cat = sourceModel.data(ndx, PM.DevicesModel.DeviceCategory)
-           if (showingManual) {
-               return cat === "Manual"
-           } else {
-               return cat !== "Manual"
-           }
-
-        }
-    }
+    //     filterRowCallback: (source_row, source_parent) => {
+    //        const ndx = sourceModel.index(source_row, 0, source_parent)
+    //        const cat = sourceModel.data(ndx, PM.DevicesModel.DeviceClass)
+    //        return showingManual ? cat === "manual" : cat !== "manual"
+    //     }
+    // }
 
     // Two-level QSIM, top level is "device category" (Qt.UserRole)
-    PM.DevicesModel {
+    PM.DestModel {
         id: devices
 
-        function load() {
+        function getDest() {
             loading = true
+            deviceItems.filterString = "network"
             kcm.clearRemotePrinters()
             kcm.clearRecommendedDrivers()
-            update()
+            load()
         }
 
-        Component.onCompleted: load()
+        Component.onCompleted: getDest()
 
         onLoaded: {
             loading = false
             setDeviceSelection()
         }
+    }
+
+    KSFM.KSortFilterProxyModel {
+        id: deviceItems
+        sourceModel: devices
+        filterRole: PM.DestModel.DeviceClass
     }
 
     Component {
@@ -222,14 +220,14 @@ Kirigami.Dialog {
 
                 model: deviceItems
 
-                section {
-                    property: "deviceCategory"
-                    delegate: Kirigami.ListSectionHeader {
-                        width: ListView.view.width
-                        required property string section
-                        label: section
-                    }
-                }
+                // section {
+                //     property: "deviceClass"
+                //     delegate: Kirigami.ListSectionHeader {
+                //         width: ListView.view.width
+                //         required property string section
+                //         label: section
+                //     }
+                // }
 
                 delegate: Kirigami.SubtitleDelegate {
                     width: ListView.view.width
@@ -265,7 +263,6 @@ Kirigami.Dialog {
                                                     , "printer-make": parseDeviceId(deviceId, "MFG")
                                                     , "printer-model": parseDeviceId(deviceId, "MDL")
                                                     , "printer-make-and-model": deviceMakeModel
-                                                    , "printer-location": deviceLocation
                                                     , "ppd-type": PM.PPDType.Custom
                                                  })
                                     compLoader.selector = deviceClass

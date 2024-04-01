@@ -142,7 +142,7 @@ void KCupsConnection::init()
     notifierConnect(QLatin1String("PrinterMediaChanged"), this, SIGNAL(printerMediaChanged(QString, QString, QString, uint, QString, bool)));
 
     // PrinterFinishingsChanged
-    notifierConnect(QLatin1String("PrinterFinishingsChanged"), this, SIGNAL(PrinterFinishingsChanged(QString, QString, QString, uint, QString, bool)));
+    // notifierConnect(QLatin1String("PrinterFinishingsChanged"), this, SIGNAL(PrinterFinishingsChanged(QString, QString, QString, uint, QString, bool)));
 
     // Job related signals
     // JobState
@@ -217,7 +217,15 @@ void KCupsConnection::init()
     m_renewTimer = new QTimer;
     m_renewTimer->setInterval(RENEW_INTERVAL * 1000);
     m_renewTimer->moveToThread(this);
-    connect(m_renewTimer, &QTimer::timeout, this, static_cast<void (KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::DirectConnection);
+    // connect(m_renewTimer, &QTimer::timeout, this, static_cast<void (KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::DirectConnection);
+    connect(
+        m_renewTimer,
+        &QTimer::timeout,
+        this,
+        [this]() {
+            renewDBusSubscription();
+        },
+        Qt::DirectConnection);
 
     // Creates the timer to merge updates on the DBus subscription
     m_subscriptionTimer = new QTimer;
@@ -307,6 +315,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER, KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
 
     if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
+        qCWarning(LIBKCUPS) << "CREATING SUBSCRIPTION:" << events;
         // Add the "notify-events" values to the request
         request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_EVENTS, events);
         request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_PULL_METHOD, QLatin1String("ippget"));

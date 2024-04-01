@@ -15,6 +15,17 @@ import org.kde.plasma.printmanager as PM
 KCM.AbstractKCM {
     id: root
 
+    //DEBUG
+    function printObj(title, obj) {
+
+        console.log(title)
+
+        for (const p in obj)
+
+            console.log(p + ": " + obj[p])
+
+    }
+
     headerPaddingEnabled: false
 
     // Add mode means adding a new printer/group
@@ -104,6 +115,10 @@ KCM.AbstractKCM {
             enabled: config.hasPending
 
             onClicked: {
+                if (!kcm.serverSettingsLoaded) {
+                    kcm.getServerSettings()
+                }
+
                 if (addMode) {
                     if (queueName.text.length === 0) {
                         queueName.focus = true
@@ -142,12 +157,26 @@ KCM.AbstractKCM {
                 config.set({"ppd-name": modelData["ppd-name"]
                            , "ppd-type": modelData["ppd-type"]})
 
+                printObj("MODELDATA", modelData)
                 // there is no ppd info, so show make/model selection dialog initially
-                if (config.value("ppd-name") === "") {
+                if (!config.value("ppd-name")) {
                     openMakeModelDlg()
                 }
             } else {
-                ppd = kcm.getPrinterPPD(modelData.printerName)
+                // Create a ppd object
+                const list = modelData.kind.split(" ")
+                if (list.length >= 2) {
+                    ppd = Object.assign({}, {
+                        autoConfig: false,
+                        file: "",
+                        pcfile: "",
+                        type: PM.PPDType.Auto,
+                        make: list[0],
+                        makeModel: list.slice(1).join(" ")})
+                } else {
+                    ppd = {}
+                }
+
             }
         }
     }
@@ -588,7 +617,8 @@ KCM.AbstractKCM {
                                         return false
                                     }
                                 }
-                                return pn !== root.modelData.printerName
+                                // null printer name is a discovered printer
+                                return pn && pn !== root.modelData.printerName
                             }
                         }
 

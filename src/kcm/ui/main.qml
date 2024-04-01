@@ -62,7 +62,7 @@ KCM.ScrollViewKCM {
             text: i18nc("@action:button", "Add Printer…")
             icon.name: "printer-symbolic"
             onTriggered: {
-                checkServerSettings()
+                // checkServerSettings()
                 const dlg = findComp.createObject(root)
                 dlg.open()
             }
@@ -185,17 +185,23 @@ KCM.ScrollViewKCM {
         // If there is a mix of printers and classes (groups), then show
         // the section header
         section {
-            property: pmModel.printersOnly ? "" : "isClass"
+            property: "category" //pmModel.printersOnly ? "" : "isClass"
             delegate: Kirigami.ListSectionHeader {
                 width: ListView.view.width
-                required property bool section
-                label: !section ? i18n("Printers") : i18n("Printer Groups")
+                required property string section
+                label: section //!section ? i18n("Printers") : i18n("Printer Groups")
+                QQC2.ToolButton {
+                    icon.name: "view-refresh-symbolic"
+                    onClicked: {
+                        pmModel.update()
+                    }
+                }
             }
         }
 
         model: KSFM.KSortFilterProxyModel {
             sourceModel: pmModel
-            sortRoleName: "isClass"
+            sortRoleName: "category"
         }
 
         delegate: QQC2.ItemDelegate {
@@ -205,41 +211,91 @@ KCM.ScrollViewKCM {
             highlighted: false
             down: false
 
+            property bool discovered: uriSupported === "_discovered"
+
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
 
                 Kirigami.SubtitleDelegate {
                     Layout.fillWidth: true
-                    text: model.info
+                    text: "(%1) %2".arg(`${printerName}`).arg(model.info)
                           + (model.location && pmModel.displayLocationHint
                              ? " (%1)".arg(model.location)
                              : "")
-                    subtitle: model.stateMessage
+                    subtitle: discovered
+                              ? i18n("Discovered Printer (%1)", printerUri)
+                              : i18n("%1 (Permanent Queue: %2)", model.stateMessage, printerUri)
                     icon.name: model.remote
                             ? "folder-network-symbolic"
                             : (model.isClass ? "folder-print" : model.iconName)
 
                     font.bold: list.count > 1 & model.isDefault
 
-                    hoverEnabled: false
-                    highlighted: false
-                    down: false
+                    // hoverEnabled: false
+                    // highlighted: false
+                    // down: false
+
+                    onClicked: {
+                        kcm.getAttributes(printerName)
+                    }
+
                 }
 
+                // For discovered printers...
+                QQC2.ToolButton {
+                    text: i18nc("@action:button", "Make printer permanent…")
+                    icon.name: "list-add-symbolic"
+                    display: QQC2.AbstractButton.IconOnly
+                    visible: discovered
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+
+                    onClicked: {
+                        // checkServerSettings()
+                        newPrinter(true
+                                   , model
+                                   , {make: kind.split(' ')[0]
+                                       , makeModel: kind
+                                       , type: PM.PPDType.Auto
+                                       /*, name: "everywhere"
+                                       , file: "everywhere"
+                                       , pcfile: "everywhere"*/})
+                    }
+
+                    QQC2.ToolTip {
+                        text: parent.text
+                    }
+                }
+
+                QQC2.ToolButton {
+                    text: i18nc("@action:button", "Configure Printer…")
+                    icon.name: "internet-web-browser"
+                    display: QQC2.AbstractButton.IconOnly
+                    visible: discovered
+
+                    onClicked: {}
+
+                    QQC2.ToolTip {
+                        text: parent.text
+                    }
+
+                }
+
+                // For permanent printers
                 QQC2.ToolButton {
                     text: i18nc("@action:button", "Configure…")
                     icon.name: "configure-symbolic"
                     display: QQC2.AbstractButton.IconOnly
+                    visible: !discovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: {
-                        checkServerSettings()
+                        // checkServerSettings()
                         kcm.push("PrinterSettings.qml"
-                                        , { modelData: model
-                                        , addMode: false
-                                        , printerModel: pmModel
-                                        , ppdModel: ppdModel
-                                        })
+                               , { modelData: model
+                               , addMode: false
+                               , printerModel: pmModel
+                               , ppdModel: ppdModel
+                               })
                     }
 
                     QQC2.ToolTip {
@@ -251,6 +307,7 @@ KCM.ScrollViewKCM {
                     text: i18nc("@action:button", "Open Print Queue…")
                     icon.name: "view-list-details-symbolic"
                     display: QQC2.AbstractButton.IconOnly
+                    visible: !discovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: PM.ProcessRunner.openPrintQueue(model.printerName)
@@ -268,6 +325,7 @@ KCM.ScrollViewKCM {
                           ? i18nc("@action:button Resume printing", "Resume")
                           : i18nc("@action:button Pause printing", "Pause")
 
+                    visible: !discovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: {

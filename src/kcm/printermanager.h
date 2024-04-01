@@ -62,9 +62,10 @@ public:
     bool allowRemoteAdmin() const;
     bool allowUserCancelAnyJobs() const;
 
+    Q_INVOKABLE void getAttributes(const QString &name);
+
 public Q_SLOTS:
     void savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass);
-    QVariantMap getPrinterPPD(const QString &name);
     void getServerSettings();
     void saveServerSettings(const QVariantMap &settings);
 

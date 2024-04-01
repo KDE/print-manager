@@ -86,6 +86,58 @@ void PrinterManager::serverEvent(const QString &event, bool reload, const QStrin
     }
 }
 
+void PrinterManager::getAttributes(const QString &name)
+{
+    // get info and test for supported
+    cups_dest_t *dest = cupsGetNamedDest(CUPS_HTTP_DEFAULT, name.toUtf8().data(), NULL);
+    if (!dest) {
+        qCWarning(PMKCM) << name << "DEST NOT FOUND!";
+        return;
+    }
+
+    qCWarning(PMKCM) << "FOUND!" << name;
+
+    cups_dinfo_t *info = cupsCopyDestInfo(CUPS_HTTP_DEFAULT, dest);
+
+    // if (cupsCheckDestSupported(CUPS_HTTP_DEFAULT, dest, info,
+    //                            CUPS_FINISHINGS, NULL))
+    // {
+    //     // get supported attr
+    //   ipp_attribute_t *finishings =
+    //       cupsFindDestSupported(CUPS_HTTP_DEFAULT, dest, info,
+    //                             CUPS_FINISHINGS);
+    //   int i, count = ippGetCount(finishings);
+    //   qCWarning(PMKCM) << name << "FINISHINGS:";
+    //   for (i = 0; i < count; i ++)
+    //     qCWarning(PMKCM) << ippGetInteger(finishings, i);
+    // }
+    // else
+    //   qCWarning(PMKCM) << name << "====> NO FINISHINGS:";
+
+    // Get supported attribute
+    ipp_attribute_t *att = cupsFindDestSupported(CUPS_HTTP_DEFAULT, dest, info, "job-creation-attributes");
+    int i, count = ippGetCount(att);
+    for (i = 0; i < count; i++) {
+        const auto o = ippGetString(att, i, NULL);
+
+        const char *def_value = cupsGetOption(o, dest->num_options, dest->options);
+        ipp_attribute_t *def_attr = cupsFindDestDefault(CUPS_HTTP_DEFAULT, dest, info, o);
+
+        if (def_value != NULL) {
+            qCWarning(PMKCM) << "Default:" << o << ":" << def_value;
+        } else {
+            qCWarning(PMKCM) << o << ":" << ippGetInteger(def_attr, 0);
+            int i, count = ippGetCount(def_attr);
+            for (i = 1; i < count; i++) {
+                qCWarning(PMKCM) << ippGetInteger(def_attr, i);
+            }
+        }
+    }
+
+    cupsFreeDests(1, dest);
+    cupsFreeDestInfo(info);
+}
+
 void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriScheme)
 {
     QUrl url(QUrl::fromUserInput(uri));
@@ -214,98 +266,6 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
         }
         request->deleteLater();
     }
-}
-
-QVariantMap PrinterManager::getPrinterPPD(const QString &name)
-{
-    QPointer<KCupsRequest> request = new KCupsRequest;
-    request->getPrinterPPD(name);
-    request->waitTillFinished();
-    if (!request) {
-        return {};
-    }
-
-    const auto filename = request->printerPPD();
-    const auto err = request->errorMsg();
-    request->deleteLater();
-
-    ppd_file_t *ppd = nullptr;
-    if (!filename.isEmpty()) {
-        ppd = ppdOpenFile(qUtf8Printable(filename));
-        unlink(qUtf8Printable(filename));
-    }
-
-    if (ppd == nullptr) {
-        qCWarning(PMKCM) << "Could not open ppd file:" << filename << err;
-        return {};
-    }
-
-    ppdLocalize(ppd);
-    // select the default options on the ppd file
-    ppdMarkDefaults(ppd);
-
-    const char *lang_encoding;
-    lang_encoding = ppd->lang_encoding;
-    QStringDecoder codec;
-
-    if (lang_encoding && !strcasecmp(lang_encoding, "UTF-8")) {
-        codec = QStringDecoder(QStringDecoder::Utf8);
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin1")) {
-        codec = QStringDecoder(QStringDecoder::Latin1);
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin2")) {
-        codec = QStringDecoder("ISO-8859-2");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin5")) {
-        codec = QStringDecoder("ISO-8859-5");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "JIS83-RKSJ")) {
-        codec = QStringDecoder("SHIFT-JIS");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "MacStandard")) {
-        codec = QStringDecoder("MACINTOSH");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "WindowsANSI")) {
-        codec = QStringDecoder("WINDOWS-1252");
-    } else {
-        qCWarning(PMKCM) << "Unknown ENCODING:" << lang_encoding;
-        codec = QStringDecoder(lang_encoding);
-    }
-    // Fallback
-    if (!codec.isValid()) {
-        codec = QStringDecoder(QStringDecoder::Utf8);
-    }
-
-    qCWarning(PMKCM) << codec(ppd->pcfilename) << codec(ppd->modelname) << codec(ppd->shortnickname);
-
-    QString make, makeAndModel, file;
-    if (ppd->manufacturer) {
-        make = codec(ppd->manufacturer);
-    }
-
-    if (ppd->nickname) {
-        makeAndModel = codec(ppd->nickname);
-    }
-
-    if (ppd->pcfilename) {
-        file = codec(ppd->pcfilename);
-    }
-
-    ppd_attr_t *ppdattr;
-    bool autoConfig = false;
-    if (ppd->num_filters == 0
-        || ((ppdattr = ppdFindAttr(ppd, "cupsCommands", nullptr)) != nullptr && ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
-        autoConfig = true;
-    } else {
-        for (int i = 0; i < ppd->num_filters; ++i) {
-            if (!strncmp(ppd->filters[i], "application/vnd.cups-postscript", 31)) {
-                autoConfig = true;
-                break;
-            }
-        }
-    }
-
-    return {{u"autoConfig"_s, autoConfig},
-            {u"file"_s, QString()},
-            {u"pcfile"_s, file},
-            {u"type"_s, QVariant(PMTypes::PPDType::Custom)},
-            {u"make"_s, make},
-            {u"makeModel"_s, makeAndModel}};
 }
 
 void PrinterManager::pausePrinter(const QString &name)

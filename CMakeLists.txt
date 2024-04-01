@@ -35,13 +35,14 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Quick
 )
 
-find_package(Cups "1.5" REQUIRED)
+find_package(Cups "2.4.7" REQUIRED)
 
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED 
     Config 
     ConfigWidgets 
     CoreAddons 
-    DBusAddons 
+    DBusAddons
+    DNSSD
     IconThemes 
     I18n 
     KCMUtils 

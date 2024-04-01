@@ -58,6 +58,7 @@ Kirigami.Dialog {
         const ndx = printerModels.mapToSource(printerModels.index(index,0))
         ppdData.makeModel = printerModels.sourceModel.data(ndx, PM.PPDModel.PPDMakeAndModel).toString()
         ppdData.file = printerModels.sourceModel.data(ndx, PM.PPDModel.PPDName).toString()
+        printObj("PPDData:", ppdData)
     }
 
     function init() {
@@ -288,6 +289,7 @@ Kirigami.Dialog {
                             ListView.view.currentIndex = index
                             ppdData.file = ppdName
                             ppdData.makeModel = ppdMakeModel
+                            printObj("PPDDATA", ppdData)
                         }
                     }
                 }

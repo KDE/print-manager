@@ -25,26 +25,6 @@ void ProcessRunner::openPrintQueue(const QString &printerName)
     exec(u"kde-print-queue"_s, {printerName}, u"org.kde.PrintQueue"_s);
 }
 
-void ProcessRunner::addPrinter()
-{
-    exec(u"kde-add-printer"_s, {u"--add-printer"_s}, u"org.kde.kde-add-printer"_s);
-}
-
-void ProcessRunner::addPrinterFromDevice(const QString &device)
-{
-    exec(u"kde-add-printer"_s, {u"--new-printer-from-device"_s, device}, u"org.kde.kde-add-printer"_s);
-}
-
-void ProcessRunner::addClass()
-{
-    exec(u"kde-add-printer"_s, {u"--add-class"_s}, u"org.kde.kde-add-printer"_s);
-}
-
-void ProcessRunner::changePrinterPPD(const QString &printerName)
-{
-    exec(u"kde-add-printer"_s, {u"--change-ppd"_s, printerName}, u"org.kde.kde-add-printer"_s);
-}
-
 void ProcessRunner::exec(const QString &cmd, const QStringList &args, const QString &desktopFile)
 {
     auto job = new KIO::CommandLauncherJob(cmd, args);

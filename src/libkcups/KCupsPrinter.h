@@ -19,6 +19,7 @@ class KCUPSLIB_EXPORT KCupsPrinter
 public:
     typedef enum { Idle = 3, Printing, Stopped } Status;
     KCupsPrinter();
+    explicit KCupsPrinter(const QVariantMap &arguments);
     explicit KCupsPrinter(const QString &printer, bool isClass = false);
 
     QString name() const;
@@ -57,9 +58,6 @@ public:
     static QIcon icon(cups_ptype_e type);
     QString iconName() const;
     static QString iconName(cups_ptype_e type);
-
-protected:
-    KCupsPrinter(const QVariantMap &arguments);
 
 private:
     friend class KCupsRequest;

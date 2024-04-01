@@ -8,16 +8,14 @@ set(libkcups_SRCS
     KCupsPrinter.cpp
     KCupsServer.cpp
     KCupsRequest.cpp
-    ClassListWidget.cpp
     PPDModel.cpp
-    SelectMakeModel.cpp
-    NoSelectionRectDelegate.cpp
     PrinterModel.cpp
     PrinterSortFilterModel.cpp
     JobModel.cpp
     JobSortFilterModel.cpp
     ProcessRunner.cpp
-    DevicesModel.cpp
+    DestModel.cpp
+    IppBrowserManager.cpp
 
     KIppRequest.h
     KCupsPasswordDialog.h
@@ -26,20 +24,14 @@ set(libkcups_SRCS
     KCupsPrinter.h
     KCupsServer.h
     KCupsRequest.h
-    ClassListWidget.h
     PPDModel.h
-    SelectMakeModel.h
-    NoSelectionRectDelegate.h
     PrinterModel.h
     PrinterSortFilterModel.h
     JobModel.h
     JobSortFilterModel.h
     ProcessRunner.h
-    DevicesModel.h
-)
-
-ki18n_wrap_ui(libkcups_SRCS
-    SelectMakeModel.ui
+    DestModel.h
+    IppBrowserManager.h
 )
 
 add_library(kcupslib SHARED ${libkcups_SRCS})
@@ -57,6 +49,7 @@ target_link_libraries(kcupslib PUBLIC
     Qt::Widgets
     KF6::ConfigWidgets
     KF6::CoreAddons
+    KF6::DNSSD
     KF6::I18n
     KF6::IconThemes
     KF6::KIOCore

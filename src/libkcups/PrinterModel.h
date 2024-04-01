@@ -56,7 +56,8 @@ public:
         DestRemote,
         DestUri,
         DestUriSupported,
-        DestMemberNames
+        DestMemberNames,
+        DestCategory
     };
     Q_ENUM(Role)
 
@@ -80,7 +81,7 @@ public:
     bool displayLocationHint() const;
 
 public slots:
-    void update();
+    void update(int timeout = 5000, uint type = 0, uint mask = 0);
     void getDestsFinished(KCupsRequest *request);
     void slotCountChanged();
 
@@ -91,15 +92,12 @@ signals:
     void displayLocationHintChanged();
 
 private slots:
-    void insertUpdatePrinterName(const QString &printerName);
     void insertUpdatePrinter(const QString &text,
                              const QString &printerUri,
                              const QString &printerName,
                              uint printerState,
                              const QString &printerStateReasons,
                              bool printerIsAcceptingJobs);
-    void insertUpdatePrinterFinished(KCupsRequest *request);
-    void printerRemovedName(const QString &printerName);
     void printerRemoved(const QString &text,
                         const QString &printerUri,
                         const QString &printerName,
@@ -151,6 +149,8 @@ private:
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
     bool printersOnly() const;
+    void gotDevice(const QVariantMap &device);
+    KCupsConnection *m_connection = nullptr;
 };
 
 #endif // PRINTER_MODEL_H

@@ -1,7 +1,3 @@
 add_subdirectory(libkcups)
-add_subdirectory(configure-printer)
-add_subdirectory(add-printer)
 add_subdirectory(kcm)
-add_subdirectory(printqueue)
-add_subdirectory(kded)
 add_subdirectory(plasmoid)

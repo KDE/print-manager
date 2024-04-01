@@ -111,6 +111,144 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
     }
 }
 
+static int get_dest_cb(void *user_data, unsigned flags, cups_dest_t *dest)
+{
+    Q_UNUSED(flags)
+
+    static const QStringList attrs({KCUPS_PRINTER_NAME,
+                                    KCUPS_PRINTER_STATE,
+                                    KCUPS_PRINTER_STATE_MESSAGE,
+                                    KCUPS_PRINTER_IS_SHARED,
+                                    KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                                    KCUPS_PRINTER_TYPE,
+                                    KCUPS_PRINTER_LOCATION,
+                                    KCUPS_PRINTER_INFO,
+                                    KCUPS_PRINTER_MAKE_AND_MODEL,
+                                    KCUPS_PRINTER_COMMANDS,
+                                    KCUPS_MARKER_CHANGE_TIME,
+                                    KCUPS_MARKER_COLORS,
+                                    KCUPS_MARKER_LEVELS,
+                                    KCUPS_MARKER_NAMES,
+                                    KCUPS_MARKER_TYPES,
+                                    KCUPS_AUTH_INFO_REQUIRED, // added
+                                    KCUPS_DEVICE_URI,
+                                    KCUPS_PRINTER_URI_SUPPORTED,
+                                    KCUPS_MEMBER_NAMES});
+
+    const auto getOption = [dest](const QString &option) -> QString {
+        return QString::fromUtf8(cupsGetOption(option.toUtf8().data(), dest->num_options, dest->options));
+    };
+
+    const auto toList = [](const QString &option) -> QStringList {
+        return option.split(QLatin1String(","));
+    };
+
+    // const auto isSupported = [dest](const char * option) -> bool {
+    //     cups_dinfo_t *info = cupsCopyDestInfo(CUPS_HTTP_DEFAULT, dest);
+    //     return cupsCheckDestSupported(CUPS_HTTP_DEFAULT, dest, info, option, NULL);
+    // };
+
+    // Build the attr map
+    QVariantMap map;
+    for (const auto &k : attrs) {
+        map.insert(k, QVariant::fromValue(getOption(k)));
+    }
+
+    // figure out printer name, class, set discovery indicator
+    QString pname, uriS = map.value(KCUPS_PRINTER_URI_SUPPORTED).toString();
+    if ((map.value(KCUPS_PRINTER_TYPE).toInt() & CUPS_PRINTER_DISCOVERED) | uriS.isEmpty()) {
+        if (map.value(KCUPS_DEVICE_URI).toString().isEmpty()) {
+            return 1;
+        }
+        map.insert(KCUPS_DEVICE_CLASS, QLatin1String("network"));
+        // uriSupported is null when discovered
+        uriS = QLatin1String("_discovered");
+        pname = map.value(KCUPS_PRINTER_INFO).toString().replace(QLatin1String(" "), QLatin1String("_"));
+    } else {
+        map.insert(KCUPS_DEVICE_CLASS, QLatin1String("local"));
+        const auto l = uriS.split(QLatin1String("/"));
+        pname = l[l.count() - 1];
+    }
+
+    map.insert(KCUPS_PRINTER_NAME, pname);
+    map.insert(KCUPS_PRINTER_URI_SUPPORTED, uriS);
+
+    // Markers, cupsGetOption returns strings, comma separated, for the lists
+    if (auto m = map.value(KCUPS_MARKER_NAMES).toString(); !m.isEmpty()) {
+        map.insert(KCUPS_MARKER_NAMES, toList(m.replace(QLatin1String("\\"), QLatin1String(""))));
+        map.insert(KCUPS_MARKER_LEVELS, toList(map.value(KCUPS_MARKER_LEVELS).toString()));
+        map.insert(KCUPS_MARKER_COLORS, toList(map.value(KCUPS_MARKER_COLORS).toString()));
+        map.insert(KCUPS_MARKER_TYPES, toList(map.value(KCUPS_MARKER_TYPES).toString()));
+    }
+
+    // if Class, get member names
+    if (map.value(KCUPS_PRINTER_TYPE).toInt() & CUPS_PRINTER_CLASS) {
+        static const char *const req[] = {"member-names"};
+        ipp_t *request = ippNewRequest(IPP_GET_PRINTER_ATTRIBUTES);
+
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri", NULL, uriS.toUtf8().data());
+        ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD, "requested-attributes", sizeof(req) / sizeof(req[0]), NULL, req);
+
+        ipp_t *response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
+        ipp_attribute_t *members = ippFindAttribute(response, "member-names", IPP_TAG_NAME);
+
+        int i, count = ippGetCount(members);
+        QStringList memberList;
+        for (i = 0; i < count; i++) {
+            memberList << QString::fromUtf8(ippGetString(members, i, NULL));
+        }
+        map.insert(KCUPS_MEMBER_NAMES, memberList);
+        ippDelete(response);
+    }
+
+    //===============TESTING=====================
+
+    // if (!pname.isEmpty()) {
+    //     // get info and test for supported
+    //     cups_dinfo_t *info = cupsCopyDestInfo(CUPS_HTTP_DEFAULT,
+    //                                           dest);
+
+    //     if (cupsCheckDestSupported(CUPS_HTTP_DEFAULT, dest, info,
+    //                                CUPS_FINISHINGS, NULL))
+    //     {
+    //         // get supported attr
+    //       ipp_attribute_t *finishings =
+    //           cupsFindDestSupported(CUPS_HTTP_DEFAULT, dest, info,
+    //                                 CUPS_FINISHINGS);
+    //       int i, count = ippGetCount(finishings);
+    //       qCWarning(LIBKCUPS) << pname << "FINISHINGS:";
+    //       for (i = 0; i < count; i ++)
+    //         qCWarning(LIBKCUPS) << ippGetInteger(finishings, i);
+    //     }
+    //     else
+    //       qCWarning(LIBKCUPS) << pname << "====> NO FINISHINGS:";
+
+    //     // Get supported attribute
+    //     ipp_attribute_t *att = cupsFindDestSupported(CUPS_HTTP_DEFAULT, dest, info, "job-creation-attributes");
+    //     int i, count = ippGetCount(att);
+    //     for (i = 0; i < count; i ++)
+    //         qCWarning(LIBKCUPS) << ippGetString(att, i, NULL);
+
+    // }
+
+    //===========================================
+
+    QMetaObject::invokeMethod(static_cast<KCupsRequest *>(user_data), "deviceMap", Qt::QueuedConnection, Q_ARG(QVariantMap, map));
+
+    return (1);
+}
+
+void KCupsRequest::getDestinations(int timeout, uint type, uint mask)
+{
+    if (m_connection->readyToStart()) {
+        cupsEnumDests(CUPS_DEST_FLAGS_NONE, timeout, NULL, type, mask, (cups_dest_cb_t)get_dest_cb, this);
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished(true);
+    } else {
+        invokeMethod("getDestinations", timeout, type, mask);
+    }
+}
+
 // THIS function can get the default server dest through the
 // "printer-is-default" attribute BUT it does not get user
 // defined default printer, see cupsGetDefault() on www.cups.org for details
@@ -156,6 +294,7 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
             QVariantMap args = arguments;
             args[KCUPS_PRINTER_NAME] = printerName;
             m_printers << KCupsPrinter(args);
+            Q_EMIT deviceMap(args);
         }
 
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));

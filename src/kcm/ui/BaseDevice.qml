@@ -27,6 +27,37 @@ ColumnLayout {
         kcm.clearRemotePrinters()
     }
 
+    function setError(msg: string) {
+        errorMsg.text = msg
+        errorMsg.visible = true
+    }
+
+    // Validate uri
+    function parseUri(uri : string) {
+        try {
+            const u = new URL(uri)
+            return true
+        } catch (e) {
+            setError(e.message)
+            return false
+        }
+    }
+
+    // Return a URL, return null if it fails
+    function getUrl(uri : string) {
+        try {
+            const url = new URL(uri)
+            return url
+        } catch (error) {
+            return null
+        }
+    }
+
+    BannerWithTimer {
+        id: errorMsg
+        Layout.fillWidth: true
+    }
+
     Kirigami.IconTitleSubtitle {
         id: heading
 

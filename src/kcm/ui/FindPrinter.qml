@@ -257,9 +257,6 @@ Kirigami.Dialog {
                 contentItem: ListView {
                     id: list
                     currentIndex: -1
-                    highlight: PlasmaExtras.Highlight {}
-                    highlightMoveDuration: 0
-                    highlightResizeDuration: 0
 
                     activeFocusOnTab: true
                     keyNavigationWraps: true
@@ -283,9 +280,8 @@ Kirigami.Dialog {
                                     ? "folder-network-symbolic"
                                     : modelData["printer-is-class"] ? "folder" : modelData.iconName
 
-                        onClicked: {
-                            ListView.view.currentIndex = index
-                        }
+                        highlighted: ListView.view.currentIndex === index
+                        onClicked: ListView.view.currentIndex = index
                     }
                 }
             }
@@ -345,9 +341,6 @@ Kirigami.Dialog {
 
                 contentItem: ListView {
                     id: directlist
-                    highlight: PlasmaExtras.Highlight {}
-                    highlightMoveDuration: 0
-                    highlightResizeDuration: 0
 
                     activeFocusOnTab: true
                     keyNavigationWraps: true
@@ -366,6 +359,7 @@ Kirigami.Dialog {
                         width: ListView.view.width
                         text: devices.uriDevice(modelData)
                         icon.name: "standard-connector-symbolic"
+                        highlighted: ListView.view.currentIndex === index
 
                         Component.onCompleted:  {
                             if (index === 0)
@@ -478,9 +472,6 @@ Kirigami.Dialog {
 
                 clip: true
                 currentIndex: -1
-                highlight: PlasmaExtras.Highlight {}
-                highlightMoveDuration: 0
-                highlightResizeDuration: 0
 
                 activeFocusOnTab: true
                 keyNavigationWraps: true
@@ -507,6 +498,7 @@ Kirigami.Dialog {
                                ? "internet-services"
                                : "printer-symbolic"
 
+                    highlighted: ListView.view.currentIndex === index
                     onClicked: {
                         ListView.view.currentIndex = index
                         compLoader.selector = ""

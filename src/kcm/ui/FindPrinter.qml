@@ -9,7 +9,6 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PM
 import org.kde.kitemmodels as KSFM
-import org.kde.plasma.extras as PlasmaExtras
 
 Kirigami.Dialog {
     id: root
@@ -176,6 +175,11 @@ Kirigami.Dialog {
         }
     }
 
+    /*
+     * This component is a catch-all for manually selected printers.
+     * A host can be queried for printers it advertises.  Additionally,
+     * a valid url can be entered for a specific printer on the network.
+    */
     Component {
         id: uriComp
 
@@ -189,27 +193,40 @@ Kirigami.Dialog {
 
             actions: [
                 Kirigami.Action {
-                    text: i18nc("@action:button", "Select Printer")
-                    enabled: list.currentIndex !== -1
+                    text: i18nc("@action:button", "Select Printer…")
+                    visible: list.count > 0
                     icon.name: "dialog-ok-symbolic"
                     onTriggered: {
                         settings.set(kcm.remotePrinters[list.currentIndex])
                         manualDriverSelect()
                     }
+                },
+                Kirigami.Action {
+                    text: i18nc("@action:button", "Continue with Address…")
+                    icon.name: "dialog-ok-symbolic"
+                    onTriggered: {
+                        if (uriItem.parseUri(connSearch.text)) {
+                            settings.add("device-uri", connSearch.text)
+                            manualDriverSelect()
+                        }
+                    }
                 }
             ]
 
-            Component.onCompleted: {
+            function setSearchPrefix() {
                 connSearch.text = compLoader.selector !== "other"
-                        ? compLoader.selector + "://"
-                        : "ipp://"
+                        ? compLoader.selector + ":"
+                        : "ipp:"
                 connSearch.forceActiveFocus()
             }
+
+            Component.onCompleted: setSearchPrefix()
 
             Connections {
                 target: kcm
 
                 function onRemotePrintersLoaded() {
+                    list.model = kcm.remotePrinters
                     if (list.count > 0) {
                         list.itemAtIndex(0).onClicked()
                     }
@@ -217,9 +234,11 @@ Kirigami.Dialog {
             }
 
             RowLayout {
+                spacing: Kirigami.Units.smallSpacing
                 Layout.alignment: Qt.AlignHCenter
+
                 QQC2.Label {
-                    text: i18nc("@label:textbox", "Uri:")
+                    text: i18nc("@label:textbox", "Address:")
                 }
 
                 Kirigami.SearchField {
@@ -227,7 +246,7 @@ Kirigami.Dialog {
                     focus: true
                     delaySearch: true
                     autoAccept: false
-                    placeholderText: i18n("Enter host URI")
+                    placeholderText: i18n("Enter host Address")
                     Layout.fillWidth: true
 
                     KeyNavigation.left: uriItem.parent
@@ -238,11 +257,24 @@ Kirigami.Dialog {
                     KeyNavigation.backtab: KeyNavigation.left
                     KeyNavigation.tab: KeyNavigation.right
 
-                    onAccepted: {
-                        if (text.length > 0)
-                            kcm.getRemotePrinters(text, compLoader.selector)
-                        else
+                    onAccepted: searchButton.clicked()
+                }
+
+                QQC2.ToolButton {
+                    id: searchButton
+                    icon.name: "search-symbolic"
+                    onClicked: {
+                        if (connSearch.text.length === 0) {
+                            return
+                        }
+
+                        if (uriItem.parseUri(connSearch.text)) {
+                            kcm.getRemotePrinters(connSearch.text, compLoader.selector)
+                        } else {
                             kcm.clearRemotePrinters()
+                            list.model = ""
+                            uriItem.setSearchPrefix()
+                        }
                     }
                 }
             }
@@ -256,6 +288,7 @@ Kirigami.Dialog {
                 contentItem: ListView {
                     id: list
                     currentIndex: -1
+                    clip: true
 
                     activeFocusOnTab: true
                     keyNavigationWraps: true
@@ -268,8 +301,6 @@ Kirigami.Dialog {
                         }
                         event.accepted = false
                     }
-
-                    model: kcm.remotePrinters
 
                     delegate: Kirigami.SubtitleDelegate {
                         width: ListView.view.width

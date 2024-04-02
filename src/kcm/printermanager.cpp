@@ -94,13 +94,14 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
         url.setAuthority(uri);
     }
 
-    qCWarning(PMKCM) << "Finding Printers for URL:" << url.toDisplayString();
+    qCDebug(PMKCM) << "Finding Printers for URL:" << url.toDisplayString() << uriScheme;
 
     m_remotePrinters.clear();
     auto conn = new KCupsConnection(url, this);
     auto request = new KCupsRequest(conn);
 
-    request->getPrinters({KCUPS_PRINTER_NAME,
+    request->getPrinters({KCUPS_DEVICE_URI,
+                          KCUPS_PRINTER_NAME,
                           KCUPS_PRINTER_STATE,
                           KCUPS_PRINTER_IS_SHARED,
                           KCUPS_PRINTER_IS_ACCEPTING_JOBS,
@@ -120,7 +121,7 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
             for (const auto &p : printers) {
                 const auto mm = p.makeAndModel();
                 const auto make = mm.split(u" "_s).at(0);
-                m_remotePrinters.append(QVariantMap({{KCUPS_DEVICE_URI, QVariant::fromValue(QString(url.url() + u"/printers/"_s + p.name()))},
+                m_remotePrinters.append(QVariantMap({{KCUPS_DEVICE_URI, p.deviceUri()},
                                                      {u"printer-is-class"_s, p.isClass()},
                                                      {u"iconName"_s, p.iconName()},
                                                      {u"remote"_s, QVariant::fromValue<bool>(p.type() & CUPS_PRINTER_REMOTE)},

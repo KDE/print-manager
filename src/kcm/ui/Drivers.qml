@@ -92,9 +92,6 @@ ColumnLayout {
 
         contentItem: ListView {
             id: recmlist
-            highlight: PlasmaExtras.Highlight {}
-            highlightMoveDuration: 0
-            highlightResizeDuration: 0
 
             PComp.BusyIndicator {
                 running: kcmConn.loading
@@ -124,9 +121,8 @@ ColumnLayout {
                            ? "favorites-symbolic"
                            : "dialog-question-symbolic"
 
-                onClicked: {
-                    ListView.view.currentIndex = index
-                }
+                highlighted: index === ListView.view.currentIndex
+                onClicked: ListView.view.currentIndex = index
             }
         }
     }

@@ -7,7 +7,6 @@
 import QtQuick 
 import QtQuick.Layouts 
 import QtQuick.Controls as QQC2
-import org.kde.plasma.components as PComp
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
 import org.kde.kitemmodels as KSFM
@@ -201,7 +200,7 @@ KCM.ScrollViewKCM {
             sortRoleName: "isClass"
         }
 
-        delegate: PComp.ItemDelegate {
+        delegate: QQC2.ItemDelegate {
             width: ListView.view.width
 
             hoverEnabled: false
@@ -229,7 +228,7 @@ KCM.ScrollViewKCM {
                     down: false
                 }
 
-                PComp.ToolButton {
+                QQC2.ToolButton {
                     text: i18nc("@action:button", "Configure…")
                     icon.name: "configure-symbolic"
                     display: QQC2.AbstractButton.IconOnly
@@ -245,12 +244,12 @@ KCM.ScrollViewKCM {
                                         })
                     }
 
-                    PComp.ToolTip {
+                    QQC2.ToolTip {
                         text: parent.text
                     }
                 }
 
-                PComp.ToolButton {
+                QQC2.ToolButton {
                     text: i18nc("@action:button", "Open Print Queue…")
                     icon.name: "view-list-details-symbolic"
                     display: QQC2.AbstractButton.IconOnly
@@ -258,12 +257,12 @@ KCM.ScrollViewKCM {
 
                     onClicked: PM.ProcessRunner.openPrintQueue(model.printerName)
 
-                    PComp.ToolTip {
+                    QQC2.ToolTip {
                         text: parent.text
                     }
                 }
 
-                PComp.ToolButton {
+                QQC2.ToolButton {
                     icon.name: isPaused
                                ? "media-playback-start-symbolic"
                                : "media-playback-pause-symbolic"
@@ -281,7 +280,7 @@ KCM.ScrollViewKCM {
                         }
                     }
 
-                    PComp.ToolTip {
+                    QQC2.ToolTip {
                         text: isPaused
                               ? i18nc("@info:tooltip", "Resume printing")
                               : i18nc("@info:tooltip", "Pause printing")

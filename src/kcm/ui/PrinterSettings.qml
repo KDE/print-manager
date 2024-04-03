@@ -7,7 +7,6 @@
 import QtQuick 
 import QtQuick.Layouts 
 import QtQuick.Controls as QQC2
-import org.kde.plasma.components as PComp
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
 import org.kde.kitemmodels as KSFM
@@ -534,7 +533,7 @@ KCM.AbstractKCM {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
-                sourceComponent: PComp.ScrollView {
+                sourceComponent: QQC2.ScrollView {
 
                     contentItem: ListView {
                         id: memberList

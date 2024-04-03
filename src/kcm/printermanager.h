@@ -9,7 +9,6 @@
 #define PRINTERMANAGER_H
 
 #include <KQuickConfigModule>
-#include <QDBusMessage>
 #include <QObject>
 
 namespace PMTypes
@@ -80,10 +79,6 @@ Q_SIGNALS:
     void serverSettingsChanged();
     void remotePrintersLoaded();
     void recommendedDriversLoaded();
-
-private Q_SLOTS:
-    void getDriversFinished(const QDBusMessage &message);
-    void getDriversFailed(const QDBusError &error, const QDBusMessage &message);
 
 private:
     KCupsRequest *setupRequest(std::function<void()> finished = []() {});

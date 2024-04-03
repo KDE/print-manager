@@ -9,6 +9,7 @@
 #include "pmkcm_log.h"
 
 #include <QDBusConnection>
+#include <QDBusMetaType>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 #include <QStringDecoder>
@@ -70,6 +71,9 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
                                      0,
                                      "PPDType", // QML qualifier
                                      u"Error: for only enums"_s);
+
+    qDBusRegisterMetaType<DriverMatch>();
+    qDBusRegisterMetaType<DriverMatchList>();
 }
 
 void PrinterManager::serverEvent(const QString &event, bool reload, const QString &msg)
@@ -152,31 +156,6 @@ void PrinterManager::clearRemotePrinters()
 void PrinterManager::clearRecommendedDrivers()
 {
     m_recommendedDrivers.clear();
-}
-
-void PrinterManager::getDriversFinished(const QDBusMessage &message)
-{
-    if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
-        const auto args = message.arguments();
-        const auto arg = args.first().value<QDBusArgument>();
-        const DriverMatchList driverMatchList = qdbus_cast<DriverMatchList>(arg);
-        for (const DriverMatch &driverMatch : driverMatchList) {
-            if (driverMatch.match == u"none"_s) {
-                continue;
-            }
-
-            m_recommendedDrivers.append(QVariantMap({{u"match"_s, driverMatch.match}, {u"ppd-name"_s, driverMatch.ppd}, {u"ppd-type"_s, PMTypes::Auto}}));
-        }
-    } else {
-        qCWarning(PMKCM) << "Unexpected message" << message;
-    }
-    Q_EMIT recommendedDriversLoaded();
-}
-
-void PrinterManager::getDriversFailed(const QDBusError &error, const QDBusMessage &message)
-{
-    qCWarning(PMKCM) << "Failed to get best drivers" << error << message;
-    Q_EMIT recommendedDriversLoaded();
 }
 
 void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass)
@@ -346,15 +325,28 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
     qCDebug(PMKCM) << deviceId << makeAndModel << deviceUri;
 
     m_recommendedDrivers.clear();
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s,
-                                             u"/org/fedoraproject/Config/Printing"_s,
-                                             u"org.fedoraproject.Config.Printing"_s,
-                                             u"GetBestDrivers"_s);
-    message << deviceId;
-    message << makeAndModel;
-    message << deviceUri;
-    QDBusConnection::sessionBus().callWithCallback(message, this, SLOT(getDriversFinished(QDBusMessage)), SLOT(getDriversFailed(QDBusError, QDBusMessage)));
+
+    auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s, u"/org/fedoraproject/Config/Printing"_s, u"org.fedoraproject.Config.Printing"_s, u"GetBestDrivers"_s);
+    call.setArguments({deviceId, makeAndModel, deviceUri});
+    const auto pending = QDBusConnection::sessionBus().asyncCall(call);
+    const auto watcher = new QDBusPendingCallWatcher(pending, this);
+
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *w) {
+        QDBusPendingReply<DriverMatchList> reply(*w);
+        if (reply.isError()) {
+            qCWarning(PMKCM) << "Failed to get best drivers" << reply.error().message();
+        } else {
+            const auto dml = reply.value();
+            for (const auto &driverMatch : dml) {
+                if (driverMatch.match == u"none"_s) {
+                    continue;
+                }
+                m_recommendedDrivers.append(QVariantMap({{u"match"_s, driverMatch.match}, {u"ppd-name"_s, driverMatch.ppd}, {u"ppd-type"_s, PMTypes::Auto}}));
+            }
+        }
+        Q_EMIT recommendedDriversLoaded();
+        w->deleteLater();
+    });
 }
 
 KCupsRequest *PrinterManager::setupRequest(std::function<void()> finished)

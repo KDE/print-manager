@@ -6,9 +6,7 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
-import org.kde.plasma.components as PComp
 import org.kde.kirigami as Kirigami
-import org.kde.plasma.extras as PlasmaExtras
 
 ColumnLayout {
     id: root
@@ -70,6 +68,13 @@ ColumnLayout {
         }
     }
 
+    QQC2.BusyIndicator {
+        running: kcmConn.loading
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        implicitWidth: Kirigami.Units.gridUnit * 6
+        implicitHeight: Kirigami.Units.gridUnit * 6
+    }
+
     QQC2.Button {
         id: recmAction
         Layout.alignment: Qt.AlignHCenter
@@ -92,13 +97,6 @@ ColumnLayout {
 
         contentItem: ListView {
             id: recmlist
-
-            PComp.BusyIndicator {
-                running: kcmConn.loading
-                anchors.centerIn: parent
-                implicitWidth: Kirigami.Units.gridUnit * 6
-                implicitHeight: Kirigami.Units.gridUnit * 6
-            }
 
             activeFocusOnTab: true
             keyNavigationWraps: true

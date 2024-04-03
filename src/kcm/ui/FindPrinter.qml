@@ -6,7 +6,6 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
-import org.kde.plasma.components as PComp
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PM
 import org.kde.kitemmodels as KSFM
@@ -463,7 +462,7 @@ Kirigami.Dialog {
             contentItem: ListView {
                 id: deviceList
 
-                PComp.BusyIndicator {
+                QQC2.BusyIndicator {
                     id: busyInd
                     running: loading
                     anchors.centerIn: parent

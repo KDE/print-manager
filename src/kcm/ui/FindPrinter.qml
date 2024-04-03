@@ -332,6 +332,16 @@ Kirigami.Dialog {
             subtitle: settings.value("device-desc")
             helpText: i18nc("@info:usagetip", "Choose a device connection")
 
+            Component.onCompleted: {
+                // Device connection discovery failed or system-config-printer is
+                // not installed. Force driver.load, which will expose the
+                // manual make/model (driver) selection
+                if (directlist.count === 0) {
+                    helpText = ""
+                    drivers.load()
+                }
+            }
+
             // Connection list
             QQC2.ScrollView {
                 Layout.alignment: Qt.AlignHCenter

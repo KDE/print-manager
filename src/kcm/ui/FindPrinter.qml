@@ -355,15 +355,16 @@ Kirigami.Dialog {
 
                     model: settings.value("device-uris")
 
-                    delegate: PComp.ItemDelegate {
+                    delegate: QQC2.ItemDelegate {
                         width: ListView.view.width
                         text: devices.uriDevice(modelData)
                         icon.name: "standard-connector-symbolic"
                         highlighted: ListView.view.currentIndex === index
 
                         Component.onCompleted:  {
-                            if (index === 0)
-                                onClicked()
+                            if (index === 0) {
+                                clicked()
+                            }
                         }
 
                         onClicked: {

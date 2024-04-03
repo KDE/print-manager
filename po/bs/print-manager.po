@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:39+0000\n"
+"POT-Creation-Date: 2024-04-03 00:39+0000\n"
 "PO-Revision-Date: 2014-10-20 19:25+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian\n"
@@ -614,7 +614,7 @@ msgstr "Spriječi ove korisnike od štampanja "
 msgid "A&llow these users to print"
 msgstr "Dopusti ovim korisnicima štampanje"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Postavi zadane opcije"
@@ -625,7 +625,7 @@ msgstr "Postavi zadane opcije"
 msgid "Query Printer for Default Options"
 msgstr "Ispitaj štampač za zadane opcije"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -633,7 +633,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Neuspjelo konfigurisanje klase"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -641,12 +641,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Neuspjelo konfigurisanje štampača"
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Neuspjelo dobavljanje zahtjeva: '%1'"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -654,18 +654,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Neuspjelo dobivanje postavki servera"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Odštampaj probnu stranicu"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Očisti glave štampača"
@@ -1003,12 +1003,12 @@ msgstr "Štampač"
 msgid "From Hostname"
 msgstr "Od imena hosta"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Neuspjelo premještanje '%1' u '%2'"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Nije uspjelo"
@@ -1238,13 +1238,13 @@ msgstr "Stanje štampača nepoznato"
 msgid "Move to"
 msgstr "Premjesti u"
 
-#: src/printqueue/PrintQueueUi.cpp:293
+#: src/printqueue/PrintQueueUi.cpp:294
 #, fuzzy, kde-format
 #| msgid "Authenticated"
 msgid "Authenticate"
 msgstr "Autentifikovan"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1252,7 +1252,7 @@ msgstr[0] "Svi štampači (%1 zadatak)"
 msgstr[1] "Svi štampači (%1 zadatka)"
 msgstr[2] "Svi štampači (%1 zadataka)"
 
-#: src/printqueue/PrintQueueUi.cpp:410
+#: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1260,32 +1260,32 @@ msgstr[0] "%2 (%1 zadatak)"
 msgstr[1] "%2 (%1 zadatka)"
 msgstr[2] "%2 (%1 zadataka)"
 
-#: src/printqueue/PrintQueueUi.cpp:413
+#: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format
 msgid "All Printers"
 msgstr "Svi štampači"
 
-#: src/printqueue/PrintQueueUi.cpp:480
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Neuspjelo otkazivanje '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:483
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Neuspjelo zadržati '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:486
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Neuspjelo osloboditi '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:489
+#: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Neuspjelo ponovno štampanje: '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:560
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""

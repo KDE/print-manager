@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:39+0000\n"
+"POT-Creation-Date: 2024-04-03 00:39+0000\n"
 "PO-Revision-Date: 2023-01-14 23:41+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -609,7 +609,7 @@ msgstr "Bu istifadəçilərə çapı qa&dağan etmək "
 msgid "A&llow these users to print"
 msgstr "Bu istifadəçilərə çapa i&cazə vermək"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Standart seçimləri qurmaq"
@@ -620,7 +620,7 @@ msgstr "Standart seçimləri qurmaq"
 msgid "Query Printer for Default Options"
 msgstr "Printerdən standart seçimləri almaq"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -628,7 +628,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Sinifi tənzimləmək alınmadı"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -636,12 +636,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Printeri ayarlamaq alınmadı"
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Bu sorğu icra edilə bilmədi: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -649,18 +649,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Server ayarlarını almaq mümkün olmadı"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Özünü sınama səhifəsini çap etmək"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Çap başlıqlarını təmizləmək"
@@ -995,12 +995,12 @@ msgstr "Printer"
 msgid "From Hostname"
 msgstr "Komputerdən"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "\"%1\", \"%2\" daxilinə köçürülə bilmədi"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Xəta"
@@ -1232,51 +1232,51 @@ msgstr "Printerin vəziyyəti naməlumdur"
 msgid "Move to"
 msgstr "Bura köçürmək"
 
-#: src/printqueue/PrintQueueUi.cpp:293
+#: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
 msgstr "Kimlik doğrulaması"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Bütün printerlər (%1 tapşırıq)"
 msgstr[1] "Bütün printerlər (%1 tapşırıq)"
 
-#: src/printqueue/PrintQueueUi.cpp:410
+#: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 tapşırıq)"
 msgstr[1] "%2 (%1 tapşırıq)"
 
-#: src/printqueue/PrintQueueUi.cpp:413
+#: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format
 msgid "All Printers"
 msgstr "Bütün printerlər"
 
-#: src/printqueue/PrintQueueUi.cpp:480
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "\"%1\" ləğv edilə bilmədi"
 
-#: src/printqueue/PrintQueueUi.cpp:483
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "\"%1\" dayandırıla bilmədi"
 
-#: src/printqueue/PrintQueueUi.cpp:486
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "\"%1\" bburaxıla bilmədi"
 
-#: src/printqueue/PrintQueueUi.cpp:489
+#: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "\"%1\" yenidən çap edilə bilmədi"
 
-#: src/printqueue/PrintQueueUi.cpp:560
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b>-dan/dən çap etmək üçün istifadəçi adı və şifrəni daxil edin"

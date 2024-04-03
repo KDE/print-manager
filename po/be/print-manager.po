@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:39+0000\n"
+"POT-Creation-Date: 2024-04-03 00:39+0000\n"
 "PO-Revision-Date: 2023-02-09 14:47\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -612,7 +612,7 @@ msgstr "&Забараніць гэтым карыстальнікам друка
 msgid "A&llow these users to print"
 msgstr "&Дазволіць гэтым карыстальнікам друкаванне"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Вызначыць прадвызначаныя параметры"
@@ -623,7 +623,7 @@ msgstr "Вызначыць прадвызначаныя параметры"
 msgid "Query Printer for Default Options"
 msgstr "Запытаць прынтар для прадвызначаных параметраў"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -631,7 +631,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не ўдалося наладзіць клас"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -639,12 +639,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не ўдалося наладзіць прынтар"
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не ўдалося выканаць запыт: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -652,18 +652,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не ўдалося атрымаць налады сервера"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукаваць старонку самаправярання"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Ачышчэнне друкавальных галовак"
@@ -1000,12 +1000,12 @@ msgstr "Прынтар"
 msgid "From Hostname"
 msgstr "З назвы хоста"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Не ўдалося перамясціць \"%1\" у \"%2\""
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Не ўдалося"
@@ -1237,12 +1237,12 @@ msgstr "Стан прынтара невядомы"
 msgid "Move to"
 msgstr "Перамясціць у"
 
-#: src/printqueue/PrintQueueUi.cpp:293
+#: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
 msgstr "Аўтэнтыфікацыя"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1251,7 +1251,7 @@ msgstr[1] "Усе прынтары (%1 задачы)"
 msgstr[2] "Усе прынтары (%1 задач)"
 msgstr[3] "Усе прынтары (%1 задачы)"
 
-#: src/printqueue/PrintQueueUi.cpp:410
+#: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1260,32 +1260,32 @@ msgstr[1] "%2 (%1 задачы)"
 msgstr[2] "%2 (%1 задач)"
 msgstr[3] "%2 (%1 задачы)"
 
-#: src/printqueue/PrintQueueUi.cpp:413
+#: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format
 msgid "All Printers"
 msgstr "Усе прынтары"
 
-#: src/printqueue/PrintQueueUi.cpp:480
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Не ўдалося скасаваць \"%1\""
 
-#: src/printqueue/PrintQueueUi.cpp:483
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Не ўдалося прыпыніць \"%1\""
 
-#: src/printqueue/PrintQueueUi.cpp:486
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Не ўдалося вызваліць \"%1\""
 
-#: src/printqueue/PrintQueueUi.cpp:489
+#: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Не ўдалося паўтарыць друкаванне \"%1\""
 
-#: src/printqueue/PrintQueueUi.cpp:560
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Увядзіце ўліковыя даныя для друкавання з <b>%1</b>"

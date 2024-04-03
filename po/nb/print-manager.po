@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:39+0000\n"
+"POT-Creation-Date: 2024-04-03 00:39+0000\n"
 "PO-Revision-Date: 2013-08-11 17:27+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -610,7 +610,7 @@ msgstr ""
 msgid "A&llow these users to print"
 msgstr ""
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Sett standard-alternativer"
@@ -621,7 +621,7 @@ msgstr "Sett standard-alternativer"
 msgid "Query Printer for Default Options"
 msgstr "Spør skriveren etter dens standard alternativer"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -629,7 +629,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klarte ikke å sette opp klasse"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -637,12 +637,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Klarte ikke å sette opp skriver"
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Klarte ikke å utføre forespørselen: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -650,18 +650,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Klarte ikke å hente tjenerinnstillinger"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Skriv ut selvtest-side"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Rens skrivehodene"
@@ -997,12 +997,12 @@ msgstr "Skriver"
 msgid "From Hostname"
 msgstr "Fra vertsnavn"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Klarte ikke å flytte «%1» til «%2»"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Mislyktes"
@@ -1233,51 +1233,51 @@ msgstr "Ukjent skrivertilstand"
 msgid "Move to"
 msgstr "Flytt til"
 
-#: src/printqueue/PrintQueueUi.cpp:293
+#: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Alle skrivere (%1 jobb)"
 msgstr[1] "Alle skrivere (%1 jobber)"
 
-#: src/printqueue/PrintQueueUi.cpp:410
+#: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 jobb)"
 msgstr[1] "%2 (%1 jobber)"
 
-#: src/printqueue/PrintQueueUi.cpp:413
+#: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format
 msgid "All Printers"
 msgstr "Alle skrivere"
 
-#: src/printqueue/PrintQueueUi.cpp:480
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Klarte ikke å kansellere «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:483
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Klarte ikke å holde tilbake «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:486
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Klarte ikke å slippe løs «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:489
+#: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Klarte ikke å skrive ut «%1» på nytt."
 
-#: src/printqueue/PrintQueueUi.cpp:560
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""

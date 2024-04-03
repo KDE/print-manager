@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:39+0000\n"
+"POT-Creation-Date: 2024-04-03 00:39+0000\n"
 "PO-Revision-Date: 2024-04-01 08:07+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -610,7 +610,7 @@ msgstr "Odmó&w tym użytkownikom drukowania "
 msgid "A&llow these users to print"
 msgstr "Zezwó&l tym użytkownikom na drukowanie"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ustaw opcje domyślne"
@@ -621,41 +621,41 @@ msgstr "Ustaw opcje domyślne"
 msgid "Query Printer for Default Options"
 msgstr "Odpytaj drukarkę o domyślne opcje"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nie udało się ustawić klasy: "
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nie udało się ustawić drukarki: "
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nie udało się wykonać żądania: '%1'"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nie udało się pobrać ustawień serwera: %1"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Błąd serwera: (%1): %2"
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Wydrukuj stronę próbną"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Wyczyść głowice drukujące"
@@ -980,12 +980,12 @@ msgstr "Drukarka"
 msgid "From Hostname"
 msgstr "Z nazwy hosta"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Nie udało się przenieść '%1' do '%2'"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Niepowodzenie"
@@ -1215,12 +1215,12 @@ msgstr "Stan drukarki nieznany"
 msgid "Move to"
 msgstr "Przenieś do"
 
-#: src/printqueue/PrintQueueUi.cpp:293
+#: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
 msgstr "Uwierzytelnianie"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1228,7 +1228,7 @@ msgstr[0] "Wszystkie drukarki (%1 zadanie)"
 msgstr[1] "Wszystkie drukarki (%1 zadania)"
 msgstr[2] "Wszystkie drukarki (%1 zadań)"
 
-#: src/printqueue/PrintQueueUi.cpp:410
+#: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1236,32 +1236,32 @@ msgstr[0] "%2 (%1 zadanie)"
 msgstr[1] "%2 (%1 zadania)"
 msgstr[2] "%2 (%1 zadań)"
 
-#: src/printqueue/PrintQueueUi.cpp:413
+#: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format
 msgid "All Printers"
 msgstr "Wszystkie drukarki"
 
-#: src/printqueue/PrintQueueUi.cpp:480
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Nie udało się porzucić '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:483
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Nie udało się przytrzymanie '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:486
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Nie udało się zwolnienie '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:489
+#: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Nie udało się ponownie wydrukować '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:560
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Podaj dane dostępowe, aby wydrukować z <b>%1</b>"

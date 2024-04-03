@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-29 00:39+0000\n"
+"POT-Creation-Date: 2024-04-03 00:39+0000\n"
 "PO-Revision-Date: 2020-05-03 08:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -613,7 +613,7 @@ msgstr "&Να μην επιτρέπεται στους χρήστες αυτού
 msgid "A&llow these users to print"
 msgstr "Να &επιτρέπεται στους χρήστες αυτούς να εκτυπώνουν"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ορισμός προκαθορισμένων επιλογών"
@@ -624,7 +624,7 @@ msgstr "Ορισμός προκαθορισμένων επιλογών"
 msgid "Query Printer for Default Options"
 msgstr "Ερώτηση εκτυπωτή για προκαθορισμένες επιλογές"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -632,7 +632,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Απέτυχε η διαμόρφωση κλάσης"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -640,12 +640,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Απέτυχε η διαμόρφωση εκτυπωτή"
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Απέτυχε η εκτέλεση της αίτησης: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -653,18 +653,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Εκτύπωση δοκιμαστικής σελίδας"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Καθαρισμός κεφαλών εκτύπωσης"
@@ -998,12 +998,12 @@ msgstr "Εκτυπωτής"
 msgid "From Hostname"
 msgstr "Από όνομα υπολογιστή"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:492
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Απέτυχε η μετακίνηση της εργασίας '%1' στο '%2'"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:495
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
 msgid "Failed"
 msgstr "Απέτυχε"
@@ -1235,51 +1235,51 @@ msgstr "Άγνωστη κατάσταση εκτυπωτή"
 msgid "Move to"
 msgstr "Μετακίνηση στο"
 
-#: src/printqueue/PrintQueueUi.cpp:293
+#: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
 msgstr "Ταυτοποίηση"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Όλοι οι εκτυπωτές (%1 εργασία)"
 msgstr[1] "Όλοι οι εκτυπωτες (%1 εργασίες)"
 
-#: src/printqueue/PrintQueueUi.cpp:410
+#: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 εργασία)"
 msgstr[1] "%2 (%1 εργασίες)"
 
-#: src/printqueue/PrintQueueUi.cpp:413
+#: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format
 msgid "All Printers"
 msgstr "Όλοι οι εκτυπωτές"
 
-#: src/printqueue/PrintQueueUi.cpp:480
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Απέτυχε η ακύρωση της εργασίας '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:483
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Απέτυχε η αναμονή της εργασίας '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:486
+#: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Απέτυχε η απελευθέρωση της εργασίας '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:489
+#: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Απέτυχε η επανεκτύπωση της εργασίας '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:560
+#: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Δώστε τα διαπιστευτήρια για να γίνει εκτύπωση από το <b>%1</b>"

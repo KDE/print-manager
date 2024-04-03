@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2022-12-31 15:20+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -596,7 +596,7 @@ msgstr "Pre&vent these users from printing "
 msgid "A&llow these users to print"
 msgstr "A&llow these users to print"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Set Default Options"
@@ -607,7 +607,7 @@ msgstr "Set Default Options"
 msgid "Query Printer for Default Options"
 msgstr "Query Printer for Default Options"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -615,7 +615,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Failed to configure class"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -623,12 +623,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Failed to configure printer"
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Failed to perform request: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -636,18 +636,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Failed to get server settings"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Print Self-Test Page"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Clean Print Heads"

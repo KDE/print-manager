@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -617,7 +617,7 @@ msgstr "&Spreči ove korisnike da štampaju"
 msgid "A&llow these users to print"
 msgstr "&Dozvoli ovim korisnicima da štampaju"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Postavi podrazumevane opcije"
@@ -628,7 +628,7 @@ msgstr "Postavi podrazumevane opcije"
 msgid "Query Printer for Default Options"
 msgstr "Zatraži od štampača podrazumevane opcije"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -636,7 +636,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Neuspelo podešavanje klase."
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -644,12 +644,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Neuspelo podešavanje štampača."
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Neuspelo izvršavanje zahteva: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -657,18 +657,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ne mogu da dobavim postavke servera"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Odštampaj stranicu za samoprobu"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Očisti štamparske glave"

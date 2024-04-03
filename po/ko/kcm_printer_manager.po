@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 02:55+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2024-02-06 00:24+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,46 +17,46 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: printermanager.cpp:223
+#: printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "기본 옵션 설정"
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "클래스를 설정할 수 없음: "
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "프린터를 설정할 수 없음: "
 
-#: printermanager.cpp:364
+#: printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "요청을 처리할 수 없음: %1"
 
-#: printermanager.cpp:416
+#: printermanager.cpp:417
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "서버 설정을 가져올 수 없음: %1"
 
-#: printermanager.cpp:454
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "서버 오류: (%1): %2"
 
-#: printermanager.cpp:509
+#: printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: printermanager.cpp:515
+#: printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"
@@ -150,19 +150,19 @@ msgstr "URI:"
 msgid "Enter host URI"
 msgstr "호스트 URI 입력"
 
-#: ui/FindPrinter.qml:338
+#: ui/FindPrinter.qml:334
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "장치 연결 선택"
 
-#: ui/FindPrinter.qml:430
+#: ui/FindPrinter.qml:424
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "자동으로 인쇄 장치를 발견할 수 없음"
 
-#: ui/FindPrinter.qml:431
+#: ui/FindPrinter.qml:425
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -171,13 +171,13 @@ msgid ""
 msgstr ""
 "\"새로 고침\"을 선택하여 다시 시도하거나 목록에서 수동 옵션을 선택하십시오"
 
-#: ui/FindPrinter.qml:440
+#: ui/FindPrinter.qml:434
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "목록에서 수동 설정 옵션 선택"
 
-#: ui/FindPrinter.qml:453
+#: ui/FindPrinter.qml:447
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"

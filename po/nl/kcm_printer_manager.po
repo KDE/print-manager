@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 02:55+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2023-11-14 10:28+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,46 +17,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.3\n"
 
-#: printermanager.cpp:223
+#: printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Standaard opties instellen"
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klasse instellen is mislukt: "
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Printer instellen is mislukt: "
 
-#: printermanager.cpp:364
+#: printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Verzoek uitvoeren is mislukt: %1"
 
-#: printermanager.cpp:416
+#: printermanager.cpp:417
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Instellingen van server ophalen is mislukt: %1"
 
-#: printermanager.cpp:454
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Serverfout: (%1): %2"
 
-#: printermanager.cpp:509
+#: printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Pagina voor zelftest afdrukken"
 
-#: printermanager.cpp:515
+#: printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Printkoppen reinigen"
@@ -152,19 +152,19 @@ msgstr "Uri:"
 msgid "Enter host URI"
 msgstr "Host-URI invoeren"
 
-#: ui/FindPrinter.qml:338
+#: ui/FindPrinter.qml:334
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Een apparaatverbinding kiezen"
 
-#: ui/FindPrinter.qml:430
+#: ui/FindPrinter.qml:424
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Automatisch afdrukapparaten ontdekken lukt niet"
 
-#: ui/FindPrinter.qml:431
+#: ui/FindPrinter.qml:425
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -174,13 +174,13 @@ msgstr ""
 "\"Vernieuwen\" kiezen om opnieuw te proberen of kies een handmatige "
 "configuratie-optie uit de lijst"
 
-#: ui/FindPrinter.qml:440
+#: ui/FindPrinter.qml:434
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Kies een handmatige configuratie-optie uit de lijst"
 
-#: ui/FindPrinter.qml:453
+#: ui/FindPrinter.qml:447
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"

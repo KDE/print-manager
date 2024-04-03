@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2024-01-02 15:06+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -594,7 +594,7 @@ msgstr "Ezen felhasználók nyomtatásának megakadályo&zása "
 msgid "A&llow these users to print"
 msgstr "Ezen fe&lhasználók nyomtatásának engedélyezése"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Alapértelmezett lehetőségek beállítása"
@@ -605,41 +605,41 @@ msgstr "Alapértelmezett lehetőségek beállítása"
 msgid "Query Printer for Default Options"
 msgstr "Nyomtató lekérése az alapértelmezett beállításokhoz"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nem sikerült beállítani az osztályt: "
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nem sikerült beállítani a nyomtatót: "
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nem sikerült végrehajtani a kérést: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Kiszolgálóhiba: (%1): %2"
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Önellenőrző oldal nyomtatása"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nyomtatófej-tisztítás"

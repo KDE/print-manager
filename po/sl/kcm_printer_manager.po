@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 02:55+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2024-03-28 16:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -15,46 +15,46 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: printermanager.cpp:223
+#: printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nastavite privzete možnosti"
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Razreda ni bilo mogoče konfigurirati: "
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Tiskalnika ni bilo mogoče konfigurirati: "
 
-#: printermanager.cpp:364
+#: printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Zahteve ni bilo mogoče izvesti: %1"
 
-#: printermanager.cpp:416
+#: printermanager.cpp:417
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nastavitev strežnika ni bilo mogoče pridobiti: %1"
 
-#: printermanager.cpp:454
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Napaka strežnika: (%1): %2"
 
-#: printermanager.cpp:509
+#: printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Natisni stran za samopreizkus"
 
-#: printermanager.cpp:515
+#: printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Čisti tiskalne glave"
@@ -151,19 +151,19 @@ msgstr "Uri:"
 msgid "Enter host URI"
 msgstr "Vnesite URI gostitelja"
 
-#: ui/FindPrinter.qml:338
+#: ui/FindPrinter.qml:334
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Izberi povezavo naprave"
 
-#: ui/FindPrinter.qml:430
+#: ui/FindPrinter.qml:424
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Ni mogoče samodejno odkriti kakršnekoli tiskalne naprave"
 
-#: ui/FindPrinter.qml:431
+#: ui/FindPrinter.qml:425
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -173,13 +173,13 @@ msgstr ""
 "Izberite \"Osveži\", da poskusite znova, ali izberite možnost ročne "
 "konfiguracije iz seznama"
 
-#: ui/FindPrinter.qml:440
+#: ui/FindPrinter.qml:434
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Na seznamu izberite možnost ročne konfiguracije"
 
-#: ui/FindPrinter.qml:453
+#: ui/FindPrinter.qml:447
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"

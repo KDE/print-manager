@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-03-28 02:55+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2024-03-30 19:38\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,46 +17,46 @@ msgstr ""
 "X-Crowdin-File: /kf6-stable/messages/print-manager/kcm_printer_manager.pot\n"
 "X-Crowdin-File-ID: 52860\n"
 
-#: printermanager.cpp:223
+#: printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "设置默认选项"
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "配置打印机类失败："
 
-#: printermanager.cpp:231
+#: printermanager.cpp:232
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "配置打印机失败："
 
-#: printermanager.cpp:364
+#: printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "执行请求失败：%1"
 
-#: printermanager.cpp:416
+#: printermanager.cpp:417
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "获取服务器设置失败：%1"
 
-#: printermanager.cpp:454
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "服务器错误：(%1)：%2"
 
-#: printermanager.cpp:509
+#: printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: printermanager.cpp:515
+#: printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
@@ -152,19 +152,19 @@ msgstr "URI："
 msgid "Enter host URI"
 msgstr "输入主机 URI"
 
-#: ui/FindPrinter.qml:338
+#: ui/FindPrinter.qml:334
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "选择设备连接"
 
-#: ui/FindPrinter.qml:430
+#: ui/FindPrinter.qml:424
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "无法自动发现任何打印设备"
 
-#: ui/FindPrinter.qml:431
+#: ui/FindPrinter.qml:425
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -172,13 +172,13 @@ msgid ""
 "the list"
 msgstr "选择“刷新”重试，或者从选项列表中选择手动配置"
 
-#: ui/FindPrinter.qml:440
+#: ui/FindPrinter.qml:434
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "从选项列表中选择手动配置"
 
-#: ui/FindPrinter.qml:453
+#: ui/FindPrinter.qml:447
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"

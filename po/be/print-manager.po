@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-28 01:34+0000\n"
+"POT-Creation-Date: 2024-04-03 02:32+0000\n"
 "PO-Revision-Date: 2023-02-09 14:47\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -599,7 +599,7 @@ msgstr "&Забараніць гэтым карыстальнікам друка
 msgid "A&llow these users to print"
 msgstr "&Дазволіць гэтым карыстальнікам друкаванне"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:223
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
 #, kde-format
 msgid "Set Default Options"
 msgstr "Вызначыць прадвызначаныя параметры"
@@ -610,7 +610,7 @@ msgstr "Вызначыць прадвызначаныя параметры"
 msgid "Query Printer for Default Options"
 msgstr "Запытаць прынтар для прадвызначаных параметраў"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -618,7 +618,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не ўдалося наладзіць клас"
 
-#: src/kcm/printermanager.cpp:231
+#: src/kcm/printermanager.cpp:232
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -626,12 +626,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не ўдалося наладзіць прынтар"
 
-#: src/kcm/printermanager.cpp:364
+#: src/kcm/printermanager.cpp:365
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не ўдалося выканаць запыт: %1"
 
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -639,18 +639,18 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не ўдалося атрымаць налады сервера"
 
-#: src/kcm/printermanager.cpp:454
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукаваць старонку самаправярання"
 
-#: src/kcm/printermanager.cpp:515
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Ачышчэнне друкавальных галовак"

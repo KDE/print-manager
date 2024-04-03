@@ -9,8 +9,6 @@ import QtQuick.Controls as QQC2
 import QtQuick.Dialogs as Dialogs
 import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels as KSFM
-import org.kde.plasma.components as PComp
-import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.printmanager as PM
 
 /*
@@ -239,16 +237,14 @@ Kirigami.Dialog {
                 contentItem: ListView {
                     id: makesList
                     clip: true
-                    highlight: PlasmaExtras.Highlight {}
-                    highlightMoveDuration: 0
-                    highlightResizeDuration: 0
 
                     model: root.model
 
-                    delegate: PComp.ItemDelegate {
+                    delegate: QQC2.ItemDelegate {
                         width: ListView.view.width
                         text: model?.display
                         icon.name: "system-user-prompt"
+                        highlighted: ListView.view.currentIndex === index
 
                         onClicked: {
                             ListView.view.currentIndex = index
@@ -270,11 +266,8 @@ Kirigami.Dialog {
                 contentItem: ListView {
                     id: makeModelList
                     clip: true
-                    highlight: PlasmaExtras.Highlight {}
-                    highlightMoveDuration: 0
-                    highlightResizeDuration: 0
 
-                    PComp.BusyIndicator {
+                    QQC2.BusyIndicator {
                         running: loading
                         visible: loading
                         anchors.left: parent.left
@@ -285,10 +278,11 @@ Kirigami.Dialog {
 
                     model: printerModels
 
-                    delegate: PComp.ItemDelegate {
+                    delegate: QQC2.ItemDelegate {
                         width: ListView.view.width
                         text: model?.ppdMakeModel
                         icon.name: "printer-symbolic"
+                        highlighted: ListView.view.currentIndex === index
 
                         onClicked: {
                             ListView.view.currentIndex = index

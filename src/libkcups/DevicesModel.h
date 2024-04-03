@@ -89,9 +89,6 @@ private Q_SLOTS:
                    const QString &device_location);
 
     void finished();
-    void getGroupedDevicesSuccess(const QDBusMessage &message);
-    void getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message);
-    void groupedDevicesFallback();
 
 private:
     QStandardItem *findCreateCategory(const QString &category, Kind kind);

@@ -14,6 +14,8 @@
 
 #include <QDBusConnection>
 #include <QDBusMetaType>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QHostInfo>
 
 using namespace Qt::StringLiterals;
@@ -228,16 +230,52 @@ void DevicesModel::finished()
         return;
     }
 
-    QDBusMessage message;
-    message = QDBusMessage::createMethodCall(QLatin1String("org.fedoraproject.Config.Printing"),
-                                             QLatin1String("/org/fedoraproject/Config/Printing"),
-                                             QLatin1String("org.fedoraproject.Config.Printing"),
-                                             QLatin1String("GroupPhysicalDevices"));
-    message << QVariant::fromValue(m_mappedDevices);
-    QDBusConnection::sessionBus().callWithCallback(message,
-                                                   this,
-                                                   SLOT(getGroupedDevicesSuccess(QDBusMessage)),
-                                                   SLOT(getGroupedDevicesFailed(QDBusError, QDBusMessage)));
+    // Try to group the physical devices
+    auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s, u"/org/fedoraproject/Config/Printing"_s, u"org.fedoraproject.Config.Printing"_s, u"GroupPhysicalDevices"_s);
+    call.setArguments({QVariant::fromValue(m_mappedDevices)});
+    const auto pending = QDBusConnection::sessionBus().asyncCall(call);
+    const auto watcher = new QDBusPendingCallWatcher(pending, this);
+
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *w) {
+        QDBusPendingReply<QList<QStringList>> reply(*w);
+
+        if (reply.isError()) {
+            qCWarning(LIBKCUPS) << reply.error().name() << reply.error().message();
+            // Fallback, insert all the devices
+            MapSMapSS::const_iterator i = m_mappedDevices.constBegin();
+            while (i != m_mappedDevices.constEnd()) {
+                const MapSS device = i.value();
+                insertDevice(device[KCUPS_DEVICE_CLASS],
+                             device[KCUPS_DEVICE_ID],
+                             device[KCUPS_DEVICE_INFO],
+                             device[KCUPS_DEVICE_MAKE_AND_MODEL],
+                             i.key(),
+                             device[KCUPS_DEVICE_LOCATION]);
+                ++i;
+            }
+            Q_EMIT errorMessage(i18n("Failed to group devices: '%1'", reply.error().message()));
+        } else {
+            const auto groupedDevices = reply.value();
+            for (const auto &list : groupedDevices) {
+                if (list.isEmpty()) {
+                    continue;
+                }
+
+                const QString uri = list.first();
+                const MapSS device = m_mappedDevices[uri];
+                insertDevice(device[KCUPS_DEVICE_CLASS],
+                             device[KCUPS_DEVICE_ID],
+                             device[KCUPS_DEVICE_INFO],
+                             device[KCUPS_DEVICE_MAKE_AND_MODEL],
+                             uri,
+                             device[KCUPS_DEVICE_LOCATION],
+                             list.size() > 1 ? list : QStringList());
+            }
+        }
+
+        Q_EMIT loaded();
+        w->deleteLater();
+    });
 }
 
 void DevicesModel::insertDevice(const QString &device_class,
@@ -368,56 +406,6 @@ QStandardItem *DevicesModel::createItem(const QString &device_class,
     }
 
     return stdItem;
-}
-
-void DevicesModel::getGroupedDevicesSuccess(const QDBusMessage &message)
-{
-    if (message.type() == QDBusMessage::ReplyMessage && message.arguments().size() == 1) {
-        const auto argument = message.arguments().first().value<QDBusArgument>();
-        const auto groupedDevices = qdbus_cast<QList<QStringList>>(argument);
-        for (const QStringList &list : groupedDevices) {
-            if (list.isEmpty()) {
-                continue;
-            }
-
-            const QString uri = list.first();
-            const MapSS device = m_mappedDevices[uri];
-            insertDevice(device[KCUPS_DEVICE_CLASS],
-                         device[KCUPS_DEVICE_ID],
-                         device[KCUPS_DEVICE_INFO],
-                         device[KCUPS_DEVICE_MAKE_AND_MODEL],
-                         uri,
-                         device[KCUPS_DEVICE_LOCATION],
-                         list.size() > 1 ? list : QStringList());
-        }
-    } else {
-        qWarning() << "Unexpected message" << message;
-        groupedDevicesFallback();
-    }
-    Q_EMIT loaded();
-}
-
-void DevicesModel::getGroupedDevicesFailed(const QDBusError &error, const QDBusMessage &message)
-{
-    qWarning() << error << message;
-    groupedDevicesFallback();
-    Q_EMIT errorMessage(i18n("Failed to group devices: '%1'", error.message()));
-    Q_EMIT loaded();
-}
-
-void DevicesModel::groupedDevicesFallback()
-{
-    MapSMapSS::const_iterator i = m_mappedDevices.constBegin();
-    while (i != m_mappedDevices.constEnd()) {
-        const MapSS device = i.value();
-        insertDevice(device[KCUPS_DEVICE_CLASS],
-                     device[KCUPS_DEVICE_ID],
-                     device[KCUPS_DEVICE_INFO],
-                     device[KCUPS_DEVICE_MAKE_AND_MODEL],
-                     i.key(),
-                     device[KCUPS_DEVICE_LOCATION]);
-        ++i;
-    }
 }
 
 QStandardItem *DevicesModel::findCreateCategory(const QString &category, Kind kind)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:39+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2023-11-14 13:56+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -20,46 +20,46 @@ msgstr ""
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
-#: printermanager.cpp:224
+#: printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nastavit výchozí volby"
 
-#: printermanager.cpp:232
+#: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nastavení třídy selhalo: "
 
-#: printermanager.cpp:232
+#: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nastavení tiskárny selhalo: "
 
-#: printermanager.cpp:365
+#: printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Vykonání požadavku selhalo: %1"
 
-#: printermanager.cpp:417
+#: printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Selhalo získání nastavení serveru: %1"
 
-#: printermanager.cpp:455
+#: printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Chyba serveru: (%1): %2"
 
-#: printermanager.cpp:510
+#: printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Vytisknout testovací stránku"
 
-#: printermanager.cpp:516
+#: printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Vyčistit tiskové hlavy"

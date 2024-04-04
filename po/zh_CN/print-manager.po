@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:39+0000\n"
-"PO-Revision-Date: 2024-04-01 14:44\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
+"PO-Revision-Date: 2024-04-03 19:14\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -413,12 +413,12 @@ msgid ""
 "function device."
 msgstr "HPLIP 软件包驱动的传真机，或者多功能一体机的传真功能。"
 
-#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:99
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:101
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的远程 CUPS 打印机"
 
-#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:108
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:110
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的网络打印机"
@@ -600,7 +600,7 @@ msgstr "阻止这些用户打印(&V)"
 msgid "A&llow these users to print"
 msgstr "允许这些用户打印(&L)"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "设置默认选项"
@@ -611,41 +611,41 @@ msgstr "设置默认选项"
 msgid "Query Printer for Default Options"
 msgstr "查询打印机默认选项"
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "配置打印机类失败："
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "配置打印机失败："
 
-#: src/kcm/printermanager.cpp:365
+#: src/kcm/printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "执行请求失败：%1"
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "无法获取服务器设置：%1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "服务器错误：(%1)：%2"
 
-#: src/kcm/printermanager.cpp:510
+#: src/kcm/printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
@@ -728,116 +728,116 @@ msgstr "查找驱动程序"
 msgid "'%1' is ready for printing."
 msgstr "“%1”已准备好打印。"
 
-#: src/libkcups/DevicesModel.cpp:48
+#: src/libkcups/DevicesModel.cpp:50
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "手动输入 URI"
 
-#: src/libkcups/DevicesModel.cpp:60
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Parallel Port"
 msgstr "并行端口"
 
-#: src/libkcups/DevicesModel.cpp:62
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "Serial Port"
 msgstr "串行端口"
 
-#: src/libkcups/DevicesModel.cpp:64
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Bluetooth"
 msgstr "蓝牙"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax - HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "硬件抽象层 (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR 队列"
 
-#: src/libkcups/DevicesModel.cpp:81
+#: src/libkcups/DevicesModel.cpp:83
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR 队列 %1"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:86
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Windows 打印机 (通过 SAMBA)"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:91
+#: src/libkcups/DevicesModel.cpp:93
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:96
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:102
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的 IPP 网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:104
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的 LPD 网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:106
+#: src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的 AppSocket/JetDirect 网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:120
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "通过并行端口连接的打印机"
 
-#: src/libkcups/DevicesModel.cpp:121
+#: src/libkcups/DevicesModel.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "通过蓝牙连接的打印机"
 
-#: src/libkcups/DevicesModel.cpp:122
+#: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "硬件抽象层 (HAL) 检测到的本地打印机"
 
-#: src/libkcups/DevicesModel.cpp:123
+#: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -847,7 +847,7 @@ msgstr ""
 "HPLIP 软件包驱动的传真机，\n"
 "或者多功能一体机的传真功能"
 
-#: src/libkcups/DevicesModel.cpp:124
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -857,63 +857,63 @@ msgstr ""
 "HPLIP 软件包驱动的打印机，\n"
 "或者多功能一体机的打印功能"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "通过 IPP 连接的 IPP 网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "通过 USB 端口连接的打印机"
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的远程 CUPS 打印机"
 
-#: src/libkcups/DevicesModel.cpp:144
+#: src/libkcups/DevicesModel.cpp:146
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:146
+#: src/libkcups/DevicesModel.cpp:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "通过 DNS-SD 连接的 %1 网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:221
+#: src/libkcups/DevicesModel.cpp:223
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "获取设备列表失败：“%1”"
 
-#: src/libkcups/DevicesModel.cpp:347
+#: src/libkcups/DevicesModel.cpp:256
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "设备编组失败：“%1”"
+
+#: src/libkcups/DevicesModel.cpp:385
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "已发现的网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:353
+#: src/libkcups/DevicesModel.cpp:391
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "其他网络打印机"
 
-#: src/libkcups/DevicesModel.cpp:359
+#: src/libkcups/DevicesModel.cpp:397
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "本地打印机"
-
-#: src/libkcups/DevicesModel.cpp:404
-#, kde-format
-msgid "Failed to group devices: '%1'"
-msgstr "设备编组失败：“%1”"
 
 #: src/libkcups/JobModel.cpp:28
 #, kde-format

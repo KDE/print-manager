@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:39+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2024-03-29 05:38+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -422,12 +422,12 @@ msgstr ""
 "HPLIP პროგრამული უზრუნველყოფა მართავს ფაქსის აპარატს, ან მრავალფუნქციური "
 "მოწყობილობის ფაქსის ფუნქციას."
 
-#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:99
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:101
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "დაშორებული CUPS პრინტერი DNS-SD-ს გავლით"
 
-#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:108
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:110
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "ქსელური პრინტერი DNS-SD-ს გავლით"
@@ -609,7 +609,7 @@ msgstr "&ამ მომხმარებლისთვის ბეჭდვ
 msgid "A&llow these users to print"
 msgstr "&ამ მომხმარებლებისთვის ბეჭდვის ნების დართვა"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "ნაგულისხმევი მნიშვნელობების დაყენება"
@@ -620,41 +620,41 @@ msgstr "ნაგულისხმევი მნიშვნელობე�
 msgid "Query Printer for Default Options"
 msgstr "პრინტერიდან ნაგულისხმები პარამეტრების გამოთხოვა"
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "კლასის მორგების შეცდომა: "
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "პრინერის მორგების შეცდომა: "
 
-#: src/kcm/printermanager.cpp:365
+#: src/kcm/printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "მოთხოვნის შესრულების შეცდომა: %1"
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "სერვერის პარამეტრების მიღების შეცდომა: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "სერვერის შეცდომა: (%1): %2"
 
-#: src/kcm/printermanager.cpp:510
+#: src/kcm/printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "შიდა სატესტო გვერდი"
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "თავაკების გაწმენდა"
@@ -737,116 +737,116 @@ msgstr "დრაივერის მოძებნა"
 msgid "'%1' is ready for printing."
 msgstr "'%1' საბეჭდად მზადაა."
 
-#: src/libkcups/DevicesModel.cpp:48
+#: src/libkcups/DevicesModel.cpp:50
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "URI-ის ხელით მითითება"
 
-#: src/libkcups/DevicesModel.cpp:60
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Parallel Port"
 msgstr "პარალელური პორტი"
 
-#: src/libkcups/DevicesModel.cpp:62
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "Serial Port"
 msgstr "სერიული პორტი"
 
-#: src/libkcups/DevicesModel.cpp:64
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Bluetooth"
 msgstr "ბლუთუზი"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax - HP-ის სკანირება და ბეჭდვა ლინუქსისთვის (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP ლინუქსის ბეჭდვა და სკანირება (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "აპარატურის აბსტრაქციის ფენა (₾)"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR რიგი"
 
-#: src/libkcups/DevicesModel.cpp:81
+#: src/libkcups/DevicesModel.cpp:83
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR რიგი %1"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:86
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "პრინტერი Windows-ზე SAMBA-ის გამოყენებით"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:91
+#: src/libkcups/DevicesModel.cpp:93
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:96
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:102
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "IPP ქსელური პრინტერი DNS-SD-ით"
 
-#: src/libkcups/DevicesModel.cpp:104
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "LPD ქსელური პრინტერი DNS-SD-ით"
 
-#: src/libkcups/DevicesModel.cpp:106
+#: src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "AppSocket/JetDirect ქსელური პრინტერი DNS-SD-ით"
 
-#: src/libkcups/DevicesModel.cpp:120
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "პარალელურ პორტზე მიერთებული პრინტერი"
 
-#: src/libkcups/DevicesModel.cpp:121
+#: src/libkcups/DevicesModel.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "ბლუთუზით მიერთებული პრინტერი"
 
-#: src/libkcups/DevicesModel.cpp:122
+#: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "აპარატურის აბსტრაქციის ფენით (HAL) ნაპოვნი ლოკალური პრინტერი"
 
-#: src/libkcups/DevicesModel.cpp:123
+#: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -856,7 +856,7 @@ msgstr ""
 "HPLIP პროგრამულად მართული ფაქსი, ან\n"
 "მულტიფუნქციური მოწყობილობის ფაქსი"
 
-#: src/libkcups/DevicesModel.cpp:124
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -866,63 +866,63 @@ msgstr ""
 "HPLIP პროგრამულად მართული პრინტერი\n"
 "ან მულტიფუნქციური მოწყობილობის პრინტერი"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "IPP ქსელური პრინტერი IPP-ის გავლით"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "USB პორტზე მიერთებული პრინტერი"
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "დაშორებული CUPS პრინტერი DNS-SD-ს გავლით"
 
-#: src/libkcups/DevicesModel.cpp:144
+#: src/libkcups/DevicesModel.cpp:146
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "ქსელური პრინტერი DNS-SD-ს გავლით"
 
-#: src/libkcups/DevicesModel.cpp:146
+#: src/libkcups/DevicesModel.cpp:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 ქსელური პრინტერი DNS-SD-ით"
 
-#: src/libkcups/DevicesModel.cpp:221
+#: src/libkcups/DevicesModel.cpp:223
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "მოწყობილობების სიის მირების შეცდომა: '%1'"
 
-#: src/libkcups/DevicesModel.cpp:347
+#: src/libkcups/DevicesModel.cpp:256
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "მოწყობილობების დაჯგუფების შედომა: %1"
+
+#: src/libkcups/DevicesModel.cpp:385
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "აღმოჩენილი ქსელური პრინტერები"
 
-#: src/libkcups/DevicesModel.cpp:353
+#: src/libkcups/DevicesModel.cpp:391
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "სხვა ქსელური პრინტერები"
 
-#: src/libkcups/DevicesModel.cpp:359
+#: src/libkcups/DevicesModel.cpp:397
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "ლოკალური პრინტერები"
-
-#: src/libkcups/DevicesModel.cpp:404
-#, kde-format
-msgid "Failed to group devices: '%1'"
-msgstr "მოწყობილობების დაჯგუფების შედომა: %1"
 
 #: src/libkcups/JobModel.cpp:28
 #, kde-format

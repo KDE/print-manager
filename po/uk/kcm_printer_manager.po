@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:39+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2024-03-07 08:53+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -18,46 +18,46 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.1\n"
 
-#: printermanager.cpp:224
+#: printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Встановити типові параметри"
 
-#: printermanager.cpp:232
+#: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не вдалося налаштувати клас: "
 
-#: printermanager.cpp:232
+#: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не вдалося налаштувати принтер: "
 
-#: printermanager.cpp:365
+#: printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не вдалося виконати запит: %1"
 
-#: printermanager.cpp:417
+#: printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не вдалося отримати параметри сервера: %1"
 
-#: printermanager.cpp:455
+#: printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Помилка сервера: (%1): %2"
 
-#: printermanager.cpp:510
+#: printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: printermanager.cpp:516
+#: printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"

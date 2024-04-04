@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:39+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2024-03-07 23:24+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -19,46 +19,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: printermanager.cpp:224
+#: printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Definir las opciones predeterminadas"
 
-#: printermanager.cpp:232
+#: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Ha ocurrido un error al configurar la clase: "
 
-#: printermanager.cpp:232
+#: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ha ocurrido un error al configurar la impresora: "
 
-#: printermanager.cpp:365
+#: printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "No se ha podido realizar la solicitud: %1"
 
-#: printermanager.cpp:417
+#: printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "No se han podido obtener las preferencias del servidor: %1"
 
-#: printermanager.cpp:455
+#: printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Error del servidor: (%1): %2"
 
-#: printermanager.cpp:510
+#: printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir página de prueba automática"
 
-#: printermanager.cpp:516
+#: printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpiar los cabezales de impresión"

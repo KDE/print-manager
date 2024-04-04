@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:39+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2024-03-29 21:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -415,12 +415,12 @@ msgid ""
 "function device."
 msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能。"
 
-#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:99
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:101
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD 上的遠端 CUPS 印表機"
 
-#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:108
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:110
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD 上的網路印表機"
@@ -602,7 +602,7 @@ msgstr "避免這些使用者進行列印(&V)"
 msgid "A&llow these users to print"
 msgstr "允許這些使用者進行列印(&L)"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "設定預設選項"
@@ -613,41 +613,41 @@ msgstr "設定預設選項"
 msgid "Query Printer for Default Options"
 msgstr "查詢印表機的預設選項"
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "設定類別失敗："
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "設定印表機失敗："
 
-#: src/kcm/printermanager.cpp:365
+#: src/kcm/printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "執行要求失敗：%1"
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "取得伺服器設定失敗：%1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "伺服器錯誤：(%1): %2"
 
-#: src/kcm/printermanager.cpp:510
+#: src/kcm/printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "列印自我測試頁"
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清潔列印噴頭"
@@ -730,116 +730,116 @@ msgstr "尋找驅動程式"
 msgid "'%1' is ready for printing."
 msgstr "%1 已就緒。"
 
-#: src/libkcups/DevicesModel.cpp:48
+#: src/libkcups/DevicesModel.cpp:50
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "手動輸入網址"
 
-#: src/libkcups/DevicesModel.cpp:60
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Parallel Port"
 msgstr "平行埠"
 
-#: src/libkcups/DevicesModel.cpp:62
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "Serial Port"
 msgstr "序列埠"
 
-#: src/libkcups/DevicesModel.cpp:64
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Bluetooth"
 msgstr "藍牙"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "傳真 - HP Linux 影像與列印（HPLIP）"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux 影像與列印（HPLIP）"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "硬體抽象層（HAL）"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "LPD/LPR 佇列"
 
-#: src/libkcups/DevicesModel.cpp:81
+#: src/libkcups/DevicesModel.cpp:83
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "LPD/LPR 佇列 %1"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:86
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "SAMBA 上的 Windows 印表機"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:91
+#: src/libkcups/DevicesModel.cpp:93
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:96
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:102
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "DNS-SD 上的 IPP 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:104
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "DNS-SD 上的 LPD 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:106
+#: src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "DNS-SD 上的 AppSocket/JetDirect 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:120
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "有印表機連接到並列埠"
 
-#: src/libkcups/DevicesModel.cpp:121
+#: src/libkcups/DevicesModel.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "有印表機連接到藍牙"
 
-#: src/libkcups/DevicesModel.cpp:122
+#: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "由 HAL 偵測到的本地印表機"
 
-#: src/libkcups/DevicesModel.cpp:123
+#: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -849,7 +849,7 @@ msgstr ""
 "HPLIP 軟體驅動一傳真機，\n"
 "或是多功能裝置中的傳真機功能"
 
-#: src/libkcups/DevicesModel.cpp:124
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -859,63 +859,63 @@ msgstr ""
 "HPLIP 軟體驅動一印表機\n"
 "或是多功能裝置中的印表機功能"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "DNS-SD 上的 IPP 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "有印表機連接到 USB 埠"
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "DNS-SD 上的遠端 CUPS 印表機"
 
-#: src/libkcups/DevicesModel.cpp:144
+#: src/libkcups/DevicesModel.cpp:146
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "DNS-SD 上的網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:146
+#: src/libkcups/DevicesModel.cpp:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "DNS-SD 上的 %1 網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:221
+#: src/libkcups/DevicesModel.cpp:223
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "取得裝置清單失敗：'%1'"
 
-#: src/libkcups/DevicesModel.cpp:347
+#: src/libkcups/DevicesModel.cpp:256
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "將裝置分組失敗：'%1'"
+
+#: src/libkcups/DevicesModel.cpp:385
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "發現網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:353
+#: src/libkcups/DevicesModel.cpp:391
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "其他網路印表機"
 
-#: src/libkcups/DevicesModel.cpp:359
+#: src/libkcups/DevicesModel.cpp:397
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "本地印表機"
-
-#: src/libkcups/DevicesModel.cpp:404
-#, kde-format
-msgid "Failed to group devices: '%1'"
-msgstr "將裝置分組失敗：'%1'"
 
 #: src/libkcups/JobModel.cpp:28
 #, kde-format

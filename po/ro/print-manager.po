@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 00:39+0000\n"
+"POT-Creation-Date: 2024-04-04 00:40+0000\n"
 "PO-Revision-Date: 2024-03-02 15:00+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -424,12 +424,12 @@ msgstr ""
 "Programe HPLIP pilotând o mașină de fax sau funcția de fax a unui dispozitiv "
 "multifuncțional."
 
-#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:99
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:101
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Imprimantă distantă CUPS prin DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:108
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:110
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Imprimantă de rețea prin DNS-SD"
@@ -611,7 +611,7 @@ msgstr "Inter&zice tipărirea pentru acești utilizatori "
 msgid "A&llow these users to print"
 msgstr "Permite acestor uti&lizatori să tipărească"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:224
+#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Stabilește opțiuni implicite"
@@ -622,41 +622,41 @@ msgstr "Stabilește opțiuni implicite"
 msgid "Query Printer for Default Options"
 msgstr "Interoghează imprimanta pentru opțiuni implicite"
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Configurarea clasei a eșuat: "
 
-#: src/kcm/printermanager.cpp:232
+#: src/kcm/printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Configurarea imprimantei a eșuat: "
 
-#: src/kcm/printermanager.cpp:365
+#: src/kcm/printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Efectuarea cererii a eșuat: %1"
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Obținerea parametrilor serverului a eșuat: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Eroare server: (%1): %2"
 
-#: src/kcm/printermanager.cpp:510
+#: src/kcm/printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Tipărește pagină de test propriu"
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Curăță capul de imprimare"
@@ -739,110 +739,110 @@ msgstr "Caută driver"
 msgid "'%1' is ready for printing."
 msgstr "„%1” e gata să tipărească."
 
-#: src/libkcups/DevicesModel.cpp:48
+#: src/libkcups/DevicesModel.cpp:50
 #, kde-format
 msgctxt "@item"
 msgid "Manual URI"
 msgstr "URI manual"
 
-#: src/libkcups/DevicesModel.cpp:60
+#: src/libkcups/DevicesModel.cpp:62
 #, kde-format
 msgid "Parallel Port"
 msgstr "Port paralel"
 
-#: src/libkcups/DevicesModel.cpp:62
+#: src/libkcups/DevicesModel.cpp:64
 #, kde-format
 msgid "Serial Port"
 msgstr "Port serial"
 
-#: src/libkcups/DevicesModel.cpp:64
+#: src/libkcups/DevicesModel.cpp:66
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:68
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:70
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax - HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:72
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "HP Linux Imaging and Printing (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:74
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "Stratul de Abstractizare a Echipamentului (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:76
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:79
+#: src/libkcups/DevicesModel.cpp:81
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "Coadă LPD/LPR"
 
-#: src/libkcups/DevicesModel.cpp:81
+#: src/libkcups/DevicesModel.cpp:83
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "Coadă LPD/LPR %1"
 
-#: src/libkcups/DevicesModel.cpp:84
+#: src/libkcups/DevicesModel.cpp:86
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Imprimantă Windows prin SAMBA"
 
-#: src/libkcups/DevicesModel.cpp:89
+#: src/libkcups/DevicesModel.cpp:91
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:91
+#: src/libkcups/DevicesModel.cpp:93
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:94
+#: src/libkcups/DevicesModel.cpp:96
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:102
+#: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "Imprimantă de rețea IPP prin DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:104
+#: src/libkcups/DevicesModel.cpp:106
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "Imprimantă de rețea LPD prin DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:106
+#: src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "Imprimantă de rețea AppSocket/JetDirect prin DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:120
+#: src/libkcups/DevicesModel.cpp:122
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Imprimantă conectată la portul paralel"
 
-#: src/libkcups/DevicesModel.cpp:121
+#: src/libkcups/DevicesModel.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Imprimantă conectată prin Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:122
+#: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
@@ -850,7 +850,7 @@ msgstr ""
 "Imprimantă locală detectată de Stratul de Abstractizare a Echipamentului "
 "(HAL)"
 
-#: src/libkcups/DevicesModel.cpp:123
+#: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -860,7 +860,7 @@ msgstr ""
 "Programe HPLIP pilotând o mașină de fax, sau\n"
 "funcția de fax a unui dispozitiv multifuncțional"
 
-#: src/libkcups/DevicesModel.cpp:124
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -870,63 +870,63 @@ msgstr ""
 "Programe HPLIP pilotând o imprimantă, sau funcția\n"
 "de imprimare a unui dispozitiv multifuncțional"
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "Imprimantă de rețea prin IPP"
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Imprimantă conectată la un port USB"
 
-#: src/libkcups/DevicesModel.cpp:132
+#: src/libkcups/DevicesModel.cpp:134
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Imprimantă distantă CUPS prin DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:144
+#: src/libkcups/DevicesModel.cpp:146
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Imprimantă de rețea prin DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:146
+#: src/libkcups/DevicesModel.cpp:148
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 imprimantă de rețea prin DNS-SD"
 
-#: src/libkcups/DevicesModel.cpp:221
+#: src/libkcups/DevicesModel.cpp:223
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Obținerea listei de dispozitive a eșuat: „%1”"
 
-#: src/libkcups/DevicesModel.cpp:347
+#: src/libkcups/DevicesModel.cpp:256
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Gruparea dispozitivelor a eșuat: „%1”"
+
+#: src/libkcups/DevicesModel.cpp:385
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Imprimante de rețea descoperite"
 
-#: src/libkcups/DevicesModel.cpp:353
+#: src/libkcups/DevicesModel.cpp:391
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Alte imprimante de rețea"
 
-#: src/libkcups/DevicesModel.cpp:359
+#: src/libkcups/DevicesModel.cpp:397
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
 msgstr "Imprimante locale"
-
-#: src/libkcups/DevicesModel.cpp:404
-#, kde-format
-msgid "Failed to group devices: '%1'"
-msgstr "Gruparea dispozitivelor a eșuat: „%1”"
 
 #: src/libkcups/JobModel.cpp:28
 #, kde-format

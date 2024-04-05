@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 02:32+0000\n"
+"POT-Creation-Date: 2024-04-05 02:43+0000\n"
 "PO-Revision-Date: 2012-07-31 09:30-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -710,7 +710,7 @@ msgstr "Tá '%1' réidh don phriontáil."
 #: src/libkcups/DevicesModel.cpp:48
 #, kde-format
 msgctxt "@item"
-msgid "Manual URI"
+msgid "Manual Config"
 msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:60

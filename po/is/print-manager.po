@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 02:32+0000\n"
+"POT-Creation-Date: 2024-04-05 02:43+0000\n"
 "PO-Revision-Date: 2023-02-03 11:23+0000\n"
 "Last-Translator: gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -729,9 +729,11 @@ msgid "'%1' is ready for printing."
 msgstr "'%1' er tilbúið til prentunar."
 
 #: src/libkcups/DevicesModel.cpp:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Manual URI"
 msgctxt "@item"
-msgid "Manual URI"
+msgid "Manual Config"
 msgstr "Handvirk slóð"
 
 #: src/libkcups/DevicesModel.cpp:60

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 02:32+0000\n"
+"POT-Creation-Date: 2024-04-05 02:43+0000\n"
 "PO-Revision-Date: 2014-10-20 19:25+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian\n"
@@ -736,9 +736,11 @@ msgid "'%1' is ready for printing."
 msgstr "'%1 je spremno za štampanje."
 
 #: src/libkcups/DevicesModel.cpp:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Manual URI"
 msgctxt "@item"
-msgid "Manual URI"
+msgid "Manual Config"
 msgstr "Ručni URI"
 
 #: src/libkcups/DevicesModel.cpp:60

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-03 02:32+0000\n"
+"POT-Creation-Date: 2024-04-05 02:43+0000\n"
 "PO-Revision-Date: 2024-03-17 10:24+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -724,9 +724,11 @@ msgid "'%1' is ready for printing."
 msgstr "«%1» er klar for utskrift."
 
 #: src/libkcups/DevicesModel.cpp:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Manual URI"
 msgctxt "@item"
-msgid "Manual URI"
+msgid "Manual Config"
 msgstr "Manuell adresse"
 
 #: src/libkcups/DevicesModel.cpp:60

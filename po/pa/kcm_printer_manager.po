@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:40+0000\n"
+"POT-Creation-Date: 2024-04-05 00:39+0000\n"
 "PO-Revision-Date: 2024-01-01 09:03-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -230,17 +230,17 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਕੋਈ ਵੀ ਜੌਬ (ਨਾ ਸਿਰਫ਼ ਆਪਣੀਆਂ) ਰੱਦ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ"
 
-#: ui/main.qml:31
+#: ui/main.qml:30
 #, kde-format
 msgid "new_queue"
 msgstr "new_queue"
 
-#: ui/main.qml:31
+#: ui/main.qml:30
 #, kde-format
 msgid "new_group"
 msgstr "new_group"
 
-#: ui/main.qml:65
+#: ui/main.qml:64
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Printer"
@@ -248,7 +248,7 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "ਪਰਿੰਟਰ ਜੋੜੋ"
 
-#: ui/main.qml:74
+#: ui/main.qml:73
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Group"
@@ -256,7 +256,7 @@ msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "ਗਰੁੱਪ ਜੋੜੋ"
 
-#: ui/main.qml:83
+#: ui/main.qml:82
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure Print Server"
@@ -264,13 +264,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "ਪਰਿੰਟਰ ਸਰਵਰ ਦੀ ਸੰਰਚਨਾ"
 
-#: ui/main.qml:184
+#: ui/main.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "ਇਸ ਵੇਲੇ ਕੋਈ ਪਰਿੰਟਰ ਸੈਟ ਅੱਪ ਨਹੀਂ ਕੀਤਾ ਹੈ"
 
-#: ui/main.qml:185
+#: ui/main.qml:184
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:usagetip"
 #| msgid "Choose 'Add Printer' to set up a new printer on this computer"
@@ -280,293 +280,293 @@ msgid ""
 "computer"
 msgstr "ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਨਵਾਂ ਪਰਿੰਟਰ ਸੈਟ ਅੱਪ ਕਰਨ ਲਈ 'ਪਰਿੰਟਰ ਜੋੜੋ' ਨੂੰ ਚੁਣੋ"
 
-#: ui/main.qml:195
+#: ui/main.qml:194
 #, kde-format
 msgid "Printers"
 msgstr "ਪਰਿੰਟਰ"
 
-#: ui/main.qml:195
+#: ui/main.qml:194
 #, kde-format
 msgid "Printer Groups"
 msgstr "ਪਰਿੰਟਰ ਗਰੁੱਪ"
 
-#: ui/main.qml:233
+#: ui/main.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "…ਸੰਰਚਨਾ"
 
-#: ui/main.qml:254
+#: ui/main.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "…ਪਰਿੰਟ ਕਤਾਰ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: ui/main.qml:271
+#: ui/main.qml:270
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "ਬਹਾਲ"
 
-#: ui/main.qml:272
+#: ui/main.qml:271
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "ਵਿਰਾਮ"
 
-#: ui/main.qml:286
+#: ui/main.qml:285
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "ਪਰਿੰਟ ਕਰਨਾ ਬਹਾਲ ਕਰੋ"
 
-#: ui/main.qml:287
+#: ui/main.qml:286
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "ਪਰਿੰਟ ਕਰਨਾ ਰੋਕੋ"
 
-#: ui/MakeModel.qml:89
+#: ui/MakeModel.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
 msgstr "ਪਰਿੰਟਰ ਮੇਕ/ਮਾਡਲ ਨੂੰ ਚੁਣੋ"
 
-#: ui/MakeModel.qml:91
+#: ui/MakeModel.qml:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
 msgstr "ਪਰਿੰਟਰ ਡਰਾਇਵਰ (%1)"
 
-#: ui/MakeModel.qml:98
+#: ui/MakeModel.qml:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "ਪਰਿੰਟਰ ਡਰਾਇਵਰ"
 
-#: ui/MakeModel.qml:145
+#: ui/MakeModel.qml:143
 #, kde-format
 msgid "Save"
 msgstr "ਸੰਭਾਲੋ"
 
-#: ui/MakeModel.qml:150
+#: ui/MakeModel.qml:148
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "ਪੋਸਟ-ਸਕ੍ਰਿਪਟ ਪਰਿੰਟਰ ਵਰਣਨ (PPD) ਫਾਇਲ ਚੁਣੋ"
 
-#: ui/MakeModel.qml:157
+#: ui/MakeModel.qml:155
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr "ਪਰਿੰਟਰ ਮਾਡਲ ਚਾਹੀਦਾ ਹੈ। ਪਰਿੰਟਰ ਮਾਡਲ ਚੁਣੋ।"
 
-#: ui/MakeModel.qml:211
+#: ui/MakeModel.qml:209
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "ਮੇਕ ਅਤੇ ਮਾਡਲ ਚੁਣੋ:"
 
-#: ui/MakeModel.qml:223
+#: ui/MakeModel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "ਮਾਡਲ ਫਿਲਟਰ ਕਰੋ"
 
-#: ui/MakeModel.qml:306
+#: ui/MakeModel.qml:300
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD ਫਾਇਲ:"
 
-#: ui/MakeModel.qml:328
+#: ui/MakeModel.qml:322
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "PPD ਫਾਇਲ ਚੁਣੋ…"
 
-#: ui/MakeModel.qml:335
+#: ui/MakeModel.qml:329
 #, kde-format
 msgid "Select"
 msgstr "ਚੁਣੋ"
 
-#: ui/MakeModel.qml:336
+#: ui/MakeModel.qml:330
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript ਪਰਿੰਟਰ ਵਰਣਨ ਫਾਇਲਾਂ (*.ppd)"
 
-#: ui/PrinterSettings.qml:41
+#: ui/PrinterSettings.qml:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "ਗਰੁੱਪ ਨੂੰ ਜੋੜੋ"
 
-#: ui/PrinterSettings.qml:42
+#: ui/PrinterSettings.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "ਪਰਿੰਟਰ ਨੂੰ ਜੋੜੋ"
 
-#: ui/PrinterSettings.qml:53
+#: ui/PrinterSettings.qml:52
 #, kde-format
 msgid "Configure…"
 msgstr "…ਸੰਰਚਨਾ"
 
-#: ui/PrinterSettings.qml:58
+#: ui/PrinterSettings.qml:57
 #, kde-format
 msgid "Remove"
 msgstr "ਹਟਾਓ"
 
-#: ui/PrinterSettings.qml:74
+#: ui/PrinterSettings.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "CUPS ਪਰਿੰਟਰ ਸਾਰ ਮਦਦ"
 
-#: ui/PrinterSettings.qml:84
+#: ui/PrinterSettings.qml:83
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
 msgstr "ਆਪਣੇ-ਆਪ ਸੰਰਚਨਾ"
 
-#: ui/PrinterSettings.qml:91
+#: ui/PrinterSettings.qml:90
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "ਜੋੜੋ"
 
-#: ui/PrinterSettings.qml:92
+#: ui/PrinterSettings.qml:91
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "ਲਾਗੂ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:100
+#: ui/PrinterSettings.qml:99
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
 msgstr "ਕਤਾਰ ਦ ਨਾਂ ਚਾਹੀਦਾ ਹੈ। ਵਿਲੱਖਣ ਕਤਾਰ ਨਾਂ ਦਿਓ।"
 
-#: ui/PrinterSettings.qml:107
+#: ui/PrinterSettings.qml:106
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr "ਮੇਕ/ਮਾਡਲ ਚਾਹੀਦਾ ਹੈ। ਮੇਕ/ਮਾਡਲ ਚੁਣਨ ਲਈ \"ਚੁਣੋ\" ਨੂੰ ਚੁਣੋ"
 
-#: ui/PrinterSettings.qml:163
+#: ui/PrinterSettings.qml:162
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "ਪਰਿੰਟਰ ਹਟਾਉਣ ਲਈ ਫੇਲ੍ਹ ਹੈ: %1"
 
-#: ui/PrinterSettings.qml:181
+#: ui/PrinterSettings.qml:180
 #, kde-format
 msgid "Remove Group"
 msgstr "ਗਰੁੱਪ ਨੂੰ ਹਟਾਓ"
 
-#: ui/PrinterSettings.qml:181
+#: ui/PrinterSettings.qml:180
 #, kde-format
 msgid "Remove Printer"
 msgstr "ਪਰਿੰਟਰ ਨੂੰ ਹਟਾਓ"
 
-#: ui/PrinterSettings.qml:182
+#: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "ਕੀ ਤੁਸੀਂ ਇਸ ਨੂੰ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ: %1 (%2)?"
 
-#: ui/PrinterSettings.qml:199
+#: ui/PrinterSettings.qml:198
 #, kde-format
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:345
+#: ui/PrinterSettings.qml:344
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
 msgstr "<b>ਪਰਿੰਟਰ ਗਰੁੱਪ</b> ਪਰਿੰਟਰ ਸਰੋਤਾਂ ਦਾ ਸਮੂਹ ਬਣਾਉਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।"
 
-#: ui/PrinterSettings.qml:387
+#: ui/PrinterSettings.qml:386
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "ਮੂਲ ਪਰਿੰਟਰ"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "ਇਹ ਗਰੁੱਪ ਸਾਂਝਾ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:395
+#: ui/PrinterSettings.qml:394
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "ਇਹ ਪਰਿੰਟਰ ਸਾਂਝਾ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:402
+#: ui/PrinterSettings.qml:401
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "ਪਰਿੰਟ ਜੌਬਾਂ ਮਨਜ਼ੂਰ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ"
 
-#: ui/PrinterSettings.qml:433
+#: ui/PrinterSettings.qml:432
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "ਟੈਸਟ ਸਫ਼ਾ ਪਰਿੰਟ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:439
+#: ui/PrinterSettings.qml:438
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "ਖੁਦ-ਜਾਂਚ ਸਫ਼ਾ ਪਰਿੰਟ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:446
+#: ui/PrinterSettings.qml:445
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "ਪਰਿੰਟਰ ਹੈੱਡ ਸਾਫ਼ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:466
+#: ui/PrinterSettings.qml:465
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "ਪਰਿੰਟਰ ਲੱਭੋ…"
 
-#: ui/PrinterSettings.qml:474
+#: ui/PrinterSettings.qml:473
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "ਕਤਾਰ ਦਾ ਨਾਂ:"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:486
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "ਵਰਣਨ:"
 
-#: ui/PrinterSettings.qml:499
+#: ui/PrinterSettings.qml:498
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "ਟਿਕਾਣਾ:"
 
-#: ui/PrinterSettings.qml:511
+#: ui/PrinterSettings.qml:510
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "ਕਨੈਕਸ਼ਨ:"
 
-#: ui/PrinterSettings.qml:525
+#: ui/PrinterSettings.qml:524
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "ਮੈਂਬਰ ਪਰਿੰਟਰ:"
 
-#: ui/PrinterSettings.qml:656
+#: ui/PrinterSettings.qml:655
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "ਮੇਕ/ਮਾਡਲ:"
 
-#: ui/PrinterSettings.qml:671
+#: ui/PrinterSettings.qml:670
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

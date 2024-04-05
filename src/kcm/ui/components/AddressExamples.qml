@@ -11,21 +11,7 @@ QQC2.ScrollView {
     id: root
     signal selected(string address)
 
-    property var examples: [
-        "ipp://ip-addr/ipp/print",
-        "ipp://ip-addr-or-hostname/printers/name",
-        "ipps://ip-addr/ipp/print",
-        "ipps://ip-addr-or-hostname/printers/name",
-        "http://ip-addr-or-hostname:port-number/printers/name",
-        "lpd://ip-addr/queue",
-        "lpd://ip-addr/queue?format=l",
-        "lpd://ip-addr/queue?format=l&reserve=rfc1179",
-        "socket://ip-addr",
-        "socket://ip-addr:port-number/?...",
-        "socket://ip-addr/?contimeout=30",
-        "socket://ip-addr/?waiteof=false",
-        "socket://ip-addr/?contimeout=30&waiteof=false"
-    ]
+    property var examples: []
 
     contentItem: ListView {
         clip: true

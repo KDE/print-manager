@@ -9,6 +9,7 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PM
 import org.kde.kitemmodels as KSFM
+import "components"
 
 Kirigami.Dialog {
     id: root
@@ -175,274 +176,6 @@ Kirigami.Dialog {
         }
     }
 
-    /*
-     * This component is a catch-all for manually selected printers.
-     * A host can be queried for printers it advertises.  Additionally,
-     * a valid url can be entered for a specific printer on the network.
-    */
-    Component {
-        id: uriComp
-
-        BaseDevice {
-            id: uriItem
-
-            title: compLoader.info
-            subtitle: i18nc("@title:group", "Find remote printing devices")
-            helpText: i18nc("@info:usagetip", "Enter the address of the remote host/device")
-            icon.source: "internet-services"
-
-            actions: [
-                Kirigami.Action {
-                    text: i18nc("@action:button", "Select Printer…")
-                    visible: list.count > 0
-                    icon.name: "dialog-ok-symbolic"
-                    onTriggered: {
-                        settings.set(kcm.remotePrinters[list.currentIndex])
-                        manualDriverSelect()
-                    }
-                },
-                Kirigami.Action {
-                    text: i18nc("@action:button", "Continue with Address…")
-                    icon.name: "dialog-ok-symbolic"
-                    onTriggered: {
-                        if (uriItem.parseUri(connSearch.text)) {
-                            settings.add("device-uri", connSearch.text)
-                            manualDriverSelect()
-                        }
-                    }
-                }
-            ]
-
-            function setSearchPrefix() {
-                connSearch.text = compLoader.selector !== "other"
-                        ? compLoader.selector + ":"
-                        : "ipp:"
-                connSearch.forceActiveFocus()
-            }
-
-            Component.onCompleted: setSearchPrefix()
-
-            Connections {
-                target: kcm
-
-                function onRemotePrintersLoaded() {
-                    list.model = kcm.remotePrinters
-                    if (list.count > 0) {
-                        list.itemAtIndex(0).clicked()
-                    }
-                }
-            }
-
-            RowLayout {
-                spacing: Kirigami.Units.smallSpacing
-                Layout.alignment: Qt.AlignHCenter
-
-                QQC2.Label {
-                    text: i18nc("@label:textbox", "Address:")
-                }
-
-                Kirigami.SearchField {
-                    id: connSearch
-                    focus: true
-                    delaySearch: true
-                    autoAccept: false
-                    placeholderText: i18n("Enter host Address")
-                    Layout.fillWidth: true
-
-                    KeyNavigation.left: uriItem.parent
-                    KeyNavigation.right: list
-
-                    KeyNavigation.down: list
-
-                    KeyNavigation.backtab: KeyNavigation.left
-                    KeyNavigation.tab: KeyNavigation.right
-
-                    onAccepted: searchButton.clicked()
-                }
-
-                QQC2.ToolButton {
-                    id: searchButton
-                    icon.name: "search-symbolic"
-                    onClicked: {
-                        if (connSearch.text.length === 0) {
-                            return
-                        }
-
-                        if (uriItem.parseUri(connSearch.text)) {
-                            kcm.getRemotePrinters(connSearch.text, compLoader.selector)
-                        } else {
-                            kcm.clearRemotePrinters()
-                            list.model = ""
-                            uriItem.setSearchPrefix()
-                        }
-                    }
-                }
-            }
-
-            // remote printer list
-            QQC2.ScrollView {
-                Layout.alignment: Qt.AlignHCenter
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                contentItem: ListView {
-                    id: list
-                    currentIndex: -1
-                    clip: true
-
-                    activeFocusOnTab: true
-                    keyNavigationWraps: true
-
-                    KeyNavigation.up: connSearch
-                    KeyNavigation.backtab: uriItem.parent
-                    Keys.onUpPressed: event => {
-                        if (currentIndex === 0) {
-                            currentIndex = -1
-                        }
-                        event.accepted = false
-                    }
-
-                    delegate: Kirigami.SubtitleDelegate {
-                        width: ListView.view.width
-                        text: modelData["printer-info"]
-                        subtitle: modelData["printer-name"]
-                        icon.name: modelData.remote
-                                    ? "folder-network-symbolic"
-                                    : modelData["printer-is-class"] ? "folder" : modelData.iconName
-
-                        highlighted: ListView.view.currentIndex === index
-                        onClicked: ListView.view.currentIndex = index
-                    }
-                }
-            }
-
-            AddressExamples {
-                Layout.alignment: Qt.AlignHCenter
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                onSelected: address => connSearch.text = address
-            }
-
-        }
-    }
-
-    Component {
-        id: networkComp
-
-        BaseDevice {
-            title: settings.value("printer-make-and-model")
-            subtitle: settings.value("device-desc")
-
-            Component.onCompleted: {
-                drivers.load(settings.value("device-id")
-                              , settings.value("printer-make-and-model")
-                              , settings.value("device-uri"))
-            }
-
-            // Recommended Driver list
-            Drivers {
-                id: drivers
-
-                onSelected: driverMap => {
-                    settings.set(driverMap)
-                    root.setValues(settings.pending)
-                    close()
-                }
-
-                onDriverFallback: manualDriverSelect()
-            }
-        }
-    }
-
-    Component {
-        id: directComp
-
-        BaseDevice {
-            title: settings.value("printer-make-and-model")
-            subtitle: settings.value("device-desc")
-            helpText: i18nc("@info:usagetip", "Choose a device connection")
-
-            Component.onCompleted: {
-                // Device connection discovery failed or system-config-printer is
-                // not installed. Force driver.load, which will expose the
-                // manual make/model (driver) selection
-                if (directlist.count === 0) {
-                    helpText = ""
-                    drivers.load()
-                }
-            }
-
-            // Connection list
-            QQC2.ScrollView {
-                Layout.alignment: Qt.AlignHCenter
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-
-                contentItem: ListView {
-                    id: directlist
-
-                    activeFocusOnTab: true
-                    keyNavigationWraps: true
-
-                    KeyNavigation.backtab: root.parent
-                    Keys.onUpPressed: event => {
-                        if (currentIndex === 0) {
-                            currentIndex = -1;
-                        }
-                        event.accepted = false;
-                    }
-
-                    model: settings.value("device-uris")
-
-                    delegate: QQC2.ItemDelegate {
-                        width: ListView.view.width
-                        text: devices.uriDevice(modelData)
-                        icon.name: "standard-connector-symbolic"
-                        highlighted: ListView.view.currentIndex === index
-
-                        Component.onCompleted:  {
-                            if (index === 0) {
-                                clicked()
-                            }
-                        }
-
-                        onClicked: {
-                            ListView.view.currentIndex = index
-                            settings.add("device-uri", modelData)
-                            drivers.load(settings.value("device-id")
-                                          , settings.value("printer-make-and-model")
-                                          , modelData)
-                        }
-                    }
-                }
-            }
-
-            // Recommended Driver list
-            Drivers {
-                id: drivers
-
-                onSelected: driverMap => {
-                    settings.set(driverMap)
-                    root.setValues(settings.pending)
-                    close()
-                }
-
-                onDriverFallback: manualDriverSelect()
-            }
-        }
-    }
-
-    Component {
-        id: lpdComp
-        NotAvailable {}
-    }
-
-    Component {
-        id: socketComp
-        NotAvailable {}
-    }
-
     Component {
         id: serialComp
         NotAvailable {}
@@ -603,22 +336,22 @@ Kirigami.Dialog {
                 case "https":
                 case "scsi":
                 case "cups-brf":
-                    sourceComponent = uriComp
+                    source = "components/ManualUri.qml"
                     break
                 case "network":
-                    sourceComponent = networkComp
+                    source = "components/Network.qml"
                     break
                 case "direct":
-                    sourceComponent = directComp
+                    source = "components/Direct.qml"
                     break
                 case "lpd":
-                    sourceComponent = lpdComp
+                    source = "components/Lpd.qml"
                     break
                 case "socket":
-                    sourceComponent = socketComp
+                    source = "components/Socket.qml"
                     break
                 case "smb":
-                    sourceComponent = sambaComp
+                    sourceComponent = smbComp
                     break
                 case "serial":
                     sourceComponent = serialComp

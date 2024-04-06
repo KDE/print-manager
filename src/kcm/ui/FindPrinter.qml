@@ -177,21 +177,6 @@ Kirigami.Dialog {
     }
 
     Component {
-        id: serialComp
-        NotAvailable {}
-    }
-
-    Component {
-        id: smbComp
-        NotAvailable {}
-    }
-
-    Component {
-        id: naComp
-        NotAvailable {}
-    }
-
-    Component {
         id: noDevicesComp
 
         Kirigami.PlaceholderMessage {
@@ -208,21 +193,6 @@ Kirigami.Dialog {
             text: i18nc("@info:usagetip", "Choose a manual configuration option from the list")
             Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
         }
-    }
-
-    component NotAvailable: ColumnLayout {
-        // This is inside a Loader that is fillW/fillH: true
-        // pad with "spacers" top/bottom to force centering
-        Item { Layout.fillHeight: true }
-
-        Kirigami.PlaceholderMessage {
-            icon.name: "package-available-locked"
-            text: compLoader.info
-            explanation: i18nc("@info:status", "This feature is not yet available (%1)", compLoader.selector)
-            Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
-        }
-
-        Item { Layout.fillHeight: true }
     }
 
     contentItem: RowLayout {
@@ -345,19 +315,11 @@ Kirigami.Dialog {
                     source = "components/Direct.qml"
                     break
                 case "lpd":
-                    source = "components/Lpd.qml"
-                    break
                 case "socket":
-                    source = "components/Socket.qml"
-                    break
                 case "smb":
-                    sourceComponent = smbComp
-                    break
                 case "serial":
-                    sourceComponent = serialComp
-                    break
                 default:
-                    sourceComponent = naComp
+                    source = "components/NotAvailable.qml"
                 }
             }
         }

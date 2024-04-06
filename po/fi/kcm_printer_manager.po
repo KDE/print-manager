@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:39+0000\n"
+"POT-Creation-Date: 2024-04-06 00:39+0000\n"
 "PO-Revision-Date: 2024-02-25 03:22+0200\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -70,7 +70,7 @@ msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Esimerkkiosoitteita"
 
-#: ui/Drivers.qml:39
+#: ui/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -78,19 +78,19 @@ msgid ""
 "to try again or choose a driver manually."
 msgstr ""
 
-#: ui/Drivers.qml:46
+#: ui/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr ""
 
-#: ui/Drivers.qml:78
+#: ui/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Valitse suositeltu ajuri"
 
-#: ui/Drivers.qml:84
+#: ui/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -98,76 +98,85 @@ msgstr ""
 "Ajurisuositukset perustuvat tulostimen merkkiin ja malliin sekä yhteyden "
 "tyyppiin"
 
-#: ui/FindPrinter.qml:87
+#: ui/FindPrinter.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "Aseta tulostinyhteys"
 
-#: ui/FindPrinter.qml:94
+#: ui/FindPrinter.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
 msgstr "Näytä havaitut laitteet"
 
-#: ui/FindPrinter.qml:95
+#: ui/FindPrinter.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
 msgstr "Näytä käyttäjän lisävalinnat"
 
-#: ui/FindPrinter.qml:114
+#: ui/FindPrinter.qml:112
 #, kde-format
 msgid "Refresh"
 msgstr "Virkistä"
 
-#: ui/FindPrinter.qml:125
+#: ui/FindPrinter.qml:123
 #, kde-format
 msgid "CUPS Network Printers Help"
 msgstr "CUPS-verkkotulostinohje"
 
-#: ui/FindPrinter.qml:187
+#: ui/FindPrinter.qml:190
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "Etsi etätulostimia"
 
-#: ui/FindPrinter.qml:188
+#: ui/FindPrinter.qml:191
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Anna etäkoneen tai -laitteen osoite"
 
-#: ui/FindPrinter.qml:193
-#, kde-format
+#: ui/FindPrinter.qml:196
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
 msgctxt "@action:button"
-msgid "Select Printer"
+msgid "Select Printer…"
 msgstr "Valitse tulostin"
 
-#: ui/FindPrinter.qml:223
+#: ui/FindPrinter.qml:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr ""
+
+#: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Uri:"
-msgstr "URI:"
+msgid "Address:"
+msgstr ""
 
-#: ui/FindPrinter.qml:231
-#, kde-format
-msgid "Enter host URI"
+#: ui/FindPrinter.qml:249
+#, fuzzy, kde-format
+#| msgid "Enter host URI"
+msgid "Enter host Address"
 msgstr "Anna koneen URI"
 
-#: ui/FindPrinter.qml:334
+#: ui/FindPrinter.qml:364
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Valitse laiteyhteys"
 
-#: ui/FindPrinter.qml:424
+#: ui/FindPrinter.qml:465
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Tulostimia ei löytynyt automaattihaulla"
 
-#: ui/FindPrinter.qml:425
+#: ui/FindPrinter.qml:466
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -176,13 +185,13 @@ msgid ""
 msgstr ""
 "Yritä uudelleen valitsemalla ”Virkistä” tai käytä käyttäjän asetustoimintoa"
 
-#: ui/FindPrinter.qml:434
+#: ui/FindPrinter.qml:475
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Valitse luettelosta käyttäjän asetustoiminto"
 
-#: ui/FindPrinter.qml:447
+#: ui/FindPrinter.qml:488
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -570,6 +579,10 @@ msgstr "Merkki/malli:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Valitse…"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Uri:"
+#~ msgstr "URI:"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:39+0000\n"
+"POT-Creation-Date: 2024-04-06 00:39+0000\n"
 "PO-Revision-Date: 2024-03-07 10:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -67,7 +67,7 @@ msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Örnek Adresler"
 
-#: ui/Drivers.qml:39
+#: ui/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -77,94 +77,103 @@ msgstr ""
 "Önerilen sürücüler bulunamıyor. Yeniden denemek için <interface>Yenile</"
 "interface>’ye tıklayın veya elle bir sürücü seçin."
 
-#: ui/Drivers.qml:46
+#: ui/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "Sürücü Seç…"
 
-#: ui/Drivers.qml:78
+#: ui/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Önerilen Sürücüyü Seç"
 
-#: ui/Drivers.qml:84
+#: ui/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "Önerilen sürücüler, yazıcı modeline ve bağlantı türüne göre belirtilir"
 
-#: ui/FindPrinter.qml:87
+#: ui/FindPrinter.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "Yazıcı Bağlantısı Yap"
 
-#: ui/FindPrinter.qml:94
+#: ui/FindPrinter.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
 msgstr "Algılanan Aygıtları Göster"
 
-#: ui/FindPrinter.qml:95
+#: ui/FindPrinter.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
 msgstr "Düz Seçenekleri Göster"
 
-#: ui/FindPrinter.qml:114
+#: ui/FindPrinter.qml:112
 #, kde-format
 msgid "Refresh"
 msgstr "Yenile"
 
-#: ui/FindPrinter.qml:125
+#: ui/FindPrinter.qml:123
 #, kde-format
 msgid "CUPS Network Printers Help"
 msgstr "CUPS Ağ Yazıcıları Yardımı"
 
-#: ui/FindPrinter.qml:187
+#: ui/FindPrinter.qml:190
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "Uzak yazdırma aygıtlarını bul"
 
-#: ui/FindPrinter.qml:188
+#: ui/FindPrinter.qml:191
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Uzak makine/aygıt adresini gir"
 
-#: ui/FindPrinter.qml:193
-#, kde-format
+#: ui/FindPrinter.qml:196
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
 msgctxt "@action:button"
-msgid "Select Printer"
+msgid "Select Printer…"
 msgstr "Yazıcı Seç"
 
-#: ui/FindPrinter.qml:223
+#: ui/FindPrinter.qml:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr ""
+
+#: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Uri:"
-msgstr "URI:"
+msgid "Address:"
+msgstr ""
 
-#: ui/FindPrinter.qml:231
-#, kde-format
-msgid "Enter host URI"
+#: ui/FindPrinter.qml:249
+#, fuzzy, kde-format
+#| msgid "Enter host URI"
+msgid "Enter host Address"
 msgstr "Makine URI’sini gir"
 
-#: ui/FindPrinter.qml:334
+#: ui/FindPrinter.qml:364
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Bir aygıt bağlantısı seç"
 
-#: ui/FindPrinter.qml:424
+#: ui/FindPrinter.qml:465
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Kendiliğinden hiçbir yazdırma aygıtı algılanamadı"
 
-#: ui/FindPrinter.qml:425
+#: ui/FindPrinter.qml:466
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -174,13 +183,13 @@ msgstr ""
 "Yeniden denemek için ‘Yenile’yi tıklayın veya listeden elle bir yapılandırma "
 "seçin"
 
-#: ui/FindPrinter.qml:434
+#: ui/FindPrinter.qml:475
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Listeden elle bir yapılandırma seçeneği seç"
 
-#: ui/FindPrinter.qml:447
+#: ui/FindPrinter.qml:488
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -573,3 +582,7 @@ msgstr "Yapım/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Seç…"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Uri:"
+#~ msgstr "URI:"

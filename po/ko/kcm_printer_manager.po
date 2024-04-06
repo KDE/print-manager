@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:39+0000\n"
+"POT-Creation-Date: 2024-04-06 00:39+0000\n"
 "PO-Revision-Date: 2024-02-19 21:40+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -67,7 +67,7 @@ msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "예제 주소"
 
-#: ui/Drivers.qml:39
+#: ui/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -75,94 +75,103 @@ msgid ""
 "to try again or choose a driver manually."
 msgstr ""
 
-#: ui/Drivers.qml:46
+#: ui/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr ""
 
-#: ui/Drivers.qml:78
+#: ui/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "추천 드라이버 선택"
 
-#: ui/Drivers.qml:84
+#: ui/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "프린터 제조사/모델과 연결 방식에 따라서 추천 드라이버를 선택합니다"
 
-#: ui/FindPrinter.qml:87
+#: ui/FindPrinter.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "프린터 연결 설정"
 
-#: ui/FindPrinter.qml:94
+#: ui/FindPrinter.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
 msgstr "감지된 장치 표시"
 
-#: ui/FindPrinter.qml:95
+#: ui/FindPrinter.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
 msgstr "수동 옵션 표시"
 
-#: ui/FindPrinter.qml:114
+#: ui/FindPrinter.qml:112
 #, kde-format
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: ui/FindPrinter.qml:125
+#: ui/FindPrinter.qml:123
 #, kde-format
 msgid "CUPS Network Printers Help"
 msgstr "CUPS 네트워크 프린터 도움말"
 
-#: ui/FindPrinter.qml:187
+#: ui/FindPrinter.qml:190
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "원격 인쇄 장치 찾기"
 
-#: ui/FindPrinter.qml:188
+#: ui/FindPrinter.qml:191
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "원격 호스트나 장치의 주소를 입력하십시오"
 
-#: ui/FindPrinter.qml:193
-#, kde-format
+#: ui/FindPrinter.qml:196
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
 msgctxt "@action:button"
-msgid "Select Printer"
+msgid "Select Printer…"
 msgstr "프린터 선택"
 
-#: ui/FindPrinter.qml:223
+#: ui/FindPrinter.qml:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr ""
+
+#: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Uri:"
-msgstr "URI:"
+msgid "Address:"
+msgstr ""
 
-#: ui/FindPrinter.qml:231
-#, kde-format
-msgid "Enter host URI"
+#: ui/FindPrinter.qml:249
+#, fuzzy, kde-format
+#| msgid "Enter host URI"
+msgid "Enter host Address"
 msgstr "호스트 URI 입력"
 
-#: ui/FindPrinter.qml:334
+#: ui/FindPrinter.qml:364
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "장치 연결 선택"
 
-#: ui/FindPrinter.qml:424
+#: ui/FindPrinter.qml:465
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "자동으로 인쇄 장치를 발견할 수 없음"
 
-#: ui/FindPrinter.qml:425
+#: ui/FindPrinter.qml:466
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -171,13 +180,13 @@ msgid ""
 msgstr ""
 "\"새로 고침\"을 선택하여 다시 시도하거나 목록에서 수동 옵션을 선택하십시오"
 
-#: ui/FindPrinter.qml:434
+#: ui/FindPrinter.qml:475
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "목록에서 수동 설정 옵션 선택"
 
-#: ui/FindPrinter.qml:447
+#: ui/FindPrinter.qml:488
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -566,3 +575,7 @@ msgstr "제조사/모델:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "선택…"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Uri:"
+#~ msgstr "URI:"

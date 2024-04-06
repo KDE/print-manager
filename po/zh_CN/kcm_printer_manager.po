@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:39+0000\n"
+"POT-Creation-Date: 2024-04-06 00:39+0000\n"
 "PO-Revision-Date: 2024-03-30 19:37\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -67,7 +67,7 @@ msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "示例地址"
 
-#: ui/Drivers.qml:39
+#: ui/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -77,94 +77,103 @@ msgstr ""
 "无法定位推荐的驱动程序。请点击<interface>刷新</interface>重试，或者手动选择一"
 "个驱动程序。"
 
-#: ui/Drivers.qml:46
+#: ui/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "选择驱动程序…"
 
-#: ui/Drivers.qml:78
+#: ui/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "选择推荐的驱动程序"
 
-#: ui/Drivers.qml:84
+#: ui/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
 
-#: ui/FindPrinter.qml:87
+#: ui/FindPrinter.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "创建打印机连接"
 
-#: ui/FindPrinter.qml:94
+#: ui/FindPrinter.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
 msgstr "显示检测到的设备"
 
-#: ui/FindPrinter.qml:95
+#: ui/FindPrinter.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
 msgstr "显示手动选项"
 
-#: ui/FindPrinter.qml:114
+#: ui/FindPrinter.qml:112
 #, kde-format
 msgid "Refresh"
 msgstr "刷新"
 
-#: ui/FindPrinter.qml:125
+#: ui/FindPrinter.qml:123
 #, kde-format
 msgid "CUPS Network Printers Help"
 msgstr "CUPS 网络打印机帮助"
 
-#: ui/FindPrinter.qml:187
+#: ui/FindPrinter.qml:190
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "搜索远程打印设备"
 
-#: ui/FindPrinter.qml:188
+#: ui/FindPrinter.qml:191
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "输入远程主机/设备的地址"
 
-#: ui/FindPrinter.qml:193
-#, kde-format
+#: ui/FindPrinter.qml:196
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
 msgctxt "@action:button"
-msgid "Select Printer"
+msgid "Select Printer…"
 msgstr "选择打印机"
 
-#: ui/FindPrinter.qml:223
+#: ui/FindPrinter.qml:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr ""
+
+#: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Uri:"
-msgstr "URI："
+msgid "Address:"
+msgstr ""
 
-#: ui/FindPrinter.qml:231
-#, kde-format
-msgid "Enter host URI"
+#: ui/FindPrinter.qml:249
+#, fuzzy, kde-format
+#| msgid "Enter host URI"
+msgid "Enter host Address"
 msgstr "输入主机 URI"
 
-#: ui/FindPrinter.qml:334
+#: ui/FindPrinter.qml:364
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "选择设备连接"
 
-#: ui/FindPrinter.qml:424
+#: ui/FindPrinter.qml:465
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "无法自动发现任何打印设备"
 
-#: ui/FindPrinter.qml:425
+#: ui/FindPrinter.qml:466
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -172,13 +181,13 @@ msgid ""
 "the list"
 msgstr "选择“刷新”重试，或者从选项列表中选择手动配置"
 
-#: ui/FindPrinter.qml:434
+#: ui/FindPrinter.qml:475
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "从选项列表中选择手动配置"
 
-#: ui/FindPrinter.qml:447
+#: ui/FindPrinter.qml:488
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -565,3 +574,7 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Uri:"
+#~ msgstr "URI："

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-04 00:40+0000\n"
+"POT-Creation-Date: 2024-04-06 00:39+0000\n"
 "PO-Revision-Date: 2024-02-06 00:16+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -731,9 +731,11 @@ msgid "'%1' is ready for printing."
 msgstr "'%1'에서 인쇄할 수 있습니다."
 
 #: src/libkcups/DevicesModel.cpp:50
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Manual URI"
 msgctxt "@item"
-msgid "Manual URI"
+msgid "Manual Config"
 msgstr "수동 URI"
 
 #: src/libkcups/DevicesModel.cpp:62

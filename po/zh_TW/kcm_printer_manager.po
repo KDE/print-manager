@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 00:39+0000\n"
+"POT-Creation-Date: 2024-04-06 00:39+0000\n"
 "PO-Revision-Date: 2024-03-08 03:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -67,7 +67,7 @@ msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "範例位址"
 
-#: ui/Drivers.qml:39
+#: ui/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -77,94 +77,103 @@ msgstr ""
 "找不到建議的驅動程式。點擊 <interface>重新整理</interface> 來重試或是手動選取"
 "驅動程式。"
 
-#: ui/Drivers.qml:46
+#: ui/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "選擇驅動程式…"
 
-#: ui/Drivers.qml:78
+#: ui/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "選取建議的驅動程式"
 
-#: ui/Drivers.qml:84
+#: ui/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "驅動程式的建議是從印表機製造商/型號與連線型態進行判斷的"
 
-#: ui/FindPrinter.qml:87
+#: ui/FindPrinter.qml:85
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "設定印表機連線"
 
-#: ui/FindPrinter.qml:94
+#: ui/FindPrinter.qml:92
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
 msgstr "顯示偵測到的裝置"
 
-#: ui/FindPrinter.qml:95
+#: ui/FindPrinter.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
 msgstr "顯示手動選項"
 
-#: ui/FindPrinter.qml:114
+#: ui/FindPrinter.qml:112
 #, kde-format
 msgid "Refresh"
 msgstr "重新整理"
 
-#: ui/FindPrinter.qml:125
+#: ui/FindPrinter.qml:123
 #, kde-format
 msgid "CUPS Network Printers Help"
 msgstr "CUPS 網路印表機說明"
 
-#: ui/FindPrinter.qml:187
+#: ui/FindPrinter.qml:190
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "尋找遠端列印裝置"
 
-#: ui/FindPrinter.qml:188
+#: ui/FindPrinter.qml:191
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "輸入遠端主機/裝置的位址"
 
-#: ui/FindPrinter.qml:193
-#, kde-format
+#: ui/FindPrinter.qml:196
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer"
 msgctxt "@action:button"
-msgid "Select Printer"
+msgid "Select Printer…"
 msgstr "選取印表機"
 
-#: ui/FindPrinter.qml:223
+#: ui/FindPrinter.qml:205
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr ""
+
+#: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
-msgid "Uri:"
-msgstr "Uri:"
+msgid "Address:"
+msgstr ""
 
-#: ui/FindPrinter.qml:231
-#, kde-format
-msgid "Enter host URI"
+#: ui/FindPrinter.qml:249
+#, fuzzy, kde-format
+#| msgid "Enter host URI"
+msgid "Enter host Address"
 msgstr "輸入主機 URI"
 
-#: ui/FindPrinter.qml:334
+#: ui/FindPrinter.qml:364
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "選擇裝置連線"
 
-#: ui/FindPrinter.qml:424
+#: ui/FindPrinter.qml:465
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "無法自動發現任何列印裝置"
 
-#: ui/FindPrinter.qml:425
+#: ui/FindPrinter.qml:466
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -172,13 +181,13 @@ msgid ""
 "the list"
 msgstr "選取「重新整理」來重試，或是從列表中選擇一個手動設定的選項"
 
-#: ui/FindPrinter.qml:434
+#: ui/FindPrinter.qml:475
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "從列表中選擇一個手動設定的選項"
 
-#: ui/FindPrinter.qml:447
+#: ui/FindPrinter.qml:488
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
@@ -565,3 +574,7 @@ msgstr "製造商/型號："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "選取…"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Uri:"
+#~ msgstr "Uri:"

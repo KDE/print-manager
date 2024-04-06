@@ -314,10 +314,12 @@ Kirigami.Dialog {
                 case "direct":
                     source = "components/Direct.qml"
                     break
+                case "lpd":
+                    source = "components/Lpd.qml"
+                    break
                 case "socket":
                     source = "components/Socket.qml"
                     break
-                case "lpd":
                 case "smb":
                 case "serial":
                 default:

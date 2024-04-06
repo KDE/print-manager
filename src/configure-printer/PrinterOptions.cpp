@@ -27,7 +27,8 @@
 #include <QPointer>
 #include <QRadioButton>
 #include <QStandardItemModel>
-#include <QTextCodec>
+#include <QStringDecoder>
+#include <QStringEncoder>
 
 #include <ctype.h>
 
@@ -105,32 +106,34 @@ void PrinterOptions::reloadPPD()
     // TODO try to use QTextCodec aliases
     const char *lang_encoding;
     lang_encoding = m_ppd->lang_encoding;
+    QStringDecoder decoder;
     if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin1")) {
-        m_codec = QTextCodec::codecForName("ISO-8859-1");
+        decoder = QStringDecoder("ISO-8859-1");
     } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin2")) {
-        m_codec = QTextCodec::codecForName("ISO-8859-2");
+        decoder = QStringDecoder("ISO-8859-2");
     } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin5")) {
-        m_codec = QTextCodec::codecForName("ISO-8859-5");
+        decoder = QStringDecoder("ISO-8859-5");
     } else if (lang_encoding && !strcasecmp(lang_encoding, "JIS83-RKSJ")) {
-        m_codec = QTextCodec::codecForName("SHIFT-JIS");
+        decoder = QStringDecoder("SHIFT-JIS");
     } else if (lang_encoding && !strcasecmp(lang_encoding, "MacStandard")) {
-        m_codec = QTextCodec::codecForName("MACINTOSH");
+        decoder = QStringDecoder("MACINTOSH");
     } else if (lang_encoding && !strcasecmp(lang_encoding, "WindowsANSI")) {
-        m_codec = QTextCodec::codecForName("WINDOWS-1252");
+        decoder = QStringDecoder("WINDOWS-1252");
     } else {
         // Guess
-        m_codec = QTextCodec::codecForName(lang_encoding);
+        decoder = QStringDecoder(lang_encoding);
     }
-    if (m_codec == nullptr) {
-        m_codec = QTextCodec::codecForName("UTF-8");
+    if (!decoder.isValid()) {
+        decoder = QStringDecoder(QStringDecoder::Utf8);
     }
+    m_codec = decoder.name();
 
     if (m_ppd->manufacturer) {
-        m_make = m_codec->toUnicode(m_ppd->manufacturer);
+        m_make = decoder.decode(m_ppd->manufacturer);
     }
 
     if (m_ppd->nickname) {
-        m_makeAndModel = m_codec->toUnicode(m_ppd->nickname);
+        m_makeAndModel = decoder.decode(m_ppd->nickname);
     }
 
     ui->autoConfigurePB->hide();
@@ -157,10 +160,11 @@ void PrinterOptions::createGroups()
     // Iterate over the groups
     for (i = 0, group = m_ppd->groups; i < m_ppd->num_groups; i++, group++) {
         // The name of the group
-        QString name = m_codec->toUnicode(group->name);
+        QStringDecoder decoder(m_codec);
+        QString name = decoder.decode(group->name);
 
         // The human name of the group
-        QString text = m_codec->toUnicode(group->text);
+        QString text = decoder.decode(group->text);
 
         // The group box were the options will be laid out
         auto groupBox = new QGroupBox(text, ui->scrollArea);
@@ -175,9 +179,9 @@ void PrinterOptions::createGroups()
         ppd_option_t *option;
         // Iterate over the options in the group
         for (j = 0, option = group->options; j < group->num_options; j++, option++) {
-            QString oKeyword = m_codec->toUnicode(option->keyword);
-            QString oText = m_codec->toUnicode(option->text);
-            QString oDefChoice = m_codec->toUnicode(option->defchoice);
+            QString oKeyword = decoder.decode(option->keyword);
+            QString oText = decoder.decode(option->text);
+            QString oDefChoice = decoder.decode(option->defchoice);
             // The python system-config-printer skips this one
             // which has the same data as "PageSize", let's hope
             // they did the right thing
@@ -222,11 +226,12 @@ QWidget *PrinterOptions::pickBoolean(ppd_option_t *option, const QString &keywor
 
     int i;
     ppd_choice_t *choice;
-    QString defChoice = m_codec->toUnicode(option->defchoice);
+    QStringDecoder decoder(m_codec);
+    QString defChoice = decoder.decode(option->defchoice);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices; i < option->num_choices; ++i, ++choice) {
-        const QString choiceName = m_codec->toUnicode(choice->choice);
-        const QString cText = m_codec->toUnicode(choice->text);
+        const QString choiceName = decoder.decode(choice->choice);
+        const QString cText = decoder.decode(choice->text);
 
         auto button = new QRadioButton(cText, widget);
         button->setChecked(defChoice == choiceName);
@@ -262,9 +267,10 @@ void PrinterOptions::radioBtClicked(QAbstractButton *button)
     radioGroup->setProperty("currentChoice", choice);
 
     // TODO warning about conflicts
+    //     QStringEncoder encoder(m_codec);
     //     ppdMarkOption(m_ppd,
-    //                   m_codec->fromUnicode(keyword),
-    //                   m_codec->fromUnicode(choice));
+    //                   encoder.encode(keyword),
+    //                   encoder.encode(choice));
     // store the new value
     if (isDifferent) {
         m_customValues[keyword] = radioGroup;
@@ -283,11 +289,12 @@ QWidget *PrinterOptions::pickMany(ppd_option_t *option, const QString &keyword, 
 
     int i;
     ppd_choice_t *choice;
-    const QString oDefChoice = m_codec->toUnicode(option->defchoice);
+    QStringDecoder decoder(m_codec);
+    const QString oDefChoice = decoder.decode(option->defchoice);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices; i < option->num_choices; ++i, ++choice) {
-        const QString cName = m_codec->toUnicode(choice->choice);
-        const QString cText = m_codec->toUnicode(choice->text);
+        const QString cName = decoder.decode(choice->choice);
+        const QString cText = decoder.decode(choice->text);
 
         auto item = new QStandardItem(cText);
         item->setData(cName);
@@ -307,12 +314,13 @@ QWidget *PrinterOptions::pickOne(ppd_option_t *option, const QString &keyword, Q
 {
     int i;
     ppd_choice_t *choice;
-    const QString defChoice = m_codec->toUnicode(option->defchoice);
+    QStringDecoder decoder(m_codec);
+    const QString defChoice = decoder.decode(option->defchoice);
     auto comboBox = new QComboBox(parent);
     // Iterate over the choices in the option
     for (i = 0, choice = option->choices; i < option->num_choices; ++i, ++choice) {
-        const QString cName = m_codec->toUnicode(choice->choice);
-        const QString cText = m_codec->toUnicode(choice->text);
+        const QString cName = decoder.decode(choice->choice);
+        const QString cText = decoder.decode(choice->text);
 
         comboBox->addItem(cText, cName);
     }
@@ -345,9 +353,10 @@ void PrinterOptions::currentIndexChangedCB(int index)
     comboBox->setProperty("currentChoice", value);
 
     // TODO warning about conflicts
+    //     QStringEncoder encoder(m_codec);
     //     ppdMarkOption(m_ppd,
-    //                   m_codec->fromUnicode(keyword),
-    //                   m_codec->fromUnicode(value));
+    //                   encoder.encode(keyword),
+    //                   encoder.encode(value));
     // store the new value
     if (isDifferent) {
         m_customValues[keyword] = qobject_cast<QObject *>(comboBox);
@@ -372,11 +381,13 @@ PrinterOptions::~PrinterOptions()
 const char * /* O - Value of variable */
 PrinterOptions::getVariable(const char *name) const /* I - Name of variable */
 {
-    const QString keyword = m_codec->toUnicode(name);
+    QStringDecoder decoder(m_codec);
+    const QString keyword = decoder.decode(name);
     auto it = m_customValues.constFind(keyword);
     if (it != m_customValues.constEnd()) {
         const QString value = it.value()->property("currentChoice").toString();
-        return m_codec->fromUnicode(value).constData();
+        QStringEncoder encoder(m_codec);
+        return QByteArray(encoder.encode(value)).constData();
     } else {
         return nullptr;
     }

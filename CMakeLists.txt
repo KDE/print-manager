@@ -34,7 +34,6 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Qml
     Quick
 )
-find_package(Qt6Core5Compat)
 
 find_package(Cups "1.5" REQUIRED)
 

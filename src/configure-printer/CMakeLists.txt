@@ -31,7 +31,6 @@ add_executable(configure-printer ${configureprinter_SRCS})
 target_link_libraries(configure-printer
     Qt6::Core
     Qt6::Widgets
-    Qt6::Core5Compat
     KF6::CoreAddons
     KF6::I18n
     KF6::IconThemes

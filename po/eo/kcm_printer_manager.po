@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-10 10:31+0100\n"
+"PO-Revision-Date: 2024-04-06 22:35+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -137,30 +137,27 @@ msgid "Enter the address of the remote host/device"
 msgstr "Enigu la adreson de la fora gastiganto/aparato"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Elekti Presilon"
+msgstr "Elekti Presilon…"
 
 #: ui/FindPrinter.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Daŭrigi kun Adreso…"
 
 #: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "Adreso:"
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "Enigi gastigantan URI"
+msgstr "Enigi gastigantan Adreson"
 
 #: ui/FindPrinter.qml:364
 #, kde-format
@@ -582,7 +579,3 @@ msgstr "Faro/Modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Elekti…"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "uri:"

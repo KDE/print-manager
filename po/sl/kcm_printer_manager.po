@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-07 08:04+0100\n"
+"PO-Revision-Date: 2024-04-06 08:59+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -134,30 +134,27 @@ msgid "Enter the address of the remote host/device"
 msgstr "Vnesite naslov oddaljenega gostitelja/naprave"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Izberi tiskalnik"
+msgstr "Izberi tiskalnik…"
 
 #: ui/FindPrinter.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Nadaljuj z naslovom…"
 
 #: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "Naslov:"
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "Vnesite URI gostitelja"
+msgstr "Vnesite naslov gostitelja"
 
 #: ui/FindPrinter.qml:364
 #, kde-format
@@ -363,7 +360,7 @@ msgstr "Izberite datoteko z opisom tiskalnika PostScript (PPD)"
 #: ui/MakeModel.qml:155
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "Zahtevana je znamka/model. Izberite model tiskalnika,"
+msgstr "Zahtevana je znamka/model. Izberite model tiskalnika."
 
 #: ui/MakeModel.qml:209
 #, kde-format

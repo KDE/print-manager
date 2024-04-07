@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-29 11:08+0100\n"
+"PO-Revision-Date: 2024-04-06 22:35+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -736,12 +736,10 @@ msgid "'%1' is ready for printing."
 msgstr "'%1' estas preta por presi."
 
 #: src/libkcups/DevicesModel.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "Manlibro URI"
+msgstr "Permana Agordo"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format

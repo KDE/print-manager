@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-29 13:46+0100\n"
+"PO-Revision-Date: 2024-04-06 15:08+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -735,12 +735,10 @@ msgid "'%1' is ready for printing."
 msgstr "'%1' is klaar om te printen."
 
 #: src/libkcups/DevicesModel.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "Handmatige URI"
+msgstr "Handmatige configuratie"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-29 08:13+0300\n"
+"PO-Revision-Date: 2024-04-06 15:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -731,12 +731,10 @@ msgid "'%1' is ready for printing."
 msgstr "‚%1’ כבר מדפיסה"
 
 #: src/libkcups/DevicesModel.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "כתובת מלאה ידנית"
+msgstr "הגדרות ידניות"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format

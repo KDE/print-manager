@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 02:43+0000\n"
-"PO-Revision-Date: 2024-03-08 14:09+0100\n"
+"PO-Revision-Date: 2024-04-06 17:39+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -138,30 +138,27 @@ msgid "Enter the address of the remote host/device"
 msgstr "Inserisci l'indirizzo dell'host/dispositivo remoto"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Seleziona una stampante"
+msgstr "Seleziona una stampante…"
 
 #: ui/FindPrinter.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Continua con l'indirizzo…"
 
 #: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "Indirizzo:"
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "Inserisci l'URI dell'host"
+msgstr "Inserisci l'indirizzo dell'host"
 
 #: ui/FindPrinter.qml:364
 #, kde-format

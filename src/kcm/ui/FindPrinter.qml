@@ -314,9 +314,11 @@ Kirigami.Dialog {
                 case "direct":
                     source = "components/Direct.qml"
                     break
+                case "smb":
+                    source = "components/Smb.qml"
+                    break
                 case "lpd":
                 case "socket":
-                case "smb":
                 case "serial":
                 default:
                     source = "components/NotAvailable.qml"

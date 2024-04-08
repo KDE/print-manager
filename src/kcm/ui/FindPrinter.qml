@@ -358,7 +358,6 @@ KCM.AbstractKCM {
             Loader {
                 id: compLoader
                 active: !root.loading
-
                 anchors.centerIn: parent
 
                 // Force placeholders to format properly inside the Rect
@@ -395,6 +394,9 @@ KCM.AbstractKCM {
                         break
                     case "socket":
                         source = "components/Socket.qml"
+                        break
+                    case "smb":
+                        source = "components/Smb.qml"
                         break
                     default:
                         sourceComponent = notAvailableComp

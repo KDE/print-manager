@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-30 21:48+0530\n"
+"PO-Revision-Date: 2024-04-07 16:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -273,6 +273,8 @@ msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
 msgstr ""
+"குறிப்பு: இந்த செயலியைத் தவிர்க்குமாறு பரிந்துரைக்கப்படுகிறது, ஏனெனில் இது பிளாஸ்மாவின் "
+"வரவிருக்கும் ஓர் பதிப்பில் நீக்கப்படவுள்ளது."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -300,10 +302,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "குறிப்பிட்ட அச்சுப்பொறியின் அல்லது சாதன அடையாளத்தின் PPDயை மாற்றும்"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "குறிப்பிட்ட அச்சுப்பொறியின் அல்லது சாதன அடையாளத்தின் PPDயை மாற்றும்"
+msgstr "உள்ளீடு அச்சுப்பொறியாகவோ சாதன அடையாளமாகவோ இருக்க வேண்டும்"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
@@ -710,12 +711,10 @@ msgid "'%1' is ready for printing."
 msgstr "'%1' அச்சிட தயாராக உள்ளது"
 
 #: src/libkcups/DevicesModel.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "கைமுறை முகவரி"
+msgstr "கைமுறை அமைப்பு"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format
@@ -1169,41 +1168,41 @@ msgstr "'%1' தனை அச்சிடுகிறது"
 #: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format
 msgid "Printer paused"
-msgstr ""
+msgstr "அச்சுப்பொறி இடைநிறுத்தப்பட்டுள்ளது"
 
 #: src/printqueue/PrintQueueUi.cpp:213
 #, kde-format
 msgid "Resume Printer"
-msgstr ""
+msgstr "அச்சுப்பொறியை தொடரசெய்"
 
 #: src/printqueue/PrintQueueUi.cpp:217
 #, kde-format
 msgid "Printer state unknown"
-msgstr ""
+msgstr "அச்சுப்பொறியின் நிலை தெரியாதது"
 
 #: src/printqueue/PrintQueueUi.cpp:262
 #, kde-format
 msgid "Move to"
-msgstr ""
+msgstr "வேறிடத்துக்கு நகர்த்து"
 
 #: src/printqueue/PrintQueueUi.cpp:294
 #, kde-format
 msgid "Authenticate"
-msgstr ""
+msgstr "சான்றளி"
 
 #: src/printqueue/PrintQueueUi.cpp:409
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "அனைத்து அச்சுப்பொறிகள் (%1 பணி)"
+msgstr[1] "அனைத்து அச்சுப்பொறிகள் (%1 பணிகள்)"
 
 #: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 (%1 பணி)"
+msgstr[1] "%2 (%1 பணிகள்)"
 
 #: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format
@@ -1213,22 +1212,22 @@ msgstr "அனைத்து அச்சுப்பொறிகளும்"
 #: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr ""
+msgstr "'%1' தனை ரத்து செய்ய முடியவில்லை"
 
 #: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr ""
+msgstr "'%1' தனை இடைநிறுத்த முடியவில்லை"
 
 #: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr ""
+msgstr "'%1' தனை விடுவிக்க முடியவில்லை"
 
 #: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr ""
+msgstr "'%1' தனை மீண்டும் அச்சிட முடியவில்லை"
 
 #: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format

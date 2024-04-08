@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-03-30 19:37\n"
+"PO-Revision-Date: 2024-04-07 14:29\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -136,12 +136,10 @@ msgid "Enter the address of the remote host/device"
 msgstr "输入远程主机/设备的地址"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "选择打印机"
+msgstr ""
 
 #: ui/FindPrinter.qml:205
 #, kde-format
@@ -156,10 +154,9 @@ msgid "Address:"
 msgstr ""
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "输入主机 URI"
+msgstr ""
 
 #: ui/FindPrinter.qml:364
 #, kde-format
@@ -574,7 +571,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "URI："

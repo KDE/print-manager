@@ -405,20 +405,38 @@ KCM.AbstractKCM {
         }
 
         // Marker (ink) status
-        Repeater {
-            model: !addMode ? modelData.markers["marker-names"] : null
+        QQC2.ScrollView {
+            visible: markersView.count > 0
+            Layout.fillWidth: true
+            Layout.maximumHeight: Math.floor(root.height/4)
+            Layout.preferredHeight: contentHeight + Kirigami.Units.smallSpacing
 
-            delegate: RowLayout {
-                QQC2.Label {
-                    text: modelData
-                    Layout.minimumWidth: Kirigami.Units.gridUnit*7
+            Component.onCompleted: {
+                if (background) {
+                    background.visible = true;
                 }
+            }
 
-                QQC2.ProgressBar {
-                    from: 0
-                    to: 100
-                    value: root.modelData.markers["marker-levels"][index]
-                    palette.highlight: root.modelData.markers["marker-colors"][index]
+            contentItem: ListView {
+                id: markersView
+                model: !addMode ? modelData.markers["marker-names"] : null
+                clip: true
+                delegate: RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
+
+                    QQC2.Label {
+                        text: modelData
+                        horizontalAlignment: Text.AlignRight
+                        Layout.minimumWidth: Kirigami.Units.gridUnit*10
+                    }
+
+                    QQC2.ProgressBar {
+                        from: 0
+                        to: 100
+                        value: root.modelData.markers["marker-levels"][index]
+                        palette.highlight: root.modelData.markers["marker-colors"][index]
+                        Layout.fillWidth: true
+                    }
                 }
             }
         }
@@ -680,4 +698,5 @@ KCM.AbstractKCM {
         }
 
     }
+
 }

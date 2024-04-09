@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2024-04-06 17:40+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -606,7 +606,7 @@ msgstr "Impedi&sci a questi utenti di stampare "
 msgid "A&llow these users to print"
 msgstr "P&ermetti a questi utenti di stampare"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Imposta le opzioni predefinite"

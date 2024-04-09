@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2024-04-01 08:07+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -610,7 +610,7 @@ msgstr "Odmó&w tym użytkownikom drukowania "
 msgid "A&llow these users to print"
 msgstr "Zezwó&l tym użytkownikom na drukowanie"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ustaw opcje domyślne"

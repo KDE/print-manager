@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -630,7 +630,7 @@ msgstr "&Spreči ove korisnike da štampaju"
 msgid "A&llow these users to print"
 msgstr "&Dozvoli ovim korisnicima da štampaju"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Postavi podrazumevane opcije"

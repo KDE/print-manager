@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2024-04-06 15:58+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -62,13 +62,32 @@ msgstr "הדפסת עמוד לבדיקה עצמית"
 msgid "Clean Print Heads"
 msgstr "ניקוי ראשי ההדפסה"
 
-#: ui/AddressExamples.qml:36
+#: ui/components/AddressExamples.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "כתובות לדוגמה"
 
-#: ui/Drivers.qml:37
+#: ui/components/BaseDevice.qml:111
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "כתובת:"
+
+#: ui/components/BaseDevice.qml:121
+#, fuzzy, kde-format
+#| msgid "Enter host Address"
+msgctxt "@info The printer/device address"
+msgid "Enter device address"
+msgstr "נא למלא כתובת מארח"
+
+#: ui/components/Direct.qml:22
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a device connection"
+msgstr "נא לבחור את חיבור המכשיר"
+
+#: ui/components/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -78,100 +97,108 @@ msgstr ""
 "לא ניתן לאתר את מנהלי ההתקן המומלצים. יש ללחוץ על <interface>רענון</"
 "interface> כדי לנסות שוב או לבחור מנהל התקן ידנית."
 
-#: ui/Drivers.qml:44
+#: ui/components/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "בחירת מנהל התקן…"
 
-#: ui/Drivers.qml:83
+#: ui/components/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "בחירת מנהל ההתקן המומלץ"
 
-#: ui/Drivers.qml:89
+#: ui/components/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "מנהלי ההתקן המומלצים מבוססים על יצרן/דגם המדפסת וסוג החיבור"
 
-#: ui/FindPrinter.qml:85
-#, kde-format
-msgctxt "@title:window"
-msgid "Set up a Printer Connection"
-msgstr "הגדרת חיבור מדפסת"
-
-#: ui/FindPrinter.qml:92
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Detected Devices"
-msgstr "הצגת התקנים שהתגלו"
-
-#: ui/FindPrinter.qml:93
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Manual Options"
-msgstr "הצגת אפשרויות ידניות"
-
-#: ui/FindPrinter.qml:112
-#, kde-format
-msgid "Refresh"
-msgstr "רענון"
-
-#: ui/FindPrinter.qml:123
-#, kde-format
-msgid "CUPS Network Printers Help"
-msgstr "עזרה למדפסות רשת ב־CUPS"
-
-#: ui/FindPrinter.qml:190
+#: ui/components/ManualUri.qml:21
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "איתור מכשירי הדפסה נוספים"
 
-#: ui/FindPrinter.qml:191
+#: ui/components/ManualUri.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "נא למלא את כתובת המארח/מכשיר המרוחק"
 
-#: ui/FindPrinter.qml:196
+#: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "בחירת מדפסת…"
 
-#: ui/FindPrinter.qml:205
+#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
 msgstr "להמשיך עם כתובת…"
 
-#: ui/FindPrinter.qml:241
+#: ui/components/NotAvailable.qml:19
 #, kde-format
-msgctxt "@label:textbox"
-msgid "Address:"
-msgstr "כתובת:"
+msgctxt "@info:status"
+msgid "This feature is not yet available (%1)"
+msgstr "היכולת הזאת לא זמינה עדיין (%1)"
 
-#: ui/FindPrinter.qml:249
+#: ui/components/Socket.qml:17
 #, kde-format
-msgid "Enter host Address"
-msgstr "נא למלא כתובת מארח"
+msgctxt "@title:group"
+msgid "AppSocket Protocol (aka JetDirect)"
+msgstr ""
 
-#: ui/FindPrinter.qml:364
-#, kde-format
+#: ui/components/Socket.qml:18
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the remote host/device"
 msgctxt "@info:usagetip"
-msgid "Choose a device connection"
-msgstr "נא לבחור את חיבור המכשיר"
+msgid "Enter the address of the AppSocket device"
+msgstr "נא למלא את כתובת המארח/מכשיר המרוחק"
 
-#: ui/FindPrinter.qml:465
+#: ui/components/Socket.qml:63
+#, kde-format
+msgid "Invalid Socket URL: %1"
+msgstr ""
+
+#: ui/FindPrinter.qml:86
+#, kde-format
+msgctxt "@title:window"
+msgid "Set up a Printer Connection"
+msgstr "הגדרת חיבור מדפסת"
+
+#: ui/FindPrinter.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Detected Devices"
+msgstr "הצגת התקנים שהתגלו"
+
+#: ui/FindPrinter.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Manual Options"
+msgstr "הצגת אפשרויות ידניות"
+
+#: ui/FindPrinter.qml:113
+#, kde-format
+msgid "Refresh"
+msgstr "רענון"
+
+#: ui/FindPrinter.qml:124
+#, kde-format
+msgid "CUPS Network Printers Help"
+msgstr "עזרה למדפסות רשת ב־CUPS"
+
+#: ui/FindPrinter.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "לא הייתה אפשרות לזהות מכשירי הדפסה אוטומטית"
 
-#: ui/FindPrinter.qml:466
+#: ui/FindPrinter.qml:184
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -180,17 +207,11 @@ msgid ""
 msgstr ""
 "יש ללחוץ על „רענון” כדי לנסות שוב או לבחור אפשרויות הגדרה ידניות מהרשימה"
 
-#: ui/FindPrinter.qml:475
+#: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "נא לבחור אפשרות הגדרה ידנית מהרשימה"
-
-#: ui/FindPrinter.qml:488
-#, kde-format
-msgctxt "@info:status"
-msgid "This feature is not yet available (%1)"
-msgstr "היכולת הזאת לא זמינה עדיין (%1)"
 
 #: ui/Global.qml:14
 #, kde-format

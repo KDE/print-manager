@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2014-02-21 00:53+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
@@ -618,7 +618,7 @@ msgstr "Disse Brukers nich drucken laten "
 msgid "A&llow these users to print"
 msgstr "Disse Brukers drucken laten"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Standardoptschonen fastleggen"

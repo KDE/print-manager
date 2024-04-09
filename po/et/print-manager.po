@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2019-11-10 23:16+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -609,7 +609,7 @@ msgstr "&Neil kasutajatel keelatakse trükkida "
 msgid "A&llow these users to print"
 msgstr "N&eil kasutajatel lubatakse trükkida"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Vaikevalikute määramine"

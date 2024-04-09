@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2024-04-06 22:32+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -61,13 +61,32 @@ msgstr "Печат на само-тестова страница"
 msgid "Clean Print Heads"
 msgstr "Почистване на главите"
 
-#: ui/AddressExamples.qml:36
+#: ui/components/AddressExamples.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Примерни адреси"
 
-#: ui/Drivers.qml:37
+#: ui/components/BaseDevice.qml:111
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "Адрес:"
+
+#: ui/components/BaseDevice.qml:121
+#, fuzzy, kde-format
+#| msgid "Enter host Address"
+msgctxt "@info The printer/device address"
+msgid "Enter device address"
+msgstr "Въведете адрес на хост"
+
+#: ui/components/Direct.qml:22
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a device connection"
+msgstr "Изберете връзка с устройство"
+
+#: ui/components/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -78,19 +97,19 @@ msgstr ""
 "<interface>Обновяване</interface>, за да опитате отново, или изберете "
 "драйвер ръчно."
 
-#: ui/Drivers.qml:44
+#: ui/components/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "Избиране на драйвер…"
 
-#: ui/Drivers.qml:83
+#: ui/components/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Изберет препоръчителен драйвер"
 
-#: ui/Drivers.qml:89
+#: ui/components/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -98,82 +117,90 @@ msgstr ""
 "Препоръчителните драйвери се основават на марката/модела на принтера и типа "
 "на връзката"
 
-#: ui/FindPrinter.qml:85
-#, kde-format
-msgctxt "@title:window"
-msgid "Set up a Printer Connection"
-msgstr "Настройка на връзка с принтер"
-
-#: ui/FindPrinter.qml:92
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Detected Devices"
-msgstr "Показване на откритите устройства"
-
-#: ui/FindPrinter.qml:93
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Manual Options"
-msgstr "Показване на ръчни опции"
-
-#: ui/FindPrinter.qml:112
-#, kde-format
-msgid "Refresh"
-msgstr "Обновяване"
-
-#: ui/FindPrinter.qml:123
-#, kde-format
-msgid "CUPS Network Printers Help"
-msgstr "Помощ за мрежови принтери CUPS"
-
-#: ui/FindPrinter.qml:190
+#: ui/components/ManualUri.qml:21
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "Намиране на отдалечени устройства за печат"
 
-#: ui/FindPrinter.qml:191
+#: ui/components/ManualUri.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Въведете адреса на отдалечения хост/устройство"
 
-#: ui/FindPrinter.qml:196
+#: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Изберете принтер…"
 
-#: ui/FindPrinter.qml:205
+#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
 msgstr "Продължаване с адрес…"
 
-#: ui/FindPrinter.qml:241
+#: ui/components/NotAvailable.qml:19
 #, kde-format
-msgctxt "@label:textbox"
-msgid "Address:"
-msgstr "Адрес:"
+msgctxt "@info:status"
+msgid "This feature is not yet available (%1)"
+msgstr "Тази функция все още не е налична (%1)"
 
-#: ui/FindPrinter.qml:249
+#: ui/components/Socket.qml:17
 #, kde-format
-msgid "Enter host Address"
-msgstr "Въведете адрес на хост"
+msgctxt "@title:group"
+msgid "AppSocket Protocol (aka JetDirect)"
+msgstr ""
 
-#: ui/FindPrinter.qml:364
-#, kde-format
+#: ui/components/Socket.qml:18
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the remote host/device"
 msgctxt "@info:usagetip"
-msgid "Choose a device connection"
-msgstr "Изберете връзка с устройство"
+msgid "Enter the address of the AppSocket device"
+msgstr "Въведете адреса на отдалечения хост/устройство"
 
-#: ui/FindPrinter.qml:465
+#: ui/components/Socket.qml:63
+#, kde-format
+msgid "Invalid Socket URL: %1"
+msgstr ""
+
+#: ui/FindPrinter.qml:86
+#, kde-format
+msgctxt "@title:window"
+msgid "Set up a Printer Connection"
+msgstr "Настройка на връзка с принтер"
+
+#: ui/FindPrinter.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Detected Devices"
+msgstr "Показване на откритите устройства"
+
+#: ui/FindPrinter.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Manual Options"
+msgstr "Показване на ръчни опции"
+
+#: ui/FindPrinter.qml:113
+#, kde-format
+msgid "Refresh"
+msgstr "Обновяване"
+
+#: ui/FindPrinter.qml:124
+#, kde-format
+msgid "CUPS Network Printers Help"
+msgstr "Помощ за мрежови принтери CUPS"
+
+#: ui/FindPrinter.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Не може да открие автоматично никакви устройства за печат"
 
-#: ui/FindPrinter.qml:466
+#: ui/FindPrinter.qml:184
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -183,17 +210,11 @@ msgstr ""
 "Изберете \" Обновяване\", за да опитате отново, или изберете опция за ръчно "
 "конфигуриране от списъка"
 
-#: ui/FindPrinter.qml:475
+#: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Изберете опция за ръчна конфигурация от списъка"
-
-#: ui/FindPrinter.qml:488
-#, kde-format
-msgctxt "@info:status"
-msgid "This feature is not yet available (%1)"
-msgstr "Тази функция все още не е налична (%1)"
 
 #: ui/Global.qml:14
 #, kde-format

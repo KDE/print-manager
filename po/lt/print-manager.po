@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-04-06 00:56+0300\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"PO-Revision-Date: 2024-04-08 19:57+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -613,7 +613,7 @@ msgstr "&Neleisti šiems naudotojams spausdinti "
 msgid "A&llow these users to print"
 msgstr "&Leisti šiems naudotojams spausdinti"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nustatyti numatytąsias parinktis"
@@ -742,12 +742,10 @@ msgid "'%1' is ready for printing."
 msgstr "„%1“ pasiruošęs spausdinimui."
 
 #: src/libkcups/DevicesModel.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "Rankinis URI"
+msgstr "Rankinė konfigūracija"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format

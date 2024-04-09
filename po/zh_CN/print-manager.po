@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-04-07 14:29\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"PO-Revision-Date: 2024-04-08 19:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -600,7 +600,7 @@ msgstr "阻止这些用户打印(&V)"
 msgid "A&llow these users to print"
 msgstr "允许这些用户打印(&L)"
 
-#: src/configure-printer/PrinterOptions.cpp:52 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
 msgstr "设置默认选项"
@@ -732,7 +732,7 @@ msgstr "“%1”已准备好打印。"
 #, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr ""
+msgstr "手动配置"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format

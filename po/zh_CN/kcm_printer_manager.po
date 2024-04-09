@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
-"PO-Revision-Date: 2024-04-07 14:29\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"PO-Revision-Date: 2024-04-08 19:11\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -61,13 +61,32 @@ msgstr "打印自检页"
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
 
-#: ui/AddressExamples.qml:36
+#: ui/components/AddressExamples.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "示例地址"
 
-#: ui/Drivers.qml:37
+#: ui/components/BaseDevice.qml:111
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "地址："
+
+#: ui/components/BaseDevice.qml:121
+#, fuzzy, kde-format
+#| msgid "Enter host Address"
+msgctxt "@info The printer/device address"
+msgid "Enter device address"
+msgstr "输入主机地址"
+
+#: ui/components/Direct.qml:22
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a device connection"
+msgstr "选择设备连接"
+
+#: ui/components/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -77,100 +96,108 @@ msgstr ""
 "无法定位推荐的驱动程序。请点击<interface>刷新</interface>重试，或者手动选择一"
 "个驱动程序。"
 
-#: ui/Drivers.qml:44
+#: ui/components/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "选择驱动程序…"
 
-#: ui/Drivers.qml:83
+#: ui/components/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "选择推荐的驱动程序"
 
-#: ui/Drivers.qml:89
+#: ui/components/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
 
-#: ui/FindPrinter.qml:85
-#, kde-format
-msgctxt "@title:window"
-msgid "Set up a Printer Connection"
-msgstr "创建打印机连接"
-
-#: ui/FindPrinter.qml:92
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Detected Devices"
-msgstr "显示检测到的设备"
-
-#: ui/FindPrinter.qml:93
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Manual Options"
-msgstr "显示手动选项"
-
-#: ui/FindPrinter.qml:112
-#, kde-format
-msgid "Refresh"
-msgstr "刷新"
-
-#: ui/FindPrinter.qml:123
-#, kde-format
-msgid "CUPS Network Printers Help"
-msgstr "CUPS 网络打印机帮助"
-
-#: ui/FindPrinter.qml:190
+#: ui/components/ManualUri.qml:21
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "搜索远程打印设备"
 
-#: ui/FindPrinter.qml:191
+#: ui/components/ManualUri.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "输入远程主机/设备的地址"
 
-#: ui/FindPrinter.qml:196
+#: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr ""
+msgstr "选择打印机…"
 
-#: ui/FindPrinter.qml:205
+#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
+msgstr "使用地址继续…"
+
+#: ui/components/NotAvailable.qml:19
+#, kde-format
+msgctxt "@info:status"
+msgid "This feature is not yet available (%1)"
+msgstr "此功能尚未完成开发 (%1)"
+
+#: ui/components/Socket.qml:17
+#, kde-format
+msgctxt "@title:group"
+msgid "AppSocket Protocol (aka JetDirect)"
 msgstr ""
 
-#: ui/FindPrinter.qml:241
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Address:"
-msgstr ""
-
-#: ui/FindPrinter.qml:249
-#, kde-format
-msgid "Enter host Address"
-msgstr ""
-
-#: ui/FindPrinter.qml:364
-#, kde-format
+#: ui/components/Socket.qml:18
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the remote host/device"
 msgctxt "@info:usagetip"
-msgid "Choose a device connection"
-msgstr "选择设备连接"
+msgid "Enter the address of the AppSocket device"
+msgstr "输入远程主机/设备的地址"
 
-#: ui/FindPrinter.qml:465
+#: ui/components/Socket.qml:63
+#, kde-format
+msgid "Invalid Socket URL: %1"
+msgstr ""
+
+#: ui/FindPrinter.qml:86
+#, kde-format
+msgctxt "@title:window"
+msgid "Set up a Printer Connection"
+msgstr "创建打印机连接"
+
+#: ui/FindPrinter.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Detected Devices"
+msgstr "显示检测到的设备"
+
+#: ui/FindPrinter.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Manual Options"
+msgstr "显示手动选项"
+
+#: ui/FindPrinter.qml:113
+#, kde-format
+msgid "Refresh"
+msgstr "刷新"
+
+#: ui/FindPrinter.qml:124
+#, kde-format
+msgid "CUPS Network Printers Help"
+msgstr "CUPS 网络打印机帮助"
+
+#: ui/FindPrinter.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "无法自动发现任何打印设备"
 
-#: ui/FindPrinter.qml:466
+#: ui/FindPrinter.qml:184
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -178,17 +205,11 @@ msgid ""
 "the list"
 msgstr "选择“刷新”重试，或者从选项列表中选择手动配置"
 
-#: ui/FindPrinter.qml:475
+#: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "从选项列表中选择手动配置"
-
-#: ui/FindPrinter.qml:488
-#, kde-format
-msgctxt "@info:status"
-msgid "This feature is not yet available (%1)"
-msgstr "此功能尚未完成开发 (%1)"
 
 #: ui/Global.qml:14
 #, kde-format

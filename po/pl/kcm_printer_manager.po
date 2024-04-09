@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-06 00:39+0000\n"
+"POT-Creation-Date: 2024-04-09 00:40+0000\n"
 "PO-Revision-Date: 2024-03-17 11:42+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -62,13 +62,32 @@ msgstr "Wydrukuj stronę próbną"
 msgid "Clean Print Heads"
 msgstr "Wyczyść głowice drukujące"
 
-#: ui/AddressExamples.qml:36
+#: ui/components/AddressExamples.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Przykładowe adresy"
 
-#: ui/Drivers.qml:37
+#: ui/components/BaseDevice.qml:111
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr ""
+
+#: ui/components/BaseDevice.qml:121
+#, fuzzy, kde-format
+#| msgid "Enter host URI"
+msgctxt "@info The printer/device address"
+msgid "Enter device address"
+msgstr "Wpisz URI gospodarza"
+
+#: ui/components/Direct.qml:22
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a device connection"
+msgstr "Wybierz rodzaj połączenia"
+
+#: ui/components/Drivers.qml:37
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -78,19 +97,19 @@ msgstr ""
 "Nie można znaleźć zalecanych sterowników. Naciśnij <interface>Odśwież</"
 "interface>, aby spróbować ponownie lub wybierz sterownik ręcznie."
 
-#: ui/Drivers.qml:44
+#: ui/components/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "Wybierz sterownik…"
 
-#: ui/Drivers.qml:83
+#: ui/components/Drivers.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Wybierz zalecany sterownik"
 
-#: ui/Drivers.qml:89
+#: ui/components/Drivers.qml:89
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -98,47 +117,19 @@ msgstr ""
 "Wybór zalecanego sterownika opiera się na wytwórcy/modelu drukarki oraz "
 "rodzaju połączenia"
 
-#: ui/FindPrinter.qml:85
-#, kde-format
-msgctxt "@title:window"
-msgid "Set up a Printer Connection"
-msgstr "Ustaw połączenie drukarki"
-
-#: ui/FindPrinter.qml:92
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Detected Devices"
-msgstr "Pokaż wykryte urządzenia"
-
-#: ui/FindPrinter.qml:93
-#, kde-format
-msgctxt "@action:button"
-msgid "Show Manual Options"
-msgstr "Pokaż ustawienia ręczne"
-
-#: ui/FindPrinter.qml:112
-#, kde-format
-msgid "Refresh"
-msgstr "Odśwież"
-
-#: ui/FindPrinter.qml:123
-#, kde-format
-msgid "CUPS Network Printers Help"
-msgstr "Pomoc do drukarek CUPS w sieci"
-
-#: ui/FindPrinter.qml:190
+#: ui/components/ManualUri.qml:21
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "Poszukaj zdalnego urządzenia drukującego"
 
-#: ui/FindPrinter.qml:191
+#: ui/components/ManualUri.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Wpisz adres zdalnego gospodarza/urządzenia"
 
-#: ui/FindPrinter.qml:196
+#: ui/components/ManualUri.qml:71
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Select Printer"
@@ -146,37 +137,72 @@ msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Wybierz drukarkę"
 
-#: ui/FindPrinter.qml:205
+#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
 msgstr ""
 
-#: ui/FindPrinter.qml:241
+#: ui/components/NotAvailable.qml:19
 #, kde-format
-msgctxt "@label:textbox"
-msgid "Address:"
+msgctxt "@info:status"
+msgid "This feature is not yet available (%1)"
+msgstr "Ten rodzaj działania nie jest jeszcze dostępny (%1)"
+
+#: ui/components/Socket.qml:17
+#, kde-format
+msgctxt "@title:group"
+msgid "AppSocket Protocol (aka JetDirect)"
 msgstr ""
 
-#: ui/FindPrinter.qml:249
+#: ui/components/Socket.qml:18
 #, fuzzy, kde-format
-#| msgid "Enter host URI"
-msgid "Enter host Address"
-msgstr "Wpisz URI gospodarza"
-
-#: ui/FindPrinter.qml:364
-#, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the remote host/device"
 msgctxt "@info:usagetip"
-msgid "Choose a device connection"
-msgstr "Wybierz rodzaj połączenia"
+msgid "Enter the address of the AppSocket device"
+msgstr "Wpisz adres zdalnego gospodarza/urządzenia"
 
-#: ui/FindPrinter.qml:465
+#: ui/components/Socket.qml:63
+#, kde-format
+msgid "Invalid Socket URL: %1"
+msgstr ""
+
+#: ui/FindPrinter.qml:86
+#, kde-format
+msgctxt "@title:window"
+msgid "Set up a Printer Connection"
+msgstr "Ustaw połączenie drukarki"
+
+#: ui/FindPrinter.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Detected Devices"
+msgstr "Pokaż wykryte urządzenia"
+
+#: ui/FindPrinter.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Manual Options"
+msgstr "Pokaż ustawienia ręczne"
+
+#: ui/FindPrinter.qml:113
+#, kde-format
+msgid "Refresh"
+msgstr "Odśwież"
+
+#: ui/FindPrinter.qml:124
+#, kde-format
+msgid "CUPS Network Printers Help"
+msgstr "Pomoc do drukarek CUPS w sieci"
+
+#: ui/FindPrinter.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Nie udało się samemu wykryć żadnego urządzenia drukującego"
 
-#: ui/FindPrinter.qml:466
+#: ui/FindPrinter.qml:184
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -186,17 +212,11 @@ msgstr ""
 "Naciśnij \"Odśwież\", aby spróbować ponownie lub wybierz ręczne ustawienia z "
 "listy"
 
-#: ui/FindPrinter.qml:475
+#: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Wybierz wpis ręcznych ustawień z listy"
-
-#: ui/FindPrinter.qml:488
-#, kde-format
-msgctxt "@info:status"
-msgid "This feature is not yet available (%1)"
-msgstr "Ten rodzaj działania nie jest jeszcze dostępny (%1)"
 
 #: ui/Global.qml:14
 #, kde-format

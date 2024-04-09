@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022, 2023.
+# Giovanni Sora <g.sora@tiscali.it>, 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 02:43+0000\n"
-"PO-Revision-Date: 2023-11-08 15:43+0100\n"
+"PO-Revision-Date: 2024-04-08 12:19+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -723,12 +723,10 @@ msgid "'%1' is ready for printing."
 msgstr "'%1' es preste per imprimer."
 
 #: src/libkcups/DevicesModel.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "URI manual"
+msgstr "Configuration manual"
 
 #: src/libkcups/DevicesModel.cpp:60
 #, kde-format

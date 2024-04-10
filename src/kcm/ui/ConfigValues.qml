@@ -50,7 +50,7 @@ QtObject {
         set()
     }
 
-    function value(key : string) {
+    function value(key : string) : var {
         if (key === undefined || key.length === 0) {
             return ""
         } else {

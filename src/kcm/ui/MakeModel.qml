@@ -23,7 +23,7 @@ Kirigami.Dialog {
     property var ppdData: ({})
 
     // make is the first level in the hierarchy of the model
-    function getMakeIndex(make) {
+    function getMakeIndex(make) : int {
         print("GETMAKE:", make)
         for (let i=0, len=model.rowCount(); i<len; ++i) {
             const val = model.data(model.index(i,0), Qt.DisplayRole).toString()
@@ -36,7 +36,7 @@ Kirigami.Dialog {
     // make/model is the second level
     // try to select based on CUPS pcfile *and* makemodel desc
     // preference to pcfile
-    function getMakeModelIndex() {
+    function getMakeModelIndex() : int {
         const file = ppdData.pcfile?.toLowerCase()
         const mm = ppdData.makeModel?.toLowerCase()
         print("GETMAKEMODEL pcfile:", file, ", mm:", mm)

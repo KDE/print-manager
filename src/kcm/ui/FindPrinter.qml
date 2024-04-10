@@ -19,7 +19,7 @@ Kirigami.Dialog {
     property bool hasDetectedDevices: false
 
     // MFG:HP;MDL:ENVY 4520 series;CLS:PRINTER;DES:ENVY 4520 series;SN:TH6BN4M1390660;
-    function parseDeviceId(devId: string, key: string) {
+    function parseDeviceId(devId: string, key: string) : var {
         if (devId === undefined) {
             return ""
         }

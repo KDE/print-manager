@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:40+0000\n"
-"PO-Revision-Date: 2024-04-06 15:58+0300\n"
+"POT-Creation-Date: 2024-04-10 00:39+0000\n"
+"PO-Revision-Date: 2024-04-09 07:56+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -75,11 +75,10 @@ msgid "Address:"
 msgstr "כתובת:"
 
 #: ui/components/BaseDevice.qml:121
-#, fuzzy, kde-format
-#| msgid "Enter host Address"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "נא למלא כתובת מארח"
+msgstr "נא למלא את כתובת המכשיר"
 
 #: ui/components/Direct.qml:22
 #, kde-format
@@ -149,20 +148,18 @@ msgstr "היכולת הזאת לא זמינה עדיין (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "פרוטוקול AppSocket (או JetDirect)"
 
 #: ui/components/Socket.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "נא למלא את כתובת המארח/מכשיר המרוחק"
+msgstr "נא למלא את כתובת מכשיר ה־AppSocket"
 
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "כתובת שקע שגויה: %1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -530,67 +527,67 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "מקבלת משימות הדפסה"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "הדפסת עמוד בדיקה"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:456
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "הדפסת עמוד לבדיקה עצמית"
 
-#: ui/PrinterSettings.qml:445
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "ניקוי ראשי ההדפסה"
 
-#: ui/PrinterSettings.qml:465
+#: ui/PrinterSettings.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "איתור מדפסת…"
 
-#: ui/PrinterSettings.qml:473
+#: ui/PrinterSettings.qml:491
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "שם תור:"
 
-#: ui/PrinterSettings.qml:486
+#: ui/PrinterSettings.qml:504
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "תיאור"
 
-#: ui/PrinterSettings.qml:498
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "מקום:"
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:528
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "חיבור:"
 
-#: ui/PrinterSettings.qml:524
+#: ui/PrinterSettings.qml:542
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "מדפסות החבר:"
 
-#: ui/PrinterSettings.qml:655
+#: ui/PrinterSettings.qml:673
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "יצרן/דגם:"
 
-#: ui/PrinterSettings.qml:670
+#: ui/PrinterSettings.qml:688
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

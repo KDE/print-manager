@@ -57,6 +57,50 @@ KCM.ScrollViewKCM {
         }
     }
 
+    header: Kirigami.InlineMessage {
+        id: scpMessage
+        showCloseButton: true
+        type: Kirigami.MessageType.Warning
+        visible: !kcm.isSCPAvailable()
+        text: {
+            if (PM.SCPInstaller === undefined) {
+                xi18nc("@info:usagetip", "A printer support package that provides convenience features does not appear to be installed.<nl/><nl/>Because this distro does not include PackageKit, we cannot provide an install option, so you will have to use your package manager to install the <command>system-config-printer</command> package manually.")
+            } else {
+                i18nc("@info:usagetip", "A printer support package that provides convenience features does not appear to be installed.")
+            }
+        }
+
+        actions: [
+            Kirigami.Action {
+                text: i18nc("@action:button Install printer setup helper package", "Install It")
+                icon.name: "install-symbolic"
+                visible: PM.SCPInstaller !== undefined
+                onTriggered: scpLoader.active = true
+            }
+        ]
+    }
+
+    /**
+    * The SCPInstaller type is registered into the PrinterManager namespace when
+    * the kcm is compiled with a found PackageKit and the SCP_Install option is
+    * enabled.  If the SCPInstaller is not registered, it will be undefined.
+    *
+    * If registered, use the loader to create the component which will install SCP
+    * with PackageKit.  See "Install It" action above.
+    */
+    Loader {
+        id: scpLoader
+        active: false
+        anchors.centerIn: parent
+        source: "InstallDialog.qml"
+
+        onActiveChanged: {
+            if (active) {
+                item.parent = root
+            }
+        }
+    }
+
     actions: [
         Kirigami.Action {
             text: i18nc("@action:button", "Add Printer…")

@@ -35,8 +35,6 @@ find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Quick
 )
 
-find_package(Cups "2.4" REQUIRED)
-
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED 
     Config 
     ConfigWidgets 
@@ -59,13 +57,14 @@ set_package_properties(KF6Kirigami PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
-find_package(SCPDbus "1.5")
-set_package_properties(SCPDbus PROPERTIES
-    TYPE RUNTIME
-    DESCRIPTION "System-config-printer Dbus interfaces"
-    PURPOSE "Features for grouping devices and recommending drivers"
-    URL "https://github.com/OpenPrinting/system-config-printer/tree/master/dbus"
+find_package(PackageKitQt6)
+set_package_properties(PackageKitQt6
+    PROPERTIES DESCRIPTION "Software Manager integration"
+    TYPE OPTIONAL
+    PURPOSE "Needed to automatically install the system-config-printer package."
 )
+
+find_package(Cups "2.4" REQUIRED)
 
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES
@@ -74,6 +73,17 @@ set_package_properties(CupsSmb PROPERTIES
     PURPOSE "Required for CUPS to be able to print to printers shared over SMB"
     URL "https://samba.org"
 )
+
+option(SCP_INSTALL "Offer to install System-config-printer with PackageKit if it is not already installed, use -DSCP_INSTALL=off to disable, use -DSCP_PACKAGE_NAME= to set package name." ON)
+set(SCP_PACKAGE_NAME \"system-config-printer\" CACHE STRING "Single package or comma-separated list of packages needed for a functional System-config-printer on this distribution.")
+
+if(SCP_INSTALL AND PackageKitQt6_FOUND)
+    add_definitions(-DSCP_INSTALL)
+    add_definitions(-DSCP_PACKAGE_NAME=${SCP_PACKAGE_NAME})
+else()
+    set(SCP_INSTALL false)
+endif()
+add_feature_info("System-config-printer Installation" SCP_INSTALL "Automatic installation of '${SCP_PACKAGE_NAME}' using PackageKit.")
 
 add_definitions(
     -DQT_DISABLE_DEPRECATED_BEFORE=0x050900

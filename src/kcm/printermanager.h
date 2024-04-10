@@ -24,6 +24,9 @@ class PrinterManager : public KQuickConfigModule
 {
     Q_OBJECT
 
+    Q_PROPERTY(QString osName READ osName CONSTANT FINAL)
+    Q_PROPERTY(QString osBugReportUrl READ osBugReportUrl CONSTANT FINAL)
+
     Q_PROPERTY(QVariantList remotePrinters READ remotePrinters NOTIFY remotePrintersLoaded)
 
     Q_PROPERTY(QVariantList recommendedDrivers READ recommendedDrivers NOTIFY recommendedDriversLoaded)
@@ -56,6 +59,10 @@ public:
     Q_INVOKABLE void pausePrinter(const QString &name);
     Q_INVOKABLE void resumePrinter(const QString &name);
     Q_INVOKABLE static bool isIPPCapable(const QString &uri);
+    Q_INVOKABLE static bool isSCPAvailable();
+
+    QString osName() const;
+    QString osBugReportUrl() const;
 
     bool shareConnectedPrinters() const;
     bool allowPrintingFromInternet() const;
@@ -89,11 +96,14 @@ private:
     QVariantList recommendedDrivers() const;
     QVariantMap serverSettings() const;
     bool serverSettingsLoaded() const;
+    void initOSRelease();
 
     QVariantMap m_serverSettings;
     bool m_serverSettingsLoaded = false;
     QVariantList m_remotePrinters;
     QVariantList m_recommendedDrivers;
+    QString m_osName;
+    QString m_osBugReportUrl;
 };
 
 #endif

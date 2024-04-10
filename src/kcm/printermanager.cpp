@@ -8,13 +8,19 @@
 #include "printermanager.h"
 #include "pmkcm_log.h"
 
+#ifdef SCP_INSTALL
+#include "scpinstaller.h"
+#endif
+
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDBusMetaType>
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 #include <QStringDecoder>
 
 #include <KLocalizedString>
+#include <KOSRelease>
 
 #include <KCupsRequest.h>
 #include <PPDModel.h>
@@ -49,6 +55,7 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
                         {QLatin1String(CUPS_SERVER_REMOTE_ADMIN), false}})
 {
     setButtons(KQuickConfigModule::NoAdditionalButton);
+    initOSRelease();
 
     // Make sure we update our server settings if the user changes anything on
     // another interface
@@ -78,6 +85,27 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
+
+#ifdef SCP_INSTALL
+    qmlRegisterType<SCPInstaller>("org.kde.plasma.printmanager", 1, 0, "SCPInstaller");
+#endif
+}
+
+void PrinterManager::initOSRelease()
+{
+    KOSRelease os;
+    m_osName = os.name();
+    m_osBugReportUrl = os.bugReportUrl();
+}
+
+QString PrinterManager::osName() const
+{
+    return m_osName;
+}
+
+QString PrinterManager::osBugReportUrl() const
+{
+    return m_osBugReportUrl;
 }
 
 void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriScheme)
@@ -150,6 +178,14 @@ void PrinterManager::clearRemotePrinters()
 void PrinterManager::clearRecommendedDrivers()
 {
     m_recommendedDrivers.clear();
+}
+
+bool PrinterManager::isSCPAvailable()
+{
+    // The service is activatable, so check the list
+    const auto conn = QDBusConnection::sessionBus().interface();
+    const auto list = conn->activatableServiceNames();
+    return list.value().contains("org.fedoraproject.Config.Printing"_L1);
 }
 
 void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass)

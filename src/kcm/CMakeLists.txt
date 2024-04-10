@@ -14,7 +14,13 @@ ecm_qt_declare_logging_category(kcm_printer_manager
 target_link_libraries(kcm_printer_manager PRIVATE
     Qt6::DBus
     Qt6::Qml
+    KF6::CoreAddons
     KF6::KCMUtilsQuick
     KF6::I18n
     kcupslib
 )
+
+if(SCP_INSTALL)
+    target_sources(kcm_printer_manager PRIVATE scpinstaller.cpp)
+    target_link_libraries(kcm_printer_manager PRIVATE PK::packagekitqt6)
+endif()

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 02:43+0000\n"
+"POT-Creation-Date: 2024-04-10 02:47+0000\n"
 "PO-Revision-Date: 2024-04-06 14:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -508,67 +508,67 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Yazdırma işleri kabul ediliyor"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Sınama Sayfası Yazdır"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:456
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Kendini Sınama Sayfası Yazdır"
 
-#: ui/PrinterSettings.qml:445
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Yazdırma Kafalarını Temizle"
 
-#: ui/PrinterSettings.qml:465
+#: ui/PrinterSettings.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Bir Yazıcı Bul…"
 
-#: ui/PrinterSettings.qml:473
+#: ui/PrinterSettings.qml:491
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Kuyruk adı:"
 
-#: ui/PrinterSettings.qml:486
+#: ui/PrinterSettings.qml:504
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Açıklama:"
 
-#: ui/PrinterSettings.qml:498
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Konum:"
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:528
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Bağlantı:"
 
-#: ui/PrinterSettings.qml:524
+#: ui/PrinterSettings.qml:542
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Üye yazıcılar:"
 
-#: ui/PrinterSettings.qml:655
+#: ui/PrinterSettings.qml:673
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Yapım/Model:"
 
-#: ui/PrinterSettings.qml:670
+#: ui/PrinterSettings.qml:688
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

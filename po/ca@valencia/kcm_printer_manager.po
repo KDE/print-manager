@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 02:43+0000\n"
+"POT-Creation-Date: 2024-04-10 02:47+0000\n"
 "PO-Revision-Date: 2024-04-05 10:02+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -517,67 +517,67 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Accepta treballs d'impressió"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Imprimix una pàgina de prova"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:456
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Imprimix una pàgina d'autocomprovació"
 
-#: ui/PrinterSettings.qml:445
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Neteja els capçals d'impressió"
 
-#: ui/PrinterSettings.qml:465
+#: ui/PrinterSettings.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Busca una impressora…"
 
-#: ui/PrinterSettings.qml:473
+#: ui/PrinterSettings.qml:491
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Nom de cua:"
 
-#: ui/PrinterSettings.qml:486
+#: ui/PrinterSettings.qml:504
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Descripció:"
 
-#: ui/PrinterSettings.qml:498
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Ubicació:"
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:528
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Connexió:"
 
-#: ui/PrinterSettings.qml:524
+#: ui/PrinterSettings.qml:542
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Impressores del grup:"
 
-#: ui/PrinterSettings.qml:655
+#: ui/PrinterSettings.qml:673
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Fabricant i model:"
 
-#: ui/PrinterSettings.qml:670
+#: ui/PrinterSettings.qml:688
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

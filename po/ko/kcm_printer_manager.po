@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-05 02:43+0000\n"
+"POT-Creation-Date: 2024-04-10 02:47+0000\n"
 "PO-Revision-Date: 2024-02-06 00:24+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -506,67 +506,67 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "인쇄 작업 수락 중"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "테스트 페이지 인쇄"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:456
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: ui/PrinterSettings.qml:445
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"
 
-#: ui/PrinterSettings.qml:465
+#: ui/PrinterSettings.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "프린터 찾기…"
 
-#: ui/PrinterSettings.qml:473
+#: ui/PrinterSettings.qml:491
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "대기열 이름:"
 
-#: ui/PrinterSettings.qml:486
+#: ui/PrinterSettings.qml:504
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "설명:"
 
-#: ui/PrinterSettings.qml:498
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "위치:"
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:528
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "연결:"
 
-#: ui/PrinterSettings.qml:524
+#: ui/PrinterSettings.qml:542
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "구성 프린터:"
 
-#: ui/PrinterSettings.qml:655
+#: ui/PrinterSettings.qml:673
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "제조사/모델:"
 
-#: ui/PrinterSettings.qml:670
+#: ui/PrinterSettings.qml:688
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

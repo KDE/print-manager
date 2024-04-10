@@ -146,22 +146,19 @@ KCM.AbstractKCM {
         id: kcmConn
         target: kcm
 
-        property int saveCount
+        property bool removing: false
 
         function onRequestError(errorMessage) {
-            error.text = errorMessage
+            if (removing) {
+                removing = false
+                error.text = i18n("Failed to remove the printer: %1", errorMessage)
+            } else {
+                error.text = errorMessage
+            }
             error.visible = true
             config.clear()
         }
 
-        function onRemoveDone() {
-            // check for successful remove
-            if (saveCount < printerModel.rowCount()) {
-                kcm.pop()
-            } else {
-                error.text = i18n("Failed to remove the printer: %1", error.text)
-            }
-        }
     }
 
     Loader {
@@ -188,8 +185,7 @@ KCM.AbstractKCM {
                     text: prompt.title
                     icon.name: "edit-delete-remove-symbolic"
                     onTriggered: {
-                        // save the current count to verify successful remove
-                        kcmConn.saveCount = printerModel.rowCount()
+                        kcmConn.removing = true
                         kcm.removePrinter(modelData.printerName)
                         close()
                     }

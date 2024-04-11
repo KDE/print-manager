@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 19:26\n"
+"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"PO-Revision-Date: 2024-04-10 19:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -77,7 +77,7 @@ msgstr "地址："
 #, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr ""
+msgstr "输入设备地址"
 
 #: ui/components/Direct.qml:22
 #, kde-format
@@ -147,18 +147,18 @@ msgstr "此功能尚未完成开发 (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "AppSocket 协议 (也被称作 JetDirect)"
 
 #: ui/components/Socket.qml:18
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr ""
+msgstr "输入 AppSocket 设备的地址"
 
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "无效的 Socket URL：%1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -469,122 +469,122 @@ msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/型号"
 
-#: ui/PrinterSettings.qml:162
+#: ui/PrinterSettings.qml:154
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "移除打印机失败：%1"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Group"
 msgstr "移除打印机组"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Printer"
 msgstr "移除打印机"
 
-#: ui/PrinterSettings.qml:181
+#: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "您确定要删除：%1 (%2) 吗？"
 
-#: ui/PrinterSettings.qml:198
+#: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: ui/PrinterSettings.qml:344
+#: ui/PrinterSettings.qml:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
 msgstr "<b>打印机组</b> 用于对打印资源进行集中管理。"
 
-#: ui/PrinterSettings.qml:386
+#: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "默认打印机"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "共享此打印机组"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:390
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "共享此打印机"
 
-#: ui/PrinterSettings.qml:401
+#: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "正在接受打印任务"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "打印测试页"
 
-#: ui/PrinterSettings.qml:456
+#: ui/PrinterSettings.qml:452
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:459
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
 
-#: ui/PrinterSettings.qml:483
+#: ui/PrinterSettings.qml:479
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "搜索打印机…"
 
-#: ui/PrinterSettings.qml:491
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "队列名称："
 
-#: ui/PrinterSettings.qml:504
+#: ui/PrinterSettings.qml:500
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "描述："
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:512
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "位置："
 
-#: ui/PrinterSettings.qml:528
+#: ui/PrinterSettings.qml:524
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "连接："
 
-#: ui/PrinterSettings.qml:542
+#: ui/PrinterSettings.qml:538
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "成员打印机："
 
-#: ui/PrinterSettings.qml:673
+#: ui/PrinterSettings.qml:669
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "制造商/型号："
 
-#: ui/PrinterSettings.qml:688
+#: ui/PrinterSettings.qml:684
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

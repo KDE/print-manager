@@ -12,23 +12,20 @@ ColumnLayout {
     id: root
     spacing: Kirigami.Units.largeSpacing
 
-    Layout.fillWidth: true
-    Layout.fillHeight: true
-
     readonly property alias busy: kcmConn.loading
 
     // one of the recommended drivers was selected
-    signal selected(var driver)
-    // signal that no recommended drivers found, try fallback (manual)
-    signal driverFallback()
+    function selected(driverMap) {
+        settings.set(driverMap)
+        setValues(settings.pending)
+        close()
+    }
 
     function load(devid, makeModel, uri) {
         kcmConn.loading = true
         kcm.clearRecommendedDrivers()
         kcm.getRecommendedDrivers(devid, makeModel, uri)
     }
-
-    Component.onDestruction: kcm.clearRecommendedDrivers()
 
     // Fallback msg with the option to select the driver manually
     Kirigami.InlineMessage {
@@ -42,7 +39,7 @@ ColumnLayout {
             Kirigami.Action {
                 icon.name: "document-edit-symbolic"
                 text: i18nc("@action:button", "Choose Driver…")
-                onTriggered: root.driverFallback()
+                onTriggered: manualDriverSelect()
             }
         ]
     }
@@ -59,11 +56,6 @@ ColumnLayout {
             if (recmlist.count === 0) {
                 // If no drivers found, show fallback msg
                 fallbackMsg.visible = true
-            } else {
-                let found = kcm.recommendedDrivers.findIndex(d => {return d.match === "exact"})
-                if (found >= 0) {
-                    recmlist.itemAtIndex(found).clicked()
-                }
             }
         }
     }
@@ -81,9 +73,8 @@ ColumnLayout {
         visible: recmlist.count > 0
         icon.name: "dialog-ok-symbolic"
         text: i18nc("@action:button", "Select Recommended Driver")
-        onClicked: {
-            root.selected(kcm.recommendedDrivers[recmlist.currentIndex])
-        }
+
+        onClicked: selected(kcm.recommendedDrivers[recmlist.currentIndex])
 
         QQC2.ToolTip {
             text: i18nc("@info:tooltip", "Recommended drivers are based on printer make/model and connection type")

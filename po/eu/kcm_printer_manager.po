@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 02:47+0000\n"
+"POT-Creation-Date: 2024-04-11 02:45+0000\n"
 "PO-Revision-Date: 2024-04-05 08:02+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -462,32 +462,32 @@ msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr ""
 "Marka/eredua beharrezkoa da. Aukeratu \"Aukeratu\" marka/eredua hautatzeko"
 
-#: ui/PrinterSettings.qml:162
+#: ui/PrinterSettings.qml:154
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Inprimagailua kentzea huts egin du: %1"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Group"
 msgstr "Kendu taldea"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Printer"
 msgstr "Kendu inprimagailua"
 
-#: ui/PrinterSettings.qml:181
+#: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "Ziur zaude benetan kendu nahi duzula: %1 (%2)?"
 
-#: ui/PrinterSettings.qml:198
+#: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Cancel"
 msgstr "Utzi"
 
-#: ui/PrinterSettings.qml:344
+#: ui/PrinterSettings.qml:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
@@ -495,91 +495,91 @@ msgstr ""
 "<b>Inprimagailu talde</b> bat erabiltzen da inprimatzeko baliabideak "
 "biltzeko."
 
-#: ui/PrinterSettings.qml:386
+#: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Inprimagailu lehenetsia"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Partekatu talde hau"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:390
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Partekatu inprimagailu hau"
 
-#: ui/PrinterSettings.qml:401
+#: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Inprimatze lanak onartzea"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Inprimatu probako orrialdea"
 
-#: ui/PrinterSettings.qml:456
+#: ui/PrinterSettings.qml:452
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Inprimatu autoprobako orrialdea"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:459
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Garbitu inprimatzeko buruak"
 
-#: ui/PrinterSettings.qml:483
+#: ui/PrinterSettings.qml:479
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Aurkitu inprimagailua bat..."
 
-#: ui/PrinterSettings.qml:491
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Ilararen izena:"
 
-#: ui/PrinterSettings.qml:504
+#: ui/PrinterSettings.qml:500
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Deskribapena:"
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:512
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Kokalekua:"
 
-#: ui/PrinterSettings.qml:528
+#: ui/PrinterSettings.qml:524
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Konexioa:"
 
-#: ui/PrinterSettings.qml:542
+#: ui/PrinterSettings.qml:538
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Kide inprimagailuak:"
 
-#: ui/PrinterSettings.qml:673
+#: ui/PrinterSettings.qml:669
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Marka/eredua:"
 
-#: ui/PrinterSettings.qml:688
+#: ui/PrinterSettings.qml:684
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

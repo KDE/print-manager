@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 02:47+0000\n"
-"PO-Revision-Date: 2024-03-28 04:58+0100\n"
+"POT-Creation-Date: 2024-04-11 02:45+0000\n"
+"PO-Revision-Date: 2024-04-11 04:06+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -140,30 +140,27 @@ msgid "Enter the address of the remote host/device"
 msgstr "შეიყვანეთ დაშორებული ჰოსტის/მოწყობილობის მისამართი"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "აირჩიეთ პრინტერი"
+msgstr "აირჩიეთ პრინტერი…"
 
 #: ui/FindPrinter.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "გაგრძელება მისამართით…"
 
 #: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "მისამართი:"
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "შეიყვანეთ ჰოსტის URI"
+msgstr "შეიყვანეთ ჰოსტის მისამართი"
 
 #: ui/FindPrinter.qml:364
 #, kde-format
@@ -462,123 +459,123 @@ msgstr ""
 "მწარმოებლის/მოდელის მითითება აუცილებელია.  მათი ხელის მისათითებლად \"არჩევა"
 "\" მონიშნეთ"
 
-#: ui/PrinterSettings.qml:162
+#: ui/PrinterSettings.qml:154
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "პრინტერის წაშლა ჩავარდა: %1"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Group"
 msgstr "ჯგუფის წაშლა"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Printer"
 msgstr "პრინტერის წაშლა"
 
-#: ui/PrinterSettings.qml:181
+#: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, წაშალოთ:  %1 (%2)?"
 
-#: ui/PrinterSettings.qml:198
+#: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: ui/PrinterSettings.qml:344
+#: ui/PrinterSettings.qml:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
 msgstr ""
 "ბეჭდვის რესურსების რიგში ჩასაყენებლად <b>პრინტერების ჯგუფი</b> გამოიყენება."
 
-#: ui/PrinterSettings.qml:386
+#: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "ნაგულისხმები პრინტერი"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "ამ ჯგუფის გაზიარება"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:390
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "პრინტერის გაზიარება"
 
-#: ui/PrinterSettings.qml:401
+#: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "იღებს ბეჭდვის დავალებებს"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "სატესტო გვერდის დაბეჭდვა"
 
-#: ui/PrinterSettings.qml:456
+#: ui/PrinterSettings.qml:452
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "შიდა სატესტო გვერდი"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:459
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "თავაკების გაწმენდა"
 
-#: ui/PrinterSettings.qml:483
+#: ui/PrinterSettings.qml:479
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "პრინტერის პოვნა…"
 
-#: ui/PrinterSettings.qml:491
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "რიგის სახელი:"
 
-#: ui/PrinterSettings.qml:504
+#: ui/PrinterSettings.qml:500
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "აღწერა:"
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:512
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "მდებარეობა:"
 
-#: ui/PrinterSettings.qml:528
+#: ui/PrinterSettings.qml:524
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "შეერთება:"
 
-#: ui/PrinterSettings.qml:542
+#: ui/PrinterSettings.qml:538
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "წევრი პრინტერები:"
 
-#: ui/PrinterSettings.qml:673
+#: ui/PrinterSettings.qml:669
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "მწარმოებელი და მოდელი:"
 
-#: ui/PrinterSettings.qml:688
+#: ui/PrinterSettings.qml:684
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

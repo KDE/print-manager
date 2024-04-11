@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 02:43+0000\n"
-"PO-Revision-Date: 2023-11-09 02:50+0100\n"
+"PO-Revision-Date: 2024-04-11 04:06+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -724,12 +724,10 @@ msgid "'%1' is ready for printing."
 msgstr "'%1' საბეჭდად მზადაა."
 
 #: src/libkcups/DevicesModel.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "URI-ის ხელით მითითება"
+msgstr "ხელით მორგება"
 
 #: src/libkcups/DevicesModel.cpp:60
 #, kde-format

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-10 02:47+0000\n"
+"POT-Creation-Date: 2024-04-11 02:45+0000\n"
 "PO-Revision-Date: 2024-04-06 10:56+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -471,32 +471,32 @@ msgstr ""
 "Un fabricant / modèle est requis. Veuillez utiliser « Sélectionner » pour "
 "définir un fabricant / modèle."
 
-#: ui/PrinterSettings.qml:162
+#: ui/PrinterSettings.qml:154
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Suppression de l'imprimante impossible : %1"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Group"
 msgstr "Supprimer un groupe"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Printer"
 msgstr "Supprimer une imprimante"
 
-#: ui/PrinterSettings.qml:181
+#: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "Voulez-vous vraiment supprimer : %1 (%2) ?"
 
-#: ui/PrinterSettings.qml:198
+#: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ui/PrinterSettings.qml:344
+#: ui/PrinterSettings.qml:340
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
@@ -504,91 +504,91 @@ msgstr ""
 "Un <b>groupe d'imprimantes</b> est utilisé pour mettre en commun des "
 "ressources d'impression."
 
-#: ui/PrinterSettings.qml:386
+#: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Imprimante par défaut"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Partager ce groupe"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:390
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Partager cette imprimante"
 
-#: ui/PrinterSettings.qml:401
+#: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Accepter les tâches d’impression"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Imprimer une page de test"
 
-#: ui/PrinterSettings.qml:456
+#: ui/PrinterSettings.qml:452
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Imprimer une page d'auto-test"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:459
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Nettoyer les têtes d'impression"
 
-#: ui/PrinterSettings.qml:483
+#: ui/PrinterSettings.qml:479
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Rechercher une imprimante..."
 
-#: ui/PrinterSettings.qml:491
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Nom de la file d'impression :"
 
-#: ui/PrinterSettings.qml:504
+#: ui/PrinterSettings.qml:500
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Description :"
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:512
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Emplacement :"
 
-#: ui/PrinterSettings.qml:528
+#: ui/PrinterSettings.qml:524
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Connexion :"
 
-#: ui/PrinterSettings.qml:542
+#: ui/PrinterSettings.qml:538
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Imprimantes membres :"
 
-#: ui/PrinterSettings.qml:673
+#: ui/PrinterSettings.qml:669
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Fabricant / Modèle :"
 
-#: ui/PrinterSettings.qml:688
+#: ui/PrinterSettings.qml:684
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

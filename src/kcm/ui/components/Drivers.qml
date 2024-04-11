@@ -7,23 +7,28 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.plasma.printmanager as PM
 
 ColumnLayout {
     id: root
     spacing: Kirigami.Units.largeSpacing
 
+    readonly property bool ippCapable: kcm.isIPPCapable(settings.value("device-uri"))
     readonly property alias busy: kcmConn.loading
 
     // one of the recommended drivers was selected
-    function selected(driverMap) {
+    function selectDriver(driverMap) {
         settings.set(driverMap)
         setValues(settings.pending)
         close()
     }
 
     function load(devid, makeModel, uri) {
+        if (busy) {
+            return
+        }
+
         kcmConn.loading = true
-        kcm.clearRecommendedDrivers()
         kcm.getRecommendedDrivers(devid, makeModel, uri)
     }
 
@@ -36,6 +41,12 @@ ColumnLayout {
         Layout.fillWidth: true
 
         actions: [
+            Kirigami.Action {
+                icon.name: "favorites-symbolic"
+                visible: ippCapable
+                text: i18nc("@action:button", "Choose Driverless…")
+                onTriggered: selectDriver({"ppd-name": "everywhere", "ppd-type": PM.PPDType.Auto})
+            },
             Kirigami.Action {
                 icon.name: "document-edit-symbolic"
                 text: i18nc("@action:button", "Choose Driver…")
@@ -51,10 +62,10 @@ ColumnLayout {
         property bool loading: false
 
         function onRecommendedDriversLoaded() {
-            kcmConn.loading = false
+            loading = false
 
-            if (recmlist.count === 0) {
-                // If no drivers found, show fallback msg
+            // For whatever reason, we failed to get recommended drivers
+            if (kcm.recommendedDrivers.length === 0) {
                 fallbackMsg.visible = true
             }
         }
@@ -70,11 +81,12 @@ ColumnLayout {
     QQC2.Button {
         id: recmAction
         Layout.alignment: Qt.AlignHCenter
-        visible: recmlist.count > 0
+        visible: !fallbackMsg.visible
+        enabled: !busy
         icon.name: "dialog-ok-symbolic"
         text: i18nc("@action:button", "Select Recommended Driver")
 
-        onClicked: selected(kcm.recommendedDrivers[recmlist.currentIndex])
+        onClicked: selectDriver(kcm.recommendedDrivers[recmlist.currentIndex])
 
         QQC2.ToolTip {
             text: i18nc("@info:tooltip", "Recommended drivers are based on printer make/model and connection type")
@@ -85,6 +97,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
         Layout.fillWidth: true
         Layout.fillHeight: true
+        visible: !fallbackMsg.visible
 
         contentItem: ListView {
             id: recmlist
@@ -104,11 +117,29 @@ ColumnLayout {
 
             delegate: Kirigami.SubtitleDelegate {
                 width: ListView.view.width
-                text: modelData["ppd-name"]
-                subtitle: modelData.match
-                icon.name: modelData.match.startsWith("exact")
-                           ? "favorites-symbolic"
-                           : "dialog-question-symbolic"
+
+                text: {
+                    const ppdname = modelData["ppd-name"]
+                    if (ppdname.includes("driverless")) {
+                        return i18nc("@label:listitem", "Driverless (%1)", modelData.match)
+                    } else if (ppdname.includes("ppd")) {
+                        return i18nc("@label:listitem", "PPD File (%1)", modelData.match)
+                    } else {
+                        return modelData.match
+                    }
+                }
+                subtitle: modelData["ppd-name"]
+                icon.name: {
+                    if (ippCapable) {
+                        return modelData["ppd-name"].startsWith("driverless")
+                               ? "favorites-symbolic"
+                               : "dialog-question-symbolic"
+                    } else {
+                        return modelData.match.startsWith("exact")
+                               ? "favorites-symbolic"
+                               : "dialog-question-symbolic"
+                    }
+                }
 
                 highlighted: index === ListView.view.currentIndex
                 onClicked: ListView.view.currentIndex = index

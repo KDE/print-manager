@@ -55,6 +55,7 @@ public:
 
     Q_INVOKABLE void pausePrinter(const QString &name);
     Q_INVOKABLE void resumePrinter(const QString &name);
+    Q_INVOKABLE static bool isIPPCapable(const QString &uri);
 
     bool shareConnectedPrinters() const;
     bool allowPrintingFromInternet() const;

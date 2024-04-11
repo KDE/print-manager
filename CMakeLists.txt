@@ -59,6 +59,14 @@ set_package_properties(KF6Kirigami PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
+find_package(SCPDbus "1.5" REQUIRED)
+set_package_properties(SCPDbus PROPERTIES
+    TYPE RUNTIME
+    DESCRIPTION "System-config-printer Dbus interfaces"
+    PURPOSE "Features for grouping devices and recommending drivers"
+    URL "https://github.com/OpenPrinting/system-config-printer/tree/master/dbus"
+)
+
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES
     TYPE RUNTIME

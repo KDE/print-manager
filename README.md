@@ -6,9 +6,9 @@ Print Manager is a small, relatively self-contained set of components integrated
 ## Components
 
 * Set of legacy stand-alone apps:
-  * kde-add-printer (for adding printers and printer groups)
-  * configure-printer (for configuring current printers and printer groups)
-  * kde-print-queue (for managing printer job queues)
+  * `kde-add-printer` (for adding printers and printer groups)
+  * `configure-printer` (for configuring current printers and printer groups)
+  * `kde-print-queue` (for managing printer job queues)
 
 * System tray plasmoid that provides quick access to printers and print job status
 
@@ -27,26 +27,30 @@ The legacy apps, the KDed module and the KCM make use of the interfaces provided
 * Device discovery and grouping
 * Recommended driver discovery
 
-While not required it is recommended that this component is installed for print-manager to provide the best results.
+Print Manager requires that the system-config-printer-dbus-service package is installed.  It may be that some platforms/distributions will need to install the complete system-config-printer package if system-config-printer-dbus-service is not packaged separately.
+
+Another useful external package (not required) is [IPP-USB](https://github.com/OpenPrinting/ipp-usb).  IPP-USB is a mechanism that allows USB connected printers to be discovered and configured with IPP Driverless tools.  USB printers that support IPP but for whatever reason, do not support a network interface can usually be configured using IPP-USB.
+
+Of note, if a printer is not discovered on the network or with a USB connection and it does not support IPP, then the printer will have to be configured manually with Print Manager.
 
 
 ## General
 
 For Plasma6, the KCM will provide the primary means to add/configure printers and printer groups.  In addition, some of the basic CUPS print server options can be configured.  There are some limitations to KCM add-printer features that mirror the legacy apps:
 
-* No support for Windows printers using samba
-* No support for auto print queue identification for older connection schemes (LPD/SOCKET)
+* Limited support for Windows printers using samba
+* Limited support for auto print queue identification for older connection schemes (LPD/SOCKET)
 
-While the add-printer app is available, the KCM is the primary means to add printers and printer groups and provides no direct access to the add-printer app.
+While the legacy `kde-add-printer` app is available, the KCM is the primary means to add printers and printer groups and provides no direct access to the add-printer app.
 
-The KCM is also missing the following features that are present in the configure-printer app:
+The KCM also depends on the following features that are present in the legacy `configure-printer` app:
 
 * Media settings (paper size, mode, type, quality, etc)
 * Banners, Policies and Allowed Users
   
-These features are available via the configure-printer app, accessed from the KCM and the plasmoid as a configure option.  In a future release, these features will be integrated with the KCM.
+These features are available via the `configure-printer` app, accessed from the KCM and the plasmoid as a configure action.  In a future release, these features will be integrated with the KCM.
 
-The kde-print-queue legacy app is provided as the primary means to manage established print job queues.  It remains directly accessible from both the KCM and the plasmoid.
+The legacy `kde-print-queue` app is provided as the primary means to manage configured printer job queues.  It remains directly accessible from both the KCM and the plasmoid.
 
 
 ## Building

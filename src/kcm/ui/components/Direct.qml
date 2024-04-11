@@ -17,77 +17,75 @@ import org.kde.kirigami as Kirigami
  * (system-config-printer)
 */
 BaseDevice {
+    id: root
     title: settings.value("printer-make-and-model")
     subtitle: settings.value("device-desc")
     helpText: i18nc("@info:usagetip", "Choose a device connection")
     showUri: false
 
-    Component.onCompleted: {
-        // Device connection discovery failed or system-config-printer is
-        // not installed. Force driver.load, which will expose the
-        // manual make/model (driver) selection
-        if (directlist.count === 0) {
-            helpText = ""
-            drivers.load()
-        }
-    }
+    contentItem: ColumnLayout {
+        width: root.width
+        spacing: Kirigami.Units.largeSpacing
 
-    // Connection list
-    QQC2.ScrollView {
-        Layout.alignment: Qt.AlignHCenter
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-
-        contentItem: ListView {
-            id: directlist
-
-            activeFocusOnTab: true
-            keyNavigationWraps: true
-
-            KeyNavigation.backtab: root.parent
-            Keys.onUpPressed: event => {
-                if (currentIndex === 0) {
-                    currentIndex = -1;
-                }
-                event.accepted = false;
+        Component.onCompleted: {
+            // Device connection discovery failed or system-config-printer is
+            // not installed. Force driver.load, which will expose the
+            // manual make/model (driver) selection
+            if (directlist.count === 0) {
+                helpText = ""
+                drivers.load()
             }
+        }
 
-            model: settings.value("device-uris")
+        // Connection list
+        QQC2.ScrollView {
+            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
+            Layout.fillHeight: true
 
-            delegate: QQC2.ItemDelegate {
-                width: ListView.view.width
-                text: devices.uriDevice(modelData)
-                icon.name: "standard-connector-symbolic"
-                highlighted: ListView.view.currentIndex === index
+            contentItem: ListView {
+                id: directlist
 
-                Component.onCompleted:  {
-                    if (index === 0) {
-                        clicked()
+                activeFocusOnTab: true
+                keyNavigationWraps: true
+
+                KeyNavigation.backtab: root.parent
+                Keys.onUpPressed: event => {
+                    if (currentIndex === 0) {
+                        currentIndex = -1;
+                    }
+                    event.accepted = false;
+                }
+
+                model: settings.value("device-uris")
+
+                delegate: QQC2.ItemDelegate {
+                    width: ListView.view.width
+                    text: devices.uriDevice(modelData)
+                    icon.name: "standard-connector-symbolic"
+                    highlighted: ListView.view.currentIndex === index
+
+                    Component.onCompleted:  {
+                        if (index === 0) {
+                            clicked()
+                        }
+                    }
+
+                    onClicked: {
+                        ListView.view.currentIndex = index
+                        settings.add("device-uri", modelData)
+                        drivers.load(settings.value("device-id")
+                                      , settings.value("printer-make-and-model")
+                                      , modelData)
                     }
                 }
-
-                onClicked: {
-                    ListView.view.currentIndex = index
-                    settings.add("device-uri", modelData)
-                    drivers.load(settings.value("device-id")
-                                  , settings.value("printer-make-and-model")
-                                  , modelData)
-                }
             }
         }
-    }
 
-    // Recommended Driver list
-    Drivers {
-        id: drivers
-
-        onSelected: driverMap => {
-            settings.set(driverMap)
-            root.setValues(settings.pending)
-            close()
+        // Recommended Driver list
+        Drivers {
+            id: drivers
         }
-
-        onDriverFallback: manualDriverSelect()
     }
 }
 

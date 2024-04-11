@@ -13,26 +13,20 @@ import QtQuick
  * (system-config-printer)
 */
 BaseDevice {
+    id: root
     title: settings.value("printer-make-and-model")
     subtitle: settings.value("device-desc")
     showUri: false
 
-    Component.onCompleted: {
-        drivers.load(settings.value("device-id")
-                      , settings.value("printer-make-and-model")
-                      , settings.value("device-uri"))
-    }
 
     // Recommended Driver list
-    Drivers {
-        id: drivers
+    contentItem: Drivers {
+        width: root.width
 
-        onSelected: driverMap => {
-            settings.set(driverMap)
-            root.setValues(settings.pending)
-            close()
+        Component.onCompleted: {
+            load(settings.value("device-id")
+                          , settings.value("printer-make-and-model")
+                          , settings.value("device-uri"))
         }
-
-        onDriverFallback: manualDriverSelect()
     }
 }

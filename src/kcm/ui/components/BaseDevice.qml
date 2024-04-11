@@ -121,10 +121,6 @@ ColumnLayout {
             placeholderText: i18nc("@info The printer/device address", "Enter device address")
 
             KeyNavigation.left: root.parent
-            KeyNavigation.right: list
-
-            KeyNavigation.down: list
-
             KeyNavigation.backtab: KeyNavigation.left
             KeyNavigation.tab: KeyNavigation.right
 

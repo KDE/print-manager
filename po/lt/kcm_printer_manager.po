@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2024-04-08 19:59+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -82,13 +82,13 @@ msgctxt "@info The printer/device address"
 msgid "Enter device address"
 msgstr "Įvesti mazgo adresą"
 
-#: ui/components/Direct.qml:22
+#: ui/components/Direct.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Pasirinkite įrenginio sujungimą"
 
-#: ui/components/Drivers.qml:37
+#: ui/components/Drivers.qml:34
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -99,19 +99,19 @@ msgstr ""
 "<interface>Įkelti iš naujo</interface> norėdami bandyti dar kartą arba "
 "pasirinkite tvarkyklę rankiniu būdu."
 
-#: ui/components/Drivers.qml:44
+#: ui/components/Drivers.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "Pasirinkti tvarkyklę…"
 
-#: ui/components/Drivers.qml:83
+#: ui/components/Drivers.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Pasirinkti rekomenduojamą tvarkyklę"
 
-#: ui/components/Drivers.qml:89
+#: ui/components/Drivers.qml:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"

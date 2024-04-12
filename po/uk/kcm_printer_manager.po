@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2024-04-09 15:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -80,13 +80,13 @@ msgctxt "@info The printer/device address"
 msgid "Enter device address"
 msgstr "Введіть адресу пристрою"
 
-#: ui/components/Direct.qml:22
+#: ui/components/Direct.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Виберіть з'єднання із пристроєм"
 
-#: ui/components/Drivers.qml:37
+#: ui/components/Drivers.qml:34
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -97,19 +97,19 @@ msgstr ""
 "<interface>Оновити</interface>, щоб повторити спробу або вибрати драйвер "
 "вручну."
 
-#: ui/components/Drivers.qml:44
+#: ui/components/Drivers.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "Вибрати драйвер…"
 
-#: ui/components/Drivers.qml:83
+#: ui/components/Drivers.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Вибрати рекомендований драйвер"
 
-#: ui/components/Drivers.qml:89
+#: ui/components/Drivers.qml:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"

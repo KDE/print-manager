@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2022-09-27 17:15+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -80,13 +80,13 @@ msgctxt "@info The printer/device address"
 msgid "Enter device address"
 msgstr ""
 
-#: ui/components/Direct.qml:22
+#: ui/components/Direct.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr ""
 
-#: ui/components/Drivers.qml:37
+#: ui/components/Drivers.qml:34
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -94,19 +94,19 @@ msgid ""
 "to try again or choose a driver manually."
 msgstr ""
 
-#: ui/components/Drivers.qml:44
+#: ui/components/Drivers.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr ""
 
-#: ui/components/Drivers.qml:83
+#: ui/components/Drivers.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr ""
 
-#: ui/components/Drivers.qml:89
+#: ui/components/Drivers.qml:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2024-04-10 19:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -79,13 +79,13 @@ msgctxt "@info The printer/device address"
 msgid "Enter device address"
 msgstr "输入设备地址"
 
-#: ui/components/Direct.qml:22
+#: ui/components/Direct.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "选择设备连接"
 
-#: ui/components/Drivers.qml:37
+#: ui/components/Drivers.qml:34
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -95,19 +95,19 @@ msgstr ""
 "无法定位推荐的驱动程序。请点击<interface>刷新</interface>重试，或者手动选择一"
 "个驱动程序。"
 
-#: ui/components/Drivers.qml:44
+#: ui/components/Drivers.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "选择驱动程序…"
 
-#: ui/components/Drivers.qml:83
+#: ui/components/Drivers.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "选择推荐的驱动程序"
 
-#: ui/components/Drivers.qml:89
+#: ui/components/Drivers.qml:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"

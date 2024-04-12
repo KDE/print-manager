@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-11 00:39+0000\n"
+"POT-Creation-Date: 2024-04-12 00:39+0000\n"
 "PO-Revision-Date: 2024-04-09 07:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -80,13 +80,13 @@ msgctxt "@info The printer/device address"
 msgid "Enter device address"
 msgstr "შეიყვანეთ მოწყობილობის მისამართი"
 
-#: ui/components/Direct.qml:22
+#: ui/components/Direct.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "აირჩიეთ მოწყობილობასთან მიერთება"
 
-#: ui/components/Drivers.qml:37
+#: ui/components/Drivers.qml:34
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -97,19 +97,19 @@ msgstr ""
 "<interface>განახლებაზე</interface>, რომ ძებნა ისევ სცადოთ, ან დრაივერი ხელით "
 "დააყენოთ."
 
-#: ui/components/Drivers.qml:44
+#: ui/components/Drivers.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "აირჩიეთ დრაივერი…"
 
-#: ui/components/Drivers.qml:83
+#: ui/components/Drivers.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "რეკომენდებული დრაივერის არჩევა"
 
-#: ui/components/Drivers.qml:89
+#: ui/components/Drivers.qml:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"

@@ -9,6 +9,7 @@ import org.kde.kirigami as Kirigami
 Kirigami.InlineMessage {
     id: banner
     type: Kirigami.MessageType.Error
+    position: Kirigami.InlineMessage.Position.Header
     showCloseButton: true
 
     property bool resetToDefault: true
@@ -23,13 +24,26 @@ Kirigami.InlineMessage {
         }
     }
 
+    onResetToDefaultChanged: {
+        if (resetToDefault) {
+            reset()
+        }
+    }
+
+    function reset() {
+        timer.stop()
+        timer.interval = 10000
+        visible = false
+        type = defaultType
+    }
+
     Timer {
         id: timer
         repeat: false; interval: 10000
         onTriggered: {
             banner.visible = false
             if (banner.resetToDefault) {
-                banner.type = defaultType
+                reset()
             }
             timeout()
         }

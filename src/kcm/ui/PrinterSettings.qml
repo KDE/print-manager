@@ -15,6 +15,8 @@ import org.kde.plasma.printmanager as PM
 KCM.AbstractKCM {
     id: root
 
+    headerPaddingEnabled: false
+
     // Add mode means adding a new printer/group
     property bool addMode: false
     property var modelData
@@ -62,7 +64,7 @@ KCM.AbstractKCM {
     ]
 
     header: BannerWithTimer {
-        id: error
+        id: msgBanner
     }
 
     footer: RowLayout {
@@ -96,15 +98,15 @@ KCM.AbstractKCM {
                 if (addMode) {
                     if (queueName.text.length === 0) {
                         queueName.focus = true
-                        error.text = i18nc("@info:status", "Queue name is required.  Enter a unique queue name.")
-                        error.visible = true
+                        msgBanner.text = i18nc("@info:status", "Queue name is required.  Enter a unique queue name.")
+                        msgBanner.visible = true
                         return
                     }
                     if (!modelData.isClass) {
                         if (driver.text.length === 0) {
                             driverSelect.focus = true
-                            error.text = i18nc("@info:status", "Make/Model is required.  Choose \"Select\" to pick Make/Model")
-                            error.visible = true
+                            msgBanner.text = i18nc("@info:status", "Make/Model is required.  Choose \"Select\" to pick Make/Model")
+                            msgBanner.visible = true
                             return
                         }
                     }
@@ -115,6 +117,11 @@ KCM.AbstractKCM {
                     }
                 }
 
+                config.hasPending = false
+                msgBanner.text = i18nc("@info:status", "Configuring %1, please wait….", !modelData.isClass ? "printer" : "group")
+                msgBanner.showCloseButton = false
+                msgBanner.type = Kirigami.MessageType.Positive
+                msgBanner.visible = true
                 kcm.savePrinter(queueName.text, config.pending, modelData.isClass)
             }
         }
@@ -149,13 +156,14 @@ KCM.AbstractKCM {
         property bool removing: false
 
         function onRequestError(errorMessage) {
+            msgBanner.reset()
             if (removing) {
                 removing = false
-                error.text = i18n("Failed to remove the printer: %1", errorMessage)
+                msgBanner.text = i18n("Failed to remove the printer: %1", errorMessage)
             } else {
-                error.text = errorMessage
+                msgBanner.text = errorMessage
             }
-            error.visible = true
+            msgBanner.visible = true
             config.clear()
         }
 

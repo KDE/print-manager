@@ -69,12 +69,21 @@ KCM.AbstractKCM {
 
     footer: RowLayout {
         Layout.margins: Kirigami.Units.largeSpacing
+        spacing: Kirigami.Units.largeSpacing
 
         Kirigami.UrlButton {
-            id: urlButton
             text: i18nc("@action:button", "CUPS Printers Overview Help")
             url: "http://localhost:631/help/overview.html"
             padding: Kirigami.Units.largeSpacing
+        }
+
+        Kirigami.UrlButton {
+            text: i18nc("@action:button", "Printer/Device Admin Page")
+            visible: url.length > 0
+            url: {
+                const url = new URL(devUri.text)
+                return url ? "http://" + url.hostname : ""
+            }
         }
 
         Item { Layout.fillWidth: true }

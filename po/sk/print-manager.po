@@ -1,20 +1,20 @@
 # translation of print-manager.po to Slovak
 # Roman Paholik <wizzardsk@gmail.com>, 2012, 2013, 2015, 2018.
-# Matej Mrenica <matejm98mthw@gmail.com>, 2019.
+# SPDX-FileCopyrightText: 2019, 2024 Matej Mrenica <matejm98mthw@gmail.com>
 # Dusan Kazik <prescott66@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 02:43+0000\n"
-"PO-Revision-Date: 2020-03-22 12:01+0100\n"
-"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
+"PO-Revision-Date: 2024-04-14 10:57+0200\n"
+"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, kde-format
@@ -58,12 +58,10 @@ msgid "Configure your connection"
 msgstr "Nastavenie vášho pripojenia"
 
 #: src/add-printer/AddPrinterAssistant.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
+#, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr "Výber ovládača"
+msgstr "Výber ovládača pre %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -287,10 +285,9 @@ msgstr "Port pre Qt5 / Plasma 5"
 
 #: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Port pre Qt5 / Plasma 5"
+msgstr "Port do Qt6 / Plasma 6"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -437,10 +434,9 @@ msgstr "Prosím vyberte položku zo zoznamu"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Print settings"
+#, kde-format
 msgid "Media Settings"
-msgstr "Nastavenia tlače"
+msgstr "Nastavenia médií"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
@@ -460,7 +456,7 @@ msgstr ""
 #: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
@@ -608,20 +604,16 @@ msgid "Query Printer for Default Options"
 msgstr "Dotázať tlačiareň na predvolené voľby"
 
 #: src/kcm/printermanager.cpp:232
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Zlyhalo nastavenie triedy"
+msgstr "Zlyhalo nastavenie triedy:"
 
 #: src/kcm/printermanager.cpp:232
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Zlyhalo nastavenie tlačiarne"
+msgstr "Zlyhalo nastavenie tlačiarne:"
 
 #: src/kcm/printermanager.cpp:365
 #, kde-format
@@ -629,18 +621,16 @@ msgid "Failed to perform request: %1"
 msgstr "Zlyhalo vykonanie požiadavky: %1"
 
 #: src/kcm/printermanager.cpp:417
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Zlyhalo získanie nastavení servera"
+msgstr "Zlyhalo získanie nastavení servera: %1"
 
 #: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr ""
+msgstr "Chyba servera: (%1): %2"
 
 #: src/kcm/printermanager.cpp:510
 #, kde-format
@@ -731,12 +721,10 @@ msgid "'%1' is ready for printing."
 msgstr "Tlačiareň \"%1\" je pripravená na tlač."
 
 #: src/libkcups/DevicesModel.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "Manuálne URI"
+msgstr "Manuálne nastavenie"
 
 #: src/libkcups/DevicesModel.cpp:60
 #, kde-format
@@ -889,15 +877,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Vzdialená CUPS tlačiareň cez DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:144
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Sieťová tlačiareň cez DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:146
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 sieťová tlačiareň cez DNS-SD"
@@ -1068,7 +1054,7 @@ msgstr "Odporúčané ovládače"
 #: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Prázdny ppd model"
 
 #: src/libkcups/PrinterModel.cpp:202
 #, kde-format
@@ -1136,10 +1122,9 @@ msgid "Unknown - '%1'"
 msgstr "Neznáme - \"%1\""
 
 #: src/libkcups/SelectMakeModel.cpp:115
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose the driver for %1"
-msgstr "Vyberte ovládač zo zoznamu"
+msgstr "Vyberte ovládač pre %1"
 
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
@@ -1159,10 +1144,9 @@ msgstr "Vybrať ovládač"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
 #: src/libkcups/SelectMakeModel.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Choose &the driver"
-msgstr "Vyberte ovládač zo zoznamu"
+msgstr "Vyberte ovládač"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91

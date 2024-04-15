@@ -7,15 +7,11 @@
 #ifndef KCUPSJOB_H
 #define KCUPSJOB_H
 
-#include <QDateTime>
-#include <QString>
-
 #include <KCupsConnection.h>
 #include <kcupslib_export.h>
 
 class KCUPSLIB_EXPORT KCupsJob
 {
-    Q_ENUMS(Attribute)
 public:
     KCupsJob();
     KCupsJob(int jobId, const QString &printer);

@@ -7,17 +7,14 @@
 #ifndef KCUPSPRINTER_H
 #define KCUPSPRINTER_H
 
-#include <QIcon>
-#include <QString>
-
 #include <KCupsConnection.h>
 #include <kcupslib_export.h>
 
 class KCUPSLIB_EXPORT KCupsPrinter
 {
-    Q_ENUMS(Attribute)
 public:
-    typedef enum { Idle = 3, Printing, Stopped } Status;
+    enum Status { Idle = 3, Printing, Stopped };
+
     KCupsPrinter();
     explicit KCupsPrinter(const QString &printer, bool isClass = false);
 

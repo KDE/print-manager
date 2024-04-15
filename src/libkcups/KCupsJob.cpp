@@ -5,6 +5,7 @@
 */
 
 #include "KCupsJob.h"
+#include <QDateTime>
 
 KCupsJob::KCupsJob()
     : m_jobId(0)

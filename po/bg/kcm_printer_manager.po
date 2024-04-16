@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 09:19+0200\n"
+"PO-Revision-Date: 2024-04-15 09:38+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: printermanager.cpp:203
 #, kde-format
@@ -447,12 +447,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Справка за преглед на принтерите CUPS "
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Администриране на сървъра за печат CUPS"
+msgstr "Страница за администриране на принтер или устройство"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -489,7 +487,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Конфигуриране на %1. Моля, изчакайте…"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 13:59+0300\n"
+"PO-Revision-Date: 2024-04-15 19:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -446,12 +446,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "CUPS Yazıcıları Genel Görünüm Yardımı"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "CUPS Yazdırma Sunucusu Yönetimi"
+msgstr "Yazıcı/Aygıt Yönetim Sayfası"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -487,7 +485,7 @@ msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için ‘Seç‘e tıklayı
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "%1 yapılandırılıyor, lütfen bekleyin…"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

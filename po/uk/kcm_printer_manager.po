@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 15:51+0300\n"
+"PO-Revision-Date: 2024-04-15 08:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -448,12 +448,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Довідка-огляд з принтерів CUPS"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Адміністратор сервера друку CUPS"
+msgstr "Сторінка адміністрування принтера або пристрою"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -491,7 +489,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Налаштовуємо %1, будь ласка, зачекайте…"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

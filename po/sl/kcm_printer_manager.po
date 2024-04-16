@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 07:10+0200\n"
+"PO-Revision-Date: 2024-04-15 06:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -443,12 +443,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Pomoč za pregled tiskalnikov CUPS"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Skrbnik tiskalniškega strežnika CUPS"
+msgstr "Stran za skrbnika tiskalnika/naprave"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -485,7 +483,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Konfiguriram %1, prosim počakajte…."
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 07:09+0200\n"
+"PO-Revision-Date: 2024-04-15 05:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -450,12 +450,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "CUPS პრინტერების მიმოხილვის დახმარება"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "CUPS ბეჭდვის სერვერის ადმინი"
+msgstr "პრინტერის/მოწყობილობის ადმინის გვერდი"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -493,7 +491,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "%1-ის მორგება. მოითმინეთ…."
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

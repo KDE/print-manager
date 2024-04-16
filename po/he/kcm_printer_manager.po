@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 07:56+0300\n"
+"PO-Revision-Date: 2024-04-15 06:50+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -443,12 +443,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "עזרה בסקירת מדפסות CUPS"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "ניהול שרת הדפסות CUPS"
+msgstr "עמוד ניהול מדפסת/התקן"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -484,7 +482,7 @@ msgstr "יצרן/דגם נחוצים. נא ללחוץ על „בחירה” כד
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "%1 מוגדרת, נא להמתין…"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

@@ -151,6 +151,7 @@ private:
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
     bool printersOnly() const;
+    QStringList m_attrs;
 };
 
 #endif // PRINTER_MODEL_H

@@ -22,27 +22,26 @@
 
 #include <cups/cups.h>
 
-const static QStringList attrs(QStringList{KCUPS_PRINTER_NAME,
-                                           KCUPS_PRINTER_STATE,
-                                           KCUPS_PRINTER_STATE_MESSAGE,
-                                           KCUPS_PRINTER_IS_SHARED,
-                                           KCUPS_PRINTER_IS_ACCEPTING_JOBS,
-                                           KCUPS_PRINTER_TYPE,
-                                           KCUPS_PRINTER_LOCATION,
-                                           KCUPS_PRINTER_INFO,
-                                           KCUPS_PRINTER_MAKE_AND_MODEL,
-                                           KCUPS_PRINTER_COMMANDS,
-                                           KCUPS_MARKER_CHANGE_TIME,
-                                           KCUPS_MARKER_COLORS,
-                                           KCUPS_MARKER_LEVELS,
-                                           KCUPS_MARKER_NAMES,
-                                           KCUPS_MARKER_TYPES,
-                                           KCUPS_DEVICE_URI,
-                                           KCUPS_PRINTER_URI_SUPPORTED,
-                                           KCUPS_MEMBER_NAMES});
-
 PrinterModel::PrinterModel(QObject *parent)
     : QStandardItemModel(parent)
+    , m_attrs({KCUPS_PRINTER_NAME,
+               KCUPS_PRINTER_STATE,
+               KCUPS_PRINTER_STATE_MESSAGE,
+               KCUPS_PRINTER_IS_SHARED,
+               KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+               KCUPS_PRINTER_TYPE,
+               KCUPS_PRINTER_LOCATION,
+               KCUPS_PRINTER_INFO,
+               KCUPS_PRINTER_MAKE_AND_MODEL,
+               KCUPS_PRINTER_COMMANDS,
+               KCUPS_MARKER_CHANGE_TIME,
+               KCUPS_MARKER_COLORS,
+               KCUPS_MARKER_LEVELS,
+               KCUPS_MARKER_NAMES,
+               KCUPS_MARKER_TYPES,
+               KCUPS_DEVICE_URI,
+               KCUPS_PRINTER_URI_SUPPORTED,
+               KCUPS_MEMBER_NAMES})
 {
     m_roles = QStandardItemModel::roleNames();
     m_roles[DestStatus] = "stateMessage";
@@ -272,7 +271,7 @@ void PrinterModel::update()
     // Get destinations with these attributes
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, &PrinterModel::getDestsFinished);
-    request->getPrinters(attrs);
+    request->getPrinters(m_attrs);
 }
 
 void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
@@ -458,7 +457,7 @@ void PrinterModel::insertUpdatePrinterName(const QString &printerName)
     connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
     // TODO how do we know if it's a class if this DBus signal
     // does not tell us
-    request->getPrinterAttributes(printerName, false, attrs);
+    request->getPrinterAttributes(printerName, false, m_attrs);
 }
 
 void PrinterModel::insertUpdatePrinter(const QString &text,

@@ -43,6 +43,14 @@ BaseDevice {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
+            visible: directlist.count > 0
+
+            Component.onCompleted: {
+                if (background) {
+                    background.visible = true
+                }
+            }
+
             contentItem: ListView {
                 id: directlist
 

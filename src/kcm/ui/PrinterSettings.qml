@@ -566,6 +566,12 @@ KCM.AbstractKCM {
 
                 sourceComponent: QQC2.ScrollView {
 
+                    Component.onCompleted: {
+                        if (background) {
+                            background.visible = true
+                        }
+                    }
+
                     contentItem: ListView {
                         id: memberList
                         // cups key for the member list

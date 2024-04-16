@@ -13,6 +13,12 @@ QQC2.ScrollView {
 
     property var examples: []
 
+    Component.onCompleted: {
+        if (background) {
+            background.visible = true
+        }
+    }
+
     contentItem: ListView {
         clip: true
         model: examples

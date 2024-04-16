@@ -94,6 +94,13 @@ BaseDevice {
             Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
             Layout.fillHeight: true
+            visible: list.count > 0
+
+            Component.onCompleted: {
+                if (background) {
+                    background.visible = true
+                }
+            }
 
             contentItem: ListView {
                 id: list

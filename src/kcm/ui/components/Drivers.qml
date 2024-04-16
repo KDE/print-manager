@@ -99,6 +99,12 @@ ColumnLayout {
         Layout.fillHeight: true
         visible: !fallbackMsg.visible
 
+        Component.onCompleted: {
+            if (background) {
+                background.visible = true
+            }
+        }
+
         contentItem: ListView {
             id: recmlist
 

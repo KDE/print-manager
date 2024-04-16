@@ -191,7 +191,7 @@ Kirigami.Dialog {
     }
 
     contentItem: ColumnLayout {
-        spacing: Kirigami.Units.largeSpacing
+        spacing: Kirigami.Units.smallSpacing
         enabled: !loading
 
         BannerWithTimer {
@@ -204,6 +204,9 @@ Kirigami.Dialog {
         }
 
         RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+            Layout.margins: Kirigami.Units.smallSpacing
+
             QQC2.RadioButton {
                 id: rbMake
                 text: i18nc("@option:radio", "Select Make and Model:")
@@ -227,12 +230,19 @@ Kirigami.Dialog {
         }
 
         RowLayout {
+            spacing: Kirigami.Units.smallSpacing
+            Layout.margins: Kirigami.Units.smallSpacing
             enabled: rbMake.checked
 
             QQC2.ScrollView {
                 Layout.fillHeight: true
                 Layout.preferredWidth: Math.floor(root.width/3)
-                clip: true
+
+                Component.onCompleted: {
+                    if (background) {
+                        background.visible = true
+                    }
+                }
 
                 contentItem: ListView {
                     id: makesList
@@ -261,7 +271,12 @@ Kirigami.Dialog {
             QQC2.ScrollView {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                clip: true
+
+                Component.onCompleted: {
+                    if (background) {
+                        background.visible = true
+                    }
+                }
 
                 contentItem: ListView {
                     id: makeModelList
@@ -295,25 +310,26 @@ Kirigami.Dialog {
 
         }
 
-        QQC2.RadioButton {
-            id: rbFile
-            text: i18nc("@option:radio", "PPD file:")
-            Layout.topMargin: Kirigami.Units.largeSpacing*3
-            onToggled: {
-                if (checked) {
-                    ppdData.type = PM.PPDType.Manual
-                    fileButton.focus = true
-                }
-            }
-            QQC2.ButtonGroup.group: buttonGroup
-        }
-
         RowLayout {
-            enabled: rbFile.checked
+            spacing: Kirigami.Units.smallSpacing
+            Layout.margins: Kirigami.Units.smallSpacing
+
+            QQC2.RadioButton {
+                id: rbFile
+                text: i18nc("@option:radio", "PPD file:")
+                onToggled: {
+                    if (checked) {
+                        ppdData.type = PM.PPDType.Manual
+                        fileButton.focus = true
+                    }
+                }
+                QQC2.ButtonGroup.group: buttonGroup
+            }
 
             QQC2.TextField {
                 id: customFilename
                 readOnly: true
+                enabled: rbFile.checked
                 Layout.fillWidth: true
             }
 
@@ -321,6 +337,7 @@ Kirigami.Dialog {
                 id: fileButton
                 text: i18nc("@action:button", "Select PPD File…")
                 icon.name: "folder-print-symbolic"
+                enabled: rbFile.checked
                 onClicked: fileDlg.open()
             }
 

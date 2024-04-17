@@ -1,89 +1,89 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+#
+# Sveinn í Felli <sv1@fellsnet.is>, 2024.
 msgid ""
 msgstr ""
-"Project-Id-Version: kdeorg\n"
+"Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-16 13:59\n"
-"Last-Translator: \n"
-"Language-Team: Chinese Simplified\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2024-04-16 16:14+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
+"Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Crowdin-Project: kdeorg\n"
-"X-Crowdin-Project-ID: 269464\n"
-"X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
-"X-Crowdin-File-ID: 48268\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.04.3\n"
 
 #: printermanager.cpp:203
 #, kde-format
 msgid "Set Default Options"
-msgstr "设置默认选项"
+msgstr "Stilla sjálfgefna valkosti"
 
 #: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "配置打印机类失败："
+msgstr "Mistókst að grunnstilla flokk:"
 
 #: printermanager.cpp:211
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "配置打印机失败："
+msgstr "Mistókst að grunnstilla prentara:"
 
 #: printermanager.cpp:357
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr "执行请求失败：%1"
+msgstr "Mistókst að framkvæma beiðni: %1"
 
 #: printermanager.cpp:409
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "获取服务器设置失败：%1"
+msgstr "Mistókst að ná í stillingar prentþjóns: %1"
 
 #: printermanager.cpp:447
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
-msgstr "服务器错误：(%1)：%2"
+msgstr "Þjónsvilla: (%1): %2"
 
 #: printermanager.cpp:502
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "打印自检页"
+msgstr "Prenta innbyggða prufusíðu"
 
 #: printermanager.cpp:508
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "清洁打印头"
+msgstr "Hreinsa prenthausa"
 
 #: ui/components/AddressExamples.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr "示例地址"
+msgstr "Dæmi um vistföng"
 
 #: ui/components/BaseDevice.qml:111
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr "地址："
+msgstr "Vistfang:"
 
 #: ui/components/BaseDevice.qml:121
 #, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "输入设备地址"
+msgstr "Settu inn vistfang tækis"
 
 #: ui/components/Direct.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr "选择设备连接"
+msgstr "Veldu tengingu tækis"
 
 #: ui/components/Drivers.qml:34
 #, kde-kuit-format
@@ -92,107 +92,105 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
-"无法定位推荐的驱动程序。请点击<interface>刷新</interface>重试，或者手动选择一"
-"个驱动程序。"
 
 #: ui/components/Drivers.qml:41
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr "选择驱动程序…"
+msgstr "Veldu rekil…"
 
 #: ui/components/Drivers.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr "选择推荐的驱动程序"
+msgstr ""
 
 #: ui/components/Drivers.qml:80
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
-msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
+msgstr ""
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr "搜索远程打印设备"
+msgstr "Finna fjartengd prenttæki"
 
 #: ui/components/ManualUri.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr "输入远程主机/设备的地址"
+msgstr "Settu inn vistfangið á fjartengda vél/tæki"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "选择打印机…"
+msgstr "Veldu prentara…"
 
 #: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr "使用地址继续…"
+msgstr "Halda áfram með vistfang…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr "此功能尚未完成开发 (%1)"
+msgstr ""
 
 #: ui/components/Socket.qml:17
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr "AppSocket 协议 (也被称作 JetDirect)"
+msgstr ""
 
 #: ui/components/Socket.qml:18
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "输入 AppSocket 设备的地址"
+msgstr ""
 
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr "无效的 Socket URL：%1"
+msgstr "Ógild slóð sökkuls: %1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr "创建打印机连接"
+msgstr "Setja upp prentaratengingu"
 
 #: ui/FindPrinter.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
-msgstr "显示检测到的设备"
+msgstr "Sýna greind tæki"
 
 #: ui/FindPrinter.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr "显示手动选项"
+msgstr "Sýna handvirka valkosti"
 
 #: ui/FindPrinter.qml:113
 #, kde-format
 msgid "Refresh"
-msgstr "刷新"
+msgstr "Endurlesa"
 
 #: ui/FindPrinter.qml:124
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr "CUPS 网络打印机帮助"
+msgstr ""
 
 #: ui/FindPrinter.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr "无法自动发现任何打印设备"
+msgstr ""
 
 #: ui/FindPrinter.qml:184
 #, kde-format
@@ -200,95 +198,95 @@ msgctxt "@info:usagetip"
 msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
-msgstr "选择“刷新”重试，或者从选项列表中选择手动配置"
+msgstr ""
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr "从选项列表中选择手动配置"
+msgstr ""
 
 #: ui/Global.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Print Server Settings"
-msgstr "打印服务器设置"
+msgstr "Stillingar prentþjóns"
 
 #: ui/Global.qml:28
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr "CUPS 打印服务器管理"
+msgstr ""
 
 #: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
-msgstr "重置"
+msgstr "Endurstilla"
 
 #: ui/Global.qml:43
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
-msgstr "应用"
+msgstr "Virkja"
 
 #: ui/Global.qml:105
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr "连接到本机的共享打印机"
+msgstr "Samnýta prentara sem tengdir eru við þetta kerfi"
 
 #: ui/Global.qml:117
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr "允许来自互联网的打印请求"
+msgstr "Leyfa prentun frá internetinu"
 
 #: ui/Global.qml:123
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr "允许远程管理"
+msgstr "Leyfa fjarlæga netstjórnun"
 
 #: ui/Global.qml:128
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr "允许用户中止任意任务 (不仅是他们发起的任务)"
+msgstr "Leyfa notendum að hætta hvaða verki sem er (ekki bara þeirra eigin)"
 
 #: ui/main.qml:30
 #, kde-format
 msgid "new_queue"
-msgstr "新队列"
+msgstr "ný_prentröð"
 
 #: ui/main.qml:30
 #, kde-format
 msgid "new_group"
-msgstr "新打印机组"
+msgstr "nýr_hópur"
 
 #: ui/main.qml:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "添加打印机…"
+msgstr "Bæta við prentara…"
 
 #: ui/main.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "添加打印机组…"
+msgstr "Bæta við hópi…"
 
 #: ui/main.qml:82
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "配置打印服务器…"
+msgstr "Stilla prentþjón…"
 
 #: ui/main.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr "当前没有创建打印机"
+msgstr ""
 
 #: ui/main.qml:184
 #, kde-kuit-format
@@ -296,308 +294,310 @@ msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
-msgstr "点击 <interface>添加打印机…</interface> 为本机创建新的打印机"
+msgstr ""
 
 #: ui/main.qml:194
 #, kde-format
 msgid "Printers"
-msgstr "打印机"
+msgstr "Prentarar"
 
 #: ui/main.qml:194
 #, kde-format
 msgid "Printer Groups"
-msgstr "打印机组"
+msgstr "Prentarahópar"
 
 #: ui/main.qml:232
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
-msgstr "配置…"
+msgstr "Grunnstilla…"
 
 #: ui/main.qml:253
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr "打开打印队列…"
+msgstr "Opna prentröð…"
 
 #: ui/main.qml:270
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr "继续"
+msgstr "Halda áfram"
 
 #: ui/main.qml:271
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr "暂停"
+msgstr "Gera hlé"
 
 #: ui/main.qml:285
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr "继续打印"
+msgstr "Halda áfram að prenta"
 
 #: ui/main.qml:286
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr "暂停打印"
+msgstr "Gera hlé á prentun"
 
 #: ui/MakeModel.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "选择打印机的制造商/型号"
+msgstr "Veldu framleiðanda og gerð prentara"
 
 #: ui/MakeModel.qml:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr "打印机驱动程序 (%1)"
+msgstr "Prentrekill (%1)"
 
 #: ui/MakeModel.qml:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr "打印机驱动程序"
+msgstr "Prentrekill"
 
 #: ui/MakeModel.qml:143
 #, kde-format
 msgid "Save"
-msgstr "保存"
+msgstr "Vista"
 
 #: ui/MakeModel.qml:148
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr "选择 PostScript 打印机描述 (PPD) 文件"
+msgstr "Veldu PostScript-prentlýsingarskrá (PPD)"
 
 #: ui/MakeModel.qml:155
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "打印机模型是必需项。请选择一个打印机模型。"
+msgstr "Gerð prentara er nauðsynleg. Veldu tegund/gerð prentara."
 
 #: ui/MakeModel.qml:209
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr "选择制造商和型号："
+msgstr "Veldu framleiðanda og gerð:"
 
 #: ui/MakeModel.qml:221
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr "过滤型号"
+msgstr "Sía tegundir"
 
 #: ui/MakeModel.qml:300
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
-msgstr "PPD 文件："
+msgstr "PPD-skrá:"
 
 #: ui/MakeModel.qml:322
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "选择 PPD 文件…"
+msgstr "Veldu PPD-skrá…"
 
 #: ui/MakeModel.qml:329
 #, kde-format
 msgid "Select"
-msgstr "选择"
+msgstr "Velja"
 
 #: ui/MakeModel.qml:330
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
-msgstr "PostScript 打印机描述文件 (*.ppd)"
+msgstr "PostScript-prentlýsingarskrár (*.ppd)"
 
 #: ui/PrinterSettings.qml:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
-msgstr "添加打印机组"
+msgstr "Bæta við hópi"
 
 #: ui/PrinterSettings.qml:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr "添加打印机"
+msgstr "Bæta við prentara"
 
 #: ui/PrinterSettings.qml:54
 #, kde-format
 msgid "Configure…"
-msgstr "配置…"
+msgstr "Grunnstilla…"
 
 #: ui/PrinterSettings.qml:59
 #, kde-format
 msgid "Remove"
-msgstr "移除"
+msgstr "Fjarlægja"
 
 #: ui/PrinterSettings.qml:75
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr "CUPS 打印机概览帮助"
+msgstr ""
 
 #: ui/PrinterSettings.qml:81
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "打印机/设备管理页面"
+msgstr ""
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
-msgstr "自动设置"
+msgstr "Stilla sjálfkrafa"
 
 #: ui/PrinterSettings.qml:101
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr "添加"
+msgstr "Bæta við"
 
 #: ui/PrinterSettings.qml:102
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
-msgstr "应用"
+msgstr "Virkja"
 
 #: ui/PrinterSettings.qml:110
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr "队列名称是必需项。请输入一个唯一的队列名称。"
+msgstr ""
 
 #: ui/PrinterSettings.qml:117
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
-msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/型号"
+msgstr ""
+"Framleiðandi/Gerð er nauðsynlegt. Farðu í \"Velja\" til að velja "
+"framleiðanda og gerð"
 
 #: ui/PrinterSettings.qml:130
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr "正在配置 %1，请稍候…"
+msgstr "Grunnstilli %1, hinkraðu aðeins…."
 
 #: ui/PrinterSettings.qml:171
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr "移除打印机失败：%1"
+msgstr "Mistókst að fjarlægja prentarann: %1"
 
 #: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Remove Group"
-msgstr "移除打印机组"
+msgstr "Fjarlægja hóp"
 
 #: ui/PrinterSettings.qml:194
 #, kde-format
 msgid "Remove Printer"
-msgstr "移除打印机"
+msgstr "Fjarlægja prentara"
 
 #: ui/PrinterSettings.qml:195
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr "您确定要删除：%1 (%2) 吗？"
+msgstr "Ertu viss um að þú viljir fjarlægja:  %1 (%2)?"
 
 #: ui/PrinterSettings.qml:211
 #, kde-format
 msgid "Cancel"
-msgstr "取消"
+msgstr "Hætta við"
 
 #: ui/PrinterSettings.qml:357
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
-msgstr "<b>打印机组</b> 用于对打印资源进行集中管理。"
+msgstr ""
 
 #: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "默认打印机"
+msgstr "Sjálfgefinn prentari"
 
 #: ui/PrinterSettings.qml:406
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr "共享此打印机组"
+msgstr "Deila þessum hópi"
 
 #: ui/PrinterSettings.qml:407
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
-msgstr "共享此打印机"
+msgstr "Samnýta þennan prentara"
 
 #: ui/PrinterSettings.qml:414
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr "正在接受打印任务"
+msgstr "Tekur við prentverkum"
 
 #: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
-msgstr "打印测试页"
+msgstr "Prenta prufusíðu"
 
 #: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr "打印自检页"
+msgstr "Prenta innbyggða prufusíðu"
 
 #: ui/PrinterSettings.qml:476
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
-msgstr "清洁打印头"
+msgstr "Hreinsa prenthausa"
 
 #: ui/PrinterSettings.qml:496
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr "搜索打印机…"
+msgstr "Finna prentara…"
 
 #: ui/PrinterSettings.qml:504
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr "队列名称："
+msgstr "Heiti prentraðar:"
 
 #: ui/PrinterSettings.qml:517
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr "描述："
+msgstr "Lýsing:"
 
 #: ui/PrinterSettings.qml:529
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr "位置："
+msgstr "Staðsetning:"
 
 #: ui/PrinterSettings.qml:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr "连接："
+msgstr "Tenging:"
 
 #: ui/PrinterSettings.qml:555
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr "成员打印机："
+msgstr ""
 
 #: ui/PrinterSettings.qml:686
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr "制造商/型号："
+msgstr "Framleiðandi/Gerð:"
 
 #: ui/PrinterSettings.qml:701
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr "选择…"
+msgstr "Velja…"

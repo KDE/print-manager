@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 02:43+0000\n"
-"PO-Revision-Date: 2024-04-14 10:57+0200\n"
+"PO-Revision-Date: 2024-04-16 08:54+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
@@ -830,39 +830,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Miestna tlačiareň zistená cez Hardware Abstraction Layer (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"Softvér HPLIP ovládajúci faxové stroje, alebo faxové funkcie multi-funkčného "
-"zariadenia"
+"Softvér HPLIP riadiaci fax,\n"
+"alebo funkciu faxu multifunkčného zariadenia"
 
 #: src/libkcups/DevicesModel.cpp:124
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"Softvér HPLIP ovládajúci tlačiarne, alebo funkcie tlače multi-funkčného "
-"zariadenia"
+"Softvér HPLIP riadiaci tlačiareň,\n"
+"alebo funkcia tlačiarne multifunkčného zariadenia"
 
 #: src/libkcups/DevicesModel.cpp:125
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "IPP sieťová tlačiareň cez DNS-SD"
+msgstr "IPP Sieťová tlačiareň cez IPP"
 
 #: src/libkcups/DevicesModel.cpp:126
 #, kde-format

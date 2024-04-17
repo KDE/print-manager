@@ -23,8 +23,6 @@ import org.kde.plasma.printmanager as PM
 KCM.ScrollViewKCM {
     id: root
 
-    readonly property bool isPaused: pmModel.printerState === 5
-
     function newPrinter(isPrinter = true, addlObj, ppdObj) {
         const obj = {
             printerName: isPrinter ? i18n("new_queue") : i18n("new_group")

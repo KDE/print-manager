@@ -79,10 +79,16 @@ KCM.AbstractKCM {
 
         Kirigami.UrlButton {
             text: i18nc("@action:button", "Printer/Device Admin Page")
-            visible: url.length > 0
+            visible: !modelData.isClass && url !== ""
             url: {
-                const url = new URL(devUri.text)
-                return url ? "http://" + url.hostname : ""
+                try {
+                    const url = new URL(devUri.text)
+                    if (url.hostname.length > 0) {
+                        return `http://${url.hostname}`
+                    }
+                } catch(e) {
+                }
+                return ""
             }
         }
 

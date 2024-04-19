@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-15 00:39+0000\n"
+"POT-Creation-Date: 2024-04-19 00:40+0000\n"
 "PO-Revision-Date: 2024-03-07 19:22+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -270,41 +270,41 @@ msgstr ""
 "Baimendu erabiltzaileek edozein lan bertan behera uztea (ez norberarenak "
 "bakarrik)"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
 msgstr "ilara_berria"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_group"
 msgstr "talde_berria"
 
-#: ui/main.qml:64
+#: ui/main.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Gehitu inprimagailua..."
 
-#: ui/main.qml:73
+#: ui/main.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Gehitu taldea..."
 
-#: ui/main.qml:82
+#: ui/main.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Konfiguratu inprimatze zerbitzaria..."
 
-#: ui/main.qml:183
+#: ui/main.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Une honetan ez dago ezarritako inprimagailurik"
 
-#: ui/main.qml:184
+#: ui/main.qml:182
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -314,47 +314,47 @@ msgstr ""
 "Egin klik <interface>Gehitu inprimagailua...</interface> aukeran ordenagailu "
 "honetan inprimagailu berri bat ezartzeko"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printers"
 msgstr "Inprimagailuak"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printer Groups"
 msgstr "Inprimagailu taldeak"
 
-#: ui/main.qml:232
+#: ui/main.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Konfiguratu..."
 
-#: ui/main.qml:253
+#: ui/main.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Ireki inprimatze-ilara..."
 
-#: ui/main.qml:270
+#: ui/main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Berrekin"
 
-#: ui/main.qml:271
+#: ui/main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Etenaldia"
 
-#: ui/main.qml:285
+#: ui/main.qml:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Berrekin inprimatzea"
 
-#: ui/main.qml:286
+#: ui/main.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

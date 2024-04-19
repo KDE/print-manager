@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-15 00:39+0000\n"
-"PO-Revision-Date: 2024-04-09 11:55+0400\n"
+"POT-Creation-Date: 2024-04-19 00:40+0000\n"
+"PO-Revision-Date: 2024-04-18 13:27+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: printermanager.cpp:203
 #, kde-format
@@ -258,41 +258,41 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "اسمح للمستخدمين بإلغاء أيّ مهمّة (وليس فقط مهامّهم)"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
 msgstr "طابور_جديد"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_group"
 msgstr "مجموعة_جديدة"
 
-#: ui/main.qml:64
+#: ui/main.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "أضف طابعة…"
 
-#: ui/main.qml:73
+#: ui/main.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "أضف مجموعة…"
 
-#: ui/main.qml:82
+#: ui/main.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "اضبط خادم طباعة…"
 
-#: ui/main.qml:183
+#: ui/main.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "لا يوجد طابعة"
 
-#: ui/main.qml:184
+#: ui/main.qml:182
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -302,47 +302,47 @@ msgstr ""
 "انقر فوق <interface>أضف طابعة...</interface> لإعداد طابعة جديدة على هذا "
 "الحاسوب"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printers"
 msgstr "الطّابعات"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printer Groups"
 msgstr "مجموعات الطّابعة"
 
-#: ui/main.qml:232
+#: ui/main.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "اضبط..."
 
-#: ui/main.qml:253
+#: ui/main.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "افتح صفّ الطّباعة…"
 
-#: ui/main.qml:270
+#: ui/main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "استكمل"
 
-#: ui/main.qml:271
+#: ui/main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "ألبث"
 
-#: ui/main.qml:285
+#: ui/main.qml:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "استأنف الطباعة"
 
-#: ui/main.qml:286
+#: ui/main.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -444,12 +444,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "تعليمات طابعات الشبكية CUPS"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "إدارة خادم الطباعة CUPS"
+msgstr "صفحة إدارة الطابعة/الجهاز"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -485,7 +483,7 @@ msgstr "الصانع/الطراز مطلوب. اختر \"حدد\" لاختيار
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "يضبط %1, رجاء انتظر…."
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-15 00:39+0000\n"
+"POT-Creation-Date: 2024-04-19 00:40+0000\n"
 "PO-Revision-Date: 2024-04-15 09:38+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -261,41 +261,41 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Разрешаване на потребителите да спират задачи (не само своите)"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
 msgstr "new_queue"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_group"
 msgstr "new_group"
 
-#: ui/main.qml:64
+#: ui/main.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Добавяне на принтер…"
 
-#: ui/main.qml:73
+#: ui/main.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Добавяне на група…"
 
-#: ui/main.qml:82
+#: ui/main.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Конфигуриране на сървър за печат…"
 
-#: ui/main.qml:183
+#: ui/main.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "В момента не са конфигурирани никакви принтери"
 
-#: ui/main.qml:184
+#: ui/main.qml:182
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -305,47 +305,47 @@ msgstr ""
 "Изберете <interface>Добавяне на принтер...</interface>, за да настроите нов "
 "принтер на този компютър"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printers"
 msgstr "Принтери"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printer Groups"
 msgstr "Принтерни групи"
 
-#: ui/main.qml:232
+#: ui/main.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Конфигуриране…"
 
-#: ui/main.qml:253
+#: ui/main.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Отваряне на опашката за печат..."
 
-#: ui/main.qml:270
+#: ui/main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Възобновяване"
 
-#: ui/main.qml:271
+#: ui/main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Пауза"
 
-#: ui/main.qml:285
+#: ui/main.qml:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Възобновяване на печата"
 
-#: ui/main.qml:286
+#: ui/main.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

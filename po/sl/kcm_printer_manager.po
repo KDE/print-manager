@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-15 00:39+0000\n"
+"POT-Creation-Date: 2024-04-19 00:40+0000\n"
 "PO-Revision-Date: 2024-04-15 06:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
@@ -257,41 +257,41 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr ""
 "Omogočite uporabnikom, da prekličejo katero koli opravilo (ne samo svojega)"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
 msgstr "nova_čakalna vrsta"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_group"
 msgstr "nova_skupina"
 
-#: ui/main.qml:64
+#: ui/main.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Dodaj tiskalnik…"
 
-#: ui/main.qml:73
+#: ui/main.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Dodaj skupino…"
 
-#: ui/main.qml:82
+#: ui/main.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Konfiguriraj tiskalni strežnik…"
 
-#: ui/main.qml:183
+#: ui/main.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Trenutno ni nastavljenega nobenega tiskalnika"
 
-#: ui/main.qml:184
+#: ui/main.qml:182
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -301,47 +301,47 @@ msgstr ""
 "Kliknite <interface>Dodaj tiskalnik…</interface>, da nastavite nov tiskalnik "
 "na tem računalniku"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printers"
 msgstr "Tiskalniki"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printer Groups"
 msgstr "Skupine tiskalnikov"
 
-#: ui/main.qml:232
+#: ui/main.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Konfiguriraj…"
 
-#: ui/main.qml:253
+#: ui/main.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Odpri čakalno vrsto za tiskanje…"
 
-#: ui/main.qml:270
+#: ui/main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Nadaljuj"
 
-#: ui/main.qml:271
+#: ui/main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Premor"
 
-#: ui/main.qml:285
+#: ui/main.qml:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Nadaljuj s tiskanjem"
 
-#: ui/main.qml:286
+#: ui/main.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

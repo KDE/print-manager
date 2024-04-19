@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-15 00:39+0000\n"
+"POT-Creation-Date: 2024-04-19 00:40+0000\n"
 "PO-Revision-Date: 2024-03-27 20:03+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -261,41 +261,41 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Benutzer dürfen alle Druckaufträge abbrechen (nicht nur die eigenen)"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
 msgstr "neue_Warteschlange"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_group"
 msgstr "neue_Gruppe"
 
-#: ui/main.qml:64
+#: ui/main.qml:62
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Drucker hinzufügen …"
 
-#: ui/main.qml:73
+#: ui/main.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Gruppe hinzufügen …"
 
-#: ui/main.qml:82
+#: ui/main.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Druckserver einrichten …"
 
-#: ui/main.qml:183
+#: ui/main.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Zurzeit sind keine Drucker eingerichtet"
 
-#: ui/main.qml:184
+#: ui/main.qml:182
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -305,47 +305,47 @@ msgstr ""
 "Bitte wählen Sie <interface>Drucker hinzufügen …</interface> für das "
 "Festlegen eines neuen Druckers auf diesem Computer"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printers"
 msgstr "Drucker"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printer Groups"
 msgstr "Druckergruppen"
 
-#: ui/main.qml:232
+#: ui/main.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Einrichten …"
 
-#: ui/main.qml:253
+#: ui/main.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Druckerwarteschlange öffnen …"
 
-#: ui/main.qml:270
+#: ui/main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Fortsetzen"
 
-#: ui/main.qml:271
+#: ui/main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Anhalten"
 
-#: ui/main.qml:285
+#: ui/main.qml:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Drucken wieder fortsetzen"
 
-#: ui/main.qml:286
+#: ui/main.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

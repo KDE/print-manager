@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-15 00:39+0000\n"
+"POT-Creation-Date: 2024-04-19 00:40+0000\n"
 "PO-Revision-Date: 2023-11-14 14:09-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -257,17 +257,17 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr ""
 "Permitir que usuários cancelem qualquer trabalho (não apenas os próprios)"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
 msgstr ""
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_group"
 msgstr ""
 
-#: ui/main.qml:64
+#: ui/main.qml:62
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Printer"
@@ -275,7 +275,7 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Adicionar impressora"
 
-#: ui/main.qml:73
+#: ui/main.qml:71
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Group"
@@ -283,7 +283,7 @@ msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Adicionar grupo"
 
-#: ui/main.qml:82
+#: ui/main.qml:80
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure…"
@@ -291,13 +291,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Configurar..."
 
-#: ui/main.qml:183
+#: ui/main.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr ""
 
-#: ui/main.qml:184
+#: ui/main.qml:182
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -305,47 +305,47 @@ msgid ""
 "computer"
 msgstr ""
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printers"
 msgstr "Impressoras"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printer Groups"
 msgstr ""
 
-#: ui/main.qml:232
+#: ui/main.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Configurar..."
 
-#: ui/main.qml:253
+#: ui/main.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Abrir fila de impressão..."
 
-#: ui/main.qml:270
+#: ui/main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Continuar"
 
-#: ui/main.qml:271
+#: ui/main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pausar"
 
-#: ui/main.qml:285
+#: ui/main.qml:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Continuar impressão"
 
-#: ui/main.qml:286
+#: ui/main.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

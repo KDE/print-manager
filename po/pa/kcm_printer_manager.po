@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-15 00:39+0000\n"
+"POT-Creation-Date: 2024-04-19 00:40+0000\n"
 "PO-Revision-Date: 2024-01-01 09:03-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -259,17 +259,17 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਕੋਈ ਵੀ ਜੌਬ (ਨਾ ਸਿਰਫ਼ ਆਪਣੀਆਂ) ਰੱਦ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
 msgstr "new_queue"
 
-#: ui/main.qml:30
+#: ui/main.qml:28
 #, kde-format
 msgid "new_group"
 msgstr "new_group"
 
-#: ui/main.qml:64
+#: ui/main.qml:62
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Printer"
@@ -277,7 +277,7 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "ਪਰਿੰਟਰ ਜੋੜੋ"
 
-#: ui/main.qml:73
+#: ui/main.qml:71
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Group"
@@ -285,7 +285,7 @@ msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "ਗਰੁੱਪ ਜੋੜੋ"
 
-#: ui/main.qml:82
+#: ui/main.qml:80
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure Print Server"
@@ -293,13 +293,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "ਪਰਿੰਟਰ ਸਰਵਰ ਦੀ ਸੰਰਚਨਾ"
 
-#: ui/main.qml:183
+#: ui/main.qml:181
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "ਇਸ ਵੇਲੇ ਕੋਈ ਪਰਿੰਟਰ ਸੈਟ ਅੱਪ ਨਹੀਂ ਕੀਤਾ ਹੈ"
 
-#: ui/main.qml:184
+#: ui/main.qml:182
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:usagetip"
 #| msgid "Choose 'Add Printer' to set up a new printer on this computer"
@@ -309,47 +309,47 @@ msgid ""
 "computer"
 msgstr "ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਨਵਾਂ ਪਰਿੰਟਰ ਸੈਟ ਅੱਪ ਕਰਨ ਲਈ 'ਪਰਿੰਟਰ ਜੋੜੋ' ਨੂੰ ਚੁਣੋ"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printers"
 msgstr "ਪਰਿੰਟਰ"
 
-#: ui/main.qml:194
+#: ui/main.qml:192
 #, kde-format
 msgid "Printer Groups"
 msgstr "ਪਰਿੰਟਰ ਗਰੁੱਪ"
 
-#: ui/main.qml:232
+#: ui/main.qml:230
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "…ਸੰਰਚਨਾ"
 
-#: ui/main.qml:253
+#: ui/main.qml:251
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "…ਪਰਿੰਟ ਕਤਾਰ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: ui/main.qml:270
+#: ui/main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "ਬਹਾਲ"
 
-#: ui/main.qml:271
+#: ui/main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "ਵਿਰਾਮ"
 
-#: ui/main.qml:285
+#: ui/main.qml:283
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "ਪਰਿੰਟ ਕਰਨਾ ਬਹਾਲ ਕਰੋ"
 
-#: ui/main.qml:286
+#: ui/main.qml:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

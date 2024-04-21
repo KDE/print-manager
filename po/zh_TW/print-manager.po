@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"POT-Creation-Date: 2024-04-21 00:39+0000\n"
 "PO-Revision-Date: 2024-03-29 21:27+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -625,29 +625,29 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "設定印表機失敗："
 
-#: src/kcm/printermanager.cpp:357
+#: src/kcm/printermanager.cpp:378
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "執行要求失敗：%1"
 
-#: src/kcm/printermanager.cpp:409
+#: src/kcm/printermanager.cpp:430
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "取得伺服器設定失敗：%1"
 
-#: src/kcm/printermanager.cpp:447
+#: src/kcm/printermanager.cpp:468
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "伺服器錯誤：(%1): %2"
 
-#: src/kcm/printermanager.cpp:502
+#: src/kcm/printermanager.cpp:523
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "列印自我測試頁"
 
-#: src/kcm/printermanager.cpp:508
+#: src/kcm/printermanager.cpp:529
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清潔列印噴頭"

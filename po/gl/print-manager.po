@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"POT-Creation-Date: 2024-04-21 00:39+0000\n"
 "PO-Revision-Date: 2024-04-14 15:12+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -636,29 +636,29 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Non se puido configurar a impresora: "
 
-#: src/kcm/printermanager.cpp:357
+#: src/kcm/printermanager.cpp:378
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Non foi posíbel efectuar a solicitude: %1."
 
-#: src/kcm/printermanager.cpp:409
+#: src/kcm/printermanager.cpp:430
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Non se puido obter a configuración do servidor: %1"
 
-#: src/kcm/printermanager.cpp:447
+#: src/kcm/printermanager.cpp:468
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Erro do servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:502
+#: src/kcm/printermanager.cpp:523
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir unha páxina de proba."
 
-#: src/kcm/printermanager.cpp:508
+#: src/kcm/printermanager.cpp:529
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpar os cabezais de impresión"

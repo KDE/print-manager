@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:40+0000\n"
+"POT-Creation-Date: 2024-04-21 00:39+0000\n"
 "PO-Revision-Date: 2024-03-27 20:03+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -33,29 +33,29 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Das Einrichten des Druckers ist fehlgeschlagen: "
 
-#: printermanager.cpp:357
+#: printermanager.cpp:378
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Auftrag kann nicht ausgeführt werden: %1"
 
-#: printermanager.cpp:409
+#: printermanager.cpp:430
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen: %1"
 
-#: printermanager.cpp:447
+#: printermanager.cpp:468
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Server-Fehler: (%1): %2"
 
-#: printermanager.cpp:502
+#: printermanager.cpp:523
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Selbsttestseite drucken"
 
-#: printermanager.cpp:508
+#: printermanager.cpp:529
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Druckköpfe reinigen"
@@ -85,7 +85,7 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Bitte wählen Sie eine Verbindungsart für das Gerät"
 
-#: ui/components/Drivers.qml:34
+#: ui/components/Drivers.qml:39
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -93,24 +93,48 @@ msgid ""
 "to try again or choose a driver manually."
 msgstr ""
 
-#: ui/components/Drivers.qml:41
+#: ui/components/Drivers.qml:47
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Choose Driver…"
+msgctxt "@action:button"
+msgid "Choose Driverless…"
+msgstr "Treiber auswählen …"
+
+#: ui/components/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "Treiber auswählen …"
 
-#: ui/components/Drivers.qml:75
+#: ui/components/Drivers.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Vorgeschlagenen Treiber auswählen"
 
-#: ui/components/Drivers.qml:80
+#: ui/components/Drivers.qml:92
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
 "Die empfohlenen Drucker basieren auf Hersteller, Modell und Verbindungsart"
+
+#: ui/components/Drivers.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Printer Driver (%1)"
+msgctxt "@label:listitem"
+msgid "Driverless (%1)"
+msgstr "Druckertreiber (%1)"
+
+#: ui/components/Drivers.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@label:listitem"
+msgid "PPD File (%1)"
+msgstr "PPD-Datei:"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

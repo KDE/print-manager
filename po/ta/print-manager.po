@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-09 00:40+0000\n"
+"POT-Creation-Date: 2024-04-21 00:39+0000\n"
 "PO-Revision-Date: 2024-04-07 16:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -605,29 +605,29 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "அச்சுப்பொறியை அமைக்க முடியவில்லை: "
 
-#: src/kcm/printermanager.cpp:357
+#: src/kcm/printermanager.cpp:378
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "கோரிக்கையை நிறைவேற்ற முடியவில்லை: %1"
 
-#: src/kcm/printermanager.cpp:409
+#: src/kcm/printermanager.cpp:430
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "சேவையக அமைப்புகளைப் பெற முடியவில்லை: %1"
 
-#: src/kcm/printermanager.cpp:447
+#: src/kcm/printermanager.cpp:468
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "சேவையக சிக்கல்: (%1): %2"
 
-#: src/kcm/printermanager.cpp:502
+#: src/kcm/printermanager.cpp:523
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "சோதனைப் பக்கத்தை அச்சிடு"
 
-#: src/kcm/printermanager.cpp:508
+#: src/kcm/printermanager.cpp:529
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "அச்சு முனைகளை சுத்தம் செய்"

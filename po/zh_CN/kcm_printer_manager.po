@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:40+0000\n"
+"POT-Creation-Date: 2024-04-21 00:39+0000\n"
 "PO-Revision-Date: 2024-04-19 15:17\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -34,29 +34,29 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "配置打印机失败："
 
-#: printermanager.cpp:357
+#: printermanager.cpp:378
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "执行请求失败：%1"
 
-#: printermanager.cpp:409
+#: printermanager.cpp:430
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "获取服务器设置失败：%1"
 
-#: printermanager.cpp:447
+#: printermanager.cpp:468
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "服务器错误：(%1)：%2"
 
-#: printermanager.cpp:502
+#: printermanager.cpp:523
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: printermanager.cpp:508
+#: printermanager.cpp:529
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
@@ -85,7 +85,7 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "选择设备连接"
 
-#: ui/components/Drivers.qml:34
+#: ui/components/Drivers.qml:39
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -95,23 +95,47 @@ msgstr ""
 "无法定位推荐的驱动程序。请点击<interface>刷新</interface>重试，或者手动选择一"
 "个驱动程序。"
 
-#: ui/components/Drivers.qml:41
+#: ui/components/Drivers.qml:47
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Choose Driver…"
+msgctxt "@action:button"
+msgid "Choose Driverless…"
+msgstr "选择驱动程序…"
+
+#: ui/components/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "选择驱动程序…"
 
-#: ui/components/Drivers.qml:75
+#: ui/components/Drivers.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "选择推荐的驱动程序"
 
-#: ui/components/Drivers.qml:80
+#: ui/components/Drivers.qml:92
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
+
+#: ui/components/Drivers.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Printer Driver (%1)"
+msgctxt "@label:listitem"
+msgid "Driverless (%1)"
+msgstr "打印机驱动程序 (%1)"
+
+#: ui/components/Drivers.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@label:listitem"
+msgid "PPD File (%1)"
+msgstr "PPD 文件："
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

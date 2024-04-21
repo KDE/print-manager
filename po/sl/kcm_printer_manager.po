@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:40+0000\n"
+"POT-Creation-Date: 2024-04-21 00:39+0000\n"
 "PO-Revision-Date: 2024-04-15 06:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
@@ -31,29 +31,29 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Tiskalnika ni bilo mogoče konfigurirati: "
 
-#: printermanager.cpp:357
+#: printermanager.cpp:378
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Zahteve ni bilo mogoče izvesti: %1"
 
-#: printermanager.cpp:409
+#: printermanager.cpp:430
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nastavitev strežnika ni bilo mogoče pridobiti: %1"
 
-#: printermanager.cpp:447
+#: printermanager.cpp:468
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "Napaka strežnika: (%1): %2"
 
-#: printermanager.cpp:502
+#: printermanager.cpp:523
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Natisni stran za samopreizkus"
 
-#: printermanager.cpp:508
+#: printermanager.cpp:529
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Čisti tiskalne glave"
@@ -82,7 +82,7 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Izberi povezavo naprave"
 
-#: ui/components/Drivers.qml:34
+#: ui/components/Drivers.qml:39
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -92,24 +92,48 @@ msgstr ""
 "Priporočenih gonilnikov ni mogoče najti. Kliknite <interface>Osveži</"
 "interface>, da poskusite znova ali ročno izberite gonilnik."
 
-#: ui/components/Drivers.qml:41
+#: ui/components/Drivers.qml:47
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Choose Driver…"
+msgctxt "@action:button"
+msgid "Choose Driverless…"
+msgstr "Izberi gonilnik…"
+
+#: ui/components/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "Izberi gonilnik…"
 
-#: ui/components/Drivers.qml:75
+#: ui/components/Drivers.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Izberi priporočeni gonilnik"
 
-#: ui/components/Drivers.qml:80
+#: ui/components/Drivers.qml:92
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
 "Priporočeni gonilniki temeljijo na znamki/modelu tiskalnika in vrsti povezave"
+
+#: ui/components/Drivers.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Printer Driver (%1)"
+msgctxt "@label:listitem"
+msgid "Driverless (%1)"
+msgstr "Gonilnik tiskalnika (%1)"
+
+#: ui/components/Drivers.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@label:listitem"
+msgid "PPD File (%1)"
+msgstr "PPD datoteka:"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-19 00:40+0000\n"
+"POT-Creation-Date: 2024-04-21 00:39+0000\n"
 "PO-Revision-Date: 2024-03-08 03:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -34,29 +34,29 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "設定印表機失敗："
 
-#: printermanager.cpp:357
+#: printermanager.cpp:378
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "處理請求失敗：%1"
 
-#: printermanager.cpp:409
+#: printermanager.cpp:430
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "取得伺服器設定失敗：%1"
 
-#: printermanager.cpp:447
+#: printermanager.cpp:468
 #, kde-format
 msgctxt "@info"
 msgid "Server error: (%1): %2"
 msgstr "伺服器錯誤：(%1): %2"
 
-#: printermanager.cpp:502
+#: printermanager.cpp:523
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "列印自我測試頁面"
 
-#: printermanager.cpp:508
+#: printermanager.cpp:529
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清潔列印噴頭"
@@ -86,7 +86,7 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "選擇裝置連線"
 
-#: ui/components/Drivers.qml:34
+#: ui/components/Drivers.qml:39
 #, kde-kuit-format
 msgctxt "@info:status"
 msgid ""
@@ -96,23 +96,47 @@ msgstr ""
 "找不到建議的驅動程式。點擊 <interface>重新整理</interface> 來重試或是手動選取"
 "驅動程式。"
 
-#: ui/components/Drivers.qml:41
+#: ui/components/Drivers.qml:47
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Choose Driver…"
+msgctxt "@action:button"
+msgid "Choose Driverless…"
+msgstr "選擇驅動程式…"
+
+#: ui/components/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
 msgstr "選擇驅動程式…"
 
-#: ui/components/Drivers.qml:75
+#: ui/components/Drivers.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "選取建議的驅動程式"
 
-#: ui/components/Drivers.qml:80
+#: ui/components/Drivers.qml:92
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "驅動程式的建議是從印表機製造商/型號與連線型態進行判斷的"
+
+#: ui/components/Drivers.qml:124
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Printer Driver (%1)"
+msgctxt "@label:listitem"
+msgid "Driverless (%1)"
+msgstr "印表機驅動程式 (%1)"
+
+#: ui/components/Drivers.qml:126
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@label:listitem"
+msgid "PPD File (%1)"
+msgstr "PPD 檔案："
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

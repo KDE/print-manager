@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-11 02:45+0000\n"
-"PO-Revision-Date: 2024-03-07 21:56+0100\n"
+"PO-Revision-Date: 2024-04-21 09:36+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: printermanager.cpp:224
 #, kde-format
@@ -141,30 +141,27 @@ msgid "Enter the address of the remote host/device"
 msgstr "Introduza o enderezo do servidor ou dispositivo remoto"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Seleccionar a impresora"
+msgstr "Seleccionar unha impresora…"
 
 #: ui/FindPrinter.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Continuar co enderezo…"
 
 #: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "Enderezo:"
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "Introduza a URI do servidor"
+msgstr "Escriba o enderezo do servidor"
 
 #: ui/FindPrinter.qml:364
 #, kde-format

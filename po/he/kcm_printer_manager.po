@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-15 06:50+0300\n"
+"PO-Revision-Date: 2024-04-21 07:57+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -97,12 +97,10 @@ msgstr ""
 "interface> כדי לנסות שוב או לבחור מנהל התקן ידנית."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "בחירת מנהל התקן…"
+msgstr "בחירת ללא מנהל התקן…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -123,20 +121,16 @@ msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "מנהלי ההתקן המומלצים מבוססים על יצרן/דגם המדפסת וסוג החיבור"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "מנהל התקן מדפסת (%1)"
+msgstr "ללא מנהל התקן (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "קובץ PPD:"
+msgstr "קובץ PPD‏ (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

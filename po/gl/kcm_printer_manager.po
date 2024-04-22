@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-03-07 21:56+0100\n"
+"PO-Revision-Date: 2024-04-21 09:36+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: printermanager.cpp:203
 #, kde-format
@@ -73,14 +73,13 @@ msgstr "Enderezos de exemplo"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "Enderezo:"
 
 #: ui/components/BaseDevice.qml:121
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "Introduza a URI do servidor"
+msgstr "Escriba o enderezo do dispositivo."
 
 #: ui/components/Direct.qml:23
 #, kde-format
@@ -156,18 +155,16 @@ msgid "Enter the address of the remote host/device"
 msgstr "Introduza o enderezo do servidor ou dispositivo remoto"
 
 #: ui/components/ManualUri.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Seleccionar a impresora"
+msgstr "Seleccionar unha impresora…"
 
 #: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Continuar co enderezo…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -179,20 +176,18 @@ msgstr "Esta funcionalidade aínda non está dispoñíbel (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "Protocolo AppSocket (ou JetDirect)"
 
 #: ui/components/Socket.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "Introduza o enderezo do servidor ou dispositivo remoto"
+msgstr "Escriba o enderezo do dispositivo de AppSocket."
 
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "O URL de toma non é válido: %1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -479,12 +474,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Axuda xeral de impresoras de CUPS"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Administración do servidor de impresión de CUPS"
+msgstr "Páxina de administración dunha impresora ou dispositivo"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -522,7 +515,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Configurando %1, agarde…"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

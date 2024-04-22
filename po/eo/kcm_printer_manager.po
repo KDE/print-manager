@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-13 11:51+0100\n"
+"PO-Revision-Date: 2024-04-21 17:45+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -97,12 +97,10 @@ msgstr ""
 "interface> por reprovi aŭ elektu pelilon permane."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Elekti Pelilon…"
+msgstr "Elekti Senpelile…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -123,20 +121,16 @@ msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "Rekomenditaj peliloj baziĝas sur presila marko/modelo kaj konektotipo"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Presila Pelilo (%1)"
+msgstr "Senpelila (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD-dosiero:"
+msgstr "PPD-Dosiero (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -471,12 +465,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "CUPS Printers Superrigardo Helpo"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Administranto de CUPS Print Server"
+msgstr "Presila/Aparata Administropaĝo"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -513,7 +505,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Agordante %1, bonvolu atendi…"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

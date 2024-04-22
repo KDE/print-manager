@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-15 06:49+0200\n"
+"PO-Revision-Date: 2024-04-21 07:38+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -93,12 +93,10 @@ msgstr ""
 "interface>, da poskusite znova ali ročno izberite gonilnik."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Izberi gonilnik…"
+msgstr "Izberi brez gonilnika…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -120,20 +118,16 @@ msgstr ""
 "Priporočeni gonilniki temeljijo na znamki/modelu tiskalnika in vrsti povezave"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Gonilnik tiskalnika (%1)"
+msgstr "Brez gonilnika (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD datoteka:"
+msgstr "PPD File (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

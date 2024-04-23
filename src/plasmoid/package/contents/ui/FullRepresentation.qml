@@ -11,6 +11,7 @@ import QtQuick
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
+import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PrintManager
 
 PlasmaExtras.Representation {
@@ -39,11 +40,11 @@ PlasmaExtras.Representation {
                     label: !section ? i18n("Printers") : i18n("Printer Groups")
                 }
             }
-
-            model: PrintManager.PrinterSortFilterModel {
+            
+            model: KItemModels.KSortFilterProxyModel {
                 id: printersFilterModel
                 sourceModel: printersModel
-                sortRole: PrintManager.PrinterModel.DestIsClass
+                sortRoleName: "isClass"
             }
 
             topMargin: Kirigami.Units.smallSpacing * 2

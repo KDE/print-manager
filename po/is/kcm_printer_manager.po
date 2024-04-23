@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-16 16:14+0000\n"
+"PO-Revision-Date: 2024-04-22 10:58+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -92,14 +92,15 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
+"Tekst ekki að staðsetja rekla sem mælt er með.  Smelltu á "
+"<interface>Endurlesa</interface> til að reyna aftur eða veldu rekil "
+"handvirkt."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Veldu rekil…"
+msgstr "Veldu án rekils…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -111,29 +112,26 @@ msgstr "Veldu rekil…"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr ""
+msgstr "Velja rekil sem mælt er með"
 
 #: ui/components/Drivers.qml:92
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
+"Mælt er með tilteknum reklum út frá framleiðanda/gerð og tegund tengingar."
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Prentrekill (%1)"
+msgstr "Án prentrekils (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD-skrá:"
+msgstr "PPD-skrá (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -163,19 +161,19 @@ msgstr "Halda áfram með vistfang…"
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr ""
+msgstr "Þessi eiginleiki er ekki ennþá í boði (%1)"
 
 #: ui/components/Socket.qml:17
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "AppSocket-samskiptamáti (eða JetDirect)"
 
 #: ui/components/Socket.qml:18
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr ""
+msgstr "Settu inn vistfangið á AppSocket-tæki"
 
 #: ui/components/Socket.qml:63
 #, kde-format
@@ -208,13 +206,13 @@ msgstr "Endurlesa"
 #: ui/FindPrinter.qml:124
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr ""
+msgstr "Aðstoð fyrir CUPS-prentara á neti"
 
 #: ui/FindPrinter.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr ""
+msgstr "Tókst ekki að finna sjálfvirkt nein prenttæki"
 
 #: ui/FindPrinter.qml:184
 #, kde-format
@@ -223,12 +221,14 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
+"Veldu \"Endurlesa\" til að reyna aftur eða veldu handvirka uppsetningu af "
+"listanum"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr ""
+msgstr "Veldu handvirka uppsetningu af listanum"
 
 #: ui/Global.qml:14
 #, kde-format
@@ -240,7 +240,7 @@ msgstr "Stillingar prentþjóns"
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr ""
+msgstr "Stjórnandi CUPS-prentþjóns"
 
 #: ui/Global.qml:36
 #, kde-format
@@ -310,7 +310,7 @@ msgstr "Stilla prentþjón…"
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr ""
+msgstr "Engir prentarar eru núna uppsettir"
 
 #: ui/main.qml:182
 #, kde-kuit-format
@@ -319,6 +319,8 @@ msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
+"Smelltu á <interface>Bæta við prentara…</interface> til að bæta við nýjum "
+"prentara á þessari tölvu"
 
 #: ui/main.qml:192
 #, kde-format
@@ -459,13 +461,13 @@ msgstr "Fjarlægja"
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr ""
+msgstr "Yfirlit aðstoðar fyrir CUPS-prentara"
 
 #: ui/PrinterSettings.qml:81
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr ""
+msgstr "Stjórnunarsíða prentara/tækis"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -489,7 +491,7 @@ msgstr "Virkja"
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
-msgstr ""
+msgstr "Nafn prentraðar er nauðsynlegt. Settu inn einstakt heiti."
 
 #: ui/PrinterSettings.qml:117
 #, kde-format
@@ -534,7 +536,7 @@ msgstr "Hætta við"
 #, kde-format
 msgctxt "@info:whatsthis"
 msgid "A <b>printer group</b> is used to pool printing resources."
-msgstr ""
+msgstr "<b>Prentarahópur</b> er notaður til að samnýta tilföng við prentun."
 
 #: ui/PrinterSettings.qml:399
 #, kde-format
@@ -612,7 +614,7 @@ msgstr "Tenging:"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr ""
+msgstr "Prentarar hóps:"
 
 #: ui/PrinterSettings.qml:686
 #, kde-format

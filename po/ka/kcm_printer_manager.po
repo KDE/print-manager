@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-15 05:12+0200\n"
+"PO-Revision-Date: 2024-04-22 09:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -98,12 +98,10 @@ msgstr ""
 "დააყენოთ."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "აირჩიეთ დრაივერი…"
+msgstr "აირჩიეთ დრაივერის გარეშე…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -126,20 +124,16 @@ msgstr ""
 "დამოკიდებული"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "პრინტერის დრაივერი (%1)"
+msgstr "დრაივერის გარეშე (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD ფაილი:"
+msgstr "PPD ფაილი (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

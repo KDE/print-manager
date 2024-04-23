@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-21 04:47\n"
+"PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -96,12 +96,10 @@ msgstr ""
 "个驱动程序。"
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "选择驱动程序…"
+msgstr "选择无驱动打印机…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -122,20 +120,16 @@ msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "打印机驱动程序 (%1)"
+msgstr "无驱动打印机 (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD 文件："
+msgstr "PPD 文件 (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

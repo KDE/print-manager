@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-17 15:02+0200\n"
+"PO-Revision-Date: 2024-04-22 12:48+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -96,12 +96,10 @@ msgstr ""
 "interface> per essayar novemente o selige un driver manualmente."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Selige Driver…"
+msgstr "Selige Driverless (sin driver)"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -124,20 +122,16 @@ msgstr ""
 "imprimitor  e typo de connexion"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Driver de imprimitor (%1)"
+msgstr "Driverless (sin driver) (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "File PPD:"
+msgstr "File PPD (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

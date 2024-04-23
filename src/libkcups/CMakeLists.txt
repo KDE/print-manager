@@ -13,7 +13,6 @@ set(libkcups_SRCS
     SelectMakeModel.cpp
     NoSelectionRectDelegate.cpp
     PrinterModel.cpp
-    PrinterSortFilterModel.cpp
     JobModel.cpp
     JobSortFilterModel.cpp
     ProcessRunner.cpp
@@ -31,7 +30,6 @@ set(libkcups_SRCS
     SelectMakeModel.h
     NoSelectionRectDelegate.h
     PrinterModel.h
-    PrinterSortFilterModel.h
     JobModel.h
     JobSortFilterModel.h
     ProcessRunner.h

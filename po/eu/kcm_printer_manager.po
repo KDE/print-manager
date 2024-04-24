@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-19 23:24+0200\n"
+"PO-Revision-Date: 2024-04-23 21:40+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -99,12 +99,10 @@ msgstr ""
 "interface> gainean berriz saiatzeko edo hautatu gidari bat eskuz."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Hautatu gidaria…"
+msgstr "Hautatu gidaririk gabe…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -127,20 +125,16 @@ msgstr ""
 "oinarritzen dira"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Inprimagailu gidaria (%1)"
+msgstr "Gidaririk gabe (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD fitxategia:"
+msgstr "PPD fitxategia (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

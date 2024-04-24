@@ -121,20 +121,16 @@ msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Ovladač tiskárny (%1)"
+msgstr ""
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "Soubor PPD:"
+msgstr ""
 
 #: ui/components/ManualUri.qml:21
 #, kde-format

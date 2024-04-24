@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-06 17:39+0200\n"
+"PO-Revision-Date: 2024-04-22 17:39+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -74,11 +74,10 @@ msgid "Address:"
 msgstr "Indirizzo:"
 
 #: ui/components/BaseDevice.qml:121
-#, fuzzy, kde-format
-#| msgid "Enter host Address"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "Inserisci l'indirizzo dell'host"
+msgstr "Inserisci l'indirizzo del dispositivo"
 
 #: ui/components/Direct.qml:23
 #, kde-format
@@ -97,12 +96,10 @@ msgstr ""
 "interface> per riprovare o scegli un driver manualmente."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Scegli driver…"
+msgstr "Scegli senza driver…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -125,20 +122,16 @@ msgstr ""
 "connessione della stampante"
 
 #: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Driver di stampante (%1)"
+msgstr "Senza driver (%1)"
 
 #: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "File PPD:"
+msgstr "File PPD (%1)"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -174,20 +167,18 @@ msgstr "Questa funzionalità non è ancora disponibile (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "Protocollo AppSocket (anche noto come JetDirect)"
 
 #: ui/components/Socket.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "Inserisci l'indirizzo dell'host/dispositivo remoto"
+msgstr "Inserisci l'indirizzo del dispositivo AppSocket"
 
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "URL di socket non valido: %1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -476,12 +467,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Aiuto sulla panoramica sulle stampanti CUPS"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Amministrazione server di stampa CUPS"
+msgstr "Pagina di amministrazione della stampante/dispositivo"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -519,7 +508,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Configurazione di %1, attendere..."
 
 #: ui/PrinterSettings.qml:171
 #, kde-format

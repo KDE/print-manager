@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 09:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -62,7 +62,7 @@ msgstr "შიდა სატესტო გვერდი"
 msgid "Clean Print Heads"
 msgstr "თავაკების გაწმენდა"
 
-#: ui/components/AddressExamples.qml:22
+#: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -123,17 +123,61 @@ msgstr ""
 "რეკომენდებული დრაივერი პრინტერის მწარმოებელზე/მოდელზე და მიერთების ტიპზეა "
 "დამოკიდებული"
 
-#: ui/components/Drivers.qml:124
+#: ui/components/Drivers.qml:130
 #, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
 msgstr "დრაივერის გარეშე (%1)"
 
-#: ui/components/Drivers.qml:126
+#: ui/components/Drivers.qml:132
 #, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
 msgstr "PPD ფაილი (%1)"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr ""
+
+#: ui/components/Lpd.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the AppSocket device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "შეიყვანეთ AppSocket მოწყობილობის მისამართი"
+
+#: ui/components/Lpd.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "რიგის სახელი:"
+
+#: ui/components/Lpd.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "რიგის სახელი:"
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr "გაგრძელება მისამართით…"
+
+#: ui/components/Lpd.qml:90
+#, fuzzy, kde-format
+#| msgid "Invalid Socket URL: %1"
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr "არასწორი სოკეტის URL: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -152,12 +196,6 @@ msgstr "შეიყვანეთ დაშორებული ჰოსტ�
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "აირჩიეთ პრინტერი…"
-
-#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue with Address…"
-msgstr "გაგრძელება მისამართით…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -405,36 +443,36 @@ msgid "Printer model is required.  Please select a printer model."
 msgstr ""
 "პრინტერის მოდელის მითითება აუცილებელია.  აირჩიეთ პრინტერის მოდელი, გეთაყვა."
 
-#: ui/MakeModel.qml:209
+#: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "აირჩიეთ მწარმოებელი და მოდელი:"
 
-#: ui/MakeModel.qml:221
+#: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "მოდელების გაფილტვრა"
 
-#: ui/MakeModel.qml:300
+#: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD ფაილი:"
 
-#: ui/MakeModel.qml:322
+#: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "აირჩიეთ PPD ფაილი…"
 
-#: ui/MakeModel.qml:329
+#: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
 msgstr "არჩევა"
 
-#: ui/MakeModel.qml:330
+#: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript პრინტერის აღწერის ფაილები (*.ppd)"
@@ -621,13 +659,13 @@ msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "წევრი პრინტერები:"
 
-#: ui/PrinterSettings.qml:686
+#: ui/PrinterSettings.qml:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "მწარმოებელი და მოდელი:"
 
-#: ui/PrinterSettings.qml:701
+#: ui/PrinterSettings.qml:707
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

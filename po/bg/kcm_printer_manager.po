@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 09:18+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -61,7 +61,7 @@ msgstr "Печат на само-тестова страница"
 msgid "Clean Print Heads"
 msgstr "Почистване на главите"
 
-#: ui/components/AddressExamples.qml:22
+#: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -122,17 +122,61 @@ msgstr ""
 "Препоръчителните драйвери се основават на марката/модела на принтера и типа "
 "на връзката"
 
-#: ui/components/Drivers.qml:124
+#: ui/components/Drivers.qml:130
 #, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
 msgstr "Бездрайверно принтиране (%1)"
 
-#: ui/components/Drivers.qml:126
+#: ui/components/Drivers.qml:132
 #, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
 msgstr "PPD файл (%1)"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr ""
+
+#: ui/components/Lpd.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the AppSocket device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "Въведете адреса на устройство AppSocket"
+
+#: ui/components/Lpd.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "Име на опашка:"
+
+#: ui/components/Lpd.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "Име на опашка:"
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr "Продължаване с адрес…"
+
+#: ui/components/Lpd.qml:90
+#, fuzzy, kde-format
+#| msgid "Invalid Socket URL: %1"
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr "Невалиден адрес на сокет: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -151,12 +195,6 @@ msgstr "Въведете адреса на отдалечения хост/ус�
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Изберете принтер…"
-
-#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue with Address…"
-msgstr "Продължаване с адрес…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -402,36 +440,36 @@ msgstr "Изберете PostScript Printer Description (PPD) файл"
 msgid "Printer model is required.  Please select a printer model."
 msgstr "Изисква се модел на принтера. Моля, изберете модел на принтера."
 
-#: ui/MakeModel.qml:209
+#: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Изберете марка и модел:"
 
-#: ui/MakeModel.qml:221
+#: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Филтриране на моделите"
 
-#: ui/MakeModel.qml:300
+#: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD файл:"
 
-#: ui/MakeModel.qml:322
+#: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Изберете PPD файл..."
 
-#: ui/MakeModel.qml:329
+#: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
 msgstr "Избор"
 
-#: ui/MakeModel.qml:330
+#: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "Файлове PostScript Printer Description (*.ppd)"
@@ -617,13 +655,13 @@ msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Членове принтери:"
 
-#: ui/PrinterSettings.qml:686
+#: ui/PrinterSettings.qml:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Марка и модел:"
 
-#: ui/PrinterSettings.qml:701
+#: ui/PrinterSettings.qml:707
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
 "PO-Revision-Date: 2024-02-19 21:40+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -61,7 +61,7 @@ msgstr "자가 진단 페이지 인쇄"
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"
 
-#: ui/components/AddressExamples.qml:22
+#: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -118,7 +118,7 @@ msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "프린터 제조사/모델과 연결 방식에 따라서 추천 드라이버를 선택합니다"
 
-#: ui/components/Drivers.qml:124
+#: ui/components/Drivers.qml:130
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Printer Driver (%1)"
@@ -126,13 +126,56 @@ msgctxt "@label:listitem"
 msgid "Driverless (%1)"
 msgstr "프린터 드라이버(%1)"
 
-#: ui/components/Drivers.qml:126
+#: ui/components/Drivers.qml:132
 #, fuzzy, kde-format
 #| msgctxt "@option:radio"
 #| msgid "PPD file:"
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
 msgstr "PPD 파일:"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr ""
+
+#: ui/components/Lpd.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the remote host/device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "원격 호스트나 장치의 주소를 입력하십시오"
+
+#: ui/components/Lpd.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "대기열 이름:"
+
+#: ui/components/Lpd.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "대기열 이름:"
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr ""
+
+#: ui/components/Lpd.qml:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr ""
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -153,12 +196,6 @@ msgstr "원격 호스트나 장치의 주소를 입력하십시오"
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "프린터 선택"
-
-#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue with Address…"
-msgstr ""
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -405,36 +442,36 @@ msgstr "포스트스크립트 프린터 정의(PPD) 파일 선택"
 msgid "Printer model is required.  Please select a printer model."
 msgstr "프린터 모델이 필요합니다. 프린터 모델을 선택하십시오."
 
-#: ui/MakeModel.qml:209
+#: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "제조사와 모델 선택:"
 
-#: ui/MakeModel.qml:221
+#: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "모델 필터"
 
-#: ui/MakeModel.qml:300
+#: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD 파일:"
 
-#: ui/MakeModel.qml:322
+#: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "PPD 파일 선택…"
 
-#: ui/MakeModel.qml:329
+#: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
 msgstr "선택"
 
-#: ui/MakeModel.qml:330
+#: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "포스트스크립트 프린터 정의 파일 (*.ppd)"
@@ -620,13 +657,13 @@ msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "구성 프린터:"
 
-#: ui/PrinterSettings.qml:686
+#: ui/PrinterSettings.qml:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "제조사/모델:"
 
-#: ui/PrinterSettings.qml:701
+#: ui/PrinterSettings.qml:707
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

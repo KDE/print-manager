@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -61,7 +61,7 @@ msgstr "打印自检页"
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
 
-#: ui/components/AddressExamples.qml:22
+#: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -119,17 +119,61 @@ msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
 
-#: ui/components/Drivers.qml:124
+#: ui/components/Drivers.qml:130
 #, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
 msgstr "无驱动打印机 (%1)"
 
-#: ui/components/Drivers.qml:126
+#: ui/components/Drivers.qml:132
 #, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
 msgstr "PPD 文件 (%1)"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr ""
+
+#: ui/components/Lpd.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the AppSocket device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "输入 AppSocket 设备的地址"
+
+#: ui/components/Lpd.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "队列名称："
+
+#: ui/components/Lpd.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "队列名称："
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr "使用地址继续…"
+
+#: ui/components/Lpd.qml:90
+#, fuzzy, kde-format
+#| msgid "Invalid Socket URL: %1"
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr "无效的 Socket URL：%1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -148,12 +192,6 @@ msgstr "输入远程主机/设备的地址"
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "选择打印机…"
-
-#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue with Address…"
-msgstr "使用地址继续…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -395,36 +433,36 @@ msgstr "选择 PostScript 打印机描述 (PPD) 文件"
 msgid "Printer model is required.  Please select a printer model."
 msgstr "打印机模型是必需项。请选择一个打印机模型。"
 
-#: ui/MakeModel.qml:209
+#: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "选择制造商和型号："
 
-#: ui/MakeModel.qml:221
+#: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "过滤型号"
 
-#: ui/MakeModel.qml:300
+#: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD 文件："
 
-#: ui/MakeModel.qml:322
+#: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "选择 PPD 文件…"
 
-#: ui/MakeModel.qml:329
+#: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
 msgstr "选择"
 
-#: ui/MakeModel.qml:330
+#: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript 打印机描述文件 (*.ppd)"
@@ -608,13 +646,13 @@ msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "成员打印机："
 
-#: ui/PrinterSettings.qml:686
+#: ui/PrinterSettings.qml:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "制造商/型号："
 
-#: ui/PrinterSettings.qml:701
+#: ui/PrinterSettings.qml:707
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

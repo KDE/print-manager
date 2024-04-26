@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
 "PO-Revision-Date: 2024-04-21 09:16+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -62,7 +62,7 @@ msgstr "Надрукувати сторінку самоперевірки"
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
 
-#: ui/components/AddressExamples.qml:22
+#: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -123,17 +123,61 @@ msgstr ""
 "Рекомендації щодо драйверів засновано на виробнику та моделі принтера та "
 "типі з'єднання"
 
-#: ui/components/Drivers.qml:124
+#: ui/components/Drivers.qml:130
 #, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
 msgstr "Без драйвера (%1)"
 
-#: ui/components/Drivers.qml:126
+#: ui/components/Drivers.qml:132
 #, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
 msgstr "файл PPD (%1)"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr ""
+
+#: ui/components/Lpd.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the AppSocket device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "Введіть адресу пристрою AppSocket"
+
+#: ui/components/Lpd.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "Назва черги:"
+
+#: ui/components/Lpd.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "Назва черги:"
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr "Продовжити з адресою…"
+
+#: ui/components/Lpd.qml:90
+#, fuzzy, kde-format
+#| msgid "Invalid Socket URL: %1"
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr "Некоректна адреса сокета: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -152,12 +196,6 @@ msgstr "Введіть адресу віддаленого вузла або п�
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Вибрати принтер…"
-
-#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue with Address…"
-msgstr "Продовжити з адресою…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -403,36 +441,36 @@ msgstr "Виберіть файл опис принтера PostScript (PPD)"
 msgid "Printer model is required.  Please select a printer model."
 msgstr "Слід вказати модель принтера. Будь ласка, виберіть модель."
 
-#: ui/MakeModel.qml:209
+#: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Виберіть виробника і модель:"
 
-#: ui/MakeModel.qml:221
+#: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Фільтрувати за моделями"
 
-#: ui/MakeModel.qml:300
+#: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "Файл PPD:"
 
-#: ui/MakeModel.qml:322
+#: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Вибрати файл PPD…"
 
-#: ui/MakeModel.qml:329
+#: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
 msgstr "Вибрати"
 
-#: ui/MakeModel.qml:330
+#: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "файли опису принтерів PostScript (*.ppd)"
@@ -618,13 +656,13 @@ msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Принтери-учасники:"
 
-#: ui/PrinterSettings.qml:686
+#: ui/PrinterSettings.qml:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Виробник/модель:"
 
-#: ui/PrinterSettings.qml:701
+#: ui/PrinterSettings.qml:707
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

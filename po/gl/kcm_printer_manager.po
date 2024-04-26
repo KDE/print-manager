@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
-"PO-Revision-Date: 2024-04-21 09:36+0200\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
+"PO-Revision-Date: 2024-04-25 20:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -63,7 +63,7 @@ msgstr "Imprimir unha páxina de proba."
 msgid "Clean Print Heads"
 msgstr "Limpar os cabezais de impresión"
 
-#: ui/components/AddressExamples.qml:22
+#: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -99,12 +99,10 @@ msgstr ""
 "controlador manualmente."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Escoller un controlador…"
+msgstr "Escoller sen controlador…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -126,21 +124,61 @@ msgstr ""
 "Os controladores recomendados están baseados na marca e modelo da impresora "
 "e no tipo de conexión."
 
-#: ui/components/Drivers.qml:124
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#: ui/components/Drivers.qml:130
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Controlador de impresora (%1)"
+msgstr "Sen controlador (%1)"
 
-#: ui/components/Drivers.qml:126
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#: ui/components/Drivers.qml:132
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "Ficheiro PPD:"
+msgstr "Ficheiro PPD (%1)"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr ""
+
+#: ui/components/Lpd.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the AppSocket device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "Escriba o enderezo do dispositivo de AppSocket."
+
+#: ui/components/Lpd.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "Nome da cola:"
+
+#: ui/components/Lpd.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "Nome da cola:"
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr "Continuar co enderezo…"
+
+#: ui/components/Lpd.qml:90
+#, fuzzy, kde-format
+#| msgid "Invalid Socket URL: %1"
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr "O URL de toma non é válido: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -159,12 +197,6 @@ msgstr "Introduza o enderezo do servidor ou dispositivo remoto"
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Seleccionar unha impresora…"
-
-#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue with Address…"
-msgstr "Continuar co enderezo…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -411,36 +443,36 @@ msgstr "Seleccionar un ficheiro de descrición de impresora de PostScript (PPD)"
 msgid "Printer model is required.  Please select a printer model."
 msgstr "O modelo da impresora é necesario. Seleccione un."
 
-#: ui/MakeModel.qml:209
+#: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Seleccionar a marca e o modelo:"
 
-#: ui/MakeModel.qml:221
+#: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Filtrar os modelos"
 
-#: ui/MakeModel.qml:300
+#: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "Ficheiro PPD:"
 
-#: ui/MakeModel.qml:322
+#: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Seleccionar un ficheiro PPD…"
 
-#: ui/MakeModel.qml:329
+#: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
 msgstr "Seleccionar"
 
-#: ui/MakeModel.qml:330
+#: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "Ficheiros de descrición de impresora de PostScript (*.ppd)"
@@ -628,13 +660,13 @@ msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Impresoras membros:"
 
-#: ui/PrinterSettings.qml:686
+#: ui/PrinterSettings.qml:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Marca ou modelo:"
 
-#: ui/PrinterSettings.qml:701
+#: ui/PrinterSettings.qml:707
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

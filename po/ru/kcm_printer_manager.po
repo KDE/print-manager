@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
 "PO-Revision-Date: 2024-02-27 21:43+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -63,7 +63,7 @@ msgstr "Распечатать страницу самопроверки"
 msgid "Clean Print Heads"
 msgstr "Очистить печатающие головки"
 
-#: ui/components/AddressExamples.qml:22
+#: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -122,7 +122,7 @@ msgstr ""
 "Подбор рекомендованного драйвера основан на сведениях о производителе и "
 "модели принтера, а также типе подключения"
 
-#: ui/components/Drivers.qml:124
+#: ui/components/Drivers.qml:130
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Printer Driver (%1)"
@@ -130,13 +130,56 @@ msgctxt "@label:listitem"
 msgid "Driverless (%1)"
 msgstr "Драйвер принтера (%1)"
 
-#: ui/components/Drivers.qml:126
+#: ui/components/Drivers.qml:132
 #, fuzzy, kde-format
 #| msgctxt "@option:radio"
 #| msgid "PPD file:"
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
 msgstr "Файл PPD:"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr ""
+
+#: ui/components/Lpd.qml:21
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the remote host/device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "Введите адрес хоста или устройства в сети"
+
+#: ui/components/Lpd.qml:61
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "Имя очереди:"
+
+#: ui/components/Lpd.qml:66
+#, fuzzy, kde-format
+#| msgctxt "@label:textbox"
+#| msgid "Queue Name:"
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "Имя очереди:"
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr ""
+
+#: ui/components/Lpd.qml:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr ""
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -157,12 +200,6 @@ msgstr "Введите адрес хоста или устройства в се
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Выбрать принтер"
-
-#: ui/components/ManualUri.qml:81 ui/components/Socket.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Continue with Address…"
-msgstr ""
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -408,36 +445,36 @@ msgstr "Выбор файла описания принтера PostScript (PPD)
 msgid "Printer model is required.  Please select a printer model."
 msgstr "Необходимо выбрать модель принтера."
 
-#: ui/MakeModel.qml:209
+#: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Выбрать производителя и модель:"
 
-#: ui/MakeModel.qml:221
+#: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Модель принтера…"
 
-#: ui/MakeModel.qml:300
+#: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "Файл PPD:"
 
-#: ui/MakeModel.qml:322
+#: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Выбрать файл PPD…"
 
-#: ui/MakeModel.qml:329
+#: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
 msgstr "Выбрать"
 
-#: ui/MakeModel.qml:330
+#: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "Файлы описания принтеров PostScript (*.ppd)"
@@ -625,13 +662,13 @@ msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Принтеры в группе:"
 
-#: ui/PrinterSettings.qml:686
+#: ui/PrinterSettings.qml:692
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Производитель/модель:"
 
-#: ui/PrinterSettings.qml:701
+#: ui/PrinterSettings.qml:707
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

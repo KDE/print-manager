@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-07 01:42+0000\n"
+"POT-Creation-Date: 2024-04-26 00:39+0000\n"
 "PO-Revision-Date: 2024-03-17 17:58+0100\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -22,21 +22,21 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Tiskalniki"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 msgid "Printer Groups"
 msgstr "Skupine tiskalnikov"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:66
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Nastavljenega ali odkritega ni bilo nobenega tiskalnika"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:66
 msgid "No matches"
 msgstr "Ni zadetkov"
 

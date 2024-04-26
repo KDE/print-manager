@@ -348,25 +348,6 @@ KCM.AbstractKCM {
     ColumnLayout {
         anchors.centerIn: parent
 
-        Kirigami.SelectableLabel {
-            visible: modelData.isClass
-            Layout.alignment: Qt.AlignHCenter
-            Layout.preferredWidth: Math.ceil(root.width/2)
-
-            textFormat: Text.RichText
-            text: i18nc("@info:whatsthis", "A <b>printer group</b> is used to pool printing resources.
-                Member printers can be added to a group and print jobs sent to that group
-                will be dispatched to the appropriate printer.")
-            wrapMode: Text.WordWrap
-        }
-
-        Kirigami.Separator {
-            visible: modelData.isClass
-            Layout.topMargin: Kirigami.Units.largeSpacing
-            Layout.bottomMargin: Kirigami.Units.largeSpacing
-            Layout.fillWidth: true
-        }
-
         RowLayout {
             spacing: Kirigami.Units.smallSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
@@ -505,13 +486,25 @@ KCM.AbstractKCM {
                 Layout.alignment: Qt.AlignRight
             }
 
-            PrinterField {
-                id: queueName
-                objectName: "printer-name"
-                orig: modelData.printerName
-                enabled: addMode
-                validator: RegularExpressionValidator { regularExpression: /[^/#\\ ]*/ }
+            RowLayout {
+                spacing: Kirigami.Units.smallSpacing
+
+                PrinterField {
+                    id: queueName
+                    objectName: "printer-name"
+                    orig: modelData.printerName
+                    enabled: addMode
+                    validator: RegularExpressionValidator { regularExpression: /[^/#\\ ]*/ }
+                }
+
+                Kirigami.ContextualHelpButton {
+                    visible: modelData.isClass
+                    toolTipText: xi18nc("@info:whatsthis", "A <interface>printer group</interface> is used to pool printing resources.
+                    Member printers can be added to a group and print jobs sent to that group
+                    will be dispatched to the appropriate printer.")
+                }
             }
+
 
             QQC2.Label {
                 text: i18nc("@label:textbox", "Description:")
@@ -562,7 +555,7 @@ KCM.AbstractKCM {
                 active: modelData.isClass
                 visible: active
                 Layout.fillHeight: true
-                Layout.fillWidth: true
+                Layout.preferredWidth: Math.round(root.width/2)
 
                 sourceComponent: QQC2.ScrollView {
 

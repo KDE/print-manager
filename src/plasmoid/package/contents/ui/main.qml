@@ -14,6 +14,7 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.kirigami as Kirigami
 import org.kde.config // KAuthorized
 import org.kde.kcmutils // KCMLauncher
+import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PrintManager
 
 PlasmoidItem {
@@ -38,11 +39,45 @@ PlasmoidItem {
 
     onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
 
-    PrintManager.PrinterModel {
-        id: printersModel
-        onError: (lastError, errorTitle, errorMsg) => {
-            printersModelError = errorTitle;
+    KItemModels.KSortFilterProxyModel {
+        id: filterModel
+        
+        property bool showDiscoveredPrinters
+        onShowDiscoveredPrintersChanged: invalidateFilter()
+        property bool showGroups
+        onShowGroupsChanged: invalidateFilter()
+
+        sourceModel: PrintManager.PrinterModel {
+            id: printersModel
+
+            searchIncludeDiscovered: true
+
+            onError: (lastError, errorTitle, errorMsg) => {
+                printersModelError = errorTitle;
+            }
+                
+            Component.onCompleted: update()
         }
+        
+        sortRoleName: "isClass"
+        
+        filterRowCallback: (source_row, source_parent) => {
+            const ndx = sourceModel.index(source_row, 0, source_parent)
+            
+            // show discovered printers?
+            if (!showDiscoveredPrinters & sourceModel.data(ndx, PrintManager.PrinterModel.DestUriSupported) === "_discovered") {
+                return false
+            }
+            
+            // show groups?
+            if (!showGroups & sourceModel.data(ndx, PrintManager.PrinterModel.DestIsClass)) {
+                return false
+            }
+
+            // filter string
+            return sourceModel.data(ndx, PrintManager.PrinterModel.DestDescription).toLowerCase().includes(filterString)
+        }
+
     }
 
     PrintManager.JobSortFilterModel {
@@ -80,7 +115,7 @@ PlasmoidItem {
             } else {
                 return printerName === "" ? "" : i18nc("Printing with printer name", "Printing with %1", printerName);
             }
-        } else if (printersModel.count > 0) {
+        } else if (filterModel.count > 0) {
             return i18n("Print queue is empty");
         } else {
             return i18n("No printers have been configured or discovered");
@@ -102,7 +137,7 @@ PlasmoidItem {
     Plasmoid.status: {
         if (activeJobsFilterModel.activeCount > 0) {
             return PlasmaCore.Types.ActiveStatus;
-        } else if (printersModel.count > 0 || serverUnavailable) {
+        } else if (filterModel.count > 0 || serverUnavailable) {
             return PlasmaCore.Types.PassiveStatus;
         } else {
             return PlasmaCore.Types.HiddenStatus;
@@ -144,6 +179,23 @@ PlasmoidItem {
             }
         },
         PlasmaCore.Action {
+            isSeparator: true
+        },
+        PlasmaCore.Action {
+            text: i18n("Show Discovered Printers")
+            icon.name: "printer"
+            checkable: true
+            checked: filterModel.showDiscoveredPrinters
+            onTriggered: filterModel.showDiscoveredPrinters = checked
+        },
+        PlasmaCore.Action {
+            text: i18n("Show Printer Groups")
+            icon.name: "folder-print"
+            checkable: true
+            checked: filterModel.showGroups
+            onTriggered: filterModel.showGroups = checked
+        },
+  PlasmaCore.Action {
             isSeparator: true
         }
     ]

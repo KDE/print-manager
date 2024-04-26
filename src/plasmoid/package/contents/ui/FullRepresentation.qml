@@ -8,6 +8,8 @@
 */
 
 import QtQuick
+import QtQuick.Controls as QQC2
+import QtQuick.Layouts 
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
@@ -17,17 +19,39 @@ import org.kde.plasma.printmanager as PrintManager
 PlasmaExtras.Representation {
     collapseMarginsHint: true
 
-    header: PlasmaExtras.PlasmoidHeading {
+    Component.onCompleted: filterModel.showGroups = true
+    
+    header: ColumnLayout {
+        spacing: Kirigami.Units.largeSpacing
+        
         PlasmaExtras.SearchField {
-            anchors.fill: parent
-            onTextChanged: printersFilterModel.filterString = text.toLowerCase()
+            Layout.fillWidth: true
+           
+            onTextChanged: filterModel.filterString = text.toLowerCase()
         }
+        
+        RowLayout {
+            spacing: Kirigami.Units.largeSpacing
+            Layout.alignment: Qt.AlignHCenter
+
+            QQC2.CheckBox {
+                text: i18n("Show Discovered Printers")
+                checked: filterModel.showDiscoveredPrinters
+                onToggled: filterModel.showDiscoveredPrinters = checked
+            }
+
+            QQC2.CheckBox {
+                text: i18n("Show Printer Groups")
+                checked: filterModel.showGroups
+                onToggled: filterModel.showGroups = checked
+            }
+        }
+    
     }
-
-    PlasmaComponents3.ScrollView {
-        anchors.fill: parent
+    
+    contentItem: PlasmaComponents3.ScrollView {
         contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
-
+        
         contentItem: ListView {
             focus: true
             currentIndex: -1
@@ -41,17 +65,8 @@ PlasmaExtras.Representation {
                 }
             }
             
-            model: KItemModels.KSortFilterProxyModel {
-                id: printersFilterModel
-                sourceModel: printersModel
-                sortRoleName: "isClass"
-                
-                filterRowCallback: (source_row, source_parent) => {
-                    return sourceModel.data(sourceModel.index(source_row, 0, source_parent), PrintManager.PrinterModel.DestDescription).toLowerCase().includes(filterString)
-                }
-
-            }
-
+            model: filterModel
+            
             topMargin: Kirigami.Units.smallSpacing * 2
             bottomMargin: Kirigami.Units.smallSpacing * 2
             leftMargin: Kirigami.Units.smallSpacing * 2
@@ -66,7 +81,7 @@ PlasmaExtras.Representation {
             Loader {
                 anchors.centerIn: parent
                 width: parent.width - (Kirigami.Units.largeSpacing * 4)
-                active: printersFilterModel.count === 0 || serverUnavailable
+                active: filterModel.count === 0 || serverUnavailable
                 sourceComponent: PlasmaExtras.PlaceholderMessage {
                     text: serverUnavailable ? printersModelError || i18n("No printers have been configured or discovered") : i18n("No matches")
                     iconName: serverUnavailable ? "dialog-error" : "edit-none"
@@ -74,4 +89,5 @@ PlasmaExtras.Representation {
             }
         }
     }
+    
 }

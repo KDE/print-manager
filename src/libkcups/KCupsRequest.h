@@ -83,6 +83,15 @@ public:
     Q_INVOKABLE void getPPDS(const QString &make = QString());
 
     /**
+     * Uses cupsEnumDests() to return cups devices that can be configured
+     * @param timeout 5000 is the recommended min
+     * @param type filter printer type
+     * @param mask filter printer mask
+     * This method emits deviceMap()
+     */
+    Q_INVOKABLE void getDestinations(int timeout = 5000, uint type = 0, uint mask = 0);
+
+    /**
      * Get all devices that could be added as a printer
      * This method emits device()
      */
@@ -117,6 +126,16 @@ public:
     Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes);
 
     /**
+     * Get attributes for a given printer
+     * @param printerName The printer
+     * @param isClass True it is a printer class
+     * @param attributes The attributes you are requesting
+     *
+     * @return Emits \sa deviceMap() with the printer attribute map
+     */
+    Q_INVOKABLE void getPrinterAttributesNotify(const QString &printerName, bool isClass, QStringList attributes);
+
+    /**
      * Get all jobs
      * This method emits job()
      * TODO we need to see if we authenticate as root to do some taks
@@ -148,6 +167,12 @@ public:
      * the result is stored at \sa printerPPD()
      */
     Q_INVOKABLE void getPrinterPPD(const QString &printerName);
+
+    /**
+     * Get the PPD associated with @arg printerName
+     * the result is stored at \sa printerPPD()
+     */
+    Q_INVOKABLE void getPPD(const QString &printerName);
 
     /**
      * Get the CUPS server settings
@@ -278,6 +303,7 @@ Q_SIGNALS:
                 const QString &device_uri,
                 const QString &device_location);
 
+    void deviceMap(const QVariantMap &printer);
     void finished(KCupsRequest *);
 
 private:

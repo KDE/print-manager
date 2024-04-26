@@ -53,7 +53,7 @@ KCM.ScrollViewKCM {
 
     function checkServerSettings() {
         if (!kcm.serverSettingsLoaded) {
-            // Calls CUPS Auth
+            // Forces CUPS Auth
             kcm.getServerSettings()
         }
     }
@@ -117,7 +117,7 @@ KCM.ScrollViewKCM {
         , Kirigami.Action {
             text: i18nc("@action:button", "Add Group…")
             icon.name: "folder-print-symbolic"
-            visible: list.count > 1
+            visible: printersKSFM.showGroups
             onTriggered: {
                 checkServerSettings()
                 newPrinter(false)
@@ -134,6 +134,44 @@ KCM.ScrollViewKCM {
             }
         }
     ]
+
+    footer: RowLayout {
+        spacing: Kirigami.Units.largeSpacing
+
+        Kirigami.UrlButton {
+            text: i18nc("@action:button", "CUPS Printers")
+            url: "http://localhost:631/admin"
+            padding: Kirigami.Units.largeSpacing
+        }
+
+        Item { Layout.fillWidth: true }
+
+        QQC2.CheckBox {
+            text: i18nc("@action:button", "Show Discovered Printers")
+            checkable: true
+            checked: printersKSFM.showDiscovered
+            onToggled: printersKSFM.showDiscovered = checked
+        }
+
+        QQC2.CheckBox {
+            text: i18nc("@action:button", "Show Printer Groups")
+            checkable: true
+            checked: printersKSFM.showGroups
+            onToggled: printersKSFM.showGroups = checked
+        }
+
+        Item { Layout.fillWidth: true }
+
+        QQC2.Button {
+            text: i18nc("@action:button", "Refresh")
+            icon.name: "view-refresh-symbolic"
+            onClicked: pmModel.update()
+
+            QQC2.ToolTip {
+                text: i18nc("@info:whatsthis", "Check for printer devices")
+            }
+        }
+    }
 
     Connections {
         target: kcm
@@ -200,6 +238,8 @@ KCM.ScrollViewKCM {
 
     PM.PrinterModel {
         id: pmModel
+        searchIncludeDiscovered: true
+        Component.onCompleted: update()
     }
 
     // Not heavy, but slow (timeout?), loads on-demand
@@ -246,12 +286,30 @@ KCM.ScrollViewKCM {
         }
 
         model: KItemModels.KSortFilterProxyModel {
+            id: printersKSFM
             sourceModel: pmModel
             sortRoleName: "isClass"
+
+            property bool showDiscovered: false
+            onShowDiscoveredChanged: printersKSFM.invalidateFilter()
+            property bool showGroups: true
+            onShowGroupsChanged: printersKSFM.invalidateFilter()
+
+            filterRowCallback: (source_row, source_parent) => {
+               const ndx = sourceModel.index(source_row, 0, source_parent)
+
+               if (!showDiscovered & sourceModel.data(ndx, PM.PrinterModel.DestUriSupported) === "_discovered") {
+                   return false
+               }
+               if (!showGroups & sourceModel.data(ndx, PM.PrinterModel.DestIsClass)) {
+                   return false
+               }
+               return true
+            }
         }
 
         delegate: QQC2.ItemDelegate {
-            id: devDelegate
+            id: deviceDelegate
             width: ListView.view.width
 
             required property var model
@@ -260,6 +318,7 @@ KCM.ScrollViewKCM {
             required property bool isPaused
             required property bool isDefault
             required property bool remote
+            required property bool uriSupported
             required property string printerName
             required property string location
             required property string info
@@ -276,6 +335,8 @@ KCM.ScrollViewKCM {
                                 })
             }
 
+            property bool discovered: uriSupported === "_discovered"
+
             contentItem: RowLayout {
                 spacing: Kirigami.Units.smallSpacing
 
@@ -291,13 +352,64 @@ KCM.ScrollViewKCM {
                             : (isClass ? "folder-print" : iconName)
 
                     font.bold: list.count > 1 & isDefault
-                    selected: devDelegate.highlighted || devDelegate.down
+                    selected: deviceDelegate.highlighted || deviceDelegate.down
+                }
+
+                // For discovered printers
+                QQC2.ToolButton {
+                    text: i18nc("@action:button", "Make printer permanent…")
+                    icon.name: "list-add-symbolic"
+                    display: QQC2.AbstractButton.IconOnly
+                    visible: discovered
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+
+                    onClicked: {
+                        checkServerSettings()
+                        newPrinter(true
+                                   , {info: model.info
+                                       , printerName: model.printerName.replace(/[()\[\]]/g, "")
+                                       , printerUri: model.printerUri
+                                       , kind: model.kind}
+                                   // ppd
+                                   , {make: model.kind.split(' ')[0]
+                                       , makeModel: model.kind
+                                       , type: PM.PPDType.Auto
+                                       , file: "driverless:" + model.printerUri
+                                   })
+                    }
+
+                    QQC2.ToolTip {
+                        text: parent.text
+                    }
+                }
+
+                // For permanent printers
+                QQC2.ToolButton {
+                    text: i18nc("@action:button", "Configure…")
+                    icon.name: "configure-symbolic"
+                    display: QQC2.AbstractButton.IconOnly
+                    visible: !discovered
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+
+                    onClicked: {
+                        checkServerSettings()
+                        kcm.push("PrinterSettings.qml"
+                               , {modelData: model
+                               , addMode: false
+                               , printerModel: pmModel
+                               , ppdModel: ppdModel})
+                    }
+
+                    QQC2.ToolTip {
+                        text: parent.text
+                    }
                 }
 
                 QQC2.ToolButton {
                     text: i18nc("@action:button", "Open Print Queue…")
                     icon.name: "view-list-details-symbolic"
                     display: QQC2.AbstractButton.IconOnly
+                    visible: !discovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: PM.ProcessRunner.openPrintQueue(printerName)
@@ -315,9 +427,11 @@ KCM.ScrollViewKCM {
                           ? i18nc("@action:button Resume printing", "Resume")
                           : i18nc("@action:button Pause printing", "Pause")
 
+                    visible: !discovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: {
+                        checkServerSettings()
                         if (isPaused) {
                             kcm.resumePrinter(printerName);
                         } else {

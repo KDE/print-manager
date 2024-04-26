@@ -31,8 +31,8 @@ KCM.AbstractKCM {
     }
 
     function openFindPrinterDlg() {
-            const dlg = newComp.createObject(root)
-            dlg.open()
+        const dlg = newComp.createObject(root)
+        dlg.open()
     }
 
     function printerNameIsUnique(name: string) : bool {
@@ -80,8 +80,9 @@ KCM.AbstractKCM {
         spacing: Kirigami.Units.largeSpacing
 
         Kirigami.UrlButton {
-            text: i18nc("@action:button", "CUPS Printers Overview Help")
-            url: "http://localhost:631/help/overview.html"
+            text: i18nc("@action:button", "CUPS Printer Admin")
+            url: addMode ? "http://localhost:631/admin"
+                         : "http://localhost:631/printers/" + modelData.printerName
             padding: Kirigami.Units.largeSpacing
         }
 
@@ -148,11 +149,15 @@ KCM.AbstractKCM {
     Component.onCompleted: {
         if (!modelData.isClass) {
             if (addMode) {
-                config.set({"ppd-name": modelData["ppd-name"]
-                           , "ppd-type": modelData["ppd-type"]})
-
-                // there is no ppd info, so show make/model selection dialog initially
-                if (config.value("ppd-name") === "") {
+                // ppd info can come from the modelData or ppd object
+                if (modelData["ppd-name"]) {
+                    config.set({"ppd-name": modelData["ppd-name"]
+                               , "ppd-type": modelData["ppd-type"]})
+                } else if (Object.keys(ppd).length > 0) {
+                    config.set({"ppd-name": ppd.file
+                               , "ppd-type": ppd.type})
+                } else {
+                    // there is no ppd info, so show make/model selection dialog initially
                     openMakeModelDlg()
                 }
             } else {
@@ -603,7 +608,6 @@ KCM.AbstractKCM {
 
                             filterRowCallback: (source_row, source_parent) => {
                                 const ndx = sourceModel.index(source_row, 0, source_parent)
-                                const pn = sourceModel.data(ndx, PM.PrinterModel.DestName)
 
                                 if (!memberList.showClasses) {
                                     const isClass = sourceModel.data(ndx, PM.PrinterModel.DestIsClass)
@@ -612,7 +616,8 @@ KCM.AbstractKCM {
                                         return false
                                     }
                                 }
-                                return pn !== root.modelData.printerName
+                                return sourceModel.data(ndx, PM.PrinterModel.DestUriSupported) !== "_discovered"
+                                            && sourceModel.data(ndx, PM.PrinterModel.DestName) !== root.modelData.printerName
                             }
                         }
 
@@ -625,6 +630,7 @@ KCM.AbstractKCM {
                             }
                         }
 
+                        // TODO: figure out why this is happening
                         Timer {
                             id: checkTimer
                             interval: 100; repeat: true; running: false

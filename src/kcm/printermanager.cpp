@@ -54,11 +54,12 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
                         {QLatin1String(CUPS_SERVER_REMOTE_ANY), false},
                         {QLatin1String(CUPS_SERVER_REMOTE_ADMIN), false}})
 {
-    setButtons(KQuickConfigModule::NoAdditionalButton);
-    initOSRelease();
-
     // Make sure we update our server settings if the user changes anything on
     // another interface
+    // Set up the connection to the cups server
+    KCupsConnection::setup(KCupsConnection::NotifyType::Printers
+                                  | KCupsConnection::NotifyType::Server);
+
     connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, [](const QString &msg) {
         qCDebug(PMKCM) << "CUPS SERVER AUDIT" << msg;
     });
@@ -89,6 +90,9 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
 #ifdef SCP_INSTALL
     qmlRegisterType<SCPInstaller>("org.kde.plasma.printmanager", 1, 0, "SCPInstaller");
 #endif
+
+    setButtons(KQuickConfigModule::NoAdditionalButton);
+    initOSRelease();
 }
 
 void PrinterManager::initOSRelease()

@@ -13,12 +13,14 @@
 #include <KWindowSystem>
 #include <KX11Extras>
 
+#include <QDBusMetaType>
 #include <QPointer>
 
 AddPrinter::AddPrinter(int &argc, char **argv)
     : QApplication(argc, argv)
 {
     setQuitOnLastWindowClosed(true);
+    qDBusRegisterMetaType<QList<QStringList>>();
 }
 
 AddPrinter::~AddPrinter()

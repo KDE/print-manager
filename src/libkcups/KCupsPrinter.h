@@ -60,7 +60,8 @@ protected:
 
 private:
     friend class KCupsRequest;
-
+    friend class PrinterModel;
+    
     QString m_printer;
     bool m_isClass;
     QVariantMap m_arguments;

@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2024 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -7,9 +8,6 @@
 #ifndef KCUPSCONNECTION_H
 #define KCUPSCONNECTION_H
 
-#include <QMetaMethod>
-#include <QMutex>
-#include <QStringList>
 #include <QThread>
 #include <QTimer>
 #include <QUrl>
@@ -109,15 +107,34 @@ class KCUPSLIB_EXPORT KCupsConnection : public QThread
 {
     Q_OBJECT
 public:
+    enum class NotifyType
+    {
+        None        = 0x0,
+        Jobs        = 0x1,
+        Printers    = 0x2,
+        Server      = 0x4
+    };
+    Q_DECLARE_FLAGS(NotifySubscriptions, NotifyType)
+
     /**
-     * This is the main Cups class @author Daniel Nicoletti <dantti12@gmail.com>
+     * Cups connection class
+     * @author Daniel Nicoletti <dantti12@gmail.com>
+     * @auther Mike Noe <noeerover@gmail.com>
      *
-     * By calling KCupsConnection::global() you have access to it.
+     * Calling setup() will instantiate the global connection
+     * with notify subscriptions set based on @param flags.  It is not necessary
+     * to call setup() directly unless you wish to intialize the global
+     * instance explicitly or to initialize or change notify subscriptions.
+     *
+     * Calling global will return the instance pointer.  If the instance is not
+     * yet created it will be created with all notify subscriptions, (jobs,
+     * server, printers).
+     *
      * Due to cups architecture, this class has to live on a
      * separate thread so we avoid blocking the user interface when
      * the cups call blocks.
      *
-     * It is IMPORTANT that we do not create several thread
+     * It is IMPORTANT that we do not setup several thread
      * for each cups request, doing so is a valid but breaks our
      * authentication. We could tho store the user information an
      * set the user/password every time it was needed. But I am not
@@ -126,17 +143,19 @@ public:
      * Extending this means either adding methods to the KCupsRequest
      * class which will move to this thread and then run.
      */
+    static void setup(NotifySubscriptions flags = NotifyType::None);
     static KCupsConnection *global();
 
     /**
      * @brief KCupsConnection
+     * @param flags
      * @param parent
      *
      * This is the default constructor that connects to the default server
      * If you don't have any special reason for creating a connection
      * on your own consider calling global()
      */
-    explicit KCupsConnection(QObject *parent = nullptr);
+    explicit KCupsConnection(NotifySubscriptions flags = NotifyType::None, QObject *parent = nullptr);
     explicit KCupsConnection(const QUrl &server, QObject *parent = nullptr);
     ~KCupsConnection() override;
 
@@ -343,12 +362,6 @@ Q_SIGNALS:
                       const QString &jobName,
                       uint jobImpressionsCompleted);
 
-    void rhPrinterAdded(const QString &queueName);
-    void rhPrinterRemoved(const QString &queueName);
-    void rhQueueChanged(const QString &queueName);
-    void rhJobQueuedLocal(const QString &queueName, uint jobId, const QString &jobOwner);
-    void rhJobStartedLocal(const QString &queueName, uint jobId, const QString &jobOwner);
-
 protected:
     friend class KCupsRequest;
 
@@ -357,38 +370,30 @@ protected:
     bool retry(const char *resource, int operation) const;
     ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
 
-private slots:
-    void updateSubscription();
-    void renewDBusSubscription();
-    void cancelDBusSubscription();
-
-protected:
-    void connectNotify(const QMetaMethod &signal) override;
-    void disconnectNotify(const QMetaMethod &signal) override;
-    QString eventForSignal(const QMetaMethod &signal) const;
-
 private:
     void init();
 
     int renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events = QStringList());
+    void renewDBusSubscription();
+    void cancelDBusSubscription();
+    void setupDbusSubscriptions();
 
-    void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
+    void notifierConnect(const QString &signal, QObject *receiver, const char *slot, const QString &sub);
 
     static ReturnArguments parseIPPVars(ipp_t *response, ipp_tag_t group_tag);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
 
-    static KCupsConnection *m_instance;
+    static KCupsConnection *s_instance;
 
-    bool m_inited = false;
     KCupsPasswordDialog *m_passwordDialog;
     QUrl m_serverUrl;
 
-    QTimer *m_subscriptionTimer;
-    QTimer *m_renewTimer;
-    QStringList m_connectedEvents; // note this updated in another thread. Always guard with m_mutex
+    QTimer m_renewTimer;
     QStringList m_requestedDBusEvents;
     int m_subscriptionId = -1;
-    QMutex m_mutex;
+    NotifySubscriptions m_subscriptions = NotifyType::None;
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(KCupsConnection::NotifySubscriptions)
 
 #endif // KCUPSCONNECTION_H

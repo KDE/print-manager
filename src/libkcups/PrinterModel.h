@@ -8,7 +8,6 @@
 #define PRINTER_MODEL_H
 
 #include <QStandardItemModel>
-#include <QTimer>
 #include <qqmlregistration.h>
 
 #include <KCupsPrinter.h>
@@ -20,7 +19,9 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(int count READ count NOTIFY countChanged)
+    Q_PROPERTY(int searchTimeout READ searchTimeout WRITE setSearchTimeout CONSTANT FINAL)
+    Q_PROPERTY(bool searchIncludeDiscovered READ searchIncludeDiscovered WRITE setSearchIncludeDiscovered NOTIFY searchIncludeDiscoveredChanged FINAL)
+
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
     /**
      * Whether or not to actually display the location of the printer
@@ -33,7 +34,7 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
     /**
      * true if model only contains printers (not classes)
      */
-    Q_PROPERTY(bool printersOnly READ printersOnly NOTIFY countChanged)
+    Q_PROPERTY(bool printersOnly READ printersOnly NOTIFY printersOnlyChanged)
 
 public:
     enum Role {
@@ -67,7 +68,6 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-    int count() const;
     bool serverUnavailable() const;
 
     QHash<int, QByteArray> roleNames() const override;
@@ -76,82 +76,81 @@ public:
     Q_INVOKABLE void resumePrinter(const QString &printerName);
     Q_INVOKABLE void rejectJobs(const QString &printerName);
     Q_INVOKABLE void acceptJobs(const QString &printerName);
+    Q_INVOKABLE void update();
 
     bool displayLocationHint() const;
+    int searchTimeout() const;
+    void setSearchTimeout(int newSearchTimeout);
 
-public slots:
-    void update();
-    void getDestsFinished(KCupsRequest *request);
-    void slotCountChanged();
+    cups_ptype_t filterType() const;
+    void setFilterType(cups_ptype_t newFilterType);
+
+    cups_ptype_t filterMask() const;
+    void setFilterMask(cups_ptype_t newFilterMask);
+
+    bool searchIncludeDiscovered() const;
+    void setSearchIncludeDiscovered(bool newSearchIncludeDiscovered);
 
 signals:
-    void countChanged(int count);
     void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void displayLocationHintChanged();
+    void printersOnlyChanged();
+
+    void searchIncludeDiscoveredChanged();
 
 private slots:
-    void insertUpdatePrinterName(const QString &printerName);
-    void insertUpdatePrinter(const QString &text,
+    void getDestsFinished(KCupsRequest *request);
+
+    void getPrinterAttributes(const QString &printer);
+
+    void insertPrinter(const QString &text,
+                       const QString &printerUri,
+                       const QString &printerName,
+                       uint printerState,
+                       const QString &printerStateReasons,
+                       bool printerIsAcceptingJobs);
+
+    void updatePrinterState(const QString &text,
+                     const QString &printerUri,
+                     const QString &printerName,
+                     uint printerState,
+                     const QString &printerStateReasons,
+                     bool printerIsAcceptingJobs);
+
+    void updatePrinter(const QString &text,
                              const QString &printerUri,
                              const QString &printerName,
                              uint printerState,
                              const QString &printerStateReasons,
                              bool printerIsAcceptingJobs);
-    void insertUpdatePrinterFinished(KCupsRequest *request);
-    void printerRemovedName(const QString &printerName);
-    void printerRemoved(const QString &text,
+
+    void removePrinter(const QString &text,
                         const QString &printerUri,
                         const QString &printerName,
                         uint printerState,
                         const QString &printerStateReasons,
                         bool printerIsAcceptingJobs);
-    void printerStateChanged(const QString &text,
-                             const QString &printerUri,
-                             const QString &printerName,
-                             uint printerState,
-                             const QString &printerStateReasons,
-                             bool printerIsAcceptingJobs);
-    void printerStopped(const QString &text,
-                        const QString &printerUri,
-                        const QString &printerName,
-                        uint printerState,
-                        const QString &printerStateReasons,
-                        bool printerIsAcceptingJobs);
-    void printerRestarted(const QString &text,
-                          const QString &printerUri,
-                          const QString &printerName,
-                          uint printerState,
-                          const QString &printerStateReasons,
-                          bool printerIsAcceptingJobs);
-    void printerShutdown(const QString &text,
-                         const QString &printerUri,
-                         const QString &printerName,
-                         uint printerState,
-                         const QString &printerStateReasons,
-                         bool printerIsAcceptingJobs);
-    void printerModified(const QString &text,
-                         const QString &printerUri,
-                         const QString &printerName,
-                         uint printerState,
-                         const QString &printerStateReasons,
-                         bool printerIsAcceptingJobs);
+
     void serverChanged(const QString &text);
 
 private:
-    WId m_parentId;
     QHash<int, QByteArray> m_roles;
     bool m_unavailable = true;
     bool m_displayLocationHint = true;
+    bool m_printersOnly = true;
+    int m_searchTimeout = 5000;
+    bool m_searchIncludeDiscovered = false;
 
     void setDisplayLocationHint();
     int destRow(const QString &destName);
-    void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
     bool printersOnly() const;
     QStringList m_attrs;
+    void gotDevice(const QVariantMap &device);
+    void setPrintersOnly();
 };
 
 #endif // PRINTER_MODEL_H

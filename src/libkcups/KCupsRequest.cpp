@@ -33,7 +33,7 @@ QString KCupsRequest::serverError() const
     case IPP_NOT_FOUND:
         return i18n("Not found");
     default: // In this case we don't want to map all enums
-        qCWarning(LIBKCUPS) << "status unrecognised: " << error();
+        qCWarning(LIBKCUPS) << "IPP Status Unrecognised: " << error();
         return QString::fromUtf8(ippErrorString(error()));
     }
 }
@@ -111,10 +111,108 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
     }
 }
 
+static int get_dest_cb(void *user_data, unsigned flags, cups_dest_t *dest)
+{
+    Q_UNUSED(flags)
+
+    static const QStringList attrs({KCUPS_PRINTER_NAME,
+                                    KCUPS_PRINTER_STATE,
+                                    KCUPS_PRINTER_STATE_MESSAGE,
+                                    KCUPS_PRINTER_IS_SHARED,
+                                    KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                                    KCUPS_PRINTER_TYPE,
+                                    KCUPS_PRINTER_LOCATION,
+                                    KCUPS_PRINTER_INFO,
+                                    KCUPS_PRINTER_MAKE_AND_MODEL,
+                                    KCUPS_PRINTER_COMMANDS,
+                                    KCUPS_MARKER_CHANGE_TIME,
+                                    KCUPS_MARKER_COLORS,
+                                    KCUPS_MARKER_LEVELS,
+                                    KCUPS_MARKER_NAMES,
+                                    KCUPS_MARKER_TYPES,
+                                    KCUPS_AUTH_INFO_REQUIRED, // added
+                                    KCUPS_DEVICE_URI,
+                                    KCUPS_PRINTER_URI_SUPPORTED,
+                                    KCUPS_MEMBER_NAMES});
+
+    const auto getOption = [dest](const QString &option) -> QString {
+        return QString::fromUtf8(cupsGetOption(option.toUtf8().data(), dest->num_options, dest->options));
+    };
+
+    const auto toList = [](const QString &option) -> QStringList {
+        return option.split(QLatin1String(","));
+    };
+
+    // Build the attr map
+    QVariantMap map;
+    for (const auto &k : attrs) {
+        map.insert(k, QVariant::fromValue(getOption(k)));
+    }
+
+    // figure out printer name, class, set discovery indicator
+    QString pname, uriS = map.value(KCUPS_PRINTER_URI_SUPPORTED).toString();
+    if ((map.value(KCUPS_PRINTER_TYPE).toInt() & CUPS_PRINTER_DISCOVERED) | uriS.isEmpty()) {
+        if (map.value(KCUPS_DEVICE_URI).toString().isEmpty()) {
+            return 1;
+        }
+        // uriSupported is null when discovered
+        uriS = QLatin1String("_discovered");
+        pname = map.value(KCUPS_PRINTER_INFO).toString().replace(QLatin1String(" "), QLatin1String("_"));
+    } else {
+        const auto l = uriS.split(QLatin1String("/"));
+        pname = l[l.count() - 1];
+    }
+
+    map.insert(KCUPS_PRINTER_NAME, pname);
+    map.insert(KCUPS_PRINTER_URI_SUPPORTED, uriS);
+
+    // Markers, cupsGetOption returns strings, comma separated, for the lists
+    if (auto m = map.value(KCUPS_MARKER_NAMES).toString(); !m.isEmpty()) {
+        map.insert(KCUPS_MARKER_NAMES, toList(m.replace(QLatin1String("\\"), QLatin1String(""))));
+        map.insert(KCUPS_MARKER_LEVELS, toList(map.value(KCUPS_MARKER_LEVELS).toString()));
+        map.insert(KCUPS_MARKER_COLORS, toList(map.value(KCUPS_MARKER_COLORS).toString()));
+        map.insert(KCUPS_MARKER_TYPES, toList(map.value(KCUPS_MARKER_TYPES).toString()));
+    }
+
+    // if Class, get member names
+    if (map.value(KCUPS_PRINTER_TYPE).toInt() & CUPS_PRINTER_CLASS) {
+        static const char *const req[] = {"member-names"};
+        ipp_t *request = ippNewRequest(IPP_GET_PRINTER_ATTRIBUTES);
+
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri", NULL, uriS.toUtf8().data());
+        ippAddStrings(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD, "requested-attributes", sizeof(req) / sizeof(req[0]), NULL, req);
+
+        ipp_t *response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
+        ipp_attribute_t *members = ippFindAttribute(response, "member-names", IPP_TAG_NAME);
+
+        int i, count = ippGetCount(members);
+        QStringList memberList;
+        for (i = 0; i < count; i++) {
+            memberList << QString::fromUtf8(ippGetString(members, i, NULL));
+        }
+        map.insert(KCUPS_MEMBER_NAMES, memberList);
+        ippDelete(response);
+    }
+
+    QMetaObject::invokeMethod(static_cast<KCupsRequest *>(user_data), "deviceMap", Qt::QueuedConnection, Q_ARG(QVariantMap, map));
+
+    return (1);
+}
+
+void KCupsRequest::getDestinations(int timeout, uint type, uint mask)
+{
+    if (m_connection->readyToStart()) {
+        cupsEnumDests(CUPS_DEST_FLAGS_NONE, timeout, NULL, type, mask, (cups_dest_cb_t)get_dest_cb, this);
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished(true);
+    } else {
+        invokeMethod("getDestinations", timeout, type, mask);
+    }
+}
+
 // THIS function can get the default server dest through the
 // "printer-is-default" attribute BUT it does not get user
 // defined default printer, see cupsGetDefault() on www.cups.org for details
-
 void KCupsRequest::getPrinters(QStringList attributes, int mask)
 {
     if (m_connection->readyToStart()) {
@@ -162,6 +260,32 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
         setFinished();
     } else {
         invokeMethod("getPrinterAttributes", printerName, isClass, QVariant::fromValue(attributes));
+    }
+}
+
+void KCupsRequest::getPrinterAttributesNotify(const QString &printerName, bool isClass, QStringList attributes)
+{
+    if (m_connection->readyToStart()) {
+        KIppRequest request(IPP_GET_PRINTER_ATTRIBUTES, QLatin1String("/"));
+
+        request.addPrinterUri(printerName, isClass);
+        request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, QLatin1String(KCUPS_PRINTER_TYPE), CUPS_PRINTER_LOCAL);
+        request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, QLatin1String(KCUPS_REQUESTED_ATTRIBUTES), attributes);
+
+        const ReturnArguments retList = m_connection->request(request, IPP_TAG_PRINTER);
+
+        if (retList.count() > 0) {
+            QVariantMap attrList = retList[0];
+            attrList[KCUPS_PRINTER_NAME] = printerName;
+            Q_EMIT deviceMap(attrList);
+        } else {
+            qCWarning(LIBKCUPS) << printerName << "Printer Attributes NOT FOUND";
+        }
+
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getPrinterAttributesNotify", printerName, isClass, QVariant::fromValue(attributes));
     }
 }
 

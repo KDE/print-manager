@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-22 12:26+0200\n"
+"PO-Revision-Date: 2024-04-27 12:47+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -140,31 +140,25 @@ msgstr "Archivo PPD (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Protocolo del demonio de impresora de líneas (LPD)"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the AppSocket device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Introduzca la dirección del dispositivo AppSocket"
+msgstr "Introduzca la dirección del dispositivo LPD"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Nombre de la cola:"
+msgstr "Cola:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Nombre de la cola:"
+msgstr "Nombre de la cola LPD"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -174,11 +168,10 @@ msgid "Continue with Address…"
 msgstr "Continuar con la dirección..."
 
 #: ui/components/Lpd.qml:90
-#, fuzzy, kde-format
-#| msgid "Invalid Socket URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "URL de conector no válida: %1"
+msgstr "URL de LPD no válida: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -629,14 +622,13 @@ msgid "Queue Name:"
 msgstr "Nombre de la cola:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr ""
-"Un <b>grupo de impresoras</b> se usa para agrupar recursos de impresión."
+"Un <interface>grupo de impresoras</interface> se usa para agrupar recursos "
+"de impresión."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

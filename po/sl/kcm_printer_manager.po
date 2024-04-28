@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-26 06:59+0200\n"
+"PO-Revision-Date: 2024-04-27 06:45+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -614,13 +614,13 @@ msgid "Queue Name:"
 msgstr "Ime čakalne vrste:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
-msgstr "<b>Skupina tiskalnikov</b> se uporablja za združevanje virov tiskanja."
+msgstr ""
+"<interface>Skupina tiskalnikov</interface> se uporablja za združevanje virov "
+"tiskanja."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

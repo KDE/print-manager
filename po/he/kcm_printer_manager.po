@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-26 08:06+0300\n"
+"PO-Revision-Date: 2024-04-27 06:38+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -613,13 +613,11 @@ msgid "Queue Name:"
 msgstr "שם תור:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
-msgstr "<b>קבוצת מדפסות</b> משמשת למשאבי מאגר הדפסות."
+msgstr "<interface>קבוצת מדפסות</interface> משמשת למשאבי מאגר הדפסות."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

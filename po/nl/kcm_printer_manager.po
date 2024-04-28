@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-26 11:20+0200\n"
+"PO-Revision-Date: 2024-04-27 09:58+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -618,13 +618,13 @@ msgid "Queue Name:"
 msgstr "Wachtrijnaam:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
-msgstr "Een <b>printergroep</b> wordt gebruikt om afdrukhulpbronnen de delen."
+msgstr ""
+"Een <interface>printergroep</interface> wordt gebruikt om afdrukhulpbronnen "
+"de delen."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

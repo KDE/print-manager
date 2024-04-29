@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-13 19:37+0200\n"
+"PO-Revision-Date: 2024-04-28 12:19+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -97,12 +97,10 @@ msgstr ""
 "interface>, aby spróbować ponownie lub wybierz sterownik ręcznie."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Wybierz sterownik…"
+msgstr "Wybierz bez sterownika…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -125,50 +123,40 @@ msgstr ""
 "rodzaju połączenia"
 
 #: ui/components/Drivers.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Sterownik drukarki (%1)"
+msgstr "Bez sterownika (%1)"
 
 #: ui/components/Drivers.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "Plik PPD:"
+msgstr "Plik PPD (%1)"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Protokół Line Printer Daemon (LPD)"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the AppSocket device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Wpisz adres urządzenia AppSocket"
+msgstr "Wpisz adres urządzenia LPD"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Nazwa kolejki:"
+msgstr "Kolejka:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Nazwa kolejki:"
+msgstr "Nazwa kolejki LPD"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -178,11 +166,10 @@ msgid "Continue with Address…"
 msgstr "Kontynuuj z adresem…"
 
 #: ui/components/Lpd.qml:90
-#, fuzzy, kde-format
-#| msgid "Invalid Socket URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "Nieprawidłowy adres URL gniazda: %1"
+msgstr "Nieprawidłowy adres URL LPD: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -510,12 +497,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Przegląd pomocy do drukarek CUPS"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Administrator serwera drukowania CUPS"
+msgstr "Strona do zarządzania drukarką/urządzeniem"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -552,7 +537,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Ustawianie %1, proszę czekać…"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format
@@ -634,9 +619,7 @@ msgid "Queue Name:"
 msgstr "Nazwa kolejki:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."

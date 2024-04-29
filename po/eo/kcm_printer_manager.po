@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-11 02:45+0000\n"
-"PO-Revision-Date: 2023-11-14 06:59+0100\n"
+"PO-Revision-Date: 2024-04-27 17:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -75,12 +75,14 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
+"Maleblas lokigi rekomenditajn pelilojn.  Klaku <interface>Refreŝigi</"
+"interface> por reprovi aŭ elektu pelilon permane."
 
 #: ui/Drivers.qml:44
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr ""
+msgstr "Elekti Pelilon…"
 
 #: ui/Drivers.qml:83
 #, kde-format
@@ -135,30 +137,27 @@ msgid "Enter the address of the remote host/device"
 msgstr "Enigu la adreson de la fora gastiganto/aparato"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Elekti Presilon"
+msgstr "Elekti Presilon…"
 
 #: ui/FindPrinter.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Daŭrigi kun Adreso…"
 
 #: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "Adreso:"
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "Enigi gastigantan URI"
+msgstr ""
 
 #: ui/FindPrinter.qml:364
 #, kde-format
@@ -577,7 +576,3 @@ msgstr "Faro/Modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Elekti…"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "uri:"

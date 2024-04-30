@@ -20,7 +20,7 @@ PlasmaExtras.Representation {
     header: PlasmaExtras.PlasmoidHeading {
         PlasmaExtras.SearchField {
             anchors.fill: parent
-            onAccepted: printersFilterModel.setFilterWildcard(text)
+            onTextChanged: printersFilterModel.filterString = text.toLowerCase()
         }
     }
 
@@ -45,6 +45,11 @@ PlasmaExtras.Representation {
                 id: printersFilterModel
                 sourceModel: printersModel
                 sortRoleName: "isClass"
+                
+                filterRowCallback: (source_row, source_parent) => {
+                    return sourceModel.data(sourceModel.index(source_row, 0, source_parent), PrintManager.PrinterModel.DestDescription).toLowerCase().includes(filterString)
+                }
+
             }
 
             topMargin: Kirigami.Units.smallSpacing * 2

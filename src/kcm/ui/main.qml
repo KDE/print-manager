@@ -79,7 +79,11 @@ KCM.ScrollViewKCM {
         , Kirigami.Action {
             text: i18nc("@action:button", "Configure Print Server…")
             icon.name: "configure-symbolic"
-            onTriggered: kcm.push("Global.qml")
+            onTriggered: {
+                const comp = Qt.createComponent("Global.qml")
+                const dlg = comp.createObject(root)
+                dlg.open()
+            }
         }
     ]
 

@@ -10,43 +10,41 @@ import QtQuick.Controls as QQC2
 import org.kde.kcmutils as KCM
 import org.kde.kirigami as Kirigami
 
-KCM.AbstractKCM {
-    title: i18nc("@title:window", "Print Server Settings")
+Kirigami.Dialog {
+    id: root
 
-    header: BannerWithTimer {
-        id: error
+    title: i18nc("@title:window", "CUPS Server Settings")
 
-        onTimeout: kcm.pop()
+    property bool saving: false
+
+    standardButtons: Kirigami.Dialog.NoButton
+
+    footerLeadingComponent: Kirigami.UrlButton {
+        text: i18nc("@action:button", "CUPS Print Server Admin")
+        url: "http://localhost:631/admin"
+        padding: Kirigami.Units.largeSpacing
     }
 
-    footer: RowLayout {
-        Layout.margins: Kirigami.Units.largeSpacing
-
-        Kirigami.UrlButton {
-            text: i18nc("@action:button", "CUPS Print Server Admin")
-            url: "http://localhost:631/admin"
-            padding: Kirigami.Units.largeSpacing
-        }
-
-        Item { Layout.fillWidth: true }
-
-        QQC2.Button {
+    customFooterActions: [
+        Kirigami.Action {
             text: i18nc("@action:button Reset to current settings", "Reset")
             icon.name: "edit-reset-symbolic"
             enabled: settings.hasPending
-            onClicked: settings.reset()
-        }
-
-        QQC2.Button {
+            onTriggered: settings.reset()
+        },
+        Kirigami.Action {
             text: i18nc("@action:button Apply new settings", "Apply")
             icon.name: "dialog-ok-apply"
             enabled: settings.hasPending
-            onClicked: {
+            onTriggered: {
+                saving = true
+                layout.enabled = false
                 kcm.saveServerSettings(settings.pending)
-                settings.hasPending = false
             }
         }
-    }
+    ]
+
+    onClosed: destroy()
 
     Component.onCompleted: {
         if (!kcm.serverSettingsLoaded)
@@ -69,61 +67,90 @@ KCM.AbstractKCM {
         function onRequestError(errorMessage) {
             error.text = errorMessage
             error.visible = true
-            layout.enabled = false
         }
 
         function onServerSettingsChanged() {
             settings.init(kcm.serverSettings)
             layout.enabled = true
         }
+
+        function onServerStarted() {
+            error.reset()
+            if (saving) {
+                close()
+            } else {
+                kcm.getServerSettings()
+            }
+        }
+
+        function onServerStopped() {
+            error.type = Kirigami.MessageType.Information
+            error.text = i18n("Please wait while the CUPS server restarts")
+            error.visible = true
+        }
     }
 
     component SettingCheckBox: QQC2.CheckBox {
         checked: settings.value(objectName) ?? false
-        onToggled: {
-            settings.add(objectName, checked)
-        }
+        onToggled: settings.add(objectName, checked)
     }
 
-    ColumnLayout {
-        id: layout
-        enabled: false
-        anchors.centerIn: parent
+    contentItem: ColumnLayout {
 
-        Kirigami.Icon {
-            source: "printer"
-            Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
-            Layout.preferredHeight: Layout.preferredWidth
-            Layout.alignment: Qt.AlignHCenter
+        BannerWithTimer {
+            id: error
+            Layout.fillWidth: true
+
+            onTimeout: close()
         }
 
-        SettingCheckBox {
-            id: share
-            objectName: "_share_printers"
-            text: i18nc("@option:check", "Share printers connected to this system")
-            onToggled: {
-                if (!checked) {
-                    netPrint.checked = false
-                    netPrint.toggled()
-                }
+        RowLayout {
+            id: layout
+            enabled: false
+            spacing: Kirigami.Units.smallSpacing
+            Layout.margins: Kirigami.Units.largeSpacing*2
+
+            Kirigami.Icon {
+                source: "printer"
+                Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
+                Layout.preferredHeight: Layout.preferredWidth
+                Layout.alignment: Qt.AlignHCenter
             }
-        }
 
-        SettingCheckBox {
-            id: netPrint
-            objectName: "_remote_any"
-            text: i18nc("@option:check", "Allow printing from the Internet")
-            enabled: share.checked
-        }
+            ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
 
-        SettingCheckBox {
-            objectName: "_remote_admin"
-            text: i18nc("@option:check", "Allow remote administration")
-        }
+                SettingCheckBox {
+                    id: share
+                    objectName: "_share_printers"
+                    text: i18nc("@option:check", "Share printers connected to this system")
+                    onToggled: {
+                        if (!checked) {
+                            netPrint.checked = false
+                            netPrint.toggled()
+                        }
+                    }
+                }
 
-        SettingCheckBox {
-            objectName: "_user_cancel_any"
-            text: i18nc("@option:check", "Allow users to cancel any job (not just their own)")
+                SettingCheckBox {
+                    id: netPrint
+                    objectName: "_remote_any"
+                    text: i18nc("@option:check", "Allow printing from the Internet")
+                    enabled: share.checked
+                }
+
+                SettingCheckBox {
+                    objectName: "_remote_admin"
+                    text: i18nc("@option:check", "Allow remote administration")
+                }
+
+                SettingCheckBox {
+                    objectName: "_user_cancel_any"
+                    text: i18nc("@option:check", "Allow users to cancel any job (not just their own)")
+                }
+
+            }
+
         }
 
 

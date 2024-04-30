@@ -78,6 +78,8 @@ Q_SIGNALS:
     void removeDone();
     void saveDone();
     void serverSettingsChanged();
+    void serverStopped();
+    void serverStarted();
     void remotePrintersLoaded();
     void recommendedDriversLoaded();
 
@@ -87,7 +89,6 @@ private:
     QVariantList recommendedDrivers() const;
     QVariantMap serverSettings() const;
     bool serverSettingsLoaded() const;
-    void serverEvent(const QString &event, bool reload, const QString &msg = QString());
 
     QVariantMap m_serverSettings;
     bool m_serverSettingsLoaded = false;

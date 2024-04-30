@@ -52,17 +52,21 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
 
     // Make sure we update our server settings if the user changes anything on
     // another interface
-    connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, [this](const QString &msg) {
-        serverEvent(u"AUDIT"_s, false, msg);
+    connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, [](const QString &msg) {
+        qCDebug(PMKCM) << "CUPS SERVER AUDIT" << msg;
     });
     connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, [this](const QString &msg) {
-        serverEvent(u"STARTED"_s, true, msg);
+        qCWarning(PMKCM) << "CUPS SERVER STARTED" << msg;
+        Q_EMIT serverStarted();
     });
     connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, [this](const QString &msg) {
-        serverEvent(u"STOPPED"_s, false, msg);
+        qCWarning(PMKCM) << "CUPS SERVER STOPPED" << msg;
+        m_serverSettingsLoaded = false;
+        Q_EMIT serverStopped();
     });
     connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, [this](const QString &msg) {
-        serverEvent(u"RESTARTED"_s, true, msg);
+        qCWarning(PMKCM) << "CUPS SERVER RE-STARTED" << msg;
+        Q_EMIT serverStarted();
     });
 
     qmlRegisterUncreatableMetaObject(PMTypes::staticMetaObject,
@@ -74,16 +78,6 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
-}
-
-void PrinterManager::serverEvent(const QString &event, bool reload, const QString &msg)
-{
-    qCWarning(PMKCM) << "SERVER" << event << msg << reload;
-    if (reload) {
-        QTimer::singleShot(500, this, &PrinterManager::getServerSettings);
-    } else {
-        m_serverSettingsLoaded = false;
-    }
 }
 
 void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriScheme)
@@ -453,24 +447,26 @@ void PrinterManager::saveServerSettings(const QVariantMap &settings)
     server.setAllowRemoteAdmin(settings.value(QLatin1String(CUPS_SERVER_REMOTE_ADMIN), false).toBool());
     server.setAllowPrintingFromInternet(settings.value(QLatin1String(CUPS_SERVER_REMOTE_ANY), false).toBool());
 
+    /**
+     * The CUPS server will stop/start when settings change.  This will either be a stop signal
+     * from CUPS and/or the non-fatal error below
+    */
     auto request = new KCupsRequest;
     request->setServerSettings(server);
     request->waitTillFinished();
 
-    if (request->hasError()) {
-        if (request->error() == IPP_SERVICE_UNAVAILABLE || request->error() == IPP_INTERNAL_ERROR || request->error() == IPP_AUTHENTICATION_CANCELED) {
-            qCWarning(PMKCM) << "Server error:" << request->serverError() << request->errorMsg();
-            // Server is restarting, or auth was canceled, update the settings in one second
-            //            QTimer::singleShot(1000, this, &PrinterManager::getServerSettings);
-        } else {
-            // Force the settings to be retrieved again
-            getServerSettings();
-            Q_EMIT requestError(i18nc("@info", "Server error: (%1): %2", request->serverError(), request->errorMsg()));
-        }
-    } else {
-        qCWarning(PMKCM) << "SERVER SETTINGS SET!" << settings;
+    if (request->error() == IPP_AUTHENTICATION_CANCELED) {
+        // If the user has cancelled auth
+        Q_EMIT requestError(i18nc("@info", "Server Settings Not Saved: (%1): %2", request->serverError(), request->errorMsg()));
+    } else if (request->error() == IPP_SERVICE_UNAVAILABLE || request->error() == IPP_INTERNAL_ERROR) {
+        // this is the expected "error" after settings have changed as the server is restarting
         m_serverSettings = settings;
+        Q_EMIT serverSettingsChanged();
+        qCDebug(PMKCM) << "CUPS SETTINGS SAVED!" << settings;
+    } else {
+        Q_EMIT requestError(i18nc("@info", "Fatal Save Server Settings: (%1): %2", request->serverError(), request->errorMsg()));
     }
+
     request->deleteLater();
 }
 

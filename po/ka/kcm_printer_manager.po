@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-26 07:22+0200\n"
+"PO-Revision-Date: 2024-04-29 11:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -622,14 +622,13 @@ msgid "Queue Name:"
 msgstr "რიგის სახელი:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr ""
-"ბეჭდვის რესურსების რიგში ჩასაყენებლად <b>პრინტერების ჯგუფი</b> გამოიყენება."
+"ბეჭდვის რესურსების რიგში ჩასაყენებლად <interface>პრინტერების ჯგუფი</"
+"interface> გამოიყენება."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

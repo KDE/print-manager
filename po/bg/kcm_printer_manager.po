@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-22 09:18+0200\n"
+"PO-Revision-Date: 2024-04-29 09:11+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -138,31 +138,25 @@ msgstr "PPD файл (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Протокол Line Printer Daemon (LPD)"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the AppSocket device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Въведете адреса на устройство AppSocket"
+msgstr "Въведете адреса на устройство LPD"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Име на опашка:"
+msgstr "Опашка:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Име на опашка:"
+msgstr "Име на опашка за LPD:"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -172,11 +166,10 @@ msgid "Continue with Address…"
 msgstr "Продължаване с адрес…"
 
 #: ui/components/Lpd.qml:90
-#, fuzzy, kde-format
-#| msgid "Invalid Socket URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "Невалиден адрес на сокет: %1"
+msgstr "Невалиден адрес на LPD: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -625,14 +618,13 @@ msgid "Queue Name:"
 msgstr "Име на опашка:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr ""
-"Група <b>принтери</b> се използва за обединяване на ресурсите за печат."
+"<interface>Група от принтери</interface> се използва за обединяване на "
+"ресурсите за печат."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

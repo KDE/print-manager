@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-18 13:27+0400\n"
+"PO-Revision-Date: 2024-05-02 10:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -98,12 +98,10 @@ msgstr ""
 "interface> للمحاولة مرة أخرى أو اختيار برنامج تشغيل يدويا."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "اختر برنامج تشغيل..."
+msgstr "اختر دون برنامج تشغيل..."
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -124,50 +122,40 @@ msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "يعتمد المعرف المستحسن على صانع الطابعة/الطراز ونوع الاتصال"
 
 #: ui/components/Drivers.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "معرف الطابعة (%1)"
+msgstr "دون برنامج تشغيل (%1)"
 
 #: ui/components/Drivers.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "ملفّ PPD:"
+msgstr "ملفّ PPD (%1)"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "ميفاق خط الطابعة الخفي (LPD)."
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the AppSocket device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "أدخل عنوان AppSocket للجهاز"
+msgstr "أدخل عنوان جهاز LPD"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "اسم الطابور:"
+msgstr "الطابور:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "اسم الطابور:"
+msgstr "اسم طابور LPD:"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -177,11 +165,10 @@ msgid "Continue with Address…"
 msgstr "تابع بالعنوان…"
 
 #: ui/components/Lpd.qml:90
-#, fuzzy, kde-format
-#| msgid "Invalid Socket URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "عنوان قابس غير صالح: %1"
+msgstr "عنوان LPD غير صالح: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -627,13 +614,11 @@ msgid "Queue Name:"
 msgstr "اسم الطابور:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
-msgstr "يتم استخدام <b>مجموعة الطابعة</b> لتجميع موارد الطباعة."
+msgstr "تستخدم <b>مجموعة الطابعة</b> لتجميع موارد الطباعة."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

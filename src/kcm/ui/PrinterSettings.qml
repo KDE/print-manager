@@ -195,6 +195,8 @@ KCM.AbstractKCM {
             id: prompt
             parent: root
 
+            dialogType: Kirigami.PromptDialog.Warning
+
             Component.onCompleted: open()
             onClosed: removeLoader.active = false
 

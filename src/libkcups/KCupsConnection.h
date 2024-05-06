@@ -7,9 +7,6 @@
 #ifndef KCUPSCONNECTION_H
 #define KCUPSCONNECTION_H
 
-#include <QMetaMethod>
-#include <QMutex>
-#include <QStringList>
 #include <QThread>
 #include <QTimer>
 #include <QUrl>
@@ -343,12 +340,6 @@ Q_SIGNALS:
                       const QString &jobName,
                       uint jobImpressionsCompleted);
 
-    void rhPrinterAdded(const QString &queueName);
-    void rhPrinterRemoved(const QString &queueName);
-    void rhQueueChanged(const QString &queueName);
-    void rhJobQueuedLocal(const QString &queueName, uint jobId, const QString &jobOwner);
-    void rhJobStartedLocal(const QString &queueName, uint jobId, const QString &jobOwner);
-
 protected:
     friend class KCupsRequest;
 
@@ -358,37 +349,27 @@ protected:
     ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
 
 private slots:
-    void updateSubscription();
     void renewDBusSubscription();
     void cancelDBusSubscription();
-
-protected:
-    virtual void connectNotify(const QMetaMethod &signal) override;
-    virtual void disconnectNotify(const QMetaMethod &signal) override;
-    QString eventForSignal(const QMetaMethod &signal) const;
 
 private:
     void init();
 
     int renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events = QStringList());
 
-    void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
+    void notifierConnect(const QString &signal, QObject *receiver, const char *slot, const QString &sub);
 
     static ReturnArguments parseIPPVars(ipp_t *response, ipp_tag_t group_tag);
     static QVariant ippAttrToVariant(ipp_attribute_t *attr);
 
-    static KCupsConnection *m_instance;
+    static KCupsConnection *s_instance;
 
-    bool m_inited = false;
     KCupsPasswordDialog *m_passwordDialog;
     QUrl m_serverUrl;
 
-    QTimer *m_subscriptionTimer;
-    QTimer *m_renewTimer;
-    QStringList m_connectedEvents; // note this updated in another thread. Always guard with m_mutex
+    QTimer m_renewTimer;
     QStringList m_requestedDBusEvents;
     int m_subscriptionId = -1;
-    QMutex m_mutex;
 };
 
 #endif // KCUPSCONNECTION_H

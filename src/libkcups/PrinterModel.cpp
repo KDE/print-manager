@@ -92,9 +92,9 @@ PrinterModel::PrinterModel(QObject *parent)
     connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &PrinterModel::serverChanged);
 
     // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrinterModel::insertUpdatePrinterName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrinterModel::printerRemovedName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrinterModel::insertUpdatePrinterName);
+    // connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrinterModel::insertUpdatePrinterName);
+    // connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrinterModel::printerRemovedName);
+    // connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrinterModel::insertUpdatePrinterName);
 
     connect(this, &PrinterModel::rowsInserted, this, &PrinterModel::slotCountChanged);
     connect(this, &PrinterModel::rowsRemoved, this, &PrinterModel::slotCountChanged);

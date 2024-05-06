@@ -6,49 +6,20 @@
 */
 
 #include "KCupsConnection.h"
-
 #include "KCupsPasswordDialog.h"
 #include "KIppRequest.h"
 #include "kcupslib_log.h"
 
-#include <config.h>
-
 #include <QByteArray>
 #include <QCoreApplication>
 #include <QDBusConnection>
-#include <QMutexLocker>
 
 #include <KLocalizedString>
 
-#define RENEW_INTERVAL 3500
-#define SUBSCRIPTION_DURATION 3600
+using namespace Qt::StringLiterals;
 
-#define DBUS_SERVER_RESTARTED "server-restarted" // ServerRestarted
-#define DBUS_SERVER_STARTED "server-started" // ServerStarted
-#define DBUS_SERVER_STOPPED "server-stopped" // ServerStopped
-#define DBUS_SERVER_AUDIT "server-audit" // ServerAudit
-
-#define DBUS_PRINTER_RESTARTED "printer-restarted" // PrinterRestarted
-#define DBUS_PRINTER_SHUTDOWN "printer-shutdown" // PrinterShutdown
-#define DBUS_PRINTER_STOPPED "printer-stopped" // PrinterStopped
-#define DBUS_PRINTER_STATE_CHANGED "printer-state-changed" // PrinterStateChanged
-#define DBUS_PRINTER_FINISHINGS_CHANGED "printer-finishings-changed" // PrinterFinishingsChanged
-#define DBUS_PRINTER_MEDIA_CHANGED "printer-media-changed" // PrinterMediaChanged
-#define DBUS_PRINTER_ADDED "printer-added" // PrinterAdded
-#define DBUS_PRINTER_DELETED "printer-deleted" // PrinterDeleted
-#define DBUS_PRINTER_MODIFIED "printer-modified" // PrinterModified
-
-#define DBUS_JOB_STATE_CHANGED "job-state-changed" // JobState
-#define DBUS_JOB_CREATED "job-created" // JobCreated
-#define DBUS_JOB_COMPLETED "job-completed" // JobCompleted
-#define DBUS_JOB_STOPPED "job-stopped" // JobStopped
-#define DBUS_JOB_CONFIG_CHANGED "job-config-changed" // JobConfigChanged
-#define DBUS_JOB_PROGRESS "job-progress" // JobProgress
-
-Q_DECLARE_METATYPE(QList<int>)
-Q_DECLARE_METATYPE(QList<bool>)
-
-KCupsConnection *KCupsConnection::m_instance = nullptr;
+KCupsConnection *KCupsConnection::s_instance = nullptr;
+static int SUBSCRIPTION_DURATION = 3600;
 static int password_retries = 0;
 static int total_retries = 0;
 static int internalErrorCount = 0;
@@ -56,11 +27,11 @@ const char *password_cb(const char *prompt, http_t *http, const char *method, co
 
 KCupsConnection *KCupsConnection::global()
 {
-    if (!m_instance) {
-        m_instance = new KCupsConnection(qApp);
+    if (!s_instance) {
+        s_instance = new KCupsConnection(qApp);
     }
 
-    return m_instance;
+    return s_instance;
 }
 
 KCupsConnection::KCupsConnection(QObject *parent)
@@ -79,16 +50,13 @@ KCupsConnection::KCupsConnection(const QUrl &server, QObject *parent)
 
 KCupsConnection::~KCupsConnection()
 {
-    if (m_instance == this) {
-        m_instance = nullptr;
+    if (s_instance == this) {
+        s_instance = nullptr;
     }
     m_passwordDialog->deleteLater();
 
     quit();
     wait();
-
-    delete m_renewTimer;
-    delete m_subscriptionTimer;
 }
 
 void KCupsConnection::setPasswordMainWindow(WId mainwindow)
@@ -102,131 +70,58 @@ void KCupsConnection::init()
     m_passwordDialog = new KCupsPasswordDialog;
 
     // setup the DBus subscriptions
+    notifierConnect("ServerStarted"_L1, this, SIGNAL(serverStarted(QString)), "server-started"_L1);
+    notifierConnect("ServerStopped"_L1, this, SIGNAL(serverStopped(QString)), "server-stopped"_L1);
+    notifierConnect("ServerRestarted"_L1, this, SIGNAL(serverRestarted(QString)), "server-restarted"_L1);
+    notifierConnect("ServerAudit"_L1, this, SIGNAL(serverAudit(QString)), "server-audit"_L1);
 
-    // Server related signals
-    // ServerStarted
-    notifierConnect(QLatin1String("ServerStarted"), this, SIGNAL(serverStarted(QString)));
-
-    // ServerStopped
-    notifierConnect(QLatin1String("ServerStopped"), this, SIGNAL(serverStopped(QString)));
-
-    // ServerRestarted
-    notifierConnect(QLatin1String("ServerRestarted"), this, SIGNAL(serverRestarted(QString)));
-
-    // ServerAudit
-    notifierConnect(QLatin1String("ServerAudit"), this, SIGNAL(serverAudit(QString)));
-
-    // Printer related signals
-    // PrinterAdded
-    notifierConnect(QLatin1String("PrinterAdded"), this, SIGNAL(printerAdded(QString, QString, QString, uint, QString, bool)));
-
-    // PrinterModified
-    notifierConnect(QLatin1String("PrinterModified"), this, SIGNAL(printerModified(QString, QString, QString, uint, QString, bool)));
-
-    // PrinterDeleted
-    notifierConnect(QLatin1String("PrinterDeleted"), this, SIGNAL(printerDeleted(QString, QString, QString, uint, QString, bool)));
-
-    // PrinterStateChanged
-    notifierConnect(QLatin1String("PrinterStateChanged"), this, SIGNAL(printerStateChanged(QString, QString, QString, uint, QString, bool)));
-
-    // PrinterStopped
-    notifierConnect(QLatin1String("PrinterStopped"), this, SIGNAL(printerStopped(QString, QString, QString, uint, QString, bool)));
-
-    // PrinterShutdown
-    notifierConnect(QLatin1String("PrinterShutdown"), this, SIGNAL(printerShutdown(QString, QString, QString, uint, QString, bool)));
-
-    // PrinterRestarted
-    notifierConnect(QLatin1String("PrinterRestarted"), this, SIGNAL(printerRestarted(QString, QString, QString, uint, QString, bool)));
-
-    // PrinterMediaChanged
-    notifierConnect(QLatin1String("PrinterMediaChanged"), this, SIGNAL(printerMediaChanged(QString, QString, QString, uint, QString, bool)));
+    notifierConnect("PrinterAdded"_L1, this, SIGNAL(printerAdded(QString, QString, QString, uint, QString, bool)), "printer-added"_L1);
+    notifierConnect("PrinterModified"_L1, this, SIGNAL(printerModified(QString, QString, QString, uint, QString, bool)), "printer-modified"_L1);
+    notifierConnect("PrinterDeleted"_L1, this, SIGNAL(printerDeleted(QString, QString, QString, uint, QString, bool)), "printer-deleted"_L1);
+    notifierConnect("PrinterStateChanged"_L1, this, SIGNAL(printerStateChanged(QString, QString, QString, uint, QString, bool)), "printer-state-changed"_L1);
+    notifierConnect("PrinterStopped"_L1, this, SIGNAL(printerStopped(QString, QString, QString, uint, QString, bool)), "printer-stopped"_L1);
+    notifierConnect("PrinterShutdown"_L1, this, SIGNAL(printerShutdown(QString, QString, QString, uint, QString, bool)), "printer-shutdown"_L1);
+    notifierConnect("PrinterRestarted"_L1, this, SIGNAL(printerRestarted(QString, QString, QString, uint, QString, bool)), "printer-restarted"_L1);
+    notifierConnect("PrinterMediaChanged"_L1, this, SIGNAL(printerMediaChanged(QString, QString, QString, uint, QString, bool)), "printer-media-changed"_L1);
 
     // PrinterFinishingsChanged
-    notifierConnect(QLatin1String("PrinterFinishingsChanged"), this, SIGNAL(PrinterFinishingsChanged(QString, QString, QString, uint, QString, bool)));
-
-    // Job related signals
-    // JobState
-    notifierConnect(QLatin1String("JobState"), this, SIGNAL(jobState(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
-
-    // JobCreated
-    notifierConnect(QLatin1String("JobCreated"), this, SIGNAL(jobCreated(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
-
-    // JobStopped
-    notifierConnect(QLatin1String("JobStopped"), this, SIGNAL(jobStopped(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
-
-    // JobConfigChanged
-    notifierConnect(QLatin1String("JobConfigChanged"),
+    // TODO: figure out if this is deprecated with 2.x
+    notifierConnect("PrinterFinishingsChanged"_L1,
                     this,
-                    SIGNAL(jobConfigChanged(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
+                    SIGNAL(PrinterFinishingsChanged(QString, QString, QString, uint, QString, bool)),
+                    "printer-finishings-changed"_L1);
 
-    // JobProgress
-    notifierConnect(QLatin1String("JobProgress"),
+    notifierConnect("JobState"_L1,
                     this,
-                    SIGNAL(jobProgress(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
-
-    // JobCompleted
-    notifierConnect(QLatin1String("JobCompleted"),
+                    SIGNAL(jobState(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)),
+                    "job-state-changed"_L1);
+    notifierConnect("JobCreated"_L1,
                     this,
-                    SIGNAL(jobCompleted(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
+                    SIGNAL(jobCreated(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)),
+                    "job-created"_L1);
+    notifierConnect("JobStopped"_L1,
+                    this,
+                    SIGNAL(jobStopped(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)),
+                    "job-stopped"_L1);
+    notifierConnect("JobConfigChanged"_L1,
+                    this,
+                    SIGNAL(jobConfigChanged(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)),
+                    "job-config-changed"_L1);
+    notifierConnect("JobProgress"_L1,
+                    this,
+                    SIGNAL(jobProgress(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)),
+                    "job-progress"_L1);
+    notifierConnect("JobCompleted"_L1,
+                    this,
+                    SIGNAL(jobCompleted(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)),
+                    "job-completed"_L1);
 
-    // This signal is needed since the cups registration thing
-    // doesn't Q_EMIT printerAdded when we add a printer class
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterAdded"),
-                                         this,
-                                         SIGNAL(rhPrinterAdded(QString)));
+    // Dbus notifier subscription renewal
+    m_renewTimer.setInterval(3500 * 1000);
+    connect(&m_renewTimer, &QTimer::timeout, this, static_cast<void (KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::AutoConnection);
 
-    // This signal is needed since the cups registration thing
-    // sometimes simple stops working... don't ask me why
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("QueueChanged"),
-                                         this,
-                                         SIGNAL(rhQueueChanged(QString)));
+    renewDBusSubscription();
 
-    // This signal is needed since the cups registration thing
-    // doesn't Q_EMIT printerRemoved when we add a printer class
-    // This is emitted when a printer/queue is changed
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("PrinterRemoved"),
-                                         this,
-                                         SIGNAL(rhPrinterRemoved(QString)));
-
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("JobQueuedLocal"),
-                                         this,
-                                         SIGNAL(rhJobQueuedLocal(QString, uint, QString)));
-
-    QDBusConnection::systemBus().connect(QLatin1String(""),
-                                         QLatin1String("/com/redhat/PrinterSpooler"),
-                                         QLatin1String("com.redhat.PrinterSpooler"),
-                                         QLatin1String("JobStartedLocal"),
-                                         this,
-                                         SIGNAL(rhJobStartedLocal(QString, uint, QString)));
-
-    // Creates the timer that will renew the DBus subscription
-    m_renewTimer = new QTimer;
-    m_renewTimer->setInterval(RENEW_INTERVAL * 1000);
-    m_renewTimer->moveToThread(this);
-    connect(m_renewTimer, &QTimer::timeout, this, static_cast<void (KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::DirectConnection);
-
-    // Creates the timer to merge updates on the DBus subscription
-    m_subscriptionTimer = new QTimer;
-    m_subscriptionTimer->setInterval(0);
-    m_subscriptionTimer->setSingleShot(true);
-    m_subscriptionTimer->moveToThread(this);
-    connect(m_subscriptionTimer, &QTimer::timeout, this, &KCupsConnection::updateSubscription, Qt::DirectConnection);
-
-    // Starts this thread
     start();
 }
 
@@ -249,7 +144,6 @@ void KCupsConnection::run()
     // it on a blocking mode.
     cupsSetPasswordCB2(password_cb, m_passwordDialog);
 
-    m_inited = true;
     exec();
 
     // Event loop quit so cancelDBusSubscription()
@@ -302,15 +196,17 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
     }
 
-    KIppRequest request(operation, QLatin1String("/"));
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("/"));
+    qCDebug(LIBKCUPS) << "SUBSCRIPTION:" << ippOpString(operation) << events;
+
+    KIppRequest request(operation, "/"_L1);
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, "/"_L1);
     request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER, KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
 
     if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
         // Add the "notify-events" values to the request
         request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_EVENTS, events);
-        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_PULL_METHOD, QLatin1String("ippget"));
-        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI, KCUPS_NOTIFY_RECIPIENT_URI, QLatin1String("dbus://"));
+        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_PULL_METHOD, "ippget"_L1);
+        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI, KCUPS_NOTIFY_RECIPIENT_URI, "dbus://"_L1);
     } else {
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_NOTIFY_SUBSCRIPTION_ID, subscriptionId);
     }
@@ -360,121 +256,10 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     return ret;
 }
 
-void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, const char *slot)
+void KCupsConnection::notifierConnect(const QString &signal, QObject *receiver, const char *slot, const QString &sub)
 {
-    QDBusConnection systemBus = QDBusConnection::systemBus();
-    systemBus.connect(QString(), QStringLiteral("/org/cups/cupsd/Notifier"), QStringLiteral("org.cups.cupsd.Notifier"), signal, receiver, slot);
-}
-
-void KCupsConnection::connectNotify(const QMetaMethod &signal)
-{
-    QMutexLocker locker(&m_mutex);
-    QString event = eventForSignal(signal);
-    if (!event.isNull()) {
-        m_connectedEvents << event;
-        QMetaObject::invokeMethod(m_subscriptionTimer, "start", Qt::QueuedConnection);
-    }
-}
-
-void KCupsConnection::disconnectNotify(const QMetaMethod &signal)
-{
-    QMutexLocker locker(&m_mutex);
-    QString event = eventForSignal(signal);
-    if (!event.isNull()) {
-        m_connectedEvents.removeOne(event);
-        QMetaObject::invokeMethod(m_subscriptionTimer, "start", Qt::QueuedConnection);
-    }
-}
-
-QString KCupsConnection::eventForSignal(const QMetaMethod &signal) const
-{
-    // Server signals
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverAudit)) {
-        return QStringLiteral(DBUS_SERVER_AUDIT);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStarted)) {
-        return QStringLiteral(DBUS_SERVER_STARTED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStopped)) {
-        return QStringLiteral(DBUS_SERVER_STOPPED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverRestarted)) {
-        return QStringLiteral(DBUS_SERVER_RESTARTED);
-    }
-
-    // Printer signals
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerAdded)) {
-        return QStringLiteral(DBUS_PRINTER_ADDED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerDeleted)) {
-        return QStringLiteral(DBUS_PRINTER_DELETED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerFinishingsChanged)) {
-        return QStringLiteral(DBUS_PRINTER_FINISHINGS_CHANGED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerMediaChanged)) {
-        return QStringLiteral(DBUS_PRINTER_MEDIA_CHANGED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerModified)) {
-        return QStringLiteral(DBUS_PRINTER_MODIFIED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerRestarted)) {
-        return QStringLiteral(DBUS_PRINTER_RESTARTED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerShutdown)) {
-        return QStringLiteral(DBUS_PRINTER_SHUTDOWN);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStateChanged)) {
-        return QStringLiteral(DBUS_PRINTER_STATE_CHANGED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStopped)) {
-        return QStringLiteral(DBUS_PRINTER_STOPPED);
-    }
-
-    // job signals
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCompleted)) {
-        return QStringLiteral(DBUS_JOB_COMPLETED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobConfigChanged)) {
-        return QStringLiteral(DBUS_JOB_CONFIG_CHANGED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCreated)) {
-        return QStringLiteral(DBUS_JOB_CREATED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobProgress)) {
-        return QStringLiteral(DBUS_JOB_PROGRESS);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobState)) {
-        return QStringLiteral(DBUS_JOB_STATE_CHANGED);
-    }
-    if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobStopped)) {
-        return QStringLiteral(DBUS_JOB_STOPPED);
-    }
-
-    // No registered event signal matched
-    return QString();
-}
-
-void KCupsConnection::updateSubscription()
-{
-    QMutexLocker locker(&m_mutex);
-    // Build the current list
-    QStringList currentEvents = m_connectedEvents;
-    currentEvents.sort();
-    currentEvents.removeDuplicates();
-
-    // Check if the requested events are already being asked
-    if (m_requestedDBusEvents != currentEvents) {
-        m_requestedDBusEvents = currentEvents;
-
-        // If we already have a subscription lets cancel
-        // and create a new one
-        if (m_subscriptionId >= 0) {
-            cancelDBusSubscription();
-        }
-
-        // Calculates the new events
-        renewDBusSubscription();
+    if (QDBusConnection::systemBus().connect(QString(), "/org/cups/cupsd/Notifier"_L1, "org.cups.cupsd.Notifier"_L1, signal, receiver, slot)) {
+        m_requestedDBusEvents << sub;
     }
 }
 
@@ -488,18 +273,18 @@ void KCupsConnection::renewDBusSubscription()
     // The above request might fail if the subscription was cancelled
     if (m_subscriptionId < 0) {
         if (m_requestedDBusEvents.isEmpty()) {
-            m_renewTimer->stop();
+            m_renewTimer.stop();
         } else {
             m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION, m_requestedDBusEvents);
-            m_renewTimer->start();
+            m_renewTimer.start();
         }
     }
 }
 
 void KCupsConnection::cancelDBusSubscription()
 {
-    KIppRequest request(IPP_CANCEL_SUBSCRIPTION, QLatin1String("/"));
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("/"));
+    KIppRequest request(IPP_CANCEL_SUBSCRIPTION, "/"_L1);
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, "/"_L1);
     request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_NOTIFY_SUBSCRIPTION_ID, m_subscriptionId);
 
     do {
@@ -784,7 +569,8 @@ const char *password_cb(const char *prompt, http_t *http, const char *method, co
     // method that returns QDialog enums
     if (passwordDialog->accepted()) {
         cupsSetUser(qUtf8Printable(passwordDialog->username()));
-        return qUtf8Printable(passwordDialog->password());
+        const auto pwd = passwordDialog->password().toUtf8();
+        return pwd.constData();
     } else {
         // the dialog was canceled
         password_retries = -1;

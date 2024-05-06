@@ -143,9 +143,9 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
 
     // This is emitted when a printer/queue is changed
     // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrintQueueUi::updatePrinterByName);
+    // connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrintQueueUi::updatePrinterByName);
+    // connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrintQueueUi::updatePrinterByName);
+    // connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrintQueueUi::updatePrinterByName);
 
     updatePrinterByName(m_destName);
 

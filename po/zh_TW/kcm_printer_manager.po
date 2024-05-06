@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-03-08 03:30+0900\n"
+"PO-Revision-Date: 2024-05-05 17:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -71,14 +71,13 @@ msgstr "範例位址"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "位址："
 
 #: ui/components/BaseDevice.qml:121
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "輸入主機 URI"
+msgstr "輸入裝置位址"
 
 #: ui/components/Direct.qml:23
 #, kde-format
@@ -97,12 +96,10 @@ msgstr ""
 "驅動程式。"
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "選擇驅動程式…"
+msgstr "選擇無驅動…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -123,63 +120,53 @@ msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "驅動程式的建議是從印表機製造商/型號與連線型態進行判斷的"
 
 #: ui/components/Drivers.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "印表機驅動程式 (%1)"
+msgstr "無驅動 (%1)"
 
 #: ui/components/Drivers.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD 檔案："
+msgstr "PPD 檔案 (%1)"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Line Printer Daemon (LPD) 協定"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "輸入遠端主機/裝置的位址"
+msgstr "輸入 LPD 裝置的位址"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "佇列名稱："
+msgstr "佇列："
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "佇列名稱："
+msgstr "LPD 佇列名稱："
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "以位址繼續…"
 
 #: ui/components/Lpd.qml:90
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr ""
+msgstr "無效的 LPD 網址：%1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -194,12 +181,10 @@ msgid "Enter the address of the remote host/device"
 msgstr "輸入遠端主機/裝置的位址"
 
 #: ui/components/ManualUri.qml:71
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "選取印表機"
+msgstr "選取印表機…"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -211,20 +196,18 @@ msgstr "這個功能目前尚無法使用 (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "AppSocket 協定（又稱 JetDirect）"
 
 #: ui/components/Socket.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "輸入遠端主機/裝置的位址"
+msgstr "輸入 AppSocket 裝置的位址"
 
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "無效的 socket 網址：%1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -506,12 +489,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "CUPS 印表機總覽說明"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "CUPS 列印伺服器管理"
+msgstr "印表機/裝置管理頁面"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -547,7 +528,7 @@ msgstr "需要製造商/型號。請選擇「選取」來選製造商/型號"
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "正在設定 %1，請稍候…。"
 
 #: ui/PrinterSettings.qml:171
 #, kde-format
@@ -629,13 +610,11 @@ msgid "Queue Name:"
 msgstr "佇列名稱："
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
-msgstr "<b>印表機群組</b>是用來組合列印資源的。"
+msgstr "<interface>印表機群組</interface>是用來組合列印資源的。"
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-11 02:45+0000\n"
-"PO-Revision-Date: 2023-12-02 20:29+0900\n"
+"PO-Revision-Date: 2024-05-05 17:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: printermanager.cpp:224
 #, kde-format
@@ -134,24 +134,22 @@ msgid "Enter the address of the remote host/device"
 msgstr "輸入遠端主機/裝置的位址"
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "選取印表機"
+msgstr "選取印表機…"
 
 #: ui/FindPrinter.qml:205
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "以位址繼續…"
 
 #: ui/FindPrinter.qml:241
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "位址："
 
 #: ui/FindPrinter.qml:249
 #, fuzzy, kde-format

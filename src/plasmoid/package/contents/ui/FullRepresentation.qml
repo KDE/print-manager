@@ -11,6 +11,7 @@ import QtQuick
 import org.kde.plasma.extras as PlasmaExtras
 import org.kde.plasma.components as PlasmaComponents3
 import org.kde.kirigami as Kirigami
+import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PrintManager
 
 PlasmaExtras.Representation {
@@ -19,7 +20,7 @@ PlasmaExtras.Representation {
     header: PlasmaExtras.PlasmoidHeading {
         PlasmaExtras.SearchField {
             anchors.fill: parent
-            onAccepted: printersFilterModel.setFilterWildcard(text)
+            onTextChanged: printersFilterModel.filterString = text.toLowerCase()
         }
     }
 
@@ -39,11 +40,16 @@ PlasmaExtras.Representation {
                     label: !section ? i18n("Printers") : i18n("Printer Groups")
                 }
             }
-
-            model: PrintManager.PrinterSortFilterModel {
+            
+            model: KItemModels.KSortFilterProxyModel {
                 id: printersFilterModel
                 sourceModel: printersModel
-                sortRole: PrintManager.PrinterModel.DestIsClass
+                sortRoleName: "isClass"
+                
+                filterRowCallback: (source_row, source_parent) => {
+                    return sourceModel.data(sourceModel.index(source_row, 0, source_parent), PrintManager.PrinterModel.DestDescription).toLowerCase().includes(filterString)
+                }
+
             }
 
             topMargin: Kirigami.Units.smallSpacing * 2
@@ -53,8 +59,8 @@ PlasmaExtras.Representation {
             spacing: Kirigami.Units.smallSpacing
 
             highlight: PlasmaExtras.Highlight {}
-            highlightMoveDuration: 0
-            highlightResizeDuration: 0
+            highlightMoveDuration: Kirigami.Units.shortDuration
+            highlightResizeDuration: Kirigami.Units.shortDuration
             delegate: PrinterDelegate {}
 
             Loader {

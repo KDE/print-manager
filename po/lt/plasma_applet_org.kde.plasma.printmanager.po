@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:39+0000\n"
+"POT-Creation-Date: 2024-05-07 00:40+0000\n"
 "PO-Revision-Date: 2024-01-11 16:16+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -30,12 +30,12 @@ msgstr "Spausdintuvai"
 msgid "Printer Groups"
 msgstr "Spausdintuvų grupės"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:66
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "Nėra sukonfigūruota ar atrasta jokių spausdintuvų"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:66
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "Nėra atitikmenų"
 

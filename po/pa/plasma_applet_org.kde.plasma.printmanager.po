@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-26 00:39+0000\n"
+"POT-Creation-Date: 2024-05-07 00:40+0000\n"
 "PO-Revision-Date: 2024-01-01 08:49-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -26,12 +26,12 @@ msgstr "ਪਰਿੰਟਰ"
 msgid "Printer Groups"
 msgstr "ਪਰਿੰਟਰ ਗਰੁੱਪ"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:66
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "ਕੋਈ ਵੀ ਪਰਿੰਟਰ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ ਨਾ ਹੀ ਖੋਜਿਆ ਨਹੀਂ ਗਿਆ ਹੈ"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:66
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ"
 

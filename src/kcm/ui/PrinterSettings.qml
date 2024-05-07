@@ -629,7 +629,7 @@ KCM.AbstractKCM {
                         }
 
                         // For save, use the full URI
-                        function getChecked(keysOnly: bool) {
+                        function getChecked(keysOnly: bool) : list<var> {
                             let ret = []
                             for (let i=0; i<count; ++i) {
                                 const item = itemAtIndex(i)
@@ -640,7 +640,7 @@ KCM.AbstractKCM {
                             return ret
                         }
 
-                        function hasChanges() {
+                        function hasChanges() : bool {
                             let changed = false
                             const vals = getChecked(true)
                             if (vals.length !== root.modelData.memberNames.length

@@ -59,7 +59,7 @@ set_package_properties(KF6Kirigami PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
-find_package(SCPDbus "1.5" REQUIRED)
+find_package(SCPDbus "1.5")
 set_package_properties(SCPDbus PROPERTIES
     TYPE RUNTIME
     DESCRIPTION "System-config-printer Dbus interfaces"

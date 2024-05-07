@@ -27,11 +27,11 @@ The legacy apps, the KDed module and the KCM make use of the interfaces provided
 * Device discovery and grouping
 * Recommended driver discovery
 
-Print Manager requires that the system-config-printer-dbus-service package is installed.  It may be that some platforms/distributions will need to install the complete system-config-printer package if system-config-printer-dbus-service is not packaged separately.
+While not required, it is recommended to install this component for print-manager to provide the best results.
 
 Another useful external package (not required) is [IPP-USB](https://github.com/OpenPrinting/ipp-usb).  IPP-USB is a mechanism that allows USB connected printers to be discovered and configured with IPP Driverless tools.  USB printers that support IPP but for whatever reason, do not support a network interface can usually be configured using IPP-USB.
 
-Of note, if a printer is not discovered on the network or with a USB connection and it does not support IPP, then the printer will have to be configured manually with Print Manager.
+Of note, if a printer is not discovered on the network or with a USB connection and it does not support IPP, then the printer will have to be configured manually with print-manager.
 
 
 ## General

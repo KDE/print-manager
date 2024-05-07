@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-07 01:42+0000\n"
+"POT-Creation-Date: 2024-05-07 02:28+0000\n"
 "PO-Revision-Date: 2024-02-06 00:15+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "프린터"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 msgid "Printer Groups"
 msgstr "프린터 그룹"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "설정되거나 발견된 프린터 없음"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "검색 결과 없음"
 

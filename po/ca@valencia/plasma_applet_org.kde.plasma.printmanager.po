@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-07 01:42+0000\n"
+"POT-Creation-Date: 2024-05-07 02:28+0000\n"
 "PO-Revision-Date: 2023-11-07 13:28+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,21 +21,21 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Impressores"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 msgid "Printer Groups"
 msgstr "Grups d'impressores"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "No s'ha descobert o configurat cap impressora"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "Sense coincidències"
 

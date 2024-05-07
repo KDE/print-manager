@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-07 01:42+0000\n"
+"POT-Creation-Date: 2024-05-07 02:28+0000\n"
 "PO-Revision-Date: 2023-11-08 11:10+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 #: src/plasmoid/package/contents/ui/main.qml:65
 msgid "Printers"
 msgstr "Imprimitores"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:39
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 msgid "Printer Groups"
 msgstr "Gruppos de Imprimitor"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 #: src/plasmoid/package/contents/ui/main.qml:86
 msgid "No printers have been configured or discovered"
 msgstr "On non trovava alcun imprimitor configurate o discoperite"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 msgid "No matches"
 msgstr "Nulle correspondentias"
 

@@ -135,31 +135,25 @@ msgstr "PPD 文件 (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "行式打印机后台程序 (LPD) 协议"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the AppSocket device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "输入 AppSocket 设备的地址"
+msgstr "输入 LPD 设备的地址"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "队列名称："
+msgstr "队列："
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "队列名称："
+msgstr "LPD 队列名称"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -169,11 +163,10 @@ msgid "Continue with Address…"
 msgstr "使用地址继续…"
 
 #: ui/components/Lpd.qml:90
-#, fuzzy, kde-format
-#| msgid "Invalid Socket URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "无效的 Socket URL：%1"
+msgstr "无效的 LPD URL：%1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -617,13 +610,11 @@ msgid "Queue Name:"
 msgstr "队列名称："
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
-msgstr "<b>打印机组</b> 用于对打印资源进行集中管理。"
+msgstr "<interface>打印机组</interface> 用于对打印资源进行集中管理。"
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

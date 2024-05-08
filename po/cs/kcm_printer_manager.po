@@ -148,7 +148,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr ""
+msgstr "Fronta:"
 
 #: ui/components/Lpd.qml:66
 #, kde-format

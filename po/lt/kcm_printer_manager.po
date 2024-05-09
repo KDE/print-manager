@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-27 00:39+0000\n"
-"PO-Revision-Date: 2024-04-08 19:59+0300\n"
+"PO-Revision-Date: 2024-05-08 21:51+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -76,11 +76,10 @@ msgid "Address:"
 msgstr "Adresas:"
 
 #: ui/components/BaseDevice.qml:121
-#, fuzzy, kde-format
-#| msgid "Enter host Address"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "Įvesti mazgo adresą"
+msgstr "Įvesti įrenginio adresą"
 
 #: ui/components/Direct.qml:23
 #, kde-format
@@ -100,12 +99,10 @@ msgstr ""
 "pasirinkite tvarkyklę rankiniu būdu."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Pasirinkti tvarkyklę…"
+msgstr "Pasirinkti be tvarkyklės…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -128,50 +125,40 @@ msgstr ""
 "sujungimo tipu"
 
 #: ui/components/Drivers.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Spausdintuvo tvarkyklė (%1)"
+msgstr "Be tvarkyklės (%1)"
 
 #: ui/components/Drivers.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD failas:"
+msgstr "PPD failas (%1)"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "„Line Printer Daemon“ (LPD) protokolas"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Įveskite nuotolinio mazgo/įrenginio adresą"
+msgstr "Įveskite LPD įrenginio adresą"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Eilės pavadinimas:"
+msgstr "Eilė:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Eilės pavadinimas:"
+msgstr "LPD eilės pavadinimas"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -184,7 +171,7 @@ msgstr "Tęsti naudojant adresą…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr ""
+msgstr "Neteisingas LPD URL: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -214,20 +201,18 @@ msgstr "Ši ypatybė kol kas neprieinama (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "„AppSocket“ protokolas (dar žinomas kaip „JetDirect“)"
 
 #: ui/components/Socket.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "Įveskite nuotolinio mazgo/įrenginio adresą"
+msgstr "Įveskite „AppSocket“ įrenginio adresą"
 
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "Neteisingas lizdo URL: %1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -513,12 +498,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "CUPS spausdintuvų apžvalgos pagalba"
 
 #: ui/PrinterSettings.qml:81
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "CUPS spausdinimo serverio administratorius"
+msgstr "Spausdintuvo/Įrenginio administravimo puslapis"
 
 #: ui/PrinterSettings.qml:94
 #, kde-format
@@ -557,7 +540,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "Konfigūruojamas %1, palaukite…."
 
 #: ui/PrinterSettings.qml:171
 #, kde-format
@@ -639,14 +622,13 @@ msgid "Queue Name:"
 msgstr "Eilės pavadinimas:"
 
 #: ui/PrinterSettings.qml:502
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr ""
-"<b>Spausdintuvų grupė</b> yra naudojama spausdinimo išteklių sutelkimui."
+"<interface>Spausdintuvų grupė</interface> yra naudojama spausdinimo išteklių "
+"sutelkimui."
 
 #: ui/PrinterSettings.qml:510
 #, kde-format

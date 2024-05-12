@@ -654,7 +654,7 @@ msgstr "S'ha detectat una impressora nova"
 #: src/kded/NewPrinterNotification.cpp:62
 #, kde-format
 msgid "Configuring new printer..."
-msgstr "S'està configurant la impressora nova..."
+msgstr "S'està configurant la impressora nova…"
 
 #: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
@@ -1174,7 +1174,7 @@ msgstr "Posa en pausa la impressora"
 #: src/printqueue/PrintQueueUi.cpp:202
 #, kde-format
 msgid "Printing..."
-msgstr "S'està imprimint..."
+msgstr "S'està imprimint…"
 
 #: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format

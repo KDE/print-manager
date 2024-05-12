@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2013-03-15 15:30+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -1051,67 +1051,67 @@ msgstr ""
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:202
+#: src/libkcups/PrinterModel.cpp:201
 #, kde-format
 msgid "Printers"
 msgstr "छपाईयंत्रे"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle"
 msgstr "रिकामे"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "रिकामे - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "In use"
 msgstr "वापरात आहे"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "In use - '%1'"
 msgstr "वापरात आहे - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused"
 msgstr "स्तब्ध केले"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "स्तब्ध केले - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Unknown"
 msgstr "अपरिचीत"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:443
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "अपरिचीत - '%1'"

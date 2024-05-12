@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2013-06-16 06:28+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -1089,67 +1089,67 @@ msgstr "Тиісті драйврлері"
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:202
+#: src/libkcups/PrinterModel.cpp:201
 #, kde-format
 msgid "Printers"
 msgstr "Принтерлер"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle"
 msgstr "Іссіз"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Ісіз, тапсырмалардан бас тарту"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Іссіз - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Ісіз, тапсырмадан бас тарту - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "In use"
 msgstr "Қолданыста"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Қолданыста - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused"
 msgstr "Аялдаулы"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Аялдалған, тапсырмалардан бас тарту"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Аялдаулы - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Аялдалған, тапсырмалардан бас тарту - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Unknown"
 msgstr "Беймәлім"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:443
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Беймәлім - '%1'"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2023-02-09 14:47\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -1087,67 +1087,67 @@ msgstr "Рэкамендаваныя драйверы"
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:202
+#: src/libkcups/PrinterModel.cpp:201
 #, kde-format
 msgid "Printers"
 msgstr "Прынтары"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle"
 msgstr "Бяздзейнічае"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Бяздзеянне, адхіленне задач"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Бяздзеянне - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Бяздзеянне, адхіленне задач -\"%1\""
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "In use"
 msgstr "Выкарыстоўваецца"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Выкарыстоўваецца - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused"
 msgstr "Прыпынена"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Прыпынена, адхіленне задач"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Прыпынена - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Прыпынена, адхіленне задач -\"%1\""
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Unknown"
 msgstr "Невядома"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:443
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Невядома - \"%1\""

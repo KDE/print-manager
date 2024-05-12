@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2024-04-25 13:09+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -518,31 +518,31 @@ msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "CUPS nyomtatókiszolgáló-adminsztráció"
 
-#: ui/PrinterSettings.qml:94
+#: ui/PrinterSettings.qml:100
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
 msgstr "Automatikus beállítás"
 
-#: ui/PrinterSettings.qml:101
+#: ui/PrinterSettings.qml:107
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "Hozzáadás"
 
-#: ui/PrinterSettings.qml:102
+#: ui/PrinterSettings.qml:108
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "Alkalmaz"
 
-#: ui/PrinterSettings.qml:110
+#: ui/PrinterSettings.qml:116
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
 msgstr "A sor neve szükséges. Adjon meg egy egyedi nevet a sornak."
 
-#: ui/PrinterSettings.qml:117
+#: ui/PrinterSettings.qml:123
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
@@ -550,92 +550,92 @@ msgstr ""
 "A gyártmány/modell szükséges. Nyomja meg a „Kiválasztás” gombot a gyártmány/"
 "modell kiválasztásához"
 
-#: ui/PrinterSettings.qml:130
+#: ui/PrinterSettings.qml:136
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr ""
 
-#: ui/PrinterSettings.qml:171
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Nem sikerült eltávolítani a nyomtatót: %1"
 
-#: ui/PrinterSettings.qml:194
+#: ui/PrinterSettings.qml:200
 #, kde-format
 msgid "Remove Group"
 msgstr "Csoport eltávolítása"
 
-#: ui/PrinterSettings.qml:194
+#: ui/PrinterSettings.qml:200
 #, kde-format
 msgid "Remove Printer"
 msgstr "Nyomtató eltávolítása"
 
-#: ui/PrinterSettings.qml:195
+#: ui/PrinterSettings.qml:201
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "Biztosan el szeretné távolítani a következőt: %1 (%2)?"
 
-#: ui/PrinterSettings.qml:211
+#: ui/PrinterSettings.qml:217
 #, kde-format
 msgid "Cancel"
 msgstr "Mégse"
 
-#: ui/PrinterSettings.qml:380
+#: ui/PrinterSettings.qml:386
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Alapértelmezett nyomtató"
 
-#: ui/PrinterSettings.qml:387
+#: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Csoport megosztása"
 
-#: ui/PrinterSettings.qml:388
+#: ui/PrinterSettings.qml:394
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Nyomtató megosztása"
 
-#: ui/PrinterSettings.qml:395
+#: ui/PrinterSettings.qml:401
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Nyomtatási feladatok elfogadása"
 
-#: ui/PrinterSettings.qml:444
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Tesztoldal nyomtatása"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:456
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Önellenőrző oldal nyomtatása"
 
-#: ui/PrinterSettings.qml:457
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Nyomtatófej-tisztítás"
 
-#: ui/PrinterSettings.qml:477
+#: ui/PrinterSettings.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Nyomtató keresése…"
 
-#: ui/PrinterSettings.qml:485
+#: ui/PrinterSettings.qml:491
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Sor neve:"
 
-#: ui/PrinterSettings.qml:502
+#: ui/PrinterSettings.qml:508
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "A <b>printer group</b> is used to pool printing resources."
@@ -645,37 +645,37 @@ msgid ""
 msgstr ""
 "Egy <b>nyomtatócsoport</b> a nyomtatási erőforrások készletezésére szolgál."
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Leírás:"
 
-#: ui/PrinterSettings.qml:522
+#: ui/PrinterSettings.qml:528
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Hely:"
 
-#: ui/PrinterSettings.qml:534
+#: ui/PrinterSettings.qml:540
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Kapcsolat:"
 
-#: ui/PrinterSettings.qml:548
+#: ui/PrinterSettings.qml:554
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Tagnyomtatók:"
 
-#: ui/PrinterSettings.qml:685
+#: ui/PrinterSettings.qml:691
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Gyártmány/modell:"
 
-#: ui/PrinterSettings.qml:700
+#: ui/PrinterSettings.qml:706
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

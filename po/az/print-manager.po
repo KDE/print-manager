@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-21 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2023-01-14 23:41+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -1082,67 +1082,67 @@ msgstr "Tövsiyyə olunan sürücülər"
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:202
+#: src/libkcups/PrinterModel.cpp:201
 #, kde-format
 msgid "Printers"
 msgstr "Printerlər"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle"
 msgstr "Boşdayanma"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Boşdayanma, tapşırıqlar qəbul edilmir"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Boşdayanma - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Boşdayanma, tapşırıqlar qəbul edilmir - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "In use"
 msgstr "İstifadə olunur"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "In use - '%1'"
 msgstr "İstifadə olunur - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused"
 msgstr "Fasilədə"
 
-#: src/libkcups/PrinterModel.cpp:436
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Fasilədə, tapşırıqlar qəbul edilmir"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Fasilədə - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Fasilədə, tapşırıqlar qəbul edilmir - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:442
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Unknown"
 msgstr "Naməlum"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:443
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Naməlum - '%1'"

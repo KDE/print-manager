@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-27 00:39+0000\n"
+"POT-Creation-Date: 2024-05-12 00:40+0000\n"
 "PO-Revision-Date: 2024-04-27 17:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -501,123 +501,123 @@ msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "Presila/Aparata Administropaĝo"
 
-#: ui/PrinterSettings.qml:94
+#: ui/PrinterSettings.qml:100
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
 msgstr "Aŭtomata Agordo"
 
-#: ui/PrinterSettings.qml:101
+#: ui/PrinterSettings.qml:107
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "Aldoni"
 
-#: ui/PrinterSettings.qml:102
+#: ui/PrinterSettings.qml:108
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "Apliki"
 
-#: ui/PrinterSettings.qml:110
+#: ui/PrinterSettings.qml:116
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
 msgstr "La nomo de vostovico estas postulata. Enigu unikan vicnomon."
 
-#: ui/PrinterSettings.qml:117
+#: ui/PrinterSettings.qml:123
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr ""
 "Faro/Modelo estas postulata. Elektu \"Elekti\" por elekti Markon/Modelon"
 
-#: ui/PrinterSettings.qml:130
+#: ui/PrinterSettings.qml:136
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr "Agordante %1, bonvolu atendi…"
 
-#: ui/PrinterSettings.qml:171
+#: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Malsukcesis forigi la presilon: %1"
 
-#: ui/PrinterSettings.qml:194
+#: ui/PrinterSettings.qml:200
 #, kde-format
 msgid "Remove Group"
 msgstr "Forigi Grupon"
 
-#: ui/PrinterSettings.qml:194
+#: ui/PrinterSettings.qml:200
 #, kde-format
 msgid "Remove Printer"
 msgstr "Forigi presilon"
 
-#: ui/PrinterSettings.qml:195
+#: ui/PrinterSettings.qml:201
 #, kde-format
 msgid "Are you sure you really want to remove:  %1 (%2)?"
 msgstr "Ĉu vi certas, ke vi vere volas forigi: %1 (%2)?"
 
-#: ui/PrinterSettings.qml:211
+#: ui/PrinterSettings.qml:217
 #, kde-format
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: ui/PrinterSettings.qml:380
+#: ui/PrinterSettings.qml:386
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Defaŭlta presilo"
 
-#: ui/PrinterSettings.qml:387
+#: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Kunhavigi ĉi tiun grupon"
 
-#: ui/PrinterSettings.qml:388
+#: ui/PrinterSettings.qml:394
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Kunhavigi ĉi tiun presilon"
 
-#: ui/PrinterSettings.qml:395
+#: ui/PrinterSettings.qml:401
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Akceptante presajn laborojn"
 
-#: ui/PrinterSettings.qml:444
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Presi Testpaĝon"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:456
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Presi Memtestan Paĝon"
 
-#: ui/PrinterSettings.qml:457
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Puraj Presaj Kapoj"
 
-#: ui/PrinterSettings.qml:477
+#: ui/PrinterSettings.qml:483
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Trovi presilon…"
 
-#: ui/PrinterSettings.qml:485
+#: ui/PrinterSettings.qml:491
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Nomo de vostovico:"
 
-#: ui/PrinterSettings.qml:502
+#: ui/PrinterSettings.qml:508
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -625,37 +625,37 @@ msgid ""
 msgstr ""
 "<interface>Presila grupo</interface> estas uzata por arigi presajn rimedojn."
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Priskribo:"
 
-#: ui/PrinterSettings.qml:522
+#: ui/PrinterSettings.qml:528
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Loko:"
 
-#: ui/PrinterSettings.qml:534
+#: ui/PrinterSettings.qml:540
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Konekto:"
 
-#: ui/PrinterSettings.qml:548
+#: ui/PrinterSettings.qml:554
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Membro-Presiloj:"
 
-#: ui/PrinterSettings.qml:685
+#: ui/PrinterSettings.qml:691
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Faro/Modelo:"
 
-#: ui/PrinterSettings.qml:700
+#: ui/PrinterSettings.qml:706
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

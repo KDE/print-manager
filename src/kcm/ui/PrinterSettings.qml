@@ -15,8 +15,6 @@ import org.kde.plasma.printmanager as PM
 KCM.AbstractKCM {
     id: root
 
-    headerPaddingEnabled: false
-
     // Add mode means adding a new printer/group
     property bool addMode: false
     property var modelData

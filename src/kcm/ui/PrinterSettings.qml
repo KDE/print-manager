@@ -186,11 +186,9 @@ KCM.AbstractKCM {
         id: removeLoader
         active: false
 
-        width: Math.round(root.width/2)
-        height: Kirigami.Units.gridUnit * 15
-
         sourceComponent: Kirigami.PromptDialog {
             id: prompt
+            parent: root
 
             Component.onCompleted: open()
             onClosed: removeLoader.active = false

@@ -193,15 +193,18 @@ KCM.AbstractKCM {
             Component.onCompleted: open()
             onClosed: removeLoader.active = false
 
-            title: modelData.isClass ? i18n("Remove Group") : i18n("Remove Printer")
-            subtitle: i18n("Are you sure you really want to remove:  %1 (%2)?"
-                           , modelData.info, modelData.printerName)
+            title: modelData.isClass ? i18nc("@title:window", "Remove Group?")
+                                     : i18nc("@title:window", "Remove Printer?")
+            subtitle: i18nc("@info %1 is the name of a printer or printer group",
+                            "“%1” will be removed.",
+                            modelData.info)
 
             standardButtons: Kirigami.Dialog.NoButton
 
             customFooterActions: [
                 Kirigami.Action {
-                    text: prompt.title
+                    text: modelData.isClass ? i18nc("@action:button", "Remove Group")
+                                            : i18nc("@action:button", "Remove Printer")
                     icon.name: "edit-delete-remove-symbolic"
                     onTriggered: {
                         kcmConn.removing = true

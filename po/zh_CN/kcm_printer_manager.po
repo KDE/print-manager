@@ -236,7 +236,7 @@ msgstr "允许远程管理"
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr "允许用户中止任意任务 (不仅是他们发起的任务)"
+msgstr "允许用户中止任意任务 (不仅是用户本人发起的任务)"
 
 #: ui/main.qml:30
 #, kde-format

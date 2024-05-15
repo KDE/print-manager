@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -630,7 +630,7 @@ msgstr "&Spreči ove korisnike da štampaju"
 msgid "A&llow these users to print"
 msgstr "&Dozvoli ovim korisnicima da štampaju"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "Postavi podrazumevane opcije"
@@ -641,7 +641,7 @@ msgstr "Postavi podrazumevane opcije"
 msgid "Query Printer for Default Options"
 msgstr "Zatraži od štampača podrazumevane opcije"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -649,7 +649,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Neuspelo podešavanje klase."
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -657,12 +657,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Neuspelo podešavanje štampača."
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Neuspelo izvršavanje zahteva: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -670,18 +670,26 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ne mogu da dobavim postavke servera"
 
-#: src/kcm/printermanager.cpp:468
+#: src/kcm/printermanager.cpp:460
 #, kde-format
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Ne mogu da dobavim postavke servera"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Odštampaj stranicu za samoprobu"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Očisti štamparske glave"

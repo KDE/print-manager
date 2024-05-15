@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-02-06 00:16+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -602,7 +602,7 @@ msgstr "다음 사용자는 인쇄 금지(&V)"
 msgid "A&llow these users to print"
 msgstr "다음 사용자는 인쇄 허용(&L)"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "기본 옵션 설정"
@@ -613,41 +613,51 @@ msgstr "기본 옵션 설정"
 msgid "Query Printer for Default Options"
 msgstr "프린터에 기본 옵션 질의"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "클래스를 설정할 수 없음: "
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "프린터를 설정할 수 없음: "
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "요청을 처리할 수 없음: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "서버 설정을 가져올 수 없음: %1"
 
-#: src/kcm/printermanager.cpp:468
-#, kde-format
+#: src/kcm/printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "서버 오류: (%1): %2"
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "서버 설정을 가져올 수 없음: %1"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-04-25 13:09+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -607,7 +607,7 @@ msgstr "Ezen felhasználók nyomtatásának megakadályo&zása "
 msgid "A&llow these users to print"
 msgstr "Ezen fe&lhasználók nyomtatásának engedélyezése"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "Alapértelmezett lehetőségek beállítása"
@@ -618,41 +618,51 @@ msgstr "Alapértelmezett lehetőségek beállítása"
 msgid "Query Printer for Default Options"
 msgstr "Nyomtató lekérése az alapértelmezett beállításokhoz"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nem sikerült beállítani az osztályt: "
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nem sikerült beállítani a nyomtatót: "
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nem sikerült végrehajtani a kérést: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
 
-#: src/kcm/printermanager.cpp:468
-#, kde-format
+#: src/kcm/printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Kiszolgálóhiba: (%1): %2"
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Önellenőrző oldal nyomtatása"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nyomtatófej-tisztítás"

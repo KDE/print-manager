@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-04-19 23:20+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -616,7 +616,7 @@ msgstr "Galara&zi erabiltzaile hauek inprimatzea"
 msgid "A&llow these users to print"
 msgstr "O&nartu erabiltzaile hauei inprimatzea"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ezarri lehenetsitako aukerak"
@@ -627,41 +627,51 @@ msgstr "Ezarri lehenetsitako aukerak"
 msgid "Query Printer for Default Options"
 msgstr "Itaundu inprimagailuari lehenetsitako aukerak"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klasea konfiguratzea huts egin du:"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Inprimagailua konfiguratzea huts egin du:"
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Huts egin du eskaera gauzatzeak: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
 
-#: src/kcm/printermanager.cpp:468
-#, kde-format
+#: src/kcm/printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Zerbitzariaren errorea: (%1): %2"
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Inprimatu berezko proba-orria"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Garbitu inprimatzeko buruak"

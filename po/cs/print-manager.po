@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2023-11-08 16:00+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -604,7 +604,7 @@ msgstr "Zakázat těmto uži&vatelům tisk"
 msgid "A&llow these users to print"
 msgstr "Povo&lit těmto uživatelům tisk"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "Nastavit výchozí volby"
@@ -615,41 +615,51 @@ msgstr "Nastavit výchozí volby"
 msgid "Query Printer for Default Options"
 msgstr "Dotázat se tiskárny na výchozí volby"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nastavení třídy selhalo: "
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nastavení tiskárny selhalo: "
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Vykonání požadavku selhalo: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Selhalo získání nastavení serveru: %1"
 
-#: src/kcm/printermanager.cpp:468
-#, kde-format
+#: src/kcm/printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Chyba serveru: (%1): %2"
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Selhalo získání nastavení serveru: %1"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Vytisknout testovací stránku"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Vyčistit tiskové hlavy"

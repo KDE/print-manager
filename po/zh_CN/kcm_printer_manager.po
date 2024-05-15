@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,46 +17,56 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
 "X-Crowdin-File-ID: 48268\n"
 
-#: printermanager.cpp:203
+#: printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "设置默认选项"
 
-#: printermanager.cpp:211
+#: printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "配置打印机类失败："
 
-#: printermanager.cpp:211
+#: printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "配置打印机失败："
 
-#: printermanager.cpp:378
+#: printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "执行请求失败：%1"
 
-#: printermanager.cpp:430
+#: printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "获取服务器设置失败：%1"
 
-#: printermanager.cpp:468
-#, kde-format
+#: printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "服务器错误：(%1)：%2"
 
-#: printermanager.cpp:523
+#: printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "获取服务器设置失败：%1"
+
+#: printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: printermanager.cpp:529
+#: printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
@@ -257,53 +267,60 @@ msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "从选项列表中选择手动配置"
 
-#: ui/Global.qml:14
-#, kde-format
+#: ui/Global.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Print Server Settings"
 msgctxt "@title:window"
-msgid "Print Server Settings"
+msgid "CUPS Server Settings"
 msgstr "打印服务器设置"
 
-#: ui/Global.qml:28
+#: ui/Global.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
 msgstr "CUPS 打印服务器管理"
 
-#: ui/Global.qml:36
+#: ui/Global.qml:30
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
 msgstr "重置"
 
-#: ui/Global.qml:43
+#: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
 msgstr "应用"
 
-#: ui/Global.qml:105
+#: ui/Global.qml:88
+#, kde-format
+msgid "Please wait while the CUPS server restarts"
+msgstr ""
+
+#: ui/Global.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
 msgstr "连接到本机的共享打印机"
 
-#: ui/Global.qml:117
+#: ui/Global.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
 msgstr "允许来自互联网的打印请求"
 
-#: ui/Global.qml:123
+#: ui/Global.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
 msgstr "允许远程管理"
 
-#: ui/Global.qml:128
+#: ui/Global.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr "允许用户中止任意任务 (不仅是他们发起的任务)"
+msgstr "允许用户中止任意任务 (不仅是用户本人发起的任务)"
 
 #: ui/main.qml:28
 #, kde-format
@@ -333,13 +350,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "配置打印服务器…"
 
-#: ui/main.qml:181
+#: ui/main.qml:185
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "当前没有创建打印机"
 
-#: ui/main.qml:182
+#: ui/main.qml:186
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -347,47 +364,47 @@ msgid ""
 "computer"
 msgstr "点击 <interface>添加打印机…</interface> 为本机创建新的打印机"
 
-#: ui/main.qml:192
+#: ui/main.qml:196
 #, kde-format
 msgid "Printers"
 msgstr "打印机"
 
-#: ui/main.qml:192
+#: ui/main.qml:196
 #, kde-format
 msgid "Printer Groups"
 msgstr "打印机组"
 
-#: ui/main.qml:230
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "配置…"
 
-#: ui/main.qml:251
+#: ui/main.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "打开打印队列…"
 
-#: ui/main.qml:268
+#: ui/main.qml:272
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "继续"
 
-#: ui/main.qml:269
+#: ui/main.qml:273
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "暂停"
 
-#: ui/main.qml:283
+#: ui/main.qml:287
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "继续打印"
 
-#: ui/main.qml:284
+#: ui/main.qml:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -460,194 +477,216 @@ msgstr "选择"
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript 打印机描述文件 (*.ppd)"
 
-#: ui/PrinterSettings.qml:42
+#: ui/PrinterSettings.qml:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "添加打印机组"
 
-#: ui/PrinterSettings.qml:43
+#: ui/PrinterSettings.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "添加打印机"
 
-#: ui/PrinterSettings.qml:54
+#: ui/PrinterSettings.qml:52
 #, kde-format
 msgid "Configure…"
 msgstr "配置…"
 
-#: ui/PrinterSettings.qml:59
+#: ui/PrinterSettings.qml:57
 #, kde-format
 msgid "Remove"
 msgstr "移除"
 
-#: ui/PrinterSettings.qml:75
+#: ui/PrinterSettings.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "CUPS 打印机概览帮助"
 
-#: ui/PrinterSettings.qml:81
+#: ui/PrinterSettings.qml:79
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "打印机/设备管理页面"
 
-#: ui/PrinterSettings.qml:100
+#: ui/PrinterSettings.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
 msgstr "自动设置"
 
-#: ui/PrinterSettings.qml:107
+#: ui/PrinterSettings.qml:105
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "添加"
 
-#: ui/PrinterSettings.qml:108
+#: ui/PrinterSettings.qml:106
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "应用"
 
-#: ui/PrinterSettings.qml:116
+#: ui/PrinterSettings.qml:114
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
 msgstr "队列名称是必需项。请输入一个唯一的队列名称。"
 
-#: ui/PrinterSettings.qml:123
+#: ui/PrinterSettings.qml:121
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/型号"
 
-#: ui/PrinterSettings.qml:136
+#: ui/PrinterSettings.qml:134
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr "正在配置 %1，请稍候…"
 
-#: ui/PrinterSettings.qml:177
+#: ui/PrinterSettings.qml:175
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "移除打印机失败：%1"
 
-#: ui/PrinterSettings.qml:200
+#: ui/PrinterSettings.qml:196
+#, fuzzy, kde-format
+#| msgid "Remove Group"
+msgctxt "@title:window"
+msgid "Remove Group?"
+msgstr "移除打印机组"
+
+#: ui/PrinterSettings.qml:197
+#, fuzzy, kde-format
+#| msgid "Remove Printer"
+msgctxt "@title:window"
+msgid "Remove Printer?"
+msgstr "移除打印机"
+
+#: ui/PrinterSettings.qml:199
 #, kde-format
+msgctxt "@info %1 is the name of a printer or printer group"
+msgid "“%1” will be removed."
+msgstr ""
+
+#: ui/PrinterSettings.qml:206
+#, fuzzy, kde-format
+#| msgid "Remove Group"
+msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "移除打印机组"
 
-#: ui/PrinterSettings.qml:200
-#, kde-format
+#: ui/PrinterSettings.qml:207
+#, fuzzy, kde-format
+#| msgid "Remove Printer"
+msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "移除打印机"
 
-#: ui/PrinterSettings.qml:201
-#, kde-format
-msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr "您确定要删除：%1 (%2) 吗？"
-
-#: ui/PrinterSettings.qml:217
+#: ui/PrinterSettings.qml:216
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: ui/PrinterSettings.qml:386
+#: ui/PrinterSettings.qml:385
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "默认打印机"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:392
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "共享此打印机组"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "共享此打印机"
 
-#: ui/PrinterSettings.qml:401
+#: ui/PrinterSettings.qml:400
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "正在接受打印任务"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:449
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "打印测试页"
 
-#: ui/PrinterSettings.qml:456
+#: ui/PrinterSettings.qml:455
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:462
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
 
-#: ui/PrinterSettings.qml:483
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "搜索打印机…"
 
-#: ui/PrinterSettings.qml:491
+#: ui/PrinterSettings.qml:490
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "队列名称："
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:507
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr "<interface>打印机组</interface> 用于对打印资源进行集中管理。"
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "描述："
 
-#: ui/PrinterSettings.qml:528
+#: ui/PrinterSettings.qml:527
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "位置："
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:539
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "连接："
 
-#: ui/PrinterSettings.qml:554
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "成员打印机："
 
-#: ui/PrinterSettings.qml:691
+#: ui/PrinterSettings.qml:690
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "制造商/型号："
 
-#: ui/PrinterSettings.qml:706
+#: ui/PrinterSettings.qml:705
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
+
+#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
+#~ msgstr "您确定要删除：%1 (%2) 吗？"

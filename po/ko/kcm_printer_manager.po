@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-02-19 21:40+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,46 +17,56 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: printermanager.cpp:203
+#: printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "기본 옵션 설정"
 
-#: printermanager.cpp:211
+#: printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "클래스를 설정할 수 없음: "
 
-#: printermanager.cpp:211
+#: printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "프린터를 설정할 수 없음: "
 
-#: printermanager.cpp:378
+#: printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "요청을 처리할 수 없음: %1"
 
-#: printermanager.cpp:430
+#: printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "서버 설정을 가져올 수 없음: %1"
 
-#: printermanager.cpp:468
-#, kde-format
+#: printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "서버 오류: (%1): %2"
 
-#: printermanager.cpp:523
+#: printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "서버 설정을 가져올 수 없음: %1"
+
+#: printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: printermanager.cpp:529
+#: printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"
@@ -271,49 +281,56 @@ msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "목록에서 수동 설정 옵션 선택"
 
-#: ui/Global.qml:14
-#, kde-format
+#: ui/Global.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Print Server Settings"
 msgctxt "@title:window"
-msgid "Print Server Settings"
+msgid "CUPS Server Settings"
 msgstr "인쇄 서버 설정"
 
-#: ui/Global.qml:28
+#: ui/Global.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
 msgstr "CUPS 인쇄 서버 관리"
 
-#: ui/Global.qml:36
+#: ui/Global.qml:30
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
 msgstr "초기화"
 
-#: ui/Global.qml:43
+#: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
 msgstr "적용"
 
-#: ui/Global.qml:105
+#: ui/Global.qml:88
+#, kde-format
+msgid "Please wait while the CUPS server restarts"
+msgstr ""
+
+#: ui/Global.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
 msgstr "이 시스템에 연결된 프린터 공유"
 
-#: ui/Global.qml:117
+#: ui/Global.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
 msgstr "인터넷 인쇄 허용"
 
-#: ui/Global.qml:123
+#: ui/Global.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
 msgstr "원격 관리 허용"
 
-#: ui/Global.qml:128
+#: ui/Global.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
@@ -347,13 +364,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "인쇄 서버 설정…"
 
-#: ui/main.qml:181
+#: ui/main.qml:185
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "설정한 프린터 없음"
 
-#: ui/main.qml:182
+#: ui/main.qml:186
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -363,47 +380,47 @@ msgstr ""
 "<interface>프린터 추가…</interface>를 선택하면 이 컴퓨터에 새 프린터를 설정합"
 "니다"
 
-#: ui/main.qml:192
+#: ui/main.qml:196
 #, kde-format
 msgid "Printers"
 msgstr "프린터"
 
-#: ui/main.qml:192
+#: ui/main.qml:196
 #, kde-format
 msgid "Printer Groups"
 msgstr "프린터 그룹"
 
-#: ui/main.qml:230
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "설정…"
 
-#: ui/main.qml:251
+#: ui/main.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "인쇄 대기열 열기…"
 
-#: ui/main.qml:268
+#: ui/main.qml:272
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "다시 시작"
 
-#: ui/main.qml:269
+#: ui/main.qml:273
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "일시 정지"
 
-#: ui/main.qml:283
+#: ui/main.qml:287
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "인쇄 다시 시작"
 
-#: ui/main.qml:284
+#: ui/main.qml:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -476,35 +493,35 @@ msgstr "선택"
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "포스트스크립트 프린터 정의 파일 (*.ppd)"
 
-#: ui/PrinterSettings.qml:42
+#: ui/PrinterSettings.qml:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "그룹 추가"
 
-#: ui/PrinterSettings.qml:43
+#: ui/PrinterSettings.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "프린터 추가"
 
-#: ui/PrinterSettings.qml:54
+#: ui/PrinterSettings.qml:52
 #, kde-format
 msgid "Configure…"
 msgstr "설정…"
 
-#: ui/PrinterSettings.qml:59
+#: ui/PrinterSettings.qml:57
 #, kde-format
 msgid "Remove"
 msgstr "삭제"
 
-#: ui/PrinterSettings.qml:75
+#: ui/PrinterSettings.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "CUPS 프린터 요약 도움말"
 
-#: ui/PrinterSettings.qml:81
+#: ui/PrinterSettings.qml:79
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "CUPS Print Server Admin"
@@ -512,122 +529,141 @@ msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "CUPS 인쇄 서버 관리"
 
-#: ui/PrinterSettings.qml:100
+#: ui/PrinterSettings.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
 msgstr "자동 설정"
 
-#: ui/PrinterSettings.qml:107
+#: ui/PrinterSettings.qml:105
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "추가"
 
-#: ui/PrinterSettings.qml:108
+#: ui/PrinterSettings.qml:106
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "적용"
 
-#: ui/PrinterSettings.qml:116
+#: ui/PrinterSettings.qml:114
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
 msgstr "대기열 이름이 필요합니다. 유일한 대기열 이름을 입력하십시오."
 
-#: ui/PrinterSettings.qml:123
+#: ui/PrinterSettings.qml:121
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr "제조사/모델이 필요합니다. \"선택\"을 눌러서 제조사/모델을 선택하십시오"
 
-#: ui/PrinterSettings.qml:136
+#: ui/PrinterSettings.qml:134
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr ""
 
-#: ui/PrinterSettings.qml:177
+#: ui/PrinterSettings.qml:175
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "프린터를 삭제할 수 없음: %1"
 
-#: ui/PrinterSettings.qml:200
+#: ui/PrinterSettings.qml:196
+#, fuzzy, kde-format
+#| msgid "Remove Group"
+msgctxt "@title:window"
+msgid "Remove Group?"
+msgstr "그룹 삭제"
+
+#: ui/PrinterSettings.qml:197
+#, fuzzy, kde-format
+#| msgid "Remove Printer"
+msgctxt "@title:window"
+msgid "Remove Printer?"
+msgstr "프린터 삭제"
+
+#: ui/PrinterSettings.qml:199
 #, kde-format
+msgctxt "@info %1 is the name of a printer or printer group"
+msgid "“%1” will be removed."
+msgstr ""
+
+#: ui/PrinterSettings.qml:206
+#, fuzzy, kde-format
+#| msgid "Remove Group"
+msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "그룹 삭제"
 
-#: ui/PrinterSettings.qml:200
-#, kde-format
+#: ui/PrinterSettings.qml:207
+#, fuzzy, kde-format
+#| msgid "Remove Printer"
+msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "프린터 삭제"
 
-#: ui/PrinterSettings.qml:201
-#, kde-format
-msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr "다음 항목을 삭제하시겠습니까: %1(%2)?"
-
-#: ui/PrinterSettings.qml:217
+#: ui/PrinterSettings.qml:216
 #, kde-format
 msgid "Cancel"
 msgstr "취소"
 
-#: ui/PrinterSettings.qml:386
+#: ui/PrinterSettings.qml:385
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "기본 프린터"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:392
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "이 그룹 공유"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "이 프린터 공유"
 
-#: ui/PrinterSettings.qml:401
+#: ui/PrinterSettings.qml:400
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "인쇄 작업 수락 중"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:449
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "테스트 페이지 인쇄"
 
-#: ui/PrinterSettings.qml:456
+#: ui/PrinterSettings.qml:455
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "자가 진단 페이지 인쇄"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:462
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "프린터 헤드 청소"
 
-#: ui/PrinterSettings.qml:483
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "프린터 찾기…"
 
-#: ui/PrinterSettings.qml:491
+#: ui/PrinterSettings.qml:490
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "대기열 이름:"
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:507
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "A <b>printer group</b> is used to pool printing resources."
@@ -636,41 +672,44 @@ msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr "<b>프린터 그룹</b>은 인쇄 자원을 풀링하는 데 사용합니다."
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "설명:"
 
-#: ui/PrinterSettings.qml:528
+#: ui/PrinterSettings.qml:527
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "위치:"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:539
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "연결:"
 
-#: ui/PrinterSettings.qml:554
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "구성 프린터:"
 
-#: ui/PrinterSettings.qml:691
+#: ui/PrinterSettings.qml:690
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "제조사/모델:"
 
-#: ui/PrinterSettings.qml:706
+#: ui/PrinterSettings.qml:705
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "선택…"
+
+#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
+#~ msgstr "다음 항목을 삭제하시겠습니까: %1(%2)?"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Uri:"

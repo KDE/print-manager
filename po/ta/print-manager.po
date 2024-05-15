@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-04-07 16:49+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -582,7 +582,7 @@ msgstr "&இப்பயனர்கள் அச்சிடுவதைத் 
 msgid "A&llow these users to print"
 msgstr "இப்பயனர்களை &அச்சிட விடு"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "இயல்பிருப்பு விருப்பங்களை அமை"
@@ -593,41 +593,51 @@ msgstr "இயல்பிருப்பு விருப்பங்கள�
 msgid "Query Printer for Default Options"
 msgstr "அச்சுப்பொறியின் இயல்பிருப்பு அமைப்புகளை கண்டறி"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "அச்சுப்பொறி வகையை அமைக்க முடியவில்லை: "
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "அச்சுப்பொறியை அமைக்க முடியவில்லை: "
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "கோரிக்கையை நிறைவேற்ற முடியவில்லை: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "சேவையக அமைப்புகளைப் பெற முடியவில்லை: %1"
 
-#: src/kcm/printermanager.cpp:468
-#, kde-format
+#: src/kcm/printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "சேவையக சிக்கல்: (%1): %2"
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "சேவையக அமைப்புகளைப் பெற முடியவில்லை: %1"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "சோதனைப் பக்கத்தை அச்சிடு"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "அச்சு முனைகளை சுத்தம் செய்"

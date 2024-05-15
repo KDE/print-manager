@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2024-04-27 09:58+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,46 +17,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: printermanager.cpp:203
+#: printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "Standaard opties instellen"
 
-#: printermanager.cpp:211
+#: printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klasse instellen is mislukt: "
 
-#: printermanager.cpp:211
+#: printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Printer instellen is mislukt: "
 
-#: printermanager.cpp:378
+#: printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Verzoek uitvoeren is mislukt: %1"
 
-#: printermanager.cpp:430
+#: printermanager.cpp:424
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Instellingen van server ophalen is mislukt: %1"
 
-#: printermanager.cpp:468
-#, kde-format
+#: printermanager.cpp:460
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Server error: (%1): %2"
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Serverfout: (%1): %2"
 
-#: printermanager.cpp:523
+#: printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings: %1"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Instellingen van server ophalen is mislukt: %1"
+
+#: printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Pagina voor zelftest afdrukken"
 
-#: printermanager.cpp:529
+#: printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Printkoppen reinigen"
@@ -262,49 +272,56 @@ msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Kies een handmatige configuratie-optie uit de lijst"
 
-#: ui/Global.qml:14
-#, kde-format
+#: ui/Global.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Print Server Settings"
 msgctxt "@title:window"
-msgid "Print Server Settings"
+msgid "CUPS Server Settings"
 msgstr "Instellingen van afdrukserver"
 
-#: ui/Global.qml:28
+#: ui/Global.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
 msgstr "Beheerder van CUPS afdrukserver"
 
-#: ui/Global.qml:36
+#: ui/Global.qml:30
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
 msgstr "Resetten"
 
-#: ui/Global.qml:43
+#: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
 msgstr "Toepassen"
 
-#: ui/Global.qml:105
+#: ui/Global.qml:88
+#, kde-format
+msgid "Please wait while the CUPS server restarts"
+msgstr ""
+
+#: ui/Global.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
 msgstr "Printers verbonden met dit systeem delen"
 
-#: ui/Global.qml:117
+#: ui/Global.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
 msgstr "Afdrukken vanuit het internet toestaan"
 
-#: ui/Global.qml:123
+#: ui/Global.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
 msgstr "Administratie op afstand toestaan"
 
-#: ui/Global.qml:128
+#: ui/Global.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
@@ -339,13 +356,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Afdrukserver configureren…"
 
-#: ui/main.qml:181
+#: ui/main.qml:185
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Er zijn op dit moment geen printers ingesteld"
 
-#: ui/main.qml:182
+#: ui/main.qml:186
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -355,47 +372,47 @@ msgstr ""
 "Klik op <interface>Printer toevoegen</interface> om een nieuwe printer op "
 "deze computer in te stellen"
 
-#: ui/main.qml:192
+#: ui/main.qml:196
 #, kde-format
 msgid "Printers"
 msgstr "Printers"
 
-#: ui/main.qml:192
+#: ui/main.qml:196
 #, kde-format
 msgid "Printer Groups"
 msgstr "Printergroepen"
 
-#: ui/main.qml:230
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Configureren…"
 
-#: ui/main.qml:251
+#: ui/main.qml:255
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Printwachtrij openen…"
 
-#: ui/main.qml:268
+#: ui/main.qml:272
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Hervatten"
 
-#: ui/main.qml:269
+#: ui/main.qml:273
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pauzeren"
 
-#: ui/main.qml:283
+#: ui/main.qml:287
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Afdrukken hervatten"
 
-#: ui/main.qml:284
+#: ui/main.qml:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -468,156 +485,175 @@ msgstr "Selecteren"
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript Printer Description bestanden (*.ppd)"
 
-#: ui/PrinterSettings.qml:42
+#: ui/PrinterSettings.qml:40
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "Groep toevoegen"
 
-#: ui/PrinterSettings.qml:43
+#: ui/PrinterSettings.qml:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "Printer toevoegen"
 
-#: ui/PrinterSettings.qml:54
+#: ui/PrinterSettings.qml:52
 #, kde-format
 msgid "Configure…"
 msgstr "Configureren…"
 
-#: ui/PrinterSettings.qml:59
+#: ui/PrinterSettings.qml:57
 #, kde-format
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: ui/PrinterSettings.qml:75
+#: ui/PrinterSettings.qml:73
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "Hulp bij overzicht van CUPS-printers"
 
-#: ui/PrinterSettings.qml:81
+#: ui/PrinterSettings.qml:79
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "Beheerderpagina van printer/apparaat"
 
-#: ui/PrinterSettings.qml:100
+#: ui/PrinterSettings.qml:98
 #, kde-format
 msgctxt "@option:check"
 msgid "Auto Configure"
 msgstr "Automatisch configureren"
 
-#: ui/PrinterSettings.qml:107
+#: ui/PrinterSettings.qml:105
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "Toevoegen"
 
-#: ui/PrinterSettings.qml:108
+#: ui/PrinterSettings.qml:106
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "Toepassen"
 
-#: ui/PrinterSettings.qml:116
+#: ui/PrinterSettings.qml:114
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required.  Enter a unique queue name."
 msgstr "Wachtrijnaam is vereist.  Voer een unieke wachtrijnaam in."
 
-#: ui/PrinterSettings.qml:123
+#: ui/PrinterSettings.qml:121
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgstr "Merk/model is vereist. \"Selecteren\" kiezen om merk/model te kiezen"
 
-#: ui/PrinterSettings.qml:136
+#: ui/PrinterSettings.qml:134
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr "%1 wordt geconfigureerd, even geduld…."
 
-#: ui/PrinterSettings.qml:177
+#: ui/PrinterSettings.qml:175
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Verwijderen van de printer %1 is mislukt: %1"
 
-#: ui/PrinterSettings.qml:200
+#: ui/PrinterSettings.qml:196
+#, fuzzy, kde-format
+#| msgid "Remove Group"
+msgctxt "@title:window"
+msgid "Remove Group?"
+msgstr "Groep verwijderen"
+
+#: ui/PrinterSettings.qml:197
+#, fuzzy, kde-format
+#| msgid "Remove Printer"
+msgctxt "@title:window"
+msgid "Remove Printer?"
+msgstr "Printer verwijderen"
+
+#: ui/PrinterSettings.qml:199
 #, kde-format
+msgctxt "@info %1 is the name of a printer or printer group"
+msgid "“%1” will be removed."
+msgstr ""
+
+#: ui/PrinterSettings.qml:206
+#, fuzzy, kde-format
+#| msgid "Remove Group"
+msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Groep verwijderen"
 
-#: ui/PrinterSettings.qml:200
-#, kde-format
+#: ui/PrinterSettings.qml:207
+#, fuzzy, kde-format
+#| msgid "Remove Printer"
+msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Printer verwijderen"
 
-#: ui/PrinterSettings.qml:201
-#, kde-format
-msgid "Are you sure you really want to remove:  %1 (%2)?"
-msgstr "Wilt u echt %1 (%2) verwijderen?"
-
-#: ui/PrinterSettings.qml:217
+#: ui/PrinterSettings.qml:216
 #, kde-format
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ui/PrinterSettings.qml:386
+#: ui/PrinterSettings.qml:385
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Standaard printer"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:392
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Deze groep delen"
 
-#: ui/PrinterSettings.qml:394
+#: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Deze printer delen"
 
-#: ui/PrinterSettings.qml:401
+#: ui/PrinterSettings.qml:400
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Afdruktaken accepteren"
 
-#: ui/PrinterSettings.qml:450
+#: ui/PrinterSettings.qml:449
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Testpagina afdrukken"
 
-#: ui/PrinterSettings.qml:456
+#: ui/PrinterSettings.qml:455
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Pagina voor zelftest afdrukken"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:462
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Printkoppen reinigen"
 
-#: ui/PrinterSettings.qml:483
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Een printer zoeken…"
 
-#: ui/PrinterSettings.qml:491
+#: ui/PrinterSettings.qml:490
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Wachtrijnaam:"
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:507
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -626,41 +662,44 @@ msgstr ""
 "Een <interface>printergroep</interface> wordt gebruikt om afdrukhulpbronnen "
 "de delen."
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Beschrijving:"
 
-#: ui/PrinterSettings.qml:528
+#: ui/PrinterSettings.qml:527
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Locatie:"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:539
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Verbinding:"
 
-#: ui/PrinterSettings.qml:554
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Mede printers:"
 
-#: ui/PrinterSettings.qml:691
+#: ui/PrinterSettings.qml:690
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Merk/Model:"
 
-#: ui/PrinterSettings.qml:706
+#: ui/PrinterSettings.qml:705
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Selecteren…"
+
+#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
+#~ msgstr "Wilt u echt %1 (%2) verwijderen?"
 
 #~ msgctxt "@label:textbox"
 #~ msgid "Uri:"

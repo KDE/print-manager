@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2019-11-10 23:16+0200\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -609,7 +609,7 @@ msgstr "&Neil kasutajatel keelatakse trükkida "
 msgid "A&llow these users to print"
 msgstr "N&eil kasutajatel lubatakse trükkida"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "Vaikevalikute määramine"
@@ -620,7 +620,7 @@ msgstr "Vaikevalikute määramine"
 msgid "Query Printer for Default Options"
 msgstr "Küsi vaikevalikuid printerilt"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -628,7 +628,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klassi seadistamine nurjus"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -636,12 +636,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Printeri seadistamine nurjus"
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Soovi täitmine nurjus: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -649,18 +649,26 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Serveri seadistuste hankimine nurjus"
 
-#: src/kcm/printermanager.cpp:468
+#: src/kcm/printermanager.cpp:460
 #, kde-format
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Serveri seadistuste hankimine nurjus"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Trüki enesetestilehekülg"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puhasta trükipead"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2019-11-02 00:09+0900\n"
 "Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -600,7 +600,7 @@ msgstr "これらのユーザからの印刷を拒否(&V) "
 msgid "A&llow these users to print"
 msgstr "これらのユーザに印刷を許可(&L)"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
@@ -611,42 +611,49 @@ msgstr ""
 msgid "Query Printer for Default Options"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr ""
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr ""
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, fuzzy, kde-format
 #| msgid "Failed to get a list of devices: '%1'"
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "デバイス一覧の取得に失敗: '%1'"
 
-#: src/kcm/printermanager.cpp:468
+#: src/kcm/printermanager.cpp:460
 #, kde-format
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgid "Failed to get a list of devices: '%1'"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "デバイス一覧の取得に失敗: '%1'"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "ヘッドクリーニング"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-12 00:40+0000\n"
+"POT-Creation-Date: 2024-05-15 00:40+0000\n"
 "PO-Revision-Date: 2020-05-03 08:56+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -613,7 +613,7 @@ msgstr "&Να μην επιτρέπεται στους χρήστες αυτού
 msgid "A&llow these users to print"
 msgstr "Να &επιτρέπεται στους χρήστες αυτούς να εκτυπώνουν"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:203
+#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ορισμός προκαθορισμένων επιλογών"
@@ -624,7 +624,7 @@ msgstr "Ορισμός προκαθορισμένων επιλογών"
 msgid "Query Printer for Default Options"
 msgstr "Ερώτηση εκτυπωτή για προκαθορισμένες επιλογές"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -632,7 +632,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Απέτυχε η διαμόρφωση κλάσης"
 
-#: src/kcm/printermanager.cpp:211
+#: src/kcm/printermanager.cpp:205
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -640,12 +640,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Απέτυχε η διαμόρφωση εκτυπωτή"
 
-#: src/kcm/printermanager.cpp:378
+#: src/kcm/printermanager.cpp:372
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Απέτυχε η εκτέλεση της αίτησης: %1"
 
-#: src/kcm/printermanager.cpp:430
+#: src/kcm/printermanager.cpp:424
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -653,18 +653,26 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
 
-#: src/kcm/printermanager.cpp:468
+#: src/kcm/printermanager.cpp:460
 #, kde-format
 msgctxt "@info"
-msgid "Server error: (%1): %2"
+msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:523
+#: src/kcm/printermanager.cpp:467
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Failed to get server settings"
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
+
+#: src/kcm/printermanager.cpp:519
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Εκτύπωση δοκιμαστικής σελίδας"
 
-#: src/kcm/printermanager.cpp:529
+#: src/kcm/printermanager.cpp:525
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Καθαρισμός κεφαλών εκτύπωσης"

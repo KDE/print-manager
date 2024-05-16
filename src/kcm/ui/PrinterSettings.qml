@@ -34,6 +34,14 @@ KCM.AbstractKCM {
             dlg.open()
     }
 
+    function printerNameIsUnique(name: string) : bool {
+        for (let i=0, len=printerModel.rowCount(); i<len; ++i) {
+            if (printerModel.data(printerModel.index(i,0), PM.PrinterModel.DestName).toString() === name)
+                return false
+        }
+        return true
+    }
+
     title: {
         if (addMode) {
             return modelData.isClass
@@ -92,14 +100,6 @@ KCM.AbstractKCM {
 
         Item { Layout.fillWidth: true }
 
-        //TODO: Is this a valid feature? (addMode && !modelData.isClass)
-        QQC2.CheckBox {
-            id: autoConfig
-            text: i18nc("@option:check", "Auto Configure")
-            checked: false
-            visible: false
-        }
-
         QQC2.Button {
             text: addMode
                   ? i18nc("@action:button Add printer", "Add")
@@ -111,10 +111,16 @@ KCM.AbstractKCM {
                 if (addMode) {
                     if (queueName.text.length === 0) {
                         queueName.focus = true
-                        msgBanner.text = i18nc("@info:status", "Queue name is required.  Enter a unique queue name.")
+                        msgBanner.text = i18nc("@info:status", "Queue name is required. Enter a unique queue name.")
+                        msgBanner.visible = true
+                        return
+                    } else if (!printerNameIsUnique(queueName.text)) {
+                        queueName.focus = true
+                        msgBanner.text = i18nc("@info:status", "Queue name must be unique. Enter a unique queue name.")
                         msgBanner.visible = true
                         return
                     }
+
                     if (!modelData.isClass) {
                         if (driver.text.length === 0) {
                             driverSelect.focus = true
@@ -125,9 +131,6 @@ KCM.AbstractKCM {
                     }
 
                     config.add("add", true)
-                    if (autoConfig.checked) {
-                        config.add("autoConfig", true)
-                    }
                 }
 
                 config.hasPending = false

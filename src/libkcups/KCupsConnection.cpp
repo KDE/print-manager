@@ -748,7 +748,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
     if (forceAuth) {
         // force authentication
         int ret = cupsDoAuthentication(CUPS_HTTP_DEFAULT, "POST", resource);
-        qCWarning(LIBKCUPS) << "cupsDoAuthentication, return:" << ret << "password_retries:" << password_retries;
+        qCDebug(LIBKCUPS) << "cupsDoAuthentication, return:" << ret << "password_retries:" << password_retries;
 
         // If the authentication was successful
         // sometimes just trying to be root works
@@ -778,9 +778,7 @@ const char *password_cb(const char *prompt, http_t *http, const char *method, co
     passwordDialog->setPromptText(i18n("A CUPS connection requires authentication: \"%1\"", QString::fromUtf8(prompt)));
 
     // This will block this thread until exec is not finished
-    qCDebug(LIBKCUPS) << password_retries;
     QMetaObject::invokeMethod(passwordDialog, "exec", Qt::BlockingQueuedConnection, Q_ARG(QString, QString::fromUtf8(cupsUser())), Q_ARG(bool, wrongPassword));
-    qCDebug(LIBKCUPS) << passwordDialog->accepted();
 
     // The password dialog has just returned check the result
     // method that returns QDialog enums

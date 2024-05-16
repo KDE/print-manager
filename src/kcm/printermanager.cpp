@@ -56,16 +56,16 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
         qCDebug(PMKCM) << "CUPS SERVER AUDIT" << msg;
     });
     connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, [this](const QString &msg) {
-        qCWarning(PMKCM) << "CUPS SERVER STARTED" << msg;
+        qCDebug(PMKCM) << "CUPS SERVER STARTED" << msg;
         Q_EMIT serverStarted();
     });
     connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, [this](const QString &msg) {
-        qCWarning(PMKCM) << "CUPS SERVER STOPPED" << msg;
+        qCDebug(PMKCM) << "CUPS SERVER STOPPED" << msg;
         m_serverSettingsLoaded = false;
         Q_EMIT serverStopped();
     });
     connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, [this](const QString &msg) {
-        qCWarning(PMKCM) << "CUPS SERVER RE-STARTED" << msg;
+        qCDebug(PMKCM) << "CUPS SERVER RE-STARTED" << msg;
         Q_EMIT serverStarted();
     });
 
@@ -166,13 +166,12 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
     }
 
     bool isDefault = args.take(u"isDefault"_s).toBool();
-    bool autoConfig = args.take(u"autoConfig"_s).toBool();
     // add mode
     if (args.take(u"add"_s).toBool()) {
         args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
     }
 
-    qCWarning(PMKCM) << "Saving printer settings" << Qt::endl << name << fileName << Qt::endl << args;
+    qCDebug(PMKCM) << "Saving printer settings" << Qt::endl << name << fileName << Qt::endl << args;
 
     QPointer<KCupsRequest> request = new KCupsRequest;
     if (isClass) {
@@ -191,10 +190,6 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
     // Printer isDefault is exclusive
     if (isDefault) {
         request->setDefaultPrinter(name);
-        request->waitTillFinished();
-    }
-    if (autoConfig) {
-        request->printCommand(name, u"AutoConfigure"_s, i18n("Set Default Options"));
         request->waitTillFinished();
     }
 
@@ -265,7 +260,7 @@ QVariantMap PrinterManager::getPrinterPPD(const QString &name)
         codec = QStringDecoder(QStringDecoder::Utf8);
     }
 
-    qCWarning(PMKCM) << codec(ppd->pcfilename) << codec(ppd->modelname) << codec(ppd->shortnickname);
+    qCDebug(PMKCM) << codec(ppd->pcfilename) << codec(ppd->modelname) << codec(ppd->shortnickname);
 
     QString make, makeAndModel, file;
     if (ppd->manufacturer) {

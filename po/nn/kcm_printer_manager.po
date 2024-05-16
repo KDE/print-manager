@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:40+0000\n"
-"PO-Revision-Date: 2024-05-08 19:41+0200\n"
+"PO-Revision-Date: 2024-05-15 20:41+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -136,20 +136,16 @@ msgstr ""
 "tilkoplingstypen"
 
 #: ui/components/Drivers.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Skrivardrivar (%1)"
+msgstr "Drivarlaus (%1)"
 
 #: ui/components/Drivers.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD-fil:"
+msgstr "PPD-fil (%1)"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -166,12 +162,10 @@ msgid "Enter the address of the LPD device"
 msgstr "Skriv inn adressa til den eksterne verten/eininga"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Kønamn:"
+msgstr "Kø:"
 
 #: ui/components/Lpd.qml:66
 #, fuzzy, kde-format
@@ -186,13 +180,13 @@ msgstr "Kønamn:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Hald fram med adresse …"
 
 #: ui/components/Lpd.qml:90
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr ""
+msgstr "Ugyldig LPD-adresse: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -222,15 +216,13 @@ msgstr "Denne funksjonen er ikkje tilgjengeleg enno (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "AppSocket-protokoll (òg kalla JetDirect)"
 
 #: ui/components/Socket.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "Skriv inn adressa til den eksterne verten/eininga"
+msgstr "Skriv inn adressa til AppSocket-eininga"
 
 #: ui/components/Socket.qml:63
 #, kde-format
@@ -287,12 +279,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "Vel manuelt oppsett frå lista"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "Innstillingar for skrivartenar"
+msgstr "Innstillingar for CUPS-tenar"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -576,35 +566,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "Klarte ikkje fjerna skrivaren: %1"
 
 #: ui/PrinterSettings.qml:196
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Fjern gruppe"
+msgstr "Vil du fjerna gruppa?"
 
 #: ui/PrinterSettings.qml:197
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Fjern skrivar"
+msgstr "Vil du fjerna skrivaren?"
 
 #: ui/PrinterSettings.qml:199
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "“%1” will be removed."
-msgstr ""
+msgstr "«%1» vert fjerna."
 
 #: ui/PrinterSettings.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Fjern gruppe"
 
 #: ui/PrinterSettings.qml:207
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Fjern skrivar"
@@ -712,6 +698,3 @@ msgstr "Merke/modell:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vel …"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "Er du sikker på at du vil fjerna denne: %1 (%2)?"

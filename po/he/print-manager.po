@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:40+0000\n"
-"PO-Revision-Date: 2024-04-06 15:58+0300\n"
+"PO-Revision-Date: 2024-05-15 07:00+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -637,20 +637,16 @@ msgid "Failed to get server settings: %1"
 msgstr "משיכת הגדרות השרת נכשלה: %1"
 
 #: src/kcm/printermanager.cpp:460
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "שגיאת שרת: (%1): %2"
+msgstr "הגדרות השרת לא נשמרו: (%1): %2"
 
 #: src/kcm/printermanager.cpp:467
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "משיכת הגדרות השרת נכשלה: %1"
+msgstr "שגיאה מכרעת בשמירת הגדרות שרת: (%1): %2"
 
 #: src/kcm/printermanager.cpp:519
 #, kde-format

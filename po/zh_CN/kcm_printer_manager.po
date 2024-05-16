@@ -46,20 +46,16 @@ msgid "Failed to get server settings: %1"
 msgstr "获取服务器设置失败：%1"
 
 #: printermanager.cpp:460
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "服务器错误：(%1)：%2"
+msgstr ""
 
 #: printermanager.cpp:467
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "获取服务器设置失败：%1"
+msgstr ""
 
 #: printermanager.cpp:519
 #, kde-format
@@ -268,12 +264,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "从选项列表中选择手动配置"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "打印服务器设置"
+msgstr ""
 
 #: ui/Global.qml:23
 #, kde-format
@@ -553,18 +547,16 @@ msgid "Failed to remove the printer: %1"
 msgstr "移除打印机失败：%1"
 
 #: ui/PrinterSettings.qml:196
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "移除打印机组"
+msgstr ""
 
 #: ui/PrinterSettings.qml:197
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "移除打印机"
+msgstr ""
 
 #: ui/PrinterSettings.qml:199
 #, kde-format
@@ -573,18 +565,16 @@ msgid "“%1” will be removed."
 msgstr ""
 
 #: ui/PrinterSettings.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
-msgstr "移除打印机组"
+msgstr ""
 
 #: ui/PrinterSettings.qml:207
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
-msgstr "移除打印机"
+msgstr ""
 
 #: ui/PrinterSettings.qml:216
 #, kde-format
@@ -687,6 +677,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "您确定要删除：%1 (%2) 吗？"

@@ -49,20 +49,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Selhalo získání nastavení serveru: %1"
 
 #: printermanager.cpp:460
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Chyba serveru: (%1): %2"
+msgstr ""
 
 #: printermanager.cpp:467
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Selhalo získání nastavení serveru: %1"
+msgstr ""
 
 #: printermanager.cpp:519
 #, kde-format
@@ -552,18 +548,16 @@ msgid "Failed to remove the printer: %1"
 msgstr "Odstranění tiskárny selhalo: %1"
 
 #: ui/PrinterSettings.qml:196
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Odstranit skupinu"
+msgstr ""
 
 #: ui/PrinterSettings.qml:197
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Odstranit tiskárnu"
+msgstr ""
 
 #: ui/PrinterSettings.qml:199
 #, kde-format
@@ -572,18 +566,16 @@ msgid "“%1” will be removed."
 msgstr ""
 
 #: ui/PrinterSettings.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
-msgstr "Odstranit skupinu"
+msgstr ""
 
 #: ui/PrinterSettings.qml:207
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
-msgstr "Odstranit tiskárnu"
+msgstr ""
 
 #: ui/PrinterSettings.qml:216
 #, kde-format
@@ -686,6 +678,3 @@ msgstr "Výrobek/model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vybrat…"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "Určitě si přejete odstranit:  %1 (%2)?"

@@ -639,20 +639,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Selhalo získání nastavení serveru: %1"
 
 #: src/kcm/printermanager.cpp:460
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Chyba serveru: (%1): %2"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:467
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Selhalo získání nastavení serveru: %1"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:519
 #, kde-format

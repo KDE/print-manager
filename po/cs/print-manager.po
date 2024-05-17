@@ -721,12 +721,10 @@ msgid "'%1' is ready for printing."
 msgstr "Tiskárna '%1' připravena k tisku."
 
 #: src/libkcups/DevicesModel.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "Ruční URI"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:60
 #, kde-format

@@ -457,12 +457,12 @@ msgstr "移除打印机失败：%1"
 #: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Group"
-msgstr ""
+msgstr "移除打印机组"
 
 #: ui/PrinterSettings.qml:177
 #, kde-format
 msgid "Remove Printer"
-msgstr ""
+msgstr "移除打印机"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format

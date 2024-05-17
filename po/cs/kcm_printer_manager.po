@@ -137,12 +137,10 @@ msgid "Enter the address of the remote host/device"
 msgstr ""
 
 #: ui/FindPrinter.qml:196
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Vybrat tiskárnu"
+msgstr ""
 
 #: ui/FindPrinter.qml:205
 #, kde-format
@@ -154,13 +152,12 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "Adresa:"
 
 #: ui/FindPrinter.qml:249
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgid "Enter host Address"
-msgstr "Zadejte URL hostitele"
+msgstr ""
 
 #: ui/FindPrinter.qml:364
 #, kde-format

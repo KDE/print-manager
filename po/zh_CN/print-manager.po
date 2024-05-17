@@ -638,13 +638,13 @@ msgstr "无法获取服务器设置：%1"
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr ""
+msgstr "服务器设置没有保存：(%1)：%2"
 
 #: src/kcm/printermanager.cpp:467
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr ""
+msgstr "保存服务器设置时发生致命错误：(%1)：%2"
 
 #: src/kcm/printermanager.cpp:519
 #, kde-format

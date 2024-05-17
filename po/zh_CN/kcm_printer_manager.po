@@ -49,13 +49,13 @@ msgstr "获取服务器设置失败：%1"
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr ""
+msgstr "服务器设置没有保存：(%1)：%2"
 
 #: printermanager.cpp:467
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr ""
+msgstr "保存服务器设置时发生致命错误：(%1)：%2"
 
 #: printermanager.cpp:519
 #, kde-format
@@ -267,7 +267,7 @@ msgstr "从选项列表中选择手动配置"
 #, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr ""
+msgstr "CUPS 服务器设置"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -290,7 +290,7 @@ msgstr "应用"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "请等待 CUPS 服务器完成重启"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -550,31 +550,31 @@ msgstr "移除打印机失败：%1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr ""
+msgstr "移除打印机组？"
 
 #: ui/PrinterSettings.qml:197
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr ""
+msgstr "移除打印机？"
 
 #: ui/PrinterSettings.qml:199
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "“%1” will be removed."
-msgstr ""
+msgstr "“%1”将被移除。"
 
 #: ui/PrinterSettings.qml:206
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
-msgstr ""
+msgstr "移除打印机组"
 
 #: ui/PrinterSettings.qml:207
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
-msgstr ""
+msgstr "移除打印机"
 
 #: ui/PrinterSettings.qml:216
 #, kde-format

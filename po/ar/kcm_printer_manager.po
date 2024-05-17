@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-15 00:40+0000\n"
-"PO-Revision-Date: 2024-05-02 10:55+0400\n"
+"PO-Revision-Date: 2024-05-16 12:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -48,20 +48,16 @@ msgid "Failed to get server settings: %1"
 msgstr "فشل جلب إعدادات الخادوم: %1"
 
 #: printermanager.cpp:460
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "خطأ خادم : (%1): %2"
+msgstr "إعدادات الخادم لم تحفظ : (%1): %2"
 
 #: printermanager.cpp:467
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "فشل جلب إعدادات الخادوم: %1"
+msgstr "خطأ في حفظ إعدادات الخادم: (%1): %2"
 
 #: printermanager.cpp:519
 #, kde-format
@@ -270,12 +266,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "اختر خيار الضبط اليدوي من القائمة"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "إعدادات خادوم الطابعة"
+msgstr "إعدادات خادم الطابعة"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -298,7 +292,7 @@ msgstr "طبّق"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "الرجاء الانتظار بينما يعاد تشغيل الخادم"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -557,35 +551,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "فشلت إزالة الطابعة: %1"
 
 #: ui/PrinterSettings.qml:196
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "أزل المجموعة"
+msgstr "أزل المجموعة؟"
 
 #: ui/PrinterSettings.qml:197
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "أزل الطّابعة"
+msgstr "أزل الطّابعة؟"
 
 #: ui/PrinterSettings.qml:199
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "“%1” will be removed."
-msgstr ""
+msgstr "ستزال “%1”."
 
 #: ui/PrinterSettings.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "أزل المجموعة"
 
 #: ui/PrinterSettings.qml:207
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "أزل الطّابعة"

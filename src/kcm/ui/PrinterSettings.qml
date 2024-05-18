@@ -124,7 +124,7 @@ KCM.AbstractKCM {
                     if (!modelData.isClass) {
                         if (driver.text.length === 0) {
                             driverSelect.focus = true
-                            msgBanner.text = i18nc("@info:status", "Make/Model is required.  Choose \"Select\" to pick Make/Model")
+                            msgBanner.text = i18nc("@info:status", "Make/Model is required. Choose \"Select\" to pick Make/Model")
                             msgBanner.visible = true
                             return
                         }
@@ -383,11 +383,24 @@ KCM.AbstractKCM {
                     type: Kirigami.Heading.Type.Secondary
                 }
 
+                QQC2.Label {
+                    text: i18nc("@info:status This is the default printer", "** Default Printer")
+                    visible: !addMode && modelData.isDefault
+                }
+
                 PrinterOption {
                     objectName: "isDefault"
                     text: i18nc("@action:check Set default printer", "Default printer")
                     orig: modelData.isDefault
+                    // CUPS treats default printer independently from other printer attributes
+                    // Also, CUPS makes sure it's exclusive, only one can be default and there is
+                    // no api for "Not default".
+
+                    // Therefore, if a printer is default, don't allow change for that printer,
+                    // only allow it to be set true for a printer that is not default.
+                    visible: !modelData.isDefault
                 }
+
 
                 PrinterOption {
                     objectName: "printer-is-shared"

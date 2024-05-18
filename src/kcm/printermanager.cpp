@@ -201,15 +201,29 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
         }
     }
 
-    bool isDefault = args.take(u"isDefault"_s).toBool();
-    // add mode
-    if (args.take(u"add"_s).toBool()) {
+    const bool addMode = args.take(u"add"_s).toBool();
+    // Will only be set if default is changed to true
+    const bool isDefault = args.take(u"isDefault"_s).toBool();
+
+    if (addMode) {
         args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
     }
 
-    qCDebug(PMKCM) << "Saving printer settings" << Qt::endl << name << fileName << Qt::endl << args;
+    qCDebug(PMKCM) << (addMode ? "New Printer:" : "Change Printer:") << name << "isClass?" << isClass << "Changing Default?" << isDefault << "filename"
+                   << fileName << Qt::endl
+                   << "args" << args;
 
     QPointer<KCupsRequest> request = new KCupsRequest;
+
+    /** Default printer is handled by CUPS independently of the other printer
+     * attributes. If changing an existing printer and "default" is set
+     * then save immediately
+     */
+    if (!addMode && isDefault) {
+        request->setDefaultPrinter(name);
+        request->waitTillFinished();
+    }
+
     if (isClass) {
         // Member list is a QVariantList, kcupslib wants to see
         // a QStringList
@@ -217,14 +231,19 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
         if (!list.value<QVariantList>().empty()) {
             args.insert(KCUPS_MEMBER_URIS, list.toStringList());
         }
-        request->addOrModifyClass(name, args);
+        if (!args.isEmpty()) {
+            request->addOrModifyClass(name, args);
+            request->waitTillFinished();
+        }
     } else {
-        request->addOrModifyPrinter(name, args, fileName);
+        if (!args.isEmpty()) {
+            request->addOrModifyPrinter(name, args, fileName);
+            request->waitTillFinished();
+        }
     }
-    request->waitTillFinished();
 
-    // Printer isDefault is exclusive
-    if (isDefault) {
+    // If adding a new printer and it's set as default, save explicitly
+    if (addMode && isDefault) {
         request->setDefaultPrinter(name);
         request->waitTillFinished();
     }

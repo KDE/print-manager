@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:40+0000\n"
-"PO-Revision-Date: 2024-04-06 14:21+0300\n"
+"POT-Creation-Date: 2024-05-18 00:40+0000\n"
+"PO-Revision-Date: 2024-05-17 13:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.04.70\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -257,8 +257,8 @@ msgstr ""
 "</PRE>\n"
 "\n"
 "<P>Yazıcınızla kullanılacak doğru URI için\n"
-"<A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">\"Ağ "
-"Yazıcıları\"</A> sayfasına bakın.</P>\n"
+"<A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">“Ağ "
+"Yazıcıları”</A> sayfasına bakın.</P>\n"
 "</TD>\n"
 "</TR>\n"
 "</TABLE>"
@@ -277,7 +277,7 @@ msgstr "Yeni yazıcıları eklemek için bir araç"
 #: src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(C) 2010–2018 Daniel Nicoletti"
 
 #: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:31
 #: src/printqueue/main.cpp:31
@@ -318,12 +318,12 @@ msgstr "Bir yazıcı sınıfı ekle"
 #: src/add-printer/main.cpp:49
 #, kde-format
 msgid "Changes the PPD of a given printer"
-msgstr "Belirtilen yazıcının PPD'sini değiştirir"
+msgstr "Belirtilen yazıcının PPD’sini değiştirir"
 
 #: src/add-printer/main.cpp:53
 #, kde-format
 msgid "Changes the PPD of a given printer/deviceid"
-msgstr "Belirtilen yazıcının/aygıt kimliğinin PPD'sini değiştirir"
+msgstr "Belirtilen yazıcının/aygıt kimliğinin PPD’sini değiştirir"
 
 #: src/add-printer/main.cpp:77
 #, kde-format
@@ -334,13 +334,13 @@ msgstr "Beklenen girdi yazıcı veya aygıt kimliği olmalıdır"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr "Sınıf eklenemedi: '%1'"
+msgstr "Sınıf eklenemedi: “%1”"
 
 #: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr "Yazıcı yapılandırılamadı: '%1'"
+msgstr "Yazıcı yapılandırılamadı: “%1”"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/PageAddPrinter.ui:31
@@ -353,7 +353,8 @@ msgstr "Ad:"
 #: src/add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr "\"/\", \"#\" ve boşluk hariç tüm yazdırılabilir karakterler içerebilir"
+msgstr ""
+"‘/’, ‘#’ ve boşluk dışındaki tüm yazdırılabilir karakterleri içerebilir"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/PageAddPrinter.ui:45
@@ -608,7 +609,7 @@ msgstr "Bu kullanıcıların &yazdırmalarını engelle "
 msgid "A&llow these users to print"
 msgstr "Bu ku&llanıcıların yazdırmalarına izin ver"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
+#: src/configure-printer/PrinterOptions.cpp:53
 #, kde-format
 msgid "Set Default Options"
 msgstr "Öntanımlı Seçenekleri Ayarla"
@@ -619,51 +620,47 @@ msgstr "Öntanımlı Seçenekleri Ayarla"
 msgid "Query Printer for Default Options"
 msgstr "Öntanımlı Seçenekler için Yazıcıyı Sorgula"
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Sınıf yapılandırılamadı: "
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Yazıcı yapılandırılamadı: "
 
-#: src/kcm/printermanager.cpp:372
+#: src/kcm/printermanager.cpp:367
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr "İstek gerçekleştirilemedi: '%1'"
+msgstr "İstek gerçekleştirilemedi: “%1”"
 
-#: src/kcm/printermanager.cpp:424
+#: src/kcm/printermanager.cpp:419
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Sunucu ayarları alınamadı: %1"
 
-#: src/kcm/printermanager.cpp:460
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#: src/kcm/printermanager.cpp:455
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Sunucu hatası: (%1): %2"
+msgstr "Sunucu ayarları kaydedilmedi: (%1): %2"
 
-#: src/kcm/printermanager.cpp:467
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#: src/kcm/printermanager.cpp:462
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Sunucu ayarları alınamadı: %1"
+msgstr "Onulmaz sunucu ayarları kaydı hatası: %1: (%2)"
 
-#: src/kcm/printermanager.cpp:519
+#: src/kcm/printermanager.cpp:514
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Öz Sınama Sayfası Yazdır"
 
-#: src/kcm/printermanager.cpp:525
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Yazıcı Başlığını Temizle"
@@ -676,7 +673,7 @@ msgstr "Yeni Bir Yazıcı tespit edildi"
 #: src/kded/NewPrinterNotification.cpp:62
 #, kde-format
 msgid "Configuring new printer..."
-msgstr "Yeni yazıcı yapılandırılıyor..."
+msgstr "Yeni yazıcı yapılandırılıyor…"
 
 #: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
@@ -716,7 +713,7 @@ msgstr "Ara"
 #: src/kded/NewPrinterNotification.cpp:236
 #, kde-format
 msgid "'%1' has been added, please check its driver."
-msgstr "'%1' eklendi, lütfen sürücüsünü denetleyin."
+msgstr "“%1” eklendi, lütfen sürücüsünü denetleyin."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:237
@@ -728,7 +725,7 @@ msgstr "Yapılandır"
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
-msgstr "'%1' eklendi, '%2' sürücüsü kullanıyor."
+msgstr "“%1” eklendi, “%2” sürücüsü kullanıyor."
 
 #: src/kded/NewPrinterNotification.cpp:241
 #: src/kded/NewPrinterNotification.cpp:255
@@ -744,7 +741,7 @@ msgstr "Sürücü bul"
 #: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr "'%1' yazdırılmak üzere hazır."
+msgstr "“%1” yazdırılmak üzere hazır."
 
 #: src/libkcups/DevicesModel.cpp:50
 #, kde-format
@@ -908,12 +905,12 @@ msgstr "DNS-SD ile %1 ağ yazıcısı"
 #: src/libkcups/DevicesModel.cpp:223
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "Aygıt listesi alınamadı: '%1'"
+msgstr "Aygıt listesi alınamadı: “%1”"
 
 #: src/libkcups/DevicesModel.cpp:256
 #, kde-format
 msgid "Failed to group devices: '%1'"
-msgstr "Aygıtlar gruplanamadı: '%1'"
+msgstr "Aygıtlar gruplanamadı: “%1”"
 
 #: src/libkcups/DevicesModel.cpp:385
 #, kde-format
@@ -991,7 +988,7 @@ msgstr "Sunucu Adından"
 #: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr "'%1', '%2' konumuna taşınamadı"
+msgstr "“%1”, “%2” konumuna taşınamadı"
 
 #: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
@@ -1026,7 +1023,7 @@ msgstr "İptal edildi"
 #: src/libkcups/KCupsConnection.cpp:778
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr "Bir CUPS bağlantısı kimlik doğrulama gerektirir: \"%1\""
+msgstr "Bir CUPS bağlantısı kimlik doğrulama gerektirir: “%1”"
 
 #: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
@@ -1091,12 +1088,12 @@ msgstr "Boşta, işler reddediliyor"
 #: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle - '%1'"
-msgstr "Boşta - '%1'"
+msgstr "Boşta — “%1”"
 
 #: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
-msgstr "Boşta, işler reddediliyor - '%1'"
+msgstr "Boşta, işler reddediliyor — “%1”"
 
 #: src/libkcups/PrinterModel.cpp:429
 #, kde-format
@@ -1106,7 +1103,7 @@ msgstr "Kullanımda"
 #: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "In use - '%1'"
-msgstr "Kullanımda - '%1'"
+msgstr "Kullanımda — “%1”"
 
 #: src/libkcups/PrinterModel.cpp:435
 #, kde-format
@@ -1121,12 +1118,12 @@ msgstr "Duraklatıldı, işler reddediliyor"
 #: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused - '%1'"
-msgstr "Duraklatıldı - '%1'"
+msgstr "Duraklatıldı — “%1”"
 
 #: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
-msgstr "Duraklatıldı, işler reddediliyor - '%1'"
+msgstr "Duraklatıldı, işler reddediliyor — “%1”"
 
 #: src/libkcups/PrinterModel.cpp:441
 #, kde-format
@@ -1136,7 +1133,7 @@ msgstr "Bilinmiyor"
 #: src/libkcups/PrinterModel.cpp:443
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr "Bilinmiyor - '%1'"
+msgstr "Bilinmiyor — “%1”"
 
 #: src/libkcups/SelectMakeModel.cpp:115
 #, kde-format
@@ -1146,12 +1143,12 @@ msgstr "%1 sürücüsünü seç"
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
-msgstr "Sürücü listesi alınamadı: '%1'"
+msgstr "Sürücü listesi alınamadı: “%1”"
 
 #: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
-msgstr "Önerilen bir sürücü aranamadı: '%1'"
+msgstr "Önerilen bir sürücü aranamadı: “%1”"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
 #: src/libkcups/SelectMakeModel.ui:14
@@ -1196,12 +1193,12 @@ msgstr "Yazıcıyı Duraklat"
 #: src/printqueue/PrintQueueUi.cpp:202
 #, kde-format
 msgid "Printing..."
-msgstr "Yazdırılıyor..."
+msgstr "Yazdırılıyor…"
 
 #: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format
 msgid "Printing '%1'"
-msgstr "'%1' yazdırılıyor"
+msgstr "“%1” yazdırılıyor"
 
 #: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format
@@ -1250,22 +1247,22 @@ msgstr "Tüm Yazıcılar"
 #: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr "'%1' iptal edilemedi"
+msgstr "“%1” iptal edilemedi"
 
 #: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr "'%1' bekletilemedi"
+msgstr "“%1” bekletilemedi"
 
 #: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr "'%1' bırakılamadı"
+msgstr "“%1” bırakılamadı"
 
 #: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr "Yeniden yazdırılamadı: '%1'"
+msgstr "Yeniden yazdırılamadı: “%1”"
 
 #: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format

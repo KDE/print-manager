@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:40+0000\n"
+"POT-Creation-Date: 2024-05-18 00:40+0000\n"
 "PO-Revision-Date: 2024-05-15 09:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -18,52 +18,47 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: printermanager.cpp:197
-#, kde-format
-msgid "Set Default Options"
-msgstr "Встановити типові параметри"
-
-#: printermanager.cpp:205
+#: printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не вдалося налаштувати клас: "
 
-#: printermanager.cpp:205
+#: printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не вдалося налаштувати принтер: "
 
-#: printermanager.cpp:372
+#: printermanager.cpp:367
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не вдалося виконати запит: %1"
 
-#: printermanager.cpp:424
+#: printermanager.cpp:419
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не вдалося отримати параметри сервера: %1"
 
-#: printermanager.cpp:460
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметри сервера не збережено: (%1): %2"
 
-#: printermanager.cpp:467
+#: printermanager.cpp:462
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Критична помилка під час спроби зберегти параметри сервера: (%1): %2"
 
-#: printermanager.cpp:519
+#: printermanager.cpp:514
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: printermanager.cpp:525
+#: printermanager.cpp:520
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
@@ -479,45 +474,39 @@ msgstr "Вибрати"
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "файли опису принтерів PostScript (*.ppd)"
 
-#: ui/PrinterSettings.qml:40
+#: ui/PrinterSettings.qml:48
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "Додати групу"
 
-#: ui/PrinterSettings.qml:41
+#: ui/PrinterSettings.qml:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "Додати принтер"
 
-#: ui/PrinterSettings.qml:52
+#: ui/PrinterSettings.qml:60
 #, kde-format
 msgid "Configure…"
 msgstr "Налаштувати…"
 
-#: ui/PrinterSettings.qml:57
+#: ui/PrinterSettings.qml:65
 #, kde-format
 msgid "Remove"
 msgstr "Вилучити"
 
-#: ui/PrinterSettings.qml:73
+#: ui/PrinterSettings.qml:81
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "Довідка-огляд з принтерів CUPS"
 
-#: ui/PrinterSettings.qml:79
+#: ui/PrinterSettings.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "Сторінка адміністрування принтера або пристрою"
-
-#: ui/PrinterSettings.qml:98
-#, kde-format
-msgctxt "@option:check"
-msgid "Auto Configure"
-msgstr "Автоматичне налаштовування"
 
 #: ui/PrinterSettings.qml:105
 #, kde-format
@@ -532,12 +521,22 @@ msgid "Apply"
 msgstr "Застосувати"
 
 #: ui/PrinterSettings.qml:114
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Queue name is required.  Enter a unique queue name."
 msgctxt "@info:status"
-msgid "Queue name is required.  Enter a unique queue name."
+msgid "Queue name is required. Enter a unique queue name."
 msgstr "Слід вказати назву черги. Введіть неповторювану назву черги."
 
-#: ui/PrinterSettings.qml:121
+#: ui/PrinterSettings.qml:119
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Queue name is required.  Enter a unique queue name."
+msgctxt "@info:status"
+msgid "Queue name must be unique. Enter a unique queue name."
+msgstr "Слід вказати назву черги. Введіть неповторювану назву черги."
+
+#: ui/PrinterSettings.qml:127
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
@@ -545,107 +544,107 @@ msgstr ""
 "Слід вказати виробника і модель. Натисніть «Вибрати», щоб вибрати виробника "
 "і модель"
 
-#: ui/PrinterSettings.qml:134
+#: ui/PrinterSettings.qml:137
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr "Налаштовуємо %1, будь ласка, зачекайте…"
 
-#: ui/PrinterSettings.qml:175
+#: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Не вдалося вилучити принтер %1"
 
-#: ui/PrinterSettings.qml:196
+#: ui/PrinterSettings.qml:199
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Вилучити групу?"
 
-#: ui/PrinterSettings.qml:197
+#: ui/PrinterSettings.qml:200
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Вилучити принтер?"
 
-#: ui/PrinterSettings.qml:199
+#: ui/PrinterSettings.qml:202
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "“%1” will be removed."
 msgstr "«%1» буде вилучено."
 
-#: ui/PrinterSettings.qml:206
+#: ui/PrinterSettings.qml:209
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Вилучити групу"
 
-#: ui/PrinterSettings.qml:207
+#: ui/PrinterSettings.qml:210
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Вилучити принтер"
 
-#: ui/PrinterSettings.qml:216
+#: ui/PrinterSettings.qml:219
 #, kde-format
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ui/PrinterSettings.qml:385
+#: ui/PrinterSettings.qml:388
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Типовий принтер"
 
-#: ui/PrinterSettings.qml:392
+#: ui/PrinterSettings.qml:395
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Надати спільний доступ до цієї групи"
 
-#: ui/PrinterSettings.qml:393
+#: ui/PrinterSettings.qml:396
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Надати спільний доступ до цього принтера"
 
-#: ui/PrinterSettings.qml:400
+#: ui/PrinterSettings.qml:403
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Приймає завдання з друку"
 
-#: ui/PrinterSettings.qml:449
+#: ui/PrinterSettings.qml:452
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Надрукувати пробну сторінку"
 
-#: ui/PrinterSettings.qml:455
+#: ui/PrinterSettings.qml:458
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: ui/PrinterSettings.qml:462
+#: ui/PrinterSettings.qml:465
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:485
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Знайти принтер…"
 
-#: ui/PrinterSettings.qml:490
+#: ui/PrinterSettings.qml:493
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Назва черги:"
 
-#: ui/PrinterSettings.qml:507
+#: ui/PrinterSettings.qml:510
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -654,41 +653,48 @@ msgstr ""
 "<interface>Групу принтерів</interface> використовують для буферизації "
 "ресурсів друку."
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:518
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Опис:"
 
-#: ui/PrinterSettings.qml:527
+#: ui/PrinterSettings.qml:530
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Розташування:"
 
-#: ui/PrinterSettings.qml:539
+#: ui/PrinterSettings.qml:542
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "З'єднання:"
 
-#: ui/PrinterSettings.qml:553
+#: ui/PrinterSettings.qml:556
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Принтери-учасники:"
 
-#: ui/PrinterSettings.qml:690
+#: ui/PrinterSettings.qml:693
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Виробник/модель:"
 
-#: ui/PrinterSettings.qml:705
+#: ui/PrinterSettings.qml:708
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Вибрати…"
+
+#~ msgid "Set Default Options"
+#~ msgstr "Встановити типові параметри"
+
+#~ msgctxt "@option:check"
+#~ msgid "Auto Configure"
+#~ msgstr "Автоматичне налаштовування"
 
 #~ msgid "Are you sure you really want to remove:  %1 (%2)?"
 #~ msgstr "Ви справді хочете вилучити %1 (%2)?"

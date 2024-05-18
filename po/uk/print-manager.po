@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:40+0000\n"
+"POT-Creation-Date: 2024-05-18 00:40+0000\n"
 "PO-Revision-Date: 2024-05-15 09:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -610,7 +610,7 @@ msgstr "За&боронити друк цим користувачам"
 msgid "A&llow these users to print"
 msgstr "&Дозволити друк цим користувачам"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
+#: src/configure-printer/PrinterOptions.cpp:53
 #, kde-format
 msgid "Set Default Options"
 msgstr "Встановити типові параметри"
@@ -621,47 +621,47 @@ msgstr "Встановити типові параметри"
 msgid "Query Printer for Default Options"
 msgstr "Надіслати запит щодо типових параметрів"
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не вдалося налаштувати клас: "
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не вдалося налаштувати принтер: "
 
-#: src/kcm/printermanager.cpp:372
+#: src/kcm/printermanager.cpp:367
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не вдалося виконати запит: %1"
 
-#: src/kcm/printermanager.cpp:424
+#: src/kcm/printermanager.cpp:419
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не вдалося отримати параметри сервера: %1"
 
-#: src/kcm/printermanager.cpp:460
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметри сервера не збережено: (%1): %2"
 
-#: src/kcm/printermanager.cpp:467
+#: src/kcm/printermanager.cpp:462
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Критична помилка під час спроби зберегти параметри сервера: (%1): %2"
 
-#: src/kcm/printermanager.cpp:519
+#: src/kcm/printermanager.cpp:514
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: src/kcm/printermanager.cpp:525
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Почистити голівки принтера"

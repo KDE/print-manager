@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:40+0000\n"
-"PO-Revision-Date: 2024-04-14 15:12+0200\n"
+"POT-Creation-Date: 2024-05-18 00:40+0000\n"
+"PO-Revision-Date: 2024-05-17 21:05+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -613,7 +613,7 @@ msgstr "&Impedirlle imprimir a estes usuarios: "
 msgid "A&llow these users to print"
 msgstr "&Permitirlle imprimir a estes usuarios:"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
+#: src/configure-printer/PrinterOptions.cpp:53
 #, kde-format
 msgid "Set Default Options"
 msgstr "Definir as opcións predeterminadas"
@@ -624,51 +624,47 @@ msgstr "Definir as opcións predeterminadas"
 msgid "Query Printer for Default Options"
 msgstr "Solicitar as opcións predeterminadas á impresora"
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Non se puido configurar a clase: "
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Non se puido configurar a impresora: "
 
-#: src/kcm/printermanager.cpp:372
+#: src/kcm/printermanager.cpp:367
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Non foi posíbel efectuar a solicitude: %1."
 
-#: src/kcm/printermanager.cpp:424
+#: src/kcm/printermanager.cpp:419
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Non se puido obter a configuración do servidor: %1"
 
-#: src/kcm/printermanager.cpp:460
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#: src/kcm/printermanager.cpp:455
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Erro do servidor: (%1): %2"
+msgstr "A configuración do servidor non se gardou: (%1): %2"
 
-#: src/kcm/printermanager.cpp:467
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#: src/kcm/printermanager.cpp:462
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Non se puido obter a configuración do servidor: %1"
+msgstr "Erro fatal ao gardar a configuración do servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:519
+#: src/kcm/printermanager.cpp:514
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir unha páxina de proba."
 
-#: src/kcm/printermanager.cpp:525
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpar os cabezais de impresión"

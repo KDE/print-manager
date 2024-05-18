@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-15 00:40+0000\n"
+"POT-Creation-Date: 2024-05-18 00:40+0000\n"
 "PO-Revision-Date: 2024-05-16 12:13+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -603,7 +603,7 @@ msgstr "ام&نع هؤلاء المستخدمين من الطّباعة "
 msgid "A&llow these users to print"
 msgstr "ا&سمح لهؤلاء المستخدمين بالطّباعة"
 
-#: src/configure-printer/PrinterOptions.cpp:53 src/kcm/printermanager.cpp:197
+#: src/configure-printer/PrinterOptions.cpp:53
 #, kde-format
 msgid "Set Default Options"
 msgstr "عيّن الخيارات الافتراضيّة"
@@ -614,47 +614,47 @@ msgstr "عيّن الخيارات الافتراضيّة"
 msgid "Query Printer for Default Options"
 msgstr "استعلم الطّابعة عن الخيارات الافتراضيّة"
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "فشل ضبط الصّنف: "
 
-#: src/kcm/printermanager.cpp:205
+#: src/kcm/printermanager.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "فشل ضبط الطّابعة: "
 
-#: src/kcm/printermanager.cpp:372
+#: src/kcm/printermanager.cpp:367
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "فشل تنفيذ الطّلب: %1"
 
-#: src/kcm/printermanager.cpp:424
+#: src/kcm/printermanager.cpp:419
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "فشل جلب إعدادات الخادوم: %1"
 
-#: src/kcm/printermanager.cpp:460
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "إعدادات الخادم لم تحفظ : (%1): %2"
 
-#: src/kcm/printermanager.cpp:467
+#: src/kcm/printermanager.cpp:462
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "خطأ في حفظ إعدادات الخادم: (%1): %2"
 
-#: src/kcm/printermanager.cpp:519
+#: src/kcm/printermanager.cpp:514
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "اطبع صفحة اختبار الذاتية"
 
-#: src/kcm/printermanager.cpp:525
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "نظّف رؤوس الطّباعة"

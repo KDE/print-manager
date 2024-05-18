@@ -8,7 +8,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PM
-import org.kde.kitemmodels as KSFM
+import org.kde.kitemmodels as KItemModels
 import "components"
 
 Kirigami.Dialog {
@@ -133,12 +133,12 @@ Kirigami.Dialog {
     }
 
     // Filter the descendants to exclude "null" deviceClass
-    KSFM.KSortFilterProxyModel {
+    KItemModels.KSortFilterProxyModel {
         id: deviceItems
         sortRole: PM.DevicesModel.DeviceCategory
 
         // Descendants are the actual printer devices
-        sourceModel: KSFM.KDescendantsProxyModel {
+        sourceModel: KItemModels.KDescendantsProxyModel {
             sourceModel: devices
         }
 

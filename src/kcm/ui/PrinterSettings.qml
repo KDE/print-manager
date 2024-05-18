@@ -9,7 +9,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
-import org.kde.kitemmodels as KSFM
+import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PM
 
 KCM.AbstractKCM {
@@ -581,7 +581,7 @@ KCM.AbstractKCM {
 
                         property bool showClasses: false
 
-                        model: KSFM.KSortFilterProxyModel {
+                        model: KItemModels.KSortFilterProxyModel {
                             sourceModel: printerModel
 
                             filterRowCallback: (source_row, source_parent) => {

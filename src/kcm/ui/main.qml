@@ -9,7 +9,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
-import org.kde.kitemmodels as KSFM
+import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PM
 
 /** Note: CUPS has nomenclature for groups of printers called a "Class".
@@ -197,7 +197,7 @@ KCM.ScrollViewKCM {
             }
         }
 
-        model: KSFM.KSortFilterProxyModel {
+        model: KItemModels.KSortFilterProxyModel {
             sourceModel: pmModel
             sortRoleName: "isClass"
         }

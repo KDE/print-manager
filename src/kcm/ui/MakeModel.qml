@@ -8,7 +8,7 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import QtQuick.Dialogs as Dialogs
 import org.kde.kirigami as Kirigami
-import org.kde.kitemmodels as KSFM
+import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PM
 
 /*
@@ -169,11 +169,11 @@ Kirigami.Dialog {
 
     // Printer models are filtered by selected make and
     // optionally, by a second user filter
-    KSFM.KSortFilterProxyModel {
+    KItemModels.KSortFilterProxyModel {
         id: printerModels
         // This holds printer model lists, which are descendents
         // of the make items
-        sourceModel: KSFM.KDescendantsProxyModel {
+        sourceModel: KItemModels.KDescendantsProxyModel {
             sourceModel: root.model
         }
 

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-18 00:40+0000\n"
-"PO-Revision-Date: 2024-05-17 21:23+0200\n"
+"PO-Revision-Date: 2024-05-19 00:27+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -523,20 +523,16 @@ msgid "Apply"
 msgstr "Aplicar"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "O nome da cola é obrigatorio. Escriba un nome de cola único."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "O nome da cola é obrigatorio. Escriba un nome de cola único."
+msgstr "O nome da cola debe ser único. Escriba un nome de cola único."
 
 #: ui/PrinterSettings.qml:127
 #, kde-format

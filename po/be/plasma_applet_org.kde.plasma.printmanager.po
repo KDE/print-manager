@@ -1,10 +1,10 @@
 # Zmicier <zmicerturok@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
+"Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:40+0000\n"
-"PO-Revision-Date: 2022-11-10 12:15\n"
+"PO-Revision-Date: 2024-05-18 09:10\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -15,12 +15,12 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
 "%100>=11 && n%100<=14 ? 2 : 3);\n"
 "X-Generator: Lokalize 22.08.1\n"
-"X-Crowdin-Project: 86ff119b1606fcaa910d6b44fc14b611\n"
-"X-Crowdin-Project-ID: 127\n"
+"X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
+"X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /main/be/print-manager/plasma_applet_org.kde.plasma."
-"printmanager.po\n"
-"X-Crowdin-File-ID: 8695\n"
+"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/print-manager/"
+"plasma_applet_org.kde.plasma.printmanager.po\n"
+"X-Crowdin-File-ID: 10928\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -28,10 +28,8 @@ msgid "Printers"
 msgstr "Прынтары"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Прынтары"
+msgstr "Групы прынтараў"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -77,30 +75,24 @@ msgid "Show Only Active Jobs"
 msgstr "Паказваць толькі актыўныя задачы"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&Наладжванне прынтараў..."
+msgstr "&Наладжванне прынтараў…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Працягнуць"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Прыпыніць"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "Наладжванне прынтара..."
+msgstr "Наладжванне прынтара…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Паглядзець чаргу друку"
+msgstr "Паглядзець чаргу друку…"
 
 #~ msgid "Search…"
 #~ msgstr "Пошук…"

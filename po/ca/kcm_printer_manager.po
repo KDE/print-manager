@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-18 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 11:20+0200\n"
+"PO-Revision-Date: 2024-05-18 08:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: printermanager.cpp:200
 #, kde-format
@@ -523,20 +523,16 @@ msgid "Apply"
 msgstr "Aplica"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "Es requereix un nom de cua. Introduïu un nom únic de cua."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Es requereix un nom de cua. Introduïu un nom únic de cua."
+msgstr "Cal que el nom de cua sigui únic. Introduïu un nom únic de cua."
 
 #: ui/PrinterSettings.qml:127
 #, kde-format

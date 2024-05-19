@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-18 00:40+0000\n"
-"PO-Revision-Date: 2024-05-17 13:39+0300\n"
+"PO-Revision-Date: 2024-05-18 21:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -251,7 +251,7 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"Yeniden denemek için ‘Yenile’yi tıklayın veya listeden elle bir yapılandırma "
+"Yeniden denemek için ‘Yenile’ye tıklayın veya listeden elle bir yapılandırma "
 "seçin"
 
 #: ui/FindPrinter.qml:193
@@ -519,17 +519,13 @@ msgid "Apply"
 msgstr "Uygula"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "Kuyruk adı gerekiyor. Benzersiz bir kuyruk adı girin."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "Kuyruk adı gerekiyor. Benzersiz bir kuyruk adı girin."

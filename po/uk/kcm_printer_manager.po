@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-18 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 09:49+0300\n"
+"PO-Revision-Date: 2024-05-18 09:26+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -521,20 +521,17 @@ msgid "Apply"
 msgstr "Застосувати"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "Слід вказати назву черги. Введіть неповторювану назву черги."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Слід вказати назву черги. Введіть неповторювану назву черги."
+msgstr ""
+"Назва черги не повинна повторюватися. Введіть неповторювану назву черги."
 
 #: ui/PrinterSettings.qml:127
 #, kde-format

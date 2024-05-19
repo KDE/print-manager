@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-18 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 11:00+0200\n"
+"PO-Revision-Date: 2024-05-18 10:31+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -521,20 +521,16 @@ msgid "Apply"
 msgstr "Toepassen"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "Wachtrijnaam is vereist.  Voer een unieke wachtrijnaam in."
+msgstr "Wachtrijnaam is vereist. Voer een unieke wachtrijnaam in."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Wachtrijnaam is vereist.  Voer een unieke wachtrijnaam in."
+msgstr "Wachtrijnaam is moet uniek zijn. Voer een unieke wachtrijnaam in."
 
 #: ui/PrinterSettings.qml:127
 #, kde-format

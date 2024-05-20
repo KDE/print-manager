@@ -513,20 +513,16 @@ msgid "Apply"
 msgstr "应用"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "队列名称是必需项。请输入一个唯一的队列名称。"
+msgstr ""
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "队列名称是必需项。请输入一个唯一的队列名称。"
+msgstr ""
 
 #: ui/PrinterSettings.qml:127
 #, kde-format
@@ -676,10 +672,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgid "Set Default Options"
-#~ msgstr "设置默认选项"
-
-#~ msgctxt "@option:check"
-#~ msgid "Auto Configure"
-#~ msgstr "自动设置"

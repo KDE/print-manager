@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-05 02:43+0000\n"
-"PO-Revision-Date: 2024-04-07 16:49+0530\n"
+"PO-Revision-Date: 2024-05-19 16:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -259,13 +259,13 @@ msgstr "(C) 2010-2018 டேனியல் நிக்கோலெட்டி
 #: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
-msgstr ""
+msgstr "Qt 5-க்கும் பிளாஸ்மா 5-க்கும் மாற்றியது"
 
 #: src/add-printer/main.cpp:35 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr ""
+msgstr "Qt 6-க்கும் பிளாஸ்மா 6-க்கும் மாற்றியது"
 
 #: src/add-printer/main.cpp:41
 #, kde-format
@@ -394,7 +394,7 @@ msgstr ""
 #: src/add-printer/PageDestinations.cpp:229
 #, kde-format
 msgid "%1 network printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான %1 இணைய அச்சுப்பொறி"
 
 #. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
 #: src/add-printer/PageDestinations.ui:62
@@ -1034,7 +1034,7 @@ msgstr "வேலையின்றி உள்ளது"
 #: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Idle, rejecting jobs"
-msgstr ""
+msgstr "வேலையின்றி உள்ளது, பணிகளை ஏற்கவில்லை"
 
 #: src/libkcups/PrinterModel.cpp:426
 #, kde-format
@@ -1044,7 +1044,7 @@ msgstr "வேலையின்றி உள்ளது - '%1'"
 #: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
-msgstr ""
+msgstr "வேலையின்றி உள்ளது, பணிகளை ஏற்கவில்லை - '%1'"
 
 #: src/libkcups/PrinterModel.cpp:430
 #, kde-format
@@ -1064,7 +1064,7 @@ msgstr "இடைநிறுத்தப்பட்டுள்ளது"
 #: src/libkcups/PrinterModel.cpp:436
 #, kde-format
 msgid "Paused, rejecting jobs"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்டு பணிகளை ஏற்கவில்லை"
 
 #: src/libkcups/PrinterModel.cpp:438
 #, kde-format
@@ -1074,7 +1074,7 @@ msgstr "இடைநிறுத்தப்பட்டுள்ளது - '%1
 #: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்டு பணிகளை ஏற்கவில்லை - '%1'"
 
 #: src/libkcups/PrinterModel.cpp:442
 #, kde-format
@@ -1089,17 +1089,17 @@ msgstr "தெரியாதது - '%1'"
 #: src/libkcups/SelectMakeModel.cpp:115
 #, kde-format
 msgid "Choose the driver for %1"
-msgstr ""
+msgstr "%1 தனக்கான சாதனநிரலைத் தேர்ந்தெடுக்கவும்"
 
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
-msgstr ""
+msgstr "சாதனநிரல்களைப் பட்டியலிட முடியவில்லை: '%1'"
 
 #: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
-msgstr ""
+msgstr "பரிந்துரைக்கப்படும் சாதனநிரலைக் கண்டறிய முடியவில்லை: '%1'"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
 #: src/libkcups/SelectMakeModel.ui:14
@@ -1111,13 +1111,13 @@ msgstr "சாதனநிரலைத் தேர்ந்தெடுத்�
 #: src/libkcups/SelectMakeModel.ui:79
 #, kde-format
 msgid "Choose &the driver"
-msgstr ""
+msgstr "&சாதனநிரலைத் தேர்ந்தெடுக்கவும்"
 
 #. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
 #: src/libkcups/SelectMakeModel.ui:91
 #, kde-format
 msgid "Ma&nually Provide a PPD File:"
-msgstr ""
+msgstr "&கைமுறையாக PPD கோப்பைத் தேர்ந்தெடு:"
 
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
@@ -1218,7 +1218,7 @@ msgstr "'%1' தனை மீண்டும் அச்சிட முடி�
 #: src/printqueue/PrintQueueUi.cpp:560
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b> தனிலிருந்து அச்சிடுவதற்கான சான்றுகளை வழங்கவும்"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
 #: src/printqueue/PrintQueueUi.ui:20

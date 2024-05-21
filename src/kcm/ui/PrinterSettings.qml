@@ -199,7 +199,7 @@ KCM.AbstractKCM {
             title: modelData.isClass ? i18nc("@title:window", "Remove Group?")
                                      : i18nc("@title:window", "Remove Printer?")
             subtitle: i18nc("@info %1 is the name of a printer or printer group",
-                            "“%1” will be removed.",
+                            "'%1' will be removed.",
                             modelData.info)
 
             standardButtons: Kirigami.Dialog.NoButton

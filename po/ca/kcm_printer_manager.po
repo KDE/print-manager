@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:40+0000\n"
+"POT-Creation-Date: 2024-05-21 00:40+0000\n"
 "PO-Revision-Date: 2024-05-18 08:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -19,50 +19,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Ha fallat en configurar la classe: "
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ha fallat en configurar la impressora: "
 
-#: printermanager.cpp:367
+#: printermanager.cpp:403
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Ha fallat en portar a terme la sol·licitud: %1"
 
-#: printermanager.cpp:419
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ha fallat en obtenir els paràmetres del servidor: %1"
 
-#: printermanager.cpp:455
+#: printermanager.cpp:491
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "No s'han desat els paràmetres del servidor: (%1): %2"
 
-#: printermanager.cpp:462
+#: printermanager.cpp:498
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Error fatal en desar els paràmetres del servidor: (%1): %2"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:550
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimeix una pàgina d'autocomprovació"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:556
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Neteja els capçals d'impressió"
+
+#: scpinstaller.cpp:70
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -319,6 +328,37 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr ""
 "Permet que els usuaris cancel·lin qualsevol treball (no només els seus)"
 
+#: ui/InstallDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Printer Groups"
+msgctxt "@title:window"
+msgid "Printer Setup Helpers"
+msgstr "Grups d'impressores"
+
+#: ui/InstallDialog.qml:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Install has completed successfully"
+msgstr ""
+
+#: ui/InstallDialog.qml:72
+#, kde-format
+msgctxt "@info:status"
+msgid "Installation failed"
+msgstr ""
+
+#: ui/InstallDialog.qml:74
+#, kde-format
+msgctxt "@info:status"
+msgid "Installing…"
+msgstr ""
+
+#: ui/InstallDialog.qml:90
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Report this issue to %1"
+msgstr ""
+
 #: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
@@ -329,31 +369,56 @@ msgstr "cua_nova"
 msgid "new_group"
 msgstr "grup_nou"
 
-#: ui/main.qml:62
+#: ui/main.qml:67
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed.<nl/><nl/>Because this distro does not include PackageKit, "
+"we cannot provide an install option, so you will have to use your package "
+"manager to install the <command>system-config-printer</command> package "
+"manually."
+msgstr ""
+
+#: ui/main.qml:69
+#, kde-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed."
+msgstr ""
+
+#: ui/main.qml:75
+#, kde-format
+msgctxt "@action:button Install printer setup helper package"
+msgid "Install It"
+msgstr ""
+
+#: ui/main.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Afegeix una impressora…"
 
-#: ui/main.qml:71
+#: ui/main.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Afegeix un grup…"
 
-#: ui/main.qml:80
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Configura el servidor d'impressió…"
 
-#: ui/main.qml:185
+#: ui/main.qml:229
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Actualment no hi ha configurada cap impressora"
 
-#: ui/main.qml:186
+#: ui/main.qml:230
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -363,47 +428,47 @@ msgstr ""
 "Feu clic a <interface>Afegeix una impressora…</interface> per a configurar "
 "una impressora nova en aquest ordinador"
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printers"
 msgstr "Impressores"
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printer Groups"
 msgstr "Grups d'impressores"
 
-#: ui/main.qml:234
+#: ui/main.qml:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Configura…"
 
-#: ui/main.qml:255
+#: ui/main.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Obre la cua d'impressió…"
 
-#: ui/main.qml:272
+#: ui/main.qml:316
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Reprèn"
 
-#: ui/main.qml:273
+#: ui/main.qml:317
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pausa"
 
-#: ui/main.qml:287
+#: ui/main.qml:331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Reprèn la impressió"
 
-#: ui/main.qml:288
+#: ui/main.qml:332
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:40+0000\n"
+"POT-Creation-Date: 2024-05-21 00:40+0000\n"
 "PO-Revision-Date: 2024-05-19 23:13+0300\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian <kde-i18n-doc@kde.org>\n"
@@ -14,53 +14,63 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
 "X-Generator: Lokalize 24.02.2\n"
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr ""
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr ""
 
-#: printermanager.cpp:367
+#: printermanager.cpp:403
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr ""
-
-#: printermanager.cpp:419
-#, kde-format
-msgctxt "@info"
-msgid "Failed to get server settings: %1"
 msgstr ""
 
 #: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
+msgid "Failed to get server settings: %1"
+msgstr ""
+
+#: printermanager.cpp:491
+#, kde-format
+msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: printermanager.cpp:462
+#: printermanager.cpp:498
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr ""
 
-#: printermanager.cpp:514
+#: printermanager.cpp:550
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr ""
 
-#: printermanager.cpp:520
+#: printermanager.cpp:556
 #, kde-format
 msgid "Clean Print Heads"
+msgstr ""
+
+#: scpinstaller.cpp:70
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
 msgstr ""
 
 #: ui/components/AddressExamples.qml:28
@@ -310,6 +320,36 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr ""
 
+#: ui/InstallDialog.qml:14
+#, kde-format
+msgctxt "@title:window"
+msgid "Printer Setup Helpers"
+msgstr ""
+
+#: ui/InstallDialog.qml:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Install has completed successfully"
+msgstr ""
+
+#: ui/InstallDialog.qml:72
+#, kde-format
+msgctxt "@info:status"
+msgid "Installation failed"
+msgstr ""
+
+#: ui/InstallDialog.qml:74
+#, kde-format
+msgctxt "@info:status"
+msgid "Installing…"
+msgstr ""
+
+#: ui/InstallDialog.qml:90
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Report this issue to %1"
+msgstr ""
+
 #: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
@@ -320,31 +360,56 @@ msgstr ""
 msgid "new_group"
 msgstr ""
 
-#: ui/main.qml:62
+#: ui/main.qml:67
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed.<nl/><nl/>Because this distro does not include PackageKit, "
+"we cannot provide an install option, so you will have to use your package "
+"manager to install the <command>system-config-printer</command> package "
+"manually."
+msgstr ""
+
+#: ui/main.qml:69
+#, kde-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed."
+msgstr ""
+
+#: ui/main.qml:75
+#, kde-format
+msgctxt "@action:button Install printer setup helper package"
+msgid "Install It"
+msgstr ""
+
+#: ui/main.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr ""
 
-#: ui/main.qml:71
+#: ui/main.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr ""
 
-#: ui/main.qml:80
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr ""
 
-#: ui/main.qml:185
+#: ui/main.qml:229
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr ""
 
-#: ui/main.qml:186
+#: ui/main.qml:230
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -352,47 +417,47 @@ msgid ""
 "computer"
 msgstr ""
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printers"
 msgstr ""
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printer Groups"
 msgstr ""
 
-#: ui/main.qml:234
+#: ui/main.qml:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr ""
 
-#: ui/main.qml:255
+#: ui/main.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr ""
 
-#: ui/main.qml:272
+#: ui/main.qml:316
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr ""
 
-#: ui/main.qml:273
+#: ui/main.qml:317
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr ""
 
-#: ui/main.qml:287
+#: ui/main.qml:331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr ""
 
-#: ui/main.qml:288
+#: ui/main.qml:332
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

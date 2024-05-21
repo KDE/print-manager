@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:40+0000\n"
+"POT-Creation-Date: 2024-05-21 00:40+0000\n"
 "PO-Revision-Date: 2024-05-15 06:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -620,50 +620,59 @@ msgstr "ნაგულისხმევი მნიშვნელობე�
 msgid "Query Printer for Default Options"
 msgstr "პრინტერიდან ნაგულისხმები პარამეტრების გამოთხოვა"
 
-#: src/kcm/printermanager.cpp:200
+#: src/kcm/printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "კლასის მორგების შეცდომა: "
 
-#: src/kcm/printermanager.cpp:200
+#: src/kcm/printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "პრინერის მორგების შეცდომა: "
 
-#: src/kcm/printermanager.cpp:367
+#: src/kcm/printermanager.cpp:403
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "მოთხოვნის შესრულების შეცდომა: %1"
 
-#: src/kcm/printermanager.cpp:419
+#: src/kcm/printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "სერვერის პარამეტრების მიღების შეცდომა: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:491
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "სერვერის პარამეტრები არ შენახულა: (%1): %2"
 
-#: src/kcm/printermanager.cpp:462
+#: src/kcm/printermanager.cpp:498
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "სერვერის პარამეტრების შენახვის შეცდომა: (%1): %2"
 
-#: src/kcm/printermanager.cpp:514
+#: src/kcm/printermanager.cpp:550
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "შიდა სატესტო გვერდი"
 
-#: src/kcm/printermanager.cpp:520
+#: src/kcm/printermanager.cpp:556
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "თავაკების გაწმენდა"
+
+#: src/kcm/scpinstaller.cpp:70
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

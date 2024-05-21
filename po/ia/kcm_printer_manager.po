@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 10:29+0200\n"
+"POT-Creation-Date: 2024-05-21 00:40+0000\n"
+"PO-Revision-Date: 2024-05-20 12:51+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -17,50 +17,59 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Il falleva configurar classe:"
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Il falleva configurar imprimitor:"
 
-#: printermanager.cpp:367
+#: printermanager.cpp:403
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Il falleva executar requesta: %1"
 
-#: printermanager.cpp:419
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Il falleva obtener preferentias de servitor:%1"
 
-#: printermanager.cpp:455
+#: printermanager.cpp:491
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Preferentias de servitor non salveguardate: (%1): %2"
 
-#: printermanager.cpp:462
+#: printermanager.cpp:498
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Salveguardar fatal de Preferentias de servitor : (%1) : %2"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:550
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprime pagina de prova de auto test"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:556
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Netta testas de imprimer"
+
+#: scpinstaller.cpp:70
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -316,6 +325,37 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Permitte a usatores de cancellar ulle cargas (non solmente los lor)"
 
+#: ui/InstallDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Printer Groups"
+msgctxt "@title:window"
+msgid "Printer Setup Helpers"
+msgstr "Gruppos de Imprimitor"
+
+#: ui/InstallDialog.qml:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Install has completed successfully"
+msgstr ""
+
+#: ui/InstallDialog.qml:72
+#, kde-format
+msgctxt "@info:status"
+msgid "Installation failed"
+msgstr ""
+
+#: ui/InstallDialog.qml:74
+#, kde-format
+msgctxt "@info:status"
+msgid "Installing…"
+msgstr ""
+
+#: ui/InstallDialog.qml:90
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Report this issue to %1"
+msgstr ""
+
 #: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
@@ -326,31 +366,56 @@ msgstr "nove_cauda"
 msgid "new_group"
 msgstr "nove_gruppo"
 
-#: ui/main.qml:62
+#: ui/main.qml:67
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed.<nl/><nl/>Because this distro does not include PackageKit, "
+"we cannot provide an install option, so you will have to use your package "
+"manager to install the <command>system-config-printer</command> package "
+"manually."
+msgstr ""
+
+#: ui/main.qml:69
+#, kde-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed."
+msgstr ""
+
+#: ui/main.qml:75
+#, kde-format
+msgctxt "@action:button Install printer setup helper package"
+msgid "Install It"
+msgstr ""
+
+#: ui/main.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Adde imprimitor…"
 
-#: ui/main.qml:71
+#: ui/main.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Adde Gruppo..."
 
-#: ui/main.qml:80
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Configura Servitor de Imprimer…"
 
-#: ui/main.qml:185
+#: ui/main.qml:229
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Nulle imprimitor es currentemente configurate"
 
-#: ui/main.qml:186
+#: ui/main.qml:230
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -360,47 +425,47 @@ msgstr ""
 "Pulsa <interface>Adde Imprimitor...</interface> per configurar un  nove "
 "imprimitor sur iste computator"
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printers"
 msgstr "Imprimitores"
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printer Groups"
 msgstr "Gruppos de Imprimitor"
 
-#: ui/main.qml:234
+#: ui/main.qml:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Configura..."
 
-#: ui/main.qml:255
+#: ui/main.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Aperi cauda de imprimer…"
 
-#: ui/main.qml:272
+#: ui/main.qml:316
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Resume"
 
-#: ui/main.qml:273
+#: ui/main.qml:317
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pausa"
 
-#: ui/main.qml:287
+#: ui/main.qml:331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Reinitia imprimer"
 
-#: ui/main.qml:288
+#: ui/main.qml:332
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -522,17 +587,13 @@ msgid "Apply"
 msgstr "Applica"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "Nomine de cauda es requirite. Inserta un unic nomine de cauda."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "Nomine de cauda es requirite. Inserta un unic nomine de cauda."

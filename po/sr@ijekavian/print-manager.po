@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:40+0000\n"
+"POT-Creation-Date: 2024-05-21 00:40+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -641,7 +641,7 @@ msgstr "Постави подразумеване опције"
 msgid "Query Printer for Default Options"
 msgstr "Затражи од штампача подразумеване опције"
 
-#: src/kcm/printermanager.cpp:200
+#: src/kcm/printermanager.cpp:236
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -649,7 +649,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Неуспело подешавање класе."
 
-#: src/kcm/printermanager.cpp:200
+#: src/kcm/printermanager.cpp:236
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -657,12 +657,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Неуспело подешавање штампача."
 
-#: src/kcm/printermanager.cpp:367
+#: src/kcm/printermanager.cpp:403
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Неуспело извршавање захтева: %1"
 
-#: src/kcm/printermanager.cpp:419
+#: src/kcm/printermanager.cpp:455
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -670,13 +670,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не могу да добавим поставке сервера"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:491
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:462
+#: src/kcm/printermanager.cpp:498
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -684,15 +684,24 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Не могу да добавим поставке сервера"
 
-#: src/kcm/printermanager.cpp:514
+#: src/kcm/printermanager.cpp:550
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Одштампај страницу за самопробу"
 
-#: src/kcm/printermanager.cpp:520
+#: src/kcm/printermanager.cpp:556
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Очисти штампарске главе"
+
+#: src/kcm/scpinstaller.cpp:70
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

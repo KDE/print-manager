@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-18 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 18:50+0100\n"
+"POT-Creation-Date: 2024-05-21 00:40+0000\n"
+"PO-Revision-Date: 2024-05-20 13:35+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -18,50 +18,59 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Malsukcesis agordi klason:"
 
-#: printermanager.cpp:200
+#: printermanager.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Malsukcesis agordi presilon:"
 
-#: printermanager.cpp:367
+#: printermanager.cpp:403
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Malsukcesis plenumi peton: %1"
 
-#: printermanager.cpp:419
+#: printermanager.cpp:455
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Malsukcesis akiri servilajn agordojn: %1"
 
-#: printermanager.cpp:455
+#: printermanager.cpp:491
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Servila Agordo Ne Konservita: (%1): %2"
 
-#: printermanager.cpp:462
+#: printermanager.cpp:498
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Neripareblo Konservante Servilan Agordon: (%1): %2"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:550
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Presi Memtestan Paĝon"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:556
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puraj Presaj Kapoj"
+
+#: scpinstaller.cpp:70
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -252,14 +261,14 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"Elektu \"Refreŝigi\" por provi denove aŭ elektu manan agordan opcion el la "
+"Elektu \"Refreŝigi\" por provi denove aŭ elektu man-agordan elekteblon el la "
 "listo"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr "Elekti manan agordopcion el la listo"
+msgstr "Elekti man-agordan elekteblon el la listo"
 
 #: ui/Global.qml:16
 #, kde-format
@@ -314,6 +323,37 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Permesi al uzantoj nuligi ajnan laboron (ne nur sian propran)"
 
+#: ui/InstallDialog.qml:14
+#, fuzzy, kde-format
+#| msgid "Printer Groups"
+msgctxt "@title:window"
+msgid "Printer Setup Helpers"
+msgstr "Presilo-Grupoj"
+
+#: ui/InstallDialog.qml:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Install has completed successfully"
+msgstr ""
+
+#: ui/InstallDialog.qml:72
+#, kde-format
+msgctxt "@info:status"
+msgid "Installation failed"
+msgstr ""
+
+#: ui/InstallDialog.qml:74
+#, kde-format
+msgctxt "@info:status"
+msgid "Installing…"
+msgstr ""
+
+#: ui/InstallDialog.qml:90
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Report this issue to %1"
+msgstr ""
+
 #: ui/main.qml:28
 #, kde-format
 msgid "new_queue"
@@ -324,31 +364,56 @@ msgstr "nova_vico"
 msgid "new_group"
 msgstr "nova_grupo"
 
-#: ui/main.qml:62
+#: ui/main.qml:67
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed.<nl/><nl/>Because this distro does not include PackageKit, "
+"we cannot provide an install option, so you will have to use your package "
+"manager to install the <command>system-config-printer</command> package "
+"manually."
+msgstr ""
+
+#: ui/main.qml:69
+#, kde-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed."
+msgstr ""
+
+#: ui/main.qml:75
+#, kde-format
+msgctxt "@action:button Install printer setup helper package"
+msgid "Install It"
+msgstr ""
+
+#: ui/main.qml:106
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Aldoni Presilon…"
 
-#: ui/main.qml:71
+#: ui/main.qml:115
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Aldoni Grupon…"
 
-#: ui/main.qml:80
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Agordi Presan Servilon…"
 
-#: ui/main.qml:185
+#: ui/main.qml:229
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Neniuj presiloj estas nuntempe instalitaj"
 
-#: ui/main.qml:186
+#: ui/main.qml:230
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -358,47 +423,47 @@ msgstr ""
 "Alklaku <interface>Aldoni Presilon…</interface> por agordi novan presilon "
 "sur ĉi tiu komputilo"
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printers"
 msgstr "Presiloj"
 
-#: ui/main.qml:196
+#: ui/main.qml:240
 #, kde-format
 msgid "Printer Groups"
 msgstr "Presilo-Grupoj"
 
-#: ui/main.qml:234
+#: ui/main.qml:278
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Agordi…"
 
-#: ui/main.qml:255
+#: ui/main.qml:299
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Malfermi Presan Vicon…"
 
-#: ui/main.qml:272
+#: ui/main.qml:316
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Rekomenci"
 
-#: ui/main.qml:273
+#: ui/main.qml:317
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Paŭzo"
 
-#: ui/main.qml:287
+#: ui/main.qml:331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Rekomenci presadon"
 
-#: ui/main.qml:288
+#: ui/main.qml:332
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -520,20 +585,16 @@ msgid "Apply"
 msgstr "Apliki"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "La nomo de vostovico estas postulata. Enigu unikan vicnomon."
+msgstr "Nomo de vostovico estas postulata. Enigu unikan vicnomon."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "La nomo de vostovico estas postulata. Enigu unikan vicnomon."
+msgstr "Nomo de vostovico devas esti unika. Enigu unikan vicnomon."
 
 #: ui/PrinterSettings.qml:127
 #, kde-format
@@ -685,13 +746,3 @@ msgstr "Faro/Modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Elekti…"
-
-#~ msgid "Set Default Options"
-#~ msgstr "Agordi Defaŭltajn Opciojn"
-
-#~ msgctxt "@option:check"
-#~ msgid "Auto Configure"
-#~ msgstr "Aŭtomata Agordo"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "Ĉu vi certas, ke vi vere volas forigi: %1 (%2)?"

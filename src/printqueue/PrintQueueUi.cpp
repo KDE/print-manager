@@ -141,12 +141,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
     // This is emitted when a printer is removed
     connect(KCupsConnection::global(), &KCupsConnection::printerDeleted, this, &PrintQueueUi::updatePrinter);
 
-    // This is emitted when a printer/queue is changed
-    // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrintQueueUi::updatePrinterByName);
-
     updatePrinterByName(m_destName);
 
     // Restore the dialog size
@@ -180,7 +174,6 @@ int PrintQueueUi::columnCount(const QModelIndex &parent) const
 
 void PrintQueueUi::setState(int state, const QString &message)
 {
-    qDebug() << state << message;
     if (state != m_lastState || ui->printerStatusMsgL->text() != message) {
         // save the last state so the ui doesn't need to keep updating
         if (ui->printerStatusMsgL->text() != message) {
@@ -331,7 +324,7 @@ void PrintQueueUi::showHeaderContextMenu(const QPoint &point)
 
 void PrintQueueUi::updatePrinterByName(const QString &printer)
 {
-    qDebug() << printer << m_destName;
+    qDebug() << Q_FUNC_INFO << printer << m_destName;
     if (printer != m_destName) {
         // It was another printer that changed
         return;
@@ -362,15 +355,12 @@ void PrintQueueUi::updatePrinter(const QString &text,
     Q_UNUSED(printerState)
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
-    qDebug() << printerName << printerStateReasons;
 
     updatePrinterByName(printerName);
 }
 
 void PrintQueueUi::getAttributesFinished(KCupsRequest *request)
 {
-    qDebug() << request->hasError() << request->printers().isEmpty();
-
     if (request->hasError() || request->printers().isEmpty()) {
         // if cups stops we disable our queue
         setEnabled(false);
@@ -505,10 +495,8 @@ void PrintQueueUi::pausePrinter()
     // STOP and RESUME printer
     QPointer<KCupsRequest> request = new KCupsRequest;
     if (m_printerPaused) {
-        qDebug() << m_destName << "m_printerPaused";
         request->resumePrinter(m_destName);
     } else {
-        qDebug() << m_destName << "NOT m_printerPaused";
         request->pausePrinter(m_destName);
     }
     request->waitTillFinished();
@@ -561,7 +549,7 @@ void PrintQueueUi::authenticateJob()
     info.prompt = i18n("Enter credentials to print from <b>%1</b>", m_destName);
     info.url = QUrl(printer.uriSupported());
     if (printer.authInfoRequired().contains(QStringLiteral("domain"))) {
-        info.setExtraField(QStringLiteral("domain"), QStringLiteral(""));
+        info.setExtraField(QStringLiteral("domain"), QLatin1String(""));
     }
 
     QScopedPointer<KPasswdServerClient> passwdServerClient(new KPasswdServerClient());
@@ -576,7 +564,7 @@ void PrintQueueUi::authenticateJob()
     const int passwordDialogErrorCode = passwdServerClient->queryAuthInfo(&info, QString(), winId, usertime);
     if (passwordDialogErrorCode != KJob::NoError) {
         // user cancelled or kiod_kpasswdserver not running
-        qDebug() << "queryAuthInfo error code" << passwordDialogErrorCode;
+        qDebug() << Q_FUNC_INFO << "queryAuthInfo error code" << passwordDialogErrorCode;
         return;
     }
 

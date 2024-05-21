@@ -34,7 +34,6 @@ void PrintQueue::showQueues(const QStringList &queues, const QString &cwd)
             showQueue(queue);
         }
     } else {
-        qDebug() << "called with no args";
         // If DBus called the ui list won't be empty
         QTimer::singleShot(500, this, &PrintQueue::removeQueue);
     }
@@ -42,7 +41,6 @@ void PrintQueue::showQueues(const QStringList &queues, const QString &cwd)
 
 void PrintQueue::showQueue(const QString &destName)
 {
-    qDebug() << Q_FUNC_INFO << destName;
     if (!m_uis.contains(destName)) {
         // Reserve this since the CUPS call might take a long time
         m_uis[destName] = nullptr;

@@ -8,9 +8,7 @@ set(libkcups_SRCS
     KCupsPrinter.cpp
     KCupsServer.cpp
     KCupsRequest.cpp
-    ClassListWidget.cpp
     PPDModel.cpp
-    SelectMakeModel.cpp
     NoSelectionRectDelegate.cpp
     PrinterModel.cpp
     JobModel.cpp
@@ -25,19 +23,13 @@ set(libkcups_SRCS
     KCupsPrinter.h
     KCupsServer.h
     KCupsRequest.h
-    ClassListWidget.h
     PPDModel.h
-    SelectMakeModel.h
     NoSelectionRectDelegate.h
     PrinterModel.h
     JobModel.h
     JobSortFilterModel.h
     ProcessRunner.h
     DevicesModel.h
-)
-
-ki18n_wrap_ui(libkcups_SRCS
-    SelectMakeModel.ui
 )
 
 add_library(kcupslib SHARED ${libkcups_SRCS})

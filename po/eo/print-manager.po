@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 09:56+0100\n"
+"POT-Creation-Date: 2024-05-22 00:41+0000\n"
+"PO-Revision-Date: 2024-05-21 23:26+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -188,7 +188,7 @@ msgstr "Datumaj Bitoj:"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Flow Control:"
-msgstr "Fluokontrolo:"
+msgstr "Fluregado:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSocket.ui:29
@@ -610,55 +610,55 @@ msgstr "Permesi a&l ĉi tiuj uzantoj presi"
 #: src/configure-printer/PrinterOptions.cpp:53
 #, kde-format
 msgid "Set Default Options"
-msgstr "Agordi Defaŭltajn Opciojn"
+msgstr "Agordi Defaŭltajn Elekteblojn"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
 #: src/configure-printer/PrinterOptions.ui:26
 #, kde-format
 msgid "Query Printer for Default Options"
-msgstr "Demandi Presilon pri Defaŭltaj Opcioj"
+msgstr "Demandi Presilon pri Defaŭltaj Elektebloj"
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Malsukcesis agordi klason:"
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Malsukcesis agordi presilon:"
 
-#: src/kcm/printermanager.cpp:403
+#: src/kcm/printermanager.cpp:422
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Malsukcesis plenumi peton: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:474
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Malsukcesis akiri servilajn agordojn: %1"
 
-#: src/kcm/printermanager.cpp:491
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Servila Agordo Ne Konservita: (%1): %2"
 
-#: src/kcm/printermanager.cpp:498
+#: src/kcm/printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Neripareblo Konservante Servilan Agordon: (%1): %2"
 
-#: src/kcm/printermanager.cpp:550
+#: src/kcm/printermanager.cpp:569
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Presi Memtestan Paĝon"
 
-#: src/kcm/printermanager.cpp:556
+#: src/kcm/printermanager.cpp:575
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Purigi Presilkapojn"

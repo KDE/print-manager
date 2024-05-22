@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 09:48+0300\n"
+"POT-Creation-Date: 2024-05-22 00:41+0000\n"
+"PO-Revision-Date: 2024-05-21 06:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -621,47 +621,47 @@ msgstr "Встановити типові параметри"
 msgid "Query Printer for Default Options"
 msgstr "Надіслати запит щодо типових параметрів"
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не вдалося налаштувати клас: "
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не вдалося налаштувати принтер: "
 
-#: src/kcm/printermanager.cpp:403
+#: src/kcm/printermanager.cpp:422
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не вдалося виконати запит: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:474
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не вдалося отримати параметри сервера: %1"
 
-#: src/kcm/printermanager.cpp:491
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметри сервера не збережено: (%1): %2"
 
-#: src/kcm/printermanager.cpp:498
+#: src/kcm/printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Критична помилка під час спроби зберегти параметри сервера: (%1): %2"
 
-#: src/kcm/printermanager.cpp:550
+#: src/kcm/printermanager.cpp:569
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: src/kcm/printermanager.cpp:556
+#: src/kcm/printermanager.cpp:575
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Почистити голівки принтера"
@@ -674,6 +674,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Помилка встановлення (пакунок: %1)\n"
+"Перевірте реєстраційні дані розпізнавання та переконайтеся, що належним "
+"чином встановлено PackageKit."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

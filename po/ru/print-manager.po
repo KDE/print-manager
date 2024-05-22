@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:40+0000\n"
+"POT-Creation-Date: 2024-05-22 00:41+0000\n"
 "PO-Revision-Date: 2024-02-07 11:14+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -623,30 +623,30 @@ msgstr "Установить параметры по умолчанию"
 msgid "Query Printer for Default Options"
 msgstr "Получить параметры по умолчанию от принтера"
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Ошибка настройки класса: "
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ошибка настройки принтера: "
 
-#: src/kcm/printermanager.cpp:403
+#: src/kcm/printermanager.cpp:422
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не удалось выполнить запрос: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:474
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ошибка получения параметров сервера: %1"
 
-#: src/kcm/printermanager.cpp:491
+#: src/kcm/printermanager.cpp:510
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -654,7 +654,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Ошибка сервера: %1: %2"
 
-#: src/kcm/printermanager.cpp:498
+#: src/kcm/printermanager.cpp:517
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -662,12 +662,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Ошибка получения параметров сервера: %1"
 
-#: src/kcm/printermanager.cpp:550
+#: src/kcm/printermanager.cpp:569
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Напечатать страницу самопроверки"
 
-#: src/kcm/printermanager.cpp:556
+#: src/kcm/printermanager.cpp:575
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Чистка головок печати"

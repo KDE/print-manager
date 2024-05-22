@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:40+0000\n"
-"PO-Revision-Date: 2024-05-15 11:18+0200\n"
+"POT-Creation-Date: 2024-05-22 00:41+0000\n"
+"PO-Revision-Date: 2024-05-21 15:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -622,47 +622,47 @@ msgstr "Establix les opcions predeterminades"
 msgid "Query Printer for Default Options"
 msgstr "Consulta a la impressora per les opcions predeterminades"
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "No s'ha pogut configurar la classe: "
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "No s'ha pogut configurar la impressora: "
 
-#: src/kcm/printermanager.cpp:403
+#: src/kcm/printermanager.cpp:422
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "No s'ha pogut portar a terme la sol·licitud: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:474
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "No s'han pogut obtindre els paràmetres del servidor: %1"
 
-#: src/kcm/printermanager.cpp:491
+#: src/kcm/printermanager.cpp:510
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "No s'han guardat els paràmetres del servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:498
+#: src/kcm/printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Error fatal en guardar els paràmetres del servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:550
+#: src/kcm/printermanager.cpp:569
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimix la pàgina d'autocomprovació"
 
-#: src/kcm/printermanager.cpp:556
+#: src/kcm/printermanager.cpp:575
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Neteja els capçals de la impressió"
@@ -675,6 +675,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"S'ha produït un error d'instal·lació (paquet: %1)\n"
+"Comproveu les credencials d'autenticació i assegureu-vos que PackageKit "
+"estiga instal·lat correctament."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

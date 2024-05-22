@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:40+0000\n"
+"POT-Creation-Date: 2024-05-22 00:41+0000\n"
 "PO-Revision-Date: 2024-05-16 12:15+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -19,47 +19,47 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: printermanager.cpp:236
+#: printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "فشل ضبط الصّنف: "
 
-#: printermanager.cpp:236
+#: printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "فشل ضبط الطّابعة: "
 
-#: printermanager.cpp:403
+#: printermanager.cpp:422
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "فشل تنفيذ الطّلب: %1"
 
-#: printermanager.cpp:455
+#: printermanager.cpp:474
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "فشل جلب إعدادات الخادوم: %1"
 
-#: printermanager.cpp:491
+#: printermanager.cpp:510
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "إعدادات الخادم لم تحفظ : (%1): %2"
 
-#: printermanager.cpp:498
+#: printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "خطأ في حفظ إعدادات الخادم: (%1): %2"
 
-#: printermanager.cpp:550
+#: printermanager.cpp:569
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "اطبع صفحة اختبار الذاتية"
 
-#: printermanager.cpp:556
+#: printermanager.cpp:575
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "نظّف رؤوس الطّباعة"
@@ -598,9 +598,11 @@ msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "اسم قائمة الانتظار مطلوب. أدخل اسمًا فريدًا لقائمة الانتظار."
 
 #: ui/PrinterSettings.qml:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgctxt "@info:status"
-msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "الصانع/الطراز مطلوب. اختر \"حدد\" لاختيار الصانع/الطراز"
 
 #: ui/PrinterSettings.qml:137
@@ -627,9 +629,11 @@ msgid "Remove Printer?"
 msgstr "أزل الطّابعة؟"
 
 #: ui/PrinterSettings.qml:202
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info %1 is the name of a printer or printer group"
+#| msgid "“%1” will be removed."
 msgctxt "@info %1 is the name of a printer or printer group"
-msgid "“%1” will be removed."
+msgid "'%1' will be removed."
 msgstr "ستزال “%1”."
 
 #: ui/PrinterSettings.qml:209
@@ -649,98 +653,106 @@ msgstr "أزل الطّابعة"
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: ui/PrinterSettings.qml:388
+#: ui/PrinterSettings.qml:387
+#, fuzzy, kde-format
+#| msgctxt "@action:check Set default printer"
+#| msgid "Default printer"
+msgctxt "@info:status This is the default printer"
+msgid "** Default Printer"
+msgstr "الطابعة المبدئية"
+
+#: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "الطابعة المبدئية"
 
-#: ui/PrinterSettings.qml:395
+#: ui/PrinterSettings.qml:408
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "شارك هذه المجموعة"
 
-#: ui/PrinterSettings.qml:396
+#: ui/PrinterSettings.qml:409
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "شارك هذه الطّابعة"
 
-#: ui/PrinterSettings.qml:403
+#: ui/PrinterSettings.qml:416
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "يستقبل مهام الطباعة"
 
-#: ui/PrinterSettings.qml:452
+#: ui/PrinterSettings.qml:465
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "اطبع صفحة اختبار"
 
-#: ui/PrinterSettings.qml:458
+#: ui/PrinterSettings.qml:471
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "اطبع صفحة اختبار الذاتية"
 
-#: ui/PrinterSettings.qml:465
+#: ui/PrinterSettings.qml:478
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "نظّف رؤوس الطّباعة"
 
-#: ui/PrinterSettings.qml:485
+#: ui/PrinterSettings.qml:498
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "أعثر على طابعة…"
 
-#: ui/PrinterSettings.qml:493
+#: ui/PrinterSettings.qml:506
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "اسم الطابور:"
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:523
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr "تستخدم <b>مجموعة الطابعة</b> لتجميع موارد الطباعة."
 
-#: ui/PrinterSettings.qml:518
+#: ui/PrinterSettings.qml:531
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "الوصف:"
 
-#: ui/PrinterSettings.qml:530
+#: ui/PrinterSettings.qml:543
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "المكان:"
 
-#: ui/PrinterSettings.qml:542
+#: ui/PrinterSettings.qml:555
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "الاتّصال:"
 
-#: ui/PrinterSettings.qml:556
+#: ui/PrinterSettings.qml:569
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "عضو الطابعات:"
 
-#: ui/PrinterSettings.qml:693
+#: ui/PrinterSettings.qml:706
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "الصّانع/الطّراز:"
 
-#: ui/PrinterSettings.qml:708
+#: ui/PrinterSettings.qml:721
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

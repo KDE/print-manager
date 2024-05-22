@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-21 00:40+0000\n"
+"POT-Creation-Date: 2024-05-22 00:41+0000\n"
 "PO-Revision-Date: 2024-01-01 08:45-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -589,30 +589,30 @@ msgstr "ਮੂਲ ਚੋਣਾਂ ਵਜੋਂ ਸੈੱਟ ਕਰੋ"
 msgid "Query Printer for Default Options"
 msgstr "ਮੂਲ ਚੋਣਾਂ ਲਈ ਪਰਿੰਟਰ ਤੋਂ ਜਾਣਕਾਰੀ ਲਵੋ"
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr ""
 
-#: src/kcm/printermanager.cpp:236
+#: src/kcm/printermanager.cpp:255
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "ਪਰਿੰਟਰ ਦੀ ਸੰਰਚਨਾ ਲਈ ਅਸਫ਼ਲ ਹੈ:"
 
-#: src/kcm/printermanager.cpp:403
+#: src/kcm/printermanager.cpp:422
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "ਬੇਨਤੀ ਕਰਨ ਲਈ ਅਸਫ਼ਲ ਹੈ: %1"
 
-#: src/kcm/printermanager.cpp:455
+#: src/kcm/printermanager.cpp:474
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "ਸਰਵਰ ਸੈਟਿੰਗਾਂ ਲੈਣ ਲਈ ਅਸਫ਼ਲ ਹੈ: %1"
 
-#: src/kcm/printermanager.cpp:491
+#: src/kcm/printermanager.cpp:510
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -620,7 +620,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "ਸਰਵਰ ਗਲਤੀ: (%1): %2"
 
-#: src/kcm/printermanager.cpp:498
+#: src/kcm/printermanager.cpp:517
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -628,12 +628,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "ਸਰਵਰ ਸੈਟਿੰਗਾਂ ਲੈਣ ਲਈ ਅਸਫ਼ਲ ਹੈ: %1"
 
-#: src/kcm/printermanager.cpp:550
+#: src/kcm/printermanager.cpp:569
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "ਖੁਦ-ਜਾਂਚ ਸਫ਼ਾ ਪਰਿੰਟ ਕਰੋ"
 
-#: src/kcm/printermanager.cpp:556
+#: src/kcm/printermanager.cpp:575
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "ਪਰਿੰਟਰ ਹੈੱਡ ਸਾਫ਼ ਕਰੋ"

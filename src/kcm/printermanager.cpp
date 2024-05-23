@@ -12,6 +12,7 @@
 #include "scpinstaller.h"
 #endif
 
+#include <QCommandLineParser>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusMetaType>
@@ -47,7 +48,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driv
     return argument;
 }
 
-PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
+PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
     : KQuickConfigModule(parent, metaData)
     , m_serverSettings({{QLatin1String(CUPS_SERVER_USER_CANCEL_ANY), false},
                         {QLatin1String(CUPS_SERVER_SHARE_PRINTERS), false},
@@ -89,6 +90,49 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
 #ifdef SCP_INSTALL
     qmlRegisterType<SCPInstaller>("org.kde.plasma.printmanager", 1, 0, "SCPInstaller");
 #endif
+
+    // If activation requested, set command line args and notify
+    connect(this, &PrinterManager::activationRequested, this, &PrinterManager::processCmdLine);
+    // Handle command line args
+    if (!args.isEmpty()) {
+        connect(this, &PrinterManager::mainUiReady, this, [this,args] {
+            processCmdLine(args);
+        }, Qt::SingleShotConnection);
+    }
+}
+
+void PrinterManager::processCmdLine(const QVariantList &args) {
+    qCDebug(PMKCM) << Q_FUNC_INFO << args;
+    QCommandLineParser parser;
+    QCommandLineOption addPrinter(u"add-printer"_s, i18n("Add a new printer"));
+    parser.addOption(addPrinter);
+    QCommandLineOption addGroup(u"add-group"_s, i18n("Add a new printer group"));
+    parser.addOption(addGroup);
+    QCommandLineOption confPrinter(u"configure-printer"_s, i18n("Configure a printer"), u"printerName"_s);
+    parser.addOption(confPrinter);
+    QCommandLineOption chgPrinter(u"change-printer-ppd"_s, i18n("Configure a printer"), u"printerName"_s);
+    parser.addOption(chgPrinter);
+
+    // Convert Variants to Strings; parse() needs the binary as the first arg
+    QStringList list(u"systemsettings"_s);
+    for(auto &v: args) {
+        list << v.toString();
+    }
+    parser.parse(list);
+
+    if (parser.isSet(addPrinter)) {
+        Q_EMIT cmdAddPrinter();
+        return;
+    }
+
+    if (parser.isSet(addGroup)) {
+        Q_EMIT cmdAddGroup();
+        return;
+    }
+
+    if (parser.isSet(confPrinter) || parser.isSet(chgPrinter)) {
+        Q_EMIT cmdConfigurePrinter(parser.value(confPrinter));
+    }
 }
 
 void PrinterManager::initOSRelease()

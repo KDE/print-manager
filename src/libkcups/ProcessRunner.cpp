@@ -15,6 +15,7 @@ ProcessRunner::ProcessRunner(QObject *parent)
 {
 }
 
+// call legacy apps
 void ProcessRunner::configurePrinter(const QString &printerName)
 {
     exec(u"configure-printer"_s, {printerName}, u"org.kde.ConfigurePrinter"_s);
@@ -25,24 +26,35 @@ void ProcessRunner::openPrintQueue(const QString &printerName)
     exec(u"kde-print-queue"_s, {printerName}, u"org.kde.PrintQueue"_s);
 }
 
+// call kcm
 void ProcessRunner::addPrinter()
 {
-    exec(u"kde-add-printer"_s, {u"--add-printer"_s}, u"org.kde.kde-add-printer"_s);
-}
-
-void ProcessRunner::addPrinterFromDevice(const QString &device)
-{
-    exec(u"kde-add-printer"_s, {u"--new-printer-from-device"_s, device}, u"org.kde.kde-add-printer"_s);
+    openKCM({u"--add-printer"_s});
 }
 
 void ProcessRunner::addClass()
 {
-    exec(u"kde-add-printer"_s, {u"--add-class"_s}, u"org.kde.kde-add-printer"_s);
+    openKCM({u"--add-group"_s});
 }
 
-void ProcessRunner::changePrinterPPD(const QString &printerName)
+void ProcessRunner::kcmConfigurePrinter(const QString &printerName)
 {
-    exec(u"kde-add-printer"_s, {u"--change-ppd"_s, printerName}, u"org.kde.kde-add-printer"_s);
+    openKCM({u"--configure-printer"_s, printerName});
+}
+
+void ProcessRunner::openKCM(const QStringList &args)
+{
+    // The desktop filename is the same as the binary and icon
+    const QString systemSettings = u"systemsettings"_s;
+
+    QStringList cmdline{u"kcm_printer_manager"_s};
+    if (!args.isEmpty()) {
+        cmdline.append(u"--args"_s);
+        cmdline.append(args.join(QLatin1Char(' ')));
+    }
+
+    // In Plasma, so assume System Settings is available
+    exec(systemSettings, cmdline, systemSettings);
 }
 
 void ProcessRunner::exec(const QString &cmd, const QStringList &args, const QString &desktopFile)

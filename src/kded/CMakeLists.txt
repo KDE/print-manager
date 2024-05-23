@@ -11,7 +11,7 @@ qt_add_dbus_adaptor(printmanagerkded_SRCS
     NewPrinterNotification
 )
 
-add_library(kded_printmanager MODULE ${printmanagerkded_SRCS})
+kcoreaddons_add_plugin(kded_printmanager INSTALL_NAMESPACE "kf6/kded" SOURCES ${printmanagerkded_SRCS})
 set_target_properties(kded_printmanager PROPERTIES OUTPUT_NAME printmanager)
 
 target_link_libraries(kded_printmanager PRIVATE
@@ -29,5 +29,4 @@ ecm_qt_declare_logging_category(kded_printmanager
     EXPORT PMLOGS
 )
 
-install(TARGETS kded_printmanager DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kded)
 install(FILES printmanager.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})

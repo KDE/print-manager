@@ -25,14 +25,11 @@ public:
 
 private:
     bool registerService();
-    void configurePrinter();
-    void printTestPage();
-    void findDriver();
-
-    void setupPrinterNotification(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg);
+    void printTestPage(const QString &printerName);
+    void notifyQueueNotCreated(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg);
     void getMissingExecutables(KNotification *notify, int status, const QString &name, const QString &ppdFileName);
-    void checkPrinterCurrentDriver(KNotification *notify, const QString &name);
-    void printerReadyNotification(KNotification *notify, const QString &name);
+    void notifyDriverCheck(KNotification *notify, const QString &name);
+    void notifyReady(KNotification *notify, const QString &name);
 };
 
 #endif // NEW_PRINTER_NOTIFICATION_H

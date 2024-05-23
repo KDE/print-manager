@@ -47,12 +47,13 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driv
     return argument;
 }
 
-PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
+PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
     : KQuickConfigModule(parent, metaData)
     , m_serverSettings({{QLatin1String(CUPS_SERVER_USER_CANCEL_ANY), false},
                         {QLatin1String(CUPS_SERVER_SHARE_PRINTERS), false},
                         {QLatin1String(CUPS_SERVER_REMOTE_ANY), false},
                         {QLatin1String(CUPS_SERVER_REMOTE_ADMIN), false}})
+    , m_cmdline(args)
 {
     setButtons(KQuickConfigModule::NoAdditionalButton);
     initOSRelease();
@@ -96,6 +97,11 @@ void PrinterManager::initOSRelease()
     KOSRelease os;
     m_osName = os.name();
     m_osBugReportUrl = os.bugReportUrl();
+}
+
+QVariantList PrinterManager::cmdline() const
+{
+    return m_cmdline;
 }
 
 QString PrinterManager::osName() const

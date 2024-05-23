@@ -24,6 +24,12 @@ KCM.ScrollViewKCM {
     id: root
     headerPaddingEnabled: false
 
+    // Use a global dialog var for the find printer dialog
+    // and the server settings dialog.  If requested to activate
+    // with some command, we can check this to see if we're already
+    // performing a "configure" transaction
+    property Kirigami.Dialog configDialog
+
     function newPrinter(isPrinter = true, addlObj, ppdObj) {
         const obj = {
             printerName: isPrinter ? i18n("new_queue") : i18n("new_group")
@@ -49,6 +55,16 @@ KCM.ScrollViewKCM {
                 , printerModel: pmModel
                 , ppdModel: ppdModel
                 })
+    }
+
+    function addPrinter(isPrinter : bool) {
+        checkServerSettings()
+        if (isPrinter) {
+            configDialog = findComp.createObject(root)
+            configDialog.open()
+        } else {
+            newPrinter(false)
+        }
     }
 
     function checkServerSettings() {
@@ -108,28 +124,21 @@ KCM.ScrollViewKCM {
             text: i18nc("@action:button The thing being added is a printer", "Add…")
             Accessible.name: i18nc("@action:button", "Add Printer…")
             icon.name: "list-add-symbolic"
-            onTriggered: {
-                checkServerSettings()
-                const dlg = findComp.createObject(root)
-                dlg.open()
-            }
+            onTriggered: root.addPrinter(true)
         }
         , Kirigami.Action {
             text: i18nc("@action:button", "Add Group…")
             icon.name: "folder-print-symbolic"
             visible: list.count > 1
-            onTriggered: {
-                checkServerSettings()
-                newPrinter(false)
-            }
+            onTriggered: root.addPrinter(false)
         }
         , Kirigami.Action {
             text: i18nc("@action:button", "Configure Print Server…")
             icon.name: "configure-symbolic"
             onTriggered: {
                 const comp = Qt.createComponent("Global.qml")
-                const dlg = comp.createObject(root)
-                dlg.open()
+                root.configDialog = comp.createObject(root)
+                root.configDialog.open()
                 comp.destroy()
             }
         }
@@ -137,6 +146,39 @@ KCM.ScrollViewKCM {
 
     Connections {
         target: kcm
+
+        // When requested to activate with a command,
+        // make sure we're not already in a "configure" transaction
+        // This can happen when system settings is started as well as if
+        // system settings is already running
+        function idle() : bool {
+            return kcm.currentIndex == 0 && !root.configDialog
+        }
+
+        function onCmdAddPrinter() {
+            if (idle()) {
+                root.addPrinter(true)
+            }
+        }
+
+        function onCmdAddGroup() {
+            if (idle()) {
+                root.addPrinter(false)
+            }
+        }
+
+        // Find the delegate in the printer listview, configure if found
+        function onCmdConfigurePrinter(printerName) {
+            if (idle()) {
+                for (let i=0, len=list.count; i<len; ++i) {
+                    let del = list.itemAtIndex(i)
+                    if (del.printerName === printerName) {
+                        del.configurePrinter()
+                        break
+                    }
+                }
+            }
+        }
 
         // when a successful save is done
         function onSaveDone() {
@@ -251,7 +293,7 @@ KCM.ScrollViewKCM {
         }
 
         delegate: QQC2.ItemDelegate {
-            id: devDelegate
+            id: deviceDelegate
             width: ListView.view.width
 
             required property var model
@@ -266,7 +308,9 @@ KCM.ScrollViewKCM {
             required property string stateMessage
             required property string iconName
 
-            onClicked: {
+            onClicked: configurePrinter()
+
+            function configurePrinter() : void {
                 checkServerSettings()
                 kcm.push("PrinterSettings.qml"
                                 , { modelData: model
@@ -291,7 +335,7 @@ KCM.ScrollViewKCM {
                             : (isClass ? "folder-print" : iconName)
 
                     font.bold: list.count > 1 & isDefault
-                    selected: devDelegate.highlighted || devDelegate.down
+                    selected: deviceDelegate.highlighted || deviceDelegate.down
                 }
 
                 QQC2.ToolButton {

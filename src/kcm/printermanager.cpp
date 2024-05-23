@@ -12,6 +12,7 @@
 #include "scpinstaller.h"
 #endif
 
+#include <QCommandLineParser>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusMetaType>
@@ -47,7 +48,7 @@ const QDBusArgument &operator>>(const QDBusArgument &argument, DriverMatch &driv
     return argument;
 }
 
-PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
+PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args)
     : KQuickConfigModule(parent, metaData)
     , m_serverSettings({{QLatin1String(CUPS_SERVER_USER_CANCEL_ANY), false},
                         {QLatin1String(CUPS_SERVER_SHARE_PRINTERS), false},
@@ -56,6 +57,12 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
 {
     setButtons(KQuickConfigModule::NoAdditionalButton);
     initOSRelease();
+    // If activation requested, set cmdline args and notify
+    connect(this, &PrinterManager::activationRequested, this, &PrinterManager::processCmdLine);
+    // Notify if started with commandline args
+    if (!args.isEmpty()) {
+        processCmdLine(args);
+    }
 
     // Make sure we update our server settings if the user changes anything on
     // another interface
@@ -89,6 +96,38 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData)
 #ifdef SCP_INSTALL
     qmlRegisterType<SCPInstaller>("org.kde.plasma.printmanager", 1, 0, "SCPInstaller");
 #endif
+}
+
+void PrinterManager::processCmdLine(const QVariantList &args) {
+    QCommandLineParser parser;
+    QCommandLineOption addPrinter(u"add-printer"_s, i18n("Add a new printer"));
+    parser.addOption(addPrinter);
+    QCommandLineOption addGroup(u"add-group"_s, i18n("Add a new printer group"));
+    parser.addOption(addGroup);
+    QCommandLineOption confPrinter(u"configure-printer"_s, i18n("Configure a printer"), u"printerName"_s);
+    parser.addOption(confPrinter);
+    QCommandLineOption chgPrinter(u"change-printer-ppd"_s, i18n("Configure a printer"), u"printerName"_s);
+    parser.addOption(chgPrinter);
+
+    // Convert Variants to Strings; parse() needs the binary as the first arg
+    QStringList list(u"systemsettings"_s);
+    for(auto &v: args) {
+        list << v.toString();
+    }
+    parser.parse(list);
+
+    if (parser.isSet(addPrinter)) {
+        QTimer::singleShot(750, this, &PrinterManager::cmdAddPrinter);
+    }
+    if (parser.isSet(addGroup)) {
+        QTimer::singleShot(750, this, &PrinterManager::cmdAddGroup);
+    }
+    if (parser.isSet(confPrinter) || parser.isSet(chgPrinter)) {
+        const auto printer = parser.value(confPrinter);
+        QTimer::singleShot(750, this, [this, printer](){
+            Q_EMIT cmdConfigurePrinter(printer);
+        });
+    }
 }
 
 void PrinterManager::initOSRelease()

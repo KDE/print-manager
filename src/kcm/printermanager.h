@@ -44,7 +44,7 @@ class PrinterManager : public KQuickConfigModule
     Q_PROPERTY(bool allowUserCancelAnyJobs READ allowUserCancelAnyJobs NOTIFY serverSettingsChanged)
 
 public:
-    PrinterManager(QObject *parent, const KPluginMetaData &metaData);
+    PrinterManager(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args = QVariantList());
 
     Q_INVOKABLE void removePrinter(const QString &name);
 
@@ -90,6 +90,9 @@ Q_SIGNALS:
     void remotePrintersLoaded();
     void recommendedDriversLoaded();
     void ppdLoaded(const QVariantMap &printerPPD);
+    void cmdAddPrinter();
+    void cmdAddGroup();
+    void cmdConfigurePrinter(const QString &name);
 
 private:
     KCupsRequest *setupRequest(std::function<void()> finished = []() {});
@@ -105,6 +108,7 @@ private:
     QVariantList m_recommendedDrivers;
     QString m_osName;
     QString m_osBugReportUrl;
+    void processCmdLine(const QVariantList &args);
 };
 
 #endif

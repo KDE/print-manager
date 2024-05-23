@@ -25,9 +25,7 @@ public:
 
 private:
     bool registerService();
-    void configurePrinter();
     void printTestPage();
-    void findDriver();
 
     void setupPrinterNotification(KNotification *notify, const QString &make, const QString &model, const QString &description, const QString &arg);
     void getMissingExecutables(KNotification *notify, int status, const QString &name, const QString &ppdFileName);

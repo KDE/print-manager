@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-21 09:33+0200\n"
+"PO-Revision-Date: 2024-05-22 08:59+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -603,13 +603,11 @@ msgstr ""
 "Ime čakalne vrste mora biti edinstveno. Vnesite edinstveno ime čakalne vrste."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
-"Zahtevana je znamka/model. Izberite \"Izberi\", da izberete znamko/model"
+"Zahtevana je znamka/model. Izberite \"Izberi\", da poberete znamko/model"
 
 #: ui/PrinterSettings.qml:137
 #, kde-format
@@ -635,12 +633,10 @@ msgid "Remove Printer?"
 msgstr "Naj odstranim tiskalnik?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr "“%1” bo odstranjen."
+msgstr "'%1' bo odstranjen."
 
 #: ui/PrinterSettings.qml:209
 #, kde-format
@@ -660,12 +656,10 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Privzeti tiskalnik"
+msgstr "** Privzeti tiskalnik"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

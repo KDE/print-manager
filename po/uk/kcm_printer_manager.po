@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-21 06:42+0300\n"
+"PO-Revision-Date: 2024-05-22 08:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -609,9 +609,7 @@ msgstr ""
 "Назва черги не повинна повторюватися. Введіть неповторювану назву черги."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
@@ -642,9 +640,7 @@ msgid "Remove Printer?"
 msgstr "Вилучити принтер?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "«%1» буде вилучено."
@@ -667,12 +663,10 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Типовий принтер"
+msgstr "** Типовий принтер"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

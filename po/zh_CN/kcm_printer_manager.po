@@ -70,6 +70,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"安装错误 (软件包：%1)\n"
+"请检查身份验证信息是否正确，并确保 PackageKit 已正确安装到本系统。"
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -324,31 +326,31 @@ msgstr "允许用户中止任意任务 (不仅是用户本人发起的任务)"
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr ""
+msgstr "打印机安装辅助程序"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "安装成功完成"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "安装失败"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "正在安装…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "报告此问题给 %1"
 
 #: ui/main.qml:28
 #, kde-format
@@ -370,6 +372,9 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"打印机功能支持软件包似乎没有安装。系统需要安装此软件包以提供打印机的便利功"
+"能。<nl/><nl/>因为本系统没有包含 PackageKit，我们无法提供安装选项。您必须使用"
+"系统的软件包管理器手动安装 <command>system-config-printer</command> 软件包。"
 
 #: ui/main.qml:69
 #, kde-format
@@ -378,12 +383,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"打印机功能支持软件包似乎没有安装。系统需要安装此软件包以提供打印机的便利功"
+"能。"
 
 #: ui/main.qml:75
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "安装该软件包"
 
 #: ui/main.qml:106
 #, kde-format
@@ -589,12 +596,10 @@ msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "队列名称必需唯一。请输入一个唯一的队列名称。"
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/型号"
+msgstr ""
 
 #: ui/PrinterSettings.qml:137
 #, kde-format
@@ -620,12 +625,10 @@ msgid "Remove Printer?"
 msgstr "移除打印机？"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr "“%1”将被移除。"
+msgstr ""
 
 #: ui/PrinterSettings.qml:209
 #, kde-format
@@ -645,12 +648,10 @@ msgid "Cancel"
 msgstr "取消"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "默认打印机"
+msgstr ""
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-21 10:19+0200\n"
+"PO-Revision-Date: 2024-05-22 17:51+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 21.12.1\n"
 
 #: printermanager.cpp:255
 #, kde-format
@@ -608,14 +608,11 @@ msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "Nomine de cauda es requirite. Inserta un unic nomine de cauda."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
-"Constructor/Modello es requirite. Selige \"Select\" per colliger  "
-"Constructor/Modello "
+"Constructor/Modello es requirite. Selige \"Select\" per Constructor/Modello "
 
 #: ui/PrinterSettings.qml:137
 #, kde-format
@@ -641,9 +638,7 @@ msgid "Remove Printer?"
 msgstr "Remove imprimitor?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "“%1” essera removite."
@@ -666,12 +661,10 @@ msgid "Cancel"
 msgstr "Cancella"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Imprimitor predefinite"
+msgstr "** Imprimitor predefinite"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

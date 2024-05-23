@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-21 04:25+0200\n"
+"PO-Revision-Date: 2024-05-22 04:27+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -611,9 +611,7 @@ msgstr ""
 "El nombre de la cola debe ser único. Introduzca un nombre de cola único."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
@@ -643,9 +641,7 @@ msgid "Remove Printer?"
 msgstr "¿Eliminar impresora?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "Se eliminará «%1»."
@@ -668,12 +664,10 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Impresora predeterminada"
+msgstr "** Impresora predeterminada"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-21 07:57+0200\n"
+"PO-Revision-Date: 2024-05-22 04:47+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -607,14 +607,12 @@ msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "რიგის სახელი აუცილებელია. შეიყვანეთ რიგის უნიკალური სახელი."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
-"მწარმოებლის/მოდელის მითითება აუცილებელია.  მათი ხელის მისათითებლად \"არჩევა"
-"\" მონიშნეთ"
+"მწარმოებლის/მოდელის მითითება აუცილებელია. მათი ხელის მისათითებლად \"არჩევა\" "
+"მონიშნეთ"
 
 #: ui/PrinterSettings.qml:137
 #, kde-format
@@ -640,9 +638,7 @@ msgid "Remove Printer?"
 msgstr "წავშალო პრინტერი?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "\"%1\" წაიშლება."
@@ -665,18 +661,16 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "ნაგულისხმები პრინტერი"
+msgstr "** ნაგულისხმევი პრინტერი"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "ნაგულისხმები პრინტერი"
+msgstr "ნაგულისხმევი პრინტერი"
 
 #: ui/PrinterSettings.qml:408
 #, kde-format

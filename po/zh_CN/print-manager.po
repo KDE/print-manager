@@ -664,6 +664,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"安装错误 (软件包：%1)\n"
+"请检查身份验证信息是否正确，并确保 PackageKit 已正确安装到本系统。"
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

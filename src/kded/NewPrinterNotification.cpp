@@ -127,13 +127,6 @@ bool NewPrinterNotification::registerService()
     return true;
 }
 
-void NewPrinterNotification::configurePrinter()
-{
-    const QString printerName = sender()->property(PRINTER_NAME).toString();
-    qCDebug(PMKDED) << "configure printer tool" << printerName;
-    ProcessRunner::configurePrinter(printerName);
-}
-
 void NewPrinterNotification::printTestPage()
 {
     const QString printerName = sender()->property(PRINTER_NAME).toString();
@@ -142,16 +135,6 @@ void NewPrinterNotification::printTestPage()
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, request, &KCupsRequest::deleteLater);
     request->printTestPage(printerName, false);
-}
-
-void NewPrinterNotification::findDriver()
-{
-    const QString printerName = sender()->property(PRINTER_NAME).toString();
-    qCDebug(PMKDED) << "find driver for" << printerName;
-
-    // This function will show the PPD browser dialog
-    // to choose a better PPD to the already added printer
-    ProcessRunner::changePrinterPPD(printerName);
 }
 
 void NewPrinterNotification::setupPrinterNotification(KNotification *notify,
@@ -170,15 +153,10 @@ void NewPrinterNotification::setupPrinterNotification(KNotification *notify,
     } else {
         notify->setText(i18n("No driver for this printer."));
     }
-    auto searchAction = notify->addAction(i18n("Search"));
-    connect(searchAction, &KNotificationAction::activated, this, [arg]() {
-        qCDebug(PMKDED);
-        // This function will show the PPD browser dialog
-        // to choose a better PPD, queue name, location
-        // in this case the printer was not added
-        ProcessRunner::addPrinterFromDevice(arg);
-    });
-
+    auto searchAction = notify->addAction(i18n("Add Printer…"));
+    // In this case the printer was not added, so open the KCM to allow
+    // a printer to be added
+    connect(searchAction, &KNotificationAction::activated, this, &ProcessRunner::addPrinter);
     notify->sendEvent();
 }
 
@@ -235,13 +213,17 @@ void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, co
         if (driver.isEmpty()) {
             notify->setText(i18n("'%1' has been added, please check its driver.", name));
             auto configAction = notify->addAction(i18n("Configure"));
-            connect(configAction, &KNotificationAction::activated, this, &NewPrinterNotification::configurePrinter);
+            connect(configAction, &KNotificationAction::activated, this, [name]() {
+                ProcessRunner::kcmConfigurePrinter(name);
+            });
         } else {
             notify->setText(i18n("'%1' has been added, using the '%2' driver.", name, driver));
             auto testAction = notify->addAction(i18n("Print test page"));
             connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);
             auto findAction = notify->addAction(i18n("Find driver"));
-            connect(findAction, &KNotificationAction::activated, this, &NewPrinterNotification::findDriver);
+            connect(findAction, &KNotificationAction::activated, this, [name]() {
+                ProcessRunner::kcmConfigurePrinter(name);
+            });
         }
         notify->sendEvent();
     });
@@ -256,7 +238,9 @@ void NewPrinterNotification::printerReadyNotification(KNotification *notify, con
     connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);
 
     auto configAction = notify->addAction(i18n("Configure"));
-    connect(configAction, &KNotificationAction::activated, this, &NewPrinterNotification::configurePrinter);
+    connect(configAction, &KNotificationAction::activated, this, [name]() {
+        ProcessRunner::kcmConfigurePrinter(name);
+    });
 
     notify->sendEvent();
 }

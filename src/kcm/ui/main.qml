@@ -24,6 +24,11 @@ KCM.ScrollViewKCM {
     id: root
     headerPaddingEnabled: false
 
+    // These props used if kcm is called with params
+    // See kcm Connections
+    property bool startupConfigPrinter: false
+    property string arg1: ""
+
     function newPrinter(isPrinter = true, addlObj, ppdObj) {
         const obj = {
             printerName: isPrinter ? i18n("new_queue") : i18n("new_group")
@@ -105,6 +110,7 @@ KCM.ScrollViewKCM {
 
     actions: [
         Kirigami.Action {
+            id: addPrinter
             text: i18nc("@action:button The thing being added is a printer", "Add…")
             Accessible.name: i18nc("@action:button", "Add Printer…")
             icon.name: "list-add-symbolic"
@@ -115,6 +121,7 @@ KCM.ScrollViewKCM {
             }
         }
         , Kirigami.Action {
+            id: addGroup
             text: i18nc("@action:button", "Add Group…")
             icon.name: "folder-print-symbolic"
             visible: list.count > 1
@@ -137,6 +144,30 @@ KCM.ScrollViewKCM {
 
     Connections {
         target: kcm
+
+        /** We may be called externally with params
+         * Save the args (printer name) for change/configure
+         * Later, when the model delegate is created
+         * it checks for called config and pushs the page
+        */
+        function onMainUiReady() {
+            if (kcm.cmdline.length > 0) {
+                if (kcm.cmdline[0] === "--change-printer-ppd" | kcm.cmdline[0] === "--configure-printer") {
+                    if (kcm.cmdline.length > 1) {
+                        // Setting arg1 to device name so that when delegates are created,
+                        // the device configure kcm can be pushed
+                        arg1 = kcm.cmdline[1]
+                        startupConfigPrinter = true
+                    }
+                } else if (kcm.cmdline[0] === "--add-printer") {
+                    Qt.callLater(addPrinter.trigger)
+                } else if (kcm.cmdline[0] === "--add-group") {
+                    Qt.callLater(addGroup.trigger)
+                } else if (kcm.cmdline[0] !== ""){
+                    console.warn("Invalid command line argument:", kcm.cmdline)
+                }
+            }
+        }
 
         // when a successful save is done
         function onSaveDone() {
@@ -251,11 +282,22 @@ KCM.ScrollViewKCM {
         }
 
         delegate: QQC2.ItemDelegate {
+            id: deviceDelegate
             width: ListView.view.width
 
             hoverEnabled: false
             highlighted: false
             down: false
+
+            function configurePrinter() : void {
+                checkServerSettings()
+                kcm.push("PrinterSettings.qml"
+                                , { modelData: model
+                                , addMode: false
+                                , printerModel: pmModel
+                                , ppdModel: ppdModel
+                                })
+            }
 
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
@@ -284,15 +326,16 @@ KCM.ScrollViewKCM {
                     display: QQC2.AbstractButton.IconOnly
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
-                    onClicked: {
-                        checkServerSettings()
-                        kcm.push("PrinterSettings.qml"
-                                        , { modelData: model
-                                        , addMode: false
-                                        , printerModel: pmModel
-                                        , ppdModel: ppdModel
-                                        })
+                    // Here, we check to see if we're being asked to config
+                    // this device
+                    Component.onCompleted: {
+                        if (startupConfigPrinter && arg1 === model.printerName) {
+                            startupConfigPrinter = false
+                            deviceDelegate.configurePrinter()
+                        }
                     }
+
+                    onClicked: deviceDelegate.configurePrinter()
 
                     QQC2.ToolTip {
                         text: parent.text

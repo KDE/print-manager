@@ -26,6 +26,7 @@ class PrinterManager : public KQuickConfigModule
 
     Q_PROPERTY(QString osName READ osName CONSTANT FINAL)
     Q_PROPERTY(QString osBugReportUrl READ osBugReportUrl CONSTANT FINAL)
+    Q_PROPERTY(QVariantList cmdline READ cmdline CONSTANT FINAL)
 
     Q_PROPERTY(QVariantList remotePrinters READ remotePrinters NOTIFY remotePrintersLoaded)
 
@@ -44,7 +45,7 @@ class PrinterManager : public KQuickConfigModule
     Q_PROPERTY(bool allowUserCancelAnyJobs READ allowUserCancelAnyJobs NOTIFY serverSettingsChanged)
 
 public:
-    PrinterManager(QObject *parent, const KPluginMetaData &metaData);
+    PrinterManager(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args = QVariantList());
 
     Q_INVOKABLE void removePrinter(const QString &name);
 
@@ -68,6 +69,8 @@ public:
     bool allowPrintingFromInternet() const;
     bool allowRemoteAdmin() const;
     bool allowUserCancelAnyJobs() const;
+
+    QVariantList cmdline() const;
 
 public Q_SLOTS:
     void savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass);
@@ -104,6 +107,7 @@ private:
     QVariantList m_recommendedDrivers;
     QString m_osName;
     QString m_osBugReportUrl;
+    QVariantList m_cmdline;
 };
 
 #endif

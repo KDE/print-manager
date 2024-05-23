@@ -26,9 +26,10 @@ public Q_SLOTS:
     static void openPrintQueue(const QString &printerName);
 
     static void addPrinter();
-    static void addPrinterFromDevice(const QString &device);
     static void addClass();
-    static void changePrinterPPD(const QString &printerName);
+
+    static void openKCM(const QStringList &args = QStringList());
+    static void kcmConfigurePrinter(const QString &printerName);
 
 private:
     static void exec(const QString &cmd, const QStringList &args, const QString &desktopFile = QString());

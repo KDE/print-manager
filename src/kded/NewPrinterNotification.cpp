@@ -22,24 +22,27 @@
 #include <QDBusPendingReply>
 #include <QDBusServiceWatcher>
 
-#define STATUS_SUCCESS 0
-#define STATUS_MODEL_MISMATCH 1
-#define STATUS_GENERIC_DRIVER 2
-#define STATUS_NO_DRIVER 3
+using namespace Qt::StringLiterals;
 
-#define PRINTER_NAME "PrinterName"
+static constexpr int STATUS_SUCCESS = 0;
+static constexpr int STATUS_MODEL_MISMATCH = 1;
+static constexpr int STATUS_GENERIC_DRIVER = 2;
+static constexpr int STATUS_NO_DRIVER = 3;
+
+static constexpr QLatin1String SERVICE = "com.redhat.NewPrinterNotification"_L1;
+static constexpr QLatin1String OBJECT  = "/com/redhat/NewPrinterNotification"_L1;
 
 NewPrinterNotification::NewPrinterNotification(QObject *parent)
     : QObject(parent)
 {
     // Creates our new adaptor
-    (void)new NewPrinterNotificationAdaptor(this);
+    new NewPrinterNotificationAdaptor(this);
 
     // Register the com.redhat.NewPrinterNotification interface
     if (!registerService()) {
         // in case registration fails due to another user or application running
         // keep an eye on it so we can register when available
-        auto watcher = new QDBusServiceWatcher(QLatin1String("com.redhat.NewPrinterNotification"),
+        auto watcher = new QDBusServiceWatcher(SERVICE,
                                                QDBusConnection::systemBus(),
                                                QDBusServiceWatcher::WatchForUnregistration,
                                                this);
@@ -53,14 +56,15 @@ NewPrinterNotification::~NewPrinterNotification()
 
 void NewPrinterNotification::GetReady()
 {
-    qCDebug(PMKDED) << "GetReady";
+    qCDebug(PMKDED) << Q_FUNC_INFO;
     // This method is all about telling the user a new printer was detected
     auto notify = new KNotification(QLatin1String("GetReady"));
     notify->setComponentName(QLatin1String("printmanager"));
     notify->setIconName(QLatin1String("printer"));
     notify->setTitle(i18n("A New Printer was detected"));
-    notify->setText(i18n("Configuring new printer..."));
+    notify->setText(i18n("Starting printer configuration"));
     notify->sendEvent();
+    ProcessRunner::addPrinter();
 }
 
 // status: 0
@@ -86,20 +90,18 @@ void NewPrinterNotification::NewPrinter(int status,
     auto notify = new KNotification(QLatin1String("NewPrinterNotification"));
     notify->setComponentName(QLatin1String("printmanager"));
     notify->setIconName(QLatin1String("printer"));
-    notify->setFlags(KNotification::Persistent);
 
     if (name.contains(QLatin1Char('/'))) {
+        // name is a uri
         const QString devid = QString::fromLatin1("MFG:%1;MDL:%2;DES:%3;CMD:%4;").arg(make, model, description, cmd);
-        setupPrinterNotification(notify, make, model, description, name + QLatin1Char('/') + devid);
+        notifyQueueNotCreated(notify, make, model, description, name + QLatin1Char('/') + devid);
     } else {
-        notify->setProperty(PRINTER_NAME, name);
         // name is the name of the queue which hal_lpadmin has set up
         // automatically.
-
         if (status < STATUS_GENERIC_DRIVER) {
-            notify->setTitle(i18n("The New Printer was Added"));
+            notify->setTitle(i18n("The New Printer was added"));
         } else {
-            notify->setTitle(i18n("The New Printer is Missing Drivers"));
+            notify->setTitle(i18n("The New Printer might have a driver problem"));
         }
 
         auto request = new KCupsRequest;
@@ -115,70 +117,48 @@ void NewPrinterNotification::NewPrinter(int status,
 
 bool NewPrinterNotification::registerService()
 {
-    if (!QDBusConnection::systemBus().registerService(QLatin1String("com.redhat.NewPrinterNotification"))) {
-        qCWarning(PMKDED) << "unable to register service to dbus";
+    if (!QDBusConnection::systemBus().registerService(SERVICE)) {
+        qCWarning(PMKDED) << "Unable to register service to systemBus:" << SERVICE;
         return false;
     }
+    qCDebug(PMKDED) << SERVICE << "registered to systemBus";
 
-    if (!QDBusConnection::systemBus().registerObject(QLatin1String("/com/redhat/NewPrinterNotification"), this)) {
-        qCWarning(PMKDED) << "unable to register object to dbus";
+    if (!QDBusConnection::systemBus().registerObject(OBJECT, this)) {
+        qCWarning(PMKDED) << "Unable to register object to systemBus:" << OBJECT;
         return false;
     }
+    qCDebug(PMKDED) << OBJECT << "registered to systemBus";
+
     return true;
 }
 
-void NewPrinterNotification::configurePrinter()
+void NewPrinterNotification::printTestPage(const QString &printerName)
 {
-    const QString printerName = sender()->property(PRINTER_NAME).toString();
-    qCDebug(PMKDED) << "configure printer tool" << printerName;
-    ProcessRunner::configurePrinter(printerName);
-}
-
-void NewPrinterNotification::printTestPage()
-{
-    const QString printerName = sender()->property(PRINTER_NAME).toString();
     qCDebug(PMKDED) << "printing test page for" << printerName;
-
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, request, &KCupsRequest::deleteLater);
     request->printTestPage(printerName, false);
 }
 
-void NewPrinterNotification::findDriver()
-{
-    const QString printerName = sender()->property(PRINTER_NAME).toString();
-    qCDebug(PMKDED) << "find driver for" << printerName;
-
-    // This function will show the PPD browser dialog
-    // to choose a better PPD to the already added printer
-    ProcessRunner::changePrinterPPD(printerName);
-}
-
-void NewPrinterNotification::setupPrinterNotification(KNotification *notify,
+void NewPrinterNotification::notifyQueueNotCreated(KNotification *notify,
                                                       const QString &make,
                                                       const QString &model,
                                                       const QString &description,
                                                       const QString &arg)
 {
+    Q_UNUSED(arg)
     // name is a URI, no queue was generated, because no suitable
-    // driver was found
-    notify->setTitle(i18n("Missing printer driver"));
+    // driver was found, offer to add device in notification
+    notify->setTitle(i18n("Printer queue was not created"));
     if (!make.isEmpty() && !model.isEmpty()) {
-        notify->setText(i18n("No printer driver for %1 %2.", make, model));
+        notify->setText(i18n("Printer driver not found for %1 %2", make, model));
     } else if (!description.isEmpty()) {
-        notify->setText(i18n("No printer driver for %1.", description));
+        notify->setText(i18n("Printer driver not found for %1", description));
     } else {
-        notify->setText(i18n("No driver for this printer."));
+        notify->setText(i18n("Printer driver not found for this printer"));
     }
-    auto searchAction = notify->addAction(i18n("Search"));
-    connect(searchAction, &KNotificationAction::activated, this, [arg]() {
-        qCDebug(PMKDED);
-        // This function will show the PPD browser dialog
-        // to choose a better PPD, queue name, location
-        // in this case the printer was not added
-        ProcessRunner::addPrinterFromDevice(arg);
-    });
-
+    auto addAction = notify->addAction(i18n("Add Printer…"));
+    connect(addAction, &KNotificationAction::activated, this, &ProcessRunner::addPrinter);
     notify->sendEvent();
 }
 
@@ -205,19 +185,18 @@ void NewPrinterNotification::getMissingExecutables(KNotification *notify, int st
         const QStringList missingExecutables = reply;
         if (!missingExecutables.isEmpty()) {
             // TODO check with PackageKit about missing drivers
-            qCWarning(PMKDED) << "Missing executables:" << missingExecutables;
-            notify->deleteLater();
-            return;
+            notify->setText(missingExecutables.join(QLatin1Char(' ')));
+            notify->sendEvent();
         } else if (status == STATUS_SUCCESS) {
-            printerReadyNotification(notify, name);
+            notifyReady(notify, name);
         } else {
             // Model mismatch
-            checkPrinterCurrentDriver(notify, name);
+            notifyDriverCheck(notify, name);
         }
     });
 }
 
-void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, const QString &name)
+void NewPrinterNotification::notifyDriverCheck(KNotification *notify, const QString &name)
 {
     // Get the new printer attributes
     auto request = new KCupsRequest;
@@ -233,30 +212,42 @@ void NewPrinterNotification::checkPrinterCurrentDriver(KNotification *notify, co
 
         // The cups request might have failed
         if (driver.isEmpty()) {
-            notify->setText(i18n("'%1' has been added, please check its driver.", name));
+            notify->setText(i18n("'%1' has been added, please check its driver", name));
             auto configAction = notify->addAction(i18n("Configure"));
-            connect(configAction, &KNotificationAction::activated, this, &NewPrinterNotification::configurePrinter);
+            connect(configAction, &KNotificationAction::activated, this, [name]() {
+                ProcessRunner::kcmConfigurePrinter(name);
+            });
         } else {
-            notify->setText(i18n("'%1' has been added, using the '%2' driver.", name, driver));
+            notify->setText(i18n("'%1' has been added, using the '%2' driver", name, driver));
+
             auto testAction = notify->addAction(i18n("Print test page"));
-            connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);
-            auto findAction = notify->addAction(i18n("Find driver"));
-            connect(findAction, &KNotificationAction::activated, this, &NewPrinterNotification::findDriver);
+            connect(testAction, &KNotificationAction::activated, this, [this,name]() {
+                printTestPage(name);
+            });
+
+            auto findAction = notify->addAction(i18n("Check driver"));
+            connect(findAction, &KNotificationAction::activated, this, [name]() {
+                ProcessRunner::kcmConfigurePrinter(name);
+            });
         }
         notify->sendEvent();
     });
     request->getPrinterAttributes(name, false, {KCUPS_PRINTER_MAKE_AND_MODEL});
 }
 
-void NewPrinterNotification::printerReadyNotification(KNotification *notify, const QString &name)
+void NewPrinterNotification::notifyReady(KNotification *notify, const QString &name)
 {
     notify->setText(i18n("'%1' is ready for printing.", name));
 
     auto testAction = notify->addAction(i18n("Print test page"));
-    connect(testAction, &KNotificationAction::activated, this, &NewPrinterNotification::printTestPage);
+    connect(testAction, &KNotificationAction::activated, this, [this,name]() {
+        printTestPage(name);
+    });
 
     auto configAction = notify->addAction(i18n("Configure"));
-    connect(configAction, &KNotificationAction::activated, this, &NewPrinterNotification::configurePrinter);
+    connect(configAction, &KNotificationAction::activated, this, [name]() {
+        ProcessRunner::kcmConfigurePrinter(name);
+    });
 
     notify->sendEvent();
 }

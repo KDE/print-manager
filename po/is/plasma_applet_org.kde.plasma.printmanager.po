@@ -1,22 +1,22 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
 # Sveinn í Felli <sv1@fellsnet.is>, 2022.
-# gummi <gudmundure@gmail.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 02:28+0000\n"
-"PO-Revision-Date: 2023-01-08 22:06+0000\n"
-"Last-Translator: gummi <gudmundure@gmail.com>\n"
+"PO-Revision-Date: 2024-05-12 19:43+0000\n"
+"Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 #: src/plasmoid/package/contents/ui/main.qml:65
@@ -24,10 +24,8 @@ msgid "Printers"
 msgstr "Prentarar"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Prentarar"
+msgstr "Prentarahópar"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
 #: src/plasmoid/package/contents/ui/main.qml:86
@@ -71,30 +69,24 @@ msgid "Show Only Active Jobs"
 msgstr "Sýna bara virk prentverk"
 
 #: src/plasmoid/package/contents/ui/main.qml:154
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
 msgstr "&Grunnstilla prentara..."
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
-msgstr ""
+msgstr "Halda áfram"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Pause"
-msgstr ""
+msgstr "Í bið"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Grunnstilla prentara..."
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Skoða prentröð"
+msgstr "Sýna prentröð..."
 
 #~ msgid "Search…"
 #~ msgstr "Leita…"

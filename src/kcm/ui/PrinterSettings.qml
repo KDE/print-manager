@@ -14,6 +14,7 @@ import org.kde.plasma.printmanager as PM
 
 KCM.AbstractKCM {
     id: root
+    headerPaddingEnabled: false
 
     // Add mode means adding a new printer/group
     property bool addMode: false
@@ -71,6 +72,7 @@ KCM.AbstractKCM {
 
     header: BannerWithTimer {
         id: msgBanner
+        position: Kirigami.InlineMessage.Position.Header
     }
 
     footer: RowLayout {

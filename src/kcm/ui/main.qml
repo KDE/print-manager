@@ -22,6 +22,7 @@ import org.kde.plasma.printmanager as PM
 
 KCM.ScrollViewKCM {
     id: root
+    headerPaddingEnabled: false
 
     function newPrinter(isPrinter = true, addlObj, ppdObj) {
         const obj = {
@@ -61,6 +62,7 @@ KCM.ScrollViewKCM {
         id: scpMessage
         showCloseButton: true
         type: Kirigami.MessageType.Warning
+        position: Kirigami.InlineMessage.Position.Header
         visible: !kcm.isSCPAvailable()
         text: {
             if (PM.SCPInstaller === undefined) {

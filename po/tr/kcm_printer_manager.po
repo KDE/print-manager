@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-21 13:53+0300\n"
+"PO-Revision-Date: 2024-05-23 01:33+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -604,9 +604,7 @@ msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "Kuyruk adı gerekiyor. Benzersiz bir kuyruk adı girin."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için ‘Seç‘e tıklayın"
@@ -635,9 +633,7 @@ msgid "Remove Printer?"
 msgstr "Yazıcıyı Kaldır?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "“%1” kaldırılacak."
@@ -660,12 +656,10 @@ msgid "Cancel"
 msgstr "İptal"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Öntanımlı yazıcı"
+msgstr "** Öntanımlı Yazıcı"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

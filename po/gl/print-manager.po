@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-17 21:05+0200\n"
+"PO-Revision-Date: 2024-05-23 08:38+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -677,6 +677,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Erro de instalación (paquete: %1).\n"
+"Revise as credenciais de autenticación e asegúrese de que PackageKit está "
+"correctamente instalado."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

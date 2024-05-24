@@ -41,8 +41,6 @@ For Plasma6, the KCM will provide the primary means to add/configure printers an
 * Limited support for Windows printers using samba
 * Limited support for auto print queue identification for older connection schemes (LPD/SOCKET)
 
-While the legacy `kde-add-printer` app is available, the KCM is the primary means to add printers and printer groups and provides no direct access to the add-printer app.
-
 The KCM also depends on the following features that are present in the legacy `configure-printer` app:
 
 * Media settings (paper size, mode, type, quality, etc)
@@ -53,11 +51,24 @@ These features are available via the `configure-printer` app, accessed from the 
 The legacy `kde-print-queue` app is provided as the primary means to manage configured printer job queues.  It remains directly accessible from both the KCM and the plasmoid.
 
 
-## Building
+## Building, Running and Testing
 
-The easiest way to make changes and test print-manager during development is to [build it with kdesrc-build](https://community.kde.org/Get_Involved/development/Build_software_with_kdesrc-build).
+The easiest way to make changes and test print-manager during development is to [build it with kde-builder](https://kde-builder.kde.org).
 
 When building print-manager manually, keep in mind that the Qt5 and Qt6 versions will be built by default. To control which versions are built, use the `BUILD_QT5` and `BUILD_QT6` CMake variables.
+
+After building, restart the kded and plasmashell.  At that point run the kcm from System Settings or from the command line:
+
+* systemsettings kcm_printer_manager
+* kcmshell6 kcm_printer_manager
+
+The following command line options are supported (with the --args parameter)
+
+* --add-printer
+* --add-group
+* --configure-printer <queueName>
+
+So, for example, to initiate the kcm to add a printer run: `systemsettings kcm_printer_manager --args --add-printer`.  To configure an existing printer, run: `systemsettings kcm_printer_manager --args "--configure-printer <queueName>"`.
 
 
 ## Contributing

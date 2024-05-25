@@ -52,7 +52,7 @@
   <name xml:lang="zh-TW">印表機設定</name>
   <summary>Set up and configure printers</summary>
   <summary xml:lang="ar">يعد ويضبط الطابعات</summary>
-  <summary xml:lang="ast">Instala y configura imprentadores</summary>
+  <summary xml:lang="ast">Instala ya configura imprentadores</summary>
   <summary xml:lang="az">Printerləri quraşdırmaq və tənzimləmək</summary>
   <summary xml:lang="be">Наладжванне прынтараў</summary>
   <summary xml:lang="bg">Настройване на принтерите</summary>
@@ -100,7 +100,7 @@
   <description>
     <p>This KDE Config tool lets you set up and configure printers.  It detects new printers, finds the available drivers and allows you to configure their settings.  You can print test pages and set sharing properties.</p>
     <p xml:lang="ar">تتيح لك أداة تكوين كِيدِي هذه إعداد الطابعات وتكوينها. يكتشف الطابعات الجديدة ، ويجد برامج التشغيل المتاحة ويسمح لك بتكوين إعداداتها. يمكنك طباعة صفحات الاختبار وتعيين خصائص المشاركة.</p>
-    <p xml:lang="ast">Esta ferramienta de configuración de KDE déxate instalar y configurar imprentadores. Detecta imprentadores nueves, atopa controladores disponibles ya permítete configurar les sos opciones. Pues imprentar páxines de prueba ya configurar les propiedaes de la compartición.</p>
+    <p xml:lang="ast">Esta ferramienta de configuración de KDE déxate instalar ya configurar imprentadores. Detecta imprentadores nueves, atopa controladores disponibles ya permítete configurar les sos opciones. Pues imprentar páxines de prueba ya configurar les propiedaes de la compartición.</p>
     <p xml:lang="az">Bu KDE Tənzimləmələri vasitəsi ilə printerlər quraşdırıla və tənzimlənə bilər. Yeni printerləri aşkarlayır, mövcud sürücüləri tapır və ayarlarını tənzimləməyə  imkan verir. Test səhifələrini çap edə və paylaşma xüsusiyyətlərini təyin edə bilərsiniz.</p>
     <p xml:lang="be">Гэты інструмент канфігурацыі KDE дае магчымасць дадаваць і наладжваць прынтары. Ён выяўляе новыя прынтары, знаходзіць даступныя драйверы і дапамагае наладжваць іх. Вы можаце друкаваць тэставыя старонкі і наладзіць абагульванне.</p>
     <p xml:lang="bg">Инструментът ви позволява да настройвате и конфигурирате принтери. Той открива нови принтери, намира наличните драйвери и ви позволява да конфигурирате техните настройки. Можете да отпечатвате тестови страници и да зададете споделяне на свойства.</p>

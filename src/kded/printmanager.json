@@ -10,6 +10,7 @@
         "Description[ca]": "Notifica quan es detecta una impressora nova, o dels problemes amb un treball d'impressió",
         "Description[cs]": "Informovat, když je detekována nová tiskárna nebo při tiskových problémech",
         "Description[de]": "Benachrichtigung über neu erkannte Drucker und Probleme beim Drucken",
+        "Description[en_GB]": "Notify when a new printer is detected, or there are problems with a print job",
         "Description[eo]": "Sciigi kiam nova printilo estas ekkonata, aŭ kiam estas problemoj pri printtaskoj",
         "Description[es]": "Notificar cuando se detecta una nueva impresora o si existen problemas con algún trabajo de impresión",
         "Description[eu]": "Jakinarazi inprimagailu berri bat antzeman edo inprimatzeko lan batekin arazoak daudenean",

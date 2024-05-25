@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-19 00:27+0200\n"
+"PO-Revision-Date: 2024-05-24 08:39+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -72,6 +72,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Erro de instalación (paquete: %1).\n"
+"Revise as credenciais de autenticación e asegúrese de que PackageKit está "
+"correctamente instalado."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -329,35 +332,34 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr "Permitir que os usuarios cancelen calquera traballo (non só os seus)."
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Grupos de impresoras"
+msgstr "Asistentes de configuración de impresoras"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Completouse a instalación."
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "A instalación fallou."
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Instalando…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Informar deste problema a %1."
 
 #: ui/main.qml:28
 #, kde-format
@@ -379,6 +381,11 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Existe un paquete de compatibilidade con impresoras que fornece "
+"funcionalidades útiles e non parece estar instalado.<nl/><nl/>Como esta "
+"distribución non inclúe PackageKit, non podemos fornecerlle unha opción de "
+"instalación, así que terá que usar o seu xestor de paquetes para instalar "
+"manualmente o paquete <command>system-config-printer</command>."
 
 #: ui/main.qml:69
 #, kde-format
@@ -387,12 +394,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Existe un paquete de compatibilidade con impresoras que fornece "
+"funcionalidades útiles e non parece estar instalado."
 
 #: ui/main.qml:75
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Instalalo"
 
 #: ui/main.qml:106
 #, kde-format
@@ -600,9 +609,7 @@ msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "O nome da cola debe ser único. Escriba un nome de cola único."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
@@ -633,9 +640,7 @@ msgid "Remove Printer?"
 msgstr "Quere retirar a impresora?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "Retirarase «%1»."
@@ -658,12 +663,10 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Impresora predeterminada."
+msgstr "** Impresora predeterminada."
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

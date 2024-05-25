@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-16 21:12+0300\n"
+"PO-Revision-Date: 2024-05-24 16:45+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -677,6 +677,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Įdiegimo klaida (paketas: %1)\n"
+"Patikrinkite, ar teisingi tapatybės nustatymo duomenys ir įsitikinkite, kad "
+"PackageKit yra tinkamai įdiegta."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

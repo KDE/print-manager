@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-04-28 12:19+0200\n"
+"PO-Revision-Date: 2024-05-25 12:51+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -42,20 +42,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Nie udało się pobrać ustawień serwera: %1"
 
 #: printermanager.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Błąd serwera: (%1): %2"
+msgstr "Nie zapisano ustawień serwera: (%1): %2"
 
 #: printermanager.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Nie udało się pobrać ustawień serwera: %1"
+msgstr "Błąd kluczowy przy zapisywaniu ustawienia serwera: (%1): %2"
 
 #: printermanager.cpp:569
 #, kde-format
@@ -75,6 +71,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Błąd wgrywania (pakiet: %1)\n"
+"Sprawdź swoje dane dostępowe i upewnij się, że masz poprawnie wgrany pakiet "
+"PackageKit."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -277,12 +276,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "Wybierz wpis ręcznych ustawień z listy"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "Ustawienia serwera drukowania"
+msgstr "Ustawienia serwera CUPS"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -305,7 +302,7 @@ msgstr "Zastosuj"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "Zaczekaj, aż serwer CUPS uruchomi się ponownie"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -333,35 +330,34 @@ msgstr ""
 "Pozwól użytkownikom zaniechać wszystkich zadań (nie tylko swoich własnych)"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Grupy drukarek"
+msgstr "Pomocnicy ustawiania drukarek"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Pomyślnie ukończono wgrywanie"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Nie udało się wgrać"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Wgrywanie…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Zgłoś ten błąd na %1"
 
 #: ui/main.qml:28
 #, kde-format
@@ -383,6 +379,10 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Pakiet obsługujący drukarkę, który dostarcza pewnych wygód nie wydaje się "
+"być wgrany.<nl/><nl/>Nie możemy umożliwić jego wgrania, bo wydawca twojego "
+"systemu nie dostarcza PackageKit, więc musisz wgrać pakiet <command>system-"
+"config-printer</command> ręcznie."
 
 #: ui/main.qml:69
 #, kde-format
@@ -391,12 +391,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Pakiet obsługujący drukarkę, który dostarcza pewnych wygód nie wydaje się "
+"być wgrany."
 
 #: ui/main.qml:75
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Wgraj ją"
 
 #: ui/main.qml:106
 #, kde-format
@@ -592,29 +594,24 @@ msgid "Apply"
 msgstr "Zastosuj"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "Wpisz niepowtarzalną nazwę kolejki, bo jest ona wymagana."
+msgstr "Wymagana jest nazwa kolejki. Wpisz taką, co jeszcze nie istnieje."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Wpisz niepowtarzalną nazwę kolejki, bo jest ona wymagana."
+msgstr ""
+"Nazwa kolejki musi być niepowtarzalna. Wpisz taką, co jeszcze nie istnieje."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
-"Wytwórca/model jest wymagany. Naciśnij \"Wybierz\", aby wybrać wytwórcę/model"
+"Wytwórca/Model jest wymagany. Naciśnij \"Wybierz\", aby wybrać Wytwórcę/Model"
 
 #: ui/PrinterSettings.qml:137
 #, kde-format
@@ -628,35 +625,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "Nie udało się usunąć drukarki: %1"
 
 #: ui/PrinterSettings.qml:199
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Usuń grupę"
+msgstr "Usuwanie grupy"
 
 #: ui/PrinterSettings.qml:200
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Usuń drukarkę"
+msgstr "Czy usunąć drukarkę?"
 
 #: ui/PrinterSettings.qml:202
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "'%1' zostanie usunięta."
 
 #: ui/PrinterSettings.qml:209
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Usuń grupę"
 
 #: ui/PrinterSettings.qml:210
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Usuń drukarkę"
@@ -667,12 +660,10 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Domyślna drukarka"
+msgstr "** Domyślna drukarka"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

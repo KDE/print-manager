@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-21 23:26+0100\n"
+"PO-Revision-Date: 2024-05-25 15:43+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -671,6 +671,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Instal-Eraro (pako: %1)\n"
+"Kontrolu aŭtentigajn akreditaĵojn kaj certigu ke PackageKit estas instalita"
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

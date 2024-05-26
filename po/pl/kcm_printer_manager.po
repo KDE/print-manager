@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2024-04-28 12:19+0200\n"
+"PO-Revision-Date: 2024-05-25 12:51+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -42,20 +42,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Nie udało się pobrać ustawień serwera: %1"
 
 #: printermanager.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Błąd serwera: (%1): %2"
+msgstr "Nie zapisano ustawień serwera: (%1): %2"
 
 #: printermanager.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Nie udało się pobrać ustawień serwera: %1"
+msgstr "Błąd kluczowy przy zapisywaniu ustawienia serwera: (%1): %2"
 
 #: printermanager.cpp:569
 #, kde-format
@@ -277,12 +273,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "Wybierz wpis ręcznych ustawień z listy"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "Ustawienia serwera drukowania"
+msgstr "Ustawienia serwera CUPS"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -305,7 +299,7 @@ msgstr "Zastosuj"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "Zaczekaj, aż serwer CUPS uruchomi się ponownie"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -592,20 +586,17 @@ msgid "Apply"
 msgstr "Zastosuj"
 
 #: ui/PrinterSettings.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "Wpisz niepowtarzalną nazwę kolejki, bo jest ona wymagana."
+msgstr "Wymagana jest nazwa kolejki. Wpisz taką, co jeszcze nie istnieje."
 
 #: ui/PrinterSettings.qml:121
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Wpisz niepowtarzalną nazwę kolejki, bo jest ona wymagana."
+msgstr ""
+"Nazwa kolejki musi być niepowtarzalna. Wpisz taką, co jeszcze nie istnieje."
 
 #: ui/PrinterSettings.qml:129
 #, fuzzy, kde-format
@@ -628,18 +619,16 @@ msgid "Failed to remove the printer: %1"
 msgstr "Nie udało się usunąć drukarki: %1"
 
 #: ui/PrinterSettings.qml:201
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Usuń grupę"
+msgstr "Usuwanie grupy"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Usuń drukarkę"
+msgstr "Czy usunąć drukarkę?"
 
 #: ui/PrinterSettings.qml:204
 #, kde-format
@@ -648,15 +637,13 @@ msgid "'%1' will be removed."
 msgstr ""
 
 #: ui/PrinterSettings.qml:211
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Usuń grupę"
 
 #: ui/PrinterSettings.qml:212
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Usuń drukarkę"

@@ -226,8 +226,9 @@ void KCupsConnection::init()
     m_subscriptionTimer->moveToThread(this);
     connect(m_subscriptionTimer, &QTimer::timeout, this, &KCupsConnection::updateSubscription, Qt::DirectConnection);
 
-    // Starts this thread
-    start();
+    // Bump "run" to the event queue. This should give any notify connections from the main
+    // thread time to complete before the thread starts.
+    QMetaObject::invokeMethod(this, static_cast<void (KCupsConnection::*)(QThread::Priority)>(&KCupsConnection::start), Qt::QueuedConnection, QThread::Priority::InheritPriority);
 }
 
 void KCupsConnection::run()
@@ -249,7 +250,6 @@ void KCupsConnection::run()
     // it on a blocking mode.
     cupsSetPasswordCB2(password_cb, m_passwordDialog);
 
-    m_inited = true;
     exec();
 
     // Event loop quit so cancelDBusSubscription()
@@ -357,6 +357,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
 
     ippDelete(response);
 
+    qCDebug(LIBKCUPS) << ret << ippOpString(operation) << events;
     return ret;
 }
 
@@ -370,9 +371,11 @@ void KCupsConnection::connectNotify(const QMetaMethod &signal)
 {
     QMutexLocker locker(&m_mutex);
     QString event = eventForSignal(signal);
-    if (!event.isNull()) {
+    // Don't add a dup event
+    if (!event.isNull() && !m_connectedEvents.contains(event)) {
         m_connectedEvents << event;
         QMetaObject::invokeMethod(m_subscriptionTimer, "start", Qt::QueuedConnection);
+        qCDebug(LIBKCUPS) << Q_FUNC_INFO << event;
     }
 }
 
@@ -383,6 +386,7 @@ void KCupsConnection::disconnectNotify(const QMetaMethod &signal)
     if (!event.isNull()) {
         m_connectedEvents.removeOne(event);
         QMetaObject::invokeMethod(m_subscriptionTimer, "start", Qt::QueuedConnection);
+        qCDebug(LIBKCUPS) << Q_FUNC_INFO << event;
     }
 }
 
@@ -458,34 +462,28 @@ QString KCupsConnection::eventForSignal(const QMetaMethod &signal) const
 void KCupsConnection::updateSubscription()
 {
     QMutexLocker locker(&m_mutex);
-    // Build the current list
-    QStringList currentEvents = m_connectedEvents;
-    currentEvents.sort();
-    currentEvents.removeDuplicates();
+    // Reset the event list if it has changed
+    if (m_requestedDBusEvents != m_connectedEvents) {
+        m_requestedDBusEvents = m_connectedEvents;
 
-    // Check if the requested events are already being asked
-    if (m_requestedDBusEvents != currentEvents) {
-        m_requestedDBusEvents = currentEvents;
-
-        // If we already have a subscription lets cancel
-        // and create a new one
+        // If we already have a subscription then cancel it
         if (m_subscriptionId >= 0) {
             cancelDBusSubscription();
         }
 
-        // Calculates the new events
         renewDBusSubscription();
     }
 }
 
 void KCupsConnection::renewDBusSubscription()
 {
-    // check if we have a valid subscription ID
+    // Renew the subscription if we have a valid subscription ID
     if (m_subscriptionId >= 0) {
         m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
     }
 
-    // The above request might fail if the subscription was cancelled
+    // Verify subscription, if not valid and we have events, reset
+    // otherwise, stop the subscription renewal timer
     if (m_subscriptionId < 0) {
         if (m_requestedDBusEvents.isEmpty()) {
             m_renewTimer->stop();
@@ -507,6 +505,7 @@ void KCupsConnection::cancelDBusSubscription()
         ippDelete(request.sendIppRequest());
     } while (retry(qUtf8Printable(request.resource()), request.operation()));
 
+    qCDebug(LIBKCUPS) << "CANCELSUB:" << m_subscriptionId;
     // Reset the subscription id
     m_subscriptionId = -1;
 }

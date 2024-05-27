@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-25 15:43+0200\n"
+"PO-Revision-Date: 2024-05-26 22:24+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -831,7 +831,7 @@ msgstr "HTTP"
 #: src/libkcups/DevicesModel.cpp:104
 #, kde-format
 msgid "IPP network printer via DNS-SD"
-msgstr "IPP retprintilo per DNS-SD"
+msgstr "IPP retpresilo per DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:106
 #, kde-format
@@ -841,7 +841,7 @@ msgstr "LPD-reta presilo per DNS-SD"
 #: src/libkcups/DevicesModel.cpp:108
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr "AppSocket/JetDirect retprintilo per DNS-SD"
+msgstr "AppSocket/JetDirect retpresilo per DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:122
 #, kde-format
@@ -909,7 +909,7 @@ msgstr "Reta presilo per DNS-SD"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
-msgstr "%1 retprintilo per DNS-SD"
+msgstr "%1 retpresilo per DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:223
 #, kde-format

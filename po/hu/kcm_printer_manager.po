@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2024-04-25 13:09+0200\n"
+"PO-Revision-Date: 2024-05-26 21:31+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: printermanager.cpp:255
 #, kde-format
@@ -41,20 +41,16 @@ msgid "Failed to get server settings: %1"
 msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
 
 #: printermanager.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Kiszolgálóhiba: (%1): %2"
+msgstr "A kiszolgálóbeállítások nincsenek mentve: (%1): %2"
 
 #: printermanager.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
+msgstr "Végzetes hiba a kiszolgálóbeállítások mentésekor: (%1): %2"
 
 #: printermanager.cpp:569
 #, kde-format
@@ -74,6 +70,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Telepítési hiba (csomag: %1)\n"
+"Ellenőrizze a hitelesítő adatokat, és győződjön meg róla, hogy a PackageKit "
+"megfelelően telepítve van-e."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -88,11 +87,10 @@ msgid "Address:"
 msgstr "Cím:"
 
 #: ui/components/BaseDevice.qml:121
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "Adja meg a gép URI-jét"
+msgstr "Adja meg az eszköz címét"
 
 #: ui/components/Direct.qml:23
 #, kde-format
@@ -112,12 +110,10 @@ msgstr ""
 "ki az illesztőprogramot kézzel."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Illesztőprogram kiválasztása…"
+msgstr "Illesztőprogram-mentesség kiválasztása…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -140,50 +136,40 @@ msgstr ""
 "kapcsolat típusától függenek"
 
 #: ui/components/Drivers.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "Nyomtató illesztőprogram (%1)"
+msgstr "Illesztőprogram-mentes (%1)"
 
 #: ui/components/Drivers.qml:132
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "PPD-fájl:"
+msgstr "PPD-fájl (%1)"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Sornyomtató-démon (LPD) protokoll"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Adja meg a távoli gép/eszköz címét"
+msgstr "Adja meg az LPD-eszköz címét"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Sor neve:"
+msgstr "Nyomtatási sor:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Sor neve:"
+msgstr "LPD nyomtatási sor neve"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -196,7 +182,7 @@ msgstr "Folytatás címmel…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr ""
+msgstr "Érvénytelen LPD URL: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -226,15 +212,13 @@ msgstr "Ez a funkció még nem érhető el (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "AppSocket protokoll (avagy JetDirect)"
 
 #: ui/components/Socket.qml:18
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "Adja meg a távoli gép/eszköz címét"
+msgstr "Adja meg az AppSocket eszköz címét"
 
 #: ui/components/Socket.qml:63
 #, kde-format
@@ -645,35 +629,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "Nem sikerült eltávolítani a nyomtatót: %1"
 
 #: ui/PrinterSettings.qml:201
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Csoport eltávolítása"
+msgstr "Csoport eltávolítása?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Nyomtató eltávolítása"
+msgstr "Nyomtató eltávolítása?"
 
 #: ui/PrinterSettings.qml:204
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "A(z) „%1” el lesz távolítva."
 
 #: ui/PrinterSettings.qml:211
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Csoport eltávolítása"
 
 #: ui/PrinterSettings.qml:212
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Nyomtató eltávolítása"
@@ -684,12 +664,10 @@ msgid "Cancel"
 msgstr "Mégse"
 
 #: ui/PrinterSettings.qml:389
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Alapértelmezett nyomtató"
+msgstr "** Alapértelmezett nyomtató"
 
 #: ui/PrinterSettings.qml:395
 #, kde-format
@@ -746,14 +724,13 @@ msgid "Queue Name:"
 msgstr "Sor neve:"
 
 #: ui/PrinterSettings.qml:525
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr ""
-"Egy <b>nyomtatócsoport</b> a nyomtatási erőforrások készletezésére szolgál."
+"Egy <interface>nyomtatócsoport</interface> a nyomtatási erőforrások "
+"készletezésére szolgál."
 
 #: ui/PrinterSettings.qml:533
 #, kde-format

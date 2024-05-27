@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2024-05-25 12:51+0200\n"
+"PO-Revision-Date: 2024-05-26 11:04+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
+" || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:255
@@ -71,6 +71,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Błąd wgrywania (pakiet: %1)\n"
+"Sprawdź swoje dane dostępowe i upewnij się, że masz poprawnie wgrany pakiet "
+"PackageKit."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -327,35 +330,35 @@ msgstr ""
 "Pozwól użytkownikom zaniechać wszystkich zadań (nie tylko swoich własnych)"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
+#, kde-format
 #| msgid "Printer Groups"
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Grupy drukarek"
+msgstr "Pomocnicy ustawiania drukarek"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Pomyślnie ukończono wgrywanie"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Nie udało się wgrać"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Wgrywanie…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Zgłoś ten błąd na %1"
 
 #: ui/main.qml:29
 #, kde-format
@@ -377,6 +380,10 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Pakiet obsługujący drukarkę, który dostarcza pewnych wygód nie wydaje się "
+"być wgrany.<nl/><nl/>Nie możemy umożliwić jego wgrania, bo wydawca twojego "
+"systemu nie dostarcza PackageKit, więc musisz wgrać pakiet <command>system-"
+"config-printer</command> ręcznie."
 
 #: ui/main.qml:71
 #, kde-format
@@ -385,12 +392,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Pakiet obsługujący drukarkę, który dostarcza pewnych wygód nie wydaje się "
+"być wgrany."
 
 #: ui/main.qml:77
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Wgraj ją"
 
 #: ui/main.qml:108
 #, kde-format
@@ -599,13 +608,13 @@ msgstr ""
 "Nazwa kolejki musi być niepowtarzalna. Wpisz taką, co jeszcze nie istnieje."
 
 #: ui/PrinterSettings.qml:129
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@info:status"
 #| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
-"Wytwórca/model jest wymagany. Naciśnij \"Wybierz\", aby wybrać wytwórcę/model"
+"Wytwórca/Model jest wymagany. Naciśnij \"Wybierz\", aby wybrać Wytwórcę/Model"
 
 #: ui/PrinterSettings.qml:139
 #, kde-format
@@ -634,7 +643,7 @@ msgstr "Czy usunąć drukarkę?"
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "'%1' zostanie usunięta."
 
 #: ui/PrinterSettings.qml:211
 #, kde-format
@@ -654,12 +663,12 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #: ui/PrinterSettings.qml:389
-#, fuzzy, kde-format
+#, kde-format
 #| msgctxt "@action:check Set default printer"
 #| msgid "Default printer"
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Domyślna drukarka"
+msgstr "** Domyślna drukarka"
 
 #: ui/PrinterSettings.qml:395
 #, kde-format
@@ -772,3 +781,4 @@ msgstr "Wybierz…"
 #~ msgctxt "@label:textbox"
 #~ msgid "Uri:"
 #~ msgstr "Uri:"
+

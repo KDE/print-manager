@@ -599,7 +599,7 @@ msgstr "队列名称必需唯一。请输入一个唯一的队列名称。"
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr ""
+msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/型号"
 
 #: ui/PrinterSettings.qml:139
 #, kde-format
@@ -628,7 +628,7 @@ msgstr "移除打印机？"
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "“%1”将被移除。"
 
 #: ui/PrinterSettings.qml:211
 #, kde-format
@@ -651,7 +651,7 @@ msgstr "取消"
 #, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr ""
+msgstr "** 默认打印机"
 
 #: ui/PrinterSettings.qml:395
 #, kde-format

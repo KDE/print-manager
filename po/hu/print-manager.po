@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-04-25 13:09+0200\n"
+"PO-Revision-Date: 2024-05-26 21:19+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.07.70\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -297,6 +297,8 @@ msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
 msgstr ""
+"MEGJEGYZÉS: Ez az alkalmazás elavult és eltávolításra kerül a Plasma egy "
+"jövőbeni kiadásában."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -324,10 +326,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Megváltoztatja a megadott nyomtató/eszközazonosító PPD-jét"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "Megváltoztatja a megadott nyomtató/eszközazonosító PPD-jét"
+msgstr "Az elvárt bemenetnek nyomtatónak/eszközazonosítónak kell lennie"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
@@ -642,20 +643,16 @@ msgid "Failed to get server settings: %1"
 msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
 
 #: src/kcm/printermanager.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Kiszolgálóhiba: (%1): %2"
+msgstr "A kiszolgálóbeállítások nincsenek mentve: (%1): %2"
 
 #: src/kcm/printermanager.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
+msgstr "Végzetes hiba a kiszolgálóbeállítások mentésekor: (%1): %2"
 
 #: src/kcm/printermanager.cpp:569
 #, kde-format
@@ -675,6 +672,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Telepítési hiba (csomag: %1)\n"
+"Ellenőrizze a hitelesítő adatokat, és győződjön meg róla, hogy a PackageKit "
+"megfelelően telepítve van-e."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

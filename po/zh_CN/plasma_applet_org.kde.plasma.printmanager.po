@@ -14,9 +14,9 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/print-manager/plasma_applet_org.kde."
+"X-Crowdin-File: /kf6-stable/messages/print-manager/plasma_applet_org.kde."
 "plasma.printmanager.pot\n"
-"X-Crowdin-File-ID: 48270\n"
+"X-Crowdin-File-ID: 52798\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
 #: src/plasmoid/package/contents/ui/main.qml:65

@@ -379,7 +379,6 @@ private:
 
     static KCupsConnection *m_instance;
 
-    bool m_inited = false;
     KCupsPasswordDialog *m_passwordDialog;
     QUrl m_serverUrl;
 

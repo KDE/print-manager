@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-25 00:40+0000\n"
-"PO-Revision-Date: 2024-05-19 09:55+0200\n"
+"PO-Revision-Date: 2024-05-27 14:35+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -70,6 +70,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Грешка при инсталирането (пакет: %1)\n"
+"Проверете пълномощията за удостоверяване и се уверете, че PackageKit е "
+"инсталиран правилно."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -326,35 +329,34 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr "Разрешаване на потребителите да спират задачи (не само своите)"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Принтерни групи"
+msgstr "Помощници за настройване на принтери"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Инсталацията е изпълнена успешно"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Неуспешно инсталиране на : "
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Инсталиране…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Докладвайте този проблем на %1"
 
 #: ui/main.qml:29
 #, kde-format
@@ -376,6 +378,11 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Пакетът за поддръжка на принтер, който осигурява удобни функции, изглежда не "
+"е инсталиран.<nl/><nl/>Тъй като тази дистрибуция не включва PackageKit, не "
+"можем да предоставим опция за инсталиране, така че ще трябва да използвате "
+"вашия мениджър на пакети, за да инсталирате ръчно пакета <command>system-"
+"config-printer</command>."
 
 #: ui/main.qml:71
 #, kde-format
@@ -384,12 +391,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Пакетът за поддръжка на принтера, който осигурява удобни функции, изглежда "
+"не е инсталиран."
 
 #: ui/main.qml:77
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Инсталиране"
 
 #: ui/main.qml:108
 #, kde-format
@@ -598,9 +607,7 @@ msgstr ""
 "Името на опашката трябва да е уникално. Въведете уникално име на опашката."
 
 #: ui/PrinterSettings.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
@@ -630,12 +637,10 @@ msgid "Remove Printer?"
 msgstr "Да се премахне ли принтера?"
 
 #: ui/PrinterSettings.qml:204
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr "“%1” ще бъде премахнат."
+msgstr "'%1” ще бъде премахнат."
 
 #: ui/PrinterSettings.qml:211
 #, kde-format
@@ -655,12 +660,10 @@ msgid "Cancel"
 msgstr "Отказване"
 
 #: ui/PrinterSettings.qml:389
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Принтер по подразбиране"
+msgstr "** Принтер по подразбиране"
 
 #: ui/PrinterSettings.qml:395
 #, kde-format

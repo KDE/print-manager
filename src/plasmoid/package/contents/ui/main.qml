@@ -18,10 +18,6 @@ import org.kde.plasma.printmanager as PrintManager
 
 PlasmoidItem {
 
-    property bool cfg_allJobs
-    property bool cfg_completedJobs
-    property bool cfg_activeJobs
-
     readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
         || Plasmoid.location === PlasmaCore.Types.RightEdge
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
@@ -30,27 +26,10 @@ PlasmoidItem {
     property alias serverUnavailable: printersModel.serverUnavailable
     property string printersModelError: ""
 
-    property int jobsFilter: Plasmoid.configuration.allJobs
-                                ? PrintManager.JobModel.WhichAll
-                                : Plasmoid.configuration.completedJobs
-                                    ? PrintManager.JobModel.WhichCompleted
-                                    : PrintManager.JobModel.WhichActive
-
-    onJobsFilterChanged: jobsModel.setWhichJobs(jobsFilter)
-
     PrintManager.PrinterModel {
         id: printersModel
         onError: (lastError, errorTitle, errorMsg) => {
             printersModelError = errorTitle;
-        }
-    }
-
-    PrintManager.JobSortFilterModel {
-        id: jobsFilterModel
-
-        sourceModel: PrintManager.JobModel {
-            id: jobsModel
-            Component.onCompleted: setWhichJobs(jobsFilter)
         }
     }
 
@@ -108,45 +87,6 @@ PlasmoidItem {
             return PlasmaCore.Types.HiddenStatus;
         }
     }
-
-    Plasmoid.contextualActions: [
-        PlasmaCore.Action {
-            text: i18n("Show All Jobs")
-            icon.name: "view-list-details"
-            checkable: true
-            checked: Plasmoid.configuration.allJobs
-            onTriggered: {
-                Plasmoid.configuration.allJobs = true;
-                Plasmoid.configuration.completedJobs = false;
-                Plasmoid.configuration.activeJobs = false;
-            }
-        },
-        PlasmaCore.Action {
-            text: i18n("Show Only Completed Jobs")
-            icon.name: "task-complete"
-            checkable: true
-            checked: Plasmoid.configuration.completedJobs
-            onTriggered: {
-                Plasmoid.configuration.allJobs = false;
-                Plasmoid.configuration.completedJobs = true;
-                Plasmoid.configuration.activeJobs = false;
-            }
-        },
-        PlasmaCore.Action {
-            text: i18n("Show Only Active Jobs")
-            icon.name: "task-recurring"
-            checkable: true
-            checked: Plasmoid.configuration.activeJobs
-            onTriggered: {
-                Plasmoid.configuration.allJobs = false;
-                Plasmoid.configuration.completedJobs = false;
-                Plasmoid.configuration.activeJobs = true;
-            }
-        },
-        PlasmaCore.Action {
-            isSeparator: true
-        }
-    ]
 
     // Overwrite default configure menu item
     PlasmaCore.Action {

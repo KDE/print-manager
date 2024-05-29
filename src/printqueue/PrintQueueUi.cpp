@@ -40,6 +40,24 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
 {
     ui->setupUi(this);
 
+    // This is emitted when a printer is modified
+    connect(KCupsConnection::global(), &KCupsConnection::printerModified, this, &PrintQueueUi::updatePrinter);
+
+    // This is emitted when a printer has it's state changed
+    connect(KCupsConnection::global(), &KCupsConnection::printerStateChanged, this, &PrintQueueUi::updatePrinter);
+
+    // This is emitted when a printer is stopped
+    connect(KCupsConnection::global(), &KCupsConnection::printerStopped, this, &PrintQueueUi::updatePrinter);
+
+    // This is emitted when a printer is restarted
+    connect(KCupsConnection::global(), &KCupsConnection::printerRestarted, this, &PrintQueueUi::updatePrinter);
+
+    // This is emitted when a printer is shutdown
+    connect(KCupsConnection::global(), &KCupsConnection::printerShutdown, this, &PrintQueueUi::updatePrinter);
+
+    // This is emitted when a printer is removed
+    connect(KCupsConnection::global(), &KCupsConnection::printerDeleted, this, &PrintQueueUi::updatePrinter);
+
     // since setupUi needs to setup on the mainWidget()
     // we need to manually connect the buttons
     connect(ui->cancelJobPB, &QPushButton::clicked, this, &PrintQueueUi::cancelJob);
@@ -122,30 +140,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
         header->hideSection(JobModel::ColSize);
         header->hideSection(JobModel::ColFromHost);
     }
-
-    // This is emitted when a printer is modified
-    connect(KCupsConnection::global(), &KCupsConnection::printerModified, this, &PrintQueueUi::updatePrinter);
-
-    // This is emitted when a printer has it's state changed
-    connect(KCupsConnection::global(), &KCupsConnection::printerStateChanged, this, &PrintQueueUi::updatePrinter);
-
-    // This is emitted when a printer is stopped
-    connect(KCupsConnection::global(), &KCupsConnection::printerStopped, this, &PrintQueueUi::updatePrinter);
-
-    // This is emitted when a printer is restarted
-    connect(KCupsConnection::global(), &KCupsConnection::printerRestarted, this, &PrintQueueUi::updatePrinter);
-
-    // This is emitted when a printer is shutdown
-    connect(KCupsConnection::global(), &KCupsConnection::printerShutdown, this, &PrintQueueUi::updatePrinter);
-
-    // This is emitted when a printer is removed
-    connect(KCupsConnection::global(), &KCupsConnection::printerDeleted, this, &PrintQueueUi::updatePrinter);
-
-    // This is emitted when a printer/queue is changed
-    // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrintQueueUi::updatePrinterByName);
 
     updatePrinterByName(m_destName);
 

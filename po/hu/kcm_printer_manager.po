@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-26 21:31+0200\n"
+"PO-Revision-Date: 2024-05-29 09:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -223,7 +223,7 @@ msgstr "Adja meg az AppSocket eszköz címét"
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "Érvénytelen foglalat URL: %1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -276,12 +276,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "Válasszon egy kézi konfigurációs beállítást a listából"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "Nyomtatókiszolgáló-beállítások"
+msgstr "CUPS kiszolgáló beállításai"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -304,7 +302,7 @@ msgstr "Alkalmaz"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "Kérjük, várjon amíg a CUPS kiszolgáló újraindul"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -331,35 +329,34 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr "A felhasználók bármely feladatot (nem csak a sajátjukat) törölhetik"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Nyomtatócsoportok"
+msgstr "Nyomtatótelepítő segéd"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "A telepítés sikeresen befejeződött"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Telepítés sikertelen"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Telepítés…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Hiba jelentése ide: %1"
 
 #: ui/main.qml:28
 #, kde-format
@@ -381,6 +378,11 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Egy nyomtatót támogató csomag, amely kényelmi funkciókat biztosít, úgy tűnik "
+"nincs telepítve.<nl/><nl/>Mivel ez a disztribúció nem tartalmazza a "
+"PackageKitet, nem tudunk telepítési lehetőséget biztosítani, saját kezűleg "
+"kell telepítenie a <command>system-config-printer</command> csomagot a "
+"csomagkezelővel."
 
 #: ui/main.qml:69
 #, kde-format
@@ -389,12 +391,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Egy nyomtatót támogató csomag, amely kényelmi funkciókat biztosít, úgy tűnik "
+"nincs telepítve."
 
 #: ui/main.qml:75
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Telepítés"
 
 #: ui/main.qml:106
 #, kde-format
@@ -572,12 +576,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "CUPS nyomtatóáttekintő súgó"
 
 #: ui/PrinterSettings.qml:87
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "CUPS nyomtatókiszolgáló-adminsztráció"
+msgstr "Nyomtató/Eszközadminisztrációs oldal"
 
 #: ui/PrinterSettings.qml:105
 #, kde-format
@@ -592,25 +594,20 @@ msgid "Apply"
 msgstr "Alkalmaz"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "A sor neve szükséges. Adjon meg egy egyedi nevet a sornak."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "A sor neve szükséges. Adjon meg egy egyedi nevet a sornak."
+msgstr ""
+"A sor nevének egyedinek kell lennie. Adjon meg egy egyedi nevet a sornak."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
@@ -621,7 +618,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
-msgstr ""
+msgstr "%1 beállítása, kérjük várjon…"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format

@@ -590,11 +590,10 @@ msgid "Queue name must be unique. Enter a unique queue name."
 msgstr ""
 
 #: ui/PrinterSettings.qml:129
-#, fuzzy, kde-format
-#| msgid "Printer model is required.  Please select a printer model."
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr "Je potřeba model tiskárny. Prosím, vyberte jej."
+msgstr ""
 
 #: ui/PrinterSettings.qml:139
 #, kde-format
@@ -643,12 +642,10 @@ msgid "Cancel"
 msgstr "Zrušit"
 
 #: ui/PrinterSettings.qml:389
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Výchozí tiskárna"
+msgstr ""
 
 #: ui/PrinterSettings.qml:395
 #, kde-format

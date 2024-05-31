@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-04-06 17:40+0200\n"
+"PO-Revision-Date: 2024-05-22 00:28+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -641,20 +641,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Impossibile recuperare le impostazioni del server: %1"
 
 #: src/kcm/printermanager.cpp:510
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Errore del server: (%1): %2"
+msgstr "Impostazioni del server non salvate: (%1): %2"
 
 #: src/kcm/printermanager.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Impossibile recuperare le impostazioni del server: %1"
+msgstr "Errore fatale nel salvataggio delle impostazioni del server: (%1): %2"
 
 #: src/kcm/printermanager.cpp:569
 #, kde-format
@@ -674,6 +670,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Errore di installazione (pacchetto: %1)\n"
+"Verifica le credenziali di autenticazione e assicurati che PackageKit sia "
+"installato correttamente."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

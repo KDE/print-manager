@@ -763,17 +763,3 @@ msgstr "Марка и модел:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Избиране…"
-
-#~ msgid "Set Default Options"
-#~ msgstr "Задаване на стандартните настройки"
-
-#~ msgctxt "@option:check"
-#~ msgid "Auto Configure"
-#~ msgstr "Автоматично настройване"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "Сигурни ли сте, че наистина искате да премахнете: %1 (%2)?"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "Uri:"

@@ -236,7 +236,7 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
             request->waitTillFinished();
         }
     } else {
-        if (!args.isEmpty()) {
+        if (!args.isEmpty() || !fileName.isEmpty()) {
             request->addOrModifyPrinter(name, args, fileName);
             request->waitTillFinished();
         }

@@ -346,7 +346,7 @@ Kirigami.Dialog {
                 acceptLabel: i18n("Select")
                 nameFilters: [i18n("PostScript Printer Description Files (*.ppd)")]
 
-                onAccepted: customFilename.text = currentFile
+                onAccepted: customFilename.text = String(currentFile).replace("file://", "")
             }
         }
     }

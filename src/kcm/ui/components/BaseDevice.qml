@@ -64,7 +64,7 @@ ColumnLayout {
     }
 
     // Return a URL, return null if it fails
-    function getUrl(uri : string) : string {
+    function getUrl(uri : string) : var {
         try {
             const url = new URL(uri)
             return url

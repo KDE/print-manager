@@ -139,7 +139,6 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
     request->waitTillFinished();
 
     if (request) {
-        url.setScheme(u"ipp"_s);
         const auto printers = request->printers();
         if (request->hasError()) {
             Q_EMIT requestError(request->errorMsg());
@@ -161,9 +160,9 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
                                                      {u"printer-make"_s, make},
                                                      {KCUPS_PRINTER_MAKE_AND_MODEL, mm}}));
             }
+            Q_EMIT remotePrintersLoaded();
         }
 
-        Q_EMIT remotePrintersLoaded();
         request->deleteLater();
     }
 

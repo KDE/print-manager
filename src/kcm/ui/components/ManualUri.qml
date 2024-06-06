@@ -32,33 +32,33 @@ BaseDevice {
     ]
 
     onUriSearch: uri => {
-        if (uriItem.parseUri(uri)) {
-           kcm.getRemotePrinters(uri, compLoader.selector)
-        } else {
-           kcm.clearRemotePrinters()
-           list.model = ""
-           setSearchPrefix()
-        }
-    }
+                     const url = getUrl(uri)
+                     if (url.hostname !== "") {
+                        kcm.getRemotePrinters(uri, compLoader.selector)
+                     }
+                 }
 
     contentItem: ColumnLayout {
         width: uriItem.width
         spacing: Kirigami.Units.smallSpacing
 
-        Component.onCompleted: setSearchPrefix()
-
-        function setSearchPrefix() {
+        Component.onCompleted: {
             uriItem.uriText = compLoader.selector !== "other"
                     ? compLoader.selector + ":"
                     : "ipp:"
         }
 
-        // Remote printers load finished
         Connections {
             target: kcm
 
             function onRemotePrintersLoaded() {
-                list.model = kcm.remotePrinters
+                if (kcm.remotePrinters.length === 0) {
+                    setError(i18nc("@info:status", "No Printers found at host: %1", uriText))
+                }
+            }
+
+            function onRequestError(msg) {
+                setError(i18nc("@info:status", "CUPS request error (%1): %2", uriText, msg))
             }
         }
 
@@ -87,6 +87,12 @@ BaseDevice {
                     }
                 }
             }
+
+            Kirigami.ContextualHelpButton {
+                toolTipText: xi18nc("@info:whatsthis", "If the printer address is known, enter it and choose <interface>Continue</interface>.
+                    If the printer is on a remote host, enter that address and choose <interface>Search</interface>.")
+            }
+
         }
 
         // remote printer list
@@ -106,6 +112,7 @@ BaseDevice {
                 id: list
                 currentIndex: -1
                 clip: true
+                model: kcm.remotePrinters
 
                 activeFocusOnTab: true
                 keyNavigationWraps: true

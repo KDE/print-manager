@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-19 21:16\n"
+"PO-Revision-Date: 2024-06-02 05:50\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -674,6 +674,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Не ўдалося ўсталяваць (пакет: %1)\n"
+"Праверце ўліковыя даныя для аўтэнтыфікацыі і пераканайцеся, што PackageKit "
+"усталяваны правільна."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
@@ -1064,7 +1067,7 @@ msgstr "Тэставая старонка"
 #: src/libkcups/KCupsRequest.cpp:421
 #, kde-format
 msgid "Unable to send command to printer driver!"
-msgstr "Не ўдалося адправіць загад драйверу прынтара!"
+msgstr ""
 
 #: src/libkcups/KCupsRequest.cpp:549
 #, kde-format

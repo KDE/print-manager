@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:41+0000\n"
+"POT-Creation-Date: 2024-06-12 00:40+0000\n"
 "PO-Revision-Date: 2023-12-12 16:32+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -618,30 +618,30 @@ msgstr "Aseta oletusasetukset"
 msgid "Query Printer for Default Options"
 msgstr "Kysy tulostimelta oletusasetukset"
 
-#: src/kcm/printermanager.cpp:255
+#: src/kcm/printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Luokan määritys epäonnistui: "
 
-#: src/kcm/printermanager.cpp:255
+#: src/kcm/printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Tulostimen määritys epäonnistui: "
 
-#: src/kcm/printermanager.cpp:422
+#: src/kcm/printermanager.cpp:421
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Pyynnön toteuttaminen epäonnistui: %1"
 
-#: src/kcm/printermanager.cpp:474
+#: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Palvelinasetusten nouto epäonnistui: %1"
 
-#: src/kcm/printermanager.cpp:510
+#: src/kcm/printermanager.cpp:509
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -649,7 +649,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Palvelinvirhe: (%1): %2"
 
-#: src/kcm/printermanager.cpp:517
+#: src/kcm/printermanager.cpp:516
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -657,12 +657,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Palvelinasetusten nouto epäonnistui: %1"
 
-#: src/kcm/printermanager.cpp:569
+#: src/kcm/printermanager.cpp:568
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Tulosta itsetestaussivu"
 
-#: src/kcm/printermanager.cpp:575
+#: src/kcm/printermanager.cpp:574
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puhdista tulostuspäät"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:40+0000\n"
+"POT-Creation-Date: 2024-06-12 00:40+0000\n"
 "PO-Revision-Date: 2024-05-25 21:29+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,47 +17,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: printermanager.cpp:255
+#: printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Configurazione della classe non riuscita: "
 
-#: printermanager.cpp:255
+#: printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Configurazione della stampante non riuscita: "
 
-#: printermanager.cpp:422
+#: printermanager.cpp:421
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Impossibile eseguire la richiesta: %1"
 
-#: printermanager.cpp:474
+#: printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Impossibile recuperare le impostazioni del server: %1"
 
-#: printermanager.cpp:510
+#: printermanager.cpp:509
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Impostazioni del server non salvate: (%1): %2"
 
-#: printermanager.cpp:517
+#: printermanager.cpp:516
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Errore fatale nel salvataggio delle impostazioni del server: (%1): %2"
 
-#: printermanager.cpp:569
+#: printermanager.cpp:568
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Stampa pagina di prova automatica"
 
-#: printermanager.cpp:575
+#: printermanager.cpp:574
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Pulisci le testine della stampante"
@@ -195,11 +195,31 @@ msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Inserisci l'indirizzo dell'host/dispositivo remoto"
 
+#: ui/components/ManualUri.qml:56
+#, kde-format
+msgctxt "@info:status"
+msgid "No Printers found at host: %1"
+msgstr ""
+
+#: ui/components/ManualUri.qml:61
+#, kde-format
+msgctxt "@info:status"
+msgid "CUPS request error (%1): %2"
+msgstr ""
+
 #: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Seleziona una stampante…"
+
+#: ui/components/ManualUri.qml:92
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If the printer address is known, enter it and choose <interface>Continue</"
+"interface>."
+msgstr ""
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

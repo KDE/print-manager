@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:40+0000\n"
+"POT-Creation-Date: 2024-06-12 00:40+0000\n"
 "PO-Revision-Date: 2022-09-27 17:15+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -18,47 +18,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: printermanager.cpp:255
+#: printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr ""
 
-#: printermanager.cpp:255
+#: printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr ""
 
-#: printermanager.cpp:422
+#: printermanager.cpp:421
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Gagal melakukan permintaan: %1"
 
-#: printermanager.cpp:474
+#: printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr ""
 
-#: printermanager.cpp:510
+#: printermanager.cpp:509
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: printermanager.cpp:517
+#: printermanager.cpp:516
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr ""
 
-#: printermanager.cpp:569
+#: printermanager.cpp:568
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Cetak Halaman Uji Diri"
 
-#: printermanager.cpp:575
+#: printermanager.cpp:574
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Bersihkan Kepala Cetak"
@@ -189,12 +189,32 @@ msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr ""
 
+#: ui/components/ManualUri.qml:56
+#, kde-format
+msgctxt "@info:status"
+msgid "No Printers found at host: %1"
+msgstr ""
+
+#: ui/components/ManualUri.qml:61
+#, kde-format
+msgctxt "@info:status"
+msgid "CUPS request error (%1): %2"
+msgstr ""
+
 #: ui/components/ManualUri.qml:71
 #, fuzzy, kde-format
 #| msgid "Remove Printer"
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Hapus Printer"
+
+#: ui/components/ManualUri.qml:92
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If the printer address is known, enter it and choose <interface>Continue</"
+"interface>."
+msgstr ""
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

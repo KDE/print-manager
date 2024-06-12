@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:41+0000\n"
+"POT-Creation-Date: 2024-06-12 00:40+0000\n"
 "PO-Revision-Date: 2024-06-02 05:50\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -621,47 +621,47 @@ msgstr "Вызначыць прадвызначаныя параметры"
 msgid "Query Printer for Default Options"
 msgstr "Запытаць прынтар для прадвызначаных параметраў"
 
-#: src/kcm/printermanager.cpp:255
+#: src/kcm/printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не ўдалося наладзіць клас: "
 
-#: src/kcm/printermanager.cpp:255
+#: src/kcm/printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не ўдалося наладзіць прынтар: "
 
-#: src/kcm/printermanager.cpp:422
+#: src/kcm/printermanager.cpp:421
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не ўдалося выканаць запыт: %1"
 
-#: src/kcm/printermanager.cpp:474
+#: src/kcm/printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не ўдалося атрымаць налады сервера: %1"
 
-#: src/kcm/printermanager.cpp:510
+#: src/kcm/printermanager.cpp:509
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Налады сервера не захаваныя: (%1): %2"
 
-#: src/kcm/printermanager.cpp:517
+#: src/kcm/printermanager.cpp:516
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Пры захаванні налад сервера адбылася фатальная памылка: (%1): %2"
 
-#: src/kcm/printermanager.cpp:569
+#: src/kcm/printermanager.cpp:568
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукаваць старонку самаправярання"
 
-#: src/kcm/printermanager.cpp:575
+#: src/kcm/printermanager.cpp:574
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Ачышчэнне друкавальных галовак"

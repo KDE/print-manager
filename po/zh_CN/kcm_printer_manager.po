@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-25 00:40+0000\n"
+"POT-Creation-Date: 2024-06-12 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,47 +17,47 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
 "X-Crowdin-File-ID: 48268\n"
 
-#: printermanager.cpp:255
+#: printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "配置打印机类失败："
 
-#: printermanager.cpp:255
+#: printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "配置打印机失败："
 
-#: printermanager.cpp:422
+#: printermanager.cpp:421
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "执行请求失败：%1"
 
-#: printermanager.cpp:474
+#: printermanager.cpp:473
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "获取服务器设置失败：%1"
 
-#: printermanager.cpp:510
+#: printermanager.cpp:509
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "服务器设置没有保存：(%1)：%2"
 
-#: printermanager.cpp:517
+#: printermanager.cpp:516
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "保存服务器设置时发生致命错误：(%1)：%2"
 
-#: printermanager.cpp:569
+#: printermanager.cpp:568
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: printermanager.cpp:575
+#: printermanager.cpp:574
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
@@ -192,11 +192,31 @@ msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "输入远程主机/设备的地址"
 
+#: ui/components/ManualUri.qml:56
+#, kde-format
+msgctxt "@info:status"
+msgid "No Printers found at host: %1"
+msgstr ""
+
+#: ui/components/ManualUri.qml:61
+#, kde-format
+msgctxt "@info:status"
+msgid "CUPS request error (%1): %2"
+msgstr ""
+
 #: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "选择打印机…"
+
+#: ui/components/ManualUri.qml:92
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If the printer address is known, enter it and choose <interface>Continue</"
+"interface>."
+msgstr ""
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

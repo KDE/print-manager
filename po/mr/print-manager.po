@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-22 00:41+0000\n"
+"POT-Creation-Date: 2024-06-12 00:40+0000\n"
 "PO-Revision-Date: 2013-03-15 15:30+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -599,7 +599,7 @@ msgstr "मूलभूत पर्याय निश्चित करा"
 msgid "Query Printer for Default Options"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:255
+#: src/kcm/printermanager.cpp:254
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -607,7 +607,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी"
 
-#: src/kcm/printermanager.cpp:255
+#: src/kcm/printermanager.cpp:254
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -615,13 +615,13 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी"
 
-#: src/kcm/printermanager.cpp:422
+#: src/kcm/printermanager.cpp:421
 #, fuzzy, kde-format
 #| msgid "Failed to release '%1'"
 msgid "Failed to perform request: %1"
 msgstr "'%1' हे सोडण्यास अपयश"
 
-#: src/kcm/printermanager.cpp:474
+#: src/kcm/printermanager.cpp:473
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer: '%1'"
@@ -629,13 +629,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
 
-#: src/kcm/printermanager.cpp:510
+#: src/kcm/printermanager.cpp:509
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:517
+#: src/kcm/printermanager.cpp:516
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer: '%1'"
@@ -643,12 +643,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
 
-#: src/kcm/printermanager.cpp:569
+#: src/kcm/printermanager.cpp:568
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्व-चाचणी पान छापा"
 
-#: src/kcm/printermanager.cpp:575
+#: src/kcm/printermanager.cpp:574
 #, kde-format
 msgid "Clean Print Heads"
 msgstr ""

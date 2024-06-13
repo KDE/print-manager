@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-22 14:00+0200\n"
+"PO-Revision-Date: 2024-06-12 10:05+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -200,13 +200,13 @@ msgstr "Het adres van de host/het apparaat op afstand invoeren"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Geen printers gevonden op host: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Fout in verzoek aan CUPS: (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -221,6 +221,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Als het adres van de printer bekend is, voer het in en kies "
+"<interface>Doorgaan</interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

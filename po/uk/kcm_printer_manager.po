@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-22 08:57+0300\n"
+"PO-Revision-Date: 2024-06-12 19:01+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -201,13 +201,13 @@ msgstr "Введіть адресу віддаленого вузла або п�
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Не знайдено принтерів на вузлі: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Помилка запиту CUPS (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -222,6 +222,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Якщо адреса принтера відома, введіть її і виберіть <interface>Продовжити</"
+"interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

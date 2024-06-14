@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-22 10:53+0200\n"
+"PO-Revision-Date: 2024-06-12 09:33+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -202,13 +202,13 @@ msgstr "Introduïu l'adreça del servidor/dispositiu remot"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "No s'ha trobat cap impressora en el servidor: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Error de sol·licitud del CUPS (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -223,6 +223,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Si es coneix l'adreça de la impressora, introduïu-la i trieu "
+"<interface>Continua</interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

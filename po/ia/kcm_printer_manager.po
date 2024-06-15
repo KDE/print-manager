@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-22 17:51+0200\n"
+"PO-Revision-Date: 2024-06-14 12:26+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -199,13 +199,13 @@ msgstr "Inserta le adresse del dispositivo/hospite remote"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Necun imprimitores trovate al hospite: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Error de requesta de CUPS (%1) : %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -220,6 +220,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Si le adresse de tu imprimitor es cognoscite, tu inserta lo e selige "
+"<interface>Continua</interface>"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

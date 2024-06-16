@@ -196,13 +196,13 @@ msgstr "输入远程主机/设备的地址"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "在主机 %1 上没有找到打印机"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "CUPS 请求错误 (%1)：%2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -217,6 +217,7 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"如果您知道打印机的地址，请输入该地址并点击 <interface>继续</interface>。"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-23 23:34+0100\n"
+"PO-Revision-Date: 2024-06-1510:04+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -198,13 +198,13 @@ msgstr "Enigu la adreson de la fora gastiganto/aparato"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Neniuj presiloj trovitaj ĉe gastiganto: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "CUPS-aldemanda eraro (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -219,6 +219,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Se la adreso de la presilo estas konata, enigu ĝin kaj elektu "
+"<interface>Daŭrigi</interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

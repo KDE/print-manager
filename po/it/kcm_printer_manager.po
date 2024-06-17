@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-25 21:29+0200\n"
+"PO-Revision-Date: 2024-06-16 21:57+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -199,13 +199,13 @@ msgstr "Inserisci l'indirizzo dell'host/dispositivo remoto"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Nessuna stampante trovata sull'host: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Errore di richiesta CUPS (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -220,6 +220,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Se l'indirizzo della stampante è noto, inserirlo qui e scegliere "
+"<interface>Continua</interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

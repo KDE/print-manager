@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-06-01 17:50\n"
+"PO-Revision-Date: 2024-06-20 17:30\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -204,13 +204,13 @@ msgstr "Увядзіце адрас адлеглага хоста або пры�
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Не знойдзена прынтараў на хосце: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Не ўдалося выканаць запыт CUPS (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -225,6 +225,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Калі адрас прынтара вядомы, увядзіце яго і абярыце <interface>Працягнуць</"
+"interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format

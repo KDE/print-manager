@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-04-23 21:40+0200\n"
+"PO-Revision-Date: 2024-06-25 21:58+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -44,20 +44,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
 
 #: printermanager.cpp:509
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Zerbitzariaren errorea: (%1): %2"
+msgstr "Zerbitzariaren ezarpenak ez dira gorde: (%1): %2"
 
 #: printermanager.cpp:516
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
+msgstr "Zerbitzariaren ezarpenak gordetzeko errore larria: (%1): %2"
 
 #: printermanager.cpp:568
 #, kde-format
@@ -77,6 +73,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Instalazio errorea (paketea: %1)\n"
+"Egiaztatu autentifikazio-egiaztagiriak eta ziurtatu PakageKit zuzen "
+"instalatuta dagoela."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -154,31 +153,25 @@ msgstr "PPD fitxategia (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "LPD (Line Printer Daemon) protokoloa"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the AppSocket device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Sartu «AppSocket» gailuren helbidea"
+msgstr "Sartu LPD gailuren helbidea"
 
 #: ui/components/Lpd.qml:61
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Ilararen izena:"
+msgstr "Ilara:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Ilararen izena:"
+msgstr "LPD ilararen izena"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -188,11 +181,10 @@ msgid "Continue with Address…"
 msgstr "Jarraitu helbidearekin..."
 
 #: ui/components/Lpd.qml:90
-#, fuzzy, kde-format
-#| msgid "Invalid Socket URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "URL hargune baliogabea: %1"
+msgstr "LPD URL baliogabea: %1"
 
 #: ui/components/ManualUri.qml:21
 #, kde-format
@@ -210,13 +202,13 @@ msgstr "Sartu urruneko ostalari/gailuren helbidea"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Ostalarian ez da inprimagailurik aurkitu: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "CUPS erakaeraren errorea (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -231,6 +223,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Inprimagailuaren helbidea ezaguna bada, sar ezazu eta hautatu "
+"<interface>Jarraitu</interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -306,12 +300,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "Hautatu zerrendatik, eskuz konfiguratzeko aukera bat"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "Inprimatze zerbitzariaren ezarpenak"
+msgstr "CUPS zerbitzariaren ezarpenak"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -334,7 +326,7 @@ msgstr "Aplikatu"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "Mesedez, itxoin CUPS zerbitzaria berrabiatu bitartean"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -363,35 +355,34 @@ msgstr ""
 "bakarrik)"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Inprimagailu taldeak"
+msgstr "Inprimagailu ezarpen laguntzaileak"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Instalatzea ondo burutu da"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Instalazioak huts egin du"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Instalatzen..."
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Eman arazo honen berri %1(e)ri"
 
 #: ui/main.qml:29
 #, kde-format
@@ -413,6 +404,11 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Erabilgarritasun-funtzioak ematen dituen inprimagailu-euskarrirako pakete "
+"bat instalatu gabe dagoela dirudi.<nl/><nl/>Banaketa honek PackageKit ez "
+"dakarrenez, ezin dugu instalatzeko aukera bat eman, hori dela eta zure "
+"pakete kudeatzailea erabili beharko duzu <command>system-config-printer</"
+"command> paketea eskuz instalatzeko."
 
 #: ui/main.qml:71
 #, kde-format
@@ -421,12 +417,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Erabilgarritasun-funtzioak ematen dituen inprimagailu-euskarrirako pakete "
+"bat instalatu gabe dagoela dirudi."
 
 #: ui/main.qml:77
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Instalatu"
 
 #: ui/main.qml:108
 #, kde-format
@@ -623,29 +621,24 @@ msgid "Apply"
 msgstr "Aplikatu"
 
 #: ui/PrinterSettings.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "Ilararen izena beharrezkoa da. Sartu ilara-izen erabili gabe bat."
+msgstr "Ilararen izena beharrezkoa da. Sartu erabili gabeko ilara-izen bat."
 
 #: ui/PrinterSettings.qml:121
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Ilararen izena beharrezkoa da. Sartu ilara-izen erabili gabe bat."
+msgstr ""
+"Ilararen izena esklusiboa izan behar da. Sartu erabili gabeko ilara-izen bat."
 
 #: ui/PrinterSettings.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
-"Marka/eredua beharrezkoa da. Aukeratu \"Aukeratu\" marka/eredua hautatzeko"
+"Marka/eredua beharrezkoa da. Hautatu \"Aukeratu\" marka/eredua hautatzeko"
 
 #: ui/PrinterSettings.qml:139
 #, kde-format
@@ -659,35 +652,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "Inprimagailua kentzea huts egin du: %1"
 
 #: ui/PrinterSettings.qml:201
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Kendu taldea"
+msgstr "Taldea kendu?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Kendu inprimagailua"
+msgstr "Inprimagailua kendu?"
 
 #: ui/PrinterSettings.qml:204
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "'%1' kenduko da."
 
 #: ui/PrinterSettings.qml:211
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Kendu taldea"
 
 #: ui/PrinterSettings.qml:212
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Kendu inprimagailua"
@@ -698,12 +687,10 @@ msgid "Cancel"
 msgstr "Utzi"
 
 #: ui/PrinterSettings.qml:389
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Inprimagailu lehenetsia"
+msgstr "** Inprimagailu lehenetsia"
 
 #: ui/PrinterSettings.qml:395
 #, kde-format
@@ -760,15 +747,13 @@ msgid "Queue Name:"
 msgstr "Ilararen izena:"
 
 #: ui/PrinterSettings.qml:525
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid "A <b>printer group</b> is used to pool printing resources."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr ""
-"<b>Inprimagailu talde</b> bat erabiltzen da inprimatzeko baliabideak "
-"biltzeko."
+"<interface>Inprimagailu talde</interface> bat inprimatzeko baliabideen funts "
+"bat sortzeko erabiltzen da."
 
 #: ui/PrinterSettings.qml:533
 #, kde-format

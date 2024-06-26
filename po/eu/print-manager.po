@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-04-19 23:20+0200\n"
+"PO-Revision-Date: 2024-06-25 22:01+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -651,20 +651,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
 
 #: src/kcm/printermanager.cpp:509
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Zerbitzariaren errorea: (%1): %2"
+msgstr "Zerbitzariaren ezarpenak ez dira gorde: (%1): %2"
 
 #: src/kcm/printermanager.cpp:516
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
+msgstr "Zerbitzariaren ezarpenak gordetzeko errore larria: (%1): %2"
 
 #: src/kcm/printermanager.cpp:568
 #, kde-format
@@ -684,6 +680,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Instalazio errorea (paketea: %1)\n"
+"Egiaztatu autentifikazio-egiaztagiriak eta ziurtatu PakageKit zuzen "
+"instalatuta dagoela."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format

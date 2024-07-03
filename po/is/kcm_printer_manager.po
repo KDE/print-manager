@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-06 15:22+0000\n"
+"PO-Revision-Date: 2024-06-30 15:40+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
 "Language: is\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -42,20 +42,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Mistókst að ná í stillingar prentþjóns: %1"
 
 #: printermanager.cpp:509
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Þjónsvilla: (%1): %2"
+msgstr "Stillingar prentþjóns ekki vistaðar: (%1): %2"
 
 #: printermanager.cpp:516
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Mistókst að ná í stillingar prentþjóns: %1"
+msgstr "Banvæn villa við að vista stillingar prentþjóns: (%1): %2"
 
 #: printermanager.cpp:568
 #, kde-format
@@ -75,6 +71,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Uppsetningarvilla (pakki: %1)\n"
+"Athugaðu auðkennin þín og gakktu úr skugga um að PackageKit sé rétt uppsett."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -201,19 +199,19 @@ msgstr "Settu inn vistfangið á fjartengda vél/tæki"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Engir prentarar fundust: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Villa í CUPS-beiðni (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Veldu prentara…"
+msgstr "Velja prentara…"
 
 #: ui/components/ManualUri.qml:92
 #, kde-kuit-format
@@ -222,6 +220,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Ef þú veist vistfang prentarans skaltu slá það inn og velja <interface>Halda "
+"áfram</interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -297,12 +297,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "Veldu handvirka uppsetningu af listanum"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "Stillingar prentþjóns"
+msgstr "Stillingar CUPS-þjóns"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -325,7 +323,7 @@ msgstr "Virkja"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "Hinkraðu aðeins á meðan CUPS-þjónninn endurræsist"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -352,35 +350,34 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr "Leyfa notendum að hætta hvaða verki sem er (ekki bara þeirra eigin)"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Prentarahópar"
+msgstr "Aðstoð við prentarauppsetningu"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Uppsetningin tókst"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Uppsetningin mistókst"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Set upp..."
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Tilkynntu vandamálið til %1"
 
 #: ui/main.qml:29
 #, kde-format
@@ -402,6 +399,11 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Stuðningspakki prentara sem býður upp á þægindaeiginleika virðist ekki vera "
+"uppsettur.<nl/><nl/>Þar sem þessi útgáfa af Linux inniheldur ekki PackageKit "
+"getum við ekki boðið upp á uppsetningarvalkost, og því þarftu að nota "
+"pakkastjórann þinn til að setja upp pakkann <command>system-config-printer</"
+"command> handvirkt."
 
 #: ui/main.qml:71
 #, kde-format
@@ -410,12 +412,14 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Stuðningspakki prentara sem býður upp á þægindaeiginleika virðist ekki vera "
+"uppsettur."
 
 #: ui/main.qml:77
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Setja hann upp"
 
 #: ui/main.qml:108
 #, kde-format
@@ -611,30 +615,22 @@ msgid "Apply"
 msgstr "Virkja"
 
 #: ui/PrinterSettings.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "Nafn prentraðar er nauðsynlegt. Settu inn einstakt heiti."
+msgstr "Heiti á prentröðina er nauðsynlegt. Sláðu inn einstakt heiti."
 
 #: ui/PrinterSettings.qml:121
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Nafn prentraðar er nauðsynlegt. Settu inn einstakt heiti."
+msgstr "Heiti prentraðar verður að vera einstakt. Sláðu inn einstakt heiti."
 
 #: ui/PrinterSettings.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr ""
-"Framleiðandi/Gerð er nauðsynlegt. Farðu í \"Velja\" til að velja "
-"framleiðanda og gerð"
+msgstr "Gerð/tegund er nauðsynleg. Veldu \"Velja\" til að velja gerð/tegund"
 
 #: ui/PrinterSettings.qml:139
 #, kde-format
@@ -648,35 +644,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "Mistókst að fjarlægja prentarann: %1"
 
 #: ui/PrinterSettings.qml:201
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Fjarlægja hóp"
+msgstr "Fjarlægja hóp?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Fjarlægja prentara"
+msgstr "Fjarlægja prentara?"
 
 #: ui/PrinterSettings.qml:204
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "'%1' verður fjarlægður."
 
 #: ui/PrinterSettings.qml:211
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Fjarlægja hóp"
 
 #: ui/PrinterSettings.qml:212
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Fjarlægja prentara"
@@ -687,12 +679,10 @@ msgid "Cancel"
 msgstr "Hætta við"
 
 #: ui/PrinterSettings.qml:389
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Sjálfgefinn prentari"
+msgstr "** Sjálfgefinn prentari"
 
 #: ui/PrinterSettings.qml:395
 #, kde-format

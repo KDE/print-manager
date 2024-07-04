@@ -105,8 +105,9 @@ KCM.ScrollViewKCM {
 
     actions: [
         Kirigami.Action {
-            text: i18nc("@action:button", "Add Printer…")
-            icon.name: "printer-symbolic"
+            text: i18nc("@action:button The thing being added is a printer", "Add…")
+            Accessible.name: i18nc("@action:button", "Add Printer…")
+            icon.name: "list-add-symbolic"
             onTriggered: {
                 checkServerSettings()
                 const dlg = findComp.createObject(root)

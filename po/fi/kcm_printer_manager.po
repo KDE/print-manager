@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-07-06 00:40+0000\n"
 "PO-Revision-Date: 2024-04-08 17:17+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -435,29 +435,35 @@ msgstr ""
 
 #: ui/main.qml:108
 #, kde-format
+msgctxt "@action:button The thing being added is a printer"
+msgid "Add…"
+msgstr ""
+
+#: ui/main.qml:109
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Lisää tulostin…"
 
-#: ui/main.qml:117
+#: ui/main.qml:118
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Lisää ryhmä…"
 
-#: ui/main.qml:126
+#: ui/main.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Tulostinpalvelimen asetukset…"
 
-#: ui/main.qml:231
+#: ui/main.qml:232
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Tulostimia ei ole vielä asetettu"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -466,47 +472,47 @@ msgid ""
 msgstr ""
 "Aseta uusi tulostin valitsemalla <interface>Lisää tulostin…</interface>"
 
-#: ui/main.qml:242
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "Tulostimet"
 
-#: ui/main.qml:242
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr "Tulostinryhmät"
 
-#: ui/main.qml:280
+#: ui/main.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Asetukset…"
 
-#: ui/main.qml:301
+#: ui/main.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Avaa tulostusjono…"
 
-#: ui/main.qml:318
+#: ui/main.qml:319
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Jatka"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Tauko"
 
-#: ui/main.qml:333
+#: ui/main.qml:334
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Jatka tulostusta"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-07-06 00:40+0000\n"
 "PO-Revision-Date: 2024-02-27 21:43+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -431,29 +431,35 @@ msgstr ""
 
 #: ui/main.qml:108
 #, kde-format
+msgctxt "@action:button The thing being added is a printer"
+msgid "Add…"
+msgstr ""
+
+#: ui/main.qml:109
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Добавить принтер…"
 
-#: ui/main.qml:117
+#: ui/main.qml:118
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Добавить группу…"
 
-#: ui/main.qml:126
+#: ui/main.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Настроить сервер печати…"
 
-#: ui/main.qml:231
+#: ui/main.qml:232
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Не настроено ни одного принтера"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -463,47 +469,47 @@ msgstr ""
 "Выберите <interface>Добавить принтер</interface> для настройки нового "
 "принтера"
 
-#: ui/main.qml:242
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "Принтеры"
 
-#: ui/main.qml:242
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr "Группы принтеров"
 
-#: ui/main.qml:280
+#: ui/main.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Настроить…"
 
-#: ui/main.qml:301
+#: ui/main.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Открыть очередь печати…"
 
-#: ui/main.qml:318
+#: ui/main.qml:319
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Возобновить"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Приостановить"
 
-#: ui/main.qml:333
+#: ui/main.qml:334
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Продолжить печать"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-07-01 19:00+0200\n"
+"POT-Creation-Date: 2024-07-06 00:40+0000\n"
+"PO-Revision-Date: 2024-07-05 15:58+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -424,79 +424,85 @@ msgstr "Инсталиране"
 
 #: ui/main.qml:108
 #, kde-format
+msgctxt "@action:button The thing being added is a printer"
+msgid "Add…"
+msgstr ""
+
+#: ui/main.qml:109
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Добавяне на принтер…"
 
-#: ui/main.qml:117
+#: ui/main.qml:118
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Добавяне на група…"
 
-#: ui/main.qml:126
+#: ui/main.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Конфигуриране на сървър за печат…"
 
-#: ui/main.qml:231
+#: ui/main.qml:232
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "В момента не са конфигурирани никакви принтери"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add Printer…</interface> to set up a new printer on this "
 "computer"
 msgstr ""
-"Изберете <interface>Добавяне на принтер...</interface>, за да настроите нов "
+"Изберете <interface>Добавяне на принтер…</interface>, за да настроите нов "
 "принтер на този компютър"
 
-#: ui/main.qml:242
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "Принтери"
 
-#: ui/main.qml:242
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr "Принтерни групи"
 
-#: ui/main.qml:280
+#: ui/main.qml:281
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Конфигуриране…"
 
-#: ui/main.qml:301
+#: ui/main.qml:302
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
-msgstr "Отваряне на опашката за печат..."
+msgstr "Отваряне на опашката за печат…"
 
-#: ui/main.qml:318
+#: ui/main.qml:319
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Възобновяване"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Пауза"
 
-#: ui/main.qml:333
+#: ui/main.qml:334
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Възобновяване на печата"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -557,7 +563,7 @@ msgstr "PPD файл:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "Изберете PPD файл..."
+msgstr "Изберете PPD файл…"
 
 #: ui/MakeModel.qml:346
 #, kde-format
@@ -733,7 +739,7 @@ msgstr "Почистване на главите"
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr "Намиране на принтер..."
+msgstr "Намиране на принтер…"
 
 #: ui/PrinterSettings.qml:508
 #, kde-format

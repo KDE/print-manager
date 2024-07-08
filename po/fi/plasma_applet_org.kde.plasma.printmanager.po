@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 02:33+0000\n"
 "PO-Revision-Date: 2023-12-12 16:31+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Tulostimet"
 
@@ -28,7 +28,7 @@ msgid "Printer Groups"
 msgstr "Tulostinryhmät"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Tulostimia ei ole havaittu tai määritetty"
 
@@ -36,39 +36,27 @@ msgstr "Tulostimia ei ole havaittu tai määritetty"
 msgid "No matches"
 msgstr "Ei osumia"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Jonossa on yksi tulostustyö"
 msgstr[1] "Jonossa on %1 tulostustyötä"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Tulosta %2 tulostimeen %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Tulostetaan tulostimeen %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "Tulostusjono on tyhjä"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Näytä kaikki työt"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Näytä vain valmiit työt"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Näytä vain aktiiviset työt"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "T&ulostinasetukset…"
 
@@ -87,6 +75,15 @@ msgstr "Tulostinasetukset…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Näytä tulostusjono…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Näytä kaikki työt"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Näytä vain valmiit työt"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Näytä vain aktiiviset työt"
 
 #~ msgid "Search…"
 #~ msgstr "Etsi…"

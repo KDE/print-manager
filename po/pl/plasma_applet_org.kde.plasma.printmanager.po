@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 02:33+0000\n"
 "PO-Revision-Date: 2023-12-16 10:46+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Drukarki"
 
@@ -28,7 +28,7 @@ msgid "Printer Groups"
 msgstr "Grupy drukarek"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Nie ustawiono, ani nie wykryto żadnych drukarek"
 
@@ -36,40 +36,28 @@ msgstr "Nie ustawiono, ani nie wykryto żadnych drukarek"
 msgid "No matches"
 msgstr "Brak pasujących wyrażeń"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Jest jedno zadanie drukowania w kolejce"
 msgstr[1] "Są %1 zadania drukowania w kolejce"
 msgstr[2] "Jest %1 zadań drukowania w kolejce"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Drukowanie %1 w %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Drukowanie %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "Kolejka drukowania jest pusta"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Pokaż wszystkie zadania"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Pokaż tylko ukończone zadania"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Pokaż tylko wykonywane zadania"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "&Ustawienia drukarek..."
 
@@ -88,6 +76,15 @@ msgstr "Ustawienia drukarki..."
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Obejrzyj kolejkę drukowania…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Pokaż wszystkie zadania"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Pokaż tylko ukończone zadania"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Pokaż tylko wykonywane zadania"
 
 #~ msgid "Search…"
 #~ msgstr "Szukaj..."

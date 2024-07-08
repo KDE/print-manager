@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 02:33+0000\n"
 "PO-Revision-Date: 2024-01-20 20:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -20,7 +20,7 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "الطّابعات"
 
@@ -29,7 +29,7 @@ msgid "Printer Groups"
 msgstr "مجموعات الطّابعة"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "لم تُضبط أو تُكتشف أيّ طابعة"
 
@@ -37,7 +37,7 @@ msgstr "لم تُضبط أو تُكتشف أيّ طابعة"
 msgid "No matches"
 msgstr "لا يوجد متطابقات"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "ليس هناك مهامّ طباعة في الطّابور"
@@ -47,33 +47,21 @@ msgstr[3] "هناك %1 مهمّات طباعة في الطّابور"
 msgstr[4] "هناك %1 مهمّة طباعة في الطّابور"
 msgstr[5] "هناك %1 مهمّة طباعة في الطّابور"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "يطبع %1 بواسطة %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "يطبع بواسطة %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "طابور الطّباعة فارغ"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "اعرض كلّ المهامّ"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "اعرض المهامّ المكتملة فقط"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "اعرض المهامّ النشطة"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "ا&ضبط الطّابعات…"
 
@@ -92,6 +80,15 @@ msgstr "اضبط الطّابعة…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "اعرض طابور الطّباعة…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "اعرض كلّ المهامّ"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "اعرض المهامّ المكتملة فقط"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "اعرض المهامّ النشطة"
 
 #~ msgid "Search…"
 #~ msgstr "ابحث..."

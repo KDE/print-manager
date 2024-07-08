@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-22 00:41+0000\n"
-"PO-Revision-Date: 2024-05-15 20:41+0200\n"
+"PO-Revision-Date: 2024-07-07 14:53+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -89,11 +89,10 @@ msgid "Address:"
 msgstr "Adresse:"
 
 #: ui/components/BaseDevice.qml:121
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "Skriv inn verts-URI"
+msgstr "Skriv inn einingsadresse"
 
 #: ui/components/Direct.qml:23
 #, kde-format
@@ -112,12 +111,10 @@ msgstr ""
 "for å prøva på nytt, eller vel ein drivar manuelt."
 
 #: ui/components/Drivers.qml:47
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Choose Driver…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Vel drivar …"
+msgstr "Vel drivarlaus …"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
@@ -155,15 +152,13 @@ msgstr "PPD-fil (%1)"
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Line Printer Daemon-protokoll (LPD)"
 
 #: ui/components/Lpd.qml:21
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Skriv inn adressa til den eksterne verten/eininga"
+msgstr "Skriv inn adressa til LPD-eininga"
 
 #: ui/components/Lpd.qml:61
 #, kde-format
@@ -172,12 +167,10 @@ msgid "Queue:"
 msgstr "Kø:"
 
 #: ui/components/Lpd.qml:66
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Kønamn:"
+msgstr "Namn på LPD-kø"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
@@ -231,7 +224,7 @@ msgstr "Skriv inn adressa til AppSocket-eininga"
 #: ui/components/Socket.qml:63
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "Ugyldig socket-adresse: %1"
 
 #: ui/FindPrinter.qml:86
 #, kde-format
@@ -309,7 +302,7 @@ msgstr "Bruk"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "Vent litt mens CUPS-tenaren vert starta på nytt"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -336,35 +329,34 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr "Tillat brukarar å kansellera alle jobbar (ikkje berre deira eigne)"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Skrivargrupper"
+msgstr "Hjelparar for skrivaroppsett"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Installasjonen er fullført"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Installasjonen var mislukka"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Installerer …"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Meld frå om feilen til %1"
 
 #: ui/main.qml:28
 #, kde-format
@@ -399,7 +391,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Installer han"
 
 #: ui/main.qml:106
 #, kde-format
@@ -597,25 +589,19 @@ msgid "Apply"
 msgstr "Bruk"
 
 #: ui/PrinterSettings.qml:114
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "Kønamn er obligatorisk. Skriv inn eit unikt kønamn."
 
 #: ui/PrinterSettings.qml:119
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "Kønamn er obligatorisk. Skriv inn eit unikt kønamn."
+msgstr "Kønamnet må vera unikt. Skriv inn eit unikt kønamn."
 
 #: ui/PrinterSettings.qml:127
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Merke og modell er obligatorisk. Trykk «Vel» for å velja merke/modell."
@@ -644,9 +630,7 @@ msgid "Remove Printer?"
 msgstr "Vil du fjerna skrivaren?"
 
 #: ui/PrinterSettings.qml:202
-#, fuzzy, kde-format
-#| msgctxt "@info %1 is the name of a printer or printer group"
-#| msgid "“%1” will be removed."
+#, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "«%1» vert fjerna."
@@ -669,12 +653,10 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: ui/PrinterSettings.qml:387
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "Standardskrivar"
+msgstr "** Standardskrivar"
 
 #: ui/PrinterSettings.qml:393
 #, kde-format

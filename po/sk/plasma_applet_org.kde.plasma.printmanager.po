@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 02:33+0000\n"
 "PO-Revision-Date: 2022-04-09 20:17+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Tlačiarne"
 
@@ -30,7 +30,7 @@ msgid "Printer Groups"
 msgstr "Tlačiarne"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Žiadne tlačiarne neboli nastavené alebo nájdené"
 
@@ -38,40 +38,28 @@ msgstr "Žiadne tlačiarne neboli nastavené alebo nájdené"
 msgid "No matches"
 msgstr "Žiadne zhody"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Vo fronte je jedna tlačová úloha"
 msgstr[1] "Vo fronte sú %1 tlačové úlohy"
 msgstr[2] "Vo fronte je %1 tlačových úloh"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Tlačí sa dokument %1 na tlačiarni %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Tlačí sa na tlačiarni %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "Tlačová fronta je prázdna"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Zobraziť všetky úlohy"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Zobraziť iba dokončené úlohy"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Zobraziť iba aktívne úlohy"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
@@ -96,6 +84,15 @@ msgstr "Nastaviť tlačiareň..."
 #| msgid "View print queue"
 msgid "View print queue…"
 msgstr "Otvoriť tlačovú frontu"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Zobraziť všetky úlohy"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Zobraziť iba dokončené úlohy"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Zobraziť iba aktívne úlohy"
 
 #~ msgid "Search…"
 #~ msgstr "Hľadať..."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 02:33+0000\n"
 "PO-Revision-Date: 2024-03-17 17:58+0100\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Generator: Lokalize 24.04.70\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Tiskalniki"
 
@@ -32,7 +32,7 @@ msgid "Printer Groups"
 msgstr "Skupine tiskalnikov"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Nastavljenega ali odkritega ni bilo nobenega tiskalnika"
 
@@ -40,7 +40,7 @@ msgstr "Nastavljenega ali odkritega ni bilo nobenega tiskalnika"
 msgid "No matches"
 msgstr "Ni zadetkov"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "V vrsti je %1 tiskalnih poslov"
@@ -48,33 +48,21 @@ msgstr[1] "V vrsti je %1 tiskalni posel"
 msgstr[2] "V vrsti sta %1 tiskalna posla"
 msgstr[3] "V vrsti so %1 tiskalni posli"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Tiskanje %1 z %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Tiskanje z %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "Tiskalna vrsta je prazna"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Prikaži vse posle"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Prikaži samo zaključene posle"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Prikaži samo dejavne posle"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "&Nastavi tiskalnike …"
 
@@ -93,6 +81,15 @@ msgstr "Nastavi tiskalnik …"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Pokaži tiskalno vrsto …"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Prikaži vse posle"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Prikaži samo zaključene posle"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Prikaži samo dejavne posle"
 
 #~ msgid "Search…"
 #~ msgstr "Išči…"

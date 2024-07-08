@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 02:33+0000\n"
 "PO-Revision-Date: 2024-01-02 15:21+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Nyomtatók"
 
@@ -29,7 +29,7 @@ msgid "Printer Groups"
 msgstr "Nyomtatócsoportok"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Nincs beállított vagy felfedezett nyomtató"
 
@@ -37,39 +37,27 @@ msgstr "Nincs beállított vagy felfedezett nyomtató"
 msgid "No matches"
 msgstr "Nincs találat"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Egy nyomtatási feladat van a várakozási sorban"
 msgstr[1] "%1 nyomtatási feladat van a várakozási sorban"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "A(z) %1 nyomtatása ezzel: %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Nyomtatás ezzel: %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "A nyomtatási sor üres"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Összes feladat megjelenítése"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Csak a befejezett feladatok megjelenítése"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Csak az aktív feladatok megjelenítése"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "Nyomtatók &beállítása…"
 
@@ -88,6 +76,15 @@ msgstr "Nyomtató beállítása…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Nyomtatási sor megtekintése…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Összes feladat megjelenítése"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Csak a befejezett feladatok megjelenítése"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Csak az aktív feladatok megjelenítése"
 
 #~ msgid "Resume printing"
 #~ msgstr "Nyomtatás folytatása"

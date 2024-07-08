@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2019-05-22 22:28+0900\n"
 "Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Lokalize 19.04.1\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "プリンタ"
 
@@ -28,7 +28,7 @@ msgid "Printer Groups"
 msgstr "プリンタ"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "設定または検出されたプリンタはありません"
 
@@ -36,44 +36,26 @@ msgstr "設定または検出されたプリンタはありません"
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "%1 つの印刷ジョブがキューにあります"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 を %2 で印刷しています"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 で印刷しています"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "印刷キューは空です"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-#, fuzzy
-#| msgid "All jobs"
-msgid "Show All Jobs"
-msgstr "すべてのジョブ"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-#, fuzzy
-#| msgid "Completed jobs only"
-msgid "Show Only Completed Jobs"
-msgstr "完了したジョブのみ"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-#, fuzzy
-#| msgid "No active jobs"
-msgid "Show Only Active Jobs"
-msgstr "アクティブなジョブなし"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
@@ -98,3 +80,18 @@ msgstr "プリンタを設定"
 #| msgid "Open print queue"
 msgid "View print queue…"
 msgstr "印刷キューを開く"
+
+#, fuzzy
+#~| msgid "All jobs"
+#~ msgid "Show All Jobs"
+#~ msgstr "すべてのジョブ"
+
+#, fuzzy
+#~| msgid "Completed jobs only"
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "完了したジョブのみ"
+
+#, fuzzy
+#~| msgid "No active jobs"
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "アクティブなジョブなし"

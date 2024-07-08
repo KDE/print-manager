@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2023-11-11 14:12+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.2\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Impresoras"
 
@@ -29,7 +29,7 @@ msgid "Printer Groups"
 msgstr "Grupos de impresoras"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Non se configurou nin descubriu ningunha impresora."
 
@@ -37,39 +37,27 @@ msgstr "Non se configurou nin descubriu ningunha impresora."
 msgid "No matches"
 msgstr "Non hai coincidencias"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Hai un traballo de impresión na cola."
 msgstr[1] "Hai %1 traballos de impresión na cola."
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Imprimindo %1 con %2."
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Imprimindo con %1."
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "A cola de impresión está baleira."
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Amosar todas as tarefas"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Amosar só as tarefas completadas"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Amosar só as tarefas activas"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "&Configurar as impresoras…"
 
@@ -88,6 +76,15 @@ msgstr "Configurar a impresora…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Ver a cola de impresión…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Amosar todas as tarefas"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Amosar só as tarefas completadas"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Amosar só as tarefas activas"
 
 #~ msgid "Search…"
 #~ msgstr "Buscar…"

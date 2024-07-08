@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2023-11-09 13:05+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Imprimantes"
 
@@ -33,7 +33,7 @@ msgid "Printer Groups"
 msgstr "Groupes d'imprimantes"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Aucune imprimante n'a été configurée ou découverte"
 
@@ -41,39 +41,27 @@ msgstr "Aucune imprimante n'a été configurée ou découverte"
 msgid "No matches"
 msgstr "Aucune correspondance"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Il y a une tâche d'impression dans la file"
 msgstr[1] "Il a %1 tâches d'impression dans la file"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Impression de %1 avec %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Impression avec « %1 »"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "La file d'impression est vide"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Afficher toutes les tâches"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Afficher uniquement les tâches terminées"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Afficher uniquement les tâches actives"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "&Configurer les imprimantes…"
 
@@ -92,6 +80,15 @@ msgstr "Configurer une imprimante..."
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Afficher la file d'impression..."
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Afficher toutes les tâches"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Afficher uniquement les tâches terminées"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Afficher uniquement les tâches actives"
 
 #~ msgid "Search…"
 #~ msgstr "Rechercher..."

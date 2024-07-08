@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2023-11-07 13:28+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Impressores"
 
@@ -31,7 +31,7 @@ msgid "Printer Groups"
 msgstr "Grups d'impressores"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "No s'ha descobert o configurat cap impressora"
 
@@ -39,39 +39,27 @@ msgstr "No s'ha descobert o configurat cap impressora"
 msgid "No matches"
 msgstr "Sense coincidències"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Hi ha un treball d'impressió en la cua"
 msgstr[1] "Hi ha %1 treballs d'impressió en la cua"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "S'imprimix %1 per %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "S'imprimix per %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "La cua d'impressió està buida"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Mostra tots els treballs"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Mostra només els treballs completats"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Mostra només els treballs actius"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "&Configura les impressores…"
 
@@ -90,3 +78,12 @@ msgstr "Configura una impressora…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Mostra la cua d'impressió…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Mostra tots els treballs"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Mostra només els treballs completats"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Mostra només els treballs actius"

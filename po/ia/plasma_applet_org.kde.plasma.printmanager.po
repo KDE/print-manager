@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2023-11-08 11:10+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Imprimitores"
 
@@ -27,7 +27,7 @@ msgid "Printer Groups"
 msgstr "Gruppos de Imprimitor"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "On non trovava alcun imprimitor configurate o discoperite"
 
@@ -35,39 +35,27 @@ msgstr "On non trovava alcun imprimitor configurate o discoperite"
 msgid "No matches"
 msgstr "Nulle correspondentias"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Il ha un carga de imprimer in le cauda"
 msgstr[1] "Il ha %1 cargas de imrimer in le cauda"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Imprimer %1 con %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Imprimer  con %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "Cauda de imprimer es vacue"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Monstra omne cargas"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Monstra solmente cargas completate"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Monstra solmente cargas active"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "&Configura imprimitores..."
 
@@ -86,6 +74,15 @@ msgstr "Configura imprimitor…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Vider cauda de imprimer…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Monstra omne cargas"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Monstra solmente cargas completate"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Monstra solmente cargas active"
 
 #~ msgid "Search…"
 #~ msgstr "Cerca…"

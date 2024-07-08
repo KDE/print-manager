@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2024-01-01 08:49-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "ਪਰਿੰਟਰ"
 
@@ -27,7 +27,7 @@ msgid "Printer Groups"
 msgstr "ਪਰਿੰਟਰ ਗਰੁੱਪ"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "ਕੋਈ ਵੀ ਪਰਿੰਟਰ ਸੰਰਚਿਤ ਨਹੀਂ ਹੈ ਨਾ ਹੀ ਖੋਜਿਆ ਨਹੀਂ ਗਿਆ ਹੈ"
 
@@ -35,39 +35,27 @@ msgstr "ਕੋਈ ਵੀ ਪਰਿੰਟਰ ਸੰਰਚਿਤ ਨਹੀਂ ਹ�
 msgid "No matches"
 msgstr "ਕੋਈ ਮੇਲ ਨਹੀਂ"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "ਕਤਾਰ ਵਿੱਚ ਇੱਕ ਪਰਿੰਟ ਜੌਬ ਹੈ"
 msgstr[1] "ਕਤਾਰ ਵਿੱਚ %1 ਪਰਿੰਟ ਜੌਬਾਂ ਹਨ"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%2 ਨਾਲ %1 ਪਰਿੰਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 ਨਾਲ ਪਰਿੰਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "ਪਰਿੰਟ ਕਤਾਰ ਖਾਲੀ ਹੈ"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "ਸਭ ਜੌਬਾਂ ਨੂੰ ਵੇਖੋ"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "ਸਿਰਫ਼ ਪੂਰੀਆਂ ਹੋਈਆਂ ਜੌਬਾਂ ਨੂੰ ਹੀ ਵੇਖੋ"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "ਸਿਰਫ਼ ਸਰਗਰਮ ਜੌਬਾਂ ਨੂੰ ਹੀ ਵੇਖੋ"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "ਪਰਿੰਟਰਾਂ ਦੀ ਸੰਰਚਨਾ(&C)…"
 
@@ -86,6 +74,15 @@ msgstr "ਪਰਿੰਟਰ ਦੀ ਸੰਰਚਨਾ ਕਰੋ…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "ਪਰਿੰਟ ਕਤਾਰ ਨੂੰ ਵੇਖੋ…"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "ਸਭ ਜੌਬਾਂ ਨੂੰ ਵੇਖੋ"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "ਸਿਰਫ਼ ਪੂਰੀਆਂ ਹੋਈਆਂ ਜੌਬਾਂ ਨੂੰ ਹੀ ਵੇਖੋ"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "ਸਿਰਫ਼ ਸਰਗਰਮ ਜੌਬਾਂ ਨੂੰ ਹੀ ਵੇਖੋ"
 
 #, fuzzy
 #~| msgid "All jobs"

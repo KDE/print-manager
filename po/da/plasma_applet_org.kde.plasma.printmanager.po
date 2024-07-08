@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2022-08-08 17:42+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Printere"
 
@@ -29,7 +29,7 @@ msgid "Printer Groups"
 msgstr "Printere"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Ingen printere er blevet konfigureret eller opdaget"
 
@@ -37,39 +37,27 @@ msgstr "Ingen printere er blevet konfigureret eller opdaget"
 msgid "No matches"
 msgstr "Ingen fund"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Der er et udskriftsjob i køen"
 msgstr[1] "Der er %1 udskriftsjob i køen"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Udskriver %1 med %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Udskriver med %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "Udskriftskøen er tom"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Vis alle job"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Vis kun gennemførte job"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Vis kun aktive job"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
@@ -94,6 +82,15 @@ msgstr "Konfigurér printer..."
 #| msgid "View print queue"
 msgid "View print queue…"
 msgstr "Vis printkø"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Vis alle job"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Vis kun gennemførte job"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Vis kun aktive job"
 
 #~ msgid "Search…"
 #~ msgstr "Søg…"

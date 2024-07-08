@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:40+0000\n"
+"POT-Creation-Date: 2024-07-08 00:40+0000\n"
 "PO-Revision-Date: 2023-12-21 23:25+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.4\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/main.qml:44
 msgid "Printers"
 msgstr "Drucker"
 
@@ -26,7 +26,7 @@ msgid "Printer Groups"
 msgstr "Druckergruppen"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:86
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgid "No printers have been configured or discovered"
 msgstr "Es sind keine Drucker eingerichtet bzw. gefunden worden"
 
@@ -34,39 +34,27 @@ msgstr "Es sind keine Drucker eingerichtet bzw. gefunden worden"
 msgid "No matches"
 msgstr "Keine Übereinstimmungen"
 
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Es befindet sich ein Druckauftrag in der Warteschlange"
 msgstr[1] "Es befinden sich %1 Druckaufträge in der Warteschlange"
 
-#: src/plasmoid/package/contents/ui/main.qml:79
+#: src/plasmoid/package/contents/ui/main.qml:58
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Drucken von %1 mit %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:81
+#: src/plasmoid/package/contents/ui/main.qml:60
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Drucken mit %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:84
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgid "Print queue is empty"
 msgstr "Die Druckerwarteschlange ist leer"
 
-#: src/plasmoid/package/contents/ui/main.qml:114
-msgid "Show All Jobs"
-msgstr "Alle Aufträge anzeigen"
-
-#: src/plasmoid/package/contents/ui/main.qml:125
-msgid "Show Only Completed Jobs"
-msgstr "Nur abgeschlossene Aufträge anzeigen"
-
-#: src/plasmoid/package/contents/ui/main.qml:136
-msgid "Show Only Active Jobs"
-msgstr "Nur aktive Aufträge anzeigen"
-
-#: src/plasmoid/package/contents/ui/main.qml:154
+#: src/plasmoid/package/contents/ui/main.qml:94
 msgid "&Configure Printers…"
 msgstr "&Drucker einrichten …"
 
@@ -85,6 +73,15 @@ msgstr "Drucker einrichten …"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Druckerwarteschlange anzeigen …"
+
+#~ msgid "Show All Jobs"
+#~ msgstr "Alle Aufträge anzeigen"
+
+#~ msgid "Show Only Completed Jobs"
+#~ msgstr "Nur abgeschlossene Aufträge anzeigen"
+
+#~ msgid "Show Only Active Jobs"
+#~ msgstr "Nur aktive Aufträge anzeigen"
 
 #~ msgid "Search…"
 #~ msgstr "Suchen ..."

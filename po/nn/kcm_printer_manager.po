@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-06 00:40+0000\n"
-"PO-Revision-Date: 2024-07-07 14:53+0200\n"
+"PO-Revision-Date: 2024-07-08 21:18+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -42,20 +42,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Klarte ikkje henta tenarinnstillingar: %1"
 
 #: printermanager.cpp:509
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Tenarfeil (%1): %2"
+msgstr "Tenarinnstillingar ikkje lagra: (%1): %2"
 
 #: printermanager.cpp:516
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Klarte ikkje henta tenarinnstillingar: %1"
+msgstr "Kritisk feil ved lagring av tenarinnstillingar: (%1): %2"
 
 #: printermanager.cpp:568
 #, kde-format
@@ -75,6 +71,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Feil ved installering (pakke: %1)\n"
+"Sjekk brukarnamn og passord, og sjå til at PackageKit er rett installert."
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -222,6 +220,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Om du kjenner skrivaradressa, så skriv ho inn og vel <interface>Hald fram</"
+"interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -398,6 +398,10 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"Ein skrivarstøtte-pakke for utvida skrivar­funksjonalitet er ikkje installert."
+"<nl/><nl/>Då denne distroen ikkje brukar PackageKit, kan me dessverre ikkje "
+"tilby automatisk installering. Du må derfor bruka pakke­handsamaren for å "
+"installera pakken <command>system-config-printer</command> manuelt."
 
 #: ui/main.qml:71
 #, kde-format
@@ -406,6 +410,7 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Ein skrivarstøtte-pakke for utvida skrivar­funksjonalitet er ikkje installert."
 
 #: ui/main.qml:77
 #, kde-format
@@ -595,12 +600,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Hjelp for CUPS-skrivaroversikt"
 
 #: ui/PrinterSettings.qml:89
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Administrering for CUPS-skrivarar"
+msgstr "Adminside for skrivar/eining"
 
 #: ui/PrinterSettings.qml:107
 #, kde-format

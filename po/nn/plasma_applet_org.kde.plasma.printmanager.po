@@ -75,12 +75,3 @@ msgstr "Set opp skrivar …"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Vis utskriftskø …"
-
-#~ msgid "Show All Jobs"
-#~ msgstr "Vis alle jobbar"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "Vis berre fullførte jobbar"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Vis berre verksame jobbar"

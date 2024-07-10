@@ -75,12 +75,3 @@ msgstr "Nastavit tiskárnu…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Zobrazit frontu tisku…"
-
-#~ msgid "Show All Jobs"
-#~ msgstr "Zobrazit všechny úlohy"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "Zobrazit pouze dokončené úlohy"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Zobrazit pouze aktivní úlohy"

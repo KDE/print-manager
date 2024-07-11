@@ -417,7 +417,7 @@ msgstr "安装该软件包"
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr ""
+msgstr "添加…"
 
 #: ui/main.qml:109
 #, kde-format

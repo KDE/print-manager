@@ -74,12 +74,3 @@ msgstr "配置打印机…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "查看打印队列…"
-
-#~ msgid "Show All Jobs"
-#~ msgstr "显示所有任务"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "仅显示已完成的任务"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "仅显示活动任务"

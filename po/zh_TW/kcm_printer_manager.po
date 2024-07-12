@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:40+0000\n"
+"POT-Creation-Date: 2024-07-12 00:40+0000\n"
 "PO-Revision-Date: 2024-05-05 17:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -644,46 +644,46 @@ msgstr "正在設定 %1，請稍候…。"
 msgid "Failed to remove the printer: %1"
 msgstr "無法移除印表機：%1"
 
-#: ui/PrinterSettings.qml:201
+#: ui/PrinterSettings.qml:203
 #, fuzzy, kde-format
 #| msgid "Remove Group"
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "移除群組"
 
-#: ui/PrinterSettings.qml:202
+#: ui/PrinterSettings.qml:204
 #, fuzzy, kde-format
 #| msgid "Remove Printer"
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "移除印表機"
 
-#: ui/PrinterSettings.qml:204
+#: ui/PrinterSettings.qml:206
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr ""
 
-#: ui/PrinterSettings.qml:211
+#: ui/PrinterSettings.qml:213
 #, fuzzy, kde-format
 #| msgid "Remove Group"
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "移除群組"
 
-#: ui/PrinterSettings.qml:212
+#: ui/PrinterSettings.qml:214
 #, fuzzy, kde-format
 #| msgid "Remove Printer"
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "移除印表機"
 
-#: ui/PrinterSettings.qml:221
+#: ui/PrinterSettings.qml:223
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: ui/PrinterSettings.qml:389
+#: ui/PrinterSettings.qml:391
 #, fuzzy, kde-format
 #| msgctxt "@action:check Set default printer"
 #| msgid "Default printer"
@@ -691,98 +691,98 @@ msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
 msgstr "預設印表機"
 
-#: ui/PrinterSettings.qml:395
+#: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "預設印表機"
 
-#: ui/PrinterSettings.qml:410
+#: ui/PrinterSettings.qml:412
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "分享這個群組"
 
-#: ui/PrinterSettings.qml:411
+#: ui/PrinterSettings.qml:413
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "分享這個印表機"
 
-#: ui/PrinterSettings.qml:418
+#: ui/PrinterSettings.qml:420
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "正在接受列印工作"
 
-#: ui/PrinterSettings.qml:467
+#: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "列印測試頁面"
 
-#: ui/PrinterSettings.qml:473
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "列印自我測試頁面"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "清潔列印噴頭"
 
-#: ui/PrinterSettings.qml:500
+#: ui/PrinterSettings.qml:502
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "尋找印表機…"
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:510
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "佇列名稱："
 
-#: ui/PrinterSettings.qml:525
+#: ui/PrinterSettings.qml:527
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr "<interface>印表機群組</interface>是用來組合列印資源的。"
 
-#: ui/PrinterSettings.qml:533
+#: ui/PrinterSettings.qml:535
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "描述："
 
-#: ui/PrinterSettings.qml:545
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "位置："
 
-#: ui/PrinterSettings.qml:557
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "連線："
 
-#: ui/PrinterSettings.qml:571
+#: ui/PrinterSettings.qml:573
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "成員印表機："
 
-#: ui/PrinterSettings.qml:708
+#: ui/PrinterSettings.qml:710
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "製造商/型號："
 
-#: ui/PrinterSettings.qml:723
+#: ui/PrinterSettings.qml:725
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-06 00:40+0000\n"
+"POT-Creation-Date: 2024-07-12 00:40+0000\n"
 "PO-Revision-Date: 2024-05-26 11:04+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -649,102 +649,102 @@ msgstr "Ustawianie %1, proszę czekać…"
 msgid "Failed to remove the printer: %1"
 msgstr "Nie udało się usunąć drukarki: %1"
 
-#: ui/PrinterSettings.qml:201
+#: ui/PrinterSettings.qml:203
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Usuwanie grupy"
 
-#: ui/PrinterSettings.qml:202
+#: ui/PrinterSettings.qml:204
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Czy usunąć drukarkę?"
 
-#: ui/PrinterSettings.qml:204
+#: ui/PrinterSettings.qml:206
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "'%1' zostanie usunięta."
 
-#: ui/PrinterSettings.qml:211
+#: ui/PrinterSettings.qml:213
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Usuń grupę"
 
-#: ui/PrinterSettings.qml:212
+#: ui/PrinterSettings.qml:214
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Usuń drukarkę"
 
-#: ui/PrinterSettings.qml:221
+#: ui/PrinterSettings.qml:223
 #, kde-format
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: ui/PrinterSettings.qml:389
+#: ui/PrinterSettings.qml:391
 #, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
 msgstr "** Domyślna drukarka"
 
-#: ui/PrinterSettings.qml:395
+#: ui/PrinterSettings.qml:397
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Domyślna drukarka"
 
-#: ui/PrinterSettings.qml:410
+#: ui/PrinterSettings.qml:412
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Udostępnij tę grupę"
 
-#: ui/PrinterSettings.qml:411
+#: ui/PrinterSettings.qml:413
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Udostępnij tę drukarkę"
 
-#: ui/PrinterSettings.qml:418
+#: ui/PrinterSettings.qml:420
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Przyjmowanie zadań drukowania"
 
-#: ui/PrinterSettings.qml:467
+#: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Wydrukuj stronę próbną"
 
-#: ui/PrinterSettings.qml:473
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Wydrukuj stronę próbną"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Wyczyść głowice drukujące"
 
-#: ui/PrinterSettings.qml:500
+#: ui/PrinterSettings.qml:502
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Poszukaj drukarki…"
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:510
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Nazwa kolejki:"
 
-#: ui/PrinterSettings.qml:525
+#: ui/PrinterSettings.qml:527
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -752,37 +752,37 @@ msgid ""
 msgstr ""
 "Do zbierania zasobów drukujących wykorzystywana jest <b>grupa drukarek</b>."
 
-#: ui/PrinterSettings.qml:533
+#: ui/PrinterSettings.qml:535
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Opis:"
 
-#: ui/PrinterSettings.qml:545
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Położenie:"
 
-#: ui/PrinterSettings.qml:557
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Połączenie:"
 
-#: ui/PrinterSettings.qml:571
+#: ui/PrinterSettings.qml:573
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Drukarki członkowskie:"
 
-#: ui/PrinterSettings.qml:708
+#: ui/PrinterSettings.qml:710
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Wytwórca/Model:"
 
-#: ui/PrinterSettings.qml:723
+#: ui/PrinterSettings.qml:725
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

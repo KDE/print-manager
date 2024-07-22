@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-26 11:04+0200\n"
+"PO-Revision-Date: 2024-07-21 06:54+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -199,13 +200,13 @@ msgstr "Wpisz adres zdalnego gospodarza/urządzenia"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Nie znaleziono żadnej drukarki na gospodarzu: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Błąd żądania CUPS (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -220,6 +221,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Jeśli adres drukarki jest znany, to wpisz go i naciśnij "
+"<interface>Kontynuuj</interface>."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -423,7 +426,7 @@ msgstr "Wgraj ją"
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr ""
+msgstr "Dodaj…"
 
 #: ui/main.qml:109
 #, kde-format

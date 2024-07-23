@@ -32,6 +32,7 @@ QtObject {
     }
 
     function clear() {
+        console.log("set in clear")
         set({})
     }
 
@@ -46,7 +47,8 @@ QtObject {
             // string
             delete pending[keylist]
         }
-
+        
+        console.log("set in remove")
         set()
     }
 
@@ -59,11 +61,13 @@ QtObject {
     }
 
     function add(key : string, value) {
+        console.log("add", key, value)
         if (key === undefined || key.length === 0 || value === undefined) {
             console.warn("KEY and VALUE must have values")
         } else {
             const obj = {}
             obj[key] = value
+            console.log("set in add")
             set(obj)
         }
     }
@@ -72,6 +76,7 @@ QtObject {
     // otherwise, clear pending
     // always set pending flag
     function set(obj) {
+        console.log("set", JSON.stringify(obj))
         if (obj !== undefined && typeof obj === "object") {
             if (Object.keys(obj).length > 0) {
                 Object.assign(pending, obj)
@@ -80,10 +85,13 @@ QtObject {
             }
         }
 
+        console.log("use pending count", usePendingCount)
         if (usePendingCount) {
             hasPending = Object.keys(pending).length > 0
+            console.log("hasPending", hasPending)
         } else {
             hasPending = JSON.stringify(__initial) !== JSON.stringify(pending)
+            console.log("hasPending", hasPending)
         }
     }
 
@@ -93,6 +101,7 @@ QtObject {
         } else {
             pending = Object.assign({}, __initial)
         }
+        console.log("set in reset")
         set()
     }
 }

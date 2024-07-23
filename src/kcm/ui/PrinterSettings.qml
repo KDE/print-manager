@@ -248,6 +248,7 @@ KCM.AbstractKCM {
                 driver.text     = configMap["printer-make-and-model"]
 
                 // Initialize the config map
+                console.log("set initial config", JSON.stringify(configMap))
                 config.set(configMap)
                 config.clean()
 
@@ -324,7 +325,9 @@ KCM.AbstractKCM {
         }
 
         onEditingFinished: {
+            console.log("editing finished", objectName, text, orig)
             if (!addMode) {
+                console.log("remove in printer field", objectName)
                 config.remove(objectName)
             }
 
@@ -692,8 +695,10 @@ KCM.AbstractKCM {
 
                                 // an empty member list implies the class should be removed
                                 if (Object.keys(cfg).length > 0) {
+                                    console.log("set in class", JSON.stringify(cfg))
                                     config.set(cfg)
                                 } else {
+                                    console.log("remove in class", memberList.objectName)
                                     config.remove(memberList.objectName)
                                 }
 

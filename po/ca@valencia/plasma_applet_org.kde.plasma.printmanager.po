@@ -78,12 +78,3 @@ msgstr "Configura una impressora…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Mostra la cua d'impressió…"
-
-#~ msgid "Show All Jobs"
-#~ msgstr "Mostra tots els treballs"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "Mostra només els treballs completats"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Mostra només els treballs actius"

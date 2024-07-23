@@ -467,20 +467,20 @@ KCM.AbstractKCM {
 
             QQC2.Button {
                 text: i18nc("@action:button", "Print Test Page")
-                icon.name: "document-print-symbolic"
+                icon.name: "document-print-preview-symbolic"
                 onClicked: kcm.printTestPage(modelData.printerName, modelData.isClass)
             }
 
             QQC2.Button {
                 text: i18nc("@action:button", "Print Self-Test Page")
-                icon.name: "document-print-symbolic"
+                icon.name: "document-print-preview-symbolic"
                 visible: modelData.commands.indexOf("PrintSelfTestPage") !== -1
                 onClicked: kcm.printSelfTestPage(modelData.printerName)
             }
 
             QQC2.Button {
                 text: i18nc("@action:button", "Clean Print Heads")
-                icon.name: "document-cleanup-symbolic"
+                icon.name: "edit-clear-all-symbolic"
                 visible: modelData.commands.indexOf("Clean") !== -1
                 onClicked: kcm.cleanPrintHeads(modelData.printerName)
             }

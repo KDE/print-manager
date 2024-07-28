@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-07-12 00:40+0000\n"
-"PO-Revision-Date: 2024-06-17 12:15+0300\n"
+"PO-Revision-Date: 2024-07-27 19:28+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -428,7 +428,7 @@ msgstr "Įdiegti jį"
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr ""
+msgstr "Pridėti…"
 
 #: ui/main.qml:109
 #, kde-format

@@ -130,6 +130,7 @@ KCM.ScrollViewKCM {
                 const comp = Qt.createComponent("Global.qml")
                 const dlg = comp.createObject(root)
                 dlg.open()
+                comp.destroy()
             }
         }
     ]

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-12 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:42+0000\n"
 "PO-Revision-Date: 2024-07-06 08:21+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -449,13 +449,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Configura el servidor d'impressió…"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Actualment no hi ha configurada cap impressora"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -465,47 +465,47 @@ msgstr ""
 "Feu clic en <interface>Afig una impressora…</interface> per a configurar una "
 "impressora nova en este ordinador"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Impressores"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Grups d'impressores"
 
-#: ui/main.qml:281
+#: ui/main.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Configura…"
 
-#: ui/main.qml:302
+#: ui/main.qml:303
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Obri la cua d'impressió…"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Reprén"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pausa"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Reprén la impressió"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

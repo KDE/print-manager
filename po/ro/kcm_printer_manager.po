@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-12 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:42+0000\n"
 "PO-Revision-Date: 2024-03-02 15:13+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -454,13 +454,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Configurează serverul de imprimare…"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Nu e configurată nicio imprimantă"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -470,47 +470,47 @@ msgstr ""
 "Apăsați <interface>Adaugă imprimantă…</interface> pentru a configura o nouă "
 "imprimantă pe calculator"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Imprimante"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Grupuri de imprimante"
 
-#: ui/main.qml:281
+#: ui/main.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Configurează…"
 
-#: ui/main.qml:302
+#: ui/main.qml:303
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Deschide coada de imprimare…"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Reia"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Întrerupe"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Reia tipărirea"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

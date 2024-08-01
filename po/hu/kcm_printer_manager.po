@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-12 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:42+0000\n"
 "PO-Revision-Date: 2024-05-29 09:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -444,13 +444,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Nyomtatókiszolgáló beállítása…"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Nincsenek beállítva nyomtatók"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -460,47 +460,47 @@ msgstr ""
 "Kattintson a <interface>Nyomtató hozzáadása</interface> gombra új nyomtató "
 "beállításához ezen a számítógépen"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Nyomtatók"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Nyomtatócsoportok"
 
-#: ui/main.qml:281
+#: ui/main.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Beállítás…"
 
-#: ui/main.qml:302
+#: ui/main.qml:303
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Nyomtatási sor megnyitása…"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Folytatás"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Szünet"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Nyomtatás folytatása"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

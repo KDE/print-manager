@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-12 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:42+0000\n"
 "PO-Revision-Date: 2024-07-08 16:55+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -430,13 +430,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Nastavit tiskový server…"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr ""
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -446,47 +446,47 @@ msgstr ""
 "Klikněte na <interface>Přidat tiskárnu…</interface> pro nastavení nové "
 "tiskárny na tomto počítači"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Tiskárny"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Skupiny tiskáren"
 
-#: ui/main.qml:281
+#: ui/main.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Nastavit…"
 
-#: ui/main.qml:302
+#: ui/main.qml:303
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Otevřít frontu tisku…"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Obnovit"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Pokračovat v tisku"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

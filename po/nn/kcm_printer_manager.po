@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-12 00:40+0000\n"
+"POT-Creation-Date: 2024-08-01 00:42+0000\n"
 "PO-Revision-Date: 2024-07-08 21:18+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -442,13 +442,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Set opp skrivartenar …"
 
-#: ui/main.qml:232
+#: ui/main.qml:233
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Ingen skrivarar er sette opp"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -458,47 +458,47 @@ msgstr ""
 "Trykk <interface>Legg til skrivar</interface> for å setja opp ein ny skrivar "
 "på maskina"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Skrivarar"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Skrivargrupper"
 
-#: ui/main.qml:281
+#: ui/main.qml:282
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure…"
 msgstr "Set opp …"
 
-#: ui/main.qml:302
+#: ui/main.qml:303
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Opna utskriftskø …"
 
-#: ui/main.qml:319
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Hald fram"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pause"
 
-#: ui/main.qml:334
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Hald fram med utskrift"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

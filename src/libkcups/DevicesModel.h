@@ -45,7 +45,7 @@ public:
     Q_ENUM(Kind)
 
     explicit DevicesModel(QObject *parent = nullptr);
-    virtual QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
 Q_SIGNALS:
     void loaded();

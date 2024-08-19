@@ -32,7 +32,7 @@ public:
     void setPPDs(const QList<QVariantMap> &ppds, const DriverMatchList &driverMatch = DriverMatchList());
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
-    virtual QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void load();
 

@@ -70,7 +70,7 @@ public:
     int count() const;
     bool serverUnavailable() const;
 
-    virtual QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void pausePrinter(const QString &printerName);
     Q_INVOKABLE void resumePrinter(const QString &printerName);

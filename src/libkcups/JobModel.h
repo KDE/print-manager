@@ -78,7 +78,7 @@ public:
     Qt::DropActions supportedDropActions() const override;
     QMimeData *mimeData(const QModelIndexList &indexes) const override;
     bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
-    virtual QHash<int, QByteArray> roleNames() const override;
+    QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void setWhichJobs(WhichJobs whichjobs);
     KCupsRequest *modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());

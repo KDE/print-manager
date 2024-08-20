@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-02-06 00:16+0100\n"
+"PO-Revision-Date: 2024-08-20 00:49+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -296,6 +296,8 @@ msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
 msgstr ""
+"메모: 이 프로그램은 폐기될 예정이며 차후 Plasma 릴리스에서 삭제될 수도 있습니"
+"다."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -323,10 +325,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "선택한 프린터/장치 ID의 PPD 변경"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "선택한 프린터/장치 ID의 PPD 변경"
+msgstr "예상하는 입력은 printer/deviceid여야 함"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
@@ -637,20 +638,16 @@ msgid "Failed to get server settings: %1"
 msgstr "서버 설정을 가져올 수 없음: %1"
 
 #: src/kcm/printermanager.cpp:509
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "서버 오류: (%1): %2"
+msgstr "서버 설정이 저장되지 않았음: (%1): %2"
 
 #: src/kcm/printermanager.cpp:516
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "서버 설정을 가져올 수 없음: %1"
+msgstr "서버 설정을 저장하는 중 오류 발생: (%1): %2"
 
 #: src/kcm/printermanager.cpp:568
 #, kde-format
@@ -670,6 +667,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"설치 오류(패키지: %1)\n"
+"자격 증명을 확인하고 PackageKit 설치 상태를 확인하십시오."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
@@ -750,12 +749,10 @@ msgid "'%1' is ready for printing."
 msgstr "'%1'에서 인쇄할 수 있습니다."
 
 #: src/libkcups/DevicesModel.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "수동 URI"
+msgstr "수동 설정"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format

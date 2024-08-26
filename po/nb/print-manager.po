@@ -61,8 +61,6 @@ msgstr "Sett opp tilkoblingen"
 
 #: src/add-printer/AddPrinterAssistant.cpp:195
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Pick a Driver"
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
 msgstr "Velg en driver"
@@ -328,7 +326,6 @@ msgstr "Endrer PPD for en gitt skriver/enhets-id"
 
 #: src/add-printer/main.cpp:77
 #, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
 msgid "The expected input should be printer/deviceid"
 msgstr "Endrer PPD for en gitt skriver/enhets-id"
 
@@ -623,16 +620,12 @@ msgstr "Spør skriveren etter dens standard alternativer"
 
 #: src/kcm/printermanager.cpp:254
 #, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klarte ikke å sette opp klasse"
 
 #: src/kcm/printermanager.cpp:254
 #, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Klarte ikke å sette opp skriver"
@@ -644,8 +637,6 @@ msgstr "Klarte ikke å utføre forespørselen: %1"
 
 #: src/kcm/printermanager.cpp:473
 #, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Klarte ikke å hente tjenerinnstillinger"
@@ -658,8 +649,6 @@ msgstr ""
 
 #: src/kcm/printermanager.cpp:516
 #, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Klarte ikke å hente tjenerinnstillinger"
@@ -763,8 +752,6 @@ msgstr "«%1» er klar til utskrift."
 
 #: src/libkcups/DevicesModel.cpp:50
 #, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
 msgctxt "@item"
 msgid "Manual Config"
 msgstr "Manuell URI"
@@ -874,10 +861,6 @@ msgstr "Hardware Abstraction Layer (HAL) oppdaget en ny skriver"
 
 #: src/libkcups/DevicesModel.cpp:125
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
@@ -888,10 +871,6 @@ msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:126
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
@@ -902,7 +881,6 @@ msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:127
 #, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "IPP nettverks-skriver via DNS-SD"
@@ -921,14 +899,12 @@ msgstr "Nettverks-CUPS-skriver via DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:146
 #, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Nettverks-skriver via DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:148
 #, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 nettverksskriver via DNS-SD"
@@ -1168,7 +1144,6 @@ msgstr "Ukjent – «%1»"
 
 #: src/libkcups/SelectMakeModel.cpp:115
 #, fuzzy, kde-format
-#| msgid "No printer driver for %1."
 msgid "Choose the driver for %1"
 msgstr "Ingen skriverdriver for %1 ."
 

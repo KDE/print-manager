@@ -204,7 +204,6 @@ msgstr ""
 
 #: ui/components/ManualUri.qml:71
 #, fuzzy, kde-format
-#| msgid "Remove Printer"
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Fjern skriver"
@@ -640,7 +639,6 @@ msgstr ""
 
 #: ui/PrinterSettings.qml:204
 #, fuzzy, kde-format
-#| msgid "Remove Printer"
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Fjern skriver"
@@ -653,14 +651,12 @@ msgstr ""
 
 #: ui/PrinterSettings.qml:213
 #, fuzzy, kde-format
-#| msgid "Remove Printer"
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Fjern skriver"
 
 #: ui/PrinterSettings.qml:214
 #, fuzzy, kde-format
-#| msgid "Remove Printer"
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Fjern skriver"
@@ -672,7 +668,6 @@ msgstr "Kanseller"
 
 #: ui/PrinterSettings.qml:391
 #, fuzzy, kde-format
-#| msgid "Remove Printer"
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
 msgstr "Fjern skriver"

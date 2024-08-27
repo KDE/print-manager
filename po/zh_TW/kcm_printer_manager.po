@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-01 00:42+0000\n"
-"PO-Revision-Date: 2024-05-05 17:14+0900\n"
+"PO-Revision-Date: 2024-08-26 15:46+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -41,20 +41,16 @@ msgid "Failed to get server settings: %1"
 msgstr "取得伺服器設定失敗：%1"
 
 #: printermanager.cpp:509
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "伺服器錯誤：(%1): %2"
+msgstr "伺服器設定未儲存：(%1)：%2"
 
 #: printermanager.cpp:516
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "取得伺服器設定失敗：%1"
+msgstr "儲存伺服器設定時有嚴重錯誤：(%1)：%2"
 
 #: printermanager.cpp:568
 #, kde-format
@@ -74,6 +70,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"安裝錯誤（軟體包：%1）\n"
+"請檢查認證資訊並確保 PackageKit 已正確安裝。"
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
@@ -198,13 +196,13 @@ msgstr "輸入遠端主機/裝置的位址"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "主機上未找到印表機：%1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "CUPS 請求錯誤 (%1)：%2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -218,7 +216,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
-msgstr ""
+msgstr "如果已經知道印表機位址，請輸入它之後選擇 <interface>繼續</interface>。"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -292,12 +290,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "從列表中選擇一個手動設定的選項"
 
 #: ui/Global.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "列印伺服器設定"
+msgstr "CUPS 伺服器設定"
 
 #: ui/Global.qml:23
 #, kde-format
@@ -320,7 +316,7 @@ msgstr "套用"
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "請稍候，CUPS 伺服器正在重新啟動"
 
 #: ui/Global.qml:126
 #, kde-format
@@ -347,35 +343,34 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr "允許使用者取消進行任何工作（而不限於自己的）"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "印表機群組"
+msgstr "印表機設定幫助程式"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "安裝已成功完成"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "安裝失敗"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "安裝中…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "回報此問題給 %1"
 
 #: ui/main.qml:29
 #, kde-format
@@ -397,6 +392,9 @@ msgid ""
 "manager to install the <command>system-config-printer</command> package "
 "manually."
 msgstr ""
+"提供方便功能的一個印表機支援軟體包看起來並未安裝。<nl/><nl/>因為這個發行版不"
+"包含 PackageKit，我們無法在此提供安裝的選項，因此您需要使用軟體包管理員自行安"
+"裝 <command>system-config-printer</command> 軟體包。"
 
 #: ui/main.qml:71
 #, kde-format
@@ -404,19 +402,19 @@ msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
-msgstr ""
+msgstr "提供方便功能的一個印表機支援軟體包看起來並未安裝。"
 
 #: ui/main.qml:77
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "安裝它"
 
 #: ui/main.qml:108
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr ""
+msgstr "新增…"
 
 #: ui/main.qml:109
 #, kde-format
@@ -610,25 +608,19 @@ msgid "Apply"
 msgstr "套用"
 
 #: ui/PrinterSettings.qml:116
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "需要佇列名稱。請輸入一個獨特的佇列名稱。"
 
 #: ui/PrinterSettings.qml:121
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "需要佇列名稱。請輸入一個獨特的佇列名稱。"
+msgstr "佇列名稱不能重複。請輸入一個獨特的佇列名稱。"
 
 #: ui/PrinterSettings.qml:129
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Make/Model is required.  Choose \"Select\" to pick Make/Model"
+#, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "需要製造商/型號。請選擇「選取」來選製造商/型號"
@@ -645,35 +637,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "無法移除印表機：%1"
 
 #: ui/PrinterSettings.qml:203
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "移除群組"
+msgstr "移除群組？"
 
 #: ui/PrinterSettings.qml:204
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "移除印表機"
+msgstr "移除印表機？"
 
 #: ui/PrinterSettings.qml:206
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "「%1」將被移除。"
 
 #: ui/PrinterSettings.qml:213
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "移除群組"
 
 #: ui/PrinterSettings.qml:214
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "移除印表機"
@@ -684,12 +672,10 @@ msgid "Cancel"
 msgstr "取消"
 
 #: ui/PrinterSettings.qml:391
-#, fuzzy, kde-format
-#| msgctxt "@action:check Set default printer"
-#| msgid "Default printer"
+#, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "預設印表機"
+msgstr "** 預設印表機"
 
 #: ui/PrinterSettings.qml:397
 #, kde-format

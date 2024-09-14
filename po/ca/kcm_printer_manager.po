@@ -794,17 +794,3 @@ msgstr "Fabricant/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Selecciona…"
-
-#~ msgid "Set Default Options"
-#~ msgstr "Defineix les opcions predeterminades"
-
-#~ msgctxt "@option:check"
-#~ msgid "Auto Configure"
-#~ msgstr "Configura automàticament"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "Segur que voleu eliminar: %1 (%2)?"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "URI:"

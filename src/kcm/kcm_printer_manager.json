@@ -117,7 +117,6 @@
     "X-KDE-Keywords[es]": "impresoras,impresora,papel,cups,tinta,impresión,imprimir,impresora remota,impresora de internet,impresora de red,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,impresora brf braille virtual,compartir impresora",
     "X-KDE-Keywords[eu]": "inprimagailuak,inprimagailua,papera,cups,tinta,inprimatzea,inprimaketa, urrutiko inprimagailua,internet bidezko inprimagailua,sareko inprimagailua, ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf inprimagailua, inprimagailua partekatzea",
     "X-KDE-Keywords[fi]": "tulostimet,tulostin,kirjoittimet,kirjoitin,tulosta,tulostus,paperi,cups,muste,etätulostin,internettulostin,verkkotulostin,ipps,hp jetdirect,ldp,ldr,cups-brf,virtuaalinen braille brf -tulostin,jaa tulostin",
-    "X-KDE-Keywords[fr]": "imprimantes, imprimer, papiers, cups, encre, impression, imprimante distante, imprimante Internet, imprimante réseau, ipps, hpjetdirect, ldp, ldr, cups-brf, cups brf, imprimante braille brf virtuelle, imprimante partagée",
     "X-KDE-Keywords[hu]": "nyomtatók,nyomtatás,papír,cups,tinta,nyomtatás,megjelenés,távoli nyomtató,internetes nyomtató,hálózati nyomtató,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtuális braille brf nyomtató,nyomtatómegosztás",
     "X-KDE-Keywords[ia]": "imprimitores,imprime,papiro,cups,tinta,imprimer,impression,imprimitor remote,imprimitor de internet,imprimitor de rete,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,imprimitor virtual braille brf,imprimitor de compartir",
     "X-KDE-Keywords[it]": "stampanti,stampa,carta,cups,inchiostro,stampare,stampe,stampante remota,stampante internet, stampante di rete,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,stampante virtuale braille brf,condividi stampante",
@@ -129,6 +128,7 @@
     "X-KDE-Keywords[sk]": "tlačiarne,tlač,papier,cups,atrament,tlač,odtlačok,diaľková tlačiareň,internettlačiareň,sieťová tlačiareň,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtuálneBraillova tlačiareň brf, zdieľaná tlačiareň",
     "X-KDE-Keywords[sl]": "tiskalniki,tisk,papir,cups,črnilo,tiskanje,vtis,oddaljeni tiskalnik,internetni tiskalnik,omrežni tiskalnik,ipps,,hp jetdirect,ldp,ldr,cups-brf,navidezni braillov tiskalnik,skupni tiskalnik",
     "X-KDE-Keywords[sv]": "skrivare,utskrift,papper,cups,bläck,tryck,intryck,fjärrskrivare,internetskrivare,nätverksskrivare,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtuell braille brf-skrivare,dela skrivare",
+    "X-KDE-Keywords[tr]": "printer,yazıcı,yazdır,kağıt,cups,mürekkep,yazdırma, uzak yazıcı,ağ yazıcısı,internet yazıcısı,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf yazıcısı,yazıcıyı paylaş",
     "X-KDE-Keywords[uk]": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,принтери,друк,друкарки,папір,купс,чорнило,друк,вигляд,віддалений принтер,інтернет-принтер,мережевий принтер,елдепе,айпіпіес,віртуальний брайль,спільний принтер",
     "X-KDE-System-Settings-Parent-Category": "hardware"
 }

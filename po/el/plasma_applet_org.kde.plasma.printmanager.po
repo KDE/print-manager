@@ -61,10 +61,8 @@ msgid "Print queue is empty"
 msgstr "Η λίστα αναμονής είναι κενή"
 
 #: src/plasmoid/package/contents/ui/main.qml:94
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&Διαμόρφωση εκτυπωτών..."
+msgstr "&Διαμόρφωση εκτυπωτών…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
 msgid "Resume"
@@ -75,16 +73,12 @@ msgid "Pause"
 msgstr ""
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
-#, fuzzy
-#| msgid "Configure printer..."
 msgid "Configure printer…"
-msgstr "Διαμόρφωση εκτυπωτή..."
+msgstr "Διαμόρφωση εκτυπωτή…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
-#, fuzzy
-#| msgid "View print queue"
 msgid "View print queue…"
-msgstr "Προβολή λίστας αναμονής εκτύπωσης"
+msgstr "Προβολή λίστας αναμονής εκτύπωσης…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Εμφάνιση όλων των εργασιών"

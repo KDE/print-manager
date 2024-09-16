@@ -625,20 +625,16 @@ msgid "Query Printer for Default Options"
 msgstr "Ερώτηση εκτυπωτή για προκαθορισμένες επιλογές"
 
 #: src/kcm/printermanager.cpp:254
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Απέτυχε η διαμόρφωση κλάσης"
+msgstr "Απέτυχε η διαμόρφωση κλάσης: "
 
 #: src/kcm/printermanager.cpp:254
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Απέτυχε η διαμόρφωση εκτυπωτή"
+msgstr "Απέτυχε η διαμόρφωση εκτυπωτή: "
 
 #: src/kcm/printermanager.cpp:421
 #, kde-format
@@ -921,15 +917,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Απομακρυσμένος εκτυπωτής CUPS μέσω DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:146
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Δικτυακός εκτυπωτής μέσω DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:148
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 δικτυακός εκτυπωτής μέσω DNS-SD"

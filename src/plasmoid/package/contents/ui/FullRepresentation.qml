@@ -15,6 +15,9 @@ import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PrintManager
 
 PlasmaExtras.Representation {
+    id: fullRep
+    required property PrintManager.JobModel printerJobsModel
+
     collapseMarginsHint: true
 
     header: PlasmaExtras.PlasmoidHeading {
@@ -61,7 +64,9 @@ PlasmaExtras.Representation {
             highlight: PlasmaExtras.Highlight {}
             highlightMoveDuration: Kirigami.Units.shortDuration
             highlightResizeDuration: Kirigami.Units.shortDuration
-            delegate: PrinterDelegate {}
+            delegate: PrinterDelegate {
+                printerJobsModel: fullRep.printerJobsModel
+            }
 
             Loader {
                 anchors.centerIn: parent

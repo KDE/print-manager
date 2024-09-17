@@ -313,7 +313,7 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
 
     QString pages = QString::number(job.pages());
     if (job.processedPages()) {
-        pages = QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.processedPages());
+        pages = QString::number(job.processedPages()) + QLatin1Char('/') + QString::number(job.pages());
     }
     if (statusItem->data(RoleJobPages) != pages) {
         statusItem->setData(pages, RoleJobPages);

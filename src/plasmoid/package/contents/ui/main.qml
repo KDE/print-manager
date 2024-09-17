@@ -37,6 +37,7 @@ PlasmoidItem {
         id: activeJobsFilterModel
 
         sourceModel: PrintManager.JobModel {
+            id: jobsModel
             Component.onCompleted: setWhichJobs(PrintManager.JobModel.WhichActive)
         }
     }
@@ -73,6 +74,7 @@ PlasmoidItem {
         // as a desktop widget, we need to start with a reasonable size
         Layout.preferredWidth: inPanel ? -1 : Kirigami.Units.gridUnit * 24
         Layout.preferredHeight: inPanel ? -1 : Kirigami.Units.gridUnit * 24
+        printerJobsModel: jobsModel
     }
 
     switchWidth: Kirigami.Units.gridUnit * 10

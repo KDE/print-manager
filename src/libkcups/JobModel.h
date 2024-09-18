@@ -37,7 +37,9 @@ public:
         RoleJobRestartEnabled,
         RoleJobPrinter,
         RoleJobOriginatingHostName,
-        RoleJobAuthenticationRequired
+        RoleJobAuthenticationRequired,
+        RoleJobProcessedPagesCount,
+        RoleJobPagesCount,
     };
     Q_ENUM(Role)
 

@@ -52,6 +52,8 @@ JobModel::JobModel(QObject *parent)
     m_roles[RoleJobRestartEnabled] = "jobRestartEnabled";
     m_roles[RoleJobPrinter] = "jobPrinter";
     m_roles[RoleJobOriginatingHostName] = "jobFrom";
+    m_roles[RoleJobProcessedPagesCount] = "jobProcessedPagesCount";
+    m_roles[RoleJobPagesCount] = "jobPagesCount";
 
     // This is emitted when a job change it's state
     connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::insertUpdateJob);
@@ -318,6 +320,9 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
     if (statusItem->data(RoleJobPages) != pages) {
         statusItem->setData(pages, RoleJobPages);
     }
+
+    statusItem->setData(job.pages(), RoleJobPagesCount);
+    statusItem->setData(job.processedPages(), RoleJobProcessedPagesCount);
 
     row << statusItem;
     for (int i = ColName; i < LastColumn; i++) {

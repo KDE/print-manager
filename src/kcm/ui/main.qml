@@ -251,52 +251,47 @@ KCM.ScrollViewKCM {
         }
 
         delegate: QQC2.ItemDelegate {
+            id: devDelegate
             width: ListView.view.width
 
-            hoverEnabled: false
-            highlighted: false
-            down: false
+            required property var model
+            required property int index
+            required property bool isClass
+            required property bool isPaused
+            required property bool isDefault
+            required property bool remote
+            required property string printerName
+            required property string location
+            required property string info
+            required property string stateMessage
+            required property string iconName
+
+            onClicked: {
+                checkServerSettings()
+                kcm.push("PrinterSettings.qml"
+                                , { modelData: model
+                                , addMode: false
+                                , printerModel: pmModel
+                                , ppdModel: ppdModel
+                                })
+            }
 
             contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing
+                spacing: Kirigami.Units.smallSpacing
 
-                Kirigami.SubtitleDelegate {
+                Kirigami.IconTitleSubtitle {
                     Layout.fillWidth: true
-                    text: model.info
-                          + (model.location && pmModel.displayLocationHint
-                             ? " (%1)".arg(model.location)
+                    title: info
+                          + (location && pmModel.displayLocationHint
+                             ? " (%1)".arg(location)
                              : "")
-                    subtitle: model.stateMessage
-                    icon.name: model.remote
+                    subtitle: stateMessage
+                    icon.name: remote
                             ? "folder-network-symbolic"
-                            : (model.isClass ? "folder-print" : model.iconName)
+                            : (isClass ? "folder-print" : iconName)
 
-                    font.bold: list.count > 1 & model.isDefault
-
-                    hoverEnabled: false
-                    highlighted: false
-                    down: false
-                }
-
-                QQC2.ToolButton {
-                    text: i18nc("@action:button", "Configure…")
-                    icon.name: "configure-symbolic"
-                    display: QQC2.AbstractButton.IconOnly
-                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
-
-                    onClicked: {
-                        checkServerSettings()
-                        kcm.push("PrinterSettings.qml"
-                                        , { modelData: model
-                                        , addMode: false
-                                        , printerModel: pmModel
-                                        , ppdModel: ppdModel
-                                        })
-                    }
-
-                    QQC2.ToolTip {
-                        text: parent.text
-                    }
+                    font.bold: list.count > 1 & isDefault
+                    selected: devDelegate.highlighted || devDelegate.down
                 }
 
                 QQC2.ToolButton {
@@ -305,7 +300,7 @@ KCM.ScrollViewKCM {
                     display: QQC2.AbstractButton.IconOnly
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
-                    onClicked: PM.ProcessRunner.openPrintQueue(model.printerName)
+                    onClicked: PM.ProcessRunner.openPrintQueue(printerName)
 
                     QQC2.ToolTip {
                         text: parent.text
@@ -324,9 +319,9 @@ KCM.ScrollViewKCM {
 
                     onClicked: {
                         if (isPaused) {
-                            kcm.resumePrinter(model.printerName);
+                            kcm.resumePrinter(printerName);
                         } else {
-                            kcm.pausePrinter(model.printerName);
+                            kcm.pausePrinter(printerName);
                         }
                     }
 

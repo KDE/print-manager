@@ -872,30 +872,24 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Τοπικός εκτυπωτής ανιχνευμένος από το Hardware Abstraction Layer (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:125
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
-msgstr "Λογισμικό HPLIP για οδήγηση φαξ ή λειτουργία φαξ ενός πολυμηχανήματος"
+msgstr ""
+"Λογισμικό HPLIP για οδήγηση φαξ\n"
+"ή λειτουργία φαξ ενός πολυμηχανήματος"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"Λογισμικό HPLIP για οδήγηση εκτυπωτή ή λειτουργία εκτύπωσης ενός "
-"πολυμηχανήματος"
+"Λογισμικό HPLIP για οδήγηση εκτυπωτή\n"
+"ή λειτουργία εκτύπωσης ενός πολυμηχανήματος"
 
 #: src/libkcups/DevicesModel.cpp:127
 #, fuzzy, kde-format

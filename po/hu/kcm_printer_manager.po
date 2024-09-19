@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-01 00:42+0000\n"
-"PO-Revision-Date: 2024-05-29 09:49+0200\n"
+"PO-Revision-Date: 2024-09-18 14:45+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -200,13 +200,13 @@ msgstr "Adja meg a távoli gép/eszköz címét"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Nem találhatók nyomtatók a gépen: %1"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "CUPS kérés hiba (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
@@ -221,6 +221,8 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
+"Ha tudja a nyomtató címét, írja be és válassza a <interface>Folytatás</"
+"interface>t."
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
@@ -424,7 +426,7 @@ msgstr "Telepítés"
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr ""
+msgstr "Hozzáadás…"
 
 #: ui/main.qml:109
 #, kde-format

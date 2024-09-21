@@ -24,6 +24,8 @@ PlasmaExtras.ExpandableListItem {
     subtitleCanWrap: true
     subtitleMaximumLineCount: 3
     isDefault: model.isDefault
+    showDefaultActionButtonWhenBusy: true
+    isBusy: model.printerState === 4
 
     defaultActionButtonAction: Kirigami.Action {
         icon.name: isPaused ? "media-playback-start" : "media-playback-pause"

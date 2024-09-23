@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-01 00:42+0000\n"
+"POT-Creation-Date: 2024-09-23 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -461,37 +461,31 @@ msgstr "打印机"
 msgid "Printer Groups"
 msgstr "打印机组"
 
-#: ui/main.qml:282
-#, kde-format
-msgctxt "@action:button"
-msgid "Configure…"
-msgstr "配置…"
-
-#: ui/main.qml:303
+#: ui/main.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "打开打印队列…"
 
-#: ui/main.qml:320
+#: ui/main.qml:315
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "继续"
 
-#: ui/main.qml:321
+#: ui/main.qml:316
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "暂停"
 
-#: ui/main.qml:335
+#: ui/main.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "继续打印"
 
-#: ui/main.qml:336
+#: ui/main.qml:331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -776,3 +770,7 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Configure…"
+#~ msgstr "配置…"

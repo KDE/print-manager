@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-01 00:42+0000\n"
+"POT-Creation-Date: 2024-09-23 00:40+0000\n"
 "PO-Revision-Date: 2024-07-06 06:33+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -472,37 +472,31 @@ msgstr "პრინტერები"
 msgid "Printer Groups"
 msgstr "პრინტერის ჯგუფები"
 
-#: ui/main.qml:282
-#, kde-format
-msgctxt "@action:button"
-msgid "Configure…"
-msgstr "მორგება…"
-
-#: ui/main.qml:303
+#: ui/main.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "ბეჭდვის რიგის გახსნა…"
 
-#: ui/main.qml:320
+#: ui/main.qml:315
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "გაგრძელება"
 
-#: ui/main.qml:321
+#: ui/main.qml:316
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "გაჩერება"
 
-#: ui/main.qml:335
+#: ui/main.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "დაბეჭდვის გაგრძელება"
 
-#: ui/main.qml:336
+#: ui/main.qml:331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -792,6 +786,10 @@ msgstr "მწარმოებელი და მოდელი:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "აირჩიეთ…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Configure…"
+#~ msgstr "მორგება…"
 
 #~ msgid "Set Default Options"
 #~ msgstr "ნაგულისხმევი მნიშვნელობების დაყენება"

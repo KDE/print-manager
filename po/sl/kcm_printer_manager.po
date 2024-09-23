@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-01 00:42+0000\n"
+"POT-Creation-Date: 2024-09-23 00:40+0000\n"
 "PO-Revision-Date: 2024-07-06 07:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
@@ -468,37 +468,31 @@ msgstr "Tiskalniki"
 msgid "Printer Groups"
 msgstr "Skupine tiskalnikov"
 
-#: ui/main.qml:282
-#, kde-format
-msgctxt "@action:button"
-msgid "Configure…"
-msgstr "Konfiguriraj…"
-
-#: ui/main.qml:303
+#: ui/main.qml:298
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue…"
 msgstr "Odpri čakalno vrsto za tiskanje…"
 
-#: ui/main.qml:320
+#: ui/main.qml:315
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Nadaljuj"
 
-#: ui/main.qml:321
+#: ui/main.qml:316
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Premor"
 
-#: ui/main.qml:335
+#: ui/main.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Nadaljuj s tiskanjem"
 
-#: ui/main.qml:336
+#: ui/main.qml:331
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -787,6 +781,10 @@ msgstr "Znamka/model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Izberi…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Configure…"
+#~ msgstr "Konfiguriraj…"
 
 #~ msgid "Set Default Options"
 #~ msgstr "Nastavite privzete možnosti"

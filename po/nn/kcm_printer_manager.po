@@ -779,7 +779,3 @@ msgstr "Merke/modell:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vel …"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure…"
-#~ msgstr "Set opp …"

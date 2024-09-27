@@ -66,7 +66,7 @@ KCM.ScrollViewKCM {
         visible: !kcm.isSCPAvailable()
         text: {
             if (PM.SCPInstaller === undefined) {
-                xi18nc("@info:usagetip", "A printer support package that provides convenience features does not appear to be installed.<nl/><nl/>Because this distro does not include PackageKit, we cannot provide an install option, so you will have to use your package manager to install the <command>system-config-printer</command> package manually.")
+                xi18nc("@info:usagetip", "A printer support package that provides convenience features does not appear to be installed.<nl/><nl/>Because this distro does not include PackageKit, we cannot provide an install option. Please use your package manager to install the <command>system-config-printer</command> package manually.")
             } else {
                 i18nc("@info:usagetip", "A printer support package that provides convenience features does not appear to be installed.")
             }

@@ -295,9 +295,8 @@ KCM.ScrollViewKCM {
                 }
 
                 QQC2.ToolButton {
-                    text: i18nc("@action:button", "Open Print Queue…")
-                    icon.name: "media-track-show-active-symbolic"
-                    display: QQC2.AbstractButton.IconOnly
+                    text: i18nc("@action:button Open print queue", "Print Queue")
+                    icon.name: "view-list-details-symbolic"
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: PM.ProcessRunner.openPrintQueue(printerName)

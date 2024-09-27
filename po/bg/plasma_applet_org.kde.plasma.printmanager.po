@@ -76,12 +76,3 @@ msgstr "Конфигуриране на принтер…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
 msgid "View print queue…"
 msgstr "Показване на опашка за печат…"
-
-#~ msgid "Show All Jobs"
-#~ msgstr "Показване на всички задания"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "Показване само на завършените задания"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Показване само на активните задания"

@@ -5,19 +5,20 @@
 # Alexander Lakhin <exclusion@gmail.com>, 2013.
 # Alexander Potashev <aspotashev@gmail.com>, 2015.
 # SPDX-FileCopyrightText: 2018, 2020, 2023, 2024 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2024 Olesya Gerasimenko <translation-team@basealt.ru>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-02-07 11:14+0300\n"
-"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"PO-Revision-Date: 2024-09-27 15:11+0300\n"
+"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -27,12 +28,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Юрий Ефремов"
+msgstr "Юрий Ефремов, Олеся Герасименко"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "yur.arh@gmail.com"
+msgstr "yur.arh@gmail.com, translation-team@basealt.ru"
 
 #: src/add-printer/AddPrinterAssistant.cpp:29
 #, kde-format
@@ -302,6 +303,8 @@ msgid ""
 "NOTE: This application is deprecated and will be removed from Plasma in a "
 "future release."
 msgstr ""
+"ПРИМЕЧАНИЕ: это приложение устарело и будет удалено в следующей версии "
+"Plasma."
 
 #: src/add-printer/main.cpp:40
 #, kde-format
@@ -329,10 +332,9 @@ msgid "Changes the PPD of a given printer/deviceid"
 msgstr "Создать принтер из описания устройства"
 
 #: src/add-printer/main.cpp:77
-#, fuzzy, kde-format
-#| msgid "Changes the PPD of a given printer/deviceid"
+#, kde-format
 msgid "The expected input should be printer/deviceid"
-msgstr "Создать принтер из описания устройства"
+msgstr "Входными данными должны быть принтер или идентификатор устройства"
 
 #: src/add-printer/PageAddPrinter.cpp:125
 #, kde-format
@@ -647,20 +649,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Ошибка получения параметров сервера: %1"
 
 #: src/kcm/printermanager.cpp:509
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Ошибка сервера: %1: %2"
+msgstr "Параметры сервера не сохранены: (%1): %2"
 
 #: src/kcm/printermanager.cpp:516
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Ошибка получения параметров сервера: %1"
+msgstr "Неустранимая ошибка сохранения параметров сервера: (%1): %2"
 
 #: src/kcm/printermanager.cpp:568
 #, kde-format
@@ -680,6 +678,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Ошибка установки (пакет: %1)\n"
+"Проверьте учётные данные аутентификации и убедитесь, что установка "
+"PackageKit выполнена корректно."
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
@@ -760,12 +761,10 @@ msgid "'%1' is ready for printing."
 msgstr "Принтер «%1» готов к печати."
 
 #: src/libkcups/DevicesModel.cpp:50
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "Адрес, указанный вручную"
+msgstr "Настройка вручную"
 
 #: src/libkcups/DevicesModel.cpp:62
 #, kde-format

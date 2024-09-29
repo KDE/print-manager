@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-07-07 10:45+0200\n"
+"PO-Revision-Date: 2024-09-28 07:33+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: printermanager.cpp:254
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Klasea konfiguratzea huts egin du:"
+msgstr "Klasea konfiguratzea huts egin du: "
 
 #: printermanager.cpp:254
 #, kde-format
@@ -395,14 +395,7 @@ msgid "new_group"
 msgstr "talde_berria"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -410,11 +403,11 @@ msgid ""
 "we cannot provide an install option. Please use your package manager to "
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
-"Erabilgarritasun-funtzioak ematen dituen inprimagailu-euskarrirako pakete "
-"bat instalatu gabe dagoela dirudi.<nl/><nl/>Banaketa honek PackageKit ez "
-"dakarrenez, ezin dugu instalatzeko aukera bat eman, hori dela eta zure "
-"pakete kudeatzailea erabili beharko duzu <command>system-config-printer</"
-"command> paketea eskuz instalatzeko."
+"Erabilgarritasun-funtzioak ematen dituen inprimagailurako euskarrirako "
+"pakete bat instalatu gabe dagoela dirudi.<nl/><nl/>Banaketa honek PackageKit "
+"ez dakarrenez, ezin dugu instalatzeko aukera bat eman. Mesedez, erabili zure "
+"pakete-kudeatzailea <command>system-config-printer</command> paketea eskuz "
+"instalatzeko."
 
 #: ui/main.qml:71
 #, kde-format

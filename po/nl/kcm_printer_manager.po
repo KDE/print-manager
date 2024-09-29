@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-07-06 15:58+0200\n"
+"PO-Revision-Date: 2024-09-28 11:34+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -392,14 +392,7 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -409,9 +402,8 @@ msgid ""
 msgstr ""
 "Een ondersteuningspakket voor printers die gemaksfuncties levert lijkt niet "
 "geïnstalleerd te zijn.<nl/><nl/>Omdat deze distributie PackageKit niet "
-"bevat, kunnen we geen installatieoptie bieden, u zult dus uw pakketbeheerder "
-"moeten gebruiken om het pakket <command>system-config-printer</command> "
-"handmatig te installeren."
+"bevat, kunnen we geen installatieoptie bieden. Gebruik uw pakketbeheerder om "
+"het pakket <command>system-config-printer</command> handmatig te installeren."
 
 #: ui/main.qml:71
 #, kde-format

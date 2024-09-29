@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-07-07 10:26+0200\n"
+"PO-Revision-Date: 2024-09-28 13:11+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -394,14 +394,7 @@ msgid "new_group"
 msgstr "novo_grupo"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -412,8 +405,8 @@ msgstr ""
 "Existe un paquete de compatibilidade con impresoras que fornece "
 "funcionalidades útiles e non parece estar instalado.<nl/><nl/>Como esta "
 "distribución non inclúe PackageKit, non podemos fornecerlle unha opción de "
-"instalación, así que terá que usar o seu xestor de paquetes para instalar "
-"manualmente o paquete <command>system-config-printer</command>."
+"instalación. Use o xestor de paquetes para instalar manualmente o paquete "
+"<command>system-config-printer</command>."
 
 #: ui/main.qml:71
 #, kde-format

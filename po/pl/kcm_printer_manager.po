@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-07-21 06:54+0200\n"
+"PO-Revision-Date: 2024-09-29 09:05+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -392,14 +392,7 @@ msgid "new_group"
 msgstr "nowa_grupa"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -409,8 +402,8 @@ msgid ""
 msgstr ""
 "Pakiet obsługujący drukarkę, który dostarcza pewnych wygód nie wydaje się "
 "być wgrany.<nl/><nl/>Nie możemy umożliwić jego wgrania, bo wydawca twojego "
-"systemu nie dostarcza PackageKit, więc musisz wgrać pakiet <command>system-"
-"config-printer</command> ręcznie."
+"systemu nie dostarcza PackageKit. Zalecamy użycie programu do zarządzania "
+"pakietami do wgrania <command>system-config-printer</command>."
 
 #: ui/main.qml:71
 #, kde-format

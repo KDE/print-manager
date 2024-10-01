@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-09-18 14:45+0200\n"
+"PO-Revision-Date: 2024-09-30 22:12+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -391,14 +391,7 @@ msgid "new_group"
 msgstr "új_csoport"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -408,9 +401,9 @@ msgid ""
 msgstr ""
 "Egy nyomtatót támogató csomag, amely kényelmi funkciókat biztosít, úgy tűnik "
 "nincs telepítve.<nl/><nl/>Mivel ez a disztribúció nem tartalmazza a "
-"PackageKitet, nem tudunk telepítési lehetőséget biztosítani, saját kezűleg "
-"kell telepítenie a <command>system-config-printer</command> csomagot a "
-"csomagkezelővel."
+"PackageKitet, nem tudunk telepítési lehetőséget biztosítani. Kérjük, "
+"telepítse a <command>system-config-printer</command> csomagot a "
+"csomagkezelőjével."
 
 #: ui/main.qml:71
 #, kde-format

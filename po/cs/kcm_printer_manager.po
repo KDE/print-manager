@@ -764,7 +764,3 @@ msgstr "Výrobek/model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vybrat…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure…"
-#~ msgstr "Nastavit…"

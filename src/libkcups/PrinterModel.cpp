@@ -150,19 +150,25 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
             removeRow(rowCount() - 1);
         }
 
-        setDisplayLocationHint();
+        setDisplayHints();
 
         Q_EMIT error(IPP_OK, QString(), QString());
     }
     request->deleteLater();
 }
 
-void PrinterModel::setDisplayLocationHint()
+void PrinterModel::setDisplayHints()
 {
     QStringList locList;
+    bool printersOnly = true;
 
-    // get location list
     for (int i = 0; i < rowCount(); i++) {
+        // Printers Only hint
+        if (item(i)->data(DestIsClass).toBool()) {
+            printersOnly = false;
+        }
+
+        // Location list hint
         const auto val = item(i)->data(DestLocation).toString();
         if (!val.isEmpty()) {
             locList.append(val);
@@ -171,18 +177,21 @@ void PrinterModel::setDisplayLocationHint()
     // only show the location if there is more than one printer
     // and at least two distinct locations exist
     locList.removeDuplicates();
-    m_displayLocationHint = rowCount() > 1 && locList.count() > 1;
-    Q_EMIT displayLocationHintChanged();
+    bool displayLocationHint = rowCount() > 1 && locList.count() > 1;
+    if (m_displayLocationHint != displayLocationHint) {
+        m_displayLocationHint = displayLocationHint;
+        Q_EMIT displayLocationHintChanged();
+    }
+
+    if (m_printersOnly != printersOnly) {
+        m_printersOnly = printersOnly;
+        Q_EMIT printersOnlyChanged();
+    }
 }
 
 bool PrinterModel::printersOnly() const
 {
-    for (int i = 0; i < rowCount(); i++) {
-        if (item(i)->data(DestIsClass).toBool()) {
-            return false;
-        }
-    }
-    return true;
+    return m_printersOnly;
 }
 
 bool PrinterModel::displayLocationHint() const
@@ -494,7 +503,7 @@ void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
             }
         }
     }
-    setDisplayLocationHint();
+    setDisplayHints();
     request->deleteLater();
 }
 
@@ -507,7 +516,7 @@ void PrinterModel::printerRemovedName(const QString &printerName)
     if (dest_row != -1) {
         removeRows(dest_row, 1);
     }
-    setDisplayLocationHint();
+    setDisplayHints();
 }
 
 void PrinterModel::printerRemoved(const QString &text,
@@ -530,7 +539,7 @@ void PrinterModel::printerRemoved(const QString &text,
     if (dest_row != -1) {
         removeRows(dest_row, 1);
     }
-    setDisplayLocationHint();
+    setDisplayHints();
 }
 
 void PrinterModel::printerStateChanged(const QString &text,
@@ -580,7 +589,7 @@ void PrinterModel::printerModified(const QString &text,
                                    bool printerIsAcceptingJobs)
 {
     qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
-    setDisplayLocationHint();
+    setDisplayHints();
 }
 
 void PrinterModel::serverChanged(const QString &text)

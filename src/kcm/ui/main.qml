@@ -234,15 +234,21 @@ KCM.ScrollViewKCM {
             explanation: xi18nc("@info:usagetip", "Click <interface>Add Printer…</interface> to set up a new printer on this computer")
         }
         
-        // If there is a mix of printers and classes (groups), then show
-        // the section header
-        section {
-            property: pmModel.printersOnly ? "" : "isClass"
-            delegate: Kirigami.ListSectionHeader {
+        Component {
+            id: sectionComp
+
+            Kirigami.ListSectionHeader {
                 width: ListView.view.width
                 required property bool section
                 label: !section ? i18n("Printers") : i18n("Printer Groups")
             }
+        }
+
+        // If there is a mix of printers and classes (groups), then show
+        // the section header
+        section {
+            property: "isClass"
+            delegate: !pmModel.printersOnly ? sectionComp : undefined
         }
 
         model: KItemModels.KSortFilterProxyModel {

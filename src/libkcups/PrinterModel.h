@@ -33,7 +33,7 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
     /**
      * true if model only contains printers (not classes)
      */
-    Q_PROPERTY(bool printersOnly READ printersOnly NOTIFY countChanged)
+    Q_PROPERTY(bool printersOnly READ printersOnly NOTIFY printersOnlyChanged)
 
 public:
     enum Role {
@@ -78,6 +78,7 @@ public:
     Q_INVOKABLE void acceptJobs(const QString &printerName);
 
     bool displayLocationHint() const;
+    bool printersOnly() const;
 
 public slots:
     void update();
@@ -89,6 +90,7 @@ signals:
     void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void displayLocationHintChanged();
+    void printersOnlyChanged();
 
 private slots:
     void insertUpdatePrinterName(const QString &printerName);
@@ -143,14 +145,14 @@ private:
     QHash<int, QByteArray> m_roles;
     bool m_unavailable = true;
     bool m_displayLocationHint = true;
+    bool m_printersOnly = true;
 
-    void setDisplayLocationHint();
+    void setDisplayHints();
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
-    bool printersOnly() const;
     QStringList m_attrs;
 };
 

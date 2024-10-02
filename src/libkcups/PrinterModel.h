@@ -29,11 +29,11 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
      * and at least two distinct locations exist.  If there is only one
      * printer or 2 or more printers have the same location, this will be false
      */
-    Q_PROPERTY(bool displayLocationHint READ displayLocationHint NOTIFY displayLocationHintChanged)
+    Q_PROPERTY(bool showLocations READ showLocations NOTIFY showLocationsChanged)
     /**
      * true if model only contains printers (not classes)
      */
-    Q_PROPERTY(bool printersOnly READ printersOnly NOTIFY countChanged)
+    Q_PROPERTY(bool hasOnlyPrinters READ hasOnlyPrinters NOTIFY hasOnlyPrintersChanged)
 
 public:
     enum Role {
@@ -82,7 +82,8 @@ public:
     Q_INVOKABLE void rejectJobs(const QString &printerName);
     Q_INVOKABLE void acceptJobs(const QString &printerName);
 
-    bool displayLocationHint() const;
+    bool showLocations() const;
+    bool hasOnlyPrinters() const;
 
 public slots:
     void update();
@@ -93,7 +94,8 @@ signals:
     void countChanged(int count);
     void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
-    void displayLocationHintChanged();
+    void showLocationsChanged();
+    void hasOnlyPrintersChanged();
 
 private slots:
     void insertUpdatePrinterName(const QString &printerName);
@@ -147,15 +149,15 @@ private:
     WId m_parentId;
     QHash<int, QByteArray> m_roles;
     bool m_unavailable = true;
-    bool m_displayLocationHint = true;
+    bool m_showLocations = true;
+    bool m_hasOnlyPrinters = true;
 
-    void setDisplayLocationHint();
+    void updateDisplayHints();
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
-    bool printersOnly() const;
     QStringList m_attrs;
 };
 

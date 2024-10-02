@@ -234,15 +234,21 @@ KCM.ScrollViewKCM {
             explanation: xi18nc("@info:usagetip", "Click <interface>Add…</interface> to set up a new printer on this computer")
         }
         
+        Component {
+            id: sectionComp
+
+            Kirigami.ListSectionHeader {
+                width: ListView.view.width
+                required property bool section
+                text: !section ? i18n("Printers") : i18n("Printer Groups")
+            }
+        }
+
         // If there is a mix of printers and classes (groups), then show
         // the section header
         section {
-            property: pmModel.printersOnly ? "" : "isClass"
-            delegate: Kirigami.ListSectionHeader {
-                width: ListView.view.width
-                required property bool section
-                label: !section ? i18n("Printers") : i18n("Printer Groups")
-            }
+            property: "isClass"
+            delegate: !pmModel.hasOnlyPrinters ? sectionComp : undefined
         }
 
         model: KItemModels.KSortFilterProxyModel {
@@ -282,7 +288,7 @@ KCM.ScrollViewKCM {
                 Kirigami.IconTitleSubtitle {
                     Layout.fillWidth: true
                     title: info
-                          + (location && pmModel.displayLocationHint
+                          + (location && pmModel.showLocations
                              ? " (%1)".arg(location)
                              : "")
                     subtitle: stateMessage

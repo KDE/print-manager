@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-09-28 00:41+0000\n"
-"PO-Revision-Date: 2024-08-26 15:46+0900\n"
+"PO-Revision-Date: 2024-10-02 17:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -383,14 +383,7 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -399,7 +392,7 @@ msgid ""
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
 "提供方便功能的一個印表機支援軟體包看起來並未安裝。<nl/><nl/>因為這個發行版不"
-"包含 PackageKit，我們無法在此提供安裝的選項，因此您需要使用軟體包管理員自行安"
+"包含 PackageKit，我們無法在此提供安裝的選項。請自行使用您的軟體包管理員來安"
 "裝 <command>system-config-printer</command> 軟體包。"
 
 #: ui/main.qml:71

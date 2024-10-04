@@ -91,11 +91,6 @@ PrinterModel::PrinterModel(QObject *parent)
     connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, &PrinterModel::serverChanged);
     connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &PrinterModel::serverChanged);
 
-    // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrinterModel::insertUpdatePrinterName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrinterModel::printerRemovedName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrinterModel::insertUpdatePrinterName);
-
     connect(this, &PrinterModel::rowsInserted, this, &PrinterModel::slotCountChanged);
     connect(this, &PrinterModel::rowsRemoved, this, &PrinterModel::slotCountChanged);
     connect(this, &PrinterModel::modelReset, this, &PrinterModel::slotCountChanged);
@@ -451,15 +446,6 @@ Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
     return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
 }
 
-void PrinterModel::insertUpdatePrinterName(const QString &printerName)
-{
-    auto request = new KCupsRequest;
-    connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
-    // TODO how do we know if it's a class if this DBus signal
-    // does not tell us
-    request->getPrinterAttributes(printerName, false, m_attrs);
-}
-
 void PrinterModel::insertUpdatePrinter(const QString &text,
                                        const QString &printerUri,
                                        const QString &printerName,
@@ -474,7 +460,9 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
     Q_UNUSED(printerIsAcceptingJobs)
 
     qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
-    insertUpdatePrinterName(printerName);
+    auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
+    request->getPrinterAttributes(printerName, false, m_attrs);
 }
 
 void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
@@ -496,18 +484,6 @@ void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
     }
     setDisplayLocationHint();
     request->deleteLater();
-}
-
-void PrinterModel::printerRemovedName(const QString &printerName)
-{
-    qCDebug(LIBKCUPS) << printerName;
-
-    // Look for the removed printer
-    int dest_row = destRow(printerName);
-    if (dest_row != -1) {
-        removeRows(dest_row, 1);
-    }
-    setDisplayLocationHint();
 }
 
 void PrinterModel::printerRemoved(const QString &text,

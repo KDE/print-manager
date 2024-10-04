@@ -91,7 +91,6 @@ signals:
     void displayLocationHintChanged();
 
 private slots:
-    void insertUpdatePrinterName(const QString &printerName);
     void insertUpdatePrinter(const QString &text,
                              const QString &printerUri,
                              const QString &printerName,
@@ -99,7 +98,6 @@ private slots:
                              const QString &printerStateReasons,
                              bool printerIsAcceptingJobs);
     void insertUpdatePrinterFinished(KCupsRequest *request);
-    void printerRemovedName(const QString &printerName);
     void printerRemoved(const QString &text,
                         const QString &printerUri,
                         const QString &printerName,

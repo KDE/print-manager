@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
-"X-Crowdin-File-ID: 48268\n"
+"X-Crowdin-File: /kf6-stable/messages/print-manager/kcm_printer_manager.pot\n"
+"X-Crowdin-File-ID: 52860\n"
 
 #: printermanager.cpp:254
 #, kde-format

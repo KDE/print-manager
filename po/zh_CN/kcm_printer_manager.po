@@ -384,14 +384,7 @@ msgid "new_group"
 msgstr "新打印机组"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -400,8 +393,8 @@ msgid ""
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
 "打印机功能支持软件包似乎没有安装。系统需要安装此软件包以提供打印机的便利功"
-"能。<nl/><nl/>因为本系统没有包含 PackageKit，我们无法提供安装选项。您必须使用"
-"系统的软件包管理器手动安装 <command>system-config-printer</command> 软件包。"
+"能。<nl/><nl/>因为本系统没有包含 PackageKit，我们无法提供安装选项。请使用系统"
+"的软件包管理器手动安装 <command>system-config-printer</command> 软件包。"
 
 #: ui/main.qml:71
 #, kde-format
@@ -776,7 +769,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure…"
-#~ msgstr "配置…"

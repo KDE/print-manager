@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(print-manager)
-set(PROJECT_VERSION "6.2.1")
+set(PROJECT_VERSION "6.2.2")
 
 set(PROJECT_DEP_VERSION "6.2.1")
 set(QT_MIN_VERSION "6.7.0")

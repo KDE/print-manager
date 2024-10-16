@@ -231,7 +231,7 @@ KCM.ScrollViewKCM {
             visible: list.count === 0
             icon.name: "printer"
             text: i18nc("@info:status", "No printers are currently set up")
-            explanation: xi18nc("@info:usagetip", "Click <interface>Add Printer…</interface> to set up a new printer on this computer")
+            explanation: xi18nc("@info:usagetip", "Click <interface>Add…</interface> to set up a new printer on this computer")
         }
         
         // If there is a mix of printers and classes (groups), then show

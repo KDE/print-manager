@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:41+0000\n"
+"POT-Creation-Date: 2024-10-17 00:42+0000\n"
 "PO-Revision-Date: 2024-01-01 09:03-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -466,8 +466,7 @@ msgstr "ਇਸ ਵੇਲੇ ਕੋਈ ਪਰਿੰਟਰ ਸੈਟ ਅੱਪ ਨ
 #| msgid "Choose 'Add Printer' to set up a new printer on this computer"
 msgctxt "@info:usagetip"
 msgid ""
-"Click <interface>Add Printer…</interface> to set up a new printer on this "
-"computer"
+"Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr "ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਨਵਾਂ ਪਰਿੰਟਰ ਸੈਟ ਅੱਪ ਕਰਨ ਲਈ 'ਪਰਿੰਟਰ ਜੋੜੋ' ਨੂੰ ਚੁਣੋ"
 
 #: ui/main.qml:244

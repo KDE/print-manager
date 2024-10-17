@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:41+0000\n"
+"POT-Creation-Date: 2024-10-17 00:42+0000\n"
 "PO-Revision-Date: 2024-03-20 10:03+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Assamese <alministradores@softastur.org>\n"
@@ -437,8 +437,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Click <interface>Add Printer…</interface> to set up a new printer on this "
-"computer"
+"Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
 
 #: ui/main.qml:244

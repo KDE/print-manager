@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-09-28 00:41+0000\n"
+"POT-Creation-Date: 2024-10-17 00:42+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -443,11 +443,14 @@ msgid "No printers are currently set up"
 msgstr "当前没有创建打印机"
 
 #: ui/main.qml:234
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:usagetip"
+#| msgid ""
+#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
+#| "computer"
 msgctxt "@info:usagetip"
 msgid ""
-"Click <interface>Add Printer…</interface> to set up a new printer on this "
-"computer"
+"Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr "点击 <interface>添加打印机…</interface> 为本机创建新的打印机"
 
 #: ui/main.qml:244

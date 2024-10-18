@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:42+0000\n"
-"PO-Revision-Date: 2024-10-07 06:53+0300\n"
+"PO-Revision-Date: 2024-10-17 22:59+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -444,16 +444,12 @@ msgid "No printers are currently set up"
 msgstr "לא מוגדרות מדפסות"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"נא לבחור ב<interface>הוספת מדפסת…</interface> כדי להגדיר מדפסת חדשה במחשב הזה"
+"נא לבחור ב<interface>הוספה…</interface> כדי להגדיר מדפסת חדשה במחשב הזה"
 
 #: ui/main.qml:244
 #, kde-format

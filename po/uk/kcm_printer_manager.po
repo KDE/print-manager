@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:42+0000\n"
-"PO-Revision-Date: 2024-09-28 08:31+0300\n"
+"PO-Revision-Date: 2024-10-17 15:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -454,17 +454,13 @@ msgid "No printers are currently set up"
 msgstr "Поки не налаштовано жодних принтерів"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Натисніть <interface>Додати принтер</interface>, щоб налаштувати новий "
-"принтер на цьому комп'ютері"
+"Натисніть <interface>Додати…</interface>, щоб налаштувати новий принтер на "
+"цьому комп'ютері"
 
 #: ui/main.qml:244
 #, kde-format

@@ -443,15 +443,11 @@ msgid "No printers are currently set up"
 msgstr "当前没有创建打印机"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
-msgstr "点击 <interface>添加打印机…</interface> 为本机创建新的打印机"
+msgstr ""
 
 #: ui/main.qml:244
 #, kde-format

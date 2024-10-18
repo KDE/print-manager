@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:42+0000\n"
-"PO-Revision-Date: 2024-09-28 18:54+0300\n"
+"PO-Revision-Date: 2024-10-18 02:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -449,17 +449,13 @@ msgid "No printers are currently set up"
 msgstr "Şu anda ayarlı hiçbir yazıcı yok"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Bu bilgisayarda yeni bir yazıcı ayarlamak için <interface>Yazıcı Ekle…</"
-"interface>’yi seçin"
+"Bu bilgisayarda yeni bir yazıcı ayarlamak için <interface>Ekle…</interface> "
+"düğmesine tıklayın"
 
 #: ui/main.qml:244
 #, kde-format

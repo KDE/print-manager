@@ -436,17 +436,11 @@ msgid "No printers are currently set up"
 msgstr ""
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Klikněte na <interface>Přidat tiskárnu…</interface> pro nastavení nové "
-"tiskárny na tomto počítači"
 
 #: ui/main.qml:244
 #, kde-format

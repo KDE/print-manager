@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:42+0000\n"
-"PO-Revision-Date: 2024-08-03 13:12+0100\n"
+"PO-Revision-Date: 2024-10-18 17:14+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: printermanager.cpp:254
 #, kde-format
@@ -389,14 +389,7 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -406,9 +399,8 @@ msgid ""
 msgstr ""
 "A printer support package that provides convenience features does not appear "
 "to be installed.<nl/><nl/>Because this distro does not include PackageKit, "
-"we cannot provide an install option, so you will have to use your package "
-"manager to install the <command>system-config-printer</command> package "
-"manually."
+"we cannot provide an install option. Please use your package manager to "
+"install the <command>system-config-printer</command> package manually."
 
 #: ui/main.qml:71
 #, kde-format
@@ -457,17 +449,12 @@ msgid "No printers are currently set up"
 msgstr "No printers are currently set up"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Click <interface>Add Printer…</interface> to set up a new printer on this "
-"computer"
+"Click <interface>Add…</interface> to set up a new printer on this computer"
 
 #: ui/main.qml:244
 #, kde-format

@@ -447,7 +447,7 @@ msgstr "当前没有创建打印机"
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
-msgstr ""
+msgstr "点击 <interface>添加…</interface> 为本机创建新的打印机"
 
 #: ui/main.qml:244
 #, kde-format

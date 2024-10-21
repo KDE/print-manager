@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-17 00:42+0000\n"
-"PO-Revision-Date: 2024-09-30 12:24+0200\n"
+"PO-Revision-Date: 2024-10-20 18:44+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -452,17 +452,13 @@ msgid "No printers are currently set up"
 msgstr "Nulle imprimitor es currentemente configurate"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Pulsa <interface>Adde Imprimitor...</interface> per configurar un  nove "
-"imprimitor sur iste computator"
+"Pulsa <interface>Adde ...</interface> per configurar un  nove imprimitor sur "
+"iste computator"
 
 #: ui/main.qml:244
 #, kde-format

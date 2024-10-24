@@ -136,12 +136,12 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
                           KCUPS_PRINTER_INFO,
                           KCUPS_PRINTER_MAKE_AND_MODEL});
 
-    request->waitTillFinished();
-
-    if (request) {
-        const auto printers = request->printers();
-        if (request->hasError()) {
-            Q_EMIT requestError(request->errorMsg());
+    // If the request invoke fails or the actual request fails, we will get
+    // a "finished" signal
+    connect(request, &KCupsRequest::finished, this, [this, conn](KCupsRequest *req) {
+        const auto printers = req->printers();
+        if (req->hasError()) {
+            Q_EMIT requestError(req->errorMsg());
         } else {
             for (const auto &p : printers) {
                 const auto mm = p.makeAndModel();
@@ -163,10 +163,9 @@ void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriSch
             Q_EMIT remotePrintersLoaded();
         }
 
-        request->deleteLater();
-    }
-
-    conn->deleteLater();
+        req->deleteLater();
+        conn->deleteLater();
+    });
 }
 
 void PrinterManager::clearRemotePrinters()

@@ -501,21 +501,23 @@ void PrinterManager::saveServerSettings(const QVariantMap &settings)
     */
     auto request = new KCupsRequest;
     request->setServerSettings(server);
-    request->waitTillFinished();
+    // If the request invoke fails or the actual request fails, we will get
+    // a "finished" signal
+    connect(request, &KCupsRequest::finished, this, [this, settings](KCupsRequest *req) {
+        if (req->error() == IPP_AUTHENTICATION_CANCELED) {
+            // If the user has cancelled auth
+            Q_EMIT requestError(i18nc("@info", "Server Settings Not Saved: (%1): %2", req->serverError(), req->errorMsg()));
+        } else if (req->error() == IPP_SERVICE_UNAVAILABLE || req->error() == IPP_INTERNAL_ERROR) {
+            // this is the expected "error" after settings have changed as the server is restarting
+            m_serverSettings = settings;
+            Q_EMIT serverSettingsChanged();
+            qCDebug(PMKCM) << "CUPS SETTINGS SAVED!" << settings;
+        } else {
+            Q_EMIT requestError(i18nc("@info", "Fatal Save Server Settings: (%1): %2", req->serverError(), req->errorMsg()));
+        }
 
-    if (request->error() == IPP_AUTHENTICATION_CANCELED) {
-        // If the user has cancelled auth
-        Q_EMIT requestError(i18nc("@info", "Server Settings Not Saved: (%1): %2", request->serverError(), request->errorMsg()));
-    } else if (request->error() == IPP_SERVICE_UNAVAILABLE || request->error() == IPP_INTERNAL_ERROR) {
-        // this is the expected "error" after settings have changed as the server is restarting
-        m_serverSettings = settings;
-        Q_EMIT serverSettingsChanged();
-        qCDebug(PMKCM) << "CUPS SETTINGS SAVED!" << settings;
-    } else {
-        Q_EMIT requestError(i18nc("@info", "Fatal Save Server Settings: (%1): %2", request->serverError(), request->errorMsg()));
-    }
-
-    request->deleteLater();
+        req->deleteLater();
+    });
 }
 
 bool PrinterManager::shareConnectedPrinters() const

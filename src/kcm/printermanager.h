@@ -71,7 +71,7 @@ public:
 
 public Q_SLOTS:
     void savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass);
-    QVariantMap getPrinterPPD(const QString &name);
+    void loadPrinterPPD(const QString &name);
     void getServerSettings();
     void saveServerSettings(const QVariantMap &settings);
 
@@ -89,6 +89,7 @@ Q_SIGNALS:
     void serverStarted();
     void remotePrintersLoaded();
     void recommendedDriversLoaded();
+    void ppdLoaded(const QVariantMap &printerPPD);
 
 private:
     KCupsRequest *setupRequest(std::function<void()> finished = []() {});

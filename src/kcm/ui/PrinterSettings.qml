@@ -156,7 +156,8 @@ KCM.AbstractKCM {
                     openMakeModelDlg()
                 }
             } else {
-                ppd = kcm.getPrinterPPD(modelData.printerName)
+                // IFF an existing printer, ask the kcm to load the ppd
+                kcm.loadPrinterPPD(modelData.printerName)
             }
         }
     }
@@ -185,6 +186,10 @@ KCM.AbstractKCM {
             config.clear()
         }
 
+        function onPpdLoaded(printerPPD) {
+            root.ppd = printerPPD
+        }
+        
     }
 
     Loader {

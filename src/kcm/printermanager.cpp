@@ -258,96 +258,93 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
     }
 }
 
-QVariantMap PrinterManager::getPrinterPPD(const QString &name)
+void PrinterManager::loadPrinterPPD(const QString &name)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    auto request = new KCupsRequest;
     request->getPrinterPPD(name);
-    request->waitTillFinished();
-    if (!request) {
-        return {};
-    }
+    connect(request, &KCupsRequest::finished, this, [this](KCupsRequest *req) {
+        const auto filename = req->printerPPD();
+        const auto err = req->errorMsg();
+        req->deleteLater();
 
-    const auto filename = request->printerPPD();
-    const auto err = request->errorMsg();
-    request->deleteLater();
+        ppd_file_t *ppd = nullptr;
+        if (!filename.isEmpty()) {
+            ppd = ppdOpenFile(qUtf8Printable(filename));
+            unlink(qUtf8Printable(filename));
+        }
 
-    ppd_file_t *ppd = nullptr;
-    if (!filename.isEmpty()) {
-        ppd = ppdOpenFile(qUtf8Printable(filename));
-        unlink(qUtf8Printable(filename));
-    }
+        if (ppd == nullptr) {
+            qCWarning(PMKCM) << "Could not open ppd file:" << filename << err;
+            Q_EMIT ppdLoaded({});
+            return;
+        }
 
-    if (ppd == nullptr) {
-        qCWarning(PMKCM) << "Could not open ppd file:" << filename << err;
-        return {};
-    }
+        ppdLocalize(ppd);
+        // select the default options on the ppd file
+        ppdMarkDefaults(ppd);
 
-    ppdLocalize(ppd);
-    // select the default options on the ppd file
-    ppdMarkDefaults(ppd);
+        const char *lang_encoding;
+        lang_encoding = ppd->lang_encoding;
+        QStringDecoder codec;
+        if (lang_encoding && !strcasecmp(lang_encoding, "UTF-8")) {
+            codec = QStringDecoder(QStringDecoder::Utf8);
+        } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin1")) {
+            codec = QStringDecoder(QStringDecoder::Latin1);
+        } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin2")) {
+            codec = QStringDecoder("ISO-8859-2");
+        } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin5")) {
+            codec = QStringDecoder("ISO-8859-5");
+        } else if (lang_encoding && !strcasecmp(lang_encoding, "JIS83-RKSJ")) {
+            codec = QStringDecoder("SHIFT-JIS");
+        } else if (lang_encoding && !strcasecmp(lang_encoding, "MacStandard")) {
+            codec = QStringDecoder("MACINTOSH");
+        } else if (lang_encoding && !strcasecmp(lang_encoding, "WindowsANSI")) {
+            codec = QStringDecoder("WINDOWS-1252");
+        } else {
+            qCWarning(PMKCM) << "Unknown ENCODING:" << lang_encoding;
+            codec = QStringDecoder(lang_encoding);
+        }
+        // Fallback
+        if (!codec.isValid()) {
+            codec = QStringDecoder(QStringDecoder::Utf8);
+        }
 
-    const char *lang_encoding;
-    lang_encoding = ppd->lang_encoding;
-    QStringDecoder codec;
+        qCDebug(PMKCM) << codec(ppd->pcfilename) << codec(ppd->modelname) << codec(ppd->shortnickname);
 
-    if (lang_encoding && !strcasecmp(lang_encoding, "UTF-8")) {
-        codec = QStringDecoder(QStringDecoder::Utf8);
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin1")) {
-        codec = QStringDecoder(QStringDecoder::Latin1);
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin2")) {
-        codec = QStringDecoder("ISO-8859-2");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "ISOLatin5")) {
-        codec = QStringDecoder("ISO-8859-5");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "JIS83-RKSJ")) {
-        codec = QStringDecoder("SHIFT-JIS");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "MacStandard")) {
-        codec = QStringDecoder("MACINTOSH");
-    } else if (lang_encoding && !strcasecmp(lang_encoding, "WindowsANSI")) {
-        codec = QStringDecoder("WINDOWS-1252");
-    } else {
-        qCWarning(PMKCM) << "Unknown ENCODING:" << lang_encoding;
-        codec = QStringDecoder(lang_encoding);
-    }
-    // Fallback
-    if (!codec.isValid()) {
-        codec = QStringDecoder(QStringDecoder::Utf8);
-    }
+        QString make, makeAndModel, file;
+        if (ppd->manufacturer) {
+            make = codec(ppd->manufacturer);
+        }
 
-    qCDebug(PMKCM) << codec(ppd->pcfilename) << codec(ppd->modelname) << codec(ppd->shortnickname);
+        if (ppd->nickname) {
+            makeAndModel = codec(ppd->nickname);
+        }
 
-    QString make, makeAndModel, file;
-    if (ppd->manufacturer) {
-        make = codec(ppd->manufacturer);
-    }
+        if (ppd->pcfilename) {
+            file = codec(ppd->pcfilename);
+        }
 
-    if (ppd->nickname) {
-        makeAndModel = codec(ppd->nickname);
-    }
-
-    if (ppd->pcfilename) {
-        file = codec(ppd->pcfilename);
-    }
-
-    ppd_attr_t *ppdattr;
-    bool autoConfig = false;
-    if (ppd->num_filters == 0
-        || ((ppdattr = ppdFindAttr(ppd, "cupsCommands", nullptr)) != nullptr && ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
-        autoConfig = true;
-    } else {
-        for (int i = 0; i < ppd->num_filters; ++i) {
-            if (!strncmp(ppd->filters[i], "application/vnd.cups-postscript", 31)) {
-                autoConfig = true;
-                break;
+        ppd_attr_t *ppdattr;
+        bool autoConfig = false;
+        if (ppd->num_filters == 0
+            || ((ppdattr = ppdFindAttr(ppd, "cupsCommands", nullptr)) != nullptr && ppdattr->value && strstr(ppdattr->value, "AutoConfigure"))) {
+            autoConfig = true;
+        } else {
+            for (int i = 0; i < ppd->num_filters; ++i) {
+                if (!strncmp(ppd->filters[i], "application/vnd.cups-postscript", 31)) {
+                    autoConfig = true;
+                    break;
+                }
             }
         }
-    }
 
-    return {{u"autoConfig"_s, autoConfig},
-            {u"file"_s, QString()},
-            {u"pcfile"_s, file},
-            {u"type"_s, QVariant(PMTypes::PPDType::Custom)},
-            {u"make"_s, make},
-            {u"makeModel"_s, makeAndModel}};
+        Q_EMIT ppdLoaded({{u"autoConfig"_s, autoConfig},
+                          {u"file"_s, QString()},
+                          {u"pcfile"_s, file},
+                          {u"type"_s, QVariant(PMTypes::PPDType::Custom)},
+                          {u"make"_s, make},
+                          {u"makeModel"_s, makeAndModel}});
+    });
 }
 
 void PrinterManager::pausePrinter(const QString &name)

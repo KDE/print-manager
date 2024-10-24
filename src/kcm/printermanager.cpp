@@ -202,6 +202,7 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
     const bool addMode = args.take(u"add"_s).toBool();
     // Will only be set if default is changed to true
     const bool isDefault = args.take(u"isDefault"_s).toBool();
+    bool addModify = false;
 
     if (addMode) {
         args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
@@ -211,17 +212,7 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
                    << fileName << Qt::endl
                    << "args" << args;
 
-    QPointer<KCupsRequest> request = new KCupsRequest;
-
-    /** Default printer is handled by CUPS independently of the other printer
-     * attributes. If changing an existing printer and "default" is set
-     * then save immediately
-     */
-    if (!addMode && isDefault) {
-        request->setDefaultPrinter(name);
-        request->waitTillFinished();
-    }
-
+    auto request = new KCupsRequest;
     if (isClass) {
         // Member list is a QVariantList, kcupslib wants to see
         // a QStringList
@@ -231,30 +222,46 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
         }
         if (!args.isEmpty()) {
             request->addOrModifyClass(name, args);
-            request->waitTillFinished();
+            addModify = true;
         }
     } else {
         if (!args.isEmpty() || !fileName.isEmpty()) {
             request->addOrModifyPrinter(name, args, fileName);
-            request->waitTillFinished();
+            addModify = true;
         }
     }
 
-    // If adding a new printer and it's set as default, save explicitly
-    if (addMode && isDefault) {
-        request->setDefaultPrinter(name);
-        request->waitTillFinished();
-    }
-
-    if (request) {
-        if (!request->hasError()) {
-            Q_EMIT saveDone();
-        } else {
-            Q_EMIT requestError((isClass ? i18nc("@info", "Failed to configure class: ") : i18nc("@info", "Failed to configure printer: "))
-                                + request->errorMsg());
-            qCWarning(PMKCM) << "Failed to save printer/class" << name << request->errorMsg();
+    /** If no other printer attrs are changed, we still have to check default printer
+     * Default printer is handled by CUPS independently of the other printer
+     * attributes. if Default is set save explicitly.
+     */
+    if (!addModify) {
+        if (isDefault) {
+            qCDebug(PMKCM) << "Saving printer DEFAULT:" << name;
+            request->setDefaultPrinter(name);
         }
         request->deleteLater();
+        Q_EMIT saveDone();
+    } else {
+        connect(request, &KCupsRequest::finished, this, [this, isClass, name, isDefault](KCupsRequest *req) {
+            if (!req->hasError()) {
+                // Also check default printer flag
+                if (isDefault) {
+                    qCDebug(PMKCM) << "Saving printer DEFAULT:" << name;
+                    auto r = setupRequest([this]() {
+                        Q_EMIT saveDone();
+                    });
+                    r->setDefaultPrinter(name);
+                } else {
+                    Q_EMIT saveDone();
+                }
+            } else {
+                Q_EMIT requestError((isClass ? i18nc("@info", "Failed to configure class: ") : i18nc("@info", "Failed to configure printer: "))
+                                    + req->errorMsg());
+                qCWarning(PMKCM) << "Failed to save printer/class" << name << req->errorMsg();
+            }
+            req->deleteLater();
+        });
     }
 }
 

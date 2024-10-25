@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-10-25 00:42+0000\n"
 "PO-Revision-Date: 2020-04-08 20:52+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -620,7 +620,7 @@ msgstr "Angiv standardindstillinger"
 msgid "Query Printer for Default Options"
 msgstr "Forespørg printer om standardindstillinger"
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -628,7 +628,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Kunne ikke konfigurere klasse"
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -636,12 +636,12 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Kunne ikke konfigurere printer"
 
-#: src/kcm/printermanager.cpp:421
+#: src/kcm/printermanager.cpp:417
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Kunne ikke udføre anmodning: %1"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:469
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -649,13 +649,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Kunne ikke hente serverindstillinger"
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:513
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -663,12 +663,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Kunne ikke hente serverindstillinger"
 
-#: src/kcm/printermanager.cpp:568
+#: src/kcm/printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Udskriv selvtestside"
 
-#: src/kcm/printermanager.cpp:574
+#: src/kcm/printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Rens printerhoveder"

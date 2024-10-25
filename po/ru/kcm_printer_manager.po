@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:42+0000\n"
+"POT-Creation-Date: 2024-10-25 00:42+0000\n"
 "PO-Revision-Date: 2024-09-27 14:31+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -20,47 +20,47 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: printermanager.cpp:254
+#: printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Ошибка настройки класса: "
 
-#: printermanager.cpp:254
+#: printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ошибка настройки принтера: "
 
-#: printermanager.cpp:421
+#: printermanager.cpp:417
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Ошибка при выполнении запроса: %1"
 
-#: printermanager.cpp:473
+#: printermanager.cpp:469
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ошибка получения параметров сервера: %1"
 
-#: printermanager.cpp:509
+#: printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметры сервера не сохранены: (%1): %2"
 
-#: printermanager.cpp:516
+#: printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Неустранимая ошибка сохранения параметров сервера: (%1): %2"
 
-#: printermanager.cpp:568
+#: printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Распечатать страницу самопроверки"
 
-#: printermanager.cpp:574
+#: printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Очистить печатающие головки"
@@ -650,107 +650,107 @@ msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr "Настройка %1, подождите…"
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Не удалось удалить принтер: %1"
 
-#: ui/PrinterSettings.qml:203
+#: ui/PrinterSettings.qml:208
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Удалить группу?"
 
-#: ui/PrinterSettings.qml:204
+#: ui/PrinterSettings.qml:209
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Удалить принтер?"
 
-#: ui/PrinterSettings.qml:206
+#: ui/PrinterSettings.qml:211
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "Будет выполнено удаление «%1»."
 
-#: ui/PrinterSettings.qml:213
+#: ui/PrinterSettings.qml:218
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Удалить группу"
 
-#: ui/PrinterSettings.qml:214
+#: ui/PrinterSettings.qml:219
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Удалить принтер"
 
-#: ui/PrinterSettings.qml:223
+#: ui/PrinterSettings.qml:228
 #, kde-format
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ui/PrinterSettings.qml:391
+#: ui/PrinterSettings.qml:396
 #, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
 msgstr "** Принтер по умолчанию"
 
-#: ui/PrinterSettings.qml:397
+#: ui/PrinterSettings.qml:402
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Принтер по умолчанию"
 
-#: ui/PrinterSettings.qml:412
+#: ui/PrinterSettings.qml:417
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Общий доступ к этой группе"
 
-#: ui/PrinterSettings.qml:413
+#: ui/PrinterSettings.qml:418
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Общий доступ к этому принтеру"
 
-#: ui/PrinterSettings.qml:420
+#: ui/PrinterSettings.qml:425
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Принимать задания печати"
 
-#: ui/PrinterSettings.qml:469
+#: ui/PrinterSettings.qml:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Напечатать пробную страницу"
 
-#: ui/PrinterSettings.qml:475
+#: ui/PrinterSettings.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Напечатать страницу самопроверки"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Очистить печатающие головки"
 
-#: ui/PrinterSettings.qml:502
+#: ui/PrinterSettings.qml:507
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Найти принтер…"
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Имя очереди:"
 
-#: ui/PrinterSettings.qml:527
+#: ui/PrinterSettings.qml:532
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -759,37 +759,37 @@ msgstr ""
 "<interface>Группа принтеров</interface> позволяет объединить принтеры в "
 "набор."
 
-#: ui/PrinterSettings.qml:535
+#: ui/PrinterSettings.qml:540
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Описание:"
 
-#: ui/PrinterSettings.qml:547
+#: ui/PrinterSettings.qml:552
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Расположение:"
 
-#: ui/PrinterSettings.qml:559
+#: ui/PrinterSettings.qml:564
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Подключение:"
 
-#: ui/PrinterSettings.qml:573
+#: ui/PrinterSettings.qml:578
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Принтеры в группе:"
 
-#: ui/PrinterSettings.qml:710
+#: ui/PrinterSettings.qml:715
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Производитель/модель:"
 
-#: ui/PrinterSettings.qml:725
+#: ui/PrinterSettings.qml:730
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

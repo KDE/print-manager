@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-10-25 00:42+0000\n"
 "PO-Revision-Date: 2024-09-19 16:37+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -625,24 +625,24 @@ msgstr "Ορισμός προκαθορισμένων επιλογών"
 msgid "Query Printer for Default Options"
 msgstr "Ερώτηση εκτυπωτή για προκαθορισμένες επιλογές"
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Απέτυχε η διαμόρφωση κλάσης: "
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Απέτυχε η διαμόρφωση εκτυπωτή: "
 
-#: src/kcm/printermanager.cpp:421
+#: src/kcm/printermanager.cpp:417
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Απέτυχε η εκτέλεση της αίτησης: %1"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:469
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -650,13 +650,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:513
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -664,12 +664,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
 
-#: src/kcm/printermanager.cpp:568
+#: src/kcm/printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Εκτύπωση δοκιμαστικής σελίδας"
 
-#: src/kcm/printermanager.cpp:574
+#: src/kcm/printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Καθαρισμός κεφαλών εκτύπωσης"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-10-25 00:42+0000\n"
 "PO-Revision-Date: 2024-05-21 10:11+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -619,47 +619,47 @@ msgstr "Fixa optiones predefinite"
 msgid "Query Printer for Default Options"
 msgstr "Demanda imprimitor pro optiones predefinite"
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Il falleva configurar classe:"
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Il falleva configurar imprimitor:"
 
-#: src/kcm/printermanager.cpp:421
+#: src/kcm/printermanager.cpp:417
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Il falleva executar requesta: %1"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:469
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Il falleva obtener preferentias de servitor:%1"
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Preferentias de servitor non salveguardate: (%1): %2"
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Salveguardar fatal de Preferentias de servitor : (%1) : %2"
 
-#: src/kcm/printermanager.cpp:568
+#: src/kcm/printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprime pagina de prova de auto test"
 
-#: src/kcm/printermanager.cpp:574
+#: src/kcm/printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Netta testas de imprimer"

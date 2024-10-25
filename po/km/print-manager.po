@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-10-25 00:42+0000\n"
 "PO-Revision-Date: 2012-06-29 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -638,7 +638,7 @@ msgstr ""
 msgid "Query Printer for Default Options"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -646,7 +646,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -654,14 +654,14 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "បាន​បរាជ័យ​ក្នុង​បន្ថែម​ម៉ាស៊ីន​បោះពុម្ព"
 
-#: src/kcm/printermanager.cpp:421
+#: src/kcm/printermanager.cpp:417
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to add class"
 msgid "Failed to perform request: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​បន្ថែម class"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:469
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -669,13 +669,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "បាន​បរាជ័យ​ក្នុងការ​ទទួល​យក​ការកំណត់​របស់​ម៉ាស៊ីន​បម្រើ"
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:513
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -683,12 +683,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "បាន​បរាជ័យ​ក្នុងការ​ទទួល​យក​ការកំណត់​របស់​ម៉ាស៊ីន​បម្រើ"
 
-#: src/kcm/printermanager.cpp:568
+#: src/kcm/printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "បោះពុម្ព​ទំព័រ​សាកល្បង"
 
-#: src/kcm/printermanager.cpp:574
+#: src/kcm/printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "សម្អាត​​ក្បាល​បោះពុម្ព"

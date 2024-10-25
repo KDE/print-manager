@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-10-25 00:42+0000\n"
 "PO-Revision-Date: 2024-05-21 15:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -622,47 +622,47 @@ msgstr "Establix les opcions predeterminades"
 msgid "Query Printer for Default Options"
 msgstr "Consulta a la impressora per les opcions predeterminades"
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "No s'ha pogut configurar la classe: "
 
-#: src/kcm/printermanager.cpp:254
+#: src/kcm/printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "No s'ha pogut configurar la impressora: "
 
-#: src/kcm/printermanager.cpp:421
+#: src/kcm/printermanager.cpp:417
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "No s'ha pogut portar a terme la sol·licitud: %1"
 
-#: src/kcm/printermanager.cpp:473
+#: src/kcm/printermanager.cpp:469
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "No s'han pogut obtindre els paràmetres del servidor: %1"
 
-#: src/kcm/printermanager.cpp:509
+#: src/kcm/printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "No s'han guardat els paràmetres del servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:516
+#: src/kcm/printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Error fatal en guardar els paràmetres del servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:568
+#: src/kcm/printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimix la pàgina d'autocomprovació"
 
-#: src/kcm/printermanager.cpp:574
+#: src/kcm/printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Neteja els capçals de la impressió"

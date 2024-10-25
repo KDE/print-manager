@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-17 00:42+0000\n"
+"POT-Creation-Date: 2024-10-25 00:42+0000\n"
 "PO-Revision-Date: 2024-03-02 15:13+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -18,30 +18,30 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Lokalize 21.12.3\n"
 
-#: printermanager.cpp:254
+#: printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Configurarea clasei a eșuat: "
 
-#: printermanager.cpp:254
+#: printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Configurarea imprimantei a eșuat: "
 
-#: printermanager.cpp:421
+#: printermanager.cpp:417
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Efectuarea cererii a eșuat: %1"
 
-#: printermanager.cpp:473
+#: printermanager.cpp:469
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Obținerea parametrilor serverului a eșuat: %1"
 
-#: printermanager.cpp:509
+#: printermanager.cpp:506
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -49,7 +49,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Eroare server: (%1): %2"
 
-#: printermanager.cpp:516
+#: printermanager.cpp:513
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -57,12 +57,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Obținerea parametrilor serverului a eșuat: %1"
 
-#: printermanager.cpp:568
+#: printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Tipărește pagină de test"
 
-#: printermanager.cpp:574
+#: printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Curăță capul de imprimare"
@@ -660,51 +660,51 @@ msgctxt "@info:status"
 msgid "Configuring %1, please wait…."
 msgstr ""
 
-#: ui/PrinterSettings.qml:180
+#: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Eliminarea imprimantei a eșuat: %1"
 
-#: ui/PrinterSettings.qml:203
+#: ui/PrinterSettings.qml:208
 #, fuzzy, kde-format
 #| msgid "Remove Group"
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Elimină grupul"
 
-#: ui/PrinterSettings.qml:204
+#: ui/PrinterSettings.qml:209
 #, fuzzy, kde-format
 #| msgid "Remove Printer"
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Elimină imprimanta"
 
-#: ui/PrinterSettings.qml:206
+#: ui/PrinterSettings.qml:211
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr ""
 
-#: ui/PrinterSettings.qml:213
+#: ui/PrinterSettings.qml:218
 #, fuzzy, kde-format
 #| msgid "Remove Group"
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Elimină grupul"
 
-#: ui/PrinterSettings.qml:214
+#: ui/PrinterSettings.qml:219
 #, fuzzy, kde-format
 #| msgid "Remove Printer"
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Elimină imprimanta"
 
-#: ui/PrinterSettings.qml:223
+#: ui/PrinterSettings.qml:228
 #, kde-format
 msgid "Cancel"
 msgstr "Renunță"
 
-#: ui/PrinterSettings.qml:391
+#: ui/PrinterSettings.qml:396
 #, fuzzy, kde-format
 #| msgctxt "@action:check Set default printer"
 #| msgid "Default printer"
@@ -712,61 +712,61 @@ msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
 msgstr "Imprimantă implicită"
 
-#: ui/PrinterSettings.qml:397
+#: ui/PrinterSettings.qml:402
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Imprimantă implicită"
 
-#: ui/PrinterSettings.qml:412
+#: ui/PrinterSettings.qml:417
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Partajează acest grup"
 
-#: ui/PrinterSettings.qml:413
+#: ui/PrinterSettings.qml:418
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Partajează imprimanta"
 
-#: ui/PrinterSettings.qml:420
+#: ui/PrinterSettings.qml:425
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Acceptă lucrări de imprimare"
 
-#: ui/PrinterSettings.qml:469
+#: ui/PrinterSettings.qml:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Tipărește pagină de test"
 
-#: ui/PrinterSettings.qml:475
+#: ui/PrinterSettings.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Tipărește pagină de test propriu"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Curăță capul de imprimare"
 
-#: ui/PrinterSettings.qml:502
+#: ui/PrinterSettings.qml:507
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Găsește o imprimantă…"
 
-#: ui/PrinterSettings.qml:510
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Denumire coadă:"
 
-#: ui/PrinterSettings.qml:527
+#: ui/PrinterSettings.qml:532
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "A <b>printer group</b> is used to pool printing resources."
@@ -776,37 +776,37 @@ msgid ""
 msgstr ""
 "Un <b>grup de imprimante</b> e folosit pentru a grupa resursele de imprimare."
 
-#: ui/PrinterSettings.qml:535
+#: ui/PrinterSettings.qml:540
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Descriere:"
 
-#: ui/PrinterSettings.qml:547
+#: ui/PrinterSettings.qml:552
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Amplasare:"
 
-#: ui/PrinterSettings.qml:559
+#: ui/PrinterSettings.qml:564
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Conexiune:"
 
-#: ui/PrinterSettings.qml:573
+#: ui/PrinterSettings.qml:578
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Imprimante-membri:"
 
-#: ui/PrinterSettings.qml:710
+#: ui/PrinterSettings.qml:715
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Fabricant/Model:"
 
-#: ui/PrinterSettings.qml:725
+#: ui/PrinterSettings.qml:730
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

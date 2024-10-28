@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-10-28 00:42+0000\n"
 "PO-Revision-Date: 2024-10-18 08:23+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -650,9 +650,11 @@ msgstr ""
 "définir un fabricant / modèle."
 
 #: ui/PrinterSettings.qml:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…."
 msgctxt "@info:status"
-msgid "Configuring %1, please wait…."
+msgid "Configuring %1, please wait…"
 msgstr "Configuration de %1 en cours. Veuillez patienter…."
 
 #: ui/PrinterSettings.qml:181

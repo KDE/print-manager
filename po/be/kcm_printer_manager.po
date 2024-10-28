@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-10-28 00:42+0000\n"
 "PO-Revision-Date: 2024-06-20 17:30\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -647,9 +647,11 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Патрэбна марка/мадэль. Каб абраць марку/мадэль, націсніце \"Абраць\""
 
 #: ui/PrinterSettings.qml:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…."
 msgctxt "@info:status"
-msgid "Configuring %1, please wait…."
+msgid "Configuring %1, please wait…"
 msgstr "Наладжванне \"%1\". Пачакайце…."
 
 #: ui/PrinterSettings.qml:181

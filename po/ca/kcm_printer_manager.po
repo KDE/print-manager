@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
-"PO-Revision-Date: 2024-10-17 15:14+0200\n"
+"POT-Creation-Date: 2024-10-28 00:42+0000\n"
+"PO-Revision-Date: 2024-10-27 18:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -405,7 +405,7 @@ msgstr ""
 "Sembla que no s'ha instal·lat cap paquet de suport d'impressora que "
 "proporcioni funcions d'utilitat.<nl/><nl/>Atès que aquesta distribució no "
 "inclou el PackageKit, no podem proporcionar una opció d'instal·lació. Cal "
-"utilitzar el gestor de paquets per instal·lar manualment el paquet "
+"utilitzar el gestor de paquets per a instal·lar manualment el paquet "
 "<command>system-config-printer</command>."
 
 #: ui/main.qml:71
@@ -637,10 +637,12 @@ msgstr ""
 "Fabricant/Model"
 
 #: ui/PrinterSettings.qml:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…."
 msgctxt "@info:status"
-msgid "Configuring %1, please wait…."
-msgstr "S'està configurant %1, espereu…."
+msgid "Configuring %1, please wait…"
+msgstr "S'està configurant %1, espereu…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format

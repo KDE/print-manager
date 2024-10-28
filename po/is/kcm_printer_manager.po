@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-10-28 00:42+0000\n"
 "PO-Revision-Date: 2024-06-30 15:40+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -642,9 +642,11 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Gerð/tegund er nauðsynleg. Veldu \"Velja\" til að velja gerð/tegund"
 
 #: ui/PrinterSettings.qml:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…."
 msgctxt "@info:status"
-msgid "Configuring %1, please wait…."
+msgid "Configuring %1, please wait…"
 msgstr "Grunnstilli %1, hinkraðu aðeins…."
 
 #: ui/PrinterSettings.qml:181

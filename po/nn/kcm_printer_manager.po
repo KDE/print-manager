@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
-"PO-Revision-Date: 2024-10-06 14:04+0200\n"
+"POT-Creation-Date: 2024-10-28 00:42+0000\n"
+"PO-Revision-Date: 2024-10-27 14:46+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -448,17 +448,13 @@ msgid "No printers are currently set up"
 msgstr "Ingen skrivarar er sette opp"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Trykk <interface>Legg til skrivar</interface> for å setja opp ein ny skrivar "
-"på maskina"
+"Trykk <interface>Legg til</interface> for å setja opp ein ny skrivar på "
+"maskina"
 
 #: ui/main.qml:244
 #, kde-format
@@ -632,9 +628,11 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Merke og modell er obligatorisk. Trykk «Vel» for å velja merke/modell."
 
 #: ui/PrinterSettings.qml:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…."
 msgctxt "@info:status"
-msgid "Configuring %1, please wait…."
+msgid "Configuring %1, please wait…"
 msgstr "Set opp %1 – vent litt …"
 
 #: ui/PrinterSettings.qml:181

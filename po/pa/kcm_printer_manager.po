@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-10-28 00:42+0000\n"
 "PO-Revision-Date: 2024-01-01 09:03-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -651,7 +651,7 @@ msgstr "ਮੇਕ/ਮਾਡਲ ਚਾਹੀਦਾ ਹੈ। ਮੇਕ/ਮਾਡ�
 #: ui/PrinterSettings.qml:139
 #, kde-format
 msgctxt "@info:status"
-msgid "Configuring %1, please wait…."
+msgid "Configuring %1, please wait…"
 msgstr ""
 
 #: ui/PrinterSettings.qml:181

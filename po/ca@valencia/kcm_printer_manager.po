@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-28 00:42+0000\n"
-"PO-Revision-Date: 2024-10-27 18:42+0100\n"
+"PO-Revision-Date: 2024-10-28 10:32+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -636,9 +636,7 @@ msgstr ""
 "Es requerix el fabricant i model. Seleccioneu «Selecciona» per a triar-los"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "S'està configurant %1, espereu…"

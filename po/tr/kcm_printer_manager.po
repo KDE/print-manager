@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-28 00:42+0000\n"
-"PO-Revision-Date: 2024-10-18 02:05+0300\n"
+"PO-Revision-Date: 2024-10-28 13:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -629,9 +629,7 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için ‘Seç‘e tıklayın"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "%1 yapılandırılıyor, lütfen bekleyin…"

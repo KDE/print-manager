@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-28 00:42+0000\n"
-"PO-Revision-Date: 2024-10-26 22:06+0200\n"
+"PO-Revision-Date: 2024-10-28 18:39+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -639,9 +639,7 @@ msgstr ""
 "Marka/eredua beharrezkoa da. Hautatu \"Aukeratu\" marka/eredua hautatzeko"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "%1 konfiguratzen, itxoin mesedez..."

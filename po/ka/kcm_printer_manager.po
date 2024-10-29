@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-10-28 00:42+0000\n"
-"PO-Revision-Date: 2024-10-17 05:26+0200\n"
+"PO-Revision-Date: 2024-10-28 04:24+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -635,12 +635,10 @@ msgstr ""
 "მონიშნეთ"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr "%1-ის მორგება. მოითმინეთ…."
+msgstr "%1-ის მორგება. მოითმინეთ…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format

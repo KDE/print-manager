@@ -141,12 +141,6 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
     // This is emitted when a printer is removed
     connect(KCupsConnection::global(), &KCupsConnection::printerDeleted, this, &PrintQueueUi::updatePrinter);
 
-    // This is emitted when a printer/queue is changed
-    // Deprecated stuff that works better than the above
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterAdded, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhPrinterRemoved, this, &PrintQueueUi::updatePrinterByName);
-    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, &PrintQueueUi::updatePrinterByName);
-
     updatePrinterByName(m_destName);
 
     // Restore the dialog size
@@ -381,7 +375,7 @@ void PrintQueueUi::getAttributesFinished(KCupsRequest *request)
         setEnabled(true);
     }
 
-    KCupsPrinter printer = request->printers().first();
+    KCupsPrinter printer = request->printers().at(0);
 
     // get printer-info
     if (printer.info().isEmpty()) {

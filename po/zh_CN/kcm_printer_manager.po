@@ -624,7 +624,7 @@ msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/�
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr ""
+msgstr "正在配置 %1，请稍候…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format

@@ -21,6 +21,8 @@ PlasmaExtras.ExpandableListItem {
             ? " (%1)".arg(model.location)
             : "")
     subtitle: model.stateMessage
+    subtitleCanWrap: true
+    subtitleMaximumLineCount: 3
     isDefault: model.isDefault
 
     defaultActionButtonAction: Kirigami.Action {

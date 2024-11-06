@@ -33,7 +33,7 @@ PlasmaExtras.Representation {
             currentIndex: -1
 
             section {
-                property: printersModel.printersOnly ? "" : "isClass"
+                property: printersModel.hasOnlyPrinters ? "" : "isClass"
                 delegate: Kirigami.ListSectionHeader {
                     width: ListView.view.width
                     required property bool section

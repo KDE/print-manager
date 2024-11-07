@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-06-12 00:40+0000\n"
-"PO-Revision-Date: 2024-05-27 14:34+0200\n"
+"PO-Revision-Date: 2024-11-06 23:20+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #, kde-format
@@ -334,13 +334,13 @@ msgstr "Въведените данни трябва да са идентифи�
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr "Неуспешно добавяне на клас: '%1'"
+msgstr "Неуспешно добавяне на клас: „%1“"
 
 #: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr "Неуспешно настройване на принтер: '%1'"
+msgstr "Неуспешно настройване на принтер: „%1“"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/PageAddPrinter.ui:31
@@ -724,7 +724,7 @@ msgstr "Търсене"
 #: src/kded/NewPrinterNotification.cpp:236
 #, kde-format
 msgid "'%1' has been added, please check its driver."
-msgstr "'%1' беше добавен, моля проверете драйвера му."
+msgstr "„%1“ беше добавен, моля проверете драйвера му."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:237
@@ -736,7 +736,7 @@ msgstr "Настройване"
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver."
-msgstr "'%1' беше добавен. Използва бе драйвера '%2' driver."
+msgstr "„%1“ беше добавен. Използва бе драйвера „%2“ driver."
 
 #: src/kded/NewPrinterNotification.cpp:241
 #: src/kded/NewPrinterNotification.cpp:255
@@ -752,7 +752,7 @@ msgstr "Търсене на драйвер"
 #: src/kded/NewPrinterNotification.cpp:253
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr "'%1' е готов за печат"
+msgstr "„%1“ е готов за печат"
 
 #: src/libkcups/DevicesModel.cpp:50
 #, kde-format
@@ -916,12 +916,12 @@ msgstr "%1 мрежов принтер през DNS-SD"
 #: src/libkcups/DevicesModel.cpp:223
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "Неуспешно получаване на списъка с устройства: '%1'"
+msgstr "Неуспешно получаване на списъка с устройства: „%1“"
 
 #: src/libkcups/DevicesModel.cpp:256
 #, kde-format
 msgid "Failed to group devices: '%1'"
-msgstr "Неуспешно групиране на устройства: '%1'"
+msgstr "Неуспешно групиране на устройства: „%1“"
 
 #: src/libkcups/DevicesModel.cpp:385
 #, kde-format
@@ -999,7 +999,7 @@ msgstr "От името на хоста"
 #: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr "Неуспешно преместване на '%1' в '%2'"
+msgstr "Неуспешно преместване на „%1“ в „%2“"
 
 #: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
 #, kde-format
@@ -1034,7 +1034,7 @@ msgstr "Прекъсната"
 #: src/libkcups/KCupsConnection.cpp:778
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr "Връзката с CUPS изисква удостоверяване: \"%1\""
+msgstr "Връзката с CUPS изисква удостоверяване: „%1“"
 
 #: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
@@ -1099,12 +1099,12 @@ msgstr "В покой, отхвърля задачите"
 #: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle - '%1'"
-msgstr "В покой - '%1'"
+msgstr "В покой - „%1“"
 
 #: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
-msgstr "В покой, отхвърля задачите - '%1'"
+msgstr "В покой, отхвърля задачите - „%1“"
 
 #: src/libkcups/PrinterModel.cpp:429
 #, kde-format
@@ -1114,7 +1114,7 @@ msgstr "Използва се"
 #: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "In use - '%1'"
-msgstr "Използва се - '%1'"
+msgstr "Използва се - „%1“"
 
 #: src/libkcups/PrinterModel.cpp:435
 #, kde-format
@@ -1129,12 +1129,12 @@ msgstr "На пауза, отхвърля задачите"
 #: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused - '%1'"
-msgstr "На пауза - '%1'"
+msgstr "На пауза - „%1“"
 
 #: src/libkcups/PrinterModel.cpp:437
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
-msgstr "На пауза, отхвърля задачите - '%1'"
+msgstr "На пауза, отхвърля задачите - „%1“"
 
 #: src/libkcups/PrinterModel.cpp:441
 #, kde-format
@@ -1144,7 +1144,7 @@ msgstr "Неизвестно"
 #: src/libkcups/PrinterModel.cpp:443
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr "Неизвестно - '%1'"
+msgstr "Неизвестно - „%1“"
 
 #: src/libkcups/SelectMakeModel.cpp:115
 #, kde-format
@@ -1154,12 +1154,12 @@ msgstr "Избиране на драйвер за %1"
 #: src/libkcups/SelectMakeModel.cpp:138
 #, kde-format
 msgid "Failed to get a list of drivers: '%1'"
-msgstr "Неуспешно получаване на списък с драйвери: '%1'"
+msgstr "Неуспешно получаване на списък с драйвери: „%1“"
 
 #: src/libkcups/SelectMakeModel.cpp:228
 #, kde-format
 msgid "Failed to search for a recommended driver: '%1'"
-msgstr "Неуспешно търсене за препоръчителен драйвер: '%1'"
+msgstr "Неуспешно търсене за препоръчителен драйвер: „%1“"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
 #: src/libkcups/SelectMakeModel.ui:14
@@ -1209,7 +1209,7 @@ msgstr "Печат..."
 #: src/printqueue/PrintQueueUi.cpp:204
 #, kde-format
 msgid "Printing '%1'"
-msgstr "Печат на '%1'"
+msgstr "Печат на „%1“"
 
 #: src/printqueue/PrintQueueUi.cpp:212
 #, kde-format
@@ -1258,22 +1258,22 @@ msgstr "Всички принтери"
 #: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr "Неуспешно отказване на '%1'"
+msgstr "Неуспешно отказване на „%1“"
 
 #: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr "Неуспешно задържане на '%1'"
+msgstr "Неуспешно задържане на „%1“"
 
 #: src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr "Неуспешно освобождаване на '%1'"
+msgstr "Неуспешно освобождаване на „%1“"
 
 #: src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr "Неуспешно повторно отпечатане на '%1'"
+msgstr "Неуспешно повторно отпечатане на „%1“"
 
 #: src/printqueue/PrintQueueUi.cpp:561
 #, kde-format

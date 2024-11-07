@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-11-07 00:41+0000\n"
 "PO-Revision-Date: 2024-05-21 06:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
@@ -1033,7 +1033,7 @@ msgstr "Скасовано"
 msgid "Aborted"
 msgstr "Припинено"
 
-#: src/libkcups/KCupsConnection.cpp:778
+#: src/libkcups/KCupsConnection.cpp:777
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "З'єднання із CUPS потребує проходження розпізнавання: «%1»"

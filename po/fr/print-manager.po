@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-11-07 00:41+0000\n"
 "PO-Revision-Date: 2024-05-22 09:11+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -1044,7 +1044,7 @@ msgstr "Annulé"
 msgid "Aborted"
 msgstr "Interrompu"
 
-#: src/libkcups/KCupsConnection.cpp:778
+#: src/libkcups/KCupsConnection.cpp:777
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Une connexion CUPS nécessite une authentification : « %1 »"

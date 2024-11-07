@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-11-07 00:41+0000\n"
 "PO-Revision-Date: 2023-12-21 23:28+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1038,7 +1038,7 @@ msgstr "Abgebrochen"
 msgid "Aborted"
 msgstr "Abgebrochen"
 
-#: src/libkcups/KCupsConnection.cpp:778
+#: src/libkcups/KCupsConnection.cpp:777
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Eine CUPS-Verbindung benötigt Authentifizierung: „%1“"

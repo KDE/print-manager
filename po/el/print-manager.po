@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-25 00:42+0000\n"
+"POT-Creation-Date: 2024-11-07 00:41+0000\n"
 "PO-Revision-Date: 2024-09-19 16:37+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -1041,7 +1041,7 @@ msgstr "Ακυρώθηκε"
 msgid "Aborted"
 msgstr "Εγκαταλείφθηκε"
 
-#: src/libkcups/KCupsConnection.cpp:778
+#: src/libkcups/KCupsConnection.cpp:777
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Η σύνδεση με το CUPS απαιτεί ταυτοποίηση: «%1»"

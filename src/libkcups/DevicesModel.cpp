@@ -45,6 +45,7 @@ DevicesModel::DevicesModel(QObject *parent)
 
     qDBusRegisterMetaType<MapSS>();
     qDBusRegisterMetaType<MapSMapSS>();
+    qDBusRegisterMetaType<QList<QStringList>>();
 
     // Adds the other device which is meant for manual URI input
     insertDevice(QLatin1String("other"), QString(), i18nc("@item", "Manual Config"), QString(), QLatin1String("other"), QString());

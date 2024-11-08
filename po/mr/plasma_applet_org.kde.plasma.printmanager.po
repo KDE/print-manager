@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:42+0000\n"
 "PO-Revision-Date: 2013-02-06 12:01+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -17,73 +17,82 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:44
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgid "Printers"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 msgid "Printer Groups"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/main.qml:66
 msgid "No printers have been configured or discovered"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/plasmoid/package/contents/ui/main.qml:58
+#: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:60
+#: src/plasmoid/package/contents/ui/main.qml:61
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/package/contents/ui/main.qml:64
 msgid "Print queue is empty"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:94
+#: src/plasmoid/package/contents/ui/main.qml:96
 msgid "&Configure Printers…"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr ""
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#, fuzzy
+#| msgid "Cancel Job"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "काम रद्द करा"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+msgctxt "Number of additional print jobs"
+msgid "%1 more job"
+msgid_plural "%1 more jobs"
+msgstr[0] ""
+msgstr[1] ""
 
 #, fuzzy
 #~| msgid "Reprint Job"
 #~ msgid "Resume printing"
 #~ msgstr "काम परत छापा"
-
-#, fuzzy
-#~| msgid "Cancel Job"
-#~ msgid "Cancel"
-#~ msgstr "काम रद्द करा"
 
 #, fuzzy
 #~| msgid "Hold Job"

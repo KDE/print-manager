@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:42+0000\n"
 "PO-Revision-Date: 2023-11-08 15:58+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -17,61 +17,74 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.08.2\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:44
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgid "Printers"
 msgstr "Tiskárny"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 msgid "Printer Groups"
 msgstr "Skupiny tiskáren"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/main.qml:66
 msgid "No printers have been configured or discovered"
 msgstr "Nebyly nalezeny či nastaveny žádné tiskárny"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
 msgid "No matches"
 msgstr "Žádné shody"
 
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Ve frontě tisku je jedna úloha"
 msgstr[1] "Ve frontě tisku jsou %1 úlohy"
 msgstr[2] "Ve frontě tisku je %1 úloh"
 
-#: src/plasmoid/package/contents/ui/main.qml:58
+#: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Tisknu %1 pomocí %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:60
+#: src/plasmoid/package/contents/ui/main.qml:61
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Tisknu pomocí '%1'"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/package/contents/ui/main.qml:64
 msgid "Print queue is empty"
 msgstr "Fronta tisku je prázdná"
 
-#: src/plasmoid/package/contents/ui/main.qml:94
+#: src/plasmoid/package/contents/ui/main.qml:96
 msgid "&Configure Printers…"
 msgstr "Nastavit tis&kárny…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr "Obnovit"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr "Nastavit tiskárnu…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr "Zobrazit frontu tisku…"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr ""
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+msgctxt "Number of additional print jobs"
+msgid "%1 more job"
+msgid_plural "%1 more jobs"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:42+0000\n"
 "PO-Revision-Date: 2013-10-18 22:34+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian\n"
@@ -20,64 +20,81 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-10-19 05:24+0000\n"
 "X-Generator: Launchpad (build 16807)\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:44
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgid "Printers"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 msgid "Printer Groups"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/main.qml:66
 msgid "No printers have been configured or discovered"
 msgstr "Nijedan štampač nije konfigurisan ili otkriven"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Ima %1 posao štampanja u redu čekanja"
 msgstr[1] "Ima %1 posla štampanja u redu čekanja"
 msgstr[2] "Ima %1 poslova štampanja u redu čekanja"
 
-#: src/plasmoid/package/contents/ui/main.qml:58
+#: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:60
+#: src/plasmoid/package/contents/ui/main.qml:61
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/package/contents/ui/main.qml:64
 msgid "Print queue is empty"
 msgstr "Red čekanja štampača je prazan"
 
-#: src/plasmoid/package/contents/ui/main.qml:94
+#: src/plasmoid/package/contents/ui/main.qml:96
 msgid "&Configure Printers…"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr ""
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#, fuzzy
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#, fuzzy
+#| msgid "All jobs"
+msgctxt "Number of additional print jobs"
+msgid "%1 more job"
+msgid_plural "%1 more jobs"
+msgstr[0] "Svi poslovi"
+msgstr[1] "Svi poslovi"
+msgstr[2] "Svi poslovi"
 
 #, fuzzy
 #~| msgid "All jobs"
@@ -116,11 +133,6 @@ msgstr ""
 #~ msgstr[2] "Samo aktivni poslovi"
 
 #, fuzzy
-#~| msgid "All jobs"
-#~ msgid "%1, no jobs"
-#~ msgstr "Svi poslovi"
-
-#, fuzzy
 #~| msgid "Active jobs only"
 #~ msgid "One active job"
 #~ msgid_plural "%1 active jobs"
@@ -130,9 +142,6 @@ msgstr ""
 
 #~ msgid "Only show jobs from the following printers:"
 #~ msgstr "Prikaži samo poslove sljedećih štampača:"
-
-#~ msgid "Cancel"
-#~ msgstr "Otkaži"
 
 #~ msgid "Hold"
 #~ msgstr "Zadrži"

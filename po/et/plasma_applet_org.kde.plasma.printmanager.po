@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:42+0000\n"
 "PO-Revision-Date: 2020-04-14 15:22+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -17,71 +17,87 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 19.12.3\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:44
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgid "Printers"
 msgstr "Printerid"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 #, fuzzy
 #| msgid "Printers"
 msgid "Printer Groups"
 msgstr "Printerid"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/main.qml:66
 msgid "No printers have been configured or discovered"
 msgstr "Ühtegi printerit pole seadistatud või tuvastatud"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Järjekorras on üks trükitöö"
 msgstr[1] "Järjekorras on %1 trükitööd"
 
-#: src/plasmoid/package/contents/ui/main.qml:58
+#: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 trükkimine printeris %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:60
+#: src/plasmoid/package/contents/ui/main.qml:61
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Trükkimine printeris %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/package/contents/ui/main.qml:64
 msgid "Print queue is empty"
 msgstr "Trükijärjekord on tühi"
 
-#: src/plasmoid/package/contents/ui/main.qml:94
+#: src/plasmoid/package/contents/ui/main.qml:96
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
 msgstr "&Seadista printereid..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
 #, fuzzy
 #| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Seadista printerit ..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
 #, fuzzy
 #| msgid "View print queue"
 msgid "View print queue…"
 msgstr "Ava trükijärjekord"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#, fuzzy
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Katkesta"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#, fuzzy
+#| msgid "%1, no jobs"
+msgctxt "Number of additional print jobs"
+msgid "%1 more job"
+msgid_plural "%1 more jobs"
+msgstr[0] "%1, töid ei ole"
+msgstr[1] "%1, töid ei ole"
 
 #, fuzzy
 #~| msgid "All jobs"
@@ -121,9 +137,6 @@ msgstr "Ava trükijärjekord"
 #~ msgstr[0] "%1, %2 aktiivne tööd"
 #~ msgstr[1] "%1, %2 aktiivset tööd"
 
-#~ msgid "%1, no jobs"
-#~ msgstr "%1, töid ei ole"
-
 #~ msgid "%1, %2 job"
 #~ msgid_plural "%1, %2 jobs"
 #~ msgstr[0] "%1, %2 töö"
@@ -141,9 +154,6 @@ msgstr "Ava trükijärjekord"
 
 #~ msgid "Only show jobs from the following printers:"
 #~ msgstr "Ainult järgmiste printerite tööd:"
-
-#~ msgid "Cancel"
-#~ msgstr "Katkesta"
 
 #~ msgid "Hold"
 #~ msgstr "Ootele"

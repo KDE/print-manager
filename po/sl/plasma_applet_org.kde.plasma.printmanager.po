@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:42+0000\n"
 "PO-Revision-Date: 2024-03-17 17:58+0100\n"
 "Last-Translator: Jure Repinc <jlp@holodeck1.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -22,25 +22,25 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Lokalize 24.04.70\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:44
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgid "Printers"
 msgstr "Tiskalniki"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 msgid "Printer Groups"
 msgstr "Skupine tiskalnikov"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/main.qml:66
 msgid "No printers have been configured or discovered"
 msgstr "Nastavljenega ali odkritega ni bilo nobenega tiskalnika"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
 msgid "No matches"
 msgstr "Ni zadetkov"
 
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "V vrsti je %1 tiskalnih poslov"
@@ -48,39 +48,57 @@ msgstr[1] "V vrsti je %1 tiskalni posel"
 msgstr[2] "V vrsti sta %1 tiskalna posla"
 msgstr[3] "V vrsti so %1 tiskalni posli"
 
-#: src/plasmoid/package/contents/ui/main.qml:58
+#: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Tiskanje %1 z %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:60
+#: src/plasmoid/package/contents/ui/main.qml:61
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Tiskanje z %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/package/contents/ui/main.qml:64
 msgid "Print queue is empty"
 msgstr "Tiskalna vrsta je prazna"
 
-#: src/plasmoid/package/contents/ui/main.qml:94
+#: src/plasmoid/package/contents/ui/main.qml:96
 msgid "&Configure Printers…"
 msgstr "&Nastavi tiskalnike …"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr "Nadaljuj"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr "Premor"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr "Nastavi tiskalnik …"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr "Pokaži tiskalno vrsto …"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#, fuzzy
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#, fuzzy
+#| msgid "%1, no jobs"
+msgctxt "Number of additional print jobs"
+msgid "%1 more job"
+msgid_plural "%1 more jobs"
+msgstr[0] "%1, ni poslov"
+msgstr[1] "%1, ni poslov"
+msgstr[2] "%1, ni poslov"
+msgstr[3] "%1, ni poslov"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Prikaži vse posle"
@@ -119,9 +137,6 @@ msgstr "Pokaži tiskalno vrsto …"
 #~ msgstr[2] "%1, %2 dejavni posli"
 #~ msgstr[3] "%1, %2 dejavnih poslov"
 
-#~ msgid "%1, no jobs"
-#~ msgstr "%1, ni poslov"
-
 #~ msgid "%1, %2 job"
 #~ msgid_plural "%1, %2 jobs"
 #~ msgstr[0] "%1, %2 posel"
@@ -145,9 +160,6 @@ msgstr "Pokaži tiskalno vrsto …"
 
 #~ msgid "Only show jobs from the following printers:"
 #~ msgstr "Prikaži le posle naslednjih tiskalnikov:"
-
-#~ msgid "Cancel"
-#~ msgstr "Prekliči"
 
 #~ msgid "Hold"
 #~ msgstr "Zadrži"

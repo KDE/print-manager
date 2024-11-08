@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-07-08 00:40+0000\n"
+"POT-Creation-Date: 2024-11-08 00:42+0000\n"
 "PO-Revision-Date: 2024-01-20 20:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -19,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
-#: src/plasmoid/package/contents/ui/main.qml:44
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/main.qml:45
 msgid "Printers"
 msgstr "الطّابعات"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:40
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 msgid "Printer Groups"
 msgstr "مجموعات الطّابعة"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/main.qml:66
 msgid "No printers have been configured or discovered"
 msgstr "لم تُضبط أو تُكتشف أيّ طابعة"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:71
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
 msgid "No matches"
 msgstr "لا يوجد متطابقات"
 
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "ليس هناك مهامّ طباعة في الطّابور"
@@ -47,39 +47,59 @@ msgstr[3] "هناك %1 مهمّات طباعة في الطّابور"
 msgstr[4] "هناك %1 مهمّة طباعة في الطّابور"
 msgstr[5] "هناك %1 مهمّة طباعة في الطّابور"
 
-#: src/plasmoid/package/contents/ui/main.qml:58
+#: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "يطبع %1 بواسطة %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:60
+#: src/plasmoid/package/contents/ui/main.qml:61
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "يطبع بواسطة %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/package/contents/ui/main.qml:64
 msgid "Print queue is empty"
 msgstr "طابور الطّباعة فارغ"
 
-#: src/plasmoid/package/contents/ui/main.qml:94
+#: src/plasmoid/package/contents/ui/main.qml:96
 msgid "&Configure Printers…"
 msgstr "ا&ضبط الطّابعات…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr "استكمل"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:28
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr "ألبث"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:42
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr "اضبط الطّابعة…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:47
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr "اعرض طابور الطّباعة…"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#, fuzzy
+#| msgid "Cancel"
+msgctxt "@action:button"
+msgid "Cancel"
+msgstr "الغِ"
+
+#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#, fuzzy
+#| msgid "No jobs"
+msgctxt "Number of additional print jobs"
+msgid "%1 more job"
+msgid_plural "%1 more jobs"
+msgstr[0] "لا مهامّ"
+msgstr[1] "لا مهامّ"
+msgstr[2] "لا مهامّ"
+msgstr[3] "لا مهامّ"
+msgstr[4] "لا مهامّ"
+msgstr[5] "لا مهامّ"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "اعرض كلّ المهامّ"
@@ -124,11 +144,6 @@ msgstr "اعرض طابور الطّباعة…"
 #~ msgstr[4] "الوظائف العامِلة فقط"
 #~ msgstr[5] "الوظائف العامِلة فقط"
 
-#, fuzzy
-#~| msgid "No jobs"
-#~ msgid "%1, no jobs"
-#~ msgstr "لا مهامّ"
-
 #~ msgid "One active job"
 #~ msgid_plural "%1 active jobs"
 #~ msgstr[0] "لا مهامّ نشطة"
@@ -149,9 +164,6 @@ msgstr "اعرض طابور الطّباعة…"
 
 #~ msgid "Only show jobs from the following printers:"
 #~ msgstr "اعرض الوظائف من الطابعات التالية فقط:"
-
-#~ msgid "Cancel"
-#~ msgstr "الغِ"
 
 #~ msgid "Hold"
 #~ msgstr "معلق"

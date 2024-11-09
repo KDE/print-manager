@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2013, 2015, 2018, 2020, 2021, 2022, 2023 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2013, 2015, 2018, 2020, 2021, 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:42+0000\n"
-"PO-Revision-Date: 2023-11-07 10:06+0100\n"
+"PO-Revision-Date: 2024-11-08 13:56+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 #: src/plasmoid/package/contents/ui/main.qml:45
@@ -76,20 +76,16 @@ msgid "View print queue…"
 msgstr "Afdrukwachtrij bekijken…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
-#, fuzzy
-#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annuleren"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
-#, fuzzy
-#| msgid "%1, no jobs"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "%1, geen taken"
-msgstr[1] "%1, geen taken"
+msgstr[0] "nog %1 job"
+msgstr[1] "nog %1 jobs"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Alle taken tonen"

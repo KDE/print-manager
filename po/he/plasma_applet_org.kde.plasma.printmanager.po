@@ -1,23 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:42+0000\n"
-"PO-Revision-Date: 2023-11-07 08:31+0200\n"
+"PO-Revision-Date: 2024-11-08 08:53+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 #: src/plasmoid/package/contents/ui/main.qml:45
@@ -82,16 +81,16 @@ msgstr "הצגת תור הדפסה…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "ביטול"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "משימה נוספת"
+msgstr[1] "שתי משימות נוספות"
+msgstr[2] "%1 משימות נוספות"
+msgstr[3] "%1 משימות נוספות"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "הצגת כל המשימות"

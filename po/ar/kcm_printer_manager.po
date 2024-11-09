@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:42+0000\n"
+"POT-Creation-Date: 2024-11-09 00:42+0000\n"
 "PO-Revision-Date: 2024-10-24 06:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -462,30 +462,32 @@ msgid "Printer Groups"
 msgstr "مجموعات الطّابعة"
 
 #: ui/main.qml:298
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Print Queue…"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Print Queue…"
+msgctxt "@action:button Open print queue"
+msgid "Print Queue"
 msgstr "افتح صفّ الطّباعة…"
 
-#: ui/main.qml:315
+#: ui/main.qml:314
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "استكمل"
 
-#: ui/main.qml:316
+#: ui/main.qml:315
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "ألبث"
 
-#: ui/main.qml:330
+#: ui/main.qml:329
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "استأنف الطباعة"
 
-#: ui/main.qml:331
+#: ui/main.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

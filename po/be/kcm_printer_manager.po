@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-10-28 00:42+0000\n"
+"POT-Creation-Date: 2024-11-09 00:42+0000\n"
 "PO-Revision-Date: 2024-06-20 17:30\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -486,30 +486,32 @@ msgid "Printer Groups"
 msgstr "Групы прынтараў"
 
 #: ui/main.qml:298
-#, kde-format
-msgctxt "@action:button"
-msgid "Open Print Queue…"
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Open Print Queue…"
+msgctxt "@action:button Open print queue"
+msgid "Print Queue"
 msgstr "Адкрыць чаргу друкавання…"
 
-#: ui/main.qml:315
+#: ui/main.qml:314
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Узнавіць"
 
-#: ui/main.qml:316
+#: ui/main.qml:315
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Прыпыніць"
 
-#: ui/main.qml:330
+#: ui/main.qml:329
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Узнавіць друкаванне"
 
-#: ui/main.qml:331
+#: ui/main.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

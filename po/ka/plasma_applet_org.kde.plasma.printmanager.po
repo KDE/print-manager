@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:42+0000\n"
-"PO-Revision-Date: 2023-11-08 02:47+0100\n"
+"PO-Revision-Date: 2024-11-08 03:25+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 #: src/plasmoid/package/contents/ui/main.qml:45
@@ -79,14 +79,14 @@ msgstr "ბეჭდვის რიგის ნახვა…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "გაუქმება"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "კიდევ %1 დავალება"
+msgstr[1] "კიდევ %1 დავალება"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "ყველა დავალების ჩვენება"

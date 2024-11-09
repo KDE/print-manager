@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:42+0000\n"
-"PO-Revision-Date: 2024-05-24 17:23+0100\n"
+"PO-Revision-Date: 2024-11-08 15:00+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 #: src/plasmoid/package/contents/ui/main.qml:45
@@ -76,20 +76,16 @@ msgid "View print queue…"
 msgstr "View print queue…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
-#, fuzzy
-#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancel"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
-#, fuzzy
-#| msgid "%1, no jobs"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "%1, no jobs"
-msgstr[1] "%1, no jobs"
+msgstr[0] "%1 more job"
+msgstr[1] "%1 more jobs"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Show All Jobs"

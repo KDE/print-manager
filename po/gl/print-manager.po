@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-12 00:40+0000\n"
+"POT-Creation-Date: 2024-11-09 02:32+0000\n"
 "PO-Revision-Date: 2024-05-23 08:38+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -425,12 +425,12 @@ msgstr ""
 "O software HPLIP que controla un fax, ou a función de fax dun dispositivo "
 "multifunción."
 
-#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:101
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:102
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Impresora de CUPS remota mediante DNS-SD"
 
-#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:110
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:111
 #, kde-format
 msgid "Network printer via DNS-SD"
 msgstr "Impresora de rede mediante DNS-SD."
@@ -759,110 +759,110 @@ msgstr "Atopar un controlador"
 msgid "'%1' is ready for printing."
 msgstr "«%1» está lista para imprimir."
 
-#: src/libkcups/DevicesModel.cpp:50
+#: src/libkcups/DevicesModel.cpp:51
 #, kde-format
 msgctxt "@item"
 msgid "Manual Config"
 msgstr "Configuración manual"
 
-#: src/libkcups/DevicesModel.cpp:62
+#: src/libkcups/DevicesModel.cpp:63
 #, kde-format
 msgid "Parallel Port"
 msgstr "Porto paralelo"
 
-#: src/libkcups/DevicesModel.cpp:64
+#: src/libkcups/DevicesModel.cpp:65
 #, kde-format
 msgid "Serial Port"
 msgstr "Porto serie"
 
-#: src/libkcups/DevicesModel.cpp:66
+#: src/libkcups/DevicesModel.cpp:67
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: src/libkcups/DevicesModel.cpp:68
+#: src/libkcups/DevicesModel.cpp:69
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/libkcups/DevicesModel.cpp:70
+#: src/libkcups/DevicesModel.cpp:71
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
 msgstr "Fax — Imaxe e impresión de HP en Linux (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:72
+#: src/libkcups/DevicesModel.cpp:73
 #, kde-format
 msgid "HP Linux Imaging and Printing (HPLIP)"
 msgstr "Imaxe e impresión de HP en Linux (HPLIP)"
 
-#: src/libkcups/DevicesModel.cpp:74
+#: src/libkcups/DevicesModel.cpp:75
 #, kde-format
 msgid "Hardware Abstraction Layer (HAL)"
 msgstr "Capa de abstracción de soporte físico (HAL)"
 
-#: src/libkcups/DevicesModel.cpp:76
+#: src/libkcups/DevicesModel.cpp:77
 #, kde-format
 msgid "AppSocket/HP JetDirect"
 msgstr "AppSocket/HP JetDirect"
 
-#: src/libkcups/DevicesModel.cpp:81
+#: src/libkcups/DevicesModel.cpp:82
 #, kde-format
 msgid "LPD/LPR queue"
 msgstr "Cola LPD/LPR"
 
-#: src/libkcups/DevicesModel.cpp:83
+#: src/libkcups/DevicesModel.cpp:84
 #, kde-format
 msgid "LPD/LPR queue %1"
 msgstr "Cola LPD/LPR %1"
 
-#: src/libkcups/DevicesModel.cpp:86
+#: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "Windows Printer via SAMBA"
 msgstr "Impresora de Windows mediante SAMBA"
 
-#: src/libkcups/DevicesModel.cpp:91
+#: src/libkcups/DevicesModel.cpp:92
 #, kde-format
 msgid "IPP"
 msgstr "IPP"
 
-#: src/libkcups/DevicesModel.cpp:93
+#: src/libkcups/DevicesModel.cpp:94
 #, kde-format
 msgid "IPP %1"
 msgstr "IPP %1"
 
-#: src/libkcups/DevicesModel.cpp:96
+#: src/libkcups/DevicesModel.cpp:97
 #, kde-format
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/libkcups/DevicesModel.cpp:104
+#: src/libkcups/DevicesModel.cpp:105
 #, kde-format
 msgid "IPP network printer via DNS-SD"
 msgstr "Impresora de rede IPP mediante DNS-SD."
 
-#: src/libkcups/DevicesModel.cpp:106
+#: src/libkcups/DevicesModel.cpp:107
 #, kde-format
 msgid "LPD network printer via DNS-SD"
 msgstr "Impresora de rede LPD mediante DNS-SD."
 
-#: src/libkcups/DevicesModel.cpp:108
+#: src/libkcups/DevicesModel.cpp:109
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "Impresora de rede AppSocket/JetDirect mediante DNS-SD."
 
-#: src/libkcups/DevicesModel.cpp:122
+#: src/libkcups/DevicesModel.cpp:123
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
 msgstr "Unha impresora conectada ao porto paralelo."
 
-#: src/libkcups/DevicesModel.cpp:123
+#: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
 msgstr "Unha impresora conectada por Bluetooth."
 
-#: src/libkcups/DevicesModel.cpp:124
+#: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
@@ -870,7 +870,7 @@ msgstr ""
 "Unha impresora local detectada pola capa de abstracción de soporte físico "
 "(HAL)."
 
-#: src/libkcups/DevicesModel.cpp:125
+#: src/libkcups/DevicesModel.cpp:126
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -880,7 +880,7 @@ msgstr ""
 "O software HPLIP que controla un fax, ou a\n"
 "función de fax dun dispositivo multifunción."
 
-#: src/libkcups/DevicesModel.cpp:126
+#: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -890,59 +890,59 @@ msgstr ""
 "O software HPLIP que controla unha impresora,\n"
 "ou a función de impresión dun dispositivo multifunción."
 
-#: src/libkcups/DevicesModel.cpp:127
+#: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "Impresora de rede IPP mediante IPP."
 
-#: src/libkcups/DevicesModel.cpp:128
+#: src/libkcups/DevicesModel.cpp:129
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
 msgstr "Unha impresora conectada a un porto USB."
 
-#: src/libkcups/DevicesModel.cpp:134
+#: src/libkcups/DevicesModel.cpp:135
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
 msgstr "Impresora de CUPS remota mediante DNS-SD."
 
-#: src/libkcups/DevicesModel.cpp:146
+#: src/libkcups/DevicesModel.cpp:147
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Impresora de rede mediante DNS-SD."
 
-#: src/libkcups/DevicesModel.cpp:148
+#: src/libkcups/DevicesModel.cpp:149
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "Impresora de rede %1 mediante DNS-SD."
 
-#: src/libkcups/DevicesModel.cpp:223
+#: src/libkcups/DevicesModel.cpp:224
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Non foi posíbel obter unha lista de dispositivos: «%1»."
 
-#: src/libkcups/DevicesModel.cpp:256
+#: src/libkcups/DevicesModel.cpp:257
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Non foi posíbel agrupar os dispositivos: «%1»."
 
-#: src/libkcups/DevicesModel.cpp:385
+#: src/libkcups/DevicesModel.cpp:386
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Impresoras descubertas na rede"
 
-#: src/libkcups/DevicesModel.cpp:391
+#: src/libkcups/DevicesModel.cpp:392
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Outras impresoras da rede"
 
-#: src/libkcups/DevicesModel.cpp:397
+#: src/libkcups/DevicesModel.cpp:398
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"

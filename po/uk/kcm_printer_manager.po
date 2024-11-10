@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-10-29 08:55+0200\n"
+"PO-Revision-Date: 2024-11-09 09:13+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -473,12 +473,10 @@ msgid "Printer Groups"
 msgstr "Групи принтерів"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Відкрити вікно черги друку…"
+msgstr "Черга друку"
 
 #: ui/main.qml:314
 #, kde-format

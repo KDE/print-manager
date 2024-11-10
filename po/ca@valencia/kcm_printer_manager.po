@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-10-28 10:32+0100\n"
+"PO-Revision-Date: 2024-11-09 09:45+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: printermanager.cpp:253
 #, kde-format
@@ -474,12 +474,10 @@ msgid "Printer Groups"
 msgstr "Grups d'impressores"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Obri la cua d'impressió…"
+msgstr "Cua d'impressió"
 
 #: ui/main.qml:314
 #, kde-format

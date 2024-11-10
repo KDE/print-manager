@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-10-28 11:27+0100\n"
+"PO-Revision-Date: 2024-11-09 11:54+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -471,12 +471,10 @@ msgid "Printer Groups"
 msgstr "Printergroepen"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Printwachtrij openen…"
+msgstr "Afdrukwachtrij"
 
 #: ui/main.qml:314
 #, kde-format

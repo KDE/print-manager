@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-05-27 14:34+0200\n"
+"PO-Revision-Date: 2024-11-09 20:04+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #, kde-format
@@ -1034,7 +1034,7 @@ msgstr "Прекъсната"
 #: src/libkcups/KCupsConnection.cpp:777
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr "Връзката с CUPS изисква удостоверяване: \"%1\""
+msgstr "Връзката с CUPS изисква удостоверяване: „%1“"
 
 #: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-09-28 13:11+0200\n"
+"PO-Revision-Date: 2024-11-09 16:25+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: printermanager.cpp:253
 #, kde-format
@@ -455,17 +455,13 @@ msgid "No printers are currently set up"
 msgstr "Non hai impresoras configuradas."
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Prema <interface>Engadir unha impresora…</interface> para configurar unha "
-"nova impresora neste computador."
+"Prema <interface>Engadir…</interface> para configurar unha nova impresora "
+"neste computador."
 
 #: ui/main.qml:244
 #, kde-format
@@ -478,12 +474,10 @@ msgid "Printer Groups"
 msgstr "Grupos de impresoras"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Abrir a cola de impresión…"
+msgstr "Cola de impresión"
 
 #: ui/main.qml:314
 #, kde-format
@@ -643,9 +637,7 @@ msgstr ""
 "marca ou modelo."
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "Configurando %1, agarde…"

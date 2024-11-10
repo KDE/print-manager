@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-10-28 06:52+0100\n"
+"PO-Revision-Date: 2024-11-09 06:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -466,12 +466,10 @@ msgid "Printer Groups"
 msgstr "Skupine tiskalnikov"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Odpri čakalno vrsto za tiskanje…"
+msgstr "Čakalna vrsta za tiskanje"
 
 #: ui/main.qml:314
 #, kde-format

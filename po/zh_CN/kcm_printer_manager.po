@@ -460,12 +460,10 @@ msgid "Printer Groups"
 msgstr "打印机组"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "打开打印队列…"
+msgstr ""
 
 #: ui/main.qml:314
 #, kde-format

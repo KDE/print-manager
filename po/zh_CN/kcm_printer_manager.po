@@ -463,7 +463,7 @@ msgstr "打印机组"
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr ""
+msgstr "打印队列"
 
 #: ui/main.qml:314
 #, kde-format

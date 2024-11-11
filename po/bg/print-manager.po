@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-11-09 20:04+0100\n"
+"PO-Revision-Date: 2024-11-10 15:24+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.11.70\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #, kde-format
@@ -353,7 +353,7 @@ msgstr "Име:"
 #: src/add-printer/PageAddPrinter.ui:38
 #, kde-format
 msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr "Може да съдържа всички печатаеми знаци, без \"/\", \"#\", и интервал"
+msgstr "Може да съдържа всички печатаеми знаци, без „/“, „#“, и интервал"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/PageAddPrinter.ui:45

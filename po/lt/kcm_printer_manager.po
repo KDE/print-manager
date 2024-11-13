@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-10-05 22:03+0300\n"
+"PO-Revision-Date: 2024-11-13 01:53+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -454,17 +454,13 @@ msgid "No printers are currently set up"
 msgstr "Šiuo metu nėra nustatytų spausdintuvų"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Spustelėkite <interface>Pridėti spausdintuvą…</interface> norėdami šiame "
-"kompiuteryje nustatyti naują spausdintuvą"
+"Spustelėkite <interface>Pridėti…</interface> norėdami šiame kompiuteryje "
+"nustatyti naują spausdintuvą"
 
 #: ui/main.qml:244
 #, kde-format
@@ -477,12 +473,10 @@ msgid "Printer Groups"
 msgstr "Spausdintuvų grupės"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Atverti spausdinimo eilę…"
+msgstr "Spausdinimo eilė"
 
 #: ui/main.qml:314
 #, kde-format
@@ -645,12 +639,10 @@ msgstr ""
 "gamintoją/modelį"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr "Konfigūruojamas %1, palaukite…."
+msgstr "Konfigūruojamas %1, palaukite…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format

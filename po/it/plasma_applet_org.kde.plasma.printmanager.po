@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2020, 2021, 2022, 2023.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2013, 2015, 2018, 2020, 2021, 2022, 2023, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:42+0000\n"
-"PO-Revision-Date: 2023-11-08 14:31+0100\n"
+"PO-Revision-Date: 2024-11-08 13:09+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -38,8 +38,8 @@ msgstr "Nessuna corrispondenza"
 #: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
-msgstr[0] "C'è un lavoro di stampa nella coda"
-msgstr[1] "Ci sono %1 lavori di stampa nella coda"
+msgstr[0] "C'è un processo di stampa nella coda"
+msgstr[1] "Ci sono %1 processi di stampa nella coda"
 
 #: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
@@ -76,20 +76,16 @@ msgid "View print queue…"
 msgstr "Visualizza la coda di stampa…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
-#, fuzzy
-#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annulla"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
-#, fuzzy
-#| msgid "%1, no jobs"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "%1, nessun processo"
-msgstr[1] "%1, nessun processo"
+msgstr[0] "%1 altro processo di stampa"
+msgstr[1] "%1 altri processi di stampa"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Mostra tutti i lavori"

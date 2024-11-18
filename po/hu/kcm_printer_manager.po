@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-09-30 22:12+0200\n"
+"PO-Revision-Date: 2024-11-16 20:24+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: printermanager.cpp:253
 #, kde-format
@@ -452,16 +452,12 @@ msgid "No printers are currently set up"
 msgstr "Nincsenek beállítva nyomtatók"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Kattintson a <interface>Nyomtató hozzáadása</interface> gombra új nyomtató "
+"Kattintson a <interface>Hozzáadás…</interface> gombra új nyomtató "
 "beállításához ezen a számítógépen"
 
 #: ui/main.qml:244
@@ -475,12 +471,10 @@ msgid "Printer Groups"
 msgstr "Nyomtatócsoportok"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Nyomtatási sor megnyitása…"
+msgstr "Nyomtatási sor"
 
 #: ui/main.qml:314
 #, kde-format
@@ -641,9 +635,7 @@ msgstr ""
 "modell kiválasztásához"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "%1 beállítása, kérjük várjon…"

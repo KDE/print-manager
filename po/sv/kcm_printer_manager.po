@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-10-19 16:16+0200\n"
+"PO-Revision-Date: 2024-11-24 19:50+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: printermanager.cpp:253
 #, kde-format
@@ -470,12 +470,10 @@ msgid "Printer Groups"
 msgstr "Skrivargrupper"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Visa utskriftskö…"
+msgstr "Utskriftskö"
 
 #: ui/main.qml:314
 #, kde-format
@@ -633,12 +631,10 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Märke och modell krävs. Använd \"Välj\" för att välja märke och modell"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr "Anpassar %1, vänta…."
+msgstr "Anpassar %1, vänta…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format

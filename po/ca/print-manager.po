@@ -5,13 +5,12 @@
 #
 # SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2015, 2018, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 02:32+0000\n"
-"PO-Revision-Date: 2024-05-21 15:40+0200\n"
+"PO-Revision-Date: 2024-12-05 09:46+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -620,7 +619,7 @@ msgstr "Defineix les opcions per defecte"
 #: src/configure-printer/PrinterOptions.ui:26
 #, kde-format
 msgid "Query Printer for Default Options"
-msgstr "Consulta a la impressora per les opcions per defecte"
+msgstr "Consulta a la impressora les opcions per defecte"
 
 #: src/kcm/printermanager.cpp:254
 #, kde-format
@@ -665,7 +664,7 @@ msgstr "Imprimeix la pàgina d'autocomprovació"
 #: src/kcm/printermanager.cpp:574
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "Neteja els capçals de la impressió"
+msgstr "Neteja els capçals d'impressió"
 
 #: src/kcm/scpinstaller.cpp:70
 #, kde-format
@@ -1052,7 +1051,7 @@ msgstr "Nom d'usuari o contrasenya no vàlids"
 #: src/libkcups/KCupsRequest.cpp:32
 #, kde-format
 msgid "Print service is unavailable"
-msgstr "El servei de la impressió no està disponible"
+msgstr "El servei d'impressió no està disponible"
 
 #: src/libkcups/KCupsRequest.cpp:34
 #, kde-format

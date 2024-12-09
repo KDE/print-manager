@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 02:32+0000\n"
-"PO-Revision-Date: 2024-05-23 08:38+0200\n"
+"PO-Revision-Date: 2024-12-08 15:48+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -149,7 +149,7 @@ msgstr "Páxinas impares"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "XON/XOFF (Software)"
-msgstr "XON/XOFF (software)"
+msgstr "XON/XOFF (lóxico)"
 
 #: src/add-printer/ChooseSerial.cpp:31
 #, kde-format
@@ -413,7 +413,7 @@ msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device."
 msgstr ""
-"O software HPLIP que controla unha impresora, ou a función de impresión dun "
+"O programa HPLIP que controla unha impresora, ou a función de impresión dun "
 "dispositivo multifunción."
 
 #: src/add-printer/PageDestinations.cpp:210
@@ -422,7 +422,7 @@ msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device."
 msgstr ""
-"O software HPLIP que controla un fax, ou a función de fax dun dispositivo "
+"O programa HPLIP que controla un fax, ou a función de fax dun dispositivo "
 "multifunción."
 
 #: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:102
@@ -877,7 +877,7 @@ msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
-"O software HPLIP que controla un fax, ou a\n"
+"O programa HPLIP que controla un fax, ou a\n"
 "función de fax dun dispositivo multifunción."
 
 #: src/libkcups/DevicesModel.cpp:127
@@ -887,7 +887,7 @@ msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
-"O software HPLIP que controla unha impresora,\n"
+"O programa HPLIP que controla unha impresora,\n"
 "ou a función de impresión dun dispositivo multifunción."
 
 #: src/libkcups/DevicesModel.cpp:128

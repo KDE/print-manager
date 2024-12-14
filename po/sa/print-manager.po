@@ -1,0 +1,1301 @@
+# Sanskrit translations for print-manager package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"PO-Revision-Date: 2024-12-13 20:08+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>2);\n"
+"X-Generator: Poedit 3.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#: src/add-printer/AddPrinterAssistant.cpp:29
+#, kde-format
+msgctxt "@title:window"
+msgid "Add a New Printer"
+msgstr ""
+
+#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
+#: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
+#: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
+#: src/add-printer/PageAddPrinter.cpp:27 src/add-printer/PageChoosePPD.cpp:30
+#: src/add-printer/PageChoosePrinters.cpp:24
+#: src/add-printer/PageDestinations.cpp:79
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a Printer to Add"
+msgstr ""
+
+#: src/add-printer/AddPrinterAssistant.cpp:87
+#: src/add-printer/AddPrinterAssistant.cpp:108
+#, kde-format
+msgctxt "@title:window"
+msgid "Please describe your printer"
+msgstr ""
+
+#: src/add-printer/AddPrinterAssistant.cpp:104
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure your connection"
+msgstr ""
+
+#: src/add-printer/AddPrinterAssistant.cpp:195
+#, kde-format
+msgctxt "@title:window"
+msgid "Pick a Driver for %1"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/add-printer/ChooseLpd.ui:26
+#, kde-format
+msgid "Address:"
+msgstr "पत्रसङ्केतः:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/add-printer/ChooseLpd.ui:36
+#, kde-format
+msgid "Queue:"
+msgstr "पङ्क्ति:"
+
+#. i18n: ectx: property (text), widget (QPushButton, detectPB)
+#: src/add-printer/ChooseLpd.ui:51
+#, kde-format
+msgid "Detect"
+msgstr "चिह्न्"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: src/add-printer/ChooseSamba.ui:35
+#, kde-format
+msgctxt "@title:group"
+msgid "Windows Printer via SAMBA"
+msgstr "SAMBA मार्गेण Windows Printer इति"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/add-printer/ChooseSamba.ui:41
+#, kde-format
+msgctxt ""
+"@label samba URL markup example, this is preceded by a label containing "
+"smb://"
+msgid "smb://[workgroup/]server[:port]/printer"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, browsePB)
+#: src/add-printer/ChooseSamba.ui:54
+#, kde-format
+msgctxt "@action:button"
+msgid "Browse"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: src/add-printer/ChooseSamba.ui:64
+#, kde-format
+msgctxt "@title:group"
+msgid "Authentication"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/add-printer/ChooseSamba.ui:73
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Username:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/add-printer/ChooseSamba.ui:86
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Password"
+msgstr ""
+
+#: src/add-printer/ChooseSerial.cpp:25 src/add-printer/ChooseSerial.cpp:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "None"
+msgstr "न कश्चित्"
+
+#: src/add-printer/ChooseSerial.cpp:26
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Even"
+msgstr ""
+
+#: src/add-printer/ChooseSerial.cpp:27
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Odd"
+msgstr ""
+
+#: src/add-printer/ChooseSerial.cpp:30
+#, kde-format
+msgctxt "@label:listbox"
+msgid "XON/XOFF (Software)"
+msgstr ""
+
+#: src/add-printer/ChooseSerial.cpp:31
+#, kde-format
+msgctxt "@label:listbox"
+msgid "RTS/CTS (Hardware)"
+msgstr ""
+
+#: src/add-printer/ChooseSerial.cpp:32
+#, kde-format
+msgctxt "@label:listbox"
+msgid "DTR/DSR (Hardware)"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/add-printer/ChooseSerial.ui:29
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Baud Rate:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/add-printer/ChooseSerial.ui:42
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Parity:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/add-printer/ChooseSerial.ui:55
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Data Bits:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_5)
+#: src/add-printer/ChooseSerial.ui:79
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Flow Control:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/add-printer/ChooseSocket.ui:29
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "पत्रसङ्केतः:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/add-printer/ChooseSocket.ui:42
+#, kde-format
+msgctxt "@label:spinbox"
+msgid "Port:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/add-printer/ChooseUri.ui:41
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/add-printer/ChooseUri.ui:82
+#, kde-format
+msgctxt "@info"
+msgid ""
+"<TABLE>\n"
+"<TR>\n"
+"<TD>Examples:\n"
+"<PRE>\n"
+"    http://hostname:631/ipp/\n"
+"    http://hostname:631/ipp/port1\n"
+"\n"
+"    ipp://hostname/ipp/\n"
+"    ipp://hostname/ipp/port1\n"
+"\n"
+"    lpd://hostname/queue\n"
+"\n"
+"    socket://hostname\n"
+"    socket://hostname:9100\n"
+"</PRE>\n"
+"\n"
+"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
+"\"Network\n"
+"Printers\"</A> for the correct URI to use with your printer.</P>\n"
+"</TD>\n"
+"</TR>\n"
+"</TABLE>"
+msgstr ""
+
+#: src/add-printer/main.cpp:24
+#, kde-format
+msgid "Add Printer"
+msgstr "मुद्रकं योजयतु"
+
+#: src/add-printer/main.cpp:26
+#, kde-format
+msgid "Tool for adding new printers"
+msgstr "नूतनानि मुद्रकाणि योजयितुं साधनम्"
+
+#: src/add-printer/main.cpp:28 src/configure-printer/main.cpp:29
+#: src/printqueue/main.cpp:28
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(C) 2010-2018 डैनियल निकोलेट्टी"
+
+#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:31
+#: src/printqueue/main.cpp:31
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Port to Qt 5 / प्लाज्मा 5"
+
+#: src/add-printer/main.cpp:32 src/configure-printer/main.cpp:32
+#: src/printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 6 / Plasma 6"
+msgstr "Qt 6 / प्लाज्मा 6 पर्यन्तं पोर्ट्"
+
+#: src/add-printer/main.cpp:35
+#, kde-format
+msgid ""
+"NOTE: This application is deprecated and will be removed from Plasma in a "
+"future release."
+msgstr ""
+"नोटः- एषः अनुप्रयोगः अप्रचलितः अस्ति, भविष्ये विमोचनकाले प्लाज्मातः निष्कासितः भविष्यति "
+"।"
+
+#: src/add-printer/main.cpp:40
+#, kde-format
+msgid "Parent Window ID"
+msgstr "मातापितृ विण्डो आईडी"
+
+#: src/add-printer/main.cpp:43
+#, kde-format
+msgid "Add a new printer"
+msgstr "नूतनं मुद्रकं योजयन्तु"
+
+#: src/add-printer/main.cpp:46
+#, kde-format
+msgid "Add a new printer class"
+msgstr "नूतनं मुद्रकवर्गं योजयन्तु"
+
+#: src/add-printer/main.cpp:49
+#, kde-format
+msgid "Changes the PPD of a given printer"
+msgstr "दत्तस्य मुद्रकस्य PPD परिवर्तयति"
+
+#: src/add-printer/main.cpp:53
+#, kde-format
+msgid "Changes the PPD of a given printer/deviceid"
+msgstr "दत्तस्य मुद्रकस्य/यन्त्रस्य PPD परिवर्तयति"
+
+#: src/add-printer/main.cpp:77
+#, kde-format
+msgid "The expected input should be printer/deviceid"
+msgstr "अपेक्षितं निवेशं मुद्रक/यन्त्रं भवितुमर्हति"
+
+#: src/add-printer/PageAddPrinter.cpp:125
+#, kde-format
+msgctxt "@info"
+msgid "Failed to add class: '%1'"
+msgstr ""
+
+#: src/add-printer/PageAddPrinter.cpp:127
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: '%1'"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/add-printer/PageAddPrinter.ui:31
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Name:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
+#: src/add-printer/PageAddPrinter.ui:38
+#, kde-format
+msgid "May contain any printable characters except \"/\", \"#\", and space"
+msgstr "\"/\", \"#\", रिक्तस्थानं च विहाय केचन मुद्रणयोग्याः वर्णाः भवितुं शक्नुवन्ति"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/add-printer/PageAddPrinter.ui:45
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/add-printer/PageAddPrinter.ui:55
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, shareCB)
+#: src/add-printer/PageAddPrinter.ui:65
+#, kde-format
+msgctxt "@option:check"
+msgid "Share this printer"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/add-printer/PageChoosePrinters.ui:96
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Members:"
+msgstr ""
+
+#: src/add-printer/PageDestinations.cpp:190
+#, kde-format
+msgid "A printer connected to the parallel port."
+msgstr "समानान्तर-पोर्ट्-सङ्गणकेन सह सम्बद्धः मुद्रकः ।"
+
+#: src/add-printer/PageDestinations.cpp:193
+#, kde-format
+msgid "A printer connected to a USB port."
+msgstr "USB पोर्ट् इत्यनेन सह सम्बद्धः मुद्रकः ।"
+
+#: src/add-printer/PageDestinations.cpp:196
+#, kde-format
+msgid "A printer connected via Bluetooth."
+msgstr "ब्लूटूथ् मार्गेण सम्बद्धः मुद्रकः ।"
+
+#: src/add-printer/PageDestinations.cpp:200
+#, kde-format
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
+msgstr "हार्डवेयर अमूर्तस्तर (HAL) द्वारा ज्ञातः स्थानीयमुद्रकः ।"
+
+#: src/add-printer/PageDestinations.cpp:205
+#, kde-format
+msgid ""
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device."
+msgstr "मुद्रकं चालयति HPLIP सॉफ्टवेयर, अथवा बहुकार्ययन्त्रस्य मुद्रककार्यम् ।"
+
+#: src/add-printer/PageDestinations.cpp:210
+#, kde-format
+msgid ""
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device."
+msgstr "HPLIP सॉफ्टवेयरं फ्याक्सयन्त्रं चालयति, अथवा बहुकार्ययन्त्रस्य फ्याक्सकार्यं ।"
+
+#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:102
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "DNS-SD मार्गेण दूरस्थः CUPS मुद्रकः"
+
+#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:111
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "DNS-SD मार्गेण संजालमुद्रकः"
+
+#: src/add-printer/PageDestinations.cpp:231
+#, kde-format
+msgid "%1 network printer via DNS-SD"
+msgstr "%1 DNS-SD मार्गेण संजालमुद्रकः"
+
+#. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
+#: src/add-printer/PageDestinations.ui:62
+#, kde-format
+msgid "Connections"
+msgstr "संबन्धाः"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/add-printer/PageDestinations.ui:97
+#, kde-format
+msgid "Please choose an item on the list"
+msgstr "कृपया सूचीयां एकं द्रव्यं चिनुत"
+
+#: src/configure-printer/ConfigureDialog.cpp:93
+#: src/configure-printer/ConfigureDialog.cpp:94
+#, kde-format
+msgid "Media Settings"
+msgstr "मीडिया सेटिंग्स्"
+
+#: src/configure-printer/ConfigureDialog.cpp:101
+#: src/configure-printer/ConfigureDialog.cpp:102
+#, kde-format
+msgid "Banners, Policies and Allowed Users"
+msgstr "बैनर, नीतयः, अनुमताः उपयोक्तारः च"
+
+#: src/configure-printer/ConfigureDialog.cpp:171
+#, kde-format
+msgid ""
+"The current page has changes.\n"
+"Do you want to save them?"
+msgstr ""
+"वर्तमानपृष्ठे परिवर्तनं भवति ।\n"
+"किं त्वं तान् तारयितुम् इच्छसि ?"
+
+#: src/configure-printer/ConfigureDialog.cpp:173
+#, kde-format
+msgid "Save"
+msgstr "रक्ष्"
+
+#: src/configure-printer/main.cpp:25
+#, kde-format
+msgid "Configure Printer"
+msgstr "मुद्रकं विन्यस्यताम्"
+
+#: src/configure-printer/main.cpp:27
+#, kde-format
+msgid "ConfigurePrinter"
+msgstr "मुद्रकं विन्यस्तं कुर्वन्तु"
+
+#: src/configure-printer/main.cpp:39
+#, kde-format
+msgid "Printer to be configured"
+msgstr "मुद्रकं विन्यस्तं कर्तव्यम्"
+
+#: src/configure-printer/PrinterBehavior.cpp:192
+#, kde-format
+msgid "Abort job"
+msgstr "कार्यं निरस्तं कुर्वन्तु"
+
+#: src/configure-printer/PrinterBehavior.cpp:194
+#, kde-format
+msgid "Retry current job"
+msgstr "वर्तमानकार्यं पुनः प्रयतस्व"
+
+#: src/configure-printer/PrinterBehavior.cpp:196
+#, kde-format
+msgid "Retry job"
+msgstr "पुनः कार्यस्य प्रयासं कुर्वन्तु"
+
+#: src/configure-printer/PrinterBehavior.cpp:198
+#, kde-format
+msgid "Stop printer"
+msgstr "मुद्रकं स्थगयन्तु"
+
+#: src/configure-printer/PrinterBehavior.cpp:207
+#, kde-format
+msgid "Authenticated"
+msgstr "प्रमाणीकृतम्"
+
+#: src/configure-printer/PrinterBehavior.cpp:209
+#, kde-format
+msgid "Default"
+msgstr "मूलभूतम्‌"
+
+#: src/configure-printer/PrinterBehavior.cpp:218
+#, kde-format
+msgid "None"
+msgstr "न कश्चित्"
+
+#: src/configure-printer/PrinterBehavior.cpp:220
+#, kde-format
+msgid "Classified"
+msgstr "वर्गीकृत"
+
+#: src/configure-printer/PrinterBehavior.cpp:222
+#, kde-format
+msgid "Confidential"
+msgstr "गोपनीय"
+
+#: src/configure-printer/PrinterBehavior.cpp:224
+#, kde-format
+msgid "Secret"
+msgstr "रहस्य"
+
+#: src/configure-printer/PrinterBehavior.cpp:226
+#, kde-format
+msgid "Standard"
+msgstr "स्तरीय"
+
+#: src/configure-printer/PrinterBehavior.cpp:228
+#, kde-format
+msgid "Topsecret"
+msgstr "शीर्ष रहस्य"
+
+#: src/configure-printer/PrinterBehavior.cpp:230
+#, kde-format
+msgid "Unclassified"
+msgstr "अवर्गीकृतम्"
+
+#. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
+#: src/configure-printer/PrinterBehavior.ui:29
+#, kde-format
+msgid "Banners"
+msgstr "बैनर"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/configure-printer/PrinterBehavior.ui:35
+#, kde-format
+msgid "Starting Banner:"
+msgstr "प्रारम्भ बैनर : १."
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/configure-printer/PrinterBehavior.ui:55
+#, kde-format
+msgid "Ending Banner:"
+msgstr "समाप्ति बैनर : १."
+
+#. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
+#: src/configure-printer/PrinterBehavior.ui:84
+#, kde-format
+msgid "Policies"
+msgstr "नीतयः"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/configure-printer/PrinterBehavior.ui:90
+#, kde-format
+msgid "Operation Policy:"
+msgstr "संचालननीतिः : १."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/configure-printer/PrinterBehavior.ui:103
+#, kde-format
+msgid "Error Policy:"
+msgstr "त्रुटिनीतिः : १."
+
+#. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
+#: src/configure-printer/PrinterBehavior.ui:133
+#, kde-format
+msgid "Allowed Users"
+msgstr "अनुमताः उपयोक्तारः"
+
+#. i18n: ectx: property (text), widget (QRadioButton, preventRB)
+#: src/configure-printer/PrinterBehavior.ui:139
+#, kde-format
+msgid "Pre&vent these users from printing "
+msgstr "एतेषां उपयोक्तृणां मुद्रणं निवारयन्तु&निवारयन्तु "
+
+#. i18n: ectx: property (text), widget (QRadioButton, allowRB)
+#: src/configure-printer/PrinterBehavior.ui:146
+#, kde-format
+msgid "A&llow these users to print"
+msgstr "एतेषां उपयोक्तृभ्यः मुद्रणं कर्तुं A&अनुमन्यताम्"
+
+#: src/configure-printer/PrinterOptions.cpp:53
+#, kde-format
+msgid "Set Default Options"
+msgstr "पूर्वनिर्धारितविकल्पान् सेट् कुर्वन्तु"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
+#: src/configure-printer/PrinterOptions.ui:26
+#, kde-format
+msgid "Query Printer for Default Options"
+msgstr "पूर्वनिर्धारितविकल्पानां कृते मुद्रकं प्रश्नं कुर्वन्तु"
+
+#: src/kcm/printermanager.cpp:253
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr ""
+
+#: src/kcm/printermanager.cpp:253
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr ""
+
+#: src/kcm/printermanager.cpp:417
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "अनुरोधं कर्तुं असफलम्: %1"
+
+#: src/kcm/printermanager.cpp:469
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings: %1"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:506
+#, kde-format
+msgctxt "@info"
+msgid "Server Settings Not Saved: (%1): %2"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:513
+#, kde-format
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:566
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "स्वपरीक्षण पृष्ठ मुद्रित करें"
+
+#: src/kcm/printermanager.cpp:572
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "मुद्रणशिरः स्वच्छं कुर्वन्तु"
+
+#: src/kcm/scpinstaller.cpp:70
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
+
+#: src/kded/NewPrinterNotification.cpp:61
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "एकः New Printer इति ज्ञातम्"
+
+#: src/kded/NewPrinterNotification.cpp:62
+#, kde-format
+msgid "Configuring new printer..."
+msgstr "नूतनं मुद्रकं विन्यस्तं..."
+
+#: src/kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was Added"
+msgstr "नूतनः मुद्रकः योजितः"
+
+#: src/kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer is Missing Drivers"
+msgstr "नूतनः मुद्रकः Missing Drivers इति अस्ति"
+
+#: src/kded/NewPrinterNotification.cpp:165
+#, kde-format
+msgid "Missing printer driver"
+msgstr "मुद्रकचालकः अनुपलब्धः"
+
+#: src/kded/NewPrinterNotification.cpp:167
+#, kde-format
+msgid "No printer driver for %1 %2."
+msgstr "%1 %2 कृते मुद्रकचालकः नास्ति ।"
+
+#: src/kded/NewPrinterNotification.cpp:169
+#, kde-format
+msgid "No printer driver for %1."
+msgstr "%1 कृते मुद्रकचालकः नास्ति ।"
+
+#: src/kded/NewPrinterNotification.cpp:171
+#, kde-format
+msgid "No driver for this printer."
+msgstr "अस्य मुद्रकस्य चालकः नास्ति ।"
+
+#: src/kded/NewPrinterNotification.cpp:173
+#, kde-format
+msgid "Search"
+msgstr "अन्वेषण"
+
+#: src/kded/NewPrinterNotification.cpp:236
+#, kde-format
+msgid "'%1' has been added, please check its driver."
+msgstr "'%1' योजितम्, कृपया तस्य चालकं परीक्ष्यताम् ।"
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#: src/kded/NewPrinterNotification.cpp:237
+#: src/kded/NewPrinterNotification.cpp:258 src/printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "विन्यस्तं कुर्वन्तु"
+
+#: src/kded/NewPrinterNotification.cpp:240
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver."
+msgstr "'%1' योजितम्, '%2' चालकस्य उपयोगेन ।"
+
+#: src/kded/NewPrinterNotification.cpp:241
+#: src/kded/NewPrinterNotification.cpp:255
+#, kde-format
+msgid "Print test page"
+msgstr "परीक्षणपृष्ठं मुद्रयन्तु"
+
+#: src/kded/NewPrinterNotification.cpp:243
+#, kde-format
+msgid "Find driver"
+msgstr "चालकं ज्ञातव्यम्"
+
+#: src/kded/NewPrinterNotification.cpp:253
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "'%1' मुद्रणार्थं सज्जम् अस्ति ।"
+
+#: src/libkcups/DevicesModel.cpp:51
+#, kde-format
+msgctxt "@item"
+msgid "Manual Config"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:63
+#, kde-format
+msgid "Parallel Port"
+msgstr "समानान्तर पोर्ट"
+
+#: src/libkcups/DevicesModel.cpp:65
+#, kde-format
+msgid "Serial Port"
+msgstr "सीरियल पोर्ट"
+
+#: src/libkcups/DevicesModel.cpp:67
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: src/libkcups/DevicesModel.cpp:69
+#, kde-format
+msgid "Bluetooth"
+msgstr "ब्लूटूथ"
+
+#: src/libkcups/DevicesModel.cpp:71
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "फैक्स - एचपी लिनक्स इमेजिंग् एण्ड् प्रिण्टिङ्ग् (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:73
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "एचपी लिनक्स इमेजिंग् एण्ड् प्रिण्टिङ्ग् (HPLIP) ."
+
+#: src/libkcups/DevicesModel.cpp:75
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "हार्डवेयर अमूर्तता स्तर (HAL) 1.1."
+
+#: src/libkcups/DevicesModel.cpp:77
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "एप्पसॉकेट/एचपी जेटडायरेक्ट"
+
+#: src/libkcups/DevicesModel.cpp:82
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "एलपीडी/एलपीआर कतार"
+
+#: src/libkcups/DevicesModel.cpp:84
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "LPD/LPR कतार %1"
+
+#: src/libkcups/DevicesModel.cpp:87
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "SAMBA मार्गेण Windows Printer इति"
+
+#: src/libkcups/DevicesModel.cpp:92
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: src/libkcups/DevicesModel.cpp:94
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: src/libkcups/DevicesModel.cpp:97
+#, kde-format
+msgid "HTTP"
+msgstr "एचटीटीपी"
+
+#: src/libkcups/DevicesModel.cpp:105
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "DNS-SD मार्गेण IPP संजालमुद्रकः"
+
+#: src/libkcups/DevicesModel.cpp:107
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "DNS-SD मार्गेण LPD संजालमुद्रकः"
+
+#: src/libkcups/DevicesModel.cpp:109
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "DNS-SD मार्गेण AppSocket/JetDirect संजालमुद्रकः"
+
+#: src/libkcups/DevicesModel.cpp:123
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:124
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:125
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:126
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine,\n"
+"or the fax function of a multi-function device"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:127
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer,\n"
+"or the printer function of a multi-function device"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:128
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "IPP Network printer via IPP"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:129
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:135
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "DNS-SD मार्गेण दूरस्थः CUPS मुद्रकः"
+
+#: src/libkcups/DevicesModel.cpp:147
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Network printer via DNS-SD"
+msgstr "DNS-SD मार्गेण संजालमुद्रकः"
+
+#: src/libkcups/DevicesModel.cpp:149
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "%1 network printer via DNS-SD"
+msgstr "%1 DNS-SD मार्गेण संजालमुद्रकः"
+
+#: src/libkcups/DevicesModel.cpp:224
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "उपकरणानां सूचीं प्राप्तुं असफलम्: '%1'."
+
+#: src/libkcups/DevicesModel.cpp:257
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "उपकरणानां समूहीकरणे विफलम्: '%1'."
+
+#: src/libkcups/DevicesModel.cpp:386
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:392
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr ""
+
+#: src/libkcups/DevicesModel.cpp:398
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr ""
+
+#: src/libkcups/JobModel.cpp:28
+#, kde-format
+msgid "Status"
+msgstr "स्थितिः"
+
+#: src/libkcups/JobModel.cpp:29
+#, kde-format
+msgid "Name"
+msgstr "नामः"
+
+#: src/libkcups/JobModel.cpp:30
+#, kde-format
+msgid "User"
+msgstr "उपयोक्ता"
+
+#: src/libkcups/JobModel.cpp:31
+#, kde-format
+msgid "Created"
+msgstr "निर्मितम्"
+
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
+#, kde-format
+msgid "Completed"
+msgstr "सम्पन्न"
+
+#: src/libkcups/JobModel.cpp:33
+#, kde-format
+msgid "Pages"
+msgstr "पृष्ठहरू"
+
+#: src/libkcups/JobModel.cpp:34
+#, kde-format
+msgid "Processed"
+msgstr "संसाधितम्"
+
+#: src/libkcups/JobModel.cpp:35
+#, kde-format
+msgid "Size"
+msgstr "आकृति"
+
+#: src/libkcups/JobModel.cpp:36
+#, kde-format
+msgid "Status Message"
+msgstr "स्थितिसन्देशः"
+
+#: src/libkcups/JobModel.cpp:37
+#, kde-format
+msgid "Printer"
+msgstr "मुद्रक"
+
+#: src/libkcups/JobModel.cpp:38
+#, kde-format
+msgid "From Hostname"
+msgstr "Hostname इत्यस्मात्"
+
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
+#, kde-format
+msgid "Failed to move '%1' to '%2'"
+msgstr "'%1' '%2' मध्ये स्थानान्तरयितुं असफलम् ।"
+
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
+#, kde-format
+msgid "Failed"
+msgstr "असफल"
+
+#: src/libkcups/JobModel.cpp:585
+#, kde-format
+msgid "Pending"
+msgstr "विचाराधीनः"
+
+#: src/libkcups/JobModel.cpp:587
+#, kde-format
+msgid "On hold"
+msgstr "स्थगितम् अस्ति"
+
+#: src/libkcups/JobModel.cpp:591
+#, kde-format
+msgid "Stopped"
+msgstr "स्थगितम्"
+
+#: src/libkcups/JobModel.cpp:593
+#, kde-format
+msgid "Canceled"
+msgstr "रद्दं कृतम्"
+
+#: src/libkcups/JobModel.cpp:595
+#, kde-format
+msgid "Aborted"
+msgstr "गर्भपातः कृतः"
+
+#: src/libkcups/KCupsConnection.cpp:777
+#, kde-format
+msgid "A CUPS connection requires authentication: \"%1\""
+msgstr "CUPS संयोजनाय प्रमाणीकरणस्य आवश्यकता भवति: \"%1\"."
+
+#: src/libkcups/KCupsPasswordDialog.cpp:22
+#, kde-format
+msgid "Enter an username and a password to complete the task"
+msgstr "कार्यं पूर्णं कर्तुं उपयोक्तृनाम गुप्तशब्दं च प्रविशन्तु"
+
+#: src/libkcups/KCupsPasswordDialog.cpp:44
+#, kde-format
+msgid "Wrong username or password"
+msgstr "गलत उपयोक्तृनाम वा गुप्तशब्दः वा"
+
+#: src/libkcups/KCupsRequest.cpp:32
+#, kde-format
+msgid "Print service is unavailable"
+msgstr "मुद्रणसेवा अनुपलब्धा अस्ति"
+
+#: src/libkcups/KCupsRequest.cpp:34
+#, kde-format
+msgid "Not found"
+msgstr "न लभ्यते"
+
+#: src/libkcups/KCupsRequest.cpp:393
+#, kde-format
+msgid "Test Page"
+msgstr "परीक्षण पृष्ठ"
+
+#: src/libkcups/KCupsRequest.cpp:421
+#, kde-format
+msgid "Unable to send command to printer driver!"
+msgstr "मुद्रकचालकं प्रति आदेशं प्रेषयितुं असमर्थः!"
+
+#: src/libkcups/KCupsRequest.cpp:549
+#, kde-format
+msgid "Failed to invoke method: %1"
+msgstr "विधिम् आह्वयितुं असफलम्: %1"
+
+#: src/libkcups/PPDModel.cpp:43
+#, kde-format
+msgid "Recommended Drivers"
+msgstr "अनुशंसित चालकाः"
+
+#: src/libkcups/PPDModel.cpp:97
+#, kde-format
+msgid "Empty ppd model"
+msgstr "रिक्त ppd मॉडल"
+
+#: src/libkcups/PrinterModel.cpp:201
+#, kde-format
+msgid "Printers"
+msgstr "मुद्रकाः"
+
+#: src/libkcups/PrinterModel.cpp:423
+#, kde-format
+msgid "Idle"
+msgstr "आलम"
+
+#: src/libkcups/PrinterModel.cpp:423
+#, kde-format
+msgid "Idle, rejecting jobs"
+msgstr "निष्क्रियः, कार्याणि तिरस्कृत्य"
+
+#: src/libkcups/PrinterModel.cpp:425
+#, kde-format
+msgid "Idle - '%1'"
+msgstr "निष्क्रिय - '%1'."
+
+#: src/libkcups/PrinterModel.cpp:425
+#, kde-format
+msgid "Idle, rejecting jobs - '%1'"
+msgstr "निष्क्रियः, कार्याणि अङ्गीकुर्वन् - '%1'."
+
+#: src/libkcups/PrinterModel.cpp:429
+#, kde-format
+msgid "In use"
+msgstr "प्रयोगे"
+
+#: src/libkcups/PrinterModel.cpp:431
+#, kde-format
+msgid "In use - '%1'"
+msgstr "प्रयुक्ते - '%1'।"
+
+#: src/libkcups/PrinterModel.cpp:435
+#, kde-format
+msgid "Paused"
+msgstr "विरामः कृतः"
+
+#: src/libkcups/PrinterModel.cpp:435
+#, kde-format
+msgid "Paused, rejecting jobs"
+msgstr "विरामं कृतवान्, कार्याणि अङ्गीकृतवान्"
+
+#: src/libkcups/PrinterModel.cpp:437
+#, kde-format
+msgid "Paused - '%1'"
+msgstr "विरामः - '%1'."
+
+#: src/libkcups/PrinterModel.cpp:437
+#, kde-format
+msgid "Paused, rejecting jobs - '%1'"
+msgstr "विरामितम्, कार्याणि अङ्गीकृत्य - '%1'."
+
+#: src/libkcups/PrinterModel.cpp:441
+#, kde-format
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: src/libkcups/PrinterModel.cpp:443
+#, kde-format
+msgid "Unknown - '%1'"
+msgstr "अज्ञात - '%1' ।"
+
+#: src/libkcups/SelectMakeModel.cpp:115
+#, kde-format
+msgid "Choose the driver for %1"
+msgstr "%1 कृते चालकं चिनोतु"
+
+#: src/libkcups/SelectMakeModel.cpp:138
+#, kde-format
+msgid "Failed to get a list of drivers: '%1'"
+msgstr "चालकानां सूचीं प्राप्तुं असफलम्: '%1'."
+
+#: src/libkcups/SelectMakeModel.cpp:228
+#, kde-format
+msgid "Failed to search for a recommended driver: '%1'"
+msgstr "अनुशंसितं चालकं अन्वेष्टुं असफलम्: '%1'."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
+#: src/libkcups/SelectMakeModel.ui:14
+#, kde-format
+msgid "Select a Driver"
+msgstr "एकं चालकं चिनोतु"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
+#: src/libkcups/SelectMakeModel.ui:79
+#, kde-format
+msgid "Choose &the driver"
+msgstr "&चालकं चिनोतु"
+
+#. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
+#: src/libkcups/SelectMakeModel.ui:91
+#, kde-format
+msgid "Ma&nually Provide a PPD File:"
+msgstr "Ma&nually एकं PPD सञ्चिकां प्रदातुं:"
+
+#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#, kde-format
+msgid "Print Queue"
+msgstr "मुद्रण कतार"
+
+#: src/printqueue/main.cpp:39
+#, kde-format
+msgid "Show printer queue(s)"
+msgstr "मुद्रकपङ्क्तिं (पङ्क्तिं) दर्शयतु ."
+
+#: src/printqueue/PrintQueueUi.cpp:194
+#, kde-format
+msgid "Printer ready"
+msgstr "मुद्रकः सज्जः अस्ति"
+
+#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
+#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.ui:118
+#, kde-format
+msgid "Pause Printer"
+msgstr "मुद्रकं विरामयतु"
+
+#: src/printqueue/PrintQueueUi.cpp:202
+#, kde-format
+msgid "Printing..."
+msgstr "मुद्रण..."
+
+#: src/printqueue/PrintQueueUi.cpp:204
+#, kde-format
+msgid "Printing '%1'"
+msgstr "'%1' मुद्रणम् ।"
+
+#: src/printqueue/PrintQueueUi.cpp:212
+#, kde-format
+msgid "Printer paused"
+msgstr "मुद्रकः विरामं कृतवान्"
+
+#: src/printqueue/PrintQueueUi.cpp:213
+#, kde-format
+msgid "Resume Printer"
+msgstr "मुद्रकं पुनः आरभत"
+
+#: src/printqueue/PrintQueueUi.cpp:217
+#, kde-format
+msgid "Printer state unknown"
+msgstr "मुद्रकस्य स्थितिः अज्ञाता"
+
+#: src/printqueue/PrintQueueUi.cpp:262
+#, kde-format
+msgid "Move to"
+msgstr "प्रति गच्छतु"
+
+#: src/printqueue/PrintQueueUi.cpp:294
+#, kde-format
+msgid "Authenticate"
+msgstr "प्रमाणीकरणं कुर्वन्तु"
+
+#: src/printqueue/PrintQueueUi.cpp:409
+#, kde-format
+msgid "All Printers (%1 Job)"
+msgid_plural "All Printers (%1 Jobs)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/printqueue/PrintQueueUi.cpp:411
+#, kde-format
+msgid "%2 (%1 Job)"
+msgid_plural "%2 (%1 Jobs)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/printqueue/PrintQueueUi.cpp:414
+#, kde-format
+msgid "All Printers"
+msgstr "सर्वे मुद्रकाः"
+
+#: src/printqueue/PrintQueueUi.cpp:481
+#, kde-format
+msgid "Failed to cancel '%1'"
+msgstr "'%1' रद्दं कर्तुं असफलम्।"
+
+#: src/printqueue/PrintQueueUi.cpp:484
+#, kde-format
+msgid "Failed to hold '%1'"
+msgstr "'%1' धारयितुं असफलम् ।"
+
+#: src/printqueue/PrintQueueUi.cpp:487
+#, kde-format
+msgid "Failed to release '%1'"
+msgstr "'%1' विमोचनं कर्तुं असफलम् ।"
+
+#: src/printqueue/PrintQueueUi.cpp:490
+#, kde-format
+msgid "Failed to reprint '%1'"
+msgstr "'%1' पुनः मुद्रयितुं असफलम्।"
+
+#: src/printqueue/PrintQueueUi.cpp:561
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "<b>%1</b> तः मुद्रणार्थं प्रमाणपत्राणि प्रविशन्तु"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
+#: src/printqueue/PrintQueueUi.ui:20
+#, kde-format
+msgid "my printer (x jobs)"
+msgstr "मम मुद्रकः (x कार्याणि) ."
+
+#. i18n: ectx: property (text), widget (QLabel, iconL)
+#: src/printqueue/PrintQueueUi.ui:49
+#, kde-format
+msgid "Printer Icon"
+msgstr "मुद्रक चिह्न"
+
+#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
+#: src/printqueue/PrintQueueUi.ui:233
+#, kde-format
+msgid "Cancel"
+msgstr "निरसयतु"
+
+#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
+#: src/printqueue/PrintQueueUi.ui:253
+#, kde-format
+msgid "Hold"
+msgstr "गृह्णातु"
+
+#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
+#: src/printqueue/PrintQueueUi.ui:266
+#, kde-format
+msgid "Resume"
+msgstr "पुनर्प्रारम्भय"
+
+#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
+#: src/printqueue/PrintQueueUi.ui:279
+#, kde-format
+msgid "Reprint"
+msgstr "पुनर्मुद्रणम्"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: src/printqueue/PrintQueueUi.ui:312
+#, kde-format
+msgid "Active Jobs"
+msgstr "सक्रिय नौकरियां"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: src/printqueue/PrintQueueUi.ui:317
+#, kde-format
+msgid "Completed Jobs"
+msgstr "सम्पन्न नौकरियां"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: src/printqueue/PrintQueueUi.ui:322
+#, kde-format
+msgid "All Jobs"
+msgstr "सर्वाणि कार्याणि"

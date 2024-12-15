@@ -3,36 +3,37 @@
 # This file is distributed under the same license as the print-manager package.
 # Kali <EMAIL@ADDRESS>, 2024.
 #
+# SPDX-FileCopyrightText: 2024 kali <skkalwar999@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-12-13 20:08+0530\n"
-"Last-Translator: Kali <EMAIL@ADDRESS>\n"
-"Language-Team: Sanskrit\n"
+"PO-Revision-Date: 2024-12-14 01:45+0530\n"
+"Last-Translator: kali <skkalwar999@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #: src/add-printer/AddPrinterAssistant.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Add a New Printer"
-msgstr ""
+msgstr "एकं नूतनं मुद्रकं योजयन्तु"
 
 #: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
 #: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
@@ -43,26 +44,26 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a Printer to Add"
-msgstr ""
+msgstr "योजयितुं मुद्रकं चिनोतु"
 
 #: src/add-printer/AddPrinterAssistant.cpp:87
 #: src/add-printer/AddPrinterAssistant.cpp:108
 #, kde-format
 msgctxt "@title:window"
 msgid "Please describe your printer"
-msgstr ""
+msgstr "कृपया स्वस्य मुद्रकस्य वर्णनं कुरुत"
 
 #: src/add-printer/AddPrinterAssistant.cpp:104
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure your connection"
-msgstr ""
+msgstr "स्वस्य संयोजनं विन्यस्यताम्"
 
 #: src/add-printer/AddPrinterAssistant.cpp:195
 #, kde-format
 msgctxt "@title:window"
 msgid "Pick a Driver for %1"
-msgstr ""
+msgstr "%1 कृते चालकं चिनुत"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseLpd.ui:26
@@ -96,35 +97,35 @@ msgctxt ""
 "@label samba URL markup example, this is preceded by a label containing "
 "smb://"
 msgid "smb://[workgroup/]server[:port]/printer"
-msgstr ""
+msgstr "smb://[कार्यसमूह/]सर्वर[:पोर्ट]/मुद्रक"
 
 #. i18n: ectx: property (text), widget (QPushButton, browsePB)
 #: src/add-printer/ChooseSamba.ui:54
 #, kde-format
 msgctxt "@action:button"
 msgid "Browse"
-msgstr ""
+msgstr "ब्राउज़ करें"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: src/add-printer/ChooseSamba.ui:64
 #, kde-format
 msgctxt "@title:group"
 msgid "Authentication"
-msgstr ""
+msgstr "प्रमाणीकरणम्"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/ChooseSamba.ui:73
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
-msgstr ""
+msgstr "उपयोक्तृनाम : १."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/ChooseSamba.ui:86
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Password"
-msgstr ""
+msgstr "समाभाष्"
 
 #: src/add-printer/ChooseSerial.cpp:25 src/add-printer/ChooseSerial.cpp:29
 #, kde-format
@@ -136,59 +137,59 @@ msgstr "न कश्चित्"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Even"
-msgstr ""
+msgstr "अपि"
 
 #: src/add-printer/ChooseSerial.cpp:27
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Odd"
-msgstr ""
+msgstr "विषमः"
 
 #: src/add-printer/ChooseSerial.cpp:30
 #, kde-format
 msgctxt "@label:listbox"
 msgid "XON/XOFF (Software)"
-msgstr ""
+msgstr "XON/XOFF (सॉफ्टवेयर) २."
 
 #: src/add-printer/ChooseSerial.cpp:31
 #, kde-format
 msgctxt "@label:listbox"
 msgid "RTS/CTS (Hardware)"
-msgstr ""
+msgstr "RTS/CTS (हार्डवेयर) ९."
 
 #: src/add-printer/ChooseSerial.cpp:32
 #, kde-format
 msgctxt "@label:listbox"
 msgid "DTR/DSR (Hardware)"
-msgstr ""
+msgstr "DTR/DSR (हार्डवेयर) ९."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSerial.ui:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
-msgstr ""
+msgstr "बौड दरः : १."
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/ChooseSerial.ui:42
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Parity:"
-msgstr ""
+msgstr "समता : १."
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/ChooseSerial.ui:55
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Data Bits:"
-msgstr ""
+msgstr "डाटा बिट्स् : १."
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/add-printer/ChooseSerial.ui:79
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Flow Control:"
-msgstr ""
+msgstr "प्रवाहनियन्त्रणम् : १."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSocket.ui:29
@@ -202,14 +203,14 @@ msgstr "पत्रसङ्केतः:"
 #, kde-format
 msgctxt "@label:spinbox"
 msgid "Port:"
-msgstr ""
+msgstr "पोताश्रय:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseUri.ui:41
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr ""
+msgstr "संयोजनम् : १."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/ChooseUri.ui:82
@@ -239,6 +240,20 @@ msgid ""
 "</TR>\n"
 "</TABLE>"
 msgstr ""
+"<TABLE><TR><TD>उदाहरणानि : १.<PRE>\n"
+"    http://होस्टनाम:631/ipp/\n"
+"    http://होस्टनाम:631/ipp/पोर्ट1\n"
+"\n"
+"    ipp://होस्टनाम/इप्प/\n"
+"    ipp://होस्टनाम/ipp/पोर्ट1\n"
+"\n"
+"    lpd://होस्टनाम/कतार\n"
+"\n"
+"    सॉकेट://होस्टनाम\n"
+"    सॉकेट://होस्टनाम:9100\n"
+"</PRE><P>भवतः मुद्रकेन सह उपयोक्तुं सम्यक् URI कृते <A HREF=\"http://localhost:631/"
+"help/network.html\" TARGET=\"_blank\">&quot;जालमुद्रकाः&quot;</a> पश्यन्तु ।</P></"
+"TD></TR></TABLE>"
 
 #: src/add-printer/main.cpp:24
 #, kde-format
@@ -311,20 +326,20 @@ msgstr "अपेक्षितं निवेशं मुद्रक/यन
 #, kde-format
 msgctxt "@info"
 msgid "Failed to add class: '%1'"
-msgstr ""
+msgstr "वर्गं योजयितुं असफलम्: '%1'."
 
 #: src/add-printer/PageAddPrinter.cpp:127
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: '%1'"
-msgstr ""
+msgstr "मुद्रकं विन्यस्तुं विफलम्: '%1'."
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/PageAddPrinter.ui:31
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Name:"
-msgstr ""
+msgstr "नामः:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
 #: src/add-printer/PageAddPrinter.ui:38
@@ -337,28 +352,28 @@ msgstr "\"/\", \"#\", रिक्तस्थानं च विहाय क�
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr ""
+msgstr "वर्णनम्‌:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/PageAddPrinter.ui:55
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr ""
+msgstr "स्थानीय:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, shareCB)
 #: src/add-printer/PageAddPrinter.ui:65
 #, kde-format
 msgctxt "@option:check"
 msgid "Share this printer"
-msgstr ""
+msgstr "एतत् मुद्रकं साझां कुर्वन्तु"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/PageChoosePrinters.ui:96
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Members:"
-msgstr ""
+msgstr "सदस्याः : १."
 
 #: src/add-printer/PageDestinations.cpp:190
 #, kde-format
@@ -596,13 +611,13 @@ msgstr "पूर्वनिर्धारितविकल्पानां
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr ""
+msgstr "वर्गं विन्यस्तुं असफलम्: "
 
 #: src/kcm/printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr ""
+msgstr "मुद्रकं विन्यस्तुं असफलम्: "
 
 #: src/kcm/printermanager.cpp:417
 #, kde-format
@@ -613,19 +628,19 @@ msgstr "अनुरोधं कर्तुं असफलम्: %1"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr ""
+msgstr "सर्वर सेटिंग्स् प्राप्तुं असफलम्: %1"
 
 #: src/kcm/printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr ""
+msgstr "सर्वर सेटिंग्स् न रक्षितानि: (%1): %2"
 
 #: src/kcm/printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr ""
+msgstr "घातकं सेव सर्वर सेटिंग्स्: (%1): %2"
 
 #: src/kcm/printermanager.cpp:566
 #, kde-format
@@ -645,6 +660,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"संस्थापनदोषः (सङ्कुलः: %1)\n"
+"प्रमाणीकरणप्रमाणपत्राणि पश्यन्तु तथा च PackageKit सम्यक् संस्थापितम् इति सुनिश्चितं कुर्वन्तु।"
 
 #: src/kded/NewPrinterNotification.cpp:61
 #, kde-format
@@ -728,7 +745,7 @@ msgstr "'%1' मुद्रणार्थं सज्जम् अस्त�
 #, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr ""
+msgstr "मैनुअल Config"
 
 #: src/libkcups/DevicesModel.cpp:63
 #, kde-format
@@ -819,19 +836,19 @@ msgstr "DNS-SD मार्गेण AppSocket/JetDirect संजालमु�
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to the parallel port"
-msgstr ""
+msgstr "समानान्तर-पोर्ट्-सङ्गणकेन सह सम्बद्धः मुद्रकः"
 
 #: src/libkcups/DevicesModel.cpp:124
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected via Bluetooth"
-msgstr ""
+msgstr "ब्लूटूथ् मार्गेण सम्बद्धः मुद्रकः"
 
 #: src/libkcups/DevicesModel.cpp:125
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
-msgstr ""
+msgstr "हार्डवेयर अमूर्तस्तरेन (HAL) ज्ञातः स्थानीयमुद्रकः ।"
 
 #: src/libkcups/DevicesModel.cpp:126
 #, kde-format
@@ -840,6 +857,8 @@ msgid ""
 "HPLIP software driving a fax machine,\n"
 "or the fax function of a multi-function device"
 msgstr ""
+"HPLIP सॉफ्टवेयरं फ्याक्सयन्त्रं चालयति,\n"
+"बहुकार्ययन्त्रस्य फ्याक्सकार्यं वा"
 
 #: src/libkcups/DevicesModel.cpp:127
 #, kde-format
@@ -848,18 +867,20 @@ msgid ""
 "HPLIP software driving a printer,\n"
 "or the printer function of a multi-function device"
 msgstr ""
+"मुद्रकं चालयति HPLIP सॉफ्टवेयर, .\n"
+"बहुकार्ययन्त्रस्य मुद्रककार्यं वा"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr ""
+msgstr "IPP IPP मार्गेण संजालमुद्रकः"
 
 #: src/libkcups/DevicesModel.cpp:129
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
-msgstr ""
+msgstr "USB पोर्ट् इत्यनेन सह सम्बद्धः मुद्रकः"
 
 #: src/libkcups/DevicesModel.cpp:135
 #, kde-format
@@ -893,19 +914,19 @@ msgstr "उपकरणानां समूहीकरणे विफलम�
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
-msgstr ""
+msgstr "आविष्कृताः संजालमुद्रकाः"
 
 #: src/libkcups/DevicesModel.cpp:392
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
-msgstr ""
+msgstr "अन्ये संजालमुद्रकाः"
 
 #: src/libkcups/DevicesModel.cpp:398
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
-msgstr ""
+msgstr "स्थानीय मुद्रक"
 
 #: src/libkcups/JobModel.cpp:28
 #, kde-format
@@ -1206,15 +1227,15 @@ msgstr "प्रमाणीकरणं कुर्वन्तु"
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "सर्वे मुद्रकाः (%1 Job)"
+msgstr[1] "सर्वे मुद्रकाः (%1 Jobs)"
 
 #: src/printqueue/PrintQueueUi.cpp:411
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%2 (%1 कार्यम्) २."
+msgstr[1] "%2 (%1 कार्याणि) २."
 
 #: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format

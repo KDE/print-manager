@@ -38,18 +38,18 @@ msgstr "न मेलनं"
 #: src/plasmoid/package/contents/ui/main.qml:50
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "पङ्क्तौ एकं मुद्रणकार्यम् अस्ति"
+msgstr[1] "पङ्क्तौ %1 मुद्रणकार्यं भवति"
 
 #: src/plasmoid/package/contents/ui/main.qml:59
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
-msgstr ""
+msgstr "%1 %2 इत्यनेन सह मुद्रयति"
 
 #: src/plasmoid/package/contents/ui/main.qml:61
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
-msgstr ""
+msgstr "%1 इत्यनेन सह मुद्रणम्"
 
 #: src/plasmoid/package/contents/ui/main.qml:64
 msgid "Print queue is empty"
@@ -78,11 +78,11 @@ msgstr "मुद्रणपङ्क्तिं पश्यन्तु..."
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "निरसयतु"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 अधिकं कार्यम्"
+msgstr[1] "%1 अधिकानि कार्याणि"

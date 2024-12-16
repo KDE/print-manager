@@ -1,4 +1,4 @@
-# Sanskrit translations for print-manager package.
+# Hindi translations for print-manager package.
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 # Kali <EMAIL@ADDRESS>, 2024.
@@ -9,60 +9,60 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-12-14 01:12+0530\n"
+"PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
-"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
-"Language: sa\n"
+"Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n>2);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
 #: printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "वर्गं विन्यस्तुं असफलम्: "
+msgstr "वर्ग कॉन्फ़िगर करने में विफल:"
 
 #: printermanager.cpp:253
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "मुद्रकं विन्यस्तुं असफलम्: "
+msgstr "प्रिंटर कॉन्फ़िगर करने में विफल:"
 
 #: printermanager.cpp:417
 #, kde-format
 msgid "Failed to perform request: %1"
-msgstr "अनुरोधं कर्तुं असफलम्: %1"
+msgstr "अनुरोध निष्पादित करने में विफल: %1"
 
 #: printermanager.cpp:469
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "सर्वरसेटिंग्स् प्राप्तुं असफलम्: %1"
+msgstr "सर्वर सेटिंग प्राप्त करने में विफल: %1"
 
 #: printermanager.cpp:506
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "सर्वर सेटिंग्स् न रक्षितानि: (%1): %2"
+msgstr "सर्वर सेटिंग्स सहेजी नहीं गईं: (%1): %2"
 
 #: printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "घातकं सेव सर्वर सेटिंग्स्: (%1): %2"
+msgstr "घातक सेव सर्वर सेटिंग्स: (%1): %2"
 
 #: printermanager.cpp:566
 #, kde-format
 msgid "Print Self-Test Page"
-msgstr "स्वपरीक्षण पृष्ठ मुद्रित करें"
+msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
 
 #: printermanager.cpp:572
 #, kde-format
 msgid "Clean Print Heads"
-msgstr "मुद्रणशिरः स्वच्छं कुर्वन्तु"
+msgstr "प्रिंट हेड्स साफ करें"
 
 #: scpinstaller.cpp:70
 #, kde-format
@@ -72,32 +72,32 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
-"संस्थापनदोषः (सङ्कुलः: %1)\n"
-"प्रमाणीकरणप्रमाणपत्राणि पश्यन्तु तथा च PackageKit सम्यक् संस्थापितम् इति सुनिश्चितं कुर्वन्तु।"
+"इंस्टॉल त्रुटि (पैकेज: %1)\n"
+"प्रमाणीकरण क्रेडेंशियल जांचें और सुनिश्चित करें कि पैकेजकिट ठीक से इंस्टॉल किया गया है।"
 
 #: ui/components/AddressExamples.qml:28
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr "उदाहरणं सम्बोधनम्"
+msgstr "उदाहरण पते"
 
 #: ui/components/BaseDevice.qml:111
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr "पत्रसङ्केतः:"
+msgstr "पता:"
 
 #: ui/components/BaseDevice.qml:121
 #, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "यन्त्रसङ्केतं प्रविशतु"
+msgstr "डिवाइस का पता दर्ज करें"
 
 #: ui/components/Direct.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr "एकं यन्त्रसंयोजनं चिनोतु"
+msgstr "डिवाइस कनेक्शन चुनें"
 
 #: ui/components/Drivers.qml:39
 #, kde-kuit-format
@@ -106,75 +106,75 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
-"अनुशंसितचालकानाम् अन्वेषणं कर्तुं असमर्थः।  पुनः प्रयासं कर्तुं वा चालकं स्वहस्तेन चिन्वितुं "
-"<interface>Refresh</interface> नुदन्तु ।"
+"अनुशंसित ड्राइवर ढूँढने में असमर्थ। पुनः प्रयास करने के लिए <इंटरफ़ेस>रीफ़्रेश</इंटरफ़ेस> पर क्लिक "
+"करें या मैन्युअल रूप से ड्राइवर चुनें।"
 
 #: ui/components/Drivers.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "चालकरहितं चयनं कुर्वन्तु..."
+msgstr "ड्राइवर रहित चुनें…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr "चालकं चिनोतु..."
+msgstr "ड्राइवर चुनें…"
 
 #: ui/components/Drivers.qml:87
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr "अनुशंसितं चालकं चिनोतु"
+msgstr "अनुशंसित ड्राइवर का चयन करें"
 
 #: ui/components/Drivers.qml:92
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
-msgstr "अनुशंसिताः चालकाः मुद्रकस्य मेक/मॉडेल् तथा च संयोजनप्रकारस्य आधारेण भवन्ति"
+msgstr "अनुशंसित ड्राइवर प्रिंटर मेक/मॉडल और कनेक्शन प्रकार पर आधारित होते हैं"
 
 #: ui/components/Drivers.qml:130
 #, kde-format
 msgctxt "@label:listitem"
 msgid "Driverless (%1)"
-msgstr "चालकरहितः (%1) २."
+msgstr "ड्राइवर रहित (%1)"
 
 #: ui/components/Drivers.qml:132
 #, kde-format
 msgctxt "@label:listitem"
 msgid "PPD File (%1)"
-msgstr "पीपीडी सञ्चिका (%1) ."
+msgstr "पीपीडी फ़ाइल (%1)"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr "रेखामुद्रक डेमन (LPD) प्रोटोकॉल"
+msgstr "लाइन प्रिंटर डेमॉन (एलपीडी) प्रोटोकॉल"
 
 #: ui/components/Lpd.qml:21
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "LPD उपकरणस्य पतां प्रविशन्तु"
+msgstr "LPD डिवाइस का पता दर्ज करें"
 
 #: ui/components/Lpd.qml:61
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "पङ्क्ति:"
+msgstr "कतार:"
 
 #: ui/components/Lpd.qml:66
 #, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "एलपीडी कतारनाम"
+msgstr "एलपीडी कतार नाम"
 
 #: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
 #: ui/components/Socket.qml:47
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr "Address इत्यनेन सह निरन्तरं कुर्वन्तु..."
+msgstr "पता के साथ जारी रखें…"
 
 #: ui/components/Lpd.qml:90
 #, kde-format
@@ -186,31 +186,31 @@ msgstr "अमान्य LPD URL: %1"
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr "दूरस्थमुद्रणयन्त्राणि अन्वेष्टुम्"
+msgstr "दूरस्थ मुद्रण डिवाइस खोजें"
 
 #: ui/components/ManualUri.qml:22
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr "दूरस्थस्य होस्ट्/यन्त्रस्य पता प्रविशन्तु"
+msgstr "दूरस्थ होस्ट/डिवाइस का पता दर्ज करें"
 
 #: ui/components/ManualUri.qml:56
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr "होस्ट् इत्यत्र कोऽपि मुद्रकाः न प्राप्ताः: %1"
+msgstr "होस्ट: %1 पर कोई प्रिंटर नहीं मिला"
 
 #: ui/components/ManualUri.qml:61
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr "CUPS अनुरोधदोषः (%1): %2"
+msgstr "CUPS अनुरोध त्रुटि (%1): %2"
 
 #: ui/components/ManualUri.qml:71
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "मुद्रकं चिनोतु..."
+msgstr "प्रिंटर चुनें…"
 
 #: ui/components/ManualUri.qml:92
 #, kde-kuit-format
@@ -219,26 +219,25 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>."
 msgstr ""
-"यदि मुद्रकसङ्केतः ज्ञातः अस्ति तर्हि तत् प्रविश्य <interface>Continue</interface> इति "
-"चिनोतु ।"
+"यदि प्रिंटर पता ज्ञात है, तो उसे दर्ज करें और <interface>Continue</interface> चुनें।"
 
 #: ui/components/NotAvailable.qml:19
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not yet available (%1)"
-msgstr "एतत् विशेषता अद्यापि उपलब्धं नास्ति (%1)"
+msgstr "यह सुविधा अभी उपलब्ध नहीं है (%1)"
 
 #: ui/components/Socket.qml:17
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr "AppSocket Protocol (उर्फ JetDirect) २."
+msgstr "ऐपसॉकेट प्रोटोकॉल (जिसे जेटडायरेक्ट भी कहा जाता है)"
 
 #: ui/components/Socket.qml:18
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "AppSocket उपकरणस्य पतां प्रविशन्तु"
+msgstr "AppSocket डिवाइस का पता दर्ज करें"
 
 #: ui/components/Socket.qml:63
 #, kde-format
@@ -249,35 +248,35 @@ msgstr "अमान्य सॉकेट URL: %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr "मुद्रकसंयोजनं स्थापयन्तु"
+msgstr "प्रिंटर कनेक्शन सेट करें"
 
 #: ui/FindPrinter.qml:93
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
-msgstr "ज्ञातयन्त्राणि दर्शयतु"
+msgstr "पता लगाए गए डिवाइस दिखाएं"
 
 #: ui/FindPrinter.qml:94
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr "मैनुअल् विकल्पान् दर्शयतु"
+msgstr "मैन्युअल विकल्प दिखाएँ"
 
 #: ui/FindPrinter.qml:113
 #, kde-format
 msgid "Refresh"
-msgstr "ताजगी"
+msgstr "ताज़ा करना"
 
 #: ui/FindPrinter.qml:124
 #, kde-format
 msgid "CUPS Network Printers Help"
-msgstr "CUPS Network Printers सहायता"
+msgstr "CUPS नेटवर्क प्रिंटर सहायता"
 
 #: ui/FindPrinter.qml:183
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr "स्वयमेव कस्यापि मुद्रणयन्त्रस्य आविष्कारं कर्तुं असमर्थः"
+msgstr "किसी भी मुद्रण डिवाइस को स्वचालित रूप से खोजने में असमर्थ"
 
 #: ui/FindPrinter.qml:184
 #, kde-format
@@ -285,106 +284,106 @@ msgctxt "@info:usagetip"
 msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
-msgstr "पुनः प्रयासं कर्तुं \"Refresh\" इति चिनोतु अथवा सूचीतः मैनुअल् विन्यासविकल्पं चिनोतु"
+msgstr "पुनः प्रयास करने के लिए \"रिफ्रेश\" चुनें या सूची से मैन्युअल कॉन्फ़िगरेशन विकल्प चुनें"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr "सूचीतः मैनुअल् विन्यासविकल्पं चिनोतु"
+msgstr "सूची से मैन्युअल कॉन्फ़िगरेशन विकल्प चुनें"
 
 #: ui/Global.qml:16
 #, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "CUPS सर्वर सेटिंग्स्"
+msgstr "CUPS सर्वर सेटिंग्स"
 
 #: ui/Global.qml:23
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr "CUPS मुद्रण सर्वर व्यवस्थापक"
+msgstr "CUPS प्रिंट सर्वर एडमिन"
 
 #: ui/Global.qml:30
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
-msgstr "पुनः सेट् करें"
+msgstr "रीसेट करें"
 
 #: ui/Global.qml:36
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
-msgstr "आचरतु"
+msgstr "आवेदन करना"
 
 #: ui/Global.qml:88
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr "कृपया CUPS सर्वरः पुनः आरभ्यते तावत् प्रतीक्ष्यताम्"
+msgstr "कृपया CUPS सर्वर के पुनः आरंभ होने तक प्रतीक्षा करें"
 
 #: ui/Global.qml:126
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
-msgstr "अस्मिन् प्रणाल्या सह सम्बद्धाः मुद्रकाः साझां कुर्वन्तु"
+msgstr "इस सिस्टम से जुड़े प्रिंटर साझा करें"
 
 #: ui/Global.qml:138
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
-msgstr "अन्तर्जालतः मुद्रणस्य अनुमतिं ददातु"
+msgstr "इंटरनेट से मुद्रण की अनुमति दें"
 
 #: ui/Global.qml:144
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
-msgstr "दूरस्थप्रशासनस्य अनुमतिं ददातु"
+msgstr "दूरस्थ प्रशासन की अनुमति दें"
 
 #: ui/Global.qml:149
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
-msgstr "उपयोक्तृभ्यः किमपि कार्यं (न केवलं स्वस्य) रद्दं कर्तुं अनुमन्यताम् ।"
+msgstr "उपयोगकर्ताओं को कोई भी कार्य रद्द करने की अनुमति दें (केवल अपना ही नहीं)"
 
 #: ui/InstallDialog.qml:14
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "मुद्रक सेटअप सहायकाः"
+msgstr "प्रिंटर सेटअप हेल्पर्स"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr "संस्थापनं सफलतया सम्पन्नम् अस्ति"
+msgstr "स्थापना सफलतापूर्वक पूर्ण हो गई है"
 
 #: ui/InstallDialog.qml:72
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr "संस्थापनं विफलम् अभवत्"
+msgstr "स्थापना विफल"
 
 #: ui/InstallDialog.qml:74
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr "संस्थापनं कृत्वा..."
+msgstr "स्थापित हो रहा है…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr "%1 इत्यस्मै एतत् समस्यां निवेदयन्तु"
+msgstr "इस समस्या की रिपोर्ट %1 पर करें"
 
 #: ui/main.qml:29
 #, kde-format
 msgid "new_queue"
-msgstr "नवीन_कतार"
+msgstr "नई_कतार"
 
 #: ui/main.qml:29
 #, kde-format
 msgid "new_group"
-msgstr "नव_समूह"
+msgstr "नया_समूह"
 
 #: ui/main.qml:69
 #, kde-kuit-format
@@ -395,10 +394,10 @@ msgid ""
 "we cannot provide an install option. Please use your package manager to "
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
-"सुविधाविशेषताः प्रदातुं मुद्रकसमर्थनसङ्कुलं संस्थापितं न दृश्यते।<nl/><nl/>यतो हि अस्मिन् "
-"distro PackageKit न समाविष्टम्, अतः वयं संस्थापनविकल्पं दातुं न शक्नुमः। कृपया "
-"<command>system-config-printer</command> संकुलं स्वहस्तेन संस्थापयितुं स्वस्य "
-"संकुलप्रबन्धकस्य उपयोगं कुर्वन्तु ।"
+"ऐसा प्रतीत होता है कि प्रिंटर सहायता पैकेज जो सुविधा सुविधाएँ प्रदान करता है, स्थापित "
+"नहीं है।<nl/><nl/>चूँकि इस डिस्ट्रो में PackageKit शामिल नहीं है, इसलिए हम कोई इंस्टॉल "
+"विकल्प प्रदान नहीं कर सकते। कृपया <command>system-config-printer</command> पैकेज को "
+"मैन्युअल रूप से स्थापित करने के लिए अपने पैकेज मैनेजर का उपयोग करें।"
 
 #: ui/main.qml:71
 #, kde-format
@@ -406,60 +405,62 @@ msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
-msgstr "सुविधाविशेषतां प्रदातुं मुद्रकसमर्थनसङ्कुलं संस्थापितं न दृश्यते ।"
+msgstr ""
+"सुविधाजनक सुविधाएं प्रदान करने वाला प्रिंटर समर्थन पैकेज स्थापित नहीं प्रतीत होता है।"
 
 #: ui/main.qml:77
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr "It संस्थापयन्तु"
+msgstr "इसे स्थापित करें"
 
 #: ui/main.qml:108
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr "संयोजयति…"
+msgstr "जोड़ना…"
 
 #: ui/main.qml:109
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "मुद्रकं योजयतु..."
+msgstr "प्रिंटर जोड़ें…"
 
 #: ui/main.qml:118
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "समूहं योजयतु..."
+msgstr "समूह जोड़ें…"
 
 #: ui/main.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "मुद्रणसर्वरं विन्यस्तं कुर्वन्तु..."
+msgstr "प्रिंट सर्वर कॉन्फ़िगर करें…"
 
 #: ui/main.qml:233
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr "सम्प्रति कोऽपि मुद्रकः स्थापितः नास्ति"
+msgstr "वर्तमान में कोई प्रिंटर सेट नहीं है"
 
 #: ui/main.qml:234
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
-msgstr "अस्मिन् सङ्गणके नूतनं मुद्रकं स्थापयितुं <interface>Add...</interface> नुदन्तु"
+msgstr ""
+"इस कंप्यूटर पर नया प्रिंटर सेट अप करने के लिए <interface>Add…</interface> पर क्लिक करें"
 
 #: ui/main.qml:244
 #, kde-format
 msgid "Printers"
-msgstr "मुद्रकाः"
+msgstr "प्रिंटर"
 
 #: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
-msgstr "मुद्रकसमूहाः"
+msgstr "प्रिंटर समूह"
 
 #: ui/main.qml:298
 #, kde-format
@@ -471,7 +472,7 @@ msgstr "मुद्रण कतार"
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr "पुनर्प्रारम्भय"
+msgstr "फिर शुरू करना"
 
 #: ui/main.qml:315
 #, kde-format
@@ -483,290 +484,292 @@ msgstr "विराम"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr "मुद्रणं पुनः आरभत"
+msgstr "रिज्यूमे प्रिंटिंग"
 
 #: ui/main.qml:330
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr "मुद्रणं विरामयतु"
+msgstr "मुद्रण रोकें"
 
 #: ui/MakeModel.qml:87
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "मुद्रकस्य निर्माणं/प्रतिरूपं चिनोतु"
+msgstr "प्रिंटर निर्माता/मॉडल चुनें"
 
 #: ui/MakeModel.qml:89
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr "मुद्रक चालकः (%1) ."
+msgstr "प्रिंटर ड्राइवर (%1)"
 
 #: ui/MakeModel.qml:96
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr "मुद्रक चालकः"
+msgstr "छपाई यंत्र का चालक"
 
 #: ui/MakeModel.qml:143
 #, kde-format
 msgid "Save"
-msgstr "रक्ष्"
+msgstr "बचाना"
 
 #: ui/MakeModel.qml:148
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr "PostScript Printer Description (PPD) सञ्चिकां चिनोतु"
+msgstr "पोस्टस्क्रिप्ट प्रिंटर विवरण (पीपीडी) फ़ाइल चुनें"
 
 #: ui/MakeModel.qml:155
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "मुद्रकस्य मॉडल् आवश्यकम् अस्ति।  कृपया मुद्रकस्य प्रतिरूपं चिनोतु ।"
+msgstr "प्रिंटर मॉडल आवश्यक है। कृपया प्रिंटर मॉडल चुनें।"
 
 #: ui/MakeModel.qml:212
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr "Make and Model इति चिनोतु:"
+msgstr "निर्माता और मॉडल का चयन करें:"
 
 #: ui/MakeModel.qml:224
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr "फ़िल्टर मॉडल्स"
+msgstr "फ़िल्टर मॉडल"
 
 #: ui/MakeModel.qml:319
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
-msgstr "PPD सञ्चिका : १."
+msgstr "पीपीडी फ़ाइल:"
 
 #: ui/MakeModel.qml:338
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "PPD सञ्चिकां चिनोतु..."
+msgstr "PPD फ़ाइल चुनें…"
 
 #: ui/MakeModel.qml:346
 #, kde-format
 msgid "Select"
-msgstr "विचि"
+msgstr "चुनना"
 
 #: ui/MakeModel.qml:347
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
-msgstr "PostScript मुद्रकविवरणसञ्चिकाः (*.ppd)"
+msgstr "पोस्टस्क्रिप्ट प्रिंटर विवरण फ़ाइलें (*.ppd)"
 
 #: ui/PrinterSettings.qml:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
-msgstr "समूहं योजयतु"
+msgstr "समूह जोड़ें"
 
 #: ui/PrinterSettings.qml:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
-msgstr "मुद्रकं योजयतु"
+msgstr "प्रिंटर जोड़ें"
 
 #: ui/PrinterSettings.qml:61
 #, kde-format
 msgid "Configure…"
-msgstr "विन्यस्तं कुर्वन्तु..."
+msgstr "कॉन्फ़िगर करें…"
 
 #: ui/PrinterSettings.qml:66
 #, kde-format
 msgid "Remove"
-msgstr "अपाकरोति"
+msgstr "निकालना"
 
 #: ui/PrinterSettings.qml:83
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr "CUPS Printers अवलोकन सहायता"
+msgstr "CUPS प्रिंटर अवलोकन सहायता"
 
 #: ui/PrinterSettings.qml:89
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "मुद्रक/यन्त्रप्रशासक पृष्ठ"
+msgstr "प्रिंटर/डिवाइस एडमिन पेज"
 
 #: ui/PrinterSettings.qml:107
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
-msgstr "संयोजयति"
+msgstr "जोड़ना"
 
 #: ui/PrinterSettings.qml:108
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
-msgstr "आचरतु"
+msgstr "आवेदन करना"
 
 #: ui/PrinterSettings.qml:116
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "पङ्क्तिनाम आवश्यकम् अस्ति। एकं अद्वितीयं पङ्क्तिनाम प्रविष्टं कुर्वन्तु।"
+msgstr "कतार नाम आवश्यक है। एक अद्वितीय कतार नाम दर्ज करें।"
 
 #: ui/PrinterSettings.qml:121
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "पङ्क्तिनाम अद्वितीयं भवितुमर्हति। एकं अद्वितीयं पङ्क्तिनाम प्रविष्टं कुर्वन्तु।"
+msgstr "कतार का नाम अद्वितीय होना चाहिए। एक अद्वितीय कतार नाम दर्ज करें।"
 
 #: ui/PrinterSettings.qml:129
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr "Make/Model इति आवश्यकम् अस्ति। Make/Model इति चिन्वन्तु \"Select\" इति चिनोतु"
+msgstr "मेक/मॉडल आवश्यक है। मेक/मॉडल चुनने के लिए \"चयन करें\" चुनें"
 
 #: ui/PrinterSettings.qml:139
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr "%1 विन्यस्य, कृपया प्रतीक्ष्यताम्..."
+msgstr "%1 कॉन्फ़िगर किया जा रहा है, कृपया प्रतीक्षा करें…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr "मुद्रकं निष्कासयितुं असफलम्: %1"
+msgstr "प्रिंटर निकालने में विफल: %1"
 
 #: ui/PrinterSettings.qml:208
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "समूहं निष्कासयन्तु ?"
+msgstr "समूह निकालें?"
 
 #: ui/PrinterSettings.qml:209
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "मुद्रकं निष्कासयन्तु?"
+msgstr "प्रिंटर हटाएँ?"
 
 #: ui/PrinterSettings.qml:211
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr "'%1' अपसारितं भविष्यति ।"
+msgstr "'%1' हटा दिया जाएगा."
 
 #: ui/PrinterSettings.qml:218
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
-msgstr "समूहं निष्कासयन्तु"
+msgstr "समूह हटाएँ"
 
 #: ui/PrinterSettings.qml:219
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
-msgstr "मुद्रकं निष्कासयन्तु"
+msgstr "प्रिंटर हटाएँ"
 
 #: ui/PrinterSettings.qml:228
 #, kde-format
 msgid "Cancel"
-msgstr "निरसयतु"
+msgstr "रद्द करना"
 
 #: ui/PrinterSettings.qml:396
 #, kde-format
 msgctxt "@info:status This is the default printer"
 msgid "** Default Printer"
-msgstr "** पूर्वनिर्धारित मुद्रक"
+msgstr "** डिफ़ॉल्ट प्रिंटर"
 
 #: ui/PrinterSettings.qml:402
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "पूर्वनिर्धारित मुद्रक"
+msgstr "डिफ़ॉल्ट प्रिंटर"
 
 #: ui/PrinterSettings.qml:417
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
-msgstr "एतत् समूहं साझां कुर्वन्तु"
+msgstr "इस समूह को साझा करें"
 
 #: ui/PrinterSettings.qml:418
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
-msgstr "एतत् मुद्रकं साझां कुर्वन्तु"
+msgstr "इस प्रिंटर को साझा करें"
 
 #: ui/PrinterSettings.qml:425
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr "मुद्रणकार्यं स्वीकुर्वन्"
+msgstr "प्रिंट कार्य स्वीकार करना"
 
 #: ui/PrinterSettings.qml:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
-msgstr "परीक्षा पृष्ठं मुद्रयन्तु"
+msgstr "परीक्षण पृष्ठ प्रिंट करें"
 
 #: ui/PrinterSettings.qml:480
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
-msgstr "स्वपरीक्षण पृष्ठ मुद्रित करें"
+msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
 
 #: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
-msgstr "मुद्रणशिरः स्वच्छं कुर्वन्तु"
+msgstr "प्रिंट हेड्स साफ करें"
 
 #: ui/PrinterSettings.qml:507
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr "एकं मुद्रकं अन्वेष्टुम्..."
+msgstr "प्रिंटर खोजें…"
 
 #: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr "कतारनाम : १."
+msgstr "कतार का नाम:"
 
 #: ui/PrinterSettings.qml:532
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
-msgstr "मुद्रणसम्पदां संग्रहणार्थं <interface>मुद्रकसमूहः</interface> उपयुज्यते ।"
+msgstr ""
+"<इंटरफ़ेस>प्रिंटर समूह</इंटरफ़ेस> का उपयोग मुद्रण संसाधनों को एकत्रित करने के लिए किया जाता "
+"है।"
 
 #: ui/PrinterSettings.qml:540
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
-msgstr "वर्णनम्‌:"
+msgstr "विवरण:"
 
 #: ui/PrinterSettings.qml:552
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
-msgstr "स्थानीय:"
+msgstr "जगह:"
 
 #: ui/PrinterSettings.qml:564
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr "संयोजनम् : १."
+msgstr "कनेक्शन:"
 
 #: ui/PrinterSettings.qml:578
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr "सदस्य मुद्रकाः : १."
+msgstr "सदस्य प्रिंटर:"
 
 #: ui/PrinterSettings.qml:715
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr "मेक/मॉडल : १."
+msgstr "निर्माता/मॉडल:"
 
 #: ui/PrinterSettings.qml:730
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr "विचि…"
+msgstr "चुनना…"

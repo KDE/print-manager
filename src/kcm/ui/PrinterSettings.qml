@@ -458,7 +458,8 @@ KCM.AbstractKCM {
                         from: 0
                         to: 100
                         value: root.modelData.markers["marker-levels"][index]
-                        palette.highlight: root.modelData.markers["marker-colors"][index]
+                        Kirigami.Theme.highlightColor: root.modelData.markers["marker-colors"][index]
+                        Kirigami.Theme.inherit: false
                         Layout.fillWidth: true
                     }
                 }

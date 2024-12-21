@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-10-18 14:30+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -617,47 +617,47 @@ msgstr "Aseta oletusasetukset"
 msgid "Query Printer for Default Options"
 msgstr "Kysy tulostimelta oletusasetukset"
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Luokan määritys epäonnistui: "
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Tulostimen määritys epäonnistui: "
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Pyynnön toteuttaminen epäonnistui: %1"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Palvelinasetusten nouto epäonnistui: %1"
 
-#: src/kcm/printermanager.cpp:506
+#: src/kcm/printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Palvelinasetuksia ei tallennettu: (%1): %2"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Vakavat palvelinasetusten talletusvirheet: (%1): %2"
 
-#: src/kcm/printermanager.cpp:566
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Tulosta itsetestaussivu"
 
-#: src/kcm/printermanager.cpp:572
+#: src/kcm/printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puhdista tulostuspäät"

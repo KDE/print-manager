@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -19,47 +19,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "वर्ग कॉन्फ़िगर करने में विफल:"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "प्रिंटर कॉन्फ़िगर करने में विफल:"
 
-#: printermanager.cpp:417
+#: printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "अनुरोध निष्पादित करने में विफल: %1"
 
-#: printermanager.cpp:469
+#: printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "सर्वर सेटिंग प्राप्त करने में विफल: %1"
 
-#: printermanager.cpp:506
+#: printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "सर्वर सेटिंग्स सहेजी नहीं गईं: (%1): %2"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "घातक सेव सर्वर सेटिंग्स: (%1): %2"
 
-#: printermanager.cpp:566
+#: printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
 
-#: printermanager.cpp:572
+#: printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "प्रिंट हेड्स साफ करें"
@@ -699,37 +699,37 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "प्रिंट कार्य स्वीकार करना"
 
-#: ui/PrinterSettings.qml:474
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "परीक्षण पृष्ठ प्रिंट करें"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "प्रिंट हेड्स साफ करें"
 
-#: ui/PrinterSettings.qml:507
+#: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "प्रिंटर खोजें…"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "कतार का नाम:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:533
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -738,37 +738,37 @@ msgstr ""
 "<इंटरफ़ेस>प्रिंटर समूह</इंटरफ़ेस> का उपयोग मुद्रण संसाधनों को एकत्रित करने के लिए किया जाता "
 "है।"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "विवरण:"
 
-#: ui/PrinterSettings.qml:552
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "जगह:"
 
-#: ui/PrinterSettings.qml:564
+#: ui/PrinterSettings.qml:565
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "कनेक्शन:"
 
-#: ui/PrinterSettings.qml:578
+#: ui/PrinterSettings.qml:579
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "सदस्य प्रिंटर:"
 
-#: ui/PrinterSettings.qml:715
+#: ui/PrinterSettings.qml:716
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "निर्माता/मॉडल:"
 
-#: ui/PrinterSettings.qml:730
+#: ui/PrinterSettings.qml:731
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

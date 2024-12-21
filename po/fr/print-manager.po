@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-05-22 09:11+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -630,48 +630,48 @@ msgstr "Définir les options par défaut"
 msgid "Query Printer for Default Options"
 msgstr "Consulter les options par défaut de l'imprimante"
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Configuration de classe impossible :"
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Configuration d'imprimante impossible :"
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Il est impossible d'effectuer la requête : %1"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Obtention de la configuration du serveur impossible : %1"
 
-#: src/kcm/printermanager.cpp:506
+#: src/kcm/printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Configuration du serveur non enregistrée : (%1) : %2"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr ""
 "Erreur fatale d'enregistrement de la configuration du serveur : (%1) : %2"
 
-#: src/kcm/printermanager.cpp:566
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimer sa propre page de test"
 
-#: src/kcm/printermanager.cpp:572
+#: src/kcm/printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nettoyer les têtes d'impression"

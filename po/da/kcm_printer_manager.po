@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-10-30 12:45+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -17,47 +17,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Kunne ikke konfigurere klasse:"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Kunne ikke konfigurere printer:"
 
-#: printermanager.cpp:417
+#: printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Kunne ikke udføre anmodning: %1"
 
-#: printermanager.cpp:469
+#: printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Kunne ikke få serverindstillinger: %1"
 
-#: printermanager.cpp:506
+#: printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Serverindstillinger ikke gemt: (%1): %2"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Fatalt at gemme serverindstillinger: (%1): %2"
 
-#: printermanager.cpp:566
+#: printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Udskriv selvtestside"
 
-#: printermanager.cpp:572
+#: printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Rens printerhoveder"
@@ -708,37 +708,37 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Accepterer printopgaver"
 
-#: ui/PrinterSettings.qml:474
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Print testside"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Print selvtestside"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Rengør printhoveder"
 
-#: ui/PrinterSettings.qml:507
+#: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Find en printer…"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Kønavn:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:533
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -746,37 +746,37 @@ msgid ""
 msgstr ""
 "En <interface>printergruppe</interface> bruges til at samle printressourcer."
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Beskrivelse:"
 
-#: ui/PrinterSettings.qml:552
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Placering:"
 
-#: ui/PrinterSettings.qml:564
+#: ui/PrinterSettings.qml:565
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Forbindelse:"
 
-#: ui/PrinterSettings.qml:578
+#: ui/PrinterSettings.qml:579
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Medlemsprintere:"
 
-#: ui/PrinterSettings.qml:715
+#: ui/PrinterSettings.qml:716
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Fabrikant/model:"
 
-#: ui/PrinterSettings.qml:730
+#: ui/PrinterSettings.qml:731
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

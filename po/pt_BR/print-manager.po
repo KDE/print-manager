@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2023-11-14 14:11-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -618,30 +618,30 @@ msgstr "Definir as opções padrão"
 msgid "Query Printer for Default Options"
 msgstr "Consultar as opções padrão da impressora"
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Não foi possível configurar a classe:"
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Não foi possível configurar a impressora:"
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Falha ao efetuar a solicitação: %1"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Não foi possível obter as opções do servidor: %1"
 
-#: src/kcm/printermanager.cpp:506
+#: src/kcm/printermanager.cpp:513
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -649,7 +649,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Erro do servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:520
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -657,12 +657,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Não foi possível obter as opções do servidor: %1"
 
-#: src/kcm/printermanager.cpp:566
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir página de teste"
 
-#: src/kcm/printermanager.cpp:572
+#: src/kcm/printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpar cabeças de impressão"

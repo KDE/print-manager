@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,47 +17,47 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
 "X-Crowdin-File-ID: 48268\n"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "配置打印机类失败："
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "配置打印机失败："
 
-#: printermanager.cpp:417
+#: printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "执行请求失败：%1"
 
-#: printermanager.cpp:469
+#: printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "获取服务器设置失败：%1"
 
-#: printermanager.cpp:506
+#: printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "服务器设置没有保存：(%1)：%2"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "保存服务器设置时发生致命错误：(%1)：%2"
 
-#: printermanager.cpp:566
+#: printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: printermanager.cpp:572
+#: printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
@@ -696,74 +696,74 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "正在接受打印任务"
 
-#: ui/PrinterSettings.qml:474
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "打印测试页"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
 
-#: ui/PrinterSettings.qml:507
+#: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "搜索打印机…"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "队列名称："
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:533
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr "<interface>打印机组</interface> 用于对打印资源进行集中管理。"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "描述："
 
-#: ui/PrinterSettings.qml:552
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "位置："
 
-#: ui/PrinterSettings.qml:564
+#: ui/PrinterSettings.qml:565
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "连接："
 
-#: ui/PrinterSettings.qml:578
+#: ui/PrinterSettings.qml:579
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "成员打印机："
 
-#: ui/PrinterSettings.qml:715
+#: ui/PrinterSettings.qml:716
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "制造商/型号："
 
-#: ui/PrinterSettings.qml:730
+#: ui/PrinterSettings.qml:731
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

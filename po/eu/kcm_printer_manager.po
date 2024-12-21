@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-11-10 19:43+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20,47 +20,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.08.3\n"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klasea konfiguratzea huts egin du: "
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Inprimagailua konfiguratzea huts egin du:"
 
-#: printermanager.cpp:417
+#: printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Eskaera egitea huts egin du: %1"
 
-#: printermanager.cpp:469
+#: printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
 
-#: printermanager.cpp:506
+#: printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Zerbitzariaren ezarpenak ez dira gorde: (%1): %2"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Zerbitzariaren ezarpenak gordetzeko errore larria: (%1): %2"
 
-#: printermanager.cpp:566
+#: printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Inprimatu autoprobako orrialdea"
 
-#: printermanager.cpp:572
+#: printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Garbitu inprimatzeko buruak"
@@ -714,37 +714,37 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Inprimatze lanak onartzea"
 
-#: ui/PrinterSettings.qml:474
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Inprimatu probako orrialdea"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Inprimatu autoprobako orrialdea"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Garbitu inprimatzeko buruak"
 
-#: ui/PrinterSettings.qml:507
+#: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Aurkitu inprimagailua bat..."
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Ilararen izena:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:533
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -753,37 +753,37 @@ msgstr ""
 "<interface>Inprimagailu talde</interface> bat inprimatzeko baliabideen funts "
 "bat sortzeko erabiltzen da."
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Deskribapena:"
 
-#: ui/PrinterSettings.qml:552
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Kokalekua:"
 
-#: ui/PrinterSettings.qml:564
+#: ui/PrinterSettings.qml:565
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Konexioa:"
 
-#: ui/PrinterSettings.qml:578
+#: ui/PrinterSettings.qml:579
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Kide inprimagailuak:"
 
-#: ui/PrinterSettings.qml:715
+#: ui/PrinterSettings.qml:716
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Marka/eredua:"
 
-#: ui/PrinterSettings.qml:730
+#: ui/PrinterSettings.qml:731
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-05-21 07:37+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -621,47 +621,47 @@ msgstr "Nastavi privzete možnosti"
 msgid "Query Printer for Default Options"
 msgstr "Poizvedi o privzetih možnostih tiskalnika"
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nastavitev razreda ni uspela: "
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Tiskalnika ni bilo mogoče konfigurirati: "
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Izvedba zahteve ni uspela: %1"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nastavitev strežnika ni bilo mogoče pridobiti: %1"
 
-#: src/kcm/printermanager.cpp:506
+#: src/kcm/printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Nastavitve strežnika niso shranjene: (%1): %2"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Fatalno shranjevanje nastavitev strežnika: (%1): %2"
 
-#: src/kcm/printermanager.cpp:566
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Natisni stran samo-preizkusa"
 
-#: src/kcm/printermanager.cpp:572
+#: src/kcm/printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Očisti tiskalne glave"

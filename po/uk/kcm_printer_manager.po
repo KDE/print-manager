@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-11-09 09:13+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -18,47 +18,47 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не вдалося налаштувати клас: "
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не вдалося налаштувати принтер: "
 
-#: printermanager.cpp:417
+#: printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не вдалося виконати запит: %1"
 
-#: printermanager.cpp:469
+#: printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не вдалося отримати параметри сервера: %1"
 
-#: printermanager.cpp:506
+#: printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметри сервера не збережено: (%1): %2"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Критична помилка під час спроби зберегти параметри сервера: (%1): %2"
 
-#: printermanager.cpp:566
+#: printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: printermanager.cpp:572
+#: printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
@@ -712,37 +712,37 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Приймає завдання з друку"
 
-#: ui/PrinterSettings.qml:474
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Надрукувати пробну сторінку"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
 
-#: ui/PrinterSettings.qml:507
+#: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Знайти принтер…"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Назва черги:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:533
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -751,37 +751,37 @@ msgstr ""
 "<interface>Групу принтерів</interface> використовують для буферизації "
 "ресурсів друку."
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Опис:"
 
-#: ui/PrinterSettings.qml:552
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Розташування:"
 
-#: ui/PrinterSettings.qml:564
+#: ui/PrinterSettings.qml:565
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "З'єднання:"
 
-#: ui/PrinterSettings.qml:578
+#: ui/PrinterSettings.qml:579
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Принтери-учасники:"
 
-#: ui/PrinterSettings.qml:715
+#: ui/PrinterSettings.qml:716
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Виробник/модель:"
 
-#: ui/PrinterSettings.qml:730
+#: ui/PrinterSettings.qml:731
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

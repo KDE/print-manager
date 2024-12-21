@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
 "PO-Revision-Date: 2024-01-06 01:54+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -18,30 +18,30 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "クラスの設定に失敗しました:"
 
-#: printermanager.cpp:253
+#: printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "プリンタの設定に失敗しました:"
 
-#: printermanager.cpp:417
+#: printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "要求の実行に失敗しました: %1"
 
-#: printermanager.cpp:469
+#: printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "サーバ設定の取得に失敗しました: %1"
 
-#: printermanager.cpp:506
+#: printermanager.cpp:513
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -49,7 +49,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "サーバエラー: (%1): %2"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:520
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -57,12 +57,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "サーバ設定の取得に失敗しました: %1"
 
-#: printermanager.cpp:566
+#: printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "自己テストページを印刷"
 
-#: printermanager.cpp:572
+#: printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "ヘッドクリーニング"
@@ -736,37 +736,37 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "印刷ジョブを受け付け中"
 
-#: ui/PrinterSettings.qml:474
+#: ui/PrinterSettings.qml:475
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "テストページを印刷"
 
-#: ui/PrinterSettings.qml:480
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "自己テストページを印刷"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "ヘッドクリーニング"
 
-#: ui/PrinterSettings.qml:507
+#: ui/PrinterSettings.qml:508
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "プリンタを検索..."
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:516
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "キューの名前:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:533
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "A <b>printer group</b> is used to pool printing resources."
@@ -775,37 +775,37 @@ msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr "<b>プリントグループ</b>は印刷リソースをプールするために利用されます。"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "説明:"
 
-#: ui/PrinterSettings.qml:552
+#: ui/PrinterSettings.qml:553
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "場所:"
 
-#: ui/PrinterSettings.qml:564
+#: ui/PrinterSettings.qml:565
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "接続:"
 
-#: ui/PrinterSettings.qml:578
+#: ui/PrinterSettings.qml:579
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "メンバのプリンタ:"
 
-#: ui/PrinterSettings.qml:715
+#: ui/PrinterSettings.qml:716
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "メーカー/モデル:"
 
-#: ui/PrinterSettings.qml:730
+#: ui/PrinterSettings.qml:731
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

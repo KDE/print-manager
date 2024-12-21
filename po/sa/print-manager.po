@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-09 00:42+0000\n"
-"PO-Revision-Date: 2024-12-14 01:45+0530\n"
+"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"PO-Revision-Date: 2024-12-20 22:01+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -118,7 +118,7 @@ msgstr "प्रमाणीकरणम्"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Username:"
-msgstr "उपयोक्तृनाम : १."
+msgstr "उपयोक्तृनाम :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/ChooseSamba.ui:86
@@ -149,47 +149,47 @@ msgstr "विषमः"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "XON/XOFF (Software)"
-msgstr "XON/XOFF (सॉफ्टवेयर) २."
+msgstr "XON/XOFF (सॉफ्टवेयर)"
 
 #: src/add-printer/ChooseSerial.cpp:31
 #, kde-format
 msgctxt "@label:listbox"
 msgid "RTS/CTS (Hardware)"
-msgstr "RTS/CTS (हार्डवेयर) ९."
+msgstr "RTS/CTS (हार्डवेयर)"
 
 #: src/add-printer/ChooseSerial.cpp:32
 #, kde-format
 msgctxt "@label:listbox"
 msgid "DTR/DSR (Hardware)"
-msgstr "DTR/DSR (हार्डवेयर) ९."
+msgstr "DTR/DSR (हार्डवेयर)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSerial.ui:29
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Baud Rate:"
-msgstr "बौड दरः : १."
+msgstr "बौड दरः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/add-printer/ChooseSerial.ui:42
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Parity:"
-msgstr "समता : १."
+msgstr "समता :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/add-printer/ChooseSerial.ui:55
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Data Bits:"
-msgstr "डाटा बिट्स् : १."
+msgstr "डाटा बिट्स् :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: src/add-printer/ChooseSerial.ui:79
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Flow Control:"
-msgstr "प्रवाहनियन्त्रणम् : १."
+msgstr "प्रवाहनियन्त्रणम् :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/add-printer/ChooseSocket.ui:29
@@ -210,7 +210,7 @@ msgstr "पोताश्रय:"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
-msgstr "संयोजनम् : १."
+msgstr "संयोजनम् :"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/add-printer/ChooseUri.ui:82
@@ -373,7 +373,7 @@ msgstr "एतत् मुद्रकं साझां कुर्वन्
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Members:"
-msgstr "सदस्याः : १."
+msgstr "सदस्याः :"
 
 #: src/add-printer/PageDestinations.cpp:190
 #, kde-format
@@ -552,13 +552,13 @@ msgstr "बैनर"
 #: src/configure-printer/PrinterBehavior.ui:35
 #, kde-format
 msgid "Starting Banner:"
-msgstr "प्रारम्भ बैनर : १."
+msgstr "प्रारम्भ बैनर :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/configure-printer/PrinterBehavior.ui:55
 #, kde-format
 msgid "Ending Banner:"
-msgstr "समाप्ति बैनर : १."
+msgstr "समाप्ति बैनर :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
 #: src/configure-printer/PrinterBehavior.ui:84
@@ -570,13 +570,13 @@ msgstr "नीतयः"
 #: src/configure-printer/PrinterBehavior.ui:90
 #, kde-format
 msgid "Operation Policy:"
-msgstr "संचालननीतिः : १."
+msgstr "संचालननीतिः :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/configure-printer/PrinterBehavior.ui:103
 #, kde-format
 msgid "Error Policy:"
-msgstr "त्रुटिनीतिः : १."
+msgstr "त्रुटिनीतिः :"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
 #: src/configure-printer/PrinterBehavior.ui:133
@@ -607,47 +607,47 @@ msgstr "पूर्वनिर्धारितविकल्पान् �
 msgid "Query Printer for Default Options"
 msgstr "पूर्वनिर्धारितविकल्पानां कृते मुद्रकं प्रश्नं कुर्वन्तु"
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "वर्गं विन्यस्तुं असफलम्: "
 
-#: src/kcm/printermanager.cpp:253
+#: src/kcm/printermanager.cpp:259
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "मुद्रकं विन्यस्तुं असफलम्: "
 
-#: src/kcm/printermanager.cpp:417
+#: src/kcm/printermanager.cpp:424
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "अनुरोधं कर्तुं असफलम्: %1"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:476
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "सर्वर सेटिंग्स् प्राप्तुं असफलम्: %1"
 
-#: src/kcm/printermanager.cpp:506
+#: src/kcm/printermanager.cpp:513
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "सर्वर सेटिंग्स् न रक्षितानि: (%1): %2"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:520
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "घातकं सेव सर्वर सेटिंग्स्: (%1): %2"
 
-#: src/kcm/printermanager.cpp:566
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्वपरीक्षण पृष्ठ मुद्रित करें"
 
-#: src/kcm/printermanager.cpp:572
+#: src/kcm/printermanager.cpp:579
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "मुद्रणशिरः स्वच्छं कुर्वन्तु"
@@ -1234,8 +1234,8 @@ msgstr[1] "सर्वे मुद्रकाः (%1 Jobs)"
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 कार्यम्) २."
-msgstr[1] "%2 (%1 कार्याणि) २."
+msgstr[0] "%2 (%1 कार्यम्)"
+msgstr[1] "%2 (%1 कार्याणि)"
 
 #: src/printqueue/PrintQueueUi.cpp:414
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-21 00:43+0000\n"
-"PO-Revision-Date: 2024-07-06 06:58+0200\n"
+"PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -389,14 +389,7 @@ msgid "new_group"
 msgstr "nova_grupo"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -406,7 +399,7 @@ msgid ""
 msgstr ""
 "Presila subtenpakaĵo kiu disponigas oportunajn funkciojn ne ŝajnas esti "
 "instalita.<nl/><nl/>Ĉar ĉi tiu distribuo ne inkluzivas PackageKit, ni ne "
-"povas disponigi instalopcion, do vi devos uzi vian pakaĵan administrilon por "
+"povas disponigi instalopcion. Bonvolu uzi vian pakaĵan administrilon por "
 "instali la pakaĵon <command>system-config-printer</command> mane."
 
 #: ui/main.qml:71
@@ -456,17 +449,13 @@ msgid "No printers are currently set up"
 msgstr "Neniuj presiloj estas nuntempe instalitaj"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Alklaku <interface>Aldoni Presilon…</interface> por agordi novan presilon "
-"sur ĉi tiu komputilo"
+"Alklaku <interface>Aldoni…</interface> por agordi novan presilon sur ĉi tiu "
+"komputilo"
 
 #: ui/main.qml:244
 #, kde-format
@@ -479,12 +468,10 @@ msgid "Printer Groups"
 msgstr "Presilo-Grupoj"
 
 #: ui/main.qml:298
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Malfermi Presan Vicon…"
+msgstr "Presa Vico"
 
 #: ui/main.qml:314
 #, kde-format
@@ -645,9 +632,7 @@ msgstr ""
 "Faro/Modelo estas postulata. Elektu \"Elekti\" por elekti Markon/Modelon"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "Agordante %1, bonvolu atendi…"
@@ -795,7 +780,3 @@ msgstr "Faro/Modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Elekti…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure…"
-#~ msgstr "Agordi…"

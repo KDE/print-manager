@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:42+0000\n"
-"PO-Revision-Date: 2023-11-09 22:13+0100\n"
+"PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -79,20 +79,11 @@ msgstr "Vidi presan vicon…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Nuligi"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] ""
-msgstr[1] ""
-
-#~ msgid "Show All Jobs"
-#~ msgstr "Montri Ĉiuj Labortaskoj"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "Montri Nur Finitajn Labortaskojn"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Montri Nur Aktivajn Labortaskojn"
+msgstr[0] "%1 plua labortasko"
+msgstr[1] "%1 pluaj labortaskoj"

@@ -14,7 +14,11 @@
 namespace PMTypes
 {
 Q_NAMESPACE
-enum PPDType { Manual = 0, Auto, Custom };
+enum PPDType {
+    Manual = 0,
+    Auto,
+    Custom
+};
 Q_ENUM_NS(PPDType)
 }
 
@@ -92,7 +96,7 @@ Q_SIGNALS:
     void ppdLoaded(const QVariantMap &printerPPD);
 
 private:
-    KCupsRequest *setupRequest(std::function<void()> finished = []() {});
+    KCupsRequest *setupRequest(std::function<void()> finished = []() { });
     QVariantList remotePrinters() const;
     QVariantList recommendedDrivers() const;
     QVariantMap serverSettings() const;

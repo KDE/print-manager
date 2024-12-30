@@ -41,7 +41,12 @@ public:
     };
     Q_ENUM(Role)
 
-    enum Kind { Other, Local, Networked, OtherNetworked };
+    enum Kind {
+        Other,
+        Local,
+        Networked,
+        OtherNetworked
+    };
     Q_ENUM(Kind)
 
     explicit DevicesModel(QObject *parent = nullptr);

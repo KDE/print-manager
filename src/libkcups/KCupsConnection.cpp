@@ -228,7 +228,10 @@ void KCupsConnection::init()
 
     // Bump "run" to the event queue. This should give any notify connections from the main
     // thread time to complete before the thread starts.
-    QMetaObject::invokeMethod(this, static_cast<void (KCupsConnection::*)(QThread::Priority)>(&KCupsConnection::start), Qt::QueuedConnection, QThread::Priority::InheritPriority);
+    QMetaObject::invokeMethod(this,
+                              static_cast<void (KCupsConnection::*)(QThread::Priority)>(&KCupsConnection::start),
+                              Qt::QueuedConnection,
+                              QThread::Priority::InheritPriority);
 }
 
 void KCupsConnection::run()

@@ -232,7 +232,10 @@ void DevicesModel::finished()
     }
 
     // Try to group the physical devices
-    auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s, u"/org/fedoraproject/Config/Printing"_s, u"org.fedoraproject.Config.Printing"_s, u"GroupPhysicalDevices"_s);
+    auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s,
+                                               u"/org/fedoraproject/Config/Printing"_s,
+                                               u"org.fedoraproject.Config.Printing"_s,
+                                               u"GroupPhysicalDevices"_s);
     call.setArguments({QVariant::fromValue(m_mappedDevices)});
     const auto pending = QDBusConnection::sessionBus().asyncCall(call);
     const auto watcher = new QDBusPendingCallWatcher(pending, this);

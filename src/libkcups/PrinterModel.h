@@ -60,7 +60,12 @@ public:
     };
     Q_ENUM(Role)
 
-    enum JobAction { Cancel, Hold, Release, Move };
+    enum JobAction {
+        Cancel,
+        Hold,
+        Release,
+        Move
+    };
     Q_ENUM(JobAction)
 
     explicit PrinterModel(QObject *parent = nullptr);

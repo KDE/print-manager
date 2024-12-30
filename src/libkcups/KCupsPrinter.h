@@ -13,7 +13,11 @@
 class KCUPSLIB_EXPORT KCupsPrinter
 {
 public:
-    enum Status { Idle = 3, Printing, Stopped };
+    enum Status {
+        Idle = 3,
+        Printing,
+        Stopped
+    };
 
     KCupsPrinter();
     explicit KCupsPrinter(const QString &printer, bool isClass = false);

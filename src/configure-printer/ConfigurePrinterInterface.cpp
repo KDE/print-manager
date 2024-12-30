@@ -13,8 +13,8 @@
 #include <KCupsPrinter.h>
 #include <KCupsRequest.h>
 
-#include <KX11Extras>
 #include <KWindowSystem>
+#include <KX11Extras>
 #include <QDBusConnection>
 #include <QDialog>
 #include <QPointer>

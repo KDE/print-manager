@@ -25,7 +25,11 @@ class KCUPSLIB_EXPORT PPDModel : public QStandardItemModel
     QML_ELEMENT
 
 public:
-    enum Role { PPDName = Qt::UserRole, PPDMake, PPDMakeAndModel };
+    enum Role {
+        PPDName = Qt::UserRole,
+        PPDMake,
+        PPDMakeAndModel
+    };
     Q_ENUM(Role)
 
     explicit PPDModel(QObject *parent = nullptr);

@@ -372,15 +372,13 @@ bool PrinterManager::isIPPCapable(const QString &uri)
      * Per CUPS
      * "dnssd:" URIs with "._ipp._tcp" or "._ipps._tcp"
      *  or "ipp:" or "ipps:" URIs can be of a driverless printer
-    */
+     */
     if (uri.startsWith(u"dnssd:"_s, Qt::CaseInsensitive)
-        && (uri.contains(u"._ipp._tcp"_s, Qt::CaseInsensitive)
-            || uri.contains(u"._ipps._tcp"_s, Qt::CaseInsensitive))) {
+        && (uri.contains(u"._ipp._tcp"_s, Qt::CaseInsensitive) || uri.contains(u"._ipps._tcp"_s, Qt::CaseInsensitive))) {
         return true;
     }
 
-    if (uri.startsWith(u"ipp:"_s, Qt::CaseInsensitive)
-            || uri.startsWith(u"ipps:"_s, Qt::CaseInsensitive)) {
+    if (uri.startsWith(u"ipp:"_s, Qt::CaseInsensitive) || uri.startsWith(u"ipps:"_s, Qt::CaseInsensitive)) {
         return true;
     }
 
@@ -393,7 +391,10 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
 
     m_recommendedDrivers.clear();
 
-    auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s, u"/org/fedoraproject/Config/Printing"_s, u"org.fedoraproject.Config.Printing"_s, u"GetBestDrivers"_s);
+    auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s,
+                                               u"/org/fedoraproject/Config/Printing"_s,
+                                               u"org.fedoraproject.Config.Printing"_s,
+                                               u"GetBestDrivers"_s);
     call.setArguments({deviceId, makeAndModel, deviceUri});
     const auto pending = QDBusConnection::sessionBus().asyncCall(call);
     const auto watcher = new QDBusPendingCallWatcher(pending, this);
@@ -502,7 +503,7 @@ void PrinterManager::saveServerSettings(const QVariantMap &settings)
     /**
      * The CUPS server will stop/start when settings change.  This will either be a stop signal
      * from CUPS and/or the non-fatal error below
-    */
+     */
     auto request = new KCupsRequest;
     request->setServerSettings(server);
     // If the request invoke fails or the actual request fails, we will get

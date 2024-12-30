@@ -5,8 +5,8 @@
 */
 
 #include "scpinstaller.h"
-#include "printermanager.h"
 #include "pmkcm_log.h"
+#include "printermanager.h"
 
 #include <KLocalizedString>
 
@@ -67,7 +67,9 @@ void SCPInstaller::packageFinished(PackageKit::Transaction::Exit status)
         return;
     default:
         // a bit generic but we don't need much more, in this case
-        Q_EMIT error(i18nc("@info", "Install Error (package: %1)\nCheck authentication credentials and make sure PackageKit is installed properly.", QStringLiteral(SCP_PACKAGE_NAME)));
+        Q_EMIT error(i18nc("@info",
+                           "Install Error (package: %1)\nCheck authentication credentials and make sure PackageKit is installed properly.",
+                           QStringLiteral(SCP_PACKAGE_NAME)));
         break;
     }
     setFailed(true);

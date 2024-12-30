@@ -41,10 +41,20 @@ public:
     };
     Q_ENUM(Role)
 
-    enum JobAction { Cancel, Hold, Release, Move, Reprint };
+    enum JobAction {
+        Cancel,
+        Hold,
+        Release,
+        Move,
+        Reprint
+    };
     Q_ENUM(JobAction)
 
-    enum WhichJobs { WhichAll, WhichActive, WhichCompleted };
+    enum WhichJobs {
+        WhichAll,
+        WhichActive,
+        WhichCompleted
+    };
     Q_ENUM(WhichJobs)
 
     enum Columns {

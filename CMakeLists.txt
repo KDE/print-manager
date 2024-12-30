@@ -65,6 +65,15 @@ set_package_properties(PackageKitQt6
 )
 
 find_package(Cups "2.4" REQUIRED)
+message(STATUS "Detected CUPS version: ${CUPS_VERSION_STRING}")
+#add declaration for libcups version
+if(CUPS_VERSION_STRING VERSION_GREATER_EQUAL "3.0")
+    message(STATUS "Building with libcups3")
+    add_definitions(-DLIBCUPS_VERSION_3)
+else()
+    message(STATUS "Building with libcups2")
+    add_definitions(-DLIBCUPS_VERSION_2)
+endif()
 
 find_package(CupsSmb)
 set_package_properties(CupsSmb PROPERTIES

@@ -76,3 +76,4 @@ ecm_qt_declare_logging_category(kcupslib
 )
 
 install(TARGETS kcupslib ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+

@@ -24,3 +24,5 @@ if(SCP_INSTALL)
     target_sources(kcm_printer_manager PRIVATE scpinstaller.cpp)
     target_link_libraries(kcm_printer_manager PRIVATE PK::packagekitqt6)
 endif()
+
+install(PROGRAMS org.kde.kde-add-printer.desktop DESTINATION ${KDE_INSTALL_APPDIR})

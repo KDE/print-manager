@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2023-11-14 14:09-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -29,18 +29,18 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Não foi possível configurar a impressora: "
 
-#: printermanager.cpp:424
+#: printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Falha ao efetuar a solicitação: %1"
 
-#: printermanager.cpp:476
+#: printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Não foi possível obter as opções do servidor: %1"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:514
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -48,7 +48,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Erro do servidor: (%1): %2"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:521
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -56,17 +56,17 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Não foi possível obter as opções do servidor: %1"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir uma página de teste"
 
-#: printermanager.cpp:579
+#: printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpar cabeças de impressão"
 
-#: scpinstaller.cpp:70
+#: scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -452,17 +452,17 @@ msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "Impressoras"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr ""
 
-#: ui/main.qml:298
+#: ui/main.qml:304
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
@@ -470,25 +470,25 @@ msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Abrir fila de impressão..."
 
-#: ui/main.qml:314
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Continuar"
 
-#: ui/main.qml:315
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pausar"
 
-#: ui/main.qml:329
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Continuar impressão"
 
-#: ui/main.qml:330
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

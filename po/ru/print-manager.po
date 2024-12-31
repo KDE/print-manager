@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2024-09-27 15:11+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -637,40 +637,40 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ошибка настройки принтера: "
 
-#: src/kcm/printermanager.cpp:424
+#: src/kcm/printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не удалось выполнить запрос: %1"
 
-#: src/kcm/printermanager.cpp:476
+#: src/kcm/printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ошибка получения параметров сервера: %1"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:514
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметры сервера не сохранены: (%1): %2"
 
-#: src/kcm/printermanager.cpp:520
+#: src/kcm/printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Неустранимая ошибка сохранения параметров сервера: (%1): %2"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Напечатать страницу самопроверки"
 
-#: src/kcm/printermanager.cpp:579
+#: src/kcm/printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Чистка головок печати"
 
-#: src/kcm/scpinstaller.cpp:70
+#: src/kcm/scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -924,24 +924,24 @@ msgstr "Сетевой принтер %1 через DNS-SD"
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Ошибка получения списка устройств: «%1»"
 
-#: src/libkcups/DevicesModel.cpp:257
+#: src/libkcups/DevicesModel.cpp:260
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Ошибка группировки устройств: «%1»"
 
-#: src/libkcups/DevicesModel.cpp:386
+#: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Обнаруженные сетевые принтеры"
 
-#: src/libkcups/DevicesModel.cpp:392
+#: src/libkcups/DevicesModel.cpp:395
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Сетевые принтеры"
 
-#: src/libkcups/DevicesModel.cpp:398
+#: src/libkcups/DevicesModel.cpp:401
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
@@ -1037,7 +1037,7 @@ msgstr "Отменено"
 msgid "Aborted"
 msgstr "Прервано"
 
-#: src/libkcups/KCupsConnection.cpp:777
+#: src/libkcups/KCupsConnection.cpp:780
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Соединение с CUPS требует аутентификации: «%1»"
@@ -1087,67 +1087,67 @@ msgstr "Рекомендуемые драйверы"
 msgid "Empty ppd model"
 msgstr "Не указана модель ppd"
 
-#: src/libkcups/PrinterModel.cpp:201
+#: src/libkcups/PrinterModel.cpp:210
 #, kde-format
 msgid "Printers"
 msgstr "Принтеры"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Idle"
 msgstr "Бездействие"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Бездействие, задания не принимаются"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Бездействие — «%1»"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Бездействие, задания не принимаются — «%1»"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "In use"
 msgstr "Используется"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:440
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Используется — «%1»"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Paused"
 msgstr "Приостановлено"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Приостановлено, задания не принимаются"
 
-#: src/libkcups/PrinterModel.cpp:437
+#: src/libkcups/PrinterModel.cpp:446
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Приостановлено — «%1»"
 
-#: src/libkcups/PrinterModel.cpp:437
+#: src/libkcups/PrinterModel.cpp:446
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Приостановлено, задания не принимаются — «%1»"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:450
 #, kde-format
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: src/libkcups/PrinterModel.cpp:443
+#: src/libkcups/PrinterModel.cpp:452
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Неизвестно — «%1»"

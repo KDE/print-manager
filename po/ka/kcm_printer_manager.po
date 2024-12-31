@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2024-11-09 05:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -30,40 +30,40 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "პრინერის მორგების შეცდომა: "
 
-#: printermanager.cpp:424
+#: printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "მოთხოვნის შესრულების შეცდომა: %1"
 
-#: printermanager.cpp:476
+#: printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "სერვერის პარამეტრების მიღების შეცდომა: %1"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:514
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "სერვერის პარამეტრები არ შენახულა: (%1): %2"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "სერვერის პარამეტრების შენახვის შეცდომა: (%1): %2"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "შიდა სატესტო გვერდი"
 
-#: printermanager.cpp:579
+#: printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "თავაკების გაწმენდა"
 
-#: scpinstaller.cpp:70
+#: scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -460,41 +460,41 @@ msgstr ""
 "ამ კომპიუტერზე ახალი პრინტერის მოსარგებად დააწკაპუნეთ ღილაკზე "
 "<interface>პრინტერის დამატება…</interface>"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "პრინტერები"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr "პრინტერის ჯგუფები"
 
-#: ui/main.qml:298
+#: ui/main.qml:304
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "ბეჭდვის რიგი"
 
-#: ui/main.qml:314
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "გაგრძელება"
 
-#: ui/main.qml:315
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "გაჩერება"
 
-#: ui/main.qml:329
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "დაბეჭდვის გაგრძელება"
 
-#: ui/main.qml:330
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

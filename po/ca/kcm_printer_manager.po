@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2024-11-09 09:45+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -31,40 +31,40 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ha fallat en configurar la impressora: "
 
-#: printermanager.cpp:424
+#: printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Ha fallat en portar a terme la sol·licitud: %1"
 
-#: printermanager.cpp:476
+#: printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ha fallat en obtenir els paràmetres del servidor: %1"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:514
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "No s'han desat els paràmetres del servidor: (%1): %2"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Error fatal en desar els paràmetres del servidor: (%1): %2"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimeix una pàgina d'autocomprovació"
 
-#: printermanager.cpp:579
+#: printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Neteja els capçals d'impressió"
 
-#: scpinstaller.cpp:70
+#: scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -463,41 +463,41 @@ msgstr ""
 "Feu clic a <interface>Afegeix…</interface> per a configurar una impressora "
 "nova en aquest ordinador"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "Impressores"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr "Grups d'impressores"
 
-#: ui/main.qml:298
+#: ui/main.qml:304
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Cua d'impressió"
 
-#: ui/main.qml:314
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Reprèn"
 
-#: ui/main.qml:315
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pausa"
 
-#: ui/main.qml:329
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Reprèn la impressió"
 
-#: ui/main.qml:330
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

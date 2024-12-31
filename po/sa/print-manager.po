@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -619,40 +619,40 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "मुद्रकं विन्यस्तुं असफलम्: "
 
-#: src/kcm/printermanager.cpp:424
+#: src/kcm/printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "अनुरोधं कर्तुं असफलम्: %1"
 
-#: src/kcm/printermanager.cpp:476
+#: src/kcm/printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "सर्वर सेटिंग्स् प्राप्तुं असफलम्: %1"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:514
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "सर्वर सेटिंग्स् न रक्षितानि: (%1): %2"
 
-#: src/kcm/printermanager.cpp:520
+#: src/kcm/printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "घातकं सेव सर्वर सेटिंग्स्: (%1): %2"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्वपरीक्षण पृष्ठ मुद्रित करें"
 
-#: src/kcm/printermanager.cpp:579
+#: src/kcm/printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "मुद्रणशिरः स्वच्छं कुर्वन्तु"
 
-#: src/kcm/scpinstaller.cpp:70
+#: src/kcm/scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -905,24 +905,24 @@ msgstr "%1 DNS-SD मार्गेण संजालमुद्रकः"
 msgid "Failed to get a list of devices: '%1'"
 msgstr "उपकरणानां सूचीं प्राप्तुं असफलम्: '%1'."
 
-#: src/libkcups/DevicesModel.cpp:257
+#: src/libkcups/DevicesModel.cpp:260
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "उपकरणानां समूहीकरणे विफलम्: '%1'."
 
-#: src/libkcups/DevicesModel.cpp:386
+#: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "आविष्कृताः संजालमुद्रकाः"
 
-#: src/libkcups/DevicesModel.cpp:392
+#: src/libkcups/DevicesModel.cpp:395
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "अन्ये संजालमुद्रकाः"
 
-#: src/libkcups/DevicesModel.cpp:398
+#: src/libkcups/DevicesModel.cpp:401
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
@@ -1018,7 +1018,7 @@ msgstr "रद्दं कृतम्"
 msgid "Aborted"
 msgstr "गर्भपातः कृतः"
 
-#: src/libkcups/KCupsConnection.cpp:777
+#: src/libkcups/KCupsConnection.cpp:780
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS संयोजनाय प्रमाणीकरणस्य आवश्यकता भवति: \"%1\"."
@@ -1068,67 +1068,67 @@ msgstr "अनुशंसित चालकाः"
 msgid "Empty ppd model"
 msgstr "रिक्त ppd मॉडल"
 
-#: src/libkcups/PrinterModel.cpp:201
+#: src/libkcups/PrinterModel.cpp:210
 #, kde-format
 msgid "Printers"
 msgstr "मुद्रकाः"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Idle"
 msgstr "आलम"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "निष्क्रियः, कार्याणि तिरस्कृत्य"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "निष्क्रिय - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "निष्क्रियः, कार्याणि अङ्गीकुर्वन् - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "In use"
 msgstr "प्रयोगे"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:440
 #, kde-format
 msgid "In use - '%1'"
 msgstr "प्रयुक्ते - '%1'।"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Paused"
 msgstr "विरामः कृतः"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "विरामं कृतवान्, कार्याणि अङ्गीकृतवान्"
 
-#: src/libkcups/PrinterModel.cpp:437
+#: src/libkcups/PrinterModel.cpp:446
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "विरामः - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:437
+#: src/libkcups/PrinterModel.cpp:446
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "विरामितम्, कार्याणि अङ्गीकृत्य - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:450
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
 
-#: src/libkcups/PrinterModel.cpp:443
+#: src/libkcups/PrinterModel.cpp:452
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "अज्ञात - '%1' ।"

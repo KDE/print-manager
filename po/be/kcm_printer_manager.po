@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2024-06-20 17:30\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -34,40 +34,40 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не ўдалося наладзіць прынтар: "
 
-#: printermanager.cpp:424
+#: printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не ўдалося выканаць запыт: %1"
 
-#: printermanager.cpp:476
+#: printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не ўдалося атрымаць налады сервера: %1"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:514
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Налады сервера не захаваныя: (%1): %2"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Пры захаванні налад сервера адбылася фатальная памылка: (%1): %2"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукаваць старонку самаправярання"
 
-#: printermanager.cpp:579
+#: printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Ачышчэнне друкавальных галовак"
 
-#: scpinstaller.cpp:70
+#: scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -475,17 +475,17 @@ msgstr ""
 "Каб наладзіць новы прынтар на гэтым камп'ютары, націсніце <interface>Дадаць "
 "прынтар…</interface>"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "Прынтары"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr "Групы прынтараў"
 
-#: ui/main.qml:298
+#: ui/main.qml:304
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
@@ -493,25 +493,25 @@ msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Адкрыць чаргу друкавання…"
 
-#: ui/main.qml:314
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Узнавіць"
 
-#: ui/main.qml:315
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Прыпыніць"
 
-#: ui/main.qml:329
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Узнавіць друкаванне"
 
-#: ui/main.qml:330
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

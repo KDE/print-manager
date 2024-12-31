@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2024-05-26 21:19+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -631,40 +631,40 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nem sikerült beállítani a nyomtatót: "
 
-#: src/kcm/printermanager.cpp:424
+#: src/kcm/printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nem sikerült végrehajtani a kérést: %1"
 
-#: src/kcm/printermanager.cpp:476
+#: src/kcm/printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
 
-#: src/kcm/printermanager.cpp:513
+#: src/kcm/printermanager.cpp:514
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "A kiszolgálóbeállítások nincsenek mentve: (%1): %2"
 
-#: src/kcm/printermanager.cpp:520
+#: src/kcm/printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Végzetes hiba a kiszolgálóbeállítások mentésekor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Önellenőrző oldal nyomtatása"
 
-#: src/kcm/printermanager.cpp:579
+#: src/kcm/printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nyomtatófej-tisztítás"
 
-#: src/kcm/scpinstaller.cpp:70
+#: src/kcm/scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -918,24 +918,24 @@ msgstr "%1 hálózati nyomtató DNS-SD-n keresztül"
 msgid "Failed to get a list of devices: '%1'"
 msgstr "Nem sikerült megszerezni az eszközök listáját: „%1”"
 
-#: src/libkcups/DevicesModel.cpp:257
+#: src/libkcups/DevicesModel.cpp:260
 #, kde-format
 msgid "Failed to group devices: '%1'"
 msgstr "Nem sikerült csoportosítani az eszközöket: „%1”"
 
-#: src/libkcups/DevicesModel.cpp:386
+#: src/libkcups/DevicesModel.cpp:389
 #, kde-format
 msgctxt "@item"
 msgid "Discovered Network Printers"
 msgstr "Felfedezett hálózati nyomtatók"
 
-#: src/libkcups/DevicesModel.cpp:392
+#: src/libkcups/DevicesModel.cpp:395
 #, kde-format
 msgctxt "@item"
 msgid "Other Network Printers"
 msgstr "Egyéb hálózati nyomtatók"
 
-#: src/libkcups/DevicesModel.cpp:398
+#: src/libkcups/DevicesModel.cpp:401
 #, kde-format
 msgctxt "@item"
 msgid "Local Printers"
@@ -1031,7 +1031,7 @@ msgstr "Lemondva"
 msgid "Aborted"
 msgstr "Megszakítva"
 
-#: src/libkcups/KCupsConnection.cpp:777
+#: src/libkcups/KCupsConnection.cpp:780
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "A CUPS kapcsolat hitelesítést kér: „%1”"
@@ -1081,67 +1081,67 @@ msgstr "Ajánlott illesztőprogramok"
 msgid "Empty ppd model"
 msgstr "Üres ppd modell"
 
-#: src/libkcups/PrinterModel.cpp:201
+#: src/libkcups/PrinterModel.cpp:210
 #, kde-format
 msgid "Printers"
 msgstr "Nyomtatók"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Idle"
 msgstr "Üresjárat"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Üresjárat, feladatok elutasítása"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Üresjárat - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:434
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Üresjárat, feladatok elutasítása - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:438
 #, kde-format
 msgid "In use"
 msgstr "Használatban"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:440
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Használatban - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Paused"
 msgstr "Szüneteltetve"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:444
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Szüneteltetve, feladatok elutasítása"
 
-#: src/libkcups/PrinterModel.cpp:437
+#: src/libkcups/PrinterModel.cpp:446
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Szüneteltetve - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:437
+#: src/libkcups/PrinterModel.cpp:446
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Szüneteltetve, feladatok elutasítása - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:450
 #, kde-format
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: src/libkcups/PrinterModel.cpp:443
+#: src/libkcups/PrinterModel.cpp:452
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Ismeretlen - „%1”"

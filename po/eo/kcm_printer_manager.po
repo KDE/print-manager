@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-21 00:43+0000\n"
+"POT-Creation-Date: 2024-12-31 00:43+0000\n"
 "PO-Revision-Date: 2024-12-27 17:40+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -30,40 +30,40 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Malsukcesis agordi presilon:"
 
-#: printermanager.cpp:424
+#: printermanager.cpp:425
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Malsukcesis plenumi peton: %1"
 
-#: printermanager.cpp:476
+#: printermanager.cpp:477
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Malsukcesis akiri servilajn agordojn: %1"
 
-#: printermanager.cpp:513
+#: printermanager.cpp:514
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Servila Agordo Ne Konservita: (%1): %2"
 
-#: printermanager.cpp:520
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Neripareblo Konservante Servilan Agordon: (%1): %2"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:574
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Presi Memtestan Paĝon"
 
-#: printermanager.cpp:579
+#: printermanager.cpp:580
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puraj Presaj Kapoj"
 
-#: scpinstaller.cpp:70
+#: scpinstaller.cpp:71
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -457,41 +457,41 @@ msgstr ""
 "Alklaku <interface>Aldoni…</interface> por agordi novan presilon sur ĉi tiu "
 "komputilo"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printers"
 msgstr "Presiloj"
 
-#: ui/main.qml:244
+#: ui/main.qml:243
 #, kde-format
 msgid "Printer Groups"
 msgstr "Presilo-Grupoj"
 
-#: ui/main.qml:298
+#: ui/main.qml:304
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Presa Vico"
 
-#: ui/main.qml:314
+#: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Rekomenci"
 
-#: ui/main.qml:315
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Paŭzo"
 
-#: ui/main.qml:329
+#: ui/main.qml:335
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Rekomenci presadon"
 
-#: ui/main.qml:330
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

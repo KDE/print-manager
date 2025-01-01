@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-31 00:43+0000\n"
+"POT-Creation-Date: 2025-01-01 00:42+0000\n"
 "PO-Revision-Date: 2014-10-20 19:25+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian\n"
@@ -1022,12 +1022,12 @@ msgstr "Štampač"
 msgid "From Hostname"
 msgstr "Od imena hosta"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Neuspjelo premještanje '%1' u '%2'"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed"
 msgstr "Nije uspjelo"
@@ -1057,7 +1057,7 @@ msgstr "Otkazano"
 msgid "Aborted"
 msgstr "Prekinuto"
 
-#: src/libkcups/KCupsConnection.cpp:780
+#: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr ""
@@ -1107,67 +1107,67 @@ msgstr "Preporučeni drajveri"
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:210
+#: src/libkcups/PrinterModel.cpp:205
 #, kde-format
 msgid "Printers"
 msgstr "Štampači"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle"
 msgstr "Miruje"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Neaktivnim, Odbaci poslove"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Miruje - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Neaktivan, odbijam poslove - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "In use"
 msgstr "U upotrebi"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "In use - '%1'"
 msgstr "U upotrebi - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused"
 msgstr "Pauzirano"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Pauzirano, Odbaci poslove"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Zaustavljeno - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Zaustavljeno, odbijam poslove - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:450
+#: src/libkcups/PrinterModel.cpp:445
 #, kde-format
 msgid "Unknown"
 msgstr "Nepoznat"
 
-#: src/libkcups/PrinterModel.cpp:452
+#: src/libkcups/PrinterModel.cpp:447
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Nepoznato - '%1'"
@@ -1215,55 +1215,55 @@ msgstr "Red štampanja"
 msgid "Show printer queue(s)"
 msgstr "Prikaži red štampanja"
 
-#: src/printqueue/PrintQueueUi.cpp:194
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printer ready"
 msgstr "Štampač spreman"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Pauziraj štampač"
 
-#: src/printqueue/PrintQueueUi.cpp:202
+#: src/printqueue/PrintQueueUi.cpp:196
 #, kde-format
 msgid "Printing..."
 msgstr "Štampam..."
 
-#: src/printqueue/PrintQueueUi.cpp:204
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Štampanje '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:212
+#: src/printqueue/PrintQueueUi.cpp:206
 #, kde-format
 msgid "Printer paused"
 msgstr "Štampač zaustavljen"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:207
 #, kde-format
 msgid "Resume Printer"
 msgstr "Ponovno pokreni štampač"
 
-#: src/printqueue/PrintQueueUi.cpp:217
+#: src/printqueue/PrintQueueUi.cpp:211
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Stanje štampača nepoznato"
 
-#: src/printqueue/PrintQueueUi.cpp:262
+#: src/printqueue/PrintQueueUi.cpp:256
 #, kde-format
 msgid "Move to"
 msgstr "Premjesti u"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:288
 #, fuzzy, kde-format
 #| msgid "Authenticated"
 msgid "Authenticate"
 msgstr "Autentifikovan"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:403
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1271,7 +1271,7 @@ msgstr[0] "Svi štampači (%1 zadatak)"
 msgstr[1] "Svi štampači (%1 zadatka)"
 msgstr[2] "Svi štampači (%1 zadataka)"
 
-#: src/printqueue/PrintQueueUi.cpp:411
+#: src/printqueue/PrintQueueUi.cpp:405
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1279,32 +1279,32 @@ msgstr[0] "%2 (%1 zadatak)"
 msgstr[1] "%2 (%1 zadatka)"
 msgstr[2] "%2 (%1 zadataka)"
 
-#: src/printqueue/PrintQueueUi.cpp:414
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers"
 msgstr "Svi štampači"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:475
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Neuspjelo otkazivanje '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Neuspjelo zadržati '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Neuspjelo osloboditi '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:490
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Neuspjelo ponovno štampanje: '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:555
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""

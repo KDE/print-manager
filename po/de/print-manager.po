@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-31 00:43+0000\n"
+"POT-Creation-Date: 2025-01-01 00:42+0000\n"
 "PO-Revision-Date: 2023-12-21 23:28+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1003,12 +1003,12 @@ msgstr "Drucker"
 msgid "From Hostname"
 msgstr "Von Hostname"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "„%1“ kann nicht zu „%2“ verschoben werden"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed"
 msgstr "Fehlgeschlagen"
@@ -1038,7 +1038,7 @@ msgstr "Abgebrochen"
 msgid "Aborted"
 msgstr "Abgebrochen"
 
-#: src/libkcups/KCupsConnection.cpp:780
+#: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "Eine CUPS-Verbindung benötigt Authentifizierung: „%1“"
@@ -1090,67 +1090,67 @@ msgstr "Empfohlene Treiber"
 msgid "Empty ppd model"
 msgstr "Leeres PPD-Modell"
 
-#: src/libkcups/PrinterModel.cpp:210
+#: src/libkcups/PrinterModel.cpp:205
 #, kde-format
 msgid "Printers"
 msgstr "Drucker"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle"
 msgstr "Leerlauf"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Inaktiv, Aufträge werden abgewiesen"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Leerlauf - „%1“"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Inaktiv, Aufträge werden abgewiesen - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "In use"
 msgstr "In Benutzung"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "In use - '%1'"
 msgstr "In Benutzung - „%1“"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused"
 msgstr "Angehalten"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Angehalten, Aufträge werden abgewiesen"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Angehalten - „%1“"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Angehalten, Aufträge werden abgewiesen - „%1“"
 
-#: src/libkcups/PrinterModel.cpp:450
+#: src/libkcups/PrinterModel.cpp:445
 #, kde-format
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: src/libkcups/PrinterModel.cpp:452
+#: src/libkcups/PrinterModel.cpp:447
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Unbekannt - „%1“"
@@ -1200,93 +1200,93 @@ msgstr "Druckerwarteschlange"
 msgid "Show printer queue(s)"
 msgstr "Druckerwarteschlange(n) anzeigen"
 
-#: src/printqueue/PrintQueueUi.cpp:194
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printer ready"
 msgstr "Drucker bereit"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Drucker anhalten"
 
-#: src/printqueue/PrintQueueUi.cpp:202
+#: src/printqueue/PrintQueueUi.cpp:196
 #, kde-format
 msgid "Printing..."
 msgstr "Es wird gedruckt ..."
 
-#: src/printqueue/PrintQueueUi.cpp:204
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printing '%1'"
 msgstr "„%1“ wird gedruckt"
 
-#: src/printqueue/PrintQueueUi.cpp:212
+#: src/printqueue/PrintQueueUi.cpp:206
 #, kde-format
 msgid "Printer paused"
 msgstr "Drucker angehalten"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:207
 #, kde-format
 msgid "Resume Printer"
 msgstr "Drucken wieder fortsetzen"
 
-#: src/printqueue/PrintQueueUi.cpp:217
+#: src/printqueue/PrintQueueUi.cpp:211
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Unbekannter Druckerstatus"
 
-#: src/printqueue/PrintQueueUi.cpp:262
+#: src/printqueue/PrintQueueUi.cpp:256
 #, kde-format
 msgid "Move to"
 msgstr "Verschieben nach"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:288
 #, kde-format
 msgid "Authenticate"
 msgstr "Authentifizieren"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:403
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Alle Drucker (%1 Auftrag)"
 msgstr[1] "Alle Drucker (%1 Aufträge)"
 
-#: src/printqueue/PrintQueueUi.cpp:411
+#: src/printqueue/PrintQueueUi.cpp:405
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 Auftrag)"
 msgstr[1] "%2 (%1 Aufträge)"
 
-#: src/printqueue/PrintQueueUi.cpp:414
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers"
 msgstr "Alle Drucker"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:475
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "„%1“ kann nicht abgebrochen werden"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "„%1“ kann nicht angehalten werden"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "„%1“ kann nicht freigegeben werden"
 
-#: src/printqueue/PrintQueueUi.cpp:490
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Das erneute Drucken von „%1“ ist fehlgeschlagen"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:555
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Geben Sie die Benutzerdaten zum Drucken von <b>%1</b> ein"

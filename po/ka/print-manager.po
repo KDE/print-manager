@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-31 00:43+0000\n"
+"POT-Creation-Date: 2025-01-01 00:42+0000\n"
 "PO-Revision-Date: 2024-05-21 07:57+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -996,12 +996,12 @@ msgstr "პრინტერი"
 msgid "From Hostname"
 msgstr "ჰოსტის სახელიდან"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "%1-ის %2-ზე გადატანის შეცდომა"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed"
 msgstr "ჩაიშალა"
@@ -1031,7 +1031,7 @@ msgstr "გაუქმებულია"
 msgid "Aborted"
 msgstr "შეწყვეტილია"
 
-#: src/libkcups/KCupsConnection.cpp:780
+#: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS-თან მიერთება ავთენტიკაცია სჭირდება: '%1'"
@@ -1081,67 +1081,67 @@ msgstr "რეკომენდებული დრაივერები"
 msgid "Empty ppd model"
 msgstr "ცარიელი ppd მოდელი"
 
-#: src/libkcups/PrinterModel.cpp:210
+#: src/libkcups/PrinterModel.cpp:205
 #, kde-format
 msgid "Printers"
 msgstr "პრინტერები"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle"
 msgstr "უმოქმედო"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "უქმე, უარყოფს დავალებებს"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "უქმე - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "უქმე, უარყოფს დავალებებს - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "In use"
 msgstr "გამოიყენება"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "In use - '%1'"
 msgstr "გამოიყენება - %1"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused"
 msgstr "შეჩერებულია"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "შეჩერებულია, უარყოფს დავალებებს"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "შეჩერებულია - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "შეჩერებულია, უარყოფს დავალებებს - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:450
+#: src/libkcups/PrinterModel.cpp:445
 #, kde-format
 msgid "Unknown"
 msgstr "უცნობი"
 
-#: src/libkcups/PrinterModel.cpp:452
+#: src/libkcups/PrinterModel.cpp:447
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "უცნობი - %1"
@@ -1189,93 +1189,93 @@ msgstr "ბეჭდვის რიგი"
 msgid "Show printer queue(s)"
 msgstr "პრინტერის რიგის ჩვენება"
 
-#: src/printqueue/PrintQueueUi.cpp:194
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printer ready"
 msgstr "პრინტერი მზადაა"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "პრინტერის შეჩერება"
 
-#: src/printqueue/PrintQueueUi.cpp:202
+#: src/printqueue/PrintQueueUi.cpp:196
 #, kde-format
 msgid "Printing..."
 msgstr "დაბეჭდვა..."
 
-#: src/printqueue/PrintQueueUi.cpp:204
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printing '%1'"
 msgstr "'%1'-ის დაბეჭდვა"
 
-#: src/printqueue/PrintQueueUi.cpp:212
+#: src/printqueue/PrintQueueUi.cpp:206
 #, kde-format
 msgid "Printer paused"
 msgstr "პრინტერი შეჩერებულია"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:207
 #, kde-format
 msgid "Resume Printer"
 msgstr "პრინტერის გაგრძელება"
 
-#: src/printqueue/PrintQueueUi.cpp:217
+#: src/printqueue/PrintQueueUi.cpp:211
 #, kde-format
 msgid "Printer state unknown"
 msgstr "პრინტერის მდგომარეობა უცნობია"
 
-#: src/printqueue/PrintQueueUi.cpp:262
+#: src/printqueue/PrintQueueUi.cpp:256
 #, kde-format
 msgid "Move to"
 msgstr "გადაადგილება"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:288
 #, kde-format
 msgid "Authenticate"
 msgstr "ავთენტიკაცია"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:403
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "ყველა პრინტერი (%1 დავალება)"
 msgstr[1] "ყველა პრინტერი (%1 დავალება)"
 
-#: src/printqueue/PrintQueueUi.cpp:411
+#: src/printqueue/PrintQueueUi.cpp:405
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 დავალება)"
 msgstr[1] "%2 (%1 დავალება)"
 
-#: src/printqueue/PrintQueueUi.cpp:414
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers"
 msgstr "ყველა პრინტერი"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:475
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "გაუქმების შეცდომა: %1"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "შეყოვნების შეცდომა: %1"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "გაგრძელების შეცდომა; %1"
 
-#: src/printqueue/PrintQueueUi.cpp:490
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "თავიდან დაბეჭდვის შეცდომა: %1"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:555
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b>-დან დასაბეჭდად შეიყვანეთ მომხმარებელი და პაროლი"

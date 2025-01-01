@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-31 00:43+0000\n"
+"POT-Creation-Date: 2025-01-01 00:42+0000\n"
 "PO-Revision-Date: 2024-06-21 08:13+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -995,12 +995,12 @@ msgstr "Skrivare"
 msgid "From Hostname"
 msgstr "Från värddator"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Misslyckades flytta '%1' till '%2'"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed"
 msgstr "Misslyckades"
@@ -1030,7 +1030,7 @@ msgstr "Avslutad"
 msgid "Aborted"
 msgstr "Avbruten"
 
-#: src/libkcups/KCupsConnection.cpp:780
+#: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "En anslutning till CUPS kräver behörighetskontroll: \"%1\""
@@ -1080,67 +1080,67 @@ msgstr "Rekommenderade drivrutiner"
 msgid "Empty ppd model"
 msgstr "Tom PPD-modell"
 
-#: src/libkcups/PrinterModel.cpp:210
+#: src/libkcups/PrinterModel.cpp:205
 #, kde-format
 msgid "Printers"
 msgstr "Skrivare"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle"
 msgstr "Overksam"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Overksam, avvisar jobb"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Overksam - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Overksam, avvisar jobb - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "In use"
 msgstr "Används"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Används - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused"
 msgstr "Paus"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Paus, avvisar jobb"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Paus - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Paus, avvisar jobb - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:450
+#: src/libkcups/PrinterModel.cpp:445
 #, kde-format
 msgid "Unknown"
 msgstr "Okänd"
 
-#: src/libkcups/PrinterModel.cpp:452
+#: src/libkcups/PrinterModel.cpp:447
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Okänd - '%1'"
@@ -1188,93 +1188,93 @@ msgstr "Utskriftskö"
 msgid "Show printer queue(s)"
 msgstr "Visa utskriftskö(er)"
 
-#: src/printqueue/PrintQueueUi.cpp:194
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printer ready"
 msgstr "Skrivare redo"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Pausa skrivare"
 
-#: src/printqueue/PrintQueueUi.cpp:202
+#: src/printqueue/PrintQueueUi.cpp:196
 #, kde-format
 msgid "Printing..."
 msgstr "Skriver ut..."
 
-#: src/printqueue/PrintQueueUi.cpp:204
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Skriver ut '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:212
+#: src/printqueue/PrintQueueUi.cpp:206
 #, kde-format
 msgid "Printer paused"
 msgstr "Skrivaren pausad"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:207
 #, kde-format
 msgid "Resume Printer"
 msgstr "Återuppta utskrift"
 
-#: src/printqueue/PrintQueueUi.cpp:217
+#: src/printqueue/PrintQueueUi.cpp:211
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Skrivartillstånd okänt"
 
-#: src/printqueue/PrintQueueUi.cpp:262
+#: src/printqueue/PrintQueueUi.cpp:256
 #, kde-format
 msgid "Move to"
 msgstr "Flytta till"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:288
 #, kde-format
 msgid "Authenticate"
 msgstr "Kontrollera behörighet"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:403
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Alla skrivare (%1 jobb)"
 msgstr[1] "Alla skrivare (%1 jobb)"
 
-#: src/printqueue/PrintQueueUi.cpp:411
+#: src/printqueue/PrintQueueUi.cpp:405
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 jobb)"
 msgstr[1] "%2 (%1 jobb)"
 
-#: src/printqueue/PrintQueueUi.cpp:414
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers"
 msgstr "Alla skrivare"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:475
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Misslyckades avsluta '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Misslyckades stoppa '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Misslyckades återuppta '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:490
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Misslyckades skriva ut '%1' igen"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:555
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Ange inloggningsinformation att skriva från <b>%1</b>"

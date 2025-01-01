@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-31 00:43+0000\n"
+"POT-Creation-Date: 2025-01-01 00:42+0000\n"
 "PO-Revision-Date: 2024-06-16 17:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -965,12 +965,12 @@ msgstr "அச்சுப்பொறி"
 msgid "From Hostname"
 msgstr "புரவன் பெயரிலிருந்து"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:493
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "'%1' தனை '%2' என்பதற்கு நகர்த்தல் தோல்வியடைந்த‍து"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:496
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
 #, kde-format
 msgid "Failed"
 msgstr "தோல்வியடைந்தது"
@@ -1000,7 +1000,7 @@ msgstr "ரத்து செய்யப்பட்டது"
 msgid "Aborted"
 msgstr "கைவிடப்பட்டது"
 
-#: src/libkcups/KCupsConnection.cpp:780
+#: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS இணைப்புக்கு உறுதிப்பாட்டு தேவை: \"%1\""
@@ -1050,67 +1050,67 @@ msgstr "பரிந்துரைக்கப்படும் சாதன�
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:210
+#: src/libkcups/PrinterModel.cpp:205
 #, kde-format
 msgid "Printers"
 msgstr "அச்சுப்பொறிகள்"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle"
 msgstr "வேலையின்றி உள்ளது"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "வேலையின்றி உள்ளது, பணிகளை ஏற்கவில்லை"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "வேலையின்றி உள்ளது - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:434
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "வேலையின்றி உள்ளது, பணிகளை ஏற்கவில்லை - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:438
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "In use"
 msgstr "பயனில் உள்ளது"
 
-#: src/libkcups/PrinterModel.cpp:440
+#: src/libkcups/PrinterModel.cpp:435
 #, kde-format
 msgid "In use - '%1'"
 msgstr "பயனில் உள்ளது - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused"
 msgstr "இடைநிறுத்தப்பட்டுள்ளது"
 
-#: src/libkcups/PrinterModel.cpp:444
+#: src/libkcups/PrinterModel.cpp:439
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "இடைநிறுத்தப்பட்டு பணிகளை ஏற்கவில்லை"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "இடைநிறுத்தப்பட்டுள்ளது - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:446
+#: src/libkcups/PrinterModel.cpp:441
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "இடைநிறுத்தப்பட்டு பணிகளை ஏற்கவில்லை - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:450
+#: src/libkcups/PrinterModel.cpp:445
 #, kde-format
 msgid "Unknown"
 msgstr "தெரியாதது"
 
-#: src/libkcups/PrinterModel.cpp:452
+#: src/libkcups/PrinterModel.cpp:447
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "தெரியாதது - '%1'"
@@ -1158,93 +1158,93 @@ msgstr "அச்சுவரிசை"
 msgid "Show printer queue(s)"
 msgstr "அச்சுவரிசையைக் காட்டு"
 
-#: src/printqueue/PrintQueueUi.cpp:194
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printer ready"
 msgstr "அச்சுப்பொறி தயார்"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:195 src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "அச்சுப்பொறியை இடைநிறுத்து"
 
-#: src/printqueue/PrintQueueUi.cpp:202
+#: src/printqueue/PrintQueueUi.cpp:196
 #, kde-format
 msgid "Printing..."
 msgstr "அச்சிடுகிறது..."
 
-#: src/printqueue/PrintQueueUi.cpp:204
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printing '%1'"
 msgstr "'%1' தனை அச்சிடுகிறது"
 
-#: src/printqueue/PrintQueueUi.cpp:212
+#: src/printqueue/PrintQueueUi.cpp:206
 #, kde-format
 msgid "Printer paused"
 msgstr "அச்சுப்பொறி இடைநிறுத்தப்பட்டுள்ளது"
 
-#: src/printqueue/PrintQueueUi.cpp:213
+#: src/printqueue/PrintQueueUi.cpp:207
 #, kde-format
 msgid "Resume Printer"
 msgstr "அச்சுப்பொறியை தொடரசெய்"
 
-#: src/printqueue/PrintQueueUi.cpp:217
+#: src/printqueue/PrintQueueUi.cpp:211
 #, kde-format
 msgid "Printer state unknown"
 msgstr "அச்சுப்பொறியின் நிலை தெரியாதது"
 
-#: src/printqueue/PrintQueueUi.cpp:262
+#: src/printqueue/PrintQueueUi.cpp:256
 #, kde-format
 msgid "Move to"
 msgstr "வேறிடத்துக்கு நகர்த்து"
 
-#: src/printqueue/PrintQueueUi.cpp:294
+#: src/printqueue/PrintQueueUi.cpp:288
 #, kde-format
 msgid "Authenticate"
 msgstr "சான்றளி"
 
-#: src/printqueue/PrintQueueUi.cpp:409
+#: src/printqueue/PrintQueueUi.cpp:403
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "அனைத்து அச்சுப்பொறிகள் (%1 பணி)"
 msgstr[1] "அனைத்து அச்சுப்பொறிகள் (%1 பணிகள்)"
 
-#: src/printqueue/PrintQueueUi.cpp:411
+#: src/printqueue/PrintQueueUi.cpp:405
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 பணி)"
 msgstr[1] "%2 (%1 பணிகள்)"
 
-#: src/printqueue/PrintQueueUi.cpp:414
+#: src/printqueue/PrintQueueUi.cpp:408
 #, kde-format
 msgid "All Printers"
 msgstr "அனைத்து அச்சுப்பொறிகளும்"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:475
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "'%1' தனை ரத்து செய்ய முடியவில்லை"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:478
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "'%1' தனை இடைநிறுத்த முடியவில்லை"
 
-#: src/printqueue/PrintQueueUi.cpp:487
+#: src/printqueue/PrintQueueUi.cpp:481
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "'%1' தனை விடுவிக்க முடியவில்லை"
 
-#: src/printqueue/PrintQueueUi.cpp:490
+#: src/printqueue/PrintQueueUi.cpp:484
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "'%1' தனை மீண்டும் அச்சிட முடியவில்லை"
 
-#: src/printqueue/PrintQueueUi.cpp:561
+#: src/printqueue/PrintQueueUi.cpp:555
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b> தனிலிருந்து அச்சிடுவதற்கான சான்றுகளை வழங்கவும்"

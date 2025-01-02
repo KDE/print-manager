@@ -98,17 +98,9 @@ PrintQueueUi::PrintQueueUi(const KCupsPrinter &printer, QWidget *parent)
 
     QHeaderView *header = ui->jobsView->header();
     header->setSectionResizeMode(QHeaderView::Interactive);
-    header->setStretchLastSection(false);
-    header->setSectionResizeMode(JobModel::ColStatus, QHeaderView::ResizeToContents);
     header->setSectionResizeMode(JobModel::ColName, QHeaderView::Stretch);
-    header->setSectionResizeMode(JobModel::ColUser, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColCreated, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColCompleted, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColPages, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColProcessed, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColSize, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColStatusMessage, QHeaderView::ResizeToContents);
-    header->setSectionResizeMode(JobModel::ColPrinter, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColStatus, QHeaderView::ResizeToContents);
+    header->setSectionResizeMode(JobModel::ColStatusMessage, QHeaderView::Stretch);
 
     KConfigGroup printQueue(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("PrintQueue"));
     if (printQueue.hasKey("ColumnState")) {

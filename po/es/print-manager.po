@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-01 00:42+0000\n"
+"POT-Creation-Date: 2025-01-03 00:43+0000\n"
 "PO-Revision-Date: 2024-05-21 04:25+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -997,12 +997,12 @@ msgstr "Impresora"
 msgid "From Hostname"
 msgstr "Del servidor"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Ha ocurrido un error al mover «%1» a «%2»"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "Error"
@@ -1191,93 +1191,93 @@ msgstr "Cola de impresión"
 msgid "Show printer queue(s)"
 msgstr "Mostrar la cola de impresión"
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/printqueue/PrintQueueUi.cpp:180
 #, kde-format
 msgid "Printer ready"
 msgstr "Impresora preparada"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
+#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Pausar la impresora"
 
-#: src/printqueue/PrintQueueUi.cpp:196
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printing..."
 msgstr "Imprimiendo..."
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/printqueue/PrintQueueUi.cpp:190
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Imprimiendo «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printer paused"
 msgstr "Impresora pausada"
 
-#: src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:199
 #, kde-format
 msgid "Resume Printer"
 msgstr "Continuar la impresión"
 
-#: src/printqueue/PrintQueueUi.cpp:211
+#: src/printqueue/PrintQueueUi.cpp:203
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Estado de la impresora desconocido"
 
-#: src/printqueue/PrintQueueUi.cpp:256
+#: src/printqueue/PrintQueueUi.cpp:248
 #, kde-format
 msgid "Move to"
 msgstr "Mover a"
 
-#: src/printqueue/PrintQueueUi.cpp:288
+#: src/printqueue/PrintQueueUi.cpp:280
 #, kde-format
 msgid "Authenticate"
 msgstr "Autenticar"
 
-#: src/printqueue/PrintQueueUi.cpp:403
+#: src/printqueue/PrintQueueUi.cpp:395
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Todas las impresoras (%1 trabajo)"
 msgstr[1] "Todas las impresoras (%1 trabajos)"
 
-#: src/printqueue/PrintQueueUi.cpp:405
+#: src/printqueue/PrintQueueUi.cpp:397
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 trabajo)"
 msgstr[1] "%2 (%1 trabajos)"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:400
 #, kde-format
 msgid "All Printers"
 msgstr "Todas las impresoras"
 
-#: src/printqueue/PrintQueueUi.cpp:475
+#: src/printqueue/PrintQueueUi.cpp:467
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Ha ocurrido un error al cancelar «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:470
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Ha ocurrido un error al retener «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:473
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Ha ocurrido un error al liberar «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:476
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Ha ocurrido un error al volver a imprimir «%1»"
 
-#: src/printqueue/PrintQueueUi.cpp:555
+#: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Introduzca las credenciales para imprimir desde <b>%1</b>"

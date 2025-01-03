@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-01 00:42+0000\n"
+"POT-Creation-Date: 2025-01-03 00:43+0000\n"
 "PO-Revision-Date: 2024-05-21 07:37+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -989,12 +989,12 @@ msgstr "מדפסת"
 msgid "From Hostname"
 msgstr "ממארח"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "העברת ‚%1’ אל ‚%2’ נכשלה"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "נכשלה"
@@ -1182,54 +1182,54 @@ msgstr "תור הדפסה"
 msgid "Show printer queue(s)"
 msgstr "הצגת תורי המדפסות"
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/printqueue/PrintQueueUi.cpp:180
 #, kde-format
 msgid "Printer ready"
 msgstr "המדפסת מוכנה"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
+#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "השהיית מדפסת"
 
-#: src/printqueue/PrintQueueUi.cpp:196
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printing..."
 msgstr "מדפיסה…"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/printqueue/PrintQueueUi.cpp:190
 #, kde-format
 msgid "Printing '%1'"
 msgstr "‚%1’ מודפס"
 
-#: src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printer paused"
 msgstr "המדפסת הושהתה"
 
-#: src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:199
 #, kde-format
 msgid "Resume Printer"
 msgstr "המשך מדפסת"
 
-#: src/printqueue/PrintQueueUi.cpp:211
+#: src/printqueue/PrintQueueUi.cpp:203
 #, kde-format
 msgid "Printer state unknown"
 msgstr "מצב ההדפסה לא ידוע"
 
-#: src/printqueue/PrintQueueUi.cpp:256
+#: src/printqueue/PrintQueueUi.cpp:248
 #, kde-format
 msgid "Move to"
 msgstr "העברה אל"
 
-#: src/printqueue/PrintQueueUi.cpp:288
+#: src/printqueue/PrintQueueUi.cpp:280
 #, kde-format
 msgid "Authenticate"
 msgstr "אימות"
 
-#: src/printqueue/PrintQueueUi.cpp:403
+#: src/printqueue/PrintQueueUi.cpp:395
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1238,7 +1238,7 @@ msgstr[1] "כל המדפסות (שתי משימות)"
 msgstr[2] "כל המדפסות (%1 משימות)"
 msgstr[3] "כל המדפסות (%1 משימות)"
 
-#: src/printqueue/PrintQueueUi.cpp:405
+#: src/printqueue/PrintQueueUi.cpp:397
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1247,32 +1247,32 @@ msgstr[1] "%2 (שתי משימות)"
 msgstr[2] "%2 (%1 משימות)"
 msgstr[3] "%2 (%1 משימות)"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:400
 #, kde-format
 msgid "All Printers"
 msgstr "כל המדפסות"
 
-#: src/printqueue/PrintQueueUi.cpp:475
+#: src/printqueue/PrintQueueUi.cpp:467
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "הביטול של ‚%1’ נכשל"
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:470
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "ההחזקה של ‚%1’ נכשלה"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:473
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "השחרור של ‚%1’ נכשל"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:476
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "הדפסה מחדש של ‚%1’ נכשלה"
 
-#: src/printqueue/PrintQueueUi.cpp:555
+#: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "נא למלא פרטי גישה כדי להדפיס מ־<b>%1</b>"

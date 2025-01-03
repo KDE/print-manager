@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-01 00:42+0000\n"
+"POT-Creation-Date: 2025-01-03 00:43+0000\n"
 "PO-Revision-Date: 2024-05-26 22:24+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -994,12 +994,12 @@ msgstr "Presilo"
 msgid "From Hostname"
 msgstr "De Gastnomo"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Malsukcesis movi '%1' al '%2'"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "Malsukcesis"
@@ -1187,93 +1187,93 @@ msgstr "Presa Vico"
 msgid "Show printer queue(s)"
 msgstr "Montri presila(j)n atendovico(j)n"
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/printqueue/PrintQueueUi.cpp:180
 #, kde-format
 msgid "Printer ready"
 msgstr "Presilo preta"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
+#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Paŭzi Presilon"
 
-#: src/printqueue/PrintQueueUi.cpp:196
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printing..."
 msgstr "Presante..."
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/printqueue/PrintQueueUi.cpp:190
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Presante '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printer paused"
 msgstr "Presilo paŭzis"
 
-#: src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:199
 #, kde-format
 msgid "Resume Printer"
 msgstr "Rekomenci Presilon"
 
-#: src/printqueue/PrintQueueUi.cpp:211
+#: src/printqueue/PrintQueueUi.cpp:203
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Presilo stato nekonata"
 
-#: src/printqueue/PrintQueueUi.cpp:256
+#: src/printqueue/PrintQueueUi.cpp:248
 #, kde-format
 msgid "Move to"
 msgstr "Movi al"
 
-#: src/printqueue/PrintQueueUi.cpp:288
+#: src/printqueue/PrintQueueUi.cpp:280
 #, kde-format
 msgid "Authenticate"
 msgstr "Aŭtentikigi"
 
-#: src/printqueue/PrintQueueUi.cpp:403
+#: src/printqueue/PrintQueueUi.cpp:395
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] "Ĉiuj Presiloj (%1 Labortasko)"
 msgstr[1] "Ĉiuj Presiloj (%1 Labortaskoj)"
 
-#: src/printqueue/PrintQueueUi.cpp:405
+#: src/printqueue/PrintQueueUi.cpp:397
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] "%2 (%1 Labortasko)"
 msgstr[1] "%2 (%1 Labortaskoj)"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:400
 #, kde-format
 msgid "All Printers"
 msgstr "Ĉiuj Presiloj"
 
-#: src/printqueue/PrintQueueUi.cpp:475
+#: src/printqueue/PrintQueueUi.cpp:467
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Malsukcesis nuligi '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:470
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Malsukcesis teni '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:473
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Malsukcesis liberigi '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:476
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Malsukcesis represi '%1'"
 
-#: src/printqueue/PrintQueueUi.cpp:555
+#: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Enigi akreditaĵojn por presi de <b>%1</b>"

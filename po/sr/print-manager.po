@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-01 00:42+0000\n"
+"POT-Creation-Date: 2025-01-03 00:43+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -1072,12 +1072,12 @@ msgstr "штампач"
 msgid "From Hostname"
 msgstr "од домаћина"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:487
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Не могу да преместим „%1“ на „%2“."
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:490
+#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "Неуспех"
@@ -1285,57 +1285,57 @@ msgstr "Ред за штампање"
 msgid "Show printer queue(s)"
 msgstr "Прикажи ред штампача"
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/printqueue/PrintQueueUi.cpp:180
 #, kde-format
 msgid "Printer ready"
 msgstr "Штампач спреман"
 
 #. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:189 src/printqueue/PrintQueueUi.cpp:200
+#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
 #: src/printqueue/PrintQueueUi.ui:118
 #, kde-format
 msgid "Pause Printer"
 msgstr "Паузирај штампач"
 
-#: src/printqueue/PrintQueueUi.cpp:196
+#: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printing..."
 msgstr "Штампам..."
 
 # rewrite-msgid: /$/.../
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/printqueue/PrintQueueUi.cpp:190
 #, kde-format
 msgid "Printing '%1'"
 msgstr "Штампам „%1“..."
 
-#: src/printqueue/PrintQueueUi.cpp:206
+#: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
 msgid "Printer paused"
 msgstr "Штампач паузиран"
 
-#: src/printqueue/PrintQueueUi.cpp:207
+#: src/printqueue/PrintQueueUi.cpp:199
 #, kde-format
 msgid "Resume Printer"
 msgstr "Настави штампање"
 
-#: src/printqueue/PrintQueueUi.cpp:211
+#: src/printqueue/PrintQueueUi.cpp:203
 #, kde-format
 msgid "Printer state unknown"
 msgstr "Стање штампача непознато"
 
-#: src/printqueue/PrintQueueUi.cpp:256
+#: src/printqueue/PrintQueueUi.cpp:248
 #, kde-format
 msgid "Move to"
 msgstr "Премести на"
 
 # >> @item operation policy
-#: src/printqueue/PrintQueueUi.cpp:288
+#: src/printqueue/PrintQueueUi.cpp:280
 #, fuzzy, kde-format
 #| msgid "Authenticated"
 msgid "Authenticate"
 msgstr "аутентификовано"
 
-#: src/printqueue/PrintQueueUi.cpp:403
+#: src/printqueue/PrintQueueUi.cpp:395
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
@@ -1344,7 +1344,7 @@ msgstr[1] "Сви штампачи (%1 посла)"
 msgstr[2] "Сви штампачи (%1 послова)"
 msgstr[3] "Сви штампачи (%1 посао)"
 
-#: src/printqueue/PrintQueueUi.cpp:405
+#: src/printqueue/PrintQueueUi.cpp:397
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
@@ -1353,32 +1353,32 @@ msgstr[1] "%2 (%1 посла)"
 msgstr[2] "%2 (%1 послова)"
 msgstr[3] "%2 (%1 посао)"
 
-#: src/printqueue/PrintQueueUi.cpp:408
+#: src/printqueue/PrintQueueUi.cpp:400
 #, kde-format
 msgid "All Printers"
 msgstr "Сви штампачи"
 
-#: src/printqueue/PrintQueueUi.cpp:475
+#: src/printqueue/PrintQueueUi.cpp:467
 #, kde-format
 msgid "Failed to cancel '%1'"
 msgstr "Не могу да откажем „%1“."
 
-#: src/printqueue/PrintQueueUi.cpp:478
+#: src/printqueue/PrintQueueUi.cpp:470
 #, kde-format
 msgid "Failed to hold '%1'"
 msgstr "Не могу да задржим „%1“."
 
-#: src/printqueue/PrintQueueUi.cpp:481
+#: src/printqueue/PrintQueueUi.cpp:473
 #, kde-format
 msgid "Failed to release '%1'"
 msgstr "Не могу да пустим „%1“."
 
-#: src/printqueue/PrintQueueUi.cpp:484
+#: src/printqueue/PrintQueueUi.cpp:476
 #, kde-format
 msgid "Failed to reprint '%1'"
 msgstr "Пропало поновно штампање „%1“"
 
-#: src/printqueue/PrintQueueUi.cpp:555
+#: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""

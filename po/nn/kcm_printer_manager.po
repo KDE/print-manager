@@ -468,8 +468,6 @@ msgstr "Skrivargrupper"
 
 #: ui/main.qml:304
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Opna utskriftskø …"
@@ -631,8 +629,6 @@ msgstr "Merke og modell er obligatorisk. Trykk «Vel» for å velja merke/modell
 
 #: ui/PrinterSettings.qml:139
 #, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "Set opp %1 – vent litt …"

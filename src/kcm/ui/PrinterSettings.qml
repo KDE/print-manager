@@ -392,22 +392,29 @@ KCM.AbstractKCM {
                     type: Kirigami.Heading.Type.Secondary
                 }
 
-                QQC2.Label {
-                    text: i18nc("@info:status This is the default printer", "** Default Printer")
-                    visible: !addMode && modelData.isDefault
-                }
+                RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
 
-                PrinterOption {
-                    objectName: "isDefault"
-                    text: i18nc("@action:check Set default printer", "Default printer")
-                    orig: modelData.isDefault
-                    // CUPS treats default printer independently from other printer attributes
-                    // Also, CUPS makes sure it's exclusive, only one can be default and there is
-                    // no api for "Not default".
+                    PrinterOption {
+                        objectName: "isDefault"
+                        text: i18nc("@action:check Set default printer", "Default printer")
+                        orig: modelData.isDefault
+                        // CUPS treats default printer independently from other printer attributes
+                        // Also, CUPS makes sure it's exclusive, only one can be default and there is
+                        // no api for "Not default".
 
-                    // Therefore, if a printer is default, don't allow change for that printer,
-                    // only allow it to be set true for a printer that is not default.
-                    visible: !modelData.isDefault
+                        // Therefore, if a printer is default, don't allow change for that printer,
+                        // only allow it to be set true for a printer that is not default.
+                        enabled: !modelData.isDefault
+                        checked: modelData.isDefault
+                    }
+
+                    Kirigami.ContextualHelpButton {
+                        toolTipText: printerModel.rowCount() > 1 
+                            ? i18nc("@info", "To change the default printer, set another printer as the default.") 
+                            : i18nc("@info", "The default printer cannot be changed when there is only one printer configured.")
+                        visible: modelData.isDefault
+                    }
                 }
 
 
@@ -493,7 +500,7 @@ KCM.AbstractKCM {
         }
 
         Kirigami.Separator {
-            Layout.topMargin: Kirigami.Units.largeSpacing*2
+            Layout.topMargin: Kirigami.Units.largeSpacing
             Layout.bottomMargin: Kirigami.Units.largeSpacing
             Layout.fillWidth: true
         }

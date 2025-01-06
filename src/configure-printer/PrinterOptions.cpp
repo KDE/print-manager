@@ -173,6 +173,7 @@ void PrinterOptions::createGroups()
         auto gFormLayout = new QFormLayout(groupBox);
         gFormLayout->setFormAlignment(Qt::AlignCenter);
         groupBox->setLayout(gFormLayout);
+        groupBox->setFlat(true);
         ui->verticalLayout->addWidget(groupBox);
 
         int j;

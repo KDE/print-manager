@@ -181,7 +181,7 @@ void PrinterOptions::createGroups()
         // Iterate over the options in the group
         for (j = 0, option = group->options; j < group->num_options; j++, option++) {
             QString oKeyword = decoder.decode(option->keyword);
-            QString oText = decoder.decode(option->text);
+            QString oText = decoder.decode(option->text) + QLatin1Char(':');
             QString oDefChoice = decoder.decode(option->defchoice);
             // The python system-config-printer skips this one
             // which has the same data as "PageSize", let's hope

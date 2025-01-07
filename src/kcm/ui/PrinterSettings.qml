@@ -399,6 +399,7 @@ KCM.AbstractKCM {
                         objectName: "isDefault"
                         text: i18nc("@action:check Set default printer", "Default printer")
                         orig: modelData.isDefault
+                        visible: printerModel.rowCount() > 1
                         // CUPS treats default printer independently from other printer attributes
                         // Also, CUPS makes sure it's exclusive, only one can be default and there is
                         // no api for "Not default".
@@ -410,9 +411,7 @@ KCM.AbstractKCM {
                     }
 
                     Kirigami.ContextualHelpButton {
-                        toolTipText: printerModel.rowCount() > 1 
-                            ? i18nc("@info", "To change the default printer, set another printer as the default.") 
-                            : i18nc("@info", "The default printer cannot be changed when there is only one printer configured.")
+                        toolTipText: i18nc("@info", "To change the default printer, set another printer as the default.") 
                         visible: modelData.isDefault
                     }
                 }

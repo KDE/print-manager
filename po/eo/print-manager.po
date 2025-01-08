@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-08 00:43+0000\n"
 "PO-Revision-Date: 2024-05-26 22:24+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -554,37 +554,37 @@ msgid "Unclassified"
 msgstr "Neklasifikita"
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
-#: src/configure-printer/PrinterBehavior.ui:29
+#: src/configure-printer/PrinterBehavior.ui:20
 #, kde-format
 msgid "Banners"
 msgstr "Standardoj"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/configure-printer/PrinterBehavior.ui:35
+#: src/configure-printer/PrinterBehavior.ui:26
 #, kde-format
 msgid "Starting Banner:"
 msgstr "Komenca Standardo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/configure-printer/PrinterBehavior.ui:55
+#: src/configure-printer/PrinterBehavior.ui:46
 #, kde-format
 msgid "Ending Banner:"
 msgstr "Fina Standardo:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
-#: src/configure-printer/PrinterBehavior.ui:84
+#: src/configure-printer/PrinterBehavior.ui:81
 #, kde-format
 msgid "Policies"
 msgstr "Politikoj"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/configure-printer/PrinterBehavior.ui:90
+#: src/configure-printer/PrinterBehavior.ui:87
 #, kde-format
 msgid "Operation Policy:"
 msgstr "Operacia Politiko:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/configure-printer/PrinterBehavior.ui:103
+#: src/configure-printer/PrinterBehavior.ui:100
 #, kde-format
 msgid "Error Policy:"
 msgstr "Politiko pri Eraro:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-08 00:43+0000\n"
 "PO-Revision-Date: 2024-06-16 17:37+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -529,37 +529,37 @@ msgid "Unclassified"
 msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
-#: src/configure-printer/PrinterBehavior.ui:29
+#: src/configure-printer/PrinterBehavior.ui:20
 #, kde-format
 msgid "Banners"
 msgstr "அட்டைப்பக்கங்கள்"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/configure-printer/PrinterBehavior.ui:35
+#: src/configure-printer/PrinterBehavior.ui:26
 #, kde-format
 msgid "Starting Banner:"
 msgstr "துவக்க அட்டைப்பக்கம்:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/configure-printer/PrinterBehavior.ui:55
+#: src/configure-printer/PrinterBehavior.ui:46
 #, kde-format
 msgid "Ending Banner:"
 msgstr "முடிவு அட்டைப்பக்கம்:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
-#: src/configure-printer/PrinterBehavior.ui:84
+#: src/configure-printer/PrinterBehavior.ui:81
 #, kde-format
 msgid "Policies"
 msgstr "கொள்கைகள்"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/configure-printer/PrinterBehavior.ui:90
+#: src/configure-printer/PrinterBehavior.ui:87
 #, kde-format
 msgid "Operation Policy:"
 msgstr "பயன்பாட்டு கொள்கை:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/configure-printer/PrinterBehavior.ui:103
+#: src/configure-printer/PrinterBehavior.ui:100
 #, kde-format
 msgid "Error Policy:"
 msgstr "சிக்கல் கொள்கை:"

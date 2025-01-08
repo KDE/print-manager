@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-31 00:43+0000\n"
+"POT-Creation-Date: 2025-01-08 00:43+0000\n"
 "PO-Revision-Date: 2024-10-27 14:46+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -673,67 +673,67 @@ msgstr "Fjern skrivar"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ui/PrinterSettings.qml:396
-#, kde-format
-msgctxt "@info:status This is the default printer"
-msgid "** Default Printer"
-msgstr "** Standardskrivar"
-
-#: ui/PrinterSettings.qml:402
+#: ui/PrinterSettings.qml:400
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Standardskrivar"
 
-#: ui/PrinterSettings.qml:417
+#: ui/PrinterSettings.qml:414
+#, kde-format
+msgctxt "@info"
+msgid "To change the default printer, set another printer as the default."
+msgstr ""
+
+#: ui/PrinterSettings.qml:423
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Del denne gruppa"
 
-#: ui/PrinterSettings.qml:418
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Del denne skrivaren"
 
-#: ui/PrinterSettings.qml:425
+#: ui/PrinterSettings.qml:431
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Tek imot utskriftsjobbar"
 
-#: ui/PrinterSettings.qml:475
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Skriv ut testside"
 
-#: ui/PrinterSettings.qml:481
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Skriv ut sjølvtestside"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Rens skrivarhovud"
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:514
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Finn skrivar …"
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Kønamn:"
 
-#: ui/PrinterSettings.qml:533
+#: ui/PrinterSettings.qml:539
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -742,38 +742,42 @@ msgstr ""
 "Ei <interface>skrivargrupper</interface> vert brukte for å samla "
 "utskriftsressurar."
 
-#: ui/PrinterSettings.qml:541
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Skildring:"
 
-#: ui/PrinterSettings.qml:553
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Plassering:"
 
-#: ui/PrinterSettings.qml:565
+#: ui/PrinterSettings.qml:571
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Tilkopling:"
 
-#: ui/PrinterSettings.qml:579
+#: ui/PrinterSettings.qml:585
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Skrivarmedlemmar:"
 
-#: ui/PrinterSettings.qml:716
+#: ui/PrinterSettings.qml:722
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Merke/modell:"
 
-#: ui/PrinterSettings.qml:731
+#: ui/PrinterSettings.qml:737
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vel …"
+
+#~ msgctxt "@info:status This is the default printer"
+#~ msgid "** Default Printer"
+#~ msgstr "** Standardskrivar"

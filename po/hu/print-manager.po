@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-08 00:43+0000\n"
 "PO-Revision-Date: 2024-05-26 21:19+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -555,37 +555,37 @@ msgid "Unclassified"
 msgstr "Nem minősített"
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
-#: src/configure-printer/PrinterBehavior.ui:29
+#: src/configure-printer/PrinterBehavior.ui:20
 #, kde-format
 msgid "Banners"
 msgstr "Kísérőlapok"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/configure-printer/PrinterBehavior.ui:35
+#: src/configure-printer/PrinterBehavior.ui:26
 #, kde-format
 msgid "Starting Banner:"
 msgstr "Kísérőoldal az elején:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/configure-printer/PrinterBehavior.ui:55
+#: src/configure-printer/PrinterBehavior.ui:46
 #, kde-format
 msgid "Ending Banner:"
 msgstr "Kísérőoldal a végén:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
-#: src/configure-printer/PrinterBehavior.ui:84
+#: src/configure-printer/PrinterBehavior.ui:81
 #, kde-format
 msgid "Policies"
 msgstr "Házirendek"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/configure-printer/PrinterBehavior.ui:90
+#: src/configure-printer/PrinterBehavior.ui:87
 #, kde-format
 msgid "Operation Policy:"
 msgstr "Művelet házirendje:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/configure-printer/PrinterBehavior.ui:103
+#: src/configure-printer/PrinterBehavior.ui:100
 #, kde-format
 msgid "Error Policy:"
 msgstr "Hiba házirend:"

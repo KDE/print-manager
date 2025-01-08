@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-12-31 00:43+0000\n"
+"POT-Creation-Date: 2025-01-08 00:43+0000\n"
 "PO-Revision-Date: 2024-06-30 15:40+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -691,67 +691,67 @@ msgstr "Fjarlægja prentara"
 msgid "Cancel"
 msgstr "Hætta við"
 
-#: ui/PrinterSettings.qml:396
-#, kde-format
-msgctxt "@info:status This is the default printer"
-msgid "** Default Printer"
-msgstr "** Sjálfgefinn prentari"
-
-#: ui/PrinterSettings.qml:402
+#: ui/PrinterSettings.qml:400
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Sjálfgefinn prentari"
 
-#: ui/PrinterSettings.qml:417
+#: ui/PrinterSettings.qml:414
+#, kde-format
+msgctxt "@info"
+msgid "To change the default printer, set another printer as the default."
+msgstr ""
+
+#: ui/PrinterSettings.qml:423
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Deila þessum hópi"
 
-#: ui/PrinterSettings.qml:418
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Samnýta þennan prentara"
 
-#: ui/PrinterSettings.qml:425
+#: ui/PrinterSettings.qml:431
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Tekur við prentverkum"
 
-#: ui/PrinterSettings.qml:475
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Prenta prufusíðu"
 
-#: ui/PrinterSettings.qml:481
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Prenta innbyggða prufusíðu"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Hreinsa prenthausa"
 
-#: ui/PrinterSettings.qml:508
+#: ui/PrinterSettings.qml:514
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Finna prentara…"
 
-#: ui/PrinterSettings.qml:516
+#: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Heiti prentraðar:"
 
-#: ui/PrinterSettings.qml:533
+#: ui/PrinterSettings.qml:539
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -760,41 +760,45 @@ msgstr ""
 "<interface>Prentarahópur</interface> er notaður til að safna saman "
 "prentunartilföngum."
 
-#: ui/PrinterSettings.qml:541
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Lýsing:"
 
-#: ui/PrinterSettings.qml:553
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Staðsetning:"
 
-#: ui/PrinterSettings.qml:565
+#: ui/PrinterSettings.qml:571
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Tenging:"
 
-#: ui/PrinterSettings.qml:579
+#: ui/PrinterSettings.qml:585
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Prentarar hóps:"
 
-#: ui/PrinterSettings.qml:716
+#: ui/PrinterSettings.qml:722
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Framleiðandi/Gerð:"
 
-#: ui/PrinterSettings.qml:731
+#: ui/PrinterSettings.qml:737
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Velja…"
+
+#~ msgctxt "@info:status This is the default printer"
+#~ msgid "** Default Printer"
+#~ msgstr "** Sjálfgefinn prentari"
 
 #~ msgctxt "@action:button"
 #~ msgid "Configure…"

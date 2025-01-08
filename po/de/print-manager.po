@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-03 00:43+0000\n"
+"POT-Creation-Date: 2025-01-08 00:43+0000\n"
 "PO-Revision-Date: 2023-12-21 23:28+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -558,37 +558,37 @@ msgid "Unclassified"
 msgstr "Keine Verschlusssache"
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
-#: src/configure-printer/PrinterBehavior.ui:29
+#: src/configure-printer/PrinterBehavior.ui:20
 #, kde-format
 msgid "Banners"
 msgstr "Vorspann/Nachspann"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/configure-printer/PrinterBehavior.ui:35
+#: src/configure-printer/PrinterBehavior.ui:26
 #, kde-format
 msgid "Starting Banner:"
 msgstr "Vorspann:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: src/configure-printer/PrinterBehavior.ui:55
+#: src/configure-printer/PrinterBehavior.ui:46
 #, kde-format
 msgid "Ending Banner:"
 msgstr "Nachspann:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
-#: src/configure-printer/PrinterBehavior.ui:84
+#: src/configure-printer/PrinterBehavior.ui:81
 #, kde-format
 msgid "Policies"
 msgstr "Regelungen"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/configure-printer/PrinterBehavior.ui:90
+#: src/configure-printer/PrinterBehavior.ui:87
 #, kde-format
 msgid "Operation Policy:"
 msgstr "Betriebs-Regelung:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/configure-printer/PrinterBehavior.ui:103
+#: src/configure-printer/PrinterBehavior.ui:100
 #, kde-format
 msgid "Error Policy:"
 msgstr "Fehler-Regelung:"

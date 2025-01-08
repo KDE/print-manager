@@ -114,7 +114,7 @@
         "Name[zh_CN]": "打印机",
         "Name[zh_TW]": "印表機"
     },
-    "X-KDE-Keywords": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer",
+    "X-KDE-Keywords": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,add printer",
     "X-KDE-Keywords[ar]": "طابعة,طباعة,حبر,شبكة,طابعة مشتركة,طابعة بعيدة,يطبع,اطبع,مشاركة",
     "X-KDE-Keywords[az]": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,printerlər,kağız,çap,çap etmə,uzaq printer,şəbəkə printeri,printeri paylaşmaq",
     "X-KDE-Keywords[be]": "прынтары, друкаваць,папера,cups,чарніла,друкаванне,адлеглы прынтар,сеціўны прынтар,сеткавы прынтар,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf, віртуальны прнтар brf,абагулены прынтар",

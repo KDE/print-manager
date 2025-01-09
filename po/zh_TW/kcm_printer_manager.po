@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-11-11 16:03+0900\n"
+"PO-Revision-Date: 2025-01-08 16:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: printermanager.cpp:259
 #, kde-format
@@ -413,7 +413,7 @@ msgstr "安裝它"
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr "新增…"
+msgstr "新增(&D)…"
 
 #: ui/main.qml:109
 #, kde-format
@@ -431,7 +431,7 @@ msgstr "新增群組…"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "設定列印伺服器…"
+msgstr "設定列印伺服器(&C)…"
 
 #: ui/main.qml:233
 #, kde-format
@@ -673,7 +673,7 @@ msgstr "預設印表機"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "要修改預設印表機，請將另一個印表機設為預設。"
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

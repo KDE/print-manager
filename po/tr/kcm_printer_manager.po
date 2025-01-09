@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-11-09 08:35+0300\n"
+"PO-Revision-Date: 2025-01-08 15:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: printermanager.cpp:259
 #, kde-format
@@ -685,6 +685,8 @@ msgstr "Öntanımlı yazıcı"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
+"Öntanımlı yazıcıyı değiştirmek için başka bir yazıcıyı öntanımlı olarak "
+"ayarlayın."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

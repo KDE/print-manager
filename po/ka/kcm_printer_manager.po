@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-11-09 05:08+0100\n"
+"PO-Revision-Date: 2025-01-08 03:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -691,6 +691,8 @@ msgstr "ნაგულისხმევი პრინტერი"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
+"ნაგულისხმევი პრინტერის შესაცვლელად, ჯერ, ნაგულისხმევად სხვა პრინტერი უნდა "
+"დააყენოთ."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

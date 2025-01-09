@@ -768,7 +768,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "** 默认打印机"

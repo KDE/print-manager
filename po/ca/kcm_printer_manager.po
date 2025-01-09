@@ -1,15 +1,15 @@
 # Translation of kcm_printer_manager.po to Catalan
-# Copyright (C) 2023-2024 This_file_is_part_of_KDE
+# Copyright (C) 2023-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-11-09 09:45+0100\n"
+"PO-Revision-Date: 2025-01-08 11:07+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -693,6 +693,8 @@ msgstr "Impressora predeterminada"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
+"Per a canviar la impressora predeterminada, definiu una altra impressora com "
+"a predeterminada."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format
@@ -786,25 +788,3 @@ msgstr "Fabricant/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Selecciona…"
-
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "** Impressora predeterminada"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure…"
-#~ msgstr "Configura…"
-
-#~ msgid "Set Default Options"
-#~ msgstr "Defineix les opcions predeterminades"
-
-#~ msgctxt "@option:check"
-#~ msgid "Auto Configure"
-#~ msgstr "Configura automàticament"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "Segur que voleu eliminar: %1 (%2)?"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "URI:"

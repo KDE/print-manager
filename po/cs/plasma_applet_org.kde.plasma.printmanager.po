@@ -79,7 +79,7 @@ msgstr "Zobrazit frontu tisku…"
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"

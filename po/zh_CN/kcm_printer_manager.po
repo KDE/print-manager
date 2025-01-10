@@ -676,7 +676,7 @@ msgstr "默认打印机"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "要更改默认打印机，请将另一个打印机设为默认。"
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

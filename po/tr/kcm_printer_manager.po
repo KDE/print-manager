@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2025-01-08 15:06+0300\n"
+"PO-Revision-Date: 2025-01-09 15:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -284,7 +284,7 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"Yeniden denemek için ‘Yenile’ye tıklayın veya listeden elle bir yapılandırma "
+"Yeniden denemek için “Yenile”ye tıklayın veya listeden elle bir yapılandırma "
 "seçin"
 
 #: ui/FindPrinter.qml:193
@@ -626,7 +626,7 @@ msgstr "Kuyruk adı gerekiyor. Benzersiz bir kuyruk adı girin."
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için ‘Seç‘e tıklayın"
+msgstr "Yapım/Model gerekiyor. Yapım/Model seçmek için “Seç”e tıklayın"
 
 #: ui/PrinterSettings.qml:139
 #, kde-format

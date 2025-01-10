@@ -14,8 +14,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
-"X-Crowdin-File-ID: 48268\n"
+"X-Crowdin-File: /kf6-stable/messages/print-manager/kcm_printer_manager.pot\n"
+"X-Crowdin-File-ID: 52860\n"
 
 #: printermanager.cpp:259
 #, kde-format
@@ -676,7 +676,7 @@ msgstr "默认打印机"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "要更改默认打印机，请将另一个打印机设为默认。"
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

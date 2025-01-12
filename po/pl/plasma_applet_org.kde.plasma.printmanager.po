@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
-# SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2020, 2021, 2022, 2023 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
+# SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2020, 2021, 2022, 2023, 2025 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-08 00:42+0000\n"
-"PO-Revision-Date: 2023-12-16 10:46+0100\n"
-"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
+"PO-Revision-Date: 2025-01-11 11:33+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
 #: src/plasmoid/package/contents/ui/main.qml:45
@@ -78,21 +79,17 @@ msgid "View print queue…"
 msgstr "Obejrzyj kolejkę drukowania…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
-#, fuzzy
-#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Anuluj"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
-#, fuzzy
-#| msgid "%1 jobs"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "%1 zadania"
-msgstr[1] "%1 zadania"
-msgstr[2] "%1 zadania"
+msgstr[0] "jeszcze %1 zadanie"
+msgstr[1] "jeszcze %1 zadania"
+msgstr[2] "jeszcze %1 zadań"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Pokaż wszystkie zadania"

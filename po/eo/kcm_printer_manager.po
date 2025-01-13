@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-12-27 17:40+0100\n"
+"PO-Revision-Date: 2025-01-12 08:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -687,7 +687,7 @@ msgstr "Defaŭlta presilo"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "Por ŝanĝi la defaŭltan presilon, agordu alian presilon kiel defaŭltan."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format
@@ -780,7 +780,3 @@ msgstr "Faro/Modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Elekti…"
-
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "** Defaŭlta presilo"

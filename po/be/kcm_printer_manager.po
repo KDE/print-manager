@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-06-20 17:30\n"
+"PO-Revision-Date: 2025-01-10 10:25\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -18,9 +18,8 @@ msgstr ""
 "X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
 "X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/print-manager/"
-"kcm_printer_manager.po\n"
-"X-Crowdin-File-ID: 17910\n"
+"X-Crowdin-File: /main/KDE6/be/messages/print-manager/kcm_printer_manager.po\n"
+"X-Crowdin-File-ID: 20091\n"
 
 #: printermanager.cpp:259
 #, kde-format
@@ -395,14 +394,7 @@ msgid "new_group"
 msgstr "new_group"
 
 #: ui/main.qml:69
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -436,7 +428,7 @@ msgstr "Усталяваць"
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr ""
+msgstr "Дадаць…"
 
 #: ui/main.qml:109
 #, kde-format
@@ -463,17 +455,13 @@ msgid "No printers are currently set up"
 msgstr "Няма наладжаныя прынтараў"
 
 #: ui/main.qml:234
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Click <interface>Add Printer…</interface> to set up a new printer on this "
-#| "computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Каб наладзіць новы прынтар на гэтым камп'ютары, націсніце <interface>Дадаць "
-"прынтар…</interface>"
+"Каб наладзіць новы прынтар на гэтым камп'ютары, націсніце <interface>Дадаць…"
+"</interface>"
 
 #: ui/main.qml:243
 #, kde-format
@@ -486,12 +474,10 @@ msgid "Printer Groups"
 msgstr "Групы прынтараў"
 
 #: ui/main.qml:304
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Адкрыць чаргу друкавання…"
+msgstr "Чарга друку"
 
 #: ui/main.qml:320
 #, kde-format
@@ -649,12 +635,10 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Патрэбна марка/мадэль. Каб абраць марку/мадэль, націсніце \"Абраць\""
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…."
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr "Наладжванне \"%1\". Пачакайце…."
+msgstr "Наладжванне \"%1\". Пачакайце…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format
@@ -707,6 +691,8 @@ msgstr "Прадвызначаны прынтар"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
+"Каб змяніць прадвызначаны прынтар, спачатку зрабіце прадвызначаным іншы "
+"прынтар."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

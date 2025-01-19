@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-06-12 20:17\n"
+"PO-Revision-Date: 2025-01-09 22:32\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -18,9 +18,8 @@ msgstr ""
 "X-Crowdin-Project: fc57ad16a28d02dea100ceb1c60de14e\n"
 "X-Crowdin-Project-ID: 136\n"
 "X-Crowdin-Language: be\n"
-"X-Crowdin-File: /[antikruk.KDE] main/KDE6/be/messages/print-manager/print-"
-"manager.po\n"
-"X-Crowdin-File-ID: 10934\n"
+"X-Crowdin-File: /main/KDE6/be/messages/print-manager/print-manager.po\n"
+"X-Crowdin-File-ID: 20101\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1067,7 +1066,7 @@ msgstr "Тэставая старонка"
 #: src/libkcups/KCupsRequest.cpp:421
 #, kde-format
 msgid "Unable to send command to printer driver!"
-msgstr ""
+msgstr "Не ўдалося адправіць каманду драйверу прынтара!"
 
 #: src/libkcups/KCupsRequest.cpp:549
 #, kde-format

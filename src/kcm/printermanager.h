@@ -57,16 +57,11 @@ class PrinterManager : public KQuickConfigModule
 public:
     PrinterManager(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args = QVariantList());
 
-    Q_INVOKABLE void removePrinter(const QString &name);
-
-    Q_INVOKABLE void makePrinterDefault(const QString &name);
-    Q_INVOKABLE void makePrinterShared(const QString &name, bool shared, bool isClass);
-    Q_INVOKABLE void makePrinterRejectJobs(const QString &name, bool reject);
-
     Q_INVOKABLE void printTestPage(const QString &name, bool isClass);
     Q_INVOKABLE void printSelfTestPage(const QString &name);
     Q_INVOKABLE void cleanPrintHeads(const QString &name);
 
+    Q_INVOKABLE void removePrinter(const QString &name);
     Q_INVOKABLE static bool isIPPCapable(const QString &uri);
     Q_INVOKABLE static bool isSCPAvailable();
 

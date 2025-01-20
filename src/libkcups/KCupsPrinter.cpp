@@ -17,10 +17,10 @@ KCupsPrinter::KCupsPrinter(const QString &printer, bool isClass)
 {
 }
 
-KCupsPrinter::KCupsPrinter(const QVariantMap &arguments)
-    : m_printer(arguments[QLatin1String(KCUPS_PRINTER_NAME)].toString())
-    , m_isClass(arguments[QLatin1String(KCUPS_PRINTER_TYPE)].toInt() & CUPS_PRINTER_CLASS)
-    , m_arguments(arguments)
+KCupsPrinter::KCupsPrinter(const QVariantMap &attributes)
+    : m_printer(attributes[QLatin1String(KCUPS_PRINTER_NAME)].toString())
+    , m_isClass(attributes[QLatin1String(KCUPS_PRINTER_TYPE)].toInt() & CUPS_PRINTER_CLASS)
+    , m_attributes(attributes)
 {
 }
 
@@ -36,32 +36,32 @@ bool KCupsPrinter::isClass() const
 
 bool KCupsPrinter::isDefault() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_TYPE)].toUInt() & CUPS_PRINTER_DEFAULT;
+    return m_attributes[QLatin1String(KCUPS_PRINTER_TYPE)].toUInt() & CUPS_PRINTER_DEFAULT;
 }
 
 bool KCupsPrinter::isShared() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_IS_SHARED)].toBool();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_IS_SHARED)].toBool();
 }
 
 bool KCupsPrinter::isAcceptingJobs() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_IS_ACCEPTING_JOBS)].toBool();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_IS_ACCEPTING_JOBS)].toBool();
 }
 
 cups_ptype_e KCupsPrinter::type() const
 {
-    return static_cast<cups_ptype_e>(m_arguments[QLatin1String(KCUPS_PRINTER_TYPE)].toUInt());
+    return static_cast<cups_ptype_e>(m_attributes[QLatin1String(KCUPS_PRINTER_TYPE)].toUInt());
 }
 
 QString KCupsPrinter::location() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_LOCATION)].toString();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_LOCATION)].toString();
 }
 
 QString KCupsPrinter::info() const
 {
-    const QString printerInfo = m_arguments[QLatin1String(KCUPS_PRINTER_INFO)].toString();
+    const QString printerInfo = m_attributes[QLatin1String(KCUPS_PRINTER_INFO)].toString();
     if (printerInfo.isEmpty()) {
         return name();
     }
@@ -70,92 +70,92 @@ QString KCupsPrinter::info() const
 
 QString KCupsPrinter::makeAndModel() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_MAKE_AND_MODEL)].toString();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_MAKE_AND_MODEL)].toString();
 }
 
 QStringList KCupsPrinter::commands() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_COMMANDS)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_COMMANDS)].toStringList();
 }
 
 QStringList KCupsPrinter::memberNames() const
 {
-    return m_arguments[QLatin1String(KCUPS_MEMBER_NAMES)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_MEMBER_NAMES)].toStringList();
 }
 
 QString KCupsPrinter::deviceUri() const
 {
-    return m_arguments[QLatin1String(KCUPS_DEVICE_URI)].toString();
+    return m_attributes[QLatin1String(KCUPS_DEVICE_URI)].toString();
 }
 
 QStringList KCupsPrinter::errorPolicy() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_ERROR_POLICY)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_ERROR_POLICY)].toStringList();
 }
 
 QStringList KCupsPrinter::errorPolicySupported() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_ERROR_POLICY_SUPPORTED)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_ERROR_POLICY_SUPPORTED)].toStringList();
 }
 
 QStringList KCupsPrinter::opPolicy() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_OP_POLICY)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_OP_POLICY)].toStringList();
 }
 
 QStringList KCupsPrinter::opPolicySupported() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_OP_POLICY_SUPPORTED)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_OP_POLICY_SUPPORTED)].toStringList();
 }
 
 QStringList KCupsPrinter::jobSheetsDefault() const
 {
-    return m_arguments[QLatin1String(KCUPS_JOB_SHEETS_DEFAULT)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_JOB_SHEETS_DEFAULT)].toStringList();
 }
 
 QStringList KCupsPrinter::jobSheetsSupported() const
 {
-    return m_arguments[QLatin1String(KCUPS_JOB_SHEETS_SUPPORTED)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_JOB_SHEETS_SUPPORTED)].toStringList();
 }
 
 QStringList KCupsPrinter::requestingUserNameAllowed() const
 {
-    return m_arguments[QLatin1String(KCUPS_REQUESTING_USER_NAME_ALLOWED)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_REQUESTING_USER_NAME_ALLOWED)].toStringList();
 }
 
 QStringList KCupsPrinter::requestingUserNameDenied() const
 {
-    return m_arguments[QLatin1String(KCUPS_REQUESTING_USER_NAME_DENIED)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_REQUESTING_USER_NAME_DENIED)].toStringList();
 }
 
 QStringList KCupsPrinter::authInfoRequired() const
 {
-    return m_arguments[QLatin1String(KCUPS_AUTH_INFO_REQUIRED)].toStringList();
+    return m_attributes[QLatin1String(KCUPS_AUTH_INFO_REQUIRED)].toStringList();
 }
 
 QString KCupsPrinter::uriSupported() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_URI_SUPPORTED)].toString();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_URI_SUPPORTED)].toString();
 }
 
 KCupsPrinter::Status KCupsPrinter::state() const
 {
-    return static_cast<Status>(m_arguments[QLatin1String(KCUPS_PRINTER_STATE)].toUInt());
+    return static_cast<Status>(m_attributes[QLatin1String(KCUPS_PRINTER_STATE)].toUInt());
 }
 
 QString KCupsPrinter::stateMsg() const
 {
-    return m_arguments[QLatin1String(KCUPS_PRINTER_STATE_MESSAGE)].toString();
+    return m_attributes[QLatin1String(KCUPS_PRINTER_STATE_MESSAGE)].toString();
 }
 
 int KCupsPrinter::markerChangeTime() const
 {
-    return m_arguments[QLatin1String(KCUPS_MARKER_CHANGE_TIME)].toInt();
+    return m_attributes[QLatin1String(KCUPS_MARKER_CHANGE_TIME)].toInt();
 }
 
-QVariant KCupsPrinter::argument(const QString &name) const
+QVariant KCupsPrinter::attribute(const QString &name) const
 {
-    return m_arguments.value(name);
+    return m_attributes.value(name);
 }
 
 QIcon KCupsPrinter::icon() const

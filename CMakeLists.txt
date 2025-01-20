@@ -40,6 +40,7 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
     ConfigWidgets 
     CoreAddons 
     DBusAddons 
+    DNSSD
     IconThemes 
     I18n 
     KCMUtils 

@@ -16,7 +16,8 @@ set(libkcups_SRCS
     JobModel.cpp
     JobSortFilterModel.cpp
     ProcessRunner.cpp
-    DevicesModel.cpp
+    DestModel.cpp
+    IppBrowserManager.cpp
 
     KIppRequest.h
     KCupsPasswordDialog.h
@@ -33,7 +34,8 @@ set(libkcups_SRCS
     JobModel.h
     JobSortFilterModel.h
     ProcessRunner.h
-    DevicesModel.h
+    DestModel.h
+    IppBrowserManager.h
 )
 
 ki18n_wrap_ui(libkcups_SRCS
@@ -55,6 +57,7 @@ target_link_libraries(kcupslib PUBLIC
     Qt::Widgets
     KF6::ConfigWidgets
     KF6::CoreAddons
+    KF6::DNSSD
     KF6::I18n
     KF6::IconThemes
     KF6::KIOCore

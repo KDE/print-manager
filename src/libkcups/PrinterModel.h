@@ -55,7 +55,8 @@ public:
         DestRemote,
         DestUri,
         DestUriSupported,
-        DestMemberNames
+        DestMemberNames,
+        DestIsDiscovered
     };
     Q_ENUM(Role)
 
@@ -85,8 +86,9 @@ public:
     bool hasOnlyPrinters() const;
 
 public slots:
-    void update();
+    void update(int timeout = 5000, uint type = 0, uint mask = 0);
     void getDestsFinished(KCupsRequest *request);
+    void newDevice(const QVariantMap &device);
 
 signals:
     void serverUnavailableChanged(bool unavailable);
@@ -101,7 +103,6 @@ private slots:
                              uint printerState,
                              const QString &printerStateReasons,
                              bool printerIsAcceptingJobs);
-    void insertUpdatePrinterFinished(KCupsRequest *request);
     void printerRemoved(const QString &text,
                         const QString &printerUri,
                         const QString &printerName,

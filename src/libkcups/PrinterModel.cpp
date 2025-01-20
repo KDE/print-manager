@@ -64,6 +64,7 @@ PrinterModel::PrinterModel(QObject *parent)
     m_roles[DestUri] = "printerUri";
     m_roles[DestUriSupported] = "uriSupported";
     m_roles[DestMemberNames] = "memberNames";
+    m_roles[DestIsDiscovered] = "isDiscovered";
 
     // This is emitted when a printer is added
     connect(KCupsConnection::global(), &KCupsConnection::printerAdded, this, &PrinterModel::insertUpdatePrinter);
@@ -110,35 +111,6 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
         if (m_unavailable) {
             m_unavailable = false;
             Q_EMIT serverUnavailableChanged(m_unavailable);
-        }
-
-        const KCupsPrinters printers = request->printers();
-        for (int i = 0; i < printers.size(); ++i) {
-            // If there is a printer and it's not the current one add it
-            // as a new destination
-            int dest_row = destRow(printers.at(i).name());
-            if (dest_row == -1) {
-                // not found, insert new one
-                insertDest(i, printers.at(i));
-            } else if (dest_row == i) {
-                // update the printer
-                updateDest(item(i), printers.at(i));
-            } else {
-                // found at wrong position
-                // take it and insert on the right position
-                QList<QStandardItem *> row = takeRow(dest_row);
-                insertRow(i, row);
-                updateDest(item(i), printers.at(i));
-            }
-        }
-
-        // remove old printers
-        // The above code starts from 0 and make sure
-        // dest == modelIndex(x) and if it's not the
-        // case it either inserts or moves it.
-        // so any item > num_jobs can be safely deleted
-        while (rowCount() > printers.size()) {
-            removeRow(rowCount() - 1);
         }
 
         updateDisplayHints();
@@ -247,20 +219,33 @@ void PrinterModel::acceptJobs(const QString &printerName)
     request->acceptJobs(printerName);
 }
 
-void PrinterModel::update()
+void PrinterModel::newDevice(const QVariantMap &device)
 {
-    //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan",
-    //                 "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" , QVariant(QStringList,
-    //                 ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) (
-    //                 "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge",
-    //                 "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) (
-    //                 "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int,
-    //                 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) (
-    //                 "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
-    // Get destinations with these attributes
+    const KCupsPrinter printer(std::move(device));
+    // If there is a printer and it's not the current one add it
+    // as a new destination
+
+    int dest_row = destRow(printer.name());
+    if (dest_row == -1) {
+        // not found, insert new one
+        qCDebug(LIBKCUPS) << "Model ADDING Printer" << printer.name() << "uriSupported:" << printer.uriSupported();
+        insertDest(0, printer);
+    } else {
+        // update the printer
+        qCDebug(LIBKCUPS) << "Model UPDATING Printer" << printer.name() << dest_row;
+        updateDest(item(dest_row), printer);
+    }
+}
+
+void PrinterModel::update(int timeout, uint type, uint mask)
+{
+    Q_UNUSED(mask)
+
     auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::deviceMap, this, &PrinterModel::newDevice);
     connect(request, &KCupsRequest::finished, this, &PrinterModel::getDestsFinished);
-    request->getPrinters(m_attrs);
+    // FIXME 6.4+: Remove mask to include discovered printers
+    request->getDestinations(timeout, type, CUPS_PRINTER_DISCOVERED);
 }
 
 void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
@@ -327,6 +312,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     if (printerType != destItem->data(DestType)) {
         destItem->setData(printerType, DestType);
         destItem->setData(printerType & CUPS_PRINTER_REMOTE, DestRemote);
+        destItem->setData(printerType & CUPS_PRINTER_DISCOVERED, DestIsDiscovered);
     }
 
     // store the printer location
@@ -453,31 +439,12 @@ void PrinterModel::insertUpdatePrinter(const QString &text,
     Q_UNUSED(printerStateReasons)
     Q_UNUSED(printerIsAcceptingJobs)
 
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
-    auto request = new KCupsRequest;
-    connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
-    request->getPrinterAttributes(printerName, false, m_attrs);
-}
+    qCDebug(LIBKCUPS) << "CUPS UPDATE:" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 
-void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
-{
-    if (!request->hasError()) {
-        const KCupsPrinters printers = request->printers();
-        for (const KCupsPrinter &printer : printers) {
-            // If there is a printer and it's not the current one add it
-            // as a new destination
-            int dest_row = destRow(printer.name());
-            if (dest_row == -1) {
-                // not found, insert new one
-                insertDest(0, printer);
-            } else {
-                // update the printer
-                updateDest(item(dest_row), printer);
-            }
-        }
-    }
-    updateDisplayHints();
-    request->deleteLater();
+    auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::deviceMap, this, &PrinterModel::newDevice);
+    connect(request, &KCupsRequest::finished, this, &PrinterModel::getDestsFinished);
+    request->getPrinterAttributesNotify(printerName, false, m_attrs);
 }
 
 void PrinterModel::printerRemoved(const QString &text,

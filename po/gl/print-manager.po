@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marce Villarino <mvillarino@kde-espana.es>, 2013, 2014.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015.
-# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-12-17 22:48+0100\n"
+"PO-Revision-Date: 2025-01-19 12:19+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -462,7 +462,7 @@ msgstr "Configuración dos soportes"
 #: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
-msgstr "Separadores, regras e usuarios admitidos"
+msgstr "Separadores, regras e usuarios permitidos"
 
 #: src/configure-printer/ConfigureDialog.cpp:171
 #, kde-format

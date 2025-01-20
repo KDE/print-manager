@@ -66,7 +66,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
         // So, create a QList<int> if only one entry (int)
         const auto getLevels = [printer](const QString &key) -> QList<QVariant> {
             QList<QVariant> list;
-            const auto levels = printer.argument(key);
+            const auto levels = printer.attribute(key);
             if (levels.isValid()) {
                 if (levels.canConvert<QList<int>>()) {
                     list = levels.toList();
@@ -86,7 +86,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
         const auto currentLevels = getLevels(KCUPS_MARKER_LEVELS);
         const auto lowLevels = getLevels(KCUPS_MARKER_LOW_LEVELS);
         const auto highLevels = getLevels(KCUPS_MARKER_HIGH_LEVELS);
-        const auto typesList = printer.argument(KCUPS_MARKER_TYPES).toStringList();
+        const auto typesList = printer.attribute(KCUPS_MARKER_TYPES).toStringList();
 
         if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
             qCDebug(PMKDED) << "At least one marker level attribute is invalid or not found, aborting level check";
@@ -161,7 +161,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
                 // Make sure name/type lists are valid
                 QString name(u"<unknown>"_s);
                 QString type(u"<unknown>"_s);
-                auto list = printer.argument(KCUPS_MARKER_NAMES).toStringList();
+                auto list = printer.attribute(KCUPS_MARKER_NAMES).toStringList();
                 if (levelIndex < list.count()) {
                     name = list.at(levelIndex);
                 }

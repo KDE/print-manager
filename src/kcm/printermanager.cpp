@@ -24,7 +24,9 @@
 
 #include <KCupsRequest.h>
 #include <cups/adminutil.h>
+#ifdef LIBCUPS_VERSION_2
 #include <cups/ppd.h>
+#endif
 
 using namespace Qt::StringLiterals;
 
@@ -74,12 +76,14 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData,
         Q_EMIT serverStarted();
     });
 
+#ifdef LIBCUPS_VERSION_2
     qmlRegisterUncreatableMetaObject(PMTypes::staticMetaObject,
                                      "org.kde.plasma.printmanager", // use same namespace as kcupslib
                                      1,
                                      0,
                                      "PPDType", // QML qualifier
                                      u"Error: for only enums"_s);
+#endif
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
@@ -297,6 +301,7 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
     }
 }
 
+#ifdef LIBCUPS_VERSION_2
 void PrinterManager::loadPrinterPPD(const QString &name)
 {
     auto request = new KCupsRequest;
@@ -385,6 +390,7 @@ void PrinterManager::loadPrinterPPD(const QString &name)
                           {u"makeModel"_s, makeAndModel}});
     });
 }
+#endif
 
 bool PrinterManager::isIPPCapable(const QString &uri)
 {
@@ -500,12 +506,6 @@ void PrinterManager::removePrinter(const QString &name)
     request->deletePrinter(name);
 }
 
-void PrinterManager::makePrinterDefault(const QString &name)
-{
-    const auto request = setupRequest();
-    request->setDefaultPrinter(name);
-}
-
 void PrinterManager::getServerSettings()
 {
     const auto request = new KCupsRequest();
@@ -583,23 +583,6 @@ bool PrinterManager::allowRemoteAdmin() const
 bool PrinterManager::allowUserCancelAnyJobs() const
 {
     return m_serverSettings.value(QLatin1String(CUPS_SERVER_USER_CANCEL_ANY), false).toBool();
-}
-
-void PrinterManager::makePrinterShared(const QString &name, bool shared, bool isClass)
-{
-    const auto request = setupRequest();
-    request->setShared(name, isClass, shared);
-}
-
-void PrinterManager::makePrinterRejectJobs(const QString &name, bool reject)
-{
-    const auto request = setupRequest();
-
-    if (reject) {
-        request->rejectJobs(name);
-    } else {
-        request->acceptJobs(name);
-    }
 }
 
 void PrinterManager::printTestPage(const QString &name, bool isClass)

@@ -109,7 +109,7 @@ KCM.ScrollViewKCM {
             Accessible.name: i18nc("@action:button", "Add Printer…")
             icon.name: "list-add-symbolic"
             onTriggered: {
-                checkServerSettings()
+                // checkServerSettings()
                 const dlg = findComp.createObject(root)
                 dlg.open()
             }
@@ -239,27 +239,36 @@ KCM.ScrollViewKCM {
 
             Kirigami.ListSectionHeader {
                 width: ListView.view.width
-                required property bool section
-                text: !section ? i18n("Printers") : i18n("Printer Groups")
+                required property string section
+                text: section //!section ? i18n("Printers") : i18n("Printer Groups")
+
+                QQC2.ToolButton {
+                    icon.name: "view-refresh-symbolic"
+                    onClicked: {
+                        pmModel.update()
+                    }
+                }
             }
         }
 
         // If there is a mix of printers and classes (groups), then show
         // the section header
         section {
-            property: "isClass"
+            property: "category"
             delegate: !pmModel.hasOnlyPrinters ? sectionComp : undefined
         }
 
         model: KItemModels.KSortFilterProxyModel {
             sourceModel: pmModel
-            sortRoleName: "isClass"
+            sortRoleName: "category"
         }
 
         delegate: QQC2.ItemDelegate {
             id: devDelegate
             width: ListView.view.width
-
+            
+            property bool discovered: uriSupported === "_discovered"
+            
             required property var model
             required property int index
             required property bool isClass
@@ -271,9 +280,17 @@ KCM.ScrollViewKCM {
             required property string info
             required property string stateMessage
             required property string iconName
+            required property string kind
+            required property string uriSupported
+            required property string printerUri
 
             onClicked: {
-                checkServerSettings()
+                if (discovered) {
+                    return
+                }
+
+                // checkServerSettings()
+                kcm.getAttributes(printerName)
                 kcm.push("PrinterSettings.qml"
                                 , { modelData: model
                                 , addMode: false
@@ -287,22 +304,26 @@ KCM.ScrollViewKCM {
 
                 Kirigami.IconTitleSubtitle {
                     Layout.fillWidth: true
-                    title: info
+                    title: "(%1) %2".arg(devDelegate.printerName).arg(devDelegate.info)
                           + (location && pmModel.showLocations
                              ? " (%1)".arg(location)
                              : "")
-                    subtitle: stateMessage
-                    icon.name: remote
+                    subtitle: devDelegate.discovered
+                              ? i18n("Discovered Printer (%1)", devDelegate.printerUri)
+                              : i18n("%1 (Permanent Queue: %2)", model.stateMessage, printerUri)
+                    icon.name: devDelegate.remote
                             ? "folder-network-symbolic"
                             : (isClass ? "folder-print" : iconName)
 
                     font.bold: list.count > 1 & isDefault
                     selected: devDelegate.highlighted || devDelegate.down
+
                 }
 
                 QQC2.ToolButton {
                     text: i18nc("@action:button Open print queue", "Print Queue")
                     icon.name: "view-list-details-symbolic"
+                    visible: !devDelegate.discovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: PM.ProcessRunner.openPrintQueue(printerName)
@@ -313,17 +334,19 @@ KCM.ScrollViewKCM {
                 }
 
                 QQC2.ToolButton {
-                    icon.name: isPaused
+                    icon.name: devDelegate.isPaused
                                ? "media-playback-start-symbolic"
                                : "media-playback-pause-symbolic"
-                    text: isPaused
+                    text: devDelegate.isPaused
                           ? i18nc("@action:button Resume printing", "Resume")
                           : i18nc("@action:button Pause printing", "Pause")
+
+                    visible: !devDelegate.discovered
 
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: {
-                        if (isPaused) {
+                        if (devDelegate.isPaused) {
                             kcm.resumePrinter(printerName);
                         } else {
                             kcm.pausePrinter(printerName);
@@ -331,11 +354,37 @@ KCM.ScrollViewKCM {
                     }
 
                     QQC2.ToolTip {
-                        text: isPaused
+                        text: devDelegate.isPaused
                               ? i18nc("@info:tooltip", "Resume printing")
                               : i18nc("@info:tooltip", "Pause printing")
                     }
                 }
+
+                // For discovered printers...
+                QQC2.ToolButton {
+                    text: i18nc("@action:button", "Make printer permanent…")
+                    icon.name: "list-add-symbolic"
+                    display: QQC2.AbstractButton.IconOnly
+                    visible: devDelegate.discovered
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+
+                    onClicked: {
+                        // checkServerSettings()
+                        newPrinter(true
+                                   , devDelegate.model
+                                   , {make: devDelegate.kind.split(' ')[0]
+                                       , makeModel: devDelegate.kind
+                                       , type: PM.PPDType.Auto
+                                       /*, name: "everywhere"
+                                       , file: "everywhere"
+                                       , pcfile: "everywhere"*/})
+                    }
+
+                    QQC2.ToolTip {
+                        text: parent.text
+                    }
+                }
+
             }
         }
     }

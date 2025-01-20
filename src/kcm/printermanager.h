@@ -65,6 +65,8 @@ public:
     Q_INVOKABLE static bool isIPPCapable(const QString &uri);
     Q_INVOKABLE static bool isSCPAvailable();
 
+    Q_INVOKABLE void getAttributes(const QString &name);
+
     QString osName() const;
     QString osBugReportUrl() const;
 

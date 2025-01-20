@@ -265,6 +265,58 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
     }
 }
 
+void PrinterManager::getAttributes(const QString &name)
+{
+    // get info and test for supported
+    cups_dest_t *dest = cupsGetNamedDest(CUPS_HTTP_DEFAULT, name.toUtf8().data(), NULL);
+    if (!dest) {
+        qCWarning(PMKCM) << name << "DEST NOT FOUND!";
+        return;
+    }
+
+    qCWarning(PMKCM) << "FOUND!" << name;
+
+    cups_dinfo_t *info = cupsCopyDestInfo(CUPS_HTTP_DEFAULT, dest);
+
+    // if (cupsCheckDestSupported(CUPS_HTTP_DEFAULT, dest, info,
+    //                            CUPS_FINISHINGS, NULL))
+    // {
+    //     // get supported attr
+    //   ipp_attribute_t *finishings =
+    //       cupsFindDestSupported(CUPS_HTTP_DEFAULT, dest, info,
+    //                             CUPS_FINISHINGS);
+    //   int i, count = ippGetCount(finishings);
+    //   qCWarning(PMKCM) << name << "FINISHINGS:";
+    //   for (i = 0; i < count; i ++)
+    //     qCWarning(PMKCM) << ippGetInteger(finishings, i);
+    // }
+    // else
+    //   qCWarning(PMKCM) << name << "====> NO FINISHINGS:";
+
+    // Get supported attribute
+    ipp_attribute_t *att = cupsFindDestSupported(CUPS_HTTP_DEFAULT, dest, info, "job-creation-attributes");
+    int i, count = ippGetCount(att);
+    for (i = 0; i < count; i++) {
+        const auto o = ippGetString(att, i, NULL);
+
+        const char *def_value = cupsGetOption(o, dest->num_options, dest->options);
+        ipp_attribute_t *def_attr = cupsFindDestDefault(CUPS_HTTP_DEFAULT, dest, info, o);
+
+        if (def_value != NULL) {
+            qCWarning(PMKCM) << "Default:" << o << ":" << def_value;
+        } else {
+            qCWarning(PMKCM) << o << ":" << ippGetInteger(def_attr, 0);
+            int i, count = ippGetCount(def_attr);
+            for (i = 1; i < count; i++) {
+                qCWarning(PMKCM) << ippGetInteger(def_attr, i);
+            }
+        }
+    }
+
+    cupsFreeDests(1, dest);
+    cupsFreeDestInfo(info);
+}
+
 void PrinterManager::loadPrinterPPD(const QString &name)
 {
     auto request = new KCupsRequest;

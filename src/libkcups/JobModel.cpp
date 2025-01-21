@@ -92,42 +92,26 @@ void JobModel::init(const QString &destName)
 
 void JobModel::hold(const QString &printerName, int jobId)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->holdJob(printerName, jobId);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void JobModel::release(const QString &printerName, int jobId)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->releaseJob(printerName, jobId);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void JobModel::cancel(const QString &printerName, int jobId)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->cancelJob(printerName, jobId);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void JobModel::move(const QString &printerName, int jobId, const QString &toPrinterName)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->moveJob(printerName, jobId, toPrinterName);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void JobModel::getJobs()
@@ -330,6 +314,21 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
 
     // update the items
     updateJob(pos, job);
+}
+
+KCupsRequest *JobModel::setupRequest(std::function<void()> finished)
+{
+    auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::finished, this, [this, finished](KCupsRequest *r) {
+        if (r->hasError()) {
+            Q_EMIT error(r->error(), r->serverError(), r->errorMsg());
+        } else {
+            finished();
+        }
+        r->deleteLater();
+    });
+
+    return request;
 }
 
 void JobModel::updateJob(int pos, const KCupsJob &job)

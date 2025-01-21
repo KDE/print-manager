@@ -296,6 +296,7 @@ private:
 
     KCupsConnection *m_connection = nullptr;
     QEventLoop m_loop;
+    QMetaObject::Connection m_loopConnect;
     bool m_finished = true;
     ipp_status_t m_error = IPP_OK;
     http_status_t m_httpStatus;

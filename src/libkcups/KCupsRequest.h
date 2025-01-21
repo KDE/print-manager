@@ -26,8 +26,7 @@ public:
      * Default constructor, it takes no parent
      * because it will move to KCupsConnection thread
      *
-     * Before calling any method connect to finished() signal or
-     * use waitTillFinished().
+     * Before calling any method connect to finished() signal.
      * You must delete the object manually after finished
      * using deleteLater().
      */
@@ -37,6 +36,7 @@ public:
      * This method creates an event loop
      * and quits after the request is finished
      */
+    [[deprecated("Creates an event loop, do not use with QML components")]]
     void waitTillFinished();
 
     /**

@@ -120,12 +120,16 @@ private Q_SLOTS:
                          const QString &jobName,
                          uint jobImpressionsCompleted);
 
+Q_SIGNALS:
+    void error(int lastError, const QString &errorTitle, const QString &errorMsg);
+
 private:
     int jobRow(int jobId);
     void insertJob(int pos, const KCupsJob &job);
     void updateJob(int pos, const KCupsJob &job);
     QString jobStatus(ipp_jstate_e job_state);
     void clear();
+    KCupsRequest *setupRequest(std::function<void()> finished = []() { });
 
     KCupsRequest *m_jobRequest = nullptr;
     QString m_destName;

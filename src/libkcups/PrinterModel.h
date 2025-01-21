@@ -151,6 +151,7 @@ private:
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);
     void updateDest(QStandardItem *item, const KCupsPrinter &printer);
+    KCupsRequest *setupRequest(std::function<void()> finished = []() { });
 
     QString destStatus(KCupsPrinter::Status state, const QString &message, bool isAcceptingJobs) const;
     QStringList m_attrs;

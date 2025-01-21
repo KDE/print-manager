@@ -198,6 +198,21 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
     return QVariant();
 }
 
+KCupsRequest *PrinterModel::setupRequest(std::function<void()> finished)
+{
+    auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::finished, this, [this, finished](KCupsRequest *r) {
+        if (r->hasError()) {
+            Q_EMIT error(r->error(), r->serverError(), r->errorMsg());
+        } else {
+            finished();
+        }
+        r->deleteLater();
+    });
+
+    return request;
+}
+
 bool PrinterModel::serverUnavailable() const
 {
     return m_unavailable;
@@ -210,42 +225,26 @@ QHash<int, QByteArray> PrinterModel::roleNames() const
 
 void PrinterModel::pausePrinter(const QString &printerName)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->pausePrinter(printerName);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void PrinterModel::resumePrinter(const QString &printerName)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->resumePrinter(printerName);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void PrinterModel::rejectJobs(const QString &printerName)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->rejectJobs(printerName);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void PrinterModel::acceptJobs(const QString &printerName)
 {
-    QPointer<KCupsRequest> request = new KCupsRequest;
+    const auto request = setupRequest();
     request->acceptJobs(printerName);
-    request->waitTillFinished();
-    if (request) {
-        request->deleteLater();
-    }
 }
 
 void PrinterModel::update()

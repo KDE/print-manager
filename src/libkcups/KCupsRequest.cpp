@@ -22,7 +22,6 @@ KCupsRequest::KCupsRequest(KCupsConnection *connection)
     if (m_connection == nullptr) {
         m_connection = KCupsConnection::global();
     }
-    connect(this, &KCupsRequest::finished, &m_loop, &QEventLoop::quit);
 }
 
 QString KCupsRequest::serverError() const
@@ -592,6 +591,10 @@ void KCupsRequest::waitTillFinished()
 {
     if (m_finished) {
         return;
+    }
+
+    if (!m_loopConnect) {
+        m_loopConnect = connect(this, &KCupsRequest::finished, &m_loop, &QEventLoop::quit);
     }
 
     m_loop.exec();

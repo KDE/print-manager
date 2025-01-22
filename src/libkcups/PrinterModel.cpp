@@ -91,10 +91,6 @@ PrinterModel::PrinterModel(QObject *parent)
     connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, &PrinterModel::serverChanged);
     connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &PrinterModel::serverChanged);
 
-    connect(this, &PrinterModel::rowsInserted, this, &PrinterModel::slotCountChanged);
-    connect(this, &PrinterModel::rowsRemoved, this, &PrinterModel::slotCountChanged);
-    connect(this, &PrinterModel::modelReset, this, &PrinterModel::slotCountChanged);
-
     update();
 }
 
@@ -194,22 +190,12 @@ bool PrinterModel::showLocations() const
     return m_showLocations;
 }
 
-void PrinterModel::slotCountChanged()
-{
-    Q_EMIT countChanged(rowCount());
-}
-
 QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (section == 0 && orientation == Qt::Horizontal && role == Qt::DisplayRole) {
         return i18n("Printers");
     }
     return QVariant();
-}
-
-int PrinterModel::count() const
-{
-    return rowCount();
 }
 
 bool PrinterModel::serverUnavailable() const

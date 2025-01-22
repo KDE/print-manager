@@ -20,7 +20,6 @@ class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
     /**
      * Whether or not to actually display the location of the printer
@@ -88,10 +87,8 @@ public:
 public slots:
     void update();
     void getDestsFinished(KCupsRequest *request);
-    void slotCountChanged();
 
 signals:
-    void countChanged(int count);
     void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void showLocationsChanged();

@@ -78,39 +78,6 @@ static void choose_device_cb(const char *device_class, /* I - Class */
                               Q_ARG(QString, QString::fromUtf8(device_location)));
 }
 
-void KCupsRequest::getDevices(int timeout)
-{
-    getDevices(timeout, QStringList(), QStringList());
-}
-
-void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes)
-{
-    if (m_connection->readyToStart()) {
-        do {
-            const char *include;
-            if (includeSchemes.isEmpty()) {
-                include = CUPS_INCLUDE_ALL;
-            } else {
-                include = qUtf8Printable(includeSchemes.join(QLatin1String(",")));
-            }
-
-            const char *exclude;
-            if (excludeSchemes.isEmpty()) {
-                exclude = CUPS_EXCLUDE_NONE;
-            } else {
-                exclude = qUtf8Printable(excludeSchemes.join(QLatin1String(",")));
-            }
-
-            // Scan for devices for "timeout" seconds
-            cupsGetDevices(CUPS_HTTP_DEFAULT, timeout, include, exclude, (cups_device_cb_t)choose_device_cb, this);
-        } while (m_connection->retry("/admin/", CUPS_GET_DEVICES));
-        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
-        setFinished(true);
-    } else {
-        invokeMethod("getDevices", timeout, includeSchemes, excludeSchemes);
-    }
-}
-
 static int get_dest_cb(void *user_data, unsigned flags, cups_dest_t *dest)
 {
     Q_UNUSED(flags)
@@ -369,23 +336,6 @@ void KCupsRequest::getServerSettings()
         setFinished();
     } else {
         invokeMethod("getServerSettings");
-    }
-}
-
-void KCupsRequest::getPrinterPPD(const QString &printerName)
-{
-    if (m_connection->readyToStart()) {
-        do {
-            const char *filename;
-            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName));
-            qCDebug(LIBKCUPS) << filename;
-            m_ppdFile = QString::fromUtf8(filename);
-            qCDebug(LIBKCUPS) << m_ppdFile;
-        } while (m_connection->retry("/", CUPS_GET_PPD));
-        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
-        setFinished();
-    } else {
-        invokeMethod("getPrinterPPD", printerName);
     }
 }
 

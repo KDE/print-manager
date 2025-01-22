@@ -92,6 +92,20 @@ public:
     Q_INVOKABLE void getDestinations(int timeout = 5000, uint type = 0, uint mask = 0);
 
     /**
+     * Get all devices that could be added as a printer
+     * This method emits device()
+     */
+    [[deprecated("use getDestinations instead")]]
+    Q_INVOKABLE void getDevices(int timeout = CUPS_TIMEOUT_DEFAULT);
+
+    /**
+     * Get all devices that could be added as a printer
+     * This method emits device()
+     */
+    [[deprecated("use getDestinations instead")]]
+    Q_INVOKABLE void getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes);
+
+    /**
      * Get all available printers
      * @param mask filter the kind of printer that will be emitted (-1 to no filter)
      * @param requestedAttr the attributes to retrieve from cups
@@ -111,6 +125,7 @@ public:
      *
      * @return The return will be stored in \sa printers()
      */
+    [[deprecated("Use getPrinterAttributesNotify instead")]]    
     Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes);
 
     /**
@@ -149,6 +164,13 @@ public:
      * This method emits server()
      */
     Q_INVOKABLE void getServerSettings();
+    
+    /**
+     * Get the PPD associated with @arg printerName
+     * the result is stored at \sa printerPPD()
+     */
+    [[deprecated("Use getPPD instead")]]
+    Q_INVOKABLE void getPrinterPPD(const QString &printerName);
 
     /**
      * Get the PPD associated with @arg printerName

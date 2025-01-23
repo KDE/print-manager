@@ -105,8 +105,8 @@ void KIppRequest::addVariantValues(const QVariantMap &values)
     while (i != values.constEnd()) {
         const QString &key = i.key();
         const QVariant &value = i.value();
-        switch (value.type()) {
-        case QVariant::Bool:
+        switch (value.typeId()) {
+        case QMetaType::Bool:
             // Still in use at add-printer/PageAddPrinter.cpp
             if (key == QLatin1String(KCUPS_PRINTER_IS_ACCEPTING_JOBS)) {
                 addBoolean(IPP_TAG_PRINTER, key, value.toBool());
@@ -114,7 +114,7 @@ void KIppRequest::addVariantValues(const QVariantMap &values)
                 addBoolean(IPP_TAG_OPERATION, key, value.toBool());
             }
             break;
-        case QVariant::Int:
+        case QMetaType::Int:
             // Still in use at add-printer/PageAddPrinter.cpp
             if (key == QLatin1String(KCUPS_PRINTER_STATE)) {
                 addInteger(IPP_TAG_PRINTER, IPP_TAG_ENUM, key, value.toInt());
@@ -122,7 +122,7 @@ void KIppRequest::addVariantValues(const QVariantMap &values)
                 addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, key, value.toInt());
             }
             break;
-        case QVariant::String:
+        case QMetaType::QString:
             // Still in use at add-printer/*
             if (key == QLatin1String(KCUPS_DEVICE_URI)) {
                 // device uri has a different TAG
@@ -138,14 +138,14 @@ void KIppRequest::addVariantValues(const QVariantMap &values)
                 addString(IPP_TAG_PRINTER, IPP_TAG_TEXT, key, value.toString());
             }
             break;
-        case QVariant::StringList:
+        case QMetaType::QStringList:
             if (key == QLatin1String(KCUPS_MEMBER_URIS)) {
                 addStringList(IPP_TAG_PRINTER, IPP_TAG_URI, key, value.toStringList());
             } else {
                 addStringList(IPP_TAG_PRINTER, IPP_TAG_NAME, key, value.toStringList());
             }
             break;
-        case QVariant::UInt:
+        case QMetaType::UInt:
             addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, key, value.toInt());
             break;
         default:
@@ -207,18 +207,18 @@ void KIppRequestPrivate::addRawRequestsToIpp(ipp_t *ipp) const
 
     const QList<KCupsRawRequest> &requests = rawRequests;
     for (const KCupsRawRequest &request : requests) {
-        switch (request.value.type()) {
-        case QVariant::Bool:
+        switch (request.value.typeId()) {
+        case QMetaType::Bool:
             ippAddBoolean(ipp, request.group, request.name.toUtf8().constData(), request.value.toBool());
             break;
-        case QVariant::Int:
-        case QVariant::UInt:
+        case QMetaType::Int:
+        case QMetaType::UInt:
             ippAddInteger(ipp, request.group, request.valueTag, request.name.toUtf8().constData(), request.value.toInt());
             break;
-        case QVariant::String:
+        case QMetaType::QString:
             ippAddString(ipp, request.group, request.valueTag, request.name.toUtf8().constData(), "utf-8", request.value.toString().toUtf8().constData());
             break;
-        case QVariant::StringList: {
+        case QMetaType::QStringList: {
             QStringList list = request.value.toStringList();
             QList<QByteArray> valuesQByteArrayList;
             const char **values = qStringListToCharPtrPtr(list, valuesQByteArrayList);

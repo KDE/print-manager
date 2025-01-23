@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-23 00:42+0000\n"
 "PO-Revision-Date: 2022-09-27 17:15+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: Indonesian <kde-i18n-doc@kde.org>\n"
@@ -1104,67 +1104,67 @@ msgstr "Driver yang Dianjurkan"
 msgid "Empty ppd model"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:205
+#: src/libkcups/PrinterModel.cpp:196
 #, kde-format
 msgid "Printers"
 msgstr "Printer"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle"
 msgstr "Idle"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Idle, menolak tugas"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:415
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Idle - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:415
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Idle, menolak tugas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:433
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use"
 msgstr "Sedang digunakan"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:421
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Sedang digunakan - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:439
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused"
 msgstr "Dijeda"
 
-#: src/libkcups/PrinterModel.cpp:439
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Dijeda, menolak tugas"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Dijeda - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Dijeda, menolak tugas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:445
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown"
 msgstr "Tidak diketahui"
 
-#: src/libkcups/PrinterModel.cpp:447
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Tidak diketahui - '%1'"

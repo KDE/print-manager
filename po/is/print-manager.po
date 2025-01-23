@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-23 00:42+0000\n"
 "PO-Revision-Date: 2024-06-30 15:41+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -1075,67 +1075,67 @@ msgstr "Reklar sem mælt er með"
 msgid "Empty ppd model"
 msgstr "Autt ppd-módel"
 
-#: src/libkcups/PrinterModel.cpp:205
+#: src/libkcups/PrinterModel.cpp:196
 #, kde-format
 msgid "Printers"
 msgstr "Prentarar"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle"
 msgstr "Aðgerðalaus"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Aðgerðalaus; hafnar verkum"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:415
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Aðgerðalaus - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:415
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Aðgerðalaus; hafnar verkum - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:433
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use"
 msgstr "Í notkun"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:421
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Í notkun - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:439
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused"
 msgstr "Í bið"
 
-#: src/libkcups/PrinterModel.cpp:439
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Í bið; hafnar verkum"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Í bið - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Í bið; hafnar verkum - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:445
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown"
 msgstr "Óþekkt"
 
-#: src/libkcups/PrinterModel.cpp:447
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Óþekkt - '%1'"

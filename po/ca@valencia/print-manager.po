@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-23 00:42+0000\n"
 "PO-Revision-Date: 2024-12-05 09:46+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -1083,67 +1083,67 @@ msgstr "Controladors recomanats"
 msgid "Empty ppd model"
 msgstr "Model «ppd» buit"
 
-#: src/libkcups/PrinterModel.cpp:205
+#: src/libkcups/PrinterModel.cpp:196
 #, kde-format
 msgid "Printers"
 msgstr "Impressores"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle"
 msgstr "En espera"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "En espera, rebutja els treballs"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:415
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "En espera - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:415
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "En espera, rebutja els treballs - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:433
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use"
 msgstr "En ús"
 
-#: src/libkcups/PrinterModel.cpp:435
+#: src/libkcups/PrinterModel.cpp:421
 #, kde-format
 msgid "In use - '%1'"
 msgstr "En ús - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:439
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused"
 msgstr "En pausa"
 
-#: src/libkcups/PrinterModel.cpp:439
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "En pausa, rebutja els treballs"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "En pausa - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:441
+#: src/libkcups/PrinterModel.cpp:427
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "En pausa, rebutja els treballs - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:445
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: src/libkcups/PrinterModel.cpp:447
+#: src/libkcups/PrinterModel.cpp:433
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Desconegut - «%1»"

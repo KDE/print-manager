@@ -6,6 +6,7 @@ set(PROJECT_VERSION "6.3.80")
 set(PROJECT_DEP_VERSION "6.2.90")
 set(QT_MIN_VERSION "6.7.0")
 set(KF6_MIN_VERSION "6.10.0")
+set(KDE_COMPILERSETTINGS_LEVEL "6.10.0")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -21,10 +22,11 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 
+include(ECMDeprecationSettings)
 include(ECMQmlModule)
 include(ECMOptionalAddSubdirectory)
 include(ECMQtDeclareLoggingCategory)
-include(FeatureSummary)
+include(ECMFeatureSummary)
 
 find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
@@ -51,6 +53,11 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
 )
 
 find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
+
+ecm_set_disabled_deprecation_versions(
+    QT 6.8
+    KF 6.12.0
+)
 
 set_package_properties(KF6Kirigami PROPERTIES
     TYPE REQUIRED
@@ -94,14 +101,6 @@ else()
 endif()
 add_feature_info("System-config-printer Installation" SCP_INSTALL "Automatic installation of '${SCP_PACKAGE_NAME}' using PackageKit.")
 
-add_definitions(
-    -DQT_DISABLE_DEPRECATED_BEFORE=0x050900
-    -DQT_USE_FAST_OPERATOR_PLUS
-    -DQT_NO_URL_CAST_FROM_STRING
-    -DQT_NO_CAST_FROM_BYTEARRAY
-    -DQT_NO_CAST_FROM_ASCII
-)
-
 # Generate config.h
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/config.h)
@@ -127,4 +126,4 @@ kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 
-feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
+ecm_feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

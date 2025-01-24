@@ -351,7 +351,7 @@ protected:
     bool retry(const char *resource, int operation) const;
     ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
 
-private slots:
+private Q_SLOTS:
     void updateSubscription();
     void renewDBusSubscription();
     void cancelDBusSubscription();

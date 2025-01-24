@@ -25,7 +25,7 @@ public:
     bool isValid() const override;
     bool canProceed() const override;
 
-private slots:
+private Q_SLOTS:
     void checkSelected();
 
 private:

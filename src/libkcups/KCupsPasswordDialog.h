@@ -18,7 +18,7 @@ public:
     void setMainWindow(WId mainwindow);
     void setPromptText(const QString &promptText);
 
-public slots:
+public Q_SLOTS:
     void exec(const QString &username, bool wrongPassword);
 
     bool accepted() const;

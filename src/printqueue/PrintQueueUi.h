@@ -29,13 +29,13 @@ public:
     explicit PrintQueueUi(const KCupsPrinter &printer, QWidget *parent = nullptr);
     ~PrintQueueUi() override;
 
-signals:
+Q_SIGNALS:
     void finished();
 
-public slots:
+public Q_SLOTS:
     void update();
 
-private slots:
+private Q_SLOTS:
     void updatePrinterByName(const QString &printer);
     void updatePrinter(const QString &text,
                        const QString &printerUri,

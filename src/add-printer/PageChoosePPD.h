@@ -31,7 +31,7 @@ public:
     QVariantMap values() const override;
     bool isValid() const override;
 
-private slots:
+private Q_SLOTS:
     void checkSelected();
     void selectDefault();
     void resultJob(KJob *job);

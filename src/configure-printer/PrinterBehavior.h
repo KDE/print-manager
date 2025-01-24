@@ -31,7 +31,7 @@ public:
     QStringList neededValues() const override;
     void save() override;
 
-private slots:
+private Q_SLOTS:
     void currentIndexChangedCB(int index);
     void userListChanged();
 

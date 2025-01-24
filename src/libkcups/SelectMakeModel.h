@@ -35,14 +35,14 @@ public:
     QString selectedPPDFileName() const;
     bool isFileSelected() const;
 
-public slots:
+public Q_SLOTS:
     void checkChanged();
     void ppdsLoaded(KCupsRequest *request);
 
-signals:
+Q_SIGNALS:
     void changed(bool);
 
-private slots:
+private Q_SLOTS:
     void getBestDriversFinished(const QDBusMessage &message);
     void getBestDriversFailed(const QDBusError &error, const QDBusMessage &message);
 

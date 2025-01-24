@@ -16,10 +16,10 @@ public:
     PrintQueue(int &argc, char **argv);
     ~PrintQueue() override;
 
-public slots:
+public Q_SLOTS:
     void showQueues(const QStringList &queues, const QString &cwd = QString());
 
-private slots:
+private Q_SLOTS:
     void removeQueue();
 
 private:

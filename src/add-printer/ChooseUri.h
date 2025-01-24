@@ -30,10 +30,10 @@ public:
     bool isValid() const override;
     bool canProceed() const override;
 
-public slots:
+public Q_SLOTS:
     void load();
 
-signals:
+Q_SIGNALS:
     void errorMessage(const QString &message);
     void insertDevice(const QString &device_class,
                       const QString &device_id,
@@ -43,7 +43,7 @@ signals:
                       const QString &device_location,
                       const KCupsPrinters &grouped_printers);
 
-private slots:
+private Q_SLOTS:
     void checkSelected();
     void textChanged(const QString &text);
     void findPrinters();

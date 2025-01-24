@@ -29,7 +29,7 @@ public:
     QString filteredPrinters() const;
     int activeCount() const;
     int count() const;
-signals:
+Q_SIGNALS:
     void activeCountChanged();
     void countChanged();
     void sourceModelChanged(QObject *);

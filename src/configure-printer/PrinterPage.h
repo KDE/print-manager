@@ -30,7 +30,7 @@ public:
     }
     virtual void setRemote(bool remote);
 
-signals:
+Q_SIGNALS:
     void changed(bool hasChanges);
 };
 

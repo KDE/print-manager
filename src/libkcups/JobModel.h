@@ -93,7 +93,7 @@ public:
     Q_INVOKABLE void setWhichJobs(WhichJobs whichjobs);
     KCupsRequest *modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
-private slots:
+private Q_SLOTS:
     void getJobs();
     void getJobFinished(KCupsRequest *request);
 

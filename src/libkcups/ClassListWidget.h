@@ -32,10 +32,10 @@ public:
     void setShowClasses(bool enable);
     QStringList currentSelected(bool uri) const;
 
-signals:
+Q_SIGNALS:
     void changed(bool changed);
 
-private slots:
+private Q_SLOTS:
     void init();
     void loadFinished(KCupsRequest *request);
     void modelChanged();

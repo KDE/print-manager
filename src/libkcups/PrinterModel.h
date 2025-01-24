@@ -84,17 +84,17 @@ public:
     bool showLocations() const;
     bool hasOnlyPrinters() const;
 
-public slots:
+public Q_SLOTS:
     void update();
     void getDestsFinished(KCupsRequest *request);
 
-signals:
+Q_SIGNALS:
     void serverUnavailableChanged(bool unavailable);
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void showLocationsChanged();
     void hasOnlyPrintersChanged();
 
-private slots:
+private Q_SLOTS:
     void insertUpdatePrinter(const QString &text,
                              const QString &printerUri,
                              const QString &printerName,

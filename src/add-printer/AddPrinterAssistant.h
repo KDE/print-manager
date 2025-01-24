@@ -22,7 +22,7 @@ public:
     void initAddClass();
     void initChangePPD(const QString &printer, const QString &deviceUri, const QString &makeAndModel);
 
-public slots:
+public Q_SLOTS:
     void back() override;
     void next() override;
     void enableNextButton(bool enable);

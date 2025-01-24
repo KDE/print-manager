@@ -37,7 +37,7 @@ public:
     QVariantMap values() const override;
     bool isValid() const override;
 
-private slots:
+private Q_SLOTS:
     void deviceChanged();
     void deviceUriChanged();
     void insertDevice(const QString &device_class,

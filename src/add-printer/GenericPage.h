@@ -40,13 +40,13 @@ public:
         return false;
     }
 
-signals:
+Q_SIGNALS:
     void allowProceed(bool allow);
     void proceed();
     void startWorking();
     void stopWorking();
 
-protected slots:
+protected Q_SLOTS:
     void working();
     void notWorking();
 

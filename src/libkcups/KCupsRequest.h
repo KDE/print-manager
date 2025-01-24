@@ -270,7 +270,7 @@ public:
 
     void authenticateJob(const QString &printerName, const QStringList authInfo, int jobId);
 
-signals:
+Q_SIGNALS:
     void device(const QString &device_class,
                 const QString &device_id,
                 const QString &device_info,

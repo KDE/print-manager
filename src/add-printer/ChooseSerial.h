@@ -27,7 +27,7 @@ public:
     QVariantMap values() const override;
     bool isValid() const override;
 
-public slots:
+public Q_SLOTS:
     void load();
 
 private:

@@ -19,10 +19,10 @@ public:
     explicit ConfigurePrinterInterface(QObject *parent = nullptr);
     ~ConfigurePrinterInterface() override;
 
-signals:
+Q_SIGNALS:
     void quit();
 
-public slots:
+public Q_SLOTS:
     void ConfigurePrinter(const QString &destName);
     void RemovePrinter();
 

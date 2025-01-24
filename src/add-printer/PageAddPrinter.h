@@ -27,10 +27,10 @@ public:
 
     bool finishClicked() override;
 
-public slots:
+public Q_SLOTS:
     void load();
 
-private slots:
+private Q_SLOTS:
     void checkSelected();
 
 private:

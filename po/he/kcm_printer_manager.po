@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2025-01-08 16:36+0200\n"
+"PO-Revision-Date: 2025-01-24 09:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -105,7 +105,7 @@ msgid ""
 "Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
 "to try again or choose a driver manually."
 msgstr ""
-"לא ניתן לאתר את מנהלי ההתקן המומלצים. יש ללחוץ על <interface>רענון</"
+"לא ניתן לאתר את מנהלי ההתקן המומלצים. יש ללחוץ על <interface>ריענון</"
 "interface> כדי לנסות שוב או לבחור מנהל התקן ידנית."
 
 #: ui/components/Drivers.qml:47
@@ -264,7 +264,7 @@ msgstr "הצגת אפשרויות ידניות"
 #: ui/FindPrinter.qml:113
 #, kde-format
 msgid "Refresh"
-msgstr "רענון"
+msgstr "ריענון"
 
 #: ui/FindPrinter.qml:124
 #, kde-format
@@ -284,7 +284,7 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"יש ללחוץ על „רענון” כדי לנסות שוב או לבחור אפשרויות הגדרה ידניות מהרשימה"
+"יש ללחוץ על „ריענון” כדי לנסות שוב או לבחור אפשרויות הגדרה ידניות מהרשימה"
 
 #: ui/FindPrinter.qml:193
 #, kde-format

@@ -10,8 +10,6 @@ set(KF6_MIN_VERSION "6.10.0")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-################# set KDE specific information #################
-
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
@@ -21,6 +19,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 
+include(ECMAddTests)
 include(ECMQmlModule)
 include(ECMOptionalAddSubdirectory)
 include(ECMQtDeclareLoggingCategory)
@@ -101,6 +100,19 @@ add_definitions(
     -DQT_NO_CAST_FROM_BYTEARRAY
     -DQT_NO_CAST_FROM_ASCII
 )
+
+option(LOCAL_ONLY_TESTS "Build tests that will fail CI" OFF)
+if (LOCAL_ONLY_TESTS)
+    add_definitions(-DLOCAL_ONLY_TESTS)
+else()
+    set(LOCAL_ONLY_TESTS false)
+endif()
+add_feature_info("Testing: Build tests that will only run locally" LOCAL_ONLY_TESTS "Build Local Only Tests")
+
+if (BUILD_TESTING)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
+    add_subdirectory(tests)
+endif()
 
 # Generate config.h
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake

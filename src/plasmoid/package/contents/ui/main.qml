@@ -25,12 +25,16 @@ PlasmoidItem {
 
     property alias serverUnavailable: printersModel.serverUnavailable
     property string printersModelError: ""
+    property int printerCount
 
     PrintManager.PrinterModel {
         id: printersModel
         onError: (lastError, errorTitle, errorMsg) => {
             printersModelError = errorTitle;
         }
+
+        onRowsInserted: printerCount = rowCount()
+        onRowsRemoved: printerCount = rowCount()
     }
 
     PrintManager.JobSortFilterModel {
@@ -60,7 +64,7 @@ PlasmoidItem {
             } else {
                 return printerName === "" ? "" : i18nc("Printing with printer name", "Printing with %1", printerName);
             }
-        } else if (printersModel.count > 0) {
+        } else if (printerCount > 0) {
             return i18n("Print queue is empty");
         } else {
             return i18n("No printers have been configured or discovered");
@@ -83,7 +87,7 @@ PlasmoidItem {
     Plasmoid.status: {
         if (activeJobsFilterModel.activeCount > 0) {
             return PlasmaCore.Types.ActiveStatus;
-        } else if (printersModel.count > 0 || serverUnavailable) {
+        } else if (printerCount > 0 || serverUnavailable) {
             return PlasmaCore.Types.PassiveStatus;
         } else {
             return PlasmaCore.Types.HiddenStatus;

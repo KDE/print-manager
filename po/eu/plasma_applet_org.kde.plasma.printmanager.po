@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-08 00:42+0000\n"
+"POT-Creation-Date: 2025-01-28 00:43+0000\n"
 "PO-Revision-Date: 2024-11-10 19:45+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Lokalize 24.08.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr "Inprimagailuak"
 
@@ -30,7 +30,7 @@ msgid "Printer Groups"
 msgstr "Inprimagailu taldeak"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
-#: src/plasmoid/package/contents/ui/main.qml:66
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "Ez da inprimagailurik konfiguratu edo aurkitu"
 
@@ -38,27 +38,27 @@ msgstr "Ez da inprimagailurik konfiguratu edo aurkitu"
 msgid "No matches"
 msgstr "Ez dago bat datorrenik"
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Inprimaketa-lan bat dago ilaran"
 msgstr[1] "%1 inprimaketa-lan daude ilaran"
 
-#: src/plasmoid/package/contents/ui/main.qml:59
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 honekin inprimatzen: %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:61
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Honekin inprimatzen: %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:64
+#: src/plasmoid/package/contents/ui/main.qml:68
 msgid "Print queue is empty"
 msgstr "Inprimaketa-ilara hutsik dago"
 
-#: src/plasmoid/package/contents/ui/main.qml:96
+#: src/plasmoid/package/contents/ui/main.qml:100
 msgid "&Configure Printers…"
 msgstr "&Konfiguratu inprimagailuak..."
 

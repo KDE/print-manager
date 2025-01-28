@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-08 00:42+0000\n"
+"POT-Creation-Date: 2025-01-28 00:43+0000\n"
 "PO-Revision-Date: 2023-12-05 22:13+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "X-Text-Markup: \n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr "Принтеры"
 
@@ -34,7 +34,7 @@ msgid "Printer Groups"
 msgstr "Группы принтеров"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
-#: src/plasmoid/package/contents/ui/main.qml:66
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "Не найдено ни одного настроенного или нового принтера"
 
@@ -42,7 +42,7 @@ msgstr "Не найдено ни одного настроенного или н
 msgid "No matches"
 msgstr "Совпадений не найдено"
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "В очереди печати %1 задание"
@@ -50,21 +50,21 @@ msgstr[1] "В очереди печати %1 задания"
 msgstr[2] "В очереди печати %1 заданий"
 msgstr[3] "В очереди печати %1 задание"
 
-#: src/plasmoid/package/contents/ui/main.qml:59
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Печать %1 на %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:61
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Печать на %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:64
+#: src/plasmoid/package/contents/ui/main.qml:68
 msgid "Print queue is empty"
 msgstr "Очередь печати пуста"
 
-#: src/plasmoid/package/contents/ui/main.qml:96
+#: src/plasmoid/package/contents/ui/main.qml:100
 msgid "&Configure Printers…"
 msgstr "Н&астроить принтеры…"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-08 00:42+0000\n"
+"POT-Creation-Date: 2025-01-28 00:43+0000\n"
 "PO-Revision-Date: 2024-11-17 21:56+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Generator: Lokalize 24.08.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr "அச்சுப்பொறிகள்"
 
@@ -27,7 +27,7 @@ msgid "Printer Groups"
 msgstr "அச்சுப்பொறி குழுக்கள்"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
-#: src/plasmoid/package/contents/ui/main.qml:66
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "எந்த அச்சுப்பொறியும் அமைக்கப்படவோ கண்டறியப்படவோ இல்லை"
 
@@ -35,27 +35,27 @@ msgstr "எந்த அச்சுப்பொறியும் அமைக�
 msgid "No matches"
 msgstr "பொருத்தங்கள் இல்லை"
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "அச்சுவரிசையில் ஓர் பணி உள்ளது"
 msgstr[1] "அச்சுவரிசையில் %1 பணிகள் உள்ளன"
 
-#: src/plasmoid/package/contents/ui/main.qml:59
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 %2 தனில் அச்சிடப்படுகிறது"
 
-#: src/plasmoid/package/contents/ui/main.qml:61
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 தனில் அச்சிடப்படுகிறது"
 
-#: src/plasmoid/package/contents/ui/main.qml:64
+#: src/plasmoid/package/contents/ui/main.qml:68
 msgid "Print queue is empty"
 msgstr "அச்சுவரிசை காலியாக உள்ளது"
 
-#: src/plasmoid/package/contents/ui/main.qml:96
+#: src/plasmoid/package/contents/ui/main.qml:100
 msgid "&Configure Printers…"
 msgstr "&அச்சுப்பொறிகளை அமை…"
 

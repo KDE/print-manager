@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-08 00:42+0000\n"
+"POT-Creation-Date: 2025-01-28 00:43+0000\n"
 "PO-Revision-Date: 2024-11-08 20:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Lokalize 23.04.3\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr "Принтери"
 
@@ -30,7 +30,7 @@ msgid "Printer Groups"
 msgstr "Групи принтерів"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
-#: src/plasmoid/package/contents/ui/main.qml:66
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "Не налаштовано або не виявлено жодного принтера"
 
@@ -38,7 +38,7 @@ msgstr "Не налаштовано або не виявлено жодного 
 msgid "No matches"
 msgstr "Немає відповідників"
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "У черзі перебуває %1 завдання"
@@ -46,21 +46,21 @@ msgstr[1] "У черзі перебуває %1 завдання"
 msgstr[2] "У черзі перебуває %1 завдань"
 msgstr[3] "У черзі перебуває одне завдання"
 
-#: src/plasmoid/package/contents/ui/main.qml:59
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Друкуємо %1 за допомогою %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:61
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Друкуємо за допомогою %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:64
+#: src/plasmoid/package/contents/ui/main.qml:68
 msgid "Print queue is empty"
 msgstr "Черга друку порожня"
 
-#: src/plasmoid/package/contents/ui/main.qml:96
+#: src/plasmoid/package/contents/ui/main.qml:100
 msgid "&Configure Printers…"
 msgstr "&Налаштовування принтерів…"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-11-08 00:42+0000\n"
+"POT-Creation-Date: 2025-01-28 00:43+0000\n"
 "PO-Revision-Date: 2012-07-31 09:30-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "3 : 4\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
-#: src/plasmoid/package/contents/ui/main.qml:45
+#: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr ""
 
@@ -27,7 +27,7 @@ msgid "Printer Groups"
 msgstr ""
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
-#: src/plasmoid/package/contents/ui/main.qml:66
+#: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr ""
 
@@ -35,7 +35,7 @@ msgstr ""
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:50
+#: src/plasmoid/package/contents/ui/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] ""
@@ -44,21 +44,21 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 
-#: src/plasmoid/package/contents/ui/main.qml:59
+#: src/plasmoid/package/contents/ui/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:61
+#: src/plasmoid/package/contents/ui/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:64
+#: src/plasmoid/package/contents/ui/main.qml:68
 msgid "Print queue is empty"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:96
+#: src/plasmoid/package/contents/ui/main.qml:100
 msgid "&Configure Printers…"
 msgstr ""
 

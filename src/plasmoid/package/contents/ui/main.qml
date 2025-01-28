@@ -99,7 +99,6 @@ PlasmoidItem {
         id: configAction
         text: i18n("&Configure Printers…")
         icon.name: "configure"
-        shortcut: "alt+d,s"
         enabled: KAuthorized.authorizeControlModule("kcm_printer_manager")
         onTriggered: KCMLauncher.openSystemSettings("kcm_printer_manager")
     }

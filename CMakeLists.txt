@@ -21,6 +21,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 
+include(ECMAddTests)
 include(ECMQmlModule)
 include(ECMOptionalAddSubdirectory)
 include(ECMQtDeclareLoggingCategory)
@@ -101,6 +102,11 @@ add_definitions(
     -DQT_NO_CAST_FROM_BYTEARRAY
     -DQT_NO_CAST_FROM_ASCII
 )
+
+if (BUILD_TESTING)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
+    add_subdirectory(tests)
+endif()
 
 # Generate config.h
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake

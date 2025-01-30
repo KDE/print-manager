@@ -108,6 +108,7 @@ KCM.ScrollViewKCM {
             text: i18nc("@action:button The thing being added is a printer", "Add…")
             Accessible.name: i18nc("@action:button", "Add Printer…")
             icon.name: "list-add-symbolic"
+            displayHint: Kirigami.DisplayHint.KeepVisible
             onTriggered: {
                 checkServerSettings()
                 const dlg = findComp.createObject(root)

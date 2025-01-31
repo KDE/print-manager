@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2025-01-08 03:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -433,25 +433,25 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "პრინტერის დამატება…"
 
-#: ui/main.qml:118
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "ჯგუფის დამატება…"
 
-#: ui/main.qml:127
+#: ui/main.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "ბეჭდვის სერვერის მორგება…"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "ამჟამად პრინტერები არ გაქვთ"
 
-#: ui/main.qml:234
+#: ui/main.qml:235
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -460,41 +460,41 @@ msgstr ""
 "ამ კომპიუტერზე ახალი პრინტერის მოსარგებად დააწკაპუნეთ ღილაკზე "
 "<interface>პრინტერის დამატება…</interface>"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "პრინტერები"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "პრინტერის ჯგუფები"
 
-#: ui/main.qml:304
+#: ui/main.qml:305
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "ბეჭდვის რიგი"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "გაგრძელება"
 
-#: ui/main.qml:321
+#: ui/main.qml:322
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "გაჩერება"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "დაბეჭდვის გაგრძელება"
 
-#: ui/main.qml:336
+#: ui/main.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

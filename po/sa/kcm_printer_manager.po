@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -426,66 +426,66 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "मुद्रकं योजयतु..."
 
-#: ui/main.qml:118
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "समूहं योजयतु..."
 
-#: ui/main.qml:127
+#: ui/main.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "मुद्रणसर्वरं विन्यस्तं कुर्वन्तु..."
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "सम्प्रति कोऽपि मुद्रकः स्थापितः नास्ति"
 
-#: ui/main.qml:234
+#: ui/main.qml:235
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr "अस्मिन् सङ्गणके नूतनं मुद्रकं स्थापयितुं <interface>Add...</interface> नुदन्तु"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "मुद्रकाः"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "मुद्रकसमूहाः"
 
-#: ui/main.qml:304
+#: ui/main.qml:305
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "मुद्रण कतार"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "पुनर्प्रारम्भय"
 
-#: ui/main.qml:321
+#: ui/main.qml:322
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "विराम"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "मुद्रणं पुनः आरभत"
 
-#: ui/main.qml:336
+#: ui/main.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

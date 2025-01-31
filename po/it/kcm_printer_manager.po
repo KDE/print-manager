@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2025-01-08 13:27+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -434,25 +434,25 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Aggiungi stampante…"
 
-#: ui/main.qml:118
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Aggiungi gruppo…"
 
-#: ui/main.qml:127
+#: ui/main.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Configura server di stampa…"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Nessuna stampante è attualmente configurata"
 
-#: ui/main.qml:234
+#: ui/main.qml:235
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -461,41 +461,41 @@ msgstr ""
 "Fai clic su <interface>Aggiungi…</interface> per impostare una nuova "
 "stampante su questo computer"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Stampanti"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Gruppi di stampanti"
 
-#: ui/main.qml:304
+#: ui/main.qml:305
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Coda di stampa"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Riprendi"
 
-#: ui/main.qml:321
+#: ui/main.qml:322
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Metti in pausa"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Riprendi la stampa"
 
-#: ui/main.qml:336
+#: ui/main.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

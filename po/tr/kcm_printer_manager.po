@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2025-01-09 15:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -430,25 +430,25 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Yazıcı Ekle…"
 
-#: ui/main.qml:118
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Grup Ekle…"
 
-#: ui/main.qml:127
+#: ui/main.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Yazdırma Sunucusunu Yapılandır…"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Şu anda ayarlı hiçbir yazıcı yok"
 
-#: ui/main.qml:234
+#: ui/main.qml:235
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -457,41 +457,41 @@ msgstr ""
 "Bu bilgisayarda yeni bir yazıcı ayarlamak için <interface>Ekle…</interface> "
 "düğmesine tıklayın"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Yazıcılar"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Yazıcı Grupları"
 
-#: ui/main.qml:304
+#: ui/main.qml:305
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Yazdırma Kuyruğu"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Sürdür"
 
-#: ui/main.qml:321
+#: ui/main.qml:322
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Duraklat"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Yazdırmayı sürdür"
 
-#: ui/main.qml:336
+#: ui/main.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

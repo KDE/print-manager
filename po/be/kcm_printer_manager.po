@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2024-06-20 17:30\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -444,25 +444,25 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Дадаць прынтар…"
 
-#: ui/main.qml:118
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Дадаць групу…"
 
-#: ui/main.qml:127
+#: ui/main.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Наладжванне сервера друкавання…"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Няма наладжаныя прынтараў"
 
-#: ui/main.qml:234
+#: ui/main.qml:235
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:usagetip"
 #| msgid ""
@@ -475,17 +475,17 @@ msgstr ""
 "Каб наладзіць новы прынтар на гэтым камп'ютары, націсніце <interface>Дадаць "
 "прынтар…</interface>"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Прынтары"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Групы прынтараў"
 
-#: ui/main.qml:304
+#: ui/main.qml:305
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
@@ -493,25 +493,25 @@ msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Адкрыць чаргу друкавання…"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Узнавіць"
 
-#: ui/main.qml:321
+#: ui/main.qml:322
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Прыпыніць"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Узнавіць друкаванне"
 
-#: ui/main.qml:336
+#: ui/main.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

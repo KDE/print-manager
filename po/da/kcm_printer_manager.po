@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-08 00:43+0000\n"
+"POT-Creation-Date: 2025-01-31 02:36+0000\n"
 "PO-Revision-Date: 2024-10-30 12:45+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -432,25 +432,25 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Tilføj printer…"
 
-#: ui/main.qml:118
+#: ui/main.qml:119
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Tilføj gruppe…"
 
-#: ui/main.qml:127
+#: ui/main.qml:128
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Konfigurér printserver…"
 
-#: ui/main.qml:233
+#: ui/main.qml:234
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Ingen printere er p.t. sat op"
 
-#: ui/main.qml:234
+#: ui/main.qml:235
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -459,17 +459,17 @@ msgstr ""
 "Klik <interface>Tilføj…</interface> for at opsætte en ny printer på denne "
 "computer"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printers"
 msgstr "Printere"
 
-#: ui/main.qml:243
+#: ui/main.qml:244
 #, kde-format
 msgid "Printer Groups"
 msgstr "Printergrupper"
 
-#: ui/main.qml:304
+#: ui/main.qml:305
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
@@ -477,25 +477,25 @@ msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Åbn printerkø…"
 
-#: ui/main.qml:320
+#: ui/main.qml:321
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Genoptag"
 
-#: ui/main.qml:321
+#: ui/main.qml:322
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pause"
 
-#: ui/main.qml:335
+#: ui/main.qml:336
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Genoptag print"
 
-#: ui/main.qml:336
+#: ui/main.qml:337
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

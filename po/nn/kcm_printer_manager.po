@@ -777,7 +777,3 @@ msgstr "Merke/modell:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vel …"
-
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "** Standardskrivar"

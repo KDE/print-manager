@@ -760,8 +760,3 @@ msgstr ""
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr ""
-
-#, fuzzy
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "Fjern skriver"

@@ -2,14 +2,14 @@
 # Author: Artnay
 # Author: Lliehu
 # SPDX-FileCopyrightText: 2012, 2013, 2015, 2024 Lasse Liehu <lasse.liehu@gmail.com>
-# SPDX-FileCopyrightText: 2012, 2018, 2019, 2020, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2012, 2018, 2019, 2020, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 # Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 00:43+0000\n"
-"PO-Revision-Date: 2024-12-01 15:03+0200\n"
+"PO-Revision-Date: 2025-02-11 10:28+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -684,7 +684,7 @@ msgstr "Oletustulostin"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "Vaihtaaksesi oletustulostinta aseta toinen tulostin oletukseksi."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

@@ -90,12 +90,3 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 treball més"
 msgstr[1] "%1 treballs més"
-
-#~ msgid "Show All Jobs"
-#~ msgstr "Mostra tots els treballs"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "Mostra només els treballs completats"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Mostra només els treballs actius"

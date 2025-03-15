@@ -30,6 +30,7 @@ PlasmaExtras.Representation {
     PlasmaComponents3.ScrollView {
         anchors.fill: parent
         contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
+        PlasmaComponents3.ScrollBar.horizontal.policy: PlasmaComponents3.ScrollBar.AlwaysOff
 
         contentItem: ListView {
             focus: true

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-28 00:43+0000\n"
+"POT-Creation-Date: 2025-03-16 00:43+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -17,21 +17,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
 #: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr "मुद्रकाः"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
 msgid "Printer Groups"
 msgstr "मुद्रकसमूहाः"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "न कोऽपि मुद्रकः विन्यस्तः आविष्कृतः वा"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
 msgid "No matches"
 msgstr "न मेलनं"
 

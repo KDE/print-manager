@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-28 00:43+0000\n"
+"POT-Creation-Date: 2025-03-16 00:43+0000\n"
 "PO-Revision-Date: 2024-11-08 08:53+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,21 +18,21 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 24.08.1\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
 #: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr "מדפסות"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
 msgid "Printer Groups"
 msgstr "קבוצות מדפסות"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "לא הוגדרו או התגלו מדפסות"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
 msgid "No matches"
 msgstr "אין התאמות"
 

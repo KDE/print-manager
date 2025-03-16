@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-28 00:43+0000\n"
+"POT-Creation-Date: 2025-03-16 00:43+0000\n"
 "PO-Revision-Date: 2024-11-08 20:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -20,21 +20,21 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
 #: src/plasmoid/package/contents/ui/main.qml:49
 msgid "Printers"
 msgstr "Принтери"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:43
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
 msgid "Printer Groups"
 msgstr "Групи принтерів"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
 #: src/plasmoid/package/contents/ui/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "Не налаштовано або не виявлено жодного принтера"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:76
+#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
 msgid "No matches"
 msgstr "Немає відповідників"
 

@@ -142,7 +142,7 @@ void KCupsConnection::init()
     notifierConnect(QLatin1String("PrinterMediaChanged"), this, SIGNAL(printerMediaChanged(QString, QString, QString, uint, QString, bool)));
 
     // PrinterFinishingsChanged
-    notifierConnect(QLatin1String("PrinterFinishingsChanged"), this, SIGNAL(PrinterFinishingsChanged(QString, QString, QString, uint, QString, bool)));
+    notifierConnect(QLatin1String("PrinterFinishingsChanged"), this, SIGNAL(printerFinishingsChanged(QString, QString, QString, uint, QString, bool)));
 
     // Job related signals
     // JobState

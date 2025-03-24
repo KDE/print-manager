@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:42+0000\n"
+"POT-Creation-Date: 2025-03-24 00:43+0000\n"
 "PO-Revision-Date: 2024-10-18 14:30+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -958,7 +958,7 @@ msgstr "Käyttäjä"
 msgid "Created"
 msgstr "Luotu"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:596
 #, kde-format
 msgid "Completed"
 msgstr "Valmis"
@@ -994,37 +994,37 @@ msgid "From Hostname"
 msgstr "Koneelta"
 
 # %1 on ilmeisesti työn nimi ja %2 se tulostin, jolle sitä oltiin siirtämässä
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Työtä ”%1” ei saatu siirrettyä tulostimelle ”%2”"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "Epäonnistui"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:584
 #, kde-format
 msgid "Pending"
 msgstr "Odottaa"
 
-#: src/libkcups/JobModel.cpp:587
+#: src/libkcups/JobModel.cpp:586
 #, kde-format
 msgid "On hold"
 msgstr "Pidossa"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:590
 #, kde-format
 msgid "Stopped"
 msgstr "Pysäytetty"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:592
 #, kde-format
 msgid "Canceled"
 msgstr "Peruutettu"
 
-#: src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:594
 #, kde-format
 msgid "Aborted"
 msgstr "Keskeytetty"
@@ -1044,27 +1044,27 @@ msgstr "Viimeistele syöttämällä käyttäjätunnus ja salasana"
 msgid "Wrong username or password"
 msgstr "Käyttäjätunnus tai salasana väärin"
 
-#: src/libkcups/KCupsRequest.cpp:32
+#: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
 msgid "Print service is unavailable"
 msgstr "Tulostuspalvelu ei ole käytettävissä"
 
-#: src/libkcups/KCupsRequest.cpp:34
+#: src/libkcups/KCupsRequest.cpp:33
 #, kde-format
 msgid "Not found"
 msgstr "Ei löytynyt"
 
-#: src/libkcups/KCupsRequest.cpp:393
+#: src/libkcups/KCupsRequest.cpp:392
 #, kde-format
 msgid "Test Page"
 msgstr "Testisivu"
 
-#: src/libkcups/KCupsRequest.cpp:421
+#: src/libkcups/KCupsRequest.cpp:420
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "Komentoa ei voitu lähettää tulostinajurille!"
 
-#: src/libkcups/KCupsRequest.cpp:549
+#: src/libkcups/KCupsRequest.cpp:548
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "Menetelmän kutsu epäonnistui: %1"
@@ -1084,62 +1084,62 @@ msgstr "Tyhjä PPD-malli"
 msgid "Printers"
 msgstr "Tulostimet"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle"
 msgstr "Vapaana"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Vapaana, hylkää tulostustyöt"
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Vapaana – ”%1”"
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Vapaana, hylkää tulostustyöt – ”%1”"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:418
 #, kde-format
 msgid "In use"
 msgstr "Käytössä"
 
-#: src/libkcups/PrinterModel.cpp:421
+#: src/libkcups/PrinterModel.cpp:420
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Käytössä – ”%1”"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused"
 msgstr "Keskeytetty"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Keskeytetty, hylkää tulostustyöt"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Keskeytetty – ”%1”"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Keskeytetty, hylkää tulostustyöt – ”%1”"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: src/libkcups/PrinterModel.cpp:433
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Tuntematon - \"%1\""

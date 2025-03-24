@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:42+0000\n"
+"POT-Creation-Date: 2025-03-24 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -948,7 +948,7 @@ msgstr "उपयोक्ता"
 msgid "Created"
 msgstr "निर्मितम्"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:596
 #, kde-format
 msgid "Completed"
 msgstr "सम्पन्न"
@@ -983,37 +983,37 @@ msgstr "मुद्रक"
 msgid "From Hostname"
 msgstr "Hostname इत्यस्मात्"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "'%1' '%2' मध्ये स्थानान्तरयितुं असफलम् ।"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "असफल"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:584
 #, kde-format
 msgid "Pending"
 msgstr "विचाराधीनः"
 
-#: src/libkcups/JobModel.cpp:587
+#: src/libkcups/JobModel.cpp:586
 #, kde-format
 msgid "On hold"
 msgstr "स्थगितम् अस्ति"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:590
 #, kde-format
 msgid "Stopped"
 msgstr "स्थगितम्"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:592
 #, kde-format
 msgid "Canceled"
 msgstr "रद्दं कृतम्"
 
-#: src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:594
 #, kde-format
 msgid "Aborted"
 msgstr "गर्भपातः कृतः"
@@ -1033,27 +1033,27 @@ msgstr "कार्यं पूर्णं कर्तुं उपयोक
 msgid "Wrong username or password"
 msgstr "गलत उपयोक्तृनाम वा गुप्तशब्दः वा"
 
-#: src/libkcups/KCupsRequest.cpp:32
+#: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
 msgid "Print service is unavailable"
 msgstr "मुद्रणसेवा अनुपलब्धा अस्ति"
 
-#: src/libkcups/KCupsRequest.cpp:34
+#: src/libkcups/KCupsRequest.cpp:33
 #, kde-format
 msgid "Not found"
 msgstr "न लभ्यते"
 
-#: src/libkcups/KCupsRequest.cpp:393
+#: src/libkcups/KCupsRequest.cpp:392
 #, kde-format
 msgid "Test Page"
 msgstr "परीक्षण पृष्ठ"
 
-#: src/libkcups/KCupsRequest.cpp:421
+#: src/libkcups/KCupsRequest.cpp:420
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "मुद्रकचालकं प्रति आदेशं प्रेषयितुं असमर्थः!"
 
-#: src/libkcups/KCupsRequest.cpp:549
+#: src/libkcups/KCupsRequest.cpp:548
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "विधिम् आह्वयितुं असफलम्: %1"
@@ -1073,62 +1073,62 @@ msgstr "रिक्त ppd मॉडल"
 msgid "Printers"
 msgstr "मुद्रकाः"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle"
 msgstr "आलम"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "निष्क्रियः, कार्याणि तिरस्कृत्य"
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "निष्क्रिय - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "निष्क्रियः, कार्याणि अङ्गीकुर्वन् - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:418
 #, kde-format
 msgid "In use"
 msgstr "प्रयोगे"
 
-#: src/libkcups/PrinterModel.cpp:421
+#: src/libkcups/PrinterModel.cpp:420
 #, kde-format
 msgid "In use - '%1'"
 msgstr "प्रयुक्ते - '%1'।"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused"
 msgstr "विरामः कृतः"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "विरामं कृतवान्, कार्याणि अङ्गीकृतवान्"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "विरामः - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "विरामितम्, कार्याणि अङ्गीकृत्य - '%1'."
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
 
-#: src/libkcups/PrinterModel.cpp:433
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "अज्ञात - '%1' ।"

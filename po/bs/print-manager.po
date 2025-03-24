@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:42+0000\n"
+"POT-Creation-Date: 2025-03-24 00:43+0000\n"
 "PO-Revision-Date: 2014-10-20 19:25+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian\n"
@@ -986,7 +986,7 @@ msgstr "Korisnik"
 msgid "Created"
 msgstr "Napravljeno"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:596
 #, kde-format
 msgid "Completed"
 msgstr "Završeno"
@@ -1022,37 +1022,37 @@ msgstr "Štampač"
 msgid "From Hostname"
 msgstr "Od imena hosta"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Neuspjelo premještanje '%1' u '%2'"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "Nije uspjelo"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:584
 #, kde-format
 msgid "Pending"
 msgstr "Čekajuće"
 
-#: src/libkcups/JobModel.cpp:587
+#: src/libkcups/JobModel.cpp:586
 #, kde-format
 msgid "On hold"
 msgstr "Na čekanju"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:590
 #, kde-format
 msgid "Stopped"
 msgstr "Zaustavljen"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:592
 #, kde-format
 msgid "Canceled"
 msgstr "Otkazano"
 
-#: src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:594
 #, kde-format
 msgid "Aborted"
 msgstr "Prekinuto"
@@ -1072,27 +1072,27 @@ msgstr "Unesi korisničko ime i lozinku da upotpuniš zadatak"
 msgid "Wrong username or password"
 msgstr "Pogrešno korisničko ime ili lozinka"
 
-#: src/libkcups/KCupsRequest.cpp:32
+#: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
 msgid "Print service is unavailable"
 msgstr "Usluga štampača je nedostupna"
 
-#: src/libkcups/KCupsRequest.cpp:34
+#: src/libkcups/KCupsRequest.cpp:33
 #, kde-format
 msgid "Not found"
 msgstr "Nije nađeno"
 
-#: src/libkcups/KCupsRequest.cpp:393
+#: src/libkcups/KCupsRequest.cpp:392
 #, kde-format
 msgid "Test Page"
 msgstr "Testna stranica"
 
-#: src/libkcups/KCupsRequest.cpp:421
+#: src/libkcups/KCupsRequest.cpp:420
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "Nemoguće poslati naredbu drajveru štampača"
 
-#: src/libkcups/KCupsRequest.cpp:549
+#: src/libkcups/KCupsRequest.cpp:548
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "Neuspjelo prizivanje metode: %1"
@@ -1112,62 +1112,62 @@ msgstr ""
 msgid "Printers"
 msgstr "Štampači"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle"
 msgstr "Miruje"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Neaktivnim, Odbaci poslove"
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Miruje - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Neaktivan, odbijam poslove - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:418
 #, kde-format
 msgid "In use"
 msgstr "U upotrebi"
 
-#: src/libkcups/PrinterModel.cpp:421
+#: src/libkcups/PrinterModel.cpp:420
 #, kde-format
 msgid "In use - '%1'"
 msgstr "U upotrebi - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused"
 msgstr "Pauzirano"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Pauzirano, Odbaci poslove"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Zaustavljeno - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Zaustavljeno, odbijam poslove - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "Unknown"
 msgstr "Nepoznat"
 
-#: src/libkcups/PrinterModel.cpp:433
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Nepoznato - '%1'"

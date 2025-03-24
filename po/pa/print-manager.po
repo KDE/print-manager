@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-23 00:42+0000\n"
+"POT-Creation-Date: 2025-03-24 00:43+0000\n"
 "PO-Revision-Date: 2024-01-01 08:45-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -930,7 +930,7 @@ msgstr "ਵਰਤੋਂਕਾਰ"
 msgid "Created"
 msgstr "ਬਣਾਇਆ"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:597
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:596
 #, kde-format
 msgid "Completed"
 msgstr "ਮੁਕੰਮਲ"
@@ -965,37 +965,37 @@ msgstr "ਪਰਿੰਟਰ"
 msgid "From Hostname"
 msgstr "ਹੋਸਟ-ਨਾਂ ਤੋਂ"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "'%1' ਨੂੰ '%2' ਉੱਤੇ ਭੇਜਣ ਲਈ ਅਸਫ਼ਲ ਹੈ"
 
-#: src/libkcups/JobModel.cpp:511 src/printqueue/PrintQueueUi.cpp:482
+#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "ਫੇਲ੍ਹ ਹੈ"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:584
 #, kde-format
 msgid "Pending"
 msgstr "ਬਾਕੀ"
 
-#: src/libkcups/JobModel.cpp:587
+#: src/libkcups/JobModel.cpp:586
 #, kde-format
 msgid "On hold"
 msgstr "ਹੋਲਡ"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:590
 #, kde-format
 msgid "Stopped"
 msgstr "ਰੁਕਿਆ"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:592
 #, kde-format
 msgid "Canceled"
 msgstr "ਰੱਦ ਕੀਤਾ"
 
-#: src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:594
 #, kde-format
 msgid "Aborted"
 msgstr "ਅਧੂਰਾ ਛੱਡਿਆ"
@@ -1015,27 +1015,27 @@ msgstr "ਟਾਸਕ ਪੂਰੀ ਕਰਨ ਲਈ ਵਰਤੋਂਕਾਰ-ਨ�
 msgid "Wrong username or password"
 msgstr "ਗ਼ਲਤ ਵਰਤੋਂਕਾਰ ਜਾਂ ਪਾਸਵਰਡ"
 
-#: src/libkcups/KCupsRequest.cpp:32
+#: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
 msgid "Print service is unavailable"
 msgstr "ਪਰਿੰਟ ਸੇਵਾ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
 
-#: src/libkcups/KCupsRequest.cpp:34
+#: src/libkcups/KCupsRequest.cpp:33
 #, kde-format
 msgid "Not found"
 msgstr "ਨਹੀਂ ਲੱਭਿਆ"
 
-#: src/libkcups/KCupsRequest.cpp:393
+#: src/libkcups/KCupsRequest.cpp:392
 #, kde-format
 msgid "Test Page"
 msgstr "ਟੈਸਟ ਸਫ਼ਾ"
 
-#: src/libkcups/KCupsRequest.cpp:421
+#: src/libkcups/KCupsRequest.cpp:420
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "ਪਰਿੰਟਰ ਡਰਾਇਵਰ ਨੂੰ ਕਮਾਂਡ ਭੇਜਣ ਥਈ ਅਸਮਰੱਥ ਹੈ!"
 
-#: src/libkcups/KCupsRequest.cpp:549
+#: src/libkcups/KCupsRequest.cpp:548
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr ""
@@ -1055,63 +1055,63 @@ msgstr ""
 msgid "Printers"
 msgstr "ਪਰਿੰਟਰ"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle"
 msgstr "ਬੇਕਾਰ"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:412
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "ਬੇਕਾਰ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:415
+#: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:418
 #, kde-format
 msgid "In use"
 msgstr "ਵਰਤੋਂ ਅਧੀਨ"
 
-#: src/libkcups/PrinterModel.cpp:421
+#: src/libkcups/PrinterModel.cpp:420
 #, kde-format
 msgid "In use - '%1'"
 msgstr "ਵਰਤੋਂ ਵਿੱਚ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused"
 msgstr "ਵਿਰਾਮ"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:424
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr ""
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "ਵਿਰਾਮ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:427
+#: src/libkcups/PrinterModel.cpp:426
 #, fuzzy, kde-format
 #| msgid "Paused - '%1'"
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "ਵਿਰਾਮ - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:430
 #, kde-format
 msgid "Unknown"
 msgstr "ਅਣਪਛਾਤਾ"
 
-#: src/libkcups/PrinterModel.cpp:433
+#: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "ਅਣਪਛਾਤਾ - '%1'"

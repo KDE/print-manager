@@ -6,7 +6,6 @@ Print Manager is a small, relatively self-contained set of components integrated
 ## Components
 
 * Set of legacy stand-alone apps:
-  * `kde-add-printer` (for adding printers and printer groups)
   * `configure-printer` (for configuring current printers and printer groups)
   * `kde-print-queue` (for managing printer job queues)
 
@@ -57,7 +56,7 @@ The easiest way to make changes and test print-manager during development is to 
 
 When building print-manager manually, keep in mind that the Qt5 and Qt6 versions will be built by default. To control which versions are built, use the `BUILD_QT5` and `BUILD_QT6` CMake variables.
 
-After building, restart the kded and plasmashell.  At that point run the kcm from System Settings or from the command line:
+After building, restart the kded and plasmashell services.  Run the kcm from System Settings or from the command line:
 
 * systemsettings kcm_printer_manager
 * kcmshell6 kcm_printer_manager
@@ -68,7 +67,13 @@ The following command line options are supported (with the --args parameter)
 * --add-group
 * --configure-printer <queueName>
 
-So, for example, to initiate the kcm to add a printer run: `systemsettings kcm_printer_manager --args --add-printer`.  To configure an existing printer, run: `systemsettings kcm_printer_manager --args "--configure-printer <queueName>"`.
+For example, to add a printer run: 
+
+* `systemsettings kcm_printer_manager --args --add-printer`
+
+To configure an existing printer, run: 
+
+* `systemsettings kcm_printer_manager --args "--configure-printer <queueName>"`
 
 
 ## Contributing
@@ -81,4 +86,4 @@ tab to report bugs.
 * Is there a part of print-manager that's not translated? See the [Getting Involved in Translation wiki page](https://community.kde.org/Get_Involved/translation) to see how
 you can help translate!
 
-If you get stuck or need help with anything at all, head over to the [KDE New Contributors room](https://go.kde.org/matrix/#/#kde-welcome:kde.org) on Matrix. For questions about print-manager, please ask in the [KDE Development room](https://go.kde.org/matrix/#/#kde-devel:kde.org). See [Matrix](https://community.kde.org/Matrix) for more details.
+If you get stuck or need help with anything at all, head over to the [KDE New Contributors room](https://go.kde.org/matrix/#/#kde-welcome:kde.org) on Matrix. For questions about print-manager, please ask in the [KDE Printing Development room](https://go.kde.org/matrix/#/#kde-printing-dev:kde.org). See [Matrix](https://community.kde.org/Matrix) for more details.

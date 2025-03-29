@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-03-29 00:44+0000\n"
 "PO-Revision-Date: 2025-01-10 00:30+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -19,47 +19,66 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: printermanager.cpp:259
+#: printermanager.cpp:107
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Printer"
+msgid "Add a new printer"
+msgstr "Pridėti spausdintuvą"
+
+#: printermanager.cpp:109
+#, kde-format
+msgid "Add a new printer group"
+msgstr ""
+
+#: printermanager.cpp:111 printermanager.cpp:113
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure Print Server…"
+msgid "Configure a printer"
+msgstr "Konfigūruoti spausdinimo serverį…"
+
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nepavyko sukonfigūruoti klasės: "
 
-#: printermanager.cpp:259
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nepavyko sukonfigūruoti spausdintuvo: "
 
-#: printermanager.cpp:425
+#: printermanager.cpp:469
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nepavyko įvykdyti užklausos: %1"
 
-#: printermanager.cpp:477
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nepavyko gauti serverio nuostatų: %1"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:558
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Serverio nuostatos neįrašytos: (%1): %2"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:565
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Lemtingasis serverio nuostatų įrašymas: (%1): %2"
 
-#: printermanager.cpp:574
+#: printermanager.cpp:618
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Spausdinti savikontrolės puslapį"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:624
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Išvalyti spausdinimo galvutes"
@@ -382,17 +401,17 @@ msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
 msgstr "Pranešti apie šią problemą %1"
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_queue"
 msgstr "nauja_eilė"
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_group"
 msgstr "nauja_grupė"
 
-#: ui/main.qml:69
+#: ui/main.qml:85
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -407,7 +426,7 @@ msgstr ""
 "tvarkytuvę, kad rankiniu būdu įsidiegtumėte paketą <command>system-config-"
 "printer</command>."
 
-#: ui/main.qml:71
+#: ui/main.qml:87
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -417,43 +436,43 @@ msgstr ""
 "Atrodo, kad nėra įdiegtas spausdintuvo palaikymo paketas, teikiantis "
 "patogumo ypatybes."
 
-#: ui/main.qml:77
+#: ui/main.qml:93
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
 msgstr "Įdiegti jį"
 
-#: ui/main.qml:108
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
 msgstr "Pridėti…"
 
-#: ui/main.qml:109
+#: ui/main.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Pridėti spausdintuvą…"
 
-#: ui/main.qml:119
+#: ui/main.qml:131
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Pridėti grupę…"
 
-#: ui/main.qml:128
+#: ui/main.qml:137
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Konfigūruoti spausdinimo serverį…"
 
-#: ui/main.qml:234
+#: ui/main.qml:301
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Šiuo metu nėra nustatytų spausdintuvų"
 
-#: ui/main.qml:235
+#: ui/main.qml:302
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -462,41 +481,41 @@ msgstr ""
 "Spustelėkite <interface>Pridėti…</interface> norėdami šiame kompiuteryje "
 "nustatyti naują spausdintuvą"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printers"
 msgstr "Spausdintuvai"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printer Groups"
 msgstr "Spausdintuvų grupės"
 
-#: ui/main.qml:305
+#: ui/main.qml:374
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Spausdinimo eilė"
 
-#: ui/main.qml:321
+#: ui/main.qml:390
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Pratęsti"
 
-#: ui/main.qml:322
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pristabdyti"
 
-#: ui/main.qml:336
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Pratęsti spausdinimą"
 
-#: ui/main.qml:337
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

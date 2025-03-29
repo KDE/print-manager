@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-03-29 00:44+0000\n"
 "PO-Revision-Date: 2025-01-11 11:57+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -18,47 +18,66 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 24.12.0\n"
 
-#: printermanager.cpp:259
+#: printermanager.cpp:107
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Printer"
+msgid "Add a new printer"
+msgstr "Dodaj drukarkę"
+
+#: printermanager.cpp:109
+#, kde-format
+msgid "Add a new printer group"
+msgstr ""
+
+#: printermanager.cpp:111 printermanager.cpp:113
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure Print Server…"
+msgid "Configure a printer"
+msgstr "Ustawienia serwera drukowania…"
+
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nie udało się ustawić klasy: "
 
-#: printermanager.cpp:259
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nie udało się ustawić drukarki: "
 
-#: printermanager.cpp:425
+#: printermanager.cpp:469
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nie udało się wykonać żądania: %1"
 
-#: printermanager.cpp:477
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nie udało się pobrać ustawień serwera: %1"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:558
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Nie zapisano ustawień serwera: (%1): %2"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:565
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Błąd kluczowy przy zapisywaniu ustawienia serwera: (%1): %2"
 
-#: printermanager.cpp:574
+#: printermanager.cpp:618
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Wydrukuj stronę próbną"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:624
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Wyczyść głowice drukujące"
@@ -381,17 +400,17 @@ msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
 msgstr "Zgłoś ten błąd na %1"
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_queue"
 msgstr "nowa_kolejka"
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_group"
 msgstr "nowa_grupa"
 
-#: ui/main.qml:69
+#: ui/main.qml:85
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -405,7 +424,7 @@ msgstr ""
 "systemu nie dostarcza PackageKit. Zalecamy użycie programu do zarządzania "
 "pakietami do wgrania <command>system-config-printer</command>."
 
-#: ui/main.qml:71
+#: ui/main.qml:87
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -415,43 +434,43 @@ msgstr ""
 "Pakiet obsługujący drukarkę, który dostarcza pewnych wygód nie wydaje się "
 "być wgrany."
 
-#: ui/main.qml:77
+#: ui/main.qml:93
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
 msgstr "Wgraj ją"
 
-#: ui/main.qml:108
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
 msgstr "Dodaj…"
 
-#: ui/main.qml:109
+#: ui/main.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Dodaj drukarkę…"
 
-#: ui/main.qml:119
+#: ui/main.qml:131
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Dodaj grupę…"
 
-#: ui/main.qml:128
+#: ui/main.qml:137
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Ustawienia serwera drukowania…"
 
-#: ui/main.qml:234
+#: ui/main.qml:301
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Obecnie nie jest ustawiona żadna drukarka"
 
-#: ui/main.qml:235
+#: ui/main.qml:302
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -460,41 +479,41 @@ msgstr ""
 "Naciśnij <interface>Dodaj…</interface>, aby ustawić nową drukarkę na tym "
 "komputerze"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printers"
 msgstr "Drukarki"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printer Groups"
 msgstr "Grupy drukarek"
 
-#: ui/main.qml:305
+#: ui/main.qml:374
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Kolejka drukowania"
 
-#: ui/main.qml:321
+#: ui/main.qml:390
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Wznów"
 
-#: ui/main.qml:322
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Wstrzymaj"
 
-#: ui/main.qml:336
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Wznów drukowanie"
 
-#: ui/main.qml:337
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

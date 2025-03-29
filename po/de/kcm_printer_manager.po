@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-03-29 00:44+0000\n"
 "PO-Revision-Date: 2024-03-27 20:03+0100\n"
 "Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -16,30 +16,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.02.1\n"
 
-#: printermanager.cpp:259
+#: printermanager.cpp:107
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Printer"
+msgid "Add a new printer"
+msgstr "Drucker hinzufügen"
+
+#: printermanager.cpp:109
+#, kde-format
+msgid "Add a new printer group"
+msgstr ""
+
+#: printermanager.cpp:111 printermanager.cpp:113
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure Print Server…"
+msgid "Configure a printer"
+msgstr "Druckserver einrichten …"
+
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Das Einrichten der Klasse ist fehlgeschlagen: "
 
-#: printermanager.cpp:259
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Das Einrichten des Druckers ist fehlgeschlagen: "
 
-#: printermanager.cpp:425
+#: printermanager.cpp:469
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Auftrag kann nicht ausgeführt werden: %1"
 
-#: printermanager.cpp:477
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen: %1"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:558
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -47,7 +66,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Server-Fehler: (%1): %2"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:565
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -55,12 +74,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen: %1"
 
-#: printermanager.cpp:574
+#: printermanager.cpp:618
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Selbsttestseite drucken"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:624
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Druckköpfe reinigen"
@@ -394,17 +413,17 @@ msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
 msgstr ""
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_queue"
 msgstr "neue_Warteschlange"
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_group"
 msgstr "neue_Gruppe"
 
-#: ui/main.qml:69
+#: ui/main.qml:85
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -414,7 +433,7 @@ msgid ""
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
 
-#: ui/main.qml:71
+#: ui/main.qml:87
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -422,43 +441,43 @@ msgid ""
 "to be installed."
 msgstr ""
 
-#: ui/main.qml:77
+#: ui/main.qml:93
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
 msgstr ""
 
-#: ui/main.qml:108
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
 msgstr ""
 
-#: ui/main.qml:109
+#: ui/main.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Drucker hinzufügen …"
 
-#: ui/main.qml:119
+#: ui/main.qml:131
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Gruppe hinzufügen …"
 
-#: ui/main.qml:128
+#: ui/main.qml:137
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Druckserver einrichten …"
 
-#: ui/main.qml:234
+#: ui/main.qml:301
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Zurzeit sind keine Drucker eingerichtet"
 
-#: ui/main.qml:235
+#: ui/main.qml:302
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:usagetip"
 #| msgid ""
@@ -471,17 +490,17 @@ msgstr ""
 "Bitte wählen Sie <interface>Drucker hinzufügen …</interface> für das "
 "Festlegen eines neuen Druckers auf diesem Computer"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printers"
 msgstr "Drucker"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printer Groups"
 msgstr "Druckergruppen"
 
-#: ui/main.qml:305
+#: ui/main.qml:374
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
@@ -489,25 +508,25 @@ msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Druckerwarteschlange öffnen …"
 
-#: ui/main.qml:321
+#: ui/main.qml:390
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Fortsetzen"
 
-#: ui/main.qml:322
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Anhalten"
 
-#: ui/main.qml:336
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Drucken wieder fortsetzen"
 
-#: ui/main.qml:337
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

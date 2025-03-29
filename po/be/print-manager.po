@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-24 00:43+0000\n"
+"POT-Creation-Date: 2025-03-29 00:44+0000\n"
 "PO-Revision-Date: 2025-01-09 22:32\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -30,426 +30,6 @@ msgstr "Antikruk"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "nashtlumach@gmail.com"
-
-#: src/add-printer/AddPrinterAssistant.cpp:29
-#, kde-format
-msgctxt "@title:window"
-msgid "Add a New Printer"
-msgstr "Дадаць новы прынтар"
-
-#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
-#: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
-#: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
-#: src/add-printer/PageAddPrinter.cpp:27 src/add-printer/PageChoosePPD.cpp:30
-#: src/add-printer/PageChoosePrinters.cpp:24
-#: src/add-printer/PageDestinations.cpp:79
-#, kde-format
-msgctxt "@title:window"
-msgid "Select a Printer to Add"
-msgstr "Абярыце прынтар, які трэба дадаць"
-
-#: src/add-printer/AddPrinterAssistant.cpp:87
-#: src/add-printer/AddPrinterAssistant.cpp:108
-#, kde-format
-msgctxt "@title:window"
-msgid "Please describe your printer"
-msgstr "Дадайце апісанне вашага прынтара"
-
-#: src/add-printer/AddPrinterAssistant.cpp:104
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure your connection"
-msgstr "Наладжванне злучэння"
-
-#: src/add-printer/AddPrinterAssistant.cpp:195
-#, kde-format
-msgctxt "@title:window"
-msgid "Pick a Driver for %1"
-msgstr "Абраць драйвер для %1"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseLpd.ui:26
-#, kde-format
-msgid "Address:"
-msgstr "Адрас:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36
-#, kde-format
-msgid "Queue:"
-msgstr "Чарга:"
-
-#. i18n: ectx: property (text), widget (QPushButton, detectPB)
-#: src/add-printer/ChooseLpd.ui:51
-#, kde-format
-msgid "Detect"
-msgstr "Выявіць"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/add-printer/ChooseSamba.ui:35
-#, kde-format
-msgctxt "@title:group"
-msgid "Windows Printer via SAMBA"
-msgstr "Прынтар у Windows, падлучаны з дапамогай SAMBA"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/add-printer/ChooseSamba.ui:41
-#, kde-format
-msgctxt ""
-"@label samba URL markup example, this is preceded by a label containing "
-"smb://"
-msgid "smb://[workgroup/]server[:port]/printer"
-msgstr "smb://[workgroup/]server[:port]/printer"
-
-#. i18n: ectx: property (text), widget (QPushButton, browsePB)
-#: src/add-printer/ChooseSamba.ui:54
-#, kde-format
-msgctxt "@action:button"
-msgid "Browse"
-msgstr "Агляд"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: src/add-printer/ChooseSamba.ui:64
-#, kde-format
-msgctxt "@title:group"
-msgid "Authentication"
-msgstr "Аўтэнтыфікацыя"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/ChooseSamba.ui:73
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Username:"
-msgstr "Імя карыстальніка:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/add-printer/ChooseSamba.ui:86
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Password"
-msgstr "Пароль"
-
-#: src/add-printer/ChooseSerial.cpp:25 src/add-printer/ChooseSerial.cpp:29
-#, kde-format
-msgctxt "@label:listbox"
-msgid "None"
-msgstr "Няма"
-
-#: src/add-printer/ChooseSerial.cpp:26
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Even"
-msgstr "Even"
-
-#: src/add-printer/ChooseSerial.cpp:27
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Odd"
-msgstr "Odd"
-
-#: src/add-printer/ChooseSerial.cpp:30
-#, kde-format
-msgctxt "@label:listbox"
-msgid "XON/XOFF (Software)"
-msgstr "XON/XOFF (Software)"
-
-#: src/add-printer/ChooseSerial.cpp:31
-#, kde-format
-msgctxt "@label:listbox"
-msgid "RTS/CTS (Hardware)"
-msgstr "RTS/CTS (Hardware)"
-
-#: src/add-printer/ChooseSerial.cpp:32
-#, kde-format
-msgctxt "@label:listbox"
-msgid "DTR/DSR (Hardware)"
-msgstr "DTR/DSR (Hardware)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseSerial.ui:29
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Baud Rate:"
-msgstr "Хуткасць перадачы даных:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseSerial.ui:42
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Parity:"
-msgstr "Парытэт:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/add-printer/ChooseSerial.ui:55
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Data Bits:"
-msgstr "Бітаў:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: src/add-printer/ChooseSerial.ui:79
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Flow Control:"
-msgstr "Кіраванне плынню:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseSocket.ui:29
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Address:"
-msgstr "Адрас:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseSocket.ui:42
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Port:"
-msgstr "Порт:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseUri.ui:41
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Connection:"
-msgstr "Злучэнне:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/ChooseUri.ui:82
-#, kde-format
-msgctxt "@info"
-msgid ""
-"<TABLE>\n"
-"<TR>\n"
-"<TD>Examples:\n"
-"<PRE>\n"
-"    http://hostname:631/ipp/\n"
-"    http://hostname:631/ipp/port1\n"
-"\n"
-"    ipp://hostname/ipp/\n"
-"    ipp://hostname/ipp/port1\n"
-"\n"
-"    lpd://hostname/queue\n"
-"\n"
-"    socket://hostname\n"
-"    socket://hostname:9100\n"
-"</PRE>\n"
-"\n"
-"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
-"\"Network\n"
-"Printers\"</A> for the correct URI to use with your printer.</P>\n"
-"</TD>\n"
-"</TR>\n"
-"</TABLE>"
-msgstr ""
-"<TABLE>\n"
-"<TR>\n"
-"<TD>Прыклады:\n"
-"<PRE>\n"
-"    http://hostname:631/ipp/\n"
-"    http://hostname:631/ipp/port1\n"
-"\n"
-"    ipp://hostname/ipp/\n"
-"    ipp://hostname/ipp/port1\n"
-"\n"
-"    lpd://hostname/queue\n"
-"\n"
-"    socket://hostname\n"
-"    socket://hostname:9100\n"
-"</PRE>\n"
-"\n"
-"<P>Глядзіце <A HREF=\"http://localhost:631/help/network.html\" TARGET="
-"\"_blank\">\"Сеткавыя\n"
-"прынтары\"</A>, каб даведацца пра правільны URI для вашага прынтара.</P>\n"
-"</TD>\n"
-"</TR>\n"
-"</TABLE>"
-
-#: src/add-printer/main.cpp:24
-#, kde-format
-msgid "Add Printer"
-msgstr "Дадаць прынтар"
-
-#: src/add-printer/main.cpp:26
-#, kde-format
-msgid "Tool for adding new printers"
-msgstr "Інструмент для дадання новых прынтараў"
-
-#: src/add-printer/main.cpp:28 src/configure-printer/main.cpp:29
-#: src/printqueue/main.cpp:28
-#, kde-format
-msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "(C) 2010-2018 Daniel Nicoletti"
-
-#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:31
-#: src/printqueue/main.cpp:31
-#, kde-format
-msgid "Port to Qt 5 / Plasma 5"
-msgstr "Порт Qt 5 / Plasma 5"
-
-#: src/add-printer/main.cpp:32 src/configure-printer/main.cpp:32
-#: src/printqueue/main.cpp:32
-#, kde-format
-msgid "Port to Qt 6 / Plasma 6"
-msgstr "Порт Qt 6 / Plasma 6"
-
-#: src/add-printer/main.cpp:35
-#, kde-format
-msgid ""
-"NOTE: This application is deprecated and will be removed from Plasma in a "
-"future release."
-msgstr ""
-"ЗАЎВАГА: гэтая праграма састарэла і будзе выдалена з Plasma у наступным "
-"выпуску."
-
-#: src/add-printer/main.cpp:40
-#, kde-format
-msgid "Parent Window ID"
-msgstr "Ідэнтыфікатар бацькоўскага акна"
-
-#: src/add-printer/main.cpp:43
-#, kde-format
-msgid "Add a new printer"
-msgstr "Дадаць новы прынтар"
-
-#: src/add-printer/main.cpp:46
-#, kde-format
-msgid "Add a new printer class"
-msgstr "Дадаць новы клас прынтараў"
-
-#: src/add-printer/main.cpp:49
-#, kde-format
-msgid "Changes the PPD of a given printer"
-msgstr "Змяняе PPD пададзенага прынтара"
-
-#: src/add-printer/main.cpp:53
-#, kde-format
-msgid "Changes the PPD of a given printer/deviceid"
-msgstr "Змяняе PPD пададзенага прынтара або ідэнтыфікатара прылады"
-
-#: src/add-printer/main.cpp:77
-#, kde-format
-msgid "The expected input should be printer/deviceid"
-msgstr "Чакаецца ўвод ідэнтыфікатара прынтара або прылады"
-
-#: src/add-printer/PageAddPrinter.cpp:125
-#, kde-format
-msgctxt "@info"
-msgid "Failed to add class: '%1'"
-msgstr "Не ўдалося дадаць клас: \"%1\""
-
-#: src/add-printer/PageAddPrinter.cpp:127
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: '%1'"
-msgstr "Не ўдалося наладзіць прынтар: \"%1\""
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/PageAddPrinter.ui:31
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Name:"
-msgstr "Назва:"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
-#: src/add-printer/PageAddPrinter.ui:38
-#, kde-format
-msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr "Можа змяшчаць любыя знакі апроч \"/\", \"#\", і прагалу"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/PageAddPrinter.ui:45
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Description:"
-msgstr "Апісанне:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/add-printer/PageAddPrinter.ui:55
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Location:"
-msgstr "Размяшчэнне:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, shareCB)
-#: src/add-printer/PageAddPrinter.ui:65
-#, kde-format
-msgctxt "@option:check"
-msgid "Share this printer"
-msgstr "Абагуліць гэты прынтар"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/PageChoosePrinters.ui:96
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Members:"
-msgstr "Удзельнікі:"
-
-#: src/add-printer/PageDestinations.cpp:190
-#, kde-format
-msgid "A printer connected to the parallel port."
-msgstr "Прынтар, падлучаны да паралельнага порта."
-
-#: src/add-printer/PageDestinations.cpp:193
-#, kde-format
-msgid "A printer connected to a USB port."
-msgstr "Прынтар, падлучаны з дапамогай USB."
-
-#: src/add-printer/PageDestinations.cpp:196
-#, kde-format
-msgid "A printer connected via Bluetooth."
-msgstr "Прынтар, падлучаны з дапамогай Bluetooth."
-
-#: src/add-printer/PageDestinations.cpp:200
-#, kde-format
-msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-msgstr ""
-"Лакальны прынтар, выяўлены з дапамогай Hardware Abstraction Layer (HAL)."
-
-#: src/add-printer/PageDestinations.cpp:205
-#, kde-format
-msgid ""
-"HPLIP software driving a printer, or the printer function of a multi-"
-"function device."
-msgstr ""
-"Праграмнае забеспячэнне HPLIP, якое кіруе прынтарам, або функцыя прынтара "
-"шматфункцыянальнай прылады."
-
-#: src/add-printer/PageDestinations.cpp:210
-#, kde-format
-msgid ""
-"HPLIP software driving a fax machine, or the fax function of a multi-"
-"function device."
-msgstr ""
-"Праграмнае забеспячэнне HPLIP, якое кіруе факсам, або функцыя факса "
-"шматфункцыянальнай прылады."
-
-#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:102
-#, kde-format
-msgid "Remote CUPS printer via DNS-SD"
-msgstr "Адлеглы прынтар CUPS, падлучаны з дапамогай DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:111
-#, kde-format
-msgid "Network printer via DNS-SD"
-msgstr "Сеткавы прынтар, падлучаны з дапамогай DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:231
-#, kde-format
-msgid "%1 network printer via DNS-SD"
-msgstr "%1 - сеткавы прынтар, падлучаны з дапамогай DNS-SD"
-
-#. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
-#: src/add-printer/PageDestinations.ui:62
-#, kde-format
-msgid "Connections"
-msgstr "Злучэнні"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/PageDestinations.ui:97
-#, kde-format
-msgid "Please choose an item on the list"
-msgstr "Абярыце элемент са спіса"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -484,6 +64,21 @@ msgstr "Наладжванне прынтара"
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "Наладжванне прынтара"
+
+#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(C) 2010-2018 Daniel Nicoletti"
+
+#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Порт Qt 5 / Plasma 5"
+
+#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 6 / Plasma 6"
+msgstr "Порт Qt 6 / Plasma 6"
 
 #: src/configure-printer/main.cpp:39
 #, kde-format
@@ -620,47 +215,64 @@ msgstr "Вызначыць прадвызначаныя параметры"
 msgid "Query Printer for Default Options"
 msgstr "Запытаць прынтар для прадвызначаных параметраў"
 
-#: src/kcm/printermanager.cpp:259
+#: src/kcm/printermanager.cpp:107
+#, kde-format
+msgid "Add a new printer"
+msgstr "Дадаць новы прынтар"
+
+#: src/kcm/printermanager.cpp:109
+#, fuzzy, kde-format
+#| msgid "Add a new printer"
+msgid "Add a new printer group"
+msgstr "Дадаць новы прынтар"
+
+#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#, fuzzy, kde-format
+#| msgid "Configure Printer"
+msgid "Configure a printer"
+msgstr "Наладжванне прынтара"
+
+#: src/kcm/printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не ўдалося наладзіць клас: "
 
-#: src/kcm/printermanager.cpp:259
+#: src/kcm/printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не ўдалося наладзіць прынтар: "
 
-#: src/kcm/printermanager.cpp:425
+#: src/kcm/printermanager.cpp:469
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не ўдалося выканаць запыт: %1"
 
-#: src/kcm/printermanager.cpp:477
+#: src/kcm/printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не ўдалося атрымаць налады сервера: %1"
 
-#: src/kcm/printermanager.cpp:514
+#: src/kcm/printermanager.cpp:558
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Налады сервера не захаваныя: (%1): %2"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:565
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Пры захаванні налад сервера адбылася фатальная памылка: (%1): %2"
 
-#: src/kcm/printermanager.cpp:574
+#: src/kcm/printermanager.cpp:618
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукаваць старонку самаправярання"
 
-#: src/kcm/printermanager.cpp:580
+#: src/kcm/printermanager.cpp:624
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Ачышчэнне друкавальных галовак"
@@ -677,80 +289,90 @@ msgstr ""
 "Праверце ўліковыя даныя для аўтэнтыфікацыі і пераканайцеся, што PackageKit "
 "усталяваны правільна."
 
-#: src/kded/NewPrinterNotification.cpp:61
+#: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Быў выяўлены новы прынтар"
 
-#: src/kded/NewPrinterNotification.cpp:62
+#: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
-msgid "Configuring new printer..."
-msgstr "Наладжванне новага прынтара..."
-
-#: src/kded/NewPrinterNotification.cpp:100
-#, kde-format
-msgid "The New Printer was Added"
-msgstr "Быў дададзены новы прынтар"
+msgid "Starting printer configuration"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, kde-format
-msgid "The New Printer is Missing Drivers"
+#, fuzzy, kde-format
+#| msgid "The New Printer was Added"
+msgid "The New Printer was added"
+msgstr "Быў дададзены новы прынтар"
+
+#: src/kded/NewPrinterNotification.cpp:104
+#, fuzzy, kde-format
+#| msgid "The New Printer is Missing Drivers"
+msgid "The New Printer might have a driver problem"
 msgstr "Для новага прынтара няма драйвераў"
 
-#: src/kded/NewPrinterNotification.cpp:165
-#, kde-format
-msgid "Missing printer driver"
-msgstr "Няма драйвера для прынтара"
+#: src/kded/NewPrinterNotification.cpp:152
+#, fuzzy, kde-format
+#| msgid "A New Printer was detected"
+msgid "Printer queue was not created"
+msgstr "Быў выяўлены новы прынтар"
 
-#: src/kded/NewPrinterNotification.cpp:167
-#, kde-format
-msgid "No printer driver for %1 %2."
+#: src/kded/NewPrinterNotification.cpp:154
+#, fuzzy, kde-format
+#| msgid "No printer driver for %1 %2."
+msgid "Printer driver not found for %1 %2"
 msgstr "Няма драйвера для прынтара %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:169
-#, kde-format
-msgid "No printer driver for %1."
+#: src/kded/NewPrinterNotification.cpp:156
+#, fuzzy, kde-format
+#| msgid "No printer driver for %1."
+msgid "Printer driver not found for %1"
 msgstr "Няма драйвера для прынтара %1."
 
-#: src/kded/NewPrinterNotification.cpp:171
-#, kde-format
-msgid "No driver for this printer."
+#: src/kded/NewPrinterNotification.cpp:158
+#, fuzzy, kde-format
+#| msgid "No driver for this printer."
+msgid "Printer driver not found for this printer"
 msgstr "Для гэтага прынтара няма драйвера."
 
-#: src/kded/NewPrinterNotification.cpp:173
-#, kde-format
-msgid "Search"
-msgstr "Пошук"
+#: src/kded/NewPrinterNotification.cpp:160
+#, fuzzy, kde-format
+#| msgid "Add Printer"
+msgid "Add Printer…"
+msgstr "Дадаць прынтар"
 
-#: src/kded/NewPrinterNotification.cpp:236
-#, kde-format
-msgid "'%1' has been added, please check its driver."
+#: src/kded/NewPrinterNotification.cpp:215
+#, fuzzy, kde-format
+#| msgid "'%1' has been added, please check its driver."
+msgid "'%1' has been added, please check its driver"
 msgstr "Прынтар \"%1\" быў дададзены, праверце яго драйвер."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:237
-#: src/kded/NewPrinterNotification.cpp:258 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:216
+#: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Наладжванне"
 
-#: src/kded/NewPrinterNotification.cpp:240
-#, kde-format
-msgid "'%1' has been added, using the '%2' driver."
+#: src/kded/NewPrinterNotification.cpp:221
+#, fuzzy, kde-format
+#| msgid "'%1' has been added, using the '%2' driver."
+msgid "'%1' has been added, using the '%2' driver"
 msgstr "Прынтар \"%1\" быў дададзены з дапамогай драйвера \"%2\"."
 
-#: src/kded/NewPrinterNotification.cpp:241
-#: src/kded/NewPrinterNotification.cpp:255
+#: src/kded/NewPrinterNotification.cpp:223
+#: src/kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "Print test page"
 msgstr "Надрукаваць тэставую старонку"
 
-#: src/kded/NewPrinterNotification.cpp:243
-#, kde-format
-msgid "Find driver"
-msgstr "Пошук драйвера"
+#: src/kded/NewPrinterNotification.cpp:228
+#, fuzzy, kde-format
+#| msgid "Choose &the driver"
+msgid "Check driver"
+msgstr "Абраць &драйвер"
 
-#: src/kded/NewPrinterNotification.cpp:253
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "Прынтар \"%1\" гатовы да друкавання."
@@ -831,6 +453,11 @@ msgstr "IPP %1"
 msgid "HTTP"
 msgstr "HTTP"
 
+#: src/libkcups/DevicesModel.cpp:102
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Адлеглы прынтар CUPS, падлучаны з дапамогай DNS-SD"
+
 #: src/libkcups/DevicesModel.cpp:105
 #, kde-format
 msgid "IPP network printer via DNS-SD"
@@ -845,6 +472,11 @@ msgstr "Сеткавы прынтар LPD, падлучаны з дапамог�
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "Сеткавы прынтар AppSocket/JetDirect, падлучаны з дапамогай DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:111
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "Сеткавы прынтар, падлучаны з дапамогай DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:123
 #, kde-format
@@ -1148,39 +780,6 @@ msgstr "Невядома"
 msgid "Unknown - '%1'"
 msgstr "Невядома - \"%1\""
 
-#: src/libkcups/SelectMakeModel.cpp:115
-#, kde-format
-msgid "Choose the driver for %1"
-msgstr "Абраць драйвер для %1"
-
-#: src/libkcups/SelectMakeModel.cpp:138
-#, kde-format
-msgid "Failed to get a list of drivers: '%1'"
-msgstr "Не ўдалося атрымаць спіс драйвераў: \"%1\""
-
-#: src/libkcups/SelectMakeModel.cpp:228
-#, kde-format
-msgid "Failed to search for a recommended driver: '%1'"
-msgstr "Не ўдалося знайсці рэкамендаваны драйвер: \"%1\""
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: src/libkcups/SelectMakeModel.ui:14
-#, kde-format
-msgid "Select a Driver"
-msgstr "Абраць драйвер"
-
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
-#: src/libkcups/SelectMakeModel.ui:79
-#, kde-format
-msgid "Choose &the driver"
-msgstr "Абраць &драйвер"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
-#: src/libkcups/SelectMakeModel.ui:91
-#, kde-format
-msgid "Ma&nually Provide a PPD File:"
-msgstr "&Уласнаручна падаць файл PPD:"
-
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
@@ -1339,6 +938,280 @@ msgstr "Завершаныя задачы"
 #, kde-format
 msgid "All Jobs"
 msgstr "Усе задачы"
+
+#~ msgctxt "@title:window"
+#~ msgid "Add a New Printer"
+#~ msgstr "Дадаць новы прынтар"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select a Printer to Add"
+#~ msgstr "Абярыце прынтар, які трэба дадаць"
+
+#~ msgctxt "@title:window"
+#~ msgid "Please describe your printer"
+#~ msgstr "Дадайце апісанне вашага прынтара"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure your connection"
+#~ msgstr "Наладжванне злучэння"
+
+#~ msgctxt "@title:window"
+#~ msgid "Pick a Driver for %1"
+#~ msgstr "Абраць драйвер для %1"
+
+#~ msgid "Address:"
+#~ msgstr "Адрас:"
+
+#~ msgid "Queue:"
+#~ msgstr "Чарга:"
+
+#~ msgid "Detect"
+#~ msgstr "Выявіць"
+
+#~ msgctxt "@title:group"
+#~ msgid "Windows Printer via SAMBA"
+#~ msgstr "Прынтар у Windows, падлучаны з дапамогай SAMBA"
+
+#~ msgctxt ""
+#~ "@label samba URL markup example, this is preceded by a label containing "
+#~ "smb://"
+#~ msgid "smb://[workgroup/]server[:port]/printer"
+#~ msgstr "smb://[workgroup/]server[:port]/printer"
+
+#~ msgctxt "@action:button"
+#~ msgid "Browse"
+#~ msgstr "Агляд"
+
+#~ msgctxt "@title:group"
+#~ msgid "Authentication"
+#~ msgstr "Аўтэнтыфікацыя"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Username:"
+#~ msgstr "Імя карыстальніка:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "None"
+#~ msgstr "Няма"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Even"
+#~ msgstr "Even"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Odd"
+#~ msgstr "Odd"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "XON/XOFF (Software)"
+#~ msgstr "XON/XOFF (Software)"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "RTS/CTS (Hardware)"
+#~ msgstr "RTS/CTS (Hardware)"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "DTR/DSR (Hardware)"
+#~ msgstr "DTR/DSR (Hardware)"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Baud Rate:"
+#~ msgstr "Хуткасць перадачы даных:"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Parity:"
+#~ msgstr "Парытэт:"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Data Bits:"
+#~ msgstr "Бітаў:"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Flow Control:"
+#~ msgstr "Кіраванне плынню:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Address:"
+#~ msgstr "Адрас:"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid "Port:"
+#~ msgstr "Порт:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Connection:"
+#~ msgstr "Злучэнне:"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<TABLE>\n"
+#~ "<TR>\n"
+#~ "<TD>Examples:\n"
+#~ "<PRE>\n"
+#~ "    http://hostname:631/ipp/\n"
+#~ "    http://hostname:631/ipp/port1\n"
+#~ "\n"
+#~ "    ipp://hostname/ipp/\n"
+#~ "    ipp://hostname/ipp/port1\n"
+#~ "\n"
+#~ "    lpd://hostname/queue\n"
+#~ "\n"
+#~ "    socket://hostname\n"
+#~ "    socket://hostname:9100\n"
+#~ "</PRE>\n"
+#~ "\n"
+#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
+#~ "\">\"Network\n"
+#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
+#~ "</TD>\n"
+#~ "</TR>\n"
+#~ "</TABLE>"
+#~ msgstr ""
+#~ "<TABLE>\n"
+#~ "<TR>\n"
+#~ "<TD>Прыклады:\n"
+#~ "<PRE>\n"
+#~ "    http://hostname:631/ipp/\n"
+#~ "    http://hostname:631/ipp/port1\n"
+#~ "\n"
+#~ "    ipp://hostname/ipp/\n"
+#~ "    ipp://hostname/ipp/port1\n"
+#~ "\n"
+#~ "    lpd://hostname/queue\n"
+#~ "\n"
+#~ "    socket://hostname\n"
+#~ "    socket://hostname:9100\n"
+#~ "</PRE>\n"
+#~ "\n"
+#~ "<P>Глядзіце <A HREF=\"http://localhost:631/help/network.html\" TARGET="
+#~ "\"_blank\">\"Сеткавыя\n"
+#~ "прынтары\"</A>, каб даведацца пра правільны URI для вашага прынтара.</P>\n"
+#~ "</TD>\n"
+#~ "</TR>\n"
+#~ "</TABLE>"
+
+#~ msgid "Tool for adding new printers"
+#~ msgstr "Інструмент для дадання новых прынтараў"
+
+#~ msgid ""
+#~ "NOTE: This application is deprecated and will be removed from Plasma in a "
+#~ "future release."
+#~ msgstr ""
+#~ "ЗАЎВАГА: гэтая праграма састарэла і будзе выдалена з Plasma у наступным "
+#~ "выпуску."
+
+#~ msgid "Parent Window ID"
+#~ msgstr "Ідэнтыфікатар бацькоўскага акна"
+
+#~ msgid "Add a new printer class"
+#~ msgstr "Дадаць новы клас прынтараў"
+
+#~ msgid "Changes the PPD of a given printer"
+#~ msgstr "Змяняе PPD пададзенага прынтара"
+
+#~ msgid "Changes the PPD of a given printer/deviceid"
+#~ msgstr "Змяняе PPD пададзенага прынтара або ідэнтыфікатара прылады"
+
+#~ msgid "The expected input should be printer/deviceid"
+#~ msgstr "Чакаецца ўвод ідэнтыфікатара прынтара або прылады"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to add class: '%1'"
+#~ msgstr "Не ўдалося дадаць клас: \"%1\""
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure printer: '%1'"
+#~ msgstr "Не ўдалося наладзіць прынтар: \"%1\""
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Name:"
+#~ msgstr "Назва:"
+
+#~ msgid "May contain any printable characters except \"/\", \"#\", and space"
+#~ msgstr "Можа змяшчаць любыя знакі апроч \"/\", \"#\", і прагалу"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Description:"
+#~ msgstr "Апісанне:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Location:"
+#~ msgstr "Размяшчэнне:"
+
+#~ msgctxt "@option:check"
+#~ msgid "Share this printer"
+#~ msgstr "Абагуліць гэты прынтар"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Members:"
+#~ msgstr "Удзельнікі:"
+
+#~ msgid "A printer connected to the parallel port."
+#~ msgstr "Прынтар, падлучаны да паралельнага порта."
+
+#~ msgid "A printer connected to a USB port."
+#~ msgstr "Прынтар, падлучаны з дапамогай USB."
+
+#~ msgid "A printer connected via Bluetooth."
+#~ msgstr "Прынтар, падлучаны з дапамогай Bluetooth."
+
+#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
+#~ msgstr ""
+#~ "Лакальны прынтар, выяўлены з дапамогай Hardware Abstraction Layer (HAL)."
+
+#~ msgid ""
+#~ "HPLIP software driving a printer, or the printer function of a multi-"
+#~ "function device."
+#~ msgstr ""
+#~ "Праграмнае забеспячэнне HPLIP, якое кіруе прынтарам, або функцыя прынтара "
+#~ "шматфункцыянальнай прылады."
+
+#~ msgid ""
+#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
+#~ "function device."
+#~ msgstr ""
+#~ "Праграмнае забеспячэнне HPLIP, якое кіруе факсам, або функцыя факса "
+#~ "шматфункцыянальнай прылады."
+
+#~ msgid "%1 network printer via DNS-SD"
+#~ msgstr "%1 - сеткавы прынтар, падлучаны з дапамогай DNS-SD"
+
+#~ msgid "Connections"
+#~ msgstr "Злучэнні"
+
+#~ msgid "Please choose an item on the list"
+#~ msgstr "Абярыце элемент са спіса"
+
+#~ msgid "Configuring new printer..."
+#~ msgstr "Наладжванне новага прынтара..."
+
+#~ msgid "Missing printer driver"
+#~ msgstr "Няма драйвера для прынтара"
+
+#~ msgid "Search"
+#~ msgstr "Пошук"
+
+#~ msgid "Find driver"
+#~ msgstr "Пошук драйвера"
+
+#~ msgid "Choose the driver for %1"
+#~ msgstr "Абраць драйвер для %1"
+
+#~ msgid "Failed to get a list of drivers: '%1'"
+#~ msgstr "Не ўдалося атрымаць спіс драйвераў: \"%1\""
+
+#~ msgid "Failed to search for a recommended driver: '%1'"
+#~ msgstr "Не ўдалося знайсці рэкамендаваны драйвер: \"%1\""
+
+#~ msgid "Select a Driver"
+#~ msgstr "Абраць драйвер"
+
+#~ msgid "Ma&nually Provide a PPD File:"
+#~ msgstr "&Уласнаручна падаць файл PPD:"
 
 #, fuzzy
 #~| msgid "Print settings"

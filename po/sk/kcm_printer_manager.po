@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-03-29 00:44+0000\n"
 "PO-Revision-Date: 2023-12-09 08:55+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -15,30 +15,49 @@ msgstr ""
 "X-Generator: Lokalize 23.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: printermanager.cpp:259
+#: printermanager.cpp:107
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Printer"
+msgid "Add a new printer"
+msgstr "Pridať tlačiareň"
+
+#: printermanager.cpp:109
+#, kde-format
+msgid "Add a new printer group"
+msgstr ""
+
+#: printermanager.cpp:111 printermanager.cpp:113
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure…"
+msgid "Configure a printer"
+msgstr "Nastaviť..."
+
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Zlyhalo nastavenie triedy: "
 
-#: printermanager.cpp:259
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Zlyhalo nastavenie tlačiarne: "
 
-#: printermanager.cpp:425
+#: printermanager.cpp:469
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Zlyhalo vykonanie požiadavky: %1"
 
-#: printermanager.cpp:477
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Zlyhalo získanie nastavení servera: %1"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:558
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -46,7 +65,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Chyba servera: (%1): %2"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:565
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -54,12 +73,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Zlyhalo získanie nastavení servera: %1"
 
-#: printermanager.cpp:574
+#: printermanager.cpp:618
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Vytlačiť samo-testovaciu stránku"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:624
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Vyčistiť tlačové hlavy"
@@ -372,17 +391,17 @@ msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
 msgstr ""
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_queue"
 msgstr ""
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_group"
 msgstr ""
 
-#: ui/main.qml:69
+#: ui/main.qml:85
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -392,7 +411,7 @@ msgid ""
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
 
-#: ui/main.qml:71
+#: ui/main.qml:87
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -400,19 +419,19 @@ msgid ""
 "to be installed."
 msgstr ""
 
-#: ui/main.qml:77
+#: ui/main.qml:93
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
 msgstr ""
 
-#: ui/main.qml:108
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
 msgstr ""
 
-#: ui/main.qml:109
+#: ui/main.qml:125
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Printer"
@@ -420,7 +439,7 @@ msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "Pridať tlačiareň"
 
-#: ui/main.qml:119
+#: ui/main.qml:131
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Add Group"
@@ -428,7 +447,7 @@ msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "Pridať skupinu"
 
-#: ui/main.qml:128
+#: ui/main.qml:137
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure…"
@@ -436,30 +455,30 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Nastaviť..."
 
-#: ui/main.qml:234
+#: ui/main.qml:301
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr ""
 
-#: ui/main.qml:235
+#: ui/main.qml:302
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printers"
 msgstr "Tlačiarne"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printer Groups"
 msgstr ""
 
-#: ui/main.qml:305
+#: ui/main.qml:374
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
@@ -467,25 +486,25 @@ msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Otvoriť tlačovú frontu..."
 
-#: ui/main.qml:321
+#: ui/main.qml:390
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Pokračovať"
 
-#: ui/main.qml:322
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pozastaviť"
 
-#: ui/main.qml:336
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Pokračovať v tlači"
 
-#: ui/main.qml:337
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

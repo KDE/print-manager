@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-24 00:43+0000\n"
+"POT-Creation-Date: 2025-03-29 00:44+0000\n"
 "PO-Revision-Date: 2024-05-21 04:25+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -27,427 +27,6 @@ msgstr "Eloy Cuadra"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
-
-#: src/add-printer/AddPrinterAssistant.cpp:29
-#, kde-format
-msgctxt "@title:window"
-msgid "Add a New Printer"
-msgstr "Añadir nueva impresora"
-
-#: src/add-printer/AddPrinterAssistant.cpp:71 src/add-printer/ChooseLpd.cpp:25
-#: src/add-printer/ChooseSamba.cpp:29 src/add-printer/ChooseSerial.cpp:23
-#: src/add-printer/ChooseSocket.cpp:23 src/add-printer/ChooseUri.cpp:26
-#: src/add-printer/PageAddPrinter.cpp:27 src/add-printer/PageChoosePPD.cpp:30
-#: src/add-printer/PageChoosePrinters.cpp:24
-#: src/add-printer/PageDestinations.cpp:79
-#, kde-format
-msgctxt "@title:window"
-msgid "Select a Printer to Add"
-msgstr "Seleccionar una impresora a añadir"
-
-#: src/add-printer/AddPrinterAssistant.cpp:87
-#: src/add-printer/AddPrinterAssistant.cpp:108
-#, kde-format
-msgctxt "@title:window"
-msgid "Please describe your printer"
-msgstr "Por favor, describa su impresora"
-
-#: src/add-printer/AddPrinterAssistant.cpp:104
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure your connection"
-msgstr "Configure su conexión"
-
-#: src/add-printer/AddPrinterAssistant.cpp:195
-#, kde-format
-msgctxt "@title:window"
-msgid "Pick a Driver for %1"
-msgstr "Escoger un controlador para %1"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseLpd.ui:26
-#, kde-format
-msgid "Address:"
-msgstr "Dirección:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseLpd.ui:36
-#, kde-format
-msgid "Queue:"
-msgstr "Cola:"
-
-#. i18n: ectx: property (text), widget (QPushButton, detectPB)
-#: src/add-printer/ChooseLpd.ui:51
-#, kde-format
-msgid "Detect"
-msgstr "Detectar"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: src/add-printer/ChooseSamba.ui:35
-#, kde-format
-msgctxt "@title:group"
-msgid "Windows Printer via SAMBA"
-msgstr "Impresora de Windows mediante SAMBA"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: src/add-printer/ChooseSamba.ui:41
-#, kde-format
-msgctxt ""
-"@label samba URL markup example, this is preceded by a label containing "
-"smb://"
-msgid "smb://[workgroup/]server[:port]/printer"
-msgstr "smb://[grupo_de_trabajo/]servidor[:puerto]/impresora"
-
-#. i18n: ectx: property (text), widget (QPushButton, browsePB)
-#: src/add-printer/ChooseSamba.ui:54
-#, kde-format
-msgctxt "@action:button"
-msgid "Browse"
-msgstr "Navegar"
-
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: src/add-printer/ChooseSamba.ui:64
-#, kde-format
-msgctxt "@title:group"
-msgid "Authentication"
-msgstr "Autenticación"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/ChooseSamba.ui:73
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Username:"
-msgstr "Nombre de usuario:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/add-printer/ChooseSamba.ui:86
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Password"
-msgstr "Contraseña"
-
-#: src/add-printer/ChooseSerial.cpp:25 src/add-printer/ChooseSerial.cpp:29
-#, kde-format
-msgctxt "@label:listbox"
-msgid "None"
-msgstr "Ninguna"
-
-#: src/add-printer/ChooseSerial.cpp:26
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Even"
-msgstr "Par"
-
-#: src/add-printer/ChooseSerial.cpp:27
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Odd"
-msgstr "Impar"
-
-#: src/add-printer/ChooseSerial.cpp:30
-#, kde-format
-msgctxt "@label:listbox"
-msgid "XON/XOFF (Software)"
-msgstr "XON/XOFF (Software)"
-
-#: src/add-printer/ChooseSerial.cpp:31
-#, kde-format
-msgctxt "@label:listbox"
-msgid "RTS/CTS (Hardware)"
-msgstr "RTS/CTS (Hardware)"
-
-#: src/add-printer/ChooseSerial.cpp:32
-#, kde-format
-msgctxt "@label:listbox"
-msgid "DTR/DSR (Hardware)"
-msgstr "DTR/DSR (Hardware)"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseSerial.ui:29
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Baud Rate:"
-msgstr "Velocidad en baudios:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseSerial.ui:42
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Parity:"
-msgstr "Paridad:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/add-printer/ChooseSerial.ui:55
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Data Bits:"
-msgstr "Bits de datos:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: src/add-printer/ChooseSerial.ui:79
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Flow Control:"
-msgstr "Control de flujo:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseSocket.ui:29
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Address:"
-msgstr "Dirección:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/ChooseSocket.ui:42
-#, kde-format
-msgctxt "@label:spinbox"
-msgid "Port:"
-msgstr "Puerto:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/ChooseUri.ui:41
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Connection:"
-msgstr "Conexión:"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/ChooseUri.ui:82
-#, kde-format
-msgctxt "@info"
-msgid ""
-"<TABLE>\n"
-"<TR>\n"
-"<TD>Examples:\n"
-"<PRE>\n"
-"    http://hostname:631/ipp/\n"
-"    http://hostname:631/ipp/port1\n"
-"\n"
-"    ipp://hostname/ipp/\n"
-"    ipp://hostname/ipp/port1\n"
-"\n"
-"    lpd://hostname/queue\n"
-"\n"
-"    socket://hostname\n"
-"    socket://hostname:9100\n"
-"</PRE>\n"
-"\n"
-"<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
-"\"Network\n"
-"Printers\"</A> for the correct URI to use with your printer.</P>\n"
-"</TD>\n"
-"</TR>\n"
-"</TABLE>"
-msgstr ""
-"<TABLE>\n"
-"<TR>\n"
-"<TD>Ejemplos:\n"
-"<PRE>\n"
-"    http://hostname:631/ipp/\n"
-"    http://hostname:631/ipp/port1\n"
-"\n"
-"    ipp://hostname/ipp/\n"
-"    ipp://hostname/ipp/port1\n"
-"\n"
-"    lpd://hostname/queue\n"
-"\n"
-"    socket://hostname\n"
-"    socket://hostname:9100\n"
-"</PRE>\n"
-"\n"
-"<P>Vea <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-"\">«Impresoras\n"
-"de red»</A> para el URI correcto a usar con su impresora.</P>\n"
-"</TD>\n"
-"</TR>\n"
-"</TABLE>"
-
-#: src/add-printer/main.cpp:24
-#, kde-format
-msgid "Add Printer"
-msgstr "Añadir impresora"
-
-#: src/add-printer/main.cpp:26
-#, kde-format
-msgid "Tool for adding new printers"
-msgstr "Herramienta para añadir nuevas impresoras"
-
-#: src/add-printer/main.cpp:28 src/configure-printer/main.cpp:29
-#: src/printqueue/main.cpp:28
-#, kde-format
-msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "© 2010-2018 Daniel Nicoletti"
-
-#: src/add-printer/main.cpp:31 src/configure-printer/main.cpp:31
-#: src/printqueue/main.cpp:31
-#, kde-format
-msgid "Port to Qt 5 / Plasma 5"
-msgstr "Adaptación a Qt 5 / Plasma 5"
-
-#: src/add-printer/main.cpp:32 src/configure-printer/main.cpp:32
-#: src/printqueue/main.cpp:32
-#, kde-format
-msgid "Port to Qt 6 / Plasma 6"
-msgstr "Adaptación a Qt 6 / Plasma 6"
-
-#: src/add-printer/main.cpp:35
-#, kde-format
-msgid ""
-"NOTE: This application is deprecated and will be removed from Plasma in a "
-"future release."
-msgstr ""
-"ATENCIÓN: Esta aplicación es obsoleta y se eliminará de Plasma en una "
-"próxima versión."
-
-#: src/add-printer/main.cpp:40
-#, kde-format
-msgid "Parent Window ID"
-msgstr "ID de la ventana padre"
-
-#: src/add-printer/main.cpp:43
-#, kde-format
-msgid "Add a new printer"
-msgstr "Añadir nueva impresora"
-
-#: src/add-printer/main.cpp:46
-#, kde-format
-msgid "Add a new printer class"
-msgstr "Añadir una clase de impresora"
-
-#: src/add-printer/main.cpp:49
-#, kde-format
-msgid "Changes the PPD of a given printer"
-msgstr "Cambia el PPD de una determinada impresora"
-
-#: src/add-printer/main.cpp:53
-#, kde-format
-msgid "Changes the PPD of a given printer/deviceid"
-msgstr "Cambia el PPD de una determinada impresora o ID de dispositivo"
-
-#: src/add-printer/main.cpp:77
-#, kde-format
-msgid "The expected input should be printer/deviceid"
-msgstr "La entrada que se esperaba debía ser impresora/IDdispositivo"
-
-#: src/add-printer/PageAddPrinter.cpp:125
-#, kde-format
-msgctxt "@info"
-msgid "Failed to add class: '%1'"
-msgstr "Ha ocurrido un error al añadir la clase: «%1»"
-
-#: src/add-printer/PageAddPrinter.cpp:127
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: '%1'"
-msgstr "Ha ocurrido un error al configurar la impresora: «%1»"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#: src/add-printer/PageAddPrinter.ui:31
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Name:"
-msgstr "Nombre:"
-
-#. i18n: ectx: property (toolTip), widget (QLineEdit, nameLE)
-#: src/add-printer/PageAddPrinter.ui:38
-#, kde-format
-msgid "May contain any printable characters except \"/\", \"#\", and space"
-msgstr ""
-"Puede contener cualquier carácter imprimible, excepto «/», «#» o espacio"
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: src/add-printer/PageAddPrinter.ui:45
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Description:"
-msgstr "Descripción:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: src/add-printer/PageAddPrinter.ui:55
-#, kde-format
-msgctxt "@label:textbox"
-msgid "Location:"
-msgstr "Ubicación:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, shareCB)
-#: src/add-printer/PageAddPrinter.ui:65
-#, kde-format
-msgctxt "@option:check"
-msgid "Share this printer"
-msgstr "Compartir esta impresora"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/PageChoosePrinters.ui:96
-#, kde-format
-msgctxt "@label:listbox"
-msgid "Members:"
-msgstr "Miembros:"
-
-#: src/add-printer/PageDestinations.cpp:190
-#, kde-format
-msgid "A printer connected to the parallel port."
-msgstr "Una impresora conectada al puerto paralelo."
-
-#: src/add-printer/PageDestinations.cpp:193
-#, kde-format
-msgid "A printer connected to a USB port."
-msgstr "Una impresora conectada a un puerto USB."
-
-#: src/add-printer/PageDestinations.cpp:196
-#, kde-format
-msgid "A printer connected via Bluetooth."
-msgstr "Una impresora conectada mediante Bluetooth."
-
-#: src/add-printer/PageDestinations.cpp:200
-#, kde-format
-msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-msgstr ""
-"Impresora local detectada por la capa de abstracción de hardware (HAL)."
-
-#: src/add-printer/PageDestinations.cpp:205
-#, kde-format
-msgid ""
-"HPLIP software driving a printer, or the printer function of a multi-"
-"function device."
-msgstr ""
-"Software HPLIP controlando una impresora o la función de impresión de un "
-"dispositivo multifunción."
-
-#: src/add-printer/PageDestinations.cpp:210
-#, kde-format
-msgid ""
-"HPLIP software driving a fax machine, or the fax function of a multi-"
-"function device."
-msgstr ""
-"Software HPLIP controlando una máquina de fax o la función de fax de un "
-"dispositivo multifunción."
-
-#: src/add-printer/PageDestinations.cpp:217 src/libkcups/DevicesModel.cpp:102
-#, kde-format
-msgid "Remote CUPS printer via DNS-SD"
-msgstr "Impresora CUPS remota mediante DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:229 src/libkcups/DevicesModel.cpp:111
-#, kde-format
-msgid "Network printer via DNS-SD"
-msgstr "Impresora de red mediante DNS-SD"
-
-#: src/add-printer/PageDestinations.cpp:231
-#, kde-format
-msgid "%1 network printer via DNS-SD"
-msgstr "Impresora de red %1 mediante DNS-SD"
-
-#. i18n: ectx: property (title), widget (QGroupBox, connectionsGB)
-#: src/add-printer/PageDestinations.ui:62
-#, kde-format
-msgid "Connections"
-msgstr "Conexiones"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: src/add-printer/PageDestinations.ui:97
-#, kde-format
-msgid "Please choose an item on the list"
-msgstr "Elija un elemento de la lista"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -484,6 +63,21 @@ msgstr "Configurar impresora"
 #, kde-format
 msgid "ConfigurePrinter"
 msgstr "ConfiguraImpresora"
+
+#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "© 2010-2018 Daniel Nicoletti"
+
+#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Adaptación a Qt 5 / Plasma 5"
+
+#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 6 / Plasma 6"
+msgstr "Adaptación a Qt 6 / Plasma 6"
 
 #: src/configure-printer/main.cpp:39
 #, kde-format
@@ -620,47 +214,64 @@ msgstr "Establecer las opciones por omisión"
 msgid "Query Printer for Default Options"
 msgstr "Consultar a la impresora las opciones por omisión"
 
-#: src/kcm/printermanager.cpp:259
+#: src/kcm/printermanager.cpp:107
+#, kde-format
+msgid "Add a new printer"
+msgstr "Añadir nueva impresora"
+
+#: src/kcm/printermanager.cpp:109
+#, fuzzy, kde-format
+#| msgid "Add a new printer"
+msgid "Add a new printer group"
+msgstr "Añadir nueva impresora"
+
+#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#, fuzzy, kde-format
+#| msgid "Configure printer"
+msgid "Configure a printer"
+msgstr "Configurar la impresora"
+
+#: src/kcm/printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Ha ocurrido un error al configurar la clase: "
 
-#: src/kcm/printermanager.cpp:259
+#: src/kcm/printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ha ocurrido un error al configurar la impresora: "
 
-#: src/kcm/printermanager.cpp:425
+#: src/kcm/printermanager.cpp:469
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Ha ocurrido un fallo al realizar la petición: %1"
 
-#: src/kcm/printermanager.cpp:477
+#: src/kcm/printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "No se han podido obtener las preferencias del servidor: %1"
 
-#: src/kcm/printermanager.cpp:514
+#: src/kcm/printermanager.cpp:558
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Las preferencias del servidor no se han guardado: (%1): %2"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:565
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Error fatal al guardar las preferencias del servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:574
+#: src/kcm/printermanager.cpp:618
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir página de autoprueba"
 
-#: src/kcm/printermanager.cpp:580
+#: src/kcm/printermanager.cpp:624
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpiar el cabezal de impresión"
@@ -677,80 +288,90 @@ msgstr ""
 "Compruebe las credenciales de autenticación y asegúrese de que PackageKit "
 "está instalado correctamente."
 
-#: src/kded/NewPrinterNotification.cpp:61
+#: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Se ha detectado una nueva impresora"
 
-#: src/kded/NewPrinterNotification.cpp:62
+#: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
-msgid "Configuring new printer..."
-msgstr "Configurando la nueva impresora..."
-
-#: src/kded/NewPrinterNotification.cpp:100
-#, kde-format
-msgid "The New Printer was Added"
-msgstr "Se ha añadido la nueva impresora"
+msgid "Starting printer configuration"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, kde-format
-msgid "The New Printer is Missing Drivers"
+#, fuzzy, kde-format
+#| msgid "The New Printer was Added"
+msgid "The New Printer was added"
+msgstr "Se ha añadido la nueva impresora"
+
+#: src/kded/NewPrinterNotification.cpp:104
+#, fuzzy, kde-format
+#| msgid "The New Printer is Missing Drivers"
+msgid "The New Printer might have a driver problem"
 msgstr "La nueva impresora carece de controladores"
 
-#: src/kded/NewPrinterNotification.cpp:165
-#, kde-format
-msgid "Missing printer driver"
-msgstr "Falta el controlador de la impresora"
+#: src/kded/NewPrinterNotification.cpp:152
+#, fuzzy, kde-format
+#| msgid "A New Printer was detected"
+msgid "Printer queue was not created"
+msgstr "Se ha detectado una nueva impresora"
 
-#: src/kded/NewPrinterNotification.cpp:167
-#, kde-format
-msgid "No printer driver for %1 %2."
+#: src/kded/NewPrinterNotification.cpp:154
+#, fuzzy, kde-format
+#| msgid "No printer driver for %1 %2."
+msgid "Printer driver not found for %1 %2"
 msgstr "No hay controlador de impresora para %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:169
-#, kde-format
-msgid "No printer driver for %1."
+#: src/kded/NewPrinterNotification.cpp:156
+#, fuzzy, kde-format
+#| msgid "No printer driver for %1."
+msgid "Printer driver not found for %1"
 msgstr "No hay controlador de impresora para %1."
 
-#: src/kded/NewPrinterNotification.cpp:171
-#, kde-format
-msgid "No driver for this printer."
+#: src/kded/NewPrinterNotification.cpp:158
+#, fuzzy, kde-format
+#| msgid "No driver for this printer."
+msgid "Printer driver not found for this printer"
 msgstr "No hay controlador para esta impresora."
 
-#: src/kded/NewPrinterNotification.cpp:173
-#, kde-format
-msgid "Search"
-msgstr "Buscar"
+#: src/kded/NewPrinterNotification.cpp:160
+#, fuzzy, kde-format
+#| msgid "Add Printer"
+msgid "Add Printer…"
+msgstr "Añadir impresora"
 
-#: src/kded/NewPrinterNotification.cpp:236
-#, kde-format
-msgid "'%1' has been added, please check its driver."
+#: src/kded/NewPrinterNotification.cpp:215
+#, fuzzy, kde-format
+#| msgid "'%1' has been added, please check its driver."
+msgid "'%1' has been added, please check its driver"
 msgstr "Se ha añadido «%1»; compruebe su controlador."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:237
-#: src/kded/NewPrinterNotification.cpp:258 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:216
+#: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
 
-#: src/kded/NewPrinterNotification.cpp:240
-#, kde-format
-msgid "'%1' has been added, using the '%2' driver."
+#: src/kded/NewPrinterNotification.cpp:221
+#, fuzzy, kde-format
+#| msgid "'%1' has been added, using the '%2' driver."
+msgid "'%1' has been added, using the '%2' driver"
 msgstr "Se ha añadido «%1»; usando el controlador «%2»."
 
-#: src/kded/NewPrinterNotification.cpp:241
-#: src/kded/NewPrinterNotification.cpp:255
+#: src/kded/NewPrinterNotification.cpp:223
+#: src/kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "Print test page"
 msgstr "Imprimir página de prueba"
 
-#: src/kded/NewPrinterNotification.cpp:243
-#, kde-format
-msgid "Find driver"
-msgstr "Buscar controlador"
+#: src/kded/NewPrinterNotification.cpp:228
+#, fuzzy, kde-format
+#| msgid "Choose &the driver"
+msgid "Check driver"
+msgstr "Elija el controlador"
 
-#: src/kded/NewPrinterNotification.cpp:253
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "«%1» está preparada para imprimir."
@@ -831,6 +452,11 @@ msgstr "IPP %1"
 msgid "HTTP"
 msgstr "HTTP"
 
+#: src/libkcups/DevicesModel.cpp:102
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Impresora CUPS remota mediante DNS-SD"
+
 #: src/libkcups/DevicesModel.cpp:105
 #, kde-format
 msgid "IPP network printer via DNS-SD"
@@ -845,6 +471,11 @@ msgstr "Impresora de red LPD mediante DNS-SD"
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
 msgstr "Impresora de red AppSocket/JetDirect mediante DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:111
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "Impresora de red mediante DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:123
 #, kde-format
@@ -1148,39 +779,6 @@ msgstr "Desconocido"
 msgid "Unknown - '%1'"
 msgstr "Desconocido - «%1»"
 
-#: src/libkcups/SelectMakeModel.cpp:115
-#, kde-format
-msgid "Choose the driver for %1"
-msgstr "Elija el controlador para %1"
-
-#: src/libkcups/SelectMakeModel.cpp:138
-#, kde-format
-msgid "Failed to get a list of drivers: '%1'"
-msgstr "Ha ocurrido un error al obtener la lista de controladores: «%1»"
-
-#: src/libkcups/SelectMakeModel.cpp:228
-#, kde-format
-msgid "Failed to search for a recommended driver: '%1'"
-msgstr "Ha ocurrido un error al buscar el controlador recomendado: «%1»"
-
-#. i18n: ectx: property (windowTitle), widget (QWidget, SelectMakeModel)
-#: src/libkcups/SelectMakeModel.ui:14
-#, kde-format
-msgid "Select a Driver"
-msgstr "Seleccionar un controlador"
-
-#. i18n: ectx: property (text), widget (QRadioButton, radioButtonSelectDriver)
-#: src/libkcups/SelectMakeModel.ui:79
-#, kde-format
-msgid "Choose &the driver"
-msgstr "Elija el controlador"
-
-#. i18n: ectx: property (text), widget (QRadioButton, ppdFileRB)
-#: src/libkcups/SelectMakeModel.ui:91
-#, kde-format
-msgid "Ma&nually Provide a PPD File:"
-msgstr "Proporcio&nar un archivo PPD manualmente:"
-
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
 msgid "Print Queue"
@@ -1335,6 +933,281 @@ msgstr "Trabajos completados"
 #, kde-format
 msgid "All Jobs"
 msgstr "Todos los trabajos"
+
+#~ msgctxt "@title:window"
+#~ msgid "Add a New Printer"
+#~ msgstr "Añadir nueva impresora"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select a Printer to Add"
+#~ msgstr "Seleccionar una impresora a añadir"
+
+#~ msgctxt "@title:window"
+#~ msgid "Please describe your printer"
+#~ msgstr "Por favor, describa su impresora"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure your connection"
+#~ msgstr "Configure su conexión"
+
+#~ msgctxt "@title:window"
+#~ msgid "Pick a Driver for %1"
+#~ msgstr "Escoger un controlador para %1"
+
+#~ msgid "Address:"
+#~ msgstr "Dirección:"
+
+#~ msgid "Queue:"
+#~ msgstr "Cola:"
+
+#~ msgid "Detect"
+#~ msgstr "Detectar"
+
+#~ msgctxt "@title:group"
+#~ msgid "Windows Printer via SAMBA"
+#~ msgstr "Impresora de Windows mediante SAMBA"
+
+#~ msgctxt ""
+#~ "@label samba URL markup example, this is preceded by a label containing "
+#~ "smb://"
+#~ msgid "smb://[workgroup/]server[:port]/printer"
+#~ msgstr "smb://[grupo_de_trabajo/]servidor[:puerto]/impresora"
+
+#~ msgctxt "@action:button"
+#~ msgid "Browse"
+#~ msgstr "Navegar"
+
+#~ msgctxt "@title:group"
+#~ msgid "Authentication"
+#~ msgstr "Autenticación"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Username:"
+#~ msgstr "Nombre de usuario:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Password"
+#~ msgstr "Contraseña"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "None"
+#~ msgstr "Ninguna"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Even"
+#~ msgstr "Par"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Odd"
+#~ msgstr "Impar"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "XON/XOFF (Software)"
+#~ msgstr "XON/XOFF (Software)"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "RTS/CTS (Hardware)"
+#~ msgstr "RTS/CTS (Hardware)"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "DTR/DSR (Hardware)"
+#~ msgstr "DTR/DSR (Hardware)"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Baud Rate:"
+#~ msgstr "Velocidad en baudios:"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Parity:"
+#~ msgstr "Paridad:"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Data Bits:"
+#~ msgstr "Bits de datos:"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Flow Control:"
+#~ msgstr "Control de flujo:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Address:"
+#~ msgstr "Dirección:"
+
+#~ msgctxt "@label:spinbox"
+#~ msgid "Port:"
+#~ msgstr "Puerto:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Connection:"
+#~ msgstr "Conexión:"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "<TABLE>\n"
+#~ "<TR>\n"
+#~ "<TD>Examples:\n"
+#~ "<PRE>\n"
+#~ "    http://hostname:631/ipp/\n"
+#~ "    http://hostname:631/ipp/port1\n"
+#~ "\n"
+#~ "    ipp://hostname/ipp/\n"
+#~ "    ipp://hostname/ipp/port1\n"
+#~ "\n"
+#~ "    lpd://hostname/queue\n"
+#~ "\n"
+#~ "    socket://hostname\n"
+#~ "    socket://hostname:9100\n"
+#~ "</PRE>\n"
+#~ "\n"
+#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
+#~ "\">\"Network\n"
+#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
+#~ "</TD>\n"
+#~ "</TR>\n"
+#~ "</TABLE>"
+#~ msgstr ""
+#~ "<TABLE>\n"
+#~ "<TR>\n"
+#~ "<TD>Ejemplos:\n"
+#~ "<PRE>\n"
+#~ "    http://hostname:631/ipp/\n"
+#~ "    http://hostname:631/ipp/port1\n"
+#~ "\n"
+#~ "    ipp://hostname/ipp/\n"
+#~ "    ipp://hostname/ipp/port1\n"
+#~ "\n"
+#~ "    lpd://hostname/queue\n"
+#~ "\n"
+#~ "    socket://hostname\n"
+#~ "    socket://hostname:9100\n"
+#~ "</PRE>\n"
+#~ "\n"
+#~ "<P>Vea <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
+#~ "\">«Impresoras\n"
+#~ "de red»</A> para el URI correcto a usar con su impresora.</P>\n"
+#~ "</TD>\n"
+#~ "</TR>\n"
+#~ "</TABLE>"
+
+#~ msgid "Tool for adding new printers"
+#~ msgstr "Herramienta para añadir nuevas impresoras"
+
+#~ msgid ""
+#~ "NOTE: This application is deprecated and will be removed from Plasma in a "
+#~ "future release."
+#~ msgstr ""
+#~ "ATENCIÓN: Esta aplicación es obsoleta y se eliminará de Plasma en una "
+#~ "próxima versión."
+
+#~ msgid "Parent Window ID"
+#~ msgstr "ID de la ventana padre"
+
+#~ msgid "Add a new printer class"
+#~ msgstr "Añadir una clase de impresora"
+
+#~ msgid "Changes the PPD of a given printer"
+#~ msgstr "Cambia el PPD de una determinada impresora"
+
+#~ msgid "Changes the PPD of a given printer/deviceid"
+#~ msgstr "Cambia el PPD de una determinada impresora o ID de dispositivo"
+
+#~ msgid "The expected input should be printer/deviceid"
+#~ msgstr "La entrada que se esperaba debía ser impresora/IDdispositivo"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to add class: '%1'"
+#~ msgstr "Ha ocurrido un error al añadir la clase: «%1»"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure printer: '%1'"
+#~ msgstr "Ha ocurrido un error al configurar la impresora: «%1»"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Name:"
+#~ msgstr "Nombre:"
+
+#~ msgid "May contain any printable characters except \"/\", \"#\", and space"
+#~ msgstr ""
+#~ "Puede contener cualquier carácter imprimible, excepto «/», «#» o espacio"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Description:"
+#~ msgstr "Descripción:"
+
+#~ msgctxt "@label:textbox"
+#~ msgid "Location:"
+#~ msgstr "Ubicación:"
+
+#~ msgctxt "@option:check"
+#~ msgid "Share this printer"
+#~ msgstr "Compartir esta impresora"
+
+#~ msgctxt "@label:listbox"
+#~ msgid "Members:"
+#~ msgstr "Miembros:"
+
+#~ msgid "A printer connected to the parallel port."
+#~ msgstr "Una impresora conectada al puerto paralelo."
+
+#~ msgid "A printer connected to a USB port."
+#~ msgstr "Una impresora conectada a un puerto USB."
+
+#~ msgid "A printer connected via Bluetooth."
+#~ msgstr "Una impresora conectada mediante Bluetooth."
+
+#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
+#~ msgstr ""
+#~ "Impresora local detectada por la capa de abstracción de hardware (HAL)."
+
+#~ msgid ""
+#~ "HPLIP software driving a printer, or the printer function of a multi-"
+#~ "function device."
+#~ msgstr ""
+#~ "Software HPLIP controlando una impresora o la función de impresión de un "
+#~ "dispositivo multifunción."
+
+#~ msgid ""
+#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
+#~ "function device."
+#~ msgstr ""
+#~ "Software HPLIP controlando una máquina de fax o la función de fax de un "
+#~ "dispositivo multifunción."
+
+#~ msgid "%1 network printer via DNS-SD"
+#~ msgstr "Impresora de red %1 mediante DNS-SD"
+
+#~ msgid "Connections"
+#~ msgstr "Conexiones"
+
+#~ msgid "Please choose an item on the list"
+#~ msgstr "Elija un elemento de la lista"
+
+#~ msgid "Configuring new printer..."
+#~ msgstr "Configurando la nueva impresora..."
+
+#~ msgid "Missing printer driver"
+#~ msgstr "Falta el controlador de la impresora"
+
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
+#~ msgid "Find driver"
+#~ msgstr "Buscar controlador"
+
+#~ msgid "Choose the driver for %1"
+#~ msgstr "Elija el controlador para %1"
+
+#~ msgid "Failed to get a list of drivers: '%1'"
+#~ msgstr "Ha ocurrido un error al obtener la lista de controladores: «%1»"
+
+#~ msgid "Failed to search for a recommended driver: '%1'"
+#~ msgstr "Ha ocurrido un error al buscar el controlador recomendado: «%1»"
+
+#~ msgid "Select a Driver"
+#~ msgstr "Seleccionar un controlador"
+
+#~ msgid "Ma&nually Provide a PPD File:"
+#~ msgstr "Proporcio&nar un archivo PPD manualmente:"
 
 #~ msgid "Printer Settings"
 #~ msgstr "Preferencias de la impresora"
@@ -1587,6 +1460,3 @@ msgstr "Todos los trabajos"
 
 #~ msgid "AddPrinter"
 #~ msgstr "Añadir impresora"
-
-#~ msgid "Configure printer"
-#~ msgstr "Configurar la impresora"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 00:43+0000\n"
+"POT-Creation-Date: 2025-03-29 00:44+0000\n"
 "PO-Revision-Date: 2025-01-24 09:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,47 +18,66 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
-#: printermanager.cpp:259
+#: printermanager.cpp:107
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Printer"
+msgid "Add a new printer"
+msgstr "הוספת מדפסת"
+
+#: printermanager.cpp:109
+#, kde-format
+msgid "Add a new printer group"
+msgstr ""
+
+#: printermanager.cpp:111 printermanager.cpp:113
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Configure Print Server…"
+msgid "Configure a printer"
+msgstr "הגדרת שרת הדפסה…"
+
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "הגדרת המחלקה נכשלה:"
 
-#: printermanager.cpp:259
+#: printermanager.cpp:303
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "הגדרת המדפסת נכשלה:"
 
-#: printermanager.cpp:425
+#: printermanager.cpp:469
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "מילוי הבקשה נכשל: %1"
 
-#: printermanager.cpp:477
+#: printermanager.cpp:521
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "משיכת הגדרות השרת נכשלה: %1"
 
-#: printermanager.cpp:514
+#: printermanager.cpp:558
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "הגדרות השרת לא נשמרו: (%1): %2"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:565
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "שגיאה מכרעת בשמירת הגדרות שרת: (%1): %2"
 
-#: printermanager.cpp:574
+#: printermanager.cpp:618
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "הדפסת עמוד לבדיקה עצמית"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:624
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "ניקוי ראשי ההדפסה"
@@ -375,17 +394,17 @@ msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
 msgstr "דיווח על התקלה הזאת אל %1"
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_queue"
 msgstr "תור_חדש"
 
-#: ui/main.qml:29
+#: ui/main.qml:35
 #, kde-format
 msgid "new_group"
 msgstr "קבוצה_חדשה"
 
-#: ui/main.qml:69
+#: ui/main.qml:85
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -399,7 +418,7 @@ msgstr ""
 "במנהל החבילות שלך כדי להתקין את החבילה <command>system-config-printer</"
 "command> ידנית."
 
-#: ui/main.qml:71
+#: ui/main.qml:87
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -407,43 +426,43 @@ msgid ""
 "to be installed."
 msgstr "נראה שחבילת תמיכה במדפסת שמספקת יכולות נוחות לא מותקנת."
 
-#: ui/main.qml:77
+#: ui/main.qml:93
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
 msgstr "להתקין אותה"
 
-#: ui/main.qml:108
+#: ui/main.qml:124
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
 msgstr "הוספה…"
 
-#: ui/main.qml:109
+#: ui/main.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "הוספת מדפסת…"
 
-#: ui/main.qml:119
+#: ui/main.qml:131
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "הוספת קבוצה…"
 
-#: ui/main.qml:128
+#: ui/main.qml:137
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "הגדרת שרת הדפסה…"
 
-#: ui/main.qml:234
+#: ui/main.qml:301
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "לא מוגדרות מדפסות"
 
-#: ui/main.qml:235
+#: ui/main.qml:302
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -451,41 +470,41 @@ msgid ""
 msgstr ""
 "נא לבחור ב<interface>הוספה…</interface> כדי להגדיר מדפסת חדשה במחשב הזה"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printers"
 msgstr "מדפסות"
 
-#: ui/main.qml:244
+#: ui/main.qml:311
 #, kde-format
 msgid "Printer Groups"
 msgstr "קבוצות מדפסות"
 
-#: ui/main.qml:305
+#: ui/main.qml:374
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "תור הדפסה"
 
-#: ui/main.qml:321
+#: ui/main.qml:390
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "המשך"
 
-#: ui/main.qml:322
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "השהיה"
 
-#: ui/main.qml:336
+#: ui/main.qml:405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "המשך הדפסה"
 
-#: ui/main.qml:337
+#: ui/main.qml:406
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

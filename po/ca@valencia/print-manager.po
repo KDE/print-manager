@@ -1,16 +1,16 @@
 # Translation of print-manager.po to Catalan (Valencian)
-# Copyright (C) 2012-2024 This_file_is_part_of_KDE
+# Copyright (C) 2012-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024 Josep M. Ferrer <txemaq@gmail.com>
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2015, 2018, 2020.
+# Josep M. Ferrer <txemaq@gmail.com>, 2012, 2013, 2015, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2024-12-05 09:46+0100\n"
+"PO-Revision-Date: 2025-03-29 14:09+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -223,16 +223,14 @@ msgid "Add a new printer"
 msgstr "Afig una impressora nova"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Afig una impressora nova"
+msgstr "Afig un grup nou d'impressió"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configureu la impressora"
+msgstr "Configura una impressora"
 
 #: src/kcm/printermanager.cpp:303
 #, kde-format
@@ -299,55 +297,47 @@ msgstr "S'ha detectat una impressora nova"
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "S'inicia la configuració de la impressora"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "S'ha afegit la impressora nova"
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Falten els controladors de la impressora nova"
+msgstr "La impressora nova pot patir un problema de controlador"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "S'ha detectat una impressora nova"
+msgstr "No s'ha creat la cua d'impressió"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "No hi ha cap controlador d'impressora per a %1 %2."
+msgstr "No s'ha trobat el controlador d'impressora per a %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "No hi ha cap controlador d'impressora per a %1."
+msgstr "No s'ha trobat el controlador d'impressora per a %1"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "No hi ha cap controlador per a esta impressora."
+msgstr "No hi ha cap controlador per a esta impressora"
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Afig una impressora"
+msgstr "Afig una impressora…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "S'ha afegit «%1», verifiqueu el seu controlador."
+msgstr "S'ha afegit «%1», verifiqueu el seu controlador"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
@@ -357,10 +347,9 @@ msgid "Configure"
 msgstr "Configura"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "S'ha afegit «%1» utilitzant el controlador «%2»."
+msgstr "S'ha afegit «%1» utilitzant el controlador «%2»"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -369,10 +358,9 @@ msgid "Print test page"
 msgstr "Imprimix una pàgina de prova"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Seleccioneu el con&trolador"
+msgstr "Verifiqueu el controlador"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -935,277 +923,3 @@ msgstr "Treballs completats"
 #, kde-format
 msgid "All Jobs"
 msgstr "Tots els treballs"
-
-#~ msgctxt "@title:window"
-#~ msgid "Add a New Printer"
-#~ msgstr "Afig una impressora nova"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Printer to Add"
-#~ msgstr "Seleccioneu la impressora que s'ha d'afegir"
-
-#~ msgctxt "@title:window"
-#~ msgid "Please describe your printer"
-#~ msgstr "Descripció de la impressora"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure your connection"
-#~ msgstr "Configureu la connexió"
-
-#~ msgctxt "@title:window"
-#~ msgid "Pick a Driver for %1"
-#~ msgstr "Seleccioneu un controlador per a %1"
-
-#~ msgid "Address:"
-#~ msgstr "Adreça:"
-
-#~ msgid "Queue:"
-#~ msgstr "Cua:"
-
-#~ msgid "Detect"
-#~ msgstr "Detecta"
-
-#~ msgctxt "@title:group"
-#~ msgid "Windows Printer via SAMBA"
-#~ msgstr "Impressora Windows via SAMBA"
-
-#~ msgctxt ""
-#~ "@label samba URL markup example, this is preceded by a label containing "
-#~ "smb://"
-#~ msgid "smb://[workgroup/]server[:port]/printer"
-#~ msgstr "smb://[grup-treball/]servidor[:port]/impressora"
-
-#~ msgctxt "@action:button"
-#~ msgid "Browse"
-#~ msgstr "Explora"
-
-#~ msgctxt "@title:group"
-#~ msgid "Authentication"
-#~ msgstr "Autenticació"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Username:"
-#~ msgstr "Nom d'usuari:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Password"
-#~ msgstr "Contrasenya"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "None"
-#~ msgstr "Cap"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Even"
-#~ msgstr "Parells"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Odd"
-#~ msgstr "Senars"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "XON/XOFF (Software)"
-#~ msgstr "XON/XOFF (Programari)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "RTS/CTS (Hardware)"
-#~ msgstr "RTS/CTS (Maquinari)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "DTR/DSR (Hardware)"
-#~ msgstr "DTR/DSR (Maquinari)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Baud Rate:"
-#~ msgstr "Velocitat en bauds:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Parity:"
-#~ msgstr "Paritat:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Data Bits:"
-#~ msgstr "Bits de dades:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Flow Control:"
-#~ msgstr "Control de flux:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Address:"
-#~ msgstr "Adreça:"
-
-#~ msgctxt "@label:spinbox"
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Connection:"
-#~ msgstr "Connexió:"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Examples:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-#~ "\">\"Network\n"
-#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-#~ msgstr ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Exemples:\n"
-#~ "<PRE>\n"
-#~ "    http://nom_amfitrió:631/ipp/\n"
-#~ "    http://nom_amfitrió:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://nom_amfitrió/ipp/\n"
-#~ "    ipp://nom_amfitrió/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://nom_amfitrió/queue\n"
-#~ "\n"
-#~ "    socket://nom_amfitrió\n"
-#~ "    socket://nom_amfitrió:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>Vegeu <A HREF=\"http://localhost:631/help/network.html\" TARGET="
-#~ "\"_blank\">«Network Printers»</A> per a trobar l'URI correcte que "
-#~ "s'utilitzarà amb la impressora.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-
-#~ msgid "Tool for adding new printers"
-#~ msgstr "Eina per a afegir impressores noves"
-
-#~ msgid ""
-#~ "NOTE: This application is deprecated and will be removed from Plasma in a "
-#~ "future release."
-#~ msgstr ""
-#~ "NOTA: Esta aplicació és obsoleta i s'eliminarà de Plasma en un llançament "
-#~ "futur."
-
-#~ msgid "Parent Window ID"
-#~ msgstr "ID de la finestra pare"
-
-#~ msgid "Add a new printer class"
-#~ msgstr "Afig una classe nova d'impressora"
-
-#~ msgid "Changes the PPD of a given printer"
-#~ msgstr "Canvia el PPD d'una impressora indicada"
-
-#~ msgid "Changes the PPD of a given printer/deviceid"
-#~ msgstr "Canvia el PPD d'una impressora indicada/ID de dispositiu"
-
-#~ msgid "The expected input should be printer/deviceid"
-#~ msgstr "L'entrada esperada hauria de ser una impressora/ID de dispositiu"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to add class: '%1'"
-#~ msgstr "No s'ha pogut afegir una classe: «%1»"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: '%1'"
-#~ msgstr "No s'ha pogut configurar la impressora: «%1»"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Name:"
-#~ msgstr "Nom:"
-
-#~ msgid "May contain any printable characters except \"/\", \"#\", and space"
-#~ msgstr ""
-#~ "Pot contindre qualsevol caràcter imprimible excepte «/», «#», i espai"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Description:"
-#~ msgstr "Descripció:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Location:"
-#~ msgstr "Ubicació:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Share this printer"
-#~ msgstr "Compartix esta impressora"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Members:"
-#~ msgstr "Membres:"
-
-#~ msgid "A printer connected to the parallel port."
-#~ msgstr "Una impressora connectada amb el port paral·lel."
-
-#~ msgid "A printer connected to a USB port."
-#~ msgstr "Una impressora connectada a un port USB."
-
-#~ msgid "A printer connected via Bluetooth."
-#~ msgstr "Una impressora connectada via Bluetooth."
-
-#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-#~ msgstr "Impressora local detectada pel «Hardware Abstraction Layer» (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "El programari HPLIP que controla una impressora, o la funció d'impressió "
-#~ "d'un dispositiu multifuncional."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "El programari HPLIP que controla una màquina de fax, o la funció de fax "
-#~ "d'un dispositiu multifuncional."
-
-#~ msgid "%1 network printer via DNS-SD"
-#~ msgstr "%1 impressora de xarxa via DNS-SD"
-
-#~ msgid "Connections"
-#~ msgstr "Connexions"
-
-#~ msgid "Please choose an item on the list"
-#~ msgstr "Escolliu un element de la llista"
-
-#~ msgid "Configuring new printer..."
-#~ msgstr "S'està configurant la impressora nova…"
-
-#~ msgid "Missing printer driver"
-#~ msgstr "Falta el controlador de la impressora"
-
-#~ msgid "Search"
-#~ msgstr "Busca"
-
-#~ msgid "Find driver"
-#~ msgstr "Busca un controlador"
-
-#~ msgid "Choose the driver for %1"
-#~ msgstr "Seleccioneu el controlador per a %1"
-
-#~ msgid "Failed to get a list of drivers: '%1'"
-#~ msgstr "No s'ha pogut obtindre una llista dels controladors: «%1»"
-
-#~ msgid "Failed to search for a recommended driver: '%1'"
-#~ msgstr "No s'ha pogut buscar un controlador recomanat: «%1»"
-
-#~ msgid "Select a Driver"
-#~ msgstr "Selecciona un controlador"
-
-#~ msgid "Ma&nually Provide a PPD File:"
-#~ msgstr "Proporciona ma&nualment un fitxer PPD:"

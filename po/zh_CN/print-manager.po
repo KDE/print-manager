@@ -219,16 +219,14 @@ msgid "Add a new printer"
 msgstr "添加新打印机"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "添加新打印机"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "配置打印机"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:303
 #, kde-format
@@ -297,52 +295,44 @@ msgid "Starting printer configuration"
 msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
-msgstr "新打印机添加完成"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "新打印机缺少驱动程序"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "检测到新打印机"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "没有 %1 %2 的打印机驱动程序。"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "没有 %1 的打印机驱动程序。"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "没有此打印机的驱动程序。"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "添加打印机"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "“%1”添加完成，请检查它的驱动程序是否正确。"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
@@ -352,10 +342,9 @@ msgid "Configure"
 msgstr "配置"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "“%1”添加完成，它使用的是“%2”驱动程序。"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -364,10 +353,9 @@ msgid "Print test page"
 msgstr "打印测试页"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "选择驱动程序(&T)"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -928,270 +916,3 @@ msgstr "已完成任务"
 #, kde-format
 msgid "All Jobs"
 msgstr "所有任务"
-
-#~ msgctxt "@title:window"
-#~ msgid "Add a New Printer"
-#~ msgstr "添加新打印机"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Printer to Add"
-#~ msgstr "选择要添加的打印机"
-
-#~ msgctxt "@title:window"
-#~ msgid "Please describe your printer"
-#~ msgstr "请描述您的打印机"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure your connection"
-#~ msgstr "配置您的连接"
-
-#~ msgctxt "@title:window"
-#~ msgid "Pick a Driver for %1"
-#~ msgstr "选择 %1 的驱动程序"
-
-#~ msgid "Address:"
-#~ msgstr "地址："
-
-#~ msgid "Queue:"
-#~ msgstr "队列："
-
-#~ msgid "Detect"
-#~ msgstr "检测"
-
-#~ msgctxt "@title:group"
-#~ msgid "Windows Printer via SAMBA"
-#~ msgstr "Windows 打印机 (通过 SAMBA)"
-
-#~ msgctxt ""
-#~ "@label samba URL markup example, this is preceded by a label containing "
-#~ "smb://"
-#~ msgid "smb://[workgroup/]server[:port]/printer"
-#~ msgstr "smb://[工作组/]服务器[:端口]/打印机名"
-
-#~ msgctxt "@action:button"
-#~ msgid "Browse"
-#~ msgstr "浏览"
-
-#~ msgctxt "@title:group"
-#~ msgid "Authentication"
-#~ msgstr "身份验证"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Username:"
-#~ msgstr "用户名："
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Password"
-#~ msgstr "密码"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "None"
-#~ msgstr "无"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Even"
-#~ msgstr "偶"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Odd"
-#~ msgstr "奇"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "XON/XOFF (Software)"
-#~ msgstr "XON/XOFF (软件)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "RTS/CTS (Hardware)"
-#~ msgstr "RTS/CTS (硬件)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "DTR/DSR (Hardware)"
-#~ msgstr "DTR/DSR (硬件)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Baud Rate:"
-#~ msgstr "波特率："
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Parity:"
-#~ msgstr "奇偶性："
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Data Bits:"
-#~ msgstr "数据比特："
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Flow Control:"
-#~ msgstr "流控制："
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Address:"
-#~ msgstr "地址："
-
-#~ msgctxt "@label:spinbox"
-#~ msgid "Port:"
-#~ msgstr "端口："
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Connection:"
-#~ msgstr "连接："
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Examples:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-#~ "\">\"Network\n"
-#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-#~ msgstr ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>示例：\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>如需查询您的打印机的正确 URI，请打开 <A HREF=\"http://localhost:631/"
-#~ "help/network.html\" TARGET=\"_blank\"> 页面，查看其中的“网络打印机 "
-#~ "(Network Printer) ”一节</A>。</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-
-#~ msgid "Tool for adding new printers"
-#~ msgstr "添加新打印机的工具程序"
-
-#~ msgid ""
-#~ "NOTE: This application is deprecated and will be removed from Plasma in a "
-#~ "future release."
-#~ msgstr "注意：此应用程序已被废弃。它将在以后的 Plasma 版本中被移除。"
-
-#~ msgid "Parent Window ID"
-#~ msgstr "父窗口 ID"
-
-#~ msgid "Add a new printer class"
-#~ msgstr "添加新打印机类"
-
-#~ msgid "Changes the PPD of a given printer"
-#~ msgstr "更改指定打印机的 PPD 文件"
-
-#~ msgid "Changes the PPD of a given printer/deviceid"
-#~ msgstr "更改指定打印机/设备 ID 的 PPD 文件"
-
-#~ msgid "The expected input should be printer/deviceid"
-#~ msgstr "程序预期的输入应该是 printer/deviceid"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to add class: '%1'"
-#~ msgstr "添加打印机类失败：“%1”"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: '%1'"
-#~ msgstr "配置打印机失败：“%1”"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Name:"
-#~ msgstr "名称："
-
-#~ msgid "May contain any printable characters except \"/\", \"#\", and space"
-#~ msgstr "可以包含除“/”、“#”和空格符之外的任何可打印字符"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Description:"
-#~ msgstr "描述："
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Location:"
-#~ msgstr "位置："
-
-#~ msgctxt "@option:check"
-#~ msgid "Share this printer"
-#~ msgstr "共享此打印机"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Members:"
-#~ msgstr "成员："
-
-#~ msgid "A printer connected to the parallel port."
-#~ msgstr "通过并行端口连接的打印机。"
-
-#~ msgid "A printer connected to a USB port."
-#~ msgstr "通过 USB 端口连接的打印机。"
-
-#~ msgid "A printer connected via Bluetooth."
-#~ msgstr "通过蓝牙连接的打印机。"
-
-#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-#~ msgstr "硬件抽象层 (HAL) 检测到的本地打印机。"
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr "HPLIP 软件包驱动的打印机，或者多功能一体机的打印功能。"
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr "HPLIP 软件包驱动的传真机，或者多功能一体机的传真功能。"
-
-#~ msgid "%1 network printer via DNS-SD"
-#~ msgstr "通过 DNS-SD 连接的 %1 网络打印机"
-
-#~ msgid "Connections"
-#~ msgstr "连接"
-
-#~ msgid "Please choose an item on the list"
-#~ msgstr "请从列表中选择一项"
-
-#~ msgid "Configuring new printer..."
-#~ msgstr "正在配置新打印机..."
-
-#~ msgid "Missing printer driver"
-#~ msgstr "缺少打印机驱动程序"
-
-#~ msgid "Search"
-#~ msgstr "搜索"
-
-#~ msgid "Find driver"
-#~ msgstr "查找驱动程序"
-
-#~ msgid "Choose the driver for %1"
-#~ msgstr "选择 %1 的驱动程序"
-
-#~ msgid "Failed to get a list of drivers: '%1'"
-#~ msgstr "获取驱动程序列表失败：“%1”"
-
-#~ msgid "Failed to search for a recommended driver: '%1'"
-#~ msgstr "搜索推荐的驱动程序失败：“%1”"
-
-#~ msgid "Select a Driver"
-#~ msgstr "选择驱动程序"
-
-#~ msgid "Ma&nually Provide a PPD File:"
-#~ msgstr "手动提供 PPD 文件(&N)："

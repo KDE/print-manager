@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2025-01-09 15:56+0300\n"
+"PO-Revision-Date: 2025-03-29 14:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -73,17 +73,17 @@ msgstr "© 2010–2018 Daniel Nicoletti"
 #: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
-msgstr "Qt 5/Plasma 5 aktarımı"
+msgstr "Qt 5/Plasma 5 geçişi"
 
 #: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Qt 6/Plasma 6 aktarımı"
+msgstr "Qt 6/Plasma 6 geçişi"
 
 #: src/configure-printer/main.cpp:39
 #, kde-format
 msgid "Printer to be configured"
-msgstr "Yapılandırılan yazıcı"
+msgstr "Yapılandırılacak yazıcı"
 
 #: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
@@ -221,16 +221,14 @@ msgid "Add a new printer"
 msgstr "Yeni bir yazıcı ekle"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Yeni bir yazıcı ekle"
+msgstr "Yeni bir yazıcı grubu ekle"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Yazıcıyı yapılandır"
+msgstr "Bir yazıcıyı yapılandır"
 
 #: src/kcm/printermanager.cpp:303
 #, kde-format
@@ -297,55 +295,47 @@ msgstr "Yeni Bir Yazıcı tespit edildi"
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Yazıcı yapılandırması başlatılıyor"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
-msgstr "Yeni Yazıcı Eklendi"
+msgstr "Yeni yazıcı eklendi"
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Yeni Yazıcı Sürücüsü Eksik"
+msgstr "Yeni yazıcıda bir sürücü sorunu olabilir"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Yeni Bir Yazıcı tespit edildi"
+msgstr "Yazıcı kuyruğu oluşturulmadı"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "%1 %2 için yazıcı sürücüsü yok."
+msgstr "%1 %2 için yazıcı sürücüsü bulunamadı"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "%1 için yazıcı sürücüsü yok."
+msgstr "%1 için yazıcı sürücüsü bulunamadı"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Bu yazıcı için sürücü yok."
+msgstr "Bu yazıcı için sürücü bulunamadı"
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Yazıcı Ekle"
+msgstr "Yazıcı Ekle…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "“%1” eklendi, lütfen sürücüsünü denetleyin."
+msgstr "“%1” eklendi, lütfen sürücüsünü denetleyin"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
@@ -355,10 +345,9 @@ msgid "Configure"
 msgstr "Yapılandır"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "“%1” eklendi, “%2” sürücüsü kullanıyor."
+msgstr "“%1” eklendi, “%2” sürücüsü kullanıyor"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -367,10 +356,9 @@ msgid "Print test page"
 msgstr "Sınama sayfası yazdır"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Sürücüyü &seç"
+msgstr "Sürücüyü Denetle"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2025-01-08 05:37+0100\n"
+"PO-Revision-Date: 2025-03-29 11:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -15,23 +15,19 @@ msgstr ""
 "X-Generator: Poedit 3.5\n"
 
 #: printermanager.cpp:107
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Dodaj tiskalnik"
+msgstr "Dodaj novi tiskalnik"
 
 #: printermanager.cpp:109
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Dodaj novo skupino tiskalnikov"
 
 #: printermanager.cpp:111 printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Konfiguriraj tiskalni strežnik…"
+msgstr "Konfiguriraj tiskalnik"
 
 #: printermanager.cpp:303
 #, kde-format

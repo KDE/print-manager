@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Svetoslav Stefanov <svetlisashkov@yahoo.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2024-11-10 15:24+0100\n"
+"PO-Revision-Date: 2025-03-29 14:19+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #, kde-format
@@ -221,14 +221,12 @@ msgid "Add a new printer"
 msgstr "Добавяне на нов принтер"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Добавяне на нов принтер"
+msgstr "Добавяне на нова група принтери"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
 msgstr "Настройване на принтер"
 
@@ -297,53 +295,45 @@ msgstr "Засечен е нов принтер"
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Започване на настройването на принтер"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Новият принтер беше добавен"
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Липсват драйвери за новия принтер"
+msgstr "Новият принтер може да има проблем с драйвера"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Засечен е нов принтер"
+msgstr "Не е създадена опашка на принтера"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Няма драйвер за принтера %1 %2."
+msgstr "Не е намерен принтерен драйвер за %1 %2."
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Няма драйвер за принтера %1."
+msgstr "Не е намерен принтерен драйвер за %1"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Липсва драйвер за този принтер."
+msgstr "Не е намерен драйвер за този принтер"
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Добавяне на принтер"
+msgstr "Добавяне на принтер…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1' беше добавен, моля проверете драйвера му."
 
@@ -355,10 +345,9 @@ msgid "Configure"
 msgstr "Настройване"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "'%1' беше добавен. Използва бе драйвера '%2' driver."
+msgstr "„%1“ беше добавен. Използва се драйверът „%2“"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -367,10 +356,9 @@ msgid "Print test page"
 msgstr "Отпечатване на тестова страница"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "&Избиране на драйвер"
+msgstr "Проверка на драйвер"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format

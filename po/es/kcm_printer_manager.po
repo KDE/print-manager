@@ -1,5 +1,5 @@
 # Spanish translations for kcm_printer_manager.po package.
-# Copyright (C) 2023 This file is copyright:
+# Copyright (C) 2023-2025 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 # Automatically generated, 2023.
 #
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2025-01-08 17:04+0100\n"
+"PO-Revision-Date: 2025-03-30 01:34+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,26 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: printermanager.cpp:107
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Añadir impresora"
+msgstr "Añadir una nueva impresora"
 
 #: printermanager.cpp:109
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Añadir nuevo grupo de impresoras"
 
 #: printermanager.cpp:111 printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configurar el servidor de impresión..."
+msgstr "Configurar una impresora"
 
 #: printermanager.cpp:303
 #, kde-format
@@ -134,13 +130,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driverless…"
-msgstr "Escoger sin controlador..."
+msgstr "Escoger sin controlador…"
 
 #: ui/components/Drivers.qml:52
 #, kde-format
 msgctxt "@action:button"
 msgid "Choose Driver…"
-msgstr "Escoger controlador..."
+msgstr "Escoger controlador…"
 
 #: ui/components/Drivers.qml:87
 #, kde-format
@@ -197,7 +193,7 @@ msgstr "Nombre de la cola LPD"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr "Continuar con la dirección..."
+msgstr "Continuar con la dirección…"
 
 #: ui/components/Lpd.qml:90
 #, kde-format
@@ -233,7 +229,7 @@ msgstr "Error de solicitud de CUPS (%1): %2"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Seleccionar impresora..."
+msgstr "Seleccionar impresora…"
 
 #: ui/components/ManualUri.qml:92
 #, kde-kuit-format
@@ -395,7 +391,7 @@ msgstr "La instalación ha fallado"
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr "Instalando..."
+msgstr "Instalando…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
@@ -448,25 +444,25 @@ msgstr "Instalarlo"
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr "Añadir..."
+msgstr "Añadir…"
 
 #: ui/main.qml:125
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Añadir impresora..."
+msgstr "Añadir impresora…"
 
 #: ui/main.qml:131
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Añadir grupo..."
+msgstr "Añadir grupo…"
 
 #: ui/main.qml:137
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Configurar el servidor de impresión..."
+msgstr "Configurar el servidor de impresión…"
 
 #: ui/main.qml:301
 #, kde-format
@@ -480,8 +476,8 @@ msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Pulse <interface>Añadir...</interface> para configurar una nueva impresora "
-"en este equipo"
+"Pulse <interface>Añadir…</interface> para configurar una nueva impresora en "
+"este equipo"
 
 #: ui/main.qml:311
 #, kde-format
@@ -578,7 +574,7 @@ msgstr "Archivo PPD:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "Seleccionar archivo PPD..."
+msgstr "Seleccionar archivo PPD…"
 
 #: ui/MakeModel.qml:346
 #, kde-format
@@ -605,7 +601,7 @@ msgstr "Añadir impresora"
 #: ui/PrinterSettings.qml:61
 #, kde-format
 msgid "Configure…"
-msgstr "Configurar..."
+msgstr "Configurar…"
 
 #: ui/PrinterSettings.qml:66
 #, kde-format
@@ -660,7 +656,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr "Configurando %1. Espere..."
+msgstr "Configurando %1. Espere…"
 
 #: ui/PrinterSettings.qml:181
 #, kde-format
@@ -756,7 +752,7 @@ msgstr "Limpiar los cabezales de impresión"
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
-msgstr "Encontrar una impresora..."
+msgstr "Encontrar una impresora…"
 
 #: ui/PrinterSettings.qml:522
 #, kde-format
@@ -807,53 +803,4 @@ msgstr "Marca/modelo:"
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr "Seleccionar..."
-
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "** Impresora predeterminada"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure…"
-#~ msgstr "Configurar..."
-
-#~ msgid "Set Default Options"
-#~ msgstr "Definir las opciones predeterminadas"
-
-#~ msgctxt "@option:check"
-#~ msgid "Auto Configure"
-#~ msgstr "Configurar automáticamente"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "¿Seguro que quiere eliminar %1 (%2)?"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "URI:"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Eloy Cuadra"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "ecuadra@eloihr.net"
-
-#~ msgctxt "@title:window"
-#~ msgid "Failed"
-#~ msgstr "Ha fallado"
-
-#~ msgid "Global Settings"
-#~ msgstr "Preferencias globales"
-
-#~ msgid "Configure Global Settings"
-#~ msgstr "Configurar las preferencias globales"
-
-#~ msgid "Quick Settings"
-#~ msgstr "Ajustes rápidos"
-
-#~ msgid "Printer Config Error"
-#~ msgstr "Error de configuración de la impresora"
-
-#~ msgid "Share this class"
-#~ msgstr "Compartir esta clase"
+msgstr "Seleccionar…"

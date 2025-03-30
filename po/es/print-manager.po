@@ -1,14 +1,15 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for print-manager.po package.
+# Copyright (C) 2012-2025 This_file_is_part_of_KDE
+# This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2019, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Javier Viñal <fjvinal@gmail.com>, 2013.
+# SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2019, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2013 Javier Viñal <fjvinal@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2024-05-21 04:25+0200\n"
+"PO-Revision-Date: 2025-03-30 01:39+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -220,16 +221,14 @@ msgid "Add a new printer"
 msgstr "Añadir nueva impresora"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Añadir nueva impresora"
+msgstr "Añadir un nuevo grupo de impresoras"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configurar la impresora"
+msgstr "Configurar una impresora"
 
 #: src/kcm/printermanager.cpp:303
 #, kde-format
@@ -296,55 +295,47 @@ msgstr "Se ha detectado una nueva impresora"
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Iniciando configuración de la impresora"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Se ha añadido la nueva impresora"
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "La nueva impresora carece de controladores"
+msgstr "La nueva impresora puede tener un problema de controladores"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Se ha detectado una nueva impresora"
+msgstr "Lo cola de la impresora no se ha creado"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "No hay controlador de impresora para %1 %2."
+msgstr "No se ha encontrado el controlador de impresora para %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "No hay controlador de impresora para %1."
+msgstr "No se ha encontrado el controlador de impresora para %1"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "No hay controlador para esta impresora."
+msgstr "No se ha encontrado el controlador para esta impresora"
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Añadir impresora"
+msgstr "Añadir impresora…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "Se ha añadido «%1»; compruebe su controlador."
+msgstr "Se ha añadido «%1»; compruebe su controlador"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
@@ -354,10 +345,9 @@ msgid "Configure"
 msgstr "Configurar"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "Se ha añadido «%1»; usando el controlador «%2»."
+msgstr "Se ha añadido «%1»; usando el controlador «%2»"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -366,10 +356,9 @@ msgid "Print test page"
 msgstr "Imprimir página de prueba"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Elija el controlador"
+msgstr "Comprobar el controlador"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -804,7 +793,7 @@ msgstr "Pausar la impresora"
 #: src/printqueue/PrintQueueUi.cpp:188
 #, kde-format
 msgid "Printing..."
-msgstr "Imprimiendo..."
+msgstr "Imprimiendo…"
 
 #: src/printqueue/PrintQueueUi.cpp:190
 #, kde-format
@@ -933,530 +922,3 @@ msgstr "Trabajos completados"
 #, kde-format
 msgid "All Jobs"
 msgstr "Todos los trabajos"
-
-#~ msgctxt "@title:window"
-#~ msgid "Add a New Printer"
-#~ msgstr "Añadir nueva impresora"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Printer to Add"
-#~ msgstr "Seleccionar una impresora a añadir"
-
-#~ msgctxt "@title:window"
-#~ msgid "Please describe your printer"
-#~ msgstr "Por favor, describa su impresora"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure your connection"
-#~ msgstr "Configure su conexión"
-
-#~ msgctxt "@title:window"
-#~ msgid "Pick a Driver for %1"
-#~ msgstr "Escoger un controlador para %1"
-
-#~ msgid "Address:"
-#~ msgstr "Dirección:"
-
-#~ msgid "Queue:"
-#~ msgstr "Cola:"
-
-#~ msgid "Detect"
-#~ msgstr "Detectar"
-
-#~ msgctxt "@title:group"
-#~ msgid "Windows Printer via SAMBA"
-#~ msgstr "Impresora de Windows mediante SAMBA"
-
-#~ msgctxt ""
-#~ "@label samba URL markup example, this is preceded by a label containing "
-#~ "smb://"
-#~ msgid "smb://[workgroup/]server[:port]/printer"
-#~ msgstr "smb://[grupo_de_trabajo/]servidor[:puerto]/impresora"
-
-#~ msgctxt "@action:button"
-#~ msgid "Browse"
-#~ msgstr "Navegar"
-
-#~ msgctxt "@title:group"
-#~ msgid "Authentication"
-#~ msgstr "Autenticación"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Username:"
-#~ msgstr "Nombre de usuario:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Password"
-#~ msgstr "Contraseña"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "None"
-#~ msgstr "Ninguna"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Even"
-#~ msgstr "Par"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Odd"
-#~ msgstr "Impar"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "XON/XOFF (Software)"
-#~ msgstr "XON/XOFF (Software)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "RTS/CTS (Hardware)"
-#~ msgstr "RTS/CTS (Hardware)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "DTR/DSR (Hardware)"
-#~ msgstr "DTR/DSR (Hardware)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Baud Rate:"
-#~ msgstr "Velocidad en baudios:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Parity:"
-#~ msgstr "Paridad:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Data Bits:"
-#~ msgstr "Bits de datos:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Flow Control:"
-#~ msgstr "Control de flujo:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Address:"
-#~ msgstr "Dirección:"
-
-#~ msgctxt "@label:spinbox"
-#~ msgid "Port:"
-#~ msgstr "Puerto:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Connection:"
-#~ msgstr "Conexión:"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Examples:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-#~ "\">\"Network\n"
-#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-#~ msgstr ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Ejemplos:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>Vea <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-#~ "\">«Impresoras\n"
-#~ "de red»</A> para el URI correcto a usar con su impresora.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-
-#~ msgid "Tool for adding new printers"
-#~ msgstr "Herramienta para añadir nuevas impresoras"
-
-#~ msgid ""
-#~ "NOTE: This application is deprecated and will be removed from Plasma in a "
-#~ "future release."
-#~ msgstr ""
-#~ "ATENCIÓN: Esta aplicación es obsoleta y se eliminará de Plasma en una "
-#~ "próxima versión."
-
-#~ msgid "Parent Window ID"
-#~ msgstr "ID de la ventana padre"
-
-#~ msgid "Add a new printer class"
-#~ msgstr "Añadir una clase de impresora"
-
-#~ msgid "Changes the PPD of a given printer"
-#~ msgstr "Cambia el PPD de una determinada impresora"
-
-#~ msgid "Changes the PPD of a given printer/deviceid"
-#~ msgstr "Cambia el PPD de una determinada impresora o ID de dispositivo"
-
-#~ msgid "The expected input should be printer/deviceid"
-#~ msgstr "La entrada que se esperaba debía ser impresora/IDdispositivo"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to add class: '%1'"
-#~ msgstr "Ha ocurrido un error al añadir la clase: «%1»"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: '%1'"
-#~ msgstr "Ha ocurrido un error al configurar la impresora: «%1»"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Name:"
-#~ msgstr "Nombre:"
-
-#~ msgid "May contain any printable characters except \"/\", \"#\", and space"
-#~ msgstr ""
-#~ "Puede contener cualquier carácter imprimible, excepto «/», «#» o espacio"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Description:"
-#~ msgstr "Descripción:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Location:"
-#~ msgstr "Ubicación:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Share this printer"
-#~ msgstr "Compartir esta impresora"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Members:"
-#~ msgstr "Miembros:"
-
-#~ msgid "A printer connected to the parallel port."
-#~ msgstr "Una impresora conectada al puerto paralelo."
-
-#~ msgid "A printer connected to a USB port."
-#~ msgstr "Una impresora conectada a un puerto USB."
-
-#~ msgid "A printer connected via Bluetooth."
-#~ msgstr "Una impresora conectada mediante Bluetooth."
-
-#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-#~ msgstr ""
-#~ "Impresora local detectada por la capa de abstracción de hardware (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Software HPLIP controlando una impresora o la función de impresión de un "
-#~ "dispositivo multifunción."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Software HPLIP controlando una máquina de fax o la función de fax de un "
-#~ "dispositivo multifunción."
-
-#~ msgid "%1 network printer via DNS-SD"
-#~ msgstr "Impresora de red %1 mediante DNS-SD"
-
-#~ msgid "Connections"
-#~ msgstr "Conexiones"
-
-#~ msgid "Please choose an item on the list"
-#~ msgstr "Elija un elemento de la lista"
-
-#~ msgid "Configuring new printer..."
-#~ msgstr "Configurando la nueva impresora..."
-
-#~ msgid "Missing printer driver"
-#~ msgstr "Falta el controlador de la impresora"
-
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
-#~ msgid "Find driver"
-#~ msgstr "Buscar controlador"
-
-#~ msgid "Choose the driver for %1"
-#~ msgstr "Elija el controlador para %1"
-
-#~ msgid "Failed to get a list of drivers: '%1'"
-#~ msgstr "Ha ocurrido un error al obtener la lista de controladores: «%1»"
-
-#~ msgid "Failed to search for a recommended driver: '%1'"
-#~ msgstr "Ha ocurrido un error al buscar el controlador recomendado: «%1»"
-
-#~ msgid "Select a Driver"
-#~ msgstr "Seleccionar un controlador"
-
-#~ msgid "Ma&nually Provide a PPD File:"
-#~ msgstr "Proporcio&nar un archivo PPD manualmente:"
-
-#~ msgid "Printer Settings"
-#~ msgstr "Preferencias de la impresora"
-
-#~ msgid "Current - %1"
-#~ msgstr "Actual - %1"
-
-#~ msgid "Select a custom driver"
-#~ msgstr "Seleccionar un controlador personalizado"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure class"
-#~ msgstr "Ha ocurrido un error al configurar la clase"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer"
-#~ msgstr "Ha ocurrido un error al configurar la impresora"
-
-#~ msgctxt "@title:window"
-#~ msgid "Failed"
-#~ msgstr "Error"
-
-#~ msgid "&Description:"
-#~ msgstr "&Descripción:"
-
-#~ msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-#~ msgstr "Descripción legible para personas, como «HP LaserJet con Duplexer»"
-
-#~ msgid "&Location:"
-#~ msgstr "&Ubicación:"
-
-#~ msgid "Human-readable location such as \"Lab 1\""
-#~ msgstr "Ubicación legible para personas, como «Laboratorio 1»"
-
-#~ msgid "Connec&tion:"
-#~ msgstr "Cone&xión:"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#~ "size:10pt;\">Examples:</span></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-#~ "</p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-#~ "port1</p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</"
-#~ "p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/"
-#~ "port1</p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</"
-#~ "p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#~ "size:10pt;\">Ejemplos:</span></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://servidor:631/ipp/"
-#~ "</p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://servidor:631/ipp/"
-#~ "puerto1</p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://servidor/ipp/</"
-#~ "p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://servidor/ipp/"
-#~ "puerto1</p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://servidor/cola</"
-#~ "p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://servidor</p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://servidor:9100</"
-#~ "p></body></html>"
-
-#~ msgid "Members"
-#~ msgstr "Miembros"
-
-#~ msgid "Driver:"
-#~ msgstr "Controlador:"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure server settings"
-#~ msgstr "Ha ocurrido un error al configurar las preferencias del servidor"
-
-#~ msgid "Modify Printer"
-#~ msgstr "Modificar impresora"
-
-#~ msgid "Printer Options"
-#~ msgstr "Opciones de la impresora"
-
-#~ msgid "Set the Default Printer Options"
-#~ msgstr "Establecer las opciones por omisión de la impresora"
-
-#~ msgid "Name:"
-#~ msgstr "Nombre:"
-
-#~ msgid "Share this class"
-#~ msgstr "Compartir esta clase"
-
-#~ msgid "Share this printer"
-#~ msgstr "Compartir esta impresora"
-
-#~ msgctxt "@title"
-#~ msgid "Printer name or description"
-#~ msgstr "Nombre o descripción de la impresora"
-
-#~ msgid "Current status"
-#~ msgstr "Estado actual"
-
-#~ msgctxt "@option:check"
-#~ msgid "Default printer"
-#~ msgstr "Impresora por omisión"
-
-#~ msgid "Reject print jobs"
-#~ msgstr "Rechazar trabajos de impresión"
-
-#~ msgctxt "@label location of printer"
-#~ msgid "Location:"
-#~ msgstr "Ubicación:"
-
-#~ msgctxt ""
-#~ "@label kind of printer, could be driver name or \"local raw socket\""
-#~ msgid "Kind:"
-#~ msgstr "Tipo:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Maintenance"
-#~ msgstr "Mantenimiento"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open Print Queue"
-#~ msgstr "Abrir la cola de impresión"
-
-#~ msgid "Print Test Page"
-#~ msgstr "Imprimir página de pruebas"
-
-#~ msgid "Print Self Test Page"
-#~ msgstr "Imprimir página de autoprueba"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add a Printer Class"
-#~ msgstr "Añadir una clase de impresora"
-
-#~ msgid "Add a new printer or a printer class"
-#~ msgstr "Añadir una nueva impresora o clase de impresora"
-
-#~ msgid "Remove Printer"
-#~ msgstr "Eliminar impresora"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Show printers shared by other systems"
-#~ msgstr "Mostrar las impresoras compartidas por otros sistemas"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Share printers connected to this system"
-#~ msgstr "Compartir las impresoras conectadas a este sistema"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow printing from the Internet"
-#~ msgstr "Permitir la impresión desde Internet"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow remote administration"
-#~ msgstr "Permitir la administración remota"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow users to cancel any job (not just their own)"
-#~ msgstr ""
-#~ "Permitir que los usuarios cancelen cualquier trabajo (no solo los suyos)"
-
-#~ msgid "Configure the global preferences"
-#~ msgstr "Configurar las preferencias globales"
-
-#~ msgid "No printers have been configured or discovered"
-#~ msgstr "Ninguna impresora configurada ni descubierta"
-
-#~ msgid "Remove class"
-#~ msgstr "Eliminar clase"
-
-#~ msgid "Are you sure you want to remove the class '%1'?"
-#~ msgstr "¿Seguro que quiere eliminar la clase «%1»?"
-
-#~ msgid "Remove printer"
-#~ msgstr "Eliminar impresora"
-
-#~ msgid "Are you sure you want to remove the printer '%1'?"
-#~ msgstr "¿Seguro que quiere eliminar la impresora «%1»?"
-
-#~ msgid "System Preferences"
-#~ msgstr "Preferencias del sistema"
-
-#~ msgid "TextLabel"
-#~ msgstr "TextLabel"
-
-#~ msgid "Error Title"
-#~ msgstr "Título de error"
-
-#~ msgid "Click here to add a new printer"
-#~ msgstr "Pulse aquí para añadir una nueva impresora"
-
-#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-#~ msgstr "*.ppd *.ppd.gz|Archivos de descripción de impresora PostScript"
-
-#~ msgid "Daniel Nicoletti"
-#~ msgstr "Daniel Nicoletti"
-
-#~ msgid "AddPrinter"
-#~ msgstr "Añadir impresora"

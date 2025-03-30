@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2024-05-21 07:37+0200\n"
+"PO-Revision-Date: 2025-03-29 11:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -223,16 +223,14 @@ msgid "Add a new printer"
 msgstr "Dodaj nov tiskalnik"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Dodaj nov tiskalnik"
+msgstr "Dodaj novo skupino tiskalnikov"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Nastavi tiskalnik"
+msgstr "Konfiguriraj tiskalnik"
 
 #: src/kcm/printermanager.cpp:303
 #, kde-format
@@ -299,68 +297,59 @@ msgstr "Zaznan je bil nov tiskalnik"
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Zagon konfiguracije tiskalnika"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Novi tiskalnik je bil dodan"
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Za novi tiskalnik manjkajo gonilniki"
+msgstr "Novi tiskalnik ima morda težave z gonilnikom"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Zaznan je bil nov tiskalnik"
+msgstr "Čakalna vrsta tiskalnika ni bila ustvarjena"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Za %1 %2 ni tiskalniškega gonilnika."
+msgstr "Gonilnika tiskalnika ni bilo mogoče najti za %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Za %1 ni tiskalniškega gonilnika."
+msgstr "Gonilnika tiskalnika ni bilo mogoče najti za %1"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Za ta tiskalnik ni gonilnika."
+msgstr "Gonilnika tiskalnika za ta tiskalnik ni mogoče najti"
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Dodaj tiskalnik"
+msgstr "Dodaj tiskalnik…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "»%1« je bil dodan, preverite njegov gonilnik."
+msgstr "'%1' je bil dodan, preverite njegov gonilnik"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
 #: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
-msgstr "Nastavi"
+msgstr "Konfiguriraj"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "»%1« je bil dodan z uporabo gonilnika »%2«."
+msgstr "'%1' je bil dodan z uporabo gonilnika '%2'"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -369,15 +358,14 @@ msgid "Print test page"
 msgstr "Natisni preizkusno stran"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Izberi&te gonilnik"
+msgstr "Preveri gonilnik"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr "»%1« je pripravljen za tiskanje."
+msgstr "'%1' je pripravljen za tiskanje."
 
 #: src/libkcups/DevicesModel.cpp:51
 #, kde-format
@@ -734,12 +722,12 @@ msgstr "Nedejaven, zavrača posle"
 #: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle - '%1'"
-msgstr "Nedejaven – »%1«"
+msgstr "Nedejaven – '%1'"
 
 #: src/libkcups/PrinterModel.cpp:414
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
-msgstr "Nedejaven, zavrača posle – »%1«"
+msgstr "Nedejaven, zavrača posle – '%1'"
 
 #: src/libkcups/PrinterModel.cpp:418
 #, kde-format
@@ -749,7 +737,7 @@ msgstr "V uporabi"
 #: src/libkcups/PrinterModel.cpp:420
 #, kde-format
 msgid "In use - '%1'"
-msgstr "V uporabi – »%1«"
+msgstr "V uporabi – '%1'"
 
 #: src/libkcups/PrinterModel.cpp:424
 #, kde-format
@@ -764,12 +752,12 @@ msgstr "V premoru, zavrača posle"
 #: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused - '%1'"
-msgstr "V premoru – »%1«"
+msgstr "V premoru – '%1'"
 
 #: src/libkcups/PrinterModel.cpp:426
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
-msgstr "V premoru, zavrača posle – »%1«"
+msgstr "V premoru, zavrača posle – '%1'"
 
 #: src/libkcups/PrinterModel.cpp:430
 #, kde-format
@@ -779,7 +767,7 @@ msgstr "Neznano"
 #: src/libkcups/PrinterModel.cpp:432
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr "Neznano – »%1«"
+msgstr "Neznano – '%1'"
 
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
@@ -864,17 +852,17 @@ msgstr "Vsi tiskalniki"
 #: src/printqueue/PrintQueueUi.cpp:467
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr "Ni uspelo preklicati »%1«"
+msgstr "Ni uspelo preklicati '%1'"
 
 #: src/printqueue/PrintQueueUi.cpp:470
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr "Ni uspelo zadržati »%1«"
+msgstr "Ni uspelo zadržati '%1'"
 
 #: src/printqueue/PrintQueueUi.cpp:473
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr "Ni uspelo sprostiti »%1«"
+msgstr "Ni uspelo sprostiti '%1'"
 
 #: src/printqueue/PrintQueueUi.cpp:476
 #, kde-format

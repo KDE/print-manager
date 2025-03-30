@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2025-01-08 11:07+0100\n"
+"PO-Revision-Date: 2025-03-29 14:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,23 +20,19 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 
 #: printermanager.cpp:107
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Afig una impressora"
+msgstr "Afig una impressora nova"
 
 #: printermanager.cpp:109
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Afig un grup nou d'impressió"
 
 #: printermanager.cpp:111 printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configura el servidor d'impressió…"
+msgstr "Configura una impressora"
 
 #: printermanager.cpp:303
 #, kde-format

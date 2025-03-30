@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2025-01-09 15:56+0300\n"
+"PO-Revision-Date: 2025-03-29 14:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.03.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -283,13 +283,13 @@ msgstr "© 2010–2018 Daniel Nicoletti"
 #: src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
-msgstr "Qt 5/Plasma 5 aktarımı"
+msgstr "Qt 5/Plasma 5 geçişi"
 
 #: src/add-printer/main.cpp:32 src/configure-printer/main.cpp:32
 #: src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Qt 6/Plasma 6 aktarımı"
+msgstr "Qt 6/Plasma 6 geçişi"
 
 #: src/add-printer/main.cpp:35
 #, kde-format
@@ -488,7 +488,7 @@ msgstr "Yazıcı Yapılandır"
 #: src/configure-printer/main.cpp:39
 #, kde-format
 msgid "Printer to be configured"
-msgstr "Yapılandırılan yazıcı"
+msgstr "Yapılandırılacak yazıcı"
 
 #: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format

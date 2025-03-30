@@ -115,5 +115,14 @@
         "Name[zh_TW]": "印表機"
     },
     "X-KDE-Keywords": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,add printer",
+    "X-KDE-Keywords[bg]": "принтери,печат,хартия,cups,мастило,отпечатване,импресия,отдалечен принтер,интернет принтер,мрежов принтер,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,споделен принтер",
+    "X-KDE-Keywords[ca@valencia]": "impressores,impressió,paper,cups,tinta,impressora,impressora remota,impressora d'internet,impressora de xarxa,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,impressora virtual brf braille,impressora compartida,compartició d'impressora,afig impressora",
+    "X-KDE-Keywords[ca]": "impressores,impressió,paper,cups,tinta,impressora,impressora remota,impressora d'internet,impressora de xarxa,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,impressora virtual brf braille,impressora compartida,compartició d'impressora,afegeix impressora",
+    "X-KDE-Keywords[ka]": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,დაბეჭდვა,პრინტერები,პრინტერი,ქაღალდი,ტონერი,გაზიარებული პრინტერი;პრინტერის დამატება",
+    "X-KDE-Keywords[nl]": "printers,afdruk,papier,cups,inkt,afdrukken,impressie,printerop afstand,internetprinter,netwerkprinter,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtuele braille brf printer,printer delen, printer toevoegen",
+    "X-KDE-Keywords[sl]": "tiskalniki,tisk,papir,cups,črnilo,tiskanje,vtis,oddaljeni tiskalnik,internetni tiskalnik,omrežni tiskalnik,ipps,,hp jetdirect,ldp,ldr,cups-brf,navidezni braillov tiskalnik,skupni tiskalnik,dodaj tiskalnik",
+    "X-KDE-Keywords[tr]": "printer,yazıcı,yazdır,kâğıt,cups,mürekkep,yazdırma, uzak yazıcı,ağ yazıcısı,internet yazıcısı,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf yazıcısı,yazıcıyı paylaş,kağıt,yazıcı ekle",
+    "X-KDE-Keywords[uk]": "printers,print,paper,cups,ink,printing,impression,remote printer,internet printer,network printer,ipps,hp jetdirect,ldp,ldr,cups-brf,cups brf,virtual braille brf printer,share printer,add printer,принтери,друк,друкарки,папір,купс,чорнило,друк,вигляд,віддалений принтер,інтернет-принтер,мережевий принтер,елдепе,айпіпіес,віртуальний брайль,спільний принтер,додати принтер",
+    "X-KDE-Keywords[x-test]": "xxprintersxx,xxprintxx,xxpaperxx,xxcupsxx,xxinkxx,xxprintingxx,xximpressionxx,xxremote printerxx,xxinternet printerxx,xxnetwork printerxx,xxippsxx,xxhp jetdirectxx,xxldpxx,xxldrxx,xxcups-brfxx,xxcups brfxx,xxvirtual braille brf printerxx,xxshare printerxx,xxadd printerxx",
     "X-KDE-System-Settings-Parent-Category": "hardware"
 }

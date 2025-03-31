@@ -20,17 +20,17 @@ msgstr ""
 #: printermanager.cpp:107
 #, kde-format
 msgid "Add a new printer"
-msgstr ""
+msgstr "新增打印机"
 
 #: printermanager.cpp:109
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "新增打印机组"
 
 #: printermanager.cpp:111 printermanager.cpp:113
 #, kde-format
 msgid "Configure a printer"
-msgstr ""
+msgstr "配置打印机"
 
 #: printermanager.cpp:303
 #, kde-format

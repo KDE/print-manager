@@ -221,12 +221,12 @@ msgstr "添加新打印机"
 #: src/kcm/printermanager.cpp:109
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "新增打印机组"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
 #, kde-format
 msgid "Configure a printer"
-msgstr ""
+msgstr "配置打印机"
 
 #: src/kcm/printermanager.cpp:303
 #, kde-format
@@ -292,47 +292,47 @@ msgstr "检测到新打印机"
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "开始配置打印机"
 
 #: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer was added"
-msgstr ""
+msgstr "已添加了新的打印机"
 
 #: src/kded/NewPrinterNotification.cpp:104
 #, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr ""
+msgstr "新打印机的驱动程序可能存在问题"
 
 #: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer queue was not created"
-msgstr ""
+msgstr "打印机队列未被创建"
 
 #: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr ""
+msgstr "找不到此打印机的驱动程序：%1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for %1"
-msgstr ""
+msgstr "找不到此打印机的驱动程序：%1"
 
 #: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Printer driver not found for this printer"
-msgstr ""
+msgstr "找不到此打印机的驱动程序"
 
 #: src/kded/NewPrinterNotification.cpp:160
 #, kde-format
 msgid "Add Printer…"
-msgstr ""
+msgstr "新增打印机…"
 
 #: src/kded/NewPrinterNotification.cpp:215
 #, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr ""
+msgstr "“%1”已被添加，请检查它的驱动程序"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
@@ -344,7 +344,7 @@ msgstr "配置"
 #: src/kded/NewPrinterNotification.cpp:221
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr ""
+msgstr "“%1”已被添加，使用“%2”驱动"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -355,7 +355,7 @@ msgstr "打印测试页"
 #: src/kded/NewPrinterNotification.cpp:228
 #, kde-format
 msgid "Check driver"
-msgstr ""
+msgstr "检查驱动程序"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format

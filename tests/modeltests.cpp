@@ -5,9 +5,7 @@
 #include <QCommandLineParser>
 
 #include <DevicesModel.h>
-#include <JobModel.h>
 #include <PPDModel.h>
-#include <PrinterModel.h>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -22,29 +20,6 @@ public:
     };
 
 public Q_SLOTS:
-
-    void printerModel()
-    {
-        // FIXME: model loads on creation, will change for Plasma 6.4
-        PrinterModel printers;
-        QObject::connect(&printers, &PrinterModel::error, this, [this,&printers](int err, const QString &m, const QString &m1) {
-            if (err != 0) { // err == 0 on success
-                qDebug() << "Failed:" << m << m1;
-            } else {
-                qDebug() << "Printer Model loaded, rows:" << printers.rowCount();
-            }
-            Q_EMIT done();
-        });
-        Q_EMIT running();
-    }
-
-    void jobModel()
-    {
-        // FIXME: We need a signal from the job model that it's loaded
-        JobModel jobs;
-        jobs.init("test"_L1);
-        Q_EMIT done();
-    }
 
     void ppdModel()
     {
@@ -92,10 +67,6 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     parser.setApplicationDescription(u"Test libkcups models"_s);
 
-    QCommandLineOption printerModel(u"p"_s, u"Load PrinterModel"_s);
-    parser.addOption(printerModel);
-    QCommandLineOption jobModel(u"j"_s, u"Load JobModel"_s);
-    parser.addOption(jobModel);
     QCommandLineOption ppdModel(u"s"_s, u"Load PPD Model"_s);
     parser.addOption(ppdModel);
     QCommandLineOption devicesModel(u"d"_s, u"Load Devices Model"_s);
@@ -119,11 +90,7 @@ int main(int argc, char **argv)
         loop.exec();
     });
 
-    if (parser.isSet(printerModel)) {
-        models->printerModel();
-    } else if (parser.isSet(jobModel)) {
-        models->jobModel();
-    } else if (parser.isSet(ppdModel)) {
+    if (parser.isSet(ppdModel)) {
         models->ppdModel();
     } else if (parser.isSet(devicesModel)) {
         models->devicesModel();

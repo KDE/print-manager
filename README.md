@@ -35,9 +35,11 @@ These features are available via the `configure-printer` app, accessed from the 
 The legacy `kde-print-queue` app is provided as the primary means to manage configured printer job queues.  It remains directly accessible from both the KCM and the plasmoid.
 
 
-## Building, Running and Testing
+## Building and Running
 
 The easiest way to make changes and test print-manager during development is to [build it with kde-builder](https://kde-builder.kde.org).
+
+Enable BUILD_TESTING=on to build the tests.
 
 After building, restart the kded and plasmashell services.  Run the kcm from System Settings or from the command line:
 
@@ -57,6 +59,11 @@ For example, to add a printer run:
 To configure an existing printer, run: 
 
 * `systemsettings kcm_printer_manager --args "--configure-printer <queueName>"`
+
+
+## Development Testing
+
+Tests can be run locally, manually after building (see build/bin folder).  The dbus exercise tests (kded) must be run with elevated privileges because the dbus calls are on the system bus.  This emulates the CUPS applet behavior which uses the system bus to notify new printer events.
 
 
 ## Contributing

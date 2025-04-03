@@ -21,11 +21,9 @@ msgstr ""
 "X-Source-Language: en_US\n"
 
 #: printermanager.cpp:107
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Přidat tiskárnu"
+msgstr "Přidat novou tiskárnu"
 
 #: printermanager.cpp:109
 #, kde-format

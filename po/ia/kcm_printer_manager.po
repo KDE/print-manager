@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2025-01-08 15:42+0100\n"
+"PO-Revision-Date: 2025-04-02 16:50+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -18,23 +18,19 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:107
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Adde imprimitor"
+msgstr "Adde un nove imprimitor"
 
 #: printermanager.cpp:109
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Adde un nove gruppo de imprimitor"
 
 #: printermanager.cpp:111 printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configura Servitor de Imprimer…"
+msgstr "Configura un imprimitor"
 
 #: printermanager.cpp:303
 #, kde-format

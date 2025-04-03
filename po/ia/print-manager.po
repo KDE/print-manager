@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024.
+# SPDX-FileCopyrightText: 2012, 2013, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2024-05-21 10:11+0200\n"
+"PO-Revision-Date: 2025-04-02 16:55+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -219,16 +219,14 @@ msgid "Add a new printer"
 msgstr "Adde un nove imprimitor"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Adde un nove imprimitor"
+msgstr "Adde un nove gruppo de imprimitor"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configura imprimitor"
+msgstr "Configura un imprimitor"
 
 #: src/kcm/printermanager.cpp:303
 #, kde-format
@@ -295,53 +293,45 @@ msgstr "Un nove imprimitor esseva relevate"
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Initiante configuration de imprimitor"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
-msgstr "Le nove imprimitor esseva addite"
+msgstr "Un nove imprimitor esseva addite"
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "On manca drivers pro le nove imprimitor"
+msgstr "Le Nove Imprimitor poterea haber un problema de driver"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "Print queue is empty"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "PrintQueue (Cauda de imprimer) es vacue"
+msgstr "PrintQueue (Cauda de imprimer) non esseva create"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Necun driver pro %1 %2."
+msgstr "Driver de Imprimitor non trovate per %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Necun driver pro %1."
+msgstr "Driver de imprimitor non trovate per %1"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Necun driver pro iste imprimitor"
+msgstr "Driver de imprimitor non trovate per iste imprimitor"
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Adde imprimitor"
+msgstr "Adde imprimitor…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1' ha essite addite, pro favor tu verifica su driver."
 
@@ -353,8 +343,7 @@ msgid "Configure"
 msgstr "Configura"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "'%1' ha essite addite, usante le driver '%2'."
 
@@ -365,10 +354,9 @@ msgid "Print test page"
 msgstr "Imprime pagina de prova"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Selige &le driver"
+msgstr "Verifica le driver"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format

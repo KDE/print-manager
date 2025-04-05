@@ -223,13 +223,11 @@ msgstr "Legg til ny skrivar"
 
 #: src/kcm/printermanager.cpp:109
 #, fuzzy, kde-format
-#| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "Legg til ny skrivar"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
 #, fuzzy, kde-format
-#| msgid "Configure Printer"
 msgid "Configure a printer"
 msgstr "Set opp skrivar"
 
@@ -301,49 +299,41 @@ msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:102
 #, fuzzy, kde-format
-#| msgid "The New Printer was Added"
 msgid "The New Printer was added"
 msgstr "Den nye skrivaren er lagd til"
 
 #: src/kded/NewPrinterNotification.cpp:104
 #, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
 msgid "The New Printer might have a driver problem"
 msgstr "Den nye skrivaren manglar drivarar"
 
 #: src/kded/NewPrinterNotification.cpp:152
 #, fuzzy, kde-format
-#| msgid "A New Printer was detected"
 msgid "Printer queue was not created"
 msgstr "Fann ein ny skrivar"
 
 #: src/kded/NewPrinterNotification.cpp:154
 #, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
 msgid "Printer driver not found for %1 %2"
 msgstr "Ingen skrivardrivar for %1 %2."
 
 #: src/kded/NewPrinterNotification.cpp:156
 #, fuzzy, kde-format
-#| msgid "No printer driver for %1."
 msgid "Printer driver not found for %1"
 msgstr "Ingen skrivardrivar for %1."
 
 #: src/kded/NewPrinterNotification.cpp:158
 #, fuzzy, kde-format
-#| msgid "No driver for this printer."
 msgid "Printer driver not found for this printer"
 msgstr "Ingen drivar for denne skrivaren."
 
 #: src/kded/NewPrinterNotification.cpp:160
 #, fuzzy, kde-format
-#| msgid "Add Printer"
 msgid "Add Printer…"
 msgstr "Legg til skrivar"
 
 #: src/kded/NewPrinterNotification.cpp:215
 #, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
 msgid "'%1' has been added, please check its driver"
 msgstr "«%1» er lagt til. Kontroller drivaren."
 
@@ -356,7 +346,6 @@ msgstr "Set opp"
 
 #: src/kded/NewPrinterNotification.cpp:221
 #, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "«%1» er lagt til. Brukar drivaren «%2»."
 
@@ -368,7 +357,6 @@ msgstr "Skriv ut testside"
 
 #: src/kded/NewPrinterNotification.cpp:228
 #, fuzzy, kde-format
-#| msgid "Choose &the driver"
 msgid "Check driver"
 msgstr "Vel &drivaren"
 

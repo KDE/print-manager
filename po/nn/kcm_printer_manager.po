@@ -20,8 +20,6 @@ msgstr ""
 
 #: printermanager.cpp:107
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
 msgid "Add a new printer"
 msgstr "Legg til skrivar"
 
@@ -32,8 +30,6 @@ msgstr ""
 
 #: printermanager.cpp:111 printermanager.cpp:113
 #, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
 msgid "Configure a printer"
 msgstr "Set opp skrivartenar …"
 

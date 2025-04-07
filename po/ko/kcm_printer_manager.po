@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-31 02:36+0000\n"
-"PO-Revision-Date: 2024-11-28 23:22+0100\n"
+"PO-Revision-Date: 2025-04-07 00:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -678,7 +678,7 @@ msgstr "기본 프린터"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "기본 프린터를 변경하려면 다른 프린터를 기본 프린터로 설정하십시오."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

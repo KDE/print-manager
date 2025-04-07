@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2023, 2024 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-29 00:44+0000\n"
-"PO-Revision-Date: 2024-11-28 23:22+0100\n"
+"PO-Revision-Date: 2025-04-07 00:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -18,23 +18,19 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:107
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "프린터 추가"
+msgstr "새 프린터 추가"
 
 #: printermanager.cpp:109
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "새 프린터 그룹 추가"
 
 #: printermanager.cpp:111 printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "인쇄 서버 설정…"
+msgstr "프린터 설정"
 
 #: printermanager.cpp:303
 #, kde-format
@@ -697,7 +693,7 @@ msgstr "기본 프린터"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "기본 프린터를 변경하려면 다른 프린터를 기본 프린터로 설정하십시오."
 
 #: ui/PrinterSettings.qml:423
 #, kde-format

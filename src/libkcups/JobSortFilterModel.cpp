@@ -38,7 +38,6 @@ void JobSortFilterModel::setModel(QAbstractItemModel *model)
 
 void JobSortFilterModel::setFilteredPrinters(const QString &printers)
 {
-    qCDebug(LIBKCUPS) << rowCount() << printers << printers.split(QLatin1Char('|'));
     if (printers.isEmpty()) {
         m_filteredPrinters.clear();
     } else {

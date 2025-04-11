@@ -289,7 +289,6 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     if (state != destItem->data(DestState)) {
         destItem->setData(state, DestState);
     }
-    qCDebug(LIBKCUPS) << state << printer.name();
 
     // store if the printer is accepting jobs
     bool accepting = printer.isAcceptingJobs();

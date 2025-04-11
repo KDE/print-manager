@@ -173,7 +173,6 @@ void JobModel::getJobFinished(KCupsRequest *request)
             clear();
         } else {
             const KCupsJobs jobs = sanitizeJobs(request->jobs());
-            qCDebug(LIBKCUPS) << jobs.size();
             for (int i = 0; i < jobs.size(); ++i) {
                 const KCupsJob job = jobs.at(i);
                 if (job.state() == IPP_JOB_PROCESSING) {

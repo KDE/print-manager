@@ -253,9 +253,7 @@ void KCupsRequest::getPrinterPPD(const QString &printerName)
         do {
             const char *filename;
             filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName));
-            qCDebug(LIBKCUPS) << filename;
             m_ppdFile = QString::fromUtf8(filename);
-            qCDebug(LIBKCUPS) << m_ppdFile;
         } while (m_connection->retry("/", CUPS_GET_PPD));
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();

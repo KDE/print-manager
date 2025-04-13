@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:44+0000\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
 "PO-Revision-Date: 2025-04-07 00:35+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -579,7 +579,7 @@ msgstr "사용자"
 msgid "Created"
 msgstr "생성됨"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:596
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Completed"
 msgstr "완료됨"
@@ -614,37 +614,37 @@ msgstr "프린터"
 msgid "From Hostname"
 msgstr "호스트 이름에서"
 
-#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "'%1'을(를) '%2'(으)로 이동할 수 없음"
 
-#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:482
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "실패"
 
-#: src/libkcups/JobModel.cpp:584
+#: src/libkcups/JobModel.cpp:583
 #, kde-format
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/libkcups/JobModel.cpp:586
+#: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "On hold"
 msgstr "일시 정지됨"
 
-#: src/libkcups/JobModel.cpp:590
+#: src/libkcups/JobModel.cpp:589
 #, kde-format
 msgid "Stopped"
 msgstr "정지됨"
 
-#: src/libkcups/JobModel.cpp:592
+#: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Canceled"
 msgstr "취소됨"
 
-#: src/libkcups/JobModel.cpp:594
+#: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Aborted"
 msgstr "중단됨"
@@ -674,17 +674,17 @@ msgstr "인쇄 서비스를 사용할 수 없음"
 msgid "Not found"
 msgstr "찾을 수 없음"
 
-#: src/libkcups/KCupsRequest.cpp:392
+#: src/libkcups/KCupsRequest.cpp:390
 #, kde-format
 msgid "Test Page"
 msgstr "테스트 페이지"
 
-#: src/libkcups/KCupsRequest.cpp:420
+#: src/libkcups/KCupsRequest.cpp:418
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "프린터 드라이버에 명령을 보낼 수 없음!"
 
-#: src/libkcups/KCupsRequest.cpp:548
+#: src/libkcups/KCupsRequest.cpp:546
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "메서드를 호출할 수 없음: %1"
@@ -704,62 +704,62 @@ msgstr "빈 PPD 모델"
 msgid "Printers"
 msgstr "프린터"
 
-#: src/libkcups/PrinterModel.cpp:412
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle"
 msgstr "대기"
 
-#: src/libkcups/PrinterModel.cpp:412
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "대기, 작업 거부 중"
 
-#: src/libkcups/PrinterModel.cpp:414
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "대기 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:414
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "대기, 작업 거부 중 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:418
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "In use"
 msgstr "사용 중"
 
-#: src/libkcups/PrinterModel.cpp:420
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use - '%1'"
 msgstr "사용 중 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused"
 msgstr "일시 정지됨"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "일시 정지됨, 작업 거부 중"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "일시 정지됨 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "일시 정지됨, 작업 거부 중 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "알 수 없음 - '%1'"

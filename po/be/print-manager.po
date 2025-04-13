@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:44+0000\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
 "PO-Revision-Date: 2025-01-09 22:32\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -595,7 +595,7 @@ msgstr "Карыстальнік"
 msgid "Created"
 msgstr "Створана"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:596
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Completed"
 msgstr "Завершана"
@@ -630,37 +630,37 @@ msgstr "Прынтар"
 msgid "From Hostname"
 msgstr "З назвы хоста"
 
-#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "Не ўдалося перамясціць \"%1\" у \"%2\""
 
-#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:482
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "Не ўдалося"
 
-#: src/libkcups/JobModel.cpp:584
+#: src/libkcups/JobModel.cpp:583
 #, kde-format
 msgid "Pending"
 msgstr "Да апрацоўвання"
 
-#: src/libkcups/JobModel.cpp:586
+#: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "On hold"
 msgstr "Прыпынена"
 
-#: src/libkcups/JobModel.cpp:590
+#: src/libkcups/JobModel.cpp:589
 #, kde-format
 msgid "Stopped"
 msgstr "Спынена"
 
-#: src/libkcups/JobModel.cpp:592
+#: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Canceled"
 msgstr "Скасавана"
 
-#: src/libkcups/JobModel.cpp:594
+#: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Aborted"
 msgstr "Перарвана"
@@ -690,17 +690,17 @@ msgstr "Служба друку недаступная"
 msgid "Not found"
 msgstr "Не знойдзена"
 
-#: src/libkcups/KCupsRequest.cpp:392
+#: src/libkcups/KCupsRequest.cpp:390
 #, kde-format
 msgid "Test Page"
 msgstr "Тэставая старонка"
 
-#: src/libkcups/KCupsRequest.cpp:420
+#: src/libkcups/KCupsRequest.cpp:418
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "Не ўдалося адправіць каманду драйверу прынтара!"
 
-#: src/libkcups/KCupsRequest.cpp:548
+#: src/libkcups/KCupsRequest.cpp:546
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "Не ўдалося выклікаць метад: %1"
@@ -720,62 +720,62 @@ msgstr "Пустая мадэль ppd"
 msgid "Printers"
 msgstr "Прынтары"
 
-#: src/libkcups/PrinterModel.cpp:412
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle"
 msgstr "Бяздзейнічае"
 
-#: src/libkcups/PrinterModel.cpp:412
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Бяздзеянне, адхіленне задач"
 
-#: src/libkcups/PrinterModel.cpp:414
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Бяздзеянне - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:414
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Бяздзеянне, адхіленне задач -\"%1\""
 
-#: src/libkcups/PrinterModel.cpp:418
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "In use"
 msgstr "Выкарыстоўваецца"
 
-#: src/libkcups/PrinterModel.cpp:420
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Выкарыстоўваецца - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused"
 msgstr "Прыпынена"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Прыпынена, адхіленне задач"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Прыпынена - \"%1\""
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Прыпынена, адхіленне задач -\"%1\""
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Unknown"
 msgstr "Невядома"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Невядома - \"%1\""

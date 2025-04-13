@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-29 00:44+0000\n"
+"POT-Creation-Date: 2025-04-13 00:43+0000\n"
 "PO-Revision-Date: 2025-04-07 15:12+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -581,7 +581,7 @@ msgstr "使用者"
 msgid "Created"
 msgstr "已建立"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:596
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Completed"
 msgstr "已完成"
@@ -616,37 +616,37 @@ msgstr "印表機"
 msgid "From Hostname"
 msgstr "從主機名稱"
 
-#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
 msgstr "將 '%1' 移動到 '%2' 失敗"
 
-#: src/libkcups/JobModel.cpp:510 src/printqueue/PrintQueueUi.cpp:482
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
 msgstr "失敗"
 
-#: src/libkcups/JobModel.cpp:584
+#: src/libkcups/JobModel.cpp:583
 #, kde-format
 msgid "Pending"
 msgstr "暫停"
 
-#: src/libkcups/JobModel.cpp:586
+#: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "On hold"
 msgstr "保留中"
 
-#: src/libkcups/JobModel.cpp:590
+#: src/libkcups/JobModel.cpp:589
 #, kde-format
 msgid "Stopped"
 msgstr "已停止"
 
-#: src/libkcups/JobModel.cpp:592
+#: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Canceled"
 msgstr "已取消"
 
-#: src/libkcups/JobModel.cpp:594
+#: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Aborted"
 msgstr "已中止"
@@ -676,17 +676,17 @@ msgstr "列印服務無法使用"
 msgid "Not found"
 msgstr "找不到"
 
-#: src/libkcups/KCupsRequest.cpp:392
+#: src/libkcups/KCupsRequest.cpp:390
 #, kde-format
 msgid "Test Page"
 msgstr "測試頁"
 
-#: src/libkcups/KCupsRequest.cpp:420
+#: src/libkcups/KCupsRequest.cpp:418
 #, kde-format
 msgid "Unable to send command to printer driver!"
 msgstr "無法傳送指令給印表機驅動程式。"
 
-#: src/libkcups/KCupsRequest.cpp:548
+#: src/libkcups/KCupsRequest.cpp:546
 #, kde-format
 msgid "Failed to invoke method: %1"
 msgstr "呼叫方法失敗：%1"
@@ -706,62 +706,62 @@ msgstr "空白的 ppd 模型"
 msgid "Printers"
 msgstr "印表機"
 
-#: src/libkcups/PrinterModel.cpp:412
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle"
 msgstr "閒置"
 
-#: src/libkcups/PrinterModel.cpp:412
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "閒置，拒絕工作"
 
-#: src/libkcups/PrinterModel.cpp:414
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "閒置 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:414
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "閒置，拒絕工作 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:418
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "In use"
 msgstr "使用中"
 
-#: src/libkcups/PrinterModel.cpp:420
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use - '%1'"
 msgstr "使用中 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused"
 msgstr "已暫停"
 
-#: src/libkcups/PrinterModel.cpp:424
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "已暫停，拒絕工作"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "已暫停 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:426
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "已暫停，拒絕工作 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:430
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
 
-#: src/libkcups/PrinterModel.cpp:432
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "未知 - '%1'"

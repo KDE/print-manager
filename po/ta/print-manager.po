@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-13 00:43+0000\n"
-"PO-Revision-Date: 2024-06-16 17:37+0530\n"
+"PO-Revision-Date: 2025-04-13 17:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -136,7 +136,7 @@ msgstr "ரகசியம்"
 #: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "Standard"
-msgstr ""
+msgstr "சாதாரணமானது"
 
 #: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
@@ -219,14 +219,12 @@ msgid "Add a new printer"
 msgstr "புதிய அச்சுப்பொறியைச் சேர்"
 
 #: src/kcm/printermanager.cpp:109
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "புதிய அச்சுப்பொறியைச் சேர்"
+msgstr "புதிய அச்சுப்பொறி குழுவைச் சேர்"
 
 #: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
 msgstr "அச்சுப்பொறியை அமை"
 
@@ -292,55 +290,47 @@ msgstr "புதிய அச்சுப்பொறி கண்டறிய�
 #: src/kded/NewPrinterNotification.cpp:65
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "அச்சுப்பொறி அமைப்புச்சாளரம் திறக்கப்படுகிறது"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "புதிய அச்சுப்பொறி செர்க்கப்பட்டுள்ளது"
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "புதிய அச்சுப்பொறிக்கான சாதனநிரலைக் காணவில்லை"
+msgstr "புதிய அச்சுப்பொறிக்கான சாதனநிரலில் சிக்கல் இருக்கலாம்"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "புதிய அச்சுப்பொறி கண்டறியபட்டது"
+msgstr "அச்சுவரிசை உருவாக்கப்படவில்லை"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "%1 %2 என்பதற்கான சாதனநிரல் இல்லை."
+msgstr "%1 %2 என்பதற்கான சாதனநிரல் கண்டுபிடிக்கப்படவில்லை"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "%1 என்பதற்கான சாதனநிரல் இல்லை."
+msgstr "%1 என்பதற்கான சாதனநிரல் கண்டுபிடிக்கப்படவில்லை."
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "இந்த அச்சுப்பொறிக்கான சாதனநிரல் இல்லை."
+msgstr "இந்த அச்சுப்பொறிக்கான சாதனநிரல் கண்டுபிடிக்கப்படவில்லை."
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "அச்சுப்பொறியை சேர்"
+msgstr "அச்சுப்பொறியை சேர்…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "'%1' சேர்க்கப்பட்டுள்ளது, அதன் சாதனநிரலை சரிபார்க்கவும்."
+msgstr "'%1' சேர்க்கப்பட்டுள்ளது, அதன் சாதனநிரலை சரிபார்க்கவும்"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
@@ -350,10 +340,9 @@ msgid "Configure"
 msgstr "அமை"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "'%2' சாதனநிரலுடன் '%1' சேர்க்கப்பட்டுள்ளது."
+msgstr "'%2' சாதனநிரலுடன் '%1' சேர்க்கப்பட்டுள்ளது"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -362,10 +351,9 @@ msgid "Print test page"
 msgstr "சோதனைப் பக்கத்தை அச்சிடு"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "&சாதனநிரலைத் தேர்ந்தெடுக்கவும்"
+msgstr "சாதனநிரலை சரிபார்"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -508,12 +496,10 @@ msgid ""
 msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Other Network Printers"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "மற்ற பிணைய அச்சுப்பொறிகள்"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:129
 #, kde-format
@@ -695,7 +681,7 @@ msgstr "அச்சுப்பொறியின் சாதனநிரல�
 #: src/libkcups/KCupsRequest.cpp:546
 #, kde-format
 msgid "Failed to invoke method: %1"
-msgstr ""
+msgstr "இச்செயலைத் தூண்ட முடியவில்லை: %1"
 
 #: src/libkcups/PPDModel.cpp:43
 #, kde-format
@@ -705,7 +691,7 @@ msgstr "பரிந்துரைக்கப்படும் சாதன�
 #: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "காலியான ppd கோப்பு"
 
 #: src/libkcups/PrinterModel.cpp:196
 #, kde-format
@@ -877,7 +863,7 @@ msgstr "<b>%1</b> தனிலிருந்து அச்சிடுவத�
 #: src/printqueue/PrintQueueUi.ui:20
 #, kde-format
 msgid "my printer (x jobs)"
-msgstr ""
+msgstr "என் அச்சுப்பொறி (x பணிகள்)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
 #: src/printqueue/PrintQueueUi.ui:49

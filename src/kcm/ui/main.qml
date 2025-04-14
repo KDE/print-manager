@@ -249,7 +249,7 @@ KCM.ScrollViewKCM {
         // the section header
         section {
             property: "isClass"
-            delegate: !pmModel.hasOnlyPrinters ? sectionComp : null
+            delegate: !pmModel.hasOnlyPrinters ? sectionComp : undefined
         }
 
         model: KItemModels.KSortFilterProxyModel {

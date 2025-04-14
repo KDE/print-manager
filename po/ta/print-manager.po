@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-01-08 00:43+0000\n"
-"PO-Revision-Date: 2024-06-16 17:37+0530\n"
+"PO-Revision-Date: 2025-04-13 17:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -516,7 +516,7 @@ msgstr "ரகசியம்"
 #: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format
 msgid "Standard"
-msgstr ""
+msgstr "சாதாரணமானது"
 
 #: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
@@ -851,12 +851,10 @@ msgid ""
 msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:128
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Other Network Printers"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "மற்ற பிணைய அச்சுப்பொறிகள்"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:129
 #, kde-format
@@ -1038,7 +1036,7 @@ msgstr "அச்சுப்பொறியின் சாதனநிரல�
 #: src/libkcups/KCupsRequest.cpp:549
 #, kde-format
 msgid "Failed to invoke method: %1"
-msgstr ""
+msgstr "இச்செயலைத் தூண்ட முடியவில்லை: %1"
 
 #: src/libkcups/PPDModel.cpp:43
 #, kde-format
@@ -1048,7 +1046,7 @@ msgstr "பரிந்துரைக்கப்படும் சாதன�
 #: src/libkcups/PPDModel.cpp:97
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "காலியான ppd கோப்பு"
 
 #: src/libkcups/PrinterModel.cpp:205
 #, kde-format
@@ -1253,7 +1251,7 @@ msgstr "<b>%1</b> தனிலிருந்து அச்சிடுவத�
 #: src/printqueue/PrintQueueUi.ui:20
 #, kde-format
 msgid "my printer (x jobs)"
-msgstr ""
+msgstr "என் அச்சுப்பொறி (x பணிகள்)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
 #: src/printqueue/PrintQueueUi.ui:49

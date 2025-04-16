@@ -32,29 +32,6 @@ ColumnLayout {
         kcm.getRecommendedDrivers(devid, makeModel, uri)
     }
 
-    // Fallback msg with the option to select the driver manually
-    Kirigami.InlineMessage {
-        id: fallbackMsg
-
-        text: xi18nc("@info:status", "Unable to locate recommended drivers.  Click <interface>Refresh</interface> to try again or choose a driver manually.")
-        showCloseButton: false
-        Layout.fillWidth: true
-
-        actions: [
-            Kirigami.Action {
-                icon.name: "favorites-symbolic"
-                visible: ippCapable
-                text: i18nc("@action:button", "Choose Driverless…")
-                onTriggered: selectDriver({"ppd-name": "everywhere", "ppd-type": PM.PPDType.Auto})
-            },
-            Kirigami.Action {
-                icon.name: "document-edit-symbolic"
-                text: i18nc("@action:button", "Choose Driver…")
-                onTriggered: manualDriverSelect()
-            }
-        ]
-    }
-
     Connections {
         id: kcmConn
         target: kcm
@@ -63,11 +40,6 @@ ColumnLayout {
 
         function onRecommendedDriversLoaded() {
             loading = false
-
-            // For whatever reason, we failed to get recommended drivers
-            if (kcm.recommendedDrivers.length === 0) {
-                fallbackMsg.visible = true
-            }
         }
     }
 
@@ -78,18 +50,31 @@ ColumnLayout {
         implicitHeight: Kirigami.Units.gridUnit * 6
     }
 
-    QQC2.Button {
-        id: recmAction
+    RowLayout {
         Layout.alignment: Qt.AlignHCenter
-        visible: !fallbackMsg.visible
-        enabled: !busy
-        icon.name: "dialog-ok-symbolic"
-        text: i18nc("@action:button", "Select Recommended Driver")
 
-        onClicked: selectDriver(kcm.recommendedDrivers[recmlist.currentIndex])
+        QQC2.Button {
+            enabled: !busy
+            icon.name: "dialog-ok-symbolic"
+            text: i18nc("@action:button", "Select Recommended Driver")
 
-        QQC2.ToolTip {
-            text: i18nc("@info:tooltip", "Recommended drivers are based on printer make/model and connection type")
+            onClicked: selectDriver(kcm.recommendedDrivers[recmlist.currentIndex])
+
+            QQC2.ToolTip {
+                text: i18nc("@info:tooltip", "Recommended drivers are based on printer make/model and connection type")
+            }
+        }
+
+        QQC2.Button {
+            enabled: !busy
+            icon.name: "search-symbolic"
+            text: i18nc("@action:button", "Manual Driver Search…")
+
+            onClicked: manualDriverSelect()
+
+            QQC2.ToolTip {
+                text: i18nc("@info:tooltip", "Search for and select a driver based on printer make/model")
+            }
         }
     }
 
@@ -97,7 +82,6 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
         Layout.fillWidth: true
         Layout.fillHeight: true
-        visible: !fallbackMsg.visible
 
         Component.onCompleted: {
             if (background) {
@@ -124,20 +108,11 @@ ColumnLayout {
             delegate: Kirigami.SubtitleDelegate {
                 width: ListView.view.width
 
-                text: {
-                    const ppdname = modelData["ppd-name"]
-                    if (ppdname.includes("driverless")) {
-                        return i18nc("@label:listitem", "Driverless (%1)", modelData.match)
-                    } else if (ppdname.includes("ppd")) {
-                        return i18nc("@label:listitem", "PPD File (%1)", modelData.match)
-                    } else {
-                        return modelData.match
-                    }
-                }
+                text: modelData.title
                 subtitle: modelData["ppd-name"]
                 icon.name: {
                     if (ippCapable) {
-                        return modelData["ppd-name"].startsWith("driverless")
+                        return modelData.favorite
                                ? "favorites-symbolic"
                                : "dialog-question-symbolic"
                     } else {

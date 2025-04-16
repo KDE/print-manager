@@ -96,7 +96,6 @@ Kirigami.Dialog {
     title: i18nc("@title:window", "Printer Driver")
 
     onLoadingChanged: {
-        print("PPD Database Count:", model.rowCount())
         if (!loading) {
             // empty ppdData means we're selecting new make/model
             if (Object.keys(ppdData).length === 0) {
@@ -140,6 +139,21 @@ Kirigami.Dialog {
 
     customFooterActions: [
         Kirigami.Action {
+            text: i18nc("@action:button Select ipp everywhere driver", "Use IPP Everywhere™")
+            icon.name: "printer-symbolic"
+            enabled: !loading
+            visible: kcm.isIPPCapable(modelData.printerUri)
+                     && !modelData.remote
+                     && ppdData.pcfile !== "ippeve.ppd"
+            onTriggered: {
+                saveValues({file: "everywhere"
+                            , makeModel: "IPP Everywhere™"
+                            , type: PM.PPDType.Auto})
+                root.close()
+            }
+        }
+
+        , Kirigami.Action {
             text: i18n("Save")
             enabled: !loading
             icon.name: "dialog-ok-symbolic"

@@ -251,8 +251,16 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
         args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
     }
 
+    // WORKAROUND: Remove after CUPS 2.4.13 release
+    // CUPS Issue #1235 (https://github.com/OpenPrinting/cups/issues/1235)
+    // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
+    const bool forceRefresh = !addMode
+            && (args.value(u"ppd-name"_s) == u"everywhere"_s)
+            && (QVersionNumber(CUPS_VERSION_MAJOR, CUPS_VERSION_MINOR, CUPS_VERSION_PATCH) < QVersionNumber(2,4,13));
+
     qCDebug(PMKCM) << (addMode ? "New Printer:" : "Change Printer:") << name << "isClass?" << isClass << "Changing Default?" << isDefault << "filename"
                    << fileName << Qt::endl
+                   << "forceRefresh" << forceRefresh << Qt::endl
                    << "args" << args;
 
     auto request = new KCupsRequest;
@@ -284,19 +292,19 @@ void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArg
             request->setDefaultPrinter(name);
         }
         request->deleteLater();
-        Q_EMIT saveDone();
+        Q_EMIT saveDone(forceRefresh);
     } else {
-        connect(request, &KCupsRequest::finished, this, [this, isClass, name, isDefault](KCupsRequest *req) {
+        connect(request, &KCupsRequest::finished, this, [this, isClass, name, isDefault, forceRefresh](KCupsRequest *req) {
             if (!req->hasError()) {
                 // Also check default printer flag
                 if (isDefault) {
                     qCDebug(PMKCM) << "Saving printer DEFAULT:" << name;
-                    auto r = setupRequest([this]() {
-                        Q_EMIT saveDone();
+                    auto r = setupRequest([this, forceRefresh]() {
+                        Q_EMIT saveDone(forceRefresh);
                     });
                     r->setDefaultPrinter(name);
                 } else {
-                    Q_EMIT saveDone();
+                    Q_EMIT saveDone(forceRefresh);
                 }
             } else {
                 Q_EMIT requestError((isClass ? i18nc("@info", "Failed to configure class: ") : i18nc("@info", "Failed to configure printer: "))
@@ -433,6 +441,14 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
     qCDebug(PMKCM) << "getRecommendedDrivers for:" << makeAndModel << deviceUri << deviceId;
 
     m_recommendedDrivers.clear();
+    // Add entry for the ipp everywhere driver
+    if (isIPPCapable(deviceUri)) {
+        m_recommendedDrivers.append(QVariantMap({{u"favorite"_s, true},
+                                                 {u"title"_s, i18nc("@list:item", "IPP Everywhere™")},
+                                                 {u"match"_s, u"exact-cmd"_s},
+                                                 {u"ppd-name"_s, u"everywhere"_s},
+                                                 {u"ppd-type"_s, PMTypes::Auto}}));
+    }
 
     auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s,
                                                u"/org/fedoraproject/Config/Printing"_s,
@@ -452,7 +468,19 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
                 if (driverMatch.match == u"none"_s) {
                     continue;
                 }
-                m_recommendedDrivers.append(QVariantMap({{u"match"_s, driverMatch.match}, {u"ppd-name"_s, driverMatch.ppd}, {u"ppd-type"_s, PMTypes::Auto}}));
+                QString title(driverMatch.ppd);
+                bool favorite = false;
+                if (title.contains(u"driverless"_s)) {
+                    title = i18nc("@list:item", "Driverless");
+                    favorite = true;
+                } else if (title.contains(u"ppd"_s)) {
+                    title = i18nc("@list:item", "PPD File");
+                }
+                m_recommendedDrivers.append(QVariantMap({{u"favorite"_s, favorite},
+                                                         {u"title"_s, title},
+                                                         {u"match"_s, driverMatch.match},
+                                                         {u"ppd-name"_s, driverMatch.ppd},
+                                                         {u"ppd-type"_s, PMTypes::Auto}}));
             }
         }
         Q_EMIT recommendedDriversLoaded();

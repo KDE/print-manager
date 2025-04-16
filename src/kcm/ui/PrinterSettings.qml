@@ -275,7 +275,6 @@ KCM.AbstractKCM {
                 } else {
                     ppd.pcfile = ""
                 }
-
                 // Not a remote printer and no driver file
                 // then immediately offer make/model selection
                 if (!configMap["remote"] && ppd.file.length === 0) {
@@ -314,7 +313,7 @@ KCM.AbstractKCM {
                 } else {
                     config.remove(["ppd-name", "ppd-type"])
                     ppd.pcfile = ""
-               }
+                }
             }
         }
     }

@@ -124,20 +124,11 @@ ColumnLayout {
             delegate: Kirigami.SubtitleDelegate {
                 width: ListView.view.width
 
-                text: {
-                    const ppdname = modelData["ppd-name"]
-                    if (ppdname.includes("driverless")) {
-                        return i18nc("@label:listitem", "Driverless (%1)", modelData.match)
-                    } else if (ppdname.includes("ppd")) {
-                        return i18nc("@label:listitem", "PPD File (%1)", modelData.match)
-                    } else {
-                        return modelData.match
-                    }
-                }
+                text: "%1 (%2)".arg(modelData.title).arg(modelData.match)
                 subtitle: modelData["ppd-name"]
                 icon.name: {
                     if (ippCapable) {
-                        return modelData["ppd-name"].startsWith("driverless")
+                        return modelData.favorite
                                ? "favorites-symbolic"
                                : "dialog-question-symbolic"
                     } else {

@@ -434,6 +434,14 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
     qCDebug(PMKCM) << "getRecommendedDrivers for:" << makeAndModel << deviceUri << deviceId;
 
     m_recommendedDrivers.clear();
+    // Add entry for the ipp everywhere driver
+    if (isIPPCapable(deviceUri)) {
+        m_recommendedDrivers.append(QVariantMap({{u"favorite"_s, true},
+                                                 {u"title"_s, u"IPP Everywhere"_s},
+                                                 {u"match"_s, u"exact-cmd"_s},
+                                                 {u"ppd-name"_s, u"everywhere"_s},
+                                                 {u"ppd-type"_s, PMTypes::Auto}}));
+    }
 
     auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s,
                                                u"/org/fedoraproject/Config/Printing"_s,
@@ -453,7 +461,19 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
                 if (driverMatch.match == u"none"_s) {
                     continue;
                 }
-                m_recommendedDrivers.append(QVariantMap({{u"match"_s, driverMatch.match}, {u"ppd-name"_s, driverMatch.ppd}, {u"ppd-type"_s, PMTypes::Auto}}));
+                QString title(driverMatch.ppd);
+                bool favorite = false;
+                if (title.contains(u"driverless"_s)) {
+                    title = u"Driverless"_s;
+                    favorite = true;
+                } else if (title.contains(u"ppd"_s)) {
+                    title = u"PPD File"_s;
+                }
+                m_recommendedDrivers.append(QVariantMap({{u"favorite"_s, favorite},
+                                                         {u"title"_s, title},
+                                                         {u"match"_s, driverMatch.match},
+                                                         {u"ppd-name"_s, driverMatch.ppd},
+                                                         {u"ppd-type"_s, PMTypes::Auto}}));
             }
         }
         Q_EMIT recommendedDriversLoaded();

@@ -175,8 +175,14 @@ KCM.ScrollViewKCM {
         }
 
         // when a successful save is done
-        function onSaveDone() {
+        function onSaveDone(forceRefresh) {
             kcm.pop()
+            // WORKAROUND: Remove after CUPS 2.4.13 release
+            // CUPS Issue #1235 (https://github.com/OpenPrinting/cups/issues/1235)
+            // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
+            if (forceRefresh) {
+                pmModel.update()
+            }
         }
 
         // when a printer/class is removed

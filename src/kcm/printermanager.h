@@ -94,7 +94,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void requestError(const QString &errorMessage);
     void removeDone();
-    void saveDone();
+    void saveDone(bool forceRefresh);
     void serverSettingsChanged();
     void serverStopped();
     void serverStarted();

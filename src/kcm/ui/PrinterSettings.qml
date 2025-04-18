@@ -141,6 +141,12 @@ KCM.AbstractKCM {
                 msgBanner.type = Kirigami.MessageType.Positive
                 msgBanner.visible = true
                 kcm.savePrinter(queueName.text, config.pending, modelData.isClass)
+
+                // CUPS Issue #1235 (https://github.com/OpenPrinting/cups/issues/1235)
+                // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
+                if (!addMode && config.value("ppd-name") === "everywhere") {
+                    printerModel.update()
+                }
             }
         }
     }

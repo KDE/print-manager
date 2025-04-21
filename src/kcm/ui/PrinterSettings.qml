@@ -399,14 +399,15 @@ KCM.AbstractKCM {
                         objectName: "isDefault"
                         text: i18nc("@action:check Set default printer", "Default printer")
                         orig: modelData.isDefault
-                        visible: printerModel.rowCount() > 1
+                        visible: addMode || printerModel.rowCount() > 1
                         // CUPS treats default printer independently from other printer attributes
                         // Also, CUPS makes sure it's exclusive, only one can be default and there is
                         // no api for "Not default".
 
                         // Therefore, if a printer is default, don't allow change for that printer,
                         // only allow it to be set true for a printer that is not default.
-                        enabled: !modelData.isDefault
+                        // However, when adding a new printer, allow the option to set default
+                        enabled: addMode || !modelData.isDefault
                         checked: modelData.isDefault
                     }
 

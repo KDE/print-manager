@@ -24,7 +24,6 @@
 #include <KOSRelease>
 
 #include <KCupsRequest.h>
-#include <PPDModel.h>
 #include <cups/adminutil.h>
 #include <cups/ppd.h>
 

@@ -11,6 +11,13 @@
 #include <KQuickConfigModule>
 #include <QObject>
 
+struct DriverMatch {
+    QString ppd;
+    QString match;
+};
+
+typedef QList<DriverMatch> DriverMatchList;
+
 namespace PMTypes
 {
 Q_NAMESPACE
@@ -114,5 +121,8 @@ private:
     QString m_osBugReportUrl;
     void processCmdLine(const QVariantList &args);
 };
+
+Q_DECLARE_METATYPE(DriverMatchList)
+Q_DECLARE_METATYPE(DriverMatch)
 
 #endif

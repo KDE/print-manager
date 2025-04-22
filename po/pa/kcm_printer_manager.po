@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 02:36+0000\n"
+"POT-Creation-Date: 2025-04-22 02:36+0000\n"
 "PO-Revision-Date: 2024-01-01 09:03-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -706,61 +706,61 @@ msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "ਮੂਲ ਪਰਿੰਟਰ"
 
-#: ui/PrinterSettings.qml:414
+#: ui/PrinterSettings.qml:415
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
 
-#: ui/PrinterSettings.qml:423
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "ਇਹ ਗਰੁੱਪ ਸਾਂਝਾ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:424
+#: ui/PrinterSettings.qml:425
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "ਇਹ ਪਰਿੰਟਰ ਸਾਂਝਾ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:431
+#: ui/PrinterSettings.qml:432
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "ਪਰਿੰਟ ਜੌਬਾਂ ਮਨਜ਼ੂਰ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ"
 
-#: ui/PrinterSettings.qml:481
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "ਟੈਸਟ ਸਫ਼ਾ ਪਰਿੰਟ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "ਖੁਦ-ਜਾਂਚ ਸਫ਼ਾ ਪਰਿੰਟ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:495
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "ਪਰਿੰਟਰ ਹੈੱਡ ਸਾਫ਼ ਕਰੋ"
 
-#: ui/PrinterSettings.qml:514
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "ਪਰਿੰਟਰ ਲੱਭੋ…"
 
-#: ui/PrinterSettings.qml:522
+#: ui/PrinterSettings.qml:523
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "ਕਤਾਰ ਦਾ ਨਾਂ:"
 
-#: ui/PrinterSettings.qml:539
+#: ui/PrinterSettings.qml:540
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info:whatsthis"
 #| msgid "A <b>printer group</b> is used to pool printing resources."
@@ -769,37 +769,37 @@ msgid ""
 "A <interface>printer group</interface> is used to pool printing resources."
 msgstr "<b>ਪਰਿੰਟਰ ਗਰੁੱਪ</b> ਪਰਿੰਟਰ ਸਰੋਤਾਂ ਦਾ ਸਮੂਹ ਬਣਾਉਣ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।"
 
-#: ui/PrinterSettings.qml:547
+#: ui/PrinterSettings.qml:548
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "ਵਰਣਨ:"
 
-#: ui/PrinterSettings.qml:559
+#: ui/PrinterSettings.qml:560
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "ਟਿਕਾਣਾ:"
 
-#: ui/PrinterSettings.qml:571
+#: ui/PrinterSettings.qml:572
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "ਕਨੈਕਸ਼ਨ:"
 
-#: ui/PrinterSettings.qml:585
+#: ui/PrinterSettings.qml:586
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "ਮੈਂਬਰ ਪਰਿੰਟਰ:"
 
-#: ui/PrinterSettings.qml:722
+#: ui/PrinterSettings.qml:723
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "ਮੇਕ/ਮਾਡਲ:"
 
-#: ui/PrinterSettings.qml:737
+#: ui/PrinterSettings.qml:738
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

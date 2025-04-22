@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 02:36+0000\n"
+"POT-Creation-Date: 2025-04-22 02:36+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -675,61 +675,61 @@ msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "डिफ़ॉल्ट प्रिंटर"
 
-#: ui/PrinterSettings.qml:414
+#: ui/PrinterSettings.qml:415
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
 
-#: ui/PrinterSettings.qml:423
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "इस समूह को साझा करें"
 
-#: ui/PrinterSettings.qml:424
+#: ui/PrinterSettings.qml:425
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "इस प्रिंटर को साझा करें"
 
-#: ui/PrinterSettings.qml:431
+#: ui/PrinterSettings.qml:432
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "प्रिंट कार्य स्वीकार करना"
 
-#: ui/PrinterSettings.qml:481
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "परीक्षण पृष्ठ प्रिंट करें"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:495
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "प्रिंट हेड्स साफ करें"
 
-#: ui/PrinterSettings.qml:514
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "प्रिंटर खोजें…"
 
-#: ui/PrinterSettings.qml:522
+#: ui/PrinterSettings.qml:523
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "कतार का नाम:"
 
-#: ui/PrinterSettings.qml:539
+#: ui/PrinterSettings.qml:540
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -738,37 +738,37 @@ msgstr ""
 "<इंटरफ़ेस>प्रिंटर समूह</इंटरफ़ेस> का उपयोग मुद्रण संसाधनों को एकत्रित करने के लिए किया जाता "
 "है।"
 
-#: ui/PrinterSettings.qml:547
+#: ui/PrinterSettings.qml:548
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "विवरण:"
 
-#: ui/PrinterSettings.qml:559
+#: ui/PrinterSettings.qml:560
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "जगह:"
 
-#: ui/PrinterSettings.qml:571
+#: ui/PrinterSettings.qml:572
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "कनेक्शन:"
 
-#: ui/PrinterSettings.qml:585
+#: ui/PrinterSettings.qml:586
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "सदस्य प्रिंटर:"
 
-#: ui/PrinterSettings.qml:722
+#: ui/PrinterSettings.qml:723
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "निर्माता/मॉडल:"
 
-#: ui/PrinterSettings.qml:737
+#: ui/PrinterSettings.qml:738
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

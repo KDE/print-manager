@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-01-31 02:36+0000\n"
+"POT-Creation-Date: 2025-04-22 02:36+0000\n"
 "PO-Revision-Date: 2025-01-09 00:29+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -683,62 +683,62 @@ msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Standaard printer"
 
-#: ui/PrinterSettings.qml:414
+#: ui/PrinterSettings.qml:415
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
 "Om de standaard printer te wijzigen, zet een andere printer als de standaard."
 
-#: ui/PrinterSettings.qml:423
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Deze groep delen"
 
-#: ui/PrinterSettings.qml:424
+#: ui/PrinterSettings.qml:425
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Deze printer delen"
 
-#: ui/PrinterSettings.qml:431
+#: ui/PrinterSettings.qml:432
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Afdruktaken accepteren"
 
-#: ui/PrinterSettings.qml:481
+#: ui/PrinterSettings.qml:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Testpagina afdrukken"
 
-#: ui/PrinterSettings.qml:487
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Pagina voor zelftest afdrukken"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:495
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Printkoppen reinigen"
 
-#: ui/PrinterSettings.qml:514
+#: ui/PrinterSettings.qml:515
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Een printer zoeken…"
 
-#: ui/PrinterSettings.qml:522
+#: ui/PrinterSettings.qml:523
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Wachtrijnaam:"
 
-#: ui/PrinterSettings.qml:539
+#: ui/PrinterSettings.qml:540
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -747,37 +747,37 @@ msgstr ""
 "Een <interface>printergroep</interface> wordt gebruikt om afdrukhulpbronnen "
 "de delen."
 
-#: ui/PrinterSettings.qml:547
+#: ui/PrinterSettings.qml:548
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Beschrijving:"
 
-#: ui/PrinterSettings.qml:559
+#: ui/PrinterSettings.qml:560
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Locatie:"
 
-#: ui/PrinterSettings.qml:571
+#: ui/PrinterSettings.qml:572
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Verbinding:"
 
-#: ui/PrinterSettings.qml:585
+#: ui/PrinterSettings.qml:586
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Mede printers:"
 
-#: ui/PrinterSettings.qml:722
+#: ui/PrinterSettings.qml:723
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Merk/Model:"
 
-#: ui/PrinterSettings.qml:737
+#: ui/PrinterSettings.qml:738
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

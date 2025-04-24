@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-22 02:36+0000\n"
-"PO-Revision-Date: 2025-01-14 18:05+0100\n"
+"PO-Revision-Date: 2025-04-21 18:26+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -430,7 +430,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr "Veuillre l'installer"
+msgstr "Veuillez l'installer"
 
 #: ui/main.qml:108
 #, kde-format

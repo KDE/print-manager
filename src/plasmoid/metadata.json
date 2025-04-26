@@ -1,5 +1,4 @@
 {
-    "KPackageStructure": "Plasma/Applet",
     "KPlugin": {
         "Authors": [
             {
@@ -103,7 +102,6 @@
         "Description[zh_TW]": "列出列印工作並管理它們",
         "EnabledByDefault": true,
         "Icon": "printer",
-        "Id": "org.kde.plasma.printmanager",
         "License": "LGPL-2.0+",
         "Name": "Printers",
         "Name[ar]": "الطّابعات",

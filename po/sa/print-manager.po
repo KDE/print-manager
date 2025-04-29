@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -215,64 +215,82 @@ msgstr "पूर्वनिर्धारितविकल्पान् �
 msgid "Query Printer for Default Options"
 msgstr "पूर्वनिर्धारितविकल्पानां कृते मुद्रकं प्रश्नं कुर्वन्तु"
 
-#: src/kcm/printermanager.cpp:107
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "नूतनं मुद्रकं योजयन्तु"
 
-#: src/kcm/printermanager.cpp:109
+#: src/kcm/printermanager.cpp:108
 #, fuzzy, kde-format
 #| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "नूतनं मुद्रकं योजयन्तु"
 
-#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
 #, fuzzy, kde-format
 #| msgid "Configure Printer"
 msgid "Configure a printer"
 msgstr "मुद्रकं विन्यस्यताम्"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "वर्गं विन्यस्तुं असफलम्: "
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "मुद्रकं विन्यस्तुं असफलम्: "
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:474
+#, kde-format
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:477
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "अनुरोधं कर्तुं असफलम्: %1"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "सर्वर सेटिंग्स् प्राप्तुं असफलम्: %1"
 
-#: src/kcm/printermanager.cpp:558
+#: src/kcm/printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "सर्वर सेटिंग्स् न रक्षितानि: (%1): %2"
 
-#: src/kcm/printermanager.cpp:565
+#: src/kcm/printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "घातकं सेव सर्वर सेटिंग्स्: (%1): %2"
 
-#: src/kcm/printermanager.cpp:618
+#: src/kcm/printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्वपरीक्षण पृष्ठ मुद्रित करें"
 
-#: src/kcm/printermanager.cpp:624
+#: src/kcm/printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "मुद्रणशिरः स्वच्छं कुर्वन्तु"
@@ -703,12 +721,7 @@ msgstr "मुद्रकचालकं प्रति आदेशं प्
 msgid "Failed to invoke method: %1"
 msgstr "विधिम् आह्वयितुं असफलम्: %1"
 
-#: src/libkcups/PPDModel.cpp:43
-#, kde-format
-msgid "Recommended Drivers"
-msgstr "अनुशंसित चालकाः"
-
-#: src/libkcups/PPDModel.cpp:97
+#: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
 msgstr "रिक्त ppd मॉडल"
@@ -932,6 +945,9 @@ msgstr "सम्पन्न नौकरियां"
 #, kde-format
 msgid "All Jobs"
 msgstr "सर्वाणि कार्याणि"
+
+#~ msgid "Recommended Drivers"
+#~ msgstr "अनुशंसित चालकाः"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"

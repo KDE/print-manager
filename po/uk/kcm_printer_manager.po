@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2025-03-29 12:26+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -18,62 +18,84 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: printermanager.cpp:107
+#: printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "Додати новий принтер"
 
-#: printermanager.cpp:109
+#: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Додати нову групу принтерів"
 
-#: printermanager.cpp:111 printermanager.cpp:113
+#: printermanager.cpp:110 printermanager.cpp:112
 #, kde-format
 msgid "Configure a printer"
 msgstr "Налаштувати принтер"
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Не вдалося налаштувати клас: "
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Не вдалося налаштувати принтер: "
 
-#: printermanager.cpp:469
+#: printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgctxt "@label:listitem"
+#| msgid "Driverless (%1)"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Без драйвера (%1)"
+
+#: printermanager.cpp:477
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr "Файл PPD:"
+
+#: printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не вдалося виконати запит: %1"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не вдалося отримати параметри сервера: %1"
 
-#: printermanager.cpp:558
+#: printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметри сервера не збережено: (%1): %2"
 
-#: printermanager.cpp:565
+#: printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Критична помилка під час спроби зберегти параметри сервера: (%1): %2"
 
-#: printermanager.cpp:618
+#: printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: printermanager.cpp:624
+#: printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
@@ -114,36 +136,13 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Виберіть з'єднання із пристроєм"
 
-#: ui/components/Drivers.qml:39
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid ""
-"Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
-"to try again or choose a driver manually."
-msgstr ""
-"Не вдалося знайти рекомендовані драйвери. Натисніть кнопку "
-"<interface>Оновити</interface>, щоб повторити спробу або вибрати драйвер "
-"вручну."
-
-#: ui/components/Drivers.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driverless…"
-msgstr "Вибрати бездрайверний…"
-
-#: ui/components/Drivers.qml:52
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driver…"
-msgstr "Вибрати драйвер…"
-
-#: ui/components/Drivers.qml:87
+#: ui/components/Drivers.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Вибрати рекомендований драйвер"
 
-#: ui/components/Drivers.qml:92
+#: ui/components/Drivers.qml:64
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -151,17 +150,22 @@ msgstr ""
 "Рекомендації щодо драйверів засновано на виробнику та моделі принтера та "
 "типі з'єднання"
 
-#: ui/components/Drivers.qml:130
+#: ui/components/Drivers.qml:71
 #, kde-format
-msgctxt "@label:listitem"
-msgid "Driverless (%1)"
-msgstr "Без драйвера (%1)"
+msgctxt "@action:button"
+msgid "Manual Driver Search…"
+msgstr ""
 
-#: ui/components/Drivers.qml:132
-#, kde-format
-msgctxt "@label:listitem"
-msgid "PPD File (%1)"
-msgstr "файл PPD (%1)"
+#: ui/components/Drivers.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Recommended drivers are based on printer make/model and connection type"
+msgctxt "@info:tooltip"
+msgid "Search for and select a driver based on printer make/model"
+msgstr ""
+"Рекомендації щодо драйверів засновано на виробнику та моделі принтера та "
+"типі з'єднання"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -462,13 +466,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Налаштувати сервер друку…"
 
-#: ui/main.qml:301
+#: ui/main.qml:307
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Поки не налаштовано жодних принтерів"
 
-#: ui/main.qml:302
+#: ui/main.qml:308
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -477,41 +481,41 @@ msgstr ""
 "Натисніть <interface>Додати…</interface>, щоб налаштувати новий принтер на "
 "цьому комп'ютері"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printers"
 msgstr "Принтери"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printer Groups"
 msgstr "Групи принтерів"
 
-#: ui/main.qml:374
+#: ui/main.qml:380
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Черга друку"
 
-#: ui/main.qml:390
+#: ui/main.qml:396
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Поновити"
 
-#: ui/main.qml:391
+#: ui/main.qml:397
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Призупинити"
 
-#: ui/main.qml:405
+#: ui/main.qml:411
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Відновити друк"
 
-#: ui/main.qml:406
+#: ui/main.qml:412
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -535,51 +539,57 @@ msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Драйвер принтера"
 
-#: ui/MakeModel.qml:143
+#: ui/MakeModel.qml:142
+#, kde-format
+msgctxt "@action:button Select ipp everywhere driver"
+msgid "Use IPP Everywhere™"
+msgstr ""
+
+#: ui/MakeModel.qml:157
 #, kde-format
 msgid "Save"
 msgstr "Зберегти"
 
-#: ui/MakeModel.qml:148
+#: ui/MakeModel.qml:162
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Виберіть файл опис принтера PostScript (PPD)"
 
-#: ui/MakeModel.qml:155
+#: ui/MakeModel.qml:169
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr "Слід вказати модель принтера. Будь ласка, виберіть модель."
 
-#: ui/MakeModel.qml:212
+#: ui/MakeModel.qml:226
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Виберіть виробника і модель:"
 
-#: ui/MakeModel.qml:224
+#: ui/MakeModel.qml:238
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Фільтрувати за моделями"
 
-#: ui/MakeModel.qml:319
+#: ui/MakeModel.qml:333
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "Файл PPD:"
 
-#: ui/MakeModel.qml:338
+#: ui/MakeModel.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Вибрати файл PPD…"
 
-#: ui/MakeModel.qml:346
+#: ui/MakeModel.qml:360
 #, kde-format
 msgid "Select"
 msgstr "Вибрати"
 
-#: ui/MakeModel.qml:347
+#: ui/MakeModel.qml:361
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "файли опису принтерів PostScript (*.ppd)"
@@ -697,67 +707,67 @@ msgstr "Вилучити принтер"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ui/PrinterSettings.qml:400
+#: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Типовий принтер"
 
-#: ui/PrinterSettings.qml:415
+#: ui/PrinterSettings.qml:414
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr "Щоб змінити типовий принтер, встановіть типовим інший принтер."
 
-#: ui/PrinterSettings.qml:424
+#: ui/PrinterSettings.qml:423
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Надати спільний доступ до цієї групи"
 
-#: ui/PrinterSettings.qml:425
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Надати спільний доступ до цього принтера"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:431
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Приймає завдання з друку"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Надрукувати пробну сторінку"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: ui/PrinterSettings.qml:495
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:514
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Знайти принтер…"
 
-#: ui/PrinterSettings.qml:523
+#: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Назва черги:"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:539
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -766,41 +776,62 @@ msgstr ""
 "<interface>Групу принтерів</interface> використовують для буферизації "
 "ресурсів друку."
 
-#: ui/PrinterSettings.qml:548
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Опис:"
 
-#: ui/PrinterSettings.qml:560
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Розташування:"
 
-#: ui/PrinterSettings.qml:572
+#: ui/PrinterSettings.qml:571
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "З'єднання:"
 
-#: ui/PrinterSettings.qml:586
+#: ui/PrinterSettings.qml:585
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Принтери-учасники:"
 
-#: ui/PrinterSettings.qml:723
+#: ui/PrinterSettings.qml:722
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Виробник/модель:"
 
-#: ui/PrinterSettings.qml:738
+#: ui/PrinterSettings.qml:737
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Вибрати…"
+
+#~ msgctxt "@info:status"
+#~ msgid ""
+#~ "Unable to locate recommended drivers.  Click <interface>Refresh</"
+#~ "interface> to try again or choose a driver manually."
+#~ msgstr ""
+#~ "Не вдалося знайти рекомендовані драйвери. Натисніть кнопку "
+#~ "<interface>Оновити</interface>, щоб повторити спробу або вибрати драйвер "
+#~ "вручну."
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driverless…"
+#~ msgstr "Вибрати бездрайверний…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driver…"
+#~ msgstr "Вибрати драйвер…"
+
+#~ msgctxt "@label:listitem"
+#~ msgid "PPD File (%1)"
+#~ msgstr "файл PPD (%1)"
 
 #~ msgctxt "@info:status This is the default printer"
 #~ msgid "** Default Printer"

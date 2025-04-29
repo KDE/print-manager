@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2025-04-13 17:05+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -213,62 +213,81 @@ msgstr "இயல்பிருப்பு விருப்பங்கள�
 msgid "Query Printer for Default Options"
 msgstr "அச்சுப்பொறியின் இயல்பிருப்பு அமைப்புகளை கண்டறி"
 
-#: src/kcm/printermanager.cpp:107
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "புதிய அச்சுப்பொறியைச் சேர்"
 
-#: src/kcm/printermanager.cpp:109
+#: src/kcm/printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
 msgstr "புதிய அச்சுப்பொறி குழுவைச் சேர்"
 
-#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
 #, kde-format
 msgid "Configure a printer"
 msgstr "அச்சுப்பொறியை அமை"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "அச்சுப்பொறி வகையை அமைக்க முடியவில்லை: "
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "அச்சுப்பொறியை அமைக்க முடியவில்லை: "
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgid "Driver:"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "சாதனநிரல்:"
+
+#: src/kcm/printermanager.cpp:477
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "கோரிக்கையை நிறைவேற்ற முடியவில்லை: %1"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "சேவையக அமைப்புகளைப் பெற முடியவில்லை: %1"
 
-#: src/kcm/printermanager.cpp:558
+#: src/kcm/printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "சேவையக அமைப்புகள் சேமிக்கப்படவில்லை: (%1): %2"
 
-#: src/kcm/printermanager.cpp:565
+#: src/kcm/printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "தோல்வியடைந்த சேவையக அமைப்பு சேமிப்பு: (%1): %2"
 
-#: src/kcm/printermanager.cpp:618
+#: src/kcm/printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "சோதனைப் பக்கத்தை அச்சிடு"
 
-#: src/kcm/printermanager.cpp:624
+#: src/kcm/printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "அச்சு முனைகளை சுத்தம் செய்"
@@ -683,12 +702,7 @@ msgstr "அச்சுப்பொறியின் சாதனநிரல�
 msgid "Failed to invoke method: %1"
 msgstr "இச்செயலைத் தூண்ட முடியவில்லை: %1"
 
-#: src/libkcups/PPDModel.cpp:43
-#, kde-format
-msgid "Recommended Drivers"
-msgstr "பரிந்துரைக்கப்படும் சாதனநிரல்கள்"
-
-#: src/libkcups/PPDModel.cpp:97
+#: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
 msgstr "காலியான ppd கோப்பு"
@@ -913,6 +927,9 @@ msgstr "முடிந்தவை"
 msgid "All Jobs"
 msgstr "அனைத்துப் பணிகளும்"
 
+#~ msgid "Recommended Drivers"
+#~ msgstr "பரிந்துரைக்கப்படும் சாதனநிரல்கள்"
+
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"
 #~ msgstr "புதிய அச்சுப்பொறியைச் சேர்த்தல்"
@@ -1127,9 +1144,6 @@ msgstr "அனைத்துப் பணிகளும்"
 
 #~ msgid "Members"
 #~ msgstr "உறுப்பினர்கள்"
-
-#~ msgid "Driver:"
-#~ msgstr "சாதனநிரல்:"
 
 #~ msgid "Modify Printer"
 #~ msgstr "அச்சுப்பொறியைத் திருத்து"

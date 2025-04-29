@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2025-01-12 08:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,66 +18,88 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: printermanager.cpp:107
+#: printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Printer"
 msgid "Add a new printer"
 msgstr "Aldoni Presilon"
 
-#: printermanager.cpp:109
+#: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
 msgstr ""
 
-#: printermanager.cpp:111 printermanager.cpp:113
+#: printermanager.cpp:110 printermanager.cpp:112
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure Print Server…"
 msgid "Configure a printer"
 msgstr "Agordi Presan Servilon…"
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Malsukcesis agordi klason:"
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Malsukcesis agordi presilon:"
 
-#: printermanager.cpp:469
+#: printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgctxt "@label:listitem"
+#| msgid "Driverless (%1)"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Senpelila (%1)"
+
+#: printermanager.cpp:477
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr "PPD-dosiero:"
+
+#: printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Malsukcesis plenumi peton: %1"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Malsukcesis akiri servilajn agordojn: %1"
 
-#: printermanager.cpp:558
+#: printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Servila Agordo Ne Konservita: (%1): %2"
 
-#: printermanager.cpp:565
+#: printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Neripareblo Konservante Servilan Agordon: (%1): %2"
 
-#: printermanager.cpp:618
+#: printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Presi Memtestan Paĝon"
 
-#: printermanager.cpp:624
+#: printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puraj Presaj Kapoj"
@@ -118,51 +140,32 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Elekti aparato-konekton"
 
-#: ui/components/Drivers.qml:39
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid ""
-"Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
-"to try again or choose a driver manually."
-msgstr ""
-"Maleblas lokigi rekomenditajn pelilojn.  Klaku <interface>Refreŝigi</"
-"interface> por reprovi aŭ elektu pelilon permane."
-
-#: ui/components/Drivers.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driverless…"
-msgstr "Elekti Senpelile…"
-
-#: ui/components/Drivers.qml:52
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driver…"
-msgstr "Elekti Pelilon…"
-
-#: ui/components/Drivers.qml:87
+#: ui/components/Drivers.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Elekti Rekomenditan Pelilon"
 
-#: ui/components/Drivers.qml:92
+#: ui/components/Drivers.qml:64
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr "Rekomenditaj peliloj baziĝas sur presila marko/modelo kaj konektotipo"
 
-#: ui/components/Drivers.qml:130
+#: ui/components/Drivers.qml:71
 #, kde-format
-msgctxt "@label:listitem"
-msgid "Driverless (%1)"
-msgstr "Senpelila (%1)"
+msgctxt "@action:button"
+msgid "Manual Driver Search…"
+msgstr ""
 
-#: ui/components/Drivers.qml:132
-#, kde-format
-msgctxt "@label:listitem"
-msgid "PPD File (%1)"
-msgstr "PPD-Dosiero (%1)"
+#: ui/components/Drivers.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Recommended drivers are based on printer make/model and connection type"
+msgctxt "@info:tooltip"
+msgid "Search for and select a driver based on printer make/model"
+msgstr "Rekomenditaj peliloj baziĝas sur presila marko/modelo kaj konektotipo"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -461,13 +464,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Agordi Presan Servilon…"
 
-#: ui/main.qml:301
+#: ui/main.qml:307
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Neniuj presiloj estas nuntempe instalitaj"
 
-#: ui/main.qml:302
+#: ui/main.qml:308
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -476,41 +479,41 @@ msgstr ""
 "Alklaku <interface>Aldoni…</interface> por agordi novan presilon sur ĉi tiu "
 "komputilo"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printers"
 msgstr "Presiloj"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printer Groups"
 msgstr "Presilo-Grupoj"
 
-#: ui/main.qml:374
+#: ui/main.qml:380
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Presa Vico"
 
-#: ui/main.qml:390
+#: ui/main.qml:396
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Rekomenci"
 
-#: ui/main.qml:391
+#: ui/main.qml:397
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Paŭzo"
 
-#: ui/main.qml:405
+#: ui/main.qml:411
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Rekomenci presadon"
 
-#: ui/main.qml:406
+#: ui/main.qml:412
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -534,53 +537,59 @@ msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Presila Pelilo"
 
-#: ui/MakeModel.qml:143
+#: ui/MakeModel.qml:142
+#, kde-format
+msgctxt "@action:button Select ipp everywhere driver"
+msgid "Use IPP Everywhere™"
+msgstr ""
+
+#: ui/MakeModel.qml:157
 #, kde-format
 msgid "Save"
 msgstr "Konservi"
 
-#: ui/MakeModel.qml:148
+#: ui/MakeModel.qml:162
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Elektu dosieron de PostScript Printer Description (PPD)."
 
-#: ui/MakeModel.qml:155
+#: ui/MakeModel.qml:169
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr ""
 "Printila modelo estas postulata. Elektu \"Elekti\" por elekti printilan "
 "modelon."
 
-#: ui/MakeModel.qml:212
+#: ui/MakeModel.qml:226
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Elektu Markon kaj Modelon:"
 
-#: ui/MakeModel.qml:224
+#: ui/MakeModel.qml:238
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Filtrilaj Modeloj"
 
-#: ui/MakeModel.qml:319
+#: ui/MakeModel.qml:333
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD-dosiero:"
 
-#: ui/MakeModel.qml:338
+#: ui/MakeModel.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Elekti PPD-dosieron…"
 
-#: ui/MakeModel.qml:346
+#: ui/MakeModel.qml:360
 #, kde-format
 msgid "Select"
 msgstr "Elekti"
 
-#: ui/MakeModel.qml:347
+#: ui/MakeModel.qml:361
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript Printer Priskribo Dosieroj (*.ppd)"
@@ -696,67 +705,67 @@ msgstr "Forigi Presilon"
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: ui/PrinterSettings.qml:400
+#: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Defaŭlta presilo"
 
-#: ui/PrinterSettings.qml:415
+#: ui/PrinterSettings.qml:414
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr "Por ŝanĝi la defaŭltan presilon, agordu alian presilon kiel defaŭltan."
 
-#: ui/PrinterSettings.qml:424
+#: ui/PrinterSettings.qml:423
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Kunhavigi ĉi tiun grupon"
 
-#: ui/PrinterSettings.qml:425
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Kunhavigi ĉi tiun presilon"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:431
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Akceptante presajn laborojn"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Presi Testpaĝon"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Presi Memtestan Paĝon"
 
-#: ui/PrinterSettings.qml:495
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Puraj Presaj Kapoj"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:514
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Trovi presilon…"
 
-#: ui/PrinterSettings.qml:523
+#: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Nomo de vostovico:"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:539
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -764,38 +773,58 @@ msgid ""
 msgstr ""
 "<interface>Presila grupo</interface> estas uzata por arigi presajn rimedojn."
 
-#: ui/PrinterSettings.qml:548
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Priskribo:"
 
-#: ui/PrinterSettings.qml:560
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Loko:"
 
-#: ui/PrinterSettings.qml:572
+#: ui/PrinterSettings.qml:571
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Konekto:"
 
-#: ui/PrinterSettings.qml:586
+#: ui/PrinterSettings.qml:585
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Membro-Presiloj:"
 
-#: ui/PrinterSettings.qml:723
+#: ui/PrinterSettings.qml:722
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Faro/Modelo:"
 
-#: ui/PrinterSettings.qml:738
+#: ui/PrinterSettings.qml:737
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Elekti…"
+
+#~ msgctxt "@info:status"
+#~ msgid ""
+#~ "Unable to locate recommended drivers.  Click <interface>Refresh</"
+#~ "interface> to try again or choose a driver manually."
+#~ msgstr ""
+#~ "Maleblas lokigi rekomenditajn pelilojn.  Klaku <interface>Refreŝigi</"
+#~ "interface> por reprovi aŭ elektu pelilon permane."
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driverless…"
+#~ msgstr "Elekti Senpelile…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driver…"
+#~ msgstr "Elekti Pelilon…"
+
+#~ msgctxt "@label:listitem"
+#~ msgid "PPD File (%1)"
+#~ msgstr "PPD-Dosiero (%1)"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2025-03-29 11:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
@@ -14,62 +14,84 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.5\n"
 
-#: printermanager.cpp:107
+#: printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "Dodaj novi tiskalnik"
 
-#: printermanager.cpp:109
+#: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Dodaj novo skupino tiskalnikov"
 
-#: printermanager.cpp:111 printermanager.cpp:113
+#: printermanager.cpp:110 printermanager.cpp:112
 #, kde-format
 msgid "Configure a printer"
 msgstr "Konfiguriraj tiskalnik"
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Razreda ni bilo mogoče konfigurirati: "
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Tiskalnika ni bilo mogoče konfigurirati: "
 
-#: printermanager.cpp:469
+#: printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgctxt "@label:listitem"
+#| msgid "Driverless (%1)"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Brez gonilnika (%1)"
+
+#: printermanager.cpp:477
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr "PPD datoteka:"
+
+#: printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Zahteve ni bilo mogoče izvesti: %1"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nastavitev strežnika ni bilo mogoče pridobiti: %1"
 
-#: printermanager.cpp:558
+#: printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Nastavitve strežnika niso shranjene: (%1): %2"
 
-#: printermanager.cpp:565
+#: printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Fatalno shranjevanje nastavitev strežnika: (%1): %2"
 
-#: printermanager.cpp:618
+#: printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Natisni stran za samopreizkus"
 
-#: printermanager.cpp:624
+#: printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Čisti tiskalne glave"
@@ -110,52 +132,34 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Izberi povezavo naprave"
 
-#: ui/components/Drivers.qml:39
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid ""
-"Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
-"to try again or choose a driver manually."
-msgstr ""
-"Priporočenih gonilnikov ni mogoče najti. Kliknite <interface>Osveži</"
-"interface>, da poskusite znova ali ročno izberite gonilnik."
-
-#: ui/components/Drivers.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driverless…"
-msgstr "Izberi brez gonilnika…"
-
-#: ui/components/Drivers.qml:52
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driver…"
-msgstr "Izberi gonilnik…"
-
-#: ui/components/Drivers.qml:87
+#: ui/components/Drivers.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Izberi priporočeni gonilnik"
 
-#: ui/components/Drivers.qml:92
+#: ui/components/Drivers.qml:64
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
 "Priporočeni gonilniki temeljijo na znamki/modelu tiskalnika in vrsti povezave"
 
-#: ui/components/Drivers.qml:130
+#: ui/components/Drivers.qml:71
 #, kde-format
-msgctxt "@label:listitem"
-msgid "Driverless (%1)"
-msgstr "Brez gonilnika (%1)"
+msgctxt "@action:button"
+msgid "Manual Driver Search…"
+msgstr ""
 
-#: ui/components/Drivers.qml:132
-#, kde-format
-msgctxt "@label:listitem"
-msgid "PPD File (%1)"
-msgstr "PPD File (%1)"
+#: ui/components/Drivers.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Recommended drivers are based on printer make/model and connection type"
+msgctxt "@info:tooltip"
+msgid "Search for and select a driver based on printer make/model"
+msgstr ""
+"Priporočeni gonilniki temeljijo na znamki/modelu tiskalnika in vrsti povezave"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -455,13 +459,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Konfiguriraj tiskalni strežnik…"
 
-#: ui/main.qml:301
+#: ui/main.qml:307
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Trenutno ni nastavljenega nobenega tiskalnika"
 
-#: ui/main.qml:302
+#: ui/main.qml:308
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -470,41 +474,41 @@ msgstr ""
 "Kliknite <interface>Dodaj…</interface>, da nastavite nov tiskalnik na tem "
 "računalniku"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printers"
 msgstr "Tiskalniki"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printer Groups"
 msgstr "Skupine tiskalnikov"
 
-#: ui/main.qml:374
+#: ui/main.qml:380
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Čakalna vrsta za tiskanje"
 
-#: ui/main.qml:390
+#: ui/main.qml:396
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Nadaljuj"
 
-#: ui/main.qml:391
+#: ui/main.qml:397
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Premor"
 
-#: ui/main.qml:405
+#: ui/main.qml:411
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Nadaljuj s tiskanjem"
 
-#: ui/main.qml:406
+#: ui/main.qml:412
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -528,51 +532,57 @@ msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Gonilnik tiskalnika"
 
-#: ui/MakeModel.qml:143
+#: ui/MakeModel.qml:142
+#, kde-format
+msgctxt "@action:button Select ipp everywhere driver"
+msgid "Use IPP Everywhere™"
+msgstr ""
+
+#: ui/MakeModel.qml:157
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
 
-#: ui/MakeModel.qml:148
+#: ui/MakeModel.qml:162
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Izberite datoteko z opisom tiskalnika PostScript (PPD)"
 
-#: ui/MakeModel.qml:155
+#: ui/MakeModel.qml:169
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr "Zahtevana je znamka/model. Izberite model tiskalnika."
 
-#: ui/MakeModel.qml:212
+#: ui/MakeModel.qml:226
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Izberite znamko in model:"
 
-#: ui/MakeModel.qml:224
+#: ui/MakeModel.qml:238
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Modeli filtrov"
 
-#: ui/MakeModel.qml:319
+#: ui/MakeModel.qml:333
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD datoteka:"
 
-#: ui/MakeModel.qml:338
+#: ui/MakeModel.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Izberite datoteko PPD…"
 
-#: ui/MakeModel.qml:346
+#: ui/MakeModel.qml:360
 #, kde-format
 msgid "Select"
 msgstr "Izberite"
 
-#: ui/MakeModel.qml:347
+#: ui/MakeModel.qml:361
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "Datoteke z opisom tiskalnika PostScript (*.ppd)"
@@ -689,13 +699,13 @@ msgstr "Odstrani tiskalnik"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: ui/PrinterSettings.qml:400
+#: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Privzeti tiskalnik"
 
-#: ui/PrinterSettings.qml:415
+#: ui/PrinterSettings.qml:414
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
@@ -703,55 +713,55 @@ msgstr ""
 "Če želite spremeniti privzeti tiskalnik, nastavite drug tiskalnik kot "
 "privzetega."
 
-#: ui/PrinterSettings.qml:424
+#: ui/PrinterSettings.qml:423
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Delite to skupino"
 
-#: ui/PrinterSettings.qml:425
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Delite ta tiskalnik"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:431
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Sprejemanje tiskalnih opravil"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Natisni preizkusno stran"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Natisni stran za samopreizkus"
 
-#: ui/PrinterSettings.qml:495
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Čisti tiskalne glave"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:514
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Najdi tiskalnik…"
 
-#: ui/PrinterSettings.qml:523
+#: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Ime čakalne vrste:"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:539
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -760,41 +770,61 @@ msgstr ""
 "<interface>Skupina tiskalnikov</interface> se uporablja za združevanje virov "
 "tiskanja."
 
-#: ui/PrinterSettings.qml:548
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Opis:"
 
-#: ui/PrinterSettings.qml:560
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Lokacija:"
 
-#: ui/PrinterSettings.qml:572
+#: ui/PrinterSettings.qml:571
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Povezava:"
 
-#: ui/PrinterSettings.qml:586
+#: ui/PrinterSettings.qml:585
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Članski tiskalniki:"
 
-#: ui/PrinterSettings.qml:723
+#: ui/PrinterSettings.qml:722
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Znamka/model:"
 
-#: ui/PrinterSettings.qml:738
+#: ui/PrinterSettings.qml:737
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Izberi…"
+
+#~ msgctxt "@info:status"
+#~ msgid ""
+#~ "Unable to locate recommended drivers.  Click <interface>Refresh</"
+#~ "interface> to try again or choose a driver manually."
+#~ msgstr ""
+#~ "Priporočenih gonilnikov ni mogoče najti. Kliknite <interface>Osveži</"
+#~ "interface>, da poskusite znova ali ročno izberite gonilnik."
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driverless…"
+#~ msgstr "Izberi brez gonilnika…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driver…"
+#~ msgstr "Izberi gonilnik…"
+
+#~ msgctxt "@label:listitem"
+#~ msgid "PPD File (%1)"
+#~ msgstr "PPD File (%1)"
 
 #~ msgctxt "@info:status This is the default printer"
 #~ msgid "** Default Printer"

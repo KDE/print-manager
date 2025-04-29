@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2024-06-25 22:01+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -216,64 +216,83 @@ msgstr "Ezarri lehenetsitako aukerak"
 msgid "Query Printer for Default Options"
 msgstr "Itaundu inprimagailuari lehenetsitako aukerak"
 
-#: src/kcm/printermanager.cpp:107
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "Gehitu inprimagailu berri bat"
 
-#: src/kcm/printermanager.cpp:109
+#: src/kcm/printermanager.cpp:108
 #, fuzzy, kde-format
 #| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "Gehitu inprimagailu berri bat"
 
-#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
 #, fuzzy, kde-format
 #| msgid "Configure Printer"
 msgid "Configure a printer"
 msgstr "Konfiguratu inprimagailua"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klasea konfiguratzea huts egin du:"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Inprimagailua konfiguratzea huts egin du:"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgid "Driver:"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Gidaria:"
+
+#: src/kcm/printermanager.cpp:477
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Huts egin du eskaera gauzatzeak: %1"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Zerbitzariaren ezarpenak lortzea huts egin du: %1"
 
-#: src/kcm/printermanager.cpp:558
+#: src/kcm/printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Zerbitzariaren ezarpenak ez dira gorde: (%1): %2"
 
-#: src/kcm/printermanager.cpp:565
+#: src/kcm/printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Zerbitzariaren ezarpenak gordetzeko errore larria: (%1): %2"
 
-#: src/kcm/printermanager.cpp:618
+#: src/kcm/printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Inprimatu berezko proba-orria"
 
-#: src/kcm/printermanager.cpp:624
+#: src/kcm/printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Garbitu inprimatzeko buruak"
@@ -709,12 +728,7 @@ msgstr "Ezin zaio bidali komandoa inprimagailu-gidariari!"
 msgid "Failed to invoke method: %1"
 msgstr "Huts egin du metodoa deitzeak: %1"
 
-#: src/libkcups/PPDModel.cpp:43
-#, kde-format
-msgid "Recommended Drivers"
-msgstr "Gomendatutako gidariak"
-
-#: src/libkcups/PPDModel.cpp:97
+#: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
 msgstr "PPD eredua hutsik"
@@ -938,6 +952,9 @@ msgstr "Osatutako lanak"
 #, kde-format
 msgid "All Jobs"
 msgstr "Lan guztiak"
+
+#~ msgid "Recommended Drivers"
+#~ msgstr "Gomendatutako gidariak"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"
@@ -1347,9 +1364,6 @@ msgstr "Lan guztiak"
 
 #~ msgid "Members"
 #~ msgstr "Partaideak"
-
-#~ msgid "Driver:"
-#~ msgstr "Gidaria:"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure server settings"

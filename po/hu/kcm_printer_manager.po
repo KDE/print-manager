@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-19 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2025-01-23 20:48+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,66 +17,88 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 24.12.1\n"
 
-#: printermanager.cpp:107
+#: printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Printer"
 msgid "Add a new printer"
 msgstr "Nyomtató hozzáadása"
 
-#: printermanager.cpp:109
+#: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
 msgstr ""
 
-#: printermanager.cpp:111 printermanager.cpp:113
+#: printermanager.cpp:110 printermanager.cpp:112
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure Print Server…"
 msgid "Configure a printer"
 msgstr "Nyomtatókiszolgáló beállítása…"
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Nem sikerült beállítani az osztályt: "
 
-#: printermanager.cpp:303
+#: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Nem sikerült beállítani a nyomtatót: "
 
-#: printermanager.cpp:469
+#: printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgctxt "@label:listitem"
+#| msgid "Driverless (%1)"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Illesztőprogram-mentes (%1)"
+
+#: printermanager.cpp:477
+#, fuzzy, kde-format
+#| msgctxt "@option:radio"
+#| msgid "PPD file:"
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr "PPD-fájl:"
+
+#: printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Nem sikerült végrehajtani a kérést: %1"
 
-#: printermanager.cpp:521
+#: printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "A kiszolgáló beállításainak lekérése nem sikerült: %1"
 
-#: printermanager.cpp:558
+#: printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "A kiszolgálóbeállítások nincsenek mentve: (%1): %2"
 
-#: printermanager.cpp:565
+#: printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Végzetes hiba a kiszolgálóbeállítások mentésekor: (%1): %2"
 
-#: printermanager.cpp:618
+#: printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Önellenőrző oldal nyomtatása"
 
-#: printermanager.cpp:624
+#: printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Nyomtatófej-tisztítás"
@@ -117,36 +139,13 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Eszközkapcsolat kiválasztása"
 
-#: ui/components/Drivers.qml:39
-#, kde-kuit-format
-msgctxt "@info:status"
-msgid ""
-"Unable to locate recommended drivers.  Click <interface>Refresh</interface> "
-"to try again or choose a driver manually."
-msgstr ""
-"Nem lehet megtalálni az ajánlott illesztőprogramokat. Kattintson a "
-"<interface>Frissítés</interface> gombra egy újabb kísérlethez, vagy válassza "
-"ki az illesztőprogramot kézzel."
-
-#: ui/components/Drivers.qml:47
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driverless…"
-msgstr "Illesztőprogram-mentesség kiválasztása…"
-
-#: ui/components/Drivers.qml:52
-#, kde-format
-msgctxt "@action:button"
-msgid "Choose Driver…"
-msgstr "Illesztőprogram kiválasztása…"
-
-#: ui/components/Drivers.qml:87
+#: ui/components/Drivers.qml:59
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Ajánlott illesztőprogram kiválasztása"
 
-#: ui/components/Drivers.qml:92
+#: ui/components/Drivers.qml:64
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -154,17 +153,22 @@ msgstr ""
 "Az ajánlott illesztőprogramok a nyomtató gyártmányátó/modelljétől és a "
 "kapcsolat típusától függenek"
 
-#: ui/components/Drivers.qml:130
+#: ui/components/Drivers.qml:71
 #, kde-format
-msgctxt "@label:listitem"
-msgid "Driverless (%1)"
-msgstr "Illesztőprogram-mentes (%1)"
+msgctxt "@action:button"
+msgid "Manual Driver Search…"
+msgstr ""
 
-#: ui/components/Drivers.qml:132
-#, kde-format
-msgctxt "@label:listitem"
-msgid "PPD File (%1)"
-msgstr "PPD-fájl (%1)"
+#: ui/components/Drivers.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:tooltip"
+#| msgid ""
+#| "Recommended drivers are based on printer make/model and connection type"
+msgctxt "@info:tooltip"
+msgid "Search for and select a driver based on printer make/model"
+msgstr ""
+"Az ajánlott illesztőprogramok a nyomtató gyártmányátó/modelljétől és a "
+"kapcsolat típusától függenek"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -464,13 +468,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Nyomtatókiszolgáló beállítása…"
 
-#: ui/main.qml:301
+#: ui/main.qml:307
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Nincsenek beállítva nyomtatók"
 
-#: ui/main.qml:302
+#: ui/main.qml:308
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -479,41 +483,41 @@ msgstr ""
 "Kattintson a <interface>Hozzáadás…</interface> gombra új nyomtató "
 "beállításához ezen a számítógépen"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printers"
 msgstr "Nyomtatók"
 
-#: ui/main.qml:311
+#: ui/main.qml:317
 #, kde-format
 msgid "Printer Groups"
 msgstr "Nyomtatócsoportok"
 
-#: ui/main.qml:374
+#: ui/main.qml:380
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Nyomtatási sor"
 
-#: ui/main.qml:390
+#: ui/main.qml:396
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Folytatás"
 
-#: ui/main.qml:391
+#: ui/main.qml:397
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Szünet"
 
-#: ui/main.qml:405
+#: ui/main.qml:411
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Nyomtatás folytatása"
 
-#: ui/main.qml:406
+#: ui/main.qml:412
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
@@ -537,51 +541,57 @@ msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Nyomtató illesztőprogram"
 
-#: ui/MakeModel.qml:143
+#: ui/MakeModel.qml:142
+#, kde-format
+msgctxt "@action:button Select ipp everywhere driver"
+msgid "Use IPP Everywhere™"
+msgstr ""
+
+#: ui/MakeModel.qml:157
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
 
-#: ui/MakeModel.qml:148
+#: ui/MakeModel.qml:162
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Válassza ki a PostScript nyomtatóleíró (PPD) fájlt"
 
-#: ui/MakeModel.qml:155
+#: ui/MakeModel.qml:169
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr "A nyomtatómodell szükséges. Válasszon egy nyomtatómodellt."
 
-#: ui/MakeModel.qml:212
+#: ui/MakeModel.qml:226
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Válassza ki a gyártmányt és modellt:"
 
-#: ui/MakeModel.qml:224
+#: ui/MakeModel.qml:238
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Modellek szűrése"
 
-#: ui/MakeModel.qml:319
+#: ui/MakeModel.qml:333
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD-fájl:"
 
-#: ui/MakeModel.qml:338
+#: ui/MakeModel.qml:352
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "PPD-fájl kiválasztása…"
 
-#: ui/MakeModel.qml:346
+#: ui/MakeModel.qml:360
 #, kde-format
 msgid "Select"
 msgstr "Kiválasztás"
 
-#: ui/MakeModel.qml:347
+#: ui/MakeModel.qml:361
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript nyomtatóleíró fájlok (*.ppd)"
@@ -699,13 +709,13 @@ msgstr "Nyomtató eltávolítása"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: ui/PrinterSettings.qml:400
+#: ui/PrinterSettings.qml:399
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Alapértelmezett nyomtató"
 
-#: ui/PrinterSettings.qml:415
+#: ui/PrinterSettings.qml:414
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
@@ -713,55 +723,55 @@ msgstr ""
 "Az alapértelmezett nyomtató megváltoztatásához állítson be egy másik "
 "nyomtatót alapértelmezettként."
 
-#: ui/PrinterSettings.qml:424
+#: ui/PrinterSettings.qml:423
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Csoport megosztása"
 
-#: ui/PrinterSettings.qml:425
+#: ui/PrinterSettings.qml:424
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Nyomtató megosztása"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:431
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Nyomtatási feladatok elfogadása"
 
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:481
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Tesztoldal nyomtatása"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:487
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Önellenőrző oldal nyomtatása"
 
-#: ui/PrinterSettings.qml:495
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Nyomtatófej-tisztítás"
 
-#: ui/PrinterSettings.qml:515
+#: ui/PrinterSettings.qml:514
 #, kde-format
 msgctxt "@action:button"
 msgid "Find a Printer…"
 msgstr "Nyomtató keresése…"
 
-#: ui/PrinterSettings.qml:523
+#: ui/PrinterSettings.qml:522
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Sor neve:"
 
-#: ui/PrinterSettings.qml:540
+#: ui/PrinterSettings.qml:539
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
@@ -770,41 +780,62 @@ msgstr ""
 "Egy <interface>nyomtatócsoport</interface> a nyomtatási erőforrások "
 "készletezésére szolgál."
 
-#: ui/PrinterSettings.qml:548
+#: ui/PrinterSettings.qml:547
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Leírás:"
 
-#: ui/PrinterSettings.qml:560
+#: ui/PrinterSettings.qml:559
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Hely:"
 
-#: ui/PrinterSettings.qml:572
+#: ui/PrinterSettings.qml:571
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Kapcsolat:"
 
-#: ui/PrinterSettings.qml:586
+#: ui/PrinterSettings.qml:585
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Tagnyomtatók:"
 
-#: ui/PrinterSettings.qml:723
+#: ui/PrinterSettings.qml:722
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Gyártmány/modell:"
 
-#: ui/PrinterSettings.qml:738
+#: ui/PrinterSettings.qml:737
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Kiválasztás…"
+
+#~ msgctxt "@info:status"
+#~ msgid ""
+#~ "Unable to locate recommended drivers.  Click <interface>Refresh</"
+#~ "interface> to try again or choose a driver manually."
+#~ msgstr ""
+#~ "Nem lehet megtalálni az ajánlott illesztőprogramokat. Kattintson a "
+#~ "<interface>Frissítés</interface> gombra egy újabb kísérlethez, vagy "
+#~ "válassza ki az illesztőprogramot kézzel."
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driverless…"
+#~ msgstr "Illesztőprogram-mentesség kiválasztása…"
+
+#~ msgctxt "@action:button"
+#~ msgid "Choose Driver…"
+#~ msgstr "Illesztőprogram kiválasztása…"
+
+#~ msgctxt "@label:listitem"
+#~ msgid "PPD File (%1)"
+#~ msgstr "PPD-fájl (%1)"
 
 #~ msgctxt "@info:status This is the default printer"
 #~ msgid "** Default Printer"

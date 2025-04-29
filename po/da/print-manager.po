@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2024-10-30 10:42+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -214,64 +214,83 @@ msgstr "Angiv standardindstillinger"
 msgid "Query Printer for Default Options"
 msgstr "Forespørg printer om standardindstillinger"
 
-#: src/kcm/printermanager.cpp:107
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "Tilføj en ny printer"
 
-#: src/kcm/printermanager.cpp:109
+#: src/kcm/printermanager.cpp:108
 #, fuzzy, kde-format
 #| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "Tilføj en ny printer"
 
-#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
 #, fuzzy, kde-format
 #| msgid "Configure printer"
 msgid "Configure a printer"
 msgstr "Konfigurér printer"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Kunne ikke konfigurere klasse:"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Kunne ikke konfigurere printer:"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgid "Driver:"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Driver:"
+
+#: src/kcm/printermanager.cpp:477
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Kunne ikke udføre anmodning: %1"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Kunne ikke hente serverindstillinger: %1"
 
-#: src/kcm/printermanager.cpp:558
+#: src/kcm/printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Serverindstillinger ikke gemt: (%1): %2"
 
-#: src/kcm/printermanager.cpp:565
+#: src/kcm/printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Fatalt at gemme serverindstillinger: (%1): %2"
 
-#: src/kcm/printermanager.cpp:618
+#: src/kcm/printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Udskriv selvtestside"
 
-#: src/kcm/printermanager.cpp:624
+#: src/kcm/printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Rens printerhoveder"
@@ -703,12 +722,7 @@ msgstr "Kan ikke sende kommando til printerdriveren!"
 msgid "Failed to invoke method: %1"
 msgstr "Kunne ikke kalde metode: %1"
 
-#: src/libkcups/PPDModel.cpp:43
-#, kde-format
-msgid "Recommended Drivers"
-msgstr "Anbefalede drivere"
-
-#: src/libkcups/PPDModel.cpp:97
+#: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
 msgstr "Tom ppd-model"
@@ -932,6 +946,9 @@ msgstr "Gennemførte job"
 #, kde-format
 msgid "All Jobs"
 msgstr "Alle job"
+
+#~ msgid "Recommended Drivers"
+#~ msgstr "Anbefalede drivere"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"
@@ -1332,9 +1349,6 @@ msgstr "Alle job"
 
 #~ msgid "Members"
 #~ msgstr "Medlemmer"
-
-#~ msgid "Driver:"
-#~ msgstr "Driver:"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure server settings"

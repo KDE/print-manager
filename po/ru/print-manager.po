@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2024-09-27 15:11+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -221,64 +221,83 @@ msgstr "Установить параметры по умолчанию"
 msgid "Query Printer for Default Options"
 msgstr "Получить параметры по умолчанию от принтера"
 
-#: src/kcm/printermanager.cpp:107
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "Добавить новый принтер"
 
-#: src/kcm/printermanager.cpp:109
+#: src/kcm/printermanager.cpp:108
 #, fuzzy, kde-format
 #| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "Добавить новый принтер"
 
-#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
 #, fuzzy, kde-format
 #| msgid "Configure printer"
 msgid "Configure a printer"
 msgstr "Настройка принтера"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Ошибка настройки класса: "
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ошибка настройки принтера: "
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgid "Driver:"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Драйвер:"
+
+#: src/kcm/printermanager.cpp:477
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Не удалось выполнить запрос: %1"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Ошибка получения параметров сервера: %1"
 
-#: src/kcm/printermanager.cpp:558
+#: src/kcm/printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Параметры сервера не сохранены: (%1): %2"
 
-#: src/kcm/printermanager.cpp:565
+#: src/kcm/printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Неустранимая ошибка сохранения параметров сервера: (%1): %2"
 
-#: src/kcm/printermanager.cpp:618
+#: src/kcm/printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Напечатать страницу самопроверки"
 
-#: src/kcm/printermanager.cpp:624
+#: src/kcm/printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Чистка головок печати"
@@ -710,12 +729,7 @@ msgstr "Не удалось отправить команду драйверу �
 msgid "Failed to invoke method: %1"
 msgstr "Не удалось вызвать метод: %1"
 
-#: src/libkcups/PPDModel.cpp:43
-#, kde-format
-msgid "Recommended Drivers"
-msgstr "Рекомендуемые драйверы"
-
-#: src/libkcups/PPDModel.cpp:97
+#: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
 msgstr "Не указана модель ppd"
@@ -943,6 +957,9 @@ msgstr "Выполненные задания"
 #, kde-format
 msgid "All Jobs"
 msgstr "Все задания"
+
+#~ msgid "Recommended Drivers"
+#~ msgstr "Рекомендуемые драйверы"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"
@@ -1342,9 +1359,6 @@ msgstr "Все задания"
 
 #~ msgid "Members"
 #~ msgstr "Участники"
-
-#~ msgid "Driver:"
-#~ msgstr "Драйвер:"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure server settings"

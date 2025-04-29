@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-13 00:43+0000\n"
+"POT-Creation-Date: 2025-04-29 00:43+0000\n"
 "PO-Revision-Date: 2025-04-02 16:55+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -213,62 +213,81 @@ msgstr "Fixa optiones predefinite"
 msgid "Query Printer for Default Options"
 msgstr "Demanda imprimitor pro optiones predefinite"
 
-#: src/kcm/printermanager.cpp:107
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer"
 msgstr "Adde un nove imprimitor"
 
-#: src/kcm/printermanager.cpp:109
+#: src/kcm/printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Adde un nove gruppo de imprimitor"
 
-#: src/kcm/printermanager.cpp:111 src/kcm/printermanager.cpp:113
+#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
 #, kde-format
 msgid "Configure a printer"
 msgstr "Configura un imprimitor"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Il falleva configurar classe:"
 
-#: src/kcm/printermanager.cpp:303
+#: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Il falleva configurar imprimitor:"
 
-#: src/kcm/printermanager.cpp:469
+#: src/kcm/printermanager.cpp:447
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:474
+#, fuzzy, kde-format
+#| msgid "Driver:"
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Driver:"
+
+#: src/kcm/printermanager.cpp:477
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr ""
+
+#: src/kcm/printermanager.cpp:496
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Il falleva executar requesta: %1"
 
-#: src/kcm/printermanager.cpp:521
+#: src/kcm/printermanager.cpp:548
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Il falleva obtener preferentias de servitor:%1"
 
-#: src/kcm/printermanager.cpp:558
+#: src/kcm/printermanager.cpp:585
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Preferentias de servitor non salveguardate: (%1): %2"
 
-#: src/kcm/printermanager.cpp:565
+#: src/kcm/printermanager.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Salveguardar fatal de Preferentias de servitor : (%1) : %2"
 
-#: src/kcm/printermanager.cpp:618
+#: src/kcm/printermanager.cpp:645
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprime pagina de prova de auto test"
 
-#: src/kcm/printermanager.cpp:624
+#: src/kcm/printermanager.cpp:651
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Netta testas de imprimer"
@@ -691,12 +710,7 @@ msgstr "Incapace a inviar commando al driver de imprimitor!"
 msgid "Failed to invoke method: %1"
 msgstr "Il falleva invocar le methodo: %1"
 
-#: src/libkcups/PPDModel.cpp:43
-#, kde-format
-msgid "Recommended Drivers"
-msgstr "Drivers recommendate"
-
-#: src/libkcups/PPDModel.cpp:97
+#: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
 msgstr "Vacua modello ppd"
@@ -920,6 +934,9 @@ msgstr "Cargas completate"
 #, kde-format
 msgid "All Jobs"
 msgstr "Omne cargas"
+
+#~ msgid "Recommended Drivers"
+#~ msgstr "Drivers recommendate"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"
@@ -1317,9 +1334,6 @@ msgstr "Omne cargas"
 
 #~ msgid "Members"
 #~ msgstr "Membros"
-
-#~ msgid "Driver:"
-#~ msgstr "Driver:"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure server settings"

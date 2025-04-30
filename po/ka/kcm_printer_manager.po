@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-29 00:43+0000\n"
-"PO-Revision-Date: 2025-03-29 02:29+0100\n"
+"PO-Revision-Date: 2025-04-29 04:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -49,23 +49,19 @@ msgstr "პრინერის მორგების შეცდომა:
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:474
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "დრაივერის გარეშე (%1)"
+msgstr "დრაივერის გარეშე"
 
 #: printermanager.cpp:477
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD ფაილი:"
+msgstr "PPD ფაილი"
 
 #: printermanager.cpp:496
 #, kde-format
@@ -153,18 +149,14 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "დრაივერის ხელით ძებნა…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
 msgstr ""
-"რეკომენდებული დრაივერი პრინტერის მწარმოებელზე/მოდელზე და მიერთების ტიპზეა "
-"დამოკიდებული"
+"დრაივერის ძებნა და არჩევა პრინტერის მწარმოებელზე/მოდელზეა დამოკიდებულებით"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -541,7 +533,7 @@ msgstr "პრინტერის დრაივერი"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™-ის გამოყენება"
 
 #: ui/MakeModel.qml:157
 #, kde-format

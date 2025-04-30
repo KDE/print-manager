@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-29 00:43+0000\n"
-"PO-Revision-Date: 2025-03-29 02:32+0100\n"
+"PO-Revision-Date: 2025-04-29 04:12+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -245,20 +245,19 @@ msgstr "პრინერის მორგების შეცდომა:
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:474
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "დრაივერი:"
+msgstr "დრაივერის გარეშე"
 
 #: src/kcm/printermanager.cpp:477
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD ფაილი"
 
 #: src/kcm/printermanager.cpp:496
 #, kde-format

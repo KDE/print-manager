@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-29 00:43+0000\n"
-"PO-Revision-Date: 2025-03-29 11:31+0100\n"
+"PO-Revision-Date: 2025-04-29 07:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -45,23 +45,19 @@ msgstr "Tiskalnika ni bilo mogoče konfigurirati: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:474
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Brez gonilnika (%1)"
+msgstr "Brez gonilnika"
 
 #: printermanager.cpp:477
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD datoteka:"
+msgstr "Datoteka PPD"
 
 #: printermanager.cpp:496
 #, kde-format
@@ -149,17 +145,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Ročno iskanje gonilnika…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Priporočeni gonilniki temeljijo na znamki/modelu tiskalnika in vrsti povezave"
+msgstr "Poiščite in izberite gonilnik glede na znamko/model tiskalnika"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -536,7 +528,7 @@ msgstr "Gonilnik tiskalnika"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Uporabi IPP Everywhere™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

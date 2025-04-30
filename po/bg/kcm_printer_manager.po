@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-29 00:43+0000\n"
-"PO-Revision-Date: 2025-03-29 14:11+0100\n"
+"PO-Revision-Date: 2025-04-29 22:39+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -48,23 +48,19 @@ msgstr "Неуспешно настройване на принтер: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:474
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Бездрайверно принтиране (%1)"
+msgstr "Бездрайверно"
 
 #: printermanager.cpp:477
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD файл:"
+msgstr "PPD файл"
 
 #: printermanager.cpp:496
 #, kde-format
@@ -153,18 +149,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Ръчно търсене на драйвери…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Препоръчителните драйвери се основават на марката/модела на принтера и типа "
-"на връзката"
+msgstr "Търсене и избиране на драйвер въз основа на марката/модела на принтера"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -541,7 +532,7 @@ msgstr "Драйвер на принтера"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Използване на IPP Everywhere™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

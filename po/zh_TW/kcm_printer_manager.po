@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-29 00:43+0000\n"
-"PO-Revision-Date: 2025-04-07 15:10+0900\n"
+"PO-Revision-Date: 2025-04-30 03:18+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -48,23 +48,19 @@ msgstr "設定印表機失敗："
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:474
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "無驅動 (%1)"
+msgstr "無驅動"
 
 #: printermanager.cpp:477
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD 檔案："
+msgstr "PPD 檔案"
 
 #: printermanager.cpp:496
 #, kde-format
@@ -150,16 +146,13 @@ msgstr "驅動程式的建議是從印表機製造商/型號與連線型態進�
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "手動搜尋驅動程式…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr "驅動程式的建議是從印表機製造商/型號與連線型態進行判斷的"
+msgstr "依印表機製造商/型號來搜尋並選取驅動程式"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -526,7 +519,7 @@ msgstr "印表機驅動程式"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "使用 IPP Everywhere™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

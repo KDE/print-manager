@@ -936,6 +936,3 @@ msgstr "Fullførte jobbar"
 #, kde-format
 msgid "All Jobs"
 msgstr "Alle jobbar"
-
-#~ msgid "Recommended Drivers"
-#~ msgstr "Tilrådde drivarar"

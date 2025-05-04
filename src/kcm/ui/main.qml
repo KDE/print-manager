@@ -400,9 +400,9 @@ KCM.ScrollViewKCM {
 
                     onClicked: {
                         if (isPaused) {
-                            kcm.resumePrinter(printerName);
+                            pmModel.resumePrinter(printerName);
                         } else {
-                            kcm.pausePrinter(printerName);
+                            pmModel.pausePrinter(printerName);
                         }
                     }
 

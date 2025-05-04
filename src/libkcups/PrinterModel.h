@@ -78,8 +78,6 @@ public:
 
     Q_INVOKABLE void pausePrinter(const QString &printerName);
     Q_INVOKABLE void resumePrinter(const QString &printerName);
-    Q_INVOKABLE void rejectJobs(const QString &printerName);
-    Q_INVOKABLE void acceptJobs(const QString &printerName);
 
     bool showLocations() const;
     bool hasOnlyPrinters() const;

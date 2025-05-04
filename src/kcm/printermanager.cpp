@@ -405,18 +405,6 @@ void PrinterManager::loadPrinterPPD(const QString &name)
     });
 }
 
-void PrinterManager::pausePrinter(const QString &name)
-{
-    const auto request = setupRequest();
-    request->pausePrinter(name);
-}
-
-void PrinterManager::resumePrinter(const QString &name)
-{
-    const auto request = setupRequest();
-    request->resumePrinter(name);
-}
-
 bool PrinterManager::isIPPCapable(const QString &uri)
 {
     /**

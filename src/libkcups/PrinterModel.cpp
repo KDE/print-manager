@@ -235,18 +235,6 @@ void PrinterModel::resumePrinter(const QString &printerName)
     request->resumePrinter(printerName);
 }
 
-void PrinterModel::rejectJobs(const QString &printerName)
-{
-    const auto request = setupRequest();
-    request->rejectJobs(printerName);
-}
-
-void PrinterModel::acceptJobs(const QString &printerName)
-{
-    const auto request = setupRequest();
-    request->acceptJobs(printerName);
-}
-
 void PrinterModel::update()
 {
     //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan",

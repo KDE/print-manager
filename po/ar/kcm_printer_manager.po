@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-29 00:43+0000\n"
-"PO-Revision-Date: 2025-04-05 12:24+0400\n"
+"PO-Revision-Date: 2025-05-04 06:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -50,23 +50,19 @@ msgstr "فشل ضبط الطّابعة: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP في كل مكان™"
 
 #: printermanager.cpp:474
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "دون برنامج تشغيل (%1)"
+msgstr "دون برنامج تشغيل"
 
 #: printermanager.cpp:477
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "ملفّ PPD:"
+msgstr "ملفّ PPD"
 
 #: printermanager.cpp:496
 #, kde-format
@@ -152,16 +148,13 @@ msgstr "يعتمد المعرف المستحسن على صانع الطابعة/
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "بحث يدوي عن المشغل…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr "يعتمد المعرف المستحسن على صانع الطابعة/الطراز ونوع الاتصال"
+msgstr "ابحث عن برنامج التشغيل وحدده بناءً على طراز/صنع الطابعة"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -531,7 +524,7 @@ msgstr "معرف الطابعة"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "استخدم IPP في كل مكان™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

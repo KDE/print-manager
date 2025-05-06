@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:43+0000\n"
+"POT-Creation-Date: 2025-05-06 00:43+0000\n"
 "PO-Revision-Date: 2024-06-03 22:07+0400\n"
 "Last-Translator: Xəyyam Qocayev <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -242,54 +242,54 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Printeri tənzimləmək mümkün olmadı: "
 
-#: src/kcm/printermanager.cpp:447
+#: src/kcm/printermanager.cpp:435
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:474
+#: src/kcm/printermanager.cpp:462
 #, fuzzy, kde-format
 #| msgid "Driver:"
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Sürücü:"
 
-#: src/kcm/printermanager.cpp:477
+#: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:496
+#: src/kcm/printermanager.cpp:484
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Bu sorğu icra edilə bilmədi: %1"
 
-#: src/kcm/printermanager.cpp:548
+#: src/kcm/printermanager.cpp:536
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Server ayarlarını almaq mümkün olmadı: %1"
 
-#: src/kcm/printermanager.cpp:585
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Server ayarları saxlanıçmayıb: (%1): %2"
 
-#: src/kcm/printermanager.cpp:592
+#: src/kcm/printermanager.cpp:580
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Server ayarlarının saxlanılmasında kritik vəziyyət: (%1): %2"
 
-#: src/kcm/printermanager.cpp:645
+#: src/kcm/printermanager.cpp:633
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Özünü sınama səhifəsini çap etmək"
 
-#: src/kcm/printermanager.cpp:651
+#: src/kcm/printermanager.cpp:639
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Çap başlıqlarını təmizləmək"
@@ -731,62 +731,62 @@ msgstr "Boş ppd modeli"
 msgid "Printers"
 msgstr "Printerlər"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "Idle"
 msgstr "Boşdayanma"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Boşdayanma, tapşırıqlar qəbul edilmir"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:401
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Boşdayanma - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:401
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Boşdayanma, tapşırıqlar qəbul edilmir - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "In use"
 msgstr "İstifadə olunur"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:407
 #, kde-format
 msgid "In use - '%1'"
 msgstr "İstifadə olunur - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Paused"
 msgstr "Fasilədə"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Fasilədə, tapşırıqlar qəbul edilmir"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Fasilədə - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Fasilədə, tapşırıqlar qəbul edilmir - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "Unknown"
 msgstr "Naməlum"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Naməlum - '%1'"

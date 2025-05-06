@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:43+0000\n"
+"POT-Creation-Date: 2025-05-06 00:43+0000\n"
 "PO-Revision-Date: 2025-04-30 19:34+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -242,53 +242,53 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ha ocurrido un error al configurar la impresora: "
 
-#: src/kcm/printermanager.cpp:447
+#: src/kcm/printermanager.cpp:435
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:474
+#: src/kcm/printermanager.cpp:462
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Sin controlador"
 
-#: src/kcm/printermanager.cpp:477
+#: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Archivo PPD"
 
-#: src/kcm/printermanager.cpp:496
+#: src/kcm/printermanager.cpp:484
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Ha ocurrido un fallo al realizar la petición: %1"
 
-#: src/kcm/printermanager.cpp:548
+#: src/kcm/printermanager.cpp:536
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "No se han podido obtener las preferencias del servidor: %1"
 
-#: src/kcm/printermanager.cpp:585
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Las preferencias del servidor no se han guardado: (%1): %2"
 
-#: src/kcm/printermanager.cpp:592
+#: src/kcm/printermanager.cpp:580
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Error fatal al guardar las preferencias del servidor: (%1): %2"
 
-#: src/kcm/printermanager.cpp:645
+#: src/kcm/printermanager.cpp:633
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir página de autoprueba"
 
-#: src/kcm/printermanager.cpp:651
+#: src/kcm/printermanager.cpp:639
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpiar el cabezal de impresión"
@@ -721,62 +721,62 @@ msgstr "Modelo PPD vacío"
 msgid "Printers"
 msgstr "Impresoras"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "Idle"
 msgstr "Inactiva"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Inactiva, rechazando trabajos"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:401
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Inactiva - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:401
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Inactiva, rechazando trabajos - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "In use"
 msgstr "En uso"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:407
 #, kde-format
 msgid "In use - '%1'"
 msgstr "En uso - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Paused"
 msgstr "En pausa"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "En pausa, rechazando trabajos"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "En pausa - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "En pausa, rechazando trabajos - «%1»"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Desconocido - «%1»"

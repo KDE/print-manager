@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:43+0000\n"
+"POT-Creation-Date: 2025-05-06 00:43+0000\n"
 "PO-Revision-Date: 2024-06-30 15:41+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -243,54 +243,54 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Mistókst að grunnstilla prentara:"
 
-#: src/kcm/printermanager.cpp:447
+#: src/kcm/printermanager.cpp:435
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:474
+#: src/kcm/printermanager.cpp:462
 #, fuzzy, kde-format
 #| msgid "Driver:"
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Rekill:"
 
-#: src/kcm/printermanager.cpp:477
+#: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:496
+#: src/kcm/printermanager.cpp:484
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Mistókst að framkvæma beiðni: %1"
 
-#: src/kcm/printermanager.cpp:548
+#: src/kcm/printermanager.cpp:536
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Mistókst að ná í stillingar prentþjóns: %1"
 
-#: src/kcm/printermanager.cpp:585
+#: src/kcm/printermanager.cpp:573
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Stillingar prentþjóns ekki vistaðar: (%1): %2"
 
-#: src/kcm/printermanager.cpp:592
+#: src/kcm/printermanager.cpp:580
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Banvæn villa við að vista stillingar prentþjóns: (%1): %2"
 
-#: src/kcm/printermanager.cpp:645
+#: src/kcm/printermanager.cpp:633
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Prenta innbyggða prufusíðu"
 
-#: src/kcm/printermanager.cpp:651
+#: src/kcm/printermanager.cpp:639
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Hreinsa prenthausa"
@@ -731,62 +731,62 @@ msgstr "Autt ppd-módel"
 msgid "Printers"
 msgstr "Prentarar"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "Idle"
 msgstr "Aðgerðalaus"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:399
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Aðgerðalaus; hafnar verkum"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:401
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Aðgerðalaus - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:401
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Aðgerðalaus; hafnar verkum - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:405
 #, kde-format
 msgid "In use"
 msgstr "Í notkun"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:407
 #, kde-format
 msgid "In use - '%1'"
 msgstr "Í notkun - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Paused"
 msgstr "Í bið"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "Í bið; hafnar verkum"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Í bið - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "Í bið; hafnar verkum - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "Unknown"
 msgstr "Óþekkt"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Óþekkt - '%1'"

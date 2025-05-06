@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:43+0000\n"
+"POT-Creation-Date: 2025-05-06 00:43+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -50,13 +50,13 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "मुद्रकं विन्यस्तुं असफलम्: "
 
-#: printermanager.cpp:447
+#: printermanager.cpp:435
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: printermanager.cpp:474
+#: printermanager.cpp:462
 #, fuzzy, kde-format
 #| msgctxt "@label:listitem"
 #| msgid "Driverless (%1)"
@@ -64,7 +64,7 @@ msgctxt "@list:item"
 msgid "Driverless"
 msgstr "चालकरहितः (%1)"
 
-#: printermanager.cpp:477
+#: printermanager.cpp:465
 #, fuzzy, kde-format
 #| msgctxt "@option:radio"
 #| msgid "PPD file:"
@@ -72,35 +72,35 @@ msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD सञ्चिका :"
 
-#: printermanager.cpp:496
+#: printermanager.cpp:484
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "अनुरोधं कर्तुं असफलम्: %1"
 
-#: printermanager.cpp:548
+#: printermanager.cpp:536
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "सर्वरसेटिंग्स् प्राप्तुं असफलम्: %1"
 
-#: printermanager.cpp:585
+#: printermanager.cpp:573
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "सर्वर सेटिंग्स् न रक्षितानि: (%1): %2"
 
-#: printermanager.cpp:592
+#: printermanager.cpp:580
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "घातकं सेव सर्वर सेटिंग्स्: (%1): %2"
 
-#: printermanager.cpp:645
+#: printermanager.cpp:633
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्वपरीक्षण पृष्ठ मुद्रित करें"
 
-#: printermanager.cpp:651
+#: printermanager.cpp:639
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "मुद्रणशिरः स्वच्छं कुर्वन्तु"

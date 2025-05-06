@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-29 00:43+0000\n"
+"POT-Creation-Date: 2025-05-06 00:43+0000\n"
 "PO-Revision-Date: 2025-01-08 20:12+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -50,13 +50,13 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Non se puido configurar a impresora: "
 
-#: printermanager.cpp:447
+#: printermanager.cpp:435
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: printermanager.cpp:474
+#: printermanager.cpp:462
 #, fuzzy, kde-format
 #| msgctxt "@label:listitem"
 #| msgid "Driverless (%1)"
@@ -64,7 +64,7 @@ msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Sen controlador (%1)"
 
-#: printermanager.cpp:477
+#: printermanager.cpp:465
 #, fuzzy, kde-format
 #| msgctxt "@option:radio"
 #| msgid "PPD file:"
@@ -72,35 +72,35 @@ msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Ficheiro PPD:"
 
-#: printermanager.cpp:496
+#: printermanager.cpp:484
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Non foi posíbel efectuar a solicitude: %1."
 
-#: printermanager.cpp:548
+#: printermanager.cpp:536
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Non se puido obter a configuración do servidor: %1"
 
-#: printermanager.cpp:585
+#: printermanager.cpp:573
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "A configuración do servidor non se gardou: (%1): %2"
 
-#: printermanager.cpp:592
+#: printermanager.cpp:580
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Erro fatal ao gardar a configuración do servidor: (%1): %2"
 
-#: printermanager.cpp:645
+#: printermanager.cpp:633
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir unha páxina de proba."
 
-#: printermanager.cpp:651
+#: printermanager.cpp:639
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpar os cabezais de impresión"

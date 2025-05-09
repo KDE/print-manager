@@ -55,7 +55,7 @@
 #define KCUPS_MARKER_LOW_LEVELS QLatin1String("marker-low-levels")
 #define KCUPS_MARKER_NAMES QLatin1String("marker-names")
 #define KCUPS_MARKER_TYPES QLatin1String("marker-types")
-#define KCUPS_MARKER_MESSAGE "marker-message"
+#define KCUPS_MARKER_MESSAGE QLatin1String("marker-message")
 
 #define KCUPS_JOB_ID QLatin1String("job-id")
 #define KCUPS_JOB_NAME QLatin1String("job-name")

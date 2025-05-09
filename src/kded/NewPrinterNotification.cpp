@@ -35,6 +35,7 @@ static constexpr QLatin1String OBJECT  = "/com/redhat/NewPrinterNotification"_L1
 NewPrinterNotification::NewPrinterNotification(QObject *parent)
     : QObject(parent)
 {
+    qCDebug(PMKDED) << "print-manager daemon, starting" << Q_FUNC_INFO;
     // Creates our new adaptor
     new NewPrinterNotificationAdaptor(this);
 

@@ -3,6 +3,8 @@ set(printmanagerkded_SRCS
     PrintManagerKded.cpp
     NewPrinterNotification.h
     PrintManagerKded.h
+    MarkerLevelChecker.cpp
+    MarkerLevelChecker.h
 )
 
 qt_add_dbus_adaptor(printmanagerkded_SRCS

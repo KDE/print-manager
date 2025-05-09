@@ -51,8 +51,8 @@
 #define KCUPS_MARKER_CHANGE_TIME QLatin1String("marker-change-time")
 #define KCUPS_MARKER_COLORS QLatin1String("marker-colors")
 #define KCUPS_MARKER_LEVELS QLatin1String("marker-levels")
-#define KCUPS_MARKER_HIGH_LEVELS "marker-high-levels"
-#define KCUPS_MARKER_LOW_LEVELS "marker-low-levels"
+#define KCUPS_MARKER_HIGH_LEVELS QLatin1String("marker-high-levels")
+#define KCUPS_MARKER_LOW_LEVELS QLatin1String("marker-low-levels")
 #define KCUPS_MARKER_NAMES QLatin1String("marker-names")
 #define KCUPS_MARKER_TYPES QLatin1String("marker-types")
 #define KCUPS_MARKER_MESSAGE "marker-message"

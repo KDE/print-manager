@@ -171,6 +171,7 @@ Name[zh_CN]=检测到新打印机
 Name[zh_TW]=偵測到新印表機
 Action=Popup
 Sound=device-added
+IconName=printer
 
 [Event/NewPrinterNotification]
 Name=The New Printer was added
@@ -233,3 +234,4 @@ Name[x-test]=xxThe New Printer was addedxx
 Name[zh_CN]=新打印机已被添加
 Name[zh_TW]=新印表機已加入
 Action=Popup
+IconName=printer

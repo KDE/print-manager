@@ -60,7 +60,6 @@ void NewPrinterNotification::GetReady()
     // This method is all about telling the user a new printer was detected
     auto notify = new KNotification(QLatin1String("GetReady"));
     notify->setComponentName(QLatin1String("printmanager"));
-    notify->setIconName(QLatin1String("printer"));
     notify->setTitle(i18n("A New Printer was detected"));
     notify->setText(i18n("Starting printer configuration"));
     notify->sendEvent();
@@ -89,7 +88,6 @@ void NewPrinterNotification::NewPrinter(int status,
     // This method is all about telling the user a new printer was detected
     auto notify = new KNotification(QLatin1String("NewPrinterNotification"));
     notify->setComponentName(QLatin1String("printmanager"));
-    notify->setIconName(QLatin1String("printer"));
 
     if (name.contains(QLatin1Char('/'))) {
         // name is a uri

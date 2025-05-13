@@ -31,11 +31,9 @@ msgid "Add a new printer group"
 msgstr ""
 
 #: printermanager.cpp:110 printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Nastavit tiskový server…"
+msgstr ""
 
 #: printermanager.cpp:310
 #, kde-format
@@ -62,12 +60,10 @@ msgid "Driverless"
 msgstr ""
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "Soubor PPD:"
+msgstr ""
 
 #: printermanager.cpp:484
 #, kde-format
@@ -154,12 +150,10 @@ msgid "Manual Driver Search…"
 msgstr ""
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select a printer make/model"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr "Vyberte model tiskárny"
+msgstr ""
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -786,11 +780,3 @@ msgstr "Výrobek/model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vybrat…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Choose Driver…"
-#~ msgstr "Vyberte ovladač…"
-
-#~ msgctxt "@label:listitem"
-#~ msgid "PPD File (%1)"
-#~ msgstr "Soubor PPD (%1)"

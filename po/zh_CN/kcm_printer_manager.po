@@ -51,20 +51,16 @@ msgid "IPP Everywhere™"
 msgstr ""
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "无驱动打印机 (%1)"
+msgstr ""
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD 文件："
+msgstr ""
 
 #: printermanager.cpp:484
 #, kde-format
@@ -153,13 +149,10 @@ msgid "Manual Driver Search…"
 msgstr ""
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
+msgstr ""
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -792,23 +785,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "Unable to locate recommended drivers.  Click <interface>Refresh</"
-#~ "interface> to try again or choose a driver manually."
-#~ msgstr ""
-#~ "无法定位推荐的驱动程序。请点击<interface>刷新</interface>重试，或者手动选"
-#~ "择一个驱动程序。"
-
-#~ msgctxt "@action:button"
-#~ msgid "Choose Driverless…"
-#~ msgstr "选择无驱动打印机…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Choose Driver…"
-#~ msgstr "选择驱动程序…"
-
-#~ msgctxt "@label:listitem"
-#~ msgid "PPD File (%1)"
-#~ msgstr "PPD 文件 (%1)"

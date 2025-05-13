@@ -220,16 +220,14 @@ msgid "Add a new printer"
 msgstr "Přidat novou tiskárnu"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Přidat novou tiskárnu"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Nastavit tiskárnu"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
@@ -314,52 +312,44 @@ msgid "Starting printer configuration"
 msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
-msgstr "Nová tiskárna byla přidána"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:104
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Nové tiskárně chybí ovladače"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Byla zjištěna nová tiskárna"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Chybí ovladač tiskárny %1 %2."
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Chybí ovladač tiskárny %1."
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Pro tuto tiskárnu není ovladač."
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:160
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Přidat tiskárnu"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "'%1' byla přidána, prosím zkontrolujte její ovladač"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:216
@@ -369,10 +359,9 @@ msgid "Configure"
 msgstr "Nastavit"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "Byla přidána tiskárna '%1' s ovladačem '%2'."
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -381,10 +370,9 @@ msgid "Print test page"
 msgstr "Vytisknout testovací stránku"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Vyber&te ovladač"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -944,269 +932,3 @@ msgstr "Dokončené úlohy"
 #, kde-format
 msgid "All Jobs"
 msgstr "Všechny úlohy"
-
-#~ msgid "Recommended Drivers"
-#~ msgstr "Doporučované ovladače"
-
-#~ msgctxt "@title:window"
-#~ msgid "Add a New Printer"
-#~ msgstr "Přidat novou tiskárnu"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Printer to Add"
-#~ msgstr "Vybrat tiskárnu k přidání"
-
-#~ msgctxt "@title:window"
-#~ msgid "Please describe your printer"
-#~ msgstr "Prosím, popište svou tiskárnu"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure your connection"
-#~ msgstr "Nastavte vaše spojení"
-
-#~ msgctxt "@title:window"
-#~ msgid "Pick a Driver for %1"
-#~ msgstr "Vybrat ovladač pro %1"
-
-#~ msgid "Address:"
-#~ msgstr "Adresa:"
-
-#~ msgid "Queue:"
-#~ msgstr "Fronta:"
-
-#~ msgid "Detect"
-#~ msgstr "Detekovat"
-
-#~ msgctxt "@title:group"
-#~ msgid "Windows Printer via SAMBA"
-#~ msgstr "Tiskárna Windows skrze SAMBA"
-
-#~ msgctxt ""
-#~ "@label samba URL markup example, this is preceded by a label containing "
-#~ "smb://"
-#~ msgid "smb://[workgroup/]server[:port]/printer"
-#~ msgstr "smb://[skupina/]server[:port]/tiskárna"
-
-#~ msgctxt "@action:button"
-#~ msgid "Browse"
-#~ msgstr "Procházet"
-
-#~ msgctxt "@title:group"
-#~ msgid "Authentication"
-#~ msgstr "Ověření"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Username:"
-#~ msgstr "Uživatelské jméno:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Password"
-#~ msgstr "Heslo"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "None"
-#~ msgstr "Žádné"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Even"
-#~ msgstr "Sudé"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Odd"
-#~ msgstr "Liché"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "XON/XOFF (Software)"
-#~ msgstr "XON/XOFF (Software)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "RTS/CTS (Hardware)"
-#~ msgstr "RTS/CTS (Hardware)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "DTR/DSR (Hardware)"
-#~ msgstr "DTR/DSR (Hardware)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Baud Rate:"
-#~ msgstr "Přenosová rychlost (baud rate):"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Parity:"
-#~ msgstr "Parita:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Data Bits:"
-#~ msgstr "Data bity:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Flow Control:"
-#~ msgstr "Řízení toku:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Address:"
-#~ msgstr "Adresa:"
-
-#~ msgctxt "@label:spinbox"
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Connection:"
-#~ msgstr "Spojení:"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Examples:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-#~ "\">\"Network\n"
-#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-#~ msgstr ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Příklady:\n"
-#~ "<PRE>\n"
-#~ "    http://název_počítače:631/ipp/\n"
-#~ "    http://název_počítače:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://název_počítače/ipp/\n"
-#~ "    ipp://název_počítače/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://název_počítače/fronta\n"
-#~ "\n"
-#~ "    socket://název_počítače\n"
-#~ "    socket://název_počítače:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>Podívejte se na <A HREF=\"http://localhost:631/help/network.html\" "
-#~ "TARGET=\"_blank\">\"Síťové\n"
-#~ "tiskárny\"</A> pro správnou URI vaší tiskárny.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-
-#~ msgid "Tool for adding new printers"
-#~ msgstr "Nástroj pro přidávání nových tiskáren"
-
-#~ msgid "Parent Window ID"
-#~ msgstr "ID nadřazeného okna"
-
-#~ msgid "Add a new printer class"
-#~ msgstr "Přidat novou třídu tiskáren"
-
-#~ msgid "Changes the PPD of a given printer"
-#~ msgstr "Změní PPD dané tiskárny"
-
-#~ msgid "Changes the PPD of a given printer/deviceid"
-#~ msgstr "Změní PPD dané tiskárny/ID zařízení"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to add class: '%1'"
-#~ msgstr "Přidání třídy selhalo: '%1'"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: '%1'"
-#~ msgstr "Nastavení tiskárny selhalo: '%1'"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Name:"
-#~ msgstr "Název:"
-
-#~ msgid "May contain any printable characters except \"/\", \"#\", and space"
-#~ msgstr ""
-#~ "Může obsahovat všechny tisknutelné znaky vyjma \"/\", \"#\", a mezery"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Description:"
-#~ msgstr "Popis:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Location:"
-#~ msgstr "Umístění:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Share this printer"
-#~ msgstr "Sdílet tuto tiskárnu"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Members:"
-#~ msgstr "Členové:"
-
-#~ msgid "A printer connected to the parallel port."
-#~ msgstr "Tiskárna připojená k paralelnímu portu."
-
-#~ msgid "A printer connected to a USB port."
-#~ msgstr "Tiskárna připojená k USB portu."
-
-#~ msgid "A printer connected via Bluetooth."
-#~ msgstr "Tiskárna připojená pomocí Bluetooth."
-
-#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-#~ msgstr "Místní tiskárna detekována pomocí HAL"
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP software ovládající tiskárnu, nebo funkce tisku na multifunkčním "
-#~ "zařízení."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP software ovládající fax, nebo funkce faxu na multifunkčním zařízení."
-
-#~ msgid "%1 network printer via DNS-SD"
-#~ msgstr "Síťová tiskárna %1 přes DNS-SD"
-
-#~ msgid "Connections"
-#~ msgstr "Spojení"
-
-#~ msgid "Please choose an item on the list"
-#~ msgstr "Prosím, vyberte položku ze seznamu"
-
-#~ msgid "Configuring new printer..."
-#~ msgstr "Probíhá nastavení nové tiskárny..."
-
-#~ msgid "Missing printer driver"
-#~ msgstr "Chybí ovladač tiskárny"
-
-#~ msgid "Search"
-#~ msgstr "Hledat"
-
-#~ msgid "Find driver"
-#~ msgstr "Najít ovladač"
-
-#~ msgid "Choose the driver for %1"
-#~ msgstr "Vyberte ovladač pro %1"
-
-#~ msgid "Failed to get a list of drivers: '%1'"
-#~ msgstr "Získání seznamu ovladačů selhalo: '%1'"
-
-#~ msgid "Failed to search for a recommended driver: '%1'"
-#~ msgstr "Vyhledání doporučovaného ovladače selhalo: '%1'"
-
-#~ msgid "Select a Driver"
-#~ msgstr "Vyberte ovladač"
-
-#~ msgid "Ma&nually Provide a PPD File:"
-#~ msgstr "Ruč&ně zadat PPD soubor:"

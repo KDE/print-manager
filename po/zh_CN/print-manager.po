@@ -929,6 +929,3 @@ msgstr "已完成任务"
 #, kde-format
 msgid "All Jobs"
 msgstr "所有任务"
-
-#~ msgid "Recommended Drivers"
-#~ msgstr "推荐的驱动程序"

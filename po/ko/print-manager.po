@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:43+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2025-04-07 00:35+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -303,80 +303,80 @@ msgstr ""
 "설치 오류(패키지: %1)\n"
 "자격 증명을 확인하고 PackageKit 설치 상태를 확인하십시오."
 
-#: src/kded/NewPrinterNotification.cpp:64
+#: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "새 프린터가 감지됨"
 
-#: src/kded/NewPrinterNotification.cpp:65
+#: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
 msgstr "프린터 설정 시작됨"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was added"
 msgstr "새 프린터가 추가됨"
 
-#: src/kded/NewPrinterNotification.cpp:104
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr "새 프린터에 드라이버 문제가 있을 수도 있음"
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:150
 #, kde-format
 msgid "Printer queue was not created"
 msgstr "인쇄 대기열이 생성되지 않았음"
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr "%1 %2에 대한 프린터 드라이버가 없음"
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1"
 msgstr "%1에 대한 프린터 드라이버가 없음"
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for this printer"
 msgstr "이 프린터에 대한 드라이버가 없음"
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Add Printer…"
 msgstr "프린터 추가…"
 
-#: src/kded/NewPrinterNotification.cpp:215
+#: src/kded/NewPrinterNotification.cpp:213
 #, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1'이(가) 추가되었으며 드라이버를 확인하십시오"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:216
-#: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:214
+#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "설정"
 
-#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:219
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "'%1'이(가) 추가되었으며 드라이버 '%2'을(를) 사용함"
 
-#: src/kded/NewPrinterNotification.cpp:223
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "Print test page"
 msgstr "테스트 페이지 인쇄"
 
-#: src/kded/NewPrinterNotification.cpp:228
+#: src/kded/NewPrinterNotification.cpp:226
 #, kde-format
 msgid "Check driver"
 msgstr "드라이버 확인"
 
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1'에서 인쇄할 수 있습니다."

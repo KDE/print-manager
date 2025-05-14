@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:43+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2025-04-29 07:09+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -307,80 +307,80 @@ msgstr ""
 "Preverite poverilnice avtentikacije in zagotovite, da je zbir paketov "
 "nameščen pravilno."
 
-#: src/kded/NewPrinterNotification.cpp:64
+#: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Zaznan je bil nov tiskalnik"
 
-#: src/kded/NewPrinterNotification.cpp:65
+#: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
 msgstr "Zagon konfiguracije tiskalnika"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was added"
 msgstr "Novi tiskalnik je bil dodan"
 
-#: src/kded/NewPrinterNotification.cpp:104
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr "Novi tiskalnik ima morda težave z gonilnikom"
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:150
 #, kde-format
 msgid "Printer queue was not created"
 msgstr "Čakalna vrsta tiskalnika ni bila ustvarjena"
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr "Gonilnika tiskalnika ni bilo mogoče najti za %1 %2"
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1"
 msgstr "Gonilnika tiskalnika ni bilo mogoče najti za %1"
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for this printer"
 msgstr "Gonilnika tiskalnika za ta tiskalnik ni mogoče najti"
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Add Printer…"
 msgstr "Dodaj tiskalnik…"
 
-#: src/kded/NewPrinterNotification.cpp:215
+#: src/kded/NewPrinterNotification.cpp:213
 #, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1' je bil dodan, preverite njegov gonilnik"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:216
-#: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:214
+#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Konfiguriraj"
 
-#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:219
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "'%1' je bil dodan z uporabo gonilnika '%2'"
 
-#: src/kded/NewPrinterNotification.cpp:223
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "Print test page"
 msgstr "Natisni preizkusno stran"
 
-#: src/kded/NewPrinterNotification.cpp:228
+#: src/kded/NewPrinterNotification.cpp:226
 #, kde-format
 msgid "Check driver"
 msgstr "Preveri gonilnik"
 
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' je pripravljen za tiskanje."

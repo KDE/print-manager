@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:43+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2025-04-30 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -305,80 +305,80 @@ msgstr ""
 "Yetkilendirmenin doğru yapıldığından ve PackageKit’in düzgünce kurulduğundan "
 "emin olun."
 
-#: src/kded/NewPrinterNotification.cpp:64
+#: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Yeni Bir Yazıcı tespit edildi"
 
-#: src/kded/NewPrinterNotification.cpp:65
+#: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
 msgstr "Yazıcı yapılandırması başlatılıyor"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was added"
 msgstr "Yeni yazıcı eklendi"
 
-#: src/kded/NewPrinterNotification.cpp:104
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr "Yeni yazıcıda bir sürücü sorunu olabilir"
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:150
 #, kde-format
 msgid "Printer queue was not created"
 msgstr "Yazıcı kuyruğu oluşturulmadı"
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr "%1 %2 için yazıcı sürücüsü bulunamadı"
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1"
 msgstr "%1 için yazıcı sürücüsü bulunamadı"
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for this printer"
 msgstr "Bu yazıcı için sürücü bulunamadı"
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Add Printer…"
 msgstr "Yazıcı Ekle…"
 
-#: src/kded/NewPrinterNotification.cpp:215
+#: src/kded/NewPrinterNotification.cpp:213
 #, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "“%1” eklendi, lütfen sürücüsünü denetleyin"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:216
-#: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:214
+#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:219
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "“%1” eklendi, “%2” sürücüsü kullanıyor"
 
-#: src/kded/NewPrinterNotification.cpp:223
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "Print test page"
 msgstr "Sınama sayfası yazdır"
 
-#: src/kded/NewPrinterNotification.cpp:228
+#: src/kded/NewPrinterNotification.cpp:226
 #, kde-format
 msgid "Check driver"
 msgstr "Sürücüyü Denetle"
 
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "“%1” yazdırılmak üzere hazır."

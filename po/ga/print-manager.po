@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:43+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2012-07-31 09:30-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -308,84 +308,84 @@ msgid ""
 "properly."
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:64
+#: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
 msgid "A New Printer was detected"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:65
+#: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was added"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:104
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:150
 #, fuzzy, kde-format
 #| msgid "Print queue is empty"
 msgid "Printer queue was not created"
 msgstr "Tá an ciú priontála folamh"
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for this printer"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:158
 #, fuzzy, kde-format
 #| msgid "All Printers"
 msgid "Add Printer…"
 msgstr "Gach Printéir"
 
-#: src/kded/NewPrinterNotification.cpp:215
+#: src/kded/NewPrinterNotification.cpp:213
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, using the '%2' driver."
 msgid "'%1' has been added, please check its driver"
 msgstr "Cuireadh '%1' leis, ag úsáid tiománaí '%2'."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:216
-#: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:214
+#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Cumraigh"
 
-#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:219
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, using the '%2' driver."
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "Cuireadh '%1' leis, ag úsáid tiománaí '%2'."
 
-#: src/kded/NewPrinterNotification.cpp:223
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "Print test page"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:228
+#: src/kded/NewPrinterNotification.cpp:226
 #, kde-format
 msgid "Check driver"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "Tá '%1' réidh don phriontáil."

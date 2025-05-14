@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:43+0000\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
 "PO-Revision-Date: 2024-09-19 16:37+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -313,90 +313,90 @@ msgid ""
 "properly."
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:64
+#: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
 msgid "A New Printer was detected"
 msgstr "Ένας νέος εκτυπωτής ανιχνεύτηκε"
 
-#: src/kded/NewPrinterNotification.cpp:65
+#: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:100
 #, fuzzy, kde-format
 #| msgid "The New Printer was Added"
 msgid "The New Printer was added"
 msgstr "Ο νέος εκτυπωτής προστέθηκε"
 
-#: src/kded/NewPrinterNotification.cpp:104
+#: src/kded/NewPrinterNotification.cpp:102
 #, fuzzy, kde-format
 #| msgid "The New Printer is Missing Drivers"
 msgid "The New Printer might have a driver problem"
 msgstr "Λείπουν οδηγοί για τον νέο εκτυπωτή"
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:150
 #, fuzzy, kde-format
 #| msgid "Print queue is empty"
 msgid "Printer queue was not created"
 msgstr "Η ουρά αναμονής είναι κενή"
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:152
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1 %2."
 msgid "Printer driver not found for %1 %2"
 msgstr "Δεν υπάρχει οδηγός για τον εκτυπωτή %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:154
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1."
 msgid "Printer driver not found for %1"
 msgstr "Δεν υπάρχει οδηγός για τον εκτυπωτή %1."
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:156
 #, fuzzy, kde-format
 #| msgid "No driver for this printer."
 msgid "Printer driver not found for this printer"
 msgstr "Δεν υπάρχει οδηγός για αυτόν τον εκτυπωτή."
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:158
 #, fuzzy, kde-format
 #| msgid "Add Printer"
 msgid "Add Printer…"
 msgstr "Προσθήκη εκτυπωτή"
 
-#: src/kded/NewPrinterNotification.cpp:215
+#: src/kded/NewPrinterNotification.cpp:213
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, please check its driver."
 msgid "'%1' has been added, please check its driver"
 msgstr "Ο εκτυπωτής '%1' προστέθηκε, παρακαλώ ελέγξτε τον οδηγό του."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:216
-#: src/kded/NewPrinterNotification.cpp:247 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:214
+#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "Διαμόρφωση"
 
-#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:219
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, using the '%2' driver."
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "Ο εκτυπωτής '%1' προστέθηκε, γίνεται χρήση του οδηγού '%2'."
 
-#: src/kded/NewPrinterNotification.cpp:223
-#: src/kded/NewPrinterNotification.cpp:242
+#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "Print test page"
 msgstr "Εκτύπωση δοκιμαστικής σελίδας"
 
-#: src/kded/NewPrinterNotification.cpp:228
+#: src/kded/NewPrinterNotification.cpp:226
 #, fuzzy, kde-format
 #| msgid "Choose &the driver from the list"
 msgid "Check driver"
 msgstr "Επιλέξτε έναν ο&δηγό από τη λίστα"
 
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "Ο εκτυπωτής '%1' είναι έτοιμος για εκτύπωση."

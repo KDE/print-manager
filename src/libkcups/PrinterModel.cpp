@@ -290,7 +290,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
         destItem->setData(status, DestStatus);
     }
 
-    bool paused = (state == KCupsPrinter::Stopped || !accepting);
+    bool paused = (state == KCupsPrinter::Stopped);
     if (paused != destItem->data(DestIsPaused)) {
         destItem->setData(paused, DestIsPaused);
     }

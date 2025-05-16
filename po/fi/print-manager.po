@@ -1,7 +1,7 @@
 # KDE Finnish translation sprint participants:
 # Author: Artnay
 # Author: Lliehu
-# SPDX-FileCopyrightText: 2012, 2018, 2019, 2020, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2012, 2018, 2019, 2020, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
 # Lasse Liehu <lasse.liehu@gmail.com>, 2012, 2013, 2015.
 # Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2024-10-18 14:30+0300\n"
+"PO-Revision-Date: 2025-04-08 09:08+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Tommi Nieminen,Jiri Grönroos"
+msgstr "Tommi Nieminen, Jiri Grönroos"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "translator@legisign.org,jiri.gronroos+kde@iki.fi"
+msgstr "translator@legisign.org, jiri.gronroos+kde@iki.fi"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -222,14 +222,12 @@ msgid "Add a new printer"
 msgstr "Lisää uusi tulostin"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Lisää uusi tulostin"
+msgstr "Lisää uusi tulostinryhmä"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
 msgstr "Aseta tulostin"
 
@@ -316,55 +314,47 @@ msgstr "Havaittiin uusi tulostin"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Tulostimen asetus käynnistyy"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Lisättiin uusi tulostin"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Uudelta tulostimelta puuttuu ajuri"
+msgstr "Uudessa tulostimessa voi olla ajuriongelma"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "Print queue is empty"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Tulostusjono on tyhjä"
+msgstr "Tulostinjonoa ei luotu"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Ei tulostinajuria laitteelle %1 %2."
+msgstr "Tulostinajuria ei löytynyt laitteelle %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Ei tulostinajuria laitteelle %1."
+msgstr "Tulostinajuria ei löytynyt laitteelle %1"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Tälle tulostimelle ei ole ajuria."
+msgstr "Tälle tulostimelle ei löytynyt ajuria"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Lisää tulostin"
+msgstr "Lisää tulostin…"
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "”%1” on lisätty, tarkista sen ajuri."
+msgstr "Lisättiin ”%1”: tarkista sen ajuri"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -374,10 +364,9 @@ msgid "Configure"
 msgstr "Asetukset"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "”%1” on lisätty (käyttää ajuria ”%2”)."
+msgstr "Lisättiin ”%1” (ajuri ”%2”)"
 
 #: src/kded/NewPrinterNotification.cpp:221
 #: src/kded/NewPrinterNotification.cpp:240
@@ -386,10 +375,9 @@ msgid "Print test page"
 msgstr "Tulosta testisivu"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "&Valitse ajuri"
+msgstr "Tarkista ajuri"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format

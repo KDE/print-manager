@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2025-02-11 10:28+0200\n"
+"PO-Revision-Date: 2025-04-08 09:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -20,23 +20,19 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Lisää tulostin"
+msgstr "Lisää uusi tulostin"
 
 #: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Lisää uusi tulostinryhmä"
 
 #: printermanager.cpp:110 printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Tulostinpalvelimen asetukset…"
+msgstr "Aseta tulostin"
 
 #: printermanager.cpp:310
 #, kde-format

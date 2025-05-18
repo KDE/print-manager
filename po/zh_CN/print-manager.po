@@ -244,19 +244,19 @@ msgstr "配置打印机失败："
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr ""
+msgstr "无驱动程序"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD 文件"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format

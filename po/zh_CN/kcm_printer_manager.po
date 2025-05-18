@@ -48,19 +48,19 @@ msgstr "配置打印机失败："
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr ""
+msgstr "无驱动程序"
 
 #: printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD 文件"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -146,13 +146,13 @@ msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "手动查找驱动程序…"
 
 #: ui/components/Drivers.qml:76
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
+msgstr "搜索并基于打印机厂家/型号选择驱动程序"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -522,7 +522,7 @@ msgstr "打印机驱动程序"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "使用 IPP Everywhere™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

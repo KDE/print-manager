@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2025-04-13 17:05+0530\n"
+"PO-Revision-Date: 2025-05-18 20:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -247,17 +247,16 @@ msgid "IPP Everywhere™"
 msgstr ""
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "சாதனநிரல்:"
+msgstr "சாதனநிரல் இல்லாதது"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD கோப்பு"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -300,6 +299,8 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"நிறுவுவதில் சிக்கல் (தொகுப்பு: %1)\n"
+"அளித்த சான்றுகளை சரிபார்க்கவும், மேலும் PackageKit நிறுவப்பட்டுள்ளதை சரிபார்க்கவும்."
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -428,17 +429,17 @@ msgstr ""
 #: src/libkcups/DevicesModel.cpp:82
 #, kde-format
 msgid "LPD/LPR queue"
-msgstr ""
+msgstr "LPD/LPR வரிசை"
 
 #: src/libkcups/DevicesModel.cpp:84
 #, kde-format
 msgid "LPD/LPR queue %1"
-msgstr ""
+msgstr "LPD/LPR வரிசை %1"
 
 #: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "Windows Printer via SAMBA"
-msgstr ""
+msgstr "SAMBA மூலமான விண்டோஸ் அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:92
 #, kde-format
@@ -478,7 +479,7 @@ msgstr ""
 #: src/libkcups/DevicesModel.cpp:111
 #, kde-format
 msgid "Network printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான இணைய அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:123
 #, kde-format
@@ -524,7 +525,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "A printer connected to a USB port"
-msgstr ""
+msgstr "USB புறை மூலமாக இணைந்துள்ள அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:135
 #, kde-format
@@ -536,13 +537,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான இணைய அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:149
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான %1 இணைய அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:224
 #, kde-format

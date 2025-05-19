@@ -1,16 +1,16 @@
 # Translation for print-manager.po to Euskara/Basque (eu).
-# Copyright (C) 2014-2024 This file is copyright:
+# Copyright (C) 2014-2025 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2014, 2017, 2018, 2019, 2022, 2023, 2024.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2014, 2017, 2018, 2019, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2024-06-25 22:01+0200\n"
+"PO-Revision-Date: 2025-05-18 15:01+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -222,16 +222,14 @@ msgid "Add a new printer"
 msgstr "Gehitu inprimagailu berri bat"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Gehitu inprimagailu berri bat"
+msgstr "Gehitu inprimagailu talde berri bat"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Konfiguratu inprimagailua"
+msgstr "Konfiguratu inprimagailu bat"
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
@@ -249,20 +247,19 @@ msgstr "Inprimagailua konfiguratzea huts egin du:"
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Gidaria:"
+msgstr "Gidaririk gabe"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD fitxategia"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -317,55 +314,47 @@ msgstr "Inprimagailu berri bat detektatu da"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Inprimagailuaren konfigurazioa abiarazten"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Inprimagailu berria gehitu da"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Inprimagailu berriak gidariak falta ditu"
+msgstr "Inprimagailu berriak gidari arazo bat izan dezake"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Inprimagailu berri bat detektatu da"
+msgstr "Inprimagailuaren ilara ez da sortu"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Inprimagailu gidaririk ez %1 %2-(r)entzako."
+msgstr "Ez du aurkitu %1 %2(e)ren inprimagailu-gidaria"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Inprimagailu gidaririk ez %1-(r)entzako."
+msgstr "Ez du aurkitu %1(e)ren inprimagailu-gidaria"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Gidaririk ez inprimagailu honentzako."
+msgstr "Ez du aurkitu inprimagailu honen gidaria"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Gehitu inprimagailua"
+msgstr "Gehitu inprimagailua..."
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "'%1' gehitu da, egiaztatu bere gidaria."
+msgstr "'%1' gehitu da, egiaztatu bere gidaria"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -375,10 +364,9 @@ msgid "Configure"
 msgstr "Konfiguratu"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "'%1' gehitu da, '%2' gidaria erabiliz."
+msgstr "'%1' gehitu da, '%2' gidaria erabiliz"
 
 #: src/kded/NewPrinterNotification.cpp:221
 #: src/kded/NewPrinterNotification.cpp:240
@@ -387,10 +375,9 @@ msgid "Print test page"
 msgstr "Inprimatu probako orria"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Hautatu &gidaria"
+msgstr "Egiaztatu gidaria"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format

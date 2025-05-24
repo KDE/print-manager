@@ -1,20 +1,21 @@
 # SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Frederik Schwarzer <schwarzer@kde.org>, 2012, 2013, 2018, 2023.
 # Burkhard Lück <lueck@hube-lueck.de>, 2012, 2013, 2015, 2018, 2019, 2020.
+# SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2023-12-21 23:28+0100\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2025-05-16 17:50+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -272,20 +273,16 @@ msgid "Failed to get server settings: %1"
 msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen: %1"
 
 #: src/kcm/printermanager.cpp:573
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Server-Fehler: (%1): %2"
+msgstr "Server-Einstellungen nicht gespeichert: (%1): %2"
 
 #: src/kcm/printermanager.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen: %1"
+msgstr "Schwerer Fehler beim Speichern der Server-Einstellungen: (%1): %2"
 
 #: src/kcm/printermanager.cpp:633
 #, kde-format
@@ -305,6 +302,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Installationsfehler (Paket: %1)\n"
+"Überprüfen Sie die Authentifizierungsdaten und stellen Sie sicher, dass "
+"PackageKit ordnungsgemäß installiert ist."
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -395,12 +395,10 @@ msgid "'%1' is ready for printing."
 msgstr "„%1“ ist druckbereit."
 
 #: src/libkcups/DevicesModel.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "Manuelle URI"
+msgstr "Manuelle Einstellungen"
 
 #: src/libkcups/DevicesModel.cpp:63
 #, kde-format

@@ -9,25 +9,25 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2025-01-26 19:49+0100\n"
-"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"PO-Revision-Date: 2025-05-23 10:18+0200\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Marce Villarino"
+msgstr "Marce Villarino, Adrián Chaves (Gallaecio)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "mvillarino@kde-espana.es"
+msgstr "mvillarino@kde-espana.es, adrian@chaves.gal"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -222,16 +222,14 @@ msgid "Add a new printer"
 msgstr "Engadir unha nova impresora"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Engadir unha nova impresora"
+msgstr "Engadir un novo grupo de impresoras"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configurar a impresora"
+msgstr "Configurar unha impresora"
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
@@ -249,20 +247,19 @@ msgstr "Non se puido configurar a impresora: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Controlador:"
+msgstr "Sen controlador"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "Ficheiro PPD"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -317,53 +314,45 @@ msgstr "Detectouse unha nova impresora"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Configuración inicial de impresora"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Engadiuse a nova impresora"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Á nova impresora fáltalle o controlador"
+msgstr "Pode que a nova impresora teña un problema de controladores."
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "PrintQueue"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Cola de impresión"
+msgstr "Non se creou a cola de impresión."
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Non hai controlador para a impresora %1 %2."
+msgstr "Non se atopou o controlador de %1 %2."
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Non hai controlador para a impresora %1."
+msgstr "Non se atopou o controlador de %1."
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Non hai controlador para esta impresora."
+msgstr "Non se atopou o controlador desta impresora."
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Engadir unha impresora"
+msgstr "Engadir unha impresora…"
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "Engadiuse «%1», comprobe o seu controlador."
 
@@ -375,8 +364,7 @@ msgid "Configure"
 msgstr "Configurar"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "Engadiuse «%1», usando o controlador «%2»."
 
@@ -387,10 +375,9 @@ msgid "Print test page"
 msgstr "Imprimir unha páxina de proba"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Escolla o con&trolador"
+msgstr "Comprobar o controlador"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format

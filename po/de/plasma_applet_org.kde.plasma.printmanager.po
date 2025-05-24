@@ -1,20 +1,21 @@
 # SPDX-FileCopyrightText: 2023 Johannes Obermayr <johannesobermayr@gmx.de>
 # Burkhard Lück <lueck@hube-lueck.de>, 2013, 2015, 2018, 2021.
 # Frederik Schwarzer <schwarzer@kde.org>, 2013, 2020, 2022.
+# SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-16 00:43+0000\n"
-"PO-Revision-Date: 2023-12-21 23:25+0100\n"
-"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
+"PO-Revision-Date: 2025-04-27 18:38+0200\n"
+"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.07.70\n"
 
 #: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
 #: src/plasmoid/package/contents/ui/main.qml:49
@@ -75,20 +76,16 @@ msgid "View print queue…"
 msgstr "Druckerwarteschlange anzeigen …"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
-#, fuzzy
-#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Abbrechen"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
-#, fuzzy
-#| msgid "No jobs"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "Keine Aufträge"
-msgstr[1] "Keine Aufträge"
+msgstr[0] "%1 weiterer Auftrag"
+msgstr[1] "%1 weitere Aufträge"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Alle Aufträge anzeigen"

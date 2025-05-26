@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2025-04-08 09:05+0300\n"
+"PO-Revision-Date: 2025-05-25 10:38+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -50,23 +50,19 @@ msgstr "Tulostimen määritys epäonnistui: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Ajuriton (%1)"
+msgstr "Ajuriton"
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD-tiedosto:"
+msgstr "PPD-tiedosto"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -154,18 +150,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Etsi ajuria itse…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Ajurisuositukset perustuvat tulostimen merkkiin ja malliin sekä yhteyden "
-"tyyppiin"
+msgstr "Etsi ja valitse ajuri tulostimen merkin ja mallin mukaan"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -539,7 +530,7 @@ msgstr "Tulostinajuri"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Käytä IPP Everywhere™ä"
 
 #: ui/MakeModel.qml:157
 #, kde-format

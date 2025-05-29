@@ -89,6 +89,8 @@ void PrintQueue::showQueue(const QString &destName)
     if (m_uis.value(destName)) {
         if (KWindowSystem::isPlatformX11()) {
             KX11Extras::forceActiveWindow(m_uis.value(destName)->winId());
+        } else {
+            m_uis.value(destName)->windowHandle()->requestActivate();
         }
     }
 }

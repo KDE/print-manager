@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2025-04-05 22:21+0200\n"
+"PO-Revision-Date: 2025-05-30 14:37+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -48,23 +48,19 @@ msgstr "Misslyckades anpassa skrivare: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Drivrutinlös (%1)"
+msgstr "Utan drivrutin"
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD-fil:"
+msgstr "PPD-fil"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -153,18 +149,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Manuell drivrutinsökning…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Rekommenderade drivrutiner är baserade på skrivarens märke/modell och "
-"anslutningstyp"
+msgstr "Sök efter och välj en drivrutin baserad på skrivarens märke/modell"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -541,7 +532,7 @@ msgstr "Skrivardrivrutin"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Använd IPP Everywhere™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

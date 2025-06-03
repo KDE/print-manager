@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2024-07-28 00:26+0200\n"
+"PO-Revision-Date: 2025-06-01 15:16+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -222,12 +222,12 @@ msgid "Add a new printer"
 msgstr "Legg til ny skrivar"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Legg til ny skrivar"
+msgstr "Legg til ny skrivargruppe"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
+#, kde-format
 msgid "Configure a printer"
 msgstr "Set opp skrivar"
 
@@ -247,19 +247,19 @@ msgstr "Klarte ikkje setja opp skrivar: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr ""
+msgstr "Drivarlaus"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD-fil"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -313,10 +313,10 @@ msgstr "Fann ein ny skrivar"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Startar skrivaroppsett"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Den nye skrivaren er lagd til"
 

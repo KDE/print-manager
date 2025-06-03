@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2024-10-27 14:46+0100\n"
+"PO-Revision-Date: 2025-06-01 15:17+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,25 +13,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
 #: printermanager.cpp:106
-#, fuzzy, kde-format
+#, kde-format
 msgid "Add a new printer"
-msgstr "Legg til skrivar"
+msgstr "Legg til ny skrivar"
 
 #: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Legg til ny skrivargruppe"
 
 #: printermanager.cpp:110 printermanager.cpp:112
-#, fuzzy, kde-format
+#, kde-format
 msgid "Configure a printer"
-msgstr "Set opp skrivartenar …"
+msgstr "Set opp skrivar"
 
 #: printermanager.cpp:310
 #, kde-format
@@ -49,23 +49,19 @@ msgstr "Klarte ikkje setja opp skrivar: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Drivarlaus (%1)"
+msgstr "Drivarlaus"
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD-fil:"
+msgstr "PPD-fil"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -487,10 +483,10 @@ msgid "Printer Groups"
 msgstr "Skrivargrupper"
 
 #: ui/main.qml:380
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
-msgstr "Opna utskriftskø …"
+msgstr "Utskriftskø"
 
 #: ui/main.qml:396
 #, kde-format
@@ -538,7 +534,7 @@ msgstr "Skrivardrivar"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Bruk IPP Everywhere™"
 
 #: ui/MakeModel.qml:157
 #, kde-format
@@ -654,7 +650,7 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Merke og modell er obligatorisk. Trykk «Vel» for å velja merke/modell."
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "Set opp %1 – vent litt …"

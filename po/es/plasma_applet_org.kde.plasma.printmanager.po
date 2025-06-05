@@ -1,13 +1,14 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for plasma_applet_org.kde.plasma.printmanager.po package.
+# Copyright (C) 2013-2025 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2013, 2015, 2018, 2020, 2021, 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2013, 2015, 2018, 2020, 2021, 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-16 00:43+0000\n"
-"PO-Revision-Date: 2024-11-08 18:06+0100\n"
+"PO-Revision-Date: 2025-06-04 20:02+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -57,7 +58,7 @@ msgstr "La cola de impresión está vacía"
 
 #: src/plasmoid/package/contents/ui/main.qml:100
 msgid "&Configure Printers…"
-msgstr "&Configurar impresoras..."
+msgstr "&Configurar impresoras…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
 msgid "Resume"
@@ -69,11 +70,11 @@ msgstr "Pausar"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
 msgid "Configure printer…"
-msgstr "Configurar la impresora..."
+msgstr "Configurar la impresora…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
 msgid "View print queue…"
-msgstr "Ver la cola de impresión..."
+msgstr "Ver la cola de impresión…"
 
 #: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
 msgctxt "@action:button"
@@ -86,77 +87,3 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 trabajo más"
 msgstr[1] "%1 trabajos más"
-
-#~ msgid "Show All Jobs"
-#~ msgstr "Mostrar todos los trabajos"
-
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "Mostrar solo los trabajos completados"
-
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Mostrar solo los trabajos activos"
-
-#~ msgid "Search…"
-#~ msgstr "Buscar..."
-
-#~ msgid "Resume printing"
-#~ msgstr "Continuar la impresión"
-
-#~ msgid "Pause printing"
-#~ msgstr "Pausar la impresión"
-
-#~ msgid "Search for a printer..."
-#~ msgstr "Buscar una impresora..."
-
-#~ msgid "General"
-#~ msgstr "General"
-
-#~ msgid "Active jobs only"
-#~ msgstr "Solo los trabajos activos"
-
-#~ msgid "%1, no active jobs"
-#~ msgstr "%1, sin trabajos activos"
-
-#~ msgid "%1, %2 active job"
-#~ msgid_plural "%1, %2 active jobs"
-#~ msgstr[0] "%1, %2 trabajo activo"
-#~ msgstr[1] "%1, %2 trabajos activos"
-
-#~ msgid "%1, %2 job"
-#~ msgid_plural "%1, %2 jobs"
-#~ msgstr[0] "%1, %2 trabajo"
-#~ msgstr[1] "%1, %2 trabajos"
-
-#~ msgid "One active job"
-#~ msgid_plural "%1 active jobs"
-#~ msgstr[0] "1 trabajo activo"
-#~ msgstr[1] "%1 trabajos activos"
-
-#~ msgid "One job"
-#~ msgid_plural "%1 jobs"
-#~ msgstr[0] "1 trabajo"
-#~ msgstr[1] "%1 trabajos"
-
-#~ msgid "Only show jobs from the following printers:"
-#~ msgstr "Mostrar solo los trabajos de las siguientes impresoras:"
-
-#~ msgid "Hold"
-#~ msgstr "Mantener"
-
-#~ msgid "Release"
-#~ msgstr "Liberar"
-
-#~ msgid "Owner:"
-#~ msgstr "Propietario:"
-
-#~ msgid "Size:"
-#~ msgstr "Tamaño:"
-
-#~ msgid "Created:"
-#~ msgstr "Creado:"
-
-#~ msgid ""
-#~ "There is currently no available printer matching the selected filters"
-#~ msgstr ""
-#~ "En la actualidad no dispone de ninguna impresora que satisfaga los "
-#~ "filtros seleccionados"

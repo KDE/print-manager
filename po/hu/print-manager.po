@@ -3,13 +3,13 @@
 #
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2012, 2015, 2020.
 # Balázs Úr <urbalazs@gmail.com>, 2012, 2013.
-# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2024-05-26 21:19+0200\n"
+"PO-Revision-Date: 2025-06-06 21:52+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -221,14 +221,12 @@ msgid "Add a new printer"
 msgstr "Új nyomtató hozzáadása"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Új nyomtató hozzáadása"
+msgstr "Új nyomtatócsoport hozzáadása"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
 msgstr "Nyomtató beállítása"
 
@@ -248,20 +246,19 @@ msgstr "Nem sikerült beállítani a nyomtatót: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Illesztőprogram:"
+msgstr "Illesztőprogram-mentes"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD-fájl"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -316,55 +313,47 @@ msgstr "Új nyomtató csatlakoztatva"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Nyomtatóbeállítás indítása"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
-msgstr "Az új nyomtató felvéve"
+msgstr "Új nyomtató lett hozzáadva"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Az új nyomtatóhoz hiányzik az illesztőprogram"
+msgstr "Az új nyomtatónak illesztőprogram-problémája lehet"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "PrintQueue"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Nyomtatási sor"
+msgstr "A nyomtatási sor nem jött létre"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Nincs nyomtató-illesztőprogram ehhez: %1 %2."
+msgstr "Nem található nyomtató-illesztőprogram ehhez: %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Nincs nyomtató-illesztőprogram ehhez: %1."
+msgstr "Nem található nyomtató-illesztőprogram ehhez: %1"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Nincs nyomtató-illesztőprogram ehhez nyomtatóhoz."
+msgstr "Nem található nyomtató-illesztőprogram ehhez nyomtatóhoz"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Nyomtató hozzáadása"
+msgstr "Nyomtató hozzáadása…"
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "„%1” felvéve, ellenőrizze az illesztőprogramját."
+msgstr "„%1” felvéve, ellenőrizze az illesztőprogramját"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -374,10 +363,9 @@ msgid "Configure"
 msgstr "Beállítás"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "„%1” felvéve „%2” illesztőprogram használatával."
+msgstr "„%1” felvéve „%2” illesztőprogram használatával"
 
 #: src/kded/NewPrinterNotification.cpp:221
 #: src/kded/NewPrinterNotification.cpp:240
@@ -386,10 +374,9 @@ msgid "Print test page"
 msgstr "Tesztoldal nyomtatása"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Válassza ki az illesz&tőprogramot"
+msgstr "Illesztőprogram keresése"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format

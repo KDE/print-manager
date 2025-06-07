@@ -1,0 +1,799 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+#
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-06 00:43+0000\n"
+"PO-Revision-Date: 2025-05-29 20:28+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 25.04.1\n"
+
+#: printermanager.cpp:106
+#, kde-format
+msgid "Add a new printer"
+msgstr "Pievienot jaunu printeri"
+
+#: printermanager.cpp:108
+#, kde-format
+msgid "Add a new printer group"
+msgstr "Pievienot jaunu printeru grupu"
+
+#: printermanager.cpp:110 printermanager.cpp:112
+#, kde-format
+msgid "Configure a printer"
+msgstr "Konfigurēt printeri"
+
+#: printermanager.cpp:310
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "Neizdevās konfigurēt klasi: "
+
+#: printermanager.cpp:310
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "Neizdevās konfigurēt printeri: "
+
+#: printermanager.cpp:435
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr "IPP Everywhere™"
+
+#: printermanager.cpp:462
+#, kde-format
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Bez draiveriem"
+
+#: printermanager.cpp:465
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr "PPD datne"
+
+#: printermanager.cpp:484
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Neizdevās izpildīt pieprasījumu: %1"
+
+#: printermanager.cpp:536
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings: %1"
+msgstr "Neizdevās iegūt servera iestatījumus: %1"
+
+#: printermanager.cpp:573
+#, kde-format
+msgctxt "@info"
+msgid "Server Settings Not Saved: (%1): %2"
+msgstr "Servera iestatījumi nav saglabāti: (%1): %2"
+
+#: printermanager.cpp:580
+#, kde-format
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Fatāla servera saglabāšanas iestatījumu kļūda: (%1): %2"
+
+#: printermanager.cpp:633
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Printera paštesta lapa"
+
+#: printermanager.cpp:639
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Tīrīt printera galviņas"
+
+#: scpinstaller.cpp:71
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
+"Instalācijas kļūda (pakotne: %1)\n"
+"Pārbaudiet autentifikācijas ierakstīšanās datus un pārliecinieties, ka "
+"„PackageKit“ ir atbilstoši ieinstalēts."
+
+#: ui/components/AddressExamples.qml:28
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Example Addresses"
+msgstr "Adreses piemērs"
+
+#: ui/components/BaseDevice.qml:111
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Address:"
+msgstr "Adrese:"
+
+#: ui/components/BaseDevice.qml:121
+#, kde-format
+msgctxt "@info The printer/device address"
+msgid "Enter device address"
+msgstr "Norādiet ierīces adresi"
+
+#: ui/components/Direct.qml:23
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a device connection"
+msgstr "Izvēlieties ierīces savienojumu"
+
+#: ui/components/Drivers.qml:59
+#, kde-format
+msgctxt "@action:button"
+msgid "Select Recommended Driver"
+msgstr "Atlasiet ieteicamo draiveri"
+
+#: ui/components/Drivers.qml:64
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Recommended drivers are based on printer make/model and connection type"
+msgstr ""
+"Draivera ieteikumi balstās uz printera ražotāju/modeli un savienojuma veidu"
+
+#: ui/components/Drivers.qml:71
+#, kde-format
+msgctxt "@action:button"
+msgid "Manual Driver Search…"
+msgstr "Manuāla draivera meklēšana…"
+
+#: ui/components/Drivers.qml:76
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Search for and select a driver based on printer make/model"
+msgstr "Meklēt un atlasīt draiveri pēc printera ražotāja/modeļa"
+
+#: ui/components/Lpd.qml:20
+#, kde-format
+msgctxt "@title:group"
+msgid "Line Printer Daemon (LPD) Protocol"
+msgstr "Rindprintera dēmona (LPD) protokols"
+
+#: ui/components/Lpd.qml:21
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Enter the address of the LPD device"
+msgstr "Norādīt LPD ierīces adresi"
+
+#: ui/components/Lpd.qml:61
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Queue:"
+msgstr "Rinda:"
+
+#: ui/components/Lpd.qml:66
+#, kde-format
+msgctxt "@info:placeholder The LPD device queue name"
+msgid "LPD queue name"
+msgstr "LPD rindas nosaukums"
+
+#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:81
+#: ui/components/Socket.qml:47
+#, kde-format
+msgctxt "@action:button"
+msgid "Continue with Address…"
+msgstr "Turpināt ar adresi…"
+
+#: ui/components/Lpd.qml:90
+#, kde-format
+msgctxt "@info:status"
+msgid "Invalid LPD URL: %1"
+msgstr "Nederīga LPD URL: %1"
+
+#: ui/components/ManualUri.qml:21
+#, kde-format
+msgctxt "@title:group"
+msgid "Find remote printing devices"
+msgstr "Atrast attālas drukas ierīces"
+
+#: ui/components/ManualUri.qml:22
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Enter the address of the remote host/device"
+msgstr "Norādiet attālā resursdatora/ierīces adresi"
+
+#: ui/components/ManualUri.qml:56
+#, kde-format
+msgctxt "@info:status"
+msgid "No Printers found at host: %1"
+msgstr "Pie resursdatora nav atrasti printeri: %1"
+
+#: ui/components/ManualUri.qml:61
+#, kde-format
+msgctxt "@info:status"
+msgid "CUPS request error (%1): %2"
+msgstr "CUPS pieprasījuma kļūda (%1): %2"
+
+#: ui/components/ManualUri.qml:71
+#, kde-format
+msgctxt "@action:button"
+msgid "Select Printer…"
+msgstr "Atlasiet printeri…"
+
+#: ui/components/ManualUri.qml:92
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"If the printer address is known, enter it and choose <interface>Continue</"
+"interface>."
+msgstr ""
+"Ja zināt printera adresi, ierakstiet to un izvēlieties <interface>Turpināt</"
+"interface>."
+
+#: ui/components/NotAvailable.qml:19
+#, kde-format
+msgctxt "@info:status"
+msgid "This feature is not yet available (%1)"
+msgstr "Šī iespēja vēl nav pieejama (%1)"
+
+#: ui/components/Socket.qml:17
+#, kde-format
+msgctxt "@title:group"
+msgid "AppSocket Protocol (aka JetDirect)"
+msgstr "„AppSocket“ protokols (jeb „JetDirect“)"
+
+#: ui/components/Socket.qml:18
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Enter the address of the AppSocket device"
+msgstr "Norādiet „AppSocket“ ierīces adresi"
+
+#: ui/components/Socket.qml:63
+#, kde-format
+msgid "Invalid Socket URL: %1"
+msgstr "Nederīga ligzdas URL: %1"
+
+#: ui/FindPrinter.qml:86
+#, kde-format
+msgctxt "@title:window"
+msgid "Set up a Printer Connection"
+msgstr "Iestatīt savienojumu ar printeri"
+
+#: ui/FindPrinter.qml:93
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Detected Devices"
+msgstr "Rādīt atrastās ierīces"
+
+#: ui/FindPrinter.qml:94
+#, kde-format
+msgctxt "@action:button"
+msgid "Show Manual Options"
+msgstr "Rādīt manuālās opcijas"
+
+#: ui/FindPrinter.qml:113
+#, kde-format
+msgid "Refresh"
+msgstr "Pārlādēt"
+
+#: ui/FindPrinter.qml:124
+#, kde-format
+msgid "CUPS Network Printers Help"
+msgstr "CUPS tīkla printeru palīdzība"
+
+#: ui/FindPrinter.qml:183
+#, kde-format
+msgctxt "@info:status"
+msgid "Unable to automatically discover any printing devices"
+msgstr "Neizdodas automātiski atklāt drukas ierīces"
+
+#: ui/FindPrinter.qml:184
+#, kde-format
+msgctxt "@info:usagetip"
+msgid ""
+"Choose \"Refresh\" to try again or choose a manual configuration option from "
+"the list"
+msgstr ""
+"Spiediet „Pārlādēt“, lai mēģinātu vēlreiz, vai izvēlieties manuālās "
+"konfigurācijas opciju no saraksta."
+
+#: ui/FindPrinter.qml:193
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Choose a manual configuration option from the list"
+msgstr "Izvēlēties manuālās konfigurācijas opciju no saraksta"
+
+#: ui/Global.qml:16
+#, kde-format
+msgctxt "@title:window"
+msgid "CUPS Server Settings"
+msgstr "CUPS servera iestatījumi"
+
+#: ui/Global.qml:23
+#, kde-format
+msgctxt "@action:button"
+msgid "CUPS Print Server Admin"
+msgstr "CUPS drukas servera administrēšana"
+
+#: ui/Global.qml:30
+#, kde-format
+msgctxt "@action:button Reset to current settings"
+msgid "Reset"
+msgstr "Atiestatīt"
+
+#: ui/Global.qml:36
+#, kde-format
+msgctxt "@action:button Apply new settings"
+msgid "Apply"
+msgstr "Pielietot"
+
+#: ui/Global.qml:88
+#, kde-format
+msgid "Please wait while the CUPS server restarts"
+msgstr "Uzgaidiet līdz pārstartējas CUPS serveris"
+
+#: ui/Global.qml:126
+#, kde-format
+msgctxt "@option:check"
+msgid "Share printers connected to this system"
+msgstr "Kopīgot ar šo sistēmu savienotos printerus"
+
+#: ui/Global.qml:138
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow printing from the Internet"
+msgstr "Ļaut drukāšanu no interneta"
+
+#: ui/Global.qml:144
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow remote administration"
+msgstr "Ļaut attālo administrēšanu"
+
+#: ui/Global.qml:149
+#, kde-format
+msgctxt "@option:check"
+msgid "Allow users to cancel any job (not just their own)"
+msgstr "Ļaut lietotājiem atcelt jebkuru uzdevumu (ne tikai savu)"
+
+#: ui/InstallDialog.qml:14
+#, kde-format
+msgctxt "@title:window"
+msgid "Printer Setup Helpers"
+msgstr "Printera iestatīšanas palīgi"
+
+#: ui/InstallDialog.qml:70
+#, kde-format
+msgctxt "@info:status"
+msgid "Install has completed successfully"
+msgstr "Instalēšana ir pabeigta"
+
+#: ui/InstallDialog.qml:72
+#, kde-format
+msgctxt "@info:status"
+msgid "Installation failed"
+msgstr "Instalēšana neizdevās"
+
+#: ui/InstallDialog.qml:74
+#, kde-format
+msgctxt "@info:status"
+msgid "Installing…"
+msgstr "Instalē…"
+
+#: ui/InstallDialog.qml:90
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Report this issue to %1"
+msgstr "Ziņot par šo problēmu uz „%1“"
+
+#: ui/main.qml:35
+#, kde-format
+msgid "new_queue"
+msgstr "jauna_rinda"
+
+#: ui/main.qml:35
+#, kde-format
+msgid "new_group"
+msgstr "jauna_grupa"
+
+#: ui/main.qml:85
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed.<nl/><nl/>Because this distro does not include PackageKit, "
+"we cannot provide an install option. Please use your package manager to "
+"install the <command>system-config-printer</command> package manually."
+msgstr ""
+"Izskatās, ka nav instalēta printera atbalsta pakotne, kas sniedz ērtas "
+"iespējas darbam ar printeri.<nl/><nl/>Tā kā šī distribūcija nepiedāvā "
+"„PackageKit“, tad nespējam piedāvāt automātiskas instalācijas opciju. "
+"Izmantojiet sistēmas pakotņu pārvaldnieku, lai manuāli instalētu "
+"<command>system-config-printer</command> pakotni."
+
+#: ui/main.qml:87
+#, kde-format
+msgctxt "@info:usagetip"
+msgid ""
+"A printer support package that provides convenience features does not appear "
+"to be installed."
+msgstr ""
+"Izskatās, ka nav instalēta printera atbalsta pakotne, kas sniedz ērtas "
+"iespējas darbam ar printeri."
+
+#: ui/main.qml:93
+#, kde-format
+msgctxt "@action:button Install printer setup helper package"
+msgid "Install It"
+msgstr "Instalēt to"
+
+#: ui/main.qml:124
+#, kde-format
+msgctxt "@action:button The thing being added is a printer"
+msgid "Add…"
+msgstr "Pievienot…"
+
+#: ui/main.qml:125
+#, kde-format
+msgctxt "@action:button"
+msgid "Add Printer…"
+msgstr "Pievienot printeri…"
+
+#: ui/main.qml:131
+#, kde-format
+msgctxt "@action:button"
+msgid "Add Group…"
+msgstr "Pievienot grupu…"
+
+#: ui/main.qml:137
+#, kde-format
+msgctxt "@action:button"
+msgid "Configure Print Server…"
+msgstr "Konfigurēt printera serveri…"
+
+#: ui/main.qml:307
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers are currently set up"
+msgstr "Šobrīd darbam nav gatavs neviens printeris"
+
+#: ui/main.qml:308
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"Click <interface>Add…</interface> to set up a new printer on this computer"
+msgstr ""
+"Klikšķiniet uz <interface>Pievienot…</interface> pogas, lai sagatavotu "
+"darbam printeri šajā datorā"
+
+#: ui/main.qml:317
+#, kde-format
+msgid "Printers"
+msgstr "Printeri"
+
+#: ui/main.qml:317
+#, kde-format
+msgid "Printer Groups"
+msgstr "Printeru grupas"
+
+#: ui/main.qml:380
+#, kde-format
+msgctxt "@action:button Open print queue"
+msgid "Print Queue"
+msgstr "Drukāšanas darbu rinda"
+
+#: ui/main.qml:396
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "Turpināt"
+
+#: ui/main.qml:397
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "Pauzēt"
+
+#: ui/main.qml:411
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "Turpināt drukāšanu"
+
+#: ui/main.qml:412
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "Pauzēt drukāšanu"
+
+#: ui/MakeModel.qml:87
+#, kde-format
+msgctxt "@title:window"
+msgid "Select a printer make/model"
+msgstr "Atlasiet printera ražotāju/modeli"
+
+#: ui/MakeModel.qml:89
+#, kde-format
+msgctxt "@title:window"
+msgid "Printer Driver (%1)"
+msgstr "Printera draiveris (%1)"
+
+#: ui/MakeModel.qml:96
+#, kde-format
+msgctxt "@title:window"
+msgid "Printer Driver"
+msgstr "Printera draiveris"
+
+#: ui/MakeModel.qml:142
+#, kde-format
+msgctxt "@action:button Select ipp everywhere driver"
+msgid "Use IPP Everywhere™"
+msgstr "Izmantot „IPP Everywhere™“"
+
+#: ui/MakeModel.qml:157
+#, kde-format
+msgid "Save"
+msgstr "Saglabāt"
+
+#: ui/MakeModel.qml:162
+#, kde-format
+msgid "Select a PostScript Printer Description (PPD) file"
+msgstr "Atlasiet „PostScript“ printera apraksta (PDD) datni"
+
+#: ui/MakeModel.qml:169
+#, kde-format
+msgid "Printer model is required.  Please select a printer model."
+msgstr "Jānorāda printera modelis. Atlasiet atbilstošo modeli."
+
+#: ui/MakeModel.qml:226
+#, kde-format
+msgctxt "@option:radio"
+msgid "Select Make and Model:"
+msgstr "Atlasiet ražotāju un modeli:"
+
+#: ui/MakeModel.qml:238
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "Filter Models"
+msgstr "Filtrēt modeļus"
+
+#: ui/MakeModel.qml:333
+#, kde-format
+msgctxt "@option:radio"
+msgid "PPD file:"
+msgstr "PPD datne:"
+
+#: ui/MakeModel.qml:352
+#, kde-format
+msgctxt "@action:button"
+msgid "Select PPD File…"
+msgstr "Atlasīt PDD datni…"
+
+#: ui/MakeModel.qml:360
+#, kde-format
+msgid "Select"
+msgstr "Atlasīt"
+
+#: ui/MakeModel.qml:361
+#, kde-format
+msgid "PostScript Printer Description Files (*.ppd)"
+msgstr "„PostScript“ printera apraksta datnes (*.ppd)"
+
+#: ui/PrinterSettings.qml:49
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Group"
+msgstr "Pievienot grupu"
+
+#: ui/PrinterSettings.qml:50
+#, kde-format
+msgctxt "@title:window"
+msgid "Add Printer"
+msgstr "Pievienot printeri"
+
+#: ui/PrinterSettings.qml:61
+#, kde-format
+msgid "Configure…"
+msgstr "Konfigurēt…"
+
+#: ui/PrinterSettings.qml:66
+#, kde-format
+msgid "Remove"
+msgstr "Noņemt"
+
+#: ui/PrinterSettings.qml:83
+#, kde-format
+msgctxt "@action:button"
+msgid "CUPS Printers Overview Help"
+msgstr "CUPS printeru pārskata palīdzība"
+
+#: ui/PrinterSettings.qml:89
+#, kde-format
+msgctxt "@action:button"
+msgid "Printer/Device Admin Page"
+msgstr "Printera/ierīces administratora lapa"
+
+#: ui/PrinterSettings.qml:107
+#, kde-format
+msgctxt "@action:button Add printer"
+msgid "Add"
+msgstr "Pievienot"
+
+#: ui/PrinterSettings.qml:108
+#, kde-format
+msgctxt "@action:button Apply changes"
+msgid "Apply"
+msgstr "Pielietot"
+
+#: ui/PrinterSettings.qml:116
+#, kde-format
+msgctxt "@info:status"
+msgid "Queue name is required. Enter a unique queue name."
+msgstr "Jānorāda rindas nosaukums. Ierakstiet unikālu nosaukumu."
+
+#: ui/PrinterSettings.qml:121
+#, kde-format
+msgctxt "@info:status"
+msgid "Queue name must be unique. Enter a unique queue name."
+msgstr "Rindas nosaukumam jābūt unikālam. Ierakstiet unikālu nosaukumu."
+
+#: ui/PrinterSettings.qml:129
+#, kde-format
+msgctxt "@info:status"
+msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
+msgstr "Jānorāda ražotājs/modelis. Spiediet uz „Atlasīt“, lai to norādītu"
+
+#: ui/PrinterSettings.qml:139
+#, kde-format
+msgctxt "@info:status"
+msgid "Configuring %1, please wait…"
+msgstr "Konfigurē „%1“, uzgaidiet…"
+
+#: ui/PrinterSettings.qml:181
+#, kde-format
+msgid "Failed to remove the printer: %1"
+msgstr "Neizdevās noņemt printeri: %1"
+
+#: ui/PrinterSettings.qml:208
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Group?"
+msgstr "Vai noņemt grupu?"
+
+#: ui/PrinterSettings.qml:209
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Printer?"
+msgstr "Vai noņemt printeri?"
+
+#: ui/PrinterSettings.qml:211
+#, kde-format
+msgctxt "@info %1 is the name of a printer or printer group"
+msgid "'%1' will be removed."
+msgstr "„%1“ tiks noņemts."
+
+#: ui/PrinterSettings.qml:218
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove Group"
+msgstr "Noņemt grupu"
+
+#: ui/PrinterSettings.qml:219
+#, kde-format
+msgctxt "@action:button"
+msgid "Remove Printer"
+msgstr "Noņemt printeri"
+
+#: ui/PrinterSettings.qml:228
+#, kde-format
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: ui/PrinterSettings.qml:399
+#, kde-format
+msgctxt "@action:check Set default printer"
+msgid "Default printer"
+msgstr "Noklusējuma printeris"
+
+#: ui/PrinterSettings.qml:414
+#, kde-format
+msgctxt "@info"
+msgid "To change the default printer, set another printer as the default."
+msgstr "Lai mainītu noklusējuma printeri, norādiet jauno noklusējuma printeri."
+
+#: ui/PrinterSettings.qml:423
+#, kde-format
+msgctxt "@action:check"
+msgid "Share this group"
+msgstr "Kopīgot šo grupu"
+
+#: ui/PrinterSettings.qml:424
+#, kde-format
+msgctxt "@action:check"
+msgid "Share this printer"
+msgstr "Kopīgot šo printeri"
+
+#: ui/PrinterSettings.qml:431
+#, kde-format
+msgctxt "@action:check"
+msgid "Accepting print jobs"
+msgstr "Pieņem drukāšanas uzdevumus"
+
+#: ui/PrinterSettings.qml:481
+#, kde-format
+msgctxt "@action:button"
+msgid "Print Test Page"
+msgstr "Drukāt testa lapu"
+
+#: ui/PrinterSettings.qml:487
+#, kde-format
+msgctxt "@action:button"
+msgid "Print Self-Test Page"
+msgstr "Drukāt paštesta lapu"
+
+#: ui/PrinterSettings.qml:494
+#, kde-format
+msgctxt "@action:button"
+msgid "Clean Print Heads"
+msgstr "Notīrīt printera galviņas"
+
+#: ui/PrinterSettings.qml:514
+#, kde-format
+msgctxt "@action:button"
+msgid "Find a Printer…"
+msgstr "Atrast printeri…"
+
+#: ui/PrinterSettings.qml:522
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Queue Name:"
+msgstr "Rindas nosaukums:"
+
+#: ui/PrinterSettings.qml:539
+#, kde-kuit-format
+msgctxt "@info:whatsthis"
+msgid ""
+"A <interface>printer group</interface> is used to pool printing resources."
+msgstr ""
+"Lai izveidot drukāšanas resursu pūlu, sistēma izmanto <interface>printeru "
+"grupu</interface>."
+
+#: ui/PrinterSettings.qml:547
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Description:"
+msgstr "Apraksts:"
+
+#: ui/PrinterSettings.qml:559
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Location:"
+msgstr "Vieta:"
+
+#: ui/PrinterSettings.qml:571
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Connection:"
+msgstr "Savienojums:"
+
+#: ui/PrinterSettings.qml:585
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Member Printers:"
+msgstr "Dalībnieka printeri:"
+
+#: ui/PrinterSettings.qml:722
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Make/Model:"
+msgstr "Ražotājs/modelis:"
+
+#: ui/PrinterSettings.qml:737
+#, kde-format
+msgctxt "@action:button Select printer make/model"
+msgid "Select…"
+msgstr "Atlasīt…"

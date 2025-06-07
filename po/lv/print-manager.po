@@ -1,0 +1,937 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+#
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"PO-Revision-Date: 2025-06-04 15:45+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 25.04.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Toms Trasūns"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "toms.trasuns@posteo.net"
+
+#: src/configure-printer/ConfigureDialog.cpp:93
+#: src/configure-printer/ConfigureDialog.cpp:94
+#, kde-format
+msgid "Media Settings"
+msgstr "Papīra iestatījumi"
+
+#: src/configure-printer/ConfigureDialog.cpp:101
+#: src/configure-printer/ConfigureDialog.cpp:102
+#, kde-format
+msgid "Banners, Policies and Allowed Users"
+msgstr "Karogi, politikas un atļautie lietotāji"
+
+#: src/configure-printer/ConfigureDialog.cpp:171
+#, kde-format
+msgid ""
+"The current page has changes.\n"
+"Do you want to save them?"
+msgstr ""
+"Pašreizējā lapa ir izmainīta.\n"
+"Vai vēlaties saglabāt izmaiņas?"
+
+#: src/configure-printer/ConfigureDialog.cpp:173
+#, kde-format
+msgid "Save"
+msgstr "Saglabāt"
+
+#: src/configure-printer/main.cpp:25
+#, kde-format
+msgid "Configure Printer"
+msgstr "Konfigurēt printeri"
+
+#: src/configure-printer/main.cpp:27
+#, kde-format
+msgid "ConfigurePrinter"
+msgstr "Konfigurēt printeri"
+
+#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#, kde-format
+msgid "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(C) 2010—2018 Daniel Nicoletti"
+
+#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#, kde-format
+msgid "Port to Qt 5 / Plasma 5"
+msgstr "Ports uz „Qt 5“ / „Plasma 5“"
+
+#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#, kde-format
+msgid "Port to Qt 6 / Plasma 6"
+msgstr "Ports uz „Qt 6“ / „Plasma 6“"
+
+#: src/configure-printer/main.cpp:39
+#, kde-format
+msgid "Printer to be configured"
+msgstr "Konfigurējamais printeris"
+
+#: src/configure-printer/PrinterBehavior.cpp:192
+#, kde-format
+msgid "Abort job"
+msgstr "Atcelt uzdevumu"
+
+#: src/configure-printer/PrinterBehavior.cpp:194
+#, kde-format
+msgid "Retry current job"
+msgstr "Atkārtot pašreizējo uzdevumu"
+
+#: src/configure-printer/PrinterBehavior.cpp:196
+#, kde-format
+msgid "Retry job"
+msgstr "Atkārtot uzdevumu"
+
+#: src/configure-printer/PrinterBehavior.cpp:198
+#, kde-format
+msgid "Stop printer"
+msgstr "Apturēt printeri"
+
+#: src/configure-printer/PrinterBehavior.cpp:207
+#, kde-format
+msgid "Authenticated"
+msgstr "Autentificējies"
+
+#: src/configure-printer/PrinterBehavior.cpp:209
+#, kde-format
+msgid "Default"
+msgstr "Noklusējuma"
+
+#: src/configure-printer/PrinterBehavior.cpp:218
+#, kde-format
+msgid "None"
+msgstr "Nekas"
+
+#: src/configure-printer/PrinterBehavior.cpp:220
+#, kde-format
+msgid "Classified"
+msgstr "Klasificēts"
+
+#: src/configure-printer/PrinterBehavior.cpp:222
+#, kde-format
+msgid "Confidential"
+msgstr "Konfidenciāls"
+
+#: src/configure-printer/PrinterBehavior.cpp:224
+#, kde-format
+msgid "Secret"
+msgstr "Slepens"
+
+#: src/configure-printer/PrinterBehavior.cpp:226
+#, kde-format
+msgid "Standard"
+msgstr "Standarta"
+
+#: src/configure-printer/PrinterBehavior.cpp:228
+#, kde-format
+msgid "Topsecret"
+msgstr "Augstākās slepenības"
+
+#: src/configure-printer/PrinterBehavior.cpp:230
+#, kde-format
+msgid "Unclassified"
+msgstr "Neklasificēts"
+
+#. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
+#: src/configure-printer/PrinterBehavior.ui:20
+#, kde-format
+msgid "Banners"
+msgstr "Karogi"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: src/configure-printer/PrinterBehavior.ui:26
+#, kde-format
+msgid "Starting Banner:"
+msgstr "Sākuma karogs:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: src/configure-printer/PrinterBehavior.ui:46
+#, kde-format
+msgid "Ending Banner:"
+msgstr "Beigu karogs:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
+#: src/configure-printer/PrinterBehavior.ui:81
+#, kde-format
+msgid "Policies"
+msgstr "Politikas"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/configure-printer/PrinterBehavior.ui:87
+#, kde-format
+msgid "Operation Policy:"
+msgstr "Darbības politika:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/configure-printer/PrinterBehavior.ui:100
+#, kde-format
+msgid "Error Policy:"
+msgstr "Kļūdu politika:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
+#: src/configure-printer/PrinterBehavior.ui:133
+#, kde-format
+msgid "Allowed Users"
+msgstr "Atļautie lietotāji"
+
+#. i18n: ectx: property (text), widget (QRadioButton, preventRB)
+#: src/configure-printer/PrinterBehavior.ui:139
+#, kde-format
+msgid "Pre&vent these users from printing "
+msgstr "&Neļaut šiem lietotājiem drukāt "
+
+#. i18n: ectx: property (text), widget (QRadioButton, allowRB)
+#: src/configure-printer/PrinterBehavior.ui:146
+#, kde-format
+msgid "A&llow these users to print"
+msgstr "&Atļaut šiem lietotājiem drukāt"
+
+#: src/configure-printer/PrinterOptions.cpp:53
+#, kde-format
+msgid "Set Default Options"
+msgstr "Iestatīt noklusējuma opcijas"
+
+#. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
+#: src/configure-printer/PrinterOptions.ui:26
+#, kde-format
+msgid "Query Printer for Default Options"
+msgstr "Vaicāt printerim noklusējuma opcijas"
+
+#: src/kcm/printermanager.cpp:106
+#, kde-format
+msgid "Add a new printer"
+msgstr "Pievienot jaunu printeri"
+
+#: src/kcm/printermanager.cpp:108
+#, kde-format
+msgid "Add a new printer group"
+msgstr "Pievienot jaunu printeru grupu"
+
+#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
+#, kde-format
+msgid "Configure a printer"
+msgstr "Konfigurēt printeri"
+
+#: src/kcm/printermanager.cpp:310
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "Neizdevās konfigurēt klasi: "
+
+#: src/kcm/printermanager.cpp:310
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "Neizdevās konfigurēt printeri: "
+
+#: src/kcm/printermanager.cpp:435
+#, kde-format
+msgctxt "@list:item"
+msgid "IPP Everywhere™"
+msgstr "IPP Everywhere™"
+
+#: src/kcm/printermanager.cpp:462
+#, kde-format
+msgctxt "@list:item"
+msgid "Driverless"
+msgstr "Bez draiveriem"
+
+#: src/kcm/printermanager.cpp:465
+#, kde-format
+msgctxt "@list:item"
+msgid "PPD File"
+msgstr "PPD datne"
+
+#: src/kcm/printermanager.cpp:484
+#, kde-format
+msgid "Failed to perform request: %1"
+msgstr "Neizdevās izpildīt pieprasījumu: %1"
+
+#: src/kcm/printermanager.cpp:536
+#, kde-format
+msgctxt "@info"
+msgid "Failed to get server settings: %1"
+msgstr "Neizdevās iegūt servera iestatījumus: %1"
+
+#: src/kcm/printermanager.cpp:573
+#, kde-format
+msgctxt "@info"
+msgid "Server Settings Not Saved: (%1): %2"
+msgstr "Servera iestatījumi nav saglabāti: (%1): %2"
+
+#: src/kcm/printermanager.cpp:580
+#, kde-format
+msgctxt "@info"
+msgid "Fatal Save Server Settings: (%1): %2"
+msgstr "Fatāla servera saglabāšanas iestatījumu kļūda: (%1): %2"
+
+#: src/kcm/printermanager.cpp:633
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Drukāt paštesta lapu"
+
+#: src/kcm/printermanager.cpp:639
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Tīrīt printera galviņas"
+
+#: src/kcm/scpinstaller.cpp:71
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Install Error (package: %1)\n"
+"Check authentication credentials and make sure PackageKit is installed "
+"properly."
+msgstr ""
+"Instalācijas kļūda (pakotne: %1)\n"
+"Pārbaudiet autentifikācijas ierakstīšanās datus un pārliecinieties, ka "
+"„PackageKit“ ir atbilstoši ieinstalēts."
+
+#: src/kded/NewPrinterNotification.cpp:63
+#, kde-format
+msgid "A New Printer was detected"
+msgstr "Ir atklāts jauns printeris"
+
+#: src/kded/NewPrinterNotification.cpp:64
+#, kde-format
+msgid "Starting printer configuration"
+msgstr "Sāk printera konfigurāciju"
+
+#: src/kded/NewPrinterNotification.cpp:100
+#, kde-format
+msgid "The New Printer was added"
+msgstr "Pievienots jauns printeris"
+
+#: src/kded/NewPrinterNotification.cpp:102
+#, kde-format
+msgid "The New Printer might have a driver problem"
+msgstr "Varētu būt problēmas ar jaunā printera draiveri"
+
+#: src/kded/NewPrinterNotification.cpp:150
+#, kde-format
+msgid "Printer queue was not created"
+msgstr "Nav izveidota drukāšanas rinda"
+
+#: src/kded/NewPrinterNotification.cpp:152
+#, kde-format
+msgid "Printer driver not found for %1 %2"
+msgstr "Nav atrasts printera draiveris printerim „%1“ „%2“"
+
+#: src/kded/NewPrinterNotification.cpp:154
+#, kde-format
+msgid "Printer driver not found for %1"
+msgstr "Nav atrasts printera „%1“ draiveris"
+
+#: src/kded/NewPrinterNotification.cpp:156
+#, kde-format
+msgid "Printer driver not found for this printer"
+msgstr "Nav atrasts šī printera draiveris"
+
+#: src/kded/NewPrinterNotification.cpp:158
+#, kde-format
+msgid "Add Printer…"
+msgstr "Pievienot printeri…"
+
+#: src/kded/NewPrinterNotification.cpp:213
+#, kde-format
+msgid "'%1' has been added, please check its driver"
+msgstr "„%1“ ir pievienots. Pārbaudiet tā draiveri"
+
+#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
+#: src/kded/NewPrinterNotification.cpp:214
+#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
+#, kde-format
+msgid "Configure"
+msgstr "Konfigurēt"
+
+#: src/kded/NewPrinterNotification.cpp:219
+#, kde-format
+msgid "'%1' has been added, using the '%2' driver"
+msgstr "„%1“ ir pievienots, izmanto „%2“ draiveri"
+
+#: src/kded/NewPrinterNotification.cpp:221
+#: src/kded/NewPrinterNotification.cpp:240
+#, kde-format
+msgid "Print test page"
+msgstr "Drukāt testa lapu"
+
+#: src/kded/NewPrinterNotification.cpp:226
+#, kde-format
+msgid "Check driver"
+msgstr "Pārbaudīt draiveri"
+
+#: src/kded/NewPrinterNotification.cpp:238
+#, kde-format
+msgid "'%1' is ready for printing."
+msgstr "„%1“ ir gatavs drukāšanai."
+
+#: src/libkcups/DevicesModel.cpp:51
+#, kde-format
+msgctxt "@item"
+msgid "Manual Config"
+msgstr "Manuāla konfigurācija"
+
+#: src/libkcups/DevicesModel.cpp:63
+#, kde-format
+msgid "Parallel Port"
+msgstr "Paralēlais ports"
+
+#: src/libkcups/DevicesModel.cpp:65
+#, kde-format
+msgid "Serial Port"
+msgstr "Seriālais ports"
+
+#: src/libkcups/DevicesModel.cpp:67
+#, kde-format
+msgid "USB"
+msgstr "USB"
+
+#: src/libkcups/DevicesModel.cpp:69
+#, kde-format
+msgid "Bluetooth"
+msgstr "„Bluetooth“"
+
+#: src/libkcups/DevicesModel.cpp:71
+#, kde-format
+msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
+msgstr "Fakss — „HP Linux Imaging and Printing“ (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:73
+#, kde-format
+msgid "HP Linux Imaging and Printing (HPLIP)"
+msgstr "HP Linux Imaging and Printing (HPLIP)"
+
+#: src/libkcups/DevicesModel.cpp:75
+#, kde-format
+msgid "Hardware Abstraction Layer (HAL)"
+msgstr "Aparatūras abstrakcijas slānis (HAL)"
+
+#: src/libkcups/DevicesModel.cpp:77
+#, kde-format
+msgid "AppSocket/HP JetDirect"
+msgstr "AppSocket/HP JetDirect"
+
+#: src/libkcups/DevicesModel.cpp:82
+#, kde-format
+msgid "LPD/LPR queue"
+msgstr "LPD/LPR rinda"
+
+#: src/libkcups/DevicesModel.cpp:84
+#, kde-format
+msgid "LPD/LPR queue %1"
+msgstr "LPD/LPR rinda %1"
+
+#: src/libkcups/DevicesModel.cpp:87
+#, kde-format
+msgid "Windows Printer via SAMBA"
+msgstr "„Windows“ printeris caur SAMBA"
+
+#: src/libkcups/DevicesModel.cpp:92
+#, kde-format
+msgid "IPP"
+msgstr "IPP"
+
+#: src/libkcups/DevicesModel.cpp:94
+#, kde-format
+msgid "IPP %1"
+msgstr "IPP %1"
+
+#: src/libkcups/DevicesModel.cpp:97
+#, kde-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: src/libkcups/DevicesModel.cpp:102
+#, kde-format
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Attāls CUPS printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:105
+#, kde-format
+msgid "IPP network printer via DNS-SD"
+msgstr "IPP tīkla printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:107
+#, kde-format
+msgid "LPD network printer via DNS-SD"
+msgstr "LPD tīkla printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:109
+#, kde-format
+msgid "AppSocket/JetDirect network printer via DNS-SD"
+msgstr "AppSocket/JetDirect tīkla printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:111
+#, kde-format
+msgid "Network printer via DNS-SD"
+msgstr "Tīkla printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:123
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to the parallel port"
+msgstr "Paralēlajam portam ir pievienots printeris"
+
+#: src/libkcups/DevicesModel.cpp:124
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected via Bluetooth"
+msgstr "Caur „Bluetooth“ ir pievienots printeris"
+
+#: src/libkcups/DevicesModel.cpp:125
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
+msgstr "Aparatūras abstrakcijas slānis (HAL)"
+
+#: src/libkcups/DevicesModel.cpp:126
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a fax machine,\n"
+"or the fax function of a multi-function device"
+msgstr ""
+"HPLIP programmatūra, kas pārvalda faksa iekārtu\n"
+"vai daudzfunkciju iekārtas faksa funkciju"
+
+#: src/libkcups/DevicesModel.cpp:127
+#, kde-format
+msgctxt "@info:tooltip"
+msgid ""
+"HPLIP software driving a printer,\n"
+"or the printer function of a multi-function device"
+msgstr ""
+"HPLIP programmatūra, kas vada printeri\n"
+"vai drukāšanas funkciju daudzfunkciju ierīces gadījumā"
+
+#: src/libkcups/DevicesModel.cpp:128
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "IPP Network printer via IPP"
+msgstr "IPP tīkla printeris caur IPP"
+
+#: src/libkcups/DevicesModel.cpp:129
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "A printer connected to a USB port"
+msgstr "USB pieslēgvietai ir pievienots printeris"
+
+#: src/libkcups/DevicesModel.cpp:135
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Remote CUPS printer via DNS-SD"
+msgstr "Attāls CUPS printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:147
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Network printer via DNS-SD"
+msgstr "Tīkla printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:149
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "%1 network printer via DNS-SD"
+msgstr "„%1“ tīkla printeris caur DNS-SD"
+
+#: src/libkcups/DevicesModel.cpp:224
+#, kde-format
+msgid "Failed to get a list of devices: '%1'"
+msgstr "Neizdevās iegūt ierīču sarakstu: „%1“"
+
+#: src/libkcups/DevicesModel.cpp:260
+#, kde-format
+msgid "Failed to group devices: '%1'"
+msgstr "Neizdevās sagrupēt ierīces: „%1“"
+
+#: src/libkcups/DevicesModel.cpp:389
+#, kde-format
+msgctxt "@item"
+msgid "Discovered Network Printers"
+msgstr "Atklātie tīkla printeri"
+
+#: src/libkcups/DevicesModel.cpp:395
+#, kde-format
+msgctxt "@item"
+msgid "Other Network Printers"
+msgstr "Citi tīkla printeri"
+
+#: src/libkcups/DevicesModel.cpp:401
+#, kde-format
+msgctxt "@item"
+msgid "Local Printers"
+msgstr "Lokālie printeri"
+
+#: src/libkcups/JobModel.cpp:28
+#, kde-format
+msgid "Status"
+msgstr "Statuss"
+
+#: src/libkcups/JobModel.cpp:29
+#, kde-format
+msgid "Name"
+msgstr "Nosaukums"
+
+#: src/libkcups/JobModel.cpp:30
+#, kde-format
+msgid "User"
+msgstr "Lietotājs"
+
+#: src/libkcups/JobModel.cpp:31
+#, kde-format
+msgid "Created"
+msgstr "Izveidots"
+
+#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#, kde-format
+msgid "Completed"
+msgstr "Pabeigts"
+
+#: src/libkcups/JobModel.cpp:33
+#, kde-format
+msgid "Pages"
+msgstr "Lapas"
+
+#: src/libkcups/JobModel.cpp:34
+#, kde-format
+msgid "Processed"
+msgstr "Apstrādāts"
+
+#: src/libkcups/JobModel.cpp:35
+#, kde-format
+msgid "Size"
+msgstr "Izmērs"
+
+#: src/libkcups/JobModel.cpp:36
+#, kde-format
+msgid "Status Message"
+msgstr "Statusa ziņojums"
+
+#: src/libkcups/JobModel.cpp:37
+#, kde-format
+msgid "Printer"
+msgstr "Printeris"
+
+#: src/libkcups/JobModel.cpp:38
+#, kde-format
+msgid "From Hostname"
+msgstr "No resursdatora"
+
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#, kde-format
+msgid "Failed to move '%1' to '%2'"
+msgstr "Neizdevās pārvietot „%1“ uz „%2“"
+
+#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
+#, kde-format
+msgid "Failed"
+msgstr "Neizdevās"
+
+#: src/libkcups/JobModel.cpp:583
+#, kde-format
+msgid "Pending"
+msgstr "Gaida"
+
+#: src/libkcups/JobModel.cpp:585
+#, kde-format
+msgid "On hold"
+msgstr "Uzgaida"
+
+#: src/libkcups/JobModel.cpp:589
+#, kde-format
+msgid "Stopped"
+msgstr "Apturēts"
+
+#: src/libkcups/JobModel.cpp:591
+#, kde-format
+msgid "Canceled"
+msgstr "Atcelts"
+
+#: src/libkcups/JobModel.cpp:593
+#, kde-format
+msgid "Aborted"
+msgstr "Pārtraukts"
+
+#: src/libkcups/KCupsConnection.cpp:736
+#, kde-format
+msgid "A CUPS connection requires authentication: \"%1\""
+msgstr "CUPS savienojums pieprasa autentificēšanos: „%1“"
+
+#: src/libkcups/KCupsPasswordDialog.cpp:22
+#, kde-format
+msgid "Enter an username and a password to complete the task"
+msgstr "Lai pabeigtu uzdevumu, norādiet lietotājvārdu un paroli"
+
+#: src/libkcups/KCupsPasswordDialog.cpp:44
+#, kde-format
+msgid "Wrong username or password"
+msgstr "Nepareizs lietotājvārds vai parole"
+
+#: src/libkcups/KCupsRequest.cpp:31
+#, kde-format
+msgid "Print service is unavailable"
+msgstr "Drukāšanas serviss nav pieejams"
+
+#: src/libkcups/KCupsRequest.cpp:33
+#, kde-format
+msgid "Not found"
+msgstr "Nav atrasts"
+
+#: src/libkcups/KCupsRequest.cpp:390
+#, kde-format
+msgid "Test Page"
+msgstr "Testa lapa"
+
+#: src/libkcups/KCupsRequest.cpp:418
+#, kde-format
+msgid "Unable to send command to printer driver!"
+msgstr "Neizdodas printerim nosūtīt drukāšanas komandu!"
+
+#: src/libkcups/KCupsRequest.cpp:546
+#, kde-format
+msgid "Failed to invoke method: %1"
+msgstr "Neizdevās izsaukt metodi: %1"
+
+#: src/libkcups/PPDModel.cpp:86
+#, kde-format
+msgid "Empty ppd model"
+msgstr "Tukšs PPD modelis"
+
+#: src/libkcups/PrinterModel.cpp:196
+#, kde-format
+msgid "Printers"
+msgstr "Printeri"
+
+#: src/libkcups/PrinterModel.cpp:399
+#, kde-format
+msgid "Idle"
+msgstr "Dīkstāve"
+
+#: src/libkcups/PrinterModel.cpp:399
+#, kde-format
+msgid "Idle, rejecting jobs"
+msgstr "Dīkstāve, noraida darbus"
+
+#: src/libkcups/PrinterModel.cpp:401
+#, kde-format
+msgid "Idle - '%1'"
+msgstr "Dīkstāve — „%1“"
+
+#: src/libkcups/PrinterModel.cpp:401
+#, kde-format
+msgid "Idle, rejecting jobs - '%1'"
+msgstr "Dīkstāve, noraidīti darbi — „%1“"
+
+#: src/libkcups/PrinterModel.cpp:405
+#, kde-format
+msgid "In use"
+msgstr "Lietošanā"
+
+#: src/libkcups/PrinterModel.cpp:407
+#, kde-format
+msgid "In use - '%1'"
+msgstr "Lietošanā — „%1“"
+
+#: src/libkcups/PrinterModel.cpp:411
+#, kde-format
+msgid "Paused"
+msgstr "Pauzēts"
+
+#: src/libkcups/PrinterModel.cpp:411
+#, kde-format
+msgid "Paused, rejecting jobs"
+msgstr "Pauzēts, noraida darbus"
+
+#: src/libkcups/PrinterModel.cpp:413
+#, kde-format
+msgid "Paused - '%1'"
+msgstr "Pauzēts — „%1“"
+
+#: src/libkcups/PrinterModel.cpp:413
+#, kde-format
+msgid "Paused, rejecting jobs - '%1'"
+msgstr "Pauzēts, noraida darbus — „%1“"
+
+#: src/libkcups/PrinterModel.cpp:417
+#, kde-format
+msgid "Unknown"
+msgstr "Nezināms"
+
+#: src/libkcups/PrinterModel.cpp:419
+#, kde-format
+msgid "Unknown - '%1'"
+msgstr "Nezināms — „%1“"
+
+#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#, kde-format
+msgid "Print Queue"
+msgstr "Drukāšanas rinda"
+
+#: src/printqueue/main.cpp:39
+#, kde-format
+msgid "Show printer queue(s)"
+msgstr "Rādīt printeru rindas"
+
+#: src/printqueue/PrintQueueUi.cpp:180
+#, kde-format
+msgid "Printer ready"
+msgstr "Printeris ir gatavs"
+
+#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
+#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
+#: src/printqueue/PrintQueueUi.ui:118
+#, kde-format
+msgid "Pause Printer"
+msgstr "Pauzēt printeri"
+
+#: src/printqueue/PrintQueueUi.cpp:188
+#, kde-format
+msgid "Printing..."
+msgstr "Drukā..."
+
+#: src/printqueue/PrintQueueUi.cpp:190
+#, kde-format
+msgid "Printing '%1'"
+msgstr "Drukā „%1“"
+
+#: src/printqueue/PrintQueueUi.cpp:198
+#, kde-format
+msgid "Printer paused"
+msgstr "Printeris ir pauzēts"
+
+#: src/printqueue/PrintQueueUi.cpp:199
+#, kde-format
+msgid "Resume Printer"
+msgstr "Turpināt printera darbību"
+
+#: src/printqueue/PrintQueueUi.cpp:203
+#, kde-format
+msgid "Printer state unknown"
+msgstr "Printera statuss nav zināms"
+
+#: src/printqueue/PrintQueueUi.cpp:248
+#, kde-format
+msgid "Move to"
+msgstr "Pārvietot uz"
+
+#: src/printqueue/PrintQueueUi.cpp:280
+#, kde-format
+msgid "Authenticate"
+msgstr "Autentificēties"
+
+#: src/printqueue/PrintQueueUi.cpp:395
+#, kde-format
+msgid "All Printers (%1 Job)"
+msgid_plural "All Printers (%1 Jobs)"
+msgstr[0] "Visi printeri (%1 darbs)"
+msgstr[1] "Visi printeri (%1 darbi)"
+msgstr[2] "Visi printeri (%1 darbu)"
+
+#: src/printqueue/PrintQueueUi.cpp:397
+#, kde-format
+msgid "%2 (%1 Job)"
+msgid_plural "%2 (%1 Jobs)"
+msgstr[0] "%2 (%1 darbs)"
+msgstr[1] "%2 (%1 darbi)"
+msgstr[2] "%2 (%1 darbu)"
+
+#: src/printqueue/PrintQueueUi.cpp:400
+#, kde-format
+msgid "All Printers"
+msgstr "Vis printeri"
+
+#: src/printqueue/PrintQueueUi.cpp:467
+#, kde-format
+msgid "Failed to cancel '%1'"
+msgstr "Neizdevās atcelt „%1“"
+
+#: src/printqueue/PrintQueueUi.cpp:470
+#, kde-format
+msgid "Failed to hold '%1'"
+msgstr "Neizdevās apturēt „%1“"
+
+#: src/printqueue/PrintQueueUi.cpp:473
+#, kde-format
+msgid "Failed to release '%1'"
+msgstr "Neizdevās atbrīvot „%1“"
+
+#: src/printqueue/PrintQueueUi.cpp:476
+#, kde-format
+msgid "Failed to reprint '%1'"
+msgstr "Neizdevās pārprintēt „%1“"
+
+#: src/printqueue/PrintQueueUi.cpp:547
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Ievadiet akreditācijas datus, lai drukātu no <b>%1</b>"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
+#: src/printqueue/PrintQueueUi.ui:20
+#, kde-format
+msgid "my printer (x jobs)"
+msgstr "mans printeris (x darbi)"
+
+#. i18n: ectx: property (text), widget (QLabel, iconL)
+#: src/printqueue/PrintQueueUi.ui:49
+#, kde-format
+msgid "Printer Icon"
+msgstr "Printera ikona"
+
+#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
+#: src/printqueue/PrintQueueUi.ui:233
+#, kde-format
+msgid "Cancel"
+msgstr "Atcelt"
+
+#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
+#: src/printqueue/PrintQueueUi.ui:253
+#, kde-format
+msgid "Hold"
+msgstr "Aizturēt"
+
+#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
+#: src/printqueue/PrintQueueUi.ui:266
+#, kde-format
+msgid "Resume"
+msgstr "Turpināt"
+
+#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
+#: src/printqueue/PrintQueueUi.ui:279
+#, kde-format
+msgid "Reprint"
+msgstr "Pārprintēt"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: src/printqueue/PrintQueueUi.ui:312
+#, kde-format
+msgid "Active Jobs"
+msgstr "Aktīvie darbi"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: src/printqueue/PrintQueueUi.ui:317
+#, kde-format
+msgid "Completed Jobs"
+msgstr "Pabeigtie darbi"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
+#: src/printqueue/PrintQueueUi.ui:322
+#, kde-format
+msgid "All Jobs"
+msgstr "Visi darbi"

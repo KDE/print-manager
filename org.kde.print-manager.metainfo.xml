@@ -33,6 +33,7 @@
   <name xml:lang="ka">პრინტერის მორგება</name>
   <name xml:lang="ko">프린터 설정</name>
   <name xml:lang="lt">Spausdintuvų konfigūracija</name>
+  <name xml:lang="lv">Printera konfigurācija</name>
   <name xml:lang="nl">Printerconfiguratie</name>
   <name xml:lang="nn">Skrivaroppsett</name>
   <name xml:lang="pa">ਪਰਿੰਟਰ ਦੀ ਸੰਰਚਨਾ</name>
@@ -82,6 +83,7 @@
   <summary xml:lang="ka">დააყენეთ და მოირგეთ პრინტერები</summary>
   <summary xml:lang="ko">프린터 설치 및 설정</summary>
   <summary xml:lang="lt">Nustatyti ir konfigūruoti spausdintuvus</summary>
+  <summary xml:lang="lv">Sagatavojiet darbam un konfigurējiet printerus</summary>
   <summary xml:lang="nl">Printers instellen en configureren</summary>
   <summary xml:lang="nn">Set opp skrivarar</summary>
   <summary xml:lang="pa">ਪਰਿੰਟਰਾਂ ਨੂੰ ਸੈਟਅੱਪ ਅਤੇ ਉਹਨਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰੋ</summary>
@@ -131,6 +133,7 @@
     <p xml:lang="ka">KDE-ის კონფიგურაციის ეს ხელსაწყო საშუალებას გაძლევთ დააყენოთ და მოირგოთ პრინტერები. ის პოულობს ახალ პრინტერებს და მათთვის დრაივერებს და საშუალებას გაძლევთ, მოირგოთ ისინი. ასევე შეგიძლიათ სატესტო გვერდების დაბეჭდვა და პრინტერის გაზიარების მორგებაც.</p>
     <p xml:lang="ko">이 KDE 설정 도구를 사용하여 프린터를 설치하고 설정할 수 있습니다. 새로운 프린터를 감지하고 사용 가능한 드라이버를 찾아서 설정할 수 있습니다. 테스트 페이지를 인쇄하고 공유 설정을 변경할 수 있습니다.</p>
     <p xml:lang="lt">Šis KDE konfigūracijos įrankis leidžia jums nusistatyti ir konfigūruoti spausdintuvus. Įrankis aptinka naujus spausdintuvus, randa prieinamas tvarkykles ir leidžia jums konfigūruoti jų nuostatas. Galite spausdinti bandomuosius puslapius bei nustatyti bendrinimo savybes.</p>
+    <p xml:lang="lv">Šis KDE konfigurācijas rīks ļauj sagatavot darbam un konfigurēt printerus. Tas spēj atklāt jaunus printerus, atrast pieejamos draiverus un konfigurēt to iestatījumus. Tāpat ar šo rīku varat drukāt testa lapas un iestatīt printera kopīgošanu ar citiem datoriem.</p>
     <p xml:lang="nl">Dit hulpmiddel voor configuratie van laat u printers instellen en configureren. Het detecteert nieuwe printers, vindt de beschikbare stuurprogramma's en biedt u aan om hun instellingen te configureren. U kunt testpagina's afdrukken en eigenschappen voor delen instellen.</p>
     <p xml:lang="nn">Dette verktøyet lèt deg setja opp skrivarar. Det kan oppdaga nye skrivarar, finna tilgjengelege drivarar og setja dei opp. Du kan skriva ut testutskrifter og endra delingsinnstillingar.</p>
     <p xml:lang="pa">ਇਹ KDE ਸੰਰਚਨਾ ਟੂਲ ਤੁਹਾਨੂੰ ਪਰਿੰਟਰ ਸੈਟਅੱਪ ਅਤੇ ਉਹਨਾਂ ਦੀ ਸੰਰਚਨਾ ਕਰਨ ਲਈ ਮਦਦ ਕਰਦਾ ਹੈ। ਇਹ ਨਵੇਂ ਪਰਿੰਟਰਾਂ ਦੀ ਖੋਜ ਕਰਦਾ ਹੈ, ਮੌਜੂਦ ਡਰਾਇਵਰ ਲੱਭਦਾ ਹੈ ਅਤੇ ਤੁਹਾਨੂੰ ਉਹਨਾਂ ਦੀ ਸੰਰਚਨਾ ਦੀ ਮਨਜ਼ੂਰੀ ਦਿੰਦਾ ਹੈ। ਤੁਸੀਂ ਟੈਸਟ ਸਫ਼ਾ ਪਰਿੰਟ ਕਰਕੇ ਵੇਖ ਸਕਦੇ ਹੋ ਅਤੇ ਸਾਂਝਾ ਕਰਨ ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਸੈੱਟ ਕਰੋ।</p>
@@ -186,6 +189,7 @@
       <caption xml:lang="ka">პრინტერის მორგება.</caption>
       <caption xml:lang="ko">프린터 설정입니다.</caption>
       <caption xml:lang="lt">Spausdintuvo nuostatos.</caption>
+      <caption xml:lang="lv">Printera iestatījumi.</caption>
       <caption xml:lang="nl">Printerinstellingen.</caption>
       <caption xml:lang="nn">Skrivarinnstillingane</caption>
       <caption xml:lang="pa">ਪਰਿੰਟਰ ਸੈਟਿੰਗਾਂ।</caption>

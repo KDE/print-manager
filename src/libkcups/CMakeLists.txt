@@ -48,7 +48,6 @@ target_link_libraries(kcupslib PUBLIC
     KF6::ConfigWidgets
     KF6::CoreAddons
     KF6::I18n
-    KF6::IconThemes
     KF6::KIOCore
     KF6::KIOWidgets
     KF6::WidgetsAddons

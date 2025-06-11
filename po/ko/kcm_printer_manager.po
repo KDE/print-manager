@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2025-04-07 00:34+0200\n"
+"PO-Revision-Date: 2025-06-10 21:58+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -48,23 +48,19 @@ msgstr "프린터를 설정할 수 없음: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "드라이버 없음(%1)"
+msgstr "드라이버 없음"
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD 파일:"
+msgstr "PPD 파일"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -150,16 +146,13 @@ msgstr "프린터 제조사/모델과 연결 방식에 따라서 추천 드라�
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "수동 드라이버 검색…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr "프린터 제조사/모델과 연결 방식에 따라서 추천 드라이버를 선택합니다"
+msgstr "프린터 제조사/모델과 연결 방식에 따라서 드라이버를 검색하고 선택"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -531,7 +524,7 @@ msgstr "프린터 드라이버"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™ 사용"
 
 #: ui/MakeModel.qml:157
 #, kde-format

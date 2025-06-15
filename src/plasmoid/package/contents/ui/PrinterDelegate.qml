@@ -55,7 +55,7 @@ PlasmaExtras.ExpandableListItem {
         Kirigami.Action {
             icon.name: "configure"
             text: i18n("Configure printer…")
-            onTriggered: PrintManager.ProcessRunner.configurePrinter(model.printerName);
+            onTriggered: PrintManager.ProcessRunner.kcmConfigurePrinter(model.printerName);
         },
         Kirigami.Action {
             icon.name: "view-list-details"

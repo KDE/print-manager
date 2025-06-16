@@ -33,12 +33,8 @@ target_link_libraries(configure-printer
     Qt6::Widgets
     KF6::CoreAddons
     KF6::I18n
-    KF6::KIOCore
-    KF6::KIOWidgets
-    KF6::WidgetsAddons
     KF6::DBusAddons
     KF6::ConfigCore
-    Cups::Cups
     kcupslib
 )
 

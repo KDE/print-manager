@@ -18,7 +18,11 @@ void ConfigurePrinter::configurePrinter(const QString &printer)
 {
     m_cpInterface = new ConfigurePrinterInterface(this);
     connect(m_cpInterface, &ConfigurePrinterInterface::quit, this, &ConfigurePrinter::quit);
+    showDialog(printer);
+}
 
+void ConfigurePrinter::showDialog(const QString &printer)
+{
     if (!printer.isEmpty()) {
         m_cpInterface->ConfigurePrinter(printer);
     } else {
@@ -26,7 +30,6 @@ void ConfigurePrinter::configurePrinter(const QString &printer)
         QTimer::singleShot(500, m_cpInterface, &ConfigurePrinterInterface::RemovePrinter);
     }
 }
-
 ConfigurePrinter::~ConfigurePrinter()
 {
 }

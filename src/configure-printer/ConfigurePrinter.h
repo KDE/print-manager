@@ -18,6 +18,7 @@ public:
     ~ConfigurePrinter() override;
 
     void configurePrinter(const QString &printer);
+    void showDialog(const QString &printer);
 
 private:
     ConfigurePrinterInterface *m_cpInterface = nullptr;

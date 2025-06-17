@@ -40,6 +40,12 @@ int main(int argc, char **argv)
     parser.process(app);
     aboutData.processCommandLine(&parser);
 
+    QObject::connect(&service, &KDBusService::activateRequested, &app, [&app](const QStringList &arguments) {
+        if (!arguments.isEmpty()) {
+            app.showDialog(arguments.at(1));
+        }
+    });
+
     const QStringList args = parser.positionalArguments();
     if (args.count() == 1) {
         QString printerName = args.at(0);

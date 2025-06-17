@@ -19,9 +19,6 @@ target_link_libraries(kde-print-queue
     Qt::Widgets
     KF6::CoreAddons
     KF6::I18n
-    KF6::KIOCore
-    KF6::KIOWidgets
-    KF6::WidgetsAddons
     KF6::DBusAddons
     KF6::ConfigCore
     kcupslib

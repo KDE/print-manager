@@ -44,7 +44,6 @@ target_link_libraries(kcupslib PUBLIC
     Qt::Core
     Qt::DBus
     Qt::Qml
-    Qt::Widgets
     KF6::ConfigWidgets
     KF6::CoreAddons
     KF6::I18n

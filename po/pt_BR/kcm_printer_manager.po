@@ -3,20 +3,21 @@
 #
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2023.
 # SPDX-FileCopyrightText: 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
+# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2025-04-14 01:15-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-06-21 19:20-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -49,20 +50,16 @@ msgstr "Não foi possível configurar a impressora: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP em qualquer lugar™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Sem driver (%1)"
+msgstr "Sem driver"
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Arquivo PPD"
@@ -154,18 +151,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Procura manual de driver…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Os drivers recomendados são baseados na marca/modelo da impressora e no tipo "
-"de conexão"
+msgstr "Procurar e selecionar um driver baseado na marca/modelo da impressora"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -544,7 +536,7 @@ msgstr "Driver de impressora"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Usar IPP em qualquer lugar™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

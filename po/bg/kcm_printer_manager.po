@@ -800,28 +800,3 @@ msgstr "Марка и модел:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Избиране…"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "Unable to locate recommended drivers.  Click <interface>Refresh</"
-#~ "interface> to try again or choose a driver manually."
-#~ msgstr ""
-#~ "Невъзможно е да се намерят препоръчаните драйвери.  Щракнете върху "
-#~ "<interface>Обновяване</interface>, за да опитате отново, или изберете "
-#~ "драйвер ръчно."
-
-#~ msgctxt "@action:button"
-#~ msgid "Choose Driverless…"
-#~ msgstr "Избиране бездрайверно принтиране…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Choose Driver…"
-#~ msgstr "Избиране на драйвер…"
-
-#~ msgctxt "@label:listitem"
-#~ msgid "PPD File (%1)"
-#~ msgstr "PPD файл (%1)"
-
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "** Принтер по подразбиране"

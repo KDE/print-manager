@@ -299,15 +299,56 @@ KCM.ScrollViewKCM {
             }
         }
 
-        Kirigami.PlaceholderMessage {
-            anchors.centerIn: parent
-            width: parent.width - (Kirigami.Units.largeSpacing * 4)
-            visible: list.count === 0
-            icon.name: "printer"
-            text: i18nc("@info:status", "No printers are currently set up")
-            explanation: xi18nc("@info:usagetip", "Click <interface>Add…</interface> to set up a new printer on this computer")
+        Component {
+            id: noDevicesMsgComp
+
+            Kirigami.PlaceholderMessage {
+                icon.name: "printer"
+                text: i18nc("@info:status", "No printers are currently set up")
+                explanation: xi18nc("@info:usagetip", "Click <interface>Add…</interface> to set up a new printer on this computer")
+            }
         }
-        
+
+        Component {
+            id: noServiceMsgComp
+
+            Kirigami.PlaceholderMessage {
+                icon.name: "printer-error"
+                text: i18nc("@info:status", "Printing services not available")
+                explanation: xi18nc("@info:usagetip", "Click <interface>Configure Print Server…</interface> to check settings, or verify that the CUPS system service is active.")
+                helpfulAction: Kirigami.Action {
+                    text: i18nc("@action:button", "Refresh")
+                    icon.name: "view-refresh"
+                    onTriggered: pmModel.update()
+                }
+            }
+        }
+
+        Loader {
+            anchors.centerIn: parent
+            width: parent.width - (Kirigami.Units.gridUnit * 4)
+
+            active: {
+                let ret = false
+                if (pmModel.serverUnavailable) {
+                    ret = true
+                } else if (list.count === 0) {
+                    ret = true
+                }
+                return ret
+            }
+
+            sourceComponent: {
+                let ret = null
+                if (pmModel.serverUnavailable) {
+                    ret = noServiceMsgComp
+                } else if (list.count === 0) {
+                    ret = noDevicesMsgComp
+                }
+                return ret
+            }
+        }
+
         Component {
             id: sectionComp
 

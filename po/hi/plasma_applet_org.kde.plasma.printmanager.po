@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:43+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -17,70 +17,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
 msgstr "प्रिंटर"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:44
 msgid "Printer Groups"
 msgstr "प्रिंटर समूह"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "कोई प्रिंटर कॉन्फ़िगर या खोजा नहीं गया है"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:77
 msgid "No matches"
 msgstr "कोई मेल नहीं"
 
-#: src/plasmoid/package/contents/ui/main.qml:54
+#: src/plasmoid/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "कतार में %1 प्रिंट कार्य हैं"
 msgstr[1] "कतार में %1 प्रिंट कार्य हैं"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 को %2 के साथ प्रिंट किया जा रहा है"
 
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 के साथ मुद्रण"
 
-#: src/plasmoid/package/contents/ui/main.qml:68
+#: src/plasmoid/main.qml:68
 msgid "Print queue is empty"
 msgstr "प्रिंट कतार रिक्त है"
 
-#: src/plasmoid/package/contents/ui/main.qml:100
+#: src/plasmoid/main.qml:100
 msgid "&Configure Printers…"
 msgstr "&प्रिंटर कॉन्फ़िगर करें…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr "फिर शुरू करना"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr "विराम"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr "प्रिंटर कॉन्फ़िगर करें…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr "प्रिंट कतार देखें…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "रद्द करना"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-06 00:43+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2025-06-21 19:20-0300\n"
 "Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -476,39 +476,60 @@ msgstr ""
 
 #: ui/main.qml:317
 #, kde-format
+msgctxt "@info:status"
+msgid "Printing services not available"
+msgstr ""
+
+#: ui/main.qml:318
+#, kde-kuit-format
+msgctxt "@info:usagetip"
+msgid ""
+"Click <interface>Configure Print Server…</interface> to check settings, or "
+"verify that the CUPS system service is active."
+msgstr ""
+
+#: ui/main.qml:320
+#, fuzzy, kde-format
+#| msgid "Refresh"
+msgctxt "@action:button"
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: ui/main.qml:358
+#, kde-format
 msgid "Printers"
 msgstr "Impressoras"
 
-#: ui/main.qml:317
+#: ui/main.qml:358
 #, kde-format
 msgid "Printer Groups"
 msgstr "Grupos de impressoras"
 
-#: ui/main.qml:380
+#: ui/main.qml:421
 #, kde-format
 msgctxt "@action:button Open print queue"
 msgid "Print Queue"
 msgstr "Fila de impressão"
 
-#: ui/main.qml:396
+#: ui/main.qml:437
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Continuar"
 
-#: ui/main.qml:397
+#: ui/main.qml:438
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pausar"
 
-#: ui/main.qml:411
+#: ui/main.qml:452
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Continuar impressão"
 
-#: ui/main.qml:412
+#: ui/main.qml:453
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:43+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2024-11-28 23:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,69 +17,67 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
 msgstr "프린터"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:44
 msgid "Printer Groups"
 msgstr "프린터 그룹"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "설정되거나 발견된 프린터 없음"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:77
 msgid "No matches"
 msgstr "검색 결과 없음"
 
-#: src/plasmoid/package/contents/ui/main.qml:54
+#: src/plasmoid/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "인쇄 대기열에 작업이 %1개 있음"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%2에서 %1 인쇄 중"
 
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1에서 인쇄 중"
 
-#: src/plasmoid/package/contents/ui/main.qml:68
+#: src/plasmoid/main.qml:68
 msgid "Print queue is empty"
 msgstr "인쇄 대기열이 비어 있음"
 
-#: src/plasmoid/package/contents/ui/main.qml:100
+#: src/plasmoid/main.qml:100
 msgid "&Configure Printers…"
 msgstr "프린터 설정(&C)…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr "다시 시작"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr "일시 정지"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr "프린터 설정…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr "인쇄 대기열 열기…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

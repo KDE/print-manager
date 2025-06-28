@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:43+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2024-12-01 15:03+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -18,70 +18,68 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
 msgstr "Tulostimet"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:44
 msgid "Printer Groups"
 msgstr "Tulostinryhmät"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "Tulostimia ei ole havaittu tai määritetty"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:77
 msgid "No matches"
 msgstr "Ei osumia"
 
-#: src/plasmoid/package/contents/ui/main.qml:54
+#: src/plasmoid/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Jonossa on yksi tulostustyö"
 msgstr[1] "Jonossa on %1 tulostustyötä"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Tulosta %2 tulostimeen %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Tulostetaan tulostimeen %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:68
+#: src/plasmoid/main.qml:68
 msgid "Print queue is empty"
 msgstr "Tulostusjono on tyhjä"
 
-#: src/plasmoid/package/contents/ui/main.qml:100
+#: src/plasmoid/main.qml:100
 msgid "&Configure Printers…"
 msgstr "T&ulostinasetukset…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr "Jatka"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr "Tauko"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr "Tulostinasetukset…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr "Näytä tulostusjono…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

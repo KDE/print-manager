@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:43+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2024-12-28 17:41+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,70 +18,68 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
 msgstr "Presiloj"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:44
 msgid "Printer Groups"
 msgstr "Presilo-Grupoj"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "Neniuj presiloj estis agordita aŭ malkovrita"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:77
 msgid "No matches"
 msgstr "Neniuj alumetoj"
 
-#: src/plasmoid/package/contents/ui/main.qml:54
+#: src/plasmoid/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Estas unu prestasko en la atendovico"
 msgstr[1] "Estas %1 prestaskoj en la atendovico"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Presanta %1 kun %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Preso per %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:68
+#: src/plasmoid/main.qml:68
 msgid "Print queue is empty"
 msgstr "Presa vico estas malplena"
 
-#: src/plasmoid/package/contents/ui/main.qml:100
+#: src/plasmoid/main.qml:100
 msgid "&Configure Printers…"
 msgstr "&Agordi Presilojn…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr "Rekomenci"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr "Paŭzo"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:57
 msgid "Configure printer…"
 msgstr "Agordi presilon…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:62
 msgid "View print queue…"
 msgstr "Vidi presan vicon…"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Nuligi"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

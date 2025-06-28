@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-16 00:43+0000\n"
+"POT-Creation-Date: 2025-06-28 00:43+0000\n"
 "PO-Revision-Date: 2021-11-11 21:44+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -17,27 +17,25 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
-#: src/plasmoid/package/contents/ui/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
 msgstr "Ćišćaki"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:44
 #, fuzzy
 #| msgid "Printers"
 msgid "Printer Groups"
 msgstr "Ćišćaki"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
-#: src/plasmoid/package/contents/ui/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
 msgid "No printers have been configured or discovered"
 msgstr "Žane ćišćaki připrawjene abo wotkryte"
 
-#: src/plasmoid/package/contents/ui/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:77
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/main.qml:54
+#: src/plasmoid/main.qml:54
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Na ćišć čaka %1 nadawk"
@@ -45,52 +43,52 @@ msgstr[1] "Na ćišć čakatej %1 nadawkaj"
 msgstr[2] "Na ćišć čakaja %1 nadawki"
 msgstr[3] "Na ćišć čaka %1 nadawkow"
 
-#: src/plasmoid/package/contents/ui/main.qml:63
+#: src/plasmoid/main.qml:63
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Ćišću %1 na %2"
 
-#: src/plasmoid/package/contents/ui/main.qml:65
+#: src/plasmoid/main.qml:65
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Ćišću z %1"
 
-#: src/plasmoid/package/contents/ui/main.qml:68
+#: src/plasmoid/main.qml:68
 msgid "Print queue is empty"
 msgstr "Ćišćenska čakarnja je prózdna"
 
-#: src/plasmoid/package/contents/ui/main.qml:100
+#: src/plasmoid/main.qml:100
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
 msgstr "Ćišćaki &připrawić..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Resume"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:43
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:57
 #, fuzzy
 #| msgid "Configure printer..."
 msgid "Configure printer…"
 msgstr "Ćišćak připrawić..."
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:62
 #, fuzzy
 #| msgid "View print queue"
 msgid "View print queue…"
 msgstr "Ćišćensku čakarnju pokazać"
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr ""
 
-#: src/plasmoid/package/contents/ui/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-05-31 15:21+0200\n"
+"PO-Revision-Date: 2025-06-28 20:36+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -474,7 +474,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Utskriftstjänster är inte tillgängliga"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -483,10 +483,11 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Klicka på <interface>Anpassa utskriftsserver…</interface> för att "
+"kontrollera inställningarna eller verifiera att CUPS-systemtjänsten är aktiv."
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Uppdatera"

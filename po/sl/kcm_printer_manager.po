@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-04-29 07:11+0200\n"
+"PO-Revision-Date: 2025-06-28 08:20+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -470,7 +470,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Tiskarske storitve niso na voljo"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -479,10 +479,11 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Kliknite <interface>Konfiguriraj tiskalniški strežnik…</interface>, da "
+"preverite nastavitve ali preverite, ali je sistemska storitev CUPS aktivna."
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Osveži"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-04-29 04:12+0200\n"
+"PO-Revision-Date: 2025-06-28 03:55+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -475,7 +475,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "ბეჭდვის სერვისები ხელმისაწვდომი არაა"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -484,10 +484,12 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"დააწკაპუნეთ ღილაკზე <interface>ბეჭდვის სერვერის მორგება…</interface> "
+"პარამეტრების შესამოწმებლად, ან გადასამოწმებლად, აქტიურია სისტემური სერვისი "
+"CUPS, თუ არა."
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "განახლება"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-04-29 09:08+0200\n"
+"PO-Revision-Date: 2025-06-28 10:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -479,7 +479,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Sense serveis d'impressió disponibles"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -488,10 +488,12 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Feu clic a <interface>Configura el servidor d'impressió…</interface> per a "
+"comprovar la configuració o verificar que el servei del sistema CUPS estigui "
+"actiu."
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Actualitza"
@@ -827,24 +829,3 @@ msgstr "Fabricant/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Selecciona…"
-
-#~ msgctxt "@info:status"
-#~ msgid ""
-#~ "Unable to locate recommended drivers.  Click <interface>Refresh</"
-#~ "interface> to try again or choose a driver manually."
-#~ msgstr ""
-#~ "No s'han pogut localitzar els controladors recomanats. Feu clic a "
-#~ "<interface>Actualitza</interface> per a tornar-ho a provar o triar "
-#~ "manualment un controlador."
-
-#~ msgctxt "@action:button"
-#~ msgid "Choose Driverless…"
-#~ msgstr "Trieu Sense controladors…"
-
-#~ msgctxt "@action:button"
-#~ msgid "Choose Driver…"
-#~ msgstr "Trieu un controlador…"
-
-#~ msgctxt "@label:listitem"
-#~ msgid "PPD File (%1)"
-#~ msgstr "Fitxer PPD (%1)"

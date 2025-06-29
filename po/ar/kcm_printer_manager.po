@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-05-04 06:37+0400\n"
+"PO-Revision-Date: 2025-06-28 17:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -276,7 +276,7 @@ msgstr "اعرض الخيرات اليدوية"
 #: ui/FindPrinter.qml:113
 #, kde-format
 msgid "Refresh"
-msgstr "أنعش"
+msgstr "حدّث"
 
 #: ui/FindPrinter.qml:124
 #, kde-format
@@ -295,7 +295,7 @@ msgctxt "@info:usagetip"
 msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
-msgstr "اختر \"حدث\" للمحاولة مرة أخرى أو اختر خيار الضبط اليدوي من القائمة"
+msgstr "اختر \"حدّث\" للمحاولة مرة أخرى أو اختر خيار الضبط اليدوي من القائمة"
 
 #: ui/FindPrinter.qml:193
 #, kde-format
@@ -466,7 +466,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "خدمات الطباعة غير متوفرة"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -475,13 +475,14 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"انقر فوق <interface>اضبط خادم الطباعة…</interface> للتحقق من الإعدادات، أو "
+"تحقق من أن خدمة نظام CUPS نشطة."
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr "أنعش"
+msgstr "حدّث"
 
 #: ui/main.qml:358
 #, kde-format

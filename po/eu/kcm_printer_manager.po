@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-05-18 14:56+0200\n"
+"PO-Revision-Date: 2025-06-30 00:12+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -459,7 +459,7 @@ msgstr "Gehitu taldea..."
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Konfiguratu inprimatze zerbitzaria..."
+msgstr "Konfiguratu inprimatzeko zerbitzaria..."
 
 #: ui/main.qml:307
 #, kde-format
@@ -480,7 +480,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Inprimatze-zerbitzuak ez daude erabilgarri"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -489,10 +489,12 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Egin klik <interface>Konfiguratu inprimatzeko zerbitzua…</interface>an "
+"ezarpenak egiaztatzeko, edo CUPS sistemaren zerbitzua aktibo dagoela "
+"egiaztatzeko."
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Berritu"

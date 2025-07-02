@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-04-30 03:18+0900\n"
+"PO-Revision-Date: 2025-07-01 19:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -461,7 +461,7 @@ msgstr "點擊「新增…」來為這台電腦設定新的印表機"
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "列印服務不可用"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -470,10 +470,11 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"點擊 <interface>設定列印伺服器…</interface> 來檢查設定值，或是檢查 CUPS 系統"
+"服務是否為作用中。"
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "重新整理"

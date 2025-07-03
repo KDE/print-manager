@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-05-29 20:28+0300\n"
+"PO-Revision-Date: 2025-07-02 17:22+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -453,7 +453,7 @@ msgstr "Pievienot grupu…"
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Konfigurēt printera serveri…"
+msgstr "Konfigurēt drukas serveri…"
 
 #: ui/main.qml:307
 #, kde-format
@@ -474,7 +474,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Nav pieejami drukāšanas servisi"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -483,10 +483,11 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Lai pārbaudītu iestatījumus, klikšķiniet uz <interface>Konfigurēt drukas "
+"serveri…</interface> vai arī pārbaudiet, vai sistēmas CUPS serviss ir aktīvs."
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Pārlādēt"

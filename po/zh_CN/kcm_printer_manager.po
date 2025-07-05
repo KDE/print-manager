@@ -464,7 +464,7 @@ msgstr "点击 <interface>添加…</interface> 为本机创建新的打印机"
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "打印服务不可用"
 
 #: ui/main.qml:318
 #, kde-kuit-format
@@ -473,12 +473,14 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"点击 <interface>配置打印服务器…</interface> 来检查设置，或确保 CUPS 系统服务"
+"在活动状态。"
 
 #: ui/main.qml:320
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr ""
+msgstr "刷新"
 
 #: ui/main.qml:358
 #, kde-format

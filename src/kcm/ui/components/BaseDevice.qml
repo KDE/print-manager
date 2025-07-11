@@ -22,7 +22,7 @@ import ".."
 */
 ColumnLayout {
     id: root
-    spacing: Kirigami.Units.largeSpacing*2
+    spacing: Kirigami.Units.largeSpacing
 
     property alias title: heading.title
     property alias subtitle: heading.subtitle
@@ -34,7 +34,7 @@ ColumnLayout {
     property alias showUriSearch: searchButton.visible
 
     property string scheme: "://"
-    property Component contentItem: Item {}
+    property Component contentItem
 
     property alias showAddressExamples: addrLoader.active
     property var addressExamples: []
@@ -84,13 +84,14 @@ ColumnLayout {
         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.15
         subtitleFont.pointSize: Kirigami.Theme.defaultFont.pointSize
 
-        elide: Text.ElideRight
+        wrapMode: Text.WordWrap
+        Layout.fillWidth: true
 
         icon.source: "printer"
         icon.width: Kirigami.Units.iconSizes.huge
         icon.height: Kirigami.Units.iconSizes.huge
 
-        Layout.alignment: Qt.AlignHCenter
+        Layout.topMargin: Kirigami.Units.largeSpacing
         Layout.bottomMargin: Kirigami.Units.largeSpacing
     }
 
@@ -98,8 +99,8 @@ ColumnLayout {
         id: helpLabel
         level: 4
         visible: text.length > 0
-        horizontalAlignment: Qt.AlignHCenter
-        Layout.fillWidth: true
+        elide: Text.ElideRight
+        Layout.preferredWidth: root.width
     }
 
     // Uri
@@ -142,6 +143,9 @@ ColumnLayout {
 
     // Form content
     Loader {
+        active: contentItem !== null
+        Layout.fillWidth: true
+        Layout.fillHeight: true
         sourceComponent: contentItem
     }
 

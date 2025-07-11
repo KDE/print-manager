@@ -91,5 +91,7 @@ BaseDevice {
                 }
             }
         }
+
+        Item { Layout.fillHeight: true }
     }
 }

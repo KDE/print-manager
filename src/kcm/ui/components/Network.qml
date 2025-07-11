@@ -18,11 +18,7 @@ BaseDevice {
     subtitle: settings.value("device-desc")
     showUri: false
 
-
-    // Recommended Driver list
-    contentItem: Drivers {
-        width: root.width
-
+    Drivers {
         Component.onCompleted: {
             load(settings.value("device-id")
                           , settings.value("printer-make-and-model")

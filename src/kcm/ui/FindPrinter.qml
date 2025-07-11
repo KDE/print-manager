@@ -1,5 +1,5 @@
 /**
- SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
+ SPDX-FileCopyrightText: 2023-2025 Mike Noe <noeerover@gmail.com>
  SPDX-License-Identifier: GPL-2.0-or-later
  */
 
@@ -8,15 +8,20 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PM
+import org.kde.kcmutils as KCM
 import org.kde.kitemmodels as KItemModels
-import "components"
 
-Kirigami.Dialog {
+KCM.AbstractKCM {
     id: root
+
+    headerPaddingEnabled: false
+    framedView: false
 
     property bool loading: false
     property bool showingManual: false
     property bool hasDetectedDevices: false
+
+    property var newPrinterCallback
 
     // MFG:HP;MDL:ENVY 4520 series;CLS:PRINTER;DES:ENVY 4520 series;SN:TH6BN4M1390660;
     function parseDeviceId(devId: string, key: string) : var {
@@ -45,7 +50,44 @@ Kirigami.Dialog {
         settings.remove("ppd-name")
         settings.add("ppd-type", PM.PPDType.Custom)
         root.setValues(settings.pending)
-        close()
+    }
+
+    function setValues(configMap : var) {
+        const cfgObj = {info: configMap["printer-info"]
+                     , printerUri: configMap["device-uri"]
+                     , location: configMap["printer-location"]
+                     , "ppd-type": configMap["ppd-type"]
+                     , "ppd-name": configMap["ppd-name"] ?? ""}
+
+        if (configMap.hasOwnProperty("printer-model")) {
+            cfgObj.printerName = configMap["printer-model"].replace(/ /g, "_")
+        }
+
+        // Set the PPD attrs
+        const ppdObj = {make: configMap["printer-make"]
+                     , makeModel: configMap["printer-make-and-model"]
+                     , type: configMap["ppd-type"]
+                     , file: configMap["ppd-name"] ?? ""}
+
+        // if we have device file
+        // strip out the base file name
+        if (ppdObj.file) {
+             cfgObj.kind = ppdObj.makeModel
+             const i = ppdObj.file.lastIndexOf('/')
+             if (i !== -1) {
+                 ppdObj.pcfile = ppdObj.file.slice(-(ppdObj.file.length-i-1))
+             } else {
+                 ppdObj.pcfile = ppdObj.file
+             }
+        } else {
+            cfgObj.kind = ""
+            ppdObj.pcfile = ""
+        }
+
+        if (typeof newPrinterCallback == 'function') {
+            newPrinterCallback(true, cfgObj, ppdObj)
+        }
+
     }
 
     // Find the first direct device and network device
@@ -81,13 +123,18 @@ Kirigami.Dialog {
 
     }
 
-    signal setValues(var values)
-
     title: i18nc("@title:window", "Set up a Printer Connection")
 
-    standardButtons: Kirigami.Dialog.NoButton
-
-    customFooterActions: [
+    actions: [
+        Kirigami.Action {
+            text: i18nc("@action:button", "Refresh")
+            enabled: !loading
+            icon.name: "view-refresh-symbolic"
+            onTriggered: {
+                showingManual = false
+                devices.load()
+            }
+        },
         Kirigami.Action {
             text: showingManual
                   ? i18nc("@action:button", "Show Detected Devices")
@@ -96,6 +143,7 @@ Kirigami.Dialog {
                     ? "standard-connector-symbolic"
                     : "internet-services"
             visible: hasDetectedDevices
+            enabled: !loading
             onTriggered: {
                 showingManual = !showingManual
                 deviceItems.invalidateFilter()
@@ -108,25 +156,8 @@ Kirigami.Dialog {
                     compLoader.sourceComponent = chooseManualComp
                 }
             }
-        },
-        Kirigami.Action {
-            text: i18n("Refresh")
-            enabled: !loading
-            icon.name: "view-refresh-symbolic"
-            onTriggered: {
-                showingManual = false
-                devices.load()
-            }
         }
     ]
-
-    footerLeadingComponent: Kirigami.UrlButton {
-        text: i18n("CUPS Network Printers Help")
-        url: "http://localhost:631/help/network.html"
-        padding: Kirigami.Units.largeSpacing
-    }
-
-    onClosed: destroy(10)
 
     ConfigValues {
         id: settings
@@ -163,6 +194,7 @@ Kirigami.Dialog {
 
         function load() {
             loading = true
+            compLoader.selector = ""
             kcm.clearRemotePrinters()
             kcm.clearRecommendedDrivers()
             update()
@@ -195,15 +227,18 @@ Kirigami.Dialog {
         }
     }
 
-    contentItem: RowLayout {
+    RowLayout {
         spacing: 0
+        anchors.fill: parent
 
         QQC2.ScrollView {
             Layout.fillHeight: true
             Layout.preferredWidth: Kirigami.Units.gridUnit*13
             clip: true
+            Kirigami.Theme.colorSet: Kirigami.Theme.View
+            Kirigami.Theme.inherit: false
 
-            contentItem: ListView {
+            ListView {
                 id: deviceList
 
                 QQC2.BusyIndicator {
@@ -283,50 +318,54 @@ Kirigami.Dialog {
 
         Kirigami.Separator {
             Layout.fillHeight: true
-            width: 1
         }
 
-        Loader {
-            id: compLoader
-            active: !loading
-
+        Rectangle {
+            Kirigami.Theme.colorSet: Kirigami.Theme.Window
+            Kirigami.Theme.inherit: false
+            color: Kirigami.Theme.backgroundColor
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: Kirigami.Units.largeSpacing
 
-            property string selector: ""
-            property string info: ""
+            Loader {
+                id: compLoader
+                active: !loading
+                anchors.fill: parent
+                anchors.margins: Kirigami.Units.smallSpacing
 
-            onSelectorChanged: {
-                switch (selector) {
-                case "other":
-                case "ipp":
-                case "ipps":
-                case "http":
-                case "https":
-                case "scsi":
-                case "cups-brf":
-                    source = "components/ManualUri.qml"
-                    break
-                case "network":
-                    source = "components/Network.qml"
-                    break
-                case "direct":
-                    source = "components/Direct.qml"
-                    break
-                case "lpd":
-                    source = "components/Lpd.qml"
-                    break
-                case "socket":
-                    source = "components/Socket.qml"
-                    break
-                case "smb":
-                case "serial":
-                default:
-                    source = "components/NotAvailable.qml"
+                property string selector: ""
+                property string info: ""
+
+                onSelectorChanged: {
+                    switch (selector) {
+                    case "other":
+                    case "ipp":
+                    case "ipps":
+                    case "http":
+                    case "https":
+                    case "scsi":
+                    case "cups-brf":
+                        source = "components/ManualUri.qml"
+                        break
+                    case "network":
+                        source = "components/Network.qml"
+                        break
+                    case "direct":
+                        source = "components/Direct.qml"
+                        break
+                    case "lpd":
+                        source = "components/Lpd.qml"
+                        break
+                    case "socket":
+                        source = "components/Socket.qml"
+                        break
+                    default:
+                        source = "components/NotAvailable.qml"
+                    }
                 }
             }
         }
+
 
     }
 

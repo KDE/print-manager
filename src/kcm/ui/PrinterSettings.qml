@@ -30,11 +30,6 @@ KCM.AbstractKCM {
         dlg.open()
     }
 
-    function openFindPrinterDlg() {
-            const dlg = newComp.createObject(root)
-            dlg.open()
-    }
-
     function printerNameIsUnique(name: string) : bool {
         for (let i=0, len=printerModel.rowCount(); i<len; ++i) {
             if (printerModel.data(printerModel.index(i,0), PM.PrinterModel.DestName).toString() === name)
@@ -232,56 +227,6 @@ KCM.AbstractKCM {
             ]
         }
 
-    }
-
-    Component {
-        id: newComp
-
-        FindPrinter {
-            anchors.centerIn: parent
-            implicitWidth: Math.ceil(parent.width*.90)
-            implicitHeight: Math.ceil(parent.height*.90)
-
-            // Selected printer and/or driver
-            // ppd-name contains the driver file
-            onSetValues: configMap => {
-                // Set the text entry items
-                if (configMap.hasOwnProperty("printer-model")) {
-                    queueName.text = configMap["printer-model"].replace(/ /g, "_")
-                }
-                queueInfo.text  = configMap[queueInfo.objectName]
-                devUri.text     = configMap[devUri.objectName]
-                location.text   = configMap[location.objectName]
-                driver.text     = configMap["printer-make-and-model"]
-
-                // Initialize the config map
-                config.set(configMap)
-                config.clean()
-
-                // Set the PPD attrs
-                ppd.make      = configMap["printer-make"]
-                ppd.makeModel = configMap["printer-make-and-model"]
-                ppd.type      = configMap["ppd-type"]
-                ppd.file      = configMap["ppd-name"] ?? ""
-
-                // strip out the base file name
-                if (ppd.file) {
-                     const i = ppd.file.lastIndexOf('/')
-                     if (i !== -1) {
-                         ppd.pcfile = ppd.file.slice(-(ppd.file.length-i-1))
-                     } else {
-                         ppd.pcfile = ppd.file
-                     }
-                } else {
-                    ppd.pcfile = ""
-                }
-                // Not a remote printer and no driver file
-                // then immediately offer make/model selection
-                if (!configMap["remote"] && ppd.file.length === 0) {
-                    openMakeModelDlg()
-                }
-            }
-        }
     }
 
     Component {
@@ -507,16 +452,6 @@ KCM.AbstractKCM {
         GridLayout {
             columns: 2
             columnSpacing: Kirigami.Units.gridUnit
-
-            QQC2.Button {
-                Layout.fillWidth: true
-                Layout.columnSpan: 2
-                text: i18nc("@action:button", "Find a Printer…")
-                icon.name: "search-symbolic"
-                visible: addMode && !modelData.isClass
-
-                onClicked: openFindPrinterDlg()
-            }
 
             QQC2.Label {
                 text: i18nc("@label:textbox", "Queue Name:")

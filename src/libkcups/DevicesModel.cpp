@@ -123,8 +123,8 @@ QString DevicesModel::deviceDescription(const QString &uri) const
         {{u"parallel"_s, i18nc("@info:tooltip", "A printer connected to the parallel port")},
          {u"bluetooth"_s, i18nc("@info:tooltip", "A printer connected via Bluetooth")},
          {u"hal"_s, i18nc("@info:tooltip", "Local printer detected by the Hardware Abstraction Layer (HAL)")},
-         {u"hpfax"_s, i18nc("@info:tooltip", "HPLIP software driving a fax machine,\nor the fax function of a multi-function device")},
-         {u"hp"_s, i18nc("@info:tooltip", "HPLIP software driving a printer,\nor the printer function of a multi-function device")},
+         {u"hpfax"_s, i18nc("@info:tooltip", "HPLIP software driving a fax machine, or the fax function of a multi-function device")},
+         {u"hp"_s, i18nc("@info:tooltip", "HPLIP software driving a printer, or the printer function of a multi-function device")},
          {u"ipp"_s, i18nc("@info:tooltip", "IPP Network printer via IPP")},
          {u"usb"_s, i18nc("@info:tooltip", "A printer connected to a USB port")}});
 

@@ -60,8 +60,7 @@ KCM.ScrollViewKCM {
     function addPrinter(isPrinter : bool) {
         checkServerSettings()
         if (isPrinter) {
-            configDialog = findComp.createObject(root)
-            configDialog.open()
+            kcm.push("FindPrinter.qml", { newPrinterCallback: newPrinter })
         } else {
             newPrinter(false)
         }
@@ -177,6 +176,10 @@ KCM.ScrollViewKCM {
         // when a successful save is done
         function onSaveDone(forceRefresh) {
             kcm.pop()
+            // After saving a new printer, we're two levels deep in pages
+            if (kcm.currentIndex != 0) {
+                kcm.pop()
+            }
             // WORKAROUND: Remove after CUPS 2.4.13 release
             // CUPS Issue #1235 (https://github.com/OpenPrinting/cups/issues/1235)
             // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
@@ -220,54 +223,6 @@ KCM.ScrollViewKCM {
                         break
                     }
                 }
-            }
-        }
-    }
-
-    Component {
-        id: findComp
-
-        FindPrinter {
-            anchors.centerIn: parent
-            implicitWidth: Math.ceil(parent.width*.90)
-            implicitHeight: Math.ceil(parent.height*.90)
-
-            // Selected printer and/or driver
-            // ppd-name contains the driver file name
-            onSetValues: configMap => {
-                const cfgObj = {info: configMap["printer-info"]
-                             , printerUri: configMap["device-uri"]
-                             , location: configMap["printer-location"]
-                             , "ppd-type": configMap["ppd-type"]
-                             , "ppd-name": configMap["ppd-name"] ?? ""}
-
-                if (configMap.hasOwnProperty("printer-model")) {
-                    cfgObj.printerName = configMap["printer-model"].replace(/ /g, "_")
-                }
-
-                // Set the PPD attrs
-                const ppdObj = {make: configMap["printer-make"]
-                             , makeModel: configMap["printer-make-and-model"]
-                             , type: configMap["ppd-type"]
-                             , file: configMap["ppd-name"] ?? ""}
-
-                // if we have device file
-                // strip out the base file name
-                if (ppdObj.file) {
-                     cfgObj.kind = ppdObj.makeModel
-                     const i = ppdObj.file.lastIndexOf('/')
-                     if (i !== -1) {
-                         ppdObj.pcfile = ppdObj.file.slice(-(ppdObj.file.length-i-1))
-                     } else {
-                         ppdObj.pcfile = ppdObj.file
-                     }
-                } else {
-                    cfgObj.kind = ""
-                    ppdObj.pcfile = ""
-                }
-
-                root.newPrinter(true, cfgObj, ppdObj)
-
             }
         }
     }

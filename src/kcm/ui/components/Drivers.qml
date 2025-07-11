@@ -11,7 +11,7 @@ import org.kde.plasma.printmanager as PM
 
 ColumnLayout {
     id: root
-    spacing: Kirigami.Units.largeSpacing
+    spacing: Kirigami.Units.smallSpacing
 
     readonly property bool ippCapable: kcm.isIPPCapable(settings.value("device-uri"))
     readonly property alias busy: kcmConn.loading
@@ -20,7 +20,6 @@ ColumnLayout {
     function selectDriver(driverMap) {
         settings.set(driverMap)
         setValues(settings.pending)
-        close()
     }
 
     function load(devid, makeModel, uri) {
@@ -45,6 +44,7 @@ ColumnLayout {
 
     QQC2.BusyIndicator {
         running: kcmConn.loading
+        visible: running
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         implicitWidth: Kirigami.Units.gridUnit * 6
         implicitHeight: Kirigami.Units.gridUnit * 6
@@ -52,11 +52,12 @@ ColumnLayout {
 
     RowLayout {
         Layout.alignment: Qt.AlignHCenter
+        visible: !busy
 
         QQC2.Button {
-            enabled: !busy
-            icon.name: "dialog-ok-symbolic"
             text: i18nc("@action:button", "Select Recommended Driver")
+            icon.name: "dialog-ok-symbolic"
+            visible: recmlist.count > 0
 
             onClicked: selectDriver(kcm.recommendedDrivers[recmlist.currentIndex])
 
@@ -66,9 +67,8 @@ ColumnLayout {
         }
 
         QQC2.Button {
-            enabled: !busy
-            icon.name: "search-symbolic"
             text: i18nc("@action:button", "Manual Driver Search…")
+            icon.name: "search-symbolic"
 
             onClicked: manualDriverSelect()
 
@@ -79,9 +79,9 @@ ColumnLayout {
     }
 
     QQC2.ScrollView {
-        Layout.alignment: Qt.AlignHCenter
         Layout.fillWidth: true
         Layout.fillHeight: true
+        clip: true
 
         Component.onCompleted: {
             if (background) {
@@ -91,6 +91,7 @@ ColumnLayout {
 
         contentItem: ListView {
             id: recmlist
+            clip: true
 
             activeFocusOnTab: true
             keyNavigationWraps: true

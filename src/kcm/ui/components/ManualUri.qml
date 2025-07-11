@@ -39,13 +39,12 @@ BaseDevice {
                  }
 
     contentItem: ColumnLayout {
-        width: uriItem.width
         spacing: Kirigami.Units.smallSpacing
 
         Component.onCompleted: {
             uriItem.uriText = compLoader.selector !== "other"
-                    ? compLoader.selector + ":"
-                    : "ipp:"
+                    ? compLoader.selector + uriItem.scheme
+                    : "ipp://"
         }
 
         Connections {
@@ -64,8 +63,8 @@ BaseDevice {
 
         // Actions
         RowLayout {
-            Layout.alignment: Qt.AlignHCenter
             spacing: Kirigami.Units.smallSpacing
+            Layout.alignment: Qt.AlignHCenter
 
             QQC2.Button {
                 text: i18nc("@action:button", "Select Printer…")
@@ -97,7 +96,6 @@ BaseDevice {
 
         // remote printer list
         QQC2.ScrollView {
-            Layout.alignment: Qt.AlignHCenter
             Layout.fillWidth: true
             Layout.fillHeight: true
             visible: list.count > 0
@@ -144,5 +142,8 @@ BaseDevice {
                 }
             }
         }
+
+        Item { Layout.fillHeight: true }
+
     }
 }

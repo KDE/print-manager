@@ -470,8 +470,7 @@ msgid ""
 msgstr ""
 
 #: ui/main.qml:320
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Obnovit"

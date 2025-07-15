@@ -177,12 +177,22 @@ Kirigami.Dialog {
     }
 
     Component {
+        id: notAvailableComp
+
+        Kirigami.PlaceholderMessage {
+            icon.name: "package-available-locked"
+            text: compLoader.info
+            explanation: i18nc("@info:status", "This feature is not yet available (%1)", compLoader.selector)
+        }
+    }
+
+    Component {
         id: noDevicesComp
 
         Kirigami.PlaceholderMessage {
+            icon.name: "edit-none"
             text: i18nc("@info:status", "Unable to automatically discover any printing devices")
             explanation: i18nc("@info:usagetip", "Choose \"Refresh\" to try again or choose a manual configuration option from the list")
-            Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
         }
     }
 
@@ -190,8 +200,8 @@ Kirigami.Dialog {
         id: chooseManualComp
 
         Kirigami.PlaceholderMessage {
+            icon.name: "edit-entry"
             text: i18nc("@info:usagetip", "Choose a manual configuration option from the list")
-            Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
         }
     }
 
@@ -291,7 +301,8 @@ Kirigami.Dialog {
             active: !loading
 
             Layout.fillWidth: true
-            Layout.fillHeight: true
+            // Placeholders don't need fillHeight
+            Layout.fillHeight: item instanceof Kirigami.PlaceholderMessage ? false : true
             Layout.margins: Kirigami.Units.largeSpacing
 
             property string selector: ""
@@ -323,7 +334,7 @@ Kirigami.Dialog {
                 case "smb":
                 case "serial":
                 default:
-                    source = "components/NotAvailable.qml"
+                    sourceComponent = notAvailableComp
                 }
             }
         }

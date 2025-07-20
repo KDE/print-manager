@@ -8,6 +8,8 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
+pragma ComponentBehavior: Bound
+
 /**
  * Device setup for LPD/LPR printer devices (Legacy)
  *
@@ -31,17 +33,17 @@ BaseDevice {
     ]
 
     contentItem: ColumnLayout {
-        width: lpdDevice.width
+        Layout.preferredWidth: lpdDevice.width
         // use large here to match Base
         spacing: Kirigami.Units.largeSpacing
 
         Component.onCompleted: {
             const url = lpdDevice.getUrl(settings.value("device-uri"))
             if (url) {
-                lpdDevice.uriText = scheme + url.hostname
+                lpdDevice.uriText = lpdDevice.scheme + url.hostname
                 queue.text = url.pathname + url.search
             } else {
-                lpdDevice.uriText = scheme
+                lpdDevice.uriText = lpdDevice.scheme
             }
         }
 
@@ -49,7 +51,7 @@ BaseDevice {
             target: lpdDevice
             function onAddressExampleSelected(address) {
                 const url = lpdDevice.getUrl(address)
-                lpdDevice.uriText = scheme + url.hostname
+                lpdDevice.uriText = lpdDevice.scheme + url.hostname
                 queue.text = url.pathname + url.search
             }
         }
@@ -77,8 +79,8 @@ BaseDevice {
 
             onClicked: {
                 let deviceAddress = lpdDevice.uriText + "/" + queue.text.replace(/\//g, "")
-                if (!deviceAddress.startsWith(scheme)) {
-                    deviceAddress = scheme + deviceAddress
+                if (!deviceAddress.startsWith(lpdDevice.scheme)) {
+                    deviceAddress = lpdDevice.scheme + deviceAddress
                 }
                 // validate url
                 let url = lpdDevice.getUrl(deviceAddress)

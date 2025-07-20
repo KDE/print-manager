@@ -7,6 +7,8 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
+pragma ComponentBehavior: Bound
+
 QQC2.ScrollView {
     id: root
     signal selected(string address)
@@ -21,7 +23,7 @@ QQC2.ScrollView {
 
     contentItem: ListView {
         clip: true
-        model: examples
+        model: root.examples
 
         headerPositioning: ListView.OverlayHeader
         header: Kirigami.InlineViewHeader {
@@ -32,6 +34,9 @@ QQC2.ScrollView {
         delegate: QQC2.ItemDelegate {
             implicitWidth: ListView.view.width
             text: modelData
+
+            required property var modelData
+
             onClicked: root.selected(modelData)
         }
     }

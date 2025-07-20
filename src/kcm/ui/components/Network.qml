@@ -13,7 +13,6 @@ import QtQuick
  * (system-config-printer)
 */
 BaseDevice {
-    id: root
     title: settings.value("printer-make-and-model")
     subtitle: settings.value("device-desc")
     showUri: false

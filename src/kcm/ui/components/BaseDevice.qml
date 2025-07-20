@@ -9,6 +9,8 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import ".."
 
+pragma ComponentBehavior: Bound
+
 /**
  * This provides the base for a device setup component.
  *
@@ -81,6 +83,8 @@ ColumnLayout {
     Kirigami.IconTitleSubtitle {
         id: heading
 
+        title: i18nc("@label:title", "Printing Device")
+
         font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.15
         subtitleFont.pointSize: Kirigami.Theme.defaultFont.pointSize
 
@@ -143,10 +147,10 @@ ColumnLayout {
 
     // Form content
     Loader {
-        active: contentItem !== null
+        active: root.contentItem !== null
         Layout.fillWidth: true
         Layout.fillHeight: true
-        sourceComponent: contentItem
+        sourceComponent: root.contentItem
     }
 
     // Address Examples
@@ -166,6 +170,5 @@ ColumnLayout {
         }
 
     }
-
 
 }

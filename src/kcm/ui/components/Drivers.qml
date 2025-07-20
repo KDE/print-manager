@@ -9,6 +9,8 @@ import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PM
 
+pragma ComponentBehavior: Bound
+
 ColumnLayout {
     id: root
     spacing: Kirigami.Units.smallSpacing
@@ -52,14 +54,14 @@ ColumnLayout {
 
     RowLayout {
         Layout.alignment: Qt.AlignHCenter
-        visible: !busy
+        visible: !root.busy
 
         QQC2.Button {
             text: i18nc("@action:button", "Select Recommended Driver")
             icon.name: "dialog-ok-symbolic"
             visible: recmlist.count > 0
 
-            onClicked: selectDriver(kcm.recommendedDrivers[recmlist.currentIndex])
+            onClicked: root.selectDriver(kcm.recommendedDrivers[recmlist.currentIndex])
 
             QQC2.ToolTip {
                 text: i18nc("@info:tooltip", "Recommended drivers are based on printer make/model and connection type")
@@ -109,10 +111,13 @@ ColumnLayout {
             delegate: Kirigami.SubtitleDelegate {
                 width: ListView.view.width
 
+                required property var modelData
+                required property int index
+
                 text: modelData.title
                 subtitle: modelData["ppd-name"]
                 icon.name: {
-                    if (ippCapable) {
+                    if (root.ippCapable) {
                         return modelData.favorite
                                ? "favorites-symbolic"
                                : "dialog-question-symbolic"

@@ -8,6 +8,8 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
+pragma ComponentBehavior: Bound
+
 /**
  * Device setup for Socket/JetDirect printer devices (Legacy)
 */
@@ -30,16 +32,16 @@ BaseDevice {
     ]
 
     contentItem: ColumnLayout {
-        width: socketDevice.width
+        Layout.preferredWidth: socketDevice.width
         // use large to match Base
         spacing: Kirigami.Units.largeSpacing
 
         Component.onCompleted: {
             const url = socketDevice.getUrl(settings.value("device-uri"))
             if (url) {
-                uriText = url.href
+                socketDevice.uriText = url.href
             } else {
-                uriText = scheme
+                socketDevice.uriText = socketDevice.scheme
             }
         }
 
@@ -49,9 +51,9 @@ BaseDevice {
             Layout.alignment: Qt.AlignHCenter
 
             onClicked: {
-                let uriStr = uriText
-                if (!uriStr.startsWith(scheme)) {
-                    uriStr = scheme + uriStr
+                let uriStr = socketDevice.uriText
+                if (!uriStr.startsWith(socketDevice.scheme)) {
+                    uriStr = socketDevice.scheme + uriStr
                 }
                 // validate url
                 const url = socketDevice.getUrl(uriStr)

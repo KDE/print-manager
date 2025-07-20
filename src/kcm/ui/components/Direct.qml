@@ -8,6 +8,8 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
+pragma ComponentBehavior: Bound
+
 /**
  * Device setup for directly connected printer devices,
  * ie. USB.
@@ -20,7 +22,7 @@ BaseDevice {
     id: root
     title: settings.value("printer-make-and-model")
     subtitle: settings.value("device-desc")
-    helpText: uriModel ? i18nc("@info:usagetip", "Choose a device connection") : ""
+    helpText: root.uriModel ? i18nc("@info:usagetip", "Choose a device connection") : ""
     showUri: false
 
     readonly property var uriModel: settings.value("device-uris")
@@ -55,13 +57,16 @@ BaseDevice {
                     event.accepted = false;
                 }
 
-                model: uriModel
+                model: root.uriModel
 
                 delegate: QQC2.ItemDelegate {
                     width: ListView.view.width
                     text: devices.uriDevice(modelData)
                     icon.name: "standard-connector-symbolic"
                     highlighted: ListView.view.currentIndex === index
+
+                    required property var modelData
+                    required property int index
 
                     function getDrivers() : void {
                         ListView.view.currentIndex = index

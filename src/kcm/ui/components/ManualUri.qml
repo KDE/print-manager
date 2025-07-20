@@ -8,6 +8,8 @@ import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 
+pragma ComponentBehavior: Bound
+
 /*
  * This component is a catch-all for manually selected printers.
  * A host can be queried for printers it advertises, which will
@@ -52,12 +54,12 @@ BaseDevice {
 
             function onRemotePrintersLoaded() {
                 if (kcm.remotePrinters.length === 0) {
-                    setError(i18nc("@info:status", "No Printers found at host: %1", uriText))
+                    uriItem.setError(i18nc("@info:status", "No Printers found at host: %1", uriItem.uriText))
                 }
             }
 
             function onRequestError(msg) {
-                setError(i18nc("@info:status", "CUPS request error (%1): %2", uriText, msg))
+                uriItem.setError(i18nc("@info:status", "CUPS request error (%1): %2", uriItem.uriText, msg))
             }
         }
 
@@ -88,8 +90,7 @@ BaseDevice {
             }
 
             Kirigami.ContextualHelpButton {
-                toolTipText: xi18nc("@info:whatsthis", "If the printer address is known, enter it and choose <interface>Continue</interface>.
-                    If the printer is on a remote host, enter that address and choose <interface>Search</interface>.")
+                toolTipText: xi18nc("@info:whatsthis", "If the printer address is known, enter it and choose <interface>Continue</interface>.  If the printer is on a remote host, enter that address and choose <interface>Search</interface>.")
             }
 
         }
@@ -130,6 +131,9 @@ BaseDevice {
                     icon.name: modelData.remote
                                 ? "folder-network-symbolic"
                                 : modelData["printer-is-class"] ? "folder" : modelData.iconName
+
+                    required property var modelData
+                    required property int index
 
                     Component.onCompleted: {
                         if (index === 0) {

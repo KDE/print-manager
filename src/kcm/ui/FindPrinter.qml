@@ -209,12 +209,22 @@ KCM.AbstractKCM {
     }
 
     Component {
+        id: notAvailableComp
+
+        Kirigami.PlaceholderMessage {
+            icon.name: "package-available-locked"
+            text: compLoader.info
+            explanation: i18nc("@info:status", "This feature is not available (%1)", compLoader.selector)
+        }
+    }
+
+    Component {
         id: noDevicesComp
 
         Kirigami.PlaceholderMessage {
+            icon.name: "edit-none"
             text: i18nc("@info:status", "Unable to automatically discover any printing devices")
             explanation: i18nc("@info:usagetip", "Choose \"Refresh\" to try again or choose a manual configuration option from the list")
-            Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
         }
     }
 
@@ -222,8 +232,8 @@ KCM.AbstractKCM {
         id: chooseManualComp
 
         Kirigami.PlaceholderMessage {
+            icon.name: "edit-entry"
             text: i18nc("@info:usagetip", "Choose a manual configuration option from the list")
-            Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
         }
     }
 
@@ -262,7 +272,7 @@ KCM.AbstractKCM {
                     delegate: Kirigami.ListSectionHeader {
                         width: ListView.view.width
                         required property string section
-                        label: section
+                        text: section
                     }
                 }
 
@@ -330,8 +340,17 @@ KCM.AbstractKCM {
             Loader {
                 id: compLoader
                 active: !loading
-                anchors.fill: parent
-                anchors.margins: Kirigami.Units.smallSpacing
+
+                anchors.centerIn: parent
+
+                // Force placeholders to format properly inside the Rect
+                width: item instanceof Kirigami.PlaceholderMessage
+                       ? parent.width - (Kirigami.Units.largeSpacing * 4)
+                       : parent.width - Kirigami.Units.gridUnit
+
+                height: item instanceof Kirigami.PlaceholderMessage
+                        ? item.implicitHeight
+                        : parent.height - Kirigami.Units.gridUnit
 
                 property string selector: ""
                 property string info: ""
@@ -360,13 +379,10 @@ KCM.AbstractKCM {
                         source = "components/Socket.qml"
                         break
                     default:
-                        source = "components/NotAvailable.qml"
+                        sourceComponent = notAvailableComp
                     }
                 }
             }
         }
-
-
     }
-
 }

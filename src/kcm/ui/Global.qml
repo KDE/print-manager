@@ -7,8 +7,9 @@
 import QtQuick 
 import QtQuick.Layouts 
 import QtQuick.Controls as QQC2
-import org.kde.kcmutils as KCM
 import org.kde.kirigami as Kirigami
+
+pragma ComponentBehavior: Bound
 
 Kirigami.Dialog {
     id: root
@@ -37,7 +38,7 @@ Kirigami.Dialog {
             icon.name: "dialog-ok-apply"
             enabled: settings.hasPending
             onTriggered: {
-                saving = true
+                root.saving = true
                 layout.enabled = false
                 kcm.saveServerSettings(settings.pending)
             }
@@ -76,8 +77,8 @@ Kirigami.Dialog {
 
         function onServerStarted() {
             error.reset()
-            if (saving) {
-                close()
+            if (root.saving) {
+                root.close()
             } else {
                 kcm.getServerSettings()
             }
@@ -101,7 +102,7 @@ Kirigami.Dialog {
             id: error
             Layout.fillWidth: true
 
-            onTimeout: close()
+            onTimeout: root.close()
         }
 
         RowLayout {

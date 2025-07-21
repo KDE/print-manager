@@ -12,6 +12,8 @@ import org.kde.kcmutils as KCM
 import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PM
 
+pragma ComponentBehavior: Bound
+
 KCM.AbstractKCM {
     id: root
     headerPaddingEnabled: false
@@ -55,12 +57,12 @@ KCM.AbstractKCM {
         Kirigami.Action {
             text: i18n("Configure…")
             icon.name: "configure-symbolic"
-            visible: !addMode
-            onTriggered: PM.ProcessRunner.configurePrinter(modelData.printerName)
+            visible: !root.addMode
+            onTriggered: PM.ProcessRunner.configurePrinter(root.modelData.printerName)
         }, Kirigami.Action {
             text: i18n("Remove")
             icon.name: "edit-delete-remove-symbolic"
-            visible: !addMode
+            visible: !root.addMode
             onTriggered: removeLoader.active = true
         }
     ]
@@ -82,7 +84,7 @@ KCM.AbstractKCM {
 
         Kirigami.UrlButton {
             text: i18nc("@action:button", "Printer/Device Admin Page")
-            visible: !modelData.isClass && url !== ""
+            visible: !root.modelData.isClass && url !== ""
             url: {
                 try {
                     const url = new URL(devUri.text)
@@ -98,27 +100,27 @@ KCM.AbstractKCM {
         Item { Layout.fillWidth: true }
 
         QQC2.Button {
-            text: addMode
+            text: root.addMode
                   ? i18nc("@action:button Add printer", "Add")
                   : i18nc("@action:button Apply changes", "Apply")
             icon.name: "dialog-ok-apply"
             enabled: config.hasPending
 
             onClicked: {
-                if (addMode) {
+                if (root.addMode) {
                     if (queueName.text.length === 0) {
                         queueName.focus = true
                         msgBanner.text = i18nc("@info:status", "Queue name is required. Enter a unique queue name.")
                         msgBanner.visible = true
                         return
-                    } else if (!printerNameIsUnique(queueName.text)) {
+                    } else if (!root.printerNameIsUnique(queueName.text)) {
                         queueName.focus = true
                         msgBanner.text = i18nc("@info:status", "Queue name must be unique. Enter a unique queue name.")
                         msgBanner.visible = true
                         return
                     }
 
-                    if (!modelData.isClass) {
+                    if (!root.modelData.isClass) {
                         if (driver.text.length === 0) {
                             driverSelect.focus = true
                             msgBanner.text = i18nc("@info:status", "Make/Model is required. Choose \"Select\" to pick Make/Model")
@@ -135,7 +137,7 @@ KCM.AbstractKCM {
                 msgBanner.showCloseButton = false
                 msgBanner.type = Kirigami.MessageType.Positive
                 msgBanner.visible = true
-                kcm.savePrinter(queueName.text, config.pending, modelData.isClass)
+                kcm.savePrinter(queueName.text, config.pending, root.modelData.isClass)
             }
         }
     }
@@ -200,29 +202,29 @@ KCM.AbstractKCM {
             Component.onCompleted: open()
             onClosed: removeLoader.active = false
 
-            title: modelData.isClass ? i18nc("@title:window", "Remove Group?")
+            title: root.modelData.isClass ? i18nc("@title:window", "Remove Group?")
                                      : i18nc("@title:window", "Remove Printer?")
             subtitle: i18nc("@info %1 is the name of a printer or printer group",
                             "'%1' will be removed.",
-                            modelData.info)
+                            root.modelData.info)
 
             standardButtons: Kirigami.Dialog.NoButton
 
             customFooterActions: [
                 Kirigami.Action {
-                    text: modelData.isClass ? i18nc("@action:button", "Remove Group")
+                    text: root.modelData.isClass ? i18nc("@action:button", "Remove Group")
                                             : i18nc("@action:button", "Remove Printer")
                     icon.name: "edit-delete-remove-symbolic"
                     onTriggered: {
                         kcmConn.removing = true
-                        kcm.removePrinter(modelData.printerName)
-                        close()
+                        kcm.removePrinter(root.modelData.printerName)
+                        prompt.close()
                     }
                 },
                 Kirigami.Action {
                     text: i18n("Cancel")
                     icon.name: "dialog-cancel-symbolic"
-                    onTriggered: close()
+                    onTriggered: prompt.close()
                 }
             ]
         }
@@ -237,27 +239,28 @@ KCM.AbstractKCM {
             implicitWidth: Math.ceil(parent.width*.85)
             implicitHeight: Math.ceil(parent.height*.85)
 
-            model: ppdModel
-            ppdData: Object.assign({}, ppd)
+            model: root.ppdModel
+            ppdData: Object.assign({}, root.ppd)
+            printerSettings: root.modelData
 
             onSaveValues: ppdMap => {
-                Object.assign(ppd, ppdMap)
-                driver.text = ppd.type !== PM.PPDType.Manual
-                          ? ppd.makeModel
-                          : ppd.file
+                Object.assign(root.ppd, ppdMap)
+                driver.text = root.ppd.type !== PM.PPDType.Manual
+                          ? root.ppd.makeModel
+                          : root.ppd.file
 
-                if (ppd.file.length > 0) {
-                    config.set({"ppd-type": ppd.type
-                               , "ppd-name": ppd.file})
-                    const i = ppd.file.lastIndexOf('/')
+                if (root.ppd.file.length > 0) {
+                    config.set({"ppd-type": root.ppd.type
+                               , "ppd-name": root.ppd.file})
+                    const i = root.ppd.file.lastIndexOf('/')
                     if (i !== -1) {
-                        ppd.pcfile = ppd.file.slice(-(ppd.file.length-i-1))
+                        root.ppd.pcfile = root.ppd.file.slice(-(root.ppd.file.length-i-1))
                     } else {
-                        ppd.pcfile = ppd.file
+                        root.ppd.pcfile = root.ppd.file
                     }
                 } else {
                     config.remove(["ppd-name", "ppd-type"])
-                    ppd.pcfile = ""
+                    root.ppd.pcfile = ""
                 }
             }
         }
@@ -269,13 +272,13 @@ KCM.AbstractKCM {
         text: orig
 
         Component.onCompleted: {
-            if (addMode) {
+            if (root.addMode) {
                 config.add(objectName, text)
             }
         }
 
         onEditingFinished: {
-            if (!addMode) {
+            if (!root.addMode) {
                 config.remove(objectName)
             }
 
@@ -290,13 +293,13 @@ KCM.AbstractKCM {
         checked: orig
 
         Component.onCompleted: {
-            if (addMode) {
+            if (root.addMode) {
                 config.add(objectName, checked)
             }
         }
 
         onToggled: {
-            if (!addMode) {
+            if (!root.addMode) {
                 config.remove(objectName)
             }
 
@@ -314,7 +317,7 @@ KCM.AbstractKCM {
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
             Kirigami.Icon {
-                source: modelData.isClass ? "folder-print" : modelData.iconName
+                source: root.modelData.isClass ? "folder-print" : root.modelData.iconName
                 Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
                 Layout.preferredHeight: Layout.preferredWidth
             }
@@ -323,15 +326,15 @@ KCM.AbstractKCM {
                 spacing: Kirigami.Units.smallSpacing
 
                 Kirigami.Heading {
-                    text: modelData.info ?? ""
-                    visible: !addMode
+                    text: root.modelData.info ?? ""
+                    visible: !root.addMode
                     level: 3
                     type: Kirigami.Heading.Type.Primary
                 }
 
                 Kirigami.Heading {
-                    text: modelData.kind.replace("Class", "Group")
-                    visible: !addMode
+                    text: root.modelData.kind.replace("Class", "Group")
+                    visible: !root.addMode
                     level: 5
                     type: Kirigami.Heading.Type.Secondary
                 }
@@ -342,8 +345,8 @@ KCM.AbstractKCM {
                     PrinterOption {
                         objectName: "isDefault"
                         text: i18nc("@action:check Set default printer", "Default printer")
-                        orig: modelData.isDefault
-                        visible: addMode || printerModel.rowCount() > 1
+                        orig: root.modelData.isDefault
+                        visible: root.addMode || root.printerModel.rowCount() > 1
                         // CUPS treats default printer independently from other printer attributes
                         // Also, CUPS makes sure it's exclusive, only one can be default and there is
                         // no api for "Not default".
@@ -351,30 +354,30 @@ KCM.AbstractKCM {
                         // Therefore, if a printer is default, don't allow change for that printer,
                         // only allow it to be set true for a printer that is not default.
                         // However, when adding a new printer, allow the option to set default
-                        enabled: addMode || !modelData.isDefault
-                        checked: modelData.isDefault
+                        enabled: root.addMode || !root.modelData.isDefault
+                        checked: root.modelData.isDefault
                     }
 
                     Kirigami.ContextualHelpButton {
                         toolTipText: i18nc("@info", "To change the default printer, set another printer as the default.") 
-                        visible: modelData.isDefault
+                        visible: root.modelData.isDefault
                     }
                 }
 
 
                 PrinterOption {
                     objectName: "printer-is-shared"
-                    text: modelData.isClass
+                    text: root.modelData.isClass
                           ? i18nc("@action:check", "Share this group")
                           : i18nc("@action:check", "Share this printer")
                     enabled: kcm.shareConnectedPrinters
-                    orig: modelData.isShared
+                    orig: root.modelData.isShared
                 }
 
                 PrinterOption {
                     objectName: "printer-is-accepting-jobs"
                     text: i18nc("@action:check", "Accepting print jobs")
-                    orig: modelData.isAcceptingJobs
+                    orig: root.modelData.isAcceptingJobs
                 }
             }
         }
@@ -394,10 +397,13 @@ KCM.AbstractKCM {
 
             contentItem: ListView {
                 id: markersView
-                model: !addMode ? modelData.markers["marker-names"] : null
+                model: !root.addMode ? root.modelData.markers["marker-names"] : null
                 clip: true
                 delegate: RowLayout {
                     spacing: Kirigami.Units.smallSpacing
+
+                    required property var modelData
+                    required property int index
 
                     QQC2.Label {
                         text: modelData
@@ -419,27 +425,27 @@ KCM.AbstractKCM {
 
         // Maint actions
         RowLayout {
-            visible: !addMode
+            visible: !root.addMode
             Layout.topMargin: Kirigami.Units.largeSpacing
 
             QQC2.Button {
                 text: i18nc("@action:button", "Print Test Page")
                 icon.name: "document-print-preview-symbolic"
-                onClicked: kcm.printTestPage(modelData.printerName, modelData.isClass)
+                onClicked: kcm.printTestPage(root.modelData.printerName, root.modelData.isClass)
             }
 
             QQC2.Button {
                 text: i18nc("@action:button", "Print Self-Test Page")
                 icon.name: "document-print-preview-symbolic"
-                visible: modelData.commands.indexOf("PrintSelfTestPage") !== -1
-                onClicked: kcm.printSelfTestPage(modelData.printerName)
+                visible: root.modelData.commands.indexOf("PrintSelfTestPage") !== -1
+                onClicked: kcm.printSelfTestPage(root.modelData.printerName)
             }
 
             QQC2.Button {
                 text: i18nc("@action:button", "Clean Print Heads")
                 icon.name: "edit-clear-all-symbolic"
-                visible: modelData.commands.indexOf("Clean") !== -1
-                onClicked: kcm.cleanPrintHeads(modelData.printerName)
+                visible: root.modelData.commands.indexOf("Clean") !== -1
+                onClicked: kcm.cleanPrintHeads(root.modelData.printerName)
             }
         }
 
@@ -464,16 +470,16 @@ KCM.AbstractKCM {
                 PrinterField {
                     id: queueName
                     objectName: "printer-name"
-                    orig: modelData.printerName
-                    enabled: addMode
+                    orig: root.modelData.printerName
+                    enabled: root.addMode
                     validator: RegularExpressionValidator { regularExpression: /[^/#\\ ]*/ }
                 }
 
                 Kirigami.ContextualHelpButton {
-                    visible: modelData.isClass
-                    toolTipText: xi18nc("@info:whatsthis", "A <interface>printer group</interface> is used to pool printing resources.
-                    Member printers can be added to a group and print jobs sent to that group
-                    will be dispatched to the appropriate printer.")
+                    visible: root.modelData.isClass
+                    toolTipText: xi18nc("@info:whatsthis", `A <interface>printer group</interface> is used to pool printing resources.
+                                        Member printers can be added to a group and print jobs sent to that group
+                                        will be dispatched to the appropriate printer.`)
                 }
             }
 
@@ -486,8 +492,8 @@ KCM.AbstractKCM {
             PrinterField {
                 id: queueInfo
                 objectName: "printer-info"
-                readOnly: modelData.remote
-                orig: modelData.info ?? ""
+                readOnly: root.modelData.remote
+                orig: root.modelData.info ?? ""
             }
 
             QQC2.Label {
@@ -498,33 +504,33 @@ KCM.AbstractKCM {
             PrinterField {
                 id: location
                 objectName: "printer-location"
-                readOnly: modelData.remote
-                orig: modelData.location ?? ""
+                readOnly: root.modelData.remote
+                orig: root.modelData.location ?? ""
             }
 
             QQC2.Label {
                 text: i18nc("@label:textbox", "Connection:")
                 Layout.alignment: Qt.AlignRight
-                visible: !modelData.isClass
+                visible: !root.modelData.isClass
             }
 
             PrinterField {
                 id: devUri
-                visible: !modelData.isClass
+                visible: !root.modelData.isClass
                 objectName: "device-uri"
-                orig: modelData.printerUri ?? ""
-                readOnly: modelData.remote
+                orig: root.modelData.printerUri ?? ""
+                readOnly: root.modelData.remote
             }
 
             QQC2.Label {
                 text: i18nc("@label:listbox", "Member Printers:")
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
-                visible: modelData.isClass
+                visible: root.modelData.isClass
             }
 
             // Printer Class member list
             Loader {
-                active: modelData.isClass
+                active: root.modelData.isClass
                 visible: active
                 Layout.fillHeight: true
                 Layout.preferredWidth: Math.round(root.width/2)
@@ -546,7 +552,7 @@ KCM.AbstractKCM {
                         property bool showClasses: false
 
                         model: KItemModels.KSortFilterProxyModel {
-                            sourceModel: printerModel
+                            sourceModel: root.printerModel
 
                             filterRowCallback: (source_row, source_parent) => {
                                 const ndx = sourceModel.index(source_row, 0, source_parent)
@@ -600,7 +606,7 @@ KCM.AbstractKCM {
                             for (let i=0; i<count; ++i) {
                                 const item = itemAtIndex(i)
                                 if (item.checked) {
-                                    ret.push(keysOnly ? item.objectName : item.supportedUri)
+                                    ret.push(keysOnly ? item.objectName : item.uriSupported)
                                 }
                             }
                             return ret
@@ -618,10 +624,14 @@ KCM.AbstractKCM {
                         }
 
                         delegate: Kirigami.CheckSubtitleDelegate {
+
+                            required property string printerName
+                            required property string info
+                            required property string uriSupported
+
                             width: ListView.view.width
                             icon.width: 0
                             objectName: printerName
-                            property string supportedUri: uriSupported
 
                             text: info
                             subtitle: printerName
@@ -656,25 +666,25 @@ KCM.AbstractKCM {
             QQC2.Label {
                 text: i18nc("@label:textbox", "Make/Model:")
                 Layout.alignment: Qt.AlignRight
-                visible: !modelData.isClass
+                visible: !root.modelData.isClass
             }
 
             RowLayout {
-                visible: !modelData.isClass
+                visible: !root.modelData.isClass
 
                 QQC2.Label {
                     id: driver
-                    text: modelData.kind ?? ""
+                    text: root.modelData.kind ?? ""
                 }
 
                 QQC2.Button {
                     id: driverSelect
                     text: i18nc("@action:button Select printer make/model", "Select…")
                     icon.name: "printer-symbolic"
-                    enabled: !modelData.remote
+                    enabled: !root.modelData.remote
 
                     onClicked: {
-                        openMakeModelDlg()
+                        root.openMakeModelDlg()
                     }
                 }
             }

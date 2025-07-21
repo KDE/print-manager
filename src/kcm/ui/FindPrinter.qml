@@ -11,6 +11,8 @@ import org.kde.plasma.printmanager as PM
 import org.kde.kcmutils as KCM
 import org.kde.kitemmodels as KItemModels
 
+pragma ComponentBehavior: Bound
+
 KCM.AbstractKCM {
     id: root
 
@@ -128,30 +130,30 @@ KCM.AbstractKCM {
     actions: [
         Kirigami.Action {
             text: i18nc("@action:button", "Refresh")
-            enabled: !loading
+            enabled: !root.loading
             icon.name: "view-refresh-symbolic"
             onTriggered: {
-                showingManual = false
+                root.showingManual = false
                 devices.load()
             }
         },
         Kirigami.Action {
-            text: showingManual
+            text: root.showingManual
                   ? i18nc("@action:button", "Show Detected Devices")
                   : i18nc("@action:button", "Show Manual Options")
-            icon.name: showingManual
+            icon.name: root.showingManual
                     ? "standard-connector-symbolic"
                     : "internet-services"
-            visible: hasDetectedDevices
-            enabled: !loading
+            visible: root.hasDetectedDevices
+            enabled: !root.loading
             onTriggered: {
-                showingManual = !showingManual
+                root.showingManual = !root.showingManual
                 deviceItems.invalidateFilter()
                 deviceList.currentIndex = -1
                 compLoader.sourceComponent = undefined
 
-                if (!showingManual) {
-                    setDeviceSelection()
+                if (!root.showingManual) {
+                    root.setDeviceSelection()
                 } else {
                     compLoader.sourceComponent = chooseManualComp
                 }
@@ -179,7 +181,7 @@ KCM.AbstractKCM {
                return false
            }
            const cat = sourceModel.data(ndx, PM.DevicesModel.DeviceCategory)
-           if (showingManual) {
+           if (root.showingManual) {
                return cat === "Manual"
            } else {
                return cat !== "Manual"
@@ -193,18 +195,18 @@ KCM.AbstractKCM {
         id: devices
 
         function load() {
-            loading = true
+            root.loading = true
             compLoader.selector = ""
             kcm.clearRemotePrinters()
             kcm.clearRecommendedDrivers()
-            update()
+            devices.update()
         }
 
         Component.onCompleted: load()
 
         onLoaded: {
-            loading = false
-            setDeviceSelection()
+            root.loading = false
+            root.setDeviceSelection()
         }
     }
 
@@ -253,7 +255,7 @@ KCM.AbstractKCM {
 
                 QQC2.BusyIndicator {
                     id: busyInd
-                    running: loading
+                    running: root.loading
                     anchors.centerIn: parent
                     implicitWidth: Math.floor(parent.width/2)
                     implicitHeight: implicitWidth
@@ -277,6 +279,22 @@ KCM.AbstractKCM {
                 }
 
                 delegate: Kirigami.SubtitleDelegate {
+
+                    required property int index
+                    required property string deviceId
+                    required property string deviceUri
+                    /**
+                    * List of connection uris, typically only available
+                    * when a device is directly connected
+                    */
+                    required property list<string> deviceUris
+
+                    required property string deviceClass
+                    required property string deviceInfo
+                    required property string deviceMakeModel
+                    required property string deviceDescription
+                    required property string deviceLocation
+
                     width: ListView.view.width
                     visible: deviceClass !== undefined
 
@@ -307,8 +325,8 @@ KCM.AbstractKCM {
                                                     , "device-class": deviceClass
                                                     , "device-desc": deviceDescription
                                                     , "printer-info": deviceInfo
-                                                    , "printer-make": parseDeviceId(deviceId, "MFG")
-                                                    , "printer-model": parseDeviceId(deviceId, "MDL")
+                                                    , "printer-make": root.parseDeviceId(deviceId, "MFG")
+                                                    , "printer-model": root.parseDeviceId(deviceId, "MDL")
                                                     , "printer-make-and-model": deviceMakeModel
                                                     , "printer-location": deviceLocation
                                                     , "ppd-type": PM.PPDType.Custom
@@ -339,7 +357,7 @@ KCM.AbstractKCM {
 
             Loader {
                 id: compLoader
-                active: !loading
+                active: !root.loading
 
                 anchors.centerIn: parent
 

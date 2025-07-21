@@ -11,20 +11,25 @@ import org.kde.kirigami as Kirigami
 import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PM
 
+pragma ComponentBehavior: Bound
+
 /*
 * PPD driver selection
 */
 Kirigami.Dialog {
     id: root
 
-    property PM.PPDModel model
-    property bool loading: true
+    // CUPS PPD database
+    required property PM.PPDModel model
     // ppd attributes for the make/model
-    property var ppdData: ({})
+    required property var ppdData
+    // current printer details (name, uri, etc)
+    required property var printerSettings
+
+    property bool loading: true
 
     // make is the first level in the hierarchy of the model
     function getMakeIndex(make) : int {
-        print("GETMAKE:", make)
         for (let i=0, len=model.rowCount(); i<len; ++i) {
             const val = model.data(model.index(i,0), Qt.DisplayRole).toString()
             if (val === make)
@@ -39,7 +44,6 @@ Kirigami.Dialog {
     function getMakeModelIndex() : int {
         const file = ppdData.pcfile?.toLowerCase()
         const mm = ppdData.makeModel?.toLowerCase()
-        print("GETMAKEMODEL pcfile:", file, ", mm:", mm)
         for (let i=0, len=printerModels.rowCount(); i<len; ++i) {
             const ndx = printerModels.mapToSource(printerModels.index(i,0))
             const f = printerModels.sourceModel.data(ndx, PM.PPDModel.PPDName).toString()
@@ -56,8 +60,8 @@ Kirigami.Dialog {
             return
         }
         const ndx = printerModels.mapToSource(printerModels.index(index,0))
-        ppdData.makeModel = printerModels.sourceModel.data(ndx, PM.PPDModel.PPDMakeAndModel).toString()
-        ppdData.file = printerModels.sourceModel.data(ndx, PM.PPDModel.PPDName).toString()
+        root.ppdData.makeModel = printerModels.sourceModel.data(ndx, PM.PPDModel.PPDMakeAndModel).toString()
+        root.ppdData.file = printerModels.sourceModel.data(ndx, PM.PPDModel.PPDName).toString()
     }
 
     function init() {
@@ -120,16 +124,16 @@ Kirigami.Dialog {
         if (model.rowCount() === 0) {
             model.load()
         } else {
-            loading = false
+            root.loading = false
         }
     }
 
     Connections {
-        target: model
-        enabled: loading
+        target: root.model
+        enabled: root.loading
 
         function onLoaded() {
-            loading = false
+            root.loading = false
         }
     }
 
@@ -141,12 +145,12 @@ Kirigami.Dialog {
         Kirigami.Action {
             text: i18nc("@action:button Select ipp everywhere driver", "Use IPP Everywhere™")
             icon.name: "printer-symbolic"
-            enabled: !loading
-            visible: kcm.isIPPCapable(modelData.printerUri)
-                     && !modelData.remote
-                     && ppdData.pcfile !== "ippeve.ppd"
+            enabled: !root.loading
+            visible: kcm.isIPPCapable(printerSettings.printerUri)
+                     && !printerSettings.remote
+                     && root.ppdData.pcfile !== "ippeve.ppd"
             onTriggered: {
-                saveValues({file: "everywhere"
+                root.saveValues({file: "everywhere"
                             , makeModel: "IPP Everywhere™"
                             , type: PM.PPDType.Auto})
                 root.close()
@@ -155,7 +159,7 @@ Kirigami.Dialog {
 
         , Kirigami.Action {
             text: i18n("Save")
-            enabled: !loading
+            enabled: !root.loading
             icon.name: "dialog-ok-symbolic"
             onTriggered: {
                 if (rbFile.checked && customFilename.text.length === 0) {
@@ -173,9 +177,9 @@ Kirigami.Dialog {
                 }
 
                 if (rbFile.checked) {
-                    ppdData.file = customFilename.text
+                    root.ppdData.file = customFilename.text
                 }
-                saveValues(ppdData)
+                root.saveValues(root.ppdData)
                 root.close()
             }
         }
@@ -195,10 +199,10 @@ Kirigami.Dialog {
             const make = sourceModel.data(sourceModel.index(source_row, 0, source_parent)
                                           , PM.PPDModel.PPDMake)
             if (filterString.length === 0) {
-                return make === ppdData.make
+                return make === root.ppdData.make
             }
 
-            return make === ppdData.make
+            return make === root.ppdData.make
                 && sourceModel.data(sourceModel.index(source_row, 0, source_parent)
                                     , PM.PPDModel.PPDMakeAndModel).toLowerCase().includes(filterString)
         }
@@ -206,7 +210,7 @@ Kirigami.Dialog {
 
     contentItem: ColumnLayout {
         spacing: Kirigami.Units.smallSpacing
-        enabled: !loading
+        enabled: !root.loading
 
         BannerWithTimer {
             id: error
@@ -227,7 +231,7 @@ Kirigami.Dialog {
                 Layout.fillWidth: true
                 onToggled: {
                     if (checked) {
-                        ppdData.type = PM.PPDType.Custom
+                        root.ppdData.type = PM.PPDType.Custom
                     }
                 }
                 QQC2.ButtonGroup.group: buttonGroup
@@ -265,6 +269,10 @@ Kirigami.Dialog {
                     model: root.model
 
                     delegate: QQC2.ItemDelegate {
+
+                        required property int index
+                        required property var model
+
                         width: ListView.view.width
                         text: model?.display
                         icon.name: "system-user-prompt"
@@ -272,11 +280,11 @@ Kirigami.Dialog {
 
                         onClicked: {
                             ListView.view.currentIndex = index
-                            ppdData.make = model.display
+                            root.ppdData.make = model.display
                             printerModels.invalidateFilter()
                             makeModelList.currentIndex = 0
                             makeModelList.positionViewAtBeginning()
-                            setCurrentMakeModel()
+                            root.setCurrentMakeModel()
                         }
                     }
                 }
@@ -297,8 +305,8 @@ Kirigami.Dialog {
                     clip: true
 
                     QQC2.BusyIndicator {
-                        running: loading
-                        visible: loading
+                        running: root.loading
+                        visible: root.loading
                         anchors.left: parent.left
                         anchors.verticalCenter: parent.verticalCenter
                         implicitWidth: Kirigami.Units.gridUnit * 6
@@ -308,15 +316,20 @@ Kirigami.Dialog {
                     model: printerModels
 
                     delegate: QQC2.ItemDelegate {
+
+                        required property int index
+                        required property string ppdName
+                        required property string ppdMakeModel
+
                         width: ListView.view.width
-                        text: model?.ppdMakeModel
+                        text: ppdMakeModel
                         icon.name: "printer-symbolic"
                         highlighted: ListView.view.currentIndex === index
 
                         onClicked: {
                             ListView.view.currentIndex = index
-                            ppdData.file = ppdName
-                            ppdData.makeModel = ppdMakeModel
+                            root.ppdData.file = ppdName
+                            root.ppdData.makeModel = ppdMakeModel
                         }
                     }
                 }
@@ -333,7 +346,7 @@ Kirigami.Dialog {
                 text: i18nc("@option:radio", "PPD file:")
                 onToggled: {
                     if (checked) {
-                        ppdData.type = PM.PPDType.Manual
+                        root.ppdData.type = PM.PPDType.Manual
                         fileButton.focus = true
                     }
                 }

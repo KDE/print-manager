@@ -6,6 +6,8 @@
 import QtQuick
 import org.kde.kirigami as Kirigami
 
+pragma ComponentBehavior: Bound
+
 Kirigami.InlineMessage {
     id: banner
     type: Kirigami.MessageType.Error
@@ -43,9 +45,9 @@ Kirigami.InlineMessage {
         onTriggered: {
             banner.visible = false
             if (banner.resetToDefault) {
-                reset()
+                banner.reset()
             }
-            timeout()
+            banner.timeout()
         }
     }
 }

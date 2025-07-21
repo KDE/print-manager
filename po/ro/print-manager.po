@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2024-03-02 15:00+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -520,24 +520,30 @@ msgstr ""
 "(HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"Programe HPLIP pilotând o mașină de fax, sau\n"
-"funcția de fax a unui dispozitiv multifuncțional"
+"Programe HPLIP pilotând o mașină de fax sau funcția de fax a unui dispozitiv "
+"multifuncțional."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"Programe HPLIP pilotând o imprimantă, sau funcția\n"
-"de imprimare a unui dispozitiv multifuncțional"
+"Programe HPLIP pilotând o imprimantă sau funcția de imprimare a unui "
+"dispozitiv multifuncțional."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -955,6 +961,22 @@ msgstr "Lucrări finalizate"
 msgid "All Jobs"
 msgstr "Toate lucrările"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Programe HPLIP pilotând o mașină de fax, sau\n"
+#~ "funcția de fax a unui dispozitiv multifuncțional"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Programe HPLIP pilotând o imprimantă, sau funcția\n"
+#~ "de imprimare a unui dispozitiv multifuncțional"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Drivere recomandate"
 
@@ -1180,20 +1202,6 @@ msgstr "Toate lucrările"
 #~ msgstr ""
 #~ "Imprimantă locală detectată de Stratul de Abstractizare a Echipamentului "
 #~ "(HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Programe HPLIP pilotând o imprimantă sau funcția de imprimare a unui "
-#~ "dispozitiv multifuncțional."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Programe HPLIP pilotând o mașină de fax sau funcția de fax a unui "
-#~ "dispozitiv multifuncțional."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 imprimantă de rețea prin DNS-SD"

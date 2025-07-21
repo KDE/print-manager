@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-05-04 06:37+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -503,24 +503,27 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "اكتُشفت طابعة محليّة عبر طبقة تجريد الأجهزة (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"يقوم برنامج HPLIP بتشغيل الفاكس،\n"
-"أو وظيفة الفاكس لجهاز متعددة الوظائف"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "يقوم برنامج HPLIP بتشغيل الفاكس ، أو وظيفة الفاكس لجهاز متعددةالوظائف."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"يقوم برنامج HPLIP بتشغيل الطابعة،\n"
-" أو وظيفة الطابعة لجهاز متعددة الوظائف"
+"يقوم برنامج HPLIP بتشغيل الطابعة ، أو وظيفة الطابعة لجهاز متعددةالوظائف."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -943,6 +946,22 @@ msgstr "المهام المكتملة"
 msgid "All Jobs"
 msgstr "كلّ المهامّ"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "يقوم برنامج HPLIP بتشغيل الفاكس،\n"
+#~ "أو وظيفة الفاكس لجهاز متعددة الوظائف"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "يقوم برنامج HPLIP بتشغيل الطابعة،\n"
+#~ " أو وظيفة الطابعة لجهاز متعددة الوظائف"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "المشغّلات المستحسنة"
 
@@ -1166,18 +1185,6 @@ msgstr "كلّ المهامّ"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "اكتُشفت طابعة محليّة عبر طبقة تجريد الأجهزة (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "يقوم برنامج HPLIP بتشغيل الطابعة ، أو وظيفة الطابعة لجهاز متعددةالوظائف."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "يقوم برنامج HPLIP بتشغيل الفاكس ، أو وظيفة الفاكس لجهاز متعددةالوظائف."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "طابعة %1 شبكيّة عبر DNS-SD"

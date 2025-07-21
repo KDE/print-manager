@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2020-09-03 16:32+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -500,16 +500,16 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:127
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:128

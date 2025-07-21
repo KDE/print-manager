@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2013-06-16 06:28+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -531,29 +531,28 @@ msgstr "HAL (Hardware Abstraction Layer) жергілікті принтерін
 
 #: src/libkcups/DevicesModel.cpp:126
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
 #| msgid ""
 #| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"HPLIP бағдарламалы факсы, немесе факс күйіндегі көпфункционалды құрылғы"
+"HPLIP бағдарламалы факсы, немесе факс күйіндегі көпфункционалды құрылғы."
 
 #: src/libkcups/DevicesModel.cpp:127
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
 #| msgid ""
 #| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"HPLIP бағдарламалы принтері, немесе принтер күйіндегі көпфункционалды құрылғы"
+"HPLIP бағдарламалы принтері, немесе принтер күйіндегі көпфункционалды "
+"құрылғы."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, fuzzy, kde-format
@@ -972,6 +971,31 @@ msgstr "Біткен тапсырмалар"
 msgid "All Jobs"
 msgstr "Барлық тапсырмалар"
 
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid ""
+#~| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#~| "function device"
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP бағдарламалы факсы, немесе факс күйіндегі көпфункционалды құрылғы"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid ""
+#~| "HPLIP software driving a printer, or the printer function of a multi-"
+#~| "function device"
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP бағдарламалы принтері, немесе принтер күйіндегі көпфункционалды "
+#~ "құрылғы"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Тиісті драйврлері"
 
@@ -1199,19 +1223,6 @@ msgstr "Барлық тапсырмалар"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "HAL (Hardware Abstraction Layer) байқаған жергілікті принтері."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP бағдарламалы принтері, немесе принтер күйіндегі көпфункционалды "
-#~ "құрылғы."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP бағдарламалы факсы, немесе факс күйіндегі көпфункционалды құрылғы."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "DNS-SD арқылы %1 желілік принтері"

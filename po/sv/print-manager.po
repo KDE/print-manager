@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-05-31 15:21+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -502,24 +502,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Lokal skrivare detekterad av hårdvaruabstraktionslagret (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"HPLIP-programvara som driver en telefax,\n"
-"eller telefaxfunktionen i en flerfunktionsenhet"
+"HPLIP-programvara som driver en telefax, eller telefaxfunktionen i en "
+"flerfunktionsenhet."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"HPLIP-programvara som driver en skrivare,\n"
-"eller skrivarfunktionen i en flerfunktionsenhet"
+"HPLIP-programvara som driver en skrivare, eller skrivarfunktionen i en "
+"flerfunktionsenhet."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -934,6 +940,22 @@ msgstr "Klara jobb"
 msgid "All Jobs"
 msgstr "Alla jobb"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP-programvara som driver en telefax,\n"
+#~ "eller telefaxfunktionen i en flerfunktionsenhet"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP-programvara som driver en skrivare,\n"
+#~ "eller skrivarfunktionen i en flerfunktionsenhet"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Rekommenderade drivrutiner"
 
@@ -1161,20 +1183,6 @@ msgstr "Alla jobb"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "Lokal skrivare detekterad av hårdvaruabstraktionslagret (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP-programvara som driver en skrivare, eller skrivarfunktionen i en "
-#~ "flerfunktionsenhet."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP-programvara som driver en telefax, eller telefaxfunktionen i en "
-#~ "flerfunktionsenhet."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 nätverksskrivare via DNS-SD"

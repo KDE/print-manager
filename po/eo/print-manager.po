@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2024-05-26 22:24+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -513,24 +513,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Loka presilo detektita de la Hardware Abstrakta Tavolo (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"HPLIP-programaro veturanta fakmaŝinon,\n"
-"ek la faksan funkcion de plurfunkcia aparato"
+"HPLIP-programaro stiranta fakmaŝinon, aŭ la faksfunkcion de plurfunkcia "
+"aparato."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"HPLIP-programaro kondukanta presilon,\n"
-"ek la presilan funkcion de plurfunkcia aparato"
+"HPLIP-programaro kondukanta presilon, aŭ la presilan funkcion de plurfunkcia "
+"aparato."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -945,6 +951,22 @@ msgstr "Finitaj Labortaskoj"
 msgid "All Jobs"
 msgstr "Ĉiuj Labortaskoj"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP-programaro veturanta fakmaŝinon,\n"
+#~ "ek la faksan funkcion de plurfunkcia aparato"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP-programaro kondukanta presilon,\n"
+#~ "ek la presilan funkcion de plurfunkcia aparato"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Rekomenditaj Peliloj"
 
@@ -1171,20 +1193,6 @@ msgstr "Ĉiuj Labortaskoj"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "Loka presilo detektita de Hardware Abstraction Layer (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP-programaro kondukanta presilon, aŭ la presilan funkcion de "
-#~ "plurfunkcia aparato."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP-programaro stiranta fakmaŝinon, aŭ la faksfunkcion de plurfunkcia "
-#~ "aparato."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 retpresilo per DNS-SD"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-06-10 21:58+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -500,24 +500,26 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "HAL에서 감지한 로컬 프린터"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"팩스나 복합기의 팩스 기능을 담당하는\n"
-"HPLIP 소프트웨어"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "팩스나 복합기의 팩스 기능을 담당하는 HPLIP 소프트웨어입니다."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
-msgstr ""
-"프린터나 복합기의 인쇄 기능을 담당하는\n"
-"HPLIP 소프트웨어"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr "프린터나 복합기의 인쇄 기능을 담당하는 HPLIP 소프트웨어입니다."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -930,6 +932,22 @@ msgstr "완료된 작업"
 msgid "All Jobs"
 msgstr "모든 작업"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "팩스나 복합기의 팩스 기능을 담당하는\n"
+#~ "HPLIP 소프트웨어"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "프린터나 복합기의 인쇄 기능을 담당하는\n"
+#~ "HPLIP 소프트웨어"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "추천 드라이버"
 
@@ -1156,16 +1174,6 @@ msgstr "모든 작업"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "HAL로 감지된 로컬 프린터입니다."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr "프린터나 복합기의 인쇄 기능을 담당하는 HPLIP 소프트웨어입니다."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr "팩스나 복합기의 팩스 기능을 담당하는 HPLIP 소프트웨어입니다."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "DNS-SD로 연결된 %1 네트워크 프린터"

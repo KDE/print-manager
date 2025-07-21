@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-06-06 21:52+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -503,24 +503,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "A HAL helyi nyomtatót észlelt"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"A HPLIP csomag kezeli a faxot vagy a multifunkcionális\n"
-"eszköz faxkezelő részét"
+"A HPLIP csomag kezeli a faxot vagy a multifunkcionális eszköz faxkezelő "
+"részét."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós\n"
-"eszköz nyomtató részét"
+"A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós eszköz nyomtató "
+"részét."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -935,6 +941,22 @@ msgstr "Befejezett feladatok"
 msgid "All Jobs"
 msgstr "Minden feladat"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "A HPLIP csomag kezeli a faxot vagy a multifunkcionális\n"
+#~ "eszköz faxkezelő részét"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós\n"
+#~ "eszköz nyomtató részét"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Ajánlott illesztőprogramok"
 
@@ -1162,20 +1184,6 @@ msgstr "Minden feladat"
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr ""
 #~ "Helyi nyomtatót ismert fel a HAL (Hardware Abstraction Layer) modul."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "A HPLIP csomag kezeli a nyomtatót vagy a multifunkciós eszköz nyomtató "
-#~ "részét."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "A HPLIP csomag kezeli a faxot vagy a multifunkcionális eszköz faxkezelő "
-#~ "részét."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 hálózati nyomtató DNS-SD-n keresztül"

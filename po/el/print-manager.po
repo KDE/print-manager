@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2024-09-19 16:37+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -523,24 +523,28 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Τοπικός εκτυπωτής ανιχνευμένος από το Hardware Abstraction Layer (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"Λογισμικό HPLIP για οδήγηση φαξ\n"
-"ή λειτουργία φαξ ενός πολυμηχανήματος"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "Λογισμικό HPLIP για οδήγηση φαξ ή λειτουργία φαξ ενός πολυμηχανήματος."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"Λογισμικό HPLIP για οδήγηση εκτυπωτή\n"
-"ή λειτουργία εκτύπωσης ενός πολυμηχανήματος"
+"Λογισμικό HPLIP για οδήγηση εκτυπωτή ή λειτουργία εκτύπωσης ενός "
+"πολυμηχανήματος."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, fuzzy, kde-format
@@ -956,6 +960,22 @@ msgstr "Ολοκληρωμένες εργασίες"
 msgid "All Jobs"
 msgstr "Όλες οι εργασίες"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Λογισμικό HPLIP για οδήγηση φαξ\n"
+#~ "ή λειτουργία φαξ ενός πολυμηχανήματος"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Λογισμικό HPLIP για οδήγηση εκτυπωτή\n"
+#~ "ή λειτουργία εκτύπωσης ενός πολυμηχανήματος"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Προτεινόμενοι οδηγοί"
 
@@ -1182,19 +1202,6 @@ msgstr "Όλες οι εργασίες"
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr ""
 #~ "Τοπικός εκτυπωτής ανιχνευμένος από το Hardware Abstraction Layer (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Λογισμικό HPLIP για οδήγηση εκτυπωτή ή λειτουργία εκτύπωσης ενός "
-#~ "πολυμηχανήματος."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Λογισμικό HPLIP για οδήγηση φαξ ή λειτουργία φαξ ενός πολυμηχανήματος."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 δικτυακός εκτυπωτής μέσω DNS-SD"

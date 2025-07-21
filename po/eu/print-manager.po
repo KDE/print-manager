@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-05-18 15:01+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -505,27 +505,32 @@ msgstr ""
 "Beratako inprimagailu bat hauteman du Hardware Abstrakzio Geruzak (ingelesez "
 "HAL)"
 
-# zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"HPLIP softwarea fax makina bat gidatzen,\n"
-"edo funtzio anitzeko gailu baten fax funtzioa gidatzen"
+"HPLIP softwarea fax makina bat edo funtzio anitzeko gailu baten fax funtzioa "
+"gidatzen."
 
 # zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"HPLIP softwarea inprimagailu bat gidatzen,\n"
-"edo funtzio anitzeko gailu baten inprimatzeko funtzioa gidatzen"
+"HPLIP softwarea inprimagailu bat edo funtzio anitzeko gailu baten "
+"inprimatzeko funtzioa gidatzen."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -940,6 +945,24 @@ msgstr "Osatutako lanak"
 msgid "All Jobs"
 msgstr "Lan guztiak"
 
+# zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP softwarea fax makina bat gidatzen,\n"
+#~ "edo funtzio anitzeko gailu baten fax funtzioa gidatzen"
+
+# zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP softwarea inprimagailu bat gidatzen,\n"
+#~ "edo funtzio anitzeko gailu baten inprimatzeko funtzioa gidatzen"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Gomendatutako gidariak"
 
@@ -1171,21 +1194,6 @@ msgstr "Lan guztiak"
 #~ msgstr ""
 #~ "Bertako inprimagailu bat hauteman du Hardware Abstrakzio Geruzak "
 #~ "(ingelesez HAL)."
-
-# zalantza: gidatzen edo gidatzeko edo beste ñabardura bat eman behar zaion.
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP softwarea inprimagailu bat edo funtzio anitzeko gailu baten "
-#~ "inprimatzeko funtzioa gidatzen."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP softwarea fax makina bat edo funtzio anitzeko gailu baten fax "
-#~ "funtzioa gidatzen."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 sareko inprimagailu DNS-SD bidez"

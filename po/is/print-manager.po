@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2024-06-30 15:41+0000\n"
 "Last-Translator: Gummi <gudmundure@gmail.com>\n"
 "Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
@@ -514,24 +514,26 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Staðbundinn prentari sem sjálfvirk vélbúnaðarkönnun (HAL) hefur fundið"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"HPLIP-hugbúnaður til keyra faxtæki\n"
-"eða faxvirkni fjölnotatækis"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "HPLIP-hugbúnaður til keyra faxtæki eða faxvirkni fjölnotatækis."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
-msgstr ""
-"HPLIP-hugbúnaður til að keyra\n"
-"prentara eða prentvirkni fjölnotatækis"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr "HPLIP-hugbúnaður til að keyra prentara eða prentvirkni fjölnotatækis."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -946,6 +948,22 @@ msgstr "Verk sem er lokið"
 msgid "All Jobs"
 msgstr "Öll verk"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP-hugbúnaður til keyra faxtæki\n"
+#~ "eða faxvirkni fjölnotatækis"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP-hugbúnaður til að keyra\n"
+#~ "prentara eða prentvirkni fjölnotatækis"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Reklar sem mælt er með"
 
@@ -1172,17 +1190,6 @@ msgstr "Öll verk"
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr ""
 #~ "Staðbundinn prentari sem sjálfvirk vélbúnaðarkönnun (HAL) hefur fundið."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP-hugbúnaður til að keyra prentara eða prentvirkni fjölnotatækis."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr "HPLIP-hugbúnaður til keyra faxtæki eða faxvirkni fjölnotatækis."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 netprentari í gegnum DNS-SD"

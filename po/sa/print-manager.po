@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2024-12-24 20:39+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -514,24 +514,26 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "हार्डवेयर अमूर्तस्तरेन (HAL) ज्ञातः स्थानीयमुद्रकः ।"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"HPLIP सॉफ्टवेयरं फ्याक्सयन्त्रं चालयति,\n"
-"बहुकार्ययन्त्रस्य फ्याक्सकार्यं वा"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "HPLIP सॉफ्टवेयरं फ्याक्सयन्त्रं चालयति, अथवा बहुकार्ययन्त्रस्य फ्याक्सकार्यं ।"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
-msgstr ""
-"मुद्रकं चालयति HPLIP सॉफ्टवेयर, .\n"
-"बहुकार्ययन्त्रस्य मुद्रककार्यं वा"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr "मुद्रकं चालयति HPLIP सॉफ्टवेयर, अथवा बहुकार्ययन्त्रस्य मुद्रककार्यम् ।"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -946,6 +948,22 @@ msgstr "सम्पन्न नौकरियां"
 msgid "All Jobs"
 msgstr "सर्वाणि कार्याणि"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP सॉफ्टवेयरं फ्याक्सयन्त्रं चालयति,\n"
+#~ "बहुकार्ययन्त्रस्य फ्याक्सकार्यं वा"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "मुद्रकं चालयति HPLIP सॉफ्टवेयर, .\n"
+#~ "बहुकार्ययन्त्रस्य मुद्रककार्यं वा"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "अनुशंसित चालकाः"
 
@@ -1163,16 +1181,6 @@ msgstr "सर्वाणि कार्याणि"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "हार्डवेयर अमूर्तस्तर (HAL) द्वारा ज्ञातः स्थानीयमुद्रकः ।"
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr "मुद्रकं चालयति HPLIP सॉफ्टवेयर, अथवा बहुकार्ययन्त्रस्य मुद्रककार्यम् ।"
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr "HPLIP सॉफ्टवेयरं फ्याक्सयन्त्रं चालयति, अथवा बहुकार्ययन्त्रस्य फ्याक्सकार्यं ।"
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 DNS-SD मार्गेण संजालमुद्रकः"

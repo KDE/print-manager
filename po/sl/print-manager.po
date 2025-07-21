@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-04-29 07:09+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -505,24 +505,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Krajevni tiskalnik zaznan prek Hardware Abstraction Layer (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"Programska oprema HPLIP, ki upravlja faks\n"
-"ali funkcijo faksiranja večfunkcijske naprave"
+"Programska oprema HPLIP, ki upravlja faks ali funkcijo faksiranja "
+"večfunkcijske naprave."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"Programska oprema HPLIPi upravlja tiskalnik\n"
-"ali funkcijo tiskanja večfunkcijske naprave"
+"Programska oprema HPLIP, ki upravlja tiskalnik ali funkcijo tiskanja "
+"večfunkcijske naprave."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -941,6 +947,22 @@ msgstr "Zaključeni posli"
 msgid "All Jobs"
 msgstr "Vsi posli"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Programska oprema HPLIP, ki upravlja faks\n"
+#~ "ali funkcijo faksiranja večfunkcijske naprave"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Programska oprema HPLIPi upravlja tiskalnik\n"
+#~ "ali funkcijo tiskanja večfunkcijske naprave"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Priporočeni gonilniki"
 
@@ -1166,20 +1188,6 @@ msgstr "Vsi posli"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "Krajevni tiskalnik zaznan prek Hardware Abstraction Layer (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Programska oprema HPLIP, ki upravlja tiskalnik ali funkcijo tiskanja "
-#~ "večfunkcijske naprave."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Programska oprema HPLIP, ki upravlja faks ali funkcijo faksiranja "
-#~ "večfunkcijske naprave."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "Omrežni tiskalnik %1 prek DNS-SD"

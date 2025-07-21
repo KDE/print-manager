@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-04-30 03:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -502,24 +502,26 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "由 HAL 偵測到的本地印表機"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"HPLIP 軟體驅動一傳真機，\n"
-"或是多功能裝置中的傳真機功能"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能。"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
-msgstr ""
-"HPLIP 軟體驅動一印表機\n"
-"或是多功能裝置中的印表機功能"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr "HPLIP 軟體驅動一印表機，或是多功能裝置中的印表機功能。"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -932,6 +934,22 @@ msgstr "已完成的工作"
 msgid "All Jobs"
 msgstr "所有工作"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP 軟體驅動一傳真機，\n"
+#~ "或是多功能裝置中的傳真機功能"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP 軟體驅動一印表機\n"
+#~ "或是多功能裝置中的印表機功能"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "建議的驅動程式"
 
@@ -1155,16 +1173,6 @@ msgstr "所有工作"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "由 HAL 偵測到的本地印表機。"
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr "HPLIP 軟體驅動一印表機，或是多功能裝置中的印表機功能。"
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能。"
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "DNS-SD 上的 %1 網路印表機"

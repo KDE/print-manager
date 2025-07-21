@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-04-30 17:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -503,24 +503,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Donanım Soyutlama Katmanı (HAL) tarafından yerel bir yazıcı algılandı"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"Bir faks makinesini çalıştıran HPLIP yazılımı\n"
-"veya çok işlevli bir aygıtın faks işlevi"
+"HPLIP yazılımı bir faks makinesini sürüyor veya faks makinesi fonksiyonu çok "
+"işlevli bir aygıt."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"Bir yazıcıyı çalıştıran HPLIP yazılımı\n"
-"veya çok işlevli bir aygıtın yazıcı işlevi"
+"HPLIP yazılımı bir yazıcıyı sürüyor veya yazıcı fonksiyonu çok işlevli bir "
+"aygıt."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -935,6 +941,22 @@ msgstr "Tamamlanan İşler"
 msgid "All Jobs"
 msgstr "Tüm İşler"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Bir faks makinesini çalıştıran HPLIP yazılımı\n"
+#~ "veya çok işlevli bir aygıtın faks işlevi"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Bir yazıcıyı çalıştıran HPLIP yazılımı\n"
+#~ "veya çok işlevli bir aygıtın yazıcı işlevi"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Önerilen Sürücüler"
 
@@ -1162,20 +1184,6 @@ msgstr "Tüm İşler"
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr ""
 #~ "Donanım Soyutlama Katmanı (HAL) tarafından yerel bir yazıcı algılandı."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP yazılımı bir yazıcıyı sürüyor veya yazıcı fonksiyonu çok işlevli "
-#~ "bir aygıt."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP yazılımı bir faks makinesini sürüyor veya faks makinesi fonksiyonu "
-#~ "çok işlevli bir aygıt."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "DNS-SD ile %1 ağ yazıcısı"

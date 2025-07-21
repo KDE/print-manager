@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-05-25 10:37+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -503,24 +503,27 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "HALin (Hardware Abstraction Layer) tunnistama paikallinen tulostin"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"Faksia ohjaava HPLIP-ohjelmisto tai\n"
-"monitoimilaitteen faksitoiminto"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "Faksia ohjaava HPLIP-ohjelmisto tai monitoimilaitteen faksitoiminto."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"Tulostinta ohjaava HPLIP-ohjelmisto tai\n"
-"monitoimilaitteen tulostintoiminto"
+"Tulostinta ohjaava HPLIP-ohjelmisto tai monitoimilaitteen tulostintoiminto."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -937,6 +940,22 @@ msgstr "Valmiit työt"
 msgid "All Jobs"
 msgstr "Kaikki työt"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Faksia ohjaava HPLIP-ohjelmisto tai\n"
+#~ "monitoimilaitteen faksitoiminto"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Tulostinta ohjaava HPLIP-ohjelmisto tai\n"
+#~ "monitoimilaitteen tulostintoiminto"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Suositellut ajurit"
 
@@ -1163,19 +1182,6 @@ msgstr "Kaikki työt"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "HALin (Hardware Abstraction Layer) tunnistama paikallinen tulostin."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Tulostinta ohjaava HPLIP-ohjelmisto tai monitoimilaitteen "
-#~ "tulostintoiminto."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Faksia ohjaava HPLIP-ohjelmisto tai monitoimilaitteen faksitoiminto."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1-verkkotulostin DNS-SD:n kautta"

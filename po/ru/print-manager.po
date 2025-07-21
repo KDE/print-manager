@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-06-25 16:53+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -509,24 +509,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "HAL (Hardware Abstraction Layer) обнаружил локальный принтер."
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
 "Работу принтера обеспечивает HPLIP или функция факса многофункционального "
 "устройства."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
 "Работу принтера обеспечивает HPLIP или функция принтера многофункционального "
-"устройства. "
+"устройства."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -945,6 +951,22 @@ msgstr "Выполненные задания"
 msgid "All Jobs"
 msgstr "Все задания"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Работу принтера обеспечивает HPLIP или функция факса многофункционального "
+#~ "устройства."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Работу принтера обеспечивает HPLIP или функция принтера "
+#~ "многофункционального устройства. "
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Рекомендуемые драйверы"
 
@@ -1170,20 +1192,6 @@ msgstr "Все задания"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "HAL (Hardware Abstraction Layer) обнаружил локальный принтер."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Работу принтера обеспечивает HPLIP или функция принтера "
-#~ "многофункционального устройства."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Работу принтера обеспечивает HPLIP или функция факса многофункционального "
-#~ "устройства."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "Сетевой принтер %1 через DNS-SD"

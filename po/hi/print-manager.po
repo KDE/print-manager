@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -510,22 +510,30 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "हार्डवेयर एब्स्ट्रेक्शन लेयर (HAL) द्वारा पता लगाया गया स्थानीय प्रिंटर"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"एचपीएलआईपी सॉफ्टवेयर फैक्स मशीन को चलाता है, या मल्टी-फंक्शन डिवाइस का फैक्स फंक्शन "
-"चलाता है"
+"एचपीएलआईपी सॉफ्टवेयर एक फैक्स मशीन या एक बहु-कार्यात्मक डिवाइस के फैक्स कार्य को संचालित "
+"करता है।"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
-msgstr "एचपीएलआईपी सॉफ्टवेयर प्रिंटर को चलाता है, या मल्टी-फंक्शन डिवाइस का प्रिंटर फ़ंक्शन"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr ""
+"एचपीएलआईपी सॉफ्टवेयर एक प्रिंटर, या एक बहु-कार्यात्मक डिवाइस के प्रिंटर कार्य को चलाता "
+"है।"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -940,6 +948,21 @@ msgstr "पूर्ण किये गए कार्य"
 msgid "All Jobs"
 msgstr "सारी नौकरियां"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "एचपीएलआईपी सॉफ्टवेयर फैक्स मशीन को चलाता है, या मल्टी-फंक्शन डिवाइस का फैक्स फंक्शन "
+#~ "चलाता है"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "एचपीएलआईपी सॉफ्टवेयर प्रिंटर को चलाता है, या मल्टी-फंक्शन डिवाइस का प्रिंटर फ़ंक्शन"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "अनुशंसित ड्राइवर"
 
@@ -1157,20 +1180,6 @@ msgstr "सारी नौकरियां"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "हार्डवेयर एब्स्ट्रेक्शन लेयर (HAL) द्वारा स्थानीय प्रिंटर का पता लगाया गया।"
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "एचपीएलआईपी सॉफ्टवेयर एक प्रिंटर, या एक बहु-कार्यात्मक डिवाइस के प्रिंटर कार्य को "
-#~ "चलाता है।"
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "एचपीएलआईपी सॉफ्टवेयर एक फैक्स मशीन या एक बहु-कार्यात्मक डिवाइस के फैक्स कार्य को "
-#~ "संचालित करता है।"
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "DNS-SD के माध्यम से %1 नेटवर्क प्रिंटर"

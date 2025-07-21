@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2024-05-24 16:45+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -520,24 +520,30 @@ msgstr ""
 "(HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"HPLIP programinė įranga, valdanti faksą\n"
-"ar daugiafunkcio įrenginio fakso funkciją"
+"HPLIP programinė įranga, valdanti faksą ar daugiafunkcio įrenginio fakso "
+"funkciją."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"HPLIP programinė įranga, valdanti spausdintuvą\n"
-"ar daugiafunkcio įrenginio spausdinimo funkciją"
+"HPLIP programinė įranga, valdanti spausdintuvą ar daugiafunkcio įrenginio "
+"spausdinimo funkciją."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -956,6 +962,22 @@ msgstr "Užbaigti darbai"
 msgid "All Jobs"
 msgstr "Visi darbai"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP programinė įranga, valdanti faksą\n"
+#~ "ar daugiafunkcio įrenginio fakso funkciją"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "HPLIP programinė įranga, valdanti spausdintuvą\n"
+#~ "ar daugiafunkcio įrenginio spausdinimo funkciją"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Rekomenduojamos tvarkyklės"
 
@@ -1185,20 +1207,6 @@ msgstr "Visi darbai"
 #~ msgstr ""
 #~ "Vietinis spausdintuvas, aptiktas aparatinės įrangos abstrakcijos lygmens "
 #~ "(HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP programinė įranga, valdanti spausdintuvą ar daugiafunkcio įrenginio "
-#~ "spausdinimo funkciją."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "HPLIP programinė įranga, valdanti faksą ar daugiafunkcio įrenginio fakso "
-#~ "funkciją."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 tinklo spausdintuvas per DNS-SD"

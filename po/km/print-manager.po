@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2012-06-29 15:40+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -540,26 +540,24 @@ msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋា
 
 #: src/libkcups/DevicesModel.cpp:126
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
 #| msgid ""
 #| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​ហ្វាក់ ឬ​មុខងារ​​ហ្វាក់​របស់​ឧបករណ៍​មុខងារ​ច្រើន"
 
 #: src/libkcups/DevicesModel.cpp:127
 #, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
 #| msgid ""
 #| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​បោះពុម្ព ឬ​មុខងារ​ម៉ាស៊ីន​បោះពុម្ព​នៃ​​ឧបករណ៍​ដែល​មាន​មុខងារ​ច្រើន"
 
 #: src/libkcups/DevicesModel.cpp:128
@@ -1005,6 +1003,29 @@ msgstr ""
 msgid "All Jobs"
 msgstr ""
 
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid ""
+#~| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#~| "function device"
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​ហ្វាក់ ឬ​មុខងារ​​ហ្វាក់​របស់​ឧបករណ៍​មុខងារ​ច្រើន"
+
+#, fuzzy
+#~| msgctxt "@info:tooltip"
+#~| msgid ""
+#~| "HPLIP software driving a printer, or the printer function of a multi-"
+#~| "function device"
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​បោះពុម្ព ឬ​មុខងារ​ម៉ាស៊ីន​បោះពុម្ព​នៃ​​ឧបករណ៍​ដែល​មាន​មុខងារ​ច្រើន"
+
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"
 #~ msgstr "ម៉ាស៊ីន​បោះពុម្ព"
@@ -1223,17 +1244,6 @@ msgstr ""
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "ម៉ាស៊ីន​បោះពុម្ព​មូលដ្ឋាន​បាន​រក​ឃើញ​ដោយ Hardware Abstraction Layer (HAL)"
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​បោះពុម្ព ឬ​មុខងារ​ម៉ាស៊ីន​បោះពុម្ព​នៃ​​ឧបករណ៍​ដែល​មាន​មុខងារ​ច្រើន"
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr "ផ្នែក​ទន់​របស់ HPLIP បញ្ជា​ម៉ាស៊ីន​ហ្វាក់ ឬ​មុខងារ​​ហ្វាក់​របស់​ឧបករណ៍​មុខងារ​ច្រើន"
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "ម៉ាស៊ីន​បោះពុម្ព​តាម​បណ្ដាញ %1 តាម​រយៈ DNS-SD"

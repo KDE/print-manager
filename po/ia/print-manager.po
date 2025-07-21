@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-05-12 16:11+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -503,24 +503,30 @@ msgstr ""
 "Imprimitor local relevate per le Strato de Abstraction de Hardware (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
-"Software HPLIP ducente un machina fax,\n"
-" o le function de fax de un dispositivo multi-function"
+"Software HPLIP ducente un machina fax, o le function de fax de un "
+"dispositivo multi-function."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
-"Software HPLIP ducente un imprimitor,\n"
-"o le function de imprimer de un dispositivo multi-function"
+"Software HPLIP ducente un imprimitor, o le function de imprimer de un "
+"dispositivo multi-function."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -935,6 +941,22 @@ msgstr "Cargas completate"
 msgid "All Jobs"
 msgstr "Omne cargas"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Software HPLIP ducente un machina fax,\n"
+#~ " o le function de fax de un dispositivo multi-function"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Software HPLIP ducente un imprimitor,\n"
+#~ "o le function de imprimer de un dispositivo multi-function"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Drivers recommendate"
 
@@ -1162,20 +1184,6 @@ msgstr "Omne cargas"
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr ""
 #~ "Imprimitor local relevate per le Strato de Abstraction de Hardware (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Software HPLIP ducente un imprimitor, o le function de imprimer de un "
-#~ "dispositivo multi-function."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Software HPLIP ducente un machina fax, o le function de fax de un "
-#~ "dispositivo multi-function."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 Imprimitor de rete via DNS-SD"

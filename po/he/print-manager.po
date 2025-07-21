@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-04-29 18:50+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -501,24 +501,26 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "מדפסת מקומית שאותרה על ידי שכבת הפשטת החומרה (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
-msgstr ""
-"תוכנת HPLIP שמפעילה פקס,\n"
-"או את רכיב הפקס במכונה משולבת"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
+msgstr "תוכנת HPLIP שמפעילה פקס או את רכיב הפקס במכונה משולבת."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
-msgstr ""
-"תוכנת HPLIP שמפעילה מדפסת,\n"
-"או את רכיב המדפסת במכונה משולבת"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
+msgstr "תוכנת HPLIP שמפעילה מדפסת או את רכיב המדפסת במכונה משולבת."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -937,6 +939,22 @@ msgstr "משימות שהושלמו"
 msgid "All Jobs"
 msgstr "כל המשימות"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "תוכנת HPLIP שמפעילה פקס,\n"
+#~ "או את רכיב הפקס במכונה משולבת"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "תוכנת HPLIP שמפעילה מדפסת,\n"
+#~ "או את רכיב המדפסת במכונה משולבת"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "מנהלי התקנים מומלצים"
 
@@ -1162,16 +1180,6 @@ msgstr "כל המשימות"
 
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr "מדפסת מקומית שאותרה על ידי שכבת הפשטת החומרה (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr "תוכנת HPLIP שמפעילה מדפסת או את רכיב המדפסת במכונה משולבת."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr "תוכנת HPLIP שמפעילה פקס או את רכיב הפקס במכונה משולבת."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "מדפסת רשת %1 דרך DNS-SD"

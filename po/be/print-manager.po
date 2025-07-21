@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-07-21 00:44+0000\n"
 "PO-Revision-Date: 2025-01-09 22:32\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -517,24 +517,30 @@ msgstr ""
 "Лакальны прынтар, выяўлены з дапамогай Hardware Abstraction Layer (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a fax machine, or the fax function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a fax machine,\n"
-"or the fax function of a multi-function device"
+"HPLIP software driving a fax machine, or the fax function of a multi-"
+"function device"
 msgstr ""
 "Праграмнае забеспячэнне HPLIP, якое кіруе факсам, або функцыя факса "
-"шматфункцыянальнай прылады"
+"шматфункцыянальнай прылады."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "HPLIP software driving a printer, or the printer function of a multi-"
+#| "function device."
 msgctxt "@info:tooltip"
 msgid ""
-"HPLIP software driving a printer,\n"
-"or the printer function of a multi-function device"
+"HPLIP software driving a printer, or the printer function of a multi-"
+"function device"
 msgstr ""
 "Праграмнае забеспячэнне HPLIP, якое кіруе прынтарам, або функцыя прынтара "
-"шматфункцыянальнай прылады"
+"шматфункцыянальнай прылады."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -953,6 +959,22 @@ msgstr "Завершаныя задачы"
 msgid "All Jobs"
 msgstr "Усе задачы"
 
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a fax machine,\n"
+#~ "or the fax function of a multi-function device"
+#~ msgstr ""
+#~ "Праграмнае забеспячэнне HPLIP, якое кіруе факсам, або функцыя факса "
+#~ "шматфункцыянальнай прылады"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "HPLIP software driving a printer,\n"
+#~ "or the printer function of a multi-function device"
+#~ msgstr ""
+#~ "Праграмнае забеспячэнне HPLIP, якое кіруе прынтарам, або функцыя прынтара "
+#~ "шматфункцыянальнай прылады"
+
 #~ msgid "Recommended Drivers"
 #~ msgstr "Рэкамендаваныя драйверы"
 
@@ -1179,20 +1201,6 @@ msgstr "Усе задачы"
 #~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
 #~ msgstr ""
 #~ "Лакальны прынтар, выяўлены з дапамогай Hardware Abstraction Layer (HAL)."
-
-#~ msgid ""
-#~ "HPLIP software driving a printer, or the printer function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Праграмнае забеспячэнне HPLIP, якое кіруе прынтарам, або функцыя прынтара "
-#~ "шматфункцыянальнай прылады."
-
-#~ msgid ""
-#~ "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~ "function device."
-#~ msgstr ""
-#~ "Праграмнае забеспячэнне HPLIP, якое кіруе факсам, або функцыя факса "
-#~ "шматфункцыянальнай прылады."
 
 #~ msgid "%1 network printer via DNS-SD"
 #~ msgstr "%1 - сеткавы прынтар, падлучаны з дапамогай DNS-SD"

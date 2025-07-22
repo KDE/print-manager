@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:44+0000\n"
+"POT-Creation-Date: 2025-07-22 00:45+0000\n"
 "PO-Revision-Date: 2025-06-01 15:17+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -107,37 +107,45 @@ msgstr ""
 "Feil ved installering (pakke: %1)\n"
 "Sjekk brukarnamn og passord, og sjå til at PackageKit er rett installert."
 
-#: ui/components/AddressExamples.qml:28
+#: ui/components/AddressExamples.qml:30
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Eksempeladresser"
 
-#: ui/components/BaseDevice.qml:112
+#: ui/components/BaseDevice.qml:86
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Printer Driver"
+msgctxt "@label:title"
+msgid "Printing Device"
+msgstr "Skrivardrivar"
+
+#: ui/components/BaseDevice.qml:116
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
 msgstr "Adresse:"
 
-#: ui/components/BaseDevice.qml:122
+#: ui/components/BaseDevice.qml:126
 #, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
 msgstr "Skriv inn einingsadresse"
 
-#: ui/components/Direct.qml:23
+#: ui/components/Direct.qml:25
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Vel einingstilkopling"
 
-#: ui/components/Drivers.qml:58
+#: ui/components/Drivers.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Vil tilrådd drivar"
 
-#: ui/components/Drivers.qml:65
+#: ui/components/Drivers.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -145,13 +153,13 @@ msgstr ""
 "Tilrådde drivarar er baserte på merket og modellen til skrivaren og "
 "tilkoplingstypen"
 
-#: ui/components/Drivers.qml:70
+#: ui/components/Drivers.qml:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
 msgstr ""
 
-#: ui/components/Drivers.qml:76
+#: ui/components/Drivers.qml:78
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -162,138 +170,145 @@ msgstr ""
 "Tilrådde drivarar er baserte på merket og modellen til skrivaren og "
 "tilkoplingstypen"
 
-#: ui/components/Lpd.qml:20
+#: ui/components/Lpd.qml:22
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
 msgstr "Line Printer Daemon-protokoll (LPD)"
 
-#: ui/components/Lpd.qml:21
+#: ui/components/Lpd.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
 msgstr "Skriv inn adressa til LPD-eininga"
 
-#: ui/components/Lpd.qml:61
+#: ui/components/Lpd.qml:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
 msgstr "Kø:"
 
-#: ui/components/Lpd.qml:66
+#: ui/components/Lpd.qml:68
 #, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
 msgstr "Namn på LPD-kø"
 
-#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:80
-#: ui/components/Socket.qml:47
+#: ui/components/Lpd.qml:75 ui/components/ManualUri.qml:82
+#: ui/components/Socket.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
 msgstr "Hald fram med adresse …"
 
-#: ui/components/Lpd.qml:90
+#: ui/components/Lpd.qml:92
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
 msgstr "Ugyldig LPD-adresse: %1"
 
-#: ui/components/ManualUri.qml:21
+#: ui/components/ManualUri.qml:23
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "Finn eksterne utskriftseiningar"
 
-#: ui/components/ManualUri.qml:22
+#: ui/components/ManualUri.qml:24
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Skriv inn adressa til den eksterne verten/eininga"
 
-#: ui/components/ManualUri.qml:55
+#: ui/components/ManualUri.qml:57
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
 msgstr "Fann ingen skrivarar på verten: %1"
 
-#: ui/components/ManualUri.qml:60
+#: ui/components/ManualUri.qml:62
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
 msgstr "CUPS-førespurnadsfeil (%1): %2"
 
-#: ui/components/ManualUri.qml:70
+#: ui/components/ManualUri.qml:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Vel skrivar …"
 
-#: ui/components/ManualUri.qml:91
-#, kde-kuit-format
+#: ui/components/ManualUri.qml:93
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "If the printer address is known, enter it and choose <interface>Continue</"
+#| "interface>."
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
-"interface>."
+"interface>.  If the printer is on a remote host, enter that address and "
+"choose <interface>Search</interface>."
 msgstr ""
 "Om du kjenner skrivaradressa, så skriv ho inn og vel <interface>Hald fram</"
 "interface>."
 
-#: ui/components/NotAvailable.qml:19
-#, kde-format
-msgctxt "@info:status"
-msgid "This feature is not yet available (%1)"
-msgstr "Denne funksjonen er ikkje tilgjengeleg enno (%1)"
-
-#: ui/components/Socket.qml:17
+#: ui/components/Socket.qml:19
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
 msgstr "AppSocket-protokoll (òg kalla JetDirect)"
 
-#: ui/components/Socket.qml:18
+#: ui/components/Socket.qml:20
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
 msgstr "Skriv inn adressa til AppSocket-eininga"
 
-#: ui/components/Socket.qml:63
+#: ui/components/Socket.qml:65
 #, kde-format
 msgid "Invalid Socket URL: %1"
 msgstr "Ugyldig socket-adresse: %1"
 
-#: ui/FindPrinter.qml:126
+#: ui/FindPrinter.qml:128
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "Set opp skrivartilkopling"
 
-#: ui/FindPrinter.qml:130 ui/main.qml:275
+#: ui/FindPrinter.qml:132 ui/main.qml:275
 #, fuzzy, kde-format
 #| msgid "Refresh"
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Oppdater"
 
-#: ui/FindPrinter.qml:140
+#: ui/FindPrinter.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
 msgstr "Vis funne einingar"
 
-#: ui/FindPrinter.qml:141
+#: ui/FindPrinter.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
 msgstr "Vis manuelle val"
 
-#: ui/FindPrinter.qml:215
+#: ui/FindPrinter.qml:219
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "This feature is not yet available (%1)"
+msgctxt "@info:status"
+msgid "This feature is not available (%1)"
+msgstr "Denne funksjonen er ikkje tilgjengeleg enno (%1)"
+
+#: ui/FindPrinter.qml:228
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Fann ikkje nokon utskriftseiningar automatisk"
 
-#: ui/FindPrinter.qml:216
+#: ui/FindPrinter.qml:229
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -302,60 +317,60 @@ msgid ""
 msgstr ""
 "Trykk «Oppdater» for å prøva på nytt, eller vel manuelt oppsett frå lista"
 
-#: ui/FindPrinter.qml:225
+#: ui/FindPrinter.qml:238
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Vel manuelt oppsett frå lista"
 
-#: ui/Global.qml:16
+#: ui/Global.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
 msgstr "Innstillingar for CUPS-tenar"
 
-#: ui/Global.qml:23
+#: ui/Global.qml:24
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
 msgstr "Administrering for CUPS-skrivarar"
 
-#: ui/Global.qml:30
+#: ui/Global.qml:31
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
 msgstr "Tilbakestill"
 
-#: ui/Global.qml:36
+#: ui/Global.qml:37
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
 msgstr "Bruk"
 
-#: ui/Global.qml:88
+#: ui/Global.qml:89
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
 msgstr "Vent litt mens CUPS-tenaren vert starta på nytt"
 
-#: ui/Global.qml:126
+#: ui/Global.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
 msgstr "Del skrivarar kopla til dette systemet"
 
-#: ui/Global.qml:138
+#: ui/Global.qml:139
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
 msgstr "Tillat utskrift frå Internett"
 
-#: ui/Global.qml:144
+#: ui/Global.qml:145
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
 msgstr "Tillat administrasjon frå nettverket"
 
-#: ui/Global.qml:149
+#: ui/Global.qml:150
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
@@ -523,287 +538,285 @@ msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Pausa utskrift"
 
-#: ui/MakeModel.qml:87
+#: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
 msgstr "Vel skrivarmerke/-modell"
 
-#: ui/MakeModel.qml:89
+#: ui/MakeModel.qml:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
 msgstr "Skrivardrivar (%1)"
 
-#: ui/MakeModel.qml:96
+#: ui/MakeModel.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Skrivardrivar"
 
-#: ui/MakeModel.qml:142
+#: ui/MakeModel.qml:146
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
 msgstr "Bruk IPP Everywhere™"
 
-#: ui/MakeModel.qml:157
+#: ui/MakeModel.qml:161
 #, kde-format
 msgid "Save"
 msgstr "Lagra"
 
-#: ui/MakeModel.qml:162
+#: ui/MakeModel.qml:166
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Vel ei PostScript-skrivarskildringsfil (PPD-fil)"
 
-#: ui/MakeModel.qml:169
+#: ui/MakeModel.qml:173
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr "Skrivarmodell er obligatorisk. Vel ein skrivarmodell."
 
-#: ui/MakeModel.qml:226
+#: ui/MakeModel.qml:230
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Vel merke og modell:"
 
-#: ui/MakeModel.qml:238
+#: ui/MakeModel.qml:242
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Filtrer modellar"
 
-#: ui/MakeModel.qml:333
+#: ui/MakeModel.qml:346
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD-fil:"
 
-#: ui/MakeModel.qml:352
+#: ui/MakeModel.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Vel PPD-fil …"
 
-#: ui/MakeModel.qml:360
+#: ui/MakeModel.qml:373
 #, kde-format
 msgid "Select"
 msgstr "Vel"
 
-#: ui/MakeModel.qml:361
+#: ui/MakeModel.qml:374
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript-skrivarskildringsfiler (*.ppd)"
 
-#: ui/PrinterSettings.qml:44
+#: ui/PrinterSettings.qml:46
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "Legg til gruppe"
 
-#: ui/PrinterSettings.qml:45
+#: ui/PrinterSettings.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "Legg til skrivar"
 
-#: ui/PrinterSettings.qml:56
+#: ui/PrinterSettings.qml:58
 #, kde-format
 msgid "Configure…"
 msgstr "Set opp …"
 
-#: ui/PrinterSettings.qml:61
+#: ui/PrinterSettings.qml:63
 #, kde-format
 msgid "Remove"
 msgstr "Fjern"
 
-#: ui/PrinterSettings.qml:78
+#: ui/PrinterSettings.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "Hjelp for CUPS-skrivaroversikt"
 
-#: ui/PrinterSettings.qml:84
+#: ui/PrinterSettings.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "Adminside for skrivar/eining"
 
-#: ui/PrinterSettings.qml:102
+#: ui/PrinterSettings.qml:104
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "Legg til"
 
-#: ui/PrinterSettings.qml:103
+#: ui/PrinterSettings.qml:105
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "Bruk"
 
-#: ui/PrinterSettings.qml:111
+#: ui/PrinterSettings.qml:113
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "Kønamn er obligatorisk. Skriv inn eit unikt kønamn."
 
-#: ui/PrinterSettings.qml:116
+#: ui/PrinterSettings.qml:118
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "Kønamnet må vera unikt. Skriv inn eit unikt kønamn."
 
-#: ui/PrinterSettings.qml:124
+#: ui/PrinterSettings.qml:126
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Merke og modell er obligatorisk. Trykk «Vel» for å velja merke/modell."
 
-#: ui/PrinterSettings.qml:134
+#: ui/PrinterSettings.qml:136
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "Set opp %1 – vent litt …"
 
-#: ui/PrinterSettings.qml:176
+#: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Klarte ikkje fjerna skrivaren: %1"
 
-#: ui/PrinterSettings.qml:203
+#: ui/PrinterSettings.qml:205
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Vil du fjerna gruppa?"
 
-#: ui/PrinterSettings.qml:204
+#: ui/PrinterSettings.qml:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Vil du fjerna skrivaren?"
 
-#: ui/PrinterSettings.qml:206
+#: ui/PrinterSettings.qml:208
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "«%1» vert fjerna."
 
-#: ui/PrinterSettings.qml:213
+#: ui/PrinterSettings.qml:215
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Fjern gruppe"
 
-#: ui/PrinterSettings.qml:214
+#: ui/PrinterSettings.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Fjern skrivar"
 
-#: ui/PrinterSettings.qml:223
+#: ui/PrinterSettings.qml:225
 #, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ui/PrinterSettings.qml:344
+#: ui/PrinterSettings.qml:347
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Standardskrivar"
 
-#: ui/PrinterSettings.qml:359
+#: ui/PrinterSettings.qml:362
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
 
-#: ui/PrinterSettings.qml:368
+#: ui/PrinterSettings.qml:371
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Del denne gruppa"
 
-#: ui/PrinterSettings.qml:369
+#: ui/PrinterSettings.qml:372
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Del denne skrivaren"
 
-#: ui/PrinterSettings.qml:376
+#: ui/PrinterSettings.qml:379
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Tek imot utskriftsjobbar"
 
-#: ui/PrinterSettings.qml:426
+#: ui/PrinterSettings.qml:432
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Skriv ut testside"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:438
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Skriv ut sjølvtestside"
 
-#: ui/PrinterSettings.qml:439
+#: ui/PrinterSettings.qml:445
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Rens skrivarhovud"
 
-#: ui/PrinterSettings.qml:457
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Kønamn:"
 
-#: ui/PrinterSettings.qml:474
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"A <interface>printer group</interface> is used to pool printing resources."
-msgstr ""
-"Ei <interface>skrivargrupper</interface> vert brukte for å samla "
-"utskriftsressurar."
-
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Skildring:"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:500
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Plassering:"
 
-#: ui/PrinterSettings.qml:506
+#: ui/PrinterSettings.qml:512
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Tilkopling:"
 
-#: ui/PrinterSettings.qml:520
+#: ui/PrinterSettings.qml:526
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Skrivarmedlemmar:"
 
-#: ui/PrinterSettings.qml:657
+#: ui/PrinterSettings.qml:667
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Merke/modell:"
 
-#: ui/PrinterSettings.qml:672
+#: ui/PrinterSettings.qml:682
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vel …"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "A <interface>printer group</interface> is used to pool printing resources."
+#~ msgstr ""
+#~ "Ei <interface>skrivargrupper</interface> vert brukte for å samla "
+#~ "utskriftsressurar."
 
 #~ msgid "Refresh"
 #~ msgstr "Oppdater"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:44+0000\n"
+"POT-Creation-Date: 2025-07-22 00:45+0000\n"
 "PO-Revision-Date: 2025-01-10 10:25\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -119,37 +119,45 @@ msgstr ""
 "Праверце ўліковыя даныя для аўтэнтыфікацыі і пераканайцеся, што PackageKit "
 "усталяваны правільна."
 
-#: ui/components/AddressExamples.qml:28
+#: ui/components/AddressExamples.qml:30
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
 msgstr "Прыклады адрасоў"
 
-#: ui/components/BaseDevice.qml:112
+#: ui/components/BaseDevice.qml:86
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Printer Driver"
+msgctxt "@label:title"
+msgid "Printing Device"
+msgstr "Драйвер прынтара"
+
+#: ui/components/BaseDevice.qml:116
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
 msgstr "Адрас:"
 
-#: ui/components/BaseDevice.qml:122
+#: ui/components/BaseDevice.qml:126
 #, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
 msgstr "Увядзіце адрас прылады"
 
-#: ui/components/Direct.qml:23
+#: ui/components/Direct.qml:25
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "Абраць злучэнне прылады"
 
-#: ui/components/Drivers.qml:58
+#: ui/components/Drivers.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
 msgstr "Абраць рэкамендаваны драйвер"
 
-#: ui/components/Drivers.qml:65
+#: ui/components/Drivers.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
@@ -157,13 +165,13 @@ msgstr ""
 "Рэкамендаваныя драйверы вызначаюцца па марцы/мадэлі прынтара і тыпу "
 "падлучэння"
 
-#: ui/components/Drivers.qml:70
+#: ui/components/Drivers.qml:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
 msgstr ""
 
-#: ui/components/Drivers.qml:76
+#: ui/components/Drivers.qml:78
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -174,138 +182,145 @@ msgstr ""
 "Рэкамендаваныя драйверы вызначаюцца па марцы/мадэлі прынтара і тыпу "
 "падлучэння"
 
-#: ui/components/Lpd.qml:20
+#: ui/components/Lpd.qml:22
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
 msgstr "Пратакол Line Printer Daemon (LPD)"
 
-#: ui/components/Lpd.qml:21
+#: ui/components/Lpd.qml:23
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
 msgstr "Увядзіце адрас прылады LPD"
 
-#: ui/components/Lpd.qml:61
+#: ui/components/Lpd.qml:63
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
 msgstr "Чарга:"
 
-#: ui/components/Lpd.qml:66
+#: ui/components/Lpd.qml:68
 #, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
 msgstr "Назва чаргі LPD"
 
-#: ui/components/Lpd.qml:73 ui/components/ManualUri.qml:80
-#: ui/components/Socket.qml:47
+#: ui/components/Lpd.qml:75 ui/components/ManualUri.qml:82
+#: ui/components/Socket.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
 msgstr "Працягнуць з адрасам…"
 
-#: ui/components/Lpd.qml:90
+#: ui/components/Lpd.qml:92
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
 msgstr "Хібны URL LPD: %1"
 
-#: ui/components/ManualUri.qml:21
+#: ui/components/ManualUri.qml:23
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
 msgstr "Пошук адлеглых прылад для друкавання"
 
-#: ui/components/ManualUri.qml:22
+#: ui/components/ManualUri.qml:24
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
 msgstr "Увядзіце адрас адлеглага хоста або прылады"
 
-#: ui/components/ManualUri.qml:55
+#: ui/components/ManualUri.qml:57
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
 msgstr "Не знойдзена прынтараў на хосце: %1"
 
-#: ui/components/ManualUri.qml:60
+#: ui/components/ManualUri.qml:62
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
 msgstr "Не ўдалося выканаць запыт CUPS (%1): %2"
 
-#: ui/components/ManualUri.qml:70
+#: ui/components/ManualUri.qml:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
 msgstr "Абраць прынтар…"
 
-#: ui/components/ManualUri.qml:91
-#, kde-kuit-format
+#: ui/components/ManualUri.qml:93
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info:whatsthis"
+#| msgid ""
+#| "If the printer address is known, enter it and choose <interface>Continue</"
+#| "interface>."
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
-"interface>."
+"interface>.  If the printer is on a remote host, enter that address and "
+"choose <interface>Search</interface>."
 msgstr ""
 "Калі адрас прынтара вядомы, увядзіце яго і абярыце <interface>Працягнуць</"
 "interface>."
 
-#: ui/components/NotAvailable.qml:19
-#, kde-format
-msgctxt "@info:status"
-msgid "This feature is not yet available (%1)"
-msgstr "Гэтая функцыя пакуль недаступная (%1)"
-
-#: ui/components/Socket.qml:17
+#: ui/components/Socket.qml:19
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
 msgstr "Пратакол AppSocket (JetDirect)"
 
-#: ui/components/Socket.qml:18
+#: ui/components/Socket.qml:20
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
 msgstr "Увядзіце адрас прылады AppSocket"
 
-#: ui/components/Socket.qml:63
+#: ui/components/Socket.qml:65
 #, kde-format
 msgid "Invalid Socket URL: %1"
 msgstr "Хібны URL сокета: %1"
 
-#: ui/FindPrinter.qml:126
+#: ui/FindPrinter.qml:128
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "Наладзіць злучэнне прынтара"
 
-#: ui/FindPrinter.qml:130 ui/main.qml:275
+#: ui/FindPrinter.qml:132 ui/main.qml:275
 #, fuzzy, kde-format
 #| msgid "Refresh"
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Абнавіць"
 
-#: ui/FindPrinter.qml:140
+#: ui/FindPrinter.qml:142
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Detected Devices"
 msgstr "Паказаць выяўленыя прылады"
 
-#: ui/FindPrinter.qml:141
+#: ui/FindPrinter.qml:143
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
 msgstr "Паказаць уласнаручныя параметры"
 
-#: ui/FindPrinter.qml:215
+#: ui/FindPrinter.qml:219
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "This feature is not yet available (%1)"
+msgctxt "@info:status"
+msgid "This feature is not available (%1)"
+msgstr "Гэтая функцыя пакуль недаступная (%1)"
+
+#: ui/FindPrinter.qml:228
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
 msgstr "Немагчыма аўтаматычна выявіць прылады для друкавання"
 
-#: ui/FindPrinter.qml:216
+#: ui/FindPrinter.qml:229
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -315,60 +330,60 @@ msgstr ""
 "Абярыце \"Абнавіць\", каб паўтарыць спробу, або ўласнаручна абярыце параметр "
 "канфігурацыі са спіса"
 
-#: ui/FindPrinter.qml:225
+#: ui/FindPrinter.qml:238
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
 msgstr "Уласнаручна абярыце параметр канфігурацыі са спіса"
 
-#: ui/Global.qml:16
+#: ui/Global.qml:17
 #, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
 msgstr "Налады сервера CUPS"
 
-#: ui/Global.qml:23
+#: ui/Global.qml:24
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
 msgstr "Адміністраванне сервера CUPS"
 
-#: ui/Global.qml:30
+#: ui/Global.qml:31
 #, kde-format
 msgctxt "@action:button Reset to current settings"
 msgid "Reset"
 msgstr "Скінуць"
 
-#: ui/Global.qml:36
+#: ui/Global.qml:37
 #, kde-format
 msgctxt "@action:button Apply new settings"
 msgid "Apply"
 msgstr "Ужыць"
 
-#: ui/Global.qml:88
+#: ui/Global.qml:89
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
 msgstr "Пачакайце, пакуль сервер CUPS перазапусціцца"
 
-#: ui/Global.qml:126
+#: ui/Global.qml:127
 #, kde-format
 msgctxt "@option:check"
 msgid "Share printers connected to this system"
 msgstr "Абагуліць прынтары, падлучаныя ў гэтай сістэме"
 
-#: ui/Global.qml:138
+#: ui/Global.qml:139
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow printing from the Internet"
 msgstr "Дазволіць друкаванне з інтэрнэту"
 
-#: ui/Global.qml:144
+#: ui/Global.qml:145
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow remote administration"
 msgstr "Дазволіць адлеглае адміністраванне"
 
-#: ui/Global.qml:149
+#: ui/Global.qml:150
 #, kde-format
 msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
@@ -538,196 +553,196 @@ msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Прыпыніць друкаванне"
 
-#: ui/MakeModel.qml:87
+#: ui/MakeModel.qml:91
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
 msgstr "Абраць марку/мадэль прынтара"
 
-#: ui/MakeModel.qml:89
+#: ui/MakeModel.qml:93
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
 msgstr "Драйвер прынтара (%1)"
 
-#: ui/MakeModel.qml:96
+#: ui/MakeModel.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
 msgstr "Драйвер прынтара"
 
-#: ui/MakeModel.qml:142
+#: ui/MakeModel.qml:146
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
 msgstr ""
 
-#: ui/MakeModel.qml:157
+#: ui/MakeModel.qml:161
 #, kde-format
 msgid "Save"
 msgstr "Захаваць"
 
-#: ui/MakeModel.qml:162
+#: ui/MakeModel.qml:166
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
 msgstr "Абраць файл апісання прынтара PostScript (PPD)"
 
-#: ui/MakeModel.qml:169
+#: ui/MakeModel.qml:173
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
 msgstr "Патрэбна мадэль прынтара. Абярыце мадэль прынтара."
 
-#: ui/MakeModel.qml:226
+#: ui/MakeModel.qml:230
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
 msgstr "Абраць марку і мадэль:"
 
-#: ui/MakeModel.qml:238
+#: ui/MakeModel.qml:242
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Фільтр мадэляў"
 
-#: ui/MakeModel.qml:333
+#: ui/MakeModel.qml:346
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "Файл PPD:"
 
-#: ui/MakeModel.qml:352
+#: ui/MakeModel.qml:365
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Абраць файл PPD…"
 
-#: ui/MakeModel.qml:360
+#: ui/MakeModel.qml:373
 #, kde-format
 msgid "Select"
 msgstr "Абраць"
 
-#: ui/MakeModel.qml:361
+#: ui/MakeModel.qml:374
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript-файлы апісання прынтара (*.ppd)"
 
-#: ui/PrinterSettings.qml:44
+#: ui/PrinterSettings.qml:46
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Group"
 msgstr "Дадаць групу"
 
-#: ui/PrinterSettings.qml:45
+#: ui/PrinterSettings.qml:47
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Printer"
 msgstr "Дадаць прынтар"
 
-#: ui/PrinterSettings.qml:56
+#: ui/PrinterSettings.qml:58
 #, kde-format
 msgid "Configure…"
 msgstr "Наладжванне…"
 
-#: ui/PrinterSettings.qml:61
+#: ui/PrinterSettings.qml:63
 #, kde-format
 msgid "Remove"
 msgstr "Выдаліць"
 
-#: ui/PrinterSettings.qml:78
+#: ui/PrinterSettings.qml:80
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
 msgstr "Даведка па \"Аглядзе прынтараў CUPS\""
 
-#: ui/PrinterSettings.qml:84
+#: ui/PrinterSettings.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
 msgstr "Старонка адміністравання прынтараў або прылад"
 
-#: ui/PrinterSettings.qml:102
+#: ui/PrinterSettings.qml:104
 #, kde-format
 msgctxt "@action:button Add printer"
 msgid "Add"
 msgstr "Дадаць"
 
-#: ui/PrinterSettings.qml:103
+#: ui/PrinterSettings.qml:105
 #, kde-format
 msgctxt "@action:button Apply changes"
 msgid "Apply"
 msgstr "Ужыць"
 
-#: ui/PrinterSettings.qml:111
+#: ui/PrinterSettings.qml:113
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr "Патрэбная назва чаргі. Увядзіце ўнікальную назву чаргі."
 
-#: ui/PrinterSettings.qml:116
+#: ui/PrinterSettings.qml:118
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
 msgstr "Назва чаргі мусіць быць унікальнай. Увядзіце ўнікальную назву чаргі."
 
-#: ui/PrinterSettings.qml:124
+#: ui/PrinterSettings.qml:126
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Патрэбна марка/мадэль. Каб абраць марку/мадэль, націсніце \"Абраць\""
 
-#: ui/PrinterSettings.qml:134
+#: ui/PrinterSettings.qml:136
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
 msgstr "Наладжванне \"%1\". Пачакайце…"
 
-#: ui/PrinterSettings.qml:176
+#: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Не ўдалося выдаліць прынтар: \"%1\""
 
-#: ui/PrinterSettings.qml:203
+#: ui/PrinterSettings.qml:205
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Выдаліць групу?"
 
-#: ui/PrinterSettings.qml:204
+#: ui/PrinterSettings.qml:206
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Выдаліць прынтар?"
 
-#: ui/PrinterSettings.qml:206
+#: ui/PrinterSettings.qml:208
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "Будзе выдалена: \"%1\"."
 
-#: ui/PrinterSettings.qml:213
+#: ui/PrinterSettings.qml:215
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Выдаліць групу"
 
-#: ui/PrinterSettings.qml:214
+#: ui/PrinterSettings.qml:216
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Выдаліць прынтар"
 
-#: ui/PrinterSettings.qml:223
+#: ui/PrinterSettings.qml:225
 #, kde-format
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: ui/PrinterSettings.qml:344
+#: ui/PrinterSettings.qml:347
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Прадвызначаны прынтар"
 
-#: ui/PrinterSettings.qml:359
+#: ui/PrinterSettings.qml:362
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
@@ -735,92 +750,90 @@ msgstr ""
 "Каб змяніць прадвызначаны прынтар, спачатку зрабіце прадвызначаным іншы "
 "прынтар."
 
-#: ui/PrinterSettings.qml:368
+#: ui/PrinterSettings.qml:371
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Абагуліць гэтую групу"
 
-#: ui/PrinterSettings.qml:369
+#: ui/PrinterSettings.qml:372
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Абагуліць гэты прынтар"
 
-#: ui/PrinterSettings.qml:376
+#: ui/PrinterSettings.qml:379
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Прыём задач друкавання"
 
-#: ui/PrinterSettings.qml:426
+#: ui/PrinterSettings.qml:432
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Надрукаваць тэставую старонку"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:438
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Надрукаваць старонку самаправярання"
 
-#: ui/PrinterSettings.qml:439
+#: ui/PrinterSettings.qml:445
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Ачышчэнне друкавальных галовак"
 
-#: ui/PrinterSettings.qml:457
+#: ui/PrinterSettings.qml:463
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Назва чаргі:"
 
-#: ui/PrinterSettings.qml:474
-#, kde-kuit-format
-msgctxt "@info:whatsthis"
-msgid ""
-"A <interface>printer group</interface> is used to pool printing resources."
-msgstr ""
-"<interface>Група прынтараў</interface> выкарыстоўваецца для аб'яднання "
-"рэсурсаў друкавання."
-
-#: ui/PrinterSettings.qml:482
+#: ui/PrinterSettings.qml:488
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Апісанне:"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:500
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Размяшчэнне:"
 
-#: ui/PrinterSettings.qml:506
+#: ui/PrinterSettings.qml:512
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Злучэнне:"
 
-#: ui/PrinterSettings.qml:520
+#: ui/PrinterSettings.qml:526
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Прынтары ўдзельнікаў:"
 
-#: ui/PrinterSettings.qml:657
+#: ui/PrinterSettings.qml:667
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Вытворца/Мадэль:"
 
-#: ui/PrinterSettings.qml:672
+#: ui/PrinterSettings.qml:682
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Абраць…"
+
+#~ msgctxt "@info:whatsthis"
+#~ msgid ""
+#~ "A <interface>printer group</interface> is used to pool printing resources."
+#~ msgstr ""
+#~ "<interface>Група прынтараў</interface> выкарыстоўваецца для аб'яднання "
+#~ "рэсурсаў друкавання."
 
 #~ msgid "Refresh"
 #~ msgstr "Абнавіць"

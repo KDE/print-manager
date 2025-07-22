@@ -500,32 +500,20 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "硬件抽象层 (HAL) 检测到的本地打印机"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine,\n"
-#| "or the fax function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
-msgstr ""
-"HPLIP 软件包驱动的传真机，\n"
-"或者多功能一体机的传真功能"
+msgstr "HPLIP 软件包驱动的传真机，或者多功能一体机的传真功能"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer,\n"
-#| "or the printer function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
-msgstr ""
-"HPLIP 软件包驱动的打印机，\n"
-"或者多功能一体机的打印功能"
+msgstr "HPLIP 软件包驱动的打印机，或者多功能一体机的打印功能"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

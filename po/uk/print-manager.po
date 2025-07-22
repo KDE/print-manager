@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-21 00:44+0000\n"
-"PO-Revision-Date: 2025-04-29 08:55+0300\n"
+"PO-Revision-Date: 2025-07-21 08:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -504,10 +504,7 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Локальний принтер, що виявляється HAL (Hardware Abstraction Layer)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -517,10 +514,7 @@ msgstr ""
 "пристрою."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"

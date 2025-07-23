@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-29 09:00+0300\n"
+"PO-Revision-Date: 2025-07-22 21:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -114,12 +114,10 @@ msgid "Example Addresses"
 msgstr "Örnek Adresler"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Yazıcı Sürücüsü"
+msgstr "Yazdırma Aygıtı"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -231,18 +229,16 @@ msgid "Select Printer…"
 msgstr "Yazıcı Seç…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
-"Yazıcı adresi biliniyorsa onu girin ve <interface>Sürdür</interface>’ü seçin."
+"Yazıcı adresi biliniyorsa onu girin ve <interface>Sürdür</interface>’ü "
+"seçin. Yazıcı uzak bir makinedeyse o adresi girin ve <interface>Ara</"
+"interface>’yı seçin."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -286,12 +282,10 @@ msgid "Show Manual Options"
 msgstr "Düz Seçenekleri Göster"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Bu özellik henüz kullanılamıyor (%1)"
+msgstr "Bu özellik kullanılamıyor (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-28 14:42+0200\n"
+"PO-Revision-Date: 2025-07-22 23:14+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -114,12 +114,10 @@ msgid "Example Addresses"
 msgstr "Indirizzi di esempio"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Driver di stampante"
+msgstr "Dispositivo di stampa"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -233,11 +231,7 @@ msgid "Select Printer…"
 msgstr "Seleziona una stampante…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -245,7 +239,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Se l'indirizzo della stampante è noto, inserirlo qui e scegliere "
-"<interface>Continua</interface>."
+"<interface>Continua</interface>. Se la stampante è collegata a un server "
+"remoto, inserisci l'indirizzo e scegli <interface>Cerca</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -289,12 +284,10 @@ msgid "Show Manual Options"
 msgstr "Mostra le opzioni manuali"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Questa funzionalità non è ancora disponibile (%1)"
+msgstr "Questa funzionalità non è disponibile (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

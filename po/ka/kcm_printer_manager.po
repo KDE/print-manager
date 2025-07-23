@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-28 03:55+0200\n"
+"PO-Revision-Date: 2025-07-22 04:39+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -114,12 +114,10 @@ msgid "Example Addresses"
 msgstr "მისამართის მაგალითები"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "პრინტერის დრაივერი"
+msgstr "ბეჭდვის მოწყობილობა"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -234,11 +232,7 @@ msgid "Select Printer…"
 msgstr "აირჩიეთ პრინტერი…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -246,7 +240,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "თუ პრინტერის მისამართი ცნობილია, შეიყვანეთ ის და აირჩიეთ "
-"<interface>გაგრძელება</interface>."
+"<interface>გაგრძელება</interface>.   თუ პრინტერი სხვა ჰოსტზეა, შეიყვანეთ "
+"მისი მისამართი და აირჩიეთ <interface>ძებნა</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -290,12 +285,10 @@ msgid "Show Manual Options"
 msgstr "ხელით მისათითებელი პარამეტრების ჩვენება"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "ეს ფუნქცია ჯერ ხელმისაწვდომი არაა (%1)"
+msgstr "ეს ფუნქცია ხელმისაწვდომი არაა (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

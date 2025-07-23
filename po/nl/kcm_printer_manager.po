@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-28 18:39+0200\n"
+"PO-Revision-Date: 2025-07-22 11:49+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -114,12 +114,10 @@ msgid "Example Addresses"
 msgstr "Voorbeeldadressen"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Printerstuurprogramma"
+msgstr "Printerapparaat"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -235,11 +233,7 @@ msgid "Select Printer…"
 msgstr "Printer selecteren…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -247,7 +241,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Als het adres van de printer bekend is, voer het in en kies "
-"<interface>Doorgaan</interface>."
+"<interface>Doorgaan</interface>.  Als de printer op een externe host is, "
+"voer dat adres in en kies <interface>Zoeken</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -291,12 +286,10 @@ msgid "Show Manual Options"
 msgstr "Handmatige opties tonen"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Deze functie is nog niet beschikbaar (%1)"
+msgstr "Deze functie is niet beschikbaar (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

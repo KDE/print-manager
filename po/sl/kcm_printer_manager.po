@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-28 08:20+0200\n"
+"PO-Revision-Date: 2025-07-22 06:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -111,12 +111,10 @@ msgid "Example Addresses"
 msgstr "Primeri naslovov"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Gonilnik tiskalnika"
+msgstr "Naprava za tiskanje"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -229,11 +227,7 @@ msgid "Select Printer…"
 msgstr "Izberi tiskalnik…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -241,7 +235,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Če je naslov tiskalnika znan, ga vnesite in izberite <interface>Nadaljuj</"
-"interface>."
+"interface>.  Če je tiskalnik na oddaljenem gostitelju, vnesite ta naslov in "
+"izberite <interface>Išči</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -285,12 +280,10 @@ msgid "Show Manual Options"
 msgstr "Prikaži ročne možnosti"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Ta zmožnost še ni na voljo (%1)"
+msgstr "Ta zmožnost ni na voljo (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

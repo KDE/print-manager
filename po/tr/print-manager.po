@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-14 00:45+0000\n"
-"PO-Revision-Date: 2025-04-30 17:45+0300\n"
+"PO-Revision-Date: 2025-07-22 21:26+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,7 +39,7 @@ msgstr "Ortam Ayarları"
 #: src/configure-printer/ConfigureDialog.cpp:102
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
-msgstr "Başlıklar, İlkeler ve İzinli Kullanıcılar"
+msgstr "Başlıklar, Politikalar ve İzinli Kullanıcılar"
 
 #: src/configure-printer/ConfigureDialog.cpp:171
 #, kde-format
@@ -160,31 +160,31 @@ msgstr "Başlıklar"
 #: src/configure-printer/PrinterBehavior.ui:26
 #, kde-format
 msgid "Starting Banner:"
-msgstr "Başlangıç Başlığı:"
+msgstr "Başlangıç başlığı:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/configure-printer/PrinterBehavior.ui:46
 #, kde-format
 msgid "Ending Banner:"
-msgstr "Sonlandırma Başlığı:"
+msgstr "Bitiş başlığı:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
 #: src/configure-printer/PrinterBehavior.ui:81
 #, kde-format
 msgid "Policies"
-msgstr "İlkeler"
+msgstr "Politikalar"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/configure-printer/PrinterBehavior.ui:87
 #, kde-format
 msgid "Operation Policy:"
-msgstr "İşlem İlkesi:"
+msgstr "İşlem politikası:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/configure-printer/PrinterBehavior.ui:100
 #, kde-format
 msgid "Error Policy:"
-msgstr "Hata İlkesi:"
+msgstr "Hata politikası:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, AllowGB)
 #: src/configure-printer/PrinterBehavior.ui:133

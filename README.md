@@ -54,8 +54,6 @@ The legacy `kde-print-queue` app is provided as the primary means to manage conf
 
 The easiest way to make changes and test print-manager during development is to [build it with kde-builder](https://kde-builder.kde.org).
 
-When building print-manager manually, keep in mind that the Qt5 and Qt6 versions will be built by default. To control which versions are built, use the `BUILD_QT5` and `BUILD_QT6` CMake variables.
-
 After building, restart the kded and plasmashell services.  Run the kcm from System Settings or from the command line:
 
 * systemsettings kcm_printer_manager

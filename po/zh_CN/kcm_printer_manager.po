@@ -113,12 +113,10 @@ msgid "Example Addresses"
 msgstr "示例地址"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "打印机驱动程序"
+msgstr ""
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -230,18 +228,13 @@ msgid "Select Printer…"
 msgstr "选择打印机…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
-"如果您知道打印机的地址，请输入该地址并点击 <interface>继续</interface>。"
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -285,12 +278,10 @@ msgid "Show Manual Options"
 msgstr "显示手动选项"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "此功能尚未完成开发 (%1)"
+msgstr ""
 
 #: ui/FindPrinter.qml:228
 #, kde-format
@@ -799,8 +790,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "A <interface>printer group</interface> is used to pool printing resources."
-#~ msgstr "<interface>打印机组</interface> 用于对打印资源进行集中管理。"

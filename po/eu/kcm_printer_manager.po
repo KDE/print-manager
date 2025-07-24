@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-07-22 19:40+0200\n"
+"PO-Revision-Date: 2025-07-23 14:20+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -158,7 +158,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr "Gidaria eskuz bilatzea..."
+msgstr "Gidaria eskuz bilatzea…"
 
 #: ui/components/Drivers.qml:78
 #, kde-format
@@ -196,7 +196,7 @@ msgstr "LPD ilararen izena"
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr "Jarraitu helbidearekin..."
+msgstr "Jarraitu helbidearekin…"
 
 #: ui/components/Lpd.qml:92
 #, kde-format
@@ -232,7 +232,7 @@ msgstr "CUPS erakaeraren errorea (%1): %2"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Hautatu inprimagailua..."
+msgstr "Hautatu inprimagailua…"
 
 #: ui/components/ManualUri.qml:93
 #, kde-kuit-format
@@ -392,7 +392,7 @@ msgstr "Instalazioak huts egin du"
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr "Instalatzen..."
+msgstr "Instalatzen…"
 
 #: ui/InstallDialog.qml:90
 #, kde-format
@@ -451,19 +451,19 @@ msgstr "Gehitu…"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
-msgstr "Gehitu inprimagailua..."
+msgstr "Gehitu inprimagailua…"
 
 #: ui/main.qml:130
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "Gehitu taldea..."
+msgstr "Gehitu taldea…"
 
 #: ui/main.qml:136
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "Konfiguratu inprimatzeko zerbitzaria..."
+msgstr "Konfiguratu inprimatzeko zerbitzaria…"
 
 #: ui/main.qml:262
 #, kde-format
@@ -477,7 +477,7 @@ msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Egin klik <interface>Gehitu...</interface> aukeran ordenagailu honetan "
+"Egin klik <interface>Gehitu…</interface> aukeran ordenagailu honetan "
 "inprimagailu berri bat ezartzeko"
 
 #: ui/main.qml:272
@@ -599,7 +599,7 @@ msgstr "PPD fitxategia:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "Hautatu PPD fitxategia..."
+msgstr "Hautatu PPD fitxategia…"
 
 #: ui/MakeModel.qml:373
 #, kde-format
@@ -626,7 +626,7 @@ msgstr "Gehitu inprimagailua"
 #: ui/PrinterSettings.qml:58
 #, kde-format
 msgid "Configure…"
-msgstr "Konfiguratu..."
+msgstr "Konfiguratu…"
 
 #: ui/PrinterSettings.qml:63
 #, kde-format
@@ -681,7 +681,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr "%1 konfiguratzen, itxoin mesedez..."
+msgstr "%1 konfiguratzen, itxoin mesedez…"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
@@ -813,7 +813,7 @@ msgstr "Marka/eredua:"
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr "Hautatu..."
+msgstr "Hautatu…"
 
 #~ msgctxt "@info:whatsthis"
 #~ msgid ""

@@ -12,10 +12,10 @@
 #include <qqmlregistration.h>
 
 #include <KCupsPrinter.h>
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
 class KCupsRequest;
-class KCUPSLIB_EXPORT PrinterModel : public QStandardItemModel
+class KCUPS_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
     QML_ELEMENT

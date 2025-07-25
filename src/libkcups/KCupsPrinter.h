@@ -8,9 +8,9 @@
 #define KCUPSPRINTER_H
 
 #include <KCupsConnection.h>
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
-class KCUPSLIB_EXPORT KCupsPrinter
+class KCUPS_EXPORT KCupsPrinter
 {
 public:
     enum Status {

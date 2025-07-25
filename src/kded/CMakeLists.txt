@@ -20,7 +20,7 @@ target_link_libraries(kded_printmanager PRIVATE
     Qt6::Core
     KF6::DBusAddons
     KF6::Notifications
-    kcupslib
+    kcups
 )
 
 ecm_qt_declare_logging_category(kded_printmanager

@@ -9,9 +9,9 @@
 
 #include <QStyledItemDelegate>
 
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
-class KCUPSLIB_EXPORT NoSelectionRectDelegate : public QStyledItemDelegate
+class KCUPS_EXPORT NoSelectionRectDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:

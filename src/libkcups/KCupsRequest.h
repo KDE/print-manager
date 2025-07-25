@@ -10,7 +10,7 @@
 #include <QEventLoop>
 #include <QObject>
 
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
 #include "KCupsConnection.h"
 #include "KCupsJob.h"
@@ -18,7 +18,7 @@
 #include "KCupsServer.h"
 #include "KIppRequest.h"
 
-class KCUPSLIB_EXPORT KCupsRequest : public QObject
+class KCUPS_EXPORT KCupsRequest : public QObject
 {
     Q_OBJECT
 public:

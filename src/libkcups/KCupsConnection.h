@@ -16,7 +16,7 @@
 #include <QVariantMap>
 #include <QWidget>
 
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
 #include <cups/cups.h>
 
@@ -105,7 +105,7 @@ typedef QList<QVariantMap> ReturnArguments;
 
 class KIppRequest;
 class KCupsPasswordDialog;
-class KCUPSLIB_EXPORT KCupsConnection : public QThread
+class KCUPS_EXPORT KCupsConnection : public QThread
 {
     Q_OBJECT
 public:

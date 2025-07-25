@@ -9,10 +9,10 @@
 #define PPD_MODEL_H
 
 #include <QStandardItemModel>
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 #include <qqmlregistration.h>
 
-class KCUPSLIB_EXPORT PPDModel : public QStandardItemModel
+class KCUPS_EXPORT PPDModel : public QStandardItemModel
 {
     Q_OBJECT
     QML_ELEMENT

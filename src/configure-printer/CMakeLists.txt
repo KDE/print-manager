@@ -35,7 +35,7 @@ target_link_libraries(configure-printer
     KF6::I18n
     KF6::DBusAddons
     KF6::ConfigCore
-    kcupslib
+    kcups
 )
 
 install(TARGETS configure-printer DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

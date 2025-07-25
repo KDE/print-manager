@@ -32,15 +32,11 @@ set(libkcups_SRCS
     DevicesModel.h
 )
 
-add_library(kcupslib SHARED ${libkcups_SRCS})
-set_target_properties(kcupslib PROPERTIES
-    SOVERSION ${PROJECT_VERSION}
-    VERSION ${PROJECT_VERSION}
-)
+add_library(kcups SHARED ${libkcups_SRCS})
 
-generate_export_header(kcupslib)
+generate_export_header(kcups)
 
-target_link_libraries(kcupslib PUBLIC
+target_link_libraries(kcups PUBLIC
     Qt::Core
     Qt::DBus
     Qt::Qml
@@ -54,10 +50,10 @@ target_link_libraries(kcupslib PUBLIC
     Cups::Cups
 )
 
-ecm_add_qml_module(kcupslib URI "org.kde.plasma.printmanager" GENERATE_PLUGIN_SOURCE)
-ecm_finalize_qml_module(kcupslib)
+ecm_add_qml_module(kcups URI "org.kde.plasma.printmanager" GENERATE_PLUGIN_SOURCE)
+ecm_finalize_qml_module(kcups)
 
-ecm_qt_declare_logging_category(kcupslib
+ecm_qt_declare_logging_category(kcups
     HEADER kcupslib_log.h
     IDENTIFIER LIBKCUPS
     CATEGORY_NAME org.kde.plasma.printmanager.libkcups
@@ -65,5 +61,5 @@ ecm_qt_declare_logging_category(kcupslib
     EXPORT PMLOGS
 )
 
-install(TARGETS kcupslib ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+install(TARGETS kcups ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 

@@ -15,14 +15,14 @@
 #include <qqmlregistration.h>
 
 #include <KCupsRequest.h>
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
 typedef QMap<QString, QString> MapSS;
 typedef QMap<QString, MapSS> MapSMapSS;
 
 class KCupsRequest;
 
-class KCUPSLIB_EXPORT DevicesModel : public QStandardItemModel
+class KCUPS_EXPORT DevicesModel : public QStandardItemModel
 {
     Q_OBJECT
     QML_ELEMENT

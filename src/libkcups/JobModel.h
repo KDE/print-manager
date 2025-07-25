@@ -11,12 +11,12 @@
 #include <qqmlregistration.h>
 
 #include <cups/cups.h>
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
 class KCupsJob;
 class KCupsRequest;
 
-class KCUPSLIB_EXPORT JobModel : public QStandardItemModel
+class KCUPS_EXPORT JobModel : public QStandardItemModel
 {
     Q_OBJECT
     QML_ELEMENT

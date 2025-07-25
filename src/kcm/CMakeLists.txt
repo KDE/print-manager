@@ -17,7 +17,7 @@ target_link_libraries(kcm_printer_manager PRIVATE
     KF6::CoreAddons
     KF6::KCMUtilsQuick
     KF6::I18n
-    kcupslib
+    kcups
 )
 
 if(SCP_INSTALL)

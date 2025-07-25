@@ -8,9 +8,9 @@
 #define KCUPSJOB_H
 
 #include <KCupsConnection.h>
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 
-class KCUPSLIB_EXPORT KCupsJob
+class KCUPS_EXPORT KCupsJob
 {
 public:
     KCupsJob();

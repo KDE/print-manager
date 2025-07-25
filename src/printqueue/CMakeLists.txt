@@ -21,7 +21,7 @@ target_link_libraries(kde-print-queue
     KF6::I18n
     KF6::DBusAddons
     KF6::ConfigCore
-    kcupslib
+    kcups
 )
 
 install(TARGETS kde-print-queue DESTINATION ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

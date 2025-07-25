@@ -8,10 +8,10 @@
 #define JOB_SORT_FILTER_MODEL_H
 
 #include <QSortFilterProxyModel>
-#include <kcupslib_export.h>
+#include <kcups_export.h>
 #include <qqmlregistration.h>
 
-class KCUPSLIB_EXPORT JobSortFilterModel : public QSortFilterProxyModel
+class KCUPS_EXPORT JobSortFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
     QML_ELEMENT

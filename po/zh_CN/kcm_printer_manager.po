@@ -116,7 +116,7 @@ msgstr "示例地址"
 #, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr ""
+msgstr "打印设备"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -235,6 +235,8 @@ msgid ""
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
+"如果您知道打印机的地址，请输入该地址并选择 <interface>继续</interface>。如果"
+"打印机位于远程主机上，请输入该主机地址并选择 <interface>搜索</interface>。"
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -281,7 +283,7 @@ msgstr "显示手动选项"
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr ""
+msgstr "此功能不可用 (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

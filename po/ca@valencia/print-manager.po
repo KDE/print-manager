@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:44+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2025-07-21 10:05+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -306,6 +306,26 @@ msgstr ""
 "S'ha produït un error d'instal·lació (paquet: %1)\n"
 "Comproveu les credencials d'autenticació i assegureu-vos que PackageKit "
 "estiga instal·lat correctament."
+
+#: src/kded/MarkerLevelChecker.cpp:124
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr ""
+
+#: src/kded/MarkerLevelChecker.cpp:127
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr ""
+
+#: src/kded/MarkerLevelChecker.cpp:133
+#, kde-format
+msgctxt "@action:button check printer ink levels"
+msgid "Check Levels…"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format

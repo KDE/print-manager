@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:44+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2025-01-09 22:32\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -307,6 +307,26 @@ msgstr ""
 "Не ўдалося ўсталяваць (пакет: %1)\n"
 "Праверце ўліковыя даныя для аўтэнтыфікацыі і пераканайцеся, што PackageKit "
 "усталяваны правільна."
+
+#: src/kded/MarkerLevelChecker.cpp:124
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr ""
+
+#: src/kded/MarkerLevelChecker.cpp:127
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr ""
+
+#: src/kded/MarkerLevelChecker.cpp:133
+#, kde-format
+msgctxt "@action:button check printer ink levels"
+msgid "Check Levels…"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format

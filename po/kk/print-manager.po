@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-21 00:44+0000\n"
+"POT-Creation-Date: 2025-07-26 00:44+0000\n"
 "PO-Revision-Date: 2013-06-16 06:28+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -318,6 +318,26 @@ msgid ""
 "Install Error (package: %1)\n"
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
+msgstr ""
+
+#: src/kded/MarkerLevelChecker.cpp:124
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr ""
+
+#: src/kded/MarkerLevelChecker.cpp:127
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr ""
+
+#: src/kded/MarkerLevelChecker.cpp:133
+#, kde-format
+msgctxt "@action:button check printer ink levels"
+msgid "Check Levels…"
 msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:63

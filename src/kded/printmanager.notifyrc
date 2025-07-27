@@ -112,6 +112,17 @@ Comment[zh_TW]=偵測到新印表機時發出通知
 
 [Event/MarkerLevel]
 Name=Low Ink/Toner Levels
+Name[ca]=Nivells baixos de tinta/tòner
+Name[ca@valencia]=Nivells baixos de tinta/tòner
+Name[es]=Niveles bajos de tinta/tóner
+Name[eu]=Tinta/Toner maila baxuak
+Name[he]=רמות דיו/טונר נמוכות
+Name[ka]=მელნის/ტონერის დაბალი დონე
+Name[nl]=Lage inkt/tonertniveau's
+Name[sl]=Nizke ravni črnila/tonerja
+Name[tr]=Düşük Mürekkep/Toner Düzeyi
+Name[uk]=Низькі рівні чорнила або тонера
+Name[x-test]=xxLow Ink/Toner Levelsxx
 Action=Popup
 IconName=printer-warning
 

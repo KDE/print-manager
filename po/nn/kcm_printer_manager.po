@@ -810,20 +810,3 @@ msgstr "Merke/modell:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vel …"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "A <interface>printer group</interface> is used to pool printing resources."
-#~ msgstr ""
-#~ "Ei <interface>skrivargrupper</interface> vert brukte for å samla "
-#~ "utskriftsressurar."
-
-#~ msgid "Refresh"
-#~ msgstr "Oppdater"
-
-#~ msgid "CUPS Network Printers Help"
-#~ msgstr "Hjelp for CUPS-nettverksskrivarar"
-
-#~ msgctxt "@action:button"
-#~ msgid "Find a Printer…"
-#~ msgstr "Finn skrivar …"

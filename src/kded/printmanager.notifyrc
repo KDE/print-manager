@@ -121,9 +121,11 @@ Name[ka]=მელნის/ტონერის დაბალი დონ�
 Name[nl]=Lage inkt/tonertniveau's
 Name[pt_BR]=Níveis de tinta/toner baixos
 Name[sl]=Nizke ravni črnila/tonerja
+Name[sv]=Låg bläck- eller tonernivå
 Name[tr]=Düşük Mürekkep/Toner Düzeyi
 Name[uk]=Низькі рівні чорнила або тонера
 Name[x-test]=xxLow Ink/Toner Levelsxx
+Name[zh_CN]=墨水/墨粉量低
 Action=Popup
 IconName=printer-warning
 

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2025-04-29 22:16+0200\n"
+"PO-Revision-Date: 2025-07-28 18:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -309,7 +309,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) е празен."
 
 #: src/kded/MarkerLevelChecker.cpp:127
 #, kde-format
@@ -317,13 +317,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) е с ниско съдържание на мастилото (остават %3%)."
 
 #: src/kded/MarkerLevelChecker.cpp:133
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Проверка на нивата…"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -523,32 +523,24 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Локален принтер открит от хардуерния слой на абстракция (HAL)."
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine,\n"
-#| "or the fax function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
-"HPLIP софтуерно управлявана факс машина\n"
-" или факс функция на многофункционално устройство"
+"HPLIP софтуерно управлявана факс машина или факс функция на "
+"многофункционално устройство"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer,\n"
-#| "or the printer function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"HPLIP софтуерно управляван принтер\n"
-"  или принтер функция на многофункционално устройство"
+"HPLIP софтуерно управляван принтер или принтер функция на многофункционално "
+"устройство"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

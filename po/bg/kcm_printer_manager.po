@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-29 20:45+0200\n"
+"PO-Revision-Date: 2025-07-28 18:40+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -114,12 +114,10 @@ msgid "Example Addresses"
 msgstr "Примерни адреси"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Драйвер на принтера"
+msgstr "Принтиращо устройство"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -233,11 +231,7 @@ msgid "Select Printer…"
 msgstr "Изберете принтер…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -245,7 +239,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Ако адресът на принтера е известен, въведете го и изберете "
-"<interface>Продължаване</interface>."
+"<interface>Продължаване</interface>. Ако принтерът се намира на отдалечен "
+"хост, въведете адреса му и изберете <interface>Търсене</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -289,12 +284,10 @@ msgid "Show Manual Options"
 msgstr "Показване на ръчни опции"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Тази функция все още не е налична (%1)"
+msgstr "Тази функция не е налична (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

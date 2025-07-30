@@ -11,7 +11,7 @@ Print Manager is a small, relatively self-contained set of components integrated
 
 * System tray plasmoid that provides quick access to printers and print job status
 
-* KDed module for new device notification
+* KDed module for new device and ink/toner level notifications
 
 * KCM module 
 
@@ -30,7 +30,8 @@ While not required, it is recommended to install this component for print-manage
 
 Another useful external package (not required) is [IPP-USB](https://github.com/OpenPrinting/ipp-usb).  IPP-USB is a mechanism that allows USB connected printers to be discovered and configured with IPP Driverless tools.  USB printers that support IPP but for whatever reason, do not support a network interface can usually be configured using IPP-USB.
 
-Of note, if a printer is not discovered on the network or with a USB connection and it does not support IPP, then the printer will have to be configured manually with print-manager.
+> [!important]
+> If a printer is not discovered on the network or with a USB connection and it does not support IPP, then the printer will have to be configured manually with print-manager.
 
 
 ## General

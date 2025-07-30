@@ -1,6 +1,6 @@
 {
     "KPlugin": {
-        "Description": "Notify when a new printer is detected, or there are problems with a print job",
+        "Description": "Notify when a new printer is detected, or ink/toner levels are low for a printer",
         "Description[ar]": "يخطرك عند اكتشاف طابعة جديدة، أو عند حدوث مشكلة في الطّباعة",
         "Description[ast]": "Avisa cuándo se detecta una imprentadora nueva o hai problemes con un trabayu d'imprentación",
         "Description[az]": "Yeni printer aşkar edildiyində və çap tapşırığında problem yarandığında bildirmək",
@@ -11,7 +11,7 @@
         "Description[cs]": "Informovat, když je detekována nová tiskárna nebo při tiskových problémech",
         "Description[da]": "Giv besked når en ny printer detekteres eller der er udskriftsproblemer",
         "Description[de]": "Benachrichtigung über neu erkannte Drucker und Probleme beim Drucken",
-        "Description[en_GB]": "Notify when a new printer is detected, or there are problems with a print job",
+        "Description[en_GB]": "Notify when a new printer is detected, or ink/toner levels are low for a printer",
         "Description[eo]": "Sciigi kiam nova printilo estas ekkonata, aŭ kiam estas problemoj pri printtaskoj",
         "Description[es]": "Notificar cuando se detecta una nueva impresora o si existen problemas con algún trabajo de impresión",
         "Description[eu]": "Jakinarazi inprimagailu berri bat antzeman edo inprimatzeko lan batekin arazoak daudenean",

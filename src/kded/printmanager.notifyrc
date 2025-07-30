@@ -112,6 +112,7 @@ Comment[zh_TW]=偵測到新印表機時發出通知
 
 [Event/MarkerLevel]
 Name=Low Ink/Toner Levels
+Name[bg]=Ниски нива на мастилото/тонера
 Name[ca]=Nivells baixos de tinta/tòner
 Name[ca@valencia]=Nivells baixos de tinta/tòner
 Name[es]=Niveles bajos de tinta/tóner

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-05-25 10:38+0300\n"
+"PO-Revision-Date: 2025-07-17 18:13+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -272,8 +272,7 @@ msgid "Set up a Printer Connection"
 msgstr "Aseta tulostinyhteys"
 
 #: ui/FindPrinter.qml:132 ui/main.qml:275
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Virkistä"
@@ -484,7 +483,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Tulostuspalvelut eivät ole käytettävissä"
 
 #: ui/main.qml:273
 #, kde-kuit-format
@@ -493,6 +492,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Tarkista asetukset napsauttamalla <interface>Tulostinpalvelimen asetukset…</"
+"interface> tai varmista, että CUPS-järjestelmäpalvelu on aktiivinen."
 
 #: ui/main.qml:313
 #, kde-format

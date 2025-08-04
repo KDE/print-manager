@@ -5,6 +5,7 @@
         "Description[ca]": "Notifica quan es detecta una impressora nova, o els nivells de tinta/tòner d'una impressora són baixos",
         "Description[es]": "Mostrar una notificación cuando se detecta una nueva impresora o cuando están bajos los niveles de tinta o tóner",
         "Description[eu]": "Jakinarazi inprimagailu berri bat antzematen denean, edo inprimagailu baten tinta/toner maila baxua denean",
+        "Description[he]": "להודיע כאשר מדפסת חדשה מתגלה או שרמות הדיו/טונר נמוכות במדפסת",
         "Description[ka]": "გაფრთხილება, როცა აღმოჩენილია ახალი პრინტერი, ან პრინტერში მელნის/ტონერი დონე დაბალია",
         "Description[nl]": "Melden wanneer een nieuwe printer is ontdekt of niveaus van inkt/toner van een printer laag zijn",
         "Description[sl]": "Obvešsti me, ko je zaznan nov tiskalnik ali ko je raven črnila/tonerja v tiskalniku nizka",

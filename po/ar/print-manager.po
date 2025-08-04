@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2025-05-04 06:37+0400\n"
+"PO-Revision-Date: 2025-08-03 12:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -114,12 +114,12 @@ msgstr "مُوثَّق"
 #: src/configure-printer/PrinterBehavior.cpp:209
 #, kde-format
 msgid "Default"
-msgstr "الافتراضيّ"
+msgstr "المبدئيّ"
 
 #: src/configure-printer/PrinterBehavior.cpp:218
 #, kde-format
 msgid "None"
-msgstr "بدون"
+msgstr "لا شيء"
 
 #: src/configure-printer/PrinterBehavior.cpp:220
 #, kde-format
@@ -309,7 +309,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "يبدو أن %1 (%2) فارغ."
 
 #: src/kded/MarkerLevelChecker.cpp:127
 #, kde-format
@@ -317,13 +317,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "يبدو أن %1 (%2) منخفض (تبقى %3٪)."
 
 #: src/kded/MarkerLevelChecker.cpp:133
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "افحص المستويات…"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -523,27 +523,21 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "اكتُشفت طابعة محليّة عبر طبقة تجريد الأجهزة (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
-msgstr "يقوم برنامج HPLIP بتشغيل الفاكس ، أو وظيفة الفاكس لجهاز متعددةالوظائف."
+msgstr "يقوم برنامج HPLIP بتشغيل الفاكس، أو وظيفة الفاكس لجهاز متعددة الوظائف"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"يقوم برنامج HPLIP بتشغيل الطابعة ، أو وظيفة الطابعة لجهاز متعددةالوظائف."
+"يقوم برنامج HPLIP بتشغيل الطابعة، أو وظيفة الطابعة لجهاز متعددة الوظائف"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -706,7 +700,7 @@ msgstr "أدخل اسم مستخدم وكلمة مروره لإكمال هذه �
 #: src/libkcups/KCupsPasswordDialog.cpp:44
 #, kde-format
 msgid "Wrong username or password"
-msgstr "اسم المستخدم أو كلمة المرور خاطئة"
+msgstr "اسم المستخدم أو كلمة السر خاطئة"
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

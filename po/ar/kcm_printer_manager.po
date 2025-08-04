@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-28 17:16+0400\n"
+"PO-Revision-Date: 2025-08-03 08:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -115,12 +115,10 @@ msgid "Example Addresses"
 msgstr "أمثلة للعناوين"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "معرف الطابعة"
+msgstr "جهاز الطباعة"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -232,18 +230,16 @@ msgid "Select Printer…"
 msgstr "اختر طابعة…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
-"إذا كان عنوان الطابعة معروفًا، فأدخله واختر <interface>استمر</interface>."
+"إذا كان عنوان الطابعة معروفًا، فأدخله واختر <interface>استمر</interface>.إذا "
+"كانت الطابعة موجودة على مضيف بعيد، أدخل هذا العنوان واختر <interface>ابحث</"
+"interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -287,12 +283,10 @@ msgid "Show Manual Options"
 msgstr "اعرض الخيرات اليدوية"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "هذه الميزة غير متوفرة بعد (%1)"
+msgstr "هذه الميزة غير متوفرة (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

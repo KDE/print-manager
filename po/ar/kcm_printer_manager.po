@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-08-03 08:35+0400\n"
+"PO-Revision-Date: 2025-08-03 23:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -142,13 +142,13 @@ msgstr "اختر اتصال جهاز"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr "حدد المعرف المستحسن"
+msgstr "حدد المُشغل المستحسن"
 
 #: ui/components/Drivers.qml:67
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
-msgstr "يعتمد المعرف المستحسن على صانع الطابعة/الطراز ونوع الاتصال"
+msgstr "يعتمد المُشغل المستحسن على صانع الطابعة/الطراز ونوع الاتصال"
 
 #: ui/components/Drivers.qml:72
 #, kde-format
@@ -292,7 +292,7 @@ msgstr "هذه الميزة غير متوفرة (%1)"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr "غير قادر على اكتشاف أي أجهزة طباعة تلقائيًا"
+msgstr "غير قادر على اكتشاف أي أجهزة طباعة آليًّا"
 
 #: ui/FindPrinter.qml:229
 #, kde-format
@@ -533,13 +533,13 @@ msgstr "حدد صانع/طراز الطابعة"
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver (%1)"
-msgstr "معرف الطابعة (%1)"
+msgstr "مُشغل الطابعة (%1)"
 
 #: ui/MakeModel.qml:100
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Driver"
-msgstr "معرف الطابعة"
+msgstr "مُشغل الطابعة"
 
 #: ui/MakeModel.qml:146
 #, kde-format

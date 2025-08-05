@@ -208,13 +208,13 @@ msgstr "ا&سمح لهؤلاء المستخدمين بالطّباعة"
 #: src/configure-printer/PrinterOptions.cpp:53
 #, kde-format
 msgid "Set Default Options"
-msgstr "عيّن الخيارات الافتراضيّة"
+msgstr "عيّن الخيارات المبدئيّة"
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
 #: src/configure-printer/PrinterOptions.ui:26
 #, kde-format
 msgid "Query Printer for Default Options"
-msgstr "استعلم الطّابعة عن الخيارات الافتراضيّة"
+msgstr "استعلم الطّابعة عن الخيارات المبدئيّة"
 
 #: src/kcm/printermanager.cpp:106
 #, kde-format

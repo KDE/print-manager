@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2025-01-10 00:30+0200\n"
+"PO-Revision-Date: 2025-08-11 22:02+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,26 +17,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: printermanager.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Pridėti spausdintuvą"
+msgstr "Pridėti naują spausdintuvą"
 
 #: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Pridėti naują spausdintuvų grupę"
 
 #: printermanager.cpp:110 printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Konfigūruoti spausdinimo serverį…"
+msgstr "Konfigūruoti spaudintuvą"
 
 #: printermanager.cpp:310
 #, kde-format
@@ -54,23 +50,19 @@ msgstr "Nepavyko sukonfigūruoti spausdintuvo: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Be tvarkyklės (%1)"
+msgstr "Be tvarkyklės"
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "PPD failas:"
+msgstr "PPD failas"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -139,7 +131,7 @@ msgstr "Įvesti įrenginio adresą"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr "Pasirinkite įrenginio sujungimą"
+msgstr "Pasirinkite sujungimą su įrenginiu"
 
 #: ui/components/Drivers.qml:59
 #, kde-format
@@ -159,18 +151,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Rankinė tvarkyklės paieška…"
 
 #: ui/components/Drivers.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Rekomenduojamos tvarkyklės yra grindžiamos spausdintuvo gamintoju/modeliu ir "
-"sujungimo tipu"
+msgstr "Ieškoti ir pasirinkti tvarkyklę pagal spausdintuvo gamintoją/modelį"
 
 #: ui/components/Lpd.qml:20
 #, kde-format
@@ -276,7 +263,7 @@ msgstr "Neteisingas lizdo URL: %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr "Nustatyti spausdintuvo sujungimą"
+msgstr "Nustatyti sujungimą su spausdintuvu"
 
 #: ui/FindPrinter.qml:93
 #, kde-format
@@ -547,7 +534,7 @@ msgstr "Spausdintuvo tvarkyklė"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Naudoti IPP Everywhere™"
 
 #: ui/MakeModel.qml:157
 #, kde-format

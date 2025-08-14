@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-06 00:43+0000\n"
-"PO-Revision-Date: 2025-08-03 23:36+0400\n"
+"PO-Revision-Date: 2025-08-13 19:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -405,10 +405,9 @@ msgid ""
 "we cannot provide an install option. Please use your package manager to "
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
-"لا يبدو أن حزمة دعم الطابعة التي توفر ميزات ملائمة مثبتة.<nl/><nl/>نظرًا لأن "
-"هذه التوزيعة لا تتضمن PackageKit، لا يمكننا توفير خيار التثبيت، لذا رجاء "
-"استخدام مدير الحزم الخاص بك لتثبيت <command>system-config-printer</command> "
-"يدويًا."
+"لا يبدو أن حزمة الطابعة التي توفر ميزات ملائمة مثبتة.<nl/><nl/>نظرًا لأن هذه "
+"التوزيعة لا تتضمن PackageKit، لا يمكننا توفير خيار التثبيت، لذا رجاء استخدام "
+"مدير الحزم الخاص بك لتثبيت <command>system-config-printer</command> يدويًا."
 
 #: ui/main.qml:87
 #, kde-format
@@ -416,7 +415,7 @@ msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
-msgstr "يبدو أنه لم تثبت حزمة دعم الطابعة التي توفر ميزات ملائمة."
+msgstr "يبدو أنه لم تثبت حزمة الطابعة التي توفر ميزات ملائمة."
 
 #: ui/main.qml:93
 #, kde-format

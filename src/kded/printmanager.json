@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Notify when a new printer is detected, or ink/toner levels are low for a printer",
         "Description[ar]": "يخطرك عند اكتشاف طابعة جديدة أو انخفاض مستويات الحبر/مسحوق الحبر في الطابعة",
+        "Description[bg]": "Известяване при откриване на нов принтер или при ниски нива на тонер/мастило",
         "Description[ca@valencia]": "Notifica quan es detecta una impressora nova, o els nivells de tinta/tòner d'una impressora són baixos",
         "Description[ca]": "Notifica quan es detecta una impressora nova, o els nivells de tinta/tòner d'una impressora són baixos",
         "Description[es]": "Mostrar una notificación cuando se detecta una nueva impresora o cuando están bajos los niveles de tinta o tóner",

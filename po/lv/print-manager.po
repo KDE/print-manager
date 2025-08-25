@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2025-06-04 15:45+0300\n"
+"PO-Revision-Date: 2025-08-21 12:45+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 25.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -308,7 +308,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) izskatās tukšs."
 
 #: src/kded/MarkerLevelChecker.cpp:127
 #, kde-format
@@ -316,13 +316,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) izskatās, ka sāk beigties (atlikuši %3 %)."
 
 #: src/kded/MarkerLevelChecker.cpp:133
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Pārbaudīt līmeņus…"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -522,32 +522,24 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Aparatūras abstrakcijas slānis (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine,\n"
-#| "or the fax function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
-"HPLIP programmatūra, kas pārvalda faksa iekārtu\n"
-"vai daudzfunkciju iekārtas faksa funkciju"
+"HPLIP programmatūra, kas pārvalda faksa iekārtu vai daudzfunkciju iekārtas "
+"faksa funkciju"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer,\n"
-#| "or the printer function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"HPLIP programmatūra, kas vada printeri\n"
-"vai drukāšanas funkciju daudzfunkciju ierīces gadījumā"
+"HPLIP programmatūra, kas pārvalda printeri vai drukāšanas funkciju "
+"daudzfunkciju ierīces gadījumā"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

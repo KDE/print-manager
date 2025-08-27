@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-06-29 09:32+0200\n"
+"PO-Revision-Date: 2025-07-23 09:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.04.2\n"
+"X-Generator: Lokalize 25.07.80\n"
 "X-Text-Markup: kde4\n"
 
 #: printermanager.cpp:106
@@ -123,12 +123,10 @@ msgid "Example Addresses"
 msgstr "Exemples d'adresses"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Pilote d'imprimante"
+msgstr "Périphérique d'impression"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -244,11 +242,7 @@ msgid "Select Printer…"
 msgstr "Sélectionnez une imprimante..."
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -256,7 +250,9 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Si l'adresse de l'imprimante est connue, veuillez la saisir et sélectionner "
-"<interface>Continuer</interface>."
+"<interface>Continuer</interface>. Si l’imprimante se trouve sur un hôte "
+"distant, veuillez saisir cette adresse et sélectionner "
+"<interface>Rechercher</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -300,12 +296,10 @@ msgid "Show Manual Options"
 msgstr "Afficher les options manuelles "
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Cette fonctionnalité n'est pas encore disponible (%1)"
+msgstr "Cette fonctionnalité n'est pas disponible (%1)."
 
 #: ui/FindPrinter.qml:228
 #, kde-format

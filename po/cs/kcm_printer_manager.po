@@ -114,12 +114,10 @@ msgid "Example Addresses"
 msgstr ""
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Ovladač tiskárny"
+msgstr ""
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -786,6 +784,3 @@ msgstr "Výrobek/model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vybrat…"
-
-#~ msgid "Refresh"
-#~ msgstr "Obnovit"

@@ -31,7 +31,6 @@ MarkerLevelChecker::MarkerLevelChecker(QObject *parent)
     });
 
     connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &MarkerLevelChecker::jobHandler);
-    connect(KCupsConnection::global(), &KCupsConnection::jobCompleted, this, &MarkerLevelChecker::jobHandler);
 }
 
 void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)

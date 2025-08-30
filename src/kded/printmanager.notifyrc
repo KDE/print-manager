@@ -133,6 +133,7 @@ Name[tr]=Düşük Mürekkep/Toner Düzeyi
 Name[uk]=Низькі рівні чорнила або тонера
 Name[x-test]=xxLow Ink/Toner Levelsxx
 Name[zh_CN]=墨水/墨粉量低
+Name[zh_TW]=墨水/碳粉量偏低
 Action=Popup
 IconName=printer-warning
 

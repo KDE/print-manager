@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-07-01 19:56+0900\n"
+"PO-Revision-Date: 2025-08-29 20:14+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -113,12 +113,10 @@ msgid "Example Addresses"
 msgstr "範例位址"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "印表機驅動程式"
+msgstr "列印裝置"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -230,17 +228,15 @@ msgid "Select Printer…"
 msgstr "選取印表機…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
-msgstr "如果已經知道印表機位址，請輸入它之後選擇 <interface>繼續</interface>。"
+msgstr ""
+"如果已經知道印表機位址，請輸入它之後選擇 <interface>繼續</interface>。如果印"
+"表機在遠端註記上，請輸入其位址然後選擇 <interface>搜尋</interface>。"
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -284,12 +280,10 @@ msgid "Show Manual Options"
 msgstr "顯示手動選項"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "這個功能目前尚無法使用 (%1)"
+msgstr "這個功能目前無法使用 (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

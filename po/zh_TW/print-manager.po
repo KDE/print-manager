@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-26 00:44+0000\n"
-"PO-Revision-Date: 2025-04-30 03:17+0900\n"
+"PO-Revision-Date: 2025-08-29 20:12+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -308,7 +308,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) 已用盡。"
 
 #: src/kded/MarkerLevelChecker.cpp:127
 #, kde-format
@@ -316,13 +316,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) 剩下不多 (剩餘 %3%)。"
 
 #: src/kded/MarkerLevelChecker.cpp:133
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "檢查墨水量…"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -522,26 +522,20 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "由 HAL 偵測到的本地印表機"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
-msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能。"
+msgstr "HPLIP 軟體驅動一傳真機，或是多功能裝置中的傳真機功能"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
-msgstr "HPLIP 軟體驅動一印表機，或是多功能裝置中的印表機功能。"
+msgstr "HPLIP 軟體驅動一印表機，或是多功能裝置中的印表機功能"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

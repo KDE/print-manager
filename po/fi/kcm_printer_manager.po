@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-07-17 18:13+0300\n"
+"PO-Revision-Date: 2025-07-31 10:04+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -115,12 +115,10 @@ msgid "Example Addresses"
 msgstr "Esimerkkiosoitteita"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Tulostinajuri"
+msgstr "Tulostinlaite"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -234,11 +232,7 @@ msgid "Select Printer…"
 msgstr "Valitse tulostin…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -246,7 +240,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Jos tulostimen osoite tunnetaan, anna se ja valitse <interface>Jatka</"
-"interface>."
+"interface>. Jos tulostin on etäkoneella, syötä sen osoite ja valitse "
+"<interface>Etsi</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -290,12 +285,10 @@ msgid "Show Manual Options"
 msgstr "Näytä käyttäjän lisävalinnat"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Tämä ominaisuus ei ole vielä käytettävissä (%1)"
+msgstr "Tämä ominaisuus ei ole käytettävissä (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format

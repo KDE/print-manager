@@ -22,6 +22,7 @@
         "Description[uk]": "Сповіщення щодо виявлення принтера та щодо рівнів чорнила або тонера у принтері",
         "Description[x-test]": "xxNotify when a new printer is detected, or ink/toner levels are low for a printerxx",
         "Description[zh_CN]": "检测到新打印机或打印机墨量低时显示通知",
+        "Description[zh_TW]": "在偵測到新印表機或是墨水/碳粉量偏低時進行通知",
         "Name": "Print Manager",
         "Name[ar]": "مدير الطّباعة",
         "Name[ast]": "Xestor d'imprentadores",

@@ -137,13 +137,13 @@ msgstr "Introduïu l'adreça de l'amfitrió"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr "Seleccioneu una connexió del dispositiu"
+msgstr "Trieu una connexió del dispositiu"
 
 #: ui/components/Drivers.qml:60
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Recommended Driver"
-msgstr "Selecciona el controlador recomanat"
+msgstr "Tria el controlador recomanat"
 
 #: ui/components/Drivers.qml:67
 #, kde-format
@@ -164,8 +164,7 @@ msgstr "Busca manual de controlador…"
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
 msgstr ""
-"Busca i selecciona un controlador en funció del fabricant/model de la "
-"impressora"
+"Busca i tria un controlador en funció del fabricant/model de la impressora"
 
 #: ui/components/Lpd.qml:22
 #, kde-format
@@ -232,7 +231,7 @@ msgstr "S'ha produït un error de sol·licitud de CUPS (%1): %2"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select Printer…"
-msgstr "Selecciona la impressora…"
+msgstr "Tria la impressora…"
 
 #: ui/components/ManualUri.qml:93
 #, kde-kuit-format
@@ -306,14 +305,14 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"Seleccioneu «Actualitza» per a tornar a intentar-ho o trieu una opció de "
+"Trieu «Actualitza» per a tornar a intentar-ho o trieu una opció de "
 "configuració manual de la llista"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr "Seleccioneu una opció de configuració manual de la llista"
+msgstr "Trieu una opció de configuració manual de la llista"
 
 #: ui/Global.qml:17
 #, kde-format
@@ -540,7 +539,7 @@ msgstr "Fa pausa de la impressió"
 #, kde-format
 msgctxt "@title:window"
 msgid "Select a printer make/model"
-msgstr "Seleccioneu el fabricant i model d'impressora"
+msgstr "Trieu el fabricant i model d'impressora"
 
 #: ui/MakeModel.qml:93
 #, kde-format
@@ -568,18 +567,18 @@ msgstr "Guarda"
 #: ui/MakeModel.qml:166
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr "Seleccioneu un fitxer de descripció d'impressora PostScript (PPD)"
+msgstr "Trieu un fitxer de descripció d'impressora PostScript (PPD)"
 
 #: ui/MakeModel.qml:173
 #, kde-format
 msgid "Printer model is required.  Please select a printer model."
-msgstr "Es requerix el model d'impressora. Seleccioneu-ne un."
+msgstr "Es requerix el model d'impressora. Trieu-ne un."
 
 #: ui/MakeModel.qml:230
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr "Seleccioneu el fabricant i model:"
+msgstr "Trieu el fabricant i model:"
 
 #: ui/MakeModel.qml:242
 #, kde-format
@@ -597,12 +596,12 @@ msgstr "Fitxer PPD:"
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
-msgstr "Selecciona un fitxer PPD…"
+msgstr "Tria un fitxer PPD…"
 
 #: ui/MakeModel.qml:373
 #, kde-format
 msgid "Select"
-msgstr "Selecciona"
+msgstr "Tria"
 
 #: ui/MakeModel.qml:374
 #, kde-format
@@ -671,8 +670,7 @@ msgstr "Cal que el nom de cua siga únic. Introduïu un nom únic de cua."
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr ""
-"Es requerix el fabricant i model. Seleccioneu «Selecciona» per a triar-los"
+msgstr "Es requerix el fabricant i model. Trieu «Tria» per a triar-los"
 
 #: ui/PrinterSettings.qml:136
 #, kde-format
@@ -810,4 +808,4 @@ msgstr "Fabricant i model:"
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
-msgstr "Selecciona…"
+msgstr "Tria…"

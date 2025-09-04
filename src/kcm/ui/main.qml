@@ -152,7 +152,7 @@ KCM.ScrollViewKCM {
         // This can happen when system settings is started as well as if
         // system settings is already running
         function idle() : bool {
-            return kcm.currentIndex == 0 && !root.configDialog
+            return kcm.currentIndex === 0 && !root.configDialog
         }
 
         function onCmdAddPrinter() {
@@ -177,7 +177,7 @@ KCM.ScrollViewKCM {
         function onSaveDone(forceRefresh) {
             kcm.pop()
             // After saving a new printer, we're two levels deep in pages
-            if (kcm.currentIndex != 0) {
+            if (kcm.currentIndex !== 0) {
                 kcm.pop()
             }
             // WORKAROUND: Remove after CUPS 2.4.13 release

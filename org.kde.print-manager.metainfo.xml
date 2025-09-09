@@ -49,7 +49,6 @@
   <name xml:lang="tg">Танзимоти принтер</name>
   <name xml:lang="tr">Yazıcı Yapılandırması</name>
   <name xml:lang="uk">Налаштування принтера</name>
-  <name xml:lang="x-test">xxPrinter Configurationxx</name>
   <name xml:lang="zh-CN">打印机配置</name>
   <name xml:lang="zh-TW">印表機設定</name>
   <summary>Set up and configure printers</summary>
@@ -98,7 +97,6 @@
   <summary xml:lang="tg">Принтерҳоро танзим намоед</summary>
   <summary xml:lang="tr">Yazıcıları kur ve yapılandır</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
-  <summary xml:lang="x-test">xxSet up and configure printersxx</summary>
   <summary xml:lang="zh-CN">安装和配置打印机</summary>
   <summary xml:lang="zh-TW">設定並配置印表機</summary>
   <description>
@@ -146,7 +144,6 @@
     <p xml:lang="ta">அச்சுப்பொறிகளை அமைக்க இந்த நிரல் உதவும். புதிய அச்சுப்பொறிகளைக் கண்டறிந்து, கிடைக்கின்ற சாதனநிரல்களைக் காட்டி, அவற்றின் அமைப்புகளை மாற்ற விடும். சோதனைப் பக்கங்களை அச்சிடுவதுடன், அச்சுப்பொறிகளின் பகிர்வு குறித்த அமைப்புகளையும் மாற்றலாம்.</p>
     <p xml:lang="tr">Bu KDE Config aracı, yazıcıları kurmanızı ve yapılandırmanızı sağlar. Yeni yazıcıları algılar, kullanılabilir sürücüleri bulur ve ayarlarını yapılandırmanıza izin verir. Sınama sayfaları yazdırabilir ve paylaşma özelliklerini ayarlayabilirsiniz.</p>
     <p xml:lang="uk">За допомогою цього засобу налаштовування KDE ви зможете встановити початкові параметри роботи принтерів та налаштувати принтери. Він здатний виявляти нові принтери, визначати доступні для них драйвери та налаштовувати параметри роботи цих драйверів. Ви можете друкувати тестові сторінки та визначати параметри спільного користування принтерами.</p>
-    <p xml:lang="x-test">xxThis KDE Config tool lets you set up and configure printers. It detects new printers, finds the available drivers and allows you to configure their settings. You can print test pages and set sharing properties.xx</p>
     <p xml:lang="zh-CN">此 KDE 配置工具用于设置及配置打印机。它能检测新打印机，查找可用的驱动程序，并对打印机的设置进行配置，打印测试页以及设置共享属性等。</p>
     <p xml:lang="zh-TW">這個 KDE 設定工具讓您設定並配置印表機。它會自動偵測新印表機、為您尋找可用的驅動程式，並讓您調整它們的設定。您可以影印測試頁面並設定分享屬性。</p>
   </description>
@@ -202,7 +199,6 @@
       <caption xml:lang="tg">Танзимоти принтер</caption>
       <caption xml:lang="tr">Yazıcı ayarları.</caption>
       <caption xml:lang="uk">Параметри принтерів.</caption>
-      <caption xml:lang="x-test">xxPrinter settings.xx</caption>
       <caption xml:lang="zh-CN">打印机设置。</caption>
       <caption xml:lang="zh-TW">印表機設定。</caption>
       <image type="source" width="1028" height="757">https://cdn.kde.org/screenshots/print-manager/print-manager.png</image>

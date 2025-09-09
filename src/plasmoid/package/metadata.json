@@ -46,7 +46,6 @@
                 "Name[ta]": "டேனியல் நிக்கோலெட்டி",
                 "Name[tr]": "Daniel Nicoletti",
                 "Name[uk]": "Daniel Nicoletti",
-                "Name[x-test]": "xxDaniel Nicolettixx",
                 "Name[zh_CN]": "Daniel Nicoletti",
                 "Name[zh_TW]": "Daniel Nicoletti"
             }
@@ -96,7 +95,6 @@
         "Description[ta]": "அச்சுப் பணிகளைக் காட்டி அவற்றை நிர்வகிக்க உதவும்",
         "Description[tr]": "Yazdırma işlerini listeleyin ve bunları yönetin",
         "Description[uk]": "Показ списку завдань і керування ними",
-        "Description[x-test]": "xxList print jobs and manage themxx",
         "Description[zh_CN]": "显示和管理打印任务",
         "Description[zh_TW]": "列出列印工作並管理它們",
         "EnabledByDefault": true,
@@ -164,7 +162,6 @@
         "Name[tr]": "Yazıcılar",
         "Name[ug]": "پرىنتېرلار",
         "Name[uk]": "Принтери",
-        "Name[x-test]": "xxPrintersxx",
         "Name[zh_CN]": "打印机",
         "Name[zh_TW]": "印表機",
         "Version": "0.3",

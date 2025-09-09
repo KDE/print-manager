@@ -40,7 +40,6 @@
         "Description[ta]": "புதிய அச்சுப்பொறி கண்டறியப்படும்போதோ, அச்சிடுவதில் சிக்கல்கள் நேரும்போதோ அறிவிக்கும்",
         "Description[tr]": "Yeni bir yazıcı algılandığında veya bir yazdırma işinde sorun varsa bildirin",
         "Description[uk]": "Сповіщення щодо виявлення принтера та щодо проблем із завданням з друку",
-        "Description[x-test]": "xxNotify when a new printer is detected, or there are problems with a print jobxx",
         "Description[zh_CN]": "检测到新打印机、打印任务出错时通知",
         "Description[zh_TW]": "在偵測到新印表機或列印工作有問題時進行通知",
         "Name": "Print Manager",
@@ -100,7 +99,6 @@
         "Name[tg]": "Мудири принтерҳо",
         "Name[tr]": "Yazdırma Yöneticisi",
         "Name[uk]": "Керування друком",
-        "Name[x-test]": "xxPrint Managerxx",
         "Name[zh_CN]": "打印机管理器",
         "Name[zh_TW]": "列印管理員"
     },

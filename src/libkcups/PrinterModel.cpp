@@ -370,11 +370,23 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     int markerChangeTime = printer.markerChangeTime();
     if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
         destItem->setData(printer.markerChangeTime(), DestMarkerChangeTime);
-        const QVariantMap markers{{KCUPS_MARKER_CHANGE_TIME, printer.markerChangeTime()},
-                                  {KCUPS_MARKER_COLORS, printer.argument(KCUPS_MARKER_COLORS)},
-                                  {KCUPS_MARKER_LEVELS, printer.argument(KCUPS_MARKER_LEVELS)},
-                                  {KCUPS_MARKER_NAMES, printer.argument(KCUPS_MARKER_NAMES)},
-                                  {KCUPS_MARKER_TYPES, printer.argument(KCUPS_MARKER_TYPES)}};
+
+        QVariantMap markers{{KCUPS_MARKER_CHANGE_TIME, printer.markerChangeTime()},
+                            {KCUPS_MARKER_COLORS, printer.argument(KCUPS_MARKER_COLORS).toStringList()},
+                            {KCUPS_MARKER_NAMES, printer.argument(KCUPS_MARKER_NAMES).toStringList()},
+                            {KCUPS_MARKER_TYPES, printer.argument(KCUPS_MARKER_TYPES).toStringList()}};
+
+        // Levels needs to be a list of ints.  QVariant::toList converts an int to a null list
+        // So, create a QList<int> if only one entry (int)
+        const auto levels = printer.argument(KCUPS_MARKER_LEVELS);
+        if (levels.canConvert<QList<int>>()) {
+            markers.insert(KCUPS_MARKER_LEVELS, levels);
+        } else {
+            QList<int> list;
+            list << levels.toInt();
+            markers.insert(KCUPS_MARKER_LEVELS, QVariant::fromValue(list));
+        }
+
         destItem->setData(markers, DestMarkers);
     }
 }

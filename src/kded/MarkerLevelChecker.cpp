@@ -63,15 +63,36 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
 
         const auto printer = req->printers().at(0);
 
-        const auto currentLevels = printer.argument(KCUPS_MARKER_LEVELS).toList(); // current levels
-        const auto highLevels = printer.argument(KCUPS_MARKER_HIGH_LEVELS).toList(); // high boundary values
-        const auto lowLevels = printer.argument(KCUPS_MARKER_LOW_LEVELS).toList(); // low boundary values
+        // QVariant::toList converts an int to a null list
+        // So, create a QList<int> if only one entry (int)
+        QList<QVariant> currentLevels;
+        auto levels = printer.argument(KCUPS_MARKER_LEVELS);
+        if (levels.canConvert<QList<int>>()) {
+            currentLevels = levels.toList();
+        } else {
+            currentLevels << levels;
+        }
+        QList<QVariant> lowLevels;
+        levels = printer.argument(KCUPS_MARKER_LOW_LEVELS);
+        if (levels.canConvert<QList<int>>()) {
+            lowLevels = levels.toList();
+        } else {
+            lowLevels << levels;
+        }
+        QList<QVariant> highLevels;
+        levels = printer.argument(KCUPS_MARKER_HIGH_LEVELS);
+        if (levels.canConvert<QList<int>>()) {
+            highLevels = levels.toList();
+        } else {
+            highLevels << levels;
+        }
+
         if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
-            qCDebug(PMKDED) << "Marker level attributes not found, nothing to check";
+            qCDebug(PMKDED) << "Marker level attributes are invalid or not found, nothing to check";
             return;
         }
 
-        qCDebug(PMKDED) << "Checking Marker Levels against low threshold" << s_threshold;
+        qCDebug(PMKDED) << "Found valid Marker level attributes:" << currentLevels << lowLevels << highLevels;
 
         int lowIndex = -1;
         int lowValue = 0;
@@ -84,6 +105,9 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
             // Also, level can be < low and not zero, ie. low=2, level=1
             if (level == 0 || level <= low) {
                 lowIndex = i;
+                if (level <= low) {
+                    lowValue = level;
+                }
                 break;
             } else {
                 // CUPS seems to handle this, but just in case don't divide by zero
@@ -92,10 +116,10 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
                     return;
                 }
                 if (level > low && level <= high) {
-                    auto result = div(level * 100, high);
+                    auto result = div((level - low) * 100, high);
                     if (result.quot <= s_threshold) {
                         lowIndex = i;
-                        lowValue = result.quot;
+                        lowValue = level;
                         break;
                     }
                 }
@@ -135,9 +159,9 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
             });
 
             notify->sendEvent();
-            qCDebug(PMKDED) << "Found marker-level at/below threshold" << type << name << lowValue << "<=" << s_threshold;
+            qCDebug(PMKDED) << "Found marker-level at/below threshold" << type << name << lowValue;
         } else {
-            qCDebug(PMKDED) << "All marker-levels above low threshold" << s_threshold;
+            qCDebug(PMKDED) << "All marker-levels above low threshold";
         }
     });
 

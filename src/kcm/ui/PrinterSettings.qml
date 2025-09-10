@@ -397,7 +397,7 @@ KCM.AbstractKCM {
 
             contentItem: ListView {
                 id: markersView
-                model: !root.addMode ? root.modelData.markers["marker-names"] : null
+                model: !root.addMode && !root.modelData.isClass ? root.modelData.markers["marker-names"] : null
                 clip: true
                 delegate: RowLayout {
                     spacing: Kirigami.Units.smallSpacing

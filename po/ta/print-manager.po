@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-09-16 02:42+0000\n"
 "PO-Revision-Date: 2025-08-03 12:23+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -713,62 +713,62 @@ msgstr "காலியான ppd கோப்பு"
 msgid "Printers"
 msgstr "அச்சுப்பொறிகள்"
 
-#: src/libkcups/PrinterModel.cpp:399
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle"
 msgstr "வேலையின்றி உள்ளது"
 
-#: src/libkcups/PrinterModel.cpp:399
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "வேலையின்றி உள்ளது, பணிகளை ஏற்கவில்லை"
 
-#: src/libkcups/PrinterModel.cpp:401
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "வேலையின்றி உள்ளது - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:401
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "வேலையின்றி உள்ளது, பணிகளை ஏற்கவில்லை - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "In use"
 msgstr "பயனில் உள்ளது"
 
-#: src/libkcups/PrinterModel.cpp:407
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use - '%1'"
 msgstr "பயனில் உள்ளது - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused"
 msgstr "இடைநிறுத்தப்பட்டுள்ளது"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "இடைநிறுத்தப்பட்டு பணிகளை ஏற்கவில்லை"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "இடைநிறுத்தப்பட்டுள்ளது - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "இடைநிறுத்தப்பட்டு பணிகளை ஏற்கவில்லை - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Unknown"
 msgstr "தெரியாதது"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "தெரியாதது - '%1'"

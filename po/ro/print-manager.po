@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-14 00:45+0000\n"
+"POT-Creation-Date: 2025-09-16 02:42+0000\n"
 "PO-Revision-Date: 2024-03-02 15:00+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -738,62 +738,62 @@ msgstr "Model ppd gol"
 msgid "Printers"
 msgstr "Imprimante"
 
-#: src/libkcups/PrinterModel.cpp:399
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle"
 msgstr "Inactivă"
 
-#: src/libkcups/PrinterModel.cpp:399
+#: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Inactivă, respinge lucrări"
 
-#: src/libkcups/PrinterModel.cpp:401
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Inactivă - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:401
+#: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Inactivă, respinge lucrări - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:405
+#: src/libkcups/PrinterModel.cpp:417
 #, kde-format
 msgid "In use"
 msgstr "În uz"
 
-#: src/libkcups/PrinterModel.cpp:407
+#: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use - '%1'"
 msgstr "În uz - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused"
 msgstr "În pauză"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:423
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "În pauză, respinge lucrări"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "Întreruptă - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "În pauză, respinge lucrări - „%1”"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:429
 #, kde-format
 msgid "Unknown"
 msgstr "Necunoscută"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Necunoscută - „%1”"

@@ -65,34 +65,33 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
 
         // QVariant::toList converts an int to a null list
         // So, create a QList<int> if only one entry (int)
-        QList<QVariant> currentLevels;
-        auto levels = printer.argument(KCUPS_MARKER_LEVELS);
-        if (levels.canConvert<QList<int>>()) {
-            currentLevels = levels.toList();
-        } else {
-            currentLevels << levels;
-        }
-        QList<QVariant> lowLevels;
-        levels = printer.argument(KCUPS_MARKER_LOW_LEVELS);
-        if (levels.canConvert<QList<int>>()) {
-            lowLevels = levels.toList();
-        } else {
-            lowLevels << levels;
-        }
-        QList<QVariant> highLevels;
-        levels = printer.argument(KCUPS_MARKER_HIGH_LEVELS);
-        if (levels.canConvert<QList<int>>()) {
-            highLevels = levels.toList();
-        } else {
-            highLevels << levels;
-        }
+        const auto getLevels = [printer](const QString &key) -> QList<QVariant> {
+            QList<QVariant> list;
+            const auto levels = printer.argument(key);
+            if (levels.isValid()) {
+                if (levels.canConvert<QList<int>>()) {
+                    list = levels.toList();
+                    qCDebug(PMKDED) << "Valid levels list" << key << list;
+                } else {
+                    list = QList<QVariant>{levels};
+                    qCDebug(PMKDED) << "Valid level value set to a list" << key << list;
+                }
+            } else {
+                // Valid levels entry not found
+                qCDebug(PMKDED) << "Invalid levels entry:" << key;
+            }
+
+            return list;
+        };
+
+        const auto currentLevels = getLevels(KCUPS_MARKER_LEVELS);
+        const auto lowLevels = getLevels(KCUPS_MARKER_LOW_LEVELS);
+        const auto highLevels = getLevels(KCUPS_MARKER_HIGH_LEVELS);
 
         if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
-            qCDebug(PMKDED) << "Marker level attributes are invalid or not found, nothing to check";
+            qCDebug(PMKDED) << "At least one marker level attribute is invalid or not found, aborting level check";
             return;
         }
-
-        qCDebug(PMKDED) << "Found valid Marker level attributes:" << currentLevels << lowLevels << highLevels;
 
         int lowIndex = -1;
         int lowValue = 0;

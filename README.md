@@ -5,17 +5,19 @@ Print Manager is a small, relatively self-contained set of components integrated
 
 ## Components
 
-* Set of legacy stand-alone apps:
-  * `configure-printer` (for configuring current printers and printer groups)
-  * `kde-print-queue` (for managing printer job queues)
+* Legacy stand-alone app:
+  * `configure-printer` manages print job media options and other settings
 
-* System tray plasmoid that provides quick access to printers and print job status
+* Print job manager 
+  * `plasma-print-queue` provides a single interface for managing jobs in configured print queues
+  
+* System tray plasmoid provides quick access to printers and print job status
 
 * KDed module for new device and ink/toner level notifications
 
-* KCM module 
+* KCM module for print queue setup and configuration
 
-* KCups Library that provides an interface to the CUPS api as well as a few models that are used by the legacy apps, the KCM and the plasmoid
+* KCups Library provides an interface to the CUPS api as well as a few models that are used by the legacy apps, the KCM and the plasmoid
 
 
 ## External Dependencies
@@ -36,7 +38,7 @@ Another useful external package (not required) is [IPP-USB](https://github.com/O
 
 ## General
 
-For Plasma6, the KCM will provide the primary means to add/configure printers and printer groups.  In addition, some of the basic CUPS print server options can be configured.  There are some limitations to KCM add-printer features that mirror the legacy apps:
+The print-manager KCM provides the primary means to add/configure printers and printer groups.  In addition, some of the basic CUPS print server options can be configured.  There are some limitations to the KCM that mirror the (pre-Plasma6) legacy apps:
 
 * Limited support for Windows printers using samba
 * Limited support for auto print queue identification for older connection schemes (LPD/SOCKET)
@@ -46,9 +48,7 @@ The KCM also depends on the following features that are present in the legacy `c
 * Media settings (paper size, mode, type, quality, etc)
 * Banners, Policies and Allowed Users
   
-These features are available via the `configure-printer` app, accessed from the KCM and the plasmoid as a configure action.  In a future release, these features will be integrated with the KCM.
-
-The legacy `kde-print-queue` app is provided as the primary means to manage configured printer job queues.  It remains directly accessible from both the KCM and the plasmoid.
+These features are available via the `configure-printer` app, accessed from the KCM or the print queue manager.  In a future release, these features will be integrated with the KCM.
 
 
 ## Building, Running and Testing

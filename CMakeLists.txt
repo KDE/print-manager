@@ -60,6 +60,12 @@ set_package_properties(KF6Kirigami PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
+find_package(KF6KirigamiAddons 1.10.0 REQUIRED)
+set_package_properties(KF6KirigamiAddons PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Provides Kirigami app helpers"
+)
+
 find_package(PackageKitQt6)
 set_package_properties(PackageKitQt6
     PROPERTIES DESCRIPTION "Software Manager integration"

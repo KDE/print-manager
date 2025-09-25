@@ -43,6 +43,8 @@ public:
     static bool holdEnabled(ipp_jstate_t state);
     static bool releaseEnabled(ipp_jstate_t state);
 
+    bool operator ==(const KCupsJob &other) const;
+    bool operator <(const KCupsJob &other) const;
 protected:
     KCupsJob(const QVariantMap &arguments);
 

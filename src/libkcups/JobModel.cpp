@@ -40,6 +40,7 @@ JobModel::JobModel(QObject *parent)
     m_roles = QStandardItemModel::roleNames();
     m_roles[RoleJobId] = "jobId";
     m_roles[RoleJobState] = "jobState";
+    m_roles[RoleJobStateMsg] = "jobStateMsg";
     m_roles[RoleJobName] = "jobName";
     m_roles[RoleJobPages] = "jobPages";
     m_roles[RoleJobSize] = "jobSize";
@@ -52,6 +53,7 @@ JobModel::JobModel(QObject *parent)
     m_roles[RoleJobRestartEnabled] = "jobRestartEnabled";
     m_roles[RoleJobPrinter] = "jobPrinter";
     m_roles[RoleJobOriginatingHostName] = "jobFrom";
+    m_roles[RoleJobAuthenticationRequired] = "jobAuthRequired";
 
     // This is emitted when a job change it's state
     connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::insertUpdateJob);
@@ -102,6 +104,12 @@ void JobModel::release(const QString &printerName, int jobId)
     request->releaseJob(printerName, jobId);
 }
 
+void JobModel::restart(const QString &printerName, int jobId)
+{
+    const auto request = setupRequest();
+    request->restartJob(printerName, jobId);
+}
+
 void JobModel::cancel(const QString &printerName, int jobId)
 {
     const auto request = setupRequest();
@@ -146,33 +154,13 @@ void JobModel::getJobs()
     m_processingJob.clear();
 }
 
-static KCupsJobs sanitizeJobs(KCupsJobs jobs)
-{
-    // For some reason sometimes cups has broken job queues with jobs with duplicated id
-    // our model doesn't like that at all so sanitize the job list before processing it
-    QVector<int> seenIds;
-    int i = 0;
-    while (i < jobs.count()) {
-        const int jobId = jobs.at(i).id();
-        if (seenIds.contains(jobId)) {
-            qCWarning(LIBKCUPS) << "Found job with duplicated id" << jobId;
-            jobs.removeAt(i);
-        } else {
-            seenIds << jobId;
-            ++i;
-        }
-    }
-    return jobs;
-}
-
 void JobModel::getJobFinished(KCupsRequest *request)
 {
     if (request) {
         if (request->hasError()) {
-            // clear the model after so that the proper widget can be shown
             clear();
         } else {
-            const KCupsJobs jobs = sanitizeJobs(request->jobs());
+            const auto jobs = request->jobs();
             for (int i = 0; i < jobs.size(); ++i) {
                 const KCupsJob job = jobs.at(i);
                 if (job.state() == IPP_JOB_PROCESSING) {
@@ -278,6 +266,7 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
     ipp_jstate_e jobState = job.state();
     auto statusItem = new QStandardItem(jobStatus(jobState));
     statusItem->setData(jobState, RoleJobState);
+    statusItem->setData(job.stateMsg(), RoleJobStateMsg);
     statusItem->setData(job.id(), RoleJobId);
     statusItem->setData(job.name(), RoleJobName);
     statusItem->setData(job.originatingUserName(), RoleJobOwner);

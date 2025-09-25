@@ -25,6 +25,7 @@ public:
     enum Role {
         RoleJobId = Qt::UserRole + 2,
         RoleJobState,
+        RoleJobStateMsg,
         RoleJobName,
         RoleJobPages,
         RoleJobSize,
@@ -71,6 +72,7 @@ public:
         ColFromHost,
         LastColumn
     };
+    Q_ENUM(Columns)
 
     explicit JobModel(QObject *parent = nullptr);
     void setParentWId(WId parentId);
@@ -79,6 +81,7 @@ public:
     Q_INVOKABLE void hold(const QString &printerName, int jobId);
     Q_INVOKABLE void release(const QString &printerName, int jobId);
     Q_INVOKABLE void cancel(const QString &printerName, int jobId);
+    Q_INVOKABLE void restart(const QString &printerName, int jobId);
     Q_INVOKABLE void move(const QString &printerName, int jobId, const QString &toPrinterName);
 
     QString processingJob() const;

@@ -23,7 +23,7 @@ void ProcessRunner::configurePrinter(const QString &printerName)
 
 void ProcessRunner::openPrintQueue(const QString &printerName)
 {
-    exec(u"kde-print-queue"_s, {printerName}, u"org.kde.PrintQueue"_s);
+    exec(u"plasma-print-queue"_s, {printerName}, u"org.kde.plasma.printqueue"_s);
 }
 
 // call kcm

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Plasma Print Queue Manager
+Comment=View and manage print jobs
+Exec=plasma-print-queue
+Icon=printer
+Type=Application
+X-DBUS-StartupType=Unique
+X-DBUS-ServiceName=org.kde.plasma.printqueue
+NoDisplay=true
+Categories=Qt;KDE;Printing;Utility;

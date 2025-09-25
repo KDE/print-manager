@@ -13,14 +13,12 @@
 #include <KCupsRequest.h>
 
 #include <QDateTime>
-#include <QIODevice>
-#include <QMimeData>
-#include <QPointer>
 
 #include <KFormat>
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KUser>
+
+using namespace Qt::StringLiterals;
 
 JobModel::JobModel(QObject *parent)
     : QStandardItemModel(parent)
@@ -40,11 +38,14 @@ JobModel::JobModel(QObject *parent)
     m_roles = QStandardItemModel::roleNames();
     m_roles[RoleJobId] = "jobId";
     m_roles[RoleJobState] = "jobState";
+    m_roles[RoleJobStateMsg] = "jobStateMsg";
     m_roles[RoleJobName] = "jobName";
     m_roles[RoleJobPages] = "jobPages";
     m_roles[RoleJobSize] = "jobSize";
     m_roles[RoleJobOwner] = "jobOwner";
     m_roles[RoleJobCreatedAt] = "jobCreatedAt";
+    m_roles[RoleJobCompletedAt] = "jobCompletedAt";
+    m_roles[RoleJobProcessedAt] = "jobProcessedAt";
     m_roles[RoleJobIconName] = "jobIconName";
     m_roles[RoleJobCancelEnabled] = "jobCancelEnabled";
     m_roles[RoleJobHoldEnabled] = "jobHoldEnabled";
@@ -52,41 +53,31 @@ JobModel::JobModel(QObject *parent)
     m_roles[RoleJobRestartEnabled] = "jobRestartEnabled";
     m_roles[RoleJobPrinter] = "jobPrinter";
     m_roles[RoleJobOriginatingHostName] = "jobFrom";
+    m_roles[RoleJobAuthenticationRequired] = "jobAuthRequired";
 
     // This is emitted when a job change it's state
-    connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::insertUpdateJob);
+    connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::handleJobNotify);
 
     // This is emitted when a job is created
-    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &JobModel::insertUpdateJob);
+    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &JobModel::handleJobNotify);
 
     // This is emitted when a job is stopped
-    connect(KCupsConnection::global(), &KCupsConnection::jobStopped, this, &JobModel::insertUpdateJob);
+    connect(KCupsConnection::global(), &KCupsConnection::jobStopped, this, &JobModel::handleJobNotify);
 
     // This is emitted when a job has it's config changed
-    connect(KCupsConnection::global(), &KCupsConnection::jobConfigChanged, this, &JobModel::insertUpdateJob);
+    connect(KCupsConnection::global(), &KCupsConnection::jobConfigChanged, this, &JobModel::handleJobNotify);
 
     // This is emitted when a job change it's progress
-    connect(KCupsConnection::global(), &KCupsConnection::jobProgress, this, &JobModel::insertUpdateJob);
+    connect(KCupsConnection::global(), &KCupsConnection::jobProgress, this, &JobModel::handleJobNotify);
 
     // This is emitted when a printer is removed
-    connect(KCupsConnection::global(), &KCupsConnection::jobCompleted, this, &JobModel::jobCompleted);
+    connect(KCupsConnection::global(), &KCupsConnection::jobCompleted, this, &JobModel::handleJobNotify);
 
     connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, &JobModel::getJobs);
     connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, &JobModel::getJobs);
     connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, &JobModel::getJobs);
     connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &JobModel::getJobs);
-}
 
-void JobModel::setParentWId(WId parentId)
-{
-    m_parentId = parentId;
-}
-
-void JobModel::init(const QString &destName)
-{
-    m_destName = destName;
-
-    // Get all jobs
     getJobs();
 }
 
@@ -102,10 +93,27 @@ void JobModel::release(const QString &printerName, int jobId)
     request->releaseJob(printerName, jobId);
 }
 
+void JobModel::restart(const QString &printerName, int jobId)
+{
+    const auto request = setupRequest();
+    request->restartJob(printerName, jobId);
+}
+
 void JobModel::cancel(const QString &printerName, int jobId)
 {
     const auto request = setupRequest();
     request->cancelJob(printerName, jobId);
+}
+
+void JobModel::cancelAll(const QString &printerName)
+{
+    for (int row = 0; row < rowCount(); ++row) {
+        const auto job = item(row, ColStatus);
+
+        if (job->data(RoleJobPrinter).toString() == printerName && job->data(RoleJobCancelEnabled).toBool()) {
+            cancel(printerName, job->data(RoleJobId).toInt());
+        }
+    }
 }
 
 void JobModel::move(const QString &printerName, int jobId, const QString &toPrinterName)
@@ -116,13 +124,6 @@ void JobModel::move(const QString &printerName, int jobId, const QString &toPrin
 
 void JobModel::getJobs()
 {
-    if (m_jobRequest) {
-        return;
-    }
-
-    m_jobRequest = new KCupsRequest;
-    connect(m_jobRequest, &KCupsRequest::finished, this, &JobModel::getJobFinished);
-
     const static QStringList attrs({KCUPS_JOB_ID,
                                     KCUPS_JOB_NAME,
                                     KCUPS_JOB_K_OCTETS,
@@ -141,108 +142,69 @@ void JobModel::getJobs()
                                     KCUPS_JOB_MEDIA_SHEETS_COMPLETED,
                                     KCUPS_JOB_PRINTER_STATE_MESSAGE,
                                     KCUPS_JOB_PRESERVED});
-    m_jobRequest->getJobs(m_destName, false, m_whichjobs, attrs);
 
-    m_processingJob.clear();
-}
-
-static KCupsJobs sanitizeJobs(KCupsJobs jobs)
-{
-    // For some reason sometimes cups has broken job queues with jobs with duplicated id
-    // our model doesn't like that at all so sanitize the job list before processing it
-    QVector<int> seenIds;
-    int i = 0;
-    while (i < jobs.count()) {
-        const int jobId = jobs.at(i).id();
-        if (seenIds.contains(jobId)) {
-            qCWarning(LIBKCUPS) << "Found job with duplicated id" << jobId;
-            jobs.removeAt(i);
-        } else {
-            seenIds << jobId;
-            ++i;
-        }
+    // Don't get jobs if we're already doing so
+    if (m_jobRequest) {
+        return;
     }
-    return jobs;
+
+    m_messages.clear();
+    m_jobRequest = setupRequest(&JobModel::getJobFinished);
+    m_jobRequest->getJobs(QString(), false, m_jobFilter, attrs);
 }
 
 void JobModel::getJobFinished(KCupsRequest *request)
 {
-    if (request) {
-        if (request->hasError()) {
-            // clear the model after so that the proper widget can be shown
-            clear();
+    // this will hold processing messages for any jobs currently being processed
+    QStringList msgList;
+    // For some reason sometimes cups has broken job queues with jobs with duplicated id
+    // our model doesn't like that at all so sanitize the job list before processing it
+    auto jobs = request->jobs();
+    std::sort(jobs.begin(), jobs.end());
+    jobs.erase(std::unique(jobs.begin(), jobs.end()), jobs.end());
+
+    for (int i = 0; i < jobs.size(); ++i) {
+        const auto job = jobs.at(i);
+        if (job.state() == IPP_JOB_PROCESSING) {
+            msgList << i18n("Processing\t%1 [%2]", job.name(), job.printer());
+        }
+
+        // try to find the job row
+        const int job_row = jobRow(job.id());
+        if (job_row == -1) {
+            // not found, insert new one
+            insertJob(i, job);
         } else {
-            const KCupsJobs jobs = sanitizeJobs(request->jobs());
-            for (int i = 0; i < jobs.size(); ++i) {
-                const KCupsJob job = jobs.at(i);
-                if (job.state() == IPP_JOB_PROCESSING) {
-                    m_processingJob = job.name();
-                }
+            // update the job
+            updateJob(job_row, job);
 
-                // try to find the job row
-                const int job_row = jobRow(job.id());
-                if (job_row == -1) {
-                    // not found, insert new one
-                    insertJob(i, job);
-                } else {
-                    // update the job
-                    updateJob(job_row, job);
-
-                    if (job_row != i) {
-                        // found at wrong position
-                        // take it and insert on the right position
-                        const QList<QStandardItem *> row = takeRow(job_row);
-                        insertRow(i, row);
-                    }
-                }
-            }
-
-            // remove old jobs
-            // The above code starts from 0 and make sure
-            // dest == modelIndex(x) and if it's not the
-            // case it either inserts or moves it.
-            // so any item > num_jobs can be safely deleted
-            while (rowCount() > jobs.size()) {
-                removeRow(rowCount() - 1);
+            if (job_row != i) {
+                // found at wrong position
+                // take it and insert on the right position
+                const QList<QStandardItem *> row = takeRow(job_row);
+                insertRow(i, row);
             }
         }
-        request->deleteLater();
-    } else {
-        qCWarning(LIBKCUPS) << "Should not be called from a non KCupsRequest class" << sender();
     }
-    m_jobRequest = nullptr;
+
+    // remove old jobs
+    // The above code starts from 0 and make sure
+    // dest == modelIndex(x) and if it's not the
+    // case it either inserts or moves it.
+    // so any item > num_jobs can be safely deleted
+    while (rowCount() > jobs.size()) {
+        removeRow(rowCount() - 1);
+    }
+
+    if (!msgList.empty()) {
+        setMessages(msgList);
+    }
+
+    m_jobRequest.clear();
+    Q_EMIT loaded();
 }
 
-void JobModel::jobCompleted(const QString &text,
-                            const QString &printerUri,
-                            const QString &printerName,
-                            uint printerState,
-                            const QString &printerStateReasons,
-                            bool printerIsAcceptingJobs,
-                            uint jobId,
-                            uint jobState,
-                            const QString &jobStateReasons,
-                            const QString &jobName,
-                            uint jobImpressionsCompleted)
-{
-    // REALLY? all these parameters just to say foo was deleted??
-    Q_UNUSED(text)
-    Q_UNUSED(printerUri)
-    Q_UNUSED(printerName)
-    Q_UNUSED(printerState)
-    Q_UNUSED(printerStateReasons)
-    Q_UNUSED(printerIsAcceptingJobs)
-    Q_UNUSED(jobId)
-    Q_UNUSED(jobState)
-    Q_UNUSED(jobStateReasons)
-    Q_UNUSED(jobName)
-    Q_UNUSED(jobImpressionsCompleted)
-
-    // We grab all jobs again
-    getJobs();
-}
-
-void JobModel::insertUpdateJob(const QString &text,
+void JobModel::handleJobNotify(const QString &text,
                                const QString &printerUri,
                                const QString &printerName,
                                uint printerState,
@@ -254,7 +216,6 @@ void JobModel::insertUpdateJob(const QString &text,
                                const QString &jobName,
                                uint jobImpressionsCompleted)
 {
-    // REALLY? all these parameters just to say foo was created??
     Q_UNUSED(text)
     Q_UNUSED(printerUri)
     Q_UNUSED(printerName)
@@ -267,7 +228,7 @@ void JobModel::insertUpdateJob(const QString &text,
     Q_UNUSED(jobName)
     Q_UNUSED(jobImpressionsCompleted)
 
-    // We grab all jobs again
+    qCDebug(LIBKCUPS) << "JOBNOTIFY" << printerName << jobId << jobState << jobStateReasons;
     getJobs();
 }
 
@@ -278,14 +239,18 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
     ipp_jstate_e jobState = job.state();
     auto statusItem = new QStandardItem(jobStatus(jobState));
     statusItem->setData(jobState, RoleJobState);
+    statusItem->setData(job.stateMsg(), RoleJobStateMsg);
     statusItem->setData(job.id(), RoleJobId);
     statusItem->setData(job.name(), RoleJobName);
     statusItem->setData(job.originatingUserName(), RoleJobOwner);
     statusItem->setData(job.originatingHostName(), RoleJobOriginatingHostName);
     QString size = KFormat().formatByteSize(job.size());
     statusItem->setData(size, RoleJobSize);
-    QString createdAt = QLocale().toString(job.createdAt());
-    statusItem->setData(createdAt, RoleJobCreatedAt);
+
+    const auto fmt = QLocale().dateTimeFormat(QLocale::ShortFormat);
+    statusItem->setData(QLocale().toString(job.createdAt(), fmt), RoleJobCreatedAt);
+    statusItem->setData(QLocale().toString(job.completedAt(), fmt), RoleJobCompletedAt);
+    statusItem->setData(QLocale().toString(job.processedAt(), fmt), RoleJobProcessedAt);
 
     // TODO move the update code before the insert and reuse some code...
     statusItem->setData(KCupsJob::iconName(jobState), RoleJobIconName);
@@ -315,19 +280,27 @@ void JobModel::insertJob(int pos, const KCupsJob &job)
     updateJob(pos, job);
 }
 
-KCupsRequest *JobModel::setupRequest(std::function<void()> finished)
+KCupsRequest *JobModel::setupRequest(void (JobModel::*finished)(KCupsRequest *))
 {
     auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, [this, finished](KCupsRequest *r) {
         if (r->hasError()) {
             Q_EMIT error(r->error(), r->serverError(), r->errorMsg());
         } else {
-            finished();
+            if (finished) {
+                (this->*finished)(r);
+            }
         }
         r->deleteLater();
     });
 
     return request;
+}
+
+void JobModel::setMessages(const QStringList &list)
+{
+    m_messages << list;
+    Q_EMIT messagesChanged();
 }
 
 void JobModel::updateJob(int pos, const KCupsJob &job)
@@ -338,6 +311,7 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
     if (colStatus->data(RoleJobState).toInt() != jobState) {
         colStatus->setText(jobStatus(jobState));
         colStatus->setData(static_cast<int>(jobState), RoleJobState);
+        colStatus->setData(job.stateMsg(), RoleJobStateMsg);
 
         colStatus->setData(KCupsJob::iconName(jobState), RoleJobIconName);
         colStatus->setData(KCupsJob::cancelEnabled(jobState), RoleJobCancelEnabled);
@@ -383,19 +357,34 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
         colUser->setText(userString);
     }
 
-    // when it was created
-    const QDateTime timeAtCreation = job.createdAt();
+    // Datetime formatting
+    const auto fmt = QLocale().dateTimeFormat(QLocale::ShortFormat);
+
+    // datetime created
+    const auto timeAtCreation = QLocale().toString(job.createdAt(), fmt);
     QStandardItem *colCreated = item(pos, ColCreated);
-    if (colCreated->data(Qt::DisplayRole).toDateTime() != timeAtCreation) {
+    if (colCreated->data(Qt::DisplayRole) != timeAtCreation) {
         colCreated->setData(timeAtCreation, Qt::DisplayRole);
     }
 
-    // when it was completed
-    const QDateTime completedAt = job.completedAt();
+    // datetime completed
+    const auto completedAt = QLocale().toString(job.completedAt(), fmt);
     QStandardItem *colCompleted = item(pos, ColCompleted);
-    if (colCompleted->data(Qt::DisplayRole).toDateTime() != completedAt) {
+    if (colCompleted->data(Qt::DisplayRole) != completedAt) {
         if (!completedAt.isNull()) {
             colCompleted->setData(completedAt, Qt::DisplayRole);
+        } else {
+            // Clean the data might happen when the job is restarted
+            colCompleted->setText(QString());
+        }
+    }
+
+    // datetime processed
+    const auto timeAtProcessing = QLocale().toString(job.processedAt(), fmt);
+    QStandardItem *colProcessed = item(pos, ColProcessed);
+    if (colProcessed->data(Qt::DisplayRole) != timeAtProcessing) {
+        if (!timeAtProcessing.isNull()) {
+            colProcessed->setData(timeAtProcessing, Qt::DisplayRole);
         } else {
             // Clean the data might happen when the job is restarted
             colCompleted->setText(QString());
@@ -408,18 +397,6 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
     if (colPages->data(Qt::UserRole) != completedPages) {
         colPages->setData(completedPages, Qt::UserRole);
         colPages->setText(QString::number(completedPages));
-    }
-
-    // when it was processed
-    const QDateTime timeAtProcessing = job.processedAt();
-    QStandardItem *colProcessed = item(pos, ColProcessed);
-    if (colProcessed->data(Qt::DisplayRole).toDateTime() != timeAtProcessing) {
-        if (!timeAtProcessing.isNull()) {
-            colProcessed->setData(timeAtProcessing, Qt::DisplayRole);
-        } else {
-            // Clean the data might happen when the job is restarted
-            colCompleted->setText(QString());
-        }
     }
 
     int jobSize = job.size();
@@ -445,126 +422,12 @@ void JobModel::updateJob(int pos, const KCupsJob &job)
     }
 }
 
-QStringList JobModel::mimeTypes() const
-{
-    return {QStringLiteral("application/x-cupsjobs")};
-}
-
-Qt::DropActions JobModel::supportedDropActions() const
-{
-    return Qt::MoveAction;
-}
-
-QMimeData *JobModel::mimeData(const QModelIndexList &indexes) const
-{
-    auto mimeData = new QMimeData();
-    QByteArray encodedData;
-
-    QDataStream stream(&encodedData, QIODevice::WriteOnly);
-
-    for (const QModelIndex &index : indexes) {
-        if (index.isValid() && index.column() == 0) {
-            // serialize the jobId and fromDestName
-            stream << data(index, RoleJobId).toInt() << data(index, RoleJobPrinter).toString() << item(index.row(), ColName)->text();
-        }
-    }
-
-    mimeData->setData(QLatin1String("application/x-cupsjobs"), encodedData);
-    return mimeData;
-}
-
-bool JobModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
-{
-    Q_UNUSED(row)
-    Q_UNUSED(column)
-    Q_UNUSED(parent)
-    if (action == Qt::IgnoreAction) {
-        return true;
-    }
-
-    if (!data->hasFormat(QLatin1String("application/x-cupsjobs"))) {
-        return false;
-    }
-
-    QByteArray encodedData = data->data(QLatin1String("application/x-cupsjobs"));
-    QDataStream stream(&encodedData, QIODevice::ReadOnly);
-
-    bool ret = false;
-    while (!stream.atEnd()) {
-        QString fromDestName, displayName;
-        int jobId;
-        // get the jobid and the from dest name
-        stream >> jobId >> fromDestName >> displayName;
-        if (fromDestName == m_destName) {
-            continue;
-        }
-
-        QPointer<KCupsRequest> request = new KCupsRequest;
-        request->moveJob(fromDestName, jobId, m_destName);
-        request->waitTillFinished();
-        if (request) {
-            if (request->hasError()) {
-                // failed to move one job
-                // we return here to avoid more password tries
-                KMessageBox::detailedErrorWId(m_parentId, i18n("Failed to move '%1' to '%2'", displayName, m_destName), request->errorMsg(), i18n("Failed"));
-            }
-            request->deleteLater();
-            ret = !request->hasError();
-        }
-    }
-    return ret;
-}
-
 QHash<int, QByteArray> JobModel::roleNames() const
 {
     return m_roles;
 }
 
-KCupsRequest *JobModel::modifyJob(int row, JobAction action, const QString &newDestName, const QModelIndex &parent)
-{
-    Q_UNUSED(parent)
-
-    if (row < 0 || row >= rowCount()) {
-        qCWarning(LIBKCUPS) << "Row number is invalid:" << row;
-        return nullptr;
-    }
-
-    QStandardItem *job = item(row, ColStatus);
-    int jobId = job->data(RoleJobId).toInt();
-    QString destName = job->data(RoleJobPrinter).toString();
-
-    // ignore some jobs
-    ipp_jstate_t state = static_cast<ipp_jstate_t>(job->data(RoleJobState).toInt());
-    if ((state == IPP_JOB_HELD && action == Hold) || (state == IPP_JOB_CANCELED && action == Cancel) || (state != IPP_JOB_HELD && action == Release)) {
-        return nullptr;
-    }
-
-    auto request = new KCupsRequest;
-    switch (action) {
-    case Cancel:
-        request->cancelJob(destName, jobId);
-        break;
-    case Hold:
-        request->holdJob(destName, jobId);
-        break;
-    case Release:
-        request->releaseJob(destName, jobId);
-        break;
-    case Reprint:
-        request->restartJob(destName, jobId);
-        break;
-    case Move:
-        request->moveJob(destName, jobId, newDestName);
-        break;
-    default:
-        qCWarning(LIBKCUPS) << "Unknown ACTION called!!!" << action;
-        return nullptr;
-    }
-
-    return request;
-}
-
-int JobModel::jobRow(int jobId)
+int JobModel::jobRow(int jobId) const
 {
     // find the position of the jobId inside the model
     for (int i = 0; i < rowCount(); i++) {
@@ -576,25 +439,19 @@ int JobModel::jobRow(int jobId)
     return -1;
 }
 
-QString JobModel::jobStatus(ipp_jstate_e job_state)
+QString JobModel::jobStatus(ipp_jstate_e job_state) const
 {
-    switch (job_state) {
-    case IPP_JOB_PENDING:
-        return i18n("Pending");
-    case IPP_JOB_HELD:
-        return i18n("On hold");
-    case IPP_JOB_PROCESSING:
-        return QLatin1String("-");
-    case IPP_JOB_STOPPED:
-        return i18n("Stopped");
-    case IPP_JOB_CANCELED:
-        return i18n("Canceled");
-    case IPP_JOB_ABORTED:
-        return i18n("Aborted");
-    case IPP_JOB_COMPLETED:
-        return i18n("Completed");
-    }
-    return QLatin1String("-");
+    const static QHash<int, QString> statusStrings({{IPP_JOB_PENDING, i18n("Pending")},
+                                            {IPP_JOB_HELD, i18n("On hold")},
+                                            {IPP_JOB_PROCESSING, QLatin1String("-")},
+                                            {IPP_JOB_STOPPED, i18n("Stopped")},
+                                            {IPP_JOB_CANCELED, i18n("Canceled")},
+                                            {IPP_JOB_ABORTED, i18n("Aborted")},
+                                            {IPP_JOB_COMPLETED, i18n("Completed")}
+                                           });
+
+    const auto str = statusStrings.value(job_state);
+    return !str.isEmpty() ? str : QLatin1String("-");
 }
 
 void JobModel::clear()
@@ -602,37 +459,25 @@ void JobModel::clear()
     removeRows(0, rowCount());
 }
 
-void JobModel::setWhichJobs(WhichJobs whichjobs)
+void JobModel::setJobFilter(WhichJobs filter)
 {
-    switch (whichjobs) {
-    case WhichActive:
-        m_whichjobs = CUPS_WHICHJOBS_ACTIVE;
-        break;
-    case WhichCompleted:
-        m_whichjobs = CUPS_WHICHJOBS_COMPLETED;
-        break;
-    case WhichAll:
-        m_whichjobs = CUPS_WHICHJOBS_ALL;
-        break;
+    if (m_jobFilter == filter) {
+        return;
     }
 
+    m_jobFilter = filter;
+    Q_EMIT jobFilterChanged();
     getJobs();
 }
 
-Qt::ItemFlags JobModel::flags(const QModelIndex &index) const
+QStringList JobModel::messages() const
 {
-    if (index.isValid()) {
-        ipp_jstate_t state = static_cast<ipp_jstate_t>(item(index.row(), ColStatus)->data(RoleJobState).toInt());
-        if (state == IPP_JOB_PENDING || state == IPP_JOB_PROCESSING) {
-            return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsDragEnabled | Qt::ItemIsDropEnabled;
-        }
-    }
-    return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsDropEnabled;
+    return m_messages;
 }
 
-QString JobModel::processingJob() const
+JobModel::WhichJobs JobModel::jobFilter() const
 {
-    return m_processingJob;
+    return m_jobFilter;
 }
 
 #include "moc_JobModel.cpp"

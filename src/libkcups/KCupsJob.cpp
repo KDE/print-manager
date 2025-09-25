@@ -12,6 +12,15 @@ KCupsJob::KCupsJob()
 {
 }
 
+bool KCupsJob::operator==(const KCupsJob &other) const
+{
+    return m_jobId == other.m_jobId;
+}
+bool KCupsJob::operator<(const KCupsJob &other) const
+{
+    return m_jobId < other.m_jobId;
+}
+
 KCupsJob::KCupsJob(int jobId, const QString &printer)
     : m_jobId(jobId)
     , m_printer(printer)

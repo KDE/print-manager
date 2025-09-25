@@ -8,6 +8,7 @@
 #define JOB_MODEL_H
 
 #include <QStandardItemModel>
+#include <QPointer>
 #include <qqmlregistration.h>
 
 #include <cups/cups.h>
@@ -21,15 +22,21 @@ class KCUPS_EXPORT JobModel : public QStandardItemModel
     Q_OBJECT
     QML_ELEMENT
 
+    Q_PROPERTY(WhichJobs jobFilter READ jobFilter WRITE setJobFilter NOTIFY jobFilterChanged FINAL)
+    Q_PROPERTY(QStringList messages READ messages NOTIFY messagesChanged FINAL)
+
 public:
     enum Role {
         RoleJobId = Qt::UserRole + 2,
         RoleJobState,
+        RoleJobStateMsg,
         RoleJobName,
         RoleJobPages,
         RoleJobSize,
         RoleJobOwner,
         RoleJobCreatedAt,
+        RoleJobCompletedAt,
+        RoleJobProcessedAt,
         RoleJobIconName,
         RoleJobCancelEnabled,
         RoleJobHoldEnabled,
@@ -41,19 +48,10 @@ public:
     };
     Q_ENUM(Role)
 
-    enum JobAction {
-        Cancel,
-        Hold,
-        Release,
-        Move,
-        Reprint
-    };
-    Q_ENUM(JobAction)
-
     enum WhichJobs {
-        WhichAll,
-        WhichActive,
-        WhichCompleted
+        WhichAll = CUPS_WHICHJOBS_ALL,
+        WhichActive = CUPS_WHICHJOBS_ACTIVE,
+        WhichCompleted = CUPS_WHICHJOBS_COMPLETED
     };
     Q_ENUM(WhichJobs)
 
@@ -71,44 +69,29 @@ public:
         ColFromHost,
         LastColumn
     };
+    Q_ENUM(Columns)
 
     explicit JobModel(QObject *parent = nullptr);
-    void setParentWId(WId parentId);
-    Q_INVOKABLE void init(const QString &destName = QString());
 
     Q_INVOKABLE void hold(const QString &printerName, int jobId);
     Q_INVOKABLE void release(const QString &printerName, int jobId);
     Q_INVOKABLE void cancel(const QString &printerName, int jobId);
+    Q_INVOKABLE void cancelAll(const QString &printerName);
+    Q_INVOKABLE void restart(const QString &printerName, int jobId);
     Q_INVOKABLE void move(const QString &printerName, int jobId, const QString &toPrinterName);
 
-    QString processingJob() const;
-
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
-    QStringList mimeTypes() const override;
-    Qt::DropActions supportedDropActions() const override;
-    QMimeData *mimeData(const QModelIndexList &indexes) const override;
-    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void setWhichJobs(WhichJobs whichjobs);
-    KCupsRequest *modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
+    WhichJobs jobFilter() const;
+    void setJobFilter(WhichJobs filter);
+
+    QStringList messages() const;
 
 private Q_SLOTS:
     void getJobs();
     void getJobFinished(KCupsRequest *request);
 
-    void jobCompleted(const QString &text,
-                      const QString &printerUri,
-                      const QString &printerName,
-                      uint printerState,
-                      const QString &printerStateReasons,
-                      bool printerIsAcceptingJobs,
-                      uint jobId,
-                      uint jobState,
-                      const QString &jobStateReasons,
-                      const QString &jobName,
-                      uint jobImpressionsCompleted);
-    void insertUpdateJob(const QString &text,
+    void handleJobNotify(const QString &text,
                          const QString &printerUri,
                          const QString &printerName,
                          uint printerState,
@@ -122,21 +105,23 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
+    void jobFilterChanged();
+    void messagesChanged();
+    void loaded();
 
 private:
-    int jobRow(int jobId);
+    int jobRow(int jobId) const;
     void insertJob(int pos, const KCupsJob &job);
     void updateJob(int pos, const KCupsJob &job);
-    QString jobStatus(ipp_jstate_e job_state);
+    QString jobStatus(ipp_jstate_e job_state) const;
     void clear();
-    KCupsRequest *setupRequest(std::function<void()> finished = []() { });
+    KCupsRequest *setupRequest(void (JobModel::*)(KCupsRequest *) = nullptr);
+    void setMessages(const QStringList &list);
 
-    KCupsRequest *m_jobRequest = nullptr;
-    QString m_destName;
-    QString m_processingJob;
+    QPointer<KCupsRequest> m_jobRequest;
     QHash<int, QByteArray> m_roles;
-    int m_whichjobs = CUPS_WHICHJOBS_ACTIVE;
-    WId m_parentId = 0;
+    WhichJobs m_jobFilter = WhichActive;
+    QStringList m_messages;
 };
 
 #endif // JOB_MODEL_H

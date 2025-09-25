@@ -5,9 +5,7 @@
 */
 
 #include "JobSortFilterModel.h"
-
 #include "JobModel.h"
-#include "kcupslib_log.h"
 
 JobSortFilterModel::JobSortFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
@@ -38,12 +36,13 @@ void JobSortFilterModel::setModel(QAbstractItemModel *model)
 
 void JobSortFilterModel::setFilteredPrinters(const QString &printers)
 {
+    beginFilterChange();
     if (printers.isEmpty()) {
         m_filteredPrinters.clear();
     } else {
         m_filteredPrinters = printers.split(QLatin1Char('|'));
     }
-    invalidateFilter();
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
     Q_EMIT filteredPrintersChanged();
 }
 
@@ -71,10 +70,10 @@ int JobSortFilterModel::count() const
 
 bool JobSortFilterModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    QModelIndex index = sourceModel()->index(source_row, 0, source_parent);
 
     // check if the printer is on the blacklist
     if (!m_filteredPrinters.isEmpty()) {
+        const auto index = sourceModel()->index(source_row, 0, source_parent);
         return m_filteredPrinters.contains(index.data(JobModel::RoleJobPrinter).toString());
     }
 

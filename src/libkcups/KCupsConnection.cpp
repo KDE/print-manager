@@ -79,16 +79,17 @@ KCupsConnection::KCupsConnection(const QUrl &server, QObject *parent)
 
 KCupsConnection::~KCupsConnection()
 {
+    m_exiting = true;
+
     if (m_instance == this) {
         m_instance = nullptr;
     }
     m_passwordDialog->deleteLater();
+    m_renewTimer->deleteLater();
+    m_subscriptionTimer->deleteLater();
 
     quit();
     wait();
-
-    delete m_renewTimer;
-    delete m_subscriptionTimer;
 }
 
 void KCupsConnection::setPasswordMainWindow(WId mainwindow)
@@ -184,10 +185,7 @@ void KCupsConnection::init()
 
     // Bump "run" to the event queue. This should give any notify connections from the main
     // thread time to complete before the thread starts.
-    QMetaObject::invokeMethod(this,
-                              static_cast<void (KCupsConnection::*)(QThread::Priority)>(&KCupsConnection::start),
-                              Qt::QueuedConnection,
-                              QThread::Priority::InheritPriority);
+    QMetaObject::invokeMethod(this, &KCupsConnection::start, Qt::QueuedConnection, QThread::Priority::InheritPriority);
 }
 
 void KCupsConnection::run()
@@ -428,9 +426,9 @@ void KCupsConnection::updateSubscription()
         // If we already have a subscription then cancel it
         if (m_subscriptionId >= 0) {
             cancelDBusSubscription();
+        } else {
+            renewDBusSubscription();
         }
-
-        renewDBusSubscription();
     }
 }
 
@@ -467,6 +465,17 @@ void KCupsConnection::cancelDBusSubscription()
     qCDebug(LIBKCUPS) << "CANCELSUB:" << m_subscriptionId;
     // Reset the subscription id
     m_subscriptionId = -1;
+    /* When exiting, there could a timing issue such that
+     * the update could trigger before all events are cleared, causing
+     * an unwanted subscription renew.
+     *
+     * Since we're exiting, clear lists so no more attempts to renew will trigger
+     * if there is a call to update subscription.
+     */
+    if (m_exiting) {
+        m_requestedDBusEvents.clear();
+        m_connectedEvents.clear();
+    }
 }
 
 ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_tag)

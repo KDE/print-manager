@@ -382,6 +382,7 @@ private:
     QStringList m_requestedDBusEvents;
     int m_subscriptionId = -1;
     QMutex m_mutex;
+    bool m_exiting = false;
 };
 
 #endif // KCUPSCONNECTION_H

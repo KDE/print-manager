@@ -42,7 +42,6 @@ PlasmoidItem {
 
         sourceModel: PrintManager.JobModel {
             id: jobsModel
-            Component.onCompleted: setWhichJobs(PrintManager.JobModel.WhichActive)
         }
     }
 

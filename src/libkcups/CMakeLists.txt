@@ -9,7 +9,6 @@ set(libkcups_SRCS
     KCupsServer.cpp
     KCupsRequest.cpp
     PPDModel.cpp
-    NoSelectionRectDelegate.cpp
     PrinterModel.cpp
     JobModel.cpp
     JobSortFilterModel.cpp
@@ -24,7 +23,6 @@ set(libkcups_SRCS
     KCupsServer.h
     KCupsRequest.h
     PPDModel.h
-    NoSelectionRectDelegate.h
     PrinterModel.h
     JobModel.h
     JobSortFilterModel.h

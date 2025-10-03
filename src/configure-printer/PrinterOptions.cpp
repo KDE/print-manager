@@ -751,7 +751,7 @@ void PrinterOptions::save()
     if (request) {
         setEnabled(true);
         if (!request->hasError()) {
-            // if we succefully save the new ppd we need now to
+            // if we successfully save the new ppd we now need to
             // clear our changes
             auto i = m_customValues.constBegin();
             while (i != m_customValues.constEnd()) {

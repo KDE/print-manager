@@ -77,7 +77,7 @@ public:
     KCupsJobs jobs() const;
 
     /**
-     * Get all available PPDs from the givem make
+     * Get all available PPDs from the given make
      * @param make the maker of the printer
      */
     Q_INVOKABLE void getPPDS(const QString &make = QString());
@@ -119,7 +119,7 @@ public:
     /**
      * Get all jobs
      * This method emits job()
-     * TODO we need to see if we authenticate as root to do some taks
+     * TODO we need to see if we authenticate as root to do some tasks
      *      the myJobs will return the user's jobs or the root's jobs
      * @param printer which printer you are requiring jobs for (empty = all printers)
      * @param myJobs true if you only want your jobs

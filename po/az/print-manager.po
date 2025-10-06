@@ -1,21 +1,21 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024 Kheyyam Gojayev <xxmn77@gmail.com>
+# SPDX-FileCopyrightText: 2020, 2021, 2023, 2024, 2025 Kheyyam Gojayev <xxmn77@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:44+0000\n"
-"PO-Revision-Date: 2024-06-03 22:07+0400\n"
-"Last-Translator: Xəyyam Qocayev <xxmn77@gmail.com>\n"
+"PO-Revision-Date: 2025-10-05 18:07+0400\n"
+"Last-Translator: linux <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -219,16 +219,14 @@ msgid "Add a new printer"
 msgstr "Yeni printer əlavə etmək"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Yeni printer əlavə etmək"
+msgstr "Yeni printer qrupu əlavə edin"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Printeri tənzimləmək"
+msgstr "Printeri tənzimləyin"
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
@@ -246,20 +244,19 @@ msgstr "Printeri tənzimləmək mümkün olmadı: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Sürücü:"
+msgstr "Sürücüsüz"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PDD faylı"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -310,7 +307,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) boş görünür"
 
 #: src/kded/MarkerLevelChecker.cpp:149
 #, kde-format
@@ -318,13 +315,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) az görünür (%3% qalır)."
 
 #: src/kded/MarkerLevelChecker.cpp:155
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Səviyyəni yoxlayın..."
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -334,55 +331,47 @@ msgstr "Yeni printer aşkarlandı"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Printer ayarlanması başladılır"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Yeni printer əlavə edildi"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Yeni printer üçün sürücülər çatışmır"
+msgstr "yeni printerdə sürücü problemi ola bilər"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Yeni printer aşkarlandı"
+msgstr "Printer növbəsi yaradılmayıb"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "%1 %2 üçün printer sürücüsü yoxdur."
+msgstr "%1 %2 üçün printer sürücüsü tapılmadı"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "%1 üçün printer driveri yoxdur."
+msgstr "%1 üçün printer driveri tapılmadı"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Bu printer üçün sürücü yoxdur."
+msgstr "Bu printer üçün printer sürücüsü tapılmadı"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Printer əlavə etmək"
+msgstr "Printer əlavə edin..."
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "\"%1\" əlavə edildi, onun sürücüsünü yoxlayın."
+msgstr "%1 əlavə edildi, lütfən sürücülərini yoxlayın"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -392,8 +381,7 @@ msgid "Configure"
 msgstr "Tənzimləmək"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "\"%1\" əlavə edildi, \"%2\" sürücüsü istifadə olunur."
 
@@ -404,10 +392,9 @@ msgid "Print test page"
 msgstr "Sınaq səhifəsinin çapı"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "&Sürücünü seçin"
+msgstr "Sürücünü seçin"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
@@ -534,29 +521,24 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "HAL (Hardware Abstraction Layer) printeri aşkar etdi"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
-"Printerin işini HPLİP təmin edir və ya çoxfunksiyalı cihazın faks funksiyası."
+"Fax maşını və ya çoxfunksiyalı cihazın fax funksiyasının HPLIP proqram "
+"təminatı ilə idarə olunması"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"Printerin işini HPLİP təmin edir və ya çoxfunksiyalı cihazın printer "
-"funksiyası."
+"Printer və ya çoxfunksiyalı cihazın printer funksiyasının HPLIP proqram "
+"təminatı ilə idarə olunması"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

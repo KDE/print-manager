@@ -353,8 +353,7 @@ protected:
 
 private Q_SLOTS:
     void updateSubscription();
-    void renewDBusSubscription();
-    void cancelDBusSubscription();
+    void renewSubscription();
 
 protected:
     void connectNotify(const QMetaMethod &signal) override;
@@ -364,7 +363,8 @@ protected:
 private:
     void init();
 
-    int renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events = QStringList());
+    int cupsRenewSubscription(int subscriptionId, int leaseDuration, const QStringList &events = QStringList());
+    void cupsCancelSubscription();
 
     void notifierConnect(const QString &signal, QObject *receiver, const char *slot);
 

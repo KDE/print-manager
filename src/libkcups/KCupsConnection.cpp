@@ -174,7 +174,7 @@ void KCupsConnection::init()
     m_renewTimer = new QTimer;
     m_renewTimer->setInterval(RENEW_INTERVAL * 1000);
     m_renewTimer->moveToThread(this);
-    connect(m_renewTimer, &QTimer::timeout, this, static_cast<void (KCupsConnection::*)()>(&KCupsConnection::renewDBusSubscription), Qt::DirectConnection);
+    connect(m_renewTimer, &QTimer::timeout, this, &KCupsConnection::renewSubscription, Qt::DirectConnection);
 
     // Creates the timer to merge updates on the DBus subscription
     m_subscriptionTimer = new QTimer;
@@ -211,7 +211,7 @@ void KCupsConnection::run()
 
     // Event loop quit so cancelDBusSubscription()
     if (m_subscriptionId != -1) {
-        cancelDBusSubscription();
+        cupsCancelSubscription();
     }
 }
 
@@ -245,7 +245,7 @@ ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t g
     return ret;
 }
 
-int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration, const QStringList &events)
+int KCupsConnection::cupsRenewSubscription(int subscriptionId, int leaseDuration, const QStringList &events)
 {
     int ret = -1;
 
@@ -278,11 +278,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         response = request.sendIppRequest();
     } while (retry("/", operation));
 
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     if (response && ippGetStatusCode(response) == IPP_OK) {
-#else
-    if (response && response->request.status.status_code == IPP_OK) {
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
         ipp_attribute_t *attr;
         if (subscriptionId >= 0) {
             // Request was ok, just return the current subscription
@@ -291,21 +287,12 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
             qCWarning(LIBKCUPS) << "No notify-subscription-id in response!";
             ret = -1;
         } else {
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
             ret = ippGetInteger(attr, 0);
         }
     } else if (subscriptionId >= 0 && response && ippGetStatusCode(response) == IPP_NOT_FOUND) {
         qCDebug(LIBKCUPS) << "Subscription not found";
         // When the subscription is not found try to get a new one
-        return renewDBusSubscription(-1, leaseDuration, events);
-#else
-            ret = attr->values[0].integer;
-        }
-    } else if (subscriptionId >= 0 && response && response->request.status.status_code == IPP_NOT_FOUND) {
-        qCDebug(LIBKCUPS) << "Subscription not found";
-        // When the subscription is not found try to get a new one
-        return renewDBusSubscription(-1, leaseDuration, events);
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
+        return cupsRenewSubscription(-1, leaseDuration, events);
     } else {
         qCDebug(LIBKCUPS) << "Request failed" << cupsLastError() << httpGetStatus(CUPS_HTTP_DEFAULT);
         // When the server stops/restarts we will have some error so ignore it
@@ -425,18 +412,18 @@ void KCupsConnection::updateSubscription()
 
         // If we already have a subscription then cancel it
         if (m_subscriptionId >= 0) {
-            cancelDBusSubscription();
+            cupsCancelSubscription();
         } else {
-            renewDBusSubscription();
+            renewSubscription();
         }
     }
 }
 
-void KCupsConnection::renewDBusSubscription()
+void KCupsConnection::renewSubscription()
 {
     // Renew the subscription if we have a valid subscription ID
     if (m_subscriptionId >= 0) {
-        m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
+        m_subscriptionId = cupsRenewSubscription(m_subscriptionId, SUBSCRIPTION_DURATION);
     }
 
     // Verify subscription, if not valid and we have events, reset
@@ -445,13 +432,13 @@ void KCupsConnection::renewDBusSubscription()
         if (m_requestedDBusEvents.isEmpty()) {
             m_renewTimer->stop();
         } else {
-            m_subscriptionId = renewDBusSubscription(m_subscriptionId, SUBSCRIPTION_DURATION, m_requestedDBusEvents);
+            m_subscriptionId = cupsRenewSubscription(m_subscriptionId, SUBSCRIPTION_DURATION, m_requestedDBusEvents);
             m_renewTimer->start();
         }
     }
 }
 
-void KCupsConnection::cancelDBusSubscription()
+void KCupsConnection::cupsCancelSubscription()
 {
     KIppRequest request(IPP_CANCEL_SUBSCRIPTION, QLatin1String("/"));
     request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("/"));
@@ -482,8 +469,6 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
 {
     ipp_attribute_t *attr;
     ReturnArguments ret;
-
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     QVariantMap destAttributes;
     for (attr = ippFirstAttribute(response); attr != nullptr; attr = ippNextAttribute(response)) {
         // We hit an attribute separator
@@ -509,44 +494,6 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
     if (!destAttributes.isEmpty()) {
         ret << destAttributes;
     }
-#else
-    for (attr = response->attrs; attr != nullptr; attr = attr->next) {
-        /*
-         * Skip leading attributes until we hit a group which can be a printer, job...
-         */
-        while (attr && attr->group_tag != group_tag) {
-            attr = attr->next;
-        }
-
-        if (attr == nullptr) {
-            break;
-        }
-
-        /*
-         * Pull the needed attributes from this printer...
-         */
-        QVariantMap destAttributes;
-        for (; attr && attr->group_tag == group_tag; attr = attr->next) {
-            if (attr->value_tag != IPP_TAG_INTEGER && attr->value_tag != IPP_TAG_ENUM && attr->value_tag != IPP_TAG_BOOLEAN && attr->value_tag != IPP_TAG_TEXT
-                && attr->value_tag != IPP_TAG_TEXTLANG && attr->value_tag != IPP_TAG_LANGUAGE && attr->value_tag != IPP_TAG_NAME
-                && attr->value_tag != IPP_TAG_NAMELANG && attr->value_tag != IPP_TAG_KEYWORD && attr->value_tag != IPP_TAG_RANGE
-                && attr->value_tag != IPP_TAG_URI) {
-                continue;
-            }
-
-            /*
-             * Add a printer description attribute...
-             */
-            destAttributes[QString::fromUtf8(attr->name)] = ippAttrToVariant(attr);
-        }
-
-        ret << destAttributes;
-
-        if (attr == nullptr) {
-            break;
-        }
-    }
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
 
     return ret;
 }
@@ -554,7 +501,6 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
 QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 {
     QVariant ret;
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     switch (ippGetValueTag(attr)) {
     case IPP_TAG_INTEGER:
     case IPP_TAG_ENUM:
@@ -599,51 +545,6 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             ret = values;
         }
     }
-#else
-    switch (attr->value_tag) {
-    case IPP_TAG_INTEGER:
-    case IPP_TAG_ENUM:
-        if (attr->num_values == 1) {
-            ret = attr->values[0].integer;
-        } else {
-            QList<int> values;
-            for (int i = 0; i < attr->num_values; ++i) {
-                values << attr->values[i].integer;
-            }
-            ret = QVariant::fromValue(values);
-        }
-        break;
-    case IPP_TAG_BOOLEAN:
-        if (attr->num_values == 1) {
-            ret = static_cast<bool>(attr->values[0].integer);
-        } else {
-            QList<bool> values;
-            for (int i = 0; i < attr->num_values; ++i) {
-                values << static_cast<bool>(attr->values[i].integer);
-            }
-            ret = QVariant::fromValue(values);
-        }
-        break;
-    case IPP_TAG_RANGE: {
-        QVariantList values;
-        for (int i = 0; i < attr->num_values; ++i) {
-            values << attr->values[i].range.lower;
-            values << attr->values[i].range.upper;
-        }
-        ret = values;
-    } break;
-    default:
-        if (attr->num_values == 1) {
-            ret = QString::fromUtf8(attr->values[0].string.text);
-        } else {
-            QStringList values;
-            for (int i = 0; i < attr->num_values; ++i) {
-                values << QString::fromUtf8(attr->values[i].string.text);
-            }
-            ret = values;
-        }
-    }
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     return ret;
 }
 

@@ -18,19 +18,45 @@ using namespace Qt::StringLiterals;
 MarkerLevelChecker::MarkerLevelChecker(QObject *parent)
     : QObject(parent)
 {
-    connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, [](const QString &msg) {
+    init();
+}
+
+MarkerLevelChecker::~MarkerLevelChecker()
+{
+    m_connection->deleteLater();
+}
+
+void MarkerLevelChecker::init()
+{
+    qCDebug(PMKDED) << "Initializing CUPS Connection" << m_connection;
+    if (m_connection) {
+        delete m_connection;
+    }
+
+    setConnections();
+}
+
+void MarkerLevelChecker::setConnections()
+{
+    if (!m_connection) {
+        m_connection = KCupsConnection::global();
+    }
+
+    connect(m_connection, &KCupsConnection::serverStarted, this, [this](const QString &msg) {
         qCDebug(PMKDED) << "CUPS Started:" << msg;
+        init();
     });
 
-    connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, [](const QString &msg) {
+    connect(m_connection, &KCupsConnection::serverStopped, this, [](const QString &msg) {
         qCDebug(PMKDED) << "CUPS Stopped:" << msg;
     });
 
-    connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, [](const QString &msg) {
+    connect(m_connection, &KCupsConnection::serverRestarted, this, [this](const QString &msg) {
         qCDebug(PMKDED) << "CUPS Restarted:" << msg;
+        init();
     });
 
-    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &MarkerLevelChecker::jobHandler);
+    connect(m_connection, &KCupsConnection::jobCreated, this, &MarkerLevelChecker::jobHandler);
 }
 
 void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)

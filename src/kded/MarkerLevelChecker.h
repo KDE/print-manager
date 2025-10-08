@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QObject>
+#include <QPointer>
 
 /**
  * Check for at least one marker level being below the threshold.
@@ -18,16 +19,30 @@
  * Assumes levels and thresholds are percentages.
  * see https://openprinting.github.io/cups/doc/spec-ipp.html#marker-high-levels
  */
+class KCupsConnection;
+
 class MarkerLevelChecker : public QObject
 {
     Q_OBJECT
 
 public:
     explicit MarkerLevelChecker(QObject *parent);
-    ~MarkerLevelChecker() = default;
+    ~MarkerLevelChecker() override;
 
 private:
+    QPointer<KCupsConnection> m_connection;
     void checkMarkerLevels(const QString &printerName);
+
+    /**
+     * @brief If CUPS stops/starts, the notify subscriptions will become stale.
+     * CUPS scheduler stop/start is rare in a session, but can happen if server
+     * side settings are changed or if the service is stopped/started manually.
+     *
+     * Therefore, we need to release the old connection and get a new one on a
+     * CUPS start/restart.
+     */
+    void init();
+    void setConnections();
 
     /**
      * @brief Generic handler for job signals

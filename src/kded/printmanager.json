@@ -13,6 +13,7 @@
         "Description[he]": "להודיע כאשר מדפסת חדשה מתגלה או שרמות הדיו/טונר נמוכות במדפסת",
         "Description[it]": "Notifica quando viene rilevata una nuova stampante, o i livelli di inchiostro/toner di una stampante sono bassi",
         "Description[ka]": "გაფრთხილება, როცა აღმოჩენილია ახალი პრინტერი, ან პრინტერში მელნის/ტონერი დონე დაბალია",
+        "Description[ko]": "새 프린터가 감지되거나 프린터의 잉크/토너가 부족할 때 알림",
         "Description[lt]": "Pranešti, kai yra aptiktas naujas spausdintuvas arba spausdintuve yra žemi rašalo/dažomųjų miltelių lygiai",
         "Description[lv]": "Paziņot, ja sistēma konstatē pievienotu jaunu printeri vai printera tintes/tonera līmenis ir zems",
         "Description[nl]": "Melden wanneer een nieuwe printer is ontdekt of niveaus van inkt/toner van een printer laag zijn",

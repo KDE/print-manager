@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-07-20 01:16+0200\n"
+"PO-Revision-Date: 2025-10-09 01:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -113,12 +113,10 @@ msgid "Example Addresses"
 msgstr "예제 주소"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "프린터 드라이버"
+msgstr "인쇄 장치"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -230,11 +228,7 @@ msgid "Select Printer…"
 msgstr "프린터 선택…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -242,7 +236,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "프린터 주소가 알려져 있으면 입력한 후 <interface>계속</interface>을 선택하십"
-"시오."
+"시오. 프린터가 원격 호스트에 있으면 해당 주소를 입력하고 <interface>겅색</"
+"interface>을 클릭하십시오."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -286,9 +281,7 @@ msgid "Show Manual Options"
 msgstr "수동 옵션 표시"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
 msgstr "이 기능은 사용할 수 없음(%1)"

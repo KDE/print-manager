@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 02:41+0000\n"
-"PO-Revision-Date: 2025-06-10 21:58+0200\n"
+"PO-Revision-Date: 2025-10-09 01:36+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -306,7 +306,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1(%2)이(가) 비어 있는 것 같습니다."
 
 #: src/kded/MarkerLevelChecker.cpp:149
 #, kde-format
@@ -314,13 +314,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1(%2)이(가) 부족합니다(%3% 남음)."
 
 #: src/kded/MarkerLevelChecker.cpp:155
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "잔량 확인…"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -520,10 +520,7 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "HAL에서 감지한 로컬 프린터"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -531,10 +528,7 @@ msgid ""
 msgstr "팩스나 복합기의 팩스 기능을 담당하는 HPLIP 소프트웨어입니다."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"

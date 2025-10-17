@@ -57,13 +57,14 @@ NewPrinterNotification::~NewPrinterNotification()
 void NewPrinterNotification::GetReady()
 {
     qCDebug(PMKDED) << Q_FUNC_INFO;
-    // This method is all about telling the user a new printer was detected
     auto notify = new KNotification(QLatin1String("GetReady"));
     notify->setComponentName(QLatin1String("printmanager"));
     notify->setTitle(i18n("A New Printer was detected"));
-    notify->setText(i18n("Starting printer configuration"));
+    const auto defAction = notify->addDefaultAction(i18n("Configure…"));
+    connect(defAction, &KNotificationAction::activated, this, []() {
+        ProcessRunner::openKCM();
+    });
     notify->sendEvent();
-    ProcessRunner::addPrinter();
 }
 
 // status: 0

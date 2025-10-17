@@ -28,11 +28,11 @@ public Q_SLOTS:
     static void addPrinter();
     static void addClass();
 
-    static void openKCM(const QStringList &args = QStringList());
+    static void openKCM(const QStringList &args = {}, const QByteArray startupId = {});
     static void kcmConfigurePrinter(const QString &printerName);
 
 private:
-    static void exec(const QString &cmd, const QStringList &args, const QString &desktopFile = QString());
+    static void exec(const QString &cmd, const QStringList &args, const QString &desktopFile = {}, const QByteArray startupId = {});
 };
 
 #endif // PROCESS_RUNNER_H

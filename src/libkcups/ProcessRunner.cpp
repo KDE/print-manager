@@ -27,19 +27,19 @@ void ProcessRunner::openPrintQueue(const QString &printerName)
 }
 
 // call kcm
-void ProcessRunner::addPrinter()
+void ProcessRunner::addPrinter(const QByteArray startupId)
 {
-    openKCM({u"--add-printer"_s});
+    openKCM({u"--add-printer"_s}, startupId);
 }
 
-void ProcessRunner::addClass()
+void ProcessRunner::addClass(const QByteArray startupId)
 {
-    openKCM({u"--add-group"_s});
+    openKCM({u"--add-group"_s}, startupId);
 }
 
-void ProcessRunner::kcmConfigurePrinter(const QString &printerName)
+void ProcessRunner::kcmConfigurePrinter(const QString &printerName, const QByteArray startupId)
 {
-    openKCM({u"--configure-printer"_s, printerName});
+    openKCM({u"--configure-printer"_s, printerName}, startupId);
 }
 
 void ProcessRunner::openKCM(const QStringList &args, const QByteArray startupId)

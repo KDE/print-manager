@@ -157,7 +157,9 @@ void NewPrinterNotification::notifyQueueNotCreated(KNotification *notify,
         notify->setText(i18n("Printer driver not found for this printer"));
     }
     auto addAction = notify->addAction(i18n("Add Printer…"));
-    connect(addAction, &KNotificationAction::activated, this, &ProcessRunner::addPrinter);
+    connect(addAction, &KNotificationAction::activated, this, [notify]() {
+        ProcessRunner::addPrinter(notify->xdgActivationToken().toUtf8());
+    });
     notify->sendEvent();
 }
 
@@ -213,8 +215,8 @@ void NewPrinterNotification::notifyDriverCheck(KNotification *notify, const QStr
         if (driver.isEmpty()) {
             notify->setText(i18n("'%1' has been added, please check its driver", name));
             auto configAction = notify->addAction(i18n("Configure"));
-            connect(configAction, &KNotificationAction::activated, this, [name]() {
-                ProcessRunner::kcmConfigurePrinter(name);
+            connect(configAction, &KNotificationAction::activated, this, [name, notify]() {
+                ProcessRunner::kcmConfigurePrinter(name, notify->xdgActivationToken().toUtf8());
             });
         } else {
             notify->setText(i18n("'%1' has been added, using the '%2' driver", name, driver));
@@ -225,8 +227,8 @@ void NewPrinterNotification::notifyDriverCheck(KNotification *notify, const QStr
             });
 
             auto findAction = notify->addAction(i18n("Check driver"));
-            connect(findAction, &KNotificationAction::activated, this, [name]() {
-                ProcessRunner::kcmConfigurePrinter(name);
+            connect(findAction, &KNotificationAction::activated, this, [name, notify]() {
+                ProcessRunner::kcmConfigurePrinter(name, notify->xdgActivationToken().toUtf8());
             });
         }
         notify->sendEvent();
@@ -244,8 +246,8 @@ void NewPrinterNotification::notifyReady(KNotification *notify, const QString &n
     });
 
     auto configAction = notify->addAction(i18n("Configure"));
-    connect(configAction, &KNotificationAction::activated, this, [name]() {
-        ProcessRunner::kcmConfigurePrinter(name);
+    connect(configAction, &KNotificationAction::activated, this, [name, notify]() {
+        ProcessRunner::kcmConfigurePrinter(name, notify->xdgActivationToken().toUtf8());
     });
 
     notify->sendEvent();

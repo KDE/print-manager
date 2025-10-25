@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-07-28 18:40+0200\n"
+"PO-Revision-Date: 2025-10-24 21:48+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -302,7 +302,7 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
-"Изберете \" Обновяване\", за да опитате отново, или изберете опция за ръчно "
+"Изберете „Обновяване“, за да опитате отново, или изберете опция за ръчно "
 "конфигуриране от списъка"
 
 #: ui/FindPrinter.qml:238
@@ -667,8 +667,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
-msgstr ""
-"Изисква се марка/модел. Изберете \" Избор\", за да изберете Марка/Модел"
+msgstr "Изисква се марка/модел. Изберете „Избор“, за да изберете марка/модел"
 
 #: ui/PrinterSettings.qml:136
 #, kde-format

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-09-21 00:44+0000\n"
-"PO-Revision-Date: 2025-05-16 17:50+0200\n"
+"PO-Revision-Date: 2025-10-19 18:54+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -219,16 +219,14 @@ msgid "Add a new printer"
 msgstr "Einen neuen Drucker hinzufügen"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Einen neuen Drucker hinzufügen"
+msgstr "Eine neue Druckergruppe hinzufügen"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Drucker einrichten"
+msgstr "Einen Drucker einrichten"
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
@@ -246,20 +244,19 @@ msgstr "Das Einrichten des Druckers ist fehlgeschlagen: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Treiber:"
+msgstr "Treiberlos"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD-Datei"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -310,7 +307,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) scheint leer zu sein."
 
 #: src/kded/MarkerLevelChecker.cpp:149
 #, kde-format
@@ -318,13 +315,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) scheint niedrig zu sein (%3 % verbleibend)."
 
 #: src/kded/MarkerLevelChecker.cpp:155
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Füllstände überprüfen …"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -334,55 +331,47 @@ msgstr "Ein neuer Drucker wurde erkannt"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Druckereinrichtung starten"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Der neue Drucker wurde hinzugefügt"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Für den neuen Drucker gibt es keine Treiber"
+msgstr "Der neue Drucker könnte ein Treiberproblem haben"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "Print queue is empty"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Die Druckerwarteschlange ist leer"
+msgstr "Druckerwarteschlange wurde nicht erstellt"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Kein Druckertreiber für %1 %2."
+msgstr "Kein Druckertreiber für %1 %2 gefunden"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Kein Druckertreiber für %1."
+msgstr "Kein Druckertreiber für %1 gefunden"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Kein Treiber für diesen Drucker."
+msgstr "Kein Druckertreiber für diesen Drucker gefunden"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Drucker hinzufügen"
+msgstr "Drucker hinzufügen …"
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "„%1“ wurde hinzugefügt, bitten überprüfen Sie seinen Treiber."
+msgstr "„%1“ wurde hinzugefügt, bitte überprüfen Sie dessen Treiber"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -392,10 +381,9 @@ msgid "Configure"
 msgstr "Einrichten"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "„%1“ wurde hinzugefügt und verwendet den Treiber „%2“."
+msgstr "„%1“ wurde hinzugefügt und verwendet den Treiber „%2“"
 
 #: src/kded/NewPrinterNotification.cpp:221
 #: src/kded/NewPrinterNotification.cpp:240
@@ -404,10 +392,9 @@ msgid "Print test page"
 msgstr "Testseite drucken"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Bi&tte wählen Sie einen Treiber"
+msgstr "Treiber überprüfen"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
@@ -535,30 +522,24 @@ msgstr ""
 "Ein von der Hardware-Abstraktionsschicht (HAL) erkannter, lokaler Drucker"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
 "Ein mittels HPLIP betriebenes Fax oder die Faxfunktion eines "
-"Multifunktionsgerätes."
+"Multifunktionsgerätes"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
 "Ein mittels HPLIP betriebener Drucker oder die Druckfunktion eines "
-"Multifunktionsgerätes."
+"Multifunktionsgerätes"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

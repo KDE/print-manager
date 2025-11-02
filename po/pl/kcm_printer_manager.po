@@ -7,34 +7,31 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-22 00:45+0000\n"
-"PO-Revision-Date: 2025-01-11 11:57+0100\n"
+"PO-Revision-Date: 2025-11-01 10:34+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
-"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language-Team: pl\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: printermanager.cpp:106
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Dodaj drukarkę"
+msgstr "Dodaj nową drukarkę"
 
 #: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Dodaj nową grupę drukarek"
 
 #: printermanager.cpp:110 printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server…"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Ustawienia serwera drukowania…"
+msgstr "Ustawienia drukarki"
 
 #: printermanager.cpp:310
 #, kde-format
@@ -52,23 +49,19 @@ msgstr "Nie udało się ustawić drukarki: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@label:listitem"
-#| msgid "Driverless (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Bez sterownika (%1)"
+msgstr "Bez sterownika"
 
 #: printermanager.cpp:465
-#, fuzzy, kde-format
-#| msgctxt "@option:radio"
-#| msgid "PPD file:"
+#, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr "Plik PPD:"
+msgstr "Plik PPD"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -122,12 +115,10 @@ msgid "Example Addresses"
 msgstr "Przykładowe adresy"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Sterownik drukarki"
+msgstr "Urządzenie drukujące"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -165,18 +156,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Ręczne wyszukiwanie sterownika…"
 
 #: ui/components/Drivers.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Wybór zalecanego sterownika opiera się na wytwórcy/modelu drukarki oraz "
-"rodzaju połączenia"
+msgstr "Poszukaj i wybierz sterownik na podstawie wytwórcy/modelu drukarki"
 
 #: ui/components/Lpd.qml:22
 #, kde-format
@@ -246,11 +232,7 @@ msgid "Select Printer…"
 msgstr "Wybierz drukarkę…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -258,7 +240,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Jeśli adres drukarki jest znany, to wpisz go i naciśnij "
-"<interface>Kontynuuj</interface>."
+"<interface>Kontynuuj</interface>. Jeśli drukarka jest dostępna zdalnie, to "
+"wpisz jej adres i naciśnij <interface>Wyszukaj</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -284,8 +267,7 @@ msgid "Set up a Printer Connection"
 msgstr "Ustaw połączenie drukarki"
 
 #: ui/FindPrinter.qml:132 ui/main.qml:275
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Odśwież"
@@ -303,12 +285,10 @@ msgid "Show Manual Options"
 msgstr "Pokaż ustawienia ręczne"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Ten rodzaj działania nie jest jeszcze dostępny (%1)"
+msgstr "Ten rodzaj działania nie jest dostępny (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format
@@ -499,7 +479,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Usługi wydruku nie są dostępne"
 
 #: ui/main.qml:273
 #, kde-kuit-format
@@ -508,6 +488,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Naciśnij <interface>Ustawienia serwera drukowania…</interface> aby sprawdzić "
+"ustawienia lub potwierdzić, że usługa systemu CUPS jest włączona."
 
 #: ui/main.qml:313
 #, kde-format
@@ -571,7 +553,7 @@ msgstr "Sterownik drukarki"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Użyj IPP Everywhere™"
 
 #: ui/MakeModel.qml:161
 #, kde-format

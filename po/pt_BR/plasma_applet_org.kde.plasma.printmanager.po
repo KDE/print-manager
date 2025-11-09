@@ -5,20 +5,21 @@
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2013, 2015, 2018, 2020.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2020, 2021, 2022, 2023.
 # SPDX-FileCopyrightText: 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
+# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-06-28 00:43+0000\n"
-"PO-Revision-Date: 2025-02-04 12:18-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
+"PO-Revision-Date: 2025-11-08 21:10-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 25.08.2\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
@@ -58,7 +59,7 @@ msgstr "A fila de impressão está vazia"
 
 #: src/plasmoid/main.qml:100
 msgid "&Configure Printers…"
-msgstr "&Configurar impressoras..."
+msgstr "&Configurar impressoras…"
 
 #: src/plasmoid/PrinterDelegate.qml:43
 msgid "Resume"
@@ -70,11 +71,11 @@ msgstr "Pausar"
 
 #: src/plasmoid/PrinterDelegate.qml:57
 msgid "Configure printer…"
-msgstr "Configurar impressora..."
+msgstr "Configurar impressora…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
 msgid "View print queue…"
-msgstr "Visualizar fila de impressão..."
+msgstr "Visualizar fila de impressão…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"

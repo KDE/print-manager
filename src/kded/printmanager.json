@@ -11,6 +11,7 @@
         "Description[fi]": "Ilmoita, kun havaitaan uusi tulostin tai tulostimen väriaine on vähissä",
         "Description[fr]": "Émettre une notification lors de la détection d'une nouvelle imprimante ou de niveaux d’encre / toner faibles pour une imprimante",
         "Description[he]": "להודיע כאשר מדפסת חדשה מתגלה או שרמות הדיו/טונר נמוכות במדפסת",
+        "Description[hu]": "Értesítés új nyomtató észleléséről, vagy ha egy nyomtató tinta- vagy tonerszintje alacsony",
         "Description[it]": "Notifica quando viene rilevata una nuova stampante, o i livelli di inchiostro/toner di una stampante sono bassi",
         "Description[ka]": "გაფრთხილება, როცა აღმოჩენილია ახალი პრინტერი, ან პრინტერში მელნის/ტონერი დონე დაბალია",
         "Description[ko]": "새 프린터가 감지되거나 프린터의 잉크/토너가 부족할 때 알림",

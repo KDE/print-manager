@@ -372,25 +372,27 @@ KCM.ScrollViewKCM {
                     selected: deviceDelegate.highlighted || deviceDelegate.down
                 }
 
-                QQC2.ToolButton {
-                    text: i18nc("@action:button Open print queue", "Print Queue")
+                QQC2.Button {
+                    text: i18nc("@action:button", "Open Print Queue")
                     icon.name: "view-list-details-symbolic"
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: PM.ProcessRunner.openPrintQueue(printerName)
-
-                    QQC2.ToolTip {
-                        text: parent.text
-                    }
                 }
 
-                QQC2.ToolButton {
+                QQC2.Button {
+                    readonly property string longText: isPaused
+                        ? i18nc("@info:tooltip", "Resume printing")
+                        : i18nc("@info:tooltip", "Pause printing")
+
                     icon.name: isPaused
                                ? "media-playback-start-symbolic"
                                : "media-playback-pause-symbolic"
                     text: isPaused
                           ? i18nc("@action:button Resume printing", "Resume")
                           : i18nc("@action:button Pause printing", "Pause")
+
+                    Accessible.name: longText
 
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
@@ -402,11 +404,9 @@ KCM.ScrollViewKCM {
                         }
                     }
 
-                    QQC2.ToolTip {
-                        text: isPaused
-                              ? i18nc("@info:tooltip", "Resume printing")
-                              : i18nc("@info:tooltip", "Pause printing")
-                    }
+                    QQC2.ToolTip.text: longText
+                    QQC2.ToolTip.visible: hovered || activeFocus
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
             }
         }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -66,11 +66,15 @@ msgid "Pause"
 msgstr "暂停"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "配置打印机…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "配置打印机(&C)…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "查看打印队列…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -83,3 +87,6 @@ msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 个任务"
+
+#~ msgid "Configure printer…"
+#~ msgstr "配置打印机…"

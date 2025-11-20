@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2019-05-22 22:28+0900\n"
 "Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -69,14 +69,14 @@ msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
 #, fuzzy
-#| msgid "Configure printer"
-msgid "Configure printer…"
-msgstr "プリンタを設定"
+#| msgid "&Configure Printers..."
+msgid "Configure Printer…"
+msgstr "プリンタを設定(&C)..."
 
 #: src/plasmoid/PrinterDelegate.qml:62
 #, fuzzy
 #| msgid "Open print queue"
-msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "印刷キューを開く"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -89,6 +89,11 @@ msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] ""
+
+#, fuzzy
+#~| msgid "Configure printer"
+#~ msgid "Configure printer…"
+#~ msgstr "プリンタを設定"
 
 #, fuzzy
 #~| msgid "All jobs"

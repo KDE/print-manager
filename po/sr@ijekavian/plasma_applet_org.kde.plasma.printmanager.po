@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2015-03-01 12:45+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -74,14 +74,14 @@ msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
 #, fuzzy
-#| msgid "Configure printer"
-msgid "Configure printer…"
-msgstr "Подеси штампач"
+#| msgid "&Configure Printers..."
+msgid "Configure Printer…"
+msgstr "&Подеси штампаче..."
 
 #: src/plasmoid/PrinterDelegate.qml:62
 #, fuzzy
 #| msgid "Open print queue"
-msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Отвори ред за штампање"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -99,6 +99,11 @@ msgstr[0] "Нема послова"
 msgstr[1] "Нема послова"
 msgstr[2] "Нема послова"
 msgstr[3] "Нема послова"
+
+#, fuzzy
+#~| msgid "Configure printer"
+#~ msgid "Configure printer…"
+#~ msgstr "Подеси штампач"
 
 #, fuzzy
 #~| msgid "All jobs"

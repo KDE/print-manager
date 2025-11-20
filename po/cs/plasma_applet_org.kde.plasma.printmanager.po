@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2023-11-08 15:58+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -67,11 +67,15 @@ msgid "Pause"
 msgstr "Pozastavit"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Nastavit tiskárnu…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "Nastavit tis&kárny…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Zobrazit frontu tisku…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -86,3 +90,6 @@ msgid_plural "%1 more jobs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#~ msgid "Configure printer…"
+#~ msgstr "Nastavit tiskárnu…"

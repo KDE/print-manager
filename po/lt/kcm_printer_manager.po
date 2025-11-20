@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2025-08-11 22:01+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -504,10 +504,24 @@ msgid "Printer Groups"
 msgstr "Spausdintuvų grupės"
 
 #: ui/main.qml:376
-#, kde-format
-msgctxt "@action:button Open print queue"
-msgid "Print Queue"
+#, fuzzy, kde-format
+#| msgctxt "@action:button Open print queue"
+#| msgid "Print Queue"
+msgctxt "@action:button"
+msgid "Open Print Queue"
 msgstr "Spausdinimo eilė"
+
+#: ui/main.qml:385
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "Pratęsti spausdinimą"
+
+#: ui/main.qml:386
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "Pristabdyti spausdinimą"
 
 #: ui/main.qml:392
 #, kde-format
@@ -520,18 +534,6 @@ msgstr "Pratęsti"
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pristabdyti"
-
-#: ui/main.qml:407
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Resume printing"
-msgstr "Pratęsti spausdinimą"
-
-#: ui/main.qml:408
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Pause printing"
-msgstr "Pristabdyti spausdinimą"
 
 #: ui/MakeModel.qml:91
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2022-04-09 20:17+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -73,14 +73,14 @@ msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
 #, fuzzy
-#| msgid "Configure printer..."
-msgid "Configure printer…"
-msgstr "Nastaviť tlačiareň..."
+#| msgid "&Configure Printers..."
+msgid "Configure Printer…"
+msgstr "&Nastaviť tlačiarne..."
 
 #: src/plasmoid/PrinterDelegate.qml:62
 #, fuzzy
 #| msgid "View print queue"
-msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Otvoriť tlačovú frontu"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -99,6 +99,11 @@ msgid_plural "%1 more jobs"
 msgstr[0] "%1, žiadne úlohy"
 msgstr[1] "%1, žiadne úlohy"
 msgstr[2] "%1, žiadne úlohy"
+
+#, fuzzy
+#~| msgid "Configure printer..."
+#~ msgid "Configure printer…"
+#~ msgstr "Nastaviť tlačiareň..."
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Zobraziť všetky úlohy"

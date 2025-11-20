@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-16 20:24+0100\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -68,11 +68,15 @@ msgid "Pause"
 msgstr "Szünet"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Nyomtató beállítása…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "Nyomtatók &beállítása…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Nyomtatási sor megtekintése…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -86,6 +90,9 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 további feladat"
 msgstr[1] "%1 további feladat"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Nyomtató beállítása…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Összes feladat megjelenítése"

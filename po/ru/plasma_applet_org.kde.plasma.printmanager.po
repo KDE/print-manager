@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-12-28 11:49+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -76,11 +76,15 @@ msgid "Pause"
 msgstr "Приостановить"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Настроить принтер…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "Н&астроить принтеры…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Открыть очередь печати…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -96,6 +100,9 @@ msgstr[0] "ещё %1 задание"
 msgstr[1] "ещё %1 задания"
 msgstr[2] "ещё %1 заданий"
 msgstr[3] "ещё одно задание"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Настроить принтер…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Показать все задания"

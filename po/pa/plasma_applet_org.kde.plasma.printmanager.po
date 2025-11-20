@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-01-01 08:49-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -66,11 +66,15 @@ msgid "Pause"
 msgstr "ਵਿਰਾਮ"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "ਪਰਿੰਟਰ ਦੀ ਸੰਰਚਨਾ ਕਰੋ…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "ਪਰਿੰਟਰਾਂ ਦੀ ਸੰਰਚਨਾ(&C)…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "ਪਰਿੰਟ ਕਤਾਰ ਨੂੰ ਵੇਖੋ…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -88,6 +92,9 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "ਸਭ ਜਾਬਾਂ"
 msgstr[1] "ਸਭ ਜਾਬਾਂ"
+
+#~ msgid "Configure printer…"
+#~ msgstr "ਪਰਿੰਟਰ ਦੀ ਸੰਰਚਨਾ ਕਰੋ…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "ਸਭ ਜੌਬਾਂ ਨੂੰ ਵੇਖੋ"

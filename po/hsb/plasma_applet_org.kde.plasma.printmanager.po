@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2021-11-11 21:44+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -73,14 +73,14 @@ msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
 #, fuzzy
-#| msgid "Configure printer..."
-msgid "Configure printer…"
-msgstr "Ćišćak připrawić..."
+#| msgid "&Configure Printers..."
+msgid "Configure Printer…"
+msgstr "Ćišćaki &připrawić..."
 
 #: src/plasmoid/PrinterDelegate.qml:62
 #, fuzzy
 #| msgid "View print queue"
-msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Ćišćensku čakarnju pokazać"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -96,6 +96,11 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+#, fuzzy
+#~| msgid "Configure printer..."
+#~ msgid "Configure printer…"
+#~ msgstr "Ćišćak připrawić..."
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Wšitke nadawki pokazać"

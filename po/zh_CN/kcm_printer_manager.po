@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -491,10 +491,24 @@ msgid "Printer Groups"
 msgstr "打印机组"
 
 #: ui/main.qml:376
-#, kde-format
-msgctxt "@action:button Open print queue"
-msgid "Print Queue"
+#, fuzzy, kde-format
+#| msgctxt "@action:button Open print queue"
+#| msgid "Print Queue"
+msgctxt "@action:button"
+msgid "Open Print Queue"
 msgstr "打印队列"
+
+#: ui/main.qml:385
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "继续打印"
+
+#: ui/main.qml:386
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "暂停打印"
 
 #: ui/main.qml:392
 #, kde-format
@@ -507,18 +521,6 @@ msgstr "继续"
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "暂停"
-
-#: ui/main.qml:407
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Resume printing"
-msgstr "继续打印"
-
-#: ui/main.qml:408
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Pause printing"
-msgstr "暂停打印"
 
 #: ui/MakeModel.qml:91
 #, kde-format

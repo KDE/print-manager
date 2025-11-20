@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-03-02 15:13+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -530,9 +530,21 @@ msgstr "Grupuri de imprimante"
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
-msgctxt "@action:button Open print queue"
-msgid "Print Queue"
+msgctxt "@action:button"
+msgid "Open Print Queue"
 msgstr "Deschide coada de imprimare…"
+
+#: ui/main.qml:385
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "Reia tipărirea"
+
+#: ui/main.qml:386
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "Întrerupe tipărirea"
 
 #: ui/main.qml:392
 #, kde-format
@@ -545,18 +557,6 @@ msgstr "Reia"
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Întrerupe"
-
-#: ui/main.qml:407
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Resume printing"
-msgstr "Reia tipărirea"
-
-#: ui/main.qml:408
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Pause printing"
-msgstr "Întrerupe tipărirea"
 
 #: ui/MakeModel.qml:91
 #, kde-format

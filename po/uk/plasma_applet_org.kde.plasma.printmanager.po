@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-08 20:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -71,11 +71,15 @@ msgid "Pause"
 msgstr "Призупинити"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Налаштувати принтер…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Налаштовування принтерів…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Переглянути чергу друку…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -91,6 +95,9 @@ msgstr[0] "ще %1 завдання"
 msgstr[1] "ще %1 завдання"
 msgstr[2] "ще %1 завдань"
 msgstr[3] "ще %1 завдання"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Налаштувати принтер…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Показати всі завдання"

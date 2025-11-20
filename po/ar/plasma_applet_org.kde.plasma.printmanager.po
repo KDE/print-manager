@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-11 17:16+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -73,11 +73,15 @@ msgid "Pause"
 msgstr "ألبث"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "اضبط الطّابعة…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "ا&ضبط الطّابعات…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "اعرض طابور الطّباعة…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -95,6 +99,9 @@ msgstr[2] "مهمتين إضافتين"
 msgstr[3] "%1 مهام إضافية"
 msgstr[4] "%1 مهمة إضافية"
 msgstr[5] "%1 مهمة إضافية"
+
+#~ msgid "Configure printer…"
+#~ msgstr "اضبط الطّابعة…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "اعرض كلّ المهامّ"

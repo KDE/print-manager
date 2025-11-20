@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2013-02-06 12:01+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -66,11 +66,11 @@ msgid "Pause"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
+msgid "Configure Printer…"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+msgid "View Print Queue"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:137

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2025-10-19 14:17+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -502,10 +502,24 @@ msgid "Printer Groups"
 msgstr "Druckergruppen"
 
 #: ui/main.qml:376
-#, kde-format
-msgctxt "@action:button Open print queue"
-msgid "Print Queue"
+#, fuzzy, kde-format
+#| msgctxt "@action:button Open print queue"
+#| msgid "Print Queue"
+msgctxt "@action:button"
+msgid "Open Print Queue"
 msgstr "Druckerwarteschlange"
+
+#: ui/main.qml:385
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "Drucken wieder fortsetzen"
+
+#: ui/main.qml:386
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "Den Drucker anhalten"
 
 #: ui/main.qml:392
 #, kde-format
@@ -518,18 +532,6 @@ msgstr "Fortsetzen"
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Anhalten"
-
-#: ui/main.qml:407
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Resume printing"
-msgstr "Drucken wieder fortsetzen"
-
-#: ui/main.qml:408
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Pause printing"
-msgstr "Den Drucker anhalten"
 
 #: ui/MakeModel.qml:91
 #, kde-format

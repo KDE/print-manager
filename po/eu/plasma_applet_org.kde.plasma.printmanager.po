@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2025-07-23 14:20+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -69,11 +69,15 @@ msgid "Pause"
 msgstr "Etenaldia"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Konfiguratu inprimagailua…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Konfiguratu inprimagailuak…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Ikusi inprimatze-ilara…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -87,6 +91,9 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "lan %1 gehiago"
 msgstr[1] "%1 lan gehiago"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Konfiguratu inprimagailua…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Erakutsi lan guztiak"

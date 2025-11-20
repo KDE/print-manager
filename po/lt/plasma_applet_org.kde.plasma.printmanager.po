@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-13 01:51+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -72,11 +72,15 @@ msgid "Pause"
 msgstr "Pristabdyti"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Konfigūruoti spausdintuvą…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Konfigūruoti spausdintuvus…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Rodyti spausdinimo eilę…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -92,6 +96,9 @@ msgstr[0] "dar %1 darbas"
 msgstr[1] "dar %1 darbai"
 msgstr[2] "dar %1 darbų"
 msgstr[3] "dar %1 darbas"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Konfigūruoti spausdintuvą…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Rodyti visus darbus"

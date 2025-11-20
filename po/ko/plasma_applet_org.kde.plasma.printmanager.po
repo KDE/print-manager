@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-28 23:21+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -65,11 +65,15 @@ msgid "Pause"
 msgstr "일시 정지"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "프린터 설정…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "프린터 설정(&C)…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "인쇄 대기열 열기…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -82,6 +86,9 @@ msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "추가 작업 %1개"
+
+#~ msgid "Configure printer…"
+#~ msgstr "프린터 설정…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "모든 작업 표시"

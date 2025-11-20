@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2021-05-10 12:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -72,14 +72,14 @@ msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
 #, fuzzy
-#| msgid "Configure printer..."
-msgid "Configure printer…"
-msgstr "Configurar a impressora..."
+#| msgid "&Configure Printers..."
+msgid "Configure Printer…"
+msgstr "&Configurar as Impressoras..."
 
 #: src/plasmoid/PrinterDelegate.qml:62
 #, fuzzy
 #| msgid "View print queue"
-msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Ver a fila de impressão"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -93,6 +93,11 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+#~| msgid "Configure printer..."
+#~ msgid "Configure printer…"
+#~ msgstr "Configurar a impressora..."
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Mostrar Todas as tarefas"

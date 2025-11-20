@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2025-07-22 21:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -501,10 +501,24 @@ msgid "Printer Groups"
 msgstr "Yazıcı Grupları"
 
 #: ui/main.qml:376
-#, kde-format
-msgctxt "@action:button Open print queue"
-msgid "Print Queue"
+#, fuzzy, kde-format
+#| msgctxt "@action:button Open print queue"
+#| msgid "Print Queue"
+msgctxt "@action:button"
+msgid "Open Print Queue"
 msgstr "Yazdırma Kuyruğu"
+
+#: ui/main.qml:385
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Resume printing"
+msgstr "Yazdırmayı sürdür"
+
+#: ui/main.qml:386
+#, kde-format
+msgctxt "@info:tooltip"
+msgid "Pause printing"
+msgstr "Yazdırmayı duraklat"
 
 #: ui/main.qml:392
 #, kde-format
@@ -517,18 +531,6 @@ msgstr "Sürdür"
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Duraklat"
-
-#: ui/main.qml:407
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Resume printing"
-msgstr "Yazdırmayı sürdür"
-
-#: ui/main.qml:408
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Pause printing"
-msgstr "Yazdırmayı duraklat"
 
 #: ui/MakeModel.qml:91
 #, kde-format

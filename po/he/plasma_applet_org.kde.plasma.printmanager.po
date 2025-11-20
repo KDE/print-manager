@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-08 08:53+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -69,11 +69,15 @@ msgid "Pause"
 msgstr "השהיה"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "הגדרת מדפסת…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "ה&גדרת מדפסות…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "הצגת תור הדפסה…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -89,6 +93,9 @@ msgstr[0] "משימה נוספת"
 msgstr[1] "שתי משימות נוספות"
 msgstr[2] "%1 משימות נוספות"
 msgstr[3] "%1 משימות נוספות"
+
+#~ msgid "Configure printer…"
+#~ msgstr "הגדרת מדפסת…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "הצגת כל המשימות"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2013-10-18 22:34+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian\n"
@@ -70,11 +70,11 @@ msgid "Pause"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
+msgid "Configure Printer…"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+msgid "View Print Queue"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:137

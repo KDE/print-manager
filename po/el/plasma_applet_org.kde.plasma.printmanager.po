@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2021-07-07 12:02+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -71,11 +71,15 @@ msgid "Pause"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Διαμόρφωση εκτυπωτή…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Διαμόρφωση εκτυπωτών…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Προβολή λίστας αναμονής εκτύπωσης…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -91,6 +95,9 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1, καμία εργασία"
 msgstr[1] "%1, καμία εργασία"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Διαμόρφωση εκτυπωτή…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Εμφάνιση όλων των εργασιών"

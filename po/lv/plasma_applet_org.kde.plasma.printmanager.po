@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2025-05-29 20:17+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -68,11 +68,15 @@ msgid "Pause"
 msgstr "Pauzēt"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Konfigurēt printeri…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Konfigurēt printerus…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Apskatīt drukāšanas rindu…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -87,3 +91,6 @@ msgid_plural "%1 more jobs"
 msgstr[0] "Vēl %1 uzdevums"
 msgstr[1] "Vēl %1 uzdevumi"
 msgstr[2] "Vēl %1 uzdevumu"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Konfigurēt printeri…"

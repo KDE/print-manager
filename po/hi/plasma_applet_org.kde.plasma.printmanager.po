@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -66,11 +66,15 @@ msgid "Pause"
 msgstr "विराम"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "प्रिंटर कॉन्फ़िगर करें…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&प्रिंटर कॉन्फ़िगर करें…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "प्रिंट कतार देखें…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -84,3 +88,6 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 और नौकरियाँ"
 msgstr[1] "%1 और नौकरियाँ"
+
+#~ msgid "Configure printer…"
+#~ msgstr "प्रिंटर कॉन्फ़िगर करें…"

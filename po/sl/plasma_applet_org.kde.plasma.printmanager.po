@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-11-08 07:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -73,11 +73,15 @@ msgid "Pause"
 msgstr "Premor"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Nastavi tiskalnik …"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Nastavi tiskalnike …"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Pokaži tiskalno vrsto …"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -93,6 +97,9 @@ msgstr[0] "še %1 poslov"
 msgstr[1] "še %1 poslov"
 msgstr[2] "še %1 poslov"
 msgstr[3] "še %1 še poslov"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Nastavi tiskalnik …"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Prikaži vse posle"

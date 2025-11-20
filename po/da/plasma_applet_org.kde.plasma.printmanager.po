@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-10-30 10:33+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -67,11 +67,15 @@ msgid "Pause"
 msgstr "Pause"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Konfigurér printer…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Konfigurér printere…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Vis printkø…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -89,6 +93,9 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "Ingen job"
 msgstr[1] "Ingen job"
+
+#~ msgid "Configure printer…"
+#~ msgstr "Konfigurér printer…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Vis alle job"

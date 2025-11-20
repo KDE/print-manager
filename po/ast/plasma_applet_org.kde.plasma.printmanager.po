@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-11-20 00:44+0000\n"
 "PO-Revision-Date: 2024-03-20 10:03+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -66,11 +66,15 @@ msgid "Pause"
 msgstr "Posar"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-msgid "Configure printer…"
-msgstr "Configurar la imprentadora…"
+#, fuzzy
+#| msgid "&Configure Printers…"
+msgid "Configure Printer…"
+msgstr "&Configurar les imprentadores…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-msgid "View print queue…"
+#, fuzzy
+#| msgid "View print queue…"
+msgid "View Print Queue"
 msgstr "Ver la cola d'imprentación…"
 
 #: src/plasmoid/PrinterDelegate.qml:137
@@ -84,6 +88,9 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgid "Configure printer…"
+#~ msgstr "Configurar la imprentadora…"
 
 #~ msgid "Show All Jobs"
 #~ msgstr "Amosar tolos trabayos"

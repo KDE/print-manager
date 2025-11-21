@@ -806,20 +806,3 @@ msgstr "Марка и модел:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Избиране…"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "A <interface>printer group</interface> is used to pool printing resources."
-#~ msgstr ""
-#~ "<interface>Група от принтери</interface> се използва за обединяване на "
-#~ "ресурсите за печат."
-
-#~ msgid "Refresh"
-#~ msgstr "Обновяване"
-
-#~ msgid "CUPS Network Printers Help"
-#~ msgstr "Помощ за мрежови принтери CUPS"
-
-#~ msgctxt "@action:button"
-#~ msgid "Find a Printer…"
-#~ msgstr "Намиране на принтер…"

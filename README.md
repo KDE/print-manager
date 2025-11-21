@@ -80,8 +80,7 @@ To configure an existing printer, run:
 Like other projects in the KDE ecosystem, contributions are welcome from all. This repository is managed in [KDE Invent](https://invent.kde.org/plasma/print-manager), our GitLab instance.
 
 * Want to contribute code? See the [GitLab wiki page](https://community.kde.org/Infrastructure/GitLab) for a tutorial on how to send a merge request.
-* Reporting a bug? Please submit it on the [KDE Bugtracking System](https://bugs.kde.org/enter_bug.cgi?format=guided&product=print-manager). Please do not use the Issues
-tab to report bugs.
+* Reporting a bug? Please submit it on the KDE Bugtracking System, for [bugs in the KCM](https://bugs.kde.org/buglist.cgi?product=systemsettings&component=kcm_printer_manager&resolution=---) or for [bugs in the Printers widget](https://bugs.kde.org/buglist.cgi?product=plasmashell&component=Printers%20widget&resolution=---). Please do not use the Issues tab in GitLab to report bugs.
 * Is there a part of print-manager that's not translated? See the [Getting Involved in Translation wiki page](https://community.kde.org/Get_Involved/translation) to see how
 you can help translate!
 

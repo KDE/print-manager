@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2025-06-04 20:01+0100\n"
+"PO-Revision-Date: 2025-11-21 02:14+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 25.08.3\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
@@ -67,16 +67,12 @@ msgid "Pause"
 msgstr "Pausar"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Configurar impresoras…"
+msgstr "Configurar impresora…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Ver la cola de impresión…"
+msgstr "Ver la cola de impresión"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
@@ -89,6 +85,3 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 trabajo más"
 msgstr[1] "%1 trabajos más"
-
-#~ msgid "Configure printer…"
-#~ msgstr "Configurar la impresora…"

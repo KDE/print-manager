@@ -516,12 +516,10 @@ msgid "Printer Groups"
 msgstr "Groupes d'imprimantes"
 
 #: ui/main.qml:376
-#, fuzzy, kde-format
-#| msgctxt "@action:button Open print queue"
-#| msgid "Print Queue"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "File d'attente des d'impressions"
+msgstr "Ouvrir la file d'attente d'impression"
 
 #: ui/main.qml:385
 #, kde-format

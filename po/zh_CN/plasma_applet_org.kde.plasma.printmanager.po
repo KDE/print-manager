@@ -66,16 +66,12 @@ msgid "Pause"
 msgstr "暂停"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "配置打印机(&C)…"
+msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "查看打印队列…"
+msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
@@ -87,6 +83,3 @@ msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 个任务"
-
-#~ msgid "Configure printer…"
-#~ msgstr "配置打印机…"

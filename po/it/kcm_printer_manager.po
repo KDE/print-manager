@@ -504,12 +504,10 @@ msgid "Printer Groups"
 msgstr "Gruppi di stampanti"
 
 #: ui/main.qml:376
-#, fuzzy, kde-format
-#| msgctxt "@action:button Open print queue"
-#| msgid "Print Queue"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "Coda di stampa"
+msgstr "Apri la coda di stampa"
 
 #: ui/main.qml:385
 #, kde-format

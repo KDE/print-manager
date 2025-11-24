@@ -1,22 +1,22 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2022.
+# SPDX-FileCopyrightText: 2022, 2025 Sveinn í Felli <sv1@fellsnet.is>
 # SPDX-FileCopyrightText: 2023, 2024 gummi <gudmundure@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2024-02-19 18:37+0000\n"
-"Last-Translator: Guðmundur Erlingsson <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-11-23 23:50+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
@@ -67,28 +67,24 @@ msgid "Pause"
 msgstr "Í bið"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Grunnstilla prentara..."
+msgstr "Grunnstilla prentara…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Sýna prentröð..."
+msgstr "Skoða prentröð"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Hætta við"
 
 #: src/plasmoid/PrinterDelegate.qml:172
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 fleiri verk"
+msgstr[1] "%1 fleiri verk"
 
 #~ msgid "Configure printer…"
 #~ msgstr "Grunnstilla prentara..."

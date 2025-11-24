@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the print-manager package.
 #
 # SPDX-FileCopyrightText: 2023, 2024 gummi <gudmundure@gmail.com>
-# Sveinn í Felli <sv1@fellsnet.is>, 2022, 2024.
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2024-06-30 15:41+0000\n"
-"Last-Translator: Gummi <gudmundure@gmail.com>\n"
-"Language-Team: Icelandic <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2025-11-23 23:47+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -220,14 +220,12 @@ msgid "Add a new printer"
 msgstr "Bæta við nýjum prentara"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Bæta við nýjum prentara"
+msgstr "Bæta við nýjum prentarahóp"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
 msgstr "Grunnstilla prentara"
 
@@ -247,20 +245,19 @@ msgstr "Mistókst að grunnstilla prentara:"
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Rekill:"
+msgstr "Án prentrekils"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD-skrá"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -310,7 +307,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) lítur út fyrir að vera tómt."
 
 #: src/kded/MarkerLevelChecker.cpp:149
 #, kde-format
@@ -318,13 +315,13 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) lítur út fyrir að vera lítið (%3% remaining)."
 
 #: src/kded/MarkerLevelChecker.cpp:155
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Athuga fyllingu…"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -334,55 +331,47 @@ msgstr "Nýr prentari fannst"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Ræsi prentarastillingar"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Nýja prentaranum var bætt við"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Nýja prentarann vantar rekla"
+msgstr "Nýi prentarinn gæti átt í vandræðum með rekil"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Nýr prentari fannst"
+msgstr "Prentröð var ekki útbúin"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Enginn prentrekill fyrir %1 %2."
+msgstr "Enginn prentrekill fannst fyrir %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Enginn prentrekill fyrir %1."
+msgstr "Enginn prentrekill fannst fyrir %1"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Enginn rekill fyrir þennan prentara"
+msgstr "Enginn prentrekill fannst fyrir þennan prentara"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Bæta við prentara"
+msgstr "Bæta við prentara…"
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "'%1' hefur verið bætt við, athugaðu rekilinn fyrir hann."
+msgstr "'%1' hefur verið bætt við, athugaðu rekilinn fyrir hann"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -392,10 +381,9 @@ msgid "Configure"
 msgstr "Grunnstilla"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "'%1' hefur verið bætt við, notar rekilinn '%2'."
+msgstr "'%1' hefur verið bætt við, notar rekilinn '%2'"
 
 #: src/kded/NewPrinterNotification.cpp:221
 #: src/kded/NewPrinterNotification.cpp:240
@@ -404,10 +392,9 @@ msgid "Print test page"
 msgstr "Prenta prufusíðu"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "Vel&du rekilinn"
+msgstr "Athugaðu rekilinn"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
@@ -534,26 +521,20 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Staðbundinn prentari sem sjálfvirk vélbúnaðarkönnun (HAL) hefur fundið"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
-msgstr "HPLIP-hugbúnaður til keyra faxtæki eða faxvirkni fjölnotatækis."
+msgstr "HPLIP-hugbúnaður til keyra faxtæki eða faxvirkni fjölnotatækis"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
-msgstr "HPLIP-hugbúnaður til að keyra prentara eða prentvirkni fjölnotatækis."
+msgstr "HPLIP-hugbúnaður til að keyra prentara eða prentvirkni fjölnotatækis"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

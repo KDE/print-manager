@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2013, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2013, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Thomas Vergnaud <thomas.vergnaud@gmx.fr>, 2015.
 # Simon Depiets <sdepiets@gmail.com>, 2018, 2020.
 # SPDX-FileCopyrightText: 2021, 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2024-11-09 09:02+0100\n"
+"PO-Revision-Date: 2025-11-22 18:07+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 25.11.80\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -72,16 +72,12 @@ msgid "Pause"
 msgstr "Mettre en pause"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Configurer les imprimantes…"
+msgstr "Configurer l'imprimante…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Afficher la file d'impression..."
+msgstr "Afficher la file d'impression"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"

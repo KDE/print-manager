@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2025-11-23 23:54+0000\n"
+"PO-Revision-Date: 2025-11-24 13:15+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -230,19 +230,16 @@ msgid "Select Printer…"
 msgstr "Velja prentara…"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
-"Ef þú veist vistfang prentarans skaltu slá það inn og velja <interface>Halda "
-"áfram</interface>."
+"Ef þú veist vistfang prentarans skaltu setja það inn og velja "
+"<interface>Halda áfram</interface>. Ef prentarinn er á fjartengdri vél, "
+"skaltu setja inn það vistfang og velja <interface>Leita</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -407,14 +404,7 @@ msgid "new_group"
 msgstr "nýr_hópur"
 
 #: ui/main.qml:84
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "A printer support package that provides convenience features does not "
-#| "appear to be installed.<nl/><nl/>Because this distro does not include "
-#| "PackageKit, we cannot provide an install option, so you will have to use "
-#| "your package manager to install the <command>system-config-printer</"
-#| "command> package manually."
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "A printer support package that provides convenience features does not appear "
@@ -424,9 +414,8 @@ msgid ""
 msgstr ""
 "Stuðningspakki prentara sem býður upp á þægindaeiginleika virðist ekki vera "
 "uppsettur.<nl/><nl/>Þar sem þessi útgáfa af Linux inniheldur ekki PackageKit "
-"getum við ekki boðið upp á uppsetningarvalkost, og því þarftu að nota "
-"pakkastjórann þinn til að setja upp pakkann <command>system-config-printer</"
-"command> handvirkt."
+"getum við ekki boðið upp á uppsetningarvalkost. Notaðu pakkastjórann þinn "
+"til að setja upp pakkann <command>system-config-printer</command> handvirkt."
 
 #: ui/main.qml:86
 #, kde-format
@@ -496,6 +485,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Smelltu á <interface>Stilla prentþjón…</interface> til að athuga stillingar "
+"eða skoða hvort CUPS-kerfisþjónustan sé virk."
 
 #: ui/main.qml:313
 #, kde-format
@@ -731,6 +722,8 @@ msgstr "Sjálfgefinn prentari"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
+"Til að skipta um sjálfgefinn prentara, skaltu merkja annan prentara sem "
+"sjálfgefinn."
 
 #: ui/PrinterSettings.qml:371
 #, kde-format

@@ -93,9 +93,10 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
             return;
         }
 
-        int lowIndex = -1;
-        int lowValue = 0;
+        QStringList msgs;
         for (uint i = 0; i < currentLevels.count(); ++i) {
+            int lowIndex = -1;
+            int lowValue = 0;
             const int level = currentLevels.at(i).toInt();
             const int low = lowLevels.at(i).toInt();
             const int high = highLevels.at(i).toInt();
@@ -108,51 +109,54 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
                 if (level <= low) {
                     lowValue = level;
                 }
-                break;
             } else {
                 // CUPS seems to handle this, but just in case don't divide by zero
                 if (high == 0) {
-                    qCWarning(PMKDED) << "Found a high boundary == 0, exiting level check";
-                    return;
+                    qCWarning(PMKDED) << "Found a high boundary == 0";
+                    break;
                 }
                 if (level > low && level <= high) {
                     auto result = div((level - low) * 100, high);
                     if (result.quot <= s_threshold) {
                         lowIndex = i;
                         lowValue = level;
-                        break;
                     }
                 }
             }
+
+            // found a marker level at or below the threshold pct
+            if (lowIndex >= 0) {
+                // Make sure name/type lists are valid
+                QString name(u"<unknown>"_s);
+                QString type(u"<unknown>"_s);
+                auto list = printer.argument(KCUPS_MARKER_NAMES).toStringList();
+                if (lowIndex < list.count()) {
+                    name = list.at(lowIndex);
+                }
+                list = printer.argument(KCUPS_MARKER_TYPES).toStringList();
+                if (lowIndex < list.count()) {
+                    type = list.at(lowIndex);
+                }
+
+                if (lowValue == 0) {
+                    msgs << i18nc("@info:usagetip The name and type of the ink cartridge", "%1 (%2) appears to be empty.", name, type);
+                } else {
+                    msgs << i18nc("@info:usagetip The name and type of the ink cartridge and percent ink remaining",
+                                  "%1 (%2) appears to be low (%3% remaining).",
+                                  name,
+                                  type,
+                                  lowValue);
+                }
+
+                qCDebug(PMKDED) << "Found marker-level at/below threshold" << type << name << lowValue;
+            }
         }
 
-        // found a marker level at or below the threshold pct
-        if (lowIndex >= 0) {
-            // Make sure name/type lists are valid
-            QString name(u"<unknown>"_s);
-            QString type(u"<unknown>"_s);
-            auto list = printer.argument(KCUPS_MARKER_NAMES).toStringList();
-            if (lowIndex < list.count()) {
-                name = list.at(lowIndex);
-            }
-            list = printer.argument(KCUPS_MARKER_TYPES).toStringList();
-            if (lowIndex < list.count()) {
-                type = list.at(lowIndex);
-            }
-
+        if (!msgs.isEmpty()) {
             auto notify = new KNotification(u"MarkerLevel"_s, KNotification::Persistent);
             notify->setComponentName(u"printmanager"_s);
             notify->setTitle(printer.info());
-
-            if (lowValue == 0) {
-                notify->setText(i18nc("@info:usagetip The name and type of the ink cartridge", "%1 (%2) appears to be empty.", name, type));
-            } else {
-                notify->setText(i18nc("@info:usagetip The name and type of the ink cartridge and percent ink remaining",
-                                      "%1 (%2) appears to be low (%3% remaining).",
-                                      name,
-                                      type,
-                                      lowValue));
-            }
+            notify->setText(msgs.join(u"\n"_s));
 
             auto checkMarkers = notify->addDefaultAction(i18nc("@action:button check printer ink levels", "Check Levels…"));
             connect(checkMarkers, &KNotificationAction::activated, this, [pn = printer.name()]() {
@@ -160,7 +164,6 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
             });
 
             notify->sendEvent();
-            qCDebug(PMKDED) << "Found marker-level at/below threshold" << type << name << lowValue;
         }
     });
 

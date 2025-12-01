@@ -102,7 +102,8 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
 
             // Because printers, level can be 0 and low boundary can be > zero
             // Also, level can be < low and not zero, ie. low=2, level=1
-            if (level == 0 || level <= low) {
+            // level < 0 is unknown or unavailable, so ignore
+            if (level == 0 || (level <= low && level > 0)) {
                 lowIndex = i;
                 if (level <= low) {
                     lowValue = level;
@@ -124,6 +125,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
                 }
             }
         }
+
         // found a marker level at or below the threshold pct
         if (lowIndex >= 0) {
             // Make sure name/type lists are valid
@@ -159,8 +161,6 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
 
             notify->sendEvent();
             qCDebug(PMKDED) << "Found marker-level at/below threshold" << type << name << lowValue;
-        } else {
-            qCDebug(PMKDED) << "All marker-levels above low threshold";
         }
     });
 

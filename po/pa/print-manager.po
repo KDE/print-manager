@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"POT-Creation-Date: 2025-12-02 00:43+0000\n"
 "PO-Revision-Date: 2024-01-01 08:45-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -307,13 +307,13 @@ msgid ""
 "properly."
 msgstr ""
 
-#: src/kded/MarkerLevelChecker.cpp:146
+#: src/kded/MarkerLevelChecker.cpp:142
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr ""
 
-#: src/kded/MarkerLevelChecker.cpp:149
+#: src/kded/MarkerLevelChecker.cpp:145
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -321,7 +321,7 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr ""
 
-#: src/kded/MarkerLevelChecker.cpp:155
+#: src/kded/MarkerLevelChecker.cpp:161
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"

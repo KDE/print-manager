@@ -27,22 +27,22 @@ void ProcessRunner::openPrintQueue(const QString &printerName)
 }
 
 // call kcm
-void ProcessRunner::addPrinter()
+void ProcessRunner::addPrinter(const QByteArray startupId)
 {
-    openKCM({u"--add-printer"_s});
+    openKCM({u"--add-printer"_s}, startupId);
 }
 
-void ProcessRunner::addClass()
+void ProcessRunner::addClass(const QByteArray startupId)
 {
-    openKCM({u"--add-group"_s});
+    openKCM({u"--add-group"_s}, startupId);
 }
 
-void ProcessRunner::kcmConfigurePrinter(const QString &printerName)
+void ProcessRunner::kcmConfigurePrinter(const QString &printerName, const QByteArray startupId)
 {
-    openKCM({u"--configure-printer"_s, printerName});
+    openKCM({u"--configure-printer"_s, printerName}, startupId);
 }
 
-void ProcessRunner::openKCM(const QStringList &args)
+void ProcessRunner::openKCM(const QStringList &args, const QByteArray startupId)
 {
     // The desktop filename is the same as the binary and icon
     const QString systemSettings = u"systemsettings"_s;
@@ -54,14 +54,17 @@ void ProcessRunner::openKCM(const QStringList &args)
     }
 
     // In Plasma, so assume System Settings is available
-    exec(systemSettings, cmdline, systemSettings);
+    exec(systemSettings, cmdline, systemSettings, startupId);
 }
 
-void ProcessRunner::exec(const QString &cmd, const QStringList &args, const QString &desktopFile)
+void ProcessRunner::exec(const QString &cmd, const QStringList &args, const QString &desktopFile, const QByteArray startupId)
 {
     auto job = new KIO::CommandLauncherJob(cmd, args);
     if (!desktopFile.isEmpty()) {
         job->setDesktopName(desktopFile);
+    }
+    if (!startupId.isEmpty()) {
+        job->setStartupId(startupId);
     }
     job->start();
 }

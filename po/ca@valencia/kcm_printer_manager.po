@@ -38,13 +38,13 @@ msgstr "Configura una impressora"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "No s'ha pogut configurar la classe: "
+msgstr "Ha fallat mentre es configurava la classe: "
 
 #: printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "No s'ha pogut configurar la impressora: "
+msgstr "Ha fallat mentre es configurava la impressora: "
 
 #: printermanager.cpp:435
 #, kde-format
@@ -73,7 +73,7 @@ msgstr "No s'ha pogut portar a terme la sol·licitud: %1"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "No s'han pogut obtindre els paràmetres del servidor: %1"
+msgstr "Ha fallat mentre s'obtenien els paràmetres del servidor: %1"
 
 #: printermanager.cpp:573
 #, kde-format
@@ -681,7 +681,7 @@ msgstr "S'està configurant %1, espereu…"
 #: ui/PrinterSettings.qml:178
 #, kde-format
 msgid "Failed to remove the printer: %1"
-msgstr "No s'ha pogut eliminar la impressora: %1"
+msgstr "Ha fallat mentre s'eliminava la impressora: %1"
 
 #: ui/PrinterSettings.qml:205
 #, kde-format

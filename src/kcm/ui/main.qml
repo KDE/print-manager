@@ -345,12 +345,12 @@ KCM.ScrollViewKCM {
             onClicked: configurePrinter()
 
             function configurePrinter() : void {
-                checkServerSettings()
                 kcm.push("PrinterSettings.qml"
                                 , { modelData: model
                                 , addMode: false
                                 , printerModel: pmModel
                                 , ppdModel: ppdModel
+                                , authFunction: checkServerSettings
                                 })
             }
 

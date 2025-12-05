@@ -18,6 +18,9 @@ KCM.AbstractKCM {
     id: root
     headerPaddingEnabled: false
 
+    // Used to elevate priviledges
+    property var authFunction
+
     // Add mode means adding a new printer/group
     property bool addMode: false
     property var modelData
@@ -55,7 +58,7 @@ KCM.AbstractKCM {
 
     actions: [
         Kirigami.Action {
-            text: i18n("Configure…")
+            text: i18nc("@action", "Configure Media Settings…")
             icon.name: "configure-symbolic"
             visible: !root.addMode
             onTriggered: PM.ProcessRunner.configurePrinter(root.modelData.printerName)
@@ -364,14 +367,28 @@ KCM.AbstractKCM {
                     }
                 }
 
+                RowLayout {
+                    spacing: Kirigami.Units.smallSpacing
 
-                PrinterOption {
-                    objectName: "printer-is-shared"
-                    text: root.modelData.isClass
-                          ? i18nc("@action:check", "Share this group")
-                          : i18nc("@action:check", "Share this printer")
-                    enabled: kcm.shareConnectedPrinters
-                    orig: root.modelData.isShared
+                    PrinterOption {
+                        objectName: "printer-is-shared"
+                        text: root.modelData.isClass
+                              ? i18nc("@action:check", "Share this group")
+                              : i18nc("@action:check", "Share this printer")
+                        enabled: kcm.serverSettingsLoaded && kcm.shareConnectedPrinters
+                        orig: root.modelData.isShared
+                    }
+
+                    QQC2.ToolButton {
+                        icon.name: "unlock-symbolic"
+                        visible: typeof root.authFunction === "function" && !kcm.serverSettingsLoaded
+                        onClicked: root.authFunction()
+
+                        QQC2.ToolTip.text: i18nc("@info", "Click here to elevate privileges to unlock this feature")
+                        QQC2.ToolTip.visible: hovered || activeFocus
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                    }
                 }
 
                 PrinterOption {

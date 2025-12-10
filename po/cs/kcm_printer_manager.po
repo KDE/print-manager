@@ -483,11 +483,10 @@ msgid "Printer Groups"
 msgstr "Skupiny tiskáren"
 
 #: ui/main.qml:376
-#, fuzzy, kde-format
-#| msgid "Clean Print Heads"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "Vyčistit tiskové hlavy"
+msgstr "Otevřít frontu tisku"
 
 #: ui/main.qml:385
 #, kde-format

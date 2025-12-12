@@ -73,10 +73,8 @@ msgid "Configure Printer…"
 msgstr "Nastavit tis&kárny…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Zobrazit frontu tisku…"
+msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
@@ -90,6 +88,3 @@ msgid_plural "%1 more jobs"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
-
-#~ msgid "Configure printer…"
-#~ msgstr "Nastavit tiskárnu…"

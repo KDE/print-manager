@@ -67,11 +67,11 @@ msgstr "暂停"
 
 #: src/plasmoid/PrinterDelegate.qml:57
 msgid "Configure Printer…"
-msgstr ""
+msgstr "配置打印机…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
 msgid "View Print Queue"
-msgstr ""
+msgstr "查看打印队列"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"

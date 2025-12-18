@@ -18,22 +18,6 @@ Print Manager is a small, relatively self-contained set of components integrated
 * KCups Library that provides an interface to the CUPS api as well as a few models that are used by the legacy apps, the KCM and the plasmoid
 
 
-## External Dependencies
-
-The legacy apps, the KDed module and the KCM make use of the interfaces provided by the [OpenPrinting system-config-printer project.](https://github.com/OpenPrinting/system-config-printer)  These interfaces provide the following features used by print-manager:
-
-* New device notifications
-* Device discovery and grouping
-* Recommended driver discovery
-
-While not required, it is recommended to install this component for print-manager to provide the best results.
-
-Another useful external package (not required) is [IPP-USB](https://github.com/OpenPrinting/ipp-usb).  IPP-USB is a mechanism that allows USB connected printers to be discovered and configured with IPP Driverless tools.  USB printers that support IPP but for whatever reason, do not support a network interface can usually be configured using IPP-USB.
-
-> [!important]
-> If a printer is not discovered on the network or with a USB connection and it does not support IPP, then the printer will have to be configured manually with print-manager.
-
-
 ## General
 
 For Plasma6, the KCM will provide the primary means to add/configure printers and printer groups.  In addition, some of the basic CUPS print server options can be configured.  There are some limitations to KCM add-printer features that mirror the legacy apps:

@@ -89,6 +89,3 @@ msgid "%1 more job"
 msgid_plural "%1 more jobs"
 msgstr[0] "%1 jobb til"
 msgstr[1] "%1 jobbar til"
-
-#~ msgid "Configure printer…"
-#~ msgstr "Set opp skrivar …"

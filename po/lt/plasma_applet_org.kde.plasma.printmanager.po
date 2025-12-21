@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2024-11-13 01:51+0200\n"
+"PO-Revision-Date: 2025-12-20 20:43+0200\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.8\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
@@ -72,16 +72,12 @@ msgid "Pause"
 msgstr "Pristabdyti"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Konfigūruoti spausdintuvus…"
+msgstr "Konfigūruoti spausdintuvą…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Rodyti spausdinimo eilę…"
+msgstr "Rodyti spausdinimo eilę"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"

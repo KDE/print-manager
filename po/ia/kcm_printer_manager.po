@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:42+0000\n"
-"PO-Revision-Date: 2025-05-12 16:10+0200\n"
+"PO-Revision-Date: 2025-12-29 17:47+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -115,12 +115,10 @@ msgid "Example Addresses"
 msgstr "Adresses de exemplo"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Driver de imprimitor"
+msgstr "Dispositivo de imprimer"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -236,19 +234,16 @@ msgid "Select Printer…"
 msgstr "Selige imprimitor..."
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
-"Si le adresse de tu imprimitor es cognoscite, tu inserta lo e selige "
-"<interface>Continua</interface>"
+"Si le adresse del imprimitor es cognoscite, tu inserta lo e "
+"selige<interface>Continua</interface>.  Si le imprimitor es sur un hospite "
+"remote, inserta ille addresse e selige <interface>Cerca</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -274,8 +269,7 @@ msgid "Set up a Printer Connection"
 msgstr "Configura un Connexion de imprimitor"
 
 #: ui/FindPrinter.qml:132 ui/main.qml:275
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Refresca"
@@ -293,12 +287,10 @@ msgid "Show Manual Options"
 msgstr "Monstra optiones manual"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Iste characteristica nn es ancora disponibile (%1)"
+msgstr "Iste characteristica non es disponibile (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format
@@ -490,7 +482,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Servicios de imprimer non disponibile"
 
 #: ui/main.qml:273
 #, kde-kuit-format
@@ -499,6 +491,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Clicca <interface>Configura Servicio de Imprimer…</interface> per verificar "
+"preferentias, o verificar que le servicio de systema de CUPS es active."
 
 #: ui/main.qml:313
 #, kde-format

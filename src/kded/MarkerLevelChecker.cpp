@@ -54,7 +54,6 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
 
     const auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, [this](KCupsRequest *req) {
-        req->deleteLater();
         // it's possible attributes from a temporary queue could be empty
         if (req->printers().isEmpty()) {
             qCDebug(PMKDED) << "No printers found for marker level check or CUPS services is not available";
@@ -162,6 +161,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
             notify->sendEvent();
             qCDebug(PMKDED) << "Found marker-level at/below threshold" << type << name << lowValue;
         }
+        req->deleteLater();
     });
 
     // TODO: Use new libkcups apis

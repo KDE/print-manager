@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 02:34+0000\n"
+"POT-Creation-Date: 2026-01-11 02:41+0000\n"
 "PO-Revision-Date: 2025-12-05 16:02+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -303,13 +303,13 @@ msgstr ""
 "Uppsetningarvilla (pakki: %1)\n"
 "Athugaðu auðkennin þín og gakktu úr skugga um að PackageKit sé rétt uppsett."
 
-#: src/kded/MarkerLevelChecker.cpp:148
+#: src/kded/MarkerLevelChecker.cpp:147
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr "%1 (%2) lítur út fyrir að vera tómt."
 
-#: src/kded/MarkerLevelChecker.cpp:151
+#: src/kded/MarkerLevelChecker.cpp:150
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -317,7 +317,7 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr "%1 (%2) lítur út fyrir að vera lítið (%3% remaining)."
 
-#: src/kded/MarkerLevelChecker.cpp:157
+#: src/kded/MarkerLevelChecker.cpp:156
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"

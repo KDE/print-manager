@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-12-02 00:43+0000\n"
+"POT-Creation-Date: 2026-01-11 00:45+0000\n"
 "PO-Revision-Date: 2025-08-11 22:29+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -307,13 +307,13 @@ msgstr ""
 "Patikrinkite, ar teisingi tapatybės nustatymo duomenys ir įsitikinkite, kad "
 "PackageKit yra tinkamai įdiegta."
 
-#: src/kded/MarkerLevelChecker.cpp:142
+#: src/kded/MarkerLevelChecker.cpp:141
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr "Atrodo, kad nebėra %1 (%2)."
 
-#: src/kded/MarkerLevelChecker.cpp:145
+#: src/kded/MarkerLevelChecker.cpp:144
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -321,7 +321,7 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr "Atrodo, kad yra žemas %1 (%2) lygis (liko %3%)."
 
-#: src/kded/MarkerLevelChecker.cpp:161
+#: src/kded/MarkerLevelChecker.cpp:160
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"

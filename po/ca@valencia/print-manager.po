@@ -655,7 +655,7 @@ msgstr "Impressora"
 #: src/libkcups/JobModel.cpp:38
 #, kde-format
 msgid "From Hostname"
-msgstr "Des del nom d'amfitrió"
+msgstr "Des del nom de l'amfitrió"
 
 #: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format

@@ -236,13 +236,13 @@ msgstr "Configura una impressora"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "No s'ha pogut configurar la classe: "
+msgstr "Ha fallat mentre es configurava la classe: "
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "No s'ha pogut configurar la impressora: "
+msgstr "Ha fallat mentre es configurava la impressora: "
 
 #: src/kcm/printermanager.cpp:435
 #, kde-format
@@ -271,7 +271,7 @@ msgstr "No s'ha pogut portar a terme la sol·licitud: %1"
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "No s'han pogut obtindre els paràmetres del servidor: %1"
+msgstr "Ha fallat mentre s'obtenien els paràmetres del servidor: %1"
 
 #: src/kcm/printermanager.cpp:573
 #, kde-format
@@ -577,7 +577,7 @@ msgstr "%1 impressora de xarxa via DNS-SD"
 #: src/libkcups/DevicesModel.cpp:224
 #, kde-format
 msgid "Failed to get a list of devices: '%1'"
-msgstr "No s'ha pogut obtindre la llista de dispositius: «%1»"
+msgstr "Ha fallat mentre s'obtenia la llista de dispositius: «%1»"
 
 #: src/libkcups/DevicesModel.cpp:260
 #, kde-format
@@ -655,12 +655,12 @@ msgstr "Impressora"
 #: src/libkcups/JobModel.cpp:38
 #, kde-format
 msgid "From Hostname"
-msgstr "Des del nom d'amfitrió"
+msgstr "Des del nom de l'amfitrió"
 
 #: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr "No s'ha pogut moure «%1» a «%2»"
+msgstr "Ha fallat mentre es movia «%1» a «%2»"
 
 #: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
@@ -896,7 +896,7 @@ msgstr "No s'ha pogut alliberar «%1»"
 #: src/printqueue/PrintQueueUi.cpp:476
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr "No s'ha pogut tornar a imprimir: «%1»"
+msgstr "Ha fallat mentre es tornava a imprimir: «%1»"
 
 #: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format

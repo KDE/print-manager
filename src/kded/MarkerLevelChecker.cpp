@@ -86,12 +86,26 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
         const auto currentLevels = getLevels(KCUPS_MARKER_LEVELS);
         const auto lowLevels = getLevels(KCUPS_MARKER_LOW_LEVELS);
         const auto highLevels = getLevels(KCUPS_MARKER_HIGH_LEVELS);
+        const auto typesList = printer.argument(KCUPS_MARKER_TYPES).toStringList();
 
         if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
             qCDebug(PMKDED) << "At least one marker level attribute is invalid or not found, aborting level check";
             return;
         }
 
+        /** CUPS supports devices with both types of markers, consumables and receptacles
+         *
+         *  https://openprinting.github.io/cups/doc/spec-ipp.html#marker-types
+         *
+         *  Consumables are generally toners/cartridges
+         *  levels decrease from 100 => 0 (high to low)
+         *
+         *  Receptacles are generally waste containters
+         *  Receptacles' levels increase from 0 => 100 (low to high)
+         *
+         *  Only check consumables levels for notification
+         *  TODO: 6.7, add support to check levels for receptacles and notify
+         */
         QStringList msgs;
         for (uint i = 0; i < currentLevels.count(); ++i) {
             int lowIndex = -1;
@@ -99,6 +113,13 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
             const int level = currentLevels.at(i).toInt();
             const int low = lowLevels.at(i).toInt();
             const int high = highLevels.at(i).toInt();
+            // per CUPS
+            // low-level == 0 && high-level != 0 && high-level < 100 => waste receptacle
+            // high-level == 100 && low-level != 100 && low-level > 0 => consumable
+            if (low == 0 && high != 0 && high < 100) {
+                qCDebug(PMKDED) << typesList.at(i) << "ignoring level checking for waste receptacle";
+                continue;
+            }
 
             // Because printers, level can be 0 and low boundary can be > zero
             // Also, level can be < low and not zero, ie. low=2, level=1
@@ -132,9 +153,8 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
                 if (lowIndex < list.count()) {
                     name = list.at(lowIndex);
                 }
-                list = printer.argument(KCUPS_MARKER_TYPES).toStringList();
-                if (lowIndex < list.count()) {
-                    type = list.at(lowIndex);
+                if (lowIndex < typesList.count()) {
+                    type = typesList.at(lowIndex);
                 }
 
                 if (lowValue == 0) {

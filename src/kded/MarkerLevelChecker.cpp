@@ -57,6 +57,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
         // it's possible attributes from a temporary queue could be empty
         if (req->printers().isEmpty()) {
             qCDebug(PMKDED) << "No printers found for marker level check or CUPS services is not available";
+            req->deleteLater();
             return;
         }
 
@@ -90,6 +91,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
 
         if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
             qCDebug(PMKDED) << "At least one marker level attribute is invalid or not found, aborting level check";
+            req->deleteLater();
             return;
         }
 

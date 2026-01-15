@@ -812,20 +812,3 @@ msgstr "Fabricant/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Selecciona…"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "A <interface>printer group</interface> is used to pool printing resources."
-#~ msgstr ""
-#~ "Un <interface>grup d'impressores</interface> s'utilitza per a agrupar "
-#~ "recursos d'impressió."
-
-#~ msgid "Refresh"
-#~ msgstr "Actualitza"
-
-#~ msgid "CUPS Network Printers Help"
-#~ msgstr "Ajuda d'impressores de xarxa del CUPS"
-
-#~ msgctxt "@action:button"
-#~ msgid "Find a Printer…"
-#~ msgstr "Cerca una impressora…"

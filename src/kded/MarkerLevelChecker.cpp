@@ -86,68 +86,107 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
         const auto currentLevels = getLevels(KCUPS_MARKER_LEVELS);
         const auto lowLevels = getLevels(KCUPS_MARKER_LOW_LEVELS);
         const auto highLevels = getLevels(KCUPS_MARKER_HIGH_LEVELS);
+        const auto typesList = printer.argument(KCUPS_MARKER_TYPES).toStringList();
 
         if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
             qCDebug(PMKDED) << "At least one marker level attribute is invalid or not found, aborting level check";
             return;
         }
 
+        /** CUPS supports devices with both types of markers, consumables and receptacles
+         *
+         *  https://openprinting.github.io/cups/doc/spec-ipp.html#marker-types
+         *
+         *  Consumables are generally toners/cartridges
+         *  levels decrease from 100 => 0 (high to low)
+         *
+         *  Receptacles are generally waste containters
+         *  levels increase from 0 => 100 (low to high)
+         */
         QStringList msgs;
         for (uint i = 0; i < currentLevels.count(); ++i) {
-            int lowIndex = -1;
-            int lowValue = 0;
+            int levelIndex = -1;
+            int checkerValue = 0;
             const int level = currentLevels.at(i).toInt();
             const int low = lowLevels.at(i).toInt();
             const int high = highLevels.at(i).toInt();
-
-            // Because printers, level can be 0 and low boundary can be > zero
-            // Also, level can be < low and not zero, ie. low=2, level=1
-            // level < 0 is unknown or unavailable, so ignore
-            if (level == 0 || (level <= low && level > 0)) {
-                lowIndex = i;
-                if (level <= low) {
-                    lowValue = level;
-                }
+            // per CUPS
+            // low-level == 0 && high-level != 0 && high-level < 100 => waste receptacle
+            // high-level == 100 && low-level != 100 && low-level > 0 => consumable
+            bool consumable;
+            if (high == 100 && low != 100 && low > 0) {
+                consumable = true;
+                qCDebug(PMKDED) << "Found consumable, checking" << typesList.at(i);
+            } else if (low == 0 && high != 0 && high < 100) {
+                consumable = false;
+                qCDebug(PMKDED) << "Found receptacle, checking" << typesList.at(i);
             } else {
-                // CUPS seems to handle this, but just in case don't divide by zero
-                if (high == 0) {
-                    qCWarning(PMKDED) << "Found a high boundary == 0";
-                    break;
-                }
-                if (level > low && level <= high) {
-                    auto result = div((level - low) * 100, high);
-                    if (result.quot <= s_threshold) {
-                        lowIndex = i;
-                        lowValue = level;
+                qCDebug(PMKDED) << "low/high range invalid (" << low << "," << high << "), failure to determine marker type:" << typesList.at(i);
+                continue;
+            }
+
+            if (consumable) {
+                // Because printers, level can be 0 and low boundary can be > zero
+                // Also, level can be < low and not zero, ie. low=2, level=1
+                // level < 0 is unknown or unavailable, so ignore
+                if (level == 0 || (level <= low && level > 0)) {
+                    levelIndex = i;
+                    if (level <= low) {
+                        checkerValue = level;
                     }
+                } else {
+                    // CUPS seems to handle this, but just in case don't divide by zero
+                    if (high == 0) {
+                        qCWarning(PMKDED) << "Found a high boundary == 0";
+                        break;
+                    }
+                    if (level > low && level <= high) {
+                        auto result = div((level - low) * 100, high);
+                        if (result.quot <= s_threshold) {
+                            levelIndex = i;
+                            checkerValue = level;
+                        }
+                    }
+                }
+                // Receptacle
+            } else {
+                if (level >= high) {
+                    levelIndex = i;
+                    checkerValue = level;
                 }
             }
 
             // found a marker level at or below the threshold pct
-            if (lowIndex >= 0) {
+            if (levelIndex >= 0) {
                 // Make sure name/type lists are valid
                 QString name(u"<unknown>"_s);
                 QString type(u"<unknown>"_s);
                 auto list = printer.argument(KCUPS_MARKER_NAMES).toStringList();
-                if (lowIndex < list.count()) {
-                    name = list.at(lowIndex);
+                if (levelIndex < list.count()) {
+                    name = list.at(levelIndex);
                 }
-                list = printer.argument(KCUPS_MARKER_TYPES).toStringList();
-                if (lowIndex < list.count()) {
-                    type = list.at(lowIndex);
+                if (levelIndex < typesList.count()) {
+                    type = typesList.at(levelIndex);
                 }
 
-                if (lowValue == 0) {
-                    msgs << i18nc("@info:usagetip The name and type of the ink cartridge", "%1 (%2) appears to be empty.", name, type);
+                if (consumable) {
+                    if (checkerValue == 0) {
+                        msgs << i18nc("@info:usagetip The name and type of the ink cartridge", "%1 (%2) appears to be empty.", name, type);
+                    } else {
+                        msgs << i18nc("@info:usagetip The name and type of the ink cartridge and percent ink remaining",
+                                      "%1 (%2) appears to be low (%3% remaining).",
+                                      name,
+                                      type,
+                                      checkerValue);
+                    }
                 } else {
-                    msgs << i18nc("@info:usagetip The name and type of the ink cartridge and percent ink remaining",
-                                  "%1 (%2) appears to be low (%3% remaining).",
+                    msgs << i18nc("@info:usagetip The name, type, and percentage full of the waste receptacle",
+                                  "%1 (%2) is almost full (%3%)",
                                   name,
                                   type,
-                                  lowValue);
+                                  checkerValue);
                 }
-
-                qCDebug(PMKDED) << "Found marker-level at/below threshold" << type << name << lowValue;
+                qCDebug(PMKDED) << "Found marker-level at threshold" << type << name << checkerValue;
             }
         }
 

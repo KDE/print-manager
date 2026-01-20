@@ -45,164 +45,120 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
 
     /**
      *  Marker low level indicates the near empty warning value, but it can be 0.
-     *  Let's be more conservative and warn if actual level is at a higher pct
      *  https://openprinting.github.io/cups/doc/spec-ipp.html#marker-low-levels
      */
-    static const int s_threshold = 3;
-
     qCDebug(PMKDED) << "checkMarkerLevels: getting printer attributes" << printerName;
 
     const auto request = new KCupsRequest;
     connect(request, &KCupsRequest::finished, this, [this](KCupsRequest *req) {
         // it's possible attributes from a temporary queue could be empty
-        if (req->printers().isEmpty()) {
-            qCDebug(PMKDED) << "No printers found for marker level check or CUPS services is not available";
-            return;
-        }
+        if (!req->printers().isEmpty()) {
+            const auto printer = req->printers().at(0);
+            const auto currentLevels = printer.markerLevels();
+            const auto lowLevels = printer.markerLowLevels();
+            const auto highLevels = printer.markerHighLevels();
 
-        const auto printer = req->printers().at(0);
+            if (!currentLevels.isEmpty() && !highLevels.isEmpty() && !lowLevels.isEmpty()) {
+                /** CUPS supports devices with both kinds of markers, consumables and receptacles
+                 *
+                 *  See https://openprinting.github.io/cups/doc/spec-ipp.html#marker-types
+                 *  for marker type descriptions
+                 *
+                 *  Consumables are generally toners/cartridges
+                 *  levels decrease from 100 => 0 (high to low)
+                 *
+                 *  Receptacles are generally waste containters
+                 *  levels increase from 0 => 100 (low to high)
+                 */
+                const auto typesList = printer.markerTypes();
+                const auto namesList = printer.markerNames();
+                QStringList msgs;
+                for (uint i = 0; i < currentLevels.count(); ++i) {
+                    int levelIndex = -1;
+                    int checkerValue = 0;
 
-        // QVariant::toList converts an int to a null list
-        // So, create a QList<int> if only one entry (int)
-        const auto getLevels = [printer](const QString &key) -> QList<QVariant> {
-            QList<QVariant> list;
-            const auto levels = printer.argument(key);
-            if (levels.isValid()) {
-                if (levels.canConvert<QList<int>>()) {
-                    list = levels.toList();
-                    qCDebug(PMKDED) << "Valid levels list" << key << list;
-                } else {
-                    list = QList<QVariant>{levels};
-                    qCDebug(PMKDED) << "Valid level value set to a list" << key << list;
-                }
-            } else {
-                // Valid levels entry not found
-                qCDebug(PMKDED) << "Invalid levels entry:" << key;
-            }
-
-            return list;
-        };
-
-        const auto currentLevels = getLevels(KCUPS_MARKER_LEVELS);
-        const auto lowLevels = getLevels(KCUPS_MARKER_LOW_LEVELS);
-        const auto highLevels = getLevels(KCUPS_MARKER_HIGH_LEVELS);
-        const auto typesList = printer.argument(KCUPS_MARKER_TYPES).toStringList();
-
-        if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
-            qCDebug(PMKDED) << "At least one marker level attribute is invalid or not found, aborting level check";
-            return;
-        }
-
-        /** CUPS supports devices with both types of markers, consumables and receptacles
-         *
-         *  https://openprinting.github.io/cups/doc/spec-ipp.html#marker-types
-         *
-         *  Consumables are generally toners/cartridges
-         *  levels decrease from 100 => 0 (high to low)
-         *
-         *  Receptacles are generally waste containters
-         *  levels increase from 0 => 100 (low to high)
-         */
-        QStringList msgs;
-        for (uint i = 0; i < currentLevels.count(); ++i) {
-            int levelIndex = -1;
-            int checkerValue = 0;
-            const int level = currentLevels.at(i).toInt();
-            const int low = lowLevels.at(i).toInt();
-            const int high = highLevels.at(i).toInt();
-            // per CUPS
-            // low-level == 0 && high-level != 0 && high-level < 100 => waste receptacle
-            // high-level == 100 && low-level != 100 && low-level > 0 => consumable
-            bool consumable;
-            if (high == 100 && low != 100 && low > 0) {
-                consumable = true;
-                qCDebug(PMKDED) << "Found consumable, checking" << typesList.at(i);
-            } else if (low == 0 && high != 0 && high < 100) {
-                consumable = false;
-                qCDebug(PMKDED) << "Found receptacle, checking" << typesList.at(i);
-            } else {
-                qCDebug(PMKDED) << "low/high range invalid (" << low << "," << high << "), failure to determine marker type:" << typesList.at(i);
-                continue;
-            }
-
-            if (consumable) {
-                // Because printers, level can be 0 and low boundary can be > zero
-                // Also, level can be < low and not zero, ie. low=2, level=1
-                // level < 0 is unknown or unavailable, so ignore
-                if (level == 0 || (level <= low && level > 0)) {
-                    levelIndex = i;
-                    if (level <= low) {
-                        checkerValue = level;
+                    // level < 0 is unknown or unavailable, so ignore
+                    const int level = currentLevels.at(i);
+                    if (level < 0) {
+                        qCDebug(PMKDED, "Negative level (%d), ignore checking: %s", level, qPrintable(typesList.at(i)));
+                        continue;
                     }
-                } else {
-                    // CUPS seems to handle this, but just in case don't divide by zero
-                    if (high == 0) {
-                        qCWarning(PMKDED) << "Found a high boundary == 0";
-                        break;
-                    }
-                    if (level > low && level <= high) {
-                        auto result = div((level - low) * 100, high);
-                        if (result.quot <= s_threshold) {
+                    const int low = lowLevels.at(i);
+                    const int high = highLevels.at(i);
+
+                    // Determine marker type
+                    // per CUPS, low-level == 0 && high-level != 0 && high-level < 100 => waste receptacle
+                    // high-level == 100 && low-level != 100 && low-level > 0 => consumable
+                    bool consumable;
+                    if (high == 100 && low != 100 && low > 0) {
+                        consumable = true;
+                        if (level <= low) {
                             levelIndex = i;
                             checkerValue = level;
                         }
-                    }
-                }
-                // Receptacle
-            } else {
-                if (level >= high) {
-                    levelIndex = i;
-                    checkerValue = level;
-                }
-            }
-
-            // found a marker level at or below the threshold pct
-            if (levelIndex >= 0) {
-                // Make sure name/type lists are valid
-                QString name(u"<unknown>"_s);
-                QString type(u"<unknown>"_s);
-                auto list = printer.argument(KCUPS_MARKER_NAMES).toStringList();
-                if (levelIndex < list.count()) {
-                    name = list.at(levelIndex);
-                }
-                if (levelIndex < typesList.count()) {
-                    type = typesList.at(levelIndex);
-                }
-
-                if (consumable) {
-                    if (checkerValue == 0) {
-                        msgs << i18nc("@info:usagetip The name and type of the ink cartridge", "%1 (%2) appears to be empty.", name, type);
+                        qCDebug(PMKDED, "Found consumable: checking %s, current level %d", qPrintable(typesList.at(i)), level);
+                    } else if (low == 0 && high != 0 && high < 100) {
+                        consumable = false;
+                        if (level >= high) {
+                            levelIndex = i;
+                            checkerValue = level;
+                        }
+                        qCDebug(PMKDED, "Found receptacle: checking %s, current level %d", qPrintable(typesList.at(i)), level);
                     } else {
-                        msgs << i18nc("@info:usagetip The name and type of the ink cartridge and percent ink remaining",
-                                      "%1 (%2) appears to be low (%3% remaining).",
-                                      name,
-                                      type,
-                                      checkerValue);
+                        qCDebug(PMKDED, "low/high range invalid (%d,%d): failure to determine marker type for: %s", low, high, qPrintable(typesList.at(i)));
                     }
-                } else {
-                    msgs << i18nc("@info:usagetip The name, type, and percentage full of the waste receptacle",
-                                  "%1 (%2) is almost full (%3%)",
-                                  name,
-                                  type,
-                                  checkerValue);
+
+                    // found a marker level at the warning boundary
+                    if (levelIndex >= 0) {
+                        const auto name = levelIndex < namesList.count() ? namesList.at(levelIndex) : u"<unknown>"_s;
+                        const auto type = levelIndex < typesList.count() ? typesList.at(levelIndex) : u"<unknown>"_s;
+
+                        if (consumable) {
+                            if (checkerValue == 0) {
+                                msgs << i18nc("@info:usagetip The name and type of the ink cartridge", "%1 (%2) appears to be empty.", name, type);
+                            } else {
+                                msgs << i18nc("@info:usagetip The name and type of the ink cartridge and percent ink remaining",
+                                              "%1 (%2) appears to be low (%3% remaining).",
+                                              name,
+                                              type,
+                                              checkerValue);
+                            }
+                        } else {
+                            msgs << i18nc("@info:usagetip The name, type, and percentage full of the waste receptacle",
+                                          "%1 (%2) is almost full (%3%)",
+                                          name,
+                                          type,
+                                          checkerValue);
+                        }
+                        qCDebug(PMKDED) << "Found marker-level at threshold" << type << name << checkerValue;
+                    }
                 }
-                qCDebug(PMKDED) << "Found marker-level at threshold" << type << name << checkerValue;
+
+                if (!msgs.isEmpty()) {
+                    auto notify = new KNotification(u"MarkerLevel"_s, KNotification::Persistent);
+                    notify->setComponentName(u"printmanager"_s);
+                    notify->setTitle(printer.info());
+                    notify->setText(msgs.join(u"\n"_s));
+
+                    auto checkMarkers = notify->addDefaultAction(i18nc("@action:button check printer ink levels", "Check Levels…"));
+                    connect(checkMarkers, &KNotificationAction::activated, this, [pn = printer.name()]() {
+                        ProcessRunner::kcmConfigurePrinter(pn);
+                    });
+
+                    notify->sendEvent();
+                }
+
+            } else {
+                qCDebug(PMKDED) << "At least one marker level attribute is empty, aborting level check";
+                qCDebug(PMKDED) << "Current:" << currentLevels;
+                qCDebug(PMKDED) << "Low:" << lowLevels;
+                qCDebug(PMKDED) << "High:" << highLevels;
             }
+
+        } else {
+            qCDebug(PMKDED) << "No printers found for marker level check or CUPS services is not available";
         }
 
-        if (!msgs.isEmpty()) {
-            auto notify = new KNotification(u"MarkerLevel"_s, KNotification::Persistent);
-            notify->setComponentName(u"printmanager"_s);
-            notify->setTitle(printer.info());
-            notify->setText(msgs.join(u"\n"_s));
-
-            auto checkMarkers = notify->addDefaultAction(i18nc("@action:button check printer ink levels", "Check Levels…"));
-            connect(checkMarkers, &KNotificationAction::activated, this, [pn = printer.name()]() {
-                ProcessRunner::kcmConfigurePrinter(pn);
-            });
-
-            notify->sendEvent();
-        }
         req->deleteLater();
     });
 

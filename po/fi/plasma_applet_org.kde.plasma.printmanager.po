@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2015.
-# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2018, 2020, 2021, 2022, 2023, 2024, 2026 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2024-12-01 15:03+0200\n"
+"PO-Revision-Date: 2026-01-05 18:08+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
@@ -67,14 +67,10 @@ msgid "Pause"
 msgstr "Tauko"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "T&ulostinasetukset…"
+msgstr "Tulostinasetukset…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
 msgstr "Näytä tulostusjono…"
 

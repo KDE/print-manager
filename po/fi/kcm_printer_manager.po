@@ -2,14 +2,14 @@
 # Author: Artnay
 # Author: Lliehu
 # SPDX-FileCopyrightText: 2012, 2013, 2015, 2024 Lasse Liehu <lasse.liehu@gmail.com>
-# SPDX-FileCopyrightText: 2012, 2018, 2019, 2020, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2012, 2018, 2019, 2020, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Jiri Grönroos <jiri.gronroos+kde@iki.fi>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2025-07-31 10:04+0300\n"
+"PO-Revision-Date: 2026-01-05 18:09+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -499,12 +499,10 @@ msgid "Printer Groups"
 msgstr "Tulostinryhmät"
 
 #: ui/main.qml:376
-#, fuzzy, kde-format
-#| msgctxt "@action:button Open print queue"
-#| msgid "Print Queue"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "Tulostusjono"
+msgstr "Avaa tulostusjono"
 
 #: ui/main.qml:385
 #, kde-format

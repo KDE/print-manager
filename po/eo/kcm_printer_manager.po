@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-01-24 00:45+0000\n"
 "PO-Revision-Date: 2025-01-12 08:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -256,6 +256,50 @@ msgid ""
 msgstr ""
 "Se la adreso de la presilo estas konata, enigu ĝin kaj elektu "
 "<interface>Daŭrigi</interface>."
+
+#: ui/components/Smb.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Set up a Printer Connection"
+msgctxt "@title:group"
+msgid "Set up a printer on a Windows Network"
+msgstr "Agordi Presilo-Konekton"
+
+#: ui/components/Smb.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the LPD device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the Windows Printer"
+msgstr "Enigu la adreson de la LPD-aparato"
+
+#: ui/components/Smb.qml:45
+#, kde-format
+msgctxt "@label:textbox Authentication user name"
+msgid "Username:"
+msgstr ""
+
+#: ui/components/Smb.qml:50
+#, kde-format
+msgctxt "@label:textbox Authentication password"
+msgid "Password:"
+msgstr ""
+
+#: ui/components/Smb.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer…"
+msgctxt "@action:button Accept current values and continue"
+msgid "Save Printer…"
+msgstr "Elekti Presilon…"
+
+#: ui/components/Smb.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Invalid LPD URL: %1"
+msgctxt "@info:status"
+msgid "Invalid Printer URL: %1"
+msgstr "Nevalida LPD-URL: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

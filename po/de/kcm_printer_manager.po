@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-01-24 00:45+0000\n"
 "PO-Revision-Date: 2025-10-19 14:17+0200\n"
 "Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -241,6 +241,50 @@ msgstr ""
 "<interface>Weiter</interface> aus. Wenn sich der Drucker auf einem "
 "entfernten Rechner befindet, geben Sie dessen Adresse ein und wählen Sie "
 "<interface>Suchen</interface> aus."
+
+#: ui/components/Smb.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Set up a Printer Connection"
+msgctxt "@title:group"
+msgid "Set up a printer on a Windows Network"
+msgstr "Eine Druckverbindung festlegen"
+
+#: ui/components/Smb.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the LPD device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the Windows Printer"
+msgstr "Geben Sie die Adresse des LPD-Gerätes an"
+
+#: ui/components/Smb.qml:45
+#, kde-format
+msgctxt "@label:textbox Authentication user name"
+msgid "Username:"
+msgstr ""
+
+#: ui/components/Smb.qml:50
+#, kde-format
+msgctxt "@label:textbox Authentication password"
+msgid "Password:"
+msgstr ""
+
+#: ui/components/Smb.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer…"
+msgctxt "@action:button Accept current values and continue"
+msgid "Save Printer…"
+msgstr "Drucker auswählen …"
+
+#: ui/components/Smb.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Invalid LPD URL: %1"
+msgctxt "@info:status"
+msgid "Invalid Printer URL: %1"
+msgstr "Ungültige LPD-Adresse: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

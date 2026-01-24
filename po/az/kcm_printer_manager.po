@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-01-24 00:45+0000\n"
 "PO-Revision-Date: 2025-12-12 21:24+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -242,6 +242,50 @@ msgstr ""
 "Əgər printer ünvanını bilirsinizsə buraya yazın və <interface>Davam edin</"
 "interface> seçin. Əgər printer uzaq serverdə yerləşirsə onun ünvanını daxil "
 "edin və <interface>Axtarın</interface> seçin."
+
+#: ui/components/Smb.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Set up a Printer Connection"
+msgctxt "@title:group"
+msgid "Set up a printer on a Windows Network"
+msgstr "Printer bağlantısını qurun"
+
+#: ui/components/Smb.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the LPD device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the Windows Printer"
+msgstr "Sətir-sətir çap (LDP) cihazının ünvanını daxil edin"
+
+#: ui/components/Smb.qml:45
+#, kde-format
+msgctxt "@label:textbox Authentication user name"
+msgid "Username:"
+msgstr ""
+
+#: ui/components/Smb.qml:50
+#, kde-format
+msgctxt "@label:textbox Authentication password"
+msgid "Password:"
+msgstr ""
+
+#: ui/components/Smb.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer…"
+msgctxt "@action:button Accept current values and continue"
+msgid "Save Printer…"
+msgstr "Printeri seçin..."
+
+#: ui/components/Smb.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Invalid LPD URL: %1"
+msgctxt "@info:status"
+msgid "Invalid Printer URL: %1"
+msgstr "LDP URL ünvanı səhvdir: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

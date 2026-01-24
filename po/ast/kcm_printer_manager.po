@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-01-24 00:45+0000\n"
 "PO-Revision-Date: 2024-03-20 10:03+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Assamese <alministradores@softastur.org>\n"
@@ -236,6 +236,43 @@ msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
+msgstr ""
+
+#: ui/components/Smb.qml:16
+#, kde-format
+msgctxt "@title:group"
+msgid "Set up a printer on a Windows Network"
+msgstr ""
+
+#: ui/components/Smb.qml:17
+#, kde-format
+msgctxt "@info:usagetip"
+msgid "Enter the address of the Windows Printer"
+msgstr ""
+
+#: ui/components/Smb.qml:45
+#, kde-format
+msgctxt "@label:textbox Authentication user name"
+msgid "Username:"
+msgstr ""
+
+#: ui/components/Smb.qml:50
+#, kde-format
+msgctxt "@label:textbox Authentication password"
+msgid "Password:"
+msgstr ""
+
+#: ui/components/Smb.qml:54
+#, fuzzy, kde-format
+#| msgid "Remove Printer"
+msgctxt "@action:button Accept current values and continue"
+msgid "Save Printer…"
+msgstr "Quitar la imprentadora"
+
+#: ui/components/Smb.qml:76
+#, kde-format
+msgctxt "@info:status"
+msgid "Invalid Printer URL: %1"
 msgstr ""
 
 #: ui/components/Socket.qml:19

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-01-24 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -237,6 +237,50 @@ msgid ""
 msgstr ""
 "如果您知道打印机的地址，请输入该地址并选择 <interface>继续</interface>。如果"
 "打印机位于远程主机上，请输入该主机地址并选择 <interface>搜索</interface>。"
+
+#: ui/components/Smb.qml:16
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Set up a Printer Connection"
+msgctxt "@title:group"
+msgid "Set up a printer on a Windows Network"
+msgstr "创建打印机连接"
+
+#: ui/components/Smb.qml:17
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Enter the address of the LPD device"
+msgctxt "@info:usagetip"
+msgid "Enter the address of the Windows Printer"
+msgstr "输入 LPD 设备的地址"
+
+#: ui/components/Smb.qml:45
+#, kde-format
+msgctxt "@label:textbox Authentication user name"
+msgid "Username:"
+msgstr ""
+
+#: ui/components/Smb.qml:50
+#, kde-format
+msgctxt "@label:textbox Authentication password"
+msgid "Password:"
+msgstr ""
+
+#: ui/components/Smb.qml:54
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer…"
+msgctxt "@action:button Accept current values and continue"
+msgid "Save Printer…"
+msgstr "选择打印机…"
+
+#: ui/components/Smb.qml:76
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Invalid LPD URL: %1"
+msgctxt "@info:status"
+msgid "Invalid Printer URL: %1"
+msgstr "无效的 LPD URL：%1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

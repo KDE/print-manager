@@ -321,7 +321,7 @@ msgstr "%1 (%2) 墨盒墨量低 (剩余 %3%)。"
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) 即将装满 (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format

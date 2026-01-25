@@ -239,20 +239,16 @@ msgstr ""
 "打印机位于远程主机上，请输入该主机地址并选择 <interface>搜索</interface>。"
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "创建打印机连接"
+msgstr ""
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the LPD device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "输入 LPD 设备的地址"
+msgstr ""
 
 #: ui/components/Smb.qml:45
 #, kde-format
@@ -267,20 +263,16 @@ msgid "Password:"
 msgstr ""
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "选择打印机…"
+msgstr ""
 
 #: ui/components/Smb.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Invalid LPD URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr "无效的 LPD URL：%1"
+msgstr ""
 
 #: ui/components/Socket.qml:19
 #, kde-format

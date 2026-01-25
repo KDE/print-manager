@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 00:44+0000\n"
-"PO-Revision-Date: 2025-08-11 22:29+0300\n"
+"PO-Revision-Date: 2026-01-24 22:11+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -70,17 +70,17 @@ msgstr "KonfigūruotiSpausdintuvą"
 #: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(C) 2010–2018 Daniel Nicoletti"
 
 #: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
-msgstr "Realizavimas į Qt 5 / Plasma 5"
+msgstr "Qt 5 / Plasma 5 realizavimas"
 
 #: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Realizavimas į Qt 6 / Plasma 6"
+msgstr "Qt 6 / Plasma 6 realizavimas"
 
 #: src/configure-printer/main.cpp:39
 #, kde-format
@@ -326,7 +326,7 @@ msgstr "Atrodo, kad yra žemas %1 (%2) lygis (liko %3%)."
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) yra beveik pilnas (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format
@@ -352,7 +352,7 @@ msgstr "Naujas spausdintuvas buvo pridėtas"
 #: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Gali būti, kad naujame spausdintuve yra problemų su tvarkykle"
+msgstr "Gali būti, kad naujas spausdintuvas turi problemų su tvarkykle"
 
 #: src/kded/NewPrinterNotification.cpp:150
 #, kde-format
@@ -410,7 +410,7 @@ msgstr "Tikrinti tvarkyklę"
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "'%1' is ready for printing."
-msgstr "„%1“ pasiruošęs spausdinimui."
+msgstr "„%1“ pasiruošęs spausdinti."
 
 #: src/libkcups/DevicesModel.cpp:51
 #, kde-format
@@ -441,7 +441,7 @@ msgstr "Bluetooth"
 #: src/libkcups/DevicesModel.cpp:71
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr "Faksas - HP Linux vaizdavimas ir spausdinimas (HPLIP)"
+msgstr "Faksas – HP Linux vaizdavimas ir spausdinimas (HPLIP)"
 
 #: src/libkcups/DevicesModel.cpp:73
 #, kde-format
@@ -471,7 +471,7 @@ msgstr "LPD/LPR eilė %1"
 #: src/libkcups/DevicesModel.cpp:87
 #, kde-format
 msgid "Windows Printer via SAMBA"
-msgstr "Windows spausdintuvas per SAMBA"
+msgstr "„Windows“ spausdintuvas per SAMBA"
 
 #: src/libkcups/DevicesModel.cpp:92
 #, kde-format
@@ -704,7 +704,7 @@ msgstr "Nutrauktas"
 #: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr "Ryšys su CUPS reikalauja tapatybės nustatymo: \"%1\""
+msgstr "Ryšys su CUPS reikalauja tapatybės nustatymo: „%1“"
 
 #: src/libkcups/KCupsPasswordDialog.cpp:22
 #, kde-format
@@ -759,17 +759,17 @@ msgstr "Neveiklus"
 #: src/libkcups/PrinterModel.cpp:411
 #, kde-format
 msgid "Idle, rejecting jobs"
-msgstr "Neveiksnus, atmeta darbus"
+msgstr "Neveiklus, atmeta darbus"
 
 #: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle - '%1'"
-msgstr "Neveiklus - '%1'"
+msgstr "Neveiklus – „%1“"
 
 #: src/libkcups/PrinterModel.cpp:413
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
-msgstr "Neveiklus, atmeta darbus - „%1“"
+msgstr "Neveiklus, atmeta darbus – „%1“"
 
 #: src/libkcups/PrinterModel.cpp:417
 #, kde-format
@@ -779,7 +779,7 @@ msgstr "Naudojamas"
 #: src/libkcups/PrinterModel.cpp:419
 #, kde-format
 msgid "In use - '%1'"
-msgstr "Naudojamas - '%1'"
+msgstr "Naudojamas – „%1“"
 
 #: src/libkcups/PrinterModel.cpp:423
 #, kde-format
@@ -794,12 +794,12 @@ msgstr "Pristabdytas, atmeta darbus"
 #: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused - '%1'"
-msgstr "Pristabdytas - '%1'"
+msgstr "Pristabdytas – „%1“"
 
 #: src/libkcups/PrinterModel.cpp:425
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
-msgstr "Pristabdytas, atmeta darbus - '%1'"
+msgstr "Pristabdytas, atmeta darbus – „%1“"
 
 #: src/libkcups/PrinterModel.cpp:429
 #, kde-format
@@ -809,7 +809,7 @@ msgstr "Nežinoma"
 #: src/libkcups/PrinterModel.cpp:431
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr "Nežinoma - '%1'"
+msgstr "Nežinoma – „%1“"
 
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
 #, kde-format
@@ -841,7 +841,7 @@ msgstr "Spausdinama..."
 #: src/printqueue/PrintQueueUi.cpp:190
 #, kde-format
 msgid "Printing '%1'"
-msgstr "Spausdinama '%1'"
+msgstr "Spausdinamas „%1“"
 
 #: src/printqueue/PrintQueueUi.cpp:198
 #, kde-format
@@ -914,7 +914,7 @@ msgstr "Nepavyko iš naujo spausdinti „%1“"
 #: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr "Įveskite prisijungimo duomenis, kad spausdintumėte iš <b>%1</b>"
+msgstr "Įveskite prisijungimo duomenis norėdami spausdinti iš <b>%1</b>"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
 #: src/printqueue/PrintQueueUi.ui:20
@@ -926,7 +926,7 @@ msgstr "mano spausdintuvas (x darbų)"
 #: src/printqueue/PrintQueueUi.ui:49
 #, kde-format
 msgid "Printer Icon"
-msgstr "Spausdintuvo ženkliukas"
+msgstr "Spausdintuvo piktograma"
 
 #. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
 #: src/printqueue/PrintQueueUi.ui:233

@@ -1,5 +1,5 @@
 # Spanish translations for print-manager.po package.
-# Copyright (C) 2012-2025 This file is copyright:
+# Copyright (C) 2012-2026 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
 # SPDX-FileCopyrightText: 2012, 2013, 2015, 2018, 2019, 2022, 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2026-01-21 00:33+0100\n"
+"PO-Revision-Date: 2026-01-24 11:21+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -324,7 +324,7 @@ msgstr "Parece que %1 (%2) está bajo (queda un %3 %)."
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr "%1 (%2) está casi completo (%3 %)"
+msgstr "%1 (%2) está casi lleno (%3 %)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format

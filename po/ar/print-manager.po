@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2016.
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2024.
 #
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2025-08-20 20:49+0400\n"
+"PO-Revision-Date: 2026-01-24 11:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -324,7 +324,7 @@ msgstr "يبدو أن %1 (%2) منخفض (تبقى %3٪)."
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) شبه ممتلئ (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format

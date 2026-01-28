@@ -242,37 +242,37 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr ""
+msgstr "配置 Windows 网络上的打印机"
 
 #: ui/components/Smb.qml:17
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr ""
+msgstr "输入 Windows 打印机的地址"
 
 #: ui/components/Smb.qml:45
 #, kde-format
 msgctxt "@label:textbox Authentication user name"
 msgid "Username:"
-msgstr ""
+msgstr "用户名："
 
 #: ui/components/Smb.qml:50
 #, kde-format
 msgctxt "@label:textbox Authentication password"
 msgid "Password:"
-msgstr ""
+msgstr "密码："
 
 #: ui/components/Smb.qml:54
 #, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr ""
+msgstr "保存打印机…"
 
 #: ui/components/Smb.qml:76
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr ""
+msgstr "无效的打印机 URL：%1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

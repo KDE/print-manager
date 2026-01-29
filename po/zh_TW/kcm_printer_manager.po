@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-24 00:45+0000\n"
-"PO-Revision-Date: 2025-11-20 20:49+0900\n"
+"PO-Revision-Date: 2026-01-28 19:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -195,7 +195,7 @@ msgstr "以位址繼續…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "無效的 LPD 網址：%1"
+msgstr "無效的 LPD URL：%1"
 
 #: ui/components/ManualUri.qml:23
 #, kde-format
@@ -239,48 +239,40 @@ msgstr ""
 "表機在遠端註記上，請輸入其位址然後選擇 <interface>搜尋</interface>。"
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "設定印表機連線"
+msgstr "設定在 Windows 網路裡的印表機連線"
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the LPD device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "輸入 LPD 裝置的位址"
+msgstr "輸入 Windows 印表機裝置的位址"
 
 #: ui/components/Smb.qml:45
 #, kde-format
 msgctxt "@label:textbox Authentication user name"
 msgid "Username:"
-msgstr ""
+msgstr "使用者名稱："
 
 #: ui/components/Smb.qml:50
 #, kde-format
 msgctxt "@label:textbox Authentication password"
 msgid "Password:"
-msgstr ""
+msgstr "密碼："
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "選取印表機…"
+msgstr "儲存印表機…"
 
 #: ui/components/Smb.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Invalid LPD URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr "無效的 LPD 網址：%1"
+msgstr "無效的印表機 URL：%1"
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -297,7 +289,7 @@ msgstr "輸入 AppSocket 裝置的位址"
 #: ui/components/Socket.qml:65
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr "無效的 socket 網址：%1"
+msgstr "無效的 socket URL：%1"
 
 #: ui/FindPrinter.qml:128
 #, kde-format

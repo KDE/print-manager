@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2025-11-20 20:49+0900\n"
+"PO-Revision-Date: 2026-01-28 19:56+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -195,7 +195,7 @@ msgstr "以位址繼續…"
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr "無效的 LPD 網址：%1"
+msgstr "無效的 LPD URL：%1"
 
 #: ui/components/ManualUri.qml:23
 #, kde-format
@@ -253,7 +253,7 @@ msgstr "輸入 AppSocket 裝置的位址"
 #: ui/components/Socket.qml:65
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr "無效的 socket 網址：%1"
+msgstr "無效的 socket URL：%1"
 
 #: ui/FindPrinter.qml:128
 #, kde-format

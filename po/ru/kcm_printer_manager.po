@@ -1,7 +1,7 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Alexander Yavorsky <kekcuha@gmail.com>
 # SPDX-FileCopyrightText: 2024 Olesya Gerasimenko <translation-team@basealt.ru>
 # Alexander Yavorsky <kekcuha@gmail.com>, 2024, 2025.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-24 00:45+0000\n"
-"PO-Revision-Date: 2025-11-27 19:49+0300\n"
+"PO-Revision-Date: 2026-01-31 11:30+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.11.80\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -247,48 +247,40 @@ msgstr ""
 "адрес и выберите <interface>Поиск</interface>."
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "Настройка подключения принтера"
+msgstr "Настройка подключения сетевого принтера Windows"
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the LPD device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "Введите адрес устройства LPD"
+msgstr "Введите адрес устройства принтера Windows"
 
 #: ui/components/Smb.qml:45
 #, kde-format
 msgctxt "@label:textbox Authentication user name"
 msgid "Username:"
-msgstr ""
+msgstr "Имя пользователя:"
 
 #: ui/components/Smb.qml:50
 #, kde-format
 msgctxt "@label:textbox Authentication password"
 msgid "Password:"
-msgstr ""
+msgstr "Пароль:"
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "Выбрать принтер…"
+msgstr "Сохранить принтер…"
 
 #: ui/components/Smb.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Invalid LPD URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr "Неверный URL-адрес LPD: %1"
+msgstr "Неверный URL-адрес принтера: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

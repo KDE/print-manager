@@ -67,15 +67,15 @@ set_package_properties(PackageKitQt6
     PURPOSE "Needed to automatically install the system-config-printer package."
 )
 
-find_package(Cups "2.4" REQUIRED)
-message(STATUS "Detected CUPS version: ${CUPS_VERSION_STRING}")
-#add declaration for libcups version
-if(CUPS_VERSION_STRING VERSION_GREATER_EQUAL "3.0")
-    message(STATUS "Building with libcups3")
+option(BUILD_WITH_CUPS3 "Build for Cups3" OFF)
+if (BUILD_WITH_CUPS3)
+    find_package(Cups3 "3.0" REQUIRED)
     add_definitions(-DLIBCUPS_VERSION_3)
+    message(STATUS "Building with libcups3 ${Cups3_VERSION}")
 else()
-    message(STATUS "Building with libcups2")
+    find_package(Cups "2.4" REQUIRED)
     add_definitions(-DLIBCUPS_VERSION_2)
+    message(STATUS "Building with libcups2")
 endif()
 
 find_package(CupsSmb)

@@ -60,6 +60,12 @@ set_package_properties(KF6Kirigami PROPERTIES
     PURPOSE "Kirigami application UI framework"
 )
 
+find_package(KF6KirigamiAddons 1.10.0 REQUIRED)
+set_package_properties(KF6KirigamiAddons PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Provides Kirigami app helpers"
+)
+
 find_package(PackageKitQt6)
 set_package_properties(PackageKitQt6
     PROPERTIES DESCRIPTION "Software Manager integration"
@@ -67,15 +73,18 @@ set_package_properties(PackageKitQt6
     PURPOSE "Needed to automatically install the system-config-printer package."
 )
 
-find_package(Cups "2.4" REQUIRED)
-message(STATUS "Detected CUPS version: ${CUPS_VERSION_STRING}")
-#add declaration for libcups version
-if(CUPS_VERSION_STRING VERSION_GREATER_EQUAL "3.0")
-    message(STATUS "Building with libcups3")
+option(BUILD_WITH_CUPS3 "Build for Cups3" OFF)
+if (BUILD_WITH_CUPS3)
+    pkg_check_modules(CUPS3 REQUIRED cups3)
+    add_library(Cups::Cups INTERFACE IMPORTED)
+    target_include_directories(Cups::Cups INTERFACE ${CUPS3_INCLUDE_DIRS})
+    target_link_libraries(Cups::Cups INTERFACE ${CUPS3_LIBRARIES})
     add_definitions(-DLIBCUPS_VERSION_3)
+    message(STATUS "Building with libcups3")
 else()
-    message(STATUS "Building with libcups2")
+    find_package(Cups "2.4" REQUIRED)
     add_definitions(-DLIBCUPS_VERSION_2)
+    message(STATUS "Building with libcups2")
 endif()
 
 find_package(CupsSmb)

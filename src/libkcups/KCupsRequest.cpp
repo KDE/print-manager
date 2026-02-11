@@ -10,8 +10,12 @@
 
 #include <KLocalizedString>
 
+#ifdef LIBCUPS_VERSION_2
 #include <cups/adminutil.h>
 #include <cups/ppd.h>
+#else
+#include <libcups3/cups/cups.h>
+#endif
 
 #define CUPS_DATADIR QLatin1String("/usr/share/cups")
 
@@ -32,11 +36,12 @@ QString KCupsRequest::serverError() const
     case IPP_NOT_FOUND:
         return i18n("Not found");
     default: // In this case we don't want to map all enums
-        qCWarning(LIBKCUPS) << "status unrecognised: " << error();
+        qCWarning(LIBKCUPS) << "IPP status unrecognised: " << error();
         return QString::fromUtf8(ippErrorString(error()));
     }
 }
 
+#ifdef LIBCUPS_VERSION_2
 void KCupsRequest::getPPDS(const QString &make)
 {
     if (m_connection->readyToStart()) {
@@ -110,9 +115,138 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
     }
 }
 
-// THIS function can get the default server dest through the
-// "printer-is-default" attribute BUT it does not get user
-// defined default printer, see cupsGetDefault() on www.cups.org for details
+void KCupsRequest::getPrinterPPD(const QString &printerName)
+{
+    if (m_connection->readyToStart()) {
+        do {
+            const char *filename;
+            // This is the only way to get ppd path in CUPS2
+            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName));
+            m_ppdFile = QString::fromUtf8(filename);
+        } while (m_connection->retry("/", CUPS_GET_PPD));
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getPrinterPPD", printerName);
+    }
+}
+
+ReturnArguments KCupsRequest::ppds() const
+{
+    return m_ppds;
+}
+
+QString KCupsRequest::printerPPD() const
+{
+    return m_ppdFile;
+}
+#endif
+
+// callback for cupsEnumDests
+static int get_dest_cb(void *user_data, unsigned flags, cups_dest_t *dest)
+{
+    if (flags & CUPS_DEST_FLAGS_REMOVED) {
+        return (1);
+    }
+
+    static const QStringList s_attrs({KCUPS_PRINTER_NAME,
+                                      KCUPS_PRINTER_STATE,
+                                      KCUPS_PRINTER_STATE_MESSAGE,
+                                      KCUPS_PRINTER_IS_SHARED,
+                                      KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                                      KCUPS_PRINTER_TYPE,
+                                      KCUPS_PRINTER_LOCATION,
+                                      KCUPS_PRINTER_INFO,
+                                      KCUPS_PRINTER_MAKE_AND_MODEL,
+                                      KCUPS_PRINTER_COMMANDS,
+                                      KCUPS_MARKER_CHANGE_TIME,
+                                      KCUPS_MARKER_COLORS,
+                                      KCUPS_MARKER_LEVELS,
+                                      KCUPS_MARKER_NAMES,
+                                      KCUPS_MARKER_TYPES,
+                                      KCUPS_AUTH_INFO_REQUIRED,
+                                      KCUPS_DEVICE_URI,
+                                      KCUPS_PRINTER_URI_SUPPORTED,
+                                      KCUPS_MEMBER_NAMES});
+
+    const auto toIntList = [](const QString &option) -> QList<int> {
+        QList<int> ret;
+        const auto list = option.split(QLatin1String(","));
+        for (const auto &i : list) {
+            ret << i.toInt();
+        }
+        return ret;
+    };
+
+    // Build the device map from attrs
+    QVariantMap map;
+    for (const auto &key : s_attrs) {
+        const auto val = QString::fromUtf8(cupsGetOption(key.toUtf8().data(), dest->num_options, dest->options));
+        map.insert(key, val);
+    }
+
+    // extract printer name
+    QString pname, uriSupported = map.value(KCUPS_PRINTER_URI_SUPPORTED).toString();
+    if ((map.value(KCUPS_PRINTER_TYPE).toInt() & CUPS_PRINTER_DISCOVERED) | uriSupported.isEmpty()) {
+        if (map.value(KCUPS_DEVICE_URI).toString().isEmpty()) {
+            qCDebug(LIBKCUPS) << "Discovered device has no URI:" << map.value(KCUPS_PRINTER_INFO);
+            return 1;
+        }
+        pname = map.value(KCUPS_PRINTER_INFO).toString().replace(QLatin1String(" "), QLatin1String("_"));
+    } else {
+        // the printer name is at the end of the URI, ie: "ipp://localhost/printers/printername"
+        const auto l = uriSupported.split(QLatin1String("/"));
+        pname = l[l.count() - 1];
+    }
+    map.insert(KCUPS_PRINTER_NAME, pname);
+
+    // Marker Levels: cupsGetOption returns strings, comma separated, for the lists
+    // Convert levels into a QList<int>
+    if (map.value(KCUPS_MARKER_CHANGE_TIME).toInt() != 0) {
+        auto names = map.value(KCUPS_MARKER_NAMES).toString().split(QLatin1String(","));
+        names.replaceInStrings(QLatin1String("\\"), QLatin1String(""));
+        map.insert(KCUPS_MARKER_NAMES, names);
+
+        map.insert(KCUPS_MARKER_LEVELS, QVariant::fromValue(toIntList(map.value(KCUPS_MARKER_LEVELS).toString())));
+        map.insert(KCUPS_MARKER_COLORS, map.value(KCUPS_MARKER_COLORS).toStringList());
+        map.insert(KCUPS_MARKER_TYPES, map.value(KCUPS_MARKER_TYPES).toStringList());
+    }
+
+    // if Class, get member names
+    if (map.value(KCUPS_PRINTER_TYPE).toInt() & CUPS_PRINTER_CLASS) {
+        ipp_t *request = ippNewRequest(IPP_GET_PRINTER_ATTRIBUTES);
+
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri", NULL, uriSupported.toUtf8().data());
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD, "requested-attributes", NULL, "member-names");
+
+        ipp_t *response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
+        ipp_attribute_t *members = ippFindAttribute(response, "member-names", IPP_TAG_NAME);
+
+        QStringList memberList;
+        for (int i = 0, count = ippGetCount(members); i < count; i++) {
+            memberList << QString::fromUtf8(ippGetString(members, i, NULL));
+        }
+        map.insert(KCUPS_MEMBER_NAMES, memberList);
+        ippDelete(response);
+    }
+
+    // "emit" signal with the device map
+    QMetaObject::invokeMethod(static_cast<KCupsRequest *>(user_data), "deviceMap", Qt::QueuedConnection, Q_ARG(QVariantMap, map));
+
+    qCDebug(LIBKCUPS) << pname << ":" << map;
+    return (1);
+}
+
+void KCupsRequest::getDestinations(int timeout, uint type, uint mask)
+{
+    if (m_connection->readyToStart()) {
+        cupsEnumDests(CUPS_DEST_FLAGS_NONE, timeout, NULL, type, mask, static_cast<cups_dest_cb_t>(get_dest_cb), this);
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished(true);
+    } else {
+        invokeMethod("getDestinations", timeout, type, mask);
+    }
+}
 
 void KCupsRequest::getPrinters(QStringList attributes, int mask)
 {
@@ -161,6 +295,34 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
         setFinished();
     } else {
         invokeMethod("getPrinterAttributes", printerName, isClass, QVariant::fromValue(attributes));
+    }
+}
+
+void KCupsRequest::getPrinterAttributesNotify(const QString &printerName, bool isClass, QStringList attributes)
+{
+    if (m_connection->readyToStart()) {
+        QStringList attrAll(QLatin1String("all"));
+
+        KIppRequest request(IPP_GET_PRINTER_ATTRIBUTES, QLatin1String("/"));
+
+        request.addPrinterUri(printerName, isClass);
+        request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL);
+        request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_REQUESTED_ATTRIBUTES, attributes.isEmpty() ? attrAll : attributes);
+
+        const ReturnArguments retList = m_connection->request(request, IPP_TAG_PRINTER);
+
+        if (retList.count() > 0) {
+            QVariantMap attrList = retList[0];
+            attrList[KCUPS_PRINTER_NAME] = printerName;
+            Q_EMIT deviceMap(attrList);
+        } else {
+            qCWarning(LIBKCUPS) << printerName << "Printer Attributes NOT FOUND";
+        }
+
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished();
+    } else {
+        invokeMethod("getPrinterAttributesNotify", printerName, isClass, QVariant::fromValue(attributes));
     }
 }
 
@@ -219,6 +381,12 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
     }
 }
 
+#ifdef LIBCUPS_VERSION_2
+KCupsServer KCupsRequest::serverSettings() const
+{
+    return m_server;
+}
+
 void KCupsRequest::getServerSettings()
 {
     if (m_connection->readyToStart()) {
@@ -247,21 +415,6 @@ void KCupsRequest::getServerSettings()
     }
 }
 
-void KCupsRequest::getPrinterPPD(const QString &printerName)
-{
-    if (m_connection->readyToStart()) {
-        do {
-            const char *filename;
-            filename = cupsGetPPD2(CUPS_HTTP_DEFAULT, qUtf8Printable(printerName));
-            m_ppdFile = QString::fromUtf8(filename);
-        } while (m_connection->retry("/", CUPS_GET_PPD));
-        setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
-        setFinished();
-    } else {
-        invokeMethod("getPrinterPPD", printerName);
-    }
-}
-
 void KCupsRequest::setServerSettings(const KCupsServer &server)
 {
     if (m_connection->readyToStart()) {
@@ -285,6 +438,7 @@ void KCupsRequest::setServerSettings(const KCupsServer &server)
         invokeMethod("setServerSettings", QVariant::fromValue(server));
     }
 }
+#endif
 
 void KCupsRequest::addOrModifyPrinter(const QString &printerName, const QVariantMap &attributes, const QString &filename)
 {
@@ -523,8 +677,10 @@ void KCupsRequest::invokeMethod(const char *method,
     m_errorMsg.clear();
     m_printers.clear();
     m_jobs.clear();
+#ifdef LIBCUPS_VERSION_2
     m_ppds.clear();
     m_ppdFile.clear();
+#endif
 
     // If this fails we get into a infinite loop
     // Do not use global()->thread() which point
@@ -558,21 +714,6 @@ void KCupsRequest::process(const KIppRequest &request)
     } else {
         invokeMethod("process", QVariant::fromValue(request));
     }
-}
-
-ReturnArguments KCupsRequest::ppds() const
-{
-    return m_ppds;
-}
-
-KCupsServer KCupsRequest::serverSettings() const
-{
-    return m_server;
-}
-
-QString KCupsRequest::printerPPD() const
-{
-    return m_ppdFile;
 }
 
 KCupsPrinters KCupsRequest::printers() const

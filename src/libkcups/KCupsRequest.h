@@ -15,7 +15,9 @@
 #include "KCupsConnection.h"
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
+#ifdef LIBCUPS_VERSION_2
 #include "KCupsServer.h"
+#endif
 #include "KIppRequest.h"
 
 class KCUPS_EXPORT KCupsRequest : public QObject
@@ -50,31 +52,17 @@ public:
 
     KCupsConnection *connection() const;
 
-    /**
-     * Non empty when getPrinters is called and finish is emitted
-     */
-    KCupsPrinters printers() const;
-
+#ifdef LIBCUPS_VERSION_2
     /**
      * Non empty when getPPDs is called and finish is emitted
      */
     ReturnArguments ppds() const;
 
     /**
-     * Non empty when getServerSettings() is called and finish is emitted
-     */
-    KCupsServer serverSettings() const;
-
-    /**
      * Non empty when \sa getPrinterPPD() is called and finish is emitted
      * \warning You must unlik the given file name
      */
     QString printerPPD() const;
-
-    /**
-     * Non empty when getJobs is called and finish is emitted
-     */
-    KCupsJobs jobs() const;
 
     /**
      * Get all available PPDs from the given make
@@ -93,6 +81,51 @@ public:
      * This method emits device()
      */
     Q_INVOKABLE void getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes);
+
+    /**
+     * Get the PPD associated with @arg printerName
+     * the result is stored at \sa printerPPD()
+     */
+    Q_INVOKABLE void getPrinterPPD(const QString &printerName);
+
+    /**
+     * Non empty when getServerSettings() is called and finish is emitted
+     */
+    KCupsServer serverSettings() const;
+
+    /**
+     * Get the CUPS server settings
+     * This method emits server()
+     */
+    Q_INVOKABLE void getServerSettings();
+
+    /**
+     * Get the CUPS server settings
+     * @param userValues the new server settings
+     */
+    Q_INVOKABLE void setServerSettings(const KCupsServer &server);
+
+#endif
+
+    /**
+     * Alternative to getPrinters() that uses cupsEnumDests() to return
+     * configured/discovered devices. Works with CUPS 2.x/3.x
+     * @param timeout 5000 is the recommended min
+     * @param type filter printer type
+     * @param mask filter printer mask
+     * Connect to deviceMap() to be notified for each device found
+     */
+    Q_INVOKABLE void getDestinations(int timeout = 5000, uint type = 0, uint mask = 0);
+
+    /**
+     * Non empty when getPrinters is called and finish is emitted
+     */
+    KCupsPrinters printers() const;
+
+    /**
+     * Non empty when getJobs is called and finish is emitted
+     */
+    KCupsJobs jobs() const;
 
     /**
      * Get all available printers
@@ -117,6 +150,16 @@ public:
     Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes);
 
     /**
+     * Get attributes for a given printer
+     * @param printerName The printer
+     * @param isClass True it is a printer class
+     * @param attributes The attributes you are requesting
+     *
+     * @return Emits \sa deviceMap() for the printer attr map
+     */
+    Q_INVOKABLE void getPrinterAttributesNotify(const QString &printerName, bool isClass, QStringList attributes = {});
+
+    /**
      * Get all jobs
      * This method emits job()
      * TODO we need to see if we authenticate as root to do some tasks
@@ -136,24 +179,6 @@ public:
      * @return The return will be stored in \sa printers()
      */
     Q_INVOKABLE void getJobAttributes(int jobId, const QString &printerUri, QStringList attributes);
-
-    /**
-     * Get the CUPS server settings
-     * This method emits server()
-     */
-    Q_INVOKABLE void getServerSettings();
-
-    /**
-     * Get the PPD associated with @arg printerName
-     * the result is stored at \sa printerPPD()
-     */
-    Q_INVOKABLE void getPrinterPPD(const QString &printerName);
-
-    /**
-     * Get the CUPS server settings
-     * @param userValues the new server settings
-     */
-    Q_INVOKABLE void setServerSettings(const KCupsServer &server);
 
     // ---- Printer Methods
     /**
@@ -271,13 +296,15 @@ public:
     void authenticateJob(const QString &printerName, const QStringList authInfo, int jobId);
 
 Q_SIGNALS:
+#ifdef LIBCUPS_VERSION_2
     void device(const QString &device_class,
                 const QString &device_id,
                 const QString &device_info,
                 const QString &device_make_and_model,
                 const QString &device_uri,
                 const QString &device_location);
-
+#endif
+    void deviceMap(const QVariantMap &printer);
     void finished(KCupsRequest *);
 
 private:
@@ -301,11 +328,13 @@ private:
     ipp_status_t m_error = IPP_OK;
     http_status_t m_httpStatus;
     QString m_errorMsg;
-    ReturnArguments m_ppds;
-    KCupsServer m_server;
-    QString m_ppdFile;
     KCupsPrinters m_printers;
     KCupsJobs m_jobs;
+#ifdef LIBCUPS_VERSION_2
+    KCupsServer m_server;
+    ReturnArguments m_ppds;
+    QString m_ppdFile;
+#endif
 };
 
 #endif // KCUPS_REQUEST_H

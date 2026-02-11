@@ -6,14 +6,11 @@ set(libkcups_SRCS
     KCupsConnection.cpp
     KCupsJob.cpp
     KCupsPrinter.cpp
-    KCupsServer.cpp
     KCupsRequest.cpp
-    PPDModel.cpp
     PrinterModel.cpp
     JobModel.cpp
     JobSortFilterModel.cpp
     ProcessRunner.cpp
-    DevicesModel.cpp
     CommandHelpers.cpp
 
     KIppRequest.h
@@ -23,14 +20,25 @@ set(libkcups_SRCS
     KCupsPrinter.h
     KCupsServer.h
     KCupsRequest.h
-    PPDModel.h
     PrinterModel.h
     JobModel.h
     JobSortFilterModel.h
     ProcessRunner.h
-    DevicesModel.h
     CommandHelpers.h
 )
+
+if (NOT BUILD_WITH_CUPS3)
+    set(libkcups_SRCS
+        ${libkcups_SRCS}
+        DevicesModel.cpp
+        PPDModel.cpp
+        KCupsServer.cpp
+
+        DevicesModel.h
+        PPDModel.h
+        KCupsServer.h
+    )
+endif()
 
 add_library(kcups SHARED ${libkcups_SRCS})
 

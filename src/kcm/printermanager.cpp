@@ -1,7 +1,7 @@
 /**
  * SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
  * SPDX-FileCopyrightText: 2022 Nicolas Fella <nicolas.fella@gmx.de>
- * SPDX-FileCopyrightText: 2023 Mike Noe <noeerover@gmail.com>
+ * SPDX-FileCopyrightText: 2023-2026 Mike Noe <noeerover@gmail.com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
@@ -21,7 +21,6 @@
 #include <QStringDecoder>
 
 #include <KLocalizedString>
-#include <KOSRelease>
 
 #include <KCupsRequest.h>
 #include <cups/adminutil.h>
@@ -55,7 +54,6 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData,
                         {QLatin1String(CUPS_SERVER_REMOTE_ADMIN), false}})
 {
     setButtons(KQuickConfigModule::NoAdditionalButton);
-    initOSRelease();
 
     // Make sure we update our server settings if the user changes anything on
     // another interface
@@ -132,23 +130,6 @@ void PrinterManager::processCmdLine(const QVariantList &args) {
     if (parser.isSet(confPrinter) || parser.isSet(chgPrinter)) {
         Q_EMIT cmdConfigurePrinter(parser.value(confPrinter));
     }
-}
-
-void PrinterManager::initOSRelease()
-{
-    KOSRelease os;
-    m_osName = os.name();
-    m_osBugReportUrl = os.bugReportUrl();
-}
-
-QString PrinterManager::osName() const
-{
-    return m_osName;
-}
-
-QString PrinterManager::osBugReportUrl() const
-{
-    return m_osBugReportUrl;
 }
 
 void PrinterManager::getRemotePrinters(const QString &uri, const QString &uriScheme)

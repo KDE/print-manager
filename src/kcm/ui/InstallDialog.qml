@@ -7,6 +7,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.coreaddons as KAddons
 import org.kde.plasma.printmanager as PM
 
 Kirigami.Dialog {
@@ -87,8 +88,8 @@ Kirigami.Dialog {
             Kirigami.UrlButton {
                 Layout.topMargin: Kirigami.Units.largeSpacing
                 visible: installer.failed
-                text: i18nc("@info:usagetip", "Report this issue to %1", kcm.osName)
-                url: kcm.osBugReportUrl
+                text: i18nc("@info:usagetip", "Report this issue to %1", KAddons.KOSRelease.name)
+                url: KAddons.KOSRelease.bugReportUrl
             }
         }
     }

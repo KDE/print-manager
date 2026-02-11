@@ -1,17 +1,22 @@
 set(printmanagerkded_SRCS
-    NewPrinterNotification.cpp
     PrintManagerKded.cpp
-    NewPrinterNotification.h
     PrintManagerKded.h
     MarkerLevelChecker.cpp
     MarkerLevelChecker.h
 )
 
-qt_add_dbus_adaptor(printmanagerkded_SRCS
-    com.redhat.NewPrinterNotification.xml
-    NewPrinterNotification.h
-    NewPrinterNotification
-)
+if (NOT BUILD_WITH_CUPS3)
+    set(printmanagerkded_SRCS
+        ${printmanagerkded_SRCS}
+        NewPrinterNotification.cpp
+        NewPrinterNotification.h
+    )
+    qt_add_dbus_adaptor(printmanagerkded_SRCS
+        com.redhat.NewPrinterNotification.xml
+        NewPrinterNotification.h
+        NewPrinterNotification
+    )
+endif()
 
 kcoreaddons_add_plugin(kded_printmanager INSTALL_NAMESPACE "kf6/kded" SOURCES ${printmanagerkded_SRCS})
 set_target_properties(kded_printmanager PROPERTIES OUTPUT_NAME printmanager)

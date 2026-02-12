@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,80 +17,80 @@ msgstr ""
 "X-Crowdin-File: /kf6-trunk/messages/print-manager/kcm_printer_manager.pot\n"
 "X-Crowdin-File-ID: 48268\n"
 
-#: printermanager.cpp:106
+#: printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "新增打印机"
 
-#: printermanager.cpp:108
+#: printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
 msgstr "新增打印机组"
 
-#: printermanager.cpp:110 printermanager.cpp:112
+#: printermanager.cpp:108 printermanager.cpp:110
 #, kde-format
 msgid "Configure a printer"
 msgstr "配置打印机"
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "配置打印机类失败："
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "配置打印机失败："
 
-#: printermanager.cpp:435
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:462
+#: printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "无驱动程序"
 
-#: printermanager.cpp:465
+#: printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD 文件"
 
-#: printermanager.cpp:484
+#: printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "执行请求失败：%1"
 
-#: printermanager.cpp:536
+#: printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "获取服务器设置失败：%1"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "服务器设置没有保存：(%1)：%2"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:561
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "保存服务器设置时发生致命错误：(%1)：%2"
 
-#: printermanager.cpp:633
+#: printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "打印自检页"
 
-#: printermanager.cpp:639
+#: printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清洁打印头"
@@ -394,31 +394,31 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "允许用户中止任意任务 (不仅是用户本人发起的任务)"
 
-#: ui/InstallDialog.qml:14
+#: ui/InstallDialog.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
 msgstr "打印机安装辅助程序"
 
-#: ui/InstallDialog.qml:70
+#: ui/InstallDialog.qml:71
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
 msgstr "安装成功完成"
 
-#: ui/InstallDialog.qml:72
+#: ui/InstallDialog.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
 msgstr "安装失败"
 
-#: ui/InstallDialog.qml:74
+#: ui/InstallDialog.qml:75
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
 msgstr "正在安装…"
 
-#: ui/InstallDialog.qml:90
+#: ui/InstallDialog.qml:91
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"

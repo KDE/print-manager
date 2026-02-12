@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2026-01-28 20:41+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -215,80 +215,80 @@ msgstr "Задаване на стандартните настройки"
 msgid "Query Printer for Default Options"
 msgstr "Получаване на стандартните настройки от принтера"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "Добавяне на нов принтер"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Добавяне на нова група принтери"
 
-#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
+#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
 #, kde-format
 msgid "Configure a printer"
 msgstr "Настройване на принтер"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Неуспешно настройване на клас: "
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Неуспешно настройване на принтер: "
 
-#: src/kcm/printermanager.cpp:435
+#: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:462
+#: src/kcm/printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Бездрайверно"
 
-#: src/kcm/printermanager.cpp:465
+#: src/kcm/printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD файл"
 
-#: src/kcm/printermanager.cpp:484
+#: src/kcm/printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Неуспешно използване на заявкатаt: %1"
 
-#: src/kcm/printermanager.cpp:536
+#: src/kcm/printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Неуспешно получаване на настройките на сървъра: %1"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Настройките на сървъра не са запаметени: (%1): %2"
 
-#: src/kcm/printermanager.cpp:580
+#: src/kcm/printermanager.cpp:561
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Фатално запазване на настройките на сървъра: (%1): %2"
 
-#: src/kcm/printermanager.cpp:633
+#: src/kcm/printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Печат на само-тестова страница"
 
-#: src/kcm/printermanager.cpp:639
+#: src/kcm/printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Почистване на главите"

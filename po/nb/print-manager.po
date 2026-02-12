@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2013-08-11 17:27+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -215,80 +215,80 @@ msgstr "Sett standard-alternativer"
 msgid "Query Printer for Default Options"
 msgstr "Spør skriveren etter dens standard alternativer"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "Legg til en ny skriver"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:106
 #, fuzzy, kde-format
 msgid "Add a new printer group"
 msgstr "Legg til en ny skriver"
 
-#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
+#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
 #, fuzzy, kde-format
 msgid "Configure a printer"
 msgstr "Sett opp Skriver"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Klarte ikke å sette opp klasse"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Klarte ikke å sette opp skriver"
 
-#: src/kcm/printermanager.cpp:435
+#: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:462
+#: src/kcm/printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:465
+#: src/kcm/printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:484
+#: src/kcm/printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Klarte ikke å utføre forespørselen: %1"
 
-#: src/kcm/printermanager.cpp:536
+#: src/kcm/printermanager.cpp:517
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Klarte ikke å hente tjenerinnstillinger"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:580
+#: src/kcm/printermanager.cpp:561
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Klarte ikke å hente tjenerinnstillinger"
 
-#: src/kcm/printermanager.cpp:633
+#: src/kcm/printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Skriv ut selvtest-side"
 
-#: src/kcm/printermanager.cpp:639
+#: src/kcm/printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Rens skrivehodene"

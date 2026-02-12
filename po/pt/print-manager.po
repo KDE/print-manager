@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: printer-applet\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2019-11-06 11:47+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -219,24 +219,24 @@ msgstr "Definir as Opções por Omissão"
 msgid "Query Printer for Default Options"
 msgstr "Consultar as Opções por Omissão da Impressora"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "Adicionar uma nova impressora"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "Adicionar uma nova impressora"
 
-#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
+#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
 #, fuzzy, kde-format
 #| msgid "Configure Printer"
 msgid "Configure a printer"
 msgstr "Configurar a Impressora"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure class"
@@ -244,7 +244,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Não foi possível configurar a classe"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -252,31 +252,31 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Não foi possível configurar a impressora"
 
-#: src/kcm/printermanager.cpp:435
+#: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:462
+#: src/kcm/printermanager.cpp:443
 #, fuzzy, kde-format
 #| msgid "Driver:"
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Controlador:"
 
-#: src/kcm/printermanager.cpp:465
+#: src/kcm/printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:484
+#: src/kcm/printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Não foi possível efectuar o pedido: %1"
 
-#: src/kcm/printermanager.cpp:536
+#: src/kcm/printermanager.cpp:517
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -284,13 +284,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Não foi possível obter a configuração do servidor"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:580
+#: src/kcm/printermanager.cpp:561
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings"
@@ -298,12 +298,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Não foi possível obter a configuração do servidor"
 
-#: src/kcm/printermanager.cpp:633
+#: src/kcm/printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir uma Página de Teste"
 
-#: src/kcm/printermanager.cpp:639
+#: src/kcm/printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpar as Cabeças de Impressão"

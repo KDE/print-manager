@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2026-01-23 05:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -215,80 +215,80 @@ msgstr "設定預設選項"
 msgid "Query Printer for Default Options"
 msgstr "查詢印表機的預設選項"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "新增印表機。"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
 msgstr "新增印表機群組"
 
-#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
+#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
 #, kde-format
 msgid "Configure a printer"
 msgstr "設定一台印表機"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "設定類別失敗："
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "設定印表機失敗："
 
-#: src/kcm/printermanager.cpp:435
+#: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:462
+#: src/kcm/printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "無驅動"
 
-#: src/kcm/printermanager.cpp:465
+#: src/kcm/printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD 檔案"
 
-#: src/kcm/printermanager.cpp:484
+#: src/kcm/printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "執行要求失敗：%1"
 
-#: src/kcm/printermanager.cpp:536
+#: src/kcm/printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "取得伺服器設定失敗：%1"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "伺服器設定未儲存：(%1)：%2"
 
-#: src/kcm/printermanager.cpp:580
+#: src/kcm/printermanager.cpp:561
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "儲存伺服器設定時有嚴重錯誤：(%1)：%2"
 
-#: src/kcm/printermanager.cpp:633
+#: src/kcm/printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "列印自我測試頁"
 
-#: src/kcm/printermanager.cpp:639
+#: src/kcm/printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "清潔列印噴頭"

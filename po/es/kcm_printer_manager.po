@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2026-01-24 11:15+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -19,80 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.12.1\n"
 
-#: printermanager.cpp:106
+#: printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "Añadir una nueva impresora"
 
-#: printermanager.cpp:108
+#: printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Añadir nuevo grupo de impresoras"
 
-#: printermanager.cpp:110 printermanager.cpp:112
+#: printermanager.cpp:108 printermanager.cpp:110
 #, kde-format
 msgid "Configure a printer"
 msgstr "Configurar una impresora"
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Ha ocurrido un error al configurar la clase: "
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Ha ocurrido un error al configurar la impresora: "
 
-#: printermanager.cpp:435
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:462
+#: printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Sin controlador"
 
-#: printermanager.cpp:465
+#: printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Archivo PPD"
 
-#: printermanager.cpp:484
+#: printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "No se ha podido realizar la solicitud: %1"
 
-#: printermanager.cpp:536
+#: printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "No se han podido obtener las preferencias del servidor: %1"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Las preferencias del servidor no se han guardado: (%1): %2"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:561
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Error fatal al guardar las preferencias del servidor: (%1): %2"
 
-#: printermanager.cpp:633
+#: printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Imprimir página de prueba automática"
 
-#: printermanager.cpp:639
+#: printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Limpiar los cabezales de impresión"
@@ -406,31 +406,31 @@ msgstr ""
 "Permitir que los usuarios puedan cancelar cualquier trabajo (no solo los "
 "suyos)"
 
-#: ui/InstallDialog.qml:14
+#: ui/InstallDialog.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
 msgstr "Aplicaciones auxiliares de configuración de la impresora"
 
-#: ui/InstallDialog.qml:70
+#: ui/InstallDialog.qml:71
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
 msgstr "La instalación se ha completado con éxito"
 
-#: ui/InstallDialog.qml:72
+#: ui/InstallDialog.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
 msgstr "La instalación ha fallado"
 
-#: ui/InstallDialog.qml:74
+#: ui/InstallDialog.qml:75
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
 msgstr "Instalando…"
 
-#: ui/InstallDialog.qml:90
+#: ui/InstallDialog.qml:91
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"

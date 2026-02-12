@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2026-01-26 17:51+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -18,80 +18,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.12.1\n"
 
-#: printermanager.cpp:106
+#: printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "Einen neuen Drucker hinzufügen"
 
-#: printermanager.cpp:108
+#: printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Eine neue Druckergruppe hinzufügen"
 
-#: printermanager.cpp:110 printermanager.cpp:112
+#: printermanager.cpp:108 printermanager.cpp:110
 #, kde-format
 msgid "Configure a printer"
 msgstr "Einen Drucker einrichten"
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Das Einrichten der Klasse ist fehlgeschlagen: "
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Das Einrichten des Druckers ist fehlgeschlagen: "
 
-#: printermanager.cpp:435
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:462
+#: printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Treiberlos"
 
-#: printermanager.cpp:465
+#: printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD-Datei"
 
-#: printermanager.cpp:484
+#: printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Auftrag kann nicht ausgeführt werden: %1"
 
-#: printermanager.cpp:536
+#: printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Das Laden der Server-Einstellungen ist fehlgeschlagen: %1"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Server-Einstellungen nicht gespeichert: (%1): %2"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:561
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Schwerer Fehler beim Speichern der Server-Einstellungen: (%1): %2"
 
-#: printermanager.cpp:633
+#: printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Selbsttestseite drucken"
 
-#: printermanager.cpp:639
+#: printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Druckköpfe reinigen"
@@ -401,31 +401,31 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Benutzer dürfen alle Druckaufträge abbrechen (nicht nur die eigenen)"
 
-#: ui/InstallDialog.qml:14
+#: ui/InstallDialog.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
 msgstr "Hilfsprogramme zur Druckereinrichtung"
 
-#: ui/InstallDialog.qml:70
+#: ui/InstallDialog.qml:71
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
 msgstr "Die Installation wurde erfolgreich ausgeführt"
 
-#: ui/InstallDialog.qml:72
+#: ui/InstallDialog.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
 msgstr "Installation fehlgeschlagen"
 
-#: ui/InstallDialog.qml:74
+#: ui/InstallDialog.qml:75
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
 msgstr "Wird installiert …"
 
-#: ui/InstallDialog.qml:90
+#: ui/InstallDialog.qml:91
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"

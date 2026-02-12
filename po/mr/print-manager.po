@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2013-03-15 15:30+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -215,27 +215,27 @@ msgstr "मूलभूत पर्याय निश्चित करा"
 msgid "Query Printer for Default Options"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:104
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
 msgid "Add a new printer"
 msgstr "नवीन छपाईयंत्र जोडा"
 
-#: src/kcm/printermanager.cpp:108
+#: src/kcm/printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
 msgid "Add a new printer group"
 msgstr "नवीन छपाईयंत्र जोडा"
 
-#: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
+#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
 #, fuzzy, kde-format
 #| msgid "Configure printer"
 msgid "Configure a printer"
 msgstr "छपाईयंत्र संयोजीत करा"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -243,7 +243,7 @@ msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी"
 
-#: src/kcm/printermanager.cpp:310
+#: src/kcm/printermanager.cpp:291
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer"
@@ -251,32 +251,32 @@ msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी"
 
-#: src/kcm/printermanager.cpp:435
+#: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:462
+#: src/kcm/printermanager.cpp:443
 #, fuzzy, kde-format
 #| msgid "Driver:"
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "ड्राइव्हर :"
 
-#: src/kcm/printermanager.cpp:465
+#: src/kcm/printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:484
+#: src/kcm/printermanager.cpp:465
 #, fuzzy, kde-format
 #| msgid "Failed to release '%1'"
 msgid "Failed to perform request: %1"
 msgstr "'%1' हे सोडण्यास अपयश"
 
-#: src/kcm/printermanager.cpp:536
+#: src/kcm/printermanager.cpp:517
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer: '%1'"
@@ -284,13 +284,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
 
-#: src/kcm/printermanager.cpp:573
+#: src/kcm/printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:580
+#: src/kcm/printermanager.cpp:561
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer: '%1'"
@@ -298,12 +298,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
 
-#: src/kcm/printermanager.cpp:633
+#: src/kcm/printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "स्व-चाचणी पान छापा"
 
-#: src/kcm/printermanager.cpp:639
+#: src/kcm/printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr ""

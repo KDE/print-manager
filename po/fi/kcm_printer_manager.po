@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2026-01-05 18:09+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -19,80 +19,80 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: printermanager.cpp:106
+#: printermanager.cpp:104
 #, kde-format
 msgid "Add a new printer"
 msgstr "Lisää uusi tulostin"
 
-#: printermanager.cpp:108
+#: printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Lisää uusi tulostinryhmä"
 
-#: printermanager.cpp:110 printermanager.cpp:112
+#: printermanager.cpp:108 printermanager.cpp:110
 #, kde-format
 msgid "Configure a printer"
 msgstr "Aseta tulostin"
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "Luokan määritys epäonnistui: "
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "Tulostimen määritys epäonnistui: "
 
-#: printermanager.cpp:435
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:462
+#: printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Ajuriton"
 
-#: printermanager.cpp:465
+#: printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD-tiedosto"
 
-#: printermanager.cpp:484
+#: printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "Pyynnön toteuttaminen epäonnistui: %1"
 
-#: printermanager.cpp:536
+#: printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Palvelinasetusten nouto epäonnistui: %1"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Palvelinasetuksia ei tallennettu: (%1): %2"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:561
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Vakavat palvelinasetusten talletusvirheet: (%1): %2"
 
-#: printermanager.cpp:633
+#: printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "Tulosta itsetestaussivu"
 
-#: printermanager.cpp:639
+#: printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "Puhdista tulostuspäät"
@@ -408,31 +408,31 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "Salli käyttäjien perua mikä tahansa työ (ei vain omiaan)"
 
-#: ui/InstallDialog.qml:14
+#: ui/InstallDialog.qml:15
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
 msgstr "Tulostinasetukset apuohjelmat"
 
-#: ui/InstallDialog.qml:70
+#: ui/InstallDialog.qml:71
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
 msgstr "Asennus on valmistunut onnistuneesti"
 
-#: ui/InstallDialog.qml:72
+#: ui/InstallDialog.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
 msgstr "Asennus epäonnistui"
 
-#: ui/InstallDialog.qml:74
+#: ui/InstallDialog.qml:75
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
 msgstr "Asennetaan…"
 
-#: ui/InstallDialog.qml:90
+#: ui/InstallDialog.qml:91
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"

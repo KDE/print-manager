@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-24 00:45+0000\n"
+"POT-Creation-Date: 2026-02-12 00:45+0000\n"
 "PO-Revision-Date: 2024-01-06 01:54+0900\n"
 "Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -18,44 +18,44 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 23.08.4\n"
 
-#: printermanager.cpp:106
+#: printermanager.cpp:104
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Printer"
 msgid "Add a new printer"
 msgstr "プリンタを追加"
 
-#: printermanager.cpp:108
+#: printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
 msgstr ""
 
-#: printermanager.cpp:110 printermanager.cpp:112
+#: printermanager.cpp:108 printermanager.cpp:110
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure Print Server"
 msgid "Configure a printer"
 msgstr "プリントサーバを設定"
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
 msgstr "クラスの設定に失敗しました:"
 
-#: printermanager.cpp:310
+#: printermanager.cpp:291
 #, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
 msgstr "プリンタの設定に失敗しました:"
 
-#: printermanager.cpp:435
+#: printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: printermanager.cpp:462
+#: printermanager.cpp:443
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Printer Driver (%1)"
@@ -63,7 +63,7 @@ msgctxt "@list:item"
 msgid "Driverless"
 msgstr "プリンタのドライバ (%1)"
 
-#: printermanager.cpp:465
+#: printermanager.cpp:446
 #, fuzzy, kde-format
 #| msgctxt "@option:radio"
 #| msgid "PPD file:"
@@ -71,18 +71,18 @@ msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD ファイル:"
 
-#: printermanager.cpp:484
+#: printermanager.cpp:465
 #, kde-format
 msgid "Failed to perform request: %1"
 msgstr "要求の実行に失敗しました: %1"
 
-#: printermanager.cpp:536
+#: printermanager.cpp:517
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "サーバ設定の取得に失敗しました: %1"
 
-#: printermanager.cpp:573
+#: printermanager.cpp:554
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -90,7 +90,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "サーバエラー: (%1): %2"
 
-#: printermanager.cpp:580
+#: printermanager.cpp:561
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"
@@ -98,12 +98,12 @@ msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "サーバ設定の取得に失敗しました: %1"
 
-#: printermanager.cpp:633
+#: printermanager.cpp:614
 #, kde-format
 msgid "Print Self-Test Page"
 msgstr "自己テストページを印刷"
 
-#: printermanager.cpp:639
+#: printermanager.cpp:620
 #, kde-format
 msgid "Clean Print Heads"
 msgstr "ヘッドクリーニング"
@@ -434,32 +434,32 @@ msgctxt "@option:check"
 msgid "Allow users to cancel any job (not just their own)"
 msgstr "ユーザにすべてのジョブのキャンセルを許可 (ユーザのキュー以外も)"
 
-#: ui/InstallDialog.qml:14
+#: ui/InstallDialog.qml:15
 #, fuzzy, kde-format
 #| msgid "Printer Groups"
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
 msgstr "プリンタのグループ"
 
-#: ui/InstallDialog.qml:70
+#: ui/InstallDialog.qml:71
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
 msgstr ""
 
-#: ui/InstallDialog.qml:72
+#: ui/InstallDialog.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
 msgstr ""
 
-#: ui/InstallDialog.qml:74
+#: ui/InstallDialog.qml:75
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
 msgstr ""
 
-#: ui/InstallDialog.qml:90
+#: ui/InstallDialog.qml:91
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"

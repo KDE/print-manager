@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:45+0000\n"
+"POT-Creation-Date: 2026-02-19 00:49+0000\n"
 "PO-Revision-Date: 2026-01-24 11:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -332,80 +332,83 @@ msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
 msgstr "افحص المستويات…"
 
-#: src/kded/NewPrinterNotification.cpp:63
-#, kde-format
-msgid "A New Printer was detected"
+#: src/kded/NewPrinterNotification.cpp:71
+#, fuzzy, kde-format
+#| msgid "A New Printer was detected"
+msgid "A new printer was detected"
 msgstr "اكتُشفت طابعة جديدة"
 
-#: src/kded/NewPrinterNotification.cpp:64
-#, kde-format
-msgid "Starting printer configuration"
-msgstr "يبدأ ضبط الطابعة"
+#: src/kded/NewPrinterNotification.cpp:72
+#, fuzzy, kde-format
+#| msgid "Configure a printer"
+msgctxt "@action:button"
+msgid "Configure new printer…"
+msgstr "اضبط طابعة…"
 
-#: src/kded/NewPrinterNotification.cpp:100
+#: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
 msgid "The New Printer was added"
 msgstr "أُضيفت طابعة جديدة"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:112
 #, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr "قد تكون الطابعة الجديدة بها مشكلة في المُشغل"
 
-#: src/kded/NewPrinterNotification.cpp:150
+#: src/kded/NewPrinterNotification.cpp:160
 #, kde-format
 msgid "Printer queue was not created"
 msgstr "لم ينشئ قائمة انتظار الطابعة"
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:162
 #, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr "لم يعثر على مشغّل طابعة ل‍ـ %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:164
 #, kde-format
 msgid "Printer driver not found for %1"
 msgstr "لم يعثر على مشغّل طابعة ل‍ـ %1 ."
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:166
 #, kde-format
 msgid "Printer driver not found for this printer"
 msgstr "لم يعثر على مشغّل لهذه الطّابعة."
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:168
 #, kde-format
 msgid "Add Printer…"
 msgstr "أضف طابعة…"
 
-#: src/kded/NewPrinterNotification.cpp:213
+#: src/kded/NewPrinterNotification.cpp:225
 #, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "أُضيفت '%1'، فضلًا تحقّق من مشغّلها"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:214
-#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:226
+#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "اضبط"
 
-#: src/kded/NewPrinterNotification.cpp:219
+#: src/kded/NewPrinterNotification.cpp:231
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "أُضيفت '%1'، وهي تستخدم المشغّل '%2'"
 
-#: src/kded/NewPrinterNotification.cpp:221
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:233
+#: src/kded/NewPrinterNotification.cpp:252
 #, kde-format
 msgid "Print test page"
 msgstr "اطبع صفحة اختبار"
 
-#: src/kded/NewPrinterNotification.cpp:226
+#: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
 msgid "Check driver"
 msgstr "تحقق من المشغل"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:250
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' جاهزة للطّباعة."
@@ -965,6 +968,9 @@ msgstr "المهام المكتملة"
 #, kde-format
 msgid "All Jobs"
 msgstr "كلّ المهامّ"
+
+#~ msgid "Starting printer configuration"
+#~ msgstr "يبدأ ضبط الطابعة"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid ""

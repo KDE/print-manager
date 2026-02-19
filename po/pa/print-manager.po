@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:45+0000\n"
+"POT-Creation-Date: 2026-02-19 00:49+0000\n"
 "PO-Revision-Date: 2024-01-01 08:45-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -334,90 +334,93 @@ msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:63
-#, kde-format
-msgid "A New Printer was detected"
+#: src/kded/NewPrinterNotification.cpp:71
+#, fuzzy, kde-format
+#| msgid "A New Printer was detected"
+msgid "A new printer was detected"
 msgstr "ਨਵਾਂ ਪਰਿੰਟਰ ਖੋਜਿਆ ਗਿਆ"
 
-#: src/kded/NewPrinterNotification.cpp:64
-#, kde-format
-msgid "Starting printer configuration"
-msgstr ""
+#: src/kded/NewPrinterNotification.cpp:72
+#, fuzzy, kde-format
+#| msgid "Configure Printer"
+msgctxt "@action:button"
+msgid "Configure new printer…"
+msgstr "ਪਰਿੰਟਰ ਦੀ ਸੰਰਚਨਾ ਕਰੋ"
 
-#: src/kded/NewPrinterNotification.cpp:100
+#: src/kded/NewPrinterNotification.cpp:110
 #, fuzzy, kde-format
 #| msgid "The New Printer was Added"
 msgid "The New Printer was added"
 msgstr "ਨਵਾਂ ਪਰਿੰਟਰ ਜੋੜਿਆ ਗਿਆ ਸੀ"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:112
 #, fuzzy, kde-format
 #| msgid "The New Printer is Missing Drivers"
 msgid "The New Printer might have a driver problem"
 msgstr "ਨਵੇਂ ਪਰਿੰਟਰ ਲਈ ਡਰਾਇਵਰ ਗੁੰਮ ਹਨ"
 
-#: src/kded/NewPrinterNotification.cpp:150
+#: src/kded/NewPrinterNotification.cpp:160
 #, fuzzy, kde-format
 #| msgid "A New Printer was detected"
 msgid "Printer queue was not created"
 msgstr "ਨਵਾਂ ਪਰਿੰਟਰ ਖੋਜਿਆ ਗਿਆ"
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:162
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1 %2."
 msgid "Printer driver not found for %1 %2"
 msgstr "%1 %2 ਲਈ ਪਰਿੰਟਰ ਡਰਾਇਵਰ ਨਹੀਂ ਹਨ।"
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:164
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1."
 msgid "Printer driver not found for %1"
 msgstr "%1 ਲਈ ਪਰਿੰਟਰ ਡਰਾਇਵਰ ਨਹੀਂ ਹਨ।"
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:166
 #, fuzzy, kde-format
 #| msgid "No driver for this printer."
 msgid "Printer driver not found for this printer"
 msgstr "ਇਸ ਪਰਿੰਟਰ ਲਈ ਕੋਈ ਡਰਾਇਵਰ ਨਹੀਂ ਹੈ।"
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:168
 #, fuzzy, kde-format
 #| msgid "Add Printer"
 msgid "Add Printer…"
 msgstr "ਪਰਿੰਟਰ ਸ਼ਾਮਿਲ"
 
-#: src/kded/NewPrinterNotification.cpp:213
+#: src/kded/NewPrinterNotification.cpp:225
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, please check its driver."
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1' ਨੂੰ ਜੋੜਿਆ ਗਿਆ ਹੈ, ਇਸ ਲਈ ਡਰਾਇਵਰ ਚੁਣੋ।"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:214
-#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:226
+#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "ਸੰਰਚਨਾ"
 
-#: src/kded/NewPrinterNotification.cpp:219
+#: src/kded/NewPrinterNotification.cpp:231
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, using the '%2' driver."
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "'%1' ਨੂੰ '%2' ਡਰਾਇਵਰ ਵਰਤ ਕੇ ਜੋੜਿਆ ਗਿਆ ਹੈ।"
 
-#: src/kded/NewPrinterNotification.cpp:221
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:233
+#: src/kded/NewPrinterNotification.cpp:252
 #, kde-format
 msgid "Print test page"
 msgstr "ਟੈਸਟ ਪੇਜ਼ ਪਰਿੰਟ ਕਰੋ"
 
-#: src/kded/NewPrinterNotification.cpp:226
+#: src/kded/NewPrinterNotification.cpp:238
 #, fuzzy, kde-format
 #| msgid "Choose &the driver"
 msgid "Check driver"
 msgstr "ਡਰਾਇਵਰ ਚੁਣੋ(&t)"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:250
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' ਹੁਣ ਪਰਿੰਟ ਕਰਨ ਲਈ ਤਿਆਰ ਹੈ।"

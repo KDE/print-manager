@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:45+0000\n"
+"POT-Creation-Date: 2026-02-19 00:49+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -329,90 +329,93 @@ msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:63
-#, kde-format
-msgid "A New Printer was detected"
+#: src/kded/NewPrinterNotification.cpp:71
+#, fuzzy, kde-format
+#| msgid "A New Printer was detected"
+msgid "A new printer was detected"
 msgstr "एक नया प्रिंटर पाया गया"
 
-#: src/kded/NewPrinterNotification.cpp:64
-#, kde-format
-msgid "Starting printer configuration"
-msgstr ""
+#: src/kded/NewPrinterNotification.cpp:72
+#, fuzzy, kde-format
+#| msgid "Configure Printer"
+msgctxt "@action:button"
+msgid "Configure new printer…"
+msgstr "प्रिंटर कॉन्फ़िगर करें"
 
-#: src/kded/NewPrinterNotification.cpp:100
+#: src/kded/NewPrinterNotification.cpp:110
 #, fuzzy, kde-format
 #| msgid "The New Printer was Added"
 msgid "The New Printer was added"
 msgstr "नया प्रिंटर जोड़ा गया"
 
-#: src/kded/NewPrinterNotification.cpp:102
+#: src/kded/NewPrinterNotification.cpp:112
 #, fuzzy, kde-format
 #| msgid "The New Printer is Missing Drivers"
 msgid "The New Printer might have a driver problem"
 msgstr "नये प्रिंटर में ड्राइवर गायब हैं"
 
-#: src/kded/NewPrinterNotification.cpp:150
+#: src/kded/NewPrinterNotification.cpp:160
 #, fuzzy, kde-format
 #| msgid "A New Printer was detected"
 msgid "Printer queue was not created"
 msgstr "एक नया प्रिंटर पाया गया"
 
-#: src/kded/NewPrinterNotification.cpp:152
+#: src/kded/NewPrinterNotification.cpp:162
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1 %2."
 msgid "Printer driver not found for %1 %2"
 msgstr "%1 %2 के लिए कोई प्रिंटर ड्राइवर नहीं है."
 
-#: src/kded/NewPrinterNotification.cpp:154
+#: src/kded/NewPrinterNotification.cpp:164
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1."
 msgid "Printer driver not found for %1"
 msgstr "%1 के लिए कोई प्रिंटर ड्राइवर नहीं है."
 
-#: src/kded/NewPrinterNotification.cpp:156
+#: src/kded/NewPrinterNotification.cpp:166
 #, fuzzy, kde-format
 #| msgid "No driver for this printer."
 msgid "Printer driver not found for this printer"
 msgstr "इस प्रिंटर के लिए कोई ड्राइवर नहीं है."
 
-#: src/kded/NewPrinterNotification.cpp:158
+#: src/kded/NewPrinterNotification.cpp:168
 #, fuzzy, kde-format
 #| msgid "Add Printer"
 msgid "Add Printer…"
 msgstr "प्रिंटर जोड़ें"
 
-#: src/kded/NewPrinterNotification.cpp:213
+#: src/kded/NewPrinterNotification.cpp:225
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, please check its driver."
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1' जोड़ दिया गया है, कृपया इसके ड्राइवर की जाँच करें."
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
-#: src/kded/NewPrinterNotification.cpp:214
-#: src/kded/NewPrinterNotification.cpp:245 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:226
+#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
 #, kde-format
 msgid "Configure"
 msgstr "कॉन्फ़िगर"
 
-#: src/kded/NewPrinterNotification.cpp:219
+#: src/kded/NewPrinterNotification.cpp:231
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, using the '%2' driver."
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "'%2' ड्राइवर का उपयोग करके '%1' को जोड़ा गया है।"
 
-#: src/kded/NewPrinterNotification.cpp:221
-#: src/kded/NewPrinterNotification.cpp:240
+#: src/kded/NewPrinterNotification.cpp:233
+#: src/kded/NewPrinterNotification.cpp:252
 #, kde-format
 msgid "Print test page"
 msgstr "परीक्षण पृष्ठ प्रिंट करें"
 
-#: src/kded/NewPrinterNotification.cpp:226
+#: src/kded/NewPrinterNotification.cpp:238
 #, fuzzy, kde-format
 #| msgid "Choose &the driver"
 msgid "Check driver"
 msgstr "ड्राइवर चुनें"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:250
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' मुद्रण के लिए तैयार है."

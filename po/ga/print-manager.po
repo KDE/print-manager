@@ -29,10 +29,9 @@ msgstr "kscanne@gmail.com"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Print settings"
+#, kde-format
 msgid "Media Settings"
-msgstr "Socruithe priontála"
+msgstr ""
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
@@ -53,10 +52,9 @@ msgid "Save"
 msgstr ""
 
 #: src/configure-printer/main.cpp:25
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgid "Configure Printer"
-msgstr "Cumraigh"
+msgstr ""
 
 #: src/configure-printer/main.cpp:27
 #, kde-format
@@ -64,10 +62,9 @@ msgid "ConfigurePrinter"
 msgstr ""
 
 #: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
-#, fuzzy, kde-format
-#| msgid "(C) 2010-2012 Daniel Nicoletti"
+#, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "© 2010-2012 Daniel Nicoletti"
+msgstr ""
 
 #: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
 #, kde-format
@@ -80,10 +77,9 @@ msgid "Port to Qt 6 / Plasma 6"
 msgstr ""
 
 #: src/configure-printer/main.cpp:39
-#, fuzzy, kde-format
-#| msgid "Printer Options"
+#, kde-format
 msgid "Printer to be configured"
-msgstr "Roghanna Printéara"
+msgstr ""
 
 #: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
@@ -211,28 +207,24 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, autoConfigurePB)
 #: src/configure-printer/PrinterOptions.ui:26
-#, fuzzy, kde-format
-#| msgid "Printer Options"
+#, kde-format
 msgid "Query Printer for Default Options"
-msgstr "Roghanna Printéara"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:106
-#, fuzzy, kde-format
-#| msgid "All Printers"
+#, kde-format
 msgid "Add a new printer"
-msgstr "Gach Printéir"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "All Printers"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Gach Printéir"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Cumraigh"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
@@ -241,11 +233,10 @@ msgid "Failed to configure class: "
 msgstr ""
 
 #: src/kcm/printermanager.cpp:310
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Cumraigh"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:435
 #, kde-format
@@ -254,11 +245,10 @@ msgid "IPP Everywhere™"
 msgstr ""
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Tiománaí:"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
@@ -356,10 +346,9 @@ msgid "The New Printer might have a driver problem"
 msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "Print queue is empty"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Tá an ciú priontála folamh"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
@@ -377,16 +366,14 @@ msgid "Printer driver not found for this printer"
 msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "All Printers"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Gach Printéir"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "Cuireadh '%1' leis, ag úsáid tiománaí '%2'."
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -396,10 +383,9 @@ msgid "Configure"
 msgstr "Cumraigh"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "Cuireadh '%1' leis, ag úsáid tiománaí '%2'."
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:221
 #: src/kded/NewPrinterNotification.cpp:240
@@ -537,30 +523,20 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
-"Bogearraí HPLIP ag tiomáint gléis facs, nó feidhmiúlacht facs de ghléas "
-"ilfheidhme."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"Bogearraí HPLIP ag tiomáint printéara, nó feidhmiúlacht phriontála de ghléas "
-"ilfheidhme."
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -821,10 +797,9 @@ msgid "Unknown - '%1'"
 msgstr ""
 
 #: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
-#, fuzzy, kde-format
-#| msgid "PrintQueue"
+#, kde-format
 msgid "Print Queue"
-msgstr "Ciú Priontála"
+msgstr ""
 
 #: src/printqueue/main.cpp:39
 #, kde-format
@@ -874,10 +849,9 @@ msgid "Move to"
 msgstr ""
 
 #: src/printqueue/PrintQueueUi.cpp:280
-#, fuzzy, kde-format
-#| msgid "Authenticated"
+#, kde-format
 msgid "Authenticate"
-msgstr "Fíordheimhnithe"
+msgstr ""
 
 #: src/printqueue/PrintQueueUi.cpp:395
 #, kde-format
@@ -885,9 +859,6 @@ msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: src/printqueue/PrintQueueUi.cpp:397
 #, kde-format
@@ -895,9 +866,6 @@ msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
 msgstr[0] ""
 msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
 
 #: src/printqueue/PrintQueueUi.cpp:400
 #, kde-format
@@ -937,10 +905,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
 #: src/printqueue/PrintQueueUi.ui:49
-#, fuzzy, kde-format
-#| msgid "Printer Options"
+#, kde-format
 msgid "Printer Icon"
-msgstr "Roghanna Printéara"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
 #: src/printqueue/PrintQueueUi.ui:233
@@ -974,189 +941,12 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:317
-#, fuzzy, kde-format
-#| msgid "Completed"
+#, kde-format
 msgid "Completed Jobs"
-msgstr "Críochnaithe"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:322
 #, kde-format
 msgid "All Jobs"
 msgstr ""
-
-#, fuzzy
-#~| msgid ""
-#~| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~| "function device."
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "HPLIP software driving a fax machine,\n"
-#~ "or the fax function of a multi-function device"
-#~ msgstr ""
-#~ "Bogearraí HPLIP ag tiomáint gléis facs, nó feidhmiúlacht facs de ghléas "
-#~ "ilfheidhme."
-
-#, fuzzy
-#~| msgid ""
-#~| "HPLIP software driving a printer, or the printer function of a multi-"
-#~| "function device."
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "HPLIP software driving a printer,\n"
-#~ "or the printer function of a multi-function device"
-#~ msgstr ""
-#~ "Bogearraí HPLIP ag tiomáint printéara, nó feidhmiúlacht phriontála de "
-#~ "ghléas ilfheidhme."
-
-#~ msgid "Address:"
-#~ msgstr "Seoladh:"
-
-#~ msgid "Queue:"
-#~ msgstr "Ciú:"
-
-#, fuzzy
-#~| msgid "Authenticated"
-#~ msgctxt "@title:group"
-#~ msgid "Authentication"
-#~ msgstr "Fíordheimhnithe"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Username:"
-#~ msgstr "Ainm Úsáideora:"
-
-#, fuzzy
-#~| msgid "Address:"
-#~ msgctxt "@label:textbox"
-#~ msgid "Address:"
-#~ msgstr "Seoladh:"
-
-#~ msgctxt "@label:spinbox"
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#, fuzzy
-#~| msgid "Connection:"
-#~ msgctxt "@label:textbox"
-#~ msgid "Connection:"
-#~ msgstr "Ceangail:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Name:"
-#~ msgstr "Ainm:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Description:"
-#~ msgstr "Cur Síos:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Location:"
-#~ msgstr "Suíomh:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Members:"
-#~ msgstr "Baill:"
-
-#~ msgid "A printer connected to the parallel port."
-#~ msgstr "Printéir ceangailte leis an bport comhuaineach."
-
-#~ msgid "A printer connected to a USB port."
-#~ msgstr "Printéir ceangailte le port USB."
-
-#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-#~ msgstr "Printéir logánta a bhraith HAL (Hardware Abstraction Layer)."
-
-#~ msgid "Connections"
-#~ msgstr "Ceangail"
-
-#~ msgid "Missing printer driver"
-#~ msgstr "Tiománaí printéara ar iarraidh"
-
-#~ msgid "Search"
-#~ msgstr "Cuardaigh"
-
-#, fuzzy
-#~| msgid "Print settings"
-#~ msgid "Printer Settings"
-#~ msgstr "Socruithe priontála"
-
-#, fuzzy
-#~| msgid "Description:"
-#~ msgid "&Description:"
-#~ msgstr "Cur Síos:"
-
-#, fuzzy
-#~| msgid "Location:"
-#~ msgid "&Location:"
-#~ msgstr "Suíomh:"
-
-#, fuzzy
-#~| msgid "Connection:"
-#~ msgid "Connec&tion:"
-#~ msgstr "Ceangail:"
-
-#~ msgid "Members"
-#~ msgstr "Baill"
-
-#~ msgid "Modify Printer"
-#~ msgstr "Athraigh Printéir"
-
-#~ msgid "Printer Options"
-#~ msgstr "Roghanna Printéara"
-
-#~ msgid "Name:"
-#~ msgstr "Ainm:"
-
-#, fuzzy
-#~| msgid "Printer Options"
-#~ msgctxt "@title"
-#~ msgid "Printer name or description"
-#~ msgstr "Roghanna Printéara"
-
-#~ msgid "Current status"
-#~ msgstr "Stádas reatha"
-
-#, fuzzy
-#~| msgid "All printers"
-#~ msgctxt "@option:check"
-#~ msgid "Default printer"
-#~ msgstr "Gach printéir"
-
-#~ msgctxt "@label location of printer"
-#~ msgid "Location:"
-#~ msgstr "Suíomh:"
-
-#, fuzzy
-#~| msgid "PrintQueue"
-#~ msgctxt "@action:button"
-#~ msgid "Open Print Queue"
-#~ msgstr "Ciú Priontála"
-
-#~ msgid "Print Test Page"
-#~ msgstr "Priontáil Leathanach Tástála"
-
-#, fuzzy
-#~| msgid "Print Test Page"
-#~ msgid "Print Self Test Page"
-#~ msgstr "Priontáil Leathanach Tástála"
-
-#~ msgid "Remove Printer"
-#~ msgstr "Bain Printéir"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Share printers connected to this system"
-#~ msgstr "Comhroinn printéir ceangailte leis an gcóras seo"
-
-#~ msgid "TextLabel"
-#~ msgstr "Lipéad"
-
-#~ msgid "Daniel Nicoletti"
-#~ msgstr "Daniel Nicoletti"
-
-#, fuzzy
-#~| msgid "Completed"
-#~ msgid "Completed jobs only"
-#~ msgstr "Críochnaithe"
-
-#~ msgid "All printers"
-#~ msgstr "Gach printéir"

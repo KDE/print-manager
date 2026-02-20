@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2021-11-11 21:44+0100\n"
 "Last-Translator: Edward Wornar <edi.werner@gmx.de>\n"
 "Language-Team: Upper Sorbian <kde-i18n-doc@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3;\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
 msgstr "Ćišćaki"
 
@@ -27,7 +27,7 @@ msgstr "Ćišćaki"
 msgid "Printer Groups"
 msgstr "Ćišćaki"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
 msgid "No printers have been configured or discovered"
 msgstr "Žane ćišćaki připrawjene abo wotkryte"
 
@@ -35,7 +35,7 @@ msgstr "Žane ćišćaki připrawjene abo wotkryte"
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/main.qml:54
+#: src/plasmoid/main.qml:53
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Na ćišć čaka %1 nadawk"
@@ -43,21 +43,21 @@ msgstr[1] "Na ćišć čakatej %1 nadawkaj"
 msgstr[2] "Na ćišć čakaja %1 nadawki"
 msgstr[3] "Na ćišć čaka %1 nadawkow"
 
-#: src/plasmoid/main.qml:63
+#: src/plasmoid/main.qml:62
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Ćišću %1 na %2"
 
-#: src/plasmoid/main.qml:65
+#: src/plasmoid/main.qml:64
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Ćišću z %1"
 
-#: src/plasmoid/main.qml:68
+#: src/plasmoid/main.qml:67
 msgid "Print queue is empty"
 msgstr "Ćišćenska čakarnja je prózdna"
 
-#: src/plasmoid/main.qml:100
+#: src/plasmoid/main.qml:99
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "&Configure Printers…"

@@ -8,26 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
-"PO-Revision-Date: 2026-01-20 11:10+0300\n"
-"Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"PO-Revision-Date: 2026-02-19 15:36+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Volkan Gezer, Emir SARI"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "volkangezer@gmail.com, emir_sari@icloud.com"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -65,17 +55,17 @@ msgstr "Yazıcıyı Yapılandır"
 msgid "ConfigurePrinter"
 msgstr "Yazıcı Yapılandır"
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© 2010–2018 Daniel Nicoletti"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Qt 5/Plasma 5 geçişi"
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "Qt 6/Plasma 6 geçişi"
@@ -204,7 +194,7 @@ msgstr "Bu kullanıcıların &yazdırmalarını engelle "
 msgid "A&llow these users to print"
 msgstr "Bu ku&llanıcıların yazdırmalarına izin ver"
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr "Öntanımlı Seçenekleri Ayarla"
@@ -333,17 +323,15 @@ msgid "Check Levels…"
 msgstr "Düzeyleri Denetle…"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
-msgstr "Yeni Bir Yazıcı tespit edildi"
+msgstr "Yeni bir yazıcı algılandı"
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "Bir yazıcıyı yapılandır"
+msgstr "Yeni Yazıcı Yapılandır…"
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -385,9 +373,8 @@ msgstr "Yazıcı Ekle…"
 msgid "'%1' has been added, please check its driver"
 msgstr "“%1” eklendi, lütfen sürücüsünü denetleyin"
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
@@ -610,92 +597,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "Yerel Yazıcılar"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "Durum"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "Ad"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "Kullanıcı"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "Oluşturulma"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "Tamamlandı"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "Sayfa"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "İşlenen"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "Boyut"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "Durum İletisi"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "Yazıcı"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr "Sunucu Adından"
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
-msgstr "“%1”, “%2” konumuna taşınamadı"
+msgid "Processing\t%1 [%2]"
+msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "Başarısız"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "Bekleyen"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "Beklemede"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "Durduruldu"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "İptal edildi"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "İptal edildi"
@@ -810,160 +792,146 @@ msgstr "Bilinmiyor"
 msgid "Unknown - '%1'"
 msgstr "Bilinmiyor — “%1”"
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#: src/print-queue/main.cpp:38
 #, kde-format
-msgid "Print Queue"
-msgstr "Yazıcı Kuyruğu"
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
-#, kde-format
-msgid "Show printer queue(s)"
+#: src/print-queue/main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "Yazdırma kuyruğunu göster"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
-msgstr "Yazıcı hazır"
+msgid "© KDE Community"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
-msgstr "Yazıcıyı Duraklat"
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "Yazdırılıyor…"
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:190
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printing '%1'"
-msgstr "“%1” yazdırılıyor"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Volkan Gezer, Emir SARI"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr "Yazıcı duraklatıldı"
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "volkangezer@gmail.com, emir_sari@icloud.com"
 
-#: src/printqueue/PrintQueueUi.cpp:199
-#, kde-format
-msgid "Resume Printer"
-msgstr "Yazıcıyı Sürdür"
+#: src/print-queue/main.cpp:58
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgid "Show printer queue"
+msgstr "Yazdırma kuyruğunu göster"
 
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr "Yazıcı durumu bilinmiyor"
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr "Şuraya taşı"
-
-#: src/printqueue/PrintQueueUi.cpp:280
-#, kde-format
-msgid "Authenticate"
-msgstr "Yetkilendir"
-
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "Tüm Yazıcılar (%1 iş)"
-msgstr[1] "Tüm Yazıcılar (%1 iş)"
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 iş)"
-msgstr[1] "%2 (%1 iş)"
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "Tüm Yazıcılar"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr "“%1” iptal edilemedi"
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr "“%1” bekletilemedi"
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr "“%1” bırakılamadı"
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, kde-format
-msgid "Failed to reprint '%1'"
-msgstr "Yeniden yazdırılamadı: “%1”"
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b> konumundan yazdırmak için kimlik bilgilerinizi girin"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr "yazıcım (x iş)"
+#~ msgid "Failed to move '%1' to '%2'"
+#~ msgstr "“%1”, “%2” konumuna taşınamadı"
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr "Yazıcı Simgesi"
+#~ msgid "Failed"
+#~ msgstr "Başarısız"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "İptal"
+#~ msgid "Print Queue"
+#~ msgstr "Yazıcı Kuyruğu"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "Beklet"
+#~ msgid "Printer ready"
+#~ msgstr "Yazıcı hazır"
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "Sürdür"
+#~ msgid "Pause Printer"
+#~ msgstr "Yazıcıyı Duraklat"
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, kde-format
-msgid "Reprint"
-msgstr "Yeniden Yazdır"
+#~ msgid "Printing..."
+#~ msgstr "Yazdırılıyor…"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "Etkin İşler"
+#~ msgid "Printing '%1'"
+#~ msgstr "“%1” yazdırılıyor"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr "Tamamlanan İşler"
+#~ msgid "Printer paused"
+#~ msgstr "Yazıcı duraklatıldı"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr "Tüm İşler"
+#~ msgid "Resume Printer"
+#~ msgstr "Yazıcıyı Sürdür"
+
+#~ msgid "Printer state unknown"
+#~ msgstr "Yazıcı durumu bilinmiyor"
+
+#~ msgid "Move to"
+#~ msgstr "Şuraya taşı"
+
+#~ msgid "Authenticate"
+#~ msgstr "Yetkilendir"
+
+#~ msgid "All Printers (%1 Job)"
+#~ msgid_plural "All Printers (%1 Jobs)"
+#~ msgstr[0] "Tüm Yazıcılar (%1 iş)"
+#~ msgstr[1] "Tüm Yazıcılar (%1 iş)"
+
+#~ msgid "%2 (%1 Job)"
+#~ msgid_plural "%2 (%1 Jobs)"
+#~ msgstr[0] "%2 (%1 iş)"
+#~ msgstr[1] "%2 (%1 iş)"
+
+#~ msgid "All Printers"
+#~ msgstr "Tüm Yazıcılar"
+
+#~ msgid "Failed to cancel '%1'"
+#~ msgstr "“%1” iptal edilemedi"
+
+#~ msgid "Failed to hold '%1'"
+#~ msgstr "“%1” bekletilemedi"
+
+#~ msgid "Failed to release '%1'"
+#~ msgstr "“%1” bırakılamadı"
+
+#~ msgid "Failed to reprint '%1'"
+#~ msgstr "Yeniden yazdırılamadı: “%1”"
+
+#~ msgid "my printer (x jobs)"
+#~ msgstr "yazıcım (x iş)"
+
+#~ msgid "Printer Icon"
+#~ msgstr "Yazıcı Simgesi"
+
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
+#~ msgid "Hold"
+#~ msgstr "Beklet"
+
+#~ msgid "Resume"
+#~ msgstr "Sürdür"
+
+#~ msgid "Reprint"
+#~ msgstr "Yeniden Yazdır"
+
+#~ msgid "Active Jobs"
+#~ msgstr "Etkin İşler"
+
+#~ msgid "Completed Jobs"
+#~ msgstr "Tamamlanan İşler"
+
+#~ msgid "All Jobs"
+#~ msgstr "Tüm İşler"
 
 #~ msgid "Starting printer configuration"
 #~ msgstr "Yazıcı yapılandırması başlatılıyor"

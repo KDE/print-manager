@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
 msgstr "प्रिंटर"
 
@@ -25,7 +25,7 @@ msgstr "प्रिंटर"
 msgid "Printer Groups"
 msgstr "प्रिंटर समूह"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
 msgid "No printers have been configured or discovered"
 msgstr "कोई प्रिंटर कॉन्फ़िगर या खोजा नहीं गया है"
 
@@ -33,27 +33,27 @@ msgstr "कोई प्रिंटर कॉन्फ़िगर या ख�
 msgid "No matches"
 msgstr "कोई मेल नहीं"
 
-#: src/plasmoid/main.qml:54
+#: src/plasmoid/main.qml:53
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "कतार में %1 प्रिंट कार्य हैं"
 msgstr[1] "कतार में %1 प्रिंट कार्य हैं"
 
-#: src/plasmoid/main.qml:63
+#: src/plasmoid/main.qml:62
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 को %2 के साथ प्रिंट किया जा रहा है"
 
-#: src/plasmoid/main.qml:65
+#: src/plasmoid/main.qml:64
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 के साथ मुद्रण"
 
-#: src/plasmoid/main.qml:68
+#: src/plasmoid/main.qml:67
 msgid "Print queue is empty"
 msgstr "प्रिंट कतार रिक्त है"
 
-#: src/plasmoid/main.qml:100
+#: src/plasmoid/main.qml:99
 msgid "&Configure Printers…"
 msgstr "&प्रिंटर कॉन्फ़िगर करें…"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2013-03-15 15:30+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -16,16 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Lokalize 1.5\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "चेतन खोना"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "chetan@kompkin.com"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -63,18 +53,18 @@ msgstr "छपाईयंत्र संयोजीत करा"
 msgid "ConfigurePrinter"
 msgstr "छपाईयंत्र संयोजीत करा"
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "(C) 2010-2012 Daniel Nicoletti"
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2012 डेनियल निलोलेट्टी"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr ""
@@ -204,7 +194,7 @@ msgstr ""
 msgid "A&llow these users to print"
 msgstr ""
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr "मूलभूत पर्याय निश्चित करा"
@@ -400,9 +390,8 @@ msgstr "छपाईयंत्र जोडा"
 msgid "'%1' has been added, please check its driver"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "संयोजीत करा"
@@ -626,92 +615,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "स्थानिक छपाईयंत्रे"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "स्थिती"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "नाव"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "वापरकर्ता"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "तयार केले"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "पूर्ण झालेले"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "पाने"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "प्रक्रीया केलेले"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "आकार"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "स्थिती संदेश"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "छपाईयंत्र"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
+msgid "Processing\t%1 [%2]"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "अपयशी"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "अनिर्णायक"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "थांबवलेले"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "थांबले"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "रद्द केले"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "तोडले"
@@ -827,166 +811,149 @@ msgstr "अपरिचीत"
 msgid "Unknown - '%1'"
 msgstr "अपरिचीत - '%1'"
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
-#, fuzzy, kde-format
-#| msgid "PrintQueue"
-msgid "Print Queue"
-msgstr "छपाई रांग"
+#: src/print-queue/main.cpp:38
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
+#: src/print-queue/main.cpp:40
 #, fuzzy, kde-format
 #| msgid "Show printer queue"
-msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "छपाई रांग दर्शवा"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
-msgstr "छपाईयंत्र सज्ज आहे"
+msgid "© KDE Community"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
-msgstr "छपाईयंत्र स्तब्ध करा"
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "छपाई..."
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:190
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printing '%1'"
-msgstr "छपाई '%1'"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "चेतन खोना"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr "छपाईयंत्र स्तब्ध केले"
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "chetan@kompkin.com"
 
-#: src/printqueue/PrintQueueUi.cpp:199
-#, kde-format
-msgid "Resume Printer"
-msgstr "छपाईयंत्र पुन्हा सुरु करा"
-
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr "छपाईयंत्र स्थिती अपरिचीत"
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr "येथे हलवा"
-
-#: src/printqueue/PrintQueueUi.cpp:280
+#: src/print-queue/main.cpp:58
 #, fuzzy, kde-format
-#| msgid "Authenticated"
-msgid "Authenticate"
-msgstr "अधिप्रमाणीत"
+#| msgid "Show printer queue"
+msgid "Show printer queue"
+msgstr "छपाई रांग दर्शवा"
 
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "सर्व छपाईयंत्रे (%1 कार्य)"
-msgstr[1] "सर्व छपाईयंत्रे (%1 कार्ये)"
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 कार्य)"
-msgstr[1] "%2 (%1 कार्ये)"
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "सर्व छपाईयंत्रे"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr "'%1' हे रद्द करण्यास अपयश"
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr "'%1' हे थांबवण्यास अपयश"
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr "'%1' हे सोडण्यास अपयश"
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer: '%1'"
-msgid "Failed to reprint '%1'"
-msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr ""
+#~ msgid "Failed"
+#~ msgstr "अपयशी"
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr "छपाईयंत्र चिन्ह"
+#, fuzzy
+#~| msgid "PrintQueue"
+#~ msgid "Print Queue"
+#~ msgstr "छपाई रांग"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "रद्द करा"
+#~ msgid "Printer ready"
+#~ msgstr "छपाईयंत्र सज्ज आहे"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "काम थांबवा"
+#~ msgid "Pause Printer"
+#~ msgstr "छपाईयंत्र स्तब्ध करा"
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "पुन्हा सुरु करा"
+#~ msgid "Printing..."
+#~ msgstr "छपाई..."
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, fuzzy, kde-format
-#| msgid "Remove printer"
-msgid "Reprint"
-msgstr "छपाईयंत्र काढून टाका"
+#~ msgid "Printing '%1'"
+#~ msgstr "छपाई '%1'"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "सक्रिय कार्ये"
+#~ msgid "Printer paused"
+#~ msgstr "छपाईयंत्र स्तब्ध केले"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr "पूर्ण कार्ये"
+#~ msgid "Resume Printer"
+#~ msgstr "छपाईयंत्र पुन्हा सुरु करा"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr "सर्व कार्ये"
+#~ msgid "Printer state unknown"
+#~ msgstr "छपाईयंत्र स्थिती अपरिचीत"
+
+#~ msgid "Move to"
+#~ msgstr "येथे हलवा"
+
+#, fuzzy
+#~| msgid "Authenticated"
+#~ msgid "Authenticate"
+#~ msgstr "अधिप्रमाणीत"
+
+#~ msgid "All Printers (%1 Job)"
+#~ msgid_plural "All Printers (%1 Jobs)"
+#~ msgstr[0] "सर्व छपाईयंत्रे (%1 कार्य)"
+#~ msgstr[1] "सर्व छपाईयंत्रे (%1 कार्ये)"
+
+#~ msgid "%2 (%1 Job)"
+#~ msgid_plural "%2 (%1 Jobs)"
+#~ msgstr[0] "%2 (%1 कार्य)"
+#~ msgstr[1] "%2 (%1 कार्ये)"
+
+#~ msgid "All Printers"
+#~ msgstr "सर्व छपाईयंत्रे"
+
+#~ msgid "Failed to cancel '%1'"
+#~ msgstr "'%1' हे रद्द करण्यास अपयश"
+
+#~ msgid "Failed to hold '%1'"
+#~ msgstr "'%1' हे थांबवण्यास अपयश"
+
+#~ msgid "Failed to release '%1'"
+#~ msgstr "'%1' हे सोडण्यास अपयश"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid "Failed to configure printer: '%1'"
+#~ msgid "Failed to reprint '%1'"
+#~ msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
+
+#~ msgid "Printer Icon"
+#~ msgstr "छपाईयंत्र चिन्ह"
+
+#~ msgid "Cancel"
+#~ msgstr "रद्द करा"
+
+#~ msgid "Hold"
+#~ msgstr "काम थांबवा"
+
+#~ msgid "Resume"
+#~ msgstr "पुन्हा सुरु करा"
+
+#, fuzzy
+#~| msgid "Remove printer"
+#~ msgid "Reprint"
+#~ msgstr "छपाईयंत्र काढून टाका"
+
+#~ msgid "Active Jobs"
+#~ msgstr "सक्रिय कार्ये"
+
+#~ msgid "Completed Jobs"
+#~ msgstr "पूर्ण कार्ये"
+
+#~ msgid "All Jobs"
+#~ msgstr "सर्व कार्ये"
 
 #~ msgctxt "@title:window"
 #~ msgid "Add a New Printer"

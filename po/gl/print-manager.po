@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2025-05-23 10:18+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -18,16 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.1\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Marce Villarino, Adrián Chaves (Gallaecio)"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "mvillarino@kde-espana.es, adrian@chaves.gal"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -65,17 +55,17 @@ msgstr "Configurar a impresora"
 msgid "ConfigurePrinter"
 msgstr "Configurar a impresora"
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© 2010-2018 Daniel Nicoletti"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Adaptación a Qt 5 e Plasma 5."
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "Adaptación a Qt 6 e Plasma 6."
@@ -205,7 +195,7 @@ msgstr "&Impedirlle imprimir a estes usuarios: "
 msgid "A&llow these users to print"
 msgstr "&Permitirlle imprimir a estes usuarios:"
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr "Definir as opcións predeterminadas"
@@ -386,9 +376,8 @@ msgstr "Engadir unha impresora…"
 msgid "'%1' has been added, please check its driver"
 msgstr "Engadiuse «%1», comprobe o seu controlador."
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "Configurar"
@@ -619,92 +608,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "Impresoras locais"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "Estado"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "Nome"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "Usuario"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "Creación"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "Completada"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "Páxinas"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "Procesada"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "Tamaño"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "Mensaxe de estado"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "Impresora"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr "Desde o servidor"
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
-msgstr "Non foi posíbel mover «%1» a «%2»."
+msgid "Processing\t%1 [%2]"
+msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "Fallou"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "Pendente"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "En espera"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "Detido"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "Cancelado"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "Interrompido"
@@ -819,160 +803,146 @@ msgstr "Descoñecido"
 msgid "Unknown - '%1'"
 msgstr "Descoñecido — «%1»"
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#: src/print-queue/main.cpp:38
 #, kde-format
-msgid "Print Queue"
-msgstr "Cola de impresión"
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
-#, kde-format
-msgid "Show printer queue(s)"
+#: src/print-queue/main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "Amosar as colas de impresión"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
-msgstr "A impresora está lista."
+msgid "© KDE Community"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
-msgstr "Poñer en pausa a impresora"
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "Imprimindo…"
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:190
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printing '%1'"
-msgstr "Imprimindo «%1»…"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Marce Villarino, Adrián Chaves (Gallaecio)"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr "Púxose en pausa a impresora."
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mvillarino@kde-espana.es, adrian@chaves.gal"
 
-#: src/printqueue/PrintQueueUi.cpp:199
-#, kde-format
-msgid "Resume Printer"
-msgstr "Continuar a impresión"
+#: src/print-queue/main.cpp:58
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgid "Show printer queue"
+msgstr "Amosar as colas de impresión"
 
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr "Descoñécese o estado da impresora."
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr "Mover a"
-
-#: src/printqueue/PrintQueueUi.cpp:280
-#, kde-format
-msgid "Authenticate"
-msgstr "Autenticar"
-
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "Todas as impresoras (un traballo)"
-msgstr[1] "Todas as impresoras (%1 traballos)"
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (un traballo)"
-msgstr[1] "%2 (%1 traballos)"
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "Todas as impresoras"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr "Non foi posíbel cancelar «%1»."
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr "Non se puido pór en espera «%1»."
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr "Non foi posíbel retomar os traballos en «%1»."
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, kde-format
-msgid "Failed to reprint '%1'"
-msgstr "Non foi posíbel volver imprimir «%1»."
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Escriba as credenciais para imprimir desde <b>%1</b>"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr "impresora (x traballos)"
+#~ msgid "Failed to move '%1' to '%2'"
+#~ msgstr "Non foi posíbel mover «%1» a «%2»."
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr "Icona da impresora"
+#~ msgid "Failed"
+#~ msgstr "Fallou"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "Cancelar"
+#~ msgid "Print Queue"
+#~ msgstr "Cola de impresión"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "Pór en espera"
+#~ msgid "Printer ready"
+#~ msgstr "A impresora está lista."
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "Retomar os traballos"
+#~ msgid "Pause Printer"
+#~ msgstr "Poñer en pausa a impresora"
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, kde-format
-msgid "Reprint"
-msgstr "Volver imprimir"
+#~ msgid "Printing..."
+#~ msgstr "Imprimindo…"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "Traballos activos"
+#~ msgid "Printing '%1'"
+#~ msgstr "Imprimindo «%1»…"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr "Traballos completados"
+#~ msgid "Printer paused"
+#~ msgstr "Púxose en pausa a impresora."
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr "Todos os traballos"
+#~ msgid "Resume Printer"
+#~ msgstr "Continuar a impresión"
+
+#~ msgid "Printer state unknown"
+#~ msgstr "Descoñécese o estado da impresora."
+
+#~ msgid "Move to"
+#~ msgstr "Mover a"
+
+#~ msgid "Authenticate"
+#~ msgstr "Autenticar"
+
+#~ msgid "All Printers (%1 Job)"
+#~ msgid_plural "All Printers (%1 Jobs)"
+#~ msgstr[0] "Todas as impresoras (un traballo)"
+#~ msgstr[1] "Todas as impresoras (%1 traballos)"
+
+#~ msgid "%2 (%1 Job)"
+#~ msgid_plural "%2 (%1 Jobs)"
+#~ msgstr[0] "%2 (un traballo)"
+#~ msgstr[1] "%2 (%1 traballos)"
+
+#~ msgid "All Printers"
+#~ msgstr "Todas as impresoras"
+
+#~ msgid "Failed to cancel '%1'"
+#~ msgstr "Non foi posíbel cancelar «%1»."
+
+#~ msgid "Failed to hold '%1'"
+#~ msgstr "Non se puido pór en espera «%1»."
+
+#~ msgid "Failed to release '%1'"
+#~ msgstr "Non foi posíbel retomar os traballos en «%1»."
+
+#~ msgid "Failed to reprint '%1'"
+#~ msgstr "Non foi posíbel volver imprimir «%1»."
+
+#~ msgid "my printer (x jobs)"
+#~ msgstr "impresora (x traballos)"
+
+#~ msgid "Printer Icon"
+#~ msgstr "Icona da impresora"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Hold"
+#~ msgstr "Pór en espera"
+
+#~ msgid "Resume"
+#~ msgstr "Retomar os traballos"
+
+#~ msgid "Reprint"
+#~ msgstr "Volver imprimir"
+
+#~ msgid "Active Jobs"
+#~ msgstr "Traballos activos"
+
+#~ msgid "Completed Jobs"
+#~ msgstr "Traballos completados"
+
+#~ msgid "All Jobs"
+#~ msgstr "Todos os traballos"
 
 #~ msgid "Starting printer configuration"
 #~ msgstr "Configuración inicial de impresora"

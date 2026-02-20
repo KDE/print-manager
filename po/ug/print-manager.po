@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2013-09-08 07:05+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -16,16 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -63,18 +53,18 @@ msgstr "سەپلە"
 msgid "ConfigurePrinter"
 msgstr ""
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "Daniel Nicoletti"
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "Daniel Nicoletti"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr ""
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr ""
@@ -203,7 +193,7 @@ msgstr ""
 msgid "A&llow these users to print"
 msgstr ""
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr ""
@@ -389,9 +379,8 @@ msgstr "پرىنتېر قوشۇش"
 msgid "'%1' has been added, please check its driver"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "سەپلە"
@@ -624,92 +613,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "يەرلىك پرىنتېرلار"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "ھالىتى"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "ئاتى"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "ئىشلەتكۈچى"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "قۇرغان ۋاقتى"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "تاماملاندى"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "بەتلەر"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "چوڭلۇقى"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "پرىنتېر"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
+msgid "Processing\t%1 [%2]"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "مەغلۇپ بولدى"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "كۈتۈۋاتىدۇ"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "كۈتۈپ تۇر"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "توختىدى"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "قالدۇرۇۋېتىلدى"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "توختىتىلدى"
@@ -824,161 +808,89 @@ msgstr "نامەلۇم"
 msgid "Unknown - '%1'"
 msgstr ""
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
-#, fuzzy, kde-format
-#| msgid "Printer"
-msgid "Print Queue"
-msgstr "پرىنتېر"
+#: src/print-queue/main.cpp:38
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
+#: src/print-queue/main.cpp:40
 #, fuzzy, kde-format
 #| msgid "Stop printer"
-msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "پرىنتېرنى توختات"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
+msgid "© KDE Community"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
+msgctxt "@info:credit"
+msgid "Mike Noe"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "بېسىۋاتىدۇ…"
-
-#: src/printqueue/PrintQueueUi.cpp:190
-#, kde-format
-msgid "Printing '%1'"
+msgctxt "@info:credit"
+msgid "Developer"
 msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr ""
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
 
-#: src/printqueue/PrintQueueUi.cpp:199
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Resume Printer"
-msgstr ""
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
 
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr ""
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr ""
-
-#: src/printqueue/PrintQueueUi.cpp:280
+#: src/print-queue/main.cpp:58
 #, fuzzy, kde-format
-#| msgid "Authenticated"
-msgid "Authenticate"
-msgstr "سالاھىيىتى دەلىللەنگەن"
+#| msgid "Stop printer"
+msgid "Show printer queue"
+msgstr "پرىنتېرنى توختات"
 
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] ""
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] ""
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "بارلىق پرىنتېرلار"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr ""
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr ""
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr ""
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, kde-format
-msgid "Failed to reprint '%1'"
-msgstr ""
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr ""
+#~ msgid "Failed"
+#~ msgstr "مەغلۇپ بولدى"
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr ""
+#, fuzzy
+#~| msgid "Printer"
+#~ msgid "Print Queue"
+#~ msgstr "پرىنتېر"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "ئەمەلدىن قالدۇر"
+#~ msgid "Printing..."
+#~ msgstr "بېسىۋاتىدۇ…"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "كۈتۈش"
+#, fuzzy
+#~| msgid "Authenticated"
+#~ msgid "Authenticate"
+#~ msgstr "سالاھىيىتى دەلىللەنگەن"
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "داۋاملاشتۇر"
+#~ msgid "All Printers"
+#~ msgstr "بارلىق پرىنتېرلار"
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, kde-format
-msgid "Reprint"
-msgstr ""
+#~ msgid "Cancel"
+#~ msgstr "ئەمەلدىن قالدۇر"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "ئاكتىپ خىزمەتلەر"
+#~ msgid "Hold"
+#~ msgstr "كۈتۈش"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr ""
+#~ msgid "Resume"
+#~ msgstr "داۋاملاشتۇر"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr ""
+#~ msgid "Active Jobs"
+#~ msgstr "ئاكتىپ خىزمەتلەر"
 
 #, fuzzy
 #~| msgid ""

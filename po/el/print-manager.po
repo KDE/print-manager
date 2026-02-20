@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2024-09-19 16:37+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -20,16 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 24.08.1\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Πέτρος Βιδάλης, Αντώνης Γέραλης"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "pvidalis@gmail.com, capoiosct@gmail.com"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -68,17 +58,17 @@ msgstr "Διαμόρφωση εκτυπωτή"
 msgid "ConfigurePrinter"
 msgstr "ConfigurePrinter"
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Μεταφορά σε Qt 5 / Plasma 5"
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, fuzzy, kde-format
 #| msgid "Port to Qt 5 / Plasma 5"
 msgid "Port to Qt 6 / Plasma 6"
@@ -208,7 +198,7 @@ msgstr "&Να μην επιτρέπεται στους χρήστες αυτού
 msgid "A&llow these users to print"
 msgstr "Να &επιτρέπεται στους χρήστες αυτούς να εκτυπώνουν"
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr "Ορισμός προκαθορισμένων επιλογών"
@@ -401,9 +391,8 @@ msgstr "Προσθήκη εκτυπωτή"
 msgid "'%1' has been added, please check its driver"
 msgstr "Ο εκτυπωτής '%1' προστέθηκε, παρακαλώ ελέγξτε τον οδηγό του."
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "Διαμόρφωση"
@@ -635,92 +624,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "Τοπικοί εκτυπωτές"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "Όνομα"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "Χρήστης"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "Δημιουργήθηκε"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "Ολοκληρώθηκε"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "Σελίδες"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "Επεξεργάστηκε"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "Μήνυμα κατάστασης"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "Εκτυπωτής"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr "Από όνομα υπολογιστή"
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
-msgstr "Απέτυχε η μετακίνηση της εργασίας '%1' στο '%2'"
+msgid "Processing\t%1 [%2]"
+msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "Απέτυχε"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "Σε εκκρεμότητα"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "Σε αναμονή"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "Σταμάτησε"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "Ακυρώθηκε"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "Εγκαταλείφθηκε"
@@ -835,160 +819,146 @@ msgstr "Άγνωστη"
 msgid "Unknown - '%1'"
 msgstr "Άγνωστη - '%1'"
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#: src/print-queue/main.cpp:38
 #, kde-format
-msgid "Print Queue"
-msgstr "Λίστα αναμονής εκτύπωσης"
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
-#, kde-format
-msgid "Show printer queue(s)"
+#: src/print-queue/main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "Εμφάνιση λίστας (λιστών) αναμονής εκτυπωτή"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
-msgstr "Εκτυπωτής έτοιμος"
+msgid "© KDE Community"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
-msgstr "Παύση εκτυπωτή"
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "Εκτύπωση..."
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:190
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printing '%1'"
-msgstr "Εκτύπωση της εργασίας '%1'"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Πέτρος Βιδάλης, Αντώνης Γέραλης"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr "Εκτυπωτής σε παύση"
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "pvidalis@gmail.com, capoiosct@gmail.com"
 
-#: src/printqueue/PrintQueueUi.cpp:199
-#, kde-format
-msgid "Resume Printer"
-msgstr "Συνέχεια εκτυπωτή"
+#: src/print-queue/main.cpp:58
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgid "Show printer queue"
+msgstr "Εμφάνιση λίστας (λιστών) αναμονής εκτυπωτή"
 
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr "Άγνωστη κατάσταση εκτυπωτή"
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr "Μετακίνηση στο"
-
-#: src/printqueue/PrintQueueUi.cpp:280
-#, kde-format
-msgid "Authenticate"
-msgstr "Ταυτοποίηση"
-
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "Όλοι οι εκτυπωτές (%1 εργασία)"
-msgstr[1] "Όλοι οι εκτυπωτές (%1 εργασίες)"
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 εργασία)"
-msgstr[1] "%2 (%1 εργασίες)"
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "Όλοι οι εκτυπωτές"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr "Απέτυχε η ακύρωση της εργασίας '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr "Απέτυχε η αναμονή της εργασίας '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr "Απέτυχε η απελευθέρωση της εργασίας '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, kde-format
-msgid "Failed to reprint '%1'"
-msgstr "Απέτυχε η επανεκτύπωση της εργασίας '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Δώστε τα διαπιστευτήρια για να γίνει εκτύπωση από το <b>%1</b>"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr "ο εκτυπωτής μου (x εργασίες)"
+#~ msgid "Failed to move '%1' to '%2'"
+#~ msgstr "Απέτυχε η μετακίνηση της εργασίας '%1' στο '%2'"
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr "Εικονίδιο εκτυπωτή"
+#~ msgid "Failed"
+#~ msgstr "Απέτυχε"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "Ακύρωση"
+#~ msgid "Print Queue"
+#~ msgstr "Λίστα αναμονής εκτύπωσης"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "Αναμονή"
+#~ msgid "Printer ready"
+#~ msgstr "Εκτυπωτής έτοιμος"
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "Συνέχεια"
+#~ msgid "Pause Printer"
+#~ msgstr "Παύση εκτυπωτή"
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, kde-format
-msgid "Reprint"
-msgstr "Επανεκτύπωση"
+#~ msgid "Printing..."
+#~ msgstr "Εκτύπωση..."
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "Ενεργές εργασίες"
+#~ msgid "Printing '%1'"
+#~ msgstr "Εκτύπωση της εργασίας '%1'"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr "Ολοκληρωμένες εργασίες"
+#~ msgid "Printer paused"
+#~ msgstr "Εκτυπωτής σε παύση"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr "Όλες οι εργασίες"
+#~ msgid "Resume Printer"
+#~ msgstr "Συνέχεια εκτυπωτή"
+
+#~ msgid "Printer state unknown"
+#~ msgstr "Άγνωστη κατάσταση εκτυπωτή"
+
+#~ msgid "Move to"
+#~ msgstr "Μετακίνηση στο"
+
+#~ msgid "Authenticate"
+#~ msgstr "Ταυτοποίηση"
+
+#~ msgid "All Printers (%1 Job)"
+#~ msgid_plural "All Printers (%1 Jobs)"
+#~ msgstr[0] "Όλοι οι εκτυπωτές (%1 εργασία)"
+#~ msgstr[1] "Όλοι οι εκτυπωτές (%1 εργασίες)"
+
+#~ msgid "%2 (%1 Job)"
+#~ msgid_plural "%2 (%1 Jobs)"
+#~ msgstr[0] "%2 (%1 εργασία)"
+#~ msgstr[1] "%2 (%1 εργασίες)"
+
+#~ msgid "All Printers"
+#~ msgstr "Όλοι οι εκτυπωτές"
+
+#~ msgid "Failed to cancel '%1'"
+#~ msgstr "Απέτυχε η ακύρωση της εργασίας '%1'"
+
+#~ msgid "Failed to hold '%1'"
+#~ msgstr "Απέτυχε η αναμονή της εργασίας '%1'"
+
+#~ msgid "Failed to release '%1'"
+#~ msgstr "Απέτυχε η απελευθέρωση της εργασίας '%1'"
+
+#~ msgid "Failed to reprint '%1'"
+#~ msgstr "Απέτυχε η επανεκτύπωση της εργασίας '%1'"
+
+#~ msgid "my printer (x jobs)"
+#~ msgstr "ο εκτυπωτής μου (x εργασίες)"
+
+#~ msgid "Printer Icon"
+#~ msgstr "Εικονίδιο εκτυπωτή"
+
+#~ msgid "Cancel"
+#~ msgstr "Ακύρωση"
+
+#~ msgid "Hold"
+#~ msgstr "Αναμονή"
+
+#~ msgid "Resume"
+#~ msgstr "Συνέχεια"
+
+#~ msgid "Reprint"
+#~ msgstr "Επανεκτύπωση"
+
+#~ msgid "Active Jobs"
+#~ msgstr "Ενεργές εργασίες"
+
+#~ msgid "Completed Jobs"
+#~ msgstr "Ολοκληρωμένες εργασίες"
+
+#~ msgid "All Jobs"
+#~ msgstr "Όλες οι εργασίες"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid ""

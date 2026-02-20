@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
-"PO-Revision-Date: 2026-01-20 05:46+0100\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"PO-Revision-Date: 2026-02-19 03:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -17,16 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.8\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Temuri Doghonadze"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "Temuri.doghonadze@gmail.com"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -64,17 +54,17 @@ msgstr "პრინტერის მორგება"
 msgid "ConfigurePrinter"
 msgstr "პრინტერის მორგება"
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 დენიელ ნიკოლეტი"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Qt 5 / Plasma 5-ზე გადმოტანა"
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "Qt 6 / Plasma 6-ზე გადმოტანა"
@@ -203,7 +193,7 @@ msgstr "&ამ მომხმარებლისთვის ბეჭდვ
 msgid "A&llow these users to print"
 msgstr "&ამ მომხმარებლებისთვის ბეჭდვის ნების დართვა"
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr "ნაგულისხმევი მნიშვნელობების დაყენება"
@@ -331,17 +321,15 @@ msgid "Check Levels…"
 msgstr "დონის შემოწმება…"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
-msgstr "ნაპოვნია ახალი პრინტერი"
+msgstr "აღმოჩენილია ახალი პრინტერი"
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "პრინტერის მორგება"
+msgstr "ახალი პრინტერის მორგება…"
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -383,9 +371,8 @@ msgstr "პრინტერის დამატება…"
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1' დაემატა. შეამოწმეთ მისი დრაივერი"
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
@@ -608,92 +595,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "ლოკალური პრინტერები"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "სტატუსი"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "სახელი"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "User"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "შექმნილია"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "დასრულებულია"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "გვერდები"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "დამუშავებულია"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "ზომა"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "სტატუსის შეტყობინება"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "პრინტერი"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr "ჰოსტის სახელიდან"
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
-msgstr "%1-ის %2-ზე გადატანის შეცდომა"
+msgid "Processing\t%1 [%2]"
+msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "ჩაიშალა"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "დარჩენილი"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "დალოდება"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "შეჩერებულია"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "გაუქმებულია"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "შეწყვეტილია"
@@ -808,160 +790,146 @@ msgstr "უცნობი"
 msgid "Unknown - '%1'"
 msgstr "უცნობი - %1"
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#: src/print-queue/main.cpp:38
 #, kde-format
-msgid "Print Queue"
-msgstr "ბეჭდვის რიგი"
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
-#, kde-format
-msgid "Show printer queue(s)"
+#: src/print-queue/main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "პრინტერის რიგის ჩვენება"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
-msgstr "პრინტერი მზადაა"
+msgid "© KDE Community"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
-msgstr "პრინტერის შეჩერება"
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "დაბეჭდვა..."
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:190
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printing '%1'"
-msgstr "'%1'-ის დაბეჭდვა"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Temuri Doghonadze"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr "პრინტერი შეჩერებულია"
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Temuri.doghonadze@gmail.com"
 
-#: src/printqueue/PrintQueueUi.cpp:199
-#, kde-format
-msgid "Resume Printer"
-msgstr "პრინტერის გაგრძელება"
+#: src/print-queue/main.cpp:58
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgid "Show printer queue"
+msgstr "პრინტერის რიგის ჩვენება"
 
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr "პრინტერის მდგომარეობა უცნობია"
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr "გადაადგილება"
-
-#: src/printqueue/PrintQueueUi.cpp:280
-#, kde-format
-msgid "Authenticate"
-msgstr "ავთენტიკაცია"
-
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "ყველა პრინტერი (%1 დავალება)"
-msgstr[1] "ყველა პრინტერი (%1 დავალება)"
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 დავალება)"
-msgstr[1] "%2 (%1 დავალება)"
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "ყველა პრინტერი"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr "გაუქმების შეცდომა: %1"
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr "შეყოვნების შეცდომა: %1"
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr "გაგრძელების შეცდომა; %1"
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, kde-format
-msgid "Failed to reprint '%1'"
-msgstr "თავიდან დაბეჭდვის შეცდომა: %1"
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b>-დან დასაბეჭდად შეიყვანეთ მომხმარებელი და პაროლი"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr "ჩემი პრინტერი (x დავალება)"
+#~ msgid "Failed to move '%1' to '%2'"
+#~ msgstr "%1-ის %2-ზე გადატანის შეცდომა"
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr "პრინტერის ხატულა"
+#~ msgid "Failed"
+#~ msgstr "ჩაიშალა"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "შეწყვეტა"
+#~ msgid "Print Queue"
+#~ msgstr "ბეჭდვის რიგი"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "შეყოვნება"
+#~ msgid "Printer ready"
+#~ msgstr "პრინტერი მზადაა"
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "გაგრძელება"
+#~ msgid "Pause Printer"
+#~ msgstr "პრინტერის შეჩერება"
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, kde-format
-msgid "Reprint"
-msgstr "თავიდან დაბეჭდვა"
+#~ msgid "Printing..."
+#~ msgstr "დაბეჭდვა..."
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "აქტიური დავალებები"
+#~ msgid "Printing '%1'"
+#~ msgstr "'%1'-ის დაბეჭდვა"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr "დასრულებული დავალებები"
+#~ msgid "Printer paused"
+#~ msgstr "პრინტერი შეჩერებულია"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr "ყველა დავალება"
+#~ msgid "Resume Printer"
+#~ msgstr "პრინტერის გაგრძელება"
+
+#~ msgid "Printer state unknown"
+#~ msgstr "პრინტერის მდგომარეობა უცნობია"
+
+#~ msgid "Move to"
+#~ msgstr "გადაადგილება"
+
+#~ msgid "Authenticate"
+#~ msgstr "ავთენტიკაცია"
+
+#~ msgid "All Printers (%1 Job)"
+#~ msgid_plural "All Printers (%1 Jobs)"
+#~ msgstr[0] "ყველა პრინტერი (%1 დავალება)"
+#~ msgstr[1] "ყველა პრინტერი (%1 დავალება)"
+
+#~ msgid "%2 (%1 Job)"
+#~ msgid_plural "%2 (%1 Jobs)"
+#~ msgstr[0] "%2 (%1 დავალება)"
+#~ msgstr[1] "%2 (%1 დავალება)"
+
+#~ msgid "All Printers"
+#~ msgstr "ყველა პრინტერი"
+
+#~ msgid "Failed to cancel '%1'"
+#~ msgstr "გაუქმების შეცდომა: %1"
+
+#~ msgid "Failed to hold '%1'"
+#~ msgstr "შეყოვნების შეცდომა: %1"
+
+#~ msgid "Failed to release '%1'"
+#~ msgstr "გაგრძელების შეცდომა; %1"
+
+#~ msgid "Failed to reprint '%1'"
+#~ msgstr "თავიდან დაბეჭდვის შეცდომა: %1"
+
+#~ msgid "my printer (x jobs)"
+#~ msgstr "ჩემი პრინტერი (x დავალება)"
+
+#~ msgid "Printer Icon"
+#~ msgstr "პრინტერის ხატულა"
+
+#~ msgid "Cancel"
+#~ msgstr "შეწყვეტა"
+
+#~ msgid "Hold"
+#~ msgstr "შეყოვნება"
+
+#~ msgid "Resume"
+#~ msgstr "გაგრძელება"
+
+#~ msgid "Reprint"
+#~ msgstr "თავიდან დაბეჭდვა"
+
+#~ msgid "Active Jobs"
+#~ msgstr "აქტიური დავალებები"
+
+#~ msgid "Completed Jobs"
+#~ msgstr "დასრულებული დავალებები"
+
+#~ msgid "All Jobs"
+#~ msgstr "ყველა დავალება"
 
 #~ msgid "Starting printer configuration"
 #~ msgstr "პრინტერის მორგების დაწყება"

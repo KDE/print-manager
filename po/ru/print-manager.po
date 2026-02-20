@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2026-01-28 16:59+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -24,16 +24,6 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: \n"
 "X-Text-Markup: \n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Юрий Ефремов, Олеся Герасименко"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "yur.arh@gmail.com, translation-team@basealt.ru"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -71,17 +61,17 @@ msgstr "Настройка принтера"
 msgid "ConfigurePrinter"
 msgstr "Настройка принтера"
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "© Daniel Nicoletti, 2010-2018"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "Портирование на Qt 5 и Plasma 5"
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "Портирование на Qt 6 и Plasma 6"
@@ -210,7 +200,7 @@ msgstr "&Запретить печать этим пользователям"
 msgid "A&llow these users to print"
 msgstr "Разр&ешить печать этим пользователям"
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr "Установить параметры по умолчанию"
@@ -391,9 +381,8 @@ msgstr "Добавить принтер…"
 msgid "'%1' has been added, please check its driver"
 msgstr "Добавлен принтер «%1». Укажите драйвер к нему."
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "Настроить"
@@ -616,92 +605,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "Локальные принтеры"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "Состояние"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "Имя"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "Пользователь"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "Создано"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "Завершено"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "Страницы"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "Обработано"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "Размер"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "Сообщение состояния"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "Принтер"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr "С компьютера"
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
-msgstr "Ошибка перемещения «%1» в «%2»"
+msgid "Processing\t%1 [%2]"
+msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "Ошибка"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "Ожидание"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "Приостановлено"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "Остановлено"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "Отменено"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "Прервано"
@@ -816,164 +800,150 @@ msgstr "Неизвестно"
 msgid "Unknown - '%1'"
 msgstr "Неизвестно — «%1»"
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#: src/print-queue/main.cpp:38
 #, kde-format
-msgid "Print Queue"
-msgstr "Очередь печати"
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
-#, kde-format
-msgid "Show printer queue(s)"
+#: src/print-queue/main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "Показать очереди печати"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
-msgstr "Принтер готов"
+msgid "© KDE Community"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
-msgstr "Приостановить печать"
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "Печать..."
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:190
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printing '%1'"
-msgstr "Печать «%1»"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрий Ефремов, Олеся Герасименко"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr "Печать остановлена"
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yur.arh@gmail.com, translation-team@basealt.ru"
 
-#: src/printqueue/PrintQueueUi.cpp:199
-#, kde-format
-msgid "Resume Printer"
-msgstr "Возобновить печать"
+#: src/print-queue/main.cpp:58
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgid "Show printer queue"
+msgstr "Показать очереди печати"
 
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr "Состояние принтера неизвестно"
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr "Переместить в"
-
-#: src/printqueue/PrintQueueUi.cpp:280
-#, kde-format
-msgid "Authenticate"
-msgstr "Аутентификация"
-
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "Все принтеры (%1 задание)"
-msgstr[1] "Все принтеры (%1 задания)"
-msgstr[2] "Все принтеры (%1 заданий)"
-msgstr[3] "Все принтеры (%1 задание)"
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 задание)"
-msgstr[1] "%2 (%1 задания)"
-msgstr[2] "%2 (%1 заданий)"
-msgstr[3] "%2 (%1 задание)"
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "Все принтеры"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr "Ошибка отмены «%1»"
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr "Ошибка приостановления «%1»"
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr "Ошибка возобновления «%1»"
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, kde-format
-msgid "Failed to reprint '%1'"
-msgstr "Ошибка повторной печати: «%1»"
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Введите имя пользователя и пароль для печати с <b>%1</b>"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr "Мой принтер"
+#~ msgid "Failed to move '%1' to '%2'"
+#~ msgstr "Ошибка перемещения «%1» в «%2»"
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr "Значок принтера"
+#~ msgid "Failed"
+#~ msgstr "Ошибка"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "Отменить"
+#~ msgid "Print Queue"
+#~ msgstr "Очередь печати"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "Приостановить"
+#~ msgid "Printer ready"
+#~ msgstr "Принтер готов"
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "Возобновить"
+#~ msgid "Pause Printer"
+#~ msgstr "Приостановить печать"
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, kde-format
-msgid "Reprint"
-msgstr "Перепечатать"
+#~ msgid "Printing..."
+#~ msgstr "Печать..."
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "Активные задания"
+#~ msgid "Printing '%1'"
+#~ msgstr "Печать «%1»"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr "Выполненные задания"
+#~ msgid "Printer paused"
+#~ msgstr "Печать остановлена"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr "Все задания"
+#~ msgid "Resume Printer"
+#~ msgstr "Возобновить печать"
+
+#~ msgid "Printer state unknown"
+#~ msgstr "Состояние принтера неизвестно"
+
+#~ msgid "Move to"
+#~ msgstr "Переместить в"
+
+#~ msgid "Authenticate"
+#~ msgstr "Аутентификация"
+
+#~ msgid "All Printers (%1 Job)"
+#~ msgid_plural "All Printers (%1 Jobs)"
+#~ msgstr[0] "Все принтеры (%1 задание)"
+#~ msgstr[1] "Все принтеры (%1 задания)"
+#~ msgstr[2] "Все принтеры (%1 заданий)"
+#~ msgstr[3] "Все принтеры (%1 задание)"
+
+#~ msgid "%2 (%1 Job)"
+#~ msgid_plural "%2 (%1 Jobs)"
+#~ msgstr[0] "%2 (%1 задание)"
+#~ msgstr[1] "%2 (%1 задания)"
+#~ msgstr[2] "%2 (%1 заданий)"
+#~ msgstr[3] "%2 (%1 задание)"
+
+#~ msgid "All Printers"
+#~ msgstr "Все принтеры"
+
+#~ msgid "Failed to cancel '%1'"
+#~ msgstr "Ошибка отмены «%1»"
+
+#~ msgid "Failed to hold '%1'"
+#~ msgstr "Ошибка приостановления «%1»"
+
+#~ msgid "Failed to release '%1'"
+#~ msgstr "Ошибка возобновления «%1»"
+
+#~ msgid "Failed to reprint '%1'"
+#~ msgstr "Ошибка повторной печати: «%1»"
+
+#~ msgid "my printer (x jobs)"
+#~ msgstr "Мой принтер"
+
+#~ msgid "Printer Icon"
+#~ msgstr "Значок принтера"
+
+#~ msgid "Cancel"
+#~ msgstr "Отменить"
+
+#~ msgid "Hold"
+#~ msgstr "Приостановить"
+
+#~ msgid "Resume"
+#~ msgstr "Возобновить"
+
+#~ msgid "Reprint"
+#~ msgstr "Перепечатать"
+
+#~ msgid "Active Jobs"
+#~ msgstr "Активные задания"
+
+#~ msgid "Completed Jobs"
+#~ msgstr "Выполненные задания"
+
+#~ msgid "All Jobs"
+#~ msgstr "Все задания"
 
 #~ msgid "Starting printer configuration"
 #~ msgstr "Запуск настройки принтера"

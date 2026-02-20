@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2025-11-20 10:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
 msgstr "Impressores"
 
@@ -29,7 +29,7 @@ msgstr "Impressores"
 msgid "Printer Groups"
 msgstr "Grups d'impressores"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
 msgid "No printers have been configured or discovered"
 msgstr "No s'ha descobert o configurat cap impressora"
 
@@ -37,27 +37,27 @@ msgstr "No s'ha descobert o configurat cap impressora"
 msgid "No matches"
 msgstr "Sense coincidències"
 
-#: src/plasmoid/main.qml:54
+#: src/plasmoid/main.qml:53
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Hi ha un treball d'impressió a la cua"
 msgstr[1] "Hi ha %1 treballs d'impressió a la cua"
 
-#: src/plasmoid/main.qml:63
+#: src/plasmoid/main.qml:62
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "S'imprimeix %1 per %2"
 
-#: src/plasmoid/main.qml:65
+#: src/plasmoid/main.qml:64
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "S'imprimeix per %1"
 
-#: src/plasmoid/main.qml:68
+#: src/plasmoid/main.qml:67
 msgid "Print queue is empty"
 msgstr "La cua d'impressió està buida"
 
-#: src/plasmoid/main.qml:100
+#: src/plasmoid/main.qml:99
 msgid "&Configure Printers…"
 msgstr "&Configura les impressores…"
 

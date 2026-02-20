@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2025-01-10 10:25\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -22,7 +22,7 @@ msgstr ""
 "plasma.printmanager.po\n"
 "X-Crowdin-File-ID: 20095\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
 msgstr "Прынтары"
 
@@ -30,7 +30,7 @@ msgstr "Прынтары"
 msgid "Printer Groups"
 msgstr "Групы прынтараў"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
 msgid "No printers have been configured or discovered"
 msgstr "Прынтары не знойдзеныя і не наладжаныя"
 
@@ -38,7 +38,7 @@ msgstr "Прынтары не знойдзеныя і не наладжаныя"
 msgid "No matches"
 msgstr "Няма супадзенняў"
 
-#: src/plasmoid/main.qml:54
+#: src/plasmoid/main.qml:53
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "У чарзе %1 задача друку"
@@ -46,21 +46,21 @@ msgstr[1] "У чарзе %1 задачы друку"
 msgstr[2] "У чарзе %1 задач друку"
 msgstr[3] "У чарзе %1 задачы друку"
 
-#: src/plasmoid/main.qml:63
+#: src/plasmoid/main.qml:62
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Друкаванне %1 з дапамогай %2"
 
-#: src/plasmoid/main.qml:65
+#: src/plasmoid/main.qml:64
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Друкаванне з дапамогай %1"
 
-#: src/plasmoid/main.qml:68
+#: src/plasmoid/main.qml:67
 msgid "Print queue is empty"
 msgstr "Чарга друку пустая"
 
-#: src/plasmoid/main.qml:100
+#: src/plasmoid/main.qml:99
 msgid "&Configure Printers…"
 msgstr "&Наладжванне прынтараў…"
 

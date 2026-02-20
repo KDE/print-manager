@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2025-11-23 23:50+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 23.08.5\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
 msgstr "Prentarar"
 
@@ -26,7 +26,7 @@ msgstr "Prentarar"
 msgid "Printer Groups"
 msgstr "Prentarahópar"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:70
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
 msgid "No printers have been configured or discovered"
 msgstr "Engir prentarar hafa verið grunnstilltir eða fundist"
 
@@ -34,27 +34,27 @@ msgstr "Engir prentarar hafa verið grunnstilltir eða fundist"
 msgid "No matches"
 msgstr "Engar samsvaranir"
 
-#: src/plasmoid/main.qml:54
+#: src/plasmoid/main.qml:53
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Það er eitt prentverk í biðröðinni"
 msgstr[1] "Það eru %1 prentverk í biðröðinni"
 
-#: src/plasmoid/main.qml:63
+#: src/plasmoid/main.qml:62
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Prenta %1 með %2"
 
-#: src/plasmoid/main.qml:65
+#: src/plasmoid/main.qml:64
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Prenta með %1"
 
-#: src/plasmoid/main.qml:68
+#: src/plasmoid/main.qml:67
 msgid "Print queue is empty"
 msgstr "Prentröð er tóm"
 
-#: src/plasmoid/main.qml:100
+#: src/plasmoid/main.qml:99
 msgid "&Configure Printers…"
 msgstr "&Grunnstilla prentara..."
 

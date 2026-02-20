@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:49+0000\n"
+"POT-Creation-Date: 2026-02-20 00:48+0000\n"
 "PO-Revision-Date: 2026-01-24 11:44+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -19,16 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Lokalize 23.08.5\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "صفا الفليج"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "safa1996alfulaij@gmail.com"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -66,17 +56,17 @@ msgstr "اضبط الطّابعة"
 msgid "ConfigurePrinter"
 msgstr "اضبط الطابعة"
 
-#: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
+#: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
 msgstr "(C) 2010-2018 Daniel Nicoletti"
 
-#: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
+#: src/configure-printer/main.cpp:31
 #, kde-format
 msgid "Port to Qt 5 / Plasma 5"
 msgstr "النّقل إلى كيوت 5 / بلازما 5"
 
-#: src/configure-printer/main.cpp:32 src/printqueue/main.cpp:32
+#: src/configure-printer/main.cpp:32
 #, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "النّقل إلى كيوت 6 / بلازما 6"
@@ -205,7 +195,7 @@ msgstr "ام&نع هؤلاء المستخدمين من الطّباعة "
 msgid "A&llow these users to print"
 msgstr "ا&سمح لهؤلاء المستخدمين بالطّباعة"
 
-#: src/configure-printer/PrinterOptions.cpp:53
+#: src/configure-printer/PrinterOptions.cpp:52
 #, kde-format
 msgid "Set Default Options"
 msgstr "عيّن الخيارات المبدئيّة"
@@ -385,9 +375,8 @@ msgstr "أضف طابعة…"
 msgid "'%1' has been added, please check its driver"
 msgstr "أُضيفت '%1'، فضلًا تحقّق من مشغّلها"
 
-#. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257 src/printqueue/PrintQueueUi.ui:131
+#: src/kded/NewPrinterNotification.cpp:257
 #, kde-format
 msgid "Configure"
 msgstr "اضبط"
@@ -606,92 +595,87 @@ msgctxt "@item"
 msgid "Local Printers"
 msgstr "طابعات محلية"
 
-#: src/libkcups/JobModel.cpp:28
+#: src/libkcups/JobModel.cpp:26
 #, kde-format
 msgid "Status"
 msgstr "الحالة"
 
-#: src/libkcups/JobModel.cpp:29
+#: src/libkcups/JobModel.cpp:27
 #, kde-format
 msgid "Name"
 msgstr "الاسم"
 
-#: src/libkcups/JobModel.cpp:30
+#: src/libkcups/JobModel.cpp:28
 #, kde-format
 msgid "User"
 msgstr "المستخدم"
 
-#: src/libkcups/JobModel.cpp:31
+#: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
 msgstr "أُنشئت في"
 
-#: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
 msgstr "اكتملت في"
 
-#: src/libkcups/JobModel.cpp:33
+#: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Pages"
 msgstr "الصّفحات"
 
-#: src/libkcups/JobModel.cpp:34
+#: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
 msgstr "عُولجت"
 
-#: src/libkcups/JobModel.cpp:35
+#: src/libkcups/JobModel.cpp:33
 #, kde-format
 msgid "Size"
 msgstr "الحجم"
 
-#: src/libkcups/JobModel.cpp:36
+#: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Status Message"
 msgstr "رسالة الحالة"
 
-#: src/libkcups/JobModel.cpp:37
+#: src/libkcups/JobModel.cpp:35
 #, kde-format
 msgid "Printer"
 msgstr "الطّابعة"
 
-#: src/libkcups/JobModel.cpp:38
+#: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
 msgstr "من اسم المضيف"
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
+#: src/libkcups/JobModel.cpp:169
 #, kde-format
-msgid "Failed to move '%1' to '%2'"
-msgstr "فشل نقل '%1' إلى '%2'"
+msgid "Processing\t%1 [%2]"
+msgstr ""
 
-#: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
-#, kde-format
-msgid "Failed"
-msgstr "فشلت"
-
-#: src/libkcups/JobModel.cpp:583
+#: src/libkcups/JobModel.cpp:444
 #, kde-format
 msgid "Pending"
 msgstr "منتظرة"
 
-#: src/libkcups/JobModel.cpp:585
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "On hold"
 msgstr "معلقة"
 
-#: src/libkcups/JobModel.cpp:589
+#: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
 msgstr "متوقّفة"
 
-#: src/libkcups/JobModel.cpp:591
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
 msgstr "مُلغاة"
 
-#: src/libkcups/JobModel.cpp:593
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
 msgstr "مُجهضة"
@@ -806,168 +790,154 @@ msgstr "مجهولة"
 msgid "Unknown - '%1'"
 msgstr "مجهولة - '%1'"
 
-#: src/printqueue/main.cpp:24 src/printqueue/main.cpp:26
+#: src/print-queue/main.cpp:38
 #, kde-format
-msgid "Print Queue"
-msgstr "صفّ الطّباعة"
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr ""
 
-#: src/printqueue/main.cpp:39
-#, kde-format
-msgid "Show printer queue(s)"
+#: src/print-queue/main.cpp:40
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
 msgstr "أظهر صفّ الطّابعة"
 
-#: src/printqueue/PrintQueueUi.cpp:180
+#: src/print-queue/main.cpp:42
 #, kde-format
-msgid "Printer ready"
-msgstr "الطّابعة جاهزة"
+msgid "© KDE Community"
+msgstr ""
 
-#. i18n: ectx: property (text), widget (QPushButton, pausePrinterPB)
-#: src/printqueue/PrintQueueUi.cpp:181 src/printqueue/PrintQueueUi.cpp:192
-#: src/printqueue/PrintQueueUi.ui:118
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Pause Printer"
-msgstr "ألبث الطّباعة"
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:188
+#: src/print-queue/main.cpp:47
 #, kde-format
-msgid "Printing..."
-msgstr "تطبع..."
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr ""
 
-#: src/printqueue/PrintQueueUi.cpp:190
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printing '%1'"
-msgstr "تطبع '%1'"
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "صفا الفليج"
 
-#: src/printqueue/PrintQueueUi.cpp:198
+#: src/print-queue/main.cpp:48
 #, kde-format
-msgid "Printer paused"
-msgstr "أُلبثت الطّباعة"
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "safa1996alfulaij@gmail.com"
 
-#: src/printqueue/PrintQueueUi.cpp:199
-#, kde-format
-msgid "Resume Printer"
-msgstr "استكمل الطّباعة"
+#: src/print-queue/main.cpp:58
+#, fuzzy, kde-format
+#| msgid "Show printer queue(s)"
+msgid "Show printer queue"
+msgstr "أظهر صفّ الطّابعة"
 
-#: src/printqueue/PrintQueueUi.cpp:203
-#, kde-format
-msgid "Printer state unknown"
-msgstr "حالة الطّباعة مجهولة"
-
-#: src/printqueue/PrintQueueUi.cpp:248
-#, kde-format
-msgid "Move to"
-msgstr "انقل إلى"
-
-#: src/printqueue/PrintQueueUi.cpp:280
-#, kde-format
-msgid "Authenticate"
-msgstr "استوثق"
-
-#: src/printqueue/PrintQueueUi.cpp:395
-#, kde-format
-msgid "All Printers (%1 Job)"
-msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "كلّ الطّابعات (لا مهامّ)"
-msgstr[1] "كلّ الطّابعات (مهمّة واحدة)"
-msgstr[2] "كلّ الطّابعات (مهمّتان)"
-msgstr[3] "كلّ الطّابعات (%1 مهمّات)"
-msgstr[4] "كلّ الطّابعات (%1 مهمّة)"
-msgstr[5] "كلّ الطّابعات (%1 مهمّة)"
-
-#: src/printqueue/PrintQueueUi.cpp:397
-#, kde-format
-msgid "%2 (%1 Job)"
-msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (لا مهامّ)"
-msgstr[1] "%2 (مهمّة واحدة)"
-msgstr[2] "%2 (مهمّتان)"
-msgstr[3] "%2 (%1 مهمّات)"
-msgstr[4] "%2 (%1 مهمّة)"
-msgstr[5] "%2 (%1 مهمّة)"
-
-#: src/printqueue/PrintQueueUi.cpp:400
-#, kde-format
-msgid "All Printers"
-msgstr "كلّ الطّابعات"
-
-#: src/printqueue/PrintQueueUi.cpp:467
-#, kde-format
-msgid "Failed to cancel '%1'"
-msgstr "فشل إلغاء '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:470
-#, kde-format
-msgid "Failed to hold '%1'"
-msgstr "فشل في تعليق '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:473
-#, kde-format
-msgid "Failed to release '%1'"
-msgstr "فشل إطلاق '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:476
-#, kde-format
-msgid "Failed to reprint '%1'"
-msgstr "فشلت إعادة طباعة '%1'"
-
-#: src/printqueue/PrintQueueUi.cpp:547
+#: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "أدخل اسم المستخدم وكلمة السر للطباعة من <b>%1</b>"
 
-#. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
-#: src/printqueue/PrintQueueUi.ui:20
-#, kde-format
-msgid "my printer (x jobs)"
-msgstr "طابعتي (س مهمّة)"
+#~ msgid "Failed to move '%1' to '%2'"
+#~ msgstr "فشل نقل '%1' إلى '%2'"
 
-#. i18n: ectx: property (text), widget (QLabel, iconL)
-#: src/printqueue/PrintQueueUi.ui:49
-#, kde-format
-msgid "Printer Icon"
-msgstr "أيقونة الطّابعة"
+#~ msgid "Failed"
+#~ msgstr "فشلت"
 
-#. i18n: ectx: property (text), widget (QPushButton, cancelJobPB)
-#: src/printqueue/PrintQueueUi.ui:233
-#, kde-format
-msgid "Cancel"
-msgstr "ألغِ"
+#~ msgid "Print Queue"
+#~ msgstr "صفّ الطّباعة"
 
-#. i18n: ectx: property (text), widget (QPushButton, holdJobPB)
-#: src/printqueue/PrintQueueUi.ui:253
-#, kde-format
-msgid "Hold"
-msgstr "علِق"
+#~ msgid "Printer ready"
+#~ msgstr "الطّابعة جاهزة"
 
-#. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
-#: src/printqueue/PrintQueueUi.ui:266
-#, kde-format
-msgid "Resume"
-msgstr "استكمل"
+#~ msgid "Pause Printer"
+#~ msgstr "ألبث الطّباعة"
 
-#. i18n: ectx: property (text), widget (QPushButton, reprintPB)
-#: src/printqueue/PrintQueueUi.ui:279
-#, kde-format
-msgid "Reprint"
-msgstr "أعد الطّباعة"
+#~ msgid "Printing..."
+#~ msgstr "تطبع..."
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:312
-#, kde-format
-msgid "Active Jobs"
-msgstr "المهامّ النّشطة"
+#~ msgid "Printing '%1'"
+#~ msgstr "تطبع '%1'"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:317
-#, kde-format
-msgid "Completed Jobs"
-msgstr "المهام المكتملة"
+#~ msgid "Printer paused"
+#~ msgstr "أُلبثت الطّباعة"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
-#: src/printqueue/PrintQueueUi.ui:322
-#, kde-format
-msgid "All Jobs"
-msgstr "كلّ المهامّ"
+#~ msgid "Resume Printer"
+#~ msgstr "استكمل الطّباعة"
+
+#~ msgid "Printer state unknown"
+#~ msgstr "حالة الطّباعة مجهولة"
+
+#~ msgid "Move to"
+#~ msgstr "انقل إلى"
+
+#~ msgid "Authenticate"
+#~ msgstr "استوثق"
+
+#~ msgid "All Printers (%1 Job)"
+#~ msgid_plural "All Printers (%1 Jobs)"
+#~ msgstr[0] "كلّ الطّابعات (لا مهامّ)"
+#~ msgstr[1] "كلّ الطّابعات (مهمّة واحدة)"
+#~ msgstr[2] "كلّ الطّابعات (مهمّتان)"
+#~ msgstr[3] "كلّ الطّابعات (%1 مهمّات)"
+#~ msgstr[4] "كلّ الطّابعات (%1 مهمّة)"
+#~ msgstr[5] "كلّ الطّابعات (%1 مهمّة)"
+
+#~ msgid "%2 (%1 Job)"
+#~ msgid_plural "%2 (%1 Jobs)"
+#~ msgstr[0] "%2 (لا مهامّ)"
+#~ msgstr[1] "%2 (مهمّة واحدة)"
+#~ msgstr[2] "%2 (مهمّتان)"
+#~ msgstr[3] "%2 (%1 مهمّات)"
+#~ msgstr[4] "%2 (%1 مهمّة)"
+#~ msgstr[5] "%2 (%1 مهمّة)"
+
+#~ msgid "All Printers"
+#~ msgstr "كلّ الطّابعات"
+
+#~ msgid "Failed to cancel '%1'"
+#~ msgstr "فشل إلغاء '%1'"
+
+#~ msgid "Failed to hold '%1'"
+#~ msgstr "فشل في تعليق '%1'"
+
+#~ msgid "Failed to release '%1'"
+#~ msgstr "فشل إطلاق '%1'"
+
+#~ msgid "Failed to reprint '%1'"
+#~ msgstr "فشلت إعادة طباعة '%1'"
+
+#~ msgid "my printer (x jobs)"
+#~ msgstr "طابعتي (س مهمّة)"
+
+#~ msgid "Printer Icon"
+#~ msgstr "أيقونة الطّابعة"
+
+#~ msgid "Cancel"
+#~ msgstr "ألغِ"
+
+#~ msgid "Hold"
+#~ msgstr "علِق"
+
+#~ msgid "Resume"
+#~ msgstr "استكمل"
+
+#~ msgid "Reprint"
+#~ msgstr "أعد الطّباعة"
+
+#~ msgid "Active Jobs"
+#~ msgstr "المهامّ النّشطة"
+
+#~ msgid "Completed Jobs"
+#~ msgstr "المهام المكتملة"
+
+#~ msgid "All Jobs"
+#~ msgstr "كلّ المهامّ"
 
 #~ msgid "Starting printer configuration"
 #~ msgstr "يبدأ ضبط الطابعة"

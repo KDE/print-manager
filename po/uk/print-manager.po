@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-19 08:48+0200\n"
+"PO-Revision-Date: 2026-02-20 08:43+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -656,7 +656,7 @@ msgstr "За назвою вузла"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Обробка\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -797,31 +797,30 @@ msgstr "Невідомо — «%1»"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Засіб керування чергою друку Плазми"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Показ черги завдань принтерів"
+msgstr "Керування чергами завдань з друку"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Спільнота KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Розробник"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -836,8 +835,7 @@ msgid "Your emails"
 msgstr "yurchor@ukr.net"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
 msgstr "Показ черги завдань принтерів"
 

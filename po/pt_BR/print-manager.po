@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-19 07:44-0300\n"
+"PO-Revision-Date: 2026-02-20 09:16-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -658,7 +658,7 @@ msgstr "Do nome da máquina"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Processando\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -799,31 +799,30 @@ msgstr "Desconhecida - '%1'"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Gerenciador de Fila de Impressão do Plasma"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Mostrar a(s) fila(s) de impressão"
+msgstr "Gerencia filas de trabalhos de impressão"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Comunidade do KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Desenvolvedor"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -838,10 +837,9 @@ msgid "Your emails"
 msgstr "alvarenga@kde.org, geraldosimiao@fedoraproject.org"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Mostrar a(s) fila(s) de impressão"
+msgstr "Mostrar fila de impressão"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

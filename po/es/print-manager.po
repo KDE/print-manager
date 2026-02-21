@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-19 10:31+0100\n"
+"PO-Revision-Date: 2026-02-21 00:52+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -655,7 +655,7 @@ msgstr "Del servidor"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Procesando\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -797,31 +797,30 @@ msgstr "Desconocido - «%1»"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Gestor de colas de impresión de Plasma"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Mostrar la cola de impresión"
+msgstr "Gestión de colas de trabajos de impresión"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Comunidad KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Desarrollador"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -836,100 +835,11 @@ msgid "Your emails"
 msgstr "ecuadra@eloihr.net"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Mostrar la cola de impresión"
+msgstr "Mostrar cola de impresión"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Introduzca las credenciales para imprimir desde <b>%1</b>"
-
-#~ msgid "Failed to move '%1' to '%2'"
-#~ msgstr "Ha ocurrido un error al mover «%1» a «%2»"
-
-#~ msgid "Failed"
-#~ msgstr "Error"
-
-#~ msgid "Print Queue"
-#~ msgstr "Cola de impresión"
-
-#~ msgid "Printer ready"
-#~ msgstr "Impresora preparada"
-
-#~ msgid "Pause Printer"
-#~ msgstr "Pausar la impresora"
-
-#~ msgid "Printing..."
-#~ msgstr "Imprimiendo…"
-
-#~ msgid "Printing '%1'"
-#~ msgstr "Imprimiendo «%1»"
-
-#~ msgid "Printer paused"
-#~ msgstr "Impresora pausada"
-
-#~ msgid "Resume Printer"
-#~ msgstr "Continuar la impresión"
-
-#~ msgid "Printer state unknown"
-#~ msgstr "Estado de la impresora desconocido"
-
-#~ msgid "Move to"
-#~ msgstr "Mover a"
-
-#~ msgid "Authenticate"
-#~ msgstr "Autenticar"
-
-#~ msgid "All Printers (%1 Job)"
-#~ msgid_plural "All Printers (%1 Jobs)"
-#~ msgstr[0] "Todas las impresoras (%1 trabajo)"
-#~ msgstr[1] "Todas las impresoras (%1 trabajos)"
-
-#~ msgid "%2 (%1 Job)"
-#~ msgid_plural "%2 (%1 Jobs)"
-#~ msgstr[0] "%2 (%1 trabajo)"
-#~ msgstr[1] "%2 (%1 trabajos)"
-
-#~ msgid "All Printers"
-#~ msgstr "Todas las impresoras"
-
-#~ msgid "Failed to cancel '%1'"
-#~ msgstr "Ha ocurrido un error al cancelar «%1»"
-
-#~ msgid "Failed to hold '%1'"
-#~ msgstr "Ha ocurrido un error al retener «%1»"
-
-#~ msgid "Failed to release '%1'"
-#~ msgstr "Ha ocurrido un error al liberar «%1»"
-
-#~ msgid "Failed to reprint '%1'"
-#~ msgstr "Ha ocurrido un error al volver a imprimir «%1»"
-
-#~ msgid "my printer (x jobs)"
-#~ msgstr "mi impresora (x trabajos)"
-
-#~ msgid "Printer Icon"
-#~ msgstr "Icono de la impresora"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgid "Hold"
-#~ msgstr "Retener"
-
-#~ msgid "Resume"
-#~ msgstr "Continuar"
-
-#~ msgid "Reprint"
-#~ msgstr "Volver a imprimir"
-
-#~ msgid "Active Jobs"
-#~ msgstr "Trabajos activos"
-
-#~ msgid "Completed Jobs"
-#~ msgstr "Trabajos completados"
-
-#~ msgid "All Jobs"
-#~ msgstr "Todos los trabajos"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-19 16:14+0100\n"
+"PO-Revision-Date: 2026-02-20 18:46+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -655,7 +655,7 @@ msgstr "Ex nomine de hospite"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Processante\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -796,31 +796,30 @@ msgstr "Incognite - '%1'"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Gerente de cauda de imprimer de Plasma"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Monstra cauda(s) de imprimer"
+msgstr "Gere caudas de cargas de imprimer"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "©  Communitate de KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Disveloppator"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -835,10 +834,9 @@ msgid "Your emails"
 msgstr "g.sora@tiscali.it"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Monstra cauda(s) de imprimer"
+msgstr "Monstra cauda de imprimitor"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

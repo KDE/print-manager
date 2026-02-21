@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-19 10:05+0100\n"
+"PO-Revision-Date: 2026-02-20 13:11+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -657,7 +657,7 @@ msgstr "Des del nom d'ordinador"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "S'està processant\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -798,31 +798,30 @@ msgstr "Desconegut - «%1»"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Gestor de cues d'impressió del Plasma"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Mostra la cua d'impressió"
+msgstr "Gestiona les cua de treballs d'impressió"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE Community"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Desenvolupador"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -837,8 +836,7 @@ msgid "Your emails"
 msgstr "txemaq@gmail.com"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
 msgstr "Mostra la cua d'impressió"
 

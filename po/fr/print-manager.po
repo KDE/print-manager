@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-01-21 08:55+0100\n"
+"PO-Revision-Date: 2026-02-20 16:14+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 "X-Text-Markup: kde4\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
@@ -330,17 +330,15 @@ msgid "Check Levels…"
 msgstr "Vérifier les niveaux…"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
-msgstr "Une nouvelle imprimante a été détectée"
+msgstr "Une nouvelle imprimante a été détectée."
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "Configurer une imprimante"
+msgstr "Configurer une nouvelle imprimante..."
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -847,10 +845,9 @@ msgid "Your emails"
 msgstr "jcorn@free.fr, sdepiets@gmail.com"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Afficher la(les) file(s) d'impression"
+msgstr "Afficher la file d'attente d'impression"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

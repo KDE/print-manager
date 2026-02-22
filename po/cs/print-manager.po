@@ -805,7 +805,7 @@ msgstr "Zobrazit frontu(y) tiskárny"
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Komunita KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
@@ -817,7 +817,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Vývojář"
 
 #: src/print-queue/main.cpp:48
 #, kde-format

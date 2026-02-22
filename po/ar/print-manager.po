@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-01-24 11:44+0400\n"
+"PO-Revision-Date: 2026-02-21 17:40+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -59,7 +59,7 @@ msgstr "اضبط الطابعة"
 #: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "(C) 2010-2018 Daniel Nicoletti"
+msgstr "(ج) 2010-2018 دانييل نيكوليتي"
 
 #: src/configure-printer/main.cpp:31
 #, kde-format
@@ -151,13 +151,13 @@ msgstr "اللافتات"
 #: src/configure-printer/PrinterBehavior.ui:26
 #, kde-format
 msgid "Starting Banner:"
-msgstr "بداية اللافتة:"
+msgstr "بداية الشعار:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: src/configure-printer/PrinterBehavior.ui:46
 #, kde-format
 msgid "Ending Banner:"
-msgstr "نهاية اللافتة:"
+msgstr "نهاية الشعار:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, PoliciesGB)
 #: src/configure-printer/PrinterBehavior.ui:81
@@ -323,17 +323,15 @@ msgid "Check Levels…"
 msgstr "افحص المستويات…"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
 msgstr "اكتُشفت طابعة جديدة"
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "اضبط طابعة…"
+msgstr "اضبط طابعة جديدًا…"
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -653,7 +651,7 @@ msgstr "من اسم المضيف"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "يعالج\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -794,31 +792,30 @@ msgstr "مجهولة - '%1'"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "مدير طابور الطباعة بالبلازما"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "أظهر صفّ الطّابعة"
+msgstr "إدارة طوابير مهام الطابعة"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© مجتمع كِيدِي"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "مايك نوما"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "مطوّر"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -833,10 +830,9 @@ msgid "Your emails"
 msgstr "safa1996alfulaij@gmail.com"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "أظهر صفّ الطّابعة"
+msgstr "أظهر طابور الطّابعة"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

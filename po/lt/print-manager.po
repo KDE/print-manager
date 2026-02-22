@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-01-24 22:11+0200\n"
+"PO-Revision-Date: 2026-02-22 01:55+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -325,17 +325,15 @@ msgid "Check Levels…"
 msgstr "Tikrinti lygius…"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
 msgstr "Aptiktas naujas spausdintuvas"
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "Konfigūruoti spaudintuvą"
+msgstr "Konfigūruoti naują spausdintuvą…"
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -661,7 +659,7 @@ msgstr "Iš mazgo pavadinimo"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Apdorojama\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -802,31 +800,30 @@ msgstr "Nežinoma – „%1“"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Plasma spausdinimo eilės tvarkytuvė"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Rodyti spausdinimo eilę(-es)"
+msgstr "Tvarkyti spausdintuvo darbų eilę(-es)"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE bendruomenė"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Plėtotojas"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -841,10 +838,9 @@ msgid "Your emails"
 msgstr "liudas@akmc.lt, <>"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Rodyti spausdinimo eilę(-es)"
+msgstr "Rodyti spausdintuvo eilę"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

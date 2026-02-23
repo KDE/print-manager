@@ -41,7 +41,7 @@ Kirigami.Page {
         Kirigami.PlaceholderMessage {
             icon.name: "printer-error"
             text: i18nc("@info:status", "Printing services not available")
-            explanation: i18nc("@info:usagetip", "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 Support</a>", KAddons.KOSRelease.supportUrl, KAddons.KOSRelease.prettyName)
+            explanation: i18nc("@info:usagetip %1 is the distribution support URL %2 is the distribution name", "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 Support</a>", KAddons.KOSRelease.supportUrl, KAddons.KOSRelease.prettyName)
             onLinkActivated: link => Qt.openUrlExternally(link)
         }
     }
@@ -52,7 +52,7 @@ Kirigami.Page {
         Kirigami.PlaceholderMessage {
             icon.name: "printer-error"
             text: i18nc("@info:status", "Unknown error condition with printing services")
-            explanation: i18nc("@info:usagetip", "Check for issues here: <a href=\"%1\">%2 Issues</a>", KAddons.KOSRelease.bugReportUrl, KAddons.KOSRelease.prettyName)
+            explanation: i18nc("@info:usagetip %1 is the distribution bug report URL %2 is the distribution name", "Check for issues here: <a href=\"%1\">%2 Issues</a>", KAddons.KOSRelease.bugReportUrl, KAddons.KOSRelease.prettyName)
             onLinkActivated: link => Qt.openUrlExternally(link)
         }
     }

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-01-21 17:12+0100\n"
+"PO-Revision-Date: 2026-02-21 15:08+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -321,17 +321,15 @@ msgid "Check Levels…"
 msgstr "Verifica livelli…"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
 msgstr "È stata rilevata una nuova stampante"
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "Configura una stampante"
+msgstr "Configura una nuova stampante…"
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -655,7 +653,7 @@ msgstr "Dall'host"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Elaborazione\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -796,31 +794,30 @@ msgstr "Sconosciuto - «%1»"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Gestore della coda di stampa di Plasma"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Mostra code di stampa"
+msgstr "Gestisce le code dei processi di stampa"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Comunità KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Diehl"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Sviluppatore"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -835,10 +832,9 @@ msgid "Your emails"
 msgstr "luigi.toscano@tiscali.it"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Mostra code di stampa"
+msgstr "Mostra la coda di stampa"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

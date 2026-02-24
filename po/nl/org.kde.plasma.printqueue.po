@@ -1,0 +1,307 @@
+# Copyright (C) 2026 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+#
+# SPDX-FileCopyrightText: 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
+"PO-Revision-Date: 2026-02-23 11:52+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.12.2\n"
+
+#: main.cpp:38
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr "Plasma afdrukwachtrijbeheerder"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
+msgstr "Beheer afdruktaakwachtrijen"
+
+#: main.cpp:42
+#, kde-format
+msgid "© KDE Community"
+msgstr "© KDE-gemeenschap"
+
+#: main.cpp:47
+#, kde-format
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr "Mike Noe"
+
+#: main.cpp:47
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Ontwikkelaar"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf - 2026"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: main.cpp:58
+#, kde-format
+msgid "Show printer queue"
+msgstr "Afdrukwachtrij tonen"
+
+#: PrintQueue.cpp:82
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Voer aanmeldgegevens in om af te drukken vanaf <b>%1</b>"
+
+#: qml/JobView.qml:30
+#, kde-format
+msgctxt "@label Job types currently showing"
+msgid "%1 Jobs"
+msgstr "%1 taken"
+
+#: qml/JobView.qml:58
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Filter Jobs"
+msgstr "Taken filteren"
+
+#: qml/JobView.qml:63
+#, kde-format
+msgctxt "option:check Show active Jobs"
+msgid "Active"
+msgstr "Actief"
+
+#: qml/JobView.qml:71
+#, kde-format
+msgctxt "option:check Show completed jobs"
+msgid "Completed"
+msgstr "Voltooid"
+
+#: qml/JobView.qml:79
+#, kde-format
+msgctxt "option:check Show all jobs"
+msgid "All"
+msgstr "Allen"
+
+#: qml/JobView.qml:90
+#, kde-format
+msgctxt "@option:check Hide expanded job view"
+msgid "Hide Job Details"
+msgstr "Taakdetails verbergen"
+
+#: qml/JobView.qml:91
+#, kde-format
+msgctxt "@option:check Show expanded job view"
+msgid "Show Job Details"
+msgstr "Taakdetails tonen"
+
+#: qml/JobView.qml:98
+#, kde-format
+msgctxt "@action:button Cancel all active jobs"
+msgid "Cancel All Jobs"
+msgstr "Stop alle opdrachten"
+
+#: qml/JobView.qml:112
+#, kde-format
+msgctxt "@title:window"
+msgid "Cancel all active print jobs?"
+msgstr "Alle actieve afdruktaken annuleren?"
+
+#: qml/JobView.qml:139
+#, kde-format
+msgctxt "@info:status Print jobs not found in the print queue"
+msgid "The print queue is empty"
+msgstr "De afdrukwachtrij is leeg"
+
+#: qml/JobView.qml:158
+#, kde-format
+msgctxt ""
+"@action:inmenu Move the job to /info/ which is the friendly name of the "
+"other print queue"
+msgid "Move to %1"
+msgstr "Naar %1 verplaatsen"
+
+#: qml/JobView.qml:246
+#, kde-format
+msgctxt "@action:button This action cancels the job"
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: qml/JobView.qml:257
+#, kde-format
+msgctxt "@action:button This action holds the job"
+msgid "Hold"
+msgstr "In wacht"
+
+#: qml/JobView.qml:268
+#, kde-format
+msgctxt "@action:button This action releases the job"
+msgid "Release"
+msgstr "Uitgave"
+
+#: qml/JobView.qml:279
+#, kde-format
+msgctxt "@action:button This action reprints the job"
+msgid "Reprint"
+msgstr "Opnieuw afdrukken"
+
+#: qml/JobView.qml:289
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Verplaatsen"
+
+#: qml/JobView.qml:300
+#, kde-format
+msgctxt ""
+"@action:button This action prompts for user/password to authenticate the job"
+msgid "Authenticate"
+msgstr "Authenticeren"
+
+#: qml/JobView.qml:321
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1, %2"
+msgstr "Status: %1, %2"
+
+#: qml/JobView.qml:322
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1"
+msgstr "Status: %1"
+
+#: qml/JobView.qml:327
+#, kde-format
+msgctxt "@label:info Date created"
+msgid "Created: %1"
+msgstr "Aangemaakt: %1"
+
+#: qml/JobView.qml:338
+#, kde-format
+msgctxt "@label:info Date completed"
+msgid "Completed: %1"
+msgstr "Voltooid: %1"
+
+#: qml/JobView.qml:343
+#, kde-format
+msgctxt "@label:info Date processed"
+msgid "Processed: %1"
+msgstr "Verwerkt: %1"
+
+#: qml/JobView.qml:349
+#, kde-format
+msgctxt "@label:info Job page count"
+msgid "Pages: %1"
+msgstr "Pagina's:%1"
+
+#: qml/Main.qml:126
+#, kde-format
+msgctxt "@label:header"
+msgid "Printers"
+msgstr "Printers"
+
+#: qml/Main.qml:132
+#, kde-format
+msgctxt "@action:button about this application"
+msgid "About"
+msgstr "Info over"
+
+#: qml/Main.qml:166
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printers"
+msgstr "Printers"
+
+#: qml/Main.qml:166
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printer Groups"
+msgstr "Printergroepen"
+
+#: qml/Main.qml:273
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "Hervatten"
+
+#: qml/Main.qml:274
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "Pauzeren"
+
+#: qml/Main.qml:287
+#, kde-format
+msgctxt "@action:button Configure printer in the kcm"
+msgid "Configure…"
+msgstr "Configureren…"
+
+#: qml/Main.qml:294
+#, kde-format
+msgctxt "@action:button Open additional printer settings"
+msgid "Media Settings…"
+msgstr "Media-instellingen…"
+
+#: qml/NotAvailablePage.qml:29
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers have been set up"
+msgstr "Er zijn geen printers ingesteld"
+
+#: qml/NotAvailablePage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Set Up a Printer…"
+msgstr "Een printer instellen…"
+
+#: qml/NotAvailablePage.qml:43
+#, kde-format
+msgctxt "@info:status"
+msgid "Printing services not available"
+msgstr "Printservices niet beschikbaar"
+
+#: qml/NotAvailablePage.qml:44
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid ""
+#| "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+#| "Support</a>"
+msgctxt ""
+"@info:usagetip %1 is the distribution support URL %2 is the distribution name"
+msgid ""
+"Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+"Support</a>"
+msgstr ""
+"Controleer of de CUPS-systeemservice actief is of raadpleeg: <a href=\"%1\">"
+"%2 ondersteuning</a>"
+
+#: qml/NotAvailablePage.qml:54
+#, kde-format
+msgctxt "@info:status"
+msgid "Unknown error condition with printing services"
+msgstr "Onbekende foutconditie met afdrukservices"
+
+#: qml/NotAvailablePage.qml:55
+#, fuzzy, kde-format
+#| msgctxt "@info:usagetip"
+#| msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+msgctxt ""
+"@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
+"name"
+msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+msgstr "Controleer hier op problemen: <a href=\"%1\">%2 problemen</a>"

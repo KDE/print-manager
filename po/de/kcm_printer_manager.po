@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2026-01-23 12:30+0100\n"
+"PO-Revision-Date: 2026-02-18 13:40+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -472,7 +472,7 @@ msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
-"Klicken Sie <interface>Hinzufügen …</interface> an, um einen neuen Drucker "
+"Klicken Sie auf <interface>Hinzufügen …</interface>, um einen neuen Drucker "
 "auf diesem Computer einzurichten"
 
 #: ui/main.qml:272

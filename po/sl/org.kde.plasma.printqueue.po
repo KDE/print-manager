@@ -1,301 +1,347 @@
-# Copyright (C) 2026 This file is copyright:
-# This file is distributed under the same license as the print-manager package.
-#
-# SPDX-FileCopyrightText: 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: print-manager\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-02-24 07:51+0300\n"
-"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
-"Language: tr\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Translate Toolkit 3.16.1\n"
 
 #: main.cpp:38
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Plasma Print Queue Manager"
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr "Plasma Yazıcı Kuyruğu Yöneticisi"
+msgstr "Plasma Print Queue Manager"
 
 #: main.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Manage printer job queues"
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Yazıcı iş kuyruklarını yönetin"
+msgstr "Upravljanje čakalnih vrst tiskalnih opravil"
 
 #: main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr "© KDE Topluluğu"
+msgstr "© Skupnost KDE"
 
 #: main.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Mike Noe"
 msgctxt "@info:credit"
 msgid "Mike Noe"
 msgstr "Mike Noe"
 
 #: main.cpp:47
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Developer"
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr "Geliştirici"
+msgstr "Razvijalec"
 
 #: main.cpp:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your names"
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Emir SARI"
+msgstr "Vaša imena"
 
 #: main.cpp:48
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Your emails"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "emir_sari@icloud.com"
+msgstr "Vaši e-poštni naslovi"
 
 #: main.cpp:58
 #, kde-format
 msgid "Show printer queue"
-msgstr "Yazıcı kuyruğunu göster"
+msgstr "Prikaži čakalno vrsto tiskalnika"
 
 #: PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr "<b>%1</b> konumundan yazdırmak için kimlik bilgilerinizi girin"
+msgstr "Vnesite poverilnice za tiskanje iz <b>%1</b>"
 
 #: qml/JobView.qml:30
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "%1 Jobs"
 msgctxt "@label Job types currently showing"
 msgid "%1 Jobs"
-msgstr "%1 iş"
+msgstr "%1 opravil"
 
 #: qml/JobView.qml:58
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Filter Jobs"
 msgctxt "@label:listbox"
 msgid "Filter Jobs"
-msgstr "İşleri süz"
+msgstr "Filtriraj opravila"
 
 #: qml/JobView.qml:63
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Active"
 msgctxt "option:check Show active Jobs"
 msgid "Active"
-msgstr "Etkin"
+msgstr "Aktivno"
 
 #: qml/JobView.qml:71
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Completed"
 msgctxt "option:check Show completed jobs"
 msgid "Completed"
-msgstr "Tamamlanmış"
+msgstr "Dokončano"
 
 #: qml/JobView.qml:79
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "All"
 msgctxt "option:check Show all jobs"
 msgid "All"
-msgstr "Tümü"
+msgstr "Vsa"
 
 #: qml/JobView.qml:90
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hide Job Details"
 msgctxt "@option:check Hide expanded job view"
 msgid "Hide Job Details"
-msgstr "İş ayrıntılarını gizle"
+msgstr "Skrij podrobnosti opravila"
 
 #: qml/JobView.qml:91
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Show Job Details"
 msgctxt "@option:check Show expanded job view"
 msgid "Show Job Details"
-msgstr "İş ayrıntılarını göster"
+msgstr "Prikaži podrobnosti opravila"
 
 #: qml/JobView.qml:98
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel All Jobs"
 msgctxt "@action:button Cancel all active jobs"
 msgid "Cancel All Jobs"
-msgstr "Tüm İşleri İptal Et"
+msgstr "Prekliči vsa opravila"
 
 #: qml/JobView.qml:112
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel all active print jobs?"
 msgctxt "@title:window"
 msgid "Cancel all active print jobs?"
-msgstr "İşleri İptal Et?"
+msgstr "Želim preklicati vsa aktivna tiskalna opravila?"
 
 #: qml/JobView.qml:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "The print queue is empty"
 msgctxt "@info:status Print jobs not found in the print queue"
 msgid "The print queue is empty"
-msgstr "Yazıcı kuyruğu boş"
+msgstr "Čakalna vrsta za tiskanje je prazna"
 
 #: qml/JobView.qml:158
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Move to %1"
 msgctxt ""
 "@action:inmenu Move the job to /info/ which is the friendly name of the "
 "other print queue"
 msgid "Move to %1"
-msgstr "Taşı: %1"
+msgstr "Premakni v %1"
 
 #: qml/JobView.qml:246
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Cancel"
 msgctxt "@action:button This action cancels the job"
 msgid "Cancel"
-msgstr "İptal"
+msgstr "Prekliči"
 
 #: qml/JobView.qml:257
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Hold"
 msgctxt "@action:button This action holds the job"
 msgid "Hold"
-msgstr "Tut"
+msgstr "Zadrži"
 
 #: qml/JobView.qml:268
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Release"
 msgctxt "@action:button This action releases the job"
 msgid "Release"
-msgstr "Bırak"
+msgstr "Sprosti"
 
 #: qml/JobView.qml:279
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Reprint"
 msgctxt "@action:button This action reprints the job"
 msgid "Reprint"
-msgstr "Yeniden Yazdır"
+msgstr "Ponovno natisni"
 
 #: qml/JobView.qml:289
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Move"
 msgctxt "@action:button"
 msgid "Move"
-msgstr "Taşı"
+msgstr "Premakni"
 
 #: qml/JobView.qml:300
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Authenticate"
 msgctxt ""
 "@action:button This action prompts for user/password to authenticate the job"
 msgid "Authenticate"
-msgstr "Yetkilendir"
+msgstr "Preveri pristnost"
 
 #: qml/JobView.qml:321
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status: %1, %2"
 msgctxt "@label:info"
 msgid "Status: %1, %2"
-msgstr "Durum: %1, %2"
+msgstr "Stanje: %1, %2"
 
 #: qml/JobView.qml:322
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Status: %1"
 msgctxt "@label:info"
 msgid "Status: %1"
-msgstr "Durum: %1"
+msgstr "Stanje: %1"
 
 #: qml/JobView.qml:327
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Created: %1"
 msgctxt "@label:info Date created"
 msgid "Created: %1"
-msgstr "Oluşturuldu: %1"
+msgstr "Ustvarjeno: %1"
 
 #: qml/JobView.qml:338
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Completed: %1"
 msgctxt "@label:info Date completed"
 msgid "Completed: %1"
-msgstr "Tamamlandı: %1"
+msgstr "Dokončano: %1"
 
 #: qml/JobView.qml:343
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Processed: %1"
 msgctxt "@label:info Date processed"
 msgid "Processed: %1"
-msgstr "İşlendi: %1"
+msgstr "Obdelano: %1"
 
 #: qml/JobView.qml:349
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pages: %1"
 msgctxt "@label:info Job page count"
 msgid "Pages: %1"
-msgstr "Sayfa: %1"
+msgstr "Strani: %1"
 
 #: qml/Main.qml:126
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "qml/Main.qml:126"
+#| msgid "Printers"
 msgctxt "@label:header"
 msgid "Printers"
-msgstr "Yazıcılar"
+msgstr "Tiskalniki"
 
 #: qml/Main.qml:132
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "About"
 msgctxt "@action:button about this application"
 msgid "About"
-msgstr "Hakkında"
+msgstr "O programu"
 
 #: qml/Main.qml:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "qml/Main.qml:126"
+#| msgid "Printers"
 msgctxt "@label:info device description"
 msgid "Printers"
-msgstr "Yazıcılar"
+msgstr "Tiskalniki"
 
 #: qml/Main.qml:166
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Printer Groups"
 msgctxt "@label:info device description"
 msgid "Printer Groups"
-msgstr "Yazıcı Grupları"
+msgstr "Skupine tiskalnikov"
 
 #: qml/Main.qml:273
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Resume"
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr "Sürdür"
+msgstr "Nadaljuj"
 
 #: qml/Main.qml:274
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Pause"
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr "Duraklat"
+msgstr "Začasno ustavi"
 
 #: qml/Main.qml:287
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Configure…"
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
-msgstr "Yapılandır…"
+msgstr "Konfiguriraj…"
 
 #: qml/Main.qml:294
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Media Settings…"
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"
-msgstr "Ortam Ayarları…"
+msgstr "Nastavitve medijev…"
 
 #: qml/NotAvailablePage.qml:29
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "No printers have been set up"
 msgctxt "@info:status"
 msgid "No printers have been set up"
-msgstr "Ayarlanmış yazıcı yok"
+msgstr "Noben tiskalnik ni bil nastavljen"
 
 #: qml/NotAvailablePage.qml:31
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Set Up a Printer…"
 msgctxt "@action:button"
 msgid "Set Up a Printer…"
-msgstr "Yazıcı Ayarla…"
+msgstr "Nastavi tiskalnik…"
 
 #: qml/NotAvailablePage.qml:43
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Printing services not available"
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr "Yazdırma hizmetleri kullanılamıyor"
+msgstr "Storitve tiskanja niso na voljo"
 
 #: qml/NotAvailablePage.qml:44
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+#| "Support</a>"
 msgctxt ""
 "@info:usagetip %1 is the distribution support URL %2 is the distribution name"
 msgid ""
 "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
 "Support</a>"
 msgstr ""
-"CUPS sistem hizmetinin etkin olduğundan emin olun veya <a href=\"%1\">%2 "
-"desteğine</a> bakın"
+"Preverite, ali je sistemska storitev CUPS aktivna, ali preverite: <a href="
+"\"%1\">%2 Podpora</a>"
 
 #: qml/NotAvailablePage.qml:54
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Unknown error condition with printing services"
 msgctxt "@info:status"
 msgid "Unknown error condition with printing services"
-msgstr "Yazdırma hizmetleriyle ilgili bilinmeyen bir sorun oluştu"
+msgstr "Neznana napaka s storitvami tiskanja"
 
 #: qml/NotAvailablePage.qml:55
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
 msgctxt ""
 "@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
 "name"
 msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
-msgstr "Sorunlar için <a href=\"%1\">%2 konularına</a> bakın"
+msgstr "Preverite težave tukaj: <a href=\"%1\">%2 Težave</a>"
+
+#~ msgctxt "qml/Main.qml:166"
+#~ msgid "Printers"
+#~ msgstr "Tiskalniki"

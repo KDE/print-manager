@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-20 13:11+0100\n"
+"PO-Revision-Date: 2026-02-24 17:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -75,7 +75,7 @@ msgstr "Predelava za Qt 6 / Plasma 6"
 #: src/configure-printer/main.cpp:39
 #, kde-format
 msgid "Printer to be configured"
-msgstr "Tiskalnik, ki bo nastavljen"
+msgstr "Tiskalnik za konfigurirati"
 
 #: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
@@ -100,7 +100,7 @@ msgstr "Zaustavi tiskalnik"
 #: src/configure-printer/PrinterBehavior.cpp:207
 #, kde-format
 msgid "Authenticated"
-msgstr "Overjeno"
+msgstr "Avtenticirano"
 
 #: src/configure-printer/PrinterBehavior.cpp:209
 #, kde-format
@@ -110,12 +110,12 @@ msgstr "Privzeto"
 #: src/configure-printer/PrinterBehavior.cpp:218
 #, kde-format
 msgid "None"
-msgstr "Brez"
+msgstr "Noben"
 
 #: src/configure-printer/PrinterBehavior.cpp:220
 #, kde-format
 msgid "Classified"
-msgstr "Zaupno"
+msgstr "Interno"
 
 #: src/configure-printer/PrinterBehavior.cpp:222
 #, kde-format
@@ -135,12 +135,12 @@ msgstr "Standardno"
 #: src/configure-printer/PrinterBehavior.cpp:228
 #, kde-format
 msgid "Topsecret"
-msgstr "Najvišja tajnost"
+msgstr "Strogo tajno"
 
 #: src/configure-printer/PrinterBehavior.cpp:230
 #, kde-format
 msgid "Unclassified"
-msgstr "Neuvrščeno"
+msgstr "Nerazvrščeno"
 
 #. i18n: ectx: property (title), widget (QGroupBox, BanneryGB)
 #: src/configure-printer/PrinterBehavior.ui:20
@@ -301,7 +301,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr "%1 (%2) je videti prazno."
+msgstr "%1 (%2) je videti prazna."
 
 #: src/kded/MarkerLevelChecker.cpp:177
 #, kde-format
@@ -322,7 +322,7 @@ msgstr "%1 (%2) je skoraj polna (%3%)"
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr "Preverite ravni…"
+msgstr "Preveri ravni…"
 
 #: src/kded/NewPrinterNotification.cpp:71
 #, kde-format
@@ -652,7 +652,7 @@ msgstr "Tiskalnik"
 #: src/libkcups/JobModel.cpp:36
 #, kde-format
 msgid "From Hostname"
-msgstr "Od imena gostitelja"
+msgstr "Iz imena gostitelja"
 
 #: src/libkcups/JobModel.cpp:169
 #, kde-format

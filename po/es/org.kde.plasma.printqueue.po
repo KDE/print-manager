@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: org.kde.plasma.printqueue\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-02-23 15:44+0100\n"
+"PO-Revision-Date: 2026-02-24 12:22+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -278,11 +278,7 @@ msgid "Printing services not available"
 msgstr "Servicios de impresión no disponibles"
 
 #: qml/NotAvailablePage.qml:44
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid ""
-#| "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
-#| "Support</a>"
+#, kde-format
 msgctxt ""
 "@info:usagetip %1 is the distribution support URL %2 is the distribution name"
 msgid ""
@@ -299,11 +295,9 @@ msgid "Unknown error condition with printing services"
 msgstr "Condición de error desconocida con los servicios de impresión"
 
 #: qml/NotAvailablePage.qml:55
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+#, kde-format
 msgctxt ""
 "@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
 "name"
 msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
-msgstr "Compruebe los problemas aquí: <a href=\"%1\">%2 problemas</a>"
+msgstr "Compruebe los problemas aquí: <a href=\"%1\">Problemas de %2</a>"

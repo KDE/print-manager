@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-01-23 12:32+0100\n"
+"PO-Revision-Date: 2026-02-19 11:02+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -322,17 +322,15 @@ msgid "Check Levels…"
 msgstr "Füllstände überprüfen …"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
 msgstr "Ein neuer Drucker wurde erkannt"
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "Einen Drucker einrichten"
+msgstr "Neuen Drucker einrichten …"
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format

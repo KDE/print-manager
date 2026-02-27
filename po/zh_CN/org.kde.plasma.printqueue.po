@@ -1,133 +1,133 @@
-# Copyright (C) 2026 This file is copyright:
-# This file is distributed under the same license as the print-manager package.
-#
-# SPDX-FileCopyrightText: 2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: print-manager\n"
+"Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-24 00:47+0000\n"
-"PO-Revision-Date: 2026-02-26 08:56+0200\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
-"Language: he\n"
+"PO-Revision-Date: 2026-02-26 21:24\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
-"n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 25.12.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf6-trunk/messages/print-manager/org.kde.plasma.printqueue."
+"pot\n"
+"X-Crowdin-File-ID: 60018\n"
 
 #: main.cpp:38
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr "מנהל תור הדפסה של פלזמה"
+msgstr ""
 
 #: main.cpp:40
 #, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "ניהול תורי משימות המדפסת"
+msgstr ""
 
 #: main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr "© קהילת KDE"
+msgstr ""
 
 #: main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr "מייק נו"
+msgstr ""
 
 #: main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr "מפתח"
+msgstr ""
 
 #: main.cpp:48
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "צוות התרגום של KDE ישראל"
+msgstr ""
 
 #: main.cpp:48
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-l10n-he@kde.org"
+msgstr ""
 
 #: main.cpp:58
 #, kde-format
 msgid "Show printer queue"
-msgstr "הצגת תור המדפסות"
+msgstr ""
 
 #: PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr "נא למלא פרטי גישה כדי להדפיס מ־<b>%1</b>"
+msgstr ""
 
 #: qml/JobView.qml:30
 #, kde-format
 msgctxt "@label Job types currently showing"
 msgid "%1 Jobs"
-msgstr "%1 משימות"
+msgstr ""
 
 #: qml/JobView.qml:58
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Filter Jobs"
-msgstr "סינון משימות"
+msgstr ""
 
 #: qml/JobView.qml:63
 #, kde-format
 msgctxt "option:check Show active Jobs"
 msgid "Active"
-msgstr "פעילה"
+msgstr ""
 
 #: qml/JobView.qml:71
 #, kde-format
 msgctxt "option:check Show completed jobs"
 msgid "Completed"
-msgstr "הושלמה"
+msgstr ""
 
 #: qml/JobView.qml:79
 #, kde-format
 msgctxt "option:check Show all jobs"
 msgid "All"
-msgstr "הכול"
+msgstr ""
 
 #: qml/JobView.qml:90
 #, kde-format
 msgctxt "@option:check Hide expanded job view"
 msgid "Hide Job Details"
-msgstr "הסתרת פרטי משימה"
+msgstr ""
 
 #: qml/JobView.qml:91
 #, kde-format
 msgctxt "@option:check Show expanded job view"
 msgid "Show Job Details"
-msgstr "הצגת פרטי משימה"
+msgstr ""
 
 #: qml/JobView.qml:98
 #, kde-format
 msgctxt "@action:button Cancel all active jobs"
 msgid "Cancel All Jobs"
-msgstr "ביטול כל המשימות"
+msgstr ""
 
 #: qml/JobView.qml:112
 #, kde-format
 msgctxt "@title:window"
 msgid "Cancel all active print jobs?"
-msgstr "לבטל את כל משימות ההדפסה הפעילות?"
+msgstr ""
 
 #: qml/JobView.qml:139
 #, kde-format
 msgctxt "@info:status Print jobs not found in the print queue"
 msgid "The print queue is empty"
-msgstr "תור ההדפסה ריק"
+msgstr ""
 
 #: qml/JobView.qml:158
 #, kde-format
@@ -135,146 +135,146 @@ msgctxt ""
 "@action:inmenu Move the job to /info/ which is the friendly name of the "
 "other print queue"
 msgid "Move to %1"
-msgstr "העברה אל %1"
+msgstr ""
 
 #: qml/JobView.qml:246
 #, kde-format
 msgctxt "@action:button This action cancels the job"
 msgid "Cancel"
-msgstr "ביטול"
+msgstr ""
 
 #: qml/JobView.qml:257
 #, kde-format
 msgctxt "@action:button This action holds the job"
 msgid "Hold"
-msgstr "החזקה"
+msgstr ""
 
 #: qml/JobView.qml:268
 #, kde-format
 msgctxt "@action:button This action releases the job"
 msgid "Release"
-msgstr "שחרור"
+msgstr ""
 
 #: qml/JobView.qml:279
 #, kde-format
 msgctxt "@action:button This action reprints the job"
 msgid "Reprint"
-msgstr "הדפסה מחדש"
+msgstr ""
 
 #: qml/JobView.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr "העברה"
+msgstr ""
 
 #: qml/JobView.qml:300
 #, kde-format
 msgctxt ""
 "@action:button This action prompts for user/password to authenticate the job"
 msgid "Authenticate"
-msgstr "אימות"
+msgstr ""
 
 #: qml/JobView.qml:321
 #, kde-format
 msgctxt "@label:info"
 msgid "Status: %1, %2"
-msgstr "מצב: %1, %2"
+msgstr ""
 
 #: qml/JobView.qml:322
 #, kde-format
 msgctxt "@label:info"
 msgid "Status: %1"
-msgstr "מצב: %1"
+msgstr ""
 
 #: qml/JobView.qml:327
 #, kde-format
 msgctxt "@label:info Date created"
 msgid "Created: %1"
-msgstr "נוצרה: %1"
+msgstr ""
 
 #: qml/JobView.qml:338
 #, kde-format
 msgctxt "@label:info Date completed"
 msgid "Completed: %1"
-msgstr "הושלמה: %1"
+msgstr ""
 
 #: qml/JobView.qml:343
 #, kde-format
 msgctxt "@label:info Date processed"
 msgid "Processed: %1"
-msgstr "עברה עיבוד: %1"
+msgstr ""
 
 #: qml/JobView.qml:349
 #, kde-format
 msgctxt "@label:info Job page count"
 msgid "Pages: %1"
-msgstr "עמודים: %1"
+msgstr ""
 
 #: qml/Main.qml:126
 #, kde-format
 msgctxt "@label:header"
 msgid "Printers"
-msgstr "מדפסות"
+msgstr ""
 
 #: qml/Main.qml:132
 #, kde-format
 msgctxt "@action:button about this application"
 msgid "About"
-msgstr "על אודות"
+msgstr ""
 
 #: qml/Main.qml:166
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printers"
-msgstr "מדפסות"
+msgstr ""
 
 #: qml/Main.qml:166
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printer Groups"
-msgstr "קבוצות מדפסות"
+msgstr ""
 
 #: qml/Main.qml:273
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr "המשך"
+msgstr ""
 
 #: qml/Main.qml:274
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr "השהיה"
+msgstr ""
 
 #: qml/Main.qml:287
 #, kde-format
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
-msgstr "הגדרה…"
+msgstr ""
 
 #: qml/Main.qml:294
 #, kde-format
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"
-msgstr "הגדרות מדיה…"
+msgstr ""
 
 #: qml/NotAvailablePage.qml:29
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers have been set up"
-msgstr "לא הוגדרו מדפסות"
+msgstr ""
 
 #: qml/NotAvailablePage.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Set Up a Printer…"
-msgstr "הגדרת מדפסת…"
+msgstr ""
 
 #: qml/NotAvailablePage.qml:43
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr "שירותי ההדפסה לא זמינים"
+msgstr ""
 
 #: qml/NotAvailablePage.qml:44
 #, kde-format
@@ -284,13 +284,12 @@ msgid ""
 "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
 "Support</a>"
 msgstr ""
-"יש לוודא ששירות המערכת CUPS פעיל או לפנות אל: <a href=\"%1\">התמיכה של %2</a>"
 
 #: qml/NotAvailablePage.qml:54
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown error condition with printing services"
-msgstr "תנאי שגיאה לא ידוע מול שירותי ההדפסה"
+msgstr ""
 
 #: qml/NotAvailablePage.qml:55
 #, kde-format
@@ -298,4 +297,4 @@ msgctxt ""
 "@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
 "name"
 msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
-msgstr "אפשר לראות את התקלות כאן: <a href=\"%1\">תקלות ב־%2</a>"
+msgstr ""

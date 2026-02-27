@@ -320,17 +320,15 @@ msgid "Check Levels…"
 msgstr "检查墨量…"
 
 #: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "A new printer was detected"
-msgstr "检测到新打印机"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure a printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr "配置打印机"
+msgstr ""
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -794,11 +792,10 @@ msgid "Plasma Print Queue Manager"
 msgstr ""
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "显示打印队列"
+msgstr ""
 
 #: src/print-queue/main.cpp:42
 #, kde-format
@@ -830,101 +827,11 @@ msgid "Your emails"
 msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "显示打印队列"
+msgstr ""
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "请输入身份验证信息，以使用 <b>%1</b> 打印"
-
-#~ msgid "Failed to move '%1' to '%2'"
-#~ msgstr "移动“%1”到“%2”失败"
-
-#~ msgid "Failed"
-#~ msgstr "已失败"
-
-#~ msgid "Print Queue"
-#~ msgstr "打印队列"
-
-#~ msgid "Printer ready"
-#~ msgstr "打印机准备就绪"
-
-#~ msgid "Pause Printer"
-#~ msgstr "暂停打印"
-
-#~ msgid "Printing..."
-#~ msgstr "正在打印..."
-
-#~ msgid "Printing '%1'"
-#~ msgstr "正在打印“%1”"
-
-#~ msgid "Printer paused"
-#~ msgstr "打印已暂停"
-
-#~ msgid "Resume Printer"
-#~ msgstr "继续打印"
-
-#~ msgid "Printer state unknown"
-#~ msgstr "打印机状态未知"
-
-#~ msgid "Move to"
-#~ msgstr "移动到"
-
-#~ msgid "Authenticate"
-#~ msgstr "身份验证"
-
-#~ msgid "All Printers (%1 Job)"
-#~ msgid_plural "All Printers (%1 Jobs)"
-#~ msgstr[0] "所有打印机 (%1 个任务)"
-
-#~ msgid "%2 (%1 Job)"
-#~ msgid_plural "%2 (%1 Jobs)"
-#~ msgstr[0] "%2 (%1 个任务)"
-
-#~ msgid "All Printers"
-#~ msgstr "所有打印机"
-
-#~ msgid "Failed to cancel '%1'"
-#~ msgstr "取消“%1”失败"
-
-#~ msgid "Failed to hold '%1'"
-#~ msgstr "暂停“%1”失败"
-
-#~ msgid "Failed to release '%1'"
-#~ msgstr "释放“%1”失败"
-
-#~ msgid "Failed to reprint '%1'"
-#~ msgstr "重新打印“%1”失败"
-
-#~ msgid "my printer (x jobs)"
-#~ msgstr "我的打印机 (x 个任务)"
-
-#~ msgid "Printer Icon"
-#~ msgstr "打印机图标"
-
-#~ msgid "Cancel"
-#~ msgstr "取消"
-
-#~ msgid "Hold"
-#~ msgstr "暂停"
-
-#~ msgid "Resume"
-#~ msgstr "继续"
-
-#~ msgid "Reprint"
-#~ msgstr "重新打印"
-
-#~ msgid "Active Jobs"
-#~ msgstr "活动任务"
-
-#~ msgid "Completed Jobs"
-#~ msgstr "已完成任务"
-
-#~ msgid "All Jobs"
-#~ msgstr "所有任务"
-
-#~ msgid "Starting printer configuration"
-#~ msgstr "开始配置打印机"

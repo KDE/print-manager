@@ -322,13 +322,13 @@ msgstr "检查墨量…"
 #: src/kded/NewPrinterNotification.cpp:71
 #, kde-format
 msgid "A new printer was detected"
-msgstr ""
+msgstr "检测到新打印机"
 
 #: src/kded/NewPrinterNotification.cpp:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure new printer…"
-msgstr ""
+msgstr "配置新打印机…"
 
 #: src/kded/NewPrinterNotification.cpp:110
 #, kde-format
@@ -648,7 +648,7 @@ msgstr "来自主机名"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "正在处理\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -789,30 +789,30 @@ msgstr "未知 - “%1”"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Plasma 打印队列管理器"
 
 #: src/print-queue/main.cpp:40
 #, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr ""
+msgstr "管理打印机任务队列"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE Community"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "开发者"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -829,9 +829,9 @@ msgstr "kde-china@kde.org, i@guoyunhe.me, tds00@qq.com"
 #: src/print-queue/main.cpp:58
 #, kde-format
 msgid "Show printer queue"
-msgstr ""
+msgstr "显示打印队列"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr "请输入身份验证信息，以使用 <b>%1</b> 打印"
+msgstr "要使用 <b>%1</b> 打印，请输入身份验证信息"

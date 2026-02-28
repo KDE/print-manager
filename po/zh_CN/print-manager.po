@@ -897,7 +897,7 @@ msgstr "重新打印“%1”失败"
 #: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr "请输入身份验证信息，以使用 <b>%1</b> 打印"
+msgstr "要使用 <b>%1</b> 打印，请输入身份验证信息"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintQueueUi)
 #: src/printqueue/PrintQueueUi.ui:20

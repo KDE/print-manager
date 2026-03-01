@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019.
 msgid ""
@@ -5,9 +6,9 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2019-11-02 00:09+0900\n"
-"Last-Translator: Tomohiro Hyakutake <tomhioo@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-02-23 17:27+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 19.08.2\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,7 +32,7 @@ msgstr ""
 #: src/configure-printer/ConfigureDialog.cpp:94
 #, kde-format
 msgid "Media Settings"
-msgstr ""
+msgstr "印刷設定"
 
 #: src/configure-printer/ConfigureDialog.cpp:101
 #: src/configure-printer/ConfigureDialog.cpp:102
@@ -45,16 +46,18 @@ msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr ""
+"現在のページに変更があります。\n"
+"保存しますか？"
 
 #: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
 msgid "Configure Printer"
-msgstr ""
+msgstr "プリンタ設定"
 
 #: src/configure-printer/main.cpp:27
 #, kde-format
@@ -64,7 +67,7 @@ msgstr ""
 #: src/configure-printer/main.cpp:29 src/printqueue/main.cpp:28
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr ""
+msgstr "　"
 
 #: src/configure-printer/main.cpp:31 src/printqueue/main.cpp:31
 #, kde-format
@@ -174,7 +177,7 @@ msgstr "ポリシー"
 #: src/configure-printer/PrinterBehavior.ui:87
 #, kde-format
 msgid "Operation Policy:"
-msgstr ""
+msgstr "オペレーションポリシー:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/configure-printer/PrinterBehavior.ui:100
@@ -307,7 +310,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) が空になっています。"
 
 #: src/kded/MarkerLevelChecker.cpp:177
 #, kde-format
@@ -315,14 +318,14 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) の残量が少なくなっています (残り %3%)。"
 
 #: src/kded/MarkerLevelChecker.cpp:184
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) がほぼ満タンです (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format
@@ -625,7 +628,7 @@ msgstr "ユーザ"
 #: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Created"
-msgstr ""
+msgstr "作成日"
 
 #: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
 #, kde-format
@@ -665,7 +668,7 @@ msgstr ""
 #: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:479
 #, kde-format
 msgid "Failed to move '%1' to '%2'"
-msgstr ""
+msgstr "\"%1\" から \"%2\" への移動に失敗しました"
 
 #: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
@@ -680,7 +683,7 @@ msgstr "保留"
 #: src/libkcups/JobModel.cpp:585
 #, kde-format
 msgid "On hold"
-msgstr ""
+msgstr "中断"
 
 #: src/libkcups/JobModel.cpp:589
 #, kde-format
@@ -885,22 +888,22 @@ msgstr "すべてのプリンタ"
 #: src/printqueue/PrintQueueUi.cpp:467
 #, kde-format
 msgid "Failed to cancel '%1'"
-msgstr ""
+msgstr "\"%1\" のキャンセルに失敗しました"
 
 #: src/printqueue/PrintQueueUi.cpp:470
 #, kde-format
 msgid "Failed to hold '%1'"
-msgstr ""
+msgstr "\"%1\" の中断に失敗しました"
 
 #: src/printqueue/PrintQueueUi.cpp:473
 #, kde-format
 msgid "Failed to release '%1'"
-msgstr ""
+msgstr "\"%1\" の再開に失敗しました"
 
 #: src/printqueue/PrintQueueUi.cpp:476
 #, kde-format
 msgid "Failed to reprint '%1'"
-msgstr ""
+msgstr "\"%1\" の再印刷に失敗しました"
 
 #: src/printqueue/PrintQueueUi.cpp:547
 #, kde-format
@@ -929,7 +932,7 @@ msgstr "キャンセル"
 #: src/printqueue/PrintQueueUi.ui:253
 #, kde-format
 msgid "Hold"
-msgstr ""
+msgstr "中断"
 
 #. i18n: ectx: property (text), widget (QPushButton, resumeJobPB)
 #: src/printqueue/PrintQueueUi.ui:266
@@ -960,143 +963,3 @@ msgstr "完了したジョブ"
 #, kde-format
 msgid "All Jobs"
 msgstr "すべてのジョブ"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Printer to Add"
-#~ msgstr "追加するプリンタを選択"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure your connection"
-#~ msgstr "あなたの接続を設定"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Pick a Driver"
-#~ msgctxt "@title:window"
-#~ msgid "Pick a Driver for %1"
-#~ msgstr "ドライバを選択"
-
-#~ msgid "Address:"
-#~ msgstr "アドレス:"
-
-#~ msgid "Queue:"
-#~ msgstr "キュー:"
-
-#~ msgid "Detect"
-#~ msgstr "検出"
-
-#~ msgctxt "@action:button"
-#~ msgid "Browse"
-#~ msgstr "ブラウズ"
-
-#~ msgctxt "@title:group"
-#~ msgid "Authentication"
-#~ msgstr "認証"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Username:"
-#~ msgstr "ユーザ名:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Password"
-#~ msgstr "パスワード"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "None"
-#~ msgstr "なし"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Address:"
-#~ msgstr "アドレス:"
-
-#~ msgctxt "@label:spinbox"
-#~ msgid "Port:"
-#~ msgstr "ポート:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Connection:"
-#~ msgstr "接続:"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Examples:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-#~ "\">\"Network\n"
-#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-#~ msgstr ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>例:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P><A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank\">"
-#~ "\"ネットワーク\n"
-#~ "プリンタ\"</A>を閲覧し、プリンタに使う正しい URI を確認してください</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Name:"
-#~ msgstr "名前:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Description:"
-#~ msgstr "説明:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Location:"
-#~ msgstr "場所:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Share this printer"
-#~ msgstr "このプリンタを共有"
-
-#~ msgid "Connections"
-#~ msgstr "接続"
-
-#~ msgid "Please choose an item on the list"
-#~ msgstr "リストからアイテムを選択してください"
-
-#~ msgid "Search"
-#~ msgstr "検索"
-
-#, fuzzy
-#~| msgid "Choose &the driver from the list"
-#~ msgid "Choose the driver for %1"
-#~ msgstr "リストからドライバを選択(&T)"
-
-#~ msgid "Select a Driver"
-#~ msgstr "ドライバを選択"
-
-#~ msgid "Ma&nually Provide a PPD File:"
-#~ msgstr "PPD ファイルを手動で提供(&N):"

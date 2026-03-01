@@ -1,14 +1,15 @@
 # SPDX-FileCopyrightText: 2023, 2024 Ryuichi Yamada <ryuichi_ya220@outlook.jp>
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2019.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2024-01-06 01:54+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-02-23 17:11+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: printermanager.cpp:106
 #, fuzzy, kde-format
@@ -53,15 +54,13 @@ msgstr "プリンタの設定に失敗しました:"
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "プリンタのドライバ (%1)"
+msgstr "ドライバレス"
 
 #: printermanager.cpp:465
 #, fuzzy, kde-format
@@ -135,14 +134,13 @@ msgstr "プリンタのドライバ"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Address:"
-msgstr ""
+msgstr "アドレス:"
 
 #: ui/components/BaseDevice.qml:126
-#, fuzzy, kde-format
-#| msgid "Enter host URI"
+#, kde-format
 msgctxt "@info The printer/device address"
 msgid "Enter device address"
-msgstr "ホスト URI を入力"
+msgstr "デバイスのアドレスを入力"
 
 #: ui/components/Direct.qml:25
 #, kde-format
@@ -167,7 +165,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "手動でドライバを検索…"
 
 #: ui/components/Drivers.qml:78
 #, fuzzy, kde-format
@@ -183,44 +181,38 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Line Printer Daemon (LPD) プロトコル"
 
 #: ui/components/Lpd.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "リモートホスト/デバイスのアドレスを入力"
+msgstr "LPD デバイスのアドレスを入力してください"
 
 #: ui/components/Lpd.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "キューの名前:"
+msgstr "キュー:"
 
 #: ui/components/Lpd.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "キューの名前:"
+msgstr "LPD キューの名前"
 
 #: ui/components/Lpd.qml:75 ui/components/ManualUri.qml:82
 #: ui/components/Socket.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "アドレスで続行…"
 
 #: ui/components/Lpd.qml:92
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr ""
+msgstr "不正な LPD URL: %1"
 
 #: ui/components/ManualUri.qml:23
 #, kde-format
@@ -232,7 +224,7 @@ msgstr "リモートの印刷デバイスを検索"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr "リモートホスト/デバイスのアドレスを入力"
+msgstr "リモートホスト/デバイスのアドレスを入力してください"
 
 #: ui/components/ManualUri.qml:57
 #, kde-format
@@ -244,7 +236,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "CUPS リクエストエラー: (%1): %2"
 
 #: ui/components/ManualUri.qml:72
 #, fuzzy, kde-format
@@ -262,25 +254,26 @@ msgid ""
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
+"プリンタのアドレスが分かる場合は入力して<interface>続行</interface>を押してく"
+"ださい。プリンタがリモートホストにある場合は、そのアドレスを入力して"
+"<interface>検索</interface>を押してください。"
 
 #: ui/components/Socket.qml:19
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "AppSocket プロトコル (別名 JetDirect)"
 
 #: ui/components/Socket.qml:20
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "リモートホスト/デバイスのアドレスを入力"
+msgstr "AppSocket デバイスのアドレスを入力してください"
 
 #: ui/components/Socket.qml:65
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "不正な Socket URL: %1"
 
 #: ui/FindPrinter.qml:128
 #, kde-format
@@ -289,8 +282,7 @@ msgid "Set up a Printer Connection"
 msgstr "プリンタの接続を設定"
 
 #: ui/FindPrinter.qml:132 ui/main.qml:275
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "更新"
@@ -308,12 +300,10 @@ msgid "Show Manual Options"
 msgstr "手動のオプションを表示"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "この機能はまだ使用できません (%1)"
+msgstr "この機能は利用不可です (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format
@@ -338,12 +328,10 @@ msgid "Choose a manual configuration option from the list"
 msgstr "リストから手動設定オプションを選択"
 
 #: ui/Global.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Print Server Settings"
+#, kde-format
 msgctxt "@title:window"
 msgid "CUPS Server Settings"
-msgstr "プリントサーバのオプション"
+msgstr "CUPS サーバ設定"
 
 #: ui/Global.qml:24
 #, kde-format
@@ -461,7 +449,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
-msgstr ""
+msgstr "追加…"
 
 #: ui/main.qml:124
 #, fuzzy, kde-format
@@ -472,20 +460,16 @@ msgid "Add Printer…"
 msgstr "プリンタを追加"
 
 #: ui/main.qml:130
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Add Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
-msgstr "グループを追加"
+msgstr "グループを追加…"
 
 #: ui/main.qml:136
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure Print Server"
+#, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
-msgstr "プリントサーバを設定"
+msgstr "プリントサーバを設定…"
 
 #: ui/main.qml:262
 #, kde-format
@@ -494,19 +478,19 @@ msgid "No printers are currently set up"
 msgstr "設定されたプリンタはありません"
 
 #: ui/main.qml:263
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:usagetip"
-#| msgid "Choose 'Add Printer' to set up a new printer on this computer"
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
-msgstr "「プリンタを追加」を選択してこのコンピュータ上に新しいプリンタを設定"
+msgstr ""
+"<interface>追加…</interface>を選択してこのコンピュータ上に新しいプリンタを設"
+"定"
 
 #: ui/main.qml:272
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "プリントサービスが利用不可"
 
 #: ui/main.qml:273
 #, kde-kuit-format
@@ -515,6 +499,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"<interface>プリントサーバを設定…</interface>を選択して設定を確認するか、CUPS "
+"システムサービスがアクティブかどうか確認してください。"
 
 #: ui/main.qml:313
 #, kde-format
@@ -527,12 +513,10 @@ msgid "Printer Groups"
 msgstr "プリンタのグループ"
 
 #: ui/main.qml:376
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "印刷キューを開く..."
+msgstr "印刷キューを開く"
 
 #: ui/main.qml:385
 #, kde-format
@@ -580,7 +564,7 @@ msgstr "プリンタのドライバ"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™を使用"
 
 #: ui/MakeModel.qml:161
 #, kde-format
@@ -660,12 +644,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "CUPS プリンタ概要 ヘルプ"
 
 #: ui/PrinterSettings.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "CUPS プリントサーバ管理者"
+msgstr "プリンタ/デバイス管理ページ"
 
 #: ui/PrinterSettings.qml:104
 #, kde-format
@@ -680,20 +662,18 @@ msgid "Apply"
 msgstr "適用"
 
 #: ui/PrinterSettings.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr "キューの名前が必要です。独自のキューの名前を入力してください。"
+msgstr "キューの名前が必要です。一意のキューの名前を入力してください。"
 
 #: ui/PrinterSettings.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr "キューの名前が必要です。独自のキューの名前を入力してください。"
+msgstr ""
+"キューの名前は一意である必要があります。一意のキューの名前を入力してくださ"
+"い。"
 
 #: ui/PrinterSettings.qml:126
 #, fuzzy, kde-format
@@ -707,7 +687,7 @@ msgstr "メーカー/モデル名が必要です。メーカー/モデルを選�
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr ""
+msgstr "%1 を設定しています。しばらくおまちください…"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
@@ -715,35 +695,31 @@ msgid "Failed to remove the printer: %1"
 msgstr "プリンタの削除に失敗しました: %1"
 
 #: ui/PrinterSettings.qml:205
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "グループを削除"
+msgstr "グループを削除しますか？"
 
 #: ui/PrinterSettings.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "プリンタを削除"
+msgstr "プリンタを削除しますか？"
 
 #: ui/PrinterSettings.qml:208
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "\"%1\" が削除されます。"
 
 #: ui/PrinterSettings.qml:215
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "グループを削除"
 
 #: ui/PrinterSettings.qml:216
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "プリンタを削除"
@@ -842,54 +818,3 @@ msgstr "メーカー/モデル:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "選択…"
-
-#, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid "A <b>printer group</b> is used to pool printing resources."
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "A <interface>printer group</interface> is used to pool printing resources."
-#~ msgstr ""
-#~ "<b>プリントグループ</b>は印刷リソースをプールするために利用されます。"
-
-#~ msgid "Refresh"
-#~ msgstr "更新"
-
-#~ msgid "CUPS Network Printers Help"
-#~ msgstr "CUPS ネットワークプリンタ ヘルプ"
-
-#~ msgctxt "@action:button"
-#~ msgid "Find a Printer…"
-#~ msgstr "プリンタを検索..."
-
-#, fuzzy
-#~| msgctxt "@option:radio"
-#~| msgid "PPD file:"
-#~ msgctxt "@label:listitem"
-#~ msgid "PPD File (%1)"
-#~ msgstr "PPD ファイル:"
-
-#, fuzzy
-#~| msgctxt "@action:check Set default printer"
-#~| msgid "Default printer"
-#~ msgctxt "@info:status This is the default printer"
-#~ msgid "** Default Printer"
-#~ msgstr "既定のプリンタ"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure…"
-#~ msgstr "設定..."
-
-#~ msgid "Set Default Options"
-#~ msgstr "既定のオプションを設定"
-
-#~ msgctxt "@option:check"
-#~ msgid "Auto Configure"
-#~ msgstr "自動設定"
-
-#~ msgid "Are you sure you really want to remove:  %1 (%2)?"
-#~ msgstr "本当に %1 (%2) を削除しますか？"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Uri:"
-#~ msgstr "Uri:"

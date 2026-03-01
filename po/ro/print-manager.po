@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# Sergiu Bivol <sergiu@cip.md>, 2012, 2013, 2014, 2020, 2021, 2024.
+# SPDX-FileCopyrightText: 2012, 2013, 2014, 2020, 2021, 2024, 2026 Sergiu Bivol <sergiu@cip.md>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2024-03-02 15:00+0000\n"
+"PO-Revision-Date: 2026-03-01 00:40+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -220,16 +220,14 @@ msgid "Add a new printer"
 msgstr "Adaugă o imprimantă nouă"
 
 #: src/kcm/printermanager.cpp:108
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Adaugă o imprimantă nouă"
+msgstr "Adaugă un nou grup de imprimante"
 
 #: src/kcm/printermanager.cpp:110 src/kcm/printermanager.cpp:112
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Configurează imprimanta"
+msgstr "Configurează o imprimantă"
 
 #: src/kcm/printermanager.cpp:310
 #, kde-format
@@ -247,20 +245,19 @@ msgstr "Configurarea imprimantei a eșuat: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:462
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Driver:"
+msgstr "Fără driver"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "Fișier PPD"
 
 #: src/kcm/printermanager.cpp:484
 #, kde-format
@@ -274,12 +271,10 @@ msgid "Failed to get server settings: %1"
 msgstr "Obținerea parametrilor serverului a eșuat: %1"
 
 #: src/kcm/printermanager.cpp:573
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Eroare server: (%1): %2"
+msgstr "Configurările serverului nu sunt salvate: (%1): %2"
 
 #: src/kcm/printermanager.cpp:580
 #, fuzzy, kde-format
@@ -312,7 +307,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) pare să fie gol."
 
 #: src/kded/MarkerLevelChecker.cpp:177
 #, kde-format
@@ -320,20 +315,20 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) pare să fie gol (%3% rămase)."
 
 #: src/kded/MarkerLevelChecker.cpp:184
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) e aproape plin (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Verifică nivelurile…"
 
 #: src/kded/NewPrinterNotification.cpp:63
 #, kde-format
@@ -343,11 +338,10 @@ msgstr "A fost descoperită o nouă imprimantă"
 #: src/kded/NewPrinterNotification.cpp:64
 #, kde-format
 msgid "Starting printer configuration"
-msgstr ""
+msgstr "Începe configurarea imprimantei"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Noua imprimantă a fost adăugată"
 

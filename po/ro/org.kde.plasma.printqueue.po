@@ -1,0 +1,302 @@
+# Copyright (C) 2026 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+# SPDX-FileCopyrightText: 2026 Sergiu Bivol <sergiu@cip.md>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-02-24 00:47+0000\n"
+"PO-Revision-Date: 2026-03-01 00:38+0000\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 25.12.2\n"
+
+#: main.cpp:38
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr "Administratorul cozilor de imprimare Plasma"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
+msgstr "Gestionează cozile lucrărilor de imprimare"
+
+#: main.cpp:42
+#, kde-format
+msgid "© KDE Community"
+msgstr "© Comunitatea KDE"
+
+#: main.cpp:47
+#, kde-format
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr "Mike Noe"
+
+#: main.cpp:47
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Dezvoltator"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sergiu Bivol"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sergiu@cip.md"
+
+#: main.cpp:58
+#, kde-format
+msgid "Show printer queue"
+msgstr "Arată coada de imprimare"
+
+#: PrintQueue.cpp:82
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Introduceți acreditări pentru a imprima de la <b>%1</b>"
+
+#: qml/JobView.qml:30
+#, kde-format
+msgctxt "@label Job types currently showing"
+msgid "%1 Jobs"
+msgstr "Lucrări %1"
+
+#: qml/JobView.qml:58
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Filter Jobs"
+msgstr "Filtrează lucrările"
+
+#: qml/JobView.qml:63
+#, kde-format
+msgctxt "option:check Show active Jobs"
+msgid "Active"
+msgstr "Active"
+
+#: qml/JobView.qml:71
+#, kde-format
+msgctxt "option:check Show completed jobs"
+msgid "Completed"
+msgstr "Încheiate"
+
+#: qml/JobView.qml:79
+#, kde-format
+msgctxt "option:check Show all jobs"
+msgid "All"
+msgstr "Toate"
+
+#: qml/JobView.qml:90
+#, kde-format
+msgctxt "@option:check Hide expanded job view"
+msgid "Hide Job Details"
+msgstr "Ascunde detaliile lucrării"
+
+#: qml/JobView.qml:91
+#, kde-format
+msgctxt "@option:check Show expanded job view"
+msgid "Show Job Details"
+msgstr "Arată detaliile lucrării"
+
+#: qml/JobView.qml:98
+#, kde-format
+msgctxt "@action:button Cancel all active jobs"
+msgid "Cancel All Jobs"
+msgstr "Anulează toate lucrările"
+
+#: qml/JobView.qml:112
+#, kde-format
+msgctxt "@title:window"
+msgid "Cancel all active print jobs?"
+msgstr "Anulați toate lucrările de imprimare active?"
+
+#: qml/JobView.qml:139
+#, kde-format
+msgctxt "@info:status Print jobs not found in the print queue"
+msgid "The print queue is empty"
+msgstr "Coada de imprimare e goală"
+
+#: qml/JobView.qml:158
+#, kde-format
+msgctxt ""
+"@action:inmenu Move the job to /info/ which is the friendly name of the "
+"other print queue"
+msgid "Move to %1"
+msgstr "Mută la %1"
+
+#: qml/JobView.qml:246
+#, kde-format
+msgctxt "@action:button This action cancels the job"
+msgid "Cancel"
+msgstr "Anulează"
+
+#: qml/JobView.qml:257
+#, kde-format
+msgctxt "@action:button This action holds the job"
+msgid "Hold"
+msgstr "Reține"
+
+#: qml/JobView.qml:268
+#, kde-format
+msgctxt "@action:button This action releases the job"
+msgid "Release"
+msgstr "Eliberează"
+
+#: qml/JobView.qml:279
+#, kde-format
+msgctxt "@action:button This action reprints the job"
+msgid "Reprint"
+msgstr "Retipărește"
+
+#: qml/JobView.qml:289
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Mută"
+
+#: qml/JobView.qml:300
+#, kde-format
+msgctxt ""
+"@action:button This action prompts for user/password to authenticate the job"
+msgid "Authenticate"
+msgstr "Autentifică"
+
+#: qml/JobView.qml:321
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1, %2"
+msgstr "Stare: %1, %2"
+
+#: qml/JobView.qml:322
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1"
+msgstr "Stare: %1"
+
+#: qml/JobView.qml:327
+#, kde-format
+msgctxt "@label:info Date created"
+msgid "Created: %1"
+msgstr "Creat: %1"
+
+#: qml/JobView.qml:338
+#, kde-format
+msgctxt "@label:info Date completed"
+msgid "Completed: %1"
+msgstr "Încheiat: %1"
+
+#: qml/JobView.qml:343
+#, kde-format
+msgctxt "@label:info Date processed"
+msgid "Processed: %1"
+msgstr "Procesat: %1"
+
+#: qml/JobView.qml:349
+#, kde-format
+msgctxt "@label:info Job page count"
+msgid "Pages: %1"
+msgstr "Pagini: %1"
+
+#: qml/Main.qml:126
+#, kde-format
+msgctxt "@label:header"
+msgid "Printers"
+msgstr "Imprimante"
+
+#: qml/Main.qml:132
+#, kde-format
+msgctxt "@action:button about this application"
+msgid "About"
+msgstr "Despre"
+
+#: qml/Main.qml:166
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printers"
+msgstr "Imprimante"
+
+#: qml/Main.qml:166
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printer Groups"
+msgstr "Grupuri de imprimante"
+
+#: qml/Main.qml:273
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "Reia"
+
+#: qml/Main.qml:274
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "Întrerupe"
+
+#: qml/Main.qml:287
+#, kde-format
+msgctxt "@action:button Configure printer in the kcm"
+msgid "Configure…"
+msgstr "Configurează…"
+
+#: qml/Main.qml:294
+#, kde-format
+msgctxt "@action:button Open additional printer settings"
+msgid "Media Settings…"
+msgstr "Configurare suport…"
+
+#: qml/NotAvailablePage.qml:29
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers have been set up"
+msgstr "Nu a fost configurată nicio imprimantă"
+
+#: qml/NotAvailablePage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Set Up a Printer…"
+msgstr "Configurează o imprimantă…"
+
+#: qml/NotAvailablePage.qml:43
+#, kde-format
+msgctxt "@info:status"
+msgid "Printing services not available"
+msgstr "Serviciile de imprimare nu sunt disponibile"
+
+#: qml/NotAvailablePage.qml:44
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution support URL %2 is the distribution name"
+msgid ""
+"Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+"Support</a>"
+msgstr ""
+"Asigurați-vă că serviciul de sistem CUPS e activ sau verificați: <a href="
+"\"%1\">Asistența %2</a>"
+
+#: qml/NotAvailablePage.qml:54
+#, kde-format
+msgctxt "@info:status"
+msgid "Unknown error condition with printing services"
+msgstr "Condiție de eroare necunoscută cu serviciile de imprimare"
+
+#: qml/NotAvailablePage.qml:55
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
+"name"
+msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+msgstr "Verificați pentru probleme aici: <a href=\"%1\">Probleme %2</a>"

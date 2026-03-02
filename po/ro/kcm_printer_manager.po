@@ -1,6 +1,6 @@
 # Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# Sergiu Bivol <sergiu@cip.md>, 2024.
+# SPDX-FileCopyrightText: 2024, 2026 Sergiu Bivol <sergiu@cip.md>
 # SPDX-FileCopyrightText: 2026 Viorel-Cătălin Răpițeanu <rapiteanu.catalin@gmail.com>
 #
 msgid ""
@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-12 00:45+0000\n"
-"PO-Revision-Date: 2026-01-29 14:11+0200\n"
-"Last-Translator: Viorel-Cătălin Răpițeanu <rapiteanu.catalin@gmail.com>\n"
-"Language-Team: ro\n"
+"PO-Revision-Date: 2026-03-01 00:31+0000\n"
+"Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
+"Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #: printermanager.cpp:104
 #, kde-format
@@ -50,15 +50,13 @@ msgstr "Configurarea imprimantei a eșuat: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:443
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver (%1)"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Driver pentru imprimantă (%1)"
+msgstr "Fără driver"
 
 #: printermanager.cpp:446
 #, kde-format
@@ -78,12 +76,10 @@ msgid "Failed to get server settings: %1"
 msgstr "Obținerea parametrilor serverului a eșuat: %1"
 
 #: printermanager.cpp:554
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Server error: (%1): %2"
+#, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr "Eroare server: (%1): %2"
+msgstr "Configurările serverului nu sunt salvate: (%1): %2"
 
 #: printermanager.cpp:561
 #, fuzzy, kde-format
@@ -119,12 +115,10 @@ msgid "Example Addresses"
 msgstr "Adresă ca exemplu"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Driver pentru imprimantă"
+msgstr "Dispozitiv de tipărire"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -162,61 +156,50 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Căutare manuală de driver-e…"
 
 #: ui/components/Drivers.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Driver-ele recomandate sunt bazate pe marca/modelul imprimantei și tipul de "
-"conexiune"
+msgstr "Căutați și alegeți un driver în baza mărcii/modelului imprimantei"
 
 #: ui/components/Lpd.qml:22
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Protocolul Line Printer Daemon (LPD)"
 
 #: ui/components/Lpd.qml:23
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the LPD device"
-msgstr "Introduceți adresa dispozitivului/gazdei distante"
+msgstr "Introduceți adresa dispozitivului LPD"
 
 #: ui/components/Lpd.qml:63
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Queue:"
-msgstr "Denumire coadă:"
+msgstr "Coadă:"
 
 #: ui/components/Lpd.qml:68
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Queue Name:"
+#, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr "Denumire coadă:"
+msgstr "Denumire coadă LPD:"
 
 #: ui/components/Lpd.qml:75 ui/components/ManualUri.qml:82
 #: ui/components/Socket.qml:49
 #, kde-format
 msgctxt "@action:button"
 msgid "Continue with Address…"
-msgstr ""
+msgstr "Continuă cu adresă…"
 
 #: ui/components/Lpd.qml:92
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid LPD URL: %1"
-msgstr ""
+msgstr "URL LPD eronat: %1"
 
 #: ui/components/ManualUri.qml:23
 #, kde-format
@@ -234,13 +217,13 @@ msgstr "Introduceți adresa dispozitivului/gazdei distante"
 #, kde-format
 msgctxt "@info:status"
 msgid "No Printers found at host: %1"
-msgstr ""
+msgstr "Nu a fost găsită nicio imprimantă la gazdă: %1"
 
 #: ui/components/ManualUri.qml:62
 #, kde-format
 msgctxt "@info:status"
 msgid "CUPS request error (%1): %2"
-msgstr ""
+msgstr "Eroare de cerere CUPS (%1): %2"
 
 #: ui/components/ManualUri.qml:72
 #, kde-format
@@ -256,67 +239,62 @@ msgid ""
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
+"Dacă adresa imprimantei e cunoscută, introduceți-o și alegeți "
+"<interface>Continuă</interface>. Dacă imprimanta e pe o gazdă distantă, "
+"introduceți acea adresă și alegeți <interface>Caută</interface>."
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "Configurează conexiunea la imprimantă"
+msgstr "Configurează imprimantă într-o rețea Windows"
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "Introduceți adresa dispozitivului/gazdei distante"
+msgstr "Introduceți adresa imprimantei Windows"
 
 #: ui/components/Smb.qml:45
 #, kde-format
 msgctxt "@label:textbox Authentication user name"
 msgid "Username:"
-msgstr ""
+msgstr "Utilizator:"
 
 #: ui/components/Smb.qml:50
 #, kde-format
 msgctxt "@label:textbox Authentication password"
 msgid "Password:"
-msgstr ""
+msgstr "Parolă:"
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "Alege imprimanta"
+msgstr "Salvează imprimanta…"
 
 #: ui/components/Smb.qml:76
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr ""
+msgstr "URL de imprimantă eronat: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format
 msgctxt "@title:group"
 msgid "AppSocket Protocol (aka JetDirect)"
-msgstr ""
+msgstr "Protocolul AppSocket (cunoscut ca JetDirect)"
 
 #: ui/components/Socket.qml:20
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the remote host/device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the AppSocket device"
-msgstr "Introduceți adresa dispozitivului/gazdei distante"
+msgstr "Introduceți adresa dispozitivului AppSocket"
 
 #: ui/components/Socket.qml:65
 #, kde-format
 msgid "Invalid Socket URL: %1"
-msgstr ""
+msgstr "URL AppSocket eronat: %1"
 
 #: ui/FindPrinter.qml:128
 #, kde-format
@@ -343,12 +321,10 @@ msgid "Show Manual Options"
 msgstr "Arată opțiuni manuale"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Această funcționalitate nu e disponibilă deocamdată (%1)"
+msgstr "Această caracteristică nu e disponibilă (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format
@@ -399,7 +375,7 @@ msgstr "Aplică"
 #: ui/Global.qml:89
 #, kde-format
 msgid "Please wait while the CUPS server restarts"
-msgstr ""
+msgstr "Așteptați cât se repornește serverul CUPS"
 
 #: ui/Global.qml:127
 #, kde-format
@@ -436,25 +412,25 @@ msgstr "Grupuri de imprimante"
 #, kde-format
 msgctxt "@info:status"
 msgid "Install has completed successfully"
-msgstr ""
+msgstr "Instalarea s-a încheiat cu succes"
 
 #: ui/InstallDialog.qml:73
 #, kde-format
 msgctxt "@info:status"
 msgid "Installation failed"
-msgstr ""
+msgstr "Instalarea a eșuat"
 
 #: ui/InstallDialog.qml:75
 #, kde-format
 msgctxt "@info:status"
 msgid "Installing…"
-msgstr ""
+msgstr "Se instalează…"
 
 #: ui/InstallDialog.qml:91
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
-msgstr ""
+msgstr "Raportați această problemă la %1"
 
 #: ui/main.qml:35
 #, kde-format
@@ -488,7 +464,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
-msgstr ""
+msgstr "Instalează-l"
 
 #: ui/main.qml:123
 #, kde-format
@@ -533,7 +509,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Serviciile de imprimare nu sunt disponibile"
 
 #: ui/main.qml:273
 #, kde-kuit-format
@@ -542,6 +518,9 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Apăsați pe <interface>Configurează serverul de imprimare…</interface> pentru "
+"a verifica configurările sau pentru a verifica dacă serviciul de sistem CUPS "
+"e activ."
 
 #: ui/main.qml:313
 #, kde-format
@@ -554,12 +533,10 @@ msgid "Printer Groups"
 msgstr "Grupuri de imprimante"
 
 #: ui/main.qml:376
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Open Print Queue…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "Deschide coada de imprimare…"
+msgstr "Deschide coada de imprimare"
 
 #: ui/main.qml:385
 #, kde-format
@@ -607,7 +584,7 @@ msgstr "Driver pentru imprimantă"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Folosește IPP Everywhere™"
 
 #: ui/MakeModel.qml:161
 #, kde-format
@@ -687,12 +664,10 @@ msgid "CUPS Printers Overview Help"
 msgstr "Ajutor pentru sumarul imprimantelor CUPS"
 
 #: ui/PrinterSettings.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "CUPS Print Server Admin"
+#, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr "Administrare server de imprimare CUPS"
+msgstr "Pagina de administrare imprimante/dispozitive"
 
 #: ui/PrinterSettings.qml:104
 #, kde-format
@@ -707,22 +682,19 @@ msgid "Apply"
 msgstr "Aplică"
 
 #: ui/PrinterSettings.qml:113
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
 msgstr ""
 "Denumirea cozii e obligatorie. Introduceți o denumire unică pentru coadă."
 
 #: ui/PrinterSettings.qml:118
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Queue name is required.  Enter a unique queue name."
+#, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
 msgstr ""
-"Denumirea cozii e obligatorie. Introduceți o denumire unică pentru coadă."
+"Denumirea cozii trebuie să fie unică. Introduceți o denumire unică pentru "
+"coadă."
 
 #: ui/PrinterSettings.qml:126
 #, fuzzy, kde-format
@@ -737,7 +709,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr ""
+msgstr "Se configurează %1, așteptați…"
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
@@ -745,24 +717,22 @@ msgid "Failed to remove the printer: %1"
 msgstr "Eliminarea imprimantei a eșuat: %1"
 
 #: ui/PrinterSettings.qml:205
-#, fuzzy, kde-format
-#| msgid "Remove Group"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
-msgstr "Elimină grupul"
+msgstr "Eliminați grupul?"
 
 #: ui/PrinterSettings.qml:206
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
-msgstr "Elimină imprimanta"
+msgstr "Eliminați imprimanta?"
 
 #: ui/PrinterSettings.qml:208
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
-msgstr ""
+msgstr "Se va elimina „%1”."
 
 #: ui/PrinterSettings.qml:215
 #, kde-format
@@ -792,6 +762,8 @@ msgstr "Imprimantă implicită"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
+"Pentru a schimba imprimanta implicită, stabiliți altă imprimantă ca "
+"implicită."
 
 #: ui/PrinterSettings.qml:371
 #, kde-format

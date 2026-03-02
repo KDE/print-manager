@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-21 15:08+0100\n"
+"PO-Revision-Date: 2026-02-23 08:28+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -76,17 +76,17 @@ msgstr "Stampante da configurare"
 #: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
 msgid "Abort job"
-msgstr "Interrompi il processo di stampa"
+msgstr "Interrompi la stampa"
 
 #: src/configure-printer/PrinterBehavior.cpp:194
 #, kde-format
 msgid "Retry current job"
-msgstr "Ripeti il processo di stampa corrente"
+msgstr "Ripeti la stampa attuale"
 
 #: src/configure-printer/PrinterBehavior.cpp:196
 #, kde-format
 msgid "Retry job"
-msgstr "Riprova il processo di stampa"
+msgstr "Riprova la stampa"
 
 #: src/configure-printer/PrinterBehavior.cpp:198
 #, kde-format
@@ -613,12 +613,12 @@ msgstr "Utente"
 #: src/libkcups/JobModel.cpp:29
 #, kde-format
 msgid "Created"
-msgstr "Creato"
+msgstr "Creata"
 
 #: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Completed"
-msgstr "Completato"
+msgstr "Completata"
 
 #: src/libkcups/JobModel.cpp:31
 #, kde-format
@@ -628,7 +628,7 @@ msgstr "Pagine"
 #: src/libkcups/JobModel.cpp:32
 #, kde-format
 msgid "Processed"
-msgstr "Processato"
+msgstr "Elaborata"
 
 #: src/libkcups/JobModel.cpp:33
 #, kde-format
@@ -668,17 +668,17 @@ msgstr "In sospeso"
 #: src/libkcups/JobModel.cpp:447
 #, kde-format
 msgid "Stopped"
-msgstr "Fermato"
+msgstr "Fermata"
 
 #: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Canceled"
-msgstr "Annullato"
+msgstr "Annullata"
 
 #: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Aborted"
-msgstr "Interrotto"
+msgstr "Interrotta"
 
 #: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
@@ -800,7 +800,7 @@ msgstr "Gestore della coda di stampa di Plasma"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Gestisce le code dei processi di stampa"
+msgstr "Gestisce le code di stampa"
 
 #: src/print-queue/main.cpp:42
 #, kde-format

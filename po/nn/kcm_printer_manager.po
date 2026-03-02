@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2025-06-01 15:17+0200\n"
+"PO-Revision-Date: 2026-03-01 11:37+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.03.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -114,12 +114,10 @@ msgid "Example Addresses"
 msgstr "Eksempeladresser"
 
 #: ui/components/BaseDevice.qml:86
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Printer Driver"
+#, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr "Skrivardrivar"
+msgstr "Utskriftseining"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -157,7 +155,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Manuelt drivarsøk …"
 
 #: ui/components/Drivers.qml:78
 #, fuzzy, kde-format
@@ -276,8 +274,7 @@ msgid "Set up a Printer Connection"
 msgstr "Set opp skrivartilkopling"
 
 #: ui/FindPrinter.qml:132 ui/main.qml:275
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Oppdater"
@@ -295,12 +292,10 @@ msgid "Show Manual Options"
 msgstr "Vis manuelle val"
 
 #: ui/FindPrinter.qml:219
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "This feature is not yet available (%1)"
+#, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr "Denne funksjonen er ikkje tilgjengeleg enno (%1)"
+msgstr "Denne funksjonen er ikkje tilgjengeleg (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format
@@ -488,7 +483,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Utskriftstenesta er ikkje tilgjengeleg"
 
 #: ui/main.qml:273
 #, kde-kuit-format
@@ -509,12 +504,10 @@ msgid "Printer Groups"
 msgstr "Skrivargrupper"
 
 #: ui/main.qml:376
-#, fuzzy, kde-format
-#| msgctxt "@action:button Open print queue"
-#| msgid "Print Queue"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "Utskriftskø"
+msgstr "Opna utskriftskø"
 
 #: ui/main.qml:385
 #, kde-format

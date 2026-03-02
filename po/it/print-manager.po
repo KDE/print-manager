@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2026-01-21 17:12+0100\n"
+"PO-Revision-Date: 2026-02-23 08:28+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -86,17 +86,17 @@ msgstr "Stampante da configurare"
 #: src/configure-printer/PrinterBehavior.cpp:192
 #, kde-format
 msgid "Abort job"
-msgstr "Interrompi il processo di stampa"
+msgstr "Interrompi la stampa"
 
 #: src/configure-printer/PrinterBehavior.cpp:194
 #, kde-format
 msgid "Retry current job"
-msgstr "Ripeti il processo di stampa corrente"
+msgstr "Ripeti la stampa attuale"
 
 #: src/configure-printer/PrinterBehavior.cpp:196
 #, kde-format
 msgid "Retry job"
-msgstr "Riprova il processo di stampa"
+msgstr "Riprova la stampa"
 
 #: src/configure-printer/PrinterBehavior.cpp:198
 #, kde-format
@@ -623,12 +623,12 @@ msgstr "Utente"
 #: src/libkcups/JobModel.cpp:31
 #, kde-format
 msgid "Created"
-msgstr "Creato"
+msgstr "Creata"
 
 #: src/libkcups/JobModel.cpp:32 src/libkcups/JobModel.cpp:595
 #, kde-format
 msgid "Completed"
-msgstr "Completato"
+msgstr "Completata"
 
 #: src/libkcups/JobModel.cpp:33
 #, kde-format
@@ -638,7 +638,7 @@ msgstr "Pagine"
 #: src/libkcups/JobModel.cpp:34
 #, kde-format
 msgid "Processed"
-msgstr "Processato"
+msgstr "Elaborata"
 
 #: src/libkcups/JobModel.cpp:35
 #, kde-format
@@ -668,7 +668,7 @@ msgstr "Spostamento non riuscito di «%1» in «%2»"
 #: src/libkcups/JobModel.cpp:509 src/printqueue/PrintQueueUi.cpp:482
 #, kde-format
 msgid "Failed"
-msgstr "Non riuscito"
+msgstr "Non riuscita"
 
 #: src/libkcups/JobModel.cpp:583
 #, kde-format
@@ -683,17 +683,17 @@ msgstr "In sospeso"
 #: src/libkcups/JobModel.cpp:589
 #, kde-format
 msgid "Stopped"
-msgstr "Fermato"
+msgstr "Fermata"
 
 #: src/libkcups/JobModel.cpp:591
 #, kde-format
 msgid "Canceled"
-msgstr "Annullato"
+msgstr "Annullata"
 
 #: src/libkcups/JobModel.cpp:593
 #, kde-format
 msgid "Aborted"
-msgstr "Interrotto"
+msgstr "Interrotta"
 
 #: src/libkcups/KCupsConnection.cpp:736
 #, kde-format
@@ -866,15 +866,15 @@ msgstr "Autentica"
 #, kde-format
 msgid "All Printers (%1 Job)"
 msgid_plural "All Printers (%1 Jobs)"
-msgstr[0] "Tutte le stampanti (%1 processo)"
-msgstr[1] "Tutte le stampanti (%1 processi)"
+msgstr[0] "Tutte le stampanti (%1 stampa)"
+msgstr[1] "Tutte le stampanti (%1 stampe)"
 
 #: src/printqueue/PrintQueueUi.cpp:397
 #, kde-format
 msgid "%2 (%1 Job)"
 msgid_plural "%2 (%1 Jobs)"
-msgstr[0] "%2 (%1 processo)"
-msgstr[1] "%2 (%1 processi)"
+msgstr[0] "%2 (%1 stampa)"
+msgstr[1] "%2 (%1 stampe)"
 
 #: src/printqueue/PrintQueueUi.cpp:400
 #, kde-format
@@ -910,7 +910,7 @@ msgstr "Inserisci le credenziali per stampare tramite <b>%1</b>"
 #: src/printqueue/PrintQueueUi.ui:20
 #, kde-format
 msgid "my printer (x jobs)"
-msgstr "la mia stampante (x processi)"
+msgstr "la mia stampante (x stampe)"
 
 #. i18n: ectx: property (text), widget (QLabel, iconL)
 #: src/printqueue/PrintQueueUi.ui:49
@@ -946,19 +946,19 @@ msgstr "Ripeti la stampa"
 #: src/printqueue/PrintQueueUi.ui:312
 #, kde-format
 msgid "Active Jobs"
-msgstr "Processi attivi"
+msgstr "Stampe attive"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:317
 #, kde-format
 msgid "Completed Jobs"
-msgstr "Processi completati"
+msgstr "Stampe completate"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, whichJobsCB)
 #: src/printqueue/PrintQueueUi.ui:322
 #, kde-format
 msgid "All Jobs"
-msgstr "Tutti i processi"
+msgstr "Tutte le stampe"
 
 #~ msgctxt "@info:tooltip"
 #~ msgid ""

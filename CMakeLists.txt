@@ -19,6 +19,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 
+include(ECMAddTests)
 include(ECMDeprecationSettings)
 include(ECMQmlModule)
 include(ECMOptionalAddSubdirectory)
@@ -102,6 +103,11 @@ else()
     set(SCP_INSTALL false)
 endif()
 add_feature_info("System-config-printer Installation" SCP_INSTALL "Automatic installation of '${SCP_PACKAGE_NAME}' using PackageKit.")
+
+if (BUILD_TESTING)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
+    add_subdirectory(tests)
+endif()
 
 # Generate config.h
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake

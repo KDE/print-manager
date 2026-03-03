@@ -65,7 +65,7 @@ Kirigami.Dialog {
     }
 
     function init() {
-        if (ppdData.type === PM.PPDType.Manual) {
+        if (ppdData.type === PM.PrinterCommands.PPDType.Manual) {
             rbFile.checked = true
             customFilename.text = ppdData.file
         } else {
@@ -104,7 +104,7 @@ Kirigami.Dialog {
             // empty ppdData means we're selecting new make/model
             if (Object.keys(ppdData).length === 0) {
                 rbMake.checked = true
-                ppdData.type = PM.PPDType.Custom
+                ppdData.type = PM.PrinterCommands.PPDType.Custom
                 ppdData.pcfile = ""
                 makesList.currentIndex = 0
                 makesList.positionViewAtBeginning()
@@ -152,7 +152,7 @@ Kirigami.Dialog {
             onTriggered: {
                 root.saveValues({file: "everywhere"
                             , makeModel: "IPP Everywhere™"
-                            , type: PM.PPDType.Auto})
+                            , type: PM.PrinterCommands.PPDType.Auto})
                 root.close()
             }
         }
@@ -231,7 +231,7 @@ Kirigami.Dialog {
                 Layout.fillWidth: true
                 onToggled: {
                     if (checked) {
-                        root.ppdData.type = PM.PPDType.Custom
+                        root.ppdData.type = PM.PrinterCommands.PPDType.Custom
                     }
                 }
                 QQC2.ButtonGroup.group: buttonGroup
@@ -346,7 +346,7 @@ Kirigami.Dialog {
                 text: i18nc("@option:radio", "PPD file:")
                 onToggled: {
                     if (checked) {
-                        root.ppdData.type = PM.PPDType.Manual
+                        root.ppdData.type = PM.PrinterCommands.PPDType.Manual
                         fileButton.focus = true
                     }
                 }

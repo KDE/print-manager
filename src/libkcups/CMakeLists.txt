@@ -14,6 +14,7 @@ set(libkcups_SRCS
     JobSortFilterModel.cpp
     ProcessRunner.cpp
     DevicesModel.cpp
+    CommandHelpers.cpp
 
     KIppRequest.h
     KCupsPasswordDialog.h
@@ -28,6 +29,7 @@ set(libkcups_SRCS
     JobSortFilterModel.h
     ProcessRunner.h
     DevicesModel.h
+    CommandHelpers.h
 )
 
 add_library(kcups SHARED ${libkcups_SRCS})

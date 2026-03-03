@@ -76,9 +76,6 @@ public:
 
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void pausePrinter(const QString &printerName);
-    Q_INVOKABLE void resumePrinter(const QString &printerName);
-
     bool showLocations() const;
     bool hasOnlyPrinters() const;
 

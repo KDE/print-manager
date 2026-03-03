@@ -6,6 +6,7 @@
  */
 
 #include "printermanager.h"
+
 #include "pmkcm_log.h"
 
 #ifdef SCP_INSTALL
@@ -22,6 +23,7 @@
 
 #include <KLocalizedString>
 
+#include <CommandHelpers.h>
 #include <KCupsRequest.h>
 #include <cups/adminutil.h>
 #include <cups/ppd.h>
@@ -73,13 +75,6 @@ PrinterManager::PrinterManager(QObject *parent, const KPluginMetaData &metaData,
         qCDebug(PMKCM) << "CUPS SERVER RE-STARTED" << msg;
         Q_EMIT serverStarted();
     });
-
-    qmlRegisterUncreatableMetaObject(PMTypes::staticMetaObject,
-                                     "org.kde.plasma.printmanager", // use same namespace as kcupslib
-                                     1,
-                                     0,
-                                     "PPDType", // QML qualifier
-                                     u"Error: for only enums"_s);
 
     qDBusRegisterMetaType<DriverMatch>();
     qDBusRegisterMetaType<DriverMatchList>();
@@ -210,93 +205,6 @@ bool PrinterManager::isSCPAvailable()
     return list.value().contains("org.fedoraproject.Config.Printing"_L1);
 }
 
-void PrinterManager::savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass)
-{
-    QVariantMap args = saveArgs;
-    QString fileName;
-
-    if (args.contains(u"ppd-type"_s)) {
-        const auto ppdType = args.take(u"ppd-type"_s).toInt();
-        if (ppdType == PMTypes::Manual) {
-            // local file, remove key, use filename
-            fileName = args.take(u"ppd-name"_s).toString();
-        }
-    }
-
-    const bool addMode = args.take(u"add"_s).toBool();
-    // Will only be set if default is changed to true
-    const bool isDefault = args.take(u"isDefault"_s).toBool();
-    bool addModify = false;
-
-    if (addMode) {
-        args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
-    }
-
-    // WORKAROUND: Remove after CUPS 2.4.13 release
-    // CUPS Issue #1235 (https://github.com/OpenPrinting/cups/issues/1235)
-    // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
-    const bool forceRefresh = !addMode
-            && (args.value(u"ppd-name"_s) == u"everywhere"_s)
-            && (QVersionNumber(CUPS_VERSION_MAJOR, CUPS_VERSION_MINOR, CUPS_VERSION_PATCH) < QVersionNumber(2,4,13));
-
-    qCDebug(PMKCM) << (addMode ? "New Printer:" : "Change Printer:") << name << "isClass?" << isClass << "Changing Default?" << isDefault << "filename"
-                   << fileName << Qt::endl
-                   << "forceRefresh" << forceRefresh << Qt::endl
-                   << "args" << args;
-
-    auto request = new KCupsRequest;
-    if (isClass) {
-        // Member list is a QVariantList, kcupslib wants to see
-        // a QStringList
-        const auto list = args.take(KCUPS_MEMBER_URIS);
-        if (!list.value<QVariantList>().empty()) {
-            args.insert(KCUPS_MEMBER_URIS, list.toStringList());
-        }
-        if (!args.isEmpty()) {
-            request->addOrModifyClass(name, args);
-            addModify = true;
-        }
-    } else {
-        if (!args.isEmpty() || !fileName.isEmpty()) {
-            request->addOrModifyPrinter(name, args, fileName);
-            addModify = true;
-        }
-    }
-
-    /** If no other printer attrs are changed, we still have to check default printer
-     * Default printer is handled by CUPS independently of the other printer
-     * attributes. if Default is set save explicitly.
-     */
-    if (!addModify) {
-        if (isDefault) {
-            qCDebug(PMKCM) << "Saving printer DEFAULT:" << name;
-            request->setDefaultPrinter(name);
-        }
-        request->deleteLater();
-        Q_EMIT saveDone(forceRefresh);
-    } else {
-        connect(request, &KCupsRequest::finished, this, [this, isClass, name, isDefault, forceRefresh](KCupsRequest *req) {
-            if (!req->hasError()) {
-                // Also check default printer flag
-                if (isDefault) {
-                    qCDebug(PMKCM) << "Saving printer DEFAULT:" << name;
-                    auto r = setupRequest([this, forceRefresh]() {
-                        Q_EMIT saveDone(forceRefresh);
-                    });
-                    r->setDefaultPrinter(name);
-                } else {
-                    Q_EMIT saveDone(forceRefresh);
-                }
-            } else {
-                Q_EMIT requestError((isClass ? i18nc("@info", "Failed to configure class: ") : i18nc("@info", "Failed to configure printer: "))
-                                    + req->errorMsg());
-                qCWarning(PMKCM) << "Failed to save printer/class" << name << req->errorMsg();
-            }
-            req->deleteLater();
-        });
-    }
-}
-
 void PrinterManager::loadPrinterPPD(const QString &name)
 {
     auto request = new KCupsRequest;
@@ -380,7 +288,7 @@ void PrinterManager::loadPrinterPPD(const QString &name)
         Q_EMIT ppdLoaded({{u"autoConfig"_s, autoConfig},
                           {u"file"_s, QString()},
                           {u"pcfile"_s, file},
-                          {u"type"_s, QVariant(PMTypes::PPDType::Custom)},
+                          {u"type"_s, static_cast<int>(PrinterCommands::PPDType::Custom)},
                           {u"make"_s, make},
                           {u"makeModel"_s, makeAndModel}});
     });
@@ -416,7 +324,7 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
                                                  {u"title"_s, i18nc("@list:item", "IPP Everywhere™")},
                                                  {u"match"_s, u"exact-cmd"_s},
                                                  {u"ppd-name"_s, u"everywhere"_s},
-                                                 {u"ppd-type"_s, PMTypes::Auto}}));
+                                                 {u"ppd-type"_s, static_cast<int>(PrinterCommands::PPDType::Auto)}}));
     }
 
     auto call = QDBusMessage::createMethodCall(u"org.fedoraproject.Config.Printing"_s,
@@ -449,27 +357,12 @@ void PrinterManager::getRecommendedDrivers(const QString &deviceId, const QStrin
                                                          {u"title"_s, title},
                                                          {u"match"_s, driverMatch.match},
                                                          {u"ppd-name"_s, driverMatch.ppd},
-                                                         {u"ppd-type"_s, PMTypes::Auto}}));
+                                                         {u"ppd-type"_s, static_cast<int>(PrinterCommands::PPDType::Auto)}}));
             }
         }
         Q_EMIT recommendedDriversLoaded();
         w->deleteLater();
     });
-}
-
-KCupsRequest *PrinterManager::setupRequest(std::function<void()> finished)
-{
-    auto request = new KCupsRequest;
-    connect(request, &KCupsRequest::finished, this, [this, finished](KCupsRequest *r) {
-        if (r->hasError()) {
-            Q_EMIT requestError(i18n("Failed to perform request: %1", r->errorMsg()));
-        } else {
-            finished();
-        }
-        r->deleteLater();
-    });
-
-    return request;
 }
 
 QVariantList PrinterManager::remotePrinters() const
@@ -490,20 +383,6 @@ QVariantMap PrinterManager::serverSettings() const
 bool PrinterManager::serverSettingsLoaded() const
 {
     return m_serverSettingsLoaded;
-}
-
-void PrinterManager::removePrinter(const QString &name)
-{
-    const auto request = setupRequest([this]() -> void {
-        Q_EMIT removeDone();
-    });
-    request->deletePrinter(name);
-}
-
-void PrinterManager::makePrinterDefault(const QString &name)
-{
-    const auto request = setupRequest();
-    request->setDefaultPrinter(name);
 }
 
 void PrinterManager::getServerSettings()
@@ -583,41 +462,6 @@ bool PrinterManager::allowRemoteAdmin() const
 bool PrinterManager::allowUserCancelAnyJobs() const
 {
     return m_serverSettings.value(QLatin1String(CUPS_SERVER_USER_CANCEL_ANY), false).toBool();
-}
-
-void PrinterManager::makePrinterShared(const QString &name, bool shared, bool isClass)
-{
-    const auto request = setupRequest();
-    request->setShared(name, isClass, shared);
-}
-
-void PrinterManager::makePrinterRejectJobs(const QString &name, bool reject)
-{
-    const auto request = setupRequest();
-
-    if (reject) {
-        request->rejectJobs(name);
-    } else {
-        request->acceptJobs(name);
-    }
-}
-
-void PrinterManager::printTestPage(const QString &name, bool isClass)
-{
-    const auto request = setupRequest();
-    request->printTestPage(name, isClass);
-}
-
-void PrinterManager::printSelfTestPage(const QString &name)
-{
-    const auto request = setupRequest();
-    request->printCommand(name, u"PrintSelfTestPage"_s, i18n("Print Self-Test Page"));
-}
-
-void PrinterManager::cleanPrintHeads(const QString &name)
-{
-    const auto request = setupRequest();
-    request->printCommand(name, u"Clean all"_s, i18n("Clean Print Heads"));
 }
 
 #include "printermanager.moc"

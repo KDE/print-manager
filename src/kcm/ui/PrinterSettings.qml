@@ -137,7 +137,7 @@ KCM.AbstractKCM {
                 msgBanner.showCloseButton = false
                 msgBanner.type = Kirigami.MessageType.Positive
                 msgBanner.visible = true
-                kcm.savePrinter(queueName.text, config.pending, root.modelData.isClass)
+                PM.PrinterCommands.savePrinter(queueName.text, config.pending, root.modelData.isClass)
             }
         }
     }
@@ -166,22 +166,27 @@ KCM.AbstractKCM {
     }
 
     Connections {
-        id: kcmConn
-        target: kcm
+        id: cmdConn
+        target: PM.PrinterCommands
 
         property bool removing: false
 
-        function onRequestError(errorMessage) {
+        function onError(err, title, msg) {
             msgBanner.reset()
             if (removing) {
                 removing = false
-                msgBanner.text = i18n("Failed to remove the printer: %1", errorMessage)
+                msgBanner.text = i18n("Failed to remove the printer: %1", msg)
             } else {
-                msgBanner.text = errorMessage
+                msgBanner.text = msg
             }
             msgBanner.visible = true
             config.clear()
         }
+    }
+
+    Connections {
+        id: kcmConn
+        target: kcm
 
         function onPpdLoaded(printerPPD) {
             root.ppd = printerPPD
@@ -200,6 +205,7 @@ KCM.AbstractKCM {
             dialogType: Kirigami.PromptDialog.Warning
 
             Component.onCompleted: open()
+
             onClosed: removeLoader.active = false
 
             title: root.modelData.isClass ? i18nc("@title:window", "Remove Group?")
@@ -216,8 +222,8 @@ KCM.AbstractKCM {
                                             : i18nc("@action:button", "Remove Printer")
                     icon.name: "edit-delete-remove-symbolic"
                     onTriggered: {
-                        kcmConn.removing = true
-                        kcm.removePrinter(root.modelData.printerName)
+                        cmdConn.removing = true
+                        PM.PrinterCommands.removePrinter(root.modelData.printerName)
                         prompt.close()
                     }
                 },
@@ -245,7 +251,7 @@ KCM.AbstractKCM {
 
             onSaveValues: ppdMap => {
                 Object.assign(root.ppd, ppdMap)
-                driver.text = root.ppd.type !== PM.PPDType.Manual
+                driver.text = root.ppd.type !== PM.PrinterCommands.PPDType.Manual
                           ? root.ppd.makeModel
                           : root.ppd.file
 
@@ -431,21 +437,21 @@ KCM.AbstractKCM {
             QQC2.Button {
                 text: i18nc("@action:button", "Print Test Page")
                 icon.name: "document-print-preview-symbolic"
-                onClicked: kcm.printTestPage(root.modelData.printerName, root.modelData.isClass)
+                onClicked: PM.PrinterCommands.printTestPage(root.modelData.printerName, root.modelData.isClass)
             }
 
             QQC2.Button {
                 text: i18nc("@action:button", "Print Self-Test Page")
                 icon.name: "document-print-preview-symbolic"
                 visible: root.modelData.commands.indexOf("PrintSelfTestPage") !== -1
-                onClicked: kcm.printSelfTestPage(root.modelData.printerName)
+                onClicked: PM.PrinterCommands.printSelfTestPage(root.modelData.printerName)
             }
 
             QQC2.Button {
                 text: i18nc("@action:button", "Clean Print Heads")
                 icon.name: "edit-clear-all-symbolic"
                 visible: root.modelData.commands.indexOf("Clean") !== -1
-                onClicked: kcm.cleanPrintHeads(root.modelData.printerName)
+                onClicked: PM.PrinterCommands.cleanPrintHeads(root.modelData.printerName)
             }
         }
 

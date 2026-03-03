@@ -16,21 +16,9 @@ struct DriverMatch {
     QString match;
 };
 
-typedef QList<DriverMatch> DriverMatchList;
-
-namespace PMTypes
-{
-Q_NAMESPACE
-enum PPDType {
-    Manual = 0,
-    Auto,
-    Custom
-};
-Q_ENUM_NS(PPDType)
-}
+using DriverMatchList = QList<DriverMatch>;
 
 class KCupsRequest;
-
 class PrinterManager : public KQuickConfigModule
 {
     Q_OBJECT
@@ -54,16 +42,6 @@ class PrinterManager : public KQuickConfigModule
 public:
     PrinterManager(QObject *parent, const KPluginMetaData &metaData, const QVariantList &args = QVariantList());
 
-    Q_INVOKABLE void removePrinter(const QString &name);
-
-    Q_INVOKABLE void makePrinterDefault(const QString &name);
-    Q_INVOKABLE void makePrinterShared(const QString &name, bool shared, bool isClass);
-    Q_INVOKABLE void makePrinterRejectJobs(const QString &name, bool reject);
-
-    Q_INVOKABLE void printTestPage(const QString &name, bool isClass);
-    Q_INVOKABLE void printSelfTestPage(const QString &name);
-    Q_INVOKABLE void cleanPrintHeads(const QString &name);
-
     Q_INVOKABLE static bool isIPPCapable(const QString &uri);
     Q_INVOKABLE static bool isSCPAvailable();
 
@@ -73,7 +51,6 @@ public:
     bool allowUserCancelAnyJobs() const;
 
 public Q_SLOTS:
-    void savePrinter(const QString &name, const QVariantMap &saveArgs, bool isClass);
     void loadPrinterPPD(const QString &name);
     void getServerSettings();
     void saveServerSettings(const QVariantMap &settings);
@@ -85,8 +62,6 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void requestError(const QString &errorMessage);
-    void removeDone();
-    void saveDone(bool forceRefresh);
     void serverSettingsChanged();
     void serverStopped();
     void serverStarted();
@@ -98,7 +73,6 @@ Q_SIGNALS:
     void cmdConfigurePrinter(const QString &name);
 
 private:
-    KCupsRequest *setupRequest(std::function<void()> finished = []() { });
     QVariantList remotePrinters() const;
     QVariantList recommendedDrivers() const;
     QVariantMap serverSettings() const;

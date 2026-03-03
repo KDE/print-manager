@@ -145,6 +145,28 @@ KCM.ScrollViewKCM {
     ]
 
     Connections {
+        target: PM.PrinterCommands
+
+        function onRemoveDone() {
+            kcm.pop()
+        }
+
+        function onSaveDone(forceRefresh) {
+            kcm.pop()
+            // After saving a new printer, we're two levels deep in pages
+            if (kcm.currentIndex !== 0) {
+                kcm.pop()
+            }
+            // WORKAROUND: Remove after CUPS 2.4.13 release
+            // CUPS Issue #1235 (https://github.com/OpenPrinting/cups/issues/1235)
+            // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
+            if (forceRefresh) {
+                pmModel.update()
+            }
+        }
+    }
+
+    Connections {
         target: kcm
 
         // When requested to activate with a command,
@@ -172,27 +194,6 @@ KCM.ScrollViewKCM {
                 cmdLineHandler.init(printerName)
             }
         }
-
-        // when a successful save is done
-        function onSaveDone(forceRefresh) {
-            kcm.pop()
-            // After saving a new printer, we're two levels deep in pages
-            if (kcm.currentIndex !== 0) {
-                kcm.pop()
-            }
-            // WORKAROUND: Remove after CUPS 2.4.13 release
-            // CUPS Issue #1235 (https://github.com/OpenPrinting/cups/issues/1235)
-            // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
-            if (forceRefresh) {
-                pmModel.update()
-            }
-        }
-
-        // when a printer/class is removed
-        function onRemoveDone() {
-            kcm.pop()
-        }
-
     }
 
     // The printer config command line signal from the kcm
@@ -398,9 +399,9 @@ KCM.ScrollViewKCM {
 
                     onClicked: {
                         if (isPaused) {
-                            pmModel.resumePrinter(printerName);
+                            PM.PrinterCommands.resumePrinter(printerName);
                         } else {
-                            pmModel.pausePrinter(printerName);
+                            PM.PrinterCommands.pausePrinter(printerName);
                         }
                     }
 

@@ -50,7 +50,7 @@ KCM.AbstractKCM {
     // Remove the ppd settings to force manual make/model driver selection
     function manualDriverSelect() {
         settings.remove("ppd-name")
-        settings.add("ppd-type", PM.PPDType.Custom)
+        settings.add("ppd-type", PM.PrinterCommands.PPDType.Custom)
         root.setValues(settings.pending)
     }
 
@@ -329,7 +329,7 @@ KCM.AbstractKCM {
                                                     , "printer-model": root.parseDeviceId(deviceId, "MDL")
                                                     , "printer-make-and-model": deviceMakeModel
                                                     , "printer-location": deviceLocation
-                                                    , "ppd-type": PM.PPDType.Custom
+                                                    , "ppd-type": PM.PrinterCommands.PPDType.Custom
                                                  })
                                     compLoader.selector = deviceClass
                                 }

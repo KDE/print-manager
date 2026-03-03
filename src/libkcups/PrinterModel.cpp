@@ -198,21 +198,6 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
     return QVariant();
 }
 
-KCupsRequest *PrinterModel::setupRequest(std::function<void()> finished)
-{
-    auto request = new KCupsRequest;
-    connect(request, &KCupsRequest::finished, this, [this, finished](KCupsRequest *r) {
-        if (r->hasError()) {
-            Q_EMIT error(r->error(), r->serverError(), r->errorMsg());
-        } else {
-            finished();
-        }
-        r->deleteLater();
-    });
-
-    return request;
-}
-
 bool PrinterModel::serverUnavailable() const
 {
     return m_unavailable;
@@ -221,18 +206,6 @@ bool PrinterModel::serverUnavailable() const
 QHash<int, QByteArray> PrinterModel::roleNames() const
 {
     return m_roles;
-}
-
-void PrinterModel::pausePrinter(const QString &printerName)
-{
-    const auto request = setupRequest();
-    request->pausePrinter(printerName);
-}
-
-void PrinterModel::resumePrinter(const QString &printerName)
-{
-    const auto request = setupRequest();
-    request->resumePrinter(printerName);
 }
 
 void PrinterModel::update()

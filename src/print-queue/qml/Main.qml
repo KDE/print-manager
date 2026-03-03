@@ -277,9 +277,9 @@ Kirigami.ApplicationWindow {
 
                                 onTriggered: {
                                     if (isPaused) {
-                                        printersModel.resumePrinter(printerName);
+                                        PM.PrinterCommands.resumePrinter(printerName);
                                     } else {
-                                        printersModel.pausePrinter(printerName);
+                                        PM.PrinterCommands.pausePrinter(printerName);
                                     }
                                 }
                             },

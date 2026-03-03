@@ -44,9 +44,9 @@ PlasmaExtras.ExpandableListItem {
 
         onTriggered: {
             if (isPaused) {
-                printersModel.resumePrinter(model.printerName);
+                PrintManager.PrinterCommands.resumePrinter(model.printerName);
             } else {
-                printersModel.pausePrinter(model.printerName);
+                PrintManager.PrinterCommands.pausePrinter(model.printerName);
             }
         }
     }

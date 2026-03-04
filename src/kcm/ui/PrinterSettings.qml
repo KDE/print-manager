@@ -532,7 +532,7 @@ KCM.AbstractKCM {
             Loader {
                 active: root.modelData.isClass
                 visible: active
-                Layout.fillHeight: true
+                Layout.maximumHeight: Math.round(root.height/2)
                 Layout.preferredWidth: Math.round(root.width/2)
 
                 sourceComponent: QQC2.ScrollView {

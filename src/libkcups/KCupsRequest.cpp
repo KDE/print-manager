@@ -45,7 +45,7 @@ void KCupsRequest::getPPDS(const QString &make)
             request.addString(IPP_TAG_PRINTER, IPP_TAG_TEXT, KCUPS_PPD_MAKE_AND_MODEL, make);
         }
 
-        m_ppds = m_connection->request(request, IPP_TAG_PRINTER);
+        m_ppds = m_connection->request(CUPS_HTTP_DEFAULT, request, IPP_TAG_PRINTER);
 
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();
@@ -110,9 +110,35 @@ void KCupsRequest::getDevices(int timeout, QStringList includeSchemes, QStringLi
     }
 }
 
-// THIS function can get the default server dest through the
-// "printer-is-default" attribute BUT it does not get user
-// defined default printer, see cupsGetDefault() on www.cups.org for details
+// Deconstruct a device-uri and return http connection
+// Use this for printer-direct IPP requests
+static http_t *connectToPrinter(const QString &uri)
+{
+    http_t *http = nullptr;
+    char scheme[32], user[256], host[256], resource[1024];
+    int port;
+
+    if (httpSeparateURI(HTTP_URI_CODING_ALL,
+                        uri.toUtf8().constData(),
+                        scheme,
+                        sizeof(scheme),
+                        user,
+                        sizeof(user),
+                        host,
+                        sizeof(host),
+                        &port,
+                        resource,
+                        sizeof(resource))
+        == HTTP_URI_STATUS_OK) {
+        qCDebug(LIBKCUPS) << "Attempting httpConnect:" << uri;
+#ifdef LIBCUPS_VERSION_2
+        http = httpConnect2(host, port, nullptr, AF_UNSPEC, HTTP_ENCRYPTION_IF_REQUESTED, 1, 30000, nullptr);
+#else
+        http = httpConnect(host, port, nullptr, AF_UNSPEC, HTTP_ENCRYPTION_IF_REQUESTED, 1, 30000, nullptr);
+#endif
+    }
+    return http;
+}
 
 void KCupsRequest::getPrinters(QStringList attributes, int mask)
 {
@@ -126,7 +152,7 @@ void KCupsRequest::getPrinters(QStringList attributes, int mask)
             request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, KCUPS_PRINTER_TYPE_MASK, mask);
         }
 
-        const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
+        const ReturnArguments ret = m_connection->request(CUPS_HTTP_DEFAULT, request, IPP_TAG_PRINTER);
 
         for (const QVariantMap &arguments : ret) {
             m_printers << KCupsPrinter(arguments);
@@ -139,6 +165,82 @@ void KCupsRequest::getPrinters(QStringList attributes, int mask)
     }
 }
 
+void KCupsRequest::getMarkerLevelAttributes(const QString &printerName, const QString &uri)
+{
+    static const QStringList s_attr = {KCUPS_PRINTER_INFO,
+                                       KCUPS_MARKER_COLORS,
+                                       KCUPS_MARKER_LEVELS,
+                                       KCUPS_MARKER_NAMES,
+                                       KCUPS_MARKER_TYPES,
+                                       KCUPS_MARKER_LOW_LEVELS,
+                                       KCUPS_MARKER_HIGH_LEVELS};
+
+    // Get the http connection to the device, then load the marker-* map
+    const auto tryConnectAndLoad = [this, printerName](const QString &uri) {
+        // helper for single vs. list of int returns
+        const auto checkVariant = [](const QVariant &var) {
+            QVariant ret;
+            if (var.isValid()) {
+                if (var.canConvert<QList<int>>()) {
+                    ret = var;
+                } else {
+                    // convert a single int value to a list of int
+                    ret = QVariant::fromValue(QList<int>{var.value<int>()});
+                }
+            }
+            return ret;
+        };
+
+        http_t *http = connectToPrinter(uri);
+        if (http) {
+            KIppRequest request(IPP_GET_PRINTER_ATTRIBUTES, QLatin1String("/"), QString(), false);
+            request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, QLatin1String(KCUPS_PRINTER_URI), uri);
+            request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, QLatin1String(KCUPS_REQUESTED_ATTRIBUTES), s_attr);
+
+            const auto ret = m_connection->request(http, request, IPP_TAG_PRINTER);
+            httpClose(http);
+
+            for (const QVariantMap &markers : ret) {
+                auto map = markers;
+                map[KCUPS_PRINTER_NAME] = printerName;
+                map[KCUPS_DEVICE_URI] = uri;
+                // adapt to a single int vs. QList<int>
+                map[KCUPS_MARKER_LEVELS] = checkVariant(map.value(KCUPS_MARKER_LEVELS));
+                map[KCUPS_MARKER_LOW_LEVELS] = checkVariant(map.value(KCUPS_MARKER_LOW_LEVELS));
+                map[KCUPS_MARKER_HIGH_LEVELS] = checkVariant(map.value(KCUPS_MARKER_HIGH_LEVELS));
+                m_printers << KCupsPrinter(map);
+            }
+        } else {
+            qCDebug(LIBKCUPS) << "getMarkers(): unable to connect:" << uri;
+        }
+        setError(httpGetStatus(http), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+        setFinished(true);
+    };
+
+    if (m_connection->readyToStart()) {
+        qCDebug(LIBKCUPS) << "Loading marker level attributes:" << printerName << uri;
+
+        // printer device-uri is needed for IPP connection
+        if (uri.isEmpty()) {
+            const auto request = new KCupsRequest;
+            connect(request, &KCupsRequest::finished, this, [this, tryConnectAndLoad](KCupsRequest *req) {
+                if (!req->printers().isEmpty()) {
+                    tryConnectAndLoad(req->printers().at(0).deviceUri());
+                } else {
+                    setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
+                    setFinished(true);
+                }
+                req->deleteLater();
+            });
+            request->getPrinterAttributes(printerName, false, {KCUPS_DEVICE_URI});
+        } else {
+            tryConnectAndLoad(uri);
+        }
+    } else {
+        invokeMethod("getMarkerLevelAttributes", printerName, uri);
+    }
+}
+
 void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes)
 {
     if (m_connection->readyToStart()) {
@@ -148,7 +250,7 @@ void KCupsRequest::getPrinterAttributes(const QString &printerName, bool isClass
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_ENUM, QLatin1String(KCUPS_PRINTER_TYPE), CUPS_PRINTER_LOCAL);
         request.addStringList(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, QLatin1String(KCUPS_REQUESTED_ATTRIBUTES), attributes);
 
-        const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
+        const ReturnArguments ret = m_connection->request(CUPS_HTTP_DEFAULT, request, IPP_TAG_PRINTER);
 
         for (const QVariantMap &arguments : ret) {
             // Inject the printer name back to the arguments hash
@@ -182,7 +284,7 @@ void KCupsRequest::getJobs(const QString &printerName, bool myJobs, int whichJob
             request.addString(IPP_TAG_OPERATION, IPP_TAG_KEYWORD, KCUPS_WHICH_JOBS, QLatin1String("all"));
         }
 
-        const ReturnArguments ret = m_connection->request(request, IPP_TAG_JOB);
+        const ReturnArguments ret = m_connection->request(CUPS_HTTP_DEFAULT, request, IPP_TAG_JOB);
 
         for (const QVariantMap &arguments : ret) {
             m_jobs << KCupsJob(arguments);
@@ -206,7 +308,7 @@ void KCupsRequest::getJobAttributes(int jobId, const QString &printerUri, QStrin
 
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_JOB_ID, jobId);
 
-        const ReturnArguments ret = m_connection->request(request, IPP_TAG_PRINTER);
+        const ReturnArguments ret = m_connection->request(CUPS_HTTP_DEFAULT, request, IPP_TAG_PRINTER);
 
         for (const QVariantMap &arguments : ret) {
             m_jobs << KCupsJob(arguments);
@@ -551,7 +653,7 @@ void KCupsRequest::invokeMethod(const char *method,
 void KCupsRequest::process(const KIppRequest &request)
 {
     if (m_connection->readyToStart()) {
-        m_connection->request(request);
+        m_connection->request(CUPS_HTTP_DEFAULT, request);
 
         setError(httpGetStatus(CUPS_HTTP_DEFAULT), cupsLastError(), QString::fromUtf8(cupsLastErrorString()));
         setFinished();

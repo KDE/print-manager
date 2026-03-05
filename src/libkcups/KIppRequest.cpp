@@ -20,7 +20,7 @@ KIppRequest::KIppRequest(const KIppRequest &other)
     *this = other;
 }
 
-KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename)
+KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename, bool setUser)
     : d_ptr(new KIppRequestPrivate)
 {
     Q_D(KIppRequest);
@@ -30,7 +30,9 @@ KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QStr
     d->filename = filename;
 
     // send our user name on the request too
-    addString(IPP_TAG_OPERATION, IPP_TAG_NAME, QLatin1String(KCUPS_REQUESTING_USER_NAME), QString::fromUtf8(cupsUser()));
+    if (setUser) {
+        addString(IPP_TAG_OPERATION, IPP_TAG_NAME, QLatin1String(KCUPS_REQUESTING_USER_NAME), QString::fromUtf8(cupsUser()));
+    }
 }
 
 KIppRequest::~KIppRequest()
@@ -56,7 +58,7 @@ QString KIppRequest::filename() const
     return d->filename;
 }
 
-ipp_t *KIppRequest::sendIppRequest() const
+ipp_t *KIppRequest::sendIppRequest(http_t *http) const
 {
     Q_D(const KIppRequest);
 
@@ -65,9 +67,9 @@ ipp_t *KIppRequest::sendIppRequest() const
     d->addRawRequestsToIpp(request);
 
     if (d->filename.isNull()) {
-        return cupsDoRequest(CUPS_HTTP_DEFAULT, request, qUtf8Printable(d->resource));
+        return cupsDoRequest(http, request, qUtf8Printable(d->resource));
     } else {
-        return cupsDoFileRequest(CUPS_HTTP_DEFAULT, request, qUtf8Printable(d->resource), qUtf8Printable(d->filename));
+        return cupsDoFileRequest(http, request, qUtf8Printable(d->resource), qUtf8Printable(d->filename));
     }
 }
 

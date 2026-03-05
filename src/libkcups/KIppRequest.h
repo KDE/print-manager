@@ -17,14 +17,14 @@ class KCUPS_EXPORT KIppRequest
 public:
     KIppRequest();
     KIppRequest(const KIppRequest &other);
-    KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename = QString());
+    KIppRequest(ipp_op_t operation, const QString &resource, const QString &filename = QString(), bool setUser = true);
     ~KIppRequest();
 
     ipp_op_t operation() const;
     QString resource() const;
     QString filename() const;
 
-    ipp_t *sendIppRequest() const;
+    ipp_t *sendIppRequest(http_t *http = CUPS_HTTP_DEFAULT) const;
 
     void addString(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QString &value);
     void addStringList(ipp_tag_t group, ipp_tag_t valueTag, const QString &name, const QStringList &value);

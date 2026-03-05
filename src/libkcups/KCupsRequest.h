@@ -126,6 +126,16 @@ public:
     Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes);
 
     /**
+     * Get attributes by device-uri, IPP direct.
+     * @param printerName The printer
+     * @param uri for the printer
+     * @param attributes The attributes you are requesting
+     *
+     * @return The results will be stored in \sa printers()
+     */
+    Q_INVOKABLE void getAttributesDirect(const QString &printerName, const QString &uri, QStringList attributes);
+
+    /**
      * Get all jobs
      * This method emits job()
      * TODO we need to see if we authenticate as root to do some tasks

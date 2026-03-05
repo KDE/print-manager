@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -20,86 +21,84 @@
 
 #include <cups/cups.h>
 
-#define KCUPS_DEVICE_CLASS QLatin1String("device-class")
-#define KCUPS_DEVICE_ID QLatin1String("device-id")
-#define KCUPS_DEVICE_INFO QLatin1String("device-info")
-#define KCUPS_DEVICE_MAKE_AND_MODEL QLatin1String("device-make-and-model")
-#define KCUPS_DEVICE_LOCATION QLatin1String("device-location")
-#define KCUPS_DEVICE_URI QLatin1String("device-uri")
+constexpr QLatin1String KCUPS_DEVICE_CLASS("device-class");
+constexpr QLatin1String KCUPS_DEVICE_ID("device-id");
+constexpr QLatin1String KCUPS_DEVICE_INFO("device-info");
+constexpr QLatin1String KCUPS_DEVICE_MAKE_AND_MODEL("device-make-and-model");
+constexpr QLatin1String KCUPS_DEVICE_LOCATION("device-location");
+constexpr QLatin1String KCUPS_DEVICE_URI("device-uri");
 
-#define KCUPS_PRINTER_NAME QLatin1String("printer-name")
-#define KCUPS_PRINTER_LOCATION QLatin1String("printer-location")
-#define KCUPS_PRINTER_INFO QLatin1String("printer-info")
-#define KCUPS_PRINTER_URI QLatin1String("printer-uri")
-#define KCUPS_PRINTER_MAKE_AND_MODEL QLatin1String("printer-make-and-model")
-#define KCUPS_PRINTER_STATE QLatin1String("printer-state")
-#define KCUPS_PRINTER_STATE_MESSAGE QLatin1String("printer-state-message")
-#define KCUPS_PRINTER_IS_SHARED QLatin1String("printer-is-shared")
-#define KCUPS_PRINTER_IS_ACCEPTING_JOBS QLatin1String("printer-is-accepting-jobs")
-#define KCUPS_PRINTER_TYPE QLatin1String("printer-type")
-#define KCUPS_PRINTER_TYPE_MASK QLatin1String("printer-type-mask")
-#define KCUPS_PRINTER_COMMANDS QLatin1String("printer-commands")
-#define KCUPS_PRINTER_URI_SUPPORTED QLatin1String("printer-uri-supported")
-#define KCUPS_PRINTER_ERROR_POLICY QLatin1String("printer-error-policy")
-#define KCUPS_PRINTER_ERROR_POLICY_SUPPORTED QLatin1String("printer-error-policy-supported")
-#define KCUPS_PRINTER_OP_POLICY QLatin1String("printer-op-policy")
-#define KCUPS_PRINTER_OP_POLICY_SUPPORTED QLatin1String("printer-op-policy-supported")
+constexpr QLatin1String KCUPS_PRINTER_NAME("printer-name");
+constexpr QLatin1String KCUPS_PRINTER_LOCATION("printer-location");
+constexpr QLatin1String KCUPS_PRINTER_INFO("printer-info");
+constexpr QLatin1String KCUPS_PRINTER_URI("printer-uri");
+constexpr QLatin1String KCUPS_PRINTER_MAKE_AND_MODEL("printer-make-and-model");
+constexpr QLatin1String KCUPS_PRINTER_STATE("printer-state");
+constexpr QLatin1String KCUPS_PRINTER_STATE_MESSAGE("printer-state-message");
+constexpr QLatin1String KCUPS_PRINTER_IS_SHARED("printer-is-shared");
+constexpr QLatin1String KCUPS_PRINTER_IS_ACCEPTING_JOBS("printer-is-accepting-jobs");
+constexpr QLatin1String KCUPS_PRINTER_TYPE("printer-type");
+constexpr QLatin1String KCUPS_PRINTER_TYPE_MASK("printer-type-mask");
+constexpr QLatin1String KCUPS_PRINTER_COMMANDS("printer-commands");
+constexpr QLatin1String KCUPS_PRINTER_URI_SUPPORTED("printer-uri-supported");
+constexpr QLatin1String KCUPS_PRINTER_ERROR_POLICY("printer-error-policy");
+constexpr QLatin1String KCUPS_PRINTER_ERROR_POLICY_SUPPORTED("printer-error-policy-supported");
+constexpr QLatin1String KCUPS_PRINTER_OP_POLICY("printer-op-policy");
+constexpr QLatin1String KCUPS_PRINTER_OP_POLICY_SUPPORTED("printer-op-policy-supported");
 
-#define KCUPS_MEMBER_URIS QLatin1String("member-uris")
-#define KCUPS_MEMBER_NAMES QLatin1String("member-names")
+constexpr QLatin1String KCUPS_MEMBER_URIS("member-uris");
+constexpr QLatin1String KCUPS_MEMBER_NAMES("member-names");
 
-#define KCUPS_MARKER_CHANGE_TIME QLatin1String("marker-change-time")
-#define KCUPS_MARKER_COLORS QLatin1String("marker-colors")
-#define KCUPS_MARKER_LEVELS QLatin1String("marker-levels")
-#define KCUPS_MARKER_HIGH_LEVELS QLatin1String("marker-high-levels")
-#define KCUPS_MARKER_LOW_LEVELS QLatin1String("marker-low-levels")
-#define KCUPS_MARKER_NAMES QLatin1String("marker-names")
-#define KCUPS_MARKER_TYPES QLatin1String("marker-types")
-#define KCUPS_MARKER_MESSAGE QLatin1String("marker-message")
+constexpr QLatin1String KCUPS_MARKER_CHANGE_TIME("marker-change-time");
+constexpr QLatin1String KCUPS_MARKER_COLORS("marker-colors");
+constexpr QLatin1String KCUPS_MARKER_LEVELS("marker-levels");
+constexpr QLatin1String KCUPS_MARKER_HIGH_LEVELS("marker-high-levels");
+constexpr QLatin1String KCUPS_MARKER_LOW_LEVELS("marker-low-levels");
+constexpr QLatin1String KCUPS_MARKER_NAMES("marker-names");
+constexpr QLatin1String KCUPS_MARKER_TYPES("marker-types");
+constexpr QLatin1String KCUPS_MARKER_MESSAGE("marker-message");
 
-#define KCUPS_JOB_ID QLatin1String("job-id")
-#define KCUPS_JOB_NAME QLatin1String("job-name")
-#define KCUPS_JOB_K_OCTETS QLatin1String("job-k-octets")
-#define KCUPS_JOB_K_OCTETS_PROCESSED QLatin1String("job-k-octets-processed")
-#define KCUPS_JOB_PRINTER_URI QLatin1String("job-printer-uri")
-#define KCUPS_JOB_PRINTER_STATE_MESSAGE QLatin1String("job-printer-state-message")
-#define KCUPS_JOB_ORIGINATING_USER_NAME QLatin1String("job-originating-user-name")
-#define KCUPS_JOB_ORIGINATING_HOST_NAME QLatin1String("job-originating-host-name")
-#define KCUPS_JOB_MEDIA_PROGRESS QLatin1String("job-media-progress")
-#define KCUPS_JOB_MEDIA_SHEETS QLatin1String("job-media-sheets")
-#define KCUPS_JOB_MEDIA_SHEETS_COMPLETED QLatin1String("job-media-sheets-completed")
-#define KCUPS_JOB_PRESERVED QLatin1String("job-preserved")
-#define KCUPS_JOB_STATE QLatin1String("job-state")
-#define KCUPS_JOB_STATE_REASONS QLatin1String("job-state-reasons")
-#define KCUPS_JOB_HOLD_UNTIL QLatin1String("job-hold-until")
-#define KCUPS_JOB_SHEETS_DEFAULT QLatin1String("job-sheets-default")
-#define KCUPS_JOB_SHEETS_SUPPORTED QLatin1String("job-sheets-supported")
-#define KCUPS_JOB_SHEETS_DEFAULT QLatin1String("job-sheets-default")
-#define KCUPS_JOB_SHEETS_SUPPORTED QLatin1String("job-sheets-supported")
+constexpr QLatin1String KCUPS_JOB_ID("job-id");
+constexpr QLatin1String KCUPS_JOB_NAME("job-name");
+constexpr QLatin1String KCUPS_JOB_K_OCTETS("job-k-octets");
+constexpr QLatin1String KCUPS_JOB_K_OCTETS_PROCESSED("job-k-octets-processed");
+constexpr QLatin1String KCUPS_JOB_PRINTER_URI("job-printer-uri");
+constexpr QLatin1String KCUPS_JOB_PRINTER_STATE_MESSAGE("job-printer-state-message");
+constexpr QLatin1String KCUPS_JOB_ORIGINATING_USER_NAME("job-originating-user-name");
+constexpr QLatin1String KCUPS_JOB_ORIGINATING_HOST_NAME("job-originating-host-name");
+constexpr QLatin1String KCUPS_JOB_MEDIA_PROGRESS("job-media-progress");
+constexpr QLatin1String KCUPS_JOB_MEDIA_SHEETS("job-media-sheets");
+constexpr QLatin1String KCUPS_JOB_MEDIA_SHEETS_COMPLETED("job-media-sheets-completed");
+constexpr QLatin1String KCUPS_JOB_PRESERVED("job-preserved");
+constexpr QLatin1String KCUPS_JOB_STATE("job-state");
+constexpr QLatin1String KCUPS_JOB_STATE_REASONS("job-state-reasons");
+constexpr QLatin1String KCUPS_JOB_HOLD_UNTIL("job-hold-until");
+constexpr QLatin1String KCUPS_JOB_SHEETS_DEFAULT("job-sheets-default");
+constexpr QLatin1String KCUPS_JOB_SHEETS_SUPPORTED("job-sheets-supported");
 
-#define KCUPS_MY_JOBS QLatin1String("my-jobs")
-#define KCUPS_WHICH_JOBS QLatin1String("which-jobs")
+constexpr QLatin1String KCUPS_MY_JOBS("my-jobs");
+constexpr QLatin1String KCUPS_WHICH_JOBS("which-jobs");
 
-#define KCUPS_TIME_AT_COMPLETED QLatin1String("time-at-completed")
-#define KCUPS_TIME_AT_CREATION QLatin1String("time-at-creation")
-#define KCUPS_TIME_AT_PROCESSING QLatin1String("time-at-processing")
+constexpr QLatin1String KCUPS_TIME_AT_COMPLETED("time-at-completed");
+constexpr QLatin1String KCUPS_TIME_AT_CREATION("time-at-creation");
+constexpr QLatin1String KCUPS_TIME_AT_PROCESSING("time-at-processing");
 
-#define KCUPS_REQUESTED_ATTRIBUTES QLatin1String("requested-attributes")
+constexpr QLatin1String KCUPS_REQUESTED_ATTRIBUTES("requested-attributes");
 
-#define KCUPS_REQUESTING_USER_NAME QLatin1String("requesting-user-name")
-#define KCUPS_REQUESTING_USER_NAME_ALLOWED QLatin1String("requesting-user-name-allowed")
-#define KCUPS_REQUESTING_USER_NAME_DENIED QLatin1String("requesting-user-name-denied")
+constexpr QLatin1String KCUPS_REQUESTING_USER_NAME("requesting-user-name");
+constexpr QLatin1String KCUPS_REQUESTING_USER_NAME_ALLOWED("requesting-user-name-allowed");
+constexpr QLatin1String KCUPS_REQUESTING_USER_NAME_DENIED("requesting-user-name-denied");
 
-#define KCUPS_PPD_MAKE_AND_MODEL QLatin1String("ppd-make-and-model")
+constexpr QLatin1String KCUPS_PPD_MAKE_AND_MODEL("ppd-make-and-model");
 
-#define KCUPS_NOTIFY_EVENTS QLatin1String("notify-events")
-#define KCUPS_NOTIFY_PULL_METHOD QLatin1String("notify-pull-method")
-#define KCUPS_NOTIFY_RECIPIENT_URI QLatin1String("notify-recipient-uri")
-#define KCUPS_NOTIFY_LEASE_DURATION QLatin1String("notify-lease-duration")
-#define KCUPS_NOTIFY_SUBSCRIPTION_ID QLatin1String("notify-subscription-id")
+constexpr QLatin1String KCUPS_NOTIFY_EVENTS("notify-events");
+constexpr QLatin1String KCUPS_NOTIFY_PULL_METHOD("notify-pull-method");
+constexpr QLatin1String KCUPS_NOTIFY_RECIPIENT_URI("notify-recipient-uri");
+constexpr QLatin1String KCUPS_NOTIFY_LEASE_DURATION("notify-lease-duration");
+constexpr QLatin1String KCUPS_NOTIFY_SUBSCRIPTION_ID("notify-subscription-id");
 
-#define KCUPS_AUTH_INFO QLatin1String("auth-info")
-#define KCUPS_AUTH_INFO_REQUIRED QLatin1String("auth-info-required")
+constexpr QLatin1String KCUPS_AUTH_INFO("auth-info");
+constexpr QLatin1String KCUPS_AUTH_INFO_REQUIRED("auth-info-required");
 
 typedef QList<QVariantMap> ReturnArguments;
 
@@ -349,7 +348,7 @@ protected:
     void run() override;
     bool readyToStart();
     bool retry(const char *resource, int operation) const;
-    ReturnArguments request(const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
+    ReturnArguments request(http_t *http, const KIppRequest &request, ipp_tag_t groupTag = IPP_TAG_ZERO) const;
 
 private Q_SLOTS:
     void updateSubscription();

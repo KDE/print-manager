@@ -117,6 +117,16 @@ public:
     Q_INVOKABLE void getPrinterAttributes(const QString &printerName, bool isClass, QStringList attributes);
 
     /**
+     * Get Marker* attributes by device-uri.  If uri is null, then get the device-uri
+     * base on printer name
+     * @param printerName The printer
+     * @param uri device-uri for the printer
+     *
+     * @return The results will be stored in \sa printers()
+     */
+    Q_INVOKABLE void getMarkerLevelAttributes(const QString &printerName, const QString &uri = QString());
+
+    /**
      * Get all jobs
      * This method emits job()
      * TODO we need to see if we authenticate as root to do some tasks

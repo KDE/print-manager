@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
     SPDX-FileCopyrightText: 2012 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -20,30 +21,30 @@
 
 #include <KLocalizedString>
 
-#define RENEW_INTERVAL 3500
-#define SUBSCRIPTION_DURATION 3600
+constexpr int RENEW_INTERVAL = 3500;
+constexpr int SUBSCRIPTION_DURATION = 3600;
 
-#define DBUS_SERVER_RESTARTED "server-restarted" // ServerRestarted
-#define DBUS_SERVER_STARTED "server-started" // ServerStarted
-#define DBUS_SERVER_STOPPED "server-stopped" // ServerStopped
-#define DBUS_SERVER_AUDIT "server-audit" // ServerAudit
+constexpr QLatin1String DBUS_SERVER_RESTARTED("server-restarted"); // ServerRestarted
+constexpr QLatin1String DBUS_SERVER_STARTED("server-started"); // ServerStarted
+constexpr QLatin1String DBUS_SERVER_STOPPED("server-stopped"); // ServerStopped
+constexpr QLatin1String DBUS_SERVER_AUDIT("server-audit"); // ServerAudit
 
-#define DBUS_PRINTER_RESTARTED "printer-restarted" // PrinterRestarted
-#define DBUS_PRINTER_SHUTDOWN "printer-shutdown" // PrinterShutdown
-#define DBUS_PRINTER_STOPPED "printer-stopped" // PrinterStopped
-#define DBUS_PRINTER_STATE_CHANGED "printer-state-changed" // PrinterStateChanged
-#define DBUS_PRINTER_FINISHINGS_CHANGED "printer-finishings-changed" // PrinterFinishingsChanged
-#define DBUS_PRINTER_MEDIA_CHANGED "printer-media-changed" // PrinterMediaChanged
-#define DBUS_PRINTER_ADDED "printer-added" // PrinterAdded
-#define DBUS_PRINTER_DELETED "printer-deleted" // PrinterDeleted
-#define DBUS_PRINTER_MODIFIED "printer-modified" // PrinterModified
+constexpr QLatin1String DBUS_PRINTER_RESTARTED("printer-restarted"); // PrinterRestarted
+constexpr QLatin1String DBUS_PRINTER_SHUTDOWN("printer-shutdown"); // PrinterShutdown
+constexpr QLatin1String DBUS_PRINTER_STOPPED("printer-stopped"); // PrinterStopped
+constexpr QLatin1String DBUS_PRINTER_STATE_CHANGED("printer-state-changed"); // PrinterStateChanged
+constexpr QLatin1String DBUS_PRINTER_FINISHINGS_CHANGED("printer-finishings-changed"); // PrinterFinishingsChanged
+constexpr QLatin1String DBUS_PRINTER_MEDIA_CHANGED("printer-media-changed"); // PrinterMediaChanged
+constexpr QLatin1String DBUS_PRINTER_ADDED("printer-added"); // PrinterAdded
+constexpr QLatin1String DBUS_PRINTER_DELETED("printer-deleted"); // PrinterDeleted
+constexpr QLatin1String DBUS_PRINTER_MODIFIED("printer-modified"); // PrinterModified
 
-#define DBUS_JOB_STATE_CHANGED "job-state-changed" // JobState
-#define DBUS_JOB_CREATED "job-created" // JobCreated
-#define DBUS_JOB_COMPLETED "job-completed" // JobCompleted
-#define DBUS_JOB_STOPPED "job-stopped" // JobStopped
-#define DBUS_JOB_CONFIG_CHANGED "job-config-changed" // JobConfigChanged
-#define DBUS_JOB_PROGRESS "job-progress" // JobProgress
+constexpr QLatin1String DBUS_JOB_STATE_CHANGED("job-state-changed"); // JobState
+constexpr QLatin1String DBUS_JOB_CREATED("job-created"); // JobCreated
+constexpr QLatin1String DBUS_JOB_COMPLETED("job-completed"); // JobCompleted
+constexpr QLatin1String DBUS_JOB_STOPPED("job-stopped"); // JobStopped
+constexpr QLatin1String DBUS_JOB_CONFIG_CHANGED("job-config-changed"); // JobConfigChanged
+constexpr QLatin1String DBUS_JOB_PROGRESS("job-progress"); // JobProgress
 
 Q_DECLARE_METATYPE(QList<int>)
 Q_DECLARE_METATYPE(QList<bool>)
@@ -228,7 +229,7 @@ bool KCupsConnection::readyToStart()
     return false;
 }
 
-ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t groupTag) const
+ReturnArguments KCupsConnection::request(http_t *http, const KIppRequest &request, ipp_tag_t groupTag) const
 {
     ReturnArguments ret;
     ipp_t *response = nullptr;
@@ -236,7 +237,7 @@ ReturnArguments KCupsConnection::request(const KIppRequest &request, ipp_tag_t g
         ippDelete(response);
         response = nullptr;
 
-        response = request.sendIppRequest();
+        response = request.sendIppRequest(http);
     } while (retry(qUtf8Printable(request.resource()), request.operation()));
 
     if (response && groupTag != IPP_TAG_ZERO) {
@@ -353,65 +354,65 @@ QString KCupsConnection::eventForSignal(const QMetaMethod &signal) const
 {
     // Server signals
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverAudit)) {
-        return QStringLiteral(DBUS_SERVER_AUDIT);
+        return DBUS_SERVER_AUDIT;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStarted)) {
-        return QStringLiteral(DBUS_SERVER_STARTED);
+        return DBUS_SERVER_STARTED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverStopped)) {
-        return QStringLiteral(DBUS_SERVER_STOPPED);
+        return DBUS_SERVER_STOPPED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::serverRestarted)) {
-        return QStringLiteral(DBUS_SERVER_RESTARTED);
+        return DBUS_SERVER_RESTARTED;
     }
 
     // Printer signals
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerAdded)) {
-        return QStringLiteral(DBUS_PRINTER_ADDED);
+        return DBUS_PRINTER_ADDED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerDeleted)) {
-        return QStringLiteral(DBUS_PRINTER_DELETED);
+        return DBUS_PRINTER_DELETED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerFinishingsChanged)) {
-        return QStringLiteral(DBUS_PRINTER_FINISHINGS_CHANGED);
+        return DBUS_PRINTER_FINISHINGS_CHANGED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerMediaChanged)) {
-        return QStringLiteral(DBUS_PRINTER_MEDIA_CHANGED);
+        return DBUS_PRINTER_MEDIA_CHANGED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerModified)) {
-        return QStringLiteral(DBUS_PRINTER_MODIFIED);
+        return DBUS_PRINTER_MODIFIED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerRestarted)) {
-        return QStringLiteral(DBUS_PRINTER_RESTARTED);
+        return DBUS_PRINTER_RESTARTED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerShutdown)) {
-        return QStringLiteral(DBUS_PRINTER_SHUTDOWN);
+        return DBUS_PRINTER_SHUTDOWN;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStateChanged)) {
-        return QStringLiteral(DBUS_PRINTER_STATE_CHANGED);
+        return DBUS_PRINTER_STATE_CHANGED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::printerStopped)) {
-        return QStringLiteral(DBUS_PRINTER_STOPPED);
+        return DBUS_PRINTER_STOPPED;
     }
 
     // job signals
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCompleted)) {
-        return QStringLiteral(DBUS_JOB_COMPLETED);
+        return DBUS_JOB_COMPLETED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobConfigChanged)) {
-        return QStringLiteral(DBUS_JOB_CONFIG_CHANGED);
+        return DBUS_JOB_CONFIG_CHANGED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobCreated)) {
-        return QStringLiteral(DBUS_JOB_CREATED);
+        return DBUS_JOB_CREATED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobProgress)) {
-        return QStringLiteral(DBUS_JOB_PROGRESS);
+        return DBUS_JOB_PROGRESS;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobState)) {
-        return QStringLiteral(DBUS_JOB_STATE_CHANGED);
+        return DBUS_JOB_STATE_CHANGED;
     }
     if (signal == QMetaMethod::fromSignal(&KCupsConnection::jobStopped)) {
-        return QStringLiteral(DBUS_JOB_STOPPED);
+        return DBUS_JOB_STOPPED;
     }
 
     // No registered event signal matched

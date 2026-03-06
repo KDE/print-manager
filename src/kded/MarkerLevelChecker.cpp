@@ -88,7 +88,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
         const auto highLevels = getLevels(KCUPS_MARKER_HIGH_LEVELS);
         const auto typesList = printer.argument(KCUPS_MARKER_TYPES).toStringList();
 
-        if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty()) {
+        if (currentLevels.isEmpty() || highLevels.isEmpty() || lowLevels.isEmpty() || typesList.isEmpty()) {
             qCDebug(PMKDED) << "At least one marker level attribute is invalid or not found, aborting level check";
             return;
         }
@@ -112,9 +112,9 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
             const int high = highLevels.at(i).toInt();
             // per CUPS
             // low-level == 0 && high-level != 0 && high-level < 100 => waste receptacle
-            // high-level == 100 && low-level != 100 && low-level > 0 => consumable
+            // high-level == 100 && low-level != 100 && low-level >= 0 => consumable
             bool consumable;
-            if (high == 100 && low != 100 && low > 0) {
+            if (high == 100 && low != 100 && low >= 0) {
                 consumable = true;
                 qCDebug(PMKDED) << "Found consumable, checking" << typesList.at(i);
             } else if (low == 0 && high != 0 && high < 100) {

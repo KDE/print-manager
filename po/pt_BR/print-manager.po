@@ -5,15 +5,15 @@
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2012, 2013, 2015, 2016, 2018, 2019.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2019, 2020, 2021, 2022, 2023.
 # SPDX-FileCopyrightText: 2025 Geraldo Simiao <geraldosimiao@fedoraproject.org>
-# SPDX-FileCopyrightText: 2025 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Guilherme Marçal Silva <guimarcalsilva@gmail.com>
 # SPDX-FileCopyrightText: 2026 Marcus Gama <marcus.gama@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2026-02-20 09:16-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"PO-Revision-Date: 2026-03-06 16:12-0300\n"
+"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -810,7 +810,7 @@ msgstr "Gerencia filas de trabalhos de impressão"
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr "© Comunidade do KDE"
+msgstr "© Comunidade KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format

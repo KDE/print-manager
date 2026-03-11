@@ -56,24 +56,6 @@ NewPrinterNotification::~NewPrinterNotification()
 
 void NewPrinterNotification::GetReady()
 {
-    qCDebug(PMKDED) << Q_FUNC_INFO;
-
-    // We get an unnecessary notification from the device manager
-    // so dismiss it before sending ours
-    QDBusMessage msg = QDBusMessage::createMethodCall(u"org.kde.kded6"_s,
-                                                      u"/modules/devicenotifications"_s,
-                                                      u"org.kde.plasma.devicenotifications"_s,
-                                                      u"dismissUsbDeviceAdded"_s);
-    QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
-
-    auto notify = new KNotification(QLatin1String("GetReady"));
-    notify->setComponentName(QLatin1String("printmanager"));
-    notify->setTitle(i18n("A new printer was detected"));
-    const auto defAction = notify->addAction(i18nc("@action:button", "Configure new printer…"));
-    connect(defAction, &KNotificationAction::activated, notify, [notify]() {
-        ProcessRunner::addPrinter(notify->xdgActivationToken().toUtf8());
-    });
-    notify->sendEvent();
 }
 
 // status: 0
@@ -90,6 +72,14 @@ void NewPrinterNotification::NewPrinter(int status,
                                         const QString &cmd)
 {
     qCDebug(PMKDED) << status << name << make << model << description << cmd;
+
+    // We get a notification from the device manager
+    // so dismiss it before sending ours
+    QDBusMessage msg = QDBusMessage::createMethodCall(u"org.kde.kded6"_s,
+                                                      u"/modules/devicenotifications"_s,
+                                                      u"org.kde.plasma.devicenotifications"_s,
+                                                      u"dismissUsbDeviceAdded"_s);
+    QDBusConnection::sessionBus().call(msg, QDBus::NoBlock);
 
     // 1
     // "usb://Samsung/SCX-3400%20Series?serial=Z6Y1BQAC500079K&interface=1"

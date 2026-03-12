@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the print-manager package.
 #
 # SPDX-FileCopyrightText: 2023, 2024 gummi <gudmundure@gmail.com>
-# SPDX-FileCopyrightText: 2022, 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2022, 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-20 03:01+0000\n"
-"PO-Revision-Date: 2025-11-23 23:47+0000\n"
+"PO-Revision-Date: 2026-03-11 21:00+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -322,7 +322,7 @@ msgstr "%1 (%2) lítur út fyrir að vera lítið (%3% remaining)."
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) er næstum fullt (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format

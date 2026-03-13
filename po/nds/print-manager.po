@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"POT-Creation-Date: 2026-03-13 00:46+0000\n"
 "PO-Revision-Date: 2014-02-21 00:53+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-doc@kde.org>\n"
@@ -335,92 +335,79 @@ msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
 msgstr ""
 
-#: src/kded/NewPrinterNotification.cpp:71
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
-msgid "A new printer was detected"
-msgstr "En nieg Drucker wöör funnen"
-
-#: src/kded/NewPrinterNotification.cpp:72
-#, fuzzy, kde-format
-#| msgid "Configure printer"
-msgctxt "@action:button"
-msgid "Configure new printer…"
-msgstr "Drucker inrichten"
-
-#: src/kded/NewPrinterNotification.cpp:110
+#: src/kded/NewPrinterNotification.cpp:100
 #, fuzzy, kde-format
 #| msgid "The New Printer was Added"
 msgid "The New Printer was added"
 msgstr "De niege Drucker wöör toföögt"
 
-#: src/kded/NewPrinterNotification.cpp:112
+#: src/kded/NewPrinterNotification.cpp:102
 #, fuzzy, kde-format
 #| msgid "The New Printer is Missing Drivers"
 msgid "The New Printer might have a driver problem"
 msgstr "Den niegen Drucker fehlt en Driever"
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:150
 #, fuzzy, kde-format
 #| msgid "A New Printer was detected"
 msgid "Printer queue was not created"
 msgstr "En nieg Drucker wöör funnen"
 
-#: src/kded/NewPrinterNotification.cpp:162
+#: src/kded/NewPrinterNotification.cpp:152
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1 %2."
 msgid "Printer driver not found for %1 %2"
 msgstr "Keen Druckerdriever för %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:154
 #, fuzzy, kde-format
 #| msgid "No printer driver for %1."
 msgid "Printer driver not found for %1"
 msgstr "Keen Druckerdriever för %1."
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:156
 #, fuzzy, kde-format
 #| msgid "No driver for this printer."
 msgid "Printer driver not found for this printer"
 msgstr "Keen Driever för dissen Drucker."
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:158
 #, fuzzy, kde-format
 #| msgid "Add Printer"
 msgid "Add Printer…"
 msgstr "Drucker tofögen"
 
-#: src/kded/NewPrinterNotification.cpp:225
+#: src/kded/NewPrinterNotification.cpp:215
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, please check its driver."
 msgid "'%1' has been added, please check its driver"
 msgstr "\"%1\" wöör toföögt, kuntrulleer bitte sien Driever."
 
-#: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257
+#: src/kded/NewPrinterNotification.cpp:216
+#: src/kded/NewPrinterNotification.cpp:247
 #, kde-format
 msgid "Configure"
 msgstr "Instellen"
 
-#: src/kded/NewPrinterNotification.cpp:231
+#: src/kded/NewPrinterNotification.cpp:221
 #, fuzzy, kde-format
 #| msgid "'%1' has been added, using the '%2' driver."
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "\"%1\" wöör toföögt, he bruukt den Driever \"%2\"."
 
-#: src/kded/NewPrinterNotification.cpp:233
-#: src/kded/NewPrinterNotification.cpp:252
+#: src/kded/NewPrinterNotification.cpp:223
+#: src/kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "Print test page"
 msgstr "Testsiet drucken"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:228
 #, fuzzy, kde-format
 #| msgid "Choose the driver from the list"
 msgid "Check driver"
 msgstr "Den Driever op de List utsöken"
 
-#: src/kded/NewPrinterNotification.cpp:250
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "\"%1\" steiht praat för't Drucken."
@@ -882,6 +869,17 @@ msgstr "Drucker-Töövreeg wiesen"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""
+
+#, fuzzy
+#~| msgid "A New Printer was detected"
+#~ msgid "A new printer was detected"
+#~ msgstr "En nieg Drucker wöör funnen"
+
+#, fuzzy
+#~| msgid "Configure printer"
+#~ msgctxt "@action:button"
+#~ msgid "Configure new printer…"
+#~ msgstr "Drucker inrichten"
 
 #~ msgid "Failed to move '%1' to '%2'"
 #~ msgstr "Bewegen vun \"%1\" na \"%2\" fehlslaan"

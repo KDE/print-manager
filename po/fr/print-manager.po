@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"POT-Creation-Date: 2026-03-13 00:46+0000\n"
 "PO-Revision-Date: 2026-02-21 13:31+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -329,80 +329,69 @@ msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
 msgstr "Vérifier les niveaux…"
 
-#: src/kded/NewPrinterNotification.cpp:71
-#, kde-format
-msgid "A new printer was detected"
-msgstr "Une nouvelle imprimante a été détectée."
-
-#: src/kded/NewPrinterNotification.cpp:72
-#, kde-format
-msgctxt "@action:button"
-msgid "Configure new printer…"
-msgstr "Configurer une nouvelle imprimante..."
-
-#: src/kded/NewPrinterNotification.cpp:110
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was added"
 msgstr "La nouvelle imprimante a été ajoutée."
 
-#: src/kded/NewPrinterNotification.cpp:112
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr "La nouvelle imprimante pourrait rencontrer un problème de pilote."
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:150
 #, kde-format
 msgid "Printer queue was not created"
 msgstr "La file d'attente d'impression n'a pu être créée."
 
-#: src/kded/NewPrinterNotification.cpp:162
+#: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr "Aucun pilote d'imprimante n'a été trouvé pour %1 %2."
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1"
 msgstr "Aucun pilote d'imprimante n'a été trouvé pour %1."
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for this printer"
 msgstr "Aucun pilote n'a été trouvé pour cette imprimante."
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Add Printer…"
 msgstr "Ajouter une imprimante..."
 
-#: src/kded/NewPrinterNotification.cpp:225
+#: src/kded/NewPrinterNotification.cpp:215
 #, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "« %1 » a été ajoutée. Veuillez vérifier son pilote."
 
-#: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257
+#: src/kded/NewPrinterNotification.cpp:216
+#: src/kded/NewPrinterNotification.cpp:247
 #, kde-format
 msgid "Configure"
 msgstr "Configurer"
 
-#: src/kded/NewPrinterNotification.cpp:231
+#: src/kded/NewPrinterNotification.cpp:221
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "« %1 » a été ajoutée avec utilisation du pilote « %2 »."
 
-#: src/kded/NewPrinterNotification.cpp:233
-#: src/kded/NewPrinterNotification.cpp:252
+#: src/kded/NewPrinterNotification.cpp:223
+#: src/kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "Print test page"
 msgstr "Imprimer une page de test"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:228
 #, kde-format
 msgid "Check driver"
 msgstr "Vérifier le pilote"
 
-#: src/kded/NewPrinterNotification.cpp:250
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "« %1 » est prêt à imprimer."
@@ -852,6 +841,13 @@ msgstr "Afficher la file d'attente d'impression"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Saisissez les identifiants à imprimer depuis <b>%1</b>"
+
+#~ msgid "A new printer was detected"
+#~ msgstr "Une nouvelle imprimante a été détectée."
+
+#~ msgctxt "@action:button"
+#~ msgid "Configure new printer…"
+#~ msgstr "Configurer une nouvelle imprimante..."
 
 #~ msgid "Failed to move '%1' to '%2'"
 #~ msgstr "Il est impossible de déplacer « %1 » vers « %2 »"

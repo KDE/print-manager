@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"POT-Creation-Date: 2026-03-13 00:46+0000\n"
 "PO-Revision-Date: 2026-02-20 06:05+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -320,80 +320,69 @@ msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
 msgstr "დონის შემოწმება…"
 
-#: src/kded/NewPrinterNotification.cpp:71
-#, kde-format
-msgid "A new printer was detected"
-msgstr "აღმოჩენილია ახალი პრინტერი"
-
-#: src/kded/NewPrinterNotification.cpp:72
-#, kde-format
-msgctxt "@action:button"
-msgid "Configure new printer…"
-msgstr "ახალი პრინტერის მორგება…"
-
-#: src/kded/NewPrinterNotification.cpp:110
+#: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was added"
 msgstr "ახალი პრინტერი დამატებულია"
 
-#: src/kded/NewPrinterNotification.cpp:112
+#: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr "ახალ პრინტერს, შეიძლება, დრაივერების პრობლემა აქვს"
 
-#: src/kded/NewPrinterNotification.cpp:160
+#: src/kded/NewPrinterNotification.cpp:150
 #, kde-format
 msgid "Printer queue was not created"
 msgstr "პრინტერის რიგი არ შექმნილა"
 
-#: src/kded/NewPrinterNotification.cpp:162
+#: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr "დრაივერი აღმოჩენილი არაა პრინტერისთვის: %1 %2"
 
-#: src/kded/NewPrinterNotification.cpp:164
+#: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1"
 msgstr "%1-სთვის პრინტერის დრაივერი აღმოჩენილი არაა"
 
-#: src/kded/NewPrinterNotification.cpp:166
+#: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for this printer"
 msgstr "ამ პრინტერისთვის დრაივერი აღმოჩენილი არაა"
 
-#: src/kded/NewPrinterNotification.cpp:168
+#: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Add Printer…"
 msgstr "პრინტერის დამატება…"
 
-#: src/kded/NewPrinterNotification.cpp:225
+#: src/kded/NewPrinterNotification.cpp:215
 #, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "'%1' დაემატა. შეამოწმეთ მისი დრაივერი"
 
-#: src/kded/NewPrinterNotification.cpp:226
-#: src/kded/NewPrinterNotification.cpp:257
+#: src/kded/NewPrinterNotification.cpp:216
+#: src/kded/NewPrinterNotification.cpp:247
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
 
-#: src/kded/NewPrinterNotification.cpp:231
+#: src/kded/NewPrinterNotification.cpp:221
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "'%1' დაემატა. დრაივერი: '%2'"
 
-#: src/kded/NewPrinterNotification.cpp:233
-#: src/kded/NewPrinterNotification.cpp:252
+#: src/kded/NewPrinterNotification.cpp:223
+#: src/kded/NewPrinterNotification.cpp:242
 #, kde-format
 msgid "Print test page"
 msgstr "სატესტო გვერდის დაბეჭდვა"
 
-#: src/kded/NewPrinterNotification.cpp:238
+#: src/kded/NewPrinterNotification.cpp:228
 #, kde-format
 msgid "Check driver"
 msgstr "დრაივერის შემოწმება"
 
-#: src/kded/NewPrinterNotification.cpp:250
+#: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' საბეჭდად მზადაა."
@@ -840,6 +829,13 @@ msgstr "პრინტერის რიგის ჩვენება"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b>-დან დასაბეჭდად შეიყვანეთ მომხმარებელი და პაროლი"
+
+#~ msgid "A new printer was detected"
+#~ msgstr "აღმოჩენილია ახალი პრინტერი"
+
+#~ msgctxt "@action:button"
+#~ msgid "Configure new printer…"
+#~ msgstr "ახალი პრინტერის მორგება…"
 
 #~ msgid "Failed to move '%1' to '%2'"
 #~ msgstr "%1-ის %2-ზე გადატანის შეცდომა"

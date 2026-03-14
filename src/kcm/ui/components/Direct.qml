@@ -25,7 +25,7 @@ BaseDevice {
     helpText: root.uriModel ? i18nc("@info:usagetip", "Choose a device connection") : ""
     showUri: false
 
-    readonly property var uriModel: settings.value("device-uris")
+    readonly property list<string> uriModel: settings.value("device-uris")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing
@@ -34,8 +34,6 @@ BaseDevice {
         QQC2.ScrollView {
             Layout.fillWidth: true
             Layout.fillHeight: true
-
-            visible: directlist.count > 0
 
             Component.onCompleted: {
                 if (background) {

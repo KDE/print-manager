@@ -1,22 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2023, 2024, 2026 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-13 00:46+0000\n"
-"PO-Revision-Date: 2024-05-30 16:16+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-03-13 14:32+0100\n"
+"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -212,12 +212,12 @@ msgstr "Přidat novou tiskárnu"
 #: src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Přidat novou skupinu tiskáren"
 
 #: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
 #, kde-format
 msgid "Configure a printer"
-msgstr ""
+msgstr "Nastavit tiskárnu"
 
 #: src/kcm/printermanager.cpp:291
 #, kde-format
@@ -235,19 +235,19 @@ msgstr "Nastavení tiskárny selhalo: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:443
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr ""
+msgstr "Bez ovladačů"
 
 #: src/kcm/printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "Soubor PPD"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
@@ -290,12 +290,15 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Chyba instalace (balíček: %1)\n"
+"Zkontrolujte přihlašovací údaje a ujistěte se, že je PackageKit nainstalován "
+"správně."
 
 #: src/kded/MarkerLevelChecker.cpp:174
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) se zdá být prázdný."
 
 #: src/kded/MarkerLevelChecker.cpp:177
 #, kde-format
@@ -303,60 +306,60 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) se jeví jako nízká (zbývá %3 %)."
 
 #: src/kded/MarkerLevelChecker.cpp:184
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) je téměř plný (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:199
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Zkontrolovat hladiny…"
 
 #: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
 msgid "The New Printer was added"
-msgstr ""
+msgstr "Nová tiskárna byla přidána"
 
 #: src/kded/NewPrinterNotification.cpp:102
 #, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr ""
+msgstr "Nová tiskárna může mít problém s ovladačem"
 
 #: src/kded/NewPrinterNotification.cpp:150
 #, kde-format
 msgid "Printer queue was not created"
-msgstr ""
+msgstr "Tisková fronta nebyla vytvořena"
 
 #: src/kded/NewPrinterNotification.cpp:152
 #, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr ""
+msgstr "Nenalezen ovladač tiskárny pro %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:154
 #, kde-format
 msgid "Printer driver not found for %1"
-msgstr ""
+msgstr "Nenalezen ovladač tiskárny pro %1"
 
 #: src/kded/NewPrinterNotification.cpp:156
 #, kde-format
 msgid "Printer driver not found for this printer"
-msgstr ""
+msgstr "Pro tuto tiskárnu nebyl nalezen ovladač"
 
 #: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Add Printer…"
-msgstr ""
+msgstr "Přidat tiskárnu…"
 
 #: src/kded/NewPrinterNotification.cpp:215
 #, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr ""
+msgstr "'%1' byla přidána, zkontrolujte prosím její ovladač"
 
 #: src/kded/NewPrinterNotification.cpp:216
 #: src/kded/NewPrinterNotification.cpp:247
@@ -367,7 +370,7 @@ msgstr "Nastavit"
 #: src/kded/NewPrinterNotification.cpp:221
 #, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr ""
+msgstr "'%1' byla přidána, používá ovladač '%2'"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -378,7 +381,7 @@ msgstr "Vytisknout testovací stránku"
 #: src/kded/NewPrinterNotification.cpp:228
 #, kde-format
 msgid "Check driver"
-msgstr ""
+msgstr "Zkontrolovat ovladač"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -639,7 +642,7 @@ msgstr "Ze jména hostitele"
 #: src/libkcups/JobModel.cpp:169
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Zpracování\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:444
 #, kde-format
@@ -780,14 +783,13 @@ msgstr "Neznámá - '%1'"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Správce fronty tisku Plasma"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Zobrazit frontu(y) tiskárny"
+msgstr "Spravujte fronty tiskárny"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
@@ -798,7 +800,7 @@ msgstr "© Komunita KDE"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
@@ -810,19 +812,18 @@ msgstr "Vývojář"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák, Tomáš Chvátal"
+msgstr "Vít Pelčák,Tomáš Chvátal,Libor Filípek"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org, tomas.chvatal@gmail.com"
+msgstr "vit@pelcak.org,tomas.chvatal@gmail.com,libor.filipek@gmail.com"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Zobrazit frontu(y) tiskárny"
+msgstr "Zobrazit frontu tiskárny"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

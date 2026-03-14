@@ -842,14 +842,3 @@ msgstr "Vis utskriftskø(ar)"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Skriv inn brukarnamn og passord for å skriva ut frå <b>%1</b>"
-
-#, fuzzy
-#~| msgid "A New Printer was detected"
-#~ msgid "A new printer was detected"
-#~ msgstr "Fann ein ny skrivar"
-
-#, fuzzy
-#~| msgid "Configure a printer"
-#~ msgctxt "@action:button"
-#~ msgid "Configure new printer…"
-#~ msgstr "Set opp skrivar"

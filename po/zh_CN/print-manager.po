@@ -824,10 +824,3 @@ msgstr "显示打印队列"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "要使用 <b>%1</b> 打印，请输入身份验证信息"
-
-#~ msgid "A new printer was detected"
-#~ msgstr "检测到新打印机"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure new printer…"
-#~ msgstr "配置新打印机…"

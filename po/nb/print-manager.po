@@ -829,13 +829,3 @@ msgstr "Stopp skriver"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""
-
-#, fuzzy
-#~| msgid "A New Printer was detected"
-#~ msgid "A new printer was detected"
-#~ msgstr "En ny skriver ble funnet"
-
-#, fuzzy
-#~ msgctxt "@action:button"
-#~ msgid "Configure new printer…"
-#~ msgstr "Sett opp Skriver"

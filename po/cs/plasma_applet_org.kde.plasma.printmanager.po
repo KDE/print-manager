@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2013, 2015, 2016, 2018, 2020, 2021, 2023 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2013, 2015, 2016, 2018, 2020, 2021, 2023, 2026 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2023-11-08 15:58+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-03-13 14:31+0100\n"
+"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:49
 msgid "Printers"
@@ -67,14 +67,12 @@ msgid "Pause"
 msgstr "Pozastavit"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "Nastavit tis&kárny…"
+msgstr "Nastavit tiskárny…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
 msgid "View Print Queue"
-msgstr ""
+msgstr "Zobrazit tiskovou frontu"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"
@@ -85,6 +83,6 @@ msgstr "Zrušit"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 další úloha"
+msgstr[1] "%1 další úlohy"
+msgstr[2] "%1 dalších úloh"

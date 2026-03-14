@@ -1,22 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
-# SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2017, 2018, 2019, 2023, 2024, 2026 Vit Pelcak <vit@pelcak.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2024-07-08 16:55+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-03-13 14:28+0100\n"
+"Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Language: cs_CZ\n"
 "X-Source-Language: en_US\n"
 
@@ -28,12 +28,12 @@ msgstr "Přidat novou tiskárnu"
 #: printermanager.cpp:108
 #, kde-format
 msgid "Add a new printer group"
-msgstr ""
+msgstr "Přidat novou skupinu tiskáren"
 
 #: printermanager.cpp:110 printermanager.cpp:112
 #, kde-format
 msgid "Configure a printer"
-msgstr ""
+msgstr "Nastavit tiskárnu"
 
 #: printermanager.cpp:310
 #, kde-format
@@ -51,19 +51,19 @@ msgstr "Nastavení tiskárny selhalo: "
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: printermanager.cpp:462
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr ""
+msgstr "Bez ovladačů"
 
 #: printermanager.cpp:465
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "Soubor PPD"
 
 #: printermanager.cpp:484
 #, kde-format
@@ -106,18 +106,21 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Chyba instalace (balíček: %1)\n"
+"Zkontrolujte přihlašovací údaje a ujistěte se, že je PackageKit nainstalován "
+"správně."
 
 #: ui/components/AddressExamples.qml:30
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
-msgstr ""
+msgstr "Příklady adres"
 
 #: ui/components/BaseDevice.qml:86
 #, kde-format
 msgctxt "@label:title"
 msgid "Printing Device"
-msgstr ""
+msgstr "Tiskové zařízení"
 
 #: ui/components/BaseDevice.qml:116
 #, kde-format
@@ -135,7 +138,7 @@ msgstr "Zadejte adresu zařízení"
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a device connection"
-msgstr ""
+msgstr "Vyberte připojení zařízení"
 
 #: ui/components/Drivers.qml:60
 #, kde-format
@@ -148,24 +151,25 @@ msgstr "Vybrat doporučený ovladač"
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
+"Doporučené ovladače se odvíjejí od značky/modelu tiskárny a typu připojení"
 
 #: ui/components/Drivers.qml:72
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
-msgstr ""
+msgstr "Ruční vyhledávání ovladačů…"
 
 #: ui/components/Drivers.qml:78
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
+msgstr "Vyhledejte a vyberte ovladač podle značky/modelu tiskárny"
 
 #: ui/components/Lpd.qml:22
 #, kde-format
 msgctxt "@title:group"
 msgid "Line Printer Daemon (LPD) Protocol"
-msgstr ""
+msgstr "Line Printer Daemon (LPD) protokol"
 
 #: ui/components/Lpd.qml:23
 #, kde-format
@@ -183,7 +187,7 @@ msgstr "Fronta:"
 #, kde-format
 msgctxt "@info:placeholder The LPD device queue name"
 msgid "LPD queue name"
-msgstr ""
+msgstr "Název fronty LPD"
 
 #: ui/components/Lpd.qml:75 ui/components/ManualUri.qml:82
 #: ui/components/Socket.qml:49
@@ -202,13 +206,13 @@ msgstr "Neplatné URL LPD: %1"
 #, kde-format
 msgctxt "@title:group"
 msgid "Find remote printing devices"
-msgstr ""
+msgstr "Najít vzdálená tisková zařízení"
 
 #: ui/components/ManualUri.qml:24
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the remote host/device"
-msgstr ""
+msgstr "Zadejte adresu vzdáleného hostitele/zařízení"
 
 #: ui/components/ManualUri.qml:57
 #, kde-format
@@ -236,6 +240,9 @@ msgid ""
 "interface>.  If the printer is on a remote host, enter that address and "
 "choose <interface>Search</interface>."
 msgstr ""
+"Pokud je adresa tiskárny známa, zadejte ji a vyberte <interface>Pokračovat</"
+"interface>.  Pokud je tiskárna na vzdáleném hostiteli, zadejte jeho adresu a "
+"vyberte <interface>Hledat</interface>."
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -282,13 +289,13 @@ msgstr "Zobrazit manuální možnosti"
 #, kde-format
 msgctxt "@info:status"
 msgid "This feature is not available (%1)"
-msgstr ""
+msgstr "Tato funkce není k dispozici (%1)"
 
 #: ui/FindPrinter.qml:228
 #, kde-format
 msgctxt "@info:status"
 msgid "Unable to automatically discover any printing devices"
-msgstr ""
+msgstr "Nelze automaticky vyhledat žádná tisková zařízení"
 
 #: ui/FindPrinter.qml:229
 #, kde-format
@@ -297,12 +304,14 @@ msgid ""
 "Choose \"Refresh\" to try again or choose a manual configuration option from "
 "the list"
 msgstr ""
+"Zvolte možnost „Obnovit“ a zkuste to znovu nebo vyberte možnost ruční "
+"konfigurace ze seznamu"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Choose a manual configuration option from the list"
-msgstr ""
+msgstr "Vyberte možnost ručního nastavení ze seznamu"
 
 #: ui/Global.qml:17
 #, kde-format
@@ -314,7 +323,7 @@ msgstr "Nastavení serveru CUPS"
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Print Server Admin"
-msgstr ""
+msgstr "Správa tiskového serveru CUPS"
 
 #: ui/Global.qml:31
 #, kde-format
@@ -361,7 +370,7 @@ msgstr "Povolit uživatelům zrušit jakoukoliv úlohu (ne jen ty, které vlastn
 #, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr ""
+msgstr "Nápověda k nastavení tiskárny"
 
 #: ui/InstallDialog.qml:70
 #, kde-format
@@ -390,12 +399,12 @@ msgstr "Nahlaste tento problém na %1"
 #: ui/main.qml:35
 #, kde-format
 msgid "new_queue"
-msgstr ""
+msgstr "new_queue"
 
 #: ui/main.qml:35
 #, kde-format
 msgid "new_group"
-msgstr ""
+msgstr "new_group"
 
 #: ui/main.qml:84
 #, kde-kuit-format
@@ -406,6 +415,10 @@ msgid ""
 "we cannot provide an install option. Please use your package manager to "
 "install the <command>system-config-printer</command> package manually."
 msgstr ""
+"Balíček podpory tiskárny, který poskytuje užitečné funkce, se nezdá být "
+"nainstalována. <nl/><nl/>Protože tato distribuce neobsahuje PackageKit, "
+"nemůžeme poskytnout možnost instalace. Použijte prosím správce balíčků k "
+"ruční instalaci balíčku <command>system-config-printer</command>."
 
 #: ui/main.qml:86
 #, kde-format
@@ -414,6 +427,8 @@ msgid ""
 "A printer support package that provides convenience features does not appear "
 "to be installed."
 msgstr ""
+"Balíček podpory tiskárny, který poskytuje užitečné funkce, se nezdá být "
+"nainstalován."
 
 #: ui/main.qml:92
 #, kde-format
@@ -449,7 +464,7 @@ msgstr "Nastavit tiskový server…"
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr ""
+msgstr "V současné době nejsou nastaveny žádné tiskárny"
 
 #: ui/main.qml:263
 #, kde-kuit-format
@@ -457,12 +472,14 @@ msgctxt "@info:usagetip"
 msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
+"Klikněte na <interface>Přidat…</interface> a nastavte novou tiskárnu v tomto "
+"počítači"
 
 #: ui/main.qml:272
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Tiskové služby nejsou k dispozici"
 
 #: ui/main.qml:273
 #, kde-kuit-format
@@ -471,6 +488,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Klikněte na <interface>Nastavit tiskový server…</interface> a zkontrolujte "
+"nastavení nebo ověřte, zda je systémová služba CUPS aktivní."
 
 #: ui/main.qml:313
 #, kde-format
@@ -534,7 +553,7 @@ msgstr "Ovladač tiskárny"
 #, kde-format
 msgctxt "@action:button Select ipp everywhere driver"
 msgid "Use IPP Everywhere™"
-msgstr ""
+msgstr "Použít IPP Everywhere™"
 
 #: ui/MakeModel.qml:161
 #, kde-format
@@ -544,7 +563,7 @@ msgstr "Uložit"
 #: ui/MakeModel.qml:166
 #, kde-format
 msgid "Select a PostScript Printer Description (PPD) file"
-msgstr ""
+msgstr "Vyberte soubor PPD (PostScript Printer Description)"
 
 #: ui/MakeModel.qml:173
 #, kde-format
@@ -555,13 +574,13 @@ msgstr "Je potřeba model tiskárny. Prosím, vyberte jej."
 #, kde-format
 msgctxt "@option:radio"
 msgid "Select Make and Model:"
-msgstr ""
+msgstr "Vyberte výrobce a model:"
 
 #: ui/MakeModel.qml:242
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Filter Models"
-msgstr ""
+msgstr "Filtr modelů"
 
 #: ui/MakeModel.qml:346
 #, kde-format
@@ -611,13 +630,13 @@ msgstr "Odstranit"
 #, kde-format
 msgctxt "@action:button"
 msgid "CUPS Printers Overview Help"
-msgstr ""
+msgstr "Nápověda přehledu tiskáren CUPS"
 
 #: ui/PrinterSettings.qml:86
 #, kde-format
 msgctxt "@action:button"
 msgid "Printer/Device Admin Page"
-msgstr ""
+msgstr "Stránka správy tiskárny/zařízení"
 
 #: ui/PrinterSettings.qml:104
 #, kde-format
@@ -635,25 +654,27 @@ msgstr "Použít"
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name is required. Enter a unique queue name."
-msgstr ""
+msgstr "Název fronty je povinný. Zadejte jedinečný název fronty."
 
 #: ui/PrinterSettings.qml:118
 #, kde-format
 msgctxt "@info:status"
 msgid "Queue name must be unique. Enter a unique queue name."
-msgstr ""
+msgstr "Název fronty musí být jedinečný. Zadejte jedinečný název fronty."
 
 #: ui/PrinterSettings.qml:126
 #, kde-format
 msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr ""
+"Je nutné zadat výrobce/model. Vyberte možnost „Vybrat“ a zadejte výrobce/"
+"model"
 
 #: ui/PrinterSettings.qml:136
 #, kde-format
 msgctxt "@info:status"
 msgid "Configuring %1, please wait…"
-msgstr ""
+msgstr "Nastavování %1, prosím vyčkejte..."
 
 #: ui/PrinterSettings.qml:178
 #, kde-format
@@ -706,6 +727,7 @@ msgstr "Výchozí tiskárna"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
+"Chcete-li změnit výchozí tiskárnu, nastavte jako výchozí jinou tiskárnu."
 
 #: ui/PrinterSettings.qml:371
 #, kde-format
@@ -723,7 +745,7 @@ msgstr "Sdílet tuto tiskárnu"
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
-msgstr ""
+msgstr "Přijímání tiskových úloh"
 
 #: ui/PrinterSettings.qml:432
 #, kde-format
@@ -747,7 +769,7 @@ msgstr "Vyčistit tiskové hlavy"
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
-msgstr ""
+msgstr "Název fronty:"
 
 #: ui/PrinterSettings.qml:488
 #, kde-format
@@ -771,13 +793,13 @@ msgstr "Spojení:"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
-msgstr ""
+msgstr "Uživatelé tiskárny:"
 
 #: ui/PrinterSettings.qml:667
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
-msgstr "Výrobek/model:"
+msgstr "Výrobce/model:"
 
 #: ui/PrinterSettings.qml:682
 #, kde-format

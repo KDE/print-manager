@@ -245,6 +245,10 @@ Kirigami.ApplicationWindow {
                 highlighted: ListView.isCurrentItem
                 onClicked: ListView.view.currentIndex = index
 
+                QQC2.ToolTip.text: text
+                QQC2.ToolTip.visible: hovered && titleItem.truncated
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
                 contentItem: RowLayout {
                     spacing: Kirigami.Units.smallSpacing
 

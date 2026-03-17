@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:47+0000\n"
+"POT-Creation-Date: 2026-03-17 00:46+0000\n"
 "PO-Revision-Date: 2026-03-14 07:06+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -234,25 +234,25 @@ msgctxt "@label:info device description"
 msgid "Printer Groups"
 msgstr "Grupy drukarek"
 
-#: qml/Main.qml:273
+#: qml/Main.qml:277
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Wznów"
 
-#: qml/Main.qml:274
+#: qml/Main.qml:278
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Wstrzymaj"
 
-#: qml/Main.qml:287
+#: qml/Main.qml:291
 #, kde-format
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
 msgstr "Ustawienia…"
 
-#: qml/Main.qml:294
+#: qml/Main.qml:298
 #, kde-format
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"

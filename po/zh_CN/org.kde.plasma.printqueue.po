@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-24 00:47+0000\n"
+"POT-Creation-Date: 2026-03-17 00:46+0000\n"
 "PO-Revision-Date: 2026-02-26 21:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -234,25 +234,25 @@ msgctxt "@label:info device description"
 msgid "Printer Groups"
 msgstr "打印机组"
 
-#: qml/Main.qml:273
+#: qml/Main.qml:277
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "继续"
 
-#: qml/Main.qml:274
+#: qml/Main.qml:278
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "暂停"
 
-#: qml/Main.qml:287
+#: qml/Main.qml:291
 #, kde-format
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
 msgstr "配置…"
 
-#: qml/Main.qml:294
+#: qml/Main.qml:298
 #, kde-format
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"

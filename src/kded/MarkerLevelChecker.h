@@ -8,6 +8,7 @@
 
 #include <QObject>
 
+class KCupsRequest;
 /**
  * Check for at least one marker level being below the threshold.
  *
@@ -27,7 +28,7 @@ public:
     ~MarkerLevelChecker() = default;
 
 private:
-    void checkMarkerLevels(const QString &printerName);
+    void checkMarkerLevels(KCupsRequest *request);
 
     /**
      * @brief Generic handler for job signals

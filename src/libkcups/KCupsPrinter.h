@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010-2012 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -50,27 +51,52 @@ public:
     int markerChangeTime() const;
     QVariant argument(const QString &name) const;
 
+    QVariantMap markers() const;
+    QList<int> markerLevels() const;
+    QList<int> markerLowLevels() const;
+    QList<int> markerHighLevels() const;
+    QStringList markerColors() const;
+    QStringList markerNames() const;
+    QStringList markerTypes() const;
+
     /**
      * Requires enum PrinterType to work properly
-     *
      */
     QIcon icon() const;
     static QIcon icon(cups_ptype_e type);
     QString iconName() const;
     static QString iconName(cups_ptype_e type);
 
+    /**
+     * @brief checkMarkerLevels - Check all marker levels for the printer
+     *  CUPS supports devices with both classes of markers, consumables and receptacles
+     *
+     *  https://openprinting.github.io/cups/doc/spec-ipp.html#marker-types
+     *
+     *  Consumables are generally toners/cartridges
+     *  levels decrease from full to empty with warning level at near-empty
+     *
+     *  Receptacles are generally waste containters
+     *  levels increase from empty to full with warning level at near-full
+     *
+     * @return list of message strings, one for each marker found at warning threshold
+     */
+    QStringList checkMarkerLevels() const;
+
 protected:
-    KCupsPrinter(const QVariantMap &arguments);
+    explicit KCupsPrinter(const QVariantMap &attributes);
+    void setAttribute(const QString &key, const QVariant &value);
 
 private:
     friend class KCupsRequest;
+    friend class PrinterModel;
 
     QString m_printer;
     bool m_isClass;
-    QVariantMap m_arguments;
+    QVariantMap m_attributes;
 };
 
-typedef QList<KCupsPrinter> KCupsPrinters;
+using KCupsPrinters = QList<KCupsPrinter>;
 Q_DECLARE_METATYPE(KCupsPrinters)
 Q_DECLARE_METATYPE(KCupsPrinter)
 

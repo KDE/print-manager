@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-12 00:45+0000\n"
-"PO-Revision-Date: 2026-03-13 14:28+0100\n"
+"PO-Revision-Date: 2026-03-17 10:22+0100\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -245,20 +245,16 @@ msgstr ""
 "vyberte <interface>Hledat</interface>."
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "Nastavit připojení tiskárny"
+msgstr "Nastavit tiskárnu v síti Windows"
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the LPD device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "Zadejte adresu zařízení LPD"
+msgstr "Zadejte adresu tiskárny Windows"
 
 #: ui/components/Smb.qml:45
 #, kde-format
@@ -273,20 +269,16 @@ msgid "Password:"
 msgstr "Heslo:"
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "Vyberte tiskárnu…"
+msgstr "Uložit tiskárnu…"
 
 #: ui/components/Smb.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Invalid LPD URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr "Neplatné URL LPD: %1"
+msgstr "Neplatné URL tiskárny: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

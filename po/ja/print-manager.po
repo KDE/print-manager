@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 03:01+0000\n"
+"POT-Creation-Date: 2026-03-18 02:50+0000\n"
 "PO-Revision-Date: 2026-02-23 17:27+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -306,13 +306,13 @@ msgid ""
 "properly."
 msgstr ""
 
-#: src/kded/MarkerLevelChecker.cpp:174
+#: src/kded/MarkerLevelChecker.cpp:194
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr "%1 (%2) が空になっています。"
 
-#: src/kded/MarkerLevelChecker.cpp:177
+#: src/kded/MarkerLevelChecker.cpp:197
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -320,14 +320,14 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr "%1 (%2) の残量が少なくなっています (残り %3%)。"
 
-#: src/kded/MarkerLevelChecker.cpp:184
+#: src/kded/MarkerLevelChecker.cpp:204
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
 msgstr "%1 (%2) がほぼ満タンです (%3%)"
 
-#: src/kded/MarkerLevelChecker.cpp:199
+#: src/kded/MarkerLevelChecker.cpp:219
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"

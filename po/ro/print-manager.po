@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-18 02:50+0000\n"
-"PO-Revision-Date: 2026-03-01 00:40+0000\n"
+"PO-Revision-Date: 2026-03-18 21:55+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -277,12 +277,10 @@ msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Configurările serverului nu sunt salvate: (%1): %2"
 
 #: src/kcm/printermanager.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Obținerea parametrilor serverului a eșuat: %1"
+msgstr "Eroare fatală la salvarea configurărilor serverului: (%1): %2"
 
 #: src/kcm/printermanager.cpp:633
 #, kde-format
@@ -302,6 +300,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Eroare de instalare (pachet: %1)\n"
+"Verificați acreditările pentru autentificare și asigurați-vă că PackageKit e "
+"instalat corect."
 
 #: src/kded/MarkerLevelChecker.cpp:194
 #, kde-format
@@ -346,46 +347,39 @@ msgid "The New Printer was added"
 msgstr "Noua imprimantă a fost adăugată"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Lipsesc driverele pentru noua imprimantă"
+msgstr "Noua imprimantă ar putea acea o problemă cu driver-ul"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "A fost descoperită o nouă imprimantă"
+msgstr "Coada de imprimare nu a fost creată"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Niciun driver de imprimantă pentru %1 %2."
+msgstr "Driver-ul de imprimantă nu a fost găsit pentru %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Niciun driver de imprimantă pentru %1."
+msgstr "Driver-ul de imprimantă nu a fost găsit pentru %1"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Niciun driver pentru această imprimantă."
+msgstr "Driver-ul de imprimantă nu a fost găsit pentru această imprimantă"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Adaugă imprimantă"
+msgstr "Adaugă imprimantă…"
 
 #: src/kded/NewPrinterNotification.cpp:213
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "„%1” a fost adăugată, verificați-i driverul."
+msgstr "„%1” a fost adăugată, verificați-i driver-ul"
 
 #. i18n: ectx: property (text), widget (QPushButton, configurePrinterPB)
 #: src/kded/NewPrinterNotification.cpp:214
@@ -395,10 +389,9 @@ msgid "Configure"
 msgstr "Configurează"
 
 #: src/kded/NewPrinterNotification.cpp:219
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "„%1” a fost adăugată, folosind driverul „%2”."
+msgstr "„%1” a fost adăugată, folosind driver-ul „%2”"
 
 #: src/kded/NewPrinterNotification.cpp:221
 #: src/kded/NewPrinterNotification.cpp:240
@@ -407,10 +400,9 @@ msgid "Print test page"
 msgstr "Tipărește pagină de test"
 
 #: src/kded/NewPrinterNotification.cpp:226
-#, fuzzy, kde-format
-#| msgid "Choose &the driver"
+#, kde-format
 msgid "Check driver"
-msgstr "A&lege driver-ul"
+msgstr "Verifică driver-ul"
 
 #: src/kded/NewPrinterNotification.cpp:238
 #, kde-format
@@ -418,12 +410,10 @@ msgid "'%1' is ready for printing."
 msgstr "„%1” e gata să tipărească."
 
 #: src/libkcups/DevicesModel.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "URI manual"
+msgstr "Configurare manuală"
 
 #: src/libkcups/DevicesModel.cpp:63
 #, kde-format
@@ -541,30 +531,24 @@ msgstr ""
 "(HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
 "Programe HPLIP pilotând o mașină de fax sau funcția de fax a unui dispozitiv "
-"multifuncțional."
+"multifuncțional"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
 "Programe HPLIP pilotând o imprimantă sau funcția de imprimare a unui "
-"dispozitiv multifuncțional."
+"dispozitiv multifuncțional"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format

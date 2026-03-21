@@ -91,17 +91,28 @@ private Q_SLOTS:
     void getJobs();
     void getJobFinished(KCupsRequest *request);
 
-    void handleJobNotify(const QString &text,
-                         const QString &printerUri,
-                         const QString &printerName,
-                         uint printerState,
-                         const QString &printerStateReasons,
-                         bool printerIsAcceptingJobs,
-                         uint jobId,
-                         uint jobState,
-                         const QString &jobStateReasons,
-                         const QString &jobName,
-                         uint jobImpressionsCompleted);
+    void jobNotify(const QString &text,
+                   const QString &printerUri,
+                   const QString &printerName,
+                   uint printerState,
+                   const QString &printerStateReasons,
+                   bool printerIsAcceptingJobs,
+                   uint jobId,
+                   uint jobState,
+                   const QString &jobStateReasons,
+                   const QString &jobName,
+                   uint jobImpressionsCompleted);
+    void jobProgress(const QString &text,
+                     const QString &printerUri,
+                     const QString &printerName,
+                     uint printerState,
+                     const QString &printerStateReasons,
+                     bool printerIsAcceptingJobs,
+                     uint jobId,
+                     uint jobState,
+                     const QString &jobStateReasons,
+                     const QString &jobName,
+                     uint jobImpressionsCompleted);
 
 Q_SIGNALS:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);

@@ -56,22 +56,20 @@ JobModel::JobModel(QObject *parent)
     m_roles[RoleJobAuthenticationRequired] = "jobAuthRequired";
 
     // This is emitted when a job change it's state
-    connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::handleJobNotify);
+    connect(KCupsConnection::global(), &KCupsConnection::jobState, this, &JobModel::jobNotify);
 
     // This is emitted when a job is created
-    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &JobModel::handleJobNotify);
+    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &JobModel::jobNotify);
 
     // This is emitted when a job is stopped
-    connect(KCupsConnection::global(), &KCupsConnection::jobStopped, this, &JobModel::handleJobNotify);
+    connect(KCupsConnection::global(), &KCupsConnection::jobStopped, this, &JobModel::jobNotify);
 
     // This is emitted when a job has it's config changed
-    connect(KCupsConnection::global(), &KCupsConnection::jobConfigChanged, this, &JobModel::handleJobNotify);
+    connect(KCupsConnection::global(), &KCupsConnection::jobConfigChanged, this, &JobModel::jobNotify);
 
     // This is emitted when a job change it's progress
-    connect(KCupsConnection::global(), &KCupsConnection::jobProgress, this, &JobModel::handleJobNotify);
-
-    // This is emitted when a printer is removed
-    connect(KCupsConnection::global(), &KCupsConnection::jobCompleted, this, &JobModel::handleJobNotify);
+    connect(KCupsConnection::global(), &KCupsConnection::jobProgress, this, &JobModel::jobProgress);
+    connect(KCupsConnection::global(), &KCupsConnection::jobCompleted, this, &JobModel::jobNotify);
 
     connect(KCupsConnection::global(), &KCupsConnection::serverAudit, this, &JobModel::getJobs);
     connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, &JobModel::getJobs);
@@ -148,7 +146,7 @@ void JobModel::getJobs()
         return;
     }
 
-    m_messages.clear();
+    setMessages({});
     m_jobRequest = setupRequest(&JobModel::getJobFinished);
     m_jobRequest->getJobs(QString(), false, m_jobFilter, attrs);
 }
@@ -196,40 +194,43 @@ void JobModel::getJobFinished(KCupsRequest *request)
         removeRow(rowCount() - 1);
     }
 
-    if (!msgList.empty()) {
-        setMessages(msgList);
-    }
+    setMessages(msgList);
 
     m_jobRequest.clear();
     Q_EMIT loaded();
 }
 
-void JobModel::handleJobNotify(const QString &text,
-                               const QString &printerUri,
-                               const QString &printerName,
-                               uint printerState,
-                               const QString &printerStateReasons,
-                               bool printerIsAcceptingJobs,
-                               uint jobId,
-                               uint jobState,
-                               const QString &jobStateReasons,
-                               const QString &jobName,
-                               uint jobImpressionsCompleted)
+void JobModel::jobNotify(const QString &text,
+                         [[maybe_unused]] const QString &printerUri,
+                         const QString &printerName,
+                         [[maybe_unused]] uint printerState,
+                         const QString &printerStateReasons,
+                         [[maybe_unused]] bool printerIsAcceptingJobs,
+                         uint jobId,
+                         [[maybe_unused]] uint jobState,
+                         const QString &jobStateReasons,
+                         [[maybe_unused]] const QString &jobName,
+                         [[maybe_unused]] uint jobImpressionsCompleted)
 {
-    Q_UNUSED(text)
-    Q_UNUSED(printerUri)
-    Q_UNUSED(printerName)
-    Q_UNUSED(printerState)
-    Q_UNUSED(printerStateReasons)
-    Q_UNUSED(printerIsAcceptingJobs)
-    Q_UNUSED(jobId)
-    Q_UNUSED(jobState)
-    Q_UNUSED(jobStateReasons)
-    Q_UNUSED(jobName)
-    Q_UNUSED(jobImpressionsCompleted)
-
-    qCDebug(LIBKCUPS) << "JOBNOTIFY" << printerName << jobId << jobState << jobStateReasons;
+    qCDebug(LIBKCUPS) << text << jobId << printerName << printerStateReasons << jobStateReasons;
     getJobs();
+}
+
+void JobModel::jobProgress(const QString &text,
+                           [[maybe_unused]] const QString &printerUri,
+                           const QString &printerName,
+                           [[maybe_unused]] uint printerState,
+                           const QString &printerStateReasons,
+                           [[maybe_unused]] bool printerIsAcceptingJobs,
+                           uint jobId,
+                           [[maybe_unused]] uint jobState,
+                           const QString &jobStateReasons,
+                           const QString &jobName,
+                           [[maybe_unused]] uint jobImpressionsCompleted)
+{
+    qCDebug(LIBKCUPS) << "JOBPROGRESS:" << text << printerName << jobId << printerStateReasons << jobStateReasons;
+    setMessages(
+        {i18nc("@info:status The processing detail message (%1), the job name (%2) and the printer name (%3)", "%1\t%2 [%3]", text, jobName, printerName)});
 }
 
 void JobModel::insertJob(int pos, const KCupsJob &job)
@@ -299,7 +300,7 @@ KCupsRequest *JobModel::setupRequest(void (JobModel::*finished)(KCupsRequest *))
 
 void JobModel::setMessages(const QStringList &list)
 {
-    m_messages << list;
+    m_messages = list;
     Q_EMIT messagesChanged();
 }
 

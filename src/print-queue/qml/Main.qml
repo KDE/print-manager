@@ -82,7 +82,6 @@ Kirigami.ApplicationWindow {
     // Jobs model
     PM.JobSortFilterModel {
         id: jobsSortFilterModel
-        sortRole: PM.JobModel.RoleJobState
 
         sourceModel: PM.JobModel {
             id: jobsModel
@@ -91,14 +90,6 @@ Kirigami.ApplicationWindow {
                 // Force a reload in case CUPS services are unavailable
                 console.warn(err, title, msg)
                 printersModel.update()
-            }
-
-            onMessagesChanged: {
-                if (messages.length > 0) {
-                  bottomDrawer.open()
-                } else {
-                  bottomDrawer.close()
-                }
             }
         }
     }
@@ -311,6 +302,7 @@ Kirigami.ApplicationWindow {
     Kirigami.OverlayDrawer {
         id: bottomDrawer
         edge: Qt.BottomEdge
+        visible: jobsModel.messages.length > 0
         modal: true
 
         contentItem: QQC2.ScrollView {

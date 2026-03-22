@@ -273,7 +273,7 @@ void DevicesModel::finished()
                              device[KCUPS_DEVICE_MAKE_AND_MODEL],
                              uri,
                              device[KCUPS_DEVICE_LOCATION],
-                             list.size() > 1 ? list : QStringList());
+                             list);
             }
         }
 

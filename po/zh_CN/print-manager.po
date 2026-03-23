@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:47+0000\n"
+"POT-Creation-Date: 2026-03-23 00:46+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -599,7 +599,7 @@ msgstr "用户"
 msgid "Created"
 msgstr "已创建"
 
-#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:451
 #, kde-format
 msgid "Completed"
 msgstr "已完成"
@@ -634,32 +634,40 @@ msgstr "打印机"
 msgid "From Hostname"
 msgstr "来自主机名"
 
-#: src/libkcups/JobModel.cpp:169
+#: src/libkcups/JobModel.cpp:167
 #, kde-format
 msgid "Processing\t%1 [%2]"
 msgstr "正在处理\t%1 [%2]"
 
-#: src/libkcups/JobModel.cpp:444
+#: src/libkcups/JobModel.cpp:233
+#, kde-format
+msgctxt ""
+"@info:status The processing detail message (%1), the job name (%2) and the "
+"printer name (%3)"
+msgid "%1\t%2 [%3]"
+msgstr ""
+
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "Pending"
 msgstr "等待处理"
 
-#: src/libkcups/JobModel.cpp:445
+#: src/libkcups/JobModel.cpp:446
 #, kde-format
 msgid "On hold"
 msgstr "已暂停"
 
-#: src/libkcups/JobModel.cpp:447
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Stopped"
 msgstr "已停止"
 
-#: src/libkcups/JobModel.cpp:448
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Canceled"
 msgstr "已取消"
 
-#: src/libkcups/JobModel.cpp:449
+#: src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Aborted"
 msgstr "已中止"

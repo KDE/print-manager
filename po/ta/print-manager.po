@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:47+0000\n"
+"POT-Creation-Date: 2026-03-23 00:46+0000\n"
 "PO-Revision-Date: 2025-08-03 12:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -599,7 +599,7 @@ msgstr "பயனர்"
 msgid "Created"
 msgstr "உருவாக்கப்பட்டது"
 
-#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:451
 #, kde-format
 msgid "Completed"
 msgstr "முடிந்த‍து"
@@ -634,32 +634,40 @@ msgstr "அச்சுப்பொறி"
 msgid "From Hostname"
 msgstr "புரவன் பெயரிலிருந்து"
 
-#: src/libkcups/JobModel.cpp:169
+#: src/libkcups/JobModel.cpp:167
 #, kde-format
 msgid "Processing\t%1 [%2]"
 msgstr ""
 
-#: src/libkcups/JobModel.cpp:444
+#: src/libkcups/JobModel.cpp:233
+#, kde-format
+msgctxt ""
+"@info:status The processing detail message (%1), the job name (%2) and the "
+"printer name (%3)"
+msgid "%1\t%2 [%3]"
+msgstr ""
+
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "Pending"
 msgstr "நிலுவையிலுள்ளது"
 
-#: src/libkcups/JobModel.cpp:445
+#: src/libkcups/JobModel.cpp:446
 #, kde-format
 msgid "On hold"
 msgstr "இடைநிறுத்தப்பட்டது"
 
-#: src/libkcups/JobModel.cpp:447
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Stopped"
 msgstr "நிறுத்தப்பட்டது"
 
-#: src/libkcups/JobModel.cpp:448
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Canceled"
 msgstr "ரத்து செய்யப்பட்டது"
 
-#: src/libkcups/JobModel.cpp:449
+#: src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Aborted"
 msgstr "கைவிடப்பட்டது"

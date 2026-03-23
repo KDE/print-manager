@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:46+0000\n"
+"POT-Creation-Date: 2026-03-23 00:46+0000\n"
 "PO-Revision-Date: 2026-02-25 19:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -210,49 +210,49 @@ msgctxt "@label:info Job page count"
 msgid "Pages: %1"
 msgstr "الصفحات: %1"
 
-#: qml/Main.qml:126
+#: qml/Main.qml:117
 #, kde-format
 msgctxt "@label:header"
 msgid "Printers"
 msgstr "الطّابعات"
 
-#: qml/Main.qml:132
+#: qml/Main.qml:123
 #, kde-format
 msgctxt "@action:button about this application"
 msgid "About"
 msgstr "عن"
 
-#: qml/Main.qml:166
+#: qml/Main.qml:157
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printers"
 msgstr "الطّابعات"
 
-#: qml/Main.qml:166
+#: qml/Main.qml:157
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printer Groups"
 msgstr "مجموعات الطّابعة"
 
-#: qml/Main.qml:277
+#: qml/Main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "استئناف"
 
-#: qml/Main.qml:278
+#: qml/Main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "ألبث"
 
-#: qml/Main.qml:291
+#: qml/Main.qml:282
 #, kde-format
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
 msgstr "اضبط…"
 
-#: qml/Main.qml:298
+#: qml/Main.qml:289
 #, kde-format
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"

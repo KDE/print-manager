@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:47+0000\n"
+"POT-Creation-Date: 2026-03-23 00:46+0000\n"
 "PO-Revision-Date: 2026-02-21 14:15+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -612,7 +612,7 @@ msgstr "Пользователь"
 msgid "Created"
 msgstr "Создано"
 
-#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:450
+#: src/libkcups/JobModel.cpp:30 src/libkcups/JobModel.cpp:451
 #, kde-format
 msgid "Completed"
 msgstr "Завершено"
@@ -647,32 +647,40 @@ msgstr "Принтер"
 msgid "From Hostname"
 msgstr "С компьютера"
 
-#: src/libkcups/JobModel.cpp:169
+#: src/libkcups/JobModel.cpp:167
 #, kde-format
 msgid "Processing\t%1 [%2]"
 msgstr "Обработка\t%1 [%2]"
 
-#: src/libkcups/JobModel.cpp:444
+#: src/libkcups/JobModel.cpp:233
+#, kde-format
+msgctxt ""
+"@info:status The processing detail message (%1), the job name (%2) and the "
+"printer name (%3)"
+msgid "%1\t%2 [%3]"
+msgstr ""
+
+#: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "Pending"
 msgstr "Ожидание"
 
-#: src/libkcups/JobModel.cpp:445
+#: src/libkcups/JobModel.cpp:446
 #, kde-format
 msgid "On hold"
 msgstr "Приостановлено"
 
-#: src/libkcups/JobModel.cpp:447
+#: src/libkcups/JobModel.cpp:448
 #, kde-format
 msgid "Stopped"
 msgstr "Остановлено"
 
-#: src/libkcups/JobModel.cpp:448
+#: src/libkcups/JobModel.cpp:449
 #, kde-format
 msgid "Canceled"
 msgstr "Отменено"
 
-#: src/libkcups/JobModel.cpp:449
+#: src/libkcups/JobModel.cpp:450
 #, kde-format
 msgid "Aborted"
 msgstr "Прервано"

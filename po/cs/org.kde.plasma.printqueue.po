@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-17 00:46+0000\n"
+"POT-Creation-Date: 2026-03-23 00:46+0000\n"
 "PO-Revision-Date: 2026-03-13 14:39+0100\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -209,49 +209,49 @@ msgctxt "@label:info Job page count"
 msgid "Pages: %1"
 msgstr "Počet stran: %1"
 
-#: qml/Main.qml:126
+#: qml/Main.qml:117
 #, kde-format
 msgctxt "@label:header"
 msgid "Printers"
 msgstr "Tiskárny"
 
-#: qml/Main.qml:132
+#: qml/Main.qml:123
 #, kde-format
 msgctxt "@action:button about this application"
 msgid "About"
 msgstr "O aplikaci"
 
-#: qml/Main.qml:166
+#: qml/Main.qml:157
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printers"
 msgstr "Tiskárny"
 
-#: qml/Main.qml:166
+#: qml/Main.qml:157
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printer Groups"
 msgstr "Skupiny tiskáren"
 
-#: qml/Main.qml:277
+#: qml/Main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Obnovit"
 
-#: qml/Main.qml:278
+#: qml/Main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: qml/Main.qml:291
+#: qml/Main.qml:282
 #, kde-format
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
 msgstr "Nastavit…"
 
-#: qml/Main.qml:298
+#: qml/Main.qml:289
 #, kde-format
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"

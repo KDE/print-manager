@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-23 00:46+0000\n"
-"PO-Revision-Date: 2026-02-20 13:11+0100\n"
+"PO-Revision-Date: 2026-03-23 10:32+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -654,7 +654,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -841,10 +841,3 @@ msgstr "Mostra la cua d'impressió"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Introduïu les credencials per a imprimir des de <b>%1</b>"
-
-#~ msgid "A new printer was detected"
-#~ msgstr "S'ha detectat una impressora nova"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure new printer…"
-#~ msgstr "Configura una impressora nova…"

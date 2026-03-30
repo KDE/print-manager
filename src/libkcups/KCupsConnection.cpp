@@ -251,24 +251,16 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
 {
     int ret = -1;
 
-    ipp_op_t operation;
-
-    // check if we have a valid subscription ID
-    if (subscriptionId >= 0) {
-        // Add the "notify-events" values to the request
-        operation = IPP_RENEW_SUBSCRIPTION;
-    } else {
-        operation = IPP_CREATE_PRINTER_SUBSCRIPTION;
-    }
+    // if valid subscription ID, renewing, otherwise, create a new subscription
+    ipp_op_t operation = subscriptionId >= 0 ? IPP_RENEW_SUBSCRIPTION : IPP_CREATE_PRINTER_SUBSCRIPTION;
 
     KIppRequest request(operation, QLatin1String("/"));
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("/"));
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("ipp://localhost/"));
     request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER, KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
 
     if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
-        // Add the "notify-events" values to the request
+        // the list of events we wish to be notified of
         request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_EVENTS, events);
-        request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_PULL_METHOD, QLatin1String("ippget"));
         request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI, KCUPS_NOTIFY_RECIPIENT_URI, QLatin1String("dbus://"));
     } else {
         request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_NOTIFY_SUBSCRIPTION_ID, subscriptionId);
@@ -456,7 +448,7 @@ void KCupsConnection::renewDBusSubscription()
 void KCupsConnection::cancelDBusSubscription()
 {
     KIppRequest request(IPP_CANCEL_SUBSCRIPTION, QLatin1String("/"));
-    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("/"));
+    request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("ipp://localhost/"));
     request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_NOTIFY_SUBSCRIPTION_ID, m_subscriptionId);
 
     do {

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-23 00:46+0000\n"
-"PO-Revision-Date: 2026-03-13 14:39+0100\n"
+"PO-Revision-Date: 2026-03-30 19:57+0200\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -50,13 +50,13 @@ msgstr "Vývojář"
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Vít Pelčák"
+msgstr "Vít Pelčák,Libor Filípek"
 
 #: main.cpp:48
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "vit@pelcak.org"
+msgstr "vit@pelcak.org,libor.filipek@gmail.com"
 
 #: main.cpp:58
 #, kde-format
@@ -78,7 +78,7 @@ msgstr "%1 úlohy"
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Filter Jobs"
-msgstr ""
+msgstr "Filtr úloh"
 
 #: qml/JobView.qml:63
 #, kde-format
@@ -102,13 +102,13 @@ msgstr "Vše"
 #, kde-format
 msgctxt "@option:check Hide expanded job view"
 msgid "Hide Job Details"
-msgstr ""
+msgstr "Skrýt podrobnosti úlohy"
 
 #: qml/JobView.qml:91
 #, kde-format
 msgctxt "@option:check Show expanded job view"
 msgid "Show Job Details"
-msgstr ""
+msgstr "Zobrazit podrobnosti úlohy"
 
 #: qml/JobView.qml:98
 #, kde-format
@@ -120,13 +120,13 @@ msgstr "Zrušit všechny úlohy"
 #, kde-format
 msgctxt "@title:window"
 msgid "Cancel all active print jobs?"
-msgstr ""
+msgstr "Chcete zrušit všechny aktivní tiskové úlohy?"
 
 #: qml/JobView.qml:139
 #, kde-format
 msgctxt "@info:status Print jobs not found in the print queue"
 msgid "The print queue is empty"
-msgstr ""
+msgstr "Tisková fronta je prázdná"
 
 #: qml/JobView.qml:158
 #, kde-format
@@ -261,13 +261,13 @@ msgstr "Nastavení multimédií…"
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers have been set up"
-msgstr ""
+msgstr "Nebyly nastaveny žádné tiskárny"
 
 #: qml/NotAvailablePage.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Set Up a Printer…"
-msgstr ""
+msgstr "Nastavit tiskárnu..."
 
 #: qml/NotAvailablePage.qml:43
 #, kde-format
@@ -283,12 +283,14 @@ msgid ""
 "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
 "Support</a>"
 msgstr ""
+"Zkontrolujte, zda je systémová služba CUPS spuštěna, nebo navštivte: <a href="
+"\"%1\">podporu %2</a>"
 
 #: qml/NotAvailablePage.qml:54
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown error condition with printing services"
-msgstr ""
+msgstr "Neznámá chyba v tiskových službách"
 
 #: qml/NotAvailablePage.qml:55
 #, kde-format
@@ -297,3 +299,5 @@ msgctxt ""
 "name"
 msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
 msgstr ""
+"Zkontrolujte zde, zda se nevyskytují nějaké problémy:: <a href="
+"\"%1\">problémy s %2</a>"

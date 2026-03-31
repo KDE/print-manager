@@ -2,6 +2,13 @@
 # SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
 
 ecm_add_test(
+    subscriptiontest.cpp
+    TEST_NAME subscriptiontests
+    LINK_LIBRARIES kcups Qt::Test
+    NAME_PREFIX "pm-"
+)
+
+ecm_add_test(
     modeltest.cpp
     TEST_NAME modeltests
     LINK_LIBRARIES kcups Qt::Test

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-20 00:44+0000\n"
-"PO-Revision-Date: 2026-03-01 00:31+0000\n"
+"PO-Revision-Date: 2026-03-31 13:48+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: printermanager.cpp:106
 #, kde-format
@@ -82,12 +82,10 @@ msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Configurările serverului nu sunt salvate: (%1): %2"
 
 #: printermanager.cpp:580
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings: %1"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Obținerea parametrilor serverului a eșuat: %1"
+msgstr "Eroare fatală la salvarea configurărilor serverului: (%1): %2"
 
 #: printermanager.cpp:633
 #, kde-format
@@ -107,6 +105,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Eroare de instalare (pachet: %1)\n"
+"Verificați acreditările pentru autentificare și asigurați-vă că PackageKit e "
+"instalat corect."
 
 #: ui/components/AddressExamples.qml:30
 #, kde-format
@@ -366,11 +367,10 @@ msgid "Allow users to cancel any job (not just their own)"
 msgstr "Permite utilizatorilor să anuleze orice lucrare (nu doar a lor)"
 
 #: ui/InstallDialog.qml:14
-#, fuzzy, kde-format
-#| msgid "Printer Groups"
+#, kde-format
 msgctxt "@title:window"
 msgid "Printer Setup Helpers"
-msgstr "Grupuri de imprimante"
+msgstr "Ajutători de configurare a imprimantelor"
 
 #: ui/InstallDialog.qml:70
 #, kde-format

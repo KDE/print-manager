@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-20 00:48+0000\n"
-"PO-Revision-Date: 2025-01-10 10:25\n"
+"PO-Revision-Date: 2026-04-01 21:31\n"
 "Last-Translator: Zmicier <zmicerturok@gmail.com>\n"
 "Language-Team: Belarusian\n"
 "Language: be\n"
@@ -73,16 +73,12 @@ msgid "Pause"
 msgstr "Прыпыніць"
 
 #: src/plasmoid/PrinterDelegate.qml:57
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Наладжванне прынтараў…"
+msgstr "Наладжванне прынтара…"
 
 #: src/plasmoid/PrinterDelegate.qml:62
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Паглядзець чаргу друку…"
+msgstr "Праглядзець чаргу друку"
 
 #: src/plasmoid/PrinterDelegate.qml:137
 msgctxt "@action:button"

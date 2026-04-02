@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Plasma Print Queue Manager
 Name[ar]=مدير طابور الطباعة بالبلازما
+Name[be]=Кіраўнік чаргі друку Plasma
 Name[bg]=Диспечер на опашката за печат на Plasma
 Name[ca]=Gestor de cues d'impressió del Plasma
 Name[ca@valencia]=Gestor de cues d'impressió de Plasma
@@ -22,6 +23,7 @@ Name[uk]=Засіб керування чергою друку Плазми
 Name[zh_CN]=Plasma 打印队列管理器
 GenericName=Print Queue
 GenericName[ar]=طابور الطّباعة
+GenericName[be]=Чарга друку
 GenericName[bg]=Опашка за печат
 GenericName[ca]=Cua d'impressió
 GenericName[ca@valencia]=Cua d'impressió
@@ -43,6 +45,7 @@ GenericName[uk]=Черга друку
 GenericName[zh_CN]=打印队列
 Comment=View and manage print jobs
 Comment[ar]=اعرض وأدر مهامّ الطّباعة
+Comment[be]=Прагляд і кіраванне задачамі друку
 Comment[bg]=Преглед и управление на заданията за печат
 Comment[ca]=Visualitza i gestiona els treballs d'impressió
 Comment[ca@valencia]=Visualitza i gestiona els treballs d'impressió

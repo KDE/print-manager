@@ -14,13 +14,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 19.12.3\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
-#, fuzzy, kde-format
-#| msgid "Print settings"
+#, kde-format
 msgid "Media Settings"
 msgstr "Nastavenia tlače"
 
@@ -42,7 +41,7 @@ msgstr ""
 #: src/configure-printer/ConfigureDialog.cpp:173
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
@@ -65,8 +64,7 @@ msgid "Port to Qt 5 / Plasma 5"
 msgstr "Port pre Qt5 / Plasma 5"
 
 #: src/configure-printer/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
 msgstr "Port pre Qt5 / Plasma 5"
 
@@ -211,51 +209,44 @@ msgid "Add a new printer"
 msgstr "Pridať novú tlačiareň"
 
 #: src/kcm/printermanager.cpp:106
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Pridať novú tlačiareň"
+msgstr "Pridať novú skupinu tlačiarní"
 
 #: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
-#, fuzzy, kde-format
-#| msgid "Configure printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Nastaviť tlačiareň"
+msgstr "Nastaviť..."
 
 #: src/kcm/printermanager.cpp:291
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Zlyhalo nastavenie triedy"
+msgstr "Zlyhalo nastavenie triedy: "
 
 #: src/kcm/printermanager.cpp:291
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Zlyhalo nastavenie tlačiarne"
+msgstr "Zlyhalo nastavenie tlačiarne: "
 
 #: src/kcm/printermanager.cpp:416
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:443
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Ovládač:"
+msgstr "Driverless"
 
 #: src/kcm/printermanager.cpp:446
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD File"
 
 #: src/kcm/printermanager.cpp:465
 #, kde-format
@@ -263,26 +254,22 @@ msgid "Failed to perform request: %1"
 msgstr "Zlyhalo vykonanie požiadavky: %1"
 
 #: src/kcm/printermanager.cpp:517
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Zlyhalo získanie nastavení servera"
+msgstr "Zlyhalo získanie nastavení servera: %1"
 
 #: src/kcm/printermanager.cpp:554
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr ""
+msgstr "Chyba servera: (%1): %2"
 
 #: src/kcm/printermanager.cpp:561
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Zlyhalo získanie nastavení servera"
+msgstr "Fatal Save Server Settings: (%1): %2"
 
 #: src/kcm/printermanager.cpp:614
 #, kde-format
@@ -302,12 +289,15 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Install Error (package: %1)\n"
+"Zaškrtnite authentication credentials and make sure PackageKit is installed "
+"properly."
 
 #: src/kded/MarkerLevelChecker.cpp:194
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) appears to be empty."
 
 #: src/kded/MarkerLevelChecker.cpp:197
 #, kde-format
@@ -315,66 +305,58 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) appears to be low (%3% remaining)."
 
 #: src/kded/MarkerLevelChecker.cpp:204
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) is almost full (%3%)"
 
 #: src/kded/MarkerLevelChecker.cpp:219
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Zaškrtnite Levels…"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
 msgstr "Nová tlačiareň bola pridaná"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
 msgstr "Novej tlačiarni chýbajú ovládače"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
 msgstr "Bola zistená nová tlačiareň"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
 msgstr "Žiadny ovládač tlačiarne pre %1 %2."
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
 msgstr "Žiadny ovládač tlačiarne pre %1."
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
 msgstr "Ovládač pre tlačiareň nie je k dispozícii."
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
 msgstr "Pridať tlačiareň"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "\"%1\" bola pridaná, prosím skontrolujte jej ovládač."
 
@@ -385,8 +367,7 @@ msgid "Configure"
 msgstr "Nastaviť"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "Tlačiareň \"%1\" bola pridaná použitím ovládača '%2'."
 
@@ -397,8 +378,7 @@ msgid "Print test page"
 msgstr "Vytlačiť skúšobnú stránku"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Check driver"
 msgstr "Vyberte ovládač zo zoznamu"
 
@@ -408,9 +388,7 @@ msgid "'%1' is ready for printing."
 msgstr "Tlačiareň \"%1\" je pripravená na tlač."
 
 #: src/libkcups/DevicesModel.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
 msgstr "Manuálne URI"
@@ -529,10 +507,7 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Miestna tlačiareň zistená cez Hardware Abstraction Layer (HAL)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -542,10 +517,7 @@ msgstr ""
 "zariadenia."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -555,8 +527,7 @@ msgstr ""
 "zariadenia."
 
 #: src/libkcups/DevicesModel.cpp:128
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
 msgstr "IPP sieťová tlačiareň cez DNS-SD"
@@ -574,15 +545,13 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Vzdialená CUPS tlačiareň cez DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:147
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Sieťová tlačiareň cez DNS-SD"
 
 #: src/libkcups/DevicesModel.cpp:149
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 sieťová tlačiareň cez DNS-SD"
@@ -751,7 +720,7 @@ msgstr "Zlyhalo vyvolanie metódy: %1"
 #: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Empty ppd model"
 
 #: src/libkcups/PrinterModel.cpp:196
 #, kde-format
@@ -822,11 +791,10 @@ msgstr "Neznáme - \"%1\""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Správca tlače"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
 msgstr "Zobraziť tlačovú frontu"
@@ -834,19 +802,19 @@ msgstr "Zobraziť tlačovú frontu"
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Komunita KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Vývojár"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -861,8 +829,7 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com,prescott66@gmail.com"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
 msgstr "Zobraziť tlačovú frontu"
 
@@ -872,12 +839,10 @@ msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 
 #, fuzzy
-#~| msgid "A New Printer was detected"
 #~ msgid "A new printer was detected"
 #~ msgstr "Bola zistená nová tlačiareň"
 
 #, fuzzy
-#~| msgid "Configure printer"
 #~ msgctxt "@action:button"
 #~ msgid "Configure new printer…"
 #~ msgstr "Nastaviť tlačiareň"
@@ -973,10 +938,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Všetky úlohy"
 
 #, fuzzy
-#~| msgctxt "@info:tooltip"
-#~| msgid ""
-#~| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~| "function device"
 #~ msgctxt "@info:tooltip"
 #~ msgid ""
 #~ "HPLIP software driving a fax machine,\n"
@@ -986,10 +947,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ "funkčného zariadenia"
 
 #, fuzzy
-#~| msgctxt "@info:tooltip"
-#~| msgid ""
-#~| "HPLIP software driving a printer, or the printer function of a multi-"
-#~| "function device"
 #~ msgctxt "@info:tooltip"
 #~ msgid ""
 #~ "HPLIP software driving a printer,\n"
@@ -1018,8 +975,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Nastavenie vášho pripojenia"
 
 #, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Pick a Driver"
 #~ msgctxt "@title:window"
 #~ msgid "Pick a Driver for %1"
 #~ msgstr "Výber ovládača"
@@ -1175,7 +1130,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Zmení PPD danej tlačiarne/zariadenia"
 
 #, fuzzy
-#~| msgid "Changes the PPD of a given printer/deviceid"
 #~ msgid "The expected input should be printer/deviceid"
 #~ msgstr "Zmení PPD danej tlačiarne/zariadenia"
 
@@ -1244,7 +1198,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Nájsť ovládač"
 
 #, fuzzy
-#~| msgid "Choose &the driver from the list"
 #~ msgid "Choose the driver for %1"
 #~ msgstr "Vyberte ovládač zo zoznamu"
 
@@ -1261,7 +1214,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Ručne poskytnúť PPD súbor:"
 
 #, fuzzy
-#~| msgid "Print settings"
 #~ msgid "Printer Settings"
 #~ msgstr "Nastavenia tlače"
 
@@ -1284,7 +1236,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Zlyhanie"
 
 #, fuzzy
-#~| msgid "Description:"
 #~ msgid "&Description:"
 #~ msgstr "Popis:"
 
@@ -1292,7 +1243,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Človekom čitateľný popis ako \"HP LaserJet s duplexorom\""
 
 #, fuzzy
-#~| msgid "Location:"
 #~ msgid "&Location:"
 #~ msgstr "Umiestnenie:"
 
@@ -1300,7 +1250,6 @@ msgstr "Zadajte poverenia na tlač z <b>%1</b>"
 #~ msgstr "Človekom čitateľné umiestnenie ako \"Labák 1\""
 
 #, fuzzy
-#~| msgid "Connection:"
 #~ msgid "Connec&tion:"
 #~ msgstr "Pripojenie:"
 

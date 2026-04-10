@@ -243,13 +243,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr ""
+msgstr "Nastaviť tlačiareň v sieti Windows"
 
 #: ui/components/Smb.qml:17
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr ""
+msgstr "Zadajte adresu tlačiarne Windows"
 
 #: ui/components/Smb.qml:45
 #, kde-format
@@ -273,7 +273,7 @@ msgstr "Pridať tlačiareň"
 #, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr ""
+msgstr "Neplatná URL tlačiarne: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

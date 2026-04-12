@@ -1,134 +1,132 @@
+# Slovak translations for print-manager package.
 # Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
+# Roman Paholik <wizzardsk@gmail.com>, 2026.
 #
-# SPDX-FileCopyrightText: 2026 Antikruk <nashtlumach@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-23 00:46+0000\n"
-"PO-Revision-Date: 2026-04-11 01:28+0300\n"
-"Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
-"Language-Team: Belarusian <kde-i18n-doc@kde.org>\n"
-"Language: be\n"
+"PO-Revision-Date: 2026-04-11 12:00+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@kde.org>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
-"%100>=11 && n%100<=14 ? 2 : 3);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: main.cpp:38
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Správca tlačového frontu Plasma"
 
 #: main.cpp:40
 #, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr ""
+msgstr "Spravovať fronty tlačových úloh"
 
 #: main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Komunita KDE"
 
 #: main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Vývojár"
 
 #: main.cpp:48
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Roman Paholik"
 
 #: main.cpp:48
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "wizzardsk@gmail.com"
 
 #: main.cpp:58
 #, kde-format
 msgid "Show printer queue"
-msgstr ""
+msgstr "Zobraziť tlačový front"
 
 #: PrintQueue.cpp:82
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr ""
+msgstr "Zadajte prihlasovacie údaje na tlač z <b>%1</b>"
 
 #: qml/JobView.qml:30
 #, kde-format
 msgctxt "@label Job types currently showing"
 msgid "%1 Jobs"
-msgstr ""
+msgstr "%1 Úlohy"
 
 #: qml/JobView.qml:58
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Filter Jobs"
-msgstr ""
+msgstr "Filtrovať úlohy"
 
 #: qml/JobView.qml:63
 #, kde-format
 msgctxt "option:check Show active Jobs"
 msgid "Active"
-msgstr ""
+msgstr "Aktívne"
 
 #: qml/JobView.qml:71
 #, kde-format
 msgctxt "option:check Show completed jobs"
 msgid "Completed"
-msgstr ""
+msgstr "Dokončené"
 
 #: qml/JobView.qml:79
 #, kde-format
 msgctxt "option:check Show all jobs"
 msgid "All"
-msgstr ""
+msgstr "Všetky"
 
 #: qml/JobView.qml:90
 #, kde-format
 msgctxt "@option:check Hide expanded job view"
 msgid "Hide Job Details"
-msgstr ""
+msgstr "Skryť podrobnosti úlohy"
 
 #: qml/JobView.qml:91
 #, kde-format
 msgctxt "@option:check Show expanded job view"
 msgid "Show Job Details"
-msgstr ""
+msgstr "Zobraziť podrobnosti úlohy"
 
 #: qml/JobView.qml:98
 #, kde-format
 msgctxt "@action:button Cancel all active jobs"
 msgid "Cancel All Jobs"
-msgstr ""
+msgstr "Zrušiť všetky úlohy"
 
 #: qml/JobView.qml:112
 #, kde-format
 msgctxt "@title:window"
 msgid "Cancel all active print jobs?"
-msgstr ""
+msgstr "Zrušiť všetky aktívne tlačové úlohy?"
 
 #: qml/JobView.qml:139
 #, kde-format
 msgctxt "@info:status Print jobs not found in the print queue"
 msgid "The print queue is empty"
-msgstr ""
+msgstr "Tlačový front je prázdny"
 
 #: qml/JobView.qml:158
 #, kde-format
@@ -136,146 +134,146 @@ msgctxt ""
 "@action:inmenu Move the job to /info/ which is the friendly name of the "
 "other print queue"
 msgid "Move to %1"
-msgstr ""
+msgstr "Presunúť do %1"
 
 #: qml/JobView.qml:246
 #, kde-format
 msgctxt "@action:button This action cancels the job"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: qml/JobView.qml:257
 #, kde-format
 msgctxt "@action:button This action holds the job"
 msgid "Hold"
-msgstr ""
+msgstr "Podržať"
 
 #: qml/JobView.qml:268
 #, kde-format
 msgctxt "@action:button This action releases the job"
 msgid "Release"
-msgstr ""
+msgstr "Uvoľniť"
 
 #: qml/JobView.qml:279
 #, kde-format
 msgctxt "@action:button This action reprints the job"
 msgid "Reprint"
-msgstr ""
+msgstr "Znovu vytlačiť"
 
 #: qml/JobView.qml:289
 #, kde-format
 msgctxt "@action:button"
 msgid "Move"
-msgstr ""
+msgstr "Presunúť"
 
 #: qml/JobView.qml:300
 #, kde-format
 msgctxt ""
 "@action:button This action prompts for user/password to authenticate the job"
 msgid "Authenticate"
-msgstr ""
+msgstr "Overiť"
 
 #: qml/JobView.qml:321
 #, kde-format
 msgctxt "@label:info"
 msgid "Status: %1, %2"
-msgstr ""
+msgstr "Stav: %1, %2"
 
 #: qml/JobView.qml:322
 #, kde-format
 msgctxt "@label:info"
 msgid "Status: %1"
-msgstr ""
+msgstr "Stav: %1"
 
 #: qml/JobView.qml:327
 #, kde-format
 msgctxt "@label:info Date created"
 msgid "Created: %1"
-msgstr ""
+msgstr "Vytvorené: %1"
 
 #: qml/JobView.qml:338
 #, kde-format
 msgctxt "@label:info Date completed"
 msgid "Completed: %1"
-msgstr ""
+msgstr "Dokončené: %1"
 
 #: qml/JobView.qml:343
 #, kde-format
 msgctxt "@label:info Date processed"
 msgid "Processed: %1"
-msgstr ""
+msgstr "Spracované: %1"
 
 #: qml/JobView.qml:349
 #, kde-format
 msgctxt "@label:info Job page count"
 msgid "Pages: %1"
-msgstr ""
+msgstr "Strany: %1"
 
 #: qml/Main.qml:117
 #, kde-format
 msgctxt "@label:header"
 msgid "Printers"
-msgstr ""
+msgstr "Tlačiarne"
 
 #: qml/Main.qml:123
 #, kde-format
 msgctxt "@action:button about this application"
 msgid "About"
-msgstr ""
+msgstr "O aplikácii"
 
 #: qml/Main.qml:157
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printers"
-msgstr ""
+msgstr "Tlačiarne"
 
 #: qml/Main.qml:157
 #, kde-format
 msgctxt "@label:info device description"
 msgid "Printer Groups"
-msgstr ""
+msgstr "Skupiny tlačiarní"
 
 #: qml/Main.qml:268
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
-msgstr ""
+msgstr "Pokračovať"
 
 #: qml/Main.qml:269
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr ""
+msgstr "Pozastaviť"
 
 #: qml/Main.qml:282
 #, kde-format
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
-msgstr ""
+msgstr "Nastaviť…"
 
 #: qml/Main.qml:289
 #, kde-format
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"
-msgstr ""
+msgstr "Nastavenia médií…"
 
 #: qml/NotAvailablePage.qml:29
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers have been set up"
-msgstr ""
+msgstr "Žiadne tlačiarne neboli nastavené"
 
 #: qml/NotAvailablePage.qml:31
 #, kde-format
 msgctxt "@action:button"
 msgid "Set Up a Printer…"
-msgstr ""
+msgstr "Nastaviť tlačiareň…"
 
 #: qml/NotAvailablePage.qml:43
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
-msgstr ""
+msgstr "Tlačové služby nie sú dostupné"
 
 #: qml/NotAvailablePage.qml:44
 #, kde-format
@@ -285,12 +283,14 @@ msgid ""
 "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
 "Support</a>"
 msgstr ""
+"Overte, či je systémová služba CUPS aktívna, alebo pozrite: <a href="
+"\"%1\">Podpora %2</a>"
 
 #: qml/NotAvailablePage.qml:54
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown error condition with printing services"
-msgstr ""
+msgstr "Neznámy chybový stav tlačových služieb"
 
 #: qml/NotAvailablePage.qml:55
 #, kde-format
@@ -298,4 +298,4 @@ msgctxt ""
 "@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
 "name"
 msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
-msgstr ""
+msgstr "Skontrolujte problémy tu: <a href=\"%1\">Problémy %2</a>"

@@ -365,9 +365,7 @@ KCM.ScrollViewKCM {
                              ? " (%1)".arg(location)
                              : "")
                     subtitle: stateMessage
-                    icon.name: remote
-                            ? "folder-network-symbolic"
-                            : (isClass ? "folder-print" : iconName)
+                    icon.name: iconName
 
                     font.bold: list.count > 1 & isDefault
                     selected: deviceDelegate.highlighted || deviceDelegate.down

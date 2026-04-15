@@ -198,9 +198,7 @@ Kirigami.ApplicationWindow {
                          : "")
                 Accessible.description: titleItem.subtitle
 
-                icon.name: remote
-                        ? "folder-network-symbolic"
-                        : (isClass ? "folder-print" : iconName)
+                icon.name: iconName
                 icon.width: Kirigami.Units.iconSizes.medium
                 icon.height: Kirigami.Units.iconSizes.medium
 

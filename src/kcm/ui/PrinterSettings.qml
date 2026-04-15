@@ -323,7 +323,7 @@ KCM.AbstractKCM {
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
             Kirigami.Icon {
-                source: root.modelData.isClass ? "folder-print" : root.modelData.iconName
+                source: root.modelData.iconName
                 Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
                 Layout.preferredHeight: Layout.preferredWidth
             }

@@ -175,13 +175,19 @@ QString KCupsPrinter::iconName() const
 
 QString KCupsPrinter::iconName(cups_ptype_e type)
 {
-    // TODO get the ppd or something to get the real printer icon
+    if (type & CUPS_PRINTER_CLASS) {
+        return QStringLiteral("folder-print");
+    }
+    if (type & CUPS_PRINTER_REMOTE) {
+        return QStringLiteral("folder-network");
+    }
     if (!(type & CUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one
         return QStringLiteral("printer-laser");
-    } else if (type & CUPS_PRINTER_SCANNER) {
-        return QStringLiteral("scanner");
-    } else {
-        return QStringLiteral("printer");
     }
+    if (type & CUPS_PRINTER_SCANNER) {
+        return QStringLiteral("scanner");
+    }
+
+    return QStringLiteral("printer");
 }

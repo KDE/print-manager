@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-15 00:49+0000\n"
 "PO-Revision-Date: 2026-03-23 17:39+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -204,83 +204,56 @@ msgstr "Fixa optiones predefinite"
 msgid "Query Printer for Default Options"
 msgstr "Demanda imprimitor pro optiones predefinite"
 
-#: src/kcm/printermanager.cpp:104
+#: src/kcm/printermanager.cpp:99
 #, kde-format
 msgid "Add a new printer"
 msgstr "Adde un nove imprimitor"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:101
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Adde un nove gruppo de imprimitor"
 
-#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
+#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
 #, kde-format
 msgid "Configure a printer"
 msgstr "Configura un imprimitor"
 
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class: "
-msgstr "Il falleva configurar classe:"
-
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: "
-msgstr "Il falleva configurar imprimitor:"
-
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:324
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:443
+#: src/kcm/printermanager.cpp:351
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Driverless (sin driver) "
 
-#: src/kcm/printermanager.cpp:446
+#: src/kcm/printermanager.cpp:354
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "File PPD"
 
-#: src/kcm/printermanager.cpp:465
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "Il falleva executar requesta: %1"
-
-#: src/kcm/printermanager.cpp:517
+#: src/kcm/printermanager.cpp:396
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Il falleva obtener preferentias de servitor:%1"
 
-#: src/kcm/printermanager.cpp:554
+#: src/kcm/printermanager.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Preferentias de servitor non salveguardate: (%1): %2"
 
-#: src/kcm/printermanager.cpp:561
+#: src/kcm/printermanager.cpp:440
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Salveguardar fatal de Preferentias de servitor : (%1) : %2"
-
-#: src/kcm/printermanager.cpp:614
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "Imprime pagina de prova de auto test"
-
-#: src/kcm/printermanager.cpp:620
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "Netta testas de imprimer"
 
 #: src/kcm/scpinstaller.cpp:71
 #, kde-format
@@ -387,6 +360,28 @@ msgstr "Verifica le driver"
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' es preste per imprimer."
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "Il falleva configurar classe:"
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "Il falleva configurar imprimitor:"
+
+#: src/libkcups/CommandHelpers.cpp:138
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "Imprime pagina de prova de auto test"
+
+#: src/libkcups/CommandHelpers.cpp:144
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "Netta testas de imprimer"
 
 #: src/libkcups/DevicesModel.cpp:51
 #, kde-format
@@ -729,62 +724,62 @@ msgstr "Vacua modello ppd"
 msgid "Printers"
 msgstr "Imprimitores"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle"
 msgstr "Otiante"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "Inactive, refusante cargas"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "Otiante - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "Inactive, refusante cargas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:390
 #, kde-format
 msgid "In use"
 msgstr "In uso"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:392
 #, kde-format
 msgid "In use - '%1'"
 msgstr "In uso - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused"
 msgstr "In pausa"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "In pausa, refusante cargas"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "In pausa - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "In pausa, refusante cargas - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:402
 #, kde-format
 msgid "Unknown"
 msgstr "Incognite"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:404
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "Incognite - '%1'"
@@ -839,6 +834,9 @@ msgstr "Monstra cauda de imprimitor"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Inserta credentiales pro imprimer ex <b>%1</b>"
+
+#~ msgid "Failed to perform request: %1"
+#~ msgstr "Il falleva executar requesta: %1"
 
 #~ msgid "A new printer was detected"
 #~ msgstr "Un nove imprimitor esseva discoperite"

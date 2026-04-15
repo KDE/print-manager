@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:45+0000\n"
+"POT-Creation-Date: 2026-04-15 00:49+0000\n"
 "PO-Revision-Date: 2026-01-24 21:22+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,83 +18,56 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
-#: printermanager.cpp:104
+#: printermanager.cpp:99
 #, kde-format
 msgid "Add a new printer"
 msgstr "הוספת מדפסת חדשה"
 
-#: printermanager.cpp:106
+#: printermanager.cpp:101
 #, kde-format
 msgid "Add a new printer group"
 msgstr "הוספת קבוצת מדפסות חדשה"
 
-#: printermanager.cpp:108 printermanager.cpp:110
+#: printermanager.cpp:103 printermanager.cpp:105
 #, kde-format
 msgid "Configure a printer"
 msgstr "הגדרת מדפסת"
 
-#: printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class: "
-msgstr "הגדרת המחלקה נכשלה:"
-
-#: printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: "
-msgstr "הגדרת המדפסת נכשלה:"
-
-#: printermanager.cpp:416
+#: printermanager.cpp:324
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™‎"
 
-#: printermanager.cpp:443
+#: printermanager.cpp:351
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "ללא מנהל התקן"
 
-#: printermanager.cpp:446
+#: printermanager.cpp:354
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "קובץ PPD"
 
-#: printermanager.cpp:465
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "מילוי הבקשה נכשל: %1"
-
-#: printermanager.cpp:517
+#: printermanager.cpp:396
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "משיכת הגדרות השרת נכשלה: %1"
 
-#: printermanager.cpp:554
+#: printermanager.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "הגדרות השרת לא נשמרו: (%1): %2"
 
-#: printermanager.cpp:561
+#: printermanager.cpp:440
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "שגיאה מכרעת בשמירת הגדרות שרת: (%1): %2"
-
-#: printermanager.cpp:614
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "הדפסת עמוד לבדיקה עצמית"
-
-#: printermanager.cpp:620
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "ניקוי ראשי ההדפסה"
 
 #: scpinstaller.cpp:71
 #, kde-format
@@ -299,7 +272,7 @@ msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "הגדרת חיבור מדפסת"
 
-#: ui/FindPrinter.qml:132 ui/main.qml:275
+#: ui/FindPrinter.qml:132 ui/main.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
@@ -489,13 +462,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "הגדרת שרת הדפסה…"
 
-#: ui/main.qml:262
+#: ui/main.qml:263
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "לא מוגדרות מדפסות"
 
-#: ui/main.qml:263
+#: ui/main.qml:264
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -503,13 +476,13 @@ msgid ""
 msgstr ""
 "נא לבחור ב<interface>הוספה…</interface> כדי להגדיר מדפסת חדשה במחשב הזה"
 
-#: ui/main.qml:272
+#: ui/main.qml:273
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
 msgstr "שירותי ההדפסה לא זמינים"
 
-#: ui/main.qml:273
+#: ui/main.qml:274
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -519,41 +492,41 @@ msgstr ""
 "יש ללחוץ על <interface>הגדרת שרת ההדפסה…</interface> כדי לבדוק את ההגדרות, "
 "או לאמת ששירות ה־CUPS של המערכת פעיל."
 
-#: ui/main.qml:313
+#: ui/main.qml:314
 #, kde-format
 msgid "Printers"
 msgstr "מדפסות"
 
-#: ui/main.qml:313
+#: ui/main.qml:314
 #, kde-format
 msgid "Printer Groups"
 msgstr "קבוצות מדפסות"
 
-#: ui/main.qml:376
+#: ui/main.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "פתיחת תור הדפסה"
 
-#: ui/main.qml:385
+#: ui/main.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "המשך הדפסה"
 
-#: ui/main.qml:386
+#: ui/main.qml:387
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "השהיית הדפסה"
 
-#: ui/main.qml:392
+#: ui/main.qml:393
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "המשך"
 
-#: ui/main.qml:393
+#: ui/main.qml:394
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
@@ -707,130 +680,147 @@ msgstr "%1 מוגדרת, נא להמתין…"
 msgid "Failed to remove the printer: %1"
 msgstr "הסרת המדפסת נכשלה: %1"
 
-#: ui/PrinterSettings.qml:205
+#: ui/PrinterSettings.qml:211
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "להסיר קבוצה?"
 
-#: ui/PrinterSettings.qml:206
+#: ui/PrinterSettings.qml:212
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "להסיר מדפסת?"
 
-#: ui/PrinterSettings.qml:208
+#: ui/PrinterSettings.qml:214
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "תתבצע הסרה של ‚%1’."
 
-#: ui/PrinterSettings.qml:215
+#: ui/PrinterSettings.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "הסרת קבוצה"
 
-#: ui/PrinterSettings.qml:216
+#: ui/PrinterSettings.qml:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "הסרת מדפסת"
 
-#: ui/PrinterSettings.qml:225
+#: ui/PrinterSettings.qml:231
 #, kde-format
 msgid "Cancel"
 msgstr "ביטול"
 
-#: ui/PrinterSettings.qml:347
+#: ui/PrinterSettings.qml:353
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "מדפסת ברירת מחדל"
 
-#: ui/PrinterSettings.qml:362
+#: ui/PrinterSettings.qml:368
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr "כדי להחליף את מדפסת ברירת המחדל, יש להגדיר מדפסת אחרת כברירת מחדל."
 
-#: ui/PrinterSettings.qml:371
+#: ui/PrinterSettings.qml:377
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "שיתוף הקבוצה הזאת"
 
-#: ui/PrinterSettings.qml:372
+#: ui/PrinterSettings.qml:378
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "שיתוף המדפסת הזאת"
 
-#: ui/PrinterSettings.qml:379
+#: ui/PrinterSettings.qml:385
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "מקבלת משימות הדפסה"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:438
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "הדפסת עמוד בדיקה"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:444
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "הדפסת עמוד לבדיקה עצמית"
 
-#: ui/PrinterSettings.qml:445
+#: ui/PrinterSettings.qml:451
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "ניקוי ראשי ההדפסה"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "שם תור:"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "תיאור"
 
-#: ui/PrinterSettings.qml:500
+#: ui/PrinterSettings.qml:506
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "מקום:"
 
-#: ui/PrinterSettings.qml:512
+#: ui/PrinterSettings.qml:518
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "חיבור:"
 
-#: ui/PrinterSettings.qml:526
+#: ui/PrinterSettings.qml:532
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "מדפסות החבר:"
 
-#: ui/PrinterSettings.qml:667
+#: ui/PrinterSettings.qml:673
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "יצרן/דגם:"
 
-#: ui/PrinterSettings.qml:682
+#: ui/PrinterSettings.qml:688
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "בחירה…"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure class: "
+#~ msgstr "הגדרת המחלקה נכשלה:"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure printer: "
+#~ msgstr "הגדרת המדפסת נכשלה:"
+
+#~ msgid "Failed to perform request: %1"
+#~ msgstr "מילוי הבקשה נכשל: %1"
+
+#~ msgid "Print Self-Test Page"
+#~ msgstr "הדפסת עמוד לבדיקה עצמית"
+
+#~ msgid "Clean Print Heads"
+#~ msgstr "ניקוי ראשי ההדפסה"
 
 #~ msgctxt "@info:whatsthis"
 #~ msgid ""

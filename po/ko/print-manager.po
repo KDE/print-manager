@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-15 00:49+0000\n"
 "PO-Revision-Date: 2026-02-03 22:46+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -203,83 +203,56 @@ msgstr "기본 옵션 설정"
 msgid "Query Printer for Default Options"
 msgstr "프린터에 기본 옵션 질의"
 
-#: src/kcm/printermanager.cpp:104
+#: src/kcm/printermanager.cpp:99
 #, kde-format
 msgid "Add a new printer"
 msgstr "새 프린터 추가"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:101
 #, kde-format
 msgid "Add a new printer group"
 msgstr "새 프린터 그룹 추가"
 
-#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
+#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
 #, kde-format
 msgid "Configure a printer"
 msgstr "프린터 설정"
 
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class: "
-msgstr "클래스를 설정할 수 없음: "
-
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: "
-msgstr "프린터를 설정할 수 없음: "
-
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:324
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:443
+#: src/kcm/printermanager.cpp:351
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "드라이버 없음"
 
-#: src/kcm/printermanager.cpp:446
+#: src/kcm/printermanager.cpp:354
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD 파일"
 
-#: src/kcm/printermanager.cpp:465
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "요청을 처리할 수 없음: %1"
-
-#: src/kcm/printermanager.cpp:517
+#: src/kcm/printermanager.cpp:396
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "서버 설정을 가져올 수 없음: %1"
 
-#: src/kcm/printermanager.cpp:554
+#: src/kcm/printermanager.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "서버 설정이 저장되지 않았음: (%1): %2"
 
-#: src/kcm/printermanager.cpp:561
+#: src/kcm/printermanager.cpp:440
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "서버 설정을 저장하는 중 오류 발생: (%1): %2"
-
-#: src/kcm/printermanager.cpp:614
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "자가 진단 페이지 인쇄"
-
-#: src/kcm/printermanager.cpp:620
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "프린터 헤드 청소"
 
 #: src/kcm/scpinstaller.cpp:71
 #, kde-format
@@ -385,6 +358,28 @@ msgstr "드라이버 확인"
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1'에서 인쇄할 수 있습니다."
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "클래스를 설정할 수 없음: "
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "프린터를 설정할 수 없음: "
+
+#: src/libkcups/CommandHelpers.cpp:138
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "자가 진단 페이지 인쇄"
+
+#: src/libkcups/CommandHelpers.cpp:144
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "프린터 헤드 청소"
 
 #: src/libkcups/DevicesModel.cpp:51
 #, kde-format
@@ -722,62 +717,62 @@ msgstr "빈 PPD 모델"
 msgid "Printers"
 msgstr "프린터"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle"
 msgstr "대기"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "대기, 작업 거부 중"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "대기 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "대기, 작업 거부 중 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:390
 #, kde-format
 msgid "In use"
 msgstr "사용 중"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:392
 #, kde-format
 msgid "In use - '%1'"
 msgstr "사용 중 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused"
 msgstr "일시 정지됨"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "일시 정지됨, 작업 거부 중"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "일시 정지됨 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "일시 정지됨, 작업 거부 중 - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:402
 #, kde-format
 msgid "Unknown"
 msgstr "알 수 없음"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:404
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "알 수 없음 - '%1'"
@@ -834,6 +829,9 @@ msgstr "인쇄 대기열 표시"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b>에서 인쇄할 때 사용할 인증 정보 입력"
+
+#~ msgid "Failed to perform request: %1"
+#~ msgstr "요청을 처리할 수 없음: %1"
 
 #, fuzzy
 #~| msgid "A New Printer was detected"

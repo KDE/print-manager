@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-12 00:45+0000\n"
+"POT-Creation-Date: 2026-04-15 00:49+0000\n"
 "PO-Revision-Date: 2026-01-05 18:09+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -19,83 +19,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: printermanager.cpp:104
+#: printermanager.cpp:99
 #, kde-format
 msgid "Add a new printer"
 msgstr "Lisää uusi tulostin"
 
-#: printermanager.cpp:106
+#: printermanager.cpp:101
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Lisää uusi tulostinryhmä"
 
-#: printermanager.cpp:108 printermanager.cpp:110
+#: printermanager.cpp:103 printermanager.cpp:105
 #, kde-format
 msgid "Configure a printer"
 msgstr "Aseta tulostin"
 
-#: printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class: "
-msgstr "Luokan määritys epäonnistui: "
-
-#: printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: "
-msgstr "Tulostimen määritys epäonnistui: "
-
-#: printermanager.cpp:416
+#: printermanager.cpp:324
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:443
+#: printermanager.cpp:351
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Ajuriton"
 
-#: printermanager.cpp:446
+#: printermanager.cpp:354
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD-tiedosto"
 
-#: printermanager.cpp:465
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "Pyynnön toteuttaminen epäonnistui: %1"
-
-#: printermanager.cpp:517
+#: printermanager.cpp:396
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Palvelinasetusten nouto epäonnistui: %1"
 
-#: printermanager.cpp:554
+#: printermanager.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Palvelinasetuksia ei tallennettu: (%1): %2"
 
-#: printermanager.cpp:561
+#: printermanager.cpp:440
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "Vakavat palvelinasetusten talletusvirheet: (%1): %2"
-
-#: printermanager.cpp:614
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "Tulosta itsetestaussivu"
-
-#: printermanager.cpp:620
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "Puhdista tulostuspäät"
 
 #: scpinstaller.cpp:71
 #, kde-format
@@ -310,7 +283,7 @@ msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "Aseta tulostinyhteys"
 
-#: ui/FindPrinter.qml:132 ui/main.qml:275
+#: ui/FindPrinter.qml:132 ui/main.qml:276
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
@@ -502,13 +475,13 @@ msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "Tulostinpalvelimen asetukset…"
 
-#: ui/main.qml:262
+#: ui/main.qml:263
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "Tulostimia ei ole vielä asetettu"
 
-#: ui/main.qml:263
+#: ui/main.qml:264
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -516,13 +489,13 @@ msgid ""
 msgstr ""
 "Aseta järjestelmään uusi tulostin valitsemalla <interface>Lisää…</interface>"
 
-#: ui/main.qml:272
+#: ui/main.qml:273
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
 msgstr "Tulostuspalvelut eivät ole käytettävissä"
 
-#: ui/main.qml:273
+#: ui/main.qml:274
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -532,41 +505,41 @@ msgstr ""
 "Tarkista asetukset napsauttamalla <interface>Tulostinpalvelimen asetukset…</"
 "interface> tai varmista, että CUPS-järjestelmäpalvelu on aktiivinen."
 
-#: ui/main.qml:313
+#: ui/main.qml:314
 #, kde-format
 msgid "Printers"
 msgstr "Tulostimet"
 
-#: ui/main.qml:313
+#: ui/main.qml:314
 #, kde-format
 msgid "Printer Groups"
 msgstr "Tulostinryhmät"
 
-#: ui/main.qml:376
+#: ui/main.qml:377
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "Avaa tulostusjono"
 
-#: ui/main.qml:385
+#: ui/main.qml:386
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Jatka tulostusta"
 
-#: ui/main.qml:386
+#: ui/main.qml:387
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Keskeytä tulostus"
 
-#: ui/main.qml:392
+#: ui/main.qml:393
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Jatka"
 
-#: ui/main.qml:393
+#: ui/main.qml:394
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
@@ -720,130 +693,147 @@ msgstr "Määritetään %1, odota…"
 msgid "Failed to remove the printer: %1"
 msgstr "Tulostimen poistaminen epäonnistui: %1"
 
-#: ui/PrinterSettings.qml:205
+#: ui/PrinterSettings.qml:211
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Poistetaanko ryhmä?"
 
-#: ui/PrinterSettings.qml:206
+#: ui/PrinterSettings.qml:212
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Poistetaanko tulostin?"
 
-#: ui/PrinterSettings.qml:208
+#: ui/PrinterSettings.qml:214
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "”%1” poistetaan."
 
-#: ui/PrinterSettings.qml:215
+#: ui/PrinterSettings.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Poista ryhmä"
 
-#: ui/PrinterSettings.qml:216
+#: ui/PrinterSettings.qml:222
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Poista tulostin"
 
-#: ui/PrinterSettings.qml:225
+#: ui/PrinterSettings.qml:231
 #, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
-#: ui/PrinterSettings.qml:347
+#: ui/PrinterSettings.qml:353
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Oletustulostin"
 
-#: ui/PrinterSettings.qml:362
+#: ui/PrinterSettings.qml:368
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr "Vaihtaaksesi oletustulostinta aseta toinen tulostin oletukseksi."
 
-#: ui/PrinterSettings.qml:371
+#: ui/PrinterSettings.qml:377
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Jaa tämä ryhmä"
 
-#: ui/PrinterSettings.qml:372
+#: ui/PrinterSettings.qml:378
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Jaa tämä tulostin"
 
-#: ui/PrinterSettings.qml:379
+#: ui/PrinterSettings.qml:385
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Hyväksyy tulostustyöt"
 
-#: ui/PrinterSettings.qml:432
+#: ui/PrinterSettings.qml:438
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Tulosta testisivu"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:444
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Tulosta itsetestaussivu"
 
-#: ui/PrinterSettings.qml:445
+#: ui/PrinterSettings.qml:451
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Puhdista tulostuspäät"
 
-#: ui/PrinterSettings.qml:463
+#: ui/PrinterSettings.qml:469
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Jonon nimi:"
 
-#: ui/PrinterSettings.qml:488
+#: ui/PrinterSettings.qml:494
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Kuvaus:"
 
-#: ui/PrinterSettings.qml:500
+#: ui/PrinterSettings.qml:506
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Sijainti:"
 
-#: ui/PrinterSettings.qml:512
+#: ui/PrinterSettings.qml:518
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Yhteys:"
 
-#: ui/PrinterSettings.qml:526
+#: ui/PrinterSettings.qml:532
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Jäsentulostimet:"
 
-#: ui/PrinterSettings.qml:667
+#: ui/PrinterSettings.qml:673
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Merkki/malli:"
 
-#: ui/PrinterSettings.qml:682
+#: ui/PrinterSettings.qml:688
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Valitse…"
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure class: "
+#~ msgstr "Luokan määritys epäonnistui: "
+
+#~ msgctxt "@info"
+#~ msgid "Failed to configure printer: "
+#~ msgstr "Tulostimen määritys epäonnistui: "
+
+#~ msgid "Failed to perform request: %1"
+#~ msgstr "Pyynnön toteuttaminen epäonnistui: %1"
+
+#~ msgid "Print Self-Test Page"
+#~ msgstr "Tulosta itsetestaussivu"
+
+#~ msgid "Clean Print Heads"
+#~ msgstr "Puhdista tulostuspäät"
 
 #~ msgctxt "@info:whatsthis"
 #~ msgid ""

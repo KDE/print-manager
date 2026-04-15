@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-15 00:49+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -203,83 +203,56 @@ msgstr "设置默认选项"
 msgid "Query Printer for Default Options"
 msgstr "查询打印机默认选项"
 
-#: src/kcm/printermanager.cpp:104
+#: src/kcm/printermanager.cpp:99
 #, kde-format
 msgid "Add a new printer"
 msgstr "添加新打印机"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:101
 #, kde-format
 msgid "Add a new printer group"
 msgstr "新增打印机组"
 
-#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
+#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
 #, kde-format
 msgid "Configure a printer"
 msgstr "配置打印机"
 
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class: "
-msgstr "配置打印机类失败："
-
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: "
-msgstr "配置打印机失败："
-
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:324
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:443
+#: src/kcm/printermanager.cpp:351
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "无驱动程序"
 
-#: src/kcm/printermanager.cpp:446
+#: src/kcm/printermanager.cpp:354
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD 文件"
 
-#: src/kcm/printermanager.cpp:465
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "执行请求失败：%1"
-
-#: src/kcm/printermanager.cpp:517
+#: src/kcm/printermanager.cpp:396
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "无法获取服务器设置：%1"
 
-#: src/kcm/printermanager.cpp:554
+#: src/kcm/printermanager.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "服务器设置没有保存：(%1)：%2"
 
-#: src/kcm/printermanager.cpp:561
+#: src/kcm/printermanager.cpp:440
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "保存服务器设置时发生致命错误：(%1)：%2"
-
-#: src/kcm/printermanager.cpp:614
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "打印自检页"
-
-#: src/kcm/printermanager.cpp:620
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "清洁打印头"
 
 #: src/kcm/scpinstaller.cpp:71
 #, kde-format
@@ -385,6 +358,28 @@ msgstr "检查驱动程序"
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "“%1”已准备好打印。"
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "配置打印机类失败："
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "配置打印机失败："
+
+#: src/libkcups/CommandHelpers.cpp:138
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "打印自检页"
+
+#: src/libkcups/CommandHelpers.cpp:144
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "清洁打印头"
 
 #: src/libkcups/DevicesModel.cpp:51
 #, kde-format
@@ -722,62 +717,62 @@ msgstr "空 PPD 模型"
 msgid "Printers"
 msgstr "打印机"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle"
 msgstr "空闲"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "空闲，拒绝任务"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "空闲 - “%1”"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "空闲，拒绝任务 - “%1”"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:390
 #, kde-format
 msgid "In use"
 msgstr "使用中"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:392
 #, kde-format
 msgid "In use - '%1'"
 msgstr "使用中 - “%1”"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused"
 msgstr "已暂停"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "已暂停，拒绝任务"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "已暂停 - “%1”"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "已暂停，拒绝任务 - “%1”"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:402
 #, kde-format
 msgid "Unknown"
 msgstr "未知"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:404
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "未知 - “%1”"
@@ -832,3 +827,6 @@ msgstr "显示打印队列"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "要使用 <b>%1</b> 打印，请输入身份验证信息"
+
+#~ msgid "Failed to perform request: %1"
+#~ msgstr "执行请求失败：%1"

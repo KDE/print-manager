@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-23 00:46+0000\n"
+"POT-Creation-Date: 2026-04-15 00:49+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -201,85 +201,58 @@ msgstr "डिफ़ॉल्ट विकल्प सेट करें"
 msgid "Query Printer for Default Options"
 msgstr "डिफ़ॉल्ट विकल्पों के लिए प्रिंटर से पूछताछ करें"
 
-#: src/kcm/printermanager.cpp:104
+#: src/kcm/printermanager.cpp:99
 #, kde-format
 msgid "Add a new printer"
 msgstr "नया प्रिंटर जोड़ें"
 
-#: src/kcm/printermanager.cpp:106
+#: src/kcm/printermanager.cpp:101
 #, fuzzy, kde-format
 #| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "नया प्रिंटर जोड़ें"
 
-#: src/kcm/printermanager.cpp:108 src/kcm/printermanager.cpp:110
+#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
 #, fuzzy, kde-format
 #| msgid "Configure Printer"
 msgid "Configure a printer"
 msgstr "प्रिंटर कॉन्फ़िगर करें"
 
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure class: "
-msgstr "वर्ग कॉन्फ़िगर करने में विफल:"
-
-#: src/kcm/printermanager.cpp:291
-#, kde-format
-msgctxt "@info"
-msgid "Failed to configure printer: "
-msgstr "प्रिंटर कॉन्फ़िगर करने में विफल:"
-
-#: src/kcm/printermanager.cpp:416
+#: src/kcm/printermanager.cpp:324
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:443
+#: src/kcm/printermanager.cpp:351
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:446
+#: src/kcm/printermanager.cpp:354
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:465
-#, kde-format
-msgid "Failed to perform request: %1"
-msgstr "अनुरोध निष्पादित करने में विफल: %1"
-
-#: src/kcm/printermanager.cpp:517
+#: src/kcm/printermanager.cpp:396
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "सर्वर सेटिंग प्राप्त करने में विफल: %1"
 
-#: src/kcm/printermanager.cpp:554
+#: src/kcm/printermanager.cpp:433
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "सर्वर सेटिंग्स सहेजी नहीं गईं: (%1): %2"
 
-#: src/kcm/printermanager.cpp:561
+#: src/kcm/printermanager.cpp:440
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
 msgstr "घातक सेव सर्वर सेटिंग्स: (%1): %2"
-
-#: src/kcm/printermanager.cpp:614
-#, kde-format
-msgid "Print Self-Test Page"
-msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
-
-#: src/kcm/printermanager.cpp:620
-#, kde-format
-msgid "Clean Print Heads"
-msgstr "प्रिंट हेड्स साफ करें"
 
 #: src/kcm/scpinstaller.cpp:71
 #, kde-format
@@ -395,6 +368,28 @@ msgstr "ड्राइवर चुनें"
 #, kde-format
 msgid "'%1' is ready for printing."
 msgstr "'%1' मुद्रण के लिए तैयार है."
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure class: "
+msgstr "वर्ग कॉन्फ़िगर करने में विफल:"
+
+#: src/libkcups/CommandHelpers.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid "Failed to configure printer: "
+msgstr "प्रिंटर कॉन्फ़िगर करने में विफल:"
+
+#: src/libkcups/CommandHelpers.cpp:138
+#, kde-format
+msgid "Print Self-Test Page"
+msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
+
+#: src/libkcups/CommandHelpers.cpp:144
+#, kde-format
+msgid "Clean Print Heads"
+msgstr "प्रिंट हेड्स साफ करें"
 
 #: src/libkcups/DevicesModel.cpp:51
 #, kde-format
@@ -742,62 +737,62 @@ msgstr "खाली पीपीडी मॉडल"
 msgid "Printers"
 msgstr "प्रिंटर"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle"
 msgstr "निठल्ला"
 
-#: src/libkcups/PrinterModel.cpp:411
+#: src/libkcups/PrinterModel.cpp:384
 #, kde-format
 msgid "Idle, rejecting jobs"
 msgstr "बेकार बैठे रहना, नौकरी ठुकराना"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle - '%1'"
 msgstr "निष्क्रिय - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:413
+#: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
 msgstr "निष्क्रिय, नौकरी अस्वीकार - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:417
+#: src/libkcups/PrinterModel.cpp:390
 #, kde-format
 msgid "In use"
 msgstr "उपयोग में"
 
-#: src/libkcups/PrinterModel.cpp:419
+#: src/libkcups/PrinterModel.cpp:392
 #, kde-format
 msgid "In use - '%1'"
 msgstr "उपयोग में - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused"
 msgstr "रोका गया"
 
-#: src/libkcups/PrinterModel.cpp:423
+#: src/libkcups/PrinterModel.cpp:396
 #, kde-format
 msgid "Paused, rejecting jobs"
 msgstr "रुका हुआ, नौकरियों को अस्वीकार कर रहा है"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused - '%1'"
 msgstr "रोका गया - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:425
+#: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
 msgstr "रोका गया, नौकरियां अस्वीकृत की जा रही हैं - '%1'"
 
-#: src/libkcups/PrinterModel.cpp:429
+#: src/libkcups/PrinterModel.cpp:402
 #, kde-format
 msgid "Unknown"
 msgstr "अज्ञात"
 
-#: src/libkcups/PrinterModel.cpp:431
+#: src/libkcups/PrinterModel.cpp:404
 #, kde-format
 msgid "Unknown - '%1'"
 msgstr "अज्ञात - '%1'"
@@ -854,6 +849,9 @@ msgstr "प्रिंटर कतार(एँ) दिखाएँ"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b> से प्रिंट करने के लिए क्रेडेंशियल दर्ज करें"
+
+#~ msgid "Failed to perform request: %1"
+#~ msgstr "अनुरोध निष्पादित करने में विफल: %1"
 
 #, fuzzy
 #~| msgid "A New Printer was detected"

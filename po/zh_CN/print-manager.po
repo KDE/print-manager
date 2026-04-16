@@ -827,6 +827,3 @@ msgstr "显示打印队列"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "要使用 <b>%1</b> 打印，请输入身份验证信息"
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "执行请求失败：%1"

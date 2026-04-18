@@ -3,13 +3,13 @@
 #
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2012, 2013, 2015.
 # pan93412 <pan93412@gmail.com>, 2018, 2019.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2022-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-15 00:49+0000\n"
-"PO-Revision-Date: 2026-01-23 05:03+0900\n"
+"PO-Revision-Date: 2026-04-17 19:57+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -634,7 +634,7 @@ msgstr "從主機名稱"
 #: src/libkcups/JobModel.cpp:167
 #, kde-format
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "處理中\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format
@@ -642,7 +642,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -783,31 +783,30 @@ msgstr "未知 - '%1'"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Plasma 列印佇列管理員"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "顯示列印佇列"
+msgstr "管理列印工作佇列"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE 社群"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "開發者"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -822,8 +821,7 @@ msgid "Your emails"
 msgstr "franklin@goodhorse.idv.tw"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
 msgstr "顯示列印佇列"
 

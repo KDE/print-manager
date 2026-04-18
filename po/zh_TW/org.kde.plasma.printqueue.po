@@ -1,0 +1,299 @@
+# Copyright (C) 2026 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+#
+# SPDX-FileCopyrightText: 2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-03-23 00:46+0000\n"
+"PO-Revision-Date: 2026-04-17 20:29+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 26.07.70\n"
+
+#: main.cpp:38
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr "Plasma 列印佇列管理員"
+
+#: main.cpp:40
+#, kde-format
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
+msgstr "管理列印工作佇列"
+
+#: main.cpp:42
+#, kde-format
+msgid "© KDE Community"
+msgstr "© KDE 社群"
+
+#: main.cpp:47
+#, kde-format
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr "Mike Noe"
+
+#: main.cpp:47
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "開發者"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kisaragi Hiu"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mail@kisaragi-hiu.com"
+
+#: main.cpp:58
+#, kde-format
+msgid "Show printer queue"
+msgstr "顯示列印佇列"
+
+#: PrintQueue.cpp:82
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "輸入認證資訊以從 <b>%1</b> 列印"
+
+#: qml/JobView.qml:30
+#, kde-format
+msgctxt "@label Job types currently showing"
+msgid "%1 Jobs"
+msgstr "%1 個工作"
+
+#: qml/JobView.qml:58
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Filter Jobs"
+msgstr "過濾工作"
+
+#: qml/JobView.qml:63
+#, kde-format
+msgctxt "option:check Show active Jobs"
+msgid "Active"
+msgstr "進行中"
+
+#: qml/JobView.qml:71
+#, kde-format
+msgctxt "option:check Show completed jobs"
+msgid "Completed"
+msgstr "已完成"
+
+#: qml/JobView.qml:79
+#, kde-format
+msgctxt "option:check Show all jobs"
+msgid "All"
+msgstr "全部"
+
+#: qml/JobView.qml:90
+#, kde-format
+msgctxt "@option:check Hide expanded job view"
+msgid "Hide Job Details"
+msgstr "隱藏工作詳情"
+
+#: qml/JobView.qml:91
+#, kde-format
+msgctxt "@option:check Show expanded job view"
+msgid "Show Job Details"
+msgstr "顯示工作詳情"
+
+#: qml/JobView.qml:98
+#, kde-format
+msgctxt "@action:button Cancel all active jobs"
+msgid "Cancel All Jobs"
+msgstr "取消所有工作"
+
+#: qml/JobView.qml:112
+#, kde-format
+msgctxt "@title:window"
+msgid "Cancel all active print jobs?"
+msgstr "要取消所有進行中的列印工作嗎？"
+
+#: qml/JobView.qml:139
+#, kde-format
+msgctxt "@info:status Print jobs not found in the print queue"
+msgid "The print queue is empty"
+msgstr ""
+
+#: qml/JobView.qml:158
+#, kde-format
+msgctxt ""
+"@action:inmenu Move the job to /info/ which is the friendly name of the "
+"other print queue"
+msgid "Move to %1"
+msgstr "移動到 %1"
+
+#: qml/JobView.qml:246
+#, kde-format
+msgctxt "@action:button This action cancels the job"
+msgid "Cancel"
+msgstr "取消"
+
+#: qml/JobView.qml:257
+#, kde-format
+msgctxt "@action:button This action holds the job"
+msgid "Hold"
+msgstr "保留"
+
+#: qml/JobView.qml:268
+#, kde-format
+msgctxt "@action:button This action releases the job"
+msgid "Release"
+msgstr "釋放"
+
+#: qml/JobView.qml:279
+#, kde-format
+msgctxt "@action:button This action reprints the job"
+msgid "Reprint"
+msgstr "重新列印"
+
+#: qml/JobView.qml:289
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "移動"
+
+#: qml/JobView.qml:300
+#, kde-format
+msgctxt ""
+"@action:button This action prompts for user/password to authenticate the job"
+msgid "Authenticate"
+msgstr "認證"
+
+#: qml/JobView.qml:321
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1, %2"
+msgstr "狀態：%1，%2"
+
+#: qml/JobView.qml:322
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1"
+msgstr "狀態：%1"
+
+#: qml/JobView.qml:327
+#, kde-format
+msgctxt "@label:info Date created"
+msgid "Created: %1"
+msgstr "建立時間：%1"
+
+#: qml/JobView.qml:338
+#, kde-format
+msgctxt "@label:info Date completed"
+msgid "Completed: %1"
+msgstr "已完成：%1"
+
+#: qml/JobView.qml:343
+#, kde-format
+msgctxt "@label:info Date processed"
+msgid "Processed: %1"
+msgstr "已處理：%1"
+
+#: qml/JobView.qml:349
+#, kde-format
+msgctxt "@label:info Job page count"
+msgid "Pages: %1"
+msgstr "頁面：%1"
+
+#: qml/Main.qml:117
+#, kde-format
+msgctxt "@label:header"
+msgid "Printers"
+msgstr "印表機"
+
+#: qml/Main.qml:123
+#, kde-format
+msgctxt "@action:button about this application"
+msgid "About"
+msgstr "關於"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printers"
+msgstr "印表機"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printer Groups"
+msgstr "印表機群組"
+
+#: qml/Main.qml:268
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "繼續"
+
+#: qml/Main.qml:269
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "暫停"
+
+#: qml/Main.qml:282
+#, kde-format
+msgctxt "@action:button Configure printer in the kcm"
+msgid "Configure…"
+msgstr "設定…"
+
+#: qml/Main.qml:289
+#, kde-format
+msgctxt "@action:button Open additional printer settings"
+msgid "Media Settings…"
+msgstr "媒體設定…"
+
+#: qml/NotAvailablePage.qml:29
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers have been set up"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:31
+#, kde-format
+msgctxt "@action:button"
+msgid "Set Up a Printer…"
+msgstr "設定印表機…"
+
+#: qml/NotAvailablePage.qml:43
+#, kde-format
+msgctxt "@info:status"
+msgid "Printing services not available"
+msgstr "列印服務不可用"
+
+#: qml/NotAvailablePage.qml:44
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution support URL %2 is the distribution name"
+msgid ""
+"Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+"Support</a>"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:54
+#, kde-format
+msgctxt "@info:status"
+msgid "Unknown error condition with printing services"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:55
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
+"name"
+msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+msgstr ""

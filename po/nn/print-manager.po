@@ -845,6 +845,3 @@ msgstr "Vis utskriftskø(ar)"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Skriv inn brukarnamn og passord for å skriva ut frå <b>%1</b>"
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "Klarte ikkje utføra førespurnad: %1"

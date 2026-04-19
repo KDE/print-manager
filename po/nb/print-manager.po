@@ -832,6 +832,3 @@ msgstr "Stopp skriver"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr ""
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "Klarte ikke å utføre forespørselen: %1"

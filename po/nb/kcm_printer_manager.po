@@ -793,12 +793,3 @@ msgstr ""
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr ""
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "Klarte ikke å utføre forespørselen: %1"
-
-#~ msgid "Print Self-Test Page"
-#~ msgstr "Skriv ut selvtest-side"
-
-#~ msgid "Clean Print Heads"
-#~ msgstr "Rens skrivehodene"

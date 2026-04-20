@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-23 00:46+0000\n"
-"PO-Revision-Date: 2026-04-17 20:29+0900\n"
+"PO-Revision-Date: 2026-04-20 02:30+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 
 #: main.cpp:38
 #, kde-format
@@ -126,7 +126,7 @@ msgstr "要取消所有進行中的列印工作嗎？"
 #, kde-format
 msgctxt "@info:status Print jobs not found in the print queue"
 msgid "The print queue is empty"
-msgstr ""
+msgstr "列印佇列是空的"
 
 #: qml/JobView.qml:158
 #, kde-format
@@ -261,7 +261,7 @@ msgstr "媒體設定…"
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers have been set up"
-msgstr ""
+msgstr "未設定印表機"
 
 #: qml/NotAvailablePage.qml:31
 #, kde-format
@@ -282,13 +282,13 @@ msgctxt ""
 msgid ""
 "Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
 "Support</a>"
-msgstr ""
+msgstr "請確認 CUPS 系統服務正在運行中，或是檢閱：<a href=\"%1\">%2 支援</a>"
 
 #: qml/NotAvailablePage.qml:54
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown error condition with printing services"
-msgstr ""
+msgstr "列印服務處於未知錯誤狀態"
 
 #: qml/NotAvailablePage.qml:55
 #, kde-format
@@ -296,4 +296,4 @@ msgctxt ""
 "@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
 "name"
 msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
-msgstr ""
+msgstr "請考慮到此處查閱已知問題：<a href=\"%1\">%2 Issue</a>"

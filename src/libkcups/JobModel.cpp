@@ -164,7 +164,7 @@ void JobModel::getJobFinished(KCupsRequest *request)
     for (int i = 0; i < jobs.size(); ++i) {
         const auto job = jobs.at(i);
         if (job.state() == IPP_JOB_PROCESSING) {
-            msgList << i18n("Processing\t%1 [%2]", job.name(), job.printer());
+            msgList << i18nc("@info:progress The job name (%1) and the printer name (%2)","Processing\t%1 [%2]", job.name(), job.printer());
         }
 
         // try to find the job row

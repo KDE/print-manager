@@ -19,22 +19,29 @@ import org.kde.kitemmodels as KItemModels
 PlasmaExtras.ExpandableListItem {
     id: delegate
 
-    // Cannot use required property until ported away from "model".
-    /*required */property PrintManager.JobModel printerJobsModel
+    required property PrintManager.JobModel printerJobsModel
+    required property int printerState
+    required property string iconName
+    required property string info
+    required property string location
+    required property string stateMessage
+    required property string printerName
+    required index
+    required isDefault
 
-    readonly property bool isPaused: model.printerState === 5
+    readonly property bool isPaused: delegate.printerState === 5
 
-    icon: model.iconName
+    icon: delegate.iconName
     iconEmblem: isPaused ? "emblem-pause" : ""
-    title: model.info + (model.location && printersModel.showLocations
-            ? " (%1)".arg(model.location)
+    title: delegate.info + (delegate.location && printersModel.showLocations
+            ? " (%1)".arg(delegate.location)
             : "")
-    subtitle: model.stateMessage
+    subtitle: delegate.stateMessage
     subtitleCanWrap: true
     subtitleMaximumLineCount: 3
-    isDefault: model.isDefault
+    // isDefault: delegate.isDefault
     showDefaultActionButtonWhenBusy: true
-    isBusy: model.printerState === 4
+    isBusy: delegate.printerState === 4
 
     customExpandedViewContent: jobsFilterModel.count > 0 ? jobListComponent : null
 
@@ -44,9 +51,9 @@ PlasmaExtras.ExpandableListItem {
 
         onTriggered: {
             if (isPaused) {
-                PrintManager.PrinterCommands.resumePrinter(model.printerName);
+                PrintManager.PrinterCommands.resumePrinter(delegate.printerName);
             } else {
-                PrintManager.PrinterCommands.pausePrinter(model.printerName);
+                PrintManager.PrinterCommands.pausePrinter(delegate.printerName);
             }
         }
     }
@@ -55,12 +62,12 @@ PlasmaExtras.ExpandableListItem {
         Kirigami.Action {
             icon.name: "configure"
             text: i18n("Configure Printer…")
-            onTriggered: PrintManager.ProcessRunner.kcmConfigurePrinter(model.printerName);
+            onTriggered: PrintManager.ProcessRunner.kcmConfigurePrinter(delegate.printerName);
         },
         Kirigami.Action {
             icon.name: "view-list-details"
             text: i18n("View Print Queue")
-            onTriggered: PrintManager.ProcessRunner.openPrintQueue(model.printerName);
+            onTriggered: PrintManager.ProcessRunner.openPrintQueue(delegate.printerName);
         }
     ]
 
@@ -69,7 +76,7 @@ PlasmaExtras.ExpandableListItem {
         id: jobsLimiterModel
         sourceModel: PrintManager.JobSortFilterModel {
             id: jobsFilterModel
-            filteredPrinters: model.printerName
+            filteredPrinters: delegate.printerName
             sourceModel: delegate.printerJobsModel
         }
 

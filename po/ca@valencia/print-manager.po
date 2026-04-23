@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:47+0000\n"
-"PO-Revision-Date: 2026-03-23 10:32+0100\n"
+"PO-Revision-Date: 2026-04-22 08:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
 #: src/configure-printer/ConfigureDialog.cpp:94
@@ -415,7 +415,7 @@ msgstr "Bluetooth"
 #: src/libkcups/DevicesModel.cpp:71
 #, kde-format
 msgid "Fax - HP Linux Imaging and Printing (HPLIP)"
-msgstr "Fax - «HP Linux Imaging and Printing» (HPLIP)"
+msgstr "Fax – «HP Linux Imaging and Printing» (HPLIP)"
 
 #: src/libkcups/DevicesModel.cpp:73
 #, kde-format
@@ -639,8 +639,7 @@ msgid "From Hostname"
 msgstr "Des del nom de l'amfitrió"
 
 #: src/libkcups/JobModel.cpp:167
-#, fuzzy, kde-format
-#| msgid "Processing\t%1 [%2]"
+#, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
 msgstr "S'està processant\t%1 [%2]"
@@ -741,12 +740,12 @@ msgstr "En espera, rebutja els treballs"
 #: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle - '%1'"
-msgstr "En espera - «%1»"
+msgstr "En espera – «%1»"
 
 #: src/libkcups/PrinterModel.cpp:386
 #, kde-format
 msgid "Idle, rejecting jobs - '%1'"
-msgstr "En espera, rebutja els treballs - «%1»"
+msgstr "En espera, rebutja els treballs – «%1»"
 
 #: src/libkcups/PrinterModel.cpp:390
 #, kde-format
@@ -756,7 +755,7 @@ msgstr "En ús"
 #: src/libkcups/PrinterModel.cpp:392
 #, kde-format
 msgid "In use - '%1'"
-msgstr "En ús - «%1»"
+msgstr "En ús – «%1»"
 
 #: src/libkcups/PrinterModel.cpp:396
 #, kde-format
@@ -771,12 +770,12 @@ msgstr "En pausa, rebutja els treballs"
 #: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused - '%1'"
-msgstr "En pausa - «%1»"
+msgstr "En pausa – «%1»"
 
 #: src/libkcups/PrinterModel.cpp:398
 #, kde-format
 msgid "Paused, rejecting jobs - '%1'"
-msgstr "En pausa, rebutja els treballs - «%1»"
+msgstr "En pausa, rebutja els treballs – «%1»"
 
 #: src/libkcups/PrinterModel.cpp:402
 #, kde-format
@@ -786,7 +785,7 @@ msgstr "Desconegut"
 #: src/libkcups/PrinterModel.cpp:404
 #, kde-format
 msgid "Unknown - '%1'"
-msgstr "Desconegut - «%1»"
+msgstr "Desconegut – «%1»"
 
 #: src/print-queue/main.cpp:38
 #, kde-format
@@ -838,6 +837,3 @@ msgstr "Mostra la cua d'impressió"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Introduïu les credencials per a imprimir des de <b>%1</b>"
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "No s'ha pogut portar a terme la sol·licitud: %1"

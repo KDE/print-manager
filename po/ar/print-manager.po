@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-22 00:47+0000\n"
-"PO-Revision-Date: 2026-03-23 22:26+0400\n"
+"PO-Revision-Date: 2026-04-23 10:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -633,11 +633,10 @@ msgid "From Hostname"
 msgstr "من اسم المضيف"
 
 #: src/libkcups/JobModel.cpp:167
-#, fuzzy, kde-format
-#| msgid "Processing\t%1 [%2]"
+#, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr "يعالج\t%1 [%2]"
+msgstr "ينفذ\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format

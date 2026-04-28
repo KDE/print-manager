@@ -119,7 +119,8 @@ msgstr "Vyberte Recommended Driver"
 msgctxt "@info:tooltip"
 msgid "Recommended drivers are based on printer make/model and connection type"
 msgstr ""
-"Recommended drivers are na základe printer make/model and connection type"
+"Odporúčané ovládače sú určené na základe výrobcu/modelu tlačiarne a typu "
+"pripojenia."
 
 #: ui/components/Drivers.qml:72
 #, kde-format
@@ -131,7 +132,7 @@ msgstr "Manual Driver Search…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr "Search for and select a driver na základe printer make/model"
+msgstr "Vyhľadať a vybrať ovládač na základe značky/modelu tlačiarne"
 
 #: ui/components/Lpd.qml:22
 #, kde-format
@@ -491,8 +492,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
-"Click <interface>Nastaviť Print Server…</interface> to check settings, or "
-"verify that the CUPS system service is active."
+"Kliknite na <interface>Nastaviť tlačový server…</interface> na kontrolu "
+"nastavení, alebo overte, že systémová služba CUPS je aktívna."
 
 #: ui/main.qml:314
 #, kde-format
@@ -728,7 +729,7 @@ msgstr "Predvolená tlačiareň"
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
-"To change the predvolené printer, set another printer as the predvolené."
+"Ak chcete zmeniť predvolenú tlačiareň, nastavte ako predvolenú inú tlačiareň."
 
 #: ui/PrinterSettings.qml:377
 #, kde-format

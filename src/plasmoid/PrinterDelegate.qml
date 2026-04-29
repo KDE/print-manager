@@ -51,6 +51,18 @@ PlasmaExtras.ExpandableListItem {
         }
     }
 
+    Loader {
+        anchors.top: delegate.top
+        anchors.left: delegate.left
+
+        active: jobsFilterModel.activeCount > 0
+
+        sourceComponent: Kirigami.Badge {
+            padding: 1
+            text: i18nc("Number of active print jobs", "%1", jobsFilterModel.activeCount)
+        }
+    }
+
     contextualActions: [
         Kirigami.Action {
             icon.name: "configure"

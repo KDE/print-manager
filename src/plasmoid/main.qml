@@ -72,6 +72,10 @@ PlasmoidItem {
 
     Plasmoid.icon: inPanel ? "printer-symbolic" : "printer"
 
+    badgeText: activeJobsFilterModel.activeCount > 0
+               ? i18nc("Number of active print jobs", "%1", activeJobsFilterModel.activeCount)
+               : ""
+
     fullRepresentation: FullRepresentation {
         focus: true
         // as a desktop widget, we need to start with a reasonable size

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"POT-Creation-Date: 2026-04-30 00:46+0000\n"
 "PO-Revision-Date: 2025-11-20 10:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -57,7 +57,12 @@ msgstr "S'imprimix per %1"
 msgid "Print queue is empty"
 msgstr "La cua d'impressió està buida"
 
-#: src/plasmoid/main.qml:99
+#: src/plasmoid/main.qml:76
+msgctxt "Number of active print jobs"
+msgid "%1"
+msgstr ""
+
+#: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"
 msgstr "&Configura les impressores…"
 

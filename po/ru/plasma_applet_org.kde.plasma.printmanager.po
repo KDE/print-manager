@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"POT-Creation-Date: 2026-04-30 00:46+0000\n"
 "PO-Revision-Date: 2025-11-27 19:50+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -63,7 +63,12 @@ msgstr "Печать на %2"
 msgid "Print queue is empty"
 msgstr "Очередь печати пуста"
 
-#: src/plasmoid/main.qml:99
+#: src/plasmoid/main.qml:76
+msgctxt "Number of active print jobs"
+msgid "%1"
+msgstr ""
+
+#: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"
 msgstr "Н&астроить принтеры…"
 

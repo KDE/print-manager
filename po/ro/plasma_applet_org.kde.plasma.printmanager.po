@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"POT-Creation-Date: 2026-04-30 00:46+0000\n"
 "PO-Revision-Date: 2026-01-29 01:52+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -55,7 +55,12 @@ msgstr "Se tipărește cu %1"
 msgid "Print queue is empty"
 msgstr "Coada de tipărire e goală"
 
-#: src/plasmoid/main.qml:99
+#: src/plasmoid/main.qml:76
+msgctxt "Number of active print jobs"
+msgid "%1"
+msgstr ""
+
+#: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"
 msgstr "&Configurează imprimante…"
 

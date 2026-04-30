@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-20 00:48+0000\n"
+"POT-Creation-Date: 2026-04-30 00:46+0000\n"
 "PO-Revision-Date: 2026-03-13 14:31+0100\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,12 @@ msgstr "Tisknu pomocí '%1'"
 msgid "Print queue is empty"
 msgstr "Fronta tisku je prázdná"
 
-#: src/plasmoid/main.qml:99
+#: src/plasmoid/main.qml:76
+msgctxt "Number of active print jobs"
+msgid "%1"
+msgstr ""
+
+#: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"
 msgstr "Nastavit tis&kárny…"
 

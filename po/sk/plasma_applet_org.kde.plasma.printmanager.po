@@ -58,7 +58,7 @@ msgstr "Tlačová fronta je prázdna"
 #: src/plasmoid/main.qml:76
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"

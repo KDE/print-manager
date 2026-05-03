@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022-2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-30 00:46+0000\n"
-"PO-Revision-Date: 2025-11-30 11:24+0530\n"
+"PO-Revision-Date: 2026-05-02 18:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 26.04.0\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
@@ -56,7 +56,7 @@ msgstr "அச்சுவரிசை காலியாக உள்ளது"
 #: src/plasmoid/main.qml:76
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"

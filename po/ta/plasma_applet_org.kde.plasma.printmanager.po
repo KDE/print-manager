@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-30 00:46+0000\n"
+"POT-Creation-Date: 2026-05-06 00:48+0000\n"
 "PO-Revision-Date: 2026-05-02 18:11+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -53,7 +53,7 @@ msgstr "%1 தனில் அச்சிடப்படுகிறது"
 msgid "Print queue is empty"
 msgstr "அச்சுவரிசை காலியாக உள்ளது"
 
-#: src/plasmoid/main.qml:76
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
@@ -70,20 +70,20 @@ msgstr "தொடர்"
 msgid "Pause"
 msgstr "இடைநிறுத்து"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:69
 msgid "Configure Printer…"
 msgstr "அச்சுப்பொறியை அமை…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:74
 msgid "View Print Queue"
 msgstr "அச்சுவரிசையைக் காட்டு"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:149
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ரத்து செய்"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:184
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

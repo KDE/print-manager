@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-30 00:46+0000\n"
+"POT-Creation-Date: 2026-05-06 00:48+0000\n"
 "PO-Revision-Date: 2024-10-30 10:33+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr "Udskriver med %1"
 msgid "Print queue is empty"
 msgstr "Udskriftskøen er tom"
 
-#: src/plasmoid/main.qml:76
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
@@ -71,26 +71,26 @@ msgstr "Genoptag"
 msgid "Pause"
 msgstr "Pause"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:69
 #, fuzzy
 #| msgid "&Configure Printers…"
 msgid "Configure Printer…"
 msgstr "&Konfigurér printere…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:74
 #, fuzzy
 #| msgid "View print queue…"
 msgid "View Print Queue"
 msgstr "Vis printkø…"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:149
 #, fuzzy
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Annullér"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:184
 #, fuzzy
 #| msgid "No jobs"
 msgctxt "Number of additional print jobs"

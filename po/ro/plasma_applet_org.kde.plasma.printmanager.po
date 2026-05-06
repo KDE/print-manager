@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-30 00:46+0000\n"
+"POT-Creation-Date: 2026-05-06 00:48+0000\n"
 "PO-Revision-Date: 2026-01-29 01:52+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr "Se tipărește cu %1"
 msgid "Print queue is empty"
 msgstr "Coada de tipărire e goală"
 
-#: src/plasmoid/main.qml:76
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
@@ -72,20 +72,20 @@ msgstr "Reia"
 msgid "Pause"
 msgstr "Întrerupe"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:69
 msgid "Configure Printer…"
 msgstr "Configurează imprimanta…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:74
 msgid "View Print Queue"
 msgstr "Vezi coada de imprimare"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:149
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Renunță"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:184
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

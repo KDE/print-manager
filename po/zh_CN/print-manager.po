@@ -633,7 +633,7 @@ msgstr "来自主机名"
 #, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "正在处理\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format

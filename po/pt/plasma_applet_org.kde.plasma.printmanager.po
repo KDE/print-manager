@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-30 00:46+0000\n"
+"POT-Creation-Date: 2026-05-06 00:48+0000\n"
 "PO-Revision-Date: 2021-05-10 12:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -56,7 +56,7 @@ msgstr "A imprimir com a %1"
 msgid "Print queue is empty"
 msgstr "A fila de impressão está vazia"
 
-#: src/plasmoid/main.qml:76
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
@@ -75,24 +75,24 @@ msgstr ""
 msgid "Pause"
 msgstr ""
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:69
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "Configure Printer…"
 msgstr "&Configurar as Impressoras..."
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:74
 #, fuzzy
 #| msgid "View print queue"
 msgid "View Print Queue"
 msgstr "Ver a fila de impressão"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:149
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr ""
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:184
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

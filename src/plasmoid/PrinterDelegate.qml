@@ -39,7 +39,6 @@ PlasmaExtras.ExpandableListItem {
     subtitle: delegate.stateMessage
     subtitleCanWrap: true
     subtitleMaximumLineCount: 3
-    // isDefault: delegate.isDefault
     showDefaultActionButtonWhenBusy: true
     isBusy: delegate.printerState === 4
 

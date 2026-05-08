@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-05-08 02:41+0000\n"
 "PO-Revision-Date: 2024-11-08 15:00+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -57,32 +57,32 @@ msgstr "Print queue is empty"
 msgid "&Configure Printers…"
 msgstr "&Configure Printers…"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "Resume"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "Pause"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:63
 #, fuzzy
 #| msgid "&Configure Printers…"
 msgid "Configure Printer…"
 msgstr "&Configure Printers…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:68
 #, fuzzy
 #| msgid "View print queue…"
 msgid "View Print Queue"
 msgstr "View print queue…"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:143
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:178
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

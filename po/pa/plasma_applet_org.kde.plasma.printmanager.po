@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-05-08 02:41+0000\n"
 "PO-Revision-Date: 2024-01-01 08:49-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -57,34 +57,34 @@ msgstr "ਪਰਿੰਟ ਕਤਾਰ ਖਾਲੀ ਹੈ"
 msgid "&Configure Printers…"
 msgstr "ਪਰਿੰਟਰਾਂ ਦੀ ਸੰਰਚਨਾ(&C)…"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "ਬਹਾਲ"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "ਵਿਰਾਮ"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:63
 #, fuzzy
 #| msgid "&Configure Printers…"
 msgid "Configure Printer…"
 msgstr "ਪਰਿੰਟਰਾਂ ਦੀ ਸੰਰਚਨਾ(&C)…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:68
 #, fuzzy
 #| msgid "View print queue…"
 msgid "View Print Queue"
 msgstr "ਪਰਿੰਟ ਕਤਾਰ ਨੂੰ ਵੇਖੋ…"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:143
 #, fuzzy
 #| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:178
 #, fuzzy
 #| msgid "All jobs"
 msgctxt "Number of additional print jobs"

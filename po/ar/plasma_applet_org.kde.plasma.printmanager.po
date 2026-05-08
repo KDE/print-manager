@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Abdalrahim G. Fakhouri <abdilra7eem@yahoo.com>, 2014.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2015.
-# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2021, 2022, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-05-08 02:41+0000\n"
 "PO-Revision-Date: 2025-11-20 18:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -64,28 +64,28 @@ msgstr "طابور الطّباعة فارغ"
 msgid "&Configure Printers…"
 msgstr "ا&ضبط الطّابعات…"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "استكمل"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "ألبث"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:63
 msgid "Configure Printer…"
 msgstr "اضبط الطّابعة…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:68
 msgid "View Print Queue"
 msgstr "اعرض طابور الطّباعة"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:143
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:178
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-05-08 02:41+0000\n"
 "PO-Revision-Date: 2026-02-03 23:03+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -56,28 +56,28 @@ msgstr "인쇄 대기열이 비어 있음"
 msgid "&Configure Printers…"
 msgstr "프린터 설정(&C)…"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "다시 시작"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "일시 정지"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:63
 msgid "Configure Printer…"
 msgstr "프린터 설정…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:68
 msgid "View Print Queue"
 msgstr "인쇄 대기열 열기"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:143
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:178
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

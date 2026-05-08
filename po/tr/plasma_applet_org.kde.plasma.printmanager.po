@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-20 00:44+0000\n"
+"POT-Creation-Date: 2026-05-08 02:41+0000\n"
 "PO-Revision-Date: 2025-11-20 21:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -59,28 +59,28 @@ msgstr "Yazdırma kuyruğu boş"
 msgid "&Configure Printers…"
 msgstr "&Yazıcıları Yapılandır"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "Sürdür"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "Duraklat"
 
-#: src/plasmoid/PrinterDelegate.qml:57
+#: src/plasmoid/PrinterDelegate.qml:63
 msgid "Configure Printer…"
 msgstr "Yazıcıyı Yapılandır…"
 
-#: src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/PrinterDelegate.qml:68
 msgid "View Print Queue"
 msgstr "Yazdırma Kuyruğunu Görüntüle"
 
-#: src/plasmoid/PrinterDelegate.qml:137
+#: src/plasmoid/PrinterDelegate.qml:143
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/plasmoid/PrinterDelegate.qml:172
+#: src/plasmoid/PrinterDelegate.qml:178
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 00:48+0000\n"
+"POT-Creation-Date: 2026-05-08 00:46+0000\n"
 "PO-Revision-Date: 2025-11-20 20:49+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -54,7 +54,7 @@ msgstr "透過 %1 列印"
 msgid "Print queue is empty"
 msgstr "列印佇列是空的"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
@@ -63,28 +63,28 @@ msgstr ""
 msgid "&Configure Printers…"
 msgstr "設定印表機(&C)…"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "恢復"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "暫停"
 
-#: src/plasmoid/PrinterDelegate.qml:69
+#: src/plasmoid/PrinterDelegate.qml:75
 msgid "Configure Printer…"
 msgstr "設定印表機…"
 
-#: src/plasmoid/PrinterDelegate.qml:74
+#: src/plasmoid/PrinterDelegate.qml:80
 msgid "View Print Queue"
 msgstr "檢視列印佇列"
 
-#: src/plasmoid/PrinterDelegate.qml:149
+#: src/plasmoid/PrinterDelegate.qml:155
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/plasmoid/PrinterDelegate.qml:184
+#: src/plasmoid/PrinterDelegate.qml:190
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

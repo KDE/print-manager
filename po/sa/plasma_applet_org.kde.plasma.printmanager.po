@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 00:48+0000\n"
+"POT-Creation-Date: 2026-05-08 00:46+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -53,7 +53,7 @@ msgstr "%1 इत्यनेन सह मुद्रणम्"
 msgid "Print queue is empty"
 msgstr "मुद्रणपङ्क्तिः रिक्तः अस्ति"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
@@ -62,32 +62,32 @@ msgstr ""
 msgid "&Configure Printers…"
 msgstr "&मुद्रकान् विन्यस्तं कुर्वन्तु..."
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "पुनर्प्रारम्भय"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "विराम"
 
-#: src/plasmoid/PrinterDelegate.qml:69
+#: src/plasmoid/PrinterDelegate.qml:75
 #, fuzzy
 #| msgid "&Configure Printers…"
 msgid "Configure Printer…"
 msgstr "&मुद्रकान् विन्यस्तं कुर्वन्तु..."
 
-#: src/plasmoid/PrinterDelegate.qml:74
+#: src/plasmoid/PrinterDelegate.qml:80
 #, fuzzy
 #| msgid "View print queue…"
 msgid "View Print Queue"
 msgstr "मुद्रणपङ्क्तिं पश्यन्तु..."
 
-#: src/plasmoid/PrinterDelegate.qml:149
+#: src/plasmoid/PrinterDelegate.qml:155
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: src/plasmoid/PrinterDelegate.qml:184
+#: src/plasmoid/PrinterDelegate.qml:190
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 00:48+0000\n"
+"POT-Creation-Date: 2026-05-08 00:46+0000\n"
 "PO-Revision-Date: 2025-11-20 11:05+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr "Печат с %1"
 msgid "Print queue is empty"
 msgstr "Опашката за печат е празна"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
@@ -64,28 +64,28 @@ msgstr ""
 msgid "&Configure Printers…"
 msgstr "&Конфигуриране на принтери…"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "Продължаване"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "Пауза"
 
-#: src/plasmoid/PrinterDelegate.qml:69
+#: src/plasmoid/PrinterDelegate.qml:75
 msgid "Configure Printer…"
 msgstr "Конфигуриране на принтер…"
 
-#: src/plasmoid/PrinterDelegate.qml:74
+#: src/plasmoid/PrinterDelegate.qml:80
 msgid "View Print Queue"
 msgstr "Показване на опашка за печат"
 
-#: src/plasmoid/PrinterDelegate.qml:149
+#: src/plasmoid/PrinterDelegate.qml:155
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Отказ"
 
-#: src/plasmoid/PrinterDelegate.qml:184
+#: src/plasmoid/PrinterDelegate.qml:190
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

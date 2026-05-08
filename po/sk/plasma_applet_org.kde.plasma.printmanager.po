@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 00:48+0000\n"
+"POT-Creation-Date: 2026-05-08 00:46+0000\n"
 "PO-Revision-Date: 2022-04-09 20:17+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -55,7 +55,7 @@ msgstr "Tlačí sa na tlačiarni %1"
 msgid "Print queue is empty"
 msgstr "Tlačová fronta je prázdna"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
@@ -64,28 +64,28 @@ msgstr "%1"
 msgid "&Configure Printers…"
 msgstr "&Nastaviť tlačiarne..."
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "Pokračovať"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "Pozastaviť"
 
-#: src/plasmoid/PrinterDelegate.qml:69
+#: src/plasmoid/PrinterDelegate.qml:75
 msgid "Configure Printer…"
 msgstr "&Nastaviť tlačiarne..."
 
-#: src/plasmoid/PrinterDelegate.qml:74
+#: src/plasmoid/PrinterDelegate.qml:80
 msgid "View Print Queue"
 msgstr "Otvoriť tlačovú frontu"
 
-#: src/plasmoid/PrinterDelegate.qml:149
+#: src/plasmoid/PrinterDelegate.qml:155
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/plasmoid/PrinterDelegate.qml:184
+#: src/plasmoid/PrinterDelegate.qml:190
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

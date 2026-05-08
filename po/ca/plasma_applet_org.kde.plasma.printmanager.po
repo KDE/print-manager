@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-06 00:48+0000\n"
+"POT-Creation-Date: 2026-05-08 00:46+0000\n"
 "PO-Revision-Date: 2026-04-30 09:11+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -57,7 +57,7 @@ msgstr "S'imprimeix per %1"
 msgid "Print queue is empty"
 msgstr "La cua d'impressió està buida"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:62
+#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
@@ -66,28 +66,28 @@ msgstr "%1"
 msgid "&Configure Printers…"
 msgstr "&Configura les impressores…"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
 msgstr "Reprèn"
 
-#: src/plasmoid/PrinterDelegate.qml:43
+#: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
 msgstr "Pausa"
 
-#: src/plasmoid/PrinterDelegate.qml:69
+#: src/plasmoid/PrinterDelegate.qml:75
 msgid "Configure Printer…"
 msgstr "Configura una impressora…"
 
-#: src/plasmoid/PrinterDelegate.qml:74
+#: src/plasmoid/PrinterDelegate.qml:80
 msgid "View Print Queue"
 msgstr "Mostra la cua d'impressió"
 
-#: src/plasmoid/PrinterDelegate.qml:149
+#: src/plasmoid/PrinterDelegate.qml:155
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/plasmoid/PrinterDelegate.qml:184
+#: src/plasmoid/PrinterDelegate.qml:190
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

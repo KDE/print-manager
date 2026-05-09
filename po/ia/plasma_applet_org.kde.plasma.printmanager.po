@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2013, 2017, 2018, 2020, 2021, 2022, 2023, 2024, 2025 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2013, 2017, 2018, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:46+0000\n"
-"PO-Revision-Date: 2025-12-29 17:59+0100\n"
+"PO-Revision-Date: 2026-05-08 12:07+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
@@ -56,7 +56,7 @@ msgstr "Cauda de imprimer es vacue"
 #: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"

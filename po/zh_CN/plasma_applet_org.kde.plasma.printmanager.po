@@ -56,7 +56,7 @@ msgstr "打印队列为空"
 #: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"

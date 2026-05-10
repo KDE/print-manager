@@ -33,6 +33,7 @@
         "Description[sv]": "Meddela när en ny skrivare upptäcks, eller när bläck- eller tonernivåerna är låga för en skrivare",
         "Description[ta]": "புதிய அச்சுப்பொறி கண்டறியப்படும்போதோ, மை குறைவாக உள்ளபோதோ, அறிவிக்கும்",
         "Description[tr]": "Yeni bir yazıcı algılandığında veya mürekkep/toner azaldığında bildirin",
+        "Description[ug]": "يېڭى باسقۇ بايقالغاندا ياكى باسقۇنىڭ سىياھ/كۇكۇنى ئاز قالغاندا ئەسكەرتىدۇ",
         "Description[uk]": "Сповіщення щодо виявлення принтера та щодо рівнів чорнила або тонера у принтері",
         "Description[zh_CN]": "检测到新打印机或打印机墨量低时显示通知",
         "Description[zh_TW]": "在偵測到新印表機或是墨水/碳粉量偏低時進行通知",
@@ -94,6 +95,7 @@
         "Name[ta]": "அச்சுப்பொறி மேலாளி",
         "Name[tg]": "Мудири принтерҳо",
         "Name[tr]": "Yazdırma Yöneticisi",
+        "Name[ug]": "باسقۇ باشقۇرۇش",
         "Name[uk]": "Керування друком",
         "Name[zh_CN]": "打印机管理器",
         "Name[zh_TW]": "列印管理員"

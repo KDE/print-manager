@@ -8,91 +8,87 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-08 00:46+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-06 12:54-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
 msgid "Printers"
-msgstr ""
+msgstr "باسقۇ"
 
 #: src/plasmoid/FullRepresentation.qml:44
 msgid "Printer Groups"
-msgstr ""
+msgstr "باسقۇ گۇرۇپپىسى"
 
 #: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
 msgid "No printers have been configured or discovered"
-msgstr ""
+msgstr "ھېچقانداق باسقۇ سەپلەنمىگەن ياكى بايقالمىغان"
 
 #: src/plasmoid/FullRepresentation.qml:77
 msgid "No matches"
-msgstr ""
+msgstr "ماس كەلگىنى يوق"
 
 #: src/plasmoid/main.qml:53
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
-msgstr[0] ""
+msgstr[0] "قاتاردا %1 بېسىش ۋەزىپىسى بار"
 
 #: src/plasmoid/main.qml:62
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
-msgstr ""
+msgstr "%2 دا %1 نى بېسىۋاتىدۇ"
 
 #: src/plasmoid/main.qml:64
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
-msgstr ""
+msgstr "%1 دا بېسىۋاتىدۇ"
 
 #: src/plasmoid/main.qml:67
 msgid "Print queue is empty"
-msgstr ""
+msgstr "بېسىش قاتارى بوش"
 
 #: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:103
 msgid "&Configure Printers…"
-msgstr ""
+msgstr "باسقۇ سەپلە(&C)…"
 
 #: src/plasmoid/PrinterDelegate.qml:49
 msgid "Resume"
-msgstr ""
+msgstr "داۋاملاشتۇر"
 
 #: src/plasmoid/PrinterDelegate.qml:49
 msgid "Pause"
-msgstr ""
+msgstr "ۋاقىتلىق توختا"
 
 #: src/plasmoid/PrinterDelegate.qml:75
 msgid "Configure Printer…"
-msgstr ""
+msgstr "باسقۇ سەپلە…"
 
 #: src/plasmoid/PrinterDelegate.qml:80
 msgid "View Print Queue"
-msgstr ""
+msgstr "بېسىش قاتارىنى كۆرسەت"
 
 #: src/plasmoid/PrinterDelegate.qml:155
-#, fuzzy
-#| msgid "Cancel"
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr "ئەمەلدىن قالدۇر"
+msgstr "ۋاز كەچ"
 
 #: src/plasmoid/PrinterDelegate.qml:190
-#, fuzzy
-#| msgid "All jobs"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "بارلىق خىزمەتلەر"
+msgstr[0] "يەنە %1 ۋەزىپە بار"
 
-#, fuzzy
 #~| msgid "All jobs"
 #~ msgid "Show All Jobs"
 #~ msgstr "بارلىق خىزمەتلەر"

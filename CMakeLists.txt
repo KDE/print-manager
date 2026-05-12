@@ -19,6 +19,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEGitCommitHooks)
 include(KDEClangFormat)
 
+include(ECMFindQmlModule)
 include(ECMAddTests)
 include(ECMDeprecationSettings)
 include(ECMQmlModule)
@@ -50,6 +51,8 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
 )
 
 find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
+
+ecm_find_qmlmodule(org.kde.kitemmodels REQUIRED)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.8

@@ -23,6 +23,11 @@ ecm_add_test(
     NAME_PREFIX "pm-"
 )
 
+add_test(NAME kcm_printer_manager_smoketest COMMAND kcmshell6 --smoke-test kcm_printer_manager)
+set_tests_properties(kcm_printer_manager_smoketest PROPERTIES
+    ENVIRONMENT_MODIFICATION QT_PLUGIN_PATH=path_list_prepend:${CMAKE_BINARY_DIR}/bin
+)
+
 add_custom_command(TARGET modeltests POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
             ${CMAKE_CURRENT_SOURCE_DIR}/scripts

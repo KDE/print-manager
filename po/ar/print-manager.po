@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:47+0000\n"
+"POT-Creation-Date: 2026-05-12 00:47+0000\n"
 "PO-Revision-Date: 2026-04-23 10:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -671,7 +671,7 @@ msgstr "مُلغاة"
 msgid "Aborted"
 msgstr "مُجهضة"
 
-#: src/libkcups/KCupsConnection.cpp:736
+#: src/libkcups/KCupsConnection.cpp:728
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "اتصال CUPS يحتاج إلى استيثاق: \"%1\""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:47+0000\n"
+"POT-Creation-Date: 2026-05-12 00:47+0000\n"
 "PO-Revision-Date: 2026-03-31 13:07+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -677,7 +677,7 @@ msgstr "Anulat"
 msgid "Aborted"
 msgstr "Abandonat"
 
-#: src/libkcups/KCupsConnection.cpp:736
+#: src/libkcups/KCupsConnection.cpp:728
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "O conexiune CUPS cere autentificarea: „%1”"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-22 00:47+0000\n"
+"POT-Creation-Date: 2026-05-12 00:47+0000\n"
 "PO-Revision-Date: 2025-11-23 23:47+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -669,7 +669,7 @@ msgstr "Hætt við"
 msgid "Aborted"
 msgstr "Slitið"
 
-#: src/libkcups/KCupsConnection.cpp:736
+#: src/libkcups/KCupsConnection.cpp:728
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS-tenging krefst auðkenningar: \"%1\""

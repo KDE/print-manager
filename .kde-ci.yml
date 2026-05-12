@@ -22,3 +22,4 @@ Dependencies:
 
 Options:
  require-passing-tests-on: ['@all']
+ run-qmllint: True

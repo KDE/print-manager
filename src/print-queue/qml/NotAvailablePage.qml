@@ -4,8 +4,6 @@
  */
 
 import QtQuick
-import QtQuick.Controls as QQC2
-import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 import org.kde.plasma.printmanager as PM
 import org.kde.coreaddons as KAddons
@@ -66,9 +64,9 @@ Kirigami.Page {
 
         sourceComponent: {
             let ret = null
-            if (!serverAvailable) {
+            if (!root.serverAvailable) {
                 ret = noServiceMsgComp
-            } else if (deviceCount === 0) {
+            } else if (root.deviceCount === 0) {
                 ret = noDevicesMsgComp
             } else {
                 ret = genericComp

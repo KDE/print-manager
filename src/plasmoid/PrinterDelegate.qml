@@ -7,6 +7,7 @@
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
@@ -19,6 +20,7 @@ import org.kde.kitemmodels as KItemModels
 PlasmaExtras.ExpandableListItem {
     id: delegate
 
+    required property PrintManager.PrinterModel printersModel
     required property PrintManager.JobModel printerJobsModel
     required property int printerState
     required property string iconName
@@ -45,11 +47,11 @@ PlasmaExtras.ExpandableListItem {
     customExpandedViewContent: jobsFilterModel.count > 0 ? jobListComponent : null
 
     defaultActionButtonAction: Kirigami.Action {
-        icon.name: isPaused ? "media-playback-start" : "media-playback-pause"
-        text: isPaused ? i18n("Resume") : i18n("Pause")
+        icon.name: delegate.isPaused ? "media-playback-start" : "media-playback-pause"
+        text: delegate.isPaused ? i18n("Resume") : i18n("Pause")
 
         onTriggered: {
-            if (isPaused) {
+            if (delegate.isPaused) {
                 PrintManager.PrinterCommands.resumePrinter(delegate.printerName);
             } else {
                 PrintManager.PrinterCommands.pausePrinter(delegate.printerName);
@@ -157,7 +159,7 @@ PlasmaExtras.ExpandableListItem {
                             visible: jobDelegate.jobCancelEnabled
                             onClicked: {
                                 enabled = false;
-                                jobsModel.cancel(jobDelegate.jobPrinter, jobDelegate.jobId);
+                                delegate.printerJobsModel.cancel(jobDelegate.jobPrinter, jobDelegate.jobId);
                                 enabled = true;
                             }
                         }

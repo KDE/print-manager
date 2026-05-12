@@ -50,7 +50,7 @@ target_link_libraries(kcups PUBLIC
     Cups::Cups
 )
 
-ecm_add_qml_module(kcups URI "org.kde.plasma.printmanager" GENERATE_PLUGIN_SOURCE)
+ecm_add_qml_module(kcups URI "org.kde.plasma.printmanager" GENERATE_PLUGIN_SOURCE DEPENDENCIES QtCore)
 ecm_finalize_qml_module(kcups)
 
 ecm_qt_declare_logging_category(kcups

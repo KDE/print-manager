@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
     Component.onCompleted: setCurrentFilterText(activeAction.text)
 
     Connections {
-        target: jobsModel
+        target: root.jobsModel
 
         function onLoaded() {
             jobs.positionViewAtBeginning()
@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
 
     KItemModels.KDescendantsProxyModel {
         id: jobsProxy
-        sourceModel: jobsFilterModel
+        sourceModel: root.jobsFilterModel
     }
 
     leftPadding: 0
@@ -64,7 +64,7 @@ Kirigami.ScrollablePage {
                 icon.name: "filter-symbolic"
                 onTriggered: {
                     root.setCurrentFilterText(text)
-                    jobsModel.jobFilter = PM.JobModel.WhichActive
+                    root.jobsModel.jobFilter = PM.JobModel.WhichActive
                 }
             }
             Kirigami.Action {
@@ -72,7 +72,7 @@ Kirigami.ScrollablePage {
                 icon.name: "filter-symbolic"
                 onTriggered: {
                     root.setCurrentFilterText(text)
-                    jobsModel.jobFilter = PM.JobModel.WhichCompleted
+                    root.jobsModel.jobFilter = PM.JobModel.WhichCompleted
                 }
             }
             Kirigami.Action {
@@ -80,7 +80,7 @@ Kirigami.ScrollablePage {
                 icon.name: "filter-symbolic"
                 onTriggered: {
                     root.setCurrentFilterText(text)
-                    jobsModel.jobFilter = PM.JobModel.WhichAll
+                    root.jobsModel.jobFilter = PM.JobModel.WhichAll
                 }
             }
         },
@@ -97,7 +97,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: i18nc("@action:button Cancel all active jobs", "Cancel All Jobs")
             icon.name: "dialog-cancel-symbolic"
-            visible: jobsFilterModel.count > 0 && jobsModel.jobFilter === PM.JobModel.WhichActive
+            visible: root.jobsFilterModel.count > 0 && root.jobsModel.jobFilter === PM.JobModel.WhichActive
             displayHint: Kirigami.DisplayHint.IconOnly
             onTriggered: cancelPrompt.active = true
         }
@@ -119,7 +119,7 @@ Kirigami.ScrollablePage {
             onClosed: cancelPrompt.active = false
 
             onAccepted: {
-                jobsModel.cancelAll(jobsFilterModel.filteredPrinters)
+                root.jobsModel.cancelAll(root.jobsFilterModel.filteredPrinters)
                 prompt.close()
             }
         }
@@ -149,7 +149,7 @@ Kirigami.ScrollablePage {
             property var jobDel
 
             Repeater {
-                model: printersModel
+                model: root.printersModel
 
                 delegate: QQC2.MenuItem {
                     required property string info
@@ -159,7 +159,7 @@ Kirigami.ScrollablePage {
                     icon.name: "printer-symbolic"
                     visible: moveMenu.jobDel?.jobPrinter !== printerName
                     onTriggered: {
-                        jobsModel.move(moveMenu.jobDel.jobPrinter, moveMenu.jobDel.jobId, printerName)
+                        root.jobsModel.move(moveMenu.jobDel.jobPrinter, moveMenu.jobDel.jobId, printerName)
                     }
                 }
             }
@@ -179,7 +179,7 @@ Kirigami.ScrollablePage {
             DragDrop.DragArea {
                 id: dragArea
                 anchors.fill: parent
-                enabled: jobs.validMoveStates.includes(jobState) && printersModel.count > 1
+                enabled: jobs.validMoveStates.includes(jobState) && root.printersModel.count > 1
                 delegateImage: "edit-move"
                 mimeData.source: jobDelegate
             }
@@ -245,53 +245,53 @@ Kirigami.ScrollablePage {
                         Kirigami.Action {
                             text: i18nc("@action:button This action cancels the job", "Cancel")
                             icon.name: "dialog-cancel-symbolic"
-                            visible: jobCancelEnabled
+                            visible: jobDelegate.jobCancelEnabled
                             displayHint: Kirigami.DisplayHint.KeepVisible
                             onTriggered: {
                                 enabled = false;
-                                jobsModel.cancel(jobPrinter, jobId);
+                                root.jobsModel.cancel(jobDelegate.jobPrinter, jobDelegate.jobId);
                                 enabled = true;
                             }
                         },
                         Kirigami.Action {
                             text: i18nc("@action:button This action holds the job", "Hold")
                             icon.name: "media-playback-paused-symbolic"
-                            visible: jobHoldEnabled
+                            visible: jobDelegate.jobHoldEnabled
                             displayHint: Kirigami.DisplayHint.KeepVisible
                             onTriggered: {
                                 enabled = false;
-                                jobsModel.hold(jobPrinter, jobId);
+                                root.jobsModel.hold(jobDelegate.jobPrinter, jobDelegate.jobId);
                                 enabled = true;
                             }
                         },
                         Kirigami.Action {
                             text: i18nc("@action:button This action releases the job", "Release")
                             icon.name: "media-playback-start-symbolic"
-                            visible: jobReleaseEnabled
+                            visible: jobDelegate.jobReleaseEnabled
                             displayHint: Kirigami.DisplayHint.KeepVisible
                             onTriggered: {
                                 enabled = false;
-                                jobsModel.release(jobPrinter, jobId);
+                                root.jobsModel.release(jobDelegate.jobPrinter, jobDelegate.jobId);
                                 enabled = true;
                             }
                         },
                         Kirigami.Action {
                             text: i18nc("@action:button This action reprints the job", "Reprint")
                             icon.name: "view-refresh-symbolic"
-                            visible: jobRestartEnabled
+                            visible: jobDelegate.jobRestartEnabled
                             onTriggered: {
                                 enabled = false;
-                                jobsModel.restart(jobPrinter, jobId);
+                                root.jobsModel.restart(jobDelegate.jobPrinter, jobDelegate.jobId);
                                 enabled = true;
                             }
                         },
                         Kirigami.Action {
                             text: i18nc("@action:button", "Move")
                             icon.name: "transform-move-symbolic"
-                            visible: jobs.validMoveStates.includes(jobState) && printersModel.count > 1
+                            visible: jobs.validMoveStates.includes(jobDelegate.jobState) && root.printersModel.count > 1
                             displayHint: Kirigami.DisplayHint.KeepVisible
                             onTriggered: {
-                                jobs.currentIndex = index
+                                jobs.currentIndex = jobDelegate.index
                                 moveMenu.jobDel = jobDelegate
                                 moveMenu.popup()
                             }
@@ -299,10 +299,10 @@ Kirigami.ScrollablePage {
                         Kirigami.Action {
                             text: i18nc("@action:button This action prompts for user/password to authenticate the job", "Authenticate")
                             icon.name: "view-refresh-symbolic"
-                            visible: jobAuthRequired
+                            visible: jobDelegate.jobAuthRequired
                             onTriggered: {
                                 enabled = false;
-                                app.authenticateJob(jobPrinter, jobId, false);
+                                app.authenticateJob(jobDelegate.jobPrinter, jobDelegate.jobId, false);
                                 enabled = true;
                             }
                         }
@@ -317,36 +317,36 @@ Kirigami.ScrollablePage {
 
                     CardLabel {
                         Layout.columnSpan: 2
-                        text: jobStateMsg.length > 0
-                              ? i18nc("@label:info", "Status: %1, %2", model.display, jobStateMsg)
-                              : i18nc("@label:info", "Status: %1", model.display)
+                        text: jobDelegate.jobStateMsg.length > 0
+                              ? i18nc("@label:info", "Status: %1, %2", jobDelegate.model.display, jobDelegate.jobStateMsg)
+                              : i18nc("@label:info", "Status: %1", jobDelegate.model.display)
                     }
 
                     CardLabel {
-                        opacity: jobCreatedAt.length > 0 ? .75 : 0
-                        text: i18nc("@label:info Date created", "Created: %1", jobCreatedAt)
+                        opacity: jobDelegate.jobCreatedAt.length > 0 ? .75 : 0
+                        text: i18nc("@label:info Date created", "Created: %1", jobDelegate.jobCreatedAt)
                     }
                     CardLabel {
                         Layout.alignment: Qt.AlignRight
                         Layout.fillWidth: false
-                        text: jobSize
+                        text: jobDelegate.jobSize
                     }
 
                     CardLabel {
                         Layout.columnSpan: 2
-                        visible: jobCompletedAt.length > 0
-                        text: i18nc("@label:info Date completed", "Completed: %1", jobCompletedAt)
+                        visible: jobDelegate.jobCompletedAt.length > 0
+                        text: i18nc("@label:info Date completed", "Completed: %1", jobDelegate.jobCompletedAt)
                     }
 
                     CardLabel {
-                        visible: jobProcessedAt.length > 0
-                        text: i18nc("@label:info Date processed", "Processed: %1", jobProcessedAt)
+                        visible: jobDelegate.jobProcessedAt.length > 0
+                        text: i18nc("@label:info Date processed", "Processed: %1", jobDelegate.jobProcessedAt)
                     }
                     CardLabel {
                         Layout.alignment: Qt.AlignRight
                         Layout.fillWidth: false
-                        visible: jobPages.length > 0 && jobPages !== "0"
-                        text: i18nc("@label:info Job page count", "Pages: %1", jobPages)
+                        visible: jobDelegate.jobPages.length > 0 && jobDelegate.jobPages !== "0"
+                        text: i18nc("@label:info Job page count", "Pages: %1", jobDelegate.jobPages)
                     }
                 }
 

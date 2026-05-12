@@ -6,6 +6,7 @@
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts // fullRepresentation sizing
@@ -17,24 +18,25 @@ import org.kde.kcmutils // KCMLauncher
 import org.kde.plasma.printmanager as PrintManager
 
 PlasmoidItem {
+    id: root
 
     readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
         || Plasmoid.location === PlasmaCore.Types.RightEdge
         || Plasmoid.location === PlasmaCore.Types.BottomEdge
         || Plasmoid.location === PlasmaCore.Types.LeftEdge)
 
-    property alias serverUnavailable: printersModel.serverUnavailable
+    property alias serverUnavailable: printersModelId.serverUnavailable
     property string printersModelError: ""
     property int printerCount
 
     PrintManager.PrinterModel {
-        id: printersModel
+        id: printersModelId
         onError: (lastError, errorTitle, errorMsg) => {
-            printersModelError = errorTitle;
+            root.printersModelError = errorTitle;
         }
 
-        onRowsInserted: printerCount = rowCount()
-        onRowsRemoved: printerCount = rowCount()
+        onRowsInserted: root.printerCount = rowCount()
+        onRowsRemoved: root.printerCount = rowCount()
     }
 
     PrintManager.JobSortFilterModel {
@@ -79,9 +81,12 @@ PlasmoidItem {
     fullRepresentation: FullRepresentation {
         focus: true
         // as a desktop widget, we need to start with a reasonable size
-        Layout.preferredWidth: inPanel ? -1 : Kirigami.Units.gridUnit * 24
-        Layout.preferredHeight: inPanel ? -1 : Kirigami.Units.gridUnit * 24
+        Layout.preferredWidth: root.inPanel ? -1 : Kirigami.Units.gridUnit * 24
+        Layout.preferredHeight: root.inPanel ? -1 : Kirigami.Units.gridUnit * 24
         printerJobsModel: jobsModel
+        serverUnavailable: root.serverUnavailable
+        printersModel: printersModelId
+        printersModelError: root.printersModelError
     }
 
     switchWidth: Kirigami.Units.gridUnit * 10

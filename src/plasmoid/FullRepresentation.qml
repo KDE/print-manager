@@ -6,6 +6,7 @@
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
+pragma ComponentBehavior: Bound
 
 import QtQuick
 import org.kde.plasma.extras as PlasmaExtras
@@ -17,6 +18,9 @@ import org.kde.plasma.printmanager as PrintManager
 PlasmaExtras.Representation {
     id: fullRep
     required property PrintManager.JobModel printerJobsModel
+    required property bool serverUnavailable
+    required property PrintManager.PrinterModel printersModel
+    required property string printersModelError
 
     collapseMarginsHint: true
 
@@ -29,25 +33,26 @@ PlasmaExtras.Representation {
 
     PlasmaComponents3.ScrollView {
         anchors.fill: parent
-        contentWidth: availableWidth - contentItem.leftMargin - contentItem.rightMargin
+        contentWidth: availableWidth - printerList.leftMargin - printerList.rightMargin
         PlasmaComponents3.ScrollBar.horizontal.policy: PlasmaComponents3.ScrollBar.AlwaysOff
 
         contentItem: ListView {
+            id: printerList
             focus: true
             currentIndex: -1
 
             section {
-                property: printersModel.hasOnlyPrinters ? "" : "isClass"
+                property: fullRep.printersModel.hasOnlyPrinters ? "" : "isClass"
                 delegate: Kirigami.ListSectionHeader {
                     width: ListView.view.width
                     required property bool section
-                    label: !section ? i18n("Printers") : i18n("Printer Groups")
+                    text: !section ? i18n("Printers") : i18n("Printer Groups")
                 }
             }
             
             model: KItemModels.KSortFilterProxyModel {
                 id: printersFilterModel
-                sourceModel: printersModel
+                sourceModel: fullRep.printersModel
                 sortRoleName: "isClass"
                 
                 filterRowCallback: (source_row, source_parent) => {
@@ -67,15 +72,16 @@ PlasmaExtras.Representation {
             highlightResizeDuration: Kirigami.Units.shortDuration
             delegate: PrinterDelegate {
                 printerJobsModel: fullRep.printerJobsModel
+                printersModel: fullRep.printersModel
             }
 
             Loader {
                 anchors.centerIn: parent
                 width: parent.width - (Kirigami.Units.largeSpacing * 4)
-                active: printersFilterModel.count === 0 || serverUnavailable
+                active: printersFilterModel.count === 0 || fullRep.serverUnavailable
                 sourceComponent: PlasmaExtras.PlaceholderMessage {
-                    text: serverUnavailable ? printersModelError || i18n("No printers have been configured or discovered") : i18n("No matches")
-                    iconName: serverUnavailable ? "dialog-error" : "edit-none"
+                    text: fullRep.serverUnavailable ? fullRep.printersModelError || i18n("No printers have been configured or discovered") : i18n("No matches")
+                    iconName: fullRep.serverUnavailable ? "dialog-error" : "edit-none"
                 }
             }
         }

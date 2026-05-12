@@ -68,11 +68,11 @@ Kirigami.ApplicationWindow {
             // or CUPS stops/starts
             onError: (err, title, msg) => {
                 // err === 0 means successful load
-                if (err !== 0 && !available) {
-                    if (pageStack.depth >= 1) {
-                        pageStack.pop()
+                if (err !== 0 && !root.available) {
+                    if (root.pageStack.depth >= 1) {
+                        root.pageStack.pop()
                     }
-                    pageStack.push(naComp)
+                    root.pageStack.push(naComp)
                 }
             }
         }
@@ -101,7 +101,7 @@ Kirigami.ApplicationWindow {
         topPadding: 0
         bottomPadding: 0
 
-        edge: Qt.application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
+        edge: Application.layoutDirection === Qt.RightToLeft ? Qt.RightEdge : Qt.LeftEdge
         modal: printers.count === 1
         width: Math.round(root.width * .25)
 
@@ -126,7 +126,7 @@ Kirigami.ApplicationWindow {
                     Layout.preferredWidth: Kirigami.Units.iconSizes.medium
                     display: QQC2.ToolButton.IconOnly
 
-                    onClicked: applicationWindow().pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {}, {
+                    onClicked: root.pageStack.pushDialogLayer(Qt.createComponent("org.kde.kirigamiaddons.formcard", "AboutPage"), {}, {
                         width: Kirigami.Units.gridUnit * 30,
                     });
 
@@ -215,7 +215,7 @@ Kirigami.ApplicationWindow {
                             return
                         }
 
-                        containsAcceptableDrag = event.mimeData.source.jobPrinter !== printerName
+                        containsAcceptableDrag = event.mimeData.source.jobPrinter !== deviceDelegate.printerName
                         if (!containsAcceptableDrag) {
                             event.ignore();
                         }
@@ -227,7 +227,7 @@ Kirigami.ApplicationWindow {
 
                     onDrop: event => {
                         if (containsAcceptableDrag) {
-                            jobsModel.move(event.mimeData.source.jobPrinter, event.mimeData.source.jobId, printerName)
+                            jobsModel.move(event.mimeData.source.jobPrinter, event.mimeData.source.jobId, deviceDelegate.printerName)
                         }
                         containsAcceptableDrag = false;
                     }
@@ -247,9 +247,9 @@ Kirigami.ApplicationWindow {
                         id: titleItem
                         Layout.preferredWidth: deviceDelegate.width * .75
                         title: deviceDelegate.text
-                        subtitle: stateMessage
+                        subtitle: deviceDelegate.stateMessage
                         icon: icon.fromControlsIcon(deviceDelegate.icon)
-                        font.bold: printers.count > 1 & isDefault
+                        font.bold: printers.count > 1 & deviceDelegate.isDefault
                     }
 
                     Kirigami.ActionToolBar {
@@ -261,20 +261,20 @@ Kirigami.ApplicationWindow {
 
                         actions: [
                             Kirigami.Action {
-                                icon.name: isPaused
+                                icon.name: deviceDelegate.isPaused
                                            ? "media-playback-start-symbolic"
                                            : "media-playback-pause-symbolic"
-                                text: isPaused
+                                text: deviceDelegate.isPaused
                                       ? i18nc("@action:button Resume printing", "Resume")
                                       : i18nc("@action:button Pause printing", "Pause")
 
                                 displayHint: Kirigami.DisplayHint.KeepVisible
 
                                 onTriggered: {
-                                    if (isPaused) {
-                                        PM.PrinterCommands.resumePrinter(printerName);
+                                    if (deviceDelegate.isPaused) {
+                                        PM.PrinterCommands.resumePrinter(deviceDelegate.printerName);
                                     } else {
-                                        PM.PrinterCommands.pausePrinter(printerName);
+                                        PM.PrinterCommands.pausePrinter(deviceDelegate.printerName);
                                     }
                                 }
                             },
@@ -283,13 +283,13 @@ Kirigami.ApplicationWindow {
                                 icon.name: "settings-configure-symbolic"
                                 enabled: KAuthorized.authorizeControlModule("kcm_printer_manager")
 
-                                onTriggered: PM.ProcessRunner.kcmConfigurePrinter(printerName)
+                                onTriggered: PM.ProcessRunner.kcmConfigurePrinter(deviceDelegate.printerName)
                             },
                             Kirigami.Action {
                                 text: i18nc("@action:button Open additional printer settings", "Media Settings…")
                                 icon.name: "paper-color-symbolic"
 
-                                onTriggered: PM.ProcessRunner.configurePrinter(printerName)
+                                onTriggered: PM.ProcessRunner.configurePrinter(deviceDelegate.printerName)
                             }
                         ]
                     }

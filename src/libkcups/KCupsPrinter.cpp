@@ -10,6 +10,8 @@
 #include "KCupsPrinter.h"
 #include <KLocalizedString>
 
+using namespace Qt::StringLiterals;
+
 KCupsPrinter::KCupsPrinter()
     : m_isClass(false)
 {
@@ -293,6 +295,25 @@ KCupsPrinter::Status KCupsPrinter::state() const
 QString KCupsPrinter::stateMsg() const
 {
     return m_attributes[KCUPS_PRINTER_STATE_MESSAGE].toString();
+}
+
+QString KCupsPrinter::checkNotAvailable(const QString &msg) const
+{
+    static const QStringList keywords{u"offline"_s, u"paused"_s, u"stopped"_s, u"shutdown"_s};
+
+    if (state() == Stopped) {
+        return i18nc("@info:status", "The printer is paused or stopped.");
+    }
+
+    auto it = std::find_if(keywords.begin(), keywords.end(), [this](const QString &keyword) {
+        return stateMsg().contains(keyword, Qt::CaseInsensitive);
+    });
+
+    if (msg.contains(u"unable to locate"_s, Qt::CaseInsensitive) || msg.contains(u"unavailable"_s, Qt::CaseInsensitive) || it != keywords.end()) {
+        return msg;
+    }
+
+    return {};
 }
 
 int KCupsPrinter::markerChangeTime() const

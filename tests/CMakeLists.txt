@@ -16,6 +16,13 @@ ecm_add_test(
 )
 
 ecm_add_test(
+    notifystatustest.cpp
+    TEST_NAME notifystatustests
+    LINK_LIBRARIES kcups Qt::Test
+    NAME_PREFIX "pm-"
+)
+
+ecm_add_test(
     commandtest.cpp
     TestHelpers.h
     TEST_NAME commandtests

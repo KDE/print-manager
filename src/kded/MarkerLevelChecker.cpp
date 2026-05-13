@@ -40,6 +40,7 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
                                       KCUPS_MARKER_HIGH_LEVELS,
                                       KCUPS_MARKER_LOW_LEVELS,
                                       KCUPS_MARKER_TYPES,
+                                      KCUPS_PRINTER_STATE,
                                       KCUPS_PRINTER_INFO,
                                       KCUPS_PRINTER_TYPE});
 
@@ -66,6 +67,17 @@ void MarkerLevelChecker::checkMarkerLevels(const QString &printerName)
         }
 
         const auto printer = req->printers().at(0);
+
+        // Notify if a job is created and the printer is offline
+        if (printer.state() == KCupsPrinter::Stopped) {
+            auto notify = new KNotification(u"StatusWarning"_s);
+            notify->setComponentName(u"printmanager"_s);
+            notify->setTitle(printer.info());
+            notify->setText(i18nc(
+                "@info:status",
+                "A print job was sent and the printer is currently unavailable. The print job will complete when the printer is turned on or connected."));
+            notify->sendEvent();
+        }
 
         // QVariant::toList converts an int to a null list
         // So, create a QList<int> if only one entry (int)

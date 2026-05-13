@@ -50,6 +50,20 @@ public:
 
     Status state() const;
     QString stateMsg() const;
+    /**
+     * @brief checkNotAvailable - Check to see if a printer is available
+     *
+     * @param msg is a string that can be searched for keywords indicating
+     * availability of the printer.
+     *
+     * @return If the printer is not available, the message param, as this
+     * is generally an informative message from CUPS detailing the reason.
+     * However, for paused printers, return a simple message that
+     * the printer is paused.
+     *
+     * Returns an empty string if the printer is available.
+     */
+    QString checkNotAvailable(const QString &msg) const;
     int markerChangeTime() const;
     QVariant argument(const QString &name) const;
 

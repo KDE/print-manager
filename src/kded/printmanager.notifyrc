@@ -111,6 +111,11 @@ Comment[uk]=Сповіщення про виявлення нового прин
 Comment[zh_CN]=检测到新打印机时通知
 Comment[zh_TW]=偵測到新印表機時發出通知
 
+[Event/StatusWarning]
+Name=Printer Status Warning
+Action=Popup
+IconName=printer-warning
+
 [Event/MarkerLevel]
 Name=Low Ink/Toner Levels
 Name[ar]=مستويات الحبر/مسحوق الحبر منخفضة

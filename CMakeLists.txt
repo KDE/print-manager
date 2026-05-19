@@ -53,6 +53,10 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
 find_package(Plasma ${PROJECT_DEP_VERSION} REQUIRED)
 
 ecm_find_qmlmodule(org.kde.kitemmodels REQUIRED)
+ecm_find_qmlmodule(org.kde.draganddrop REQUIRED)
+ecm_find_qmlmodule(org.kde.coreaddons REQUIRED)
+ecm_find_qmlmodule(org.kde.config REQUIRED)
+ecm_find_qmlmodule(org.kde.kirigami REQUIRED)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.8

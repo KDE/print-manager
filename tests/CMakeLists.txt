@@ -33,6 +33,11 @@ if(KF6KCMUtils_VERSION VERSION_GREATER_EQUAL "6.27.0")
     )
 endif()
 
+add_test(NAME print-queue_smoketest COMMAND plasma-print-queue --smoke-test)
+set_tests_properties(print-queue_smoketest PROPERTIES
+    ENVIRONMENT_MODIFICATION QT_PLUGIN_PATH=path_list_prepend:${CMAKE_BINARY_DIR}/bin
+)
+
 add_custom_command(TARGET modeltests POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
             ${CMAKE_CURRENT_SOURCE_DIR}/scripts

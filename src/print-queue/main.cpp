@@ -6,6 +6,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QQuickWindow>
+#include <QTimer>
 #include <QWindow>
 
 #include <KAboutData>
@@ -52,29 +53,42 @@ int main(int argc, char **argv)
     KDBusService service(KDBusService::Unique);
 
     QString dest;
+    bool isTest = false;
     {
         QCommandLineParser parser;
         aboutData.setupCommandLine(&parser);
+        QCommandLineOption smokeTest(QStringLiteral("smoke-test"), QStringLiteral("internal, for automated testing"));
+        parser.addOption(smokeTest);
         parser.addPositionalArgument(QLatin1String("queue"), i18n("Show printer queue"));
         parser.process(app);
         aboutData.processCommandLine(&parser);
 
+        isTest = parser.isSet(smokeTest);
         if (parser.positionalArguments().count() == 1) {
             dest = parser.positionalArguments().at(0);
         }
     }
 
     PrintQueue pq(dest);
-    QObject::connect(&service, &KDBusService::activateRequested, &app, [&pq](const QStringList &arguments) {
-        if (auto win = pq.mainWindow()) {
-            raiseWindow(win);
-        }
-        if (arguments.count() > 1) {
-            pq.init(arguments.at(1)); // executable is first param
+    // Fatal qml loading error
+    if (!pq.mainWindow()) {
+        exit(1);
+    } else {
+        if (isTest) {
+            QTimer::singleShot(std::chrono::milliseconds(250), &app, &QCoreApplication::quit);
         } else {
-            pq.init({});
+            QObject::connect(&service, &KDBusService::activateRequested, &app, [&pq](const QStringList &arguments) {
+                if (auto win = pq.mainWindow()) {
+                    raiseWindow(win);
+                }
+                if (arguments.count() > 1) {
+                    pq.init(arguments.at(1)); // executable is first param
+                } else {
+                    pq.init({});
+                }
+            });
         }
-    });
 
-    return app.exec();
+        return app.exec();
+    }
 }

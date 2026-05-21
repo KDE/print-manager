@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-23 00:46+0000\n"
+"POT-Creation-Date: 2026-05-21 00:46+0000\n"
 "PO-Revision-Date: 2026-02-24 04:55+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,48 +18,48 @@ msgstr ""
 "X-Generator: Poedit 3.8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: main.cpp:38
+#: main.cpp:39
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
 msgstr "Plasma-ის ბეჭდვის რიგის მმართველი"
 
-#: main.cpp:40
+#: main.cpp:41
 #, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
 msgstr "პრინტერის დავალების რიგების მართვა"
 
-#: main.cpp:42
+#: main.cpp:43
 #, kde-format
 msgid "© KDE Community"
 msgstr "© KDE-ის საზოგადოება"
 
-#: main.cpp:47
+#: main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
 msgstr "მაიკ ნოე"
 
-#: main.cpp:47
+#: main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
 msgstr "პროგრამისტი"
 
-#: main.cpp:48
+#: main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Temuri Doghonadze"
 
-#: main.cpp:48
+#: main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "temuri.doghonadze@gmail.com"
 
-#: main.cpp:58
+#: main.cpp:62
 #, kde-format
 msgid "Show printer queue"
 msgstr "პრინტერის რიგის ჩვენება"

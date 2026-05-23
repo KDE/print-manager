@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:46+0000\n"
+"POT-Creation-Date: 2026-05-23 00:46+0000\n"
 "PO-Revision-Date: 2026-04-30 13:43+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -18,23 +18,23 @@ msgstr ""
 "n % 10 == 0) ? 2 : 3));\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
+#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:50
 msgid "Printers"
 msgstr "מדפסות"
 
-#: src/plasmoid/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:49
 msgid "Printer Groups"
 msgstr "קבוצות מדפסות"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
+#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:71
 msgid "No printers have been configured or discovered"
 msgstr "לא הוגדרו או התגלו מדפסות"
 
-#: src/plasmoid/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:83
 msgid "No matches"
 msgstr "אין התאמות"
 
-#: src/plasmoid/main.qml:53
+#: src/plasmoid/main.qml:55
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "אין משימת הדפסה בתור"
@@ -42,51 +42,51 @@ msgstr[1] "אין שתי משימות הדפסה בתור"
 msgstr[2] "אין %1 משימות הדפסה בתור"
 msgstr[3] "אין %1 משימות הדפסה בתור"
 
-#: src/plasmoid/main.qml:62
+#: src/plasmoid/main.qml:64
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 מודפס דרך %2"
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:66
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "הדפסה דרך %1"
 
-#: src/plasmoid/main.qml:67
+#: src/plasmoid/main.qml:69
 msgid "Print queue is empty"
 msgstr "תור ההדפסה ריק"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
+#: src/plasmoid/main.qml:78 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
 
-#: src/plasmoid/main.qml:103
+#: src/plasmoid/main.qml:108
 msgid "&Configure Printers…"
 msgstr "ה&גדרת מדפסות…"
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Resume"
 msgstr "המשך"
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Pause"
 msgstr "השהיה"
 
-#: src/plasmoid/PrinterDelegate.qml:75
+#: src/plasmoid/PrinterDelegate.qml:77
 msgid "Configure Printer…"
 msgstr "הגדרת מדפסות…"
 
-#: src/plasmoid/PrinterDelegate.qml:80
+#: src/plasmoid/PrinterDelegate.qml:82
 msgid "View Print Queue"
 msgstr "הצגת תור הדפסה"
 
-#: src/plasmoid/PrinterDelegate.qml:155
+#: src/plasmoid/PrinterDelegate.qml:157
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/plasmoid/PrinterDelegate.qml:190
+#: src/plasmoid/PrinterDelegate.qml:192
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

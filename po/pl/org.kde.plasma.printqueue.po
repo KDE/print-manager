@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:46+0000\n"
+"POT-Creation-Date: 2026-05-23 00:46+0000\n"
 "PO-Revision-Date: 2026-03-14 07:06+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -258,25 +258,25 @@ msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"
 msgstr "Ustawienia nośników…"
 
-#: qml/NotAvailablePage.qml:29
+#: qml/NotAvailablePage.qml:27
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers have been set up"
 msgstr "Nie ustawiono żadnych drukarek"
 
-#: qml/NotAvailablePage.qml:31
+#: qml/NotAvailablePage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Set Up a Printer…"
 msgstr "Ustaw drukarkę…"
 
-#: qml/NotAvailablePage.qml:43
+#: qml/NotAvailablePage.qml:41
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
 msgstr "Usługi wydruku nie są dostępne"
 
-#: qml/NotAvailablePage.qml:44
+#: qml/NotAvailablePage.qml:42
 #, kde-format
 msgctxt ""
 "@info:usagetip %1 is the distribution support URL %2 is the distribution name"
@@ -287,13 +287,13 @@ msgstr ""
 "Upewnij się, że usługa CUPS jest włączona lub zajrzyj na: <a href="
 "\"%1\">wsparcie %2</a>"
 
-#: qml/NotAvailablePage.qml:54
+#: qml/NotAvailablePage.qml:52
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown error condition with printing services"
 msgstr "Nieznany stan błędu związany z usługą drukowania"
 
-#: qml/NotAvailablePage.qml:55
+#: qml/NotAvailablePage.qml:53
 #, kde-format
 msgctxt ""
 "@info:usagetip %1 is the distribution bug report URL %2 is the distribution "

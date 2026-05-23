@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:46+0000\n"
+"POT-Creation-Date: 2026-05-23 00:46+0000\n"
 "PO-Revision-Date: 2026-05-01 15:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -19,73 +19,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
+#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:50
 msgid "Printers"
 msgstr "Yazıcılar"
 
-#: src/plasmoid/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:49
 msgid "Printer Groups"
 msgstr "Yazıcı Grupları"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
+#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:71
 msgid "No printers have been configured or discovered"
 msgstr "Hiçbir yazıcı yapılandırılmadı veya algılanmadı"
 
-#: src/plasmoid/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:83
 msgid "No matches"
 msgstr "Eşleşme yok"
 
-#: src/plasmoid/main.qml:53
+#: src/plasmoid/main.qml:55
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Kuyrukta %1 yazdırma işi var"
 msgstr[1] "Kuyrukta %1 yazdırma işi var"
 
-#: src/plasmoid/main.qml:62
+#: src/plasmoid/main.qml:64
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%2 ile %1 yazdırılıyor"
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:66
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 ile yazdırılıyor"
 
-#: src/plasmoid/main.qml:67
+#: src/plasmoid/main.qml:69
 msgid "Print queue is empty"
 msgstr "Yazdırma kuyruğu boş"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
+#: src/plasmoid/main.qml:78 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
 
-#: src/plasmoid/main.qml:103
+#: src/plasmoid/main.qml:108
 msgid "&Configure Printers…"
 msgstr "&Yazıcıları Yapılandır"
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Resume"
 msgstr "Sürdür"
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Pause"
 msgstr "Duraklat"
 
-#: src/plasmoid/PrinterDelegate.qml:75
+#: src/plasmoid/PrinterDelegate.qml:77
 msgid "Configure Printer…"
 msgstr "Yazıcıyı Yapılandır…"
 
-#: src/plasmoid/PrinterDelegate.qml:80
+#: src/plasmoid/PrinterDelegate.qml:82
 msgid "View Print Queue"
 msgstr "Yazdırma Kuyruğunu Görüntüle"
 
-#: src/plasmoid/PrinterDelegate.qml:155
+#: src/plasmoid/PrinterDelegate.qml:157
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/plasmoid/PrinterDelegate.qml:190
+#: src/plasmoid/PrinterDelegate.qml:192
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:46+0000\n"
+"POT-Creation-Date: 2026-05-23 00:46+0000\n"
 "PO-Revision-Date: 2026-02-26 21:24\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -258,25 +258,25 @@ msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"
 msgstr "媒体设置…"
 
-#: qml/NotAvailablePage.qml:29
+#: qml/NotAvailablePage.qml:27
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers have been set up"
 msgstr "没有安装打印机"
 
-#: qml/NotAvailablePage.qml:31
+#: qml/NotAvailablePage.qml:29
 #, kde-format
 msgctxt "@action:button"
 msgid "Set Up a Printer…"
 msgstr "安装打印机…"
 
-#: qml/NotAvailablePage.qml:43
+#: qml/NotAvailablePage.qml:41
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
 msgstr "打印服务不可用"
 
-#: qml/NotAvailablePage.qml:44
+#: qml/NotAvailablePage.qml:42
 #, kde-format
 msgctxt ""
 "@info:usagetip %1 is the distribution support URL %2 is the distribution name"
@@ -285,13 +285,13 @@ msgid ""
 "Support</a>"
 msgstr "请检查 CUPS 系统服务是否活动，或检查：<a href=\"%1\">%2 支持</a>"
 
-#: qml/NotAvailablePage.qml:54
+#: qml/NotAvailablePage.qml:52
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown error condition with printing services"
 msgstr "未知的打印服务错误"
 
-#: qml/NotAvailablePage.qml:55
+#: qml/NotAvailablePage.qml:53
 #, kde-format
 msgctxt ""
 "@info:usagetip %1 is the distribution bug report URL %2 is the distribution "

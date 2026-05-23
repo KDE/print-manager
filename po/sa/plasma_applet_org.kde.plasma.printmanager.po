@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:46+0000\n"
+"POT-Creation-Date: 2026-05-23 00:46+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -17,77 +17,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
+#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:50
 msgid "Printers"
 msgstr "मुद्रकाः"
 
-#: src/plasmoid/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:49
 msgid "Printer Groups"
 msgstr "मुद्रकसमूहाः"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
+#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:71
 msgid "No printers have been configured or discovered"
 msgstr "न कोऽपि मुद्रकः विन्यस्तः आविष्कृतः वा"
 
-#: src/plasmoid/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:83
 msgid "No matches"
 msgstr "न मेलनं"
 
-#: src/plasmoid/main.qml:53
+#: src/plasmoid/main.qml:55
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "पङ्क्तौ एकं मुद्रणकार्यम् अस्ति"
 msgstr[1] "पङ्क्तौ %1 मुद्रणकार्यं भवति"
 
-#: src/plasmoid/main.qml:62
+#: src/plasmoid/main.qml:64
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "%1 %2 इत्यनेन सह मुद्रयति"
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:66
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "%1 इत्यनेन सह मुद्रणम्"
 
-#: src/plasmoid/main.qml:67
+#: src/plasmoid/main.qml:69
 msgid "Print queue is empty"
 msgstr "मुद्रणपङ्क्तिः रिक्तः अस्ति"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
+#: src/plasmoid/main.qml:78 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
 
-#: src/plasmoid/main.qml:103
+#: src/plasmoid/main.qml:108
 msgid "&Configure Printers…"
 msgstr "&मुद्रकान् विन्यस्तं कुर्वन्तु..."
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Resume"
 msgstr "पुनर्प्रारम्भय"
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Pause"
 msgstr "विराम"
 
-#: src/plasmoid/PrinterDelegate.qml:75
+#: src/plasmoid/PrinterDelegate.qml:77
 #, fuzzy
 #| msgid "&Configure Printers…"
 msgid "Configure Printer…"
 msgstr "&मुद्रकान् विन्यस्तं कुर्वन्तु..."
 
-#: src/plasmoid/PrinterDelegate.qml:80
+#: src/plasmoid/PrinterDelegate.qml:82
 #, fuzzy
 #| msgid "View print queue…"
 msgid "View Print Queue"
 msgstr "मुद्रणपङ्क्तिं पश्यन्तु..."
 
-#: src/plasmoid/PrinterDelegate.qml:155
+#: src/plasmoid/PrinterDelegate.qml:157
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "निरसयतु"
 
-#: src/plasmoid/PrinterDelegate.qml:190
+#: src/plasmoid/PrinterDelegate.qml:192
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

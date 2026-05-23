@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:46+0000\n"
+"POT-Creation-Date: 2026-05-23 00:46+0000\n"
 "PO-Revision-Date: 2026-05-01 15:18+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -21,23 +21,23 @@ msgstr ""
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
 "X-Generator: Poedit 3.8\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
+#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:50
 msgid "Printers"
 msgstr "Spausdintuvai"
 
-#: src/plasmoid/FullRepresentation.qml:44
+#: src/plasmoid/FullRepresentation.qml:49
 msgid "Printer Groups"
 msgstr "Spausdintuvų grupės"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
+#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:71
 msgid "No printers have been configured or discovered"
 msgstr "Nėra sukonfigūruota ar atrasta jokių spausdintuvų"
 
-#: src/plasmoid/FullRepresentation.qml:77
+#: src/plasmoid/FullRepresentation.qml:83
 msgid "No matches"
 msgstr "Nėra atitikmenų"
 
-#: src/plasmoid/main.qml:53
+#: src/plasmoid/main.qml:55
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Eilėje yra vienas spausdinimo darbas"
@@ -45,51 +45,51 @@ msgstr[1] "Eilėje yra %1 spausdinimo darbai"
 msgstr[2] "Eilėje yra %1 spausdinimo darbų"
 msgstr[3] "Eilėje yra %1 spausdinimo darbas"
 
-#: src/plasmoid/main.qml:62
+#: src/plasmoid/main.qml:64
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Spausdinama %1 naudojant %2"
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:66
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Spausdinama naudojant %1"
 
-#: src/plasmoid/main.qml:67
+#: src/plasmoid/main.qml:69
 msgid "Print queue is empty"
 msgstr "Spausdinimo eilė tuščia"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
+#: src/plasmoid/main.qml:78 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
 
-#: src/plasmoid/main.qml:103
+#: src/plasmoid/main.qml:108
 msgid "&Configure Printers…"
 msgstr "&Konfigūruoti spausdintuvus…"
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Resume"
 msgstr "Pratęsti"
 
-#: src/plasmoid/PrinterDelegate.qml:49
+#: src/plasmoid/PrinterDelegate.qml:51
 msgid "Pause"
 msgstr "Pristabdyti"
 
-#: src/plasmoid/PrinterDelegate.qml:75
+#: src/plasmoid/PrinterDelegate.qml:77
 msgid "Configure Printer…"
 msgstr "Konfigūruoti spausdintuvą…"
 
-#: src/plasmoid/PrinterDelegate.qml:80
+#: src/plasmoid/PrinterDelegate.qml:82
 msgid "View Print Queue"
 msgstr "Rodyti spausdinimo eilę"
 
-#: src/plasmoid/PrinterDelegate.qml:155
+#: src/plasmoid/PrinterDelegate.qml:157
 msgctxt "@action:button"
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/plasmoid/PrinterDelegate.qml:190
+#: src/plasmoid/PrinterDelegate.qml:192
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"

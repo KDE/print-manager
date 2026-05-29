@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Svetoslav Stefanov <svetlisashkov@yahoo.com>, 2014.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-12 00:47+0000\n"
-"PO-Revision-Date: 2026-04-03 00:34+0200\n"
+"PO-Revision-Date: 2026-05-28 13:09+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 26.04.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:93
@@ -637,8 +637,7 @@ msgid "From Hostname"
 msgstr "От името на хоста"
 
 #: src/libkcups/JobModel.cpp:167
-#, fuzzy, kde-format
-#| msgid "Processing\t%1 [%2]"
+#, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
 msgstr "Обработване на\t%1 [%2]"
@@ -836,104 +835,3 @@ msgstr "Показване на опашката за печат"
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Въведете данните за идентификация за печат от <b>%1</b>"
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "Неуспешно използване на заявкатаt: %1"
-
-#~ msgid "A new printer was detected"
-#~ msgstr "Открит е нов принтер"
-
-#~ msgctxt "@action:button"
-#~ msgid "Configure new printer…"
-#~ msgstr "Настройване на нов принтер…"
-
-#~ msgid "Failed to move '%1' to '%2'"
-#~ msgstr "Неуспешно преместване на '%1' в '%2'"
-
-#~ msgid "Failed"
-#~ msgstr "Неуспех"
-
-#~ msgid "Print Queue"
-#~ msgstr "Опашка за печат"
-
-#~ msgid "Printer ready"
-#~ msgstr "Принтерът е готов"
-
-#~ msgid "Pause Printer"
-#~ msgstr "Пауза на принтера"
-
-#~ msgid "Printing..."
-#~ msgstr "Печат..."
-
-#~ msgid "Printing '%1'"
-#~ msgstr "Печат на '%1'"
-
-#~ msgid "Printer paused"
-#~ msgstr "Принтерът е на пауза"
-
-#~ msgid "Resume Printer"
-#~ msgstr "Продължаване на печата"
-
-#~ msgid "Printer state unknown"
-#~ msgstr "Неизвестно състояние на принтера"
-
-#~ msgid "Move to"
-#~ msgstr "Преместване в"
-
-#~ msgid "Authenticate"
-#~ msgstr "Удостоверяване"
-
-#~ msgid "All Printers (%1 Job)"
-#~ msgid_plural "All Printers (%1 Jobs)"
-#~ msgstr[0] "Всички принтери (%1 задача)"
-#~ msgstr[1] "Всички принтери (%1 задачи)"
-
-#~ msgid "%2 (%1 Job)"
-#~ msgid_plural "%2 (%1 Jobs)"
-#~ msgstr[0] "%2 (%1 задача)"
-#~ msgstr[1] "%2 (%1 задачи)"
-
-#~ msgid "All Printers"
-#~ msgstr "Всички принтери"
-
-#~ msgid "Failed to cancel '%1'"
-#~ msgstr "Неуспешно отказване на '%1'"
-
-#~ msgid "Failed to hold '%1'"
-#~ msgstr "Неуспешно задържане на '%1'"
-
-#~ msgid "Failed to release '%1'"
-#~ msgstr "Неуспешно освобождаване на '%1'"
-
-#~ msgid "Failed to reprint '%1'"
-#~ msgstr "Неуспешно повторно отпечатане на '%1'"
-
-#~ msgid "my printer (x jobs)"
-#~ msgstr "моят принтер (x задачи)"
-
-#~ msgid "Printer Icon"
-#~ msgstr "Икона на принтер"
-
-#~ msgid "Cancel"
-#~ msgstr "Отказ"
-
-#~ msgid "Hold"
-#~ msgstr "Задържане"
-
-#~ msgid "Resume"
-#~ msgstr "Продължаване"
-
-#~ msgid "Reprint"
-#~ msgstr "Повторен печат"
-
-#~ msgid "Active Jobs"
-#~ msgstr "Активни задачи"
-
-#~ msgid "Completed Jobs"
-#~ msgstr "Приключени задачи"
-
-#~ msgid "All Jobs"
-#~ msgstr "Всички задачи"
-
-#~ msgid "Starting printer configuration"
-#~ msgstr "Започване на настройването на принтер"

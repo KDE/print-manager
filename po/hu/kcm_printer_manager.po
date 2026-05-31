@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2024, 2025 Kristof Kiszel <ulysses@fsf.hu>
+# SPDX-FileCopyrightText: 2024-2026 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-15 00:49+0000\n"
-"PO-Revision-Date: 2025-11-10 21:59+0100\n"
+"PO-Revision-Date: 2026-05-30 21:37+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.08.2\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: printermanager.cpp:99
 #, kde-format
@@ -218,48 +218,40 @@ msgstr ""
 "válassza a <interface>Keresés</interface>t."
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "Nyomtatókapcsolat beállítása"
+msgstr "Windows hálózaton lévő nyomtató beállítása"
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the LPD device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "Adja meg az LPD-eszköz címét"
+msgstr "Adja meg a Windows nyomtató címét"
 
 #: ui/components/Smb.qml:45
 #, kde-format
 msgctxt "@label:textbox Authentication user name"
 msgid "Username:"
-msgstr ""
+msgstr "Felhasználónév:"
 
 #: ui/components/Smb.qml:50
 #, kde-format
 msgctxt "@label:textbox Authentication password"
 msgid "Password:"
-msgstr ""
+msgstr "Jelszó:"
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "Nyomtató kiválasztása…"
+msgstr "Nyomtató mentése…"
 
 #: ui/components/Smb.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Invalid LPD URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr "Érvénytelen LPD URL: %1"
+msgstr "Érvénytelen nyomtató URL: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -521,12 +513,10 @@ msgid "Printer Groups"
 msgstr "Nyomtatócsoportok"
 
 #: ui/main.qml:377
-#, fuzzy, kde-format
-#| msgctxt "@action:button Open print queue"
-#| msgid "Print Queue"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "Nyomtatási sor"
+msgstr "Nyomtatási sor megnyitása"
 
 #: ui/main.qml:386
 #, kde-format

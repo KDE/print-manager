@@ -1,0 +1,299 @@
+# Uyghur translation for org.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+# Abduqadir Abliz <sahranbay@gmail.com>, 2026., YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-05-23 00:46+0000\n"
+"PO-Revision-Date: 2026-06-01 18:33-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: main.cpp:39
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr "Plasma باسقۇ قاتار باشقۇرغۇچ"
+
+#: main.cpp:41
+#, kde-format
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
+msgstr "باسقۇ ۋەزىپە قاتارىنى باشقۇرىدۇ"
+
+#: main.cpp:43
+#, kde-format
+msgid "© KDE Community"
+msgstr "© KDE جامائىتى"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr "Mike Noe"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "ئىجادكار"
+
+#: main.cpp:49
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
+
+#: main.cpp:49
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
+
+#: main.cpp:62
+#, kde-format
+msgid "Show printer queue"
+msgstr "بېسىش قاتارىنى كۆرسەت"
+
+#: PrintQueue.cpp:82
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "<b>%1</b> دىن بېسىش ئۈچۈن ئىسپات كىرگۈزۈش تەلەپ قىلىنىدۇ"
+
+#: qml/JobView.qml:30
+#, kde-format
+msgctxt "@label Job types currently showing"
+msgid "%1 Jobs"
+msgstr ""
+
+#: qml/JobView.qml:58
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Filter Jobs"
+msgstr ""
+
+#: qml/JobView.qml:63
+#, kde-format
+msgctxt "option:check Show active Jobs"
+msgid "Active"
+msgstr "ئاكتىپ"
+
+#: qml/JobView.qml:71
+#, kde-format
+msgctxt "option:check Show completed jobs"
+msgid "Completed"
+msgstr "تاماملاندى"
+
+#: qml/JobView.qml:79
+#, kde-format
+msgctxt "option:check Show all jobs"
+msgid "All"
+msgstr "ھەممىسى"
+
+#: qml/JobView.qml:90
+#, kde-format
+msgctxt "@option:check Hide expanded job view"
+msgid "Hide Job Details"
+msgstr ""
+
+#: qml/JobView.qml:91
+#, kde-format
+msgctxt "@option:check Show expanded job view"
+msgid "Show Job Details"
+msgstr ""
+
+#: qml/JobView.qml:98
+#, kde-format
+msgctxt "@action:button Cancel all active jobs"
+msgid "Cancel All Jobs"
+msgstr "بارلىق ۋەزىپىلەرنى ئەمەلدىن قالدۇرۇش"
+
+#: qml/JobView.qml:112
+#, kde-format
+msgctxt "@title:window"
+msgid "Cancel all active print jobs?"
+msgstr ""
+
+#: qml/JobView.qml:139
+#, kde-format
+msgctxt "@info:status Print jobs not found in the print queue"
+msgid "The print queue is empty"
+msgstr ""
+
+#: qml/JobView.qml:158
+#, kde-format
+msgctxt ""
+"@action:inmenu Move the job to /info/ which is the friendly name of the "
+"other print queue"
+msgid "Move to %1"
+msgstr "%1 غا يۆتكە"
+
+#: qml/JobView.qml:246
+#, kde-format
+msgctxt "@action:button This action cancels the job"
+msgid "Cancel"
+msgstr "ۋاز كەچ"
+
+#: qml/JobView.qml:257
+#, kde-format
+msgctxt "@action:button This action holds the job"
+msgid "Hold"
+msgstr "كۈتۈش"
+
+#: qml/JobView.qml:268
+#, kde-format
+msgctxt "@action:button This action releases the job"
+msgid "Release"
+msgstr ""
+
+#: qml/JobView.qml:279
+#, kde-format
+msgctxt "@action:button This action reprints the job"
+msgid "Reprint"
+msgstr ""
+
+#: qml/JobView.qml:289
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "يۆتكە"
+
+#: qml/JobView.qml:300
+#, kde-format
+msgctxt ""
+"@action:button This action prompts for user/password to authenticate the job"
+msgid "Authenticate"
+msgstr "كىملىك دەلىللەش"
+
+#: qml/JobView.qml:321
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1, %2"
+msgstr ""
+
+#: qml/JobView.qml:322
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1"
+msgstr "ھالىتى: %1"
+
+#: qml/JobView.qml:327
+#, kde-format
+msgctxt "@label:info Date created"
+msgid "Created: %1"
+msgstr ""
+
+#: qml/JobView.qml:338
+#, kde-format
+msgctxt "@label:info Date completed"
+msgid "Completed: %1"
+msgstr ""
+
+#: qml/JobView.qml:343
+#, kde-format
+msgctxt "@label:info Date processed"
+msgid "Processed: %1"
+msgstr ""
+
+#: qml/JobView.qml:349
+#, kde-format
+msgctxt "@label:info Job page count"
+msgid "Pages: %1"
+msgstr "بەت: %1"
+
+#: qml/Main.qml:117
+#, kde-format
+msgctxt "@label:header"
+msgid "Printers"
+msgstr "باسقۇ"
+
+#: qml/Main.qml:123
+#, kde-format
+msgctxt "@action:button about this application"
+msgid "About"
+msgstr "ھەققىدە"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printers"
+msgstr "باسقۇ"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printer Groups"
+msgstr "باسقۇ گۇرۇپپىسى"
+
+#: qml/Main.qml:268
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "داۋاملاشتۇر"
+
+#: qml/Main.qml:269
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "ۋاقىتلىق توختا"
+
+#: qml/Main.qml:282
+#, kde-format
+msgctxt "@action:button Configure printer in the kcm"
+msgid "Configure…"
+msgstr "سەپلە…"
+
+#: qml/Main.qml:289
+#, kde-format
+msgctxt "@action:button Open additional printer settings"
+msgid "Media Settings…"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:27
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers have been set up"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "Set Up a Printer…"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:41
+#, kde-format
+msgctxt "@info:status"
+msgid "Printing services not available"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:42
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution support URL %2 is the distribution name"
+msgid ""
+"Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+"Support</a>"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:52
+#, kde-format
+msgctxt "@info:status"
+msgid "Unknown error condition with printing services"
+msgstr ""
+
+#: qml/NotAvailablePage.qml:53
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
+"name"
+msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+msgstr ""

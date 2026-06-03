@@ -50,6 +50,7 @@
   <name xml:lang="ta">அச்சுப்பொறி அமைப்பு</name>
   <name xml:lang="tg">Танзимоти принтер</name>
   <name xml:lang="tr">Yazıcı Yapılandırması</name>
+  <name xml:lang="ug">باسقۇ سەپلىمىسى</name>
   <name xml:lang="uk">Налаштування принтера</name>
   <name xml:lang="zh-CN">打印机配置</name>
   <name xml:lang="zh-TW">印表機設定</name>
@@ -100,6 +101,7 @@
   <summary xml:lang="ta">அச்சுப்பொறிகளை அமையுங்கள்</summary>
   <summary xml:lang="tg">Принтерҳоро танзим намоед</summary>
   <summary xml:lang="tr">Yazıcıları kur ve yapılandır</summary>
+  <summary xml:lang="ug">باسقۇ تەڭشە ۋە سەپلە</summary>
   <summary xml:lang="uk">Встановлення та налаштовування принтерів</summary>
   <summary xml:lang="zh-CN">安装和配置打印机</summary>
   <summary xml:lang="zh-TW">設定並配置印表機</summary>
@@ -207,6 +209,7 @@
       <caption xml:lang="ta">அச்சுப்பொறிக்கான அமைப்புகள்</caption>
       <caption xml:lang="tg">Танзимоти принтер</caption>
       <caption xml:lang="tr">Yazıcı ayarları.</caption>
+      <caption xml:lang="ug">باسقۇچ تەڭشىكى.</caption>
       <caption xml:lang="uk">Параметри принтерів.</caption>
       <caption xml:lang="zh-CN">打印机设置。</caption>
       <caption xml:lang="zh-TW">印表機設定。</caption>

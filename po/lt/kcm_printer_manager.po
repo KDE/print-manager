@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-15 00:49+0000\n"
-"PO-Revision-Date: 2026-01-24 21:52+0200\n"
+"PO-Revision-Date: 2026-06-03 13:52+0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: printermanager.cpp:99
 #, kde-format
@@ -221,7 +221,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "Nustatyti spausdintuvą „Windows“ tinkle"
+msgstr "Paruošti spausdintuvą „Windows“ tinkle"
 
 #: ui/components/Smb.qml:17
 #, kde-format
@@ -274,7 +274,7 @@ msgstr "Neteisingas lizdo URL: %1"
 #, kde-format
 msgctxt "@title:window"
 msgid "Set up a Printer Connection"
-msgstr "Nustatyti sujungimą su spausdintuvu"
+msgstr "Paruošti sujungimą su spausdintuvu"
 
 #: ui/FindPrinter.qml:132 ui/main.qml:276
 #, kde-format
@@ -474,7 +474,7 @@ msgstr "Konfigūruoti spausdinimo serverį…"
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
-msgstr "Šiuo metu nėra nustatytų spausdintuvų"
+msgstr "Šiuo metu nėra paruoštų spausdintuvų"
 
 #: ui/main.qml:264
 #, kde-kuit-format
@@ -483,7 +483,7 @@ msgid ""
 "Click <interface>Add…</interface> to set up a new printer on this computer"
 msgstr ""
 "Spustelėkite <interface>Pridėti…</interface> norėdami šiame kompiuteryje "
-"nustatyti naują spausdintuvą"
+"paruošti naują spausdintuvą"
 
 #: ui/main.qml:273
 #, kde-format

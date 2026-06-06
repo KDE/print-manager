@@ -20,6 +20,7 @@
 #include <QDBusPendingCallWatcher>
 #include <QDBusPendingReply>
 #include <QStringDecoder>
+#include <qqml.h>
 
 #include <KLocalizedString>
 

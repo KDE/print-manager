@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:46+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2013-03-15 15:30+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -205,46 +205,46 @@ msgstr "मूलभूत पर्याय निश्चित करा"
 msgid "Query Printer for Default Options"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:99
+#: src/kcm/printermanager.cpp:100
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
 msgid "Add a new printer"
 msgstr "नवीन छपाईयंत्र जोडा"
 
-#: src/kcm/printermanager.cpp:101
+#: src/kcm/printermanager.cpp:102
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add a New Printer"
 msgid "Add a new printer group"
 msgstr "नवीन छपाईयंत्र जोडा"
 
-#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
+#: src/kcm/printermanager.cpp:104 src/kcm/printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgid "Configure printer"
 msgid "Configure a printer"
 msgstr "छपाईयंत्र संयोजीत करा"
 
-#: src/kcm/printermanager.cpp:324
+#: src/kcm/printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:351
+#: src/kcm/printermanager.cpp:352
 #, fuzzy, kde-format
 #| msgid "Driver:"
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "ड्राइव्हर :"
 
-#: src/kcm/printermanager.cpp:354
+#: src/kcm/printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:396
+#: src/kcm/printermanager.cpp:397
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer: '%1'"
@@ -252,13 +252,13 @@ msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "छपाईयंत्र संयोजीत करण्यास अपयशी: '%1'"
 
-#: src/kcm/printermanager.cpp:433
+#: src/kcm/printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:440
+#: src/kcm/printermanager.cpp:441
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to configure printer: '%1'"

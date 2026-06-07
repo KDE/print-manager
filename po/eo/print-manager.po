@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:46+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2024-05-26 22:24+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -204,54 +204,54 @@ msgstr "Agordi Defaŭltajn Elekteblojn"
 msgid "Query Printer for Default Options"
 msgstr "Demandi Presilon pri Defaŭltaj Elektebloj"
 
-#: src/kcm/printermanager.cpp:99
+#: src/kcm/printermanager.cpp:100
 #, kde-format
 msgid "Add a new printer"
 msgstr "Aldoni novan presilon"
 
-#: src/kcm/printermanager.cpp:101
+#: src/kcm/printermanager.cpp:102
 #, fuzzy, kde-format
 #| msgid "Add a new printer"
 msgid "Add a new printer group"
 msgstr "Aldoni novan presilon"
 
-#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
+#: src/kcm/printermanager.cpp:104 src/kcm/printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgid "Configure Printer"
 msgid "Configure a printer"
 msgstr "Agordi Presilon"
 
-#: src/kcm/printermanager.cpp:324
+#: src/kcm/printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:351
+#: src/kcm/printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:354
+#: src/kcm/printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr ""
 
-#: src/kcm/printermanager.cpp:396
+#: src/kcm/printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Malsukcesis akiri servilajn agordojn: %1"
 
-#: src/kcm/printermanager.cpp:433
+#: src/kcm/printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Servila Agordo Ne Konservita: (%1): %2"
 
-#: src/kcm/printermanager.cpp:440
+#: src/kcm/printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

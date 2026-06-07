@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2026-01-24 11:15+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -19,52 +19,52 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.12.1\n"
 
-#: printermanager.cpp:99
+#: printermanager.cpp:100
 #, kde-format
 msgid "Add a new printer"
 msgstr "Añadir una nueva impresora"
 
-#: printermanager.cpp:101
+#: printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Añadir nuevo grupo de impresoras"
 
-#: printermanager.cpp:103 printermanager.cpp:105
+#: printermanager.cpp:104 printermanager.cpp:106
 #, kde-format
 msgid "Configure a printer"
 msgstr "Configurar una impresora"
 
-#: printermanager.cpp:324
+#: printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:351
+#: printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Sin controlador"
 
-#: printermanager.cpp:354
+#: printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Archivo PPD"
 
-#: printermanager.cpp:396
+#: printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "No se han podido obtener las preferencias del servidor: %1"
 
-#: printermanager.cpp:433
+#: printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Las preferencias del servidor no se han guardado: (%1): %2"
 
-#: printermanager.cpp:440
+#: printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

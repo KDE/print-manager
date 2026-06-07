@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2026-01-24 07:14+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
@@ -14,52 +14,52 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.8\n"
 
-#: printermanager.cpp:99
+#: printermanager.cpp:100
 #, kde-format
 msgid "Add a new printer"
 msgstr "Dodaj novi tiskalnik"
 
-#: printermanager.cpp:101
+#: printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Dodaj novo skupino tiskalnikov"
 
-#: printermanager.cpp:103 printermanager.cpp:105
+#: printermanager.cpp:104 printermanager.cpp:106
 #, kde-format
 msgid "Configure a printer"
 msgstr "Konfiguriraj tiskalnik"
 
-#: printermanager.cpp:324
+#: printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:351
+#: printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Brez gonilnika"
 
-#: printermanager.cpp:354
+#: printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Datoteka PPD"
 
-#: printermanager.cpp:396
+#: printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nastavitev strežnika ni bilo mogoče pridobiti: %1"
 
-#: printermanager.cpp:433
+#: printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Nastavitve strežnika niso shranjene: (%1): %2"
 
-#: printermanager.cpp:440
+#: printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

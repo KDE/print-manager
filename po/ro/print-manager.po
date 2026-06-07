@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:46+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2026-03-31 13:07+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -204,52 +204,52 @@ msgstr "Stabilește opțiuni implicite"
 msgid "Query Printer for Default Options"
 msgstr "Interoghează imprimanta pentru opțiuni implicite"
 
-#: src/kcm/printermanager.cpp:99
+#: src/kcm/printermanager.cpp:100
 #, kde-format
 msgid "Add a new printer"
 msgstr "Adaugă o imprimantă nouă"
 
-#: src/kcm/printermanager.cpp:101
+#: src/kcm/printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Adaugă un nou grup de imprimante"
 
-#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
+#: src/kcm/printermanager.cpp:104 src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Configure a printer"
 msgstr "Configurează o imprimantă"
 
-#: src/kcm/printermanager.cpp:324
+#: src/kcm/printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:351
+#: src/kcm/printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Fără driver"
 
-#: src/kcm/printermanager.cpp:354
+#: src/kcm/printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Fișier PPD"
 
-#: src/kcm/printermanager.cpp:396
+#: src/kcm/printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Obținerea parametrilor serverului a eșuat: %1"
 
-#: src/kcm/printermanager.cpp:433
+#: src/kcm/printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Configurările serverului nu sunt salvate: (%1): %2"
 
-#: src/kcm/printermanager.cpp:440
+#: src/kcm/printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

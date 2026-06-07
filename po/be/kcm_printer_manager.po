@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2026-04-01 21:31\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -21,52 +21,52 @@ msgstr ""
 "X-Crowdin-File: /main/KDE6/be/messages/print-manager/kcm_printer_manager.po\n"
 "X-Crowdin-File-ID: 20091\n"
 
-#: printermanager.cpp:99
+#: printermanager.cpp:100
 #, kde-format
 msgid "Add a new printer"
 msgstr "Дадаць новы прынтар"
 
-#: printermanager.cpp:101
+#: printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Дадаць новую групу прынтараў"
 
-#: printermanager.cpp:103 printermanager.cpp:105
+#: printermanager.cpp:104 printermanager.cpp:106
 #, kde-format
 msgid "Configure a printer"
 msgstr "Наладжванне прынтара"
 
-#: printermanager.cpp:324
+#: printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:351
+#: printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Без драйвера"
 
-#: printermanager.cpp:354
+#: printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "Файл PPD"
 
-#: printermanager.cpp:396
+#: printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Не ўдалося атрымаць налады сервера: %1"
 
-#: printermanager.cpp:433
+#: printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Налады сервера не захаваныя: (%1): %2"
 
-#: printermanager.cpp:440
+#: printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

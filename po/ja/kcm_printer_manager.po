@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2026-02-23 17:11+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -19,38 +19,38 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Generator: Lokalize 25.12.2\n"
 
-#: printermanager.cpp:99
+#: printermanager.cpp:100
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Printer"
 msgid "Add a new printer"
 msgstr "プリンタを追加"
 
-#: printermanager.cpp:101
+#: printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr ""
 
-#: printermanager.cpp:103 printermanager.cpp:105
+#: printermanager.cpp:104 printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure Print Server"
 msgid "Configure a printer"
 msgstr "プリントサーバを設定"
 
-#: printermanager.cpp:324
+#: printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: printermanager.cpp:351
+#: printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "ドライバレス"
 
-#: printermanager.cpp:354
+#: printermanager.cpp:355
 #, fuzzy, kde-format
 #| msgctxt "@option:radio"
 #| msgid "PPD file:"
@@ -58,13 +58,13 @@ msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD ファイル:"
 
-#: printermanager.cpp:396
+#: printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "サーバ設定の取得に失敗しました: %1"
 
-#: printermanager.cpp:433
+#: printermanager.cpp:434
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Server error: (%1): %2"
@@ -72,7 +72,7 @@ msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "サーバエラー: (%1): %2"
 
-#: printermanager.cpp:440
+#: printermanager.cpp:441
 #, fuzzy, kde-format
 #| msgctxt "@info"
 #| msgid "Failed to get server settings: %1"

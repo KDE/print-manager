@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-15 00:49+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2024-12-20 21:54+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -19,32 +19,32 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n>2);\n"
 "X-Generator: Lokalize 24.08.2\n"
 
-#: printermanager.cpp:99
+#: printermanager.cpp:100
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Add Printer"
 msgid "Add a new printer"
 msgstr "मुद्रकं योजयतु"
 
-#: printermanager.cpp:101
+#: printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr ""
 
-#: printermanager.cpp:103 printermanager.cpp:105
+#: printermanager.cpp:104 printermanager.cpp:106
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Configure Print Server…"
 msgid "Configure a printer"
 msgstr "मुद्रणसर्वरं विन्यस्तं कुर्वन्तु..."
 
-#: printermanager.cpp:324
+#: printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr ""
 
-#: printermanager.cpp:351
+#: printermanager.cpp:352
 #, fuzzy, kde-format
 #| msgctxt "@label:listitem"
 #| msgid "Driverless (%1)"
@@ -52,7 +52,7 @@ msgctxt "@list:item"
 msgid "Driverless"
 msgstr "चालकरहितः (%1)"
 
-#: printermanager.cpp:354
+#: printermanager.cpp:355
 #, fuzzy, kde-format
 #| msgctxt "@option:radio"
 #| msgid "PPD file:"
@@ -60,19 +60,19 @@ msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD सञ्चिका :"
 
-#: printermanager.cpp:396
+#: printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "सर्वरसेटिंग्स् प्राप्तुं असफलम्: %1"
 
-#: printermanager.cpp:433
+#: printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "सर्वर सेटिंग्स् न रक्षितानि: (%1): %2"
 
-#: printermanager.cpp:440
+#: printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

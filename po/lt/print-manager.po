@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:46+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2026-04-23 14:59+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: lt <kde-i18n-lt@kde.org>\n"
@@ -207,52 +207,52 @@ msgstr "Nustatyti numatytąsias parinktis"
 msgid "Query Printer for Default Options"
 msgstr "Užklausti spausdintuvo numatytųjų parinkčių"
 
-#: src/kcm/printermanager.cpp:99
+#: src/kcm/printermanager.cpp:100
 #, kde-format
 msgid "Add a new printer"
 msgstr "Pridėti naują spausdintuvą"
 
-#: src/kcm/printermanager.cpp:101
+#: src/kcm/printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr "Pridėti naują spausdintuvų grupę"
 
-#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
+#: src/kcm/printermanager.cpp:104 src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Configure a printer"
 msgstr "Konfigūruoti spaudintuvą"
 
-#: src/kcm/printermanager.cpp:324
+#: src/kcm/printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP Everywhere™"
 
-#: src/kcm/printermanager.cpp:351
+#: src/kcm/printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "Be tvarkyklės"
 
-#: src/kcm/printermanager.cpp:354
+#: src/kcm/printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "PPD failas"
 
-#: src/kcm/printermanager.cpp:396
+#: src/kcm/printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "Nepavyko gauti serverio nuostatų: %1"
 
-#: src/kcm/printermanager.cpp:433
+#: src/kcm/printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "Serverio nuostatos neįrašytos: (%1): %2"
 
-#: src/kcm/printermanager.cpp:440
+#: src/kcm/printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

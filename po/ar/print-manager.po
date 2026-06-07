@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:46+0000\n"
+"POT-Creation-Date: 2026-06-07 00:47+0000\n"
 "PO-Revision-Date: 2026-04-23 10:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -206,52 +206,52 @@ msgstr "عيّن الخيارات المبدئيّة"
 msgid "Query Printer for Default Options"
 msgstr "استعلم الطّابعة عن الخيارات المبدئيّة"
 
-#: src/kcm/printermanager.cpp:99
+#: src/kcm/printermanager.cpp:100
 #, kde-format
 msgid "Add a new printer"
 msgstr "أضف طابعة جديدة"
 
-#: src/kcm/printermanager.cpp:101
+#: src/kcm/printermanager.cpp:102
 #, kde-format
 msgid "Add a new printer group"
 msgstr "أضف مجموعة طابعات جديدة"
 
-#: src/kcm/printermanager.cpp:103 src/kcm/printermanager.cpp:105
+#: src/kcm/printermanager.cpp:104 src/kcm/printermanager.cpp:106
 #, kde-format
 msgid "Configure a printer"
 msgstr "اضبط طابعة…"
 
-#: src/kcm/printermanager.cpp:324
+#: src/kcm/printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
 msgstr "IPP في كل مكان™"
 
-#: src/kcm/printermanager.cpp:351
+#: src/kcm/printermanager.cpp:352
 #, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
 msgstr "دون برنامج تشغيل"
 
-#: src/kcm/printermanager.cpp:354
+#: src/kcm/printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
 msgstr "ملفّ PPD"
 
-#: src/kcm/printermanager.cpp:396
+#: src/kcm/printermanager.cpp:397
 #, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
 msgstr "فشل جلب إعدادات الخادم: %1"
 
-#: src/kcm/printermanager.cpp:433
+#: src/kcm/printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
 msgstr "إعدادات الخادم لم تحفظ : (%1): %2"
 
-#: src/kcm/printermanager.cpp:440
+#: src/kcm/printermanager.cpp:441
 #, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"

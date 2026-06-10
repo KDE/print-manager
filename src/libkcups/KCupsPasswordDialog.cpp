@@ -11,7 +11,6 @@
 #include <KLocalizedString>
 #include <KPasswordDialog>
 #include <KWindowSystem>
-#include <KX11Extras>
 
 KCupsPasswordDialog::KCupsPasswordDialog(QObject *parent)
     : QObject(parent)
@@ -48,9 +47,6 @@ void KCupsPasswordDialog::exec(const QString &username, bool wrongPassword)
     if (m_mainwindow) {
         dialog->setAttribute(Qt::WA_NativeWindow, true);
         KWindowSystem::setMainWindow(dialog->windowHandle(), m_mainwindow);
-    }
-    if (KWindowSystem::isPlatformX11()) {
-        KX11Extras::forceActiveWindow(dialog->winId());
     }
 
     // Do not return from this method now

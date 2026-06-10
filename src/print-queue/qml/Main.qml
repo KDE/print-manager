@@ -250,6 +250,7 @@ Kirigami.ApplicationWindow {
                         subtitle: stateMessage
                         icon: icon.fromControlsIcon(deviceDelegate.icon)
                         font.bold: printers.count > 1 & isDefault
+                        selected: deviceDelegate.highlighted
                     }
 
                     Kirigami.ActionToolBar {

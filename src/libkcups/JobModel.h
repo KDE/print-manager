@@ -129,6 +129,8 @@ private:
     KCupsRequest *setupRequest(void (JobModel::*)(KCupsRequest *) = nullptr);
     void setMessages(const QStringList &list);
 
+    void rhJobHandler(const QString &queueName, uint jobId, const QString &jobOwner);
+
     QPointer<KCupsRequest> m_jobRequest;
     QHash<int, QByteArray> m_roles;
     WhichJobs m_jobFilter = WhichActive;

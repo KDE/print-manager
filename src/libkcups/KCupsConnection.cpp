@@ -169,6 +169,27 @@ void KCupsConnection::init()
                     this,
                     SIGNAL(jobCompleted(QString, QString, QString, uint, QString, bool, uint, uint, QString, QString, uint)));
 
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("JobQueuedLocal"),
+                                         this,
+                                         SIGNAL(rhJobQueuedLocal(QString, uint, QString)));
+
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("JobStartedLocal"),
+                                         this,
+                                         SIGNAL(rhJobStartedLocal(QString, uint, QString)));
+
+    QDBusConnection::systemBus().connect(QLatin1String(""),
+                                         QLatin1String("/com/redhat/PrinterSpooler"),
+                                         QLatin1String("com.redhat.PrinterSpooler"),
+                                         QLatin1String("QueueChanged"),
+                                         this,
+                                         SIGNAL(rhQueueChanged(QString)));
+
     // Creates the timer that will renew the DBus subscription
     m_renewTimer = new QTimer;
     m_renewTimer->setInterval(RENEW_INTERVAL * 1000);

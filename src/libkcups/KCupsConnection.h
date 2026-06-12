@@ -343,6 +343,10 @@ Q_SIGNALS:
                       const QString &jobName,
                       uint jobImpressionsCompleted);
 
+    void rhJobQueuedLocal(const QString &queueName, uint jobId, const QString &jobOwner);
+    void rhJobStartedLocal(const QString &queueName, uint jobId, const QString &jobOwner);
+    void rhQueueChanged(const QString &queueName);
+
 protected:
     friend class KCupsRequest;
 

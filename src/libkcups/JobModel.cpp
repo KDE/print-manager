@@ -76,6 +76,13 @@ JobModel::JobModel(QObject *parent)
     connect(KCupsConnection::global(), &KCupsConnection::serverStopped, this, &JobModel::getJobs);
     connect(KCupsConnection::global(), &KCupsConnection::serverRestarted, this, &JobModel::getJobs);
 
+    connect(KCupsConnection::global(), &KCupsConnection::rhJobStartedLocal, this, &JobModel::rhJobHandler);
+    connect(KCupsConnection::global(), &KCupsConnection::rhJobQueuedLocal, this, &JobModel::rhJobHandler);
+    connect(KCupsConnection::global(), &KCupsConnection::rhQueueChanged, this, [this](const QString &queue) {
+        qCDebug(LIBKCUPS) << "RH Queue Changed signal" << queue;
+        rhJobHandler(queue, 0, {});
+    });
+
     getJobs();
 }
 
@@ -302,6 +309,12 @@ void JobModel::setMessages(const QStringList &list)
 {
     m_messages = list;
     Q_EMIT messagesChanged();
+}
+
+void JobModel::rhJobHandler(const QString &queueName, uint jobId, const QString &jobOwner)
+{
+    qCDebug(LIBKCUPS) << "RH Job Signal" << jobId << queueName << jobOwner;
+    getJobs();
 }
 
 void JobModel::updateJob(int pos, const KCupsJob &job)

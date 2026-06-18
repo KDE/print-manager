@@ -80,6 +80,8 @@ public:
     Q_INVOKABLE void restart(const QString &printerName, int jobId);
     Q_INVOKABLE void move(const QString &printerName, int jobId, const QString &toPrinterName);
 
+    Q_INVOKABLE void getJobs();
+
     QHash<int, QByteArray> roleNames() const override;
 
     WhichJobs jobFilter() const;
@@ -88,7 +90,6 @@ public:
     QStringList messages() const;
 
 private Q_SLOTS:
-    void getJobs();
     void getJobFinished(KCupsRequest *request);
 
     void jobNotify(const QString &text,

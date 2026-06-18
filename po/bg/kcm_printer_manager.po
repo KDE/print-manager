@@ -814,20 +814,3 @@ msgstr "Марка и модел:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Избиране…"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure class: "
-#~ msgstr "Неуспешно настройване на клас: "
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: "
-#~ msgstr "Неуспешно настройване на принтер: "
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "Неуспешно използване на заявкатаt: %1"
-
-#~ msgid "Print Self-Test Page"
-#~ msgstr "Печат на само-тестова страница"
-
-#~ msgid "Clean Print Heads"
-#~ msgstr "Почистване на главите"

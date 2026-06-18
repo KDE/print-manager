@@ -47,6 +47,17 @@ PlasmoidItem {
         }
     }
 
+    // HACK: CUPS fails to signal job queue changes at random times
+    // Start a timer to reload the queue if it's not empty
+    // When/if it goes empty, stop the timer
+    Timer {
+        interval: 10000
+        repeat: true
+        running: activeJobsFilterModel.activeCount > 0
+
+        onTriggered: jobsModel.getJobs()
+    }
+
     toolTipMainText: i18n("Printers")
     toolTipSubText: {
         if (serverUnavailable && printersModelError) {

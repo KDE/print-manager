@@ -255,12 +255,7 @@ Kirigami.Dialog {
             QQC2.ScrollView {
                 Layout.fillHeight: true
                 Layout.preferredWidth: Math.floor(root.width/3)
-
-                Component.onCompleted: {
-                    if (background) {
-                        background.visible = true
-                    }
-                }
+                Kirigami.StyleHints.showFramedBackground: true
 
                 contentItem: ListView {
                     id: makesList
@@ -293,12 +288,7 @@ Kirigami.Dialog {
             QQC2.ScrollView {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-
-                Component.onCompleted: {
-                    if (background) {
-                        background.visible = true
-                    }
-                }
+                Kirigami.StyleHints.showFramedBackground: true
 
                 contentItem: ListView {
                     id: makeModelList

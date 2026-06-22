@@ -100,12 +100,7 @@ BaseDevice {
             Layout.fillWidth: true
             Layout.fillHeight: true
             visible: list.count > 0
-
-            Component.onCompleted: {
-                if (background) {
-                    background.visible = true
-                }
-            }
+            Kirigami.StyleHints.showFramedBackground: true
 
             contentItem: ListView {
                 id: list

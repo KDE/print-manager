@@ -37,11 +37,7 @@ BaseDevice {
 
             visible: directlist.count > 0
 
-            Component.onCompleted: {
-                if (background) {
-                    background.visible = true
-                }
-            }
+            Kirigami.StyleHints.showFramedBackground: true
 
             ListView {
                 id: directlist

@@ -15,11 +15,7 @@ QQC2.ScrollView {
 
     property var examples: []
 
-    Component.onCompleted: {
-        if (background) {
-            background.visible = true
-        }
-    }
+    Kirigami.StyleHints.showFramedBackground: true
 
     contentItem: ListView {
         clip: true

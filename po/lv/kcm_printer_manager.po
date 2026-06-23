@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:47+0000\n"
+"POT-Creation-Date: 2026-06-23 00:48+0000\n"
 "PO-Revision-Date: 2025-08-21 12:39+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -81,7 +81,7 @@ msgstr ""
 "Pārbaudiet autentifikācijas ierakstīšanās datus un pārliecinieties, ka "
 "„PackageKit“ ir atbilstoši ieinstalēts."
 
-#: ui/components/AddressExamples.qml:30
+#: ui/components/AddressExamples.qml:26
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -600,24 +600,24 @@ msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Filtrēt modeļus"
 
-#: ui/MakeModel.qml:346
+#: ui/MakeModel.qml:336
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD datne:"
 
-#: ui/MakeModel.qml:365
+#: ui/MakeModel.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Atlasīt PDD datni…"
 
-#: ui/MakeModel.qml:373
+#: ui/MakeModel.qml:363
 #, kde-format
 msgid "Select"
 msgstr "Atlasīt"
 
-#: ui/MakeModel.qml:374
+#: ui/MakeModel.qml:364
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "„PostScript“ printera apraksta datnes (*.ppd)"
@@ -762,61 +762,61 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Pieņem drukāšanas uzdevumus"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:433
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Drukāt testa lapu"
 
-#: ui/PrinterSettings.qml:444
+#: ui/PrinterSettings.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Drukāt paštesta lapu"
 
-#: ui/PrinterSettings.qml:451
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Notīrīt printera galviņas"
 
-#: ui/PrinterSettings.qml:469
+#: ui/PrinterSettings.qml:464
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Rindas nosaukums:"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:489
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Apraksts:"
 
-#: ui/PrinterSettings.qml:506
+#: ui/PrinterSettings.qml:501
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Vieta:"
 
-#: ui/PrinterSettings.qml:518
+#: ui/PrinterSettings.qml:513
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Savienojums:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:527
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Dalībnieka printeri:"
 
-#: ui/PrinterSettings.qml:673
+#: ui/PrinterSettings.qml:663
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Ražotājs/modelis:"
 
-#: ui/PrinterSettings.qml:688
+#: ui/PrinterSettings.qml:678
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

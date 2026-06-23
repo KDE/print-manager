@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:47+0000\n"
+"POT-Creation-Date: 2026-06-23 00:48+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -89,7 +89,7 @@ msgstr ""
 "इंस्टॉल त्रुटि (पैकेज: %1)\n"
 "प्रमाणीकरण क्रेडेंशियल जांचें और सुनिश्चित करें कि पैकेजकिट ठीक से इंस्टॉल किया गया है।"
 
-#: ui/components/AddressExamples.qml:30
+#: ui/components/AddressExamples.qml:26
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -610,24 +610,24 @@ msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "फ़िल्टर मॉडल"
 
-#: ui/MakeModel.qml:346
+#: ui/MakeModel.qml:336
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "पीपीडी फ़ाइल:"
 
-#: ui/MakeModel.qml:365
+#: ui/MakeModel.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "PPD फ़ाइल चुनें…"
 
-#: ui/MakeModel.qml:373
+#: ui/MakeModel.qml:363
 #, kde-format
 msgid "Select"
 msgstr "चुनना"
 
-#: ui/MakeModel.qml:374
+#: ui/MakeModel.qml:364
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "पोस्टस्क्रिप्ट प्रिंटर विवरण फ़ाइलें (*.ppd)"
@@ -772,61 +772,61 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "प्रिंट कार्य स्वीकार करना"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:433
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "परीक्षण पृष्ठ प्रिंट करें"
 
-#: ui/PrinterSettings.qml:444
+#: ui/PrinterSettings.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "स्व-परीक्षण पृष्ठ प्रिंट करें"
 
-#: ui/PrinterSettings.qml:451
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "प्रिंट हेड्स साफ करें"
 
-#: ui/PrinterSettings.qml:469
+#: ui/PrinterSettings.qml:464
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "कतार का नाम:"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:489
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "विवरण:"
 
-#: ui/PrinterSettings.qml:506
+#: ui/PrinterSettings.qml:501
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "जगह:"
 
-#: ui/PrinterSettings.qml:518
+#: ui/PrinterSettings.qml:513
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "कनेक्शन:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:527
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "सदस्य प्रिंटर:"
 
-#: ui/PrinterSettings.qml:673
+#: ui/PrinterSettings.qml:663
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "निर्माता/मॉडल:"
 
-#: ui/PrinterSettings.qml:688
+#: ui/PrinterSettings.qml:678
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

@@ -323,6 +323,8 @@ Kirigami.ApplicationWindow {
                     title: modelData
                     reserveSpaceForSubtitle: false
                     icon.name: "task-process-1-symbolic"
+                    width: ListView.view.width
+                    elide: Text.ElideRight
                 }
             }
         }

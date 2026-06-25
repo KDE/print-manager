@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:48+0000\n"
-"PO-Revision-Date: 2026-03-01 11:37+0100\n"
+"PO-Revision-Date: 2026-06-24 20:10+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -131,15 +131,10 @@ msgid "Manual Driver Search…"
 msgstr "Manuelt drivarsøk …"
 
 #: ui/components/Drivers.qml:78
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "Recommended drivers are based on printer make/model and connection type"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Search for and select a driver based on printer make/model"
-msgstr ""
-"Tilrådde drivarar er baserte på merket og modellen til skrivaren og "
-"tilkoplingstypen"
+msgstr "Søk etter og vel drivar basert på merke/modell for skrivaren"
 
 #: ui/components/Lpd.qml:22
 #, kde-format
@@ -209,11 +204,7 @@ msgid "Select Printer…"
 msgstr "Vel skrivar …"
 
 #: ui/components/ManualUri.qml:93
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info:whatsthis"
-#| msgid ""
-#| "If the printer address is known, enter it and choose <interface>Continue</"
-#| "interface>."
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid ""
 "If the printer address is known, enter it and choose <interface>Continue</"
@@ -221,7 +212,8 @@ msgid ""
 "choose <interface>Search</interface>."
 msgstr ""
 "Om du kjenner skrivaradressa, så skriv ho inn og vel <interface>Hald fram</"
-"interface>."
+"interface>. Viss skrivaren er kopla til ein ekstern vert, skriv inn "
+"vertsadressa og vel <interface>Søk</interface>."
 
 #: ui/components/Smb.qml:16
 #, kde-format
@@ -501,6 +493,8 @@ msgid ""
 "Click <interface>Configure Print Server…</interface> to check settings, or "
 "verify that the CUPS system service is active."
 msgstr ""
+"Trykk <interface>Set opp skrivartenar</interface> for å sjekka "
+"innstillingane, eller stadfest at CUPS-system­tenesta køyrer."
 
 #: ui/main.qml:314
 #, kde-format
@@ -735,7 +729,7 @@ msgstr "Standardskrivar"
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
-msgstr ""
+msgstr "For å byta standard skrivar, registrer ein annan skrivar som standard."
 
 #: ui/PrinterSettings.qml:377
 #, kde-format

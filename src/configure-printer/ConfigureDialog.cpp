@@ -24,6 +24,7 @@
 #include <QList>
 #include <QPointer>
 #include <QPushButton>
+#include <QWindow>
 
 Q_DECLARE_METATYPE(QList<int>)
 
@@ -107,7 +108,9 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     connect(this, &ConfigureDialog::currentPageChanged, this, &ConfigureDialog::currentPageChangedSlot);
 
     KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("ConfigureDialog"));
+    winId(); // force creating windowHandle()
     KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 
     connect(buttonBox(), &QDialogButtonBox::clicked, this, &ConfigureDialog::slotButtonClicked);
 }

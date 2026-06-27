@@ -15,6 +15,8 @@
 #include <KCupsPrinter.h>
 #include <KCupsRequest.h>
 
+#include <KConfig>
+#include <KConfigGroup>
 #include <KIO/AuthInfo>
 #include <KJob>
 #include <KLocalizedQmlContext>
@@ -47,6 +49,10 @@ PrintQueue::PrintQueue(const QString &printerName, QObject *parent)
     QTimer::singleShot(200, this, [this, printerName]() {
         Q_EMIT showQueue(printerName);
     });
+
+    // clean up data from old print-queue app
+    KConfig config(u"print-manager"_s);
+    config.group(u"PrintQueue"_s).deleteEntry("ColumnState");
 }
 
 PrintQueue::~PrintQueue()

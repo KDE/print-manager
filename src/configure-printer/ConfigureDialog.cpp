@@ -26,6 +26,8 @@
 #include <QPushButton>
 #include <QWindow>
 
+using namespace Qt::Literals;
+
 Q_DECLARE_METATYPE(QList<int>)
 
 ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget *parent)
@@ -107,9 +109,15 @@ ConfigureDialog::ConfigureDialog(const QString &destName, bool isClass, QWidget 
     // connect this after ALL pages were added, otherwise the slot will be called
     connect(this, &ConfigureDialog::currentPageChanged, this, &ConfigureDialog::currentPageChangedSlot);
 
-    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("ConfigureDialog"));
+    auto stateConfig = KSharedConfig::openStateConfig();
+    auto windowState = stateConfig->group(u"ConfigureDialog"_s);
+
+    // migrate old state data
+    KConfig oldConfig(u"print-manager"_s);
+    oldConfig.group(u"ConfigureDialog"_s).moveValuesTo(windowState);
+
     winId(); // force creating windowHandle()
-    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    KWindowConfig::restoreWindowSize(windowHandle(), windowState);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 
     connect(buttonBox(), &QDialogButtonBox::clicked, this, &ConfigureDialog::slotButtonClicked);
@@ -122,7 +130,7 @@ void ConfigureDialog::ppdChanged()
 
 ConfigureDialog::~ConfigureDialog()
 {
-    KConfigGroup group(KSharedConfig::openConfig(QLatin1String("print-manager")), QStringLiteral("ConfigureDialog"));
+    KConfigGroup group(KSharedConfig::openStateConfig(), QStringLiteral("ConfigureDialog"));
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-23 00:46+0000\n"
-"PO-Revision-Date: 2025-06-01 15:17+0200\n"
+"PO-Revision-Date: 2026-06-27 11:33+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -57,7 +57,7 @@ msgstr "Utskriftskøen er tom"
 #: src/plasmoid/main.qml:78 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:108
 msgid "&Configure Printers…"
@@ -72,16 +72,12 @@ msgid "Pause"
 msgstr "Pause"
 
 #: src/plasmoid/PrinterDelegate.qml:77
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Set opp skrivarar …"
+msgstr "Set opp skrivar …"
 
 #: src/plasmoid/PrinterDelegate.qml:82
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Vis utskriftskø …"
+msgstr "Vis utskriftskø"
 
 #: src/plasmoid/PrinterDelegate.qml:157
 msgctxt "@action:button"

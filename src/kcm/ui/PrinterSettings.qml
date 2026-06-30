@@ -394,12 +394,7 @@ KCM.AbstractKCM {
             Layout.fillWidth: true
             Layout.maximumHeight: Math.floor(root.height/4)
             Layout.preferredHeight: contentHeight + Kirigami.Units.smallSpacing
-
-            Component.onCompleted: {
-                if (background) {
-                    background.visible = true;
-                }
-            }
+            Kirigami.StyleHints.showFramedBackground: true
 
             contentItem: ListView {
                 id: markersView
@@ -542,12 +537,7 @@ KCM.AbstractKCM {
                 Layout.preferredWidth: Math.round(root.width/2)
 
                 sourceComponent: QQC2.ScrollView {
-
-                    Component.onCompleted: {
-                        if (background) {
-                            background.visible = true
-                        }
-                    }
+                    Kirigami.StyleHints.showFramedBackground: true
 
                     contentItem: ListView {
                         id: memberList

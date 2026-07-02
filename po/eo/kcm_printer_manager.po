@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 02:49+0000\n"
+"POT-Creation-Date: 2026-07-02 02:41+0000\n"
 "PO-Revision-Date: 2025-01-12 08:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -89,7 +89,7 @@ msgstr ""
 "Kontrolu aŭtentigajn akreditaĵojn kaj certigu, ke PackageKit estas instalita "
 "ĝuste"
 
-#: ui/components/AddressExamples.qml:30
+#: ui/components/AddressExamples.qml:26
 #, kde-format
 msgctxt "@info:usagetip"
 msgid "Example Addresses"
@@ -617,24 +617,24 @@ msgctxt "@info:placeholder"
 msgid "Filter Models"
 msgstr "Filtrilaj Modeloj"
 
-#: ui/MakeModel.qml:346
+#: ui/MakeModel.qml:336
 #, kde-format
 msgctxt "@option:radio"
 msgid "PPD file:"
 msgstr "PPD-dosiero:"
 
-#: ui/MakeModel.qml:365
+#: ui/MakeModel.qml:355
 #, kde-format
 msgctxt "@action:button"
 msgid "Select PPD File…"
 msgstr "Elekti PPD-dosieron…"
 
-#: ui/MakeModel.qml:373
+#: ui/MakeModel.qml:363
 #, kde-format
 msgid "Select"
 msgstr "Elekti"
 
-#: ui/MakeModel.qml:374
+#: ui/MakeModel.qml:364
 #, kde-format
 msgid "PostScript Printer Description Files (*.ppd)"
 msgstr "PostScript Printer Priskribo Dosieroj (*.ppd)"
@@ -780,61 +780,61 @@ msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Akceptante presajn laborojn"
 
-#: ui/PrinterSettings.qml:438
+#: ui/PrinterSettings.qml:433
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Presi Testpaĝon"
 
-#: ui/PrinterSettings.qml:444
+#: ui/PrinterSettings.qml:439
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Presi Memtestan Paĝon"
 
-#: ui/PrinterSettings.qml:451
+#: ui/PrinterSettings.qml:446
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Puraj Presaj Kapoj"
 
-#: ui/PrinterSettings.qml:469
+#: ui/PrinterSettings.qml:464
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Nomo de vostovico:"
 
-#: ui/PrinterSettings.qml:494
+#: ui/PrinterSettings.qml:489
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Priskribo:"
 
-#: ui/PrinterSettings.qml:506
+#: ui/PrinterSettings.qml:501
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Loko:"
 
-#: ui/PrinterSettings.qml:518
+#: ui/PrinterSettings.qml:513
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Konekto:"
 
-#: ui/PrinterSettings.qml:532
+#: ui/PrinterSettings.qml:527
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Membro-Presiloj:"
 
-#: ui/PrinterSettings.qml:673
+#: ui/PrinterSettings.qml:663
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Faro/Modelo:"
 
-#: ui/PrinterSettings.qml:688
+#: ui/PrinterSettings.qml:678
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

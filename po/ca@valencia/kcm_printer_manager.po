@@ -818,20 +818,3 @@ msgstr "Fabricant i model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Tria…"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure class: "
-#~ msgstr "Ha fallat mentre es configurava la classe: "
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: "
-#~ msgstr "Ha fallat mentre es configurava la impressora: "
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "No s'ha pogut portar a terme la sol·licitud: %1"
-
-#~ msgid "Print Self-Test Page"
-#~ msgstr "Imprimix una pàgina d'autocomprovació"
-
-#~ msgid "Clean Print Heads"
-#~ msgstr "Neteja els capçals d'impressió"

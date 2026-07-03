@@ -821,37 +821,3 @@ msgstr "Fabricant/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Selecciona…"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure class: "
-#~ msgstr "Ha fallat en configurar la classe: "
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: "
-#~ msgstr "Ha fallat en configurar la impressora: "
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "Ha fallat en portar a terme la sol·licitud: %1"
-
-#~ msgid "Print Self-Test Page"
-#~ msgstr "Imprimeix una pàgina d'autocomprovació"
-
-#~ msgid "Clean Print Heads"
-#~ msgstr "Neteja els capçals d'impressió"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid ""
-#~ "A <interface>printer group</interface> is used to pool printing resources."
-#~ msgstr ""
-#~ "Un <interface>grup d'impressores</interface> s'utilitza per a agrupar "
-#~ "recursos d'impressió."
-
-#~ msgid "Refresh"
-#~ msgstr "Actualitza"
-
-#~ msgid "CUPS Network Printers Help"
-#~ msgstr "Ajuda d'impressores de xarxa del CUPS"
-
-#~ msgctxt "@action:button"
-#~ msgid "Find a Printer…"
-#~ msgstr "Cerca una impressora…"

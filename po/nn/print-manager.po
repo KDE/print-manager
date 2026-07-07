@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-07 02:49+0000\n"
-"PO-Revision-Date: 2026-07-05 16:13+0200\n"
+"PO-Revision-Date: 2026-07-06 20:47+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.11.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -272,7 +272,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2) ser ut til å vera tom."
 
 #: src/kded/MarkerLevelChecker.cpp:197
 #, kde-format
@@ -280,20 +280,20 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2) er i ferd med å gå tom (%3 % att)."
 
 #: src/kded/MarkerLevelChecker.cpp:204
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) er nesten full (%3 %)"
 
 #: src/kded/MarkerLevelChecker.cpp:219
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Kontroller nivå …"
 
 #: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
@@ -301,37 +301,37 @@ msgid "The New Printer was added"
 msgstr "Den nye skrivaren er lagd til"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Den nye skrivaren manglar drivarar"
+msgstr "Den nye skrivaren kan ha problem med drivaren"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Fann ein ny skrivar"
+msgstr "Utskriftskøen vart ikkje oppretta"
 
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Ingen skrivardrivar for %1 %2."
+msgstr "Fann ikkje skrivardrivar for %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Ingen skrivardrivar for %1."
+msgstr "Fann ikkje skrivardrivar for %1"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Ingen drivar for denne skrivaren."
+msgstr "Fann ikkje skrivardrivar for denne skrivaren"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
+#, kde-format
 msgid "Add Printer…"
-msgstr "Legg til skrivar"
+msgstr "Legg til skrivar …"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
+#, kde-format
 msgid "'%1' has been added, please check its driver"
 msgstr "«%1» er lagt til. Kontroller drivaren."
 
@@ -342,7 +342,7 @@ msgid "Configure"
 msgstr "Set opp"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
 msgstr "«%1» er lagt til. Brukar drivaren «%2»."
 
@@ -353,9 +353,9 @@ msgid "Print test page"
 msgstr "Skriv ut testside"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
+#, kde-format
 msgid "Check driver"
-msgstr "Vel &drivaren"
+msgstr "Kontroller drivaren"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -505,32 +505,24 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Lokal skrivar oppdaga av HAL (Hardware Abstraction Layer)"
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a fax machine,\n"
-#| "or the fax function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
 "function device"
 msgstr ""
-"HPLIP-programvare som driver ei faksmaskin\n"
-"eller faksfunksjonen på ei fleirfunksjonseining"
+"HPLIP-programvare som driver ei faksmaskin, eller faksfunksjonen på ei "
+"fleirfunksjonseining"
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid ""
-#| "HPLIP software driving a printer,\n"
-#| "or the printer function of a multi-function device"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
 "function device"
 msgstr ""
-"HPLIP-programvare som driver ein skrivar\n"
-"eller skrivarfunksjonen på ei fleirfunksjonseining"
+"HPLIP-programvare som driver ein skrivar, eller skrivarfunksjonen på ei "
+"fleirfunksjonseining"
 
 #: src/libkcups/DevicesModel.cpp:128
 #, kde-format
@@ -649,7 +641,7 @@ msgstr "Frå vertsnamn"
 #, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Handsamar\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format
@@ -657,7 +649,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -798,31 +790,30 @@ msgstr "Ukjend – «%1»"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Plasma utskriftskø-handsamar"
 
 #: src/print-queue/main.cpp:40
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Vis utskriftskø(ar)"
+msgstr "Handsam utskriftskøar"
 
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE-fellesskapet"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:47
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Utviklar"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
@@ -837,10 +828,9 @@ msgid "Your emails"
 msgstr "karl@huftis.org"
 
 #: src/print-queue/main.cpp:58
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Vis utskriftskø(ar)"
+msgstr "Vis utskriftskø"
 
 #: src/print-queue/PrintQueue.cpp:82
 #, kde-format

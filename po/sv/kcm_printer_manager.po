@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-23 00:48+0000\n"
-"PO-Revision-Date: 2026-01-20 20:55+0100\n"
+"PO-Revision-Date: 2026-07-07 10:27+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -216,48 +216,40 @@ msgstr ""
 "<interface>Sök</interface>."
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "Ställ in en skrivaranslutning"
+msgstr "Ställ in en skrivare på ett Windows-nätverk"
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the LPD device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "Ange adressen för LPD-enheten"
+msgstr "Ange adressen för Windows-skrivaren"
 
 #: ui/components/Smb.qml:45
 #, kde-format
 msgctxt "@label:textbox Authentication user name"
 msgid "Username:"
-msgstr ""
+msgstr "Användarnamn:"
 
 #: ui/components/Smb.qml:50
 #, kde-format
 msgctxt "@label:textbox Authentication password"
 msgid "Password:"
-msgstr ""
+msgstr "Lösenord:"
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "Välj skrivare…"
+msgstr "Spara skrivare…"
 
 #: ui/components/Smb.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Invalid LPD URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr "Ogiltig LPD-webbadress: %1"
+msgstr "Ogiltig skrivarwebbadress: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format

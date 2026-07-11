@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-07 00:47+0000\n"
+"POT-Creation-Date: 2026-07-11 00:46+0000\n"
 "PO-Revision-Date: 2026-04-22 06:24+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -21,19 +21,19 @@ msgstr ""
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "X-Generator: Poedit 3.9\n"
 
-#: src/configure-printer/ConfigureDialog.cpp:93
-#: src/configure-printer/ConfigureDialog.cpp:94
+#: src/configure-printer/ConfigureDialog.cpp:96
+#: src/configure-printer/ConfigureDialog.cpp:97
 #, kde-format
 msgid "Media Settings"
 msgstr "Nastavitve medija"
 
-#: src/configure-printer/ConfigureDialog.cpp:101
-#: src/configure-printer/ConfigureDialog.cpp:102
+#: src/configure-printer/ConfigureDialog.cpp:104
+#: src/configure-printer/ConfigureDialog.cpp:105
 #, kde-format
 msgid "Banners, Policies and Allowed Users"
 msgstr "Napisi, pravilniki in dovoljeni uporabniki"
 
-#: src/configure-printer/ConfigureDialog.cpp:171
+#: src/configure-printer/ConfigureDialog.cpp:182
 #, kde-format
 msgid ""
 "The current page has changes.\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Na trenutni strani so bile opravljene spremembe.\n"
 "Ali jih želite shraniti?"
 
-#: src/configure-printer/ConfigureDialog.cpp:173
+#: src/configure-printer/ConfigureDialog.cpp:184
 #, kde-format
 msgid "Save"
 msgstr "Shrani"
@@ -833,7 +833,7 @@ msgstr "jlp@holodeck1.com,andrejm@ubuntu.si,matjaz.jeran@amis.net"
 msgid "Show printer queue"
 msgstr "Pokaži čakalno vrsto tiskalnika"
 
-#: src/print-queue/PrintQueue.cpp:82
+#: src/print-queue/PrintQueue.cpp:88
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Vnesite poverilnice za tisk iz <b>%1</b>"

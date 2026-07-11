@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:46+0000\n"
+"POT-Creation-Date: 2026-07-11 00:46+0000\n"
 "PO-Revision-Date: 2026-03-30 19:57+0200\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -63,7 +63,7 @@ msgstr "vit@pelcak.org,libor.filipek@gmail.com"
 msgid "Show printer queue"
 msgstr "Zobrazit frontu tiskárny"
 
-#: PrintQueue.cpp:82
+#: PrintQueue.cpp:88
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Zadejte přihlašovací údaje pro tisk z <b>%1</b>"

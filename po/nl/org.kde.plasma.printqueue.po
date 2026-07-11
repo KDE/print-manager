@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:46+0000\n"
+"POT-Creation-Date: 2026-07-11 00:46+0000\n"
 "PO-Revision-Date: 2026-02-24 11:55+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -63,7 +63,7 @@ msgstr "freekdekruijf@kde.nl"
 msgid "Show printer queue"
 msgstr "Afdrukwachtrij tonen"
 
-#: PrintQueue.cpp:82
+#: PrintQueue.cpp:88
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "Voer aanmeldgegevens in om af te drukken vanaf <b>%1</b>"

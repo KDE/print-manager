@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:46+0000\n"
+"POT-Creation-Date: 2026-07-11 00:46+0000\n"
 "PO-Revision-Date: 2026-06-01 18:33-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -64,7 +64,7 @@ msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 msgid "Show printer queue"
 msgstr "بېسىش قاتارىنى كۆرسەت"
 
-#: PrintQueue.cpp:82
+#: PrintQueue.cpp:88
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
 msgstr "<b>%1</b> دىن بېسىش ئۈچۈن ئىسپات كىرگۈزۈش تەلەپ قىلىنىدۇ"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:46+0000\n"
+"POT-Creation-Date: 2026-07-16 00:46+0000\n"
 "PO-Revision-Date: 2026-05-12 03:16+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 26.07.70\n"
 
-#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:50
+#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:61
 msgid "Printers"
 msgstr "印表機"
 
@@ -27,7 +27,7 @@ msgstr "印表機"
 msgid "Printer Groups"
 msgstr "印表機群組"
 
-#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:71
+#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:82
 msgid "No printers have been configured or discovered"
 msgstr "沒有設定或發現任何印表機"
 
@@ -35,31 +35,31 @@ msgstr "沒有設定或發現任何印表機"
 msgid "No matches"
 msgstr "無相符項目"
 
-#: src/plasmoid/main.qml:55
+#: src/plasmoid/main.qml:66
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "有 %1 個列印工作在佇列中"
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:75
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "透過 %2 列印 %1"
 
-#: src/plasmoid/main.qml:66
+#: src/plasmoid/main.qml:77
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "透過 %1 列印"
 
-#: src/plasmoid/main.qml:69
+#: src/plasmoid/main.qml:80
 msgid "Print queue is empty"
 msgstr "列印佇列是空的"
 
-#: src/plasmoid/main.qml:78 src/plasmoid/PrinterDelegate.qml:70
+#: src/plasmoid/main.qml:89 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
 
-#: src/plasmoid/main.qml:108
+#: src/plasmoid/main.qml:119
 msgid "&Configure Printers…"
 msgstr "設定印表機(&C)…"
 

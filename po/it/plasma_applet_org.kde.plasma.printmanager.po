@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:46+0000\n"
+"POT-Creation-Date: 2026-07-16 00:46+0000\n"
 "PO-Revision-Date: 2026-05-03 22:39+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:50
+#: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:61
 msgid "Printers"
 msgstr "Stampanti"
 
@@ -25,7 +25,7 @@ msgstr "Stampanti"
 msgid "Printer Groups"
 msgstr "Gruppi di stampanti"
 
-#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:71
+#: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:82
 msgid "No printers have been configured or discovered"
 msgstr "Nessuna stampante è stata configurata o trovata"
 
@@ -33,32 +33,32 @@ msgstr "Nessuna stampante è stata configurata o trovata"
 msgid "No matches"
 msgstr "Nessuna corrispondenza"
 
-#: src/plasmoid/main.qml:55
+#: src/plasmoid/main.qml:66
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "C'è un processo di stampa nella coda"
 msgstr[1] "Ci sono %1 processi di stampa nella coda"
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:75
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Stampa in corso di %1 su %2"
 
-#: src/plasmoid/main.qml:66
+#: src/plasmoid/main.qml:77
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Stampa in corso su %1"
 
-#: src/plasmoid/main.qml:69
+#: src/plasmoid/main.qml:80
 msgid "Print queue is empty"
 msgstr "La coda di stampa è vuota"
 
-#: src/plasmoid/main.qml:78 src/plasmoid/PrinterDelegate.qml:70
+#: src/plasmoid/main.qml:89 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
 
-#: src/plasmoid/main.qml:108
+#: src/plasmoid/main.qml:119
 msgid "&Configure Printers…"
 msgstr "&Configura le stampanti…"
 

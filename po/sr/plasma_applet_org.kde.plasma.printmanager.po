@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:46+0000\n"
+"POT-Creation-Date: 2026-07-16 02:41+0000\n"
 "PO-Revision-Date: 2015-03-01 12:45+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:59
 msgid "Printers"
 msgstr "Штампачи"
 
@@ -28,7 +28,7 @@ msgstr "Штампачи"
 msgid "Printer Groups"
 msgstr "Штампачи"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:80
 msgid "No printers have been configured or discovered"
 msgstr "Ниједан штампач није подешен нити откривен."
 
@@ -36,7 +36,7 @@ msgstr "Ниједан штампач није подешен нити откр�
 msgid "No matches"
 msgstr ""
 
-#: src/plasmoid/main.qml:53
+#: src/plasmoid/main.qml:64
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "%1 посао у реду за штампање."
@@ -44,26 +44,26 @@ msgstr[1] "%1 посла у реду за штампање."
 msgstr[2] "%1 послова у реду за штампање."
 msgstr[3] "Један посао у реду за штампање."
 
-#: src/plasmoid/main.qml:62
+#: src/plasmoid/main.qml:73
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr ""
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:75
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr ""
 
-#: src/plasmoid/main.qml:67
+#: src/plasmoid/main.qml:78
 msgid "Print queue is empty"
 msgstr "Ред за штампање празан"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
+#: src/plasmoid/main.qml:87 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr ""
 
-#: src/plasmoid/main.qml:103
+#: src/plasmoid/main.qml:114
 #, fuzzy
 #| msgid "&Configure Printers..."
 msgid "&Configure Printers…"

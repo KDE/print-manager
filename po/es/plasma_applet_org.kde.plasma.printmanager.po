@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-08 00:46+0000\n"
+"POT-Creation-Date: 2026-07-16 02:41+0000\n"
 "PO-Revision-Date: 2026-04-30 17:37+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 26.04.0\n"
 
-#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:48
+#: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:59
 msgid "Printers"
 msgstr "Impresoras"
 
@@ -26,7 +26,7 @@ msgstr "Impresoras"
 msgid "Printer Groups"
 msgstr "Grupos de impresoras"
 
-#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:69
+#: src/plasmoid/FullRepresentation.qml:77 src/plasmoid/main.qml:80
 msgid "No printers have been configured or discovered"
 msgstr "No se ha configurado ni descubierto ninguna impresora"
 
@@ -34,32 +34,32 @@ msgstr "No se ha configurado ni descubierto ninguna impresora"
 msgid "No matches"
 msgstr "Sin coincidencias"
 
-#: src/plasmoid/main.qml:53
+#: src/plasmoid/main.qml:64
 msgid "There is one print job in the queue"
 msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "Hay 1 trabajo de impresión en la cola"
 msgstr[1] "Hay %1 trabajos de impresión en la cola"
 
-#: src/plasmoid/main.qml:62
+#: src/plasmoid/main.qml:73
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
 msgstr "Imprimiendo %1 con %2"
 
-#: src/plasmoid/main.qml:64
+#: src/plasmoid/main.qml:75
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
 msgstr "Imprimiendo con %1"
 
-#: src/plasmoid/main.qml:67
+#: src/plasmoid/main.qml:78
 msgid "Print queue is empty"
 msgstr "La cola de impresión está vacía"
 
-#: src/plasmoid/main.qml:76 src/plasmoid/PrinterDelegate.qml:68
+#: src/plasmoid/main.qml:87 src/plasmoid/PrinterDelegate.qml:68
 msgctxt "Number of active print jobs"
 msgid "%1"
 msgstr "%1"
 
-#: src/plasmoid/main.qml:103
+#: src/plasmoid/main.qml:114
 msgid "&Configure Printers…"
 msgstr "&Configurar impresoras…"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:48+0000\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
 "PO-Revision-Date: 2026-03-17 10:22+0100\n"
 "Last-Translator:  Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -510,31 +510,31 @@ msgstr "Tiskárny"
 msgid "Printer Groups"
 msgstr "Skupiny tiskáren"
 
-#: ui/main.qml:377
+#: ui/main.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "Otevřít frontu tisku"
 
-#: ui/main.qml:386
+#: ui/main.qml:384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Pokračovat v tisku"
 
-#: ui/main.qml:387
+#: ui/main.qml:385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Pozastavit tisk"
 
-#: ui/main.qml:393
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Obnovit"
 
-#: ui/main.qml:394
+#: ui/main.qml:392
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"

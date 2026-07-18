@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:48+0000\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
 "PO-Revision-Date: 2026-02-23 17:11+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
@@ -525,31 +525,31 @@ msgstr "プリンタ"
 msgid "Printer Groups"
 msgstr "プリンタのグループ"
 
-#: ui/main.qml:377
+#: ui/main.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "印刷キューを開く"
 
-#: ui/main.qml:386
+#: ui/main.qml:384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "印刷を再開"
 
-#: ui/main.qml:387
+#: ui/main.qml:385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "印刷を一時停止"
 
-#: ui/main.qml:393
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "再開"
 
-#: ui/main.qml:394
+#: ui/main.qml:392
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"

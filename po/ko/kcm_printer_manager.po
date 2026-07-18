@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:48+0000\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
 "PO-Revision-Date: 2026-02-03 22:46+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -501,31 +501,31 @@ msgstr "프린터"
 msgid "Printer Groups"
 msgstr "프린터 그룹"
 
-#: ui/main.qml:377
+#: ui/main.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "인쇄 대기열 열기"
 
-#: ui/main.qml:386
+#: ui/main.qml:384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "인쇄 다시 시작"
 
-#: ui/main.qml:387
+#: ui/main.qml:385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "인쇄 일시 정지"
 
-#: ui/main.qml:393
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "다시 시작"
 
-#: ui/main.qml:394
+#: ui/main.qml:392
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"

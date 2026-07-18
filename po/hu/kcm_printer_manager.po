@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:48+0000\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
 "PO-Revision-Date: 2026-05-30 21:37+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -512,31 +512,31 @@ msgstr "Nyomtatók"
 msgid "Printer Groups"
 msgstr "Nyomtatócsoportok"
 
-#: ui/main.qml:377
+#: ui/main.qml:375
 #, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "Nyomtatási sor megnyitása"
 
-#: ui/main.qml:386
+#: ui/main.qml:384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "Nyomtatás folytatása"
 
-#: ui/main.qml:387
+#: ui/main.qml:385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "Nyomtatás szüneteltetése"
 
-#: ui/main.qml:393
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Folytatás"
 
-#: ui/main.qml:394
+#: ui/main.qml:392
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"

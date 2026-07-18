@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:46+0000\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
 "PO-Revision-Date: 2026-07-05 16:14+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -235,25 +235,25 @@ msgctxt "@label:info device description"
 msgid "Printer Groups"
 msgstr "Skrivargrupper"
 
-#: qml/Main.qml:269
+#: qml/Main.qml:267
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "Hald fram"
 
-#: qml/Main.qml:270
+#: qml/Main.qml:268
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
 msgstr "Set på vent"
 
-#: qml/Main.qml:283
+#: qml/Main.qml:281
 #, kde-format
 msgctxt "@action:button Configure printer in the kcm"
 msgid "Configure…"
 msgstr "Set opp …"
 
-#: qml/Main.qml:290
+#: qml/Main.qml:288
 #, kde-format
 msgctxt "@action:button Open additional printer settings"
 msgid "Media Settings…"

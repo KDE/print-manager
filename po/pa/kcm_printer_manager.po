@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:48+0000\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
 "PO-Revision-Date: 2024-01-01 09:03-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -536,7 +536,7 @@ msgstr "ਪਰਿੰਟਰ"
 msgid "Printer Groups"
 msgstr "ਪਰਿੰਟਰ ਗਰੁੱਪ"
 
-#: ui/main.qml:377
+#: ui/main.qml:375
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Open Print Queue…"
@@ -544,25 +544,25 @@ msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "…ਪਰਿੰਟ ਕਤਾਰ ਨੂੰ ਖੋਲ੍ਹੋ"
 
-#: ui/main.qml:386
+#: ui/main.qml:384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "ਪਰਿੰਟ ਕਰਨਾ ਬਹਾਲ ਕਰੋ"
 
-#: ui/main.qml:387
+#: ui/main.qml:385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "ਪਰਿੰਟ ਕਰਨਾ ਰੋਕੋ"
 
-#: ui/main.qml:393
+#: ui/main.qml:391
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "ਬਹਾਲ"
 
-#: ui/main.qml:394
+#: ui/main.qml:392
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"

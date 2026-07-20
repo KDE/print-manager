@@ -1,5 +1,5 @@
 /*
-    SPDX-FileCopyrightText: 2025 Mike Noe <noeerover@gmail.com>
+    SPDX-FileCopyrightText: 2025-2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -19,13 +19,13 @@ class KCupsPrinter;
  * Assumes levels and thresholds are percentages.
  * see https://openprinting.github.io/cups/doc/spec-ipp.html#marker-high-levels
  */
-class MarkerLevelChecker : public QObject
+class CupsWatcher : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit MarkerLevelChecker(QObject *parent);
-    ~MarkerLevelChecker() = default;
+    explicit CupsWatcher(QObject *parent);
+    ~CupsWatcher() = default;
 
 private:
     void checkMarkerLevels(const KCupsPrinter &printer);

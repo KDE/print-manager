@@ -5,7 +5,7 @@
 */
 
 #include "PrintManagerKded.h"
-#include "MarkerLevelChecker.h"
+#include "CupsWatcher.h"
 #include "NewPrinterNotification.h"
 #include <KPluginFactory>
 
@@ -17,7 +17,7 @@ PrintManagerKded::PrintManagerKded(QObject *parent, const QVariantList &args)
     Q_UNUSED(args)
 
     new NewPrinterNotification(this);
-    new MarkerLevelChecker(this);
+    new CupsWatcher(this);
 }
 
 PrintManagerKded::~PrintManagerKded()

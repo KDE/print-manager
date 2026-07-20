@@ -4,7 +4,7 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "MarkerLevelChecker.h"
+#include "CupsWatcher.h"
 #include "pmkded_log.h"
 
 #include <KLocalizedString>
@@ -15,7 +15,7 @@
 
 using namespace Qt::StringLiterals;
 
-MarkerLevelChecker::MarkerLevelChecker(QObject *parent)
+CupsWatcher::CupsWatcher(QObject *parent)
     : QObject(parent)
 {
     connect(KCupsConnection::global(), &KCupsConnection::serverStarted, this, [](const QString &msg) {
@@ -30,10 +30,10 @@ MarkerLevelChecker::MarkerLevelChecker(QObject *parent)
         qCDebug(PMKDED) << "CUPS Restarted:" << msg;
     });
 
-    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &MarkerLevelChecker::jobHandler);
+    connect(KCupsConnection::global(), &KCupsConnection::jobCreated, this, &CupsWatcher::jobHandler);
 }
 
-void MarkerLevelChecker::checkMarkerLevels(const KCupsPrinter &printer)
+void CupsWatcher::checkMarkerLevels(const KCupsPrinter &printer)
 {
     const auto msgs = printer.checkMarkerLevels();
 
@@ -52,17 +52,17 @@ void MarkerLevelChecker::checkMarkerLevels(const KCupsPrinter &printer)
     }
 }
 
-void MarkerLevelChecker::jobHandler([[maybe_unused]] const QString &text,
-                                    [[maybe_unused]] const QString &printerUri,
-                                    [[maybe_unused]] const QString &printerName,
-                                    [[maybe_unused]] uint printerState,
-                                    [[maybe_unused]] const QString &printerStateReasons,
-                                    [[maybe_unused]] bool printerIsAcceptingJobs,
-                                    [[maybe_unused]] uint jobId,
-                                    [[maybe_unused]] uint jobState,
-                                    [[maybe_unused]] const QString &jobStateReasons,
-                                    [[maybe_unused]] const QString &jobName,
-                                    [[maybe_unused]] uint jobImpressionsCompleted)
+void CupsWatcher::jobHandler([[maybe_unused]] const QString &text,
+                             [[maybe_unused]] const QString &printerUri,
+                             [[maybe_unused]] const QString &printerName,
+                             [[maybe_unused]] uint printerState,
+                             [[maybe_unused]] const QString &printerStateReasons,
+                             [[maybe_unused]] bool printerIsAcceptingJobs,
+                             [[maybe_unused]] uint jobId,
+                             [[maybe_unused]] uint jobState,
+                             [[maybe_unused]] const QString &jobStateReasons,
+                             [[maybe_unused]] const QString &jobName,
+                             [[maybe_unused]] uint jobImpressionsCompleted)
 {
     qCDebug(PMKDED) << text << printerName << jobId << jobStateReasons;
     static const QStringList s_attrs({KCUPS_MARKER_NAMES,
@@ -88,4 +88,4 @@ void MarkerLevelChecker::jobHandler([[maybe_unused]] const QString &text,
     request->getPrinterAttributes(printerName, false, s_attrs);
 }
 
-#include "moc_MarkerLevelChecker.cpp"
+#include "moc_CupsWatcher.cpp"

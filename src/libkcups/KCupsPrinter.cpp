@@ -166,6 +166,10 @@ QStringList KCupsPrinter::checkMarkerLevels() const
 
 void KCupsPrinter::setAttribute(const QString &key, const QVariant &value)
 {
+    if (key == KCUPS_PRINTER_NAME || key == KCUPS_PRINTER_TYPE) {
+        qCDebug(LIBKCUPS, "Changing printer id attributes is not supported, %s == %s", qPrintable(key), qPrintable(value.toString()));
+        return;
+    }
     if (!key.isEmpty()) {
         m_attributes[key] = value;
     }

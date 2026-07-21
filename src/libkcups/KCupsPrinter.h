@@ -22,6 +22,8 @@ public:
 
     KCupsPrinter();
     explicit KCupsPrinter(const QString &printer, bool isClass = false);
+    explicit KCupsPrinter(const QVariantMap &attributes);
+    void setAttribute(const QString &key, const QVariant &value);
 
     QString name() const;
     bool isClass() const;
@@ -83,14 +85,7 @@ public:
      */
     QStringList checkMarkerLevels() const;
 
-protected:
-    explicit KCupsPrinter(const QVariantMap &attributes);
-    void setAttribute(const QString &key, const QVariant &value);
-
 private:
-    friend class KCupsRequest;
-    friend class PrinterModel;
-
     QString m_printer;
     bool m_isClass;
     QVariantMap m_attributes;

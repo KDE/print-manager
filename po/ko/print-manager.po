@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:46+0000\n"
+"POT-Creation-Date: 2026-07-21 00:46+0000\n"
 "PO-Revision-Date: 2026-04-26 20:24+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -265,28 +265,7 @@ msgstr ""
 "설치 오류(패키지: %1)\n"
 "자격 증명을 확인하고 PackageKit 설치 상태를 확인하십시오."
 
-#: src/kded/MarkerLevelChecker.cpp:194
-#, kde-format
-msgctxt "@info:usagetip The name and type of the ink cartridge"
-msgid "%1 (%2) appears to be empty."
-msgstr "%1(%2)이(가) 비어 있는 것 같습니다."
-
-#: src/kded/MarkerLevelChecker.cpp:197
-#, kde-format
-msgctxt ""
-"@info:usagetip The name and type of the ink cartridge and percent ink "
-"remaining"
-msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr "%1(%2)이(가) 부족합니다(%3% 남음)."
-
-#: src/kded/MarkerLevelChecker.cpp:204
-#, kde-format
-msgctxt ""
-"@info:usagetip The name, type, and percentage full of the waste receptacle"
-msgid "%1 (%2) is almost full (%3%)"
-msgstr "%1(%2)이(가) 거의 가득 참(%3%)"
-
-#: src/kded/MarkerLevelChecker.cpp:219
+#: src/kded/CupsWatcher.cpp:46
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -682,6 +661,27 @@ msgstr "작업을 완료하려면 사용자 이름과 암호를 입력하십시�
 #, kde-format
 msgid "Wrong username or password"
 msgstr "잘못된 사용자 이름이나 암호"
+
+#: src/libkcups/KCupsPrinter.cpp:145
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr "%1(%2)이(가) 비어 있는 것 같습니다."
+
+#: src/libkcups/KCupsPrinter.cpp:148
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr "%1(%2)이(가) 부족합니다(%3% 남음)."
+
+#: src/libkcups/KCupsPrinter.cpp:155
+#, kde-format
+msgctxt ""
+"@info:usagetip The name, type, and percentage full of the waste receptacle"
+msgid "%1 (%2) is almost full (%3%)"
+msgstr "%1(%2)이(가) 거의 가득 참(%3%)"
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

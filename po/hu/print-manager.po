@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:46+0000\n"
+"POT-Creation-Date: 2026-07-21 00:46+0000\n"
 "PO-Revision-Date: 2026-06-01 22:23+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -268,28 +268,7 @@ msgstr ""
 "Ellenőrizze a hitelesítő adatokat, és győződjön meg róla, hogy a PackageKit "
 "megfelelően telepítve van-e."
 
-#: src/kded/MarkerLevelChecker.cpp:194
-#, kde-format
-msgctxt "@info:usagetip The name and type of the ink cartridge"
-msgid "%1 (%2) appears to be empty."
-msgstr "A(z) %1 (%2) üresnek tűnik."
-
-#: src/kded/MarkerLevelChecker.cpp:197
-#, kde-format
-msgctxt ""
-"@info:usagetip The name and type of the ink cartridge and percent ink "
-"remaining"
-msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr "A(z) %1 (%2) alacsonynak tűnik (%3% van hátra)."
-
-#: src/kded/MarkerLevelChecker.cpp:204
-#, kde-format
-msgctxt ""
-"@info:usagetip The name, type, and percentage full of the waste receptacle"
-msgid "%1 (%2) is almost full (%3%)"
-msgstr "A(z) %1 (%2) majdnem megtelt (%3%)"
-
-#: src/kded/MarkerLevelChecker.cpp:219
+#: src/kded/CupsWatcher.cpp:46
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -689,6 +668,27 @@ msgstr "Adjon meg egy felhasználónevet és egy jelszót a feladat befejezésé
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Rossz felhasználónév vagy jelszó"
+
+#: src/libkcups/KCupsPrinter.cpp:145
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr "A(z) %1 (%2) üresnek tűnik."
+
+#: src/libkcups/KCupsPrinter.cpp:148
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr "A(z) %1 (%2) alacsonynak tűnik (%3% van hátra)."
+
+#: src/libkcups/KCupsPrinter.cpp:155
+#, kde-format
+msgctxt ""
+"@info:usagetip The name, type, and percentage full of the waste receptacle"
+msgid "%1 (%2) is almost full (%3%)"
+msgstr "A(z) %1 (%2) majdnem megtelt (%3%)"
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

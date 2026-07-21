@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:46+0000\n"
+"POT-Creation-Date: 2026-07-21 00:46+0000\n"
 "PO-Revision-Date: 2026-03-31 13:07+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -267,28 +267,7 @@ msgstr ""
 "Verificați acreditările pentru autentificare și asigurați-vă că PackageKit e "
 "instalat corect."
 
-#: src/kded/MarkerLevelChecker.cpp:194
-#, kde-format
-msgctxt "@info:usagetip The name and type of the ink cartridge"
-msgid "%1 (%2) appears to be empty."
-msgstr "%1 (%2) pare să fie gol."
-
-#: src/kded/MarkerLevelChecker.cpp:197
-#, kde-format
-msgctxt ""
-"@info:usagetip The name and type of the ink cartridge and percent ink "
-"remaining"
-msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr "%1 (%2) pare să fie gol (%3% rămase)."
-
-#: src/kded/MarkerLevelChecker.cpp:204
-#, kde-format
-msgctxt ""
-"@info:usagetip The name, type, and percentage full of the waste receptacle"
-msgid "%1 (%2) is almost full (%3%)"
-msgstr "%1 (%2) e aproape plin (%3%)"
-
-#: src/kded/MarkerLevelChecker.cpp:219
+#: src/kded/CupsWatcher.cpp:46
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -692,6 +671,27 @@ msgstr ""
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Nume de utilizator greșit sau parolă incorectă"
+
+#: src/libkcups/KCupsPrinter.cpp:145
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr "%1 (%2) pare să fie gol."
+
+#: src/libkcups/KCupsPrinter.cpp:148
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr "%1 (%2) pare să fie gol (%3% rămase)."
+
+#: src/libkcups/KCupsPrinter.cpp:155
+#, kde-format
+msgctxt ""
+"@info:usagetip The name, type, and percentage full of the waste receptacle"
+msgid "%1 (%2) is almost full (%3%)"
+msgstr "%1 (%2) e aproape plin (%3%)"
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

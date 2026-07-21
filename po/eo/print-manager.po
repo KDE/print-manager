@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:46+0000\n"
+"POT-Creation-Date: 2026-07-21 00:46+0000\n"
 "PO-Revision-Date: 2024-05-26 22:24+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -268,28 +268,7 @@ msgstr ""
 "Instal-Eraro (pako: %1)\n"
 "Kontrolu aŭtentigajn akreditaĵojn kaj certigu ke PackageKit estas instalita"
 
-#: src/kded/MarkerLevelChecker.cpp:194
-#, kde-format
-msgctxt "@info:usagetip The name and type of the ink cartridge"
-msgid "%1 (%2) appears to be empty."
-msgstr ""
-
-#: src/kded/MarkerLevelChecker.cpp:197
-#, kde-format
-msgctxt ""
-"@info:usagetip The name and type of the ink cartridge and percent ink "
-"remaining"
-msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
-
-#: src/kded/MarkerLevelChecker.cpp:204
-#, kde-format
-msgctxt ""
-"@info:usagetip The name, type, and percentage full of the waste receptacle"
-msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
-
-#: src/kded/MarkerLevelChecker.cpp:219
+#: src/kded/CupsWatcher.cpp:46
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -705,6 +684,27 @@ msgstr "Enigi uzantnomon kaj pasvorton por plenumi la taskon"
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Malĝusta uzantnomo aŭ pasvorto"
+
+#: src/libkcups/KCupsPrinter.cpp:145
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr ""
+
+#: src/libkcups/KCupsPrinter.cpp:148
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr ""
+
+#: src/libkcups/KCupsPrinter.cpp:155
+#, kde-format
+msgctxt ""
+"@info:usagetip The name, type, and percentage full of the waste receptacle"
+msgid "%1 (%2) is almost full (%3%)"
+msgstr ""
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

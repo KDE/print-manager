@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-11 00:46+0000\n"
+"POT-Creation-Date: 2026-07-21 00:46+0000\n"
 "PO-Revision-Date: 2025-11-23 23:47+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -266,28 +266,7 @@ msgstr ""
 "Uppsetningarvilla (pakki: %1)\n"
 "Athugaðu auðkennin þín og gakktu úr skugga um að PackageKit sé rétt uppsett."
 
-#: src/kded/MarkerLevelChecker.cpp:194
-#, kde-format
-msgctxt "@info:usagetip The name and type of the ink cartridge"
-msgid "%1 (%2) appears to be empty."
-msgstr "%1 (%2) lítur út fyrir að vera tómt."
-
-#: src/kded/MarkerLevelChecker.cpp:197
-#, kde-format
-msgctxt ""
-"@info:usagetip The name and type of the ink cartridge and percent ink "
-"remaining"
-msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr "%1 (%2) lítur út fyrir að vera lítið (%3% remaining)."
-
-#: src/kded/MarkerLevelChecker.cpp:204
-#, kde-format
-msgctxt ""
-"@info:usagetip The name, type, and percentage full of the waste receptacle"
-msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
-
-#: src/kded/MarkerLevelChecker.cpp:219
+#: src/kded/CupsWatcher.cpp:46
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -683,6 +662,27 @@ msgstr "Settu inn notandanafn og lykilorð til að ljúka verkinu"
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Rangt notandanafn eða lykilorð"
+
+#: src/libkcups/KCupsPrinter.cpp:145
+#, kde-format
+msgctxt "@info:usagetip The name and type of the ink cartridge"
+msgid "%1 (%2) appears to be empty."
+msgstr "%1 (%2) lítur út fyrir að vera tómt."
+
+#: src/libkcups/KCupsPrinter.cpp:148
+#, kde-format
+msgctxt ""
+"@info:usagetip The name and type of the ink cartridge and percent ink "
+"remaining"
+msgid "%1 (%2) appears to be low (%3% remaining)."
+msgstr "%1 (%2) lítur út fyrir að vera lítið (%3% remaining)."
+
+#: src/libkcups/KCupsPrinter.cpp:155
+#, kde-format
+msgctxt ""
+"@info:usagetip The name, type, and percentage full of the waste receptacle"
+msgid "%1 (%2) is almost full (%3%)"
+msgstr ""
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

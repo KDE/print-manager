@@ -171,11 +171,6 @@ void KCupsPrinter::setAttribute(const QString &key, const QVariant &value)
     }
 }
 
-void KCupsPrinter::setAttributes(const QVariantMap &attributes)
-{
-    m_attributes = attributes;
-}
-
 QString KCupsPrinter::name() const
 {
     return m_printer;

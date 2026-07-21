@@ -34,7 +34,7 @@ msgstr "Gestiona les cua de treballs d'impressió"
 #: main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr "© Comunitat KDE"
+msgstr "© La comunitat KDE"
 
 #: main.cpp:47
 #, kde-format

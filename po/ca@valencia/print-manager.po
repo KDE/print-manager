@@ -802,7 +802,7 @@ msgstr "Gestiona les cua de treballs d'impressió"
 #: src/print-queue/main.cpp:42
 #, kde-format
 msgid "© KDE Community"
-msgstr "© Comunitat KDE"
+msgstr "© La comunitat KDE"
 
 #: src/print-queue/main.cpp:47
 #, kde-format

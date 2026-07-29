@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:46+0000\n"
+"POT-Creation-Date: 2026-07-29 00:48+0000\n"
 "PO-Revision-Date: 2026-04-26 20:24+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -652,12 +652,12 @@ msgstr "중단됨"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS 연결에 인증이 필요함: \"%1\""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:22
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "작업을 완료하려면 사용자 이름과 암호를 입력하십시오"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:44
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "잘못된 사용자 이름이나 암호"

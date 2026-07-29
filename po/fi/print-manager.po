@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:46+0000\n"
+"POT-Creation-Date: 2026-07-29 00:48+0000\n"
 "PO-Revision-Date: 2025-07-31 10:05+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -656,12 +656,12 @@ msgstr "Keskeytetty"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS-komento vaatii tunnistautumisen: ”%1”"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:22
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "Viimeistele syöttämällä käyttäjätunnus ja salasana"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:44
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "Käyttäjätunnus tai salasana väärin"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:46+0000\n"
+"POT-Creation-Date: 2026-07-29 00:48+0000\n"
 "PO-Revision-Date: 2025-08-03 12:25+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
@@ -652,12 +652,12 @@ msgstr "கைவிடப்பட்டது"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS இணைப்புக்கு உறுதிப்பாட்டு தேவை: \"%1\""
 
-#: src/libkcups/KCupsPasswordDialog.cpp:22
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "பணியை முடிக்க பயனர்பெயரையும் கடவுச்சொல்லையும் உள்ளிடுங்கள்"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:44
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "தவறான பயனர்பெயர் அல்லது கடவுச்சொல்"

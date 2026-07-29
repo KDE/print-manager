@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:46+0000\n"
+"POT-Creation-Date: 2026-07-29 00:48+0000\n"
 "PO-Revision-Date: 2026-06-01 18:34-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -658,12 +658,12 @@ msgstr "توختىتىلدى"
 msgid "A CUPS connection requires authentication: \"%1\""
 msgstr "CUPS باغلىنىشى كىملىك دەلىللەشنى تەلەپ قىلىدۇ: «%1»"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:22
+#: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
 msgid "Enter an username and a password to complete the task"
 msgstr "ۋەزىپىنى تاماملاش ئۈچۈن ئىشلەتكۈچى ئاتى ۋە ئىم كىرگۈزۈلىدۇ"
 
-#: src/libkcups/KCupsPasswordDialog.cpp:44
+#: src/libkcups/KCupsPasswordDialog.cpp:43
 #, kde-format
 msgid "Wrong username or password"
 msgstr "ئىشلەتكۈچى ئاتى ياكى ئىم خاتا"

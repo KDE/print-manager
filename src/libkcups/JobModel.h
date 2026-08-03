@@ -81,8 +81,6 @@ public:
     Q_INVOKABLE void cancel(const QString &printerName, int jobId);
     Q_INVOKABLE void move(const QString &printerName, int jobId, const QString &toPrinterName);
 
-    Q_INVOKABLE void getJobs();
-
     QString processingJob() const;
 
     Qt::ItemFlags flags(const QModelIndex &index) const override;
@@ -96,6 +94,7 @@ public:
     KCupsRequest *modifyJob(int row, JobAction action, const QString &newDestName = QString(), const QModelIndex &parent = QModelIndex());
 
 private Q_SLOTS:
+    void getJobs();
     void getJobFinished(KCupsRequest *request);
 
     void jobCompleted(const QString &text,

@@ -68,20 +68,32 @@ void CupsWatcher::notifyPrinterStatus(const KCupsPrinter &printer, const QString
 
 void CupsWatcher::checkMarkerLevels(const KCupsPrinter &printer)
 {
-    const auto msgs = printer.checkMarkerLevels();
+    // Check if a marker notification is open for the printer
+    if (m_openNotifications.contains(printer.name())) {
+        qCDebug(PMKDED) << "Marker notification currently open for printer:" << printer.name();
+        return;
+    }
 
+    const auto msgs = printer.checkMarkerLevels();
     if (!msgs.isEmpty()) {
         auto notify = new KNotification(u"MarkerLevel"_s, KNotification::Persistent);
         notify->setComponentName(u"printmanager"_s);
         notify->setTitle(printer.info());
         notify->setText(msgs.join(u"\n"_s));
+        // When notification closes, remove the list entry
+        connect(notify, &KNotification::closed, this, [this, pn = printer.name()]() {
+            m_openNotifications.removeAll(pn);
+            qCDebug(PMKDED) << "Marker notification closed for printer:" << pn;
+        });
 
         auto checkMarkers = notify->addDefaultAction(i18nc("@action:button check printer ink levels", "Check Levels…"));
-        connect(checkMarkers, &KNotificationAction::activated, this, [printer, notify]() {
-            ProcessRunner::kcmConfigurePrinter(printer.name(), notify->xdgActivationToken().toUtf8());
+        connect(checkMarkers, &KNotificationAction::activated, this, [pn = printer.name(), notify]() {
+            ProcessRunner::kcmConfigurePrinter(pn, notify->xdgActivationToken().toUtf8());
         });
 
         notify->sendEvent();
+        // Log this printer has an open notification
+        m_openNotifications << printer.name();
     }
 }
 

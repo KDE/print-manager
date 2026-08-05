@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:48+0000\n"
+"POT-Creation-Date: 2026-08-05 00:48+0000\n"
 "PO-Revision-Date: 2026-04-23 10:29+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -268,7 +268,22 @@ msgstr ""
 "خطأ في التثبيت (الحزمة: %1)\n"
 "تحقق من بيانات اعتماد الاستيثاق وتأكد من تثبيت PackageKit بشكل صحيح."
 
-#: src/kded/CupsWatcher.cpp:46
+#: src/kded/CupsWatcher.cpp:55
+#, kde-format
+msgctxt "@info:status %1 is the reason message for the status"
+msgid ""
+"%1\n"
+"The print job will complete when the printer becomes available."
+msgstr ""
+
+#: src/kded/CupsWatcher.cpp:59
+#, fuzzy, kde-format
+#| msgid "Resume Printer"
+msgctxt "@action:button Prompt to resume printer"
+msgid "Resume Printer"
+msgstr "استكمل الطّباعة"
+
+#: src/kded/CupsWatcher.cpp:79
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -665,13 +680,13 @@ msgstr "أدخل اسم مستخدم وكلمة سره لإكمال هذه ال�
 msgid "Wrong username or password"
 msgstr "اسم المستخدم أو كلمة السر خاطئة"
 
-#: src/libkcups/KCupsPrinter.cpp:145
+#: src/libkcups/KCupsPrinter.cpp:147
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr "يبدو أن %1 (%2) فارغ."
 
-#: src/libkcups/KCupsPrinter.cpp:148
+#: src/libkcups/KCupsPrinter.cpp:150
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -679,12 +694,18 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr "يبدو أن %1 (%2) منخفض (تبقى %3٪)."
 
-#: src/libkcups/KCupsPrinter.cpp:155
+#: src/libkcups/KCupsPrinter.cpp:157
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
 msgstr "%1 (%2) شبه ممتلئ (%3%)"
+
+#: src/libkcups/KCupsPrinter.cpp:309
+#, kde-format
+msgctxt "@info:status"
+msgid "The printer is paused or stopped."
+msgstr ""
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
@@ -865,9 +886,6 @@ msgstr "أدخل اسم المستخدم وكلمة السر للطباعة من
 
 #~ msgid "Printer paused"
 #~ msgstr "أُلبثت الطّباعة"
-
-#~ msgid "Resume Printer"
-#~ msgstr "استكمل الطّباعة"
 
 #~ msgid "Printer state unknown"
 #~ msgstr "حالة الطّباعة مجهولة"

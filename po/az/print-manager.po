@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:48+0000\n"
+"POT-Creation-Date: 2026-08-05 00:48+0000\n"
 "PO-Revision-Date: 2025-10-05 18:07+0400\n"
 "Last-Translator: linux <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -266,7 +266,22 @@ msgstr ""
 "Kimlik doğrulaması məlumatlarını yoxlayın və PackageKit paketinin düzgün "
 "quraşdırıldığına əmin olun."
 
-#: src/kded/CupsWatcher.cpp:46
+#: src/kded/CupsWatcher.cpp:55
+#, kde-format
+msgctxt "@info:status %1 is the reason message for the status"
+msgid ""
+"%1\n"
+"The print job will complete when the printer becomes available."
+msgstr ""
+
+#: src/kded/CupsWatcher.cpp:59
+#, fuzzy, kde-format
+#| msgid "Resume Printer"
+msgctxt "@action:button Prompt to resume printer"
+msgid "Resume Printer"
+msgstr "Printeri davam etdirmək"
+
+#: src/kded/CupsWatcher.cpp:79
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -667,13 +682,13 @@ msgstr "Bu tapşırığı yerinə yetirmək üçün istifadəçi adı və şifr�
 msgid "Wrong username or password"
 msgstr "İstifadəçi adı və ya şifrə səhvdir"
 
-#: src/libkcups/KCupsPrinter.cpp:145
+#: src/libkcups/KCupsPrinter.cpp:147
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr "%1 (%2) boş görünür"
 
-#: src/libkcups/KCupsPrinter.cpp:148
+#: src/libkcups/KCupsPrinter.cpp:150
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -681,11 +696,17 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr "%1 (%2) az görünür (%3% qalır)."
 
-#: src/libkcups/KCupsPrinter.cpp:155
+#: src/libkcups/KCupsPrinter.cpp:157
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
+msgstr ""
+
+#: src/libkcups/KCupsPrinter.cpp:309
+#, kde-format
+msgctxt "@info:status"
+msgid "The printer is paused or stopped."
 msgstr ""
 
 #: src/libkcups/KCupsRequest.cpp:31
@@ -873,9 +894,6 @@ msgstr "<b>%1</b>-dan/dən çap etmək üçün istifadəçi adı və şifrəni d
 
 #~ msgid "Printer paused"
 #~ msgstr "Printer fasilədədir"
-
-#~ msgid "Resume Printer"
-#~ msgstr "Printeri davam etdirmək"
 
 #~ msgid "Printer state unknown"
 #~ msgstr "Printerin vəziyyəti naməlumdur"

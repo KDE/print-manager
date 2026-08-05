@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:48+0000\n"
+"POT-Creation-Date: 2026-08-05 00:48+0000\n"
 "PO-Revision-Date: 2025-11-23 23:47+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -266,7 +266,22 @@ msgstr ""
 "Uppsetningarvilla (pakki: %1)\n"
 "Athugaðu auðkennin þín og gakktu úr skugga um að PackageKit sé rétt uppsett."
 
-#: src/kded/CupsWatcher.cpp:46
+#: src/kded/CupsWatcher.cpp:55
+#, kde-format
+msgctxt "@info:status %1 is the reason message for the status"
+msgid ""
+"%1\n"
+"The print job will complete when the printer becomes available."
+msgstr ""
+
+#: src/kded/CupsWatcher.cpp:59
+#, fuzzy, kde-format
+#| msgid "Resume Printer"
+msgctxt "@action:button Prompt to resume printer"
+msgid "Resume Printer"
+msgstr "Halda áfram prentun"
+
+#: src/kded/CupsWatcher.cpp:79
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -663,13 +678,13 @@ msgstr "Settu inn notandanafn og lykilorð til að ljúka verkinu"
 msgid "Wrong username or password"
 msgstr "Rangt notandanafn eða lykilorð"
 
-#: src/libkcups/KCupsPrinter.cpp:145
+#: src/libkcups/KCupsPrinter.cpp:147
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr "%1 (%2) lítur út fyrir að vera tómt."
 
-#: src/libkcups/KCupsPrinter.cpp:148
+#: src/libkcups/KCupsPrinter.cpp:150
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -677,11 +692,17 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr "%1 (%2) lítur út fyrir að vera lítið (%3% remaining)."
 
-#: src/libkcups/KCupsPrinter.cpp:155
+#: src/libkcups/KCupsPrinter.cpp:157
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
+msgstr ""
+
+#: src/libkcups/KCupsPrinter.cpp:309
+#, kde-format
+msgctxt "@info:status"
+msgid "The printer is paused or stopped."
 msgstr ""
 
 #: src/libkcups/KCupsRequest.cpp:31
@@ -869,9 +890,6 @@ msgstr "Setja inn auðkenni til að prenta á <b>%1</b>"
 
 #~ msgid "Printer paused"
 #~ msgstr "Prentari í bið"
-
-#~ msgid "Resume Printer"
-#~ msgstr "Halda áfram prentun"
 
 #~ msgid "Printer state unknown"
 #~ msgstr "Ástand prentara ekki þekkt"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-29 00:48+0000\n"
+"POT-Creation-Date: 2026-08-05 00:48+0000\n"
 "PO-Revision-Date: 2026-05-12 06:20+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -266,7 +266,22 @@ msgstr ""
 "დაყენების შეცდომა (პაკეტი: %1)\n"
 "შეამოწმეთ ავთენტიკაციის დეტალები და დარწმუნდით, რომ PackageKit სწორად აყენია."
 
-#: src/kded/CupsWatcher.cpp:46
+#: src/kded/CupsWatcher.cpp:55
+#, kde-format
+msgctxt "@info:status %1 is the reason message for the status"
+msgid ""
+"%1\n"
+"The print job will complete when the printer becomes available."
+msgstr ""
+
+#: src/kded/CupsWatcher.cpp:59
+#, fuzzy, kde-format
+#| msgid "Resume Printer"
+msgctxt "@action:button Prompt to resume printer"
+msgid "Resume Printer"
+msgstr "პრინტერის გაგრძელება"
+
+#: src/kded/CupsWatcher.cpp:79
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
@@ -667,13 +682,13 @@ msgstr "ამოცანის დასასრულებლად შე�
 msgid "Wrong username or password"
 msgstr "მომხმარებელი ან პაროლი არასწრია"
 
-#: src/libkcups/KCupsPrinter.cpp:145
+#: src/libkcups/KCupsPrinter.cpp:147
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
 msgstr "%1 (%2) როგორც ჩანს, ცარიელია."
 
-#: src/libkcups/KCupsPrinter.cpp:148
+#: src/libkcups/KCupsPrinter.cpp:150
 #, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
@@ -681,12 +696,18 @@ msgctxt ""
 msgid "%1 (%2) appears to be low (%3% remaining)."
 msgstr "%1 (%2) ცოტაღაა (დარჩენილია %3%)."
 
-#: src/libkcups/KCupsPrinter.cpp:155
+#: src/libkcups/KCupsPrinter.cpp:157
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
 msgstr "%1 (%2) თითქმის სავსეა (%3%)"
+
+#: src/libkcups/KCupsPrinter.cpp:309
+#, kde-format
+msgctxt "@info:status"
+msgid "The printer is paused or stopped."
+msgstr ""
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
@@ -867,9 +888,6 @@ msgstr "<b>%1</b>-დან დასაბეჭდად შეიყვან
 
 #~ msgid "Printer paused"
 #~ msgstr "პრინტერი შეჩერებულია"
-
-#~ msgid "Resume Printer"
-#~ msgstr "პრინტერის გაგრძელება"
 
 #~ msgid "Printer state unknown"
 #~ msgstr "პრინტერის მდგომარეობა უცნობია"

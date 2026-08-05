@@ -65,4 +65,5 @@ private:
                     uint jobImpressionsCompleted);
 
     QList<uint> m_notifiedJobIds;
+    QList<QString> m_openNotifications;
 };

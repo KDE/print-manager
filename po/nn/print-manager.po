@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:48+0000\n"
-"PO-Revision-Date: 2026-07-06 20:47+0200\n"
+"PO-Revision-Date: 2026-08-05 18:45+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -276,13 +276,14 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Utskriftsjobben vert fullført når skrivaren vert tilgjengeleg att."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
-msgstr "Skrivar"
+msgstr "Hald fram med utskrift"
 
 #: src/kded/CupsWatcher.cpp:79
 #, kde-format
@@ -711,7 +712,7 @@ msgstr "%1 (%2) er nesten full (%3 %)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Skrivaren er sett på pause eller slått av."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:48+0000\n"
-"PO-Revision-Date: 2026-07-07 10:28+0200\n"
+"PO-Revision-Date: 2026-08-05 15:51+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:96
 #: src/configure-printer/ConfigureDialog.cpp:97
@@ -274,10 +274,11 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Utskriftsjobbet slutförs när skrivaren blir tillgänglig."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "Återuppta utskrift"
@@ -708,7 +709,7 @@ msgstr "%1 (%2) är nästan full (%3 %)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Skrivaren är pausad eller stoppad."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

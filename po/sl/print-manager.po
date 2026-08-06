@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:48+0000\n"
-"PO-Revision-Date: 2026-04-22 06:24+0200\n"
+"PO-Revision-Date: 2026-08-05 07:13+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -277,13 +277,14 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Posel tiskanja bo končan, ko bo tiskalnik na voljo."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
-msgstr "Nadaljuj s tiskanjem"
+msgstr "Nadaljuj tiskanje"
 
 #: src/kded/CupsWatcher.cpp:79
 #, kde-format
@@ -711,7 +712,7 @@ msgstr "%1 (%2) je skoraj polna (%3%)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Tiskalnik je začasno ustavljen ali ustavljen."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kdeutils-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-05 00:48+0000\n"
-"PO-Revision-Date: 2026-05-07 14:30+0300\n"
+"PO-Revision-Date: 2026-08-05 09:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:96
 #: src/configure-printer/ConfigureDialog.cpp:97
@@ -275,10 +275,11 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Yazdırma işi, yazıcı kullanılabilir duruma geldiğinden tamamlanacak."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "Yazıcıyı Sürdür"
@@ -709,7 +710,7 @@ msgstr "%1 (%2) neredeyse dolu (%​%3)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Yazıcı duraklatılmış veya durdurulmuş."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

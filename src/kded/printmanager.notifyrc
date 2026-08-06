@@ -113,6 +113,17 @@ Comment[zh_TW]=偵測到新印表機時發出通知
 
 [Event/StatusWarning]
 Name=Printer Status Warning
+Name[ca]=Avís de l'estat de la impressora
+Name[ca@valencia]=Avís de l'estat de la impressora
+Name[cs]=Varování o stavu tiskárny
+Name[es]=Advertencia del estado de la impresora
+Name[ka]=პრინტერის სტატუსის გაფრთხილება
+Name[nn]=Åtvaring om utskriftsstatus
+Name[pt_BR]=Aviso de status da impressora
+Name[sl]=Opozorilo o stanju tiskalnika
+Name[sv]=Skrivarstatusvarning
+Name[tr]=Yazıcı Durumu Uyarısı
+Name[uk]=Попередження про стан принтера
 Action=Popup
 IconName=printer-warning
 

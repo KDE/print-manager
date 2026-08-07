@@ -20,7 +20,7 @@ private Q_SLOTS:
     {
         // An idle, available printer
         KCupsPrinter printer{{{KCUPS_PRINTER_NAME, u"notifytest"_s},
-                              {KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL},
+                              {KCUPS_PRINTER_TYPE, KCUPS_PRINTER_LOCAL},
                               {KCUPS_PRINTER_STATE, KCupsPrinter::Idle},
                               {KCUPS_PRINTER_STATE_MESSAGE, u"none"_s},
                               {KCUPS_PRINTER_IS_ACCEPTING_JOBS, true}}};

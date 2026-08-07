@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -19,8 +20,6 @@
 #include <KUser>
 
 #include <KCupsRequest.h>
-
-#include <cups/cups.h>
 
 PrinterModel::PrinterModel(QObject *parent)
     : QStandardItemModel(parent)
@@ -97,12 +96,12 @@ PrinterModel::PrinterModel(QObject *parent)
 void PrinterModel::getDestsFinished(KCupsRequest *request)
 {
     // When there is no printer IPP_NOT_FOUND is returned
-    if (request->hasError() && request->error() != IPP_NOT_FOUND) {
+    if (request->hasError() && request->error() != IPP_STATUS_ERROR_NOT_FOUND) {
         // clear the model after so that the proper widget can be shown
         clear();
 
         Q_EMIT error(request->error(), request->serverError(), request->errorMsg());
-        if (request->error() == IPP_SERVICE_UNAVAILABLE) {
+        if (request->error() == IPP_STATUS_ERROR_SERVICE_UNAVAILABLE) {
             setServerState(ServerState::Unavailable);
         }
     } else {
@@ -139,7 +138,7 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
 
         updateDisplayHints();
 
-        Q_EMIT error(IPP_OK, QString(), QString());
+        Q_EMIT error(IPP_STATUS_OK, QString(), QString());
     }
     request->deleteLater();
 }
@@ -292,7 +291,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     uint printerType = printer.type();
     if (printerType != destItem->data(DestType)) {
         destItem->setData(printerType, DestType);
-        destItem->setData(printerType & CUPS_PRINTER_REMOTE, DestRemote);
+        destItem->setData(printerType & KCUPS_PRINTER_REMOTE, DestRemote);
     }
 
     // store the printer location

@@ -163,7 +163,7 @@ void JobModel::getJobFinished(KCupsRequest *request)
 
     for (int i = 0; i < jobs.size(); ++i) {
         const auto job = jobs.at(i);
-        if (job.state() == IPP_JOB_PROCESSING) {
+        if (job.state() == IPP_JSTATE_PROCESSING) {
             msgList << i18nc("@info:progress The job name (%1) and the printer name (%2)","Processing\t%1 [%2]", job.name(), job.printer());
         }
 
@@ -442,14 +442,13 @@ int JobModel::jobRow(int jobId) const
 
 QString JobModel::jobStatus(ipp_jstate_e job_state) const
 {
-    const static QHash<int, QString> statusStrings({{IPP_JOB_PENDING, i18n("Pending")},
-                                            {IPP_JOB_HELD, i18n("On hold")},
-                                            {IPP_JOB_PROCESSING, QLatin1String("-")},
-                                            {IPP_JOB_STOPPED, i18n("Stopped")},
-                                            {IPP_JOB_CANCELED, i18n("Canceled")},
-                                            {IPP_JOB_ABORTED, i18n("Aborted")},
-                                            {IPP_JOB_COMPLETED, i18n("Completed")}
-                                           });
+    const static QHash<int, QString> statusStrings({{IPP_JSTATE_PENDING, i18n("Pending")},
+                                                    {IPP_JSTATE_HELD, i18n("On hold")},
+                                                    {IPP_JSTATE_PROCESSING, QLatin1String("-")},
+                                                    {IPP_JSTATE_STOPPED, i18n("Stopped")},
+                                                    {IPP_JSTATE_CANCELED, i18n("Canceled")},
+                                                    {IPP_JSTATE_ABORTED, i18n("Aborted")},
+                                                    {IPP_JSTATE_COMPLETED, i18n("Completed")}});
 
     const auto str = statusStrings.value(job_state);
     return !str.isEmpty() ? str : QLatin1String("-");

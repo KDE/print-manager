@@ -8,6 +8,7 @@
 #include "kcupslib_log.h"
 
 #include "KCupsPrinter.h"
+#include <KCupsCompat.h>
 #include <KLocalizedString>
 
 using namespace Qt::StringLiterals;
@@ -25,7 +26,7 @@ KCupsPrinter::KCupsPrinter(const QString &printer, bool isClass)
 
 KCupsPrinter::KCupsPrinter(const QVariantMap &attributes)
     : m_printer(attributes[KCUPS_PRINTER_NAME].toString())
-    , m_isClass(attributes[KCUPS_PRINTER_TYPE].toInt() & CUPS_PRINTER_CLASS)
+    , m_isClass(attributes[KCUPS_PRINTER_TYPE].toInt() & KCUPS_PRINTER_CLASS)
     , m_attributes(attributes)
 {
 }
@@ -189,7 +190,7 @@ bool KCupsPrinter::isClass() const
 
 bool KCupsPrinter::isDefault() const
 {
-    return m_attributes[KCUPS_PRINTER_TYPE].toUInt() & CUPS_PRINTER_DEFAULT;
+    return m_attributes[KCUPS_PRINTER_TYPE].toUInt() & KCUPS_PRINTER_DEFAULT;
 }
 
 bool KCupsPrinter::isShared() const
@@ -402,17 +403,17 @@ QString KCupsPrinter::iconName() const
 
 QString KCupsPrinter::iconName(cups_ptype_e type)
 {
-    if (type & CUPS_PRINTER_CLASS) {
+    if (type & KCUPS_PRINTER_CLASS) {
         return QStringLiteral("folder-print");
     }
-    if (type & CUPS_PRINTER_REMOTE) {
+    if (type & KCUPS_PRINTER_REMOTE) {
         return QStringLiteral("folder-network");
     }
-    if (!(type & CUPS_PRINTER_COLOR)) {
+    if (!(type & KCUPS_PRINTER_COLOR)) {
         // If the printer is not color it is probably a laser one
         return QStringLiteral("printer-laser");
     }
-    if (type & CUPS_PRINTER_SCANNER) {
+    if (type & KCUPS_PRINTER_SCANNER) {
         return QStringLiteral("scanner");
     }
 

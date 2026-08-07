@@ -11,7 +11,7 @@
 #include <QPointer>
 #include <qqmlregistration.h>
 
-#include <cups/cups.h>
+#include <KCupsCompat.h>
 #include <kcups_export.h>
 
 class KCupsJob;

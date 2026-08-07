@@ -18,7 +18,7 @@
 
 #include <kcups_export.h>
 
-#include <cups/cups.h>
+#include <KCupsCompat.h>
 
 #define KCUPS_DEVICE_CLASS QLatin1String("device-class")
 #define KCUPS_DEVICE_ID QLatin1String("device-id")

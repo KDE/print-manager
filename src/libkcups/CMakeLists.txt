@@ -12,20 +12,21 @@ set(libkcups_SRCS
     JobSortFilterModel.cpp
     ProcessRunner.cpp
     CommandHelpers.cpp
+    KCupsCompat.cpp
 
+    KCupsCompat.h
     KIppRequest.h
     KCupsPasswordDialog.h
     KCupsConnection.h
     KCupsJob.h
     KCupsPrinter.h
-    KCupsServer.h
     KCupsRequest.h
     PrinterModel.h
     JobModel.h
     JobSortFilterModel.h
     ProcessRunner.h
     CommandHelpers.h
-)
+    )
 
 if (NOT BUILD_WITH_CUPS3)
     set(libkcups_SRCS

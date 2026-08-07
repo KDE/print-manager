@@ -161,7 +161,7 @@ void CupsWatcher::jobProgress(const QString &text,
     // Create a mock printer based on the params from the signal
     KCupsPrinter printer{{{KCUPS_PRINTER_INFO, printerName},
                           {KCUPS_PRINTER_NAME, printerName},
-                          {KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL},
+                          {KCUPS_PRINTER_TYPE, KCUPS_PRINTER_LOCAL},
                           {KCUPS_PRINTER_STATE, printerState},
                           {KCUPS_PRINTER_STATE_MESSAGE, printerStateReasons},
                           {KCUPS_PRINTER_IS_ACCEPTING_JOBS, printerIsAcceptingJobs}}};

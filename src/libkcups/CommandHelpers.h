@@ -30,14 +30,13 @@ public:
     explicit PrinterCommands(QObject *parent = nullptr);
     ~PrinterCommands() override;
 
-#ifdef LIBCUPS_VERSION_2
     enum class PPDType {
         Manual = 0,
         Auto,
         Custom
     };
     Q_ENUM(PPDType)
-#endif
+
     Q_INVOKABLE void pausePrinter(const QString &printerName);
     Q_INVOKABLE void resumePrinter(const QString &printerName);
     Q_INVOKABLE void removePrinter(const QString &printerName);

@@ -25,19 +25,21 @@ void PrinterCommands::savePrinter(const QString &name, const QVariantMap &saveAr
     QVariantMap args = saveArgs;
     QString fileName;
 
+#if CUPS_VERSION_MAJOR < 3
     if (args.contains(u"ppd-type"_s)) {
         const auto ppdType = args.take(u"ppd-type"_s).toInt();
         if (static_cast<PPDType>(ppdType) == PPDType::Manual) {
             fileName = args.take(u"ppd-name"_s).toString();
         }
     }
+#endif
 
     const bool addMode = args.take(u"add"_s).toBool();
     // Will only be set if default is changed to true
     const bool isDefault = args.take(u"isDefault"_s).toBool();
 
     if (addMode) {
-        args[KCUPS_PRINTER_STATE] = IPP_PRINTER_IDLE;
+        args[KCUPS_PRINTER_STATE] = IPP_PSTATE_IDLE;
     }
 
     // WORKAROUND: Remove after CUPS 2.4.13 release
@@ -90,7 +92,7 @@ void PrinterCommands::savePrinter(const QString &name, const QVariantMap &saveAr
                 checkDefault();
             },
             [this, isClass, name](KCupsRequest *req) {
-                Q_EMIT error(cupsLastError(),
+                Q_EMIT error(KCupsCompat::kcupsError(),
                              (isClass ? i18nc("@info", "Failed to configure class: ") : i18nc("@info", "Failed to configure printer: ")),
                              req->errorMsg());
                 qCWarning(LIBKCUPS) << "Failed to save printer/class" << name << req->errorMsg();

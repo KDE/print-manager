@@ -1,6 +1,7 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
     SPDX-FileCopyrightText: 2012 Harald Sitter <sitter@kde.org>
+    SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -207,7 +208,11 @@ void KCupsConnection::run()
     // function when a password set is needed, as we passed the
     // password dialog pointer the functions just need to call
     // it on a blocking mode.
+#if CUPS_VERSION_MAJOR >= 3
+    cupsSetPasswordCB(password_cb, m_passwordDialog);
+#else
     cupsSetPasswordCB2(password_cb, m_passwordDialog);
+#endif
 
     exec();
 
@@ -252,13 +257,13 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
     int ret = -1;
 
     // if valid subscription ID, renewing, otherwise, create a new subscription
-    ipp_op_t operation = subscriptionId >= 0 ? IPP_RENEW_SUBSCRIPTION : IPP_CREATE_PRINTER_SUBSCRIPTION;
+    ipp_op_t operation = subscriptionId >= 0 ? IPP_OP_RENEW_SUBSCRIPTION : IPP_OP_CREATE_PRINTER_SUBSCRIPTIONS;
 
     KIppRequest request(operation, QLatin1String("/"));
     request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("ipp://localhost/"));
     request.addInteger(IPP_TAG_SUBSCRIPTION, IPP_TAG_INTEGER, KCUPS_NOTIFY_LEASE_DURATION, leaseDuration);
 
-    if (operation == IPP_CREATE_PRINTER_SUBSCRIPTION) {
+    if (operation == IPP_OP_CREATE_PRINTER_SUBSCRIPTIONS) {
         // the list of events we wish to be notified of
         request.addStringList(IPP_TAG_SUBSCRIPTION, IPP_TAG_KEYWORD, KCUPS_NOTIFY_EVENTS, events);
         request.addString(IPP_TAG_SUBSCRIPTION, IPP_TAG_URI, KCUPS_NOTIFY_RECIPIENT_URI, QLatin1String("dbus://"));
@@ -272,11 +277,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         response = request.sendIppRequest();
     } while (retry("/", operation));
 
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
-    if (response && ippGetStatusCode(response) == IPP_OK) {
-#else
-    if (response && response->request.status.status_code == IPP_OK) {
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
+    if (response && ippGetStatusCode(response) == IPP_STATUS_OK) {
         ipp_attribute_t *attr;
         if (subscriptionId >= 0) {
             // Request was ok, just return the current subscription
@@ -285,23 +286,14 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
             qCWarning(LIBKCUPS) << "No notify-subscription-id in response!";
             ret = -1;
         } else {
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
             ret = ippGetInteger(attr, 0);
         }
-    } else if (subscriptionId >= 0 && response && ippGetStatusCode(response) == IPP_NOT_FOUND) {
+    } else if (subscriptionId >= 0 && response && ippGetStatusCode(response) == IPP_STATUS_ERROR_NOT_FOUND) {
         qCDebug(LIBKCUPS) << "Subscription not found";
         // When the subscription is not found try to get a new one
         return renewDBusSubscription(-1, leaseDuration, events);
-#else
-            ret = attr->values[0].integer;
-        }
-    } else if (subscriptionId >= 0 && response && response->request.status.status_code == IPP_NOT_FOUND) {
-        qCDebug(LIBKCUPS) << "Subscription not found";
-        // When the subscription is not found try to get a new one
-        return renewDBusSubscription(-1, leaseDuration, events);
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     } else {
-        qCDebug(LIBKCUPS) << "Request failed" << cupsLastError() << httpGetStatus(CUPS_HTTP_DEFAULT);
+        qCDebug(LIBKCUPS) << "Request failed" << KCupsCompat::kcupsError() << httpGetStatus(CUPS_HTTP_DEFAULT);
         // When the server stops/restarts we will have some error so ignore it
         ret = subscriptionId;
     }
@@ -447,7 +439,7 @@ void KCupsConnection::renewDBusSubscription()
 
 void KCupsConnection::cancelDBusSubscription()
 {
-    KIppRequest request(IPP_CANCEL_SUBSCRIPTION, QLatin1String("/"));
+    KIppRequest request(IPP_OP_CANCEL_SUBSCRIPTION, QLatin1String("/"));
     request.addString(IPP_TAG_OPERATION, IPP_TAG_URI, KCUPS_PRINTER_URI, QLatin1String("ipp://localhost/"));
     request.addInteger(IPP_TAG_OPERATION, IPP_TAG_INTEGER, KCUPS_NOTIFY_SUBSCRIPTION_ID, m_subscriptionId);
 
@@ -466,9 +458,8 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
     ipp_attribute_t *attr;
     ReturnArguments ret;
 
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     QVariantMap destAttributes;
-    for (attr = ippFirstAttribute(response); attr != nullptr; attr = ippNextAttribute(response)) {
+    for (attr = KCupsCompat::kcupsIppFirstAttribute(response); attr != nullptr; attr = KCupsCompat::kcupsIppNextAttribute(response)) {
         // We hit an attribute separator
         if (ippGetName(attr) == nullptr) {
             ret << destAttributes;
@@ -492,44 +483,6 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
     if (!destAttributes.isEmpty()) {
         ret << destAttributes;
     }
-#else
-    for (attr = response->attrs; attr != nullptr; attr = attr->next) {
-        /*
-         * Skip leading attributes until we hit a group which can be a printer, job...
-         */
-        while (attr && attr->group_tag != group_tag) {
-            attr = attr->next;
-        }
-
-        if (attr == nullptr) {
-            break;
-        }
-
-        /*
-         * Pull the needed attributes from this printer...
-         */
-        QVariantMap destAttributes;
-        for (; attr && attr->group_tag == group_tag; attr = attr->next) {
-            if (attr->value_tag != IPP_TAG_INTEGER && attr->value_tag != IPP_TAG_ENUM && attr->value_tag != IPP_TAG_BOOLEAN && attr->value_tag != IPP_TAG_TEXT
-                && attr->value_tag != IPP_TAG_TEXTLANG && attr->value_tag != IPP_TAG_LANGUAGE && attr->value_tag != IPP_TAG_NAME
-                && attr->value_tag != IPP_TAG_NAMELANG && attr->value_tag != IPP_TAG_KEYWORD && attr->value_tag != IPP_TAG_RANGE
-                && attr->value_tag != IPP_TAG_URI) {
-                continue;
-            }
-
-            /*
-             * Add a printer description attribute...
-             */
-            destAttributes[QString::fromUtf8(attr->name)] = ippAttrToVariant(attr);
-        }
-
-        ret << destAttributes;
-
-        if (attr == nullptr) {
-            break;
-        }
-    }
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
 
     return ret;
 }
@@ -537,7 +490,6 @@ ReturnArguments KCupsConnection::parseIPPVars(ipp_t *response, ipp_tag_t group_t
 QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 {
     QVariant ret;
-#if !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     switch (ippGetValueTag(attr)) {
     case IPP_TAG_INTEGER:
     case IPP_TAG_ENUM:
@@ -582,75 +534,30 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
             ret = values;
         }
     }
-#else
-    switch (attr->value_tag) {
-    case IPP_TAG_INTEGER:
-    case IPP_TAG_ENUM:
-        if (attr->num_values == 1) {
-            ret = attr->values[0].integer;
-        } else {
-            QList<int> values;
-            for (int i = 0; i < attr->num_values; ++i) {
-                values << attr->values[i].integer;
-            }
-            ret = QVariant::fromValue(values);
-        }
-        break;
-    case IPP_TAG_BOOLEAN:
-        if (attr->num_values == 1) {
-            ret = static_cast<bool>(attr->values[0].integer);
-        } else {
-            QList<bool> values;
-            for (int i = 0; i < attr->num_values; ++i) {
-                values << static_cast<bool>(attr->values[i].integer);
-            }
-            ret = QVariant::fromValue(values);
-        }
-        break;
-    case IPP_TAG_RANGE: {
-        QVariantList values;
-        for (int i = 0; i < attr->num_values; ++i) {
-            values << attr->values[i].range.lower;
-            values << attr->values[i].range.upper;
-        }
-        ret = values;
-    } break;
-    default:
-        if (attr->num_values == 1) {
-            ret = QString::fromUtf8(attr->values[0].string.text);
-        } else {
-            QStringList values;
-            for (int i = 0; i < attr->num_values; ++i) {
-                values << QString::fromUtf8(attr->values[i].string.text);
-            }
-            ret = values;
-        }
-    }
-#endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     return ret;
 }
 
 bool KCupsConnection::retry(const char *resource, int operation) const
 {
-    ipp_status_t status = cupsLastError();
+    ipp_status_t status = KCupsCompat::kcupsError();
 
     if (operation != -1) {
-        qCDebug(LIBKCUPS) << ippOpString(static_cast<ipp_op_t>(operation)) << "last error:" << status << cupsLastErrorString();
+        qCDebug(LIBKCUPS) << ippOpString(static_cast<ipp_op_t>(operation)) << "last error:" << status << KCupsCompat::kcupsErrorString();
     } else {
-        qCDebug(LIBKCUPS) << operation << "last error:" << status << cupsLastErrorString();
+        qCDebug(LIBKCUPS) << operation << "last error:" << status << KCupsCompat::kcupsErrorString();
     }
 
     // When CUPS process stops our connection
     // with it fails and has to be re-established
-    if (status == IPP_INTERNAL_ERROR) {
+    if (status == IPP_STATUS_ERROR_INTERNAL) {
         // Deleting this connection thread forces it
         // to create a new CUPS connection
         qCWarning(LIBKCUPS) << "IPP_INTERNAL_ERROR: clearing cookies and reconnecting";
 
         // Reconnect to CUPS
         int cancel = 0;
-        if (httpReconnect2(CUPS_HTTP_DEFAULT, 10000, &cancel)) {
-            qCWarning(LIBKCUPS) << "Failed to reconnect" << cupsLastErrorString();
+        if (KCupsCompat::kcupsHttpReconnect(CUPS_HTTP_DEFAULT, 10000, &cancel)) {
+            qCWarning(LIBKCUPS) << "Failed to reconnect" << KCupsCompat::kcupsErrorString();
         }
 
         // Try the request again
@@ -672,7 +579,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
     // If our user is forbidden to perform the
     // task we try again using the root user
     // ONLY if it was the first time
-    if (status == IPP_FORBIDDEN && password_retries == 0) {
+    if (status == IPP_STATUS_ERROR_FORBIDDEN && password_retries == 0) {
         // Pretend to be the root user
         // Sometimes setting this just works
         cupsSetUser("root");
@@ -681,7 +588,7 @@ bool KCupsConnection::retry(const char *resource, int operation) const
         forceAuth = true;
     }
 
-    if (status == IPP_NOT_AUTHORIZED || status == IPP_NOT_AUTHENTICATED) {
+    if (status == IPP_STATUS_ERROR_NOT_AUTHORIZED || status == IPP_STATUS_ERROR_NOT_AUTHENTICATED) {
         if (password_retries > 3 || password_retries == -1) {
             // the authentication failed 3 times
             // OR the dialog was canceled (-1)
@@ -728,7 +635,11 @@ const char *password_cb(const char *prompt, http_t *http, const char *method, co
     passwordDialog->setPromptText(i18n("A CUPS connection requires authentication: \"%1\"", QString::fromUtf8(prompt)));
 
     // This will block this thread until exec is not finished
-    QMetaObject::invokeMethod(passwordDialog, "exec", Qt::BlockingQueuedConnection, Q_ARG(QString, QString::fromUtf8(cupsUser())), Q_ARG(bool, wrongPassword));
+    QMetaObject::invokeMethod(passwordDialog,
+                              "exec",
+                              Qt::BlockingQueuedConnection,
+                              Q_ARG(QString, QString::fromUtf8(KCupsCompat::kcupsUser())),
+                              Q_ARG(bool, wrongPassword));
 
     // The password dialog has just returned check the result
     // method that returns QDialog enums

@@ -20,7 +20,7 @@ private Q_SLOTS:
     {
         // An idle, available printer
         KCupsPrinter printer{{{KCUPS_PRINTER_NAME, u"test"_s},
-                              {KCUPS_PRINTER_TYPE, CUPS_PRINTER_LOCAL},
+                              {KCUPS_PRINTER_TYPE, KCUPS_PRINTER_LOCAL},
                               {KCUPS_PRINTER_STATE, KCupsPrinter::Idle},
                               {KCUPS_PRINTER_STATE_MESSAGE, u"none"_s},
                               {KCUPS_PRINTER_IS_ACCEPTING_JOBS, true},
@@ -31,8 +31,8 @@ private Q_SLOTS:
         QVERIFY(printer.name() == u"test"_s);
 
         // Test printer type can't be changed
-        printer.setAttribute(KCUPS_PRINTER_TYPE, CUPS_PRINTER_DISCOVERED);
-        QVERIFY(printer.type() == CUPS_PRINTER_LOCAL);
+        printer.setAttribute(KCUPS_PRINTER_TYPE, KCUPS_PRINTER_DISCOVERED);
+        QVERIFY(printer.type() == KCUPS_PRINTER_LOCAL);
 
         // Test (enum) printer state can be changed
         printer.setAttribute(KCUPS_PRINTER_STATE, KCupsPrinter::Stopped);

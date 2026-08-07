@@ -1,5 +1,6 @@
 /*
     SPDX-FileCopyrightText: 2010-2012 Daniel Nicoletti <dantti12@gmail.com>
+    SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -15,8 +16,10 @@
 #include "KCupsConnection.h"
 #include "KCupsJob.h"
 #include "KCupsPrinter.h"
-#include "KCupsServer.h"
 #include "KIppRequest.h"
+#if CUPS_VERSION_MAJOR < 3
+#include "KCupsServer.h"
+#endif
 
 class KCUPS_EXPORT KCupsRequest : public QObject
 {
@@ -58,17 +61,20 @@ public:
     /**
      * Non empty when getPPDs is called and finish is emitted
      */
+    [[deprecated("PPD support is discontinued with CUPS 3.x")]]
     ReturnArguments ppds() const;
 
     /**
      * Non empty when getServerSettings() is called and finish is emitted
      */
+#if CUPS_VERSION_MAJOR < 3
     KCupsServer serverSettings() const;
-
+#endif
     /**
      * Non empty when \sa getPrinterPPD() is called and finish is emitted
      * \warning You must unlik the given file name
      */
+    [[deprecated("PPD support is discontinued with CUPS 3.x")]]
     QString printerPPD() const;
 
     /**
@@ -80,18 +86,21 @@ public:
      * Get all available PPDs from the given make
      * @param make the maker of the printer
      */
+    [[deprecated("PPD support is discontinued with CUPS 3.x")]]
     Q_INVOKABLE void getPPDS(const QString &make = QString());
 
     /**
      * Get all devices that could be added as a printer
      * This method emits device()
      */
+    [[deprecated("cupsGetDevices() is discontinued with CUPS 3.x")]]
     Q_INVOKABLE void getDevices(int timeout = CUPS_TIMEOUT_DEFAULT);
 
     /**
      * Get all devices that could be added as a printer
      * This method emits device()
      */
+    [[deprecated("cupsGetDevices() is discontinued with CUPS 3.x")]]
     Q_INVOKABLE void getDevices(int timeout, QStringList includeSchemes, QStringList excludeSchemes);
 
     /**
@@ -141,19 +150,25 @@ public:
      * Get the CUPS server settings
      * This method emits server()
      */
+#if CUPS_VERSION_MAJOR < 3
     Q_INVOKABLE void getServerSettings();
+#endif
 
     /**
      * Get the PPD associated with @arg printerName
      * the result is stored at \sa printerPPD()
      */
+
+    [[deprecated("PPD support is discontinued with CUPS 3.x")]]
     Q_INVOKABLE void getPrinterPPD(const QString &printerName);
 
     /**
      * Get the CUPS server settings
      * @param userValues the new server settings
      */
+#if CUPS_VERSION_MAJOR < 3
     Q_INVOKABLE void setServerSettings(const KCupsServer &server);
+#endif
 
     // ---- Printer Methods
     /**
@@ -229,6 +244,7 @@ public:
      * @param command The command to print
      * @param title The title of the command
      */
+    [[deprecated("cupsCreateJob() support is discontinued with CUPS 3.x, use cupsCreateDestJob() instead")]]
     Q_INVOKABLE void printCommand(const QString &printerName, const QString &command, const QString &title);
 
     // Jobs methods
@@ -298,11 +314,13 @@ private:
     QEventLoop m_loop;
     QMetaObject::Connection m_loopConnect;
     bool m_finished = true;
-    ipp_status_t m_error = IPP_OK;
+    ipp_status_t m_error = IPP_STATUS_OK;
     http_status_t m_httpStatus;
     QString m_errorMsg;
     ReturnArguments m_ppds;
+#if CUPS_VERSION_MAJOR < 3
     KCupsServer m_server;
+#endif
     QString m_ppdFile;
     KCupsPrinters m_printers;
     KCupsJobs m_jobs;

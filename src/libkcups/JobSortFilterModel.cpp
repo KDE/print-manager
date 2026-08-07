@@ -105,13 +105,13 @@ bool JobSortFilterModel::lessThan(const QModelIndex &left, const QModelIndex &ri
 int JobSortFilterModel::weightForState(int state) const
 {
     switch (state) {
-    case IPP_JOB_PROCESSING:
+    case IPP_JSTATE_PROCESSING:
         return 3;
         break;
-    case IPP_JOB_PENDING:
+    case IPP_JSTATE_PENDING:
         return 2;
         break;
-    case IPP_JOB_HELD:
+    case IPP_JSTATE_HELD:
         return 1;
         break;
     default:

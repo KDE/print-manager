@@ -20,7 +20,7 @@
 
 #include <KCupsRequest.h>
 
-#include <cups/cups.h>
+#include <KCupsCompat.h>
 
 PrinterModel::PrinterModel(QObject *parent)
     : QStandardItemModel(parent)
@@ -286,7 +286,7 @@ void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &print
     uint printerType = printer.type();
     if (printerType != destItem->data(DestType)) {
         destItem->setData(printerType, DestType);
-        destItem->setData(printerType & CUPS_PRINTER_REMOTE, DestRemote);
+        destItem->setData(printerType & KCUPS_PRINTER_REMOTE, DestRemote);
     }
 
     // store the printer location

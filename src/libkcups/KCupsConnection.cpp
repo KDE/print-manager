@@ -207,7 +207,7 @@ void KCupsConnection::run()
     // function when a password set is needed, as we passed the
     // password dialog pointer the functions just need to call
     // it on a blocking mode.
-    cupsSetPasswordCB2(password_cb, m_passwordDialog);
+    KCupsCompat::kcupsSetPasswordCB(password_cb, m_passwordDialog);
 
     exec();
 
@@ -301,7 +301,7 @@ int KCupsConnection::renewDBusSubscription(int subscriptionId, int leaseDuration
         return renewDBusSubscription(-1, leaseDuration, events);
 #endif // !(CUPS_VERSION_MAJOR == 1 && CUPS_VERSION_MINOR < 6)
     } else {
-        qCDebug(LIBKCUPS) << "Request failed" << cupsLastError() << httpGetStatus(CUPS_HTTP_DEFAULT);
+        qCDebug(LIBKCUPS) << "Request failed" << KCupsCompat::kcupsError() << httpGetStatus(CUPS_HTTP_DEFAULT);
         // When the server stops/restarts we will have some error so ignore it
         ret = subscriptionId;
     }
@@ -632,12 +632,12 @@ QVariant KCupsConnection::ippAttrToVariant(ipp_attribute_t *attr)
 
 bool KCupsConnection::retry(const char *resource, int operation) const
 {
-    ipp_status_t status = cupsLastError();
+    ipp_status_t status = KCupsCompat::kcupsError();
 
     if (operation != -1) {
-        qCDebug(LIBKCUPS) << ippOpString(static_cast<ipp_op_t>(operation)) << "last error:" << status << cupsLastErrorString();
+        qCDebug(LIBKCUPS) << ippOpString(static_cast<ipp_op_t>(operation)) << "last error:" << status << KCupsCompat::kcupsErrorString();
     } else {
-        qCDebug(LIBKCUPS) << operation << "last error:" << status << cupsLastErrorString();
+        qCDebug(LIBKCUPS) << operation << "last error:" << status << KCupsCompat::kcupsErrorString();
     }
 
     // When CUPS process stops our connection
@@ -649,8 +649,8 @@ bool KCupsConnection::retry(const char *resource, int operation) const
 
         // Reconnect to CUPS
         int cancel = 0;
-        if (httpReconnect2(CUPS_HTTP_DEFAULT, 10000, &cancel)) {
-            qCWarning(LIBKCUPS) << "Failed to reconnect" << cupsLastErrorString();
+        if (KCupsCompat::kcupsHttpReconnect(CUPS_HTTP_DEFAULT, 10000, &cancel)) {
+            qCWarning(LIBKCUPS) << "Failed to reconnect" << KCupsCompat::kcupsErrorString();
         }
 
         // Try the request again
@@ -728,7 +728,11 @@ const char *password_cb(const char *prompt, http_t *http, const char *method, co
     passwordDialog->setPromptText(i18n("A CUPS connection requires authentication: \"%1\"", QString::fromUtf8(prompt)));
 
     // This will block this thread until exec is not finished
-    QMetaObject::invokeMethod(passwordDialog, "exec", Qt::BlockingQueuedConnection, Q_ARG(QString, QString::fromUtf8(cupsUser())), Q_ARG(bool, wrongPassword));
+    QMetaObject::invokeMethod(passwordDialog,
+                              "exec",
+                              Qt::BlockingQueuedConnection,
+                              Q_ARG(QString, QString::fromUtf8(KCupsCompat::kcupsUser())),
+                              Q_ARG(bool, wrongPassword));
 
     // The password dialog has just returned check the result
     // method that returns QDialog enums

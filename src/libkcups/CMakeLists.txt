@@ -13,6 +13,7 @@ set(libkcups_SRCS
     ProcessRunner.cpp
     CommandHelpers.cpp
 
+    KCupsCompat.h
     KIppRequest.h
     KCupsPasswordDialog.h
     KCupsConnection.h

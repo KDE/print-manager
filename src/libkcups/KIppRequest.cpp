@@ -5,6 +5,7 @@
 */
 
 #include "KIppRequest.h"
+#include "KCupsCompat.h"
 #include "KIppRequest_p.h"
 
 #include "kcupslib_log.h"
@@ -30,7 +31,7 @@ KIppRequest::KIppRequest(ipp_op_t operation, const QString &resource, const QStr
     d->filename = filename;
 
     // send our user name on the request too
-    addString(IPP_TAG_OPERATION, IPP_TAG_NAME, QLatin1String(KCUPS_REQUESTING_USER_NAME), QString::fromUtf8(cupsUser()));
+    addString(IPP_TAG_OPERATION, IPP_TAG_NAME, QLatin1String(KCUPS_REQUESTING_USER_NAME), QString::fromUtf8(KCupsCompat::kcupsUser()));
 }
 
 KIppRequest::~KIppRequest()
@@ -172,7 +173,7 @@ QString KIppRequest::assembleUrif(const QString &name, bool isClass)
         destination = QLatin1String("/printers/") + name;
     }
 
-    httpAssembleURI(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", cupsUser(), "localhost", ippPort(), destination.toUtf8().constData());
+    httpAssembleURI(HTTP_URI_CODING_ALL, uri, sizeof(uri), "ipp", KCupsCompat::kcupsUser(), "localhost", ippPort(), destination.toUtf8().constData());
     return QString::fromLatin1(uri);
 }
 

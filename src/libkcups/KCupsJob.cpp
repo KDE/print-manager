@@ -121,25 +121,25 @@ QString KCupsJob::iconName(ipp_jstate_t state)
 {
     QString ret;
     switch (state) {
-    case IPP_JOB_PENDING:
+    case IPP_JSTATE_PENDING:
         ret = QLatin1String("chronometer");
         break;
-    case IPP_JOB_HELD:
+    case IPP_JSTATE_HELD:
         ret = QLatin1String("media-playback-pause");
         break;
-    case IPP_JOB_PROCESSING:
+    case IPP_JSTATE_PROCESSING:
         ret = QLatin1String("draw-arrow-forward");
         break;
-    case IPP_JOB_STOPPED:
+    case IPP_JSTATE_STOPPED:
         ret = QLatin1String("draw-rectangle");
         break;
-    case IPP_JOB_CANCELED:
+    case IPP_JSTATE_CANCELED:
         ret = QLatin1String("archive-remove");
         break;
-    case IPP_JOB_ABORTED:
+    case IPP_JSTATE_ABORTED:
         ret = QLatin1String("task-attempt");
         break;
-    case IPP_JOB_COMPLETED:
+    case IPP_JSTATE_COMPLETED:
         ret = QLatin1String("task-complete");
         break;
     default:
@@ -175,7 +175,7 @@ bool KCupsJob::authenticationRequired() const
 
 bool KCupsJob::reprintEnabled() const
 {
-    if (state() >= IPP_JOB_STOPPED && preserved()) {
+    if (state() >= IPP_JSTATE_STOPPED && preserved()) {
         return true;
     }
     return false;
@@ -184,9 +184,9 @@ bool KCupsJob::reprintEnabled() const
 bool KCupsJob::cancelEnabled(ipp_jstate_t state)
 {
     switch (state) {
-    case IPP_JOB_CANCELED:
-    case IPP_JOB_COMPLETED:
-    case IPP_JOB_ABORTED:
+    case IPP_JSTATE_CANCELED:
+    case IPP_JSTATE_COMPLETED:
+    case IPP_JSTATE_ABORTED:
         return false;
     default:
         return true;
@@ -196,11 +196,11 @@ bool KCupsJob::cancelEnabled(ipp_jstate_t state)
 bool KCupsJob::holdEnabled(ipp_jstate_t state)
 {
     switch (state) {
-    case IPP_JOB_CANCELED:
-    case IPP_JOB_COMPLETED:
-    case IPP_JOB_ABORTED:
-    case IPP_JOB_HELD:
-    case IPP_JOB_STOPPED:
+    case IPP_JSTATE_CANCELED:
+    case IPP_JSTATE_COMPLETED:
+    case IPP_JSTATE_ABORTED:
+    case IPP_JSTATE_HELD:
+    case IPP_JSTATE_STOPPED:
         return false;
     default:
         return true;
@@ -210,8 +210,8 @@ bool KCupsJob::holdEnabled(ipp_jstate_t state)
 bool KCupsJob::releaseEnabled(ipp_jstate_t state)
 {
     switch (state) {
-    case IPP_JOB_HELD:
-    case IPP_JOB_STOPPED:
+    case IPP_JSTATE_HELD:
+    case IPP_JSTATE_STOPPED:
         return true;
     default:
         return false;

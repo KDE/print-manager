@@ -14,13 +14,29 @@
 #include <KCupsPrinter.h>
 #include <kcups_export.h>
 
+namespace ServerState
+{
+Q_NAMESPACE_EXPORT(KCUPS_EXPORT)
+QML_ELEMENT
+
+enum State {
+    Unknown,
+    Available,
+    Unavailable
+};
+Q_ENUM_NS(State)
+}
+
 class KCupsRequest;
 class KCUPS_EXPORT PrinterModel : public QStandardItemModel
 {
     Q_OBJECT
     QML_ELEMENT
 
-    Q_PROPERTY(bool serverUnavailable READ serverUnavailable NOTIFY serverUnavailableChanged)
+    /**
+     * Whether the CUPS server is reachable, Unknown until the first request completed
+     */
+    Q_PROPERTY(ServerState::State serverState READ serverState NOTIFY serverStateChanged)
     /**
      * Whether or not to actually display the location of the printer
      *
@@ -72,7 +88,7 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
     int count() const;
-    bool serverUnavailable() const;
+    ServerState::State serverState() const;
 
     QHash<int, QByteArray> roleNames() const override;
 
@@ -84,7 +100,7 @@ public Q_SLOTS:
     void getDestsFinished(KCupsRequest *request);
 
 Q_SIGNALS:
-    void serverUnavailableChanged(bool unavailable);
+    void serverStateChanged();
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
     void showLocationsChanged();
     void hasOnlyPrintersChanged();
@@ -138,10 +154,11 @@ private Q_SLOTS:
 private:
     WId m_parentId;
     QHash<int, QByteArray> m_roles;
-    bool m_unavailable = true;
+    ServerState::State m_serverState = ServerState::Unknown;
     bool m_showLocations = true;
     bool m_hasOnlyPrinters = true;
 
+    void setServerState(ServerState::State state);
     void updateDisplayHints();
     int destRow(const QString &destName);
     void insertDest(int pos, const KCupsPrinter &printer);

@@ -102,15 +102,11 @@ void PrinterModel::getDestsFinished(KCupsRequest *request)
         clear();
 
         Q_EMIT error(request->error(), request->serverError(), request->errorMsg());
-        if (request->error() == IPP_SERVICE_UNAVAILABLE && !m_unavailable) {
-            m_unavailable = true;
-            Q_EMIT serverUnavailableChanged(m_unavailable);
+        if (request->error() == IPP_SERVICE_UNAVAILABLE) {
+            setServerState(ServerState::Unavailable);
         }
     } else {
-        if (m_unavailable) {
-            m_unavailable = false;
-            Q_EMIT serverUnavailableChanged(m_unavailable);
-        }
+        setServerState(ServerState::Available);
 
         const KCupsPrinters printers = request->printers();
         for (int i = 0; i < printers.size(); ++i) {
@@ -198,9 +194,19 @@ QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int 
     return QVariant();
 }
 
-bool PrinterModel::serverUnavailable() const
+ServerState::State PrinterModel::serverState() const
 {
-    return m_unavailable;
+    return m_serverState;
+}
+
+void PrinterModel::setServerState(ServerState::State state)
+{
+    if (m_serverState == state) {
+        return;
+    }
+
+    m_serverState = state;
+    Q_EMIT serverStateChanged();
 }
 
 QHash<int, QByteArray> PrinterModel::roleNames() const

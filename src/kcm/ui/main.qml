@@ -286,7 +286,7 @@ KCM.ScrollViewKCM {
 
             active: {
                 let ret = false
-                if (pmModel.serverUnavailable) {
+                if (pmModel.serverState === PM.ServerState.Unavailable) {
                     ret = true
                 } else if (list.count === 0) {
                     ret = true
@@ -296,7 +296,7 @@ KCM.ScrollViewKCM {
 
             sourceComponent: {
                 let ret = null
-                if (pmModel.serverUnavailable) {
+                if (pmModel.serverState === PM.ServerState.Unavailable) {
                     ret = noServiceMsgComp
                 } else if (list.count === 0) {
                     ret = noDevicesMsgComp

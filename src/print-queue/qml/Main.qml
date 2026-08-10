@@ -31,7 +31,7 @@ Kirigami.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        available = Qt.binding(() => {return !printersModel.serverUnavailable && printers.count > 0})
+        available = Qt.binding(() => printersModel.serverState === PM.ServerState.Available && printers.count > 0)
     }
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -346,7 +346,7 @@ Kirigami.ApplicationWindow {
 
         NotAvailablePage {
             deviceCount: printers.count
-            serverAvailable: !printersModel.serverUnavailable
+            serverAvailable: printersModel.serverState !== PM.ServerState.Unavailable
         }
     }
 

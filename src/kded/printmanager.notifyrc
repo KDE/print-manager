@@ -113,6 +113,7 @@ Comment[zh_TW]=偵測到新印表機時發出通知
 
 [Event/StatusWarning]
 Name=Printer Status Warning
+Name[ar]=تحذير حالة الطابعة
 Name[ca]=Avís de l'estat de la impressora
 Name[ca@valencia]=Avís de l'estat de la impressora
 Name[cs]=Varování o stavu tiskárny

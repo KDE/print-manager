@@ -84,17 +84,8 @@ KCM.AbstractKCM {
 
         Kirigami.UrlButton {
             text: i18nc("@action:button", "Printer/Device Admin Page")
-            visible: !root.modelData.isClass && url !== ""
-            url: {
-                try {
-                    const url = new URL(devUri.text)
-                    if (url.hostname.length > 0) {
-                        return `http://${url.hostname}`
-                    }
-                } catch(e) {
-                }
-                return ""
-            }
+            visible: !root.modelData.isClass && root.modelData.moreInfo !== ""
+            url: root.modelData.moreInfo ?? ""
         }
 
         Item { Layout.fillWidth: true }
@@ -323,7 +314,7 @@ KCM.AbstractKCM {
             Layout.bottomMargin: Kirigami.Units.largeSpacing
 
             Kirigami.Icon {
-                source: root.modelData.iconName
+                source: root.modelData.iconUri
                 Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
                 Layout.preferredHeight: Layout.preferredWidth
             }
@@ -333,7 +324,6 @@ KCM.AbstractKCM {
 
                 Kirigami.Heading {
                     text: root.modelData.info ?? ""
-                    visible: !root.addMode
                     level: 3
                     type: Kirigami.Heading.Type.Primary
                 }
@@ -396,6 +386,14 @@ KCM.AbstractKCM {
             Layout.preferredHeight: contentHeight + Kirigami.Units.smallSpacing
             Kirigami.StyleHints.showFramedBackground: true
 
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: root.modelData.supplyInfoUri
+                cursorShape: Qt.PointingHandCursor
+
+                onClicked: Qt.openUrlExternally(root.modelData.supplyInfoUri)
+            }
+
             contentItem: ListView {
                 id: markersView
                 model: !root.addMode && !root.modelData.isClass ? root.modelData.markers["marker-names"] : null
@@ -423,6 +421,7 @@ KCM.AbstractKCM {
                 }
             }
         }
+
 
         // Maint actions
         RowLayout {
@@ -552,15 +551,19 @@ KCM.AbstractKCM {
 
                             filterRowCallback: (source_row, source_parent) => {
                                 const ndx = sourceModel.index(source_row, 0, source_parent)
-                                const pn = sourceModel.data(ndx, PM.PrinterModel.DestName)
+
+                                const isClass = sourceModel.data(ndx, PM.PrinterModel.DestIsClass)
+                                const isRemote = sourceModel.data(ndx, PM.PrinterModel.DestRemote)
+
+                                if (isRemote) {
+                                    return false
+                                }
 
                                 if (!memberList.showClasses) {
-                                    const isClass = sourceModel.data(ndx, PM.PrinterModel.DestIsClass)
-                                    const isRemote = sourceModel.data(ndx, PM.PrinterModel.DestRemote)
-                                    if (isClass || isRemote) {
-                                        return false
-                                    }
+                                    return !isClass
                                 }
+
+                                const pn = sourceModel.data(ndx, PM.PrinterModel.DestName)
                                 return pn !== root.modelData.printerName
                             }
                         }

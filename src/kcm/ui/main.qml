@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-import QtQuick 
-import QtQuick.Layouts 
+import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
@@ -45,6 +45,11 @@ KCM.ScrollViewKCM {
         }
 
         if (addlObj !== undefined && typeof addlObj === "object") {
+            // Resolve in case of discovery uri
+            const uri = PM.PrinterCommands.resolveToUri(addlObj.printerUri)
+            if (uri.length > 0) {
+                addlObj.printerUri = uri
+            }
             Object.assign(obj, addlObj)
         }
 
@@ -230,6 +235,11 @@ KCM.ScrollViewKCM {
 
     PM.PrinterModel {
         id: pmModel
+
+        property bool loading: true
+
+        // printer model signals onError regardless of load success or failure
+        onError: loading = false
     }
 
     // Not heavy, but slow (timeout?), loads on-demand
@@ -252,6 +262,17 @@ KCM.ScrollViewKCM {
                 positionViewAtEnd();
                 currentIndex = count - 1;
                 event.accepted = true;
+            }
+        }
+
+        Component {
+            id: searchingComp
+
+            QQC2.BusyIndicator {
+                running: true
+                anchors.centerIn: parent
+                implicitWidth: Math.floor(parent.width/4)
+                implicitHeight: implicitWidth
             }
         }
 
@@ -286,7 +307,9 @@ KCM.ScrollViewKCM {
 
             active: {
                 let ret = false
-                if (pmModel.serverState === PM.ServerState.Unavailable) {
+                if (pmModel.loading) {
+                    ret = true
+                } else if (pmModel.serverState === PM.ServerState.Unavailable) {
                     ret = true
                 } else if (list.count === 0) {
                     ret = true
@@ -296,7 +319,9 @@ KCM.ScrollViewKCM {
 
             sourceComponent: {
                 let ret = null
-                if (pmModel.serverState === PM.ServerState.Unavailable) {
+                if (pmModel.loading) {
+                    ret = searchingComp
+                } else if (pmModel.serverState === PM.ServerState.Unavailable) {
                     ret = noServiceMsgComp
                 } else if (list.count === 0) {
                     ret = noDevicesMsgComp
@@ -338,10 +363,12 @@ KCM.ScrollViewKCM {
             required property bool isDefault
             required property bool remote
             required property string printerName
+            required property string printerUri
             required property string location
             required property string info
             required property string stateMessage
             required property string iconName
+            required property string iconUri
 
             onClicked: configurePrinter()
 
@@ -365,7 +392,7 @@ KCM.ScrollViewKCM {
                              ? " (%1)".arg(location)
                              : "")
                     subtitle: stateMessage
-                    icon.name: iconName
+                    icon.name: iconUri
 
                     font.bold: list.count > 1 & isDefault
                     selected: deviceDelegate.highlighted || deviceDelegate.down

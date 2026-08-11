@@ -30,6 +30,7 @@ public:
     bool isDefault() const;
     bool isShared() const;
     bool isAcceptingJobs() const;
+    bool isDiscovered() const;
     cups_ptype_e type() const;
     QString location() const;
     QString info() const;
@@ -82,6 +83,7 @@ public:
     static QIcon icon(cups_ptype_e type);
     QString iconName() const;
     static QString iconName(cups_ptype_e type);
+    QString iconUri() const;
 
     /**
      * @brief checkMarkerLevels - Check all marker levels for the printer

@@ -30,6 +30,7 @@ public:
     bool isDefault() const;
     bool isShared() const;
     bool isAcceptingJobs() const;
+    bool isDiscovered() const;
     cups_ptype_e type() const;
     QString location() const;
     QString info() const;

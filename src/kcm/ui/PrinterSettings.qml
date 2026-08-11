@@ -84,17 +84,8 @@ KCM.AbstractKCM {
 
         Kirigami.UrlButton {
             text: i18nc("@action:button", "Printer/Device Admin Page")
-            visible: !root.modelData.isClass && url !== ""
-            url: {
-                try {
-                    const url = new URL(devUri.text)
-                    if (url.hostname.length > 0) {
-                        return `http://${url.hostname}`
-                    }
-                } catch(e) {
-                }
-                return ""
-            }
+            visible: !root.modelData.isClass && root.modelData.moreInfo !== ""
+            url: root.modelData.moreInfo ?? ""
         }
 
         Item { Layout.fillWidth: true }
@@ -389,38 +380,46 @@ KCM.AbstractKCM {
         }
 
         // Marker (ink) status
-        QQC2.ScrollView {
-            visible: markersView.count > 0
-            Layout.fillWidth: true
-            Layout.maximumHeight: Math.floor(root.height/4)
-            Layout.preferredHeight: contentHeight + Kirigami.Units.smallSpacing
-            Kirigami.StyleHints.showFramedBackground: true
+        RowLayout {
+            QQC2.ScrollView {
+                visible: markersView.count > 0
+                Layout.fillWidth: true
+                Layout.maximumHeight: Math.floor(root.height/4)
+                Layout.preferredHeight: contentHeight + Kirigami.Units.smallSpacing
+                Kirigami.StyleHints.showFramedBackground: true
 
-            contentItem: ListView {
-                id: markersView
-                model: !root.addMode && !root.modelData.isClass ? root.modelData.markers["marker-names"] : null
-                clip: true
-                delegate: RowLayout {
-                    spacing: Kirigami.Units.smallSpacing
+                contentItem: ListView {
+                    id: markersView
+                    model: !root.addMode && !root.modelData.isClass ? root.modelData.markers["marker-names"] : null
+                    clip: true
+                    delegate: RowLayout {
+                        spacing: Kirigami.Units.smallSpacing
 
-                    required property var modelData
-                    required property int index
+                        required property var modelData
+                        required property int index
 
-                    QQC2.Label {
-                        text: modelData
-                        horizontalAlignment: Text.AlignRight
-                        Layout.minimumWidth: Kirigami.Units.gridUnit*10
-                    }
+                        QQC2.Label {
+                            text: modelData
+                            horizontalAlignment: Text.AlignRight
+                            Layout.minimumWidth: Kirigami.Units.gridUnit*10
+                        }
 
-                    QQC2.ProgressBar {
-                        from: 0
-                        to: 100
-                        value: root.modelData.markers["marker-levels"][index]
-                        Kirigami.Theme.highlightColor: root.modelData.markers["marker-colors"][index]
-                        Kirigami.Theme.inherit: false
-                        Layout.fillWidth: true
+                        QQC2.ProgressBar {
+                            from: 0
+                            to: 100
+                            value: root.modelData.markers["marker-levels"][index]
+                            Kirigami.Theme.highlightColor: root.modelData.markers["marker-colors"][index]
+                            Kirigami.Theme.inherit: false
+                            Layout.fillWidth: true
+                        }
                     }
                 }
+            }
+
+            Kirigami.UrlButton {
+                text: i18nc("@action:button", "Levels")
+                visible: markersView.visible
+                url: root.modelData.supplyInfoUri ?? ""
             }
         }
 

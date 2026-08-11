@@ -45,6 +45,11 @@ KCM.ScrollViewKCM {
         }
 
         if (addlObj !== undefined && typeof addlObj === "object") {
+            // Resolve in case of discovery uri
+            const uri = PM.PrinterCommands.resolveToUri(addlObj.printerUri)
+            if (uri.length > 0) {
+                addlObj.printerUri = uri
+            }
             Object.assign(obj, addlObj)
         }
 
@@ -230,6 +235,11 @@ KCM.ScrollViewKCM {
 
     PM.PrinterModel {
         id: pmModel
+
+        property bool loading: true
+
+        // printer model signals onError regardless of load success or failure
+        onError: loading = false
     }
 
     // Not heavy, but slow (timeout?), loads on-demand
@@ -252,6 +262,15 @@ KCM.ScrollViewKCM {
                 positionViewAtEnd();
                 currentIndex = count - 1;
                 event.accepted = true;
+            }
+        }
+
+        Component {
+            id: searchingComp
+
+            Kirigami.PlaceholderMessage {
+                icon.name: "printer"
+                text: i18nc("@info:status", "Searching for printers…")
             }
         }
 
@@ -286,7 +305,9 @@ KCM.ScrollViewKCM {
 
             active: {
                 let ret = false
-                if (pmModel.serverState === PM.ServerState.Unavailable) {
+                if (pmModel.loading) {
+                    ret = true
+                } else if (pmModel.serverState === PM.ServerState.Unavailable) {
                     ret = true
                 } else if (list.count === 0) {
                     ret = true
@@ -296,7 +317,9 @@ KCM.ScrollViewKCM {
 
             sourceComponent: {
                 let ret = null
-                if (pmModel.serverState === PM.ServerState.Unavailable) {
+                if (pmModel.loading) {
+                    ret = searchingComp
+                } else if (pmModel.serverState === PM.ServerState.Unavailable) {
                     ret = noServiceMsgComp
                 } else if (list.count === 0) {
                     ret = noDevicesMsgComp
@@ -336,14 +359,20 @@ KCM.ScrollViewKCM {
             required property bool isClass
             required property bool isPaused
             required property bool isDefault
+            required property bool isDiscovered
             required property bool remote
             required property string printerName
+            required property string printerUri
             required property string location
             required property string info
             required property string stateMessage
             required property string iconName
 
-            onClicked: configurePrinter()
+            onClicked: {
+                if (!isDiscovered) {
+                    configurePrinter()
+                }
+            }
 
             function configurePrinter() : void {
                 checkServerSettings()
@@ -364,7 +393,10 @@ KCM.ScrollViewKCM {
                           + (location && pmModel.showLocations
                              ? " (%1)".arg(location)
                              : "")
-                    subtitle: stateMessage
+                    subtitle: isDiscovered
+                              ? "Discovered \"%1\" -> IPP Capable: %2\n[%3]".arg(printerName).arg(kcm.isIPPCapable(printerUri) ? "Yes" : "No").arg(printerUri)
+                              // ? "Discovered Printer"
+                              : stateMessage
                     icon.name: iconName
 
                     font.bold: list.count > 1 & isDefault
@@ -374,6 +406,7 @@ KCM.ScrollViewKCM {
                 QQC2.Button {
                     text: i18nc("@action:button", "Open Print Queue")
                     icon.name: "view-list-details-symbolic"
+                    visible: !isDiscovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: PM.ProcessRunner.openPrintQueue(printerName)
@@ -390,6 +423,8 @@ KCM.ScrollViewKCM {
                     text: isPaused
                           ? i18nc("@action:button Resume printing", "Resume")
                           : i18nc("@action:button Pause printing", "Pause")
+
+                    visible: !isDiscovered
 
                     Accessible.name: longText
 

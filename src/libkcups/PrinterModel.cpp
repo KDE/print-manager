@@ -1,86 +1,40 @@
 /*
     SPDX-FileCopyrightText: 2010-2018 Daniel Nicoletti <dantti12@gmail.com>
-    SPDX-FileCopyrightText: 2026 Mike Noe <noeerover@gmail.com>
+    SPDX-FileCopyrightText: 2025-2026 Mike Noe <noeerover@gmail.com>
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
 #include "PrinterModel.h"
-
+#include "CommandHelpers.h"
+#include "KCupsRequest.h"
 #include "kcupslib_log.h"
 
-#include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDateTime>
-#include <QMimeData>
-#include <QPointer>
-
 #include <KLocalizedString>
-#include <KMessageBox>
-#include <KUser>
+#include <QVersionNumber>
 
-#include <KCupsRequest.h>
+using namespace Qt::StringLiterals;
 
 PrinterModel::PrinterModel(QObject *parent)
-    : QStandardItemModel(parent)
-    , m_attrs({KCUPS_PRINTER_NAME,
-               KCUPS_PRINTER_STATE,
-               KCUPS_PRINTER_STATE_MESSAGE,
-               KCUPS_PRINTER_IS_SHARED,
-               KCUPS_PRINTER_IS_ACCEPTING_JOBS,
-               KCUPS_PRINTER_TYPE,
-               KCUPS_PRINTER_LOCATION,
-               KCUPS_PRINTER_INFO,
-               KCUPS_PRINTER_MAKE_AND_MODEL,
-               KCUPS_PRINTER_COMMANDS,
-               KCUPS_MARKER_CHANGE_TIME,
-               KCUPS_MARKER_COLORS,
-               KCUPS_MARKER_LEVELS,
-               KCUPS_MARKER_NAMES,
-               KCUPS_MARKER_TYPES,
-               KCUPS_DEVICE_URI,
-               KCUPS_PRINTER_URI_SUPPORTED,
-               KCUPS_MEMBER_NAMES})
+    : QAbstractListModel(parent)
 {
-    m_roles = QStandardItemModel::roleNames();
-    m_roles[DestStatus] = "stateMessage";
-    m_roles[DestName] = "printerName";
-    m_roles[DestState] = "printerState";
-    m_roles[DestIsDefault] = "isDefault";
-    m_roles[DestIsShared] = "isShared";
-    m_roles[DestIsAcceptingJobs] = "isAcceptingJobs";
-    m_roles[DestIsPaused] = "isPaused";
-    m_roles[DestIsClass] = "isClass";
-    m_roles[DestLocation] = "location";
-    m_roles[DestDescription] = "info";
-    m_roles[DestKind] = "kind";
-    m_roles[DestType] = "type";
-    m_roles[DestCommands] = "commands";
-    m_roles[DestMarkerChangeTime] = "markerChangeTime";
-    m_roles[DestMarkers] = "markers";
-    m_roles[DestIconName] = "iconName";
-    m_roles[DestRemote] = "remote";
-    m_roles[DestUri] = "printerUri";
-    m_roles[DestUriSupported] = "uriSupported";
-    m_roles[DestMemberNames] = "memberNames";
-
     // This is emitted when a printer is added
-    connect(KCupsConnection::global(), &KCupsConnection::printerAdded, this, &PrinterModel::insertUpdatePrinter);
+    connect(KCupsConnection::global(), &KCupsConnection::printerAdded, this, &PrinterModel::printerAdded);
 
     // This is emitted when a printer is modified
-    connect(KCupsConnection::global(), &KCupsConnection::printerModified, this, &PrinterModel::insertUpdatePrinter);
+    connect(KCupsConnection::global(), &KCupsConnection::printerModified, this, &PrinterModel::printerModified);
 
     // This is emitted when a printer has it's state changed
-    connect(KCupsConnection::global(), &KCupsConnection::printerStateChanged, this, &PrinterModel::insertUpdatePrinter);
+    connect(KCupsConnection::global(), &KCupsConnection::printerStateChanged, this, &PrinterModel::printerStateChanged);
 
     // This is emitted when a printer is stopped
-    connect(KCupsConnection::global(), &KCupsConnection::printerStopped, this, &PrinterModel::insertUpdatePrinter);
+    connect(KCupsConnection::global(), &KCupsConnection::printerStopped, this, &PrinterModel::printerStopped);
 
     // This is emitted when a printer is restarted
-    connect(KCupsConnection::global(), &KCupsConnection::printerRestarted, this, &PrinterModel::insertUpdatePrinter);
+    connect(KCupsConnection::global(), &KCupsConnection::printerRestarted, this, &PrinterModel::printerRestarted);
 
     // This is emitted when a printer is shutdown
-    connect(KCupsConnection::global(), &KCupsConnection::printerShutdown, this, &PrinterModel::insertUpdatePrinter);
+    connect(KCupsConnection::global(), &KCupsConnection::printerShutdown, this, &PrinterModel::printerShutdown);
 
     // This is emitted when a printer is removed
     connect(KCupsConnection::global(), &KCupsConnection::printerDeleted, this, &PrinterModel::printerRemoved);
@@ -93,54 +47,81 @@ PrinterModel::PrinterModel(QObject *parent)
     update();
 }
 
+void PrinterModel::clear()
+{
+    beginResetModel();
+    m_printers.clear();
+    endResetModel();
+}
+
+int PrinterModel::rowCount(const QModelIndex &parent) const
+{
+    if (parent.isValid())
+        return 0;
+    return m_printers.size();
+}
+
 void PrinterModel::getDestsFinished(KCupsRequest *request)
 {
     // When there is no printer IPP_NOT_FOUND is returned
     if (request->hasError() && request->error() != IPP_STATUS_ERROR_NOT_FOUND) {
-        // clear the model after so that the proper widget can be shown
         clear();
-
         Q_EMIT error(request->error(), request->serverError(), request->errorMsg());
         if (request->error() == IPP_STATUS_ERROR_SERVICE_UNAVAILABLE) {
             setServerState(ServerState::Unavailable);
         }
     } else {
+        Q_EMIT error(IPP_STATUS_OK, QString(), QString());
         setServerState(ServerState::Available);
-
-        const KCupsPrinters printers = request->printers();
-        for (int i = 0; i < printers.size(); ++i) {
-            // If there is a printer and it's not the current one add it
-            // as a new destination
-            int dest_row = destRow(printers.at(i).name());
-            if (dest_row == -1) {
-                // not found, insert new one
-                insertDest(i, printers.at(i));
-            } else if (dest_row == i) {
-                // update the printer
-                updateDest(item(i), printers.at(i));
-            } else {
-                // found at wrong position
-                // take it and insert on the right position
-                QList<QStandardItem *> row = takeRow(dest_row);
-                insertRow(i, row);
-                updateDest(item(i), printers.at(i));
-            }
-        }
-
-        // remove old printers
-        // The above code starts from 0 and make sure
-        // dest == modelIndex(x) and if it's not the
-        // case it either inserts or moves it.
-        // so any item > num_jobs can be safely deleted
-        while (rowCount() > printers.size()) {
-            removeRow(rowCount() - 1);
-        }
-
         updateDisplayHints();
 
-        Q_EMIT error(IPP_STATUS_OK, QString(), QString());
+        for (auto printer = m_printers.begin(); printer != m_printers.end(); ++printer) {
+            if (!printer->isClass()) {
+                getIppDirectData(printer);
+            }
+        }
     }
-    request->deleteLater();
+}
+
+/** Resolve the device uri if discovery type (dnssd://host.../._ipp...)
+ * Uris already resolved are left as-is
+ * Then, try the direct-ipp attribute query
+ */
+void PrinterModel::getIppDirectData(QList<KCupsPrinter>::iterator printer)
+{
+    qWarning() << printer->name() << "Trying Direct-IPP:" << printer->deviceUri();
+    const auto resolvedUri = PrinterCommands::resolveToUri(printer->deviceUri());
+    if (!resolvedUri.isEmpty()) {
+        qCDebug(LIBKCUPS) << printer->name() << "URI Resolved:" << printer->deviceUri() << "->" << resolvedUri;
+        printer->setAttribute(KCUPS_DEVICE_URI, resolvedUri);
+        const auto idx = index(std::distance(m_printers.begin(), printer));
+        Q_EMIT dataChanged(idx, idx, {DestUri});
+    }
+
+    QStringList attr = QStringList{KCUPS_PRINTER_MORE_INFO, KCUPS_PRINTER_SUPPLY_INFO_URI};
+    if (printer->markers().isEmpty()) {
+        attr +=
+            QStringList{KCUPS_MARKER_COLORS, KCUPS_MARKER_LEVELS, KCUPS_MARKER_NAMES, KCUPS_MARKER_TYPES, KCUPS_MARKER_LOW_LEVELS, KCUPS_MARKER_HIGH_LEVELS};
+        qCDebug(LIBKCUPS) << printer->name() << "CUPS-layer marker levels not found, trying Direct-IPP";
+    }
+
+    const auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::finished, this, [this, printer, attr](KCupsRequest *req) {
+        if (!req->printers().isEmpty()) {
+            const auto found = req->printers().at(0);
+            for (const auto &key : attr) {
+                printer->setAttribute(key, found.argument(key));
+            }
+            const auto idx = index(std::distance(m_printers.begin(), printer));
+            Q_EMIT dataChanged(idx, idx);
+            qWarning() << printer->name() << "Got IPP DIRECT!" << printer->deviceUri();
+            // for (const auto &key : attr) {
+            //     qWarning() << key << it->argument(key);
+            // }
+        }
+        req->deleteLater();
+    });
+    request->getAttributesDirect(printer->name(), printer->deviceUri(), attr);
 }
 
 void PrinterModel::updateDisplayHints()
@@ -148,14 +129,14 @@ void PrinterModel::updateDisplayHints()
     QStringList locList;
     bool printersOnly = true;
 
-    for (int i = 0; i < rowCount(); i++) {
+    for (const auto &printer : std::as_const(m_printers)) {
         // Printers Only hint
-        if (item(i)->data(DestIsClass).toBool()) {
+        if (printer.isClass()) {
             printersOnly = false;
         }
 
         // Location list hint
-        const auto val = item(i)->data(DestLocation).toString();
+        const auto val = printer.location();
         if (!val.isEmpty()) {
             locList.append(val);
         }
@@ -185,12 +166,21 @@ bool PrinterModel::showLocations() const
     return m_showLocations;
 }
 
-QVariant PrinterModel::headerData(int section, Qt::Orientation orientation, int role) const
+KCupsRequest *PrinterModel::setupRequest(RequestFunc func)
 {
-    if (section == 0 && orientation == Qt::Horizontal && role == Qt::DisplayRole) {
-        return i18n("Printers");
-    }
-    return QVariant();
+    auto request = new KCupsRequest;
+    connect(request, &KCupsRequest::finished, this, [this, func](KCupsRequest *r) {
+        if (r->hasError()) {
+            qCDebug(LIBKCUPS) << r->error() << r->serverError() << r->errorMsg();
+            Q_EMIT error(r->error(), r->serverError(), r->errorMsg());
+        } else {
+            if (func)
+                (this->*func)(r);
+        }
+        r->deleteLater();
+    });
+
+    return request;
 }
 
 ServerState::State PrinterModel::serverState() const
@@ -210,174 +200,163 @@ void PrinterModel::setServerState(ServerState::State state)
 
 QHash<int, QByteArray> PrinterModel::roleNames() const
 {
-    return m_roles;
+    static const QHash<int, QByteArray> roles{{DestStatus, "stateMessage"},
+                                              {DestName, "printerName"},
+                                              {DestState, "printerState"},
+                                              {DestIsDefault, "isDefault"},
+                                              {DestIsShared, "isShared"},
+                                              {DestIsAcceptingJobs, "isAcceptingJobs"},
+                                              {DestIsPaused, "isPaused"},
+                                              {DestIsClass, "isClass"},
+                                              {DestLocation, "location"},
+                                              {DestDescription, "info"},
+                                              {DestKind, "kind"},
+                                              {DestType, "type"},
+                                              {DestCommands, "commands"},
+                                              {DestMarkerChangeTime, "markerChangeTime"},
+                                              {DestMarkers, "markers"},
+                                              {DestIconName, "iconName"},
+                                              {DestRemote, "remote"},
+                                              {DestUri, "printerUri"},
+                                              {DestUriSupported, "uriSupported"},
+                                              {DestMemberNames, "memberNames"},
+                                              {DestIsDiscovered, "isDiscovered"},
+                                              {DestMoreInfo, "moreInfo"},
+                                              {DestSupplyInfoUri, "supplyInfoUri"}};
+    return roles;
+}
+
+bool PrinterModel::includeDiscovered() const
+{
+    return m_includeDiscovered;
+}
+
+void PrinterModel::setIncludeDiscovered(bool newIncludeDiscovered)
+{
+    if (m_includeDiscovered == newIncludeDiscovered)
+        return;
+
+    m_includeDiscovered = newIncludeDiscovered;
+    setFilterMask(m_includeDiscovered ? 0 : KCUPS_PRINTER_DISCOVERED);
+    clear();
+    update();
+    Q_EMIT includeDiscoveredChanged();
+}
+
+void PrinterModel::insertUpdateFinished(KCupsRequest *request)
+{
+    if (request->hasError() && request->error() != IPP_STATUS_ERROR_NOT_FOUND) {
+        Q_EMIT error(request->error(), request->serverError(), request->errorMsg());
+        return;
+    }
+
+    if (request->printers().isEmpty()) {
+        return;
+    }
+
+    const auto printer = request->printers().at(0);
+    setModelItem(printer);
+    updateDisplayHints();
+    if (!printer.isClass()) {
+        getIppDirectData(std::ranges::find(m_printers, printer.name(), &KCupsPrinter::name));
+    }
+}
+
+QVariant PrinterModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid() || index.row() >= m_printers.size())
+        return {};
+
+    const auto p = m_printers.at(index.row());
+
+    switch (role) {
+    case Qt::DisplayRole:
+        return p.name();
+    case Qt::DecorationRole:
+        return p.iconName();
+    case DestStatus:
+        return destStatus(p.state(), p.stateMsg(), p.isAcceptingJobs());
+    case DestState:
+        return p.state();
+    case DestName:
+        return p.name();
+    case DestIsDefault:
+        return p.isDefault();
+    case DestIsShared:
+        return p.isShared();
+    case DestIsAcceptingJobs:
+        return p.isAcceptingJobs();
+    case DestIsPaused:
+        return p.state() == KCupsPrinter::Stopped;
+    case DestIsClass:
+        return p.isClass();
+    case DestLocation:
+        return p.location();
+    case DestDescription:
+        return p.info();
+    case DestKind:
+        return p.makeAndModel();
+    case DestType:
+        return p.type();
+    case DestCommands:
+        return p.commands();
+    case DestMarkerChangeTime:
+        return p.markerChangeTime();
+    case DestMarkers:
+        return p.markers();
+    case DestIconName:
+        return p.iconName();
+    case DestRemote:
+        return p.type() & KCUPS_PRINTER_REMOTE;
+    case DestIsDiscovered:
+        return p.isDiscovered();
+    case DestUri:
+        return p.deviceUri();
+    case DestMoreInfo:
+        return p.argument(KCUPS_PRINTER_MORE_INFO);
+    case DestUriSupported:
+        return p.uriSupported();
+    case DestMemberNames:
+        return p.memberNames();
+    case DestSupplyInfoUri:
+        return p.argument(KCUPS_PRINTER_SUPPLY_INFO_URI);
+    default:
+        return {};
+    }
+}
+
+void PrinterModel::setModelItem(const KCupsPrinter &printer)
+{
+    // if item found, update it, otherwise add to model
+    if (const auto ndx = findIndex(printer.name()); ndx == -1) {
+        qCDebug(LIBKCUPS) << "Model ADDING" << printer.name();
+        const auto row = m_printers.size();
+        beginInsertRows(QModelIndex(), row, row);
+        m_printers.append(printer);
+        endInsertRows();
+    } else {
+        qCDebug(LIBKCUPS) << "Model UPDATING" << printer.name() << ndx;
+        m_printers[ndx] = printer;
+        const auto idx = index(ndx);
+        Q_EMIT dataChanged(idx, idx);
+    }
 }
 
 void PrinterModel::update()
 {
-    //                 kcmshell(6331) PrinterModel::update: (QHash(("printer-type", QVariant(int, 75534348) ) ( "marker-names" ,  QVariant(QStringList, ("Cyan",
-    //                 "Yellow", "Magenta", "Black") ) ) ( "printer-name" ,  QVariant(QString, "EPSON_Stylus_TX105") ) ( "marker-colors" , QVariant(QStringList,
-    //                 ("#00ffff", "#ffff00", "#ff00ff", "#000000") ) ) ( "printer-location" ,  QVariant(QString, "Luiz Vitor’s MacBook Pro") ) (
-    //                 "marker-levels" ,  QVariant(QList<int>, ) ) ( "marker-types" ,  QVariant(QStringList, ("inkCartridge", "inkCartridge", "inkCartridge",
-    //                 "inkCartridge") ) ) ( "printer-is-shared" ,  QVariant(bool, true) ) ( "printer-state-message" ,  QVariant(QString, "") ) (
-    //                 "printer-commands" ,  QVariant(QStringList, ("Clean", "PrintSelfTestPage", "ReportLevels") ) ) ( "marker-change-time" ,  QVariant(int,
-    //                 1267903160) ) ( "printer-state" ,  QVariant(int, 3) ) ( "printer-info" ,  QVariant(QString, "EPSON Stylus TX105") ) (
-    //                 "printer-make-and-model" ,  QVariant(QString, "EPSON TX105 Series") ) )  )
-    // Get destinations with these attributes
-    auto request = new KCupsRequest;
-    connect(request, &KCupsRequest::finished, this, &PrinterModel::getDestsFinished);
-    request->getPrinters(m_attrs);
+    const auto request = setupRequest(&PrinterModel::getDestsFinished);
+    connect(request, &KCupsRequest::destination, this, &PrinterModel::setModelItem);
+    request->getDestinations(m_searchTimeout, m_filterType, m_filterMask);
 }
 
-void PrinterModel::insertDest(int pos, const KCupsPrinter &printer)
+int PrinterModel::findIndex(const QString &destName)
 {
-    // Create the printer item
-    auto stdItem = new QStandardItem(printer.name());
-    stdItem->setData(printer.name(), DestName);
-    stdItem->setIcon(printer.icon());
-    // update the item
-    updateDest(stdItem, printer);
-
-    // insert the printer Item
-    insertRow(pos, stdItem);
-}
-
-void PrinterModel::updateDest(QStandardItem *destItem, const KCupsPrinter &printer)
-{
-    // store if the printer is the network default
-    bool isDefault = printer.isDefault();
-    if (destItem->data(DestIsDefault).isNull() || isDefault != destItem->data(DestIsDefault).toBool()) {
-        destItem->setData(isDefault, DestIsDefault);
+    auto it = std::ranges::find_if(m_printers, [destName](const KCupsPrinter &printer) {
+        return destName == printer.name();
+    });
+    if (it != m_printers.end()) {
+        return std::distance(m_printers.begin(), it);
     }
-
-    // store the printer state
-    KCupsPrinter::Status state = printer.state();
-    if (state != destItem->data(DestState)) {
-        destItem->setData(state, DestState);
-    }
-
-    // store if the printer is accepting jobs
-    bool accepting = printer.isAcceptingJobs();
-    if (accepting != destItem->data(DestIsAcceptingJobs)) {
-        destItem->setData(accepting, DestIsAcceptingJobs);
-    }
-
-    // store the printer status message
-    QString status = destStatus(state, printer.stateMsg(), accepting);
-    if (status != destItem->data(DestStatus)) {
-        destItem->setData(status, DestStatus);
-    }
-
-    bool paused = (state == KCupsPrinter::Stopped);
-    if (paused != destItem->data(DestIsPaused)) {
-        destItem->setData(paused, DestIsPaused);
-    }
-
-    // store if the printer is shared
-    bool shared = printer.isShared();
-    if (shared != destItem->data(DestIsShared)) {
-        destItem->setData(shared, DestIsShared);
-    }
-
-    // store if the printer is a class
-    // the printer-type param is a flag
-    bool isClass = printer.isClass();
-    if (isClass != destItem->data(DestIsClass)) {
-        destItem->setData(isClass, DestIsClass);
-    }
-
-    // store if the printer type
-    // the printer-type param is a flag
-    uint printerType = printer.type();
-    if (printerType != destItem->data(DestType)) {
-        destItem->setData(printerType, DestType);
-        destItem->setData(printerType & KCUPS_PRINTER_REMOTE, DestRemote);
-    }
-
-    // store the printer location
-    QString location = printer.location();
-    if (location.isEmpty() || location != destItem->data(DestLocation).toString()) {
-        destItem->setData(location, DestLocation);
-    }
-
-    // store the printer icon name
-    QString iconName = printer.iconName();
-    if (iconName != destItem->data(DestIconName).toString()) {
-        destItem->setData(iconName, DestIconName);
-    }
-
-    if (destItem->data(DestName).toString() != destItem->text()) {
-        destItem->setText(destItem->data(DestName).toString());
-    }
-
-    // store the printer description
-    QString description = printer.info();
-    if (description.isEmpty() || description != destItem->data(DestDescription).toString()) {
-        destItem->setData(description, DestDescription);
-    }
-
-    // store the printer kind
-    QString kind = printer.makeAndModel();
-    if (kind != destItem->data(DestKind)) {
-        destItem->setData(kind, DestKind);
-    }
-
-    // store the printer commands
-    QStringList commands = printer.commands();
-    if (commands != destItem->data(DestCommands)) {
-        destItem->setData(commands, DestCommands);
-    }
-
-    // store the printer URI
-    QString uri = printer.deviceUri();
-    if (uri != destItem->data(DestUri).toString()) {
-        destItem->setData(uri, DestUri);
-    }
-
-    QString us = printer.uriSupported();
-    if (us != destItem->data(DestUriSupported).toString()) {
-        destItem->setData(us, DestUriSupported);
-    }
-
-    // printer member names for type=class
-    const auto members = printer.memberNames();
-    if (members != destItem->data(DestMemberNames)) {
-        destItem->setData(members, DestMemberNames);
-    }
-
-    int markerChangeTime = printer.markerChangeTime();
-    if (markerChangeTime != destItem->data(DestMarkerChangeTime)) {
-        destItem->setData(printer.markerChangeTime(), DestMarkerChangeTime);
-
-        QVariantMap markers{{KCUPS_MARKER_CHANGE_TIME, printer.markerChangeTime()},
-                            {KCUPS_MARKER_COLORS, printer.argument(KCUPS_MARKER_COLORS).toStringList()},
-                            {KCUPS_MARKER_NAMES, printer.argument(KCUPS_MARKER_NAMES).toStringList()},
-                            {KCUPS_MARKER_TYPES, printer.argument(KCUPS_MARKER_TYPES).toStringList()}};
-
-        // Levels needs to be a list of ints.  QVariant::toList converts an int to a null list
-        // So, create a QList<int> if only one entry (int)
-        const auto levels = printer.argument(KCUPS_MARKER_LEVELS);
-        if (levels.canConvert<QList<int>>()) {
-            markers.insert(KCUPS_MARKER_LEVELS, levels);
-        } else {
-            QList<int> list;
-            list << levels.toInt();
-            markers.insert(KCUPS_MARKER_LEVELS, QVariant::fromValue(list));
-        }
-
-        destItem->setData(markers, DestMarkers);
-    }
-}
-
-int PrinterModel::destRow(const QString &destName)
-{
-    // find the position of the jobId inside the model
-    for (int i = 0; i < rowCount(); i++) {
-        if (destName == item(i)->data(DestName).toString()) {
-            return i;
-        }
-    }
-    // -1 if not found
     return -1;
 }
 
@@ -385,7 +364,7 @@ QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &mess
 {
     switch (state) {
     case KCupsPrinter::Idle:
-        if (message.isEmpty()) {
+        if (message.isEmpty() || message.toLower() == QStringLiteral("none")) {
             return isAcceptingJobs ? i18n("Idle") : i18n("Idle, rejecting jobs");
         } else {
             return isAcceptingJobs ? i18n("Idle - '%1'", message) : i18n("Idle, rejecting jobs - '%1'", message);
@@ -397,7 +376,7 @@ QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &mess
             return i18n("In use - '%1'", message);
         }
     case KCupsPrinter::Stopped:
-        if (message.isEmpty()) {
+        if (message.isEmpty() || message.toLower() == QStringLiteral("paused")) {
             return isAcceptingJobs ? i18n("Paused") : i18n("Paused, rejecting jobs");
         } else {
             return isAcceptingJobs ? i18n("Paused - '%1'", message) : i18n("Paused, rejecting jobs - '%1'", message);
@@ -411,50 +390,29 @@ QString PrinterModel::destStatus(KCupsPrinter::Status state, const QString &mess
     }
 }
 
-Qt::ItemFlags PrinterModel::flags(const QModelIndex &index) const
+void PrinterModel::insertUpdatePrinter(const QString &printerName)
 {
-    Q_UNUSED(index)
-    return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
-}
+    static const QStringList s_attr = {KCUPS_PRINTER_NAME,
+                                       KCUPS_PRINTER_STATE,
+                                       KCUPS_PRINTER_STATE_MESSAGE,
+                                       KCUPS_PRINTER_IS_SHARED,
+                                       KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                                       KCUPS_PRINTER_TYPE,
+                                       KCUPS_PRINTER_LOCATION,
+                                       KCUPS_PRINTER_INFO,
+                                       KCUPS_PRINTER_MAKE_AND_MODEL,
+                                       KCUPS_PRINTER_COMMANDS,
+                                       KCUPS_MARKER_CHANGE_TIME,
+                                       KCUPS_MARKER_COLORS,
+                                       KCUPS_MARKER_LEVELS,
+                                       KCUPS_MARKER_NAMES,
+                                       KCUPS_MARKER_TYPES,
+                                       KCUPS_DEVICE_URI,
+                                       KCUPS_PRINTER_URI_SUPPORTED,
+                                       KCUPS_MEMBER_NAMES};
 
-void PrinterModel::insertUpdatePrinter(const QString &text,
-                                       const QString &printerUri,
-                                       const QString &printerName,
-                                       uint printerState,
-                                       const QString &printerStateReasons,
-                                       bool printerIsAcceptingJobs)
-{
-    Q_UNUSED(text)
-    Q_UNUSED(printerUri)
-    Q_UNUSED(printerState)
-    Q_UNUSED(printerStateReasons)
-    Q_UNUSED(printerIsAcceptingJobs)
-
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
-    auto request = new KCupsRequest;
-    connect(request, &KCupsRequest::finished, this, &PrinterModel::insertUpdatePrinterFinished);
-    request->getPrinterAttributes(printerName, false, m_attrs);
-}
-
-void PrinterModel::insertUpdatePrinterFinished(KCupsRequest *request)
-{
-    if (!request->hasError()) {
-        const KCupsPrinters printers = request->printers();
-        for (const KCupsPrinter &printer : printers) {
-            // If there is a printer and it's not the current one add it
-            // as a new destination
-            int dest_row = destRow(printer.name());
-            if (dest_row == -1) {
-                // not found, insert new one
-                insertDest(0, printer);
-            } else {
-                // update the printer
-                updateDest(item(dest_row), printer);
-            }
-        }
-    }
-    updateDisplayHints();
-    request->deleteLater();
+    const auto request = setupRequest(&PrinterModel::insertUpdateFinished);
+    request->getPrinterAttributes(printerName, false, s_attr);
 }
 
 void PrinterModel::printerRemoved(const QString &text,
@@ -464,18 +422,12 @@ void PrinterModel::printerRemoved(const QString &text,
                                   const QString &printerStateReasons,
                                   bool printerIsAcceptingJobs)
 {
-    // REALLY? all these parameters just to say foo was deleted??
-    Q_UNUSED(text)
-    Q_UNUSED(printerUri)
-    Q_UNUSED(printerState)
-    Q_UNUSED(printerStateReasons)
-    Q_UNUSED(printerIsAcceptingJobs)
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << "printerRemoved" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
 
-    // Look for the removed printer
-    int dest_row = destRow(printerName);
-    if (dest_row != -1) {
-        removeRows(dest_row, 1);
+    if (const auto ndx = findIndex(printerName); ndx != -1) {
+        beginRemoveRows(QModelIndex(), ndx, ndx);
+        m_printers.removeAt(ndx);
+        endRemoveRows();
     }
     updateDisplayHints();
 }
@@ -487,8 +439,25 @@ void PrinterModel::printerStateChanged(const QString &text,
                                        const QString &printerStateReasons,
                                        bool printerIsAcceptingJobs)
 {
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << "printerStateChanged" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    // WORKAROUND: CUPS Issues #1235/#1246 (https://github.com/OpenPrinting/cups/issues/1235)
+    // Fixed in 2.4.13+/2.5 (N/A in CUPS 3.x)
+    if (QVersionNumber(CUPS_VERSION_MAJOR, CUPS_VERSION_MINOR, CUPS_VERSION_PATCH) < QVersionNumber(2, 4, 13)) {
+        insertUpdatePrinter(printerName);
+    } else {
+        auto it = std::ranges::find(m_printers, printerName, &KCupsPrinter::name);
+        if (it != m_printers.end()) {
+            it->setAttribute(KCUPS_PRINTER_STATE, printerState);
+            it->setAttribute(KCUPS_PRINTER_IS_ACCEPTING_JOBS, printerIsAcceptingJobs);
+            it->setAttribute(KCUPS_PRINTER_STATE_MESSAGE, printerStateReasons);
+            const auto idx = index(std::distance(m_printers.begin(), it));
+            Q_EMIT dataChanged(idx, idx, {DestState, DestIsAcceptingJobs, DestIsPaused, DestStatus});
+        } else {
+            qCDebug(LIBKCUPS) << "Unable to set State, printer not in model:" << printerName;
+        }
+    }
 }
+
 void PrinterModel::printerStopped(const QString &text,
                                   const QString &printerUri,
                                   const QString &printerName,
@@ -496,7 +465,8 @@ void PrinterModel::printerStopped(const QString &text,
                                   const QString &printerStateReasons,
                                   bool printerIsAcceptingJobs)
 {
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << "printerStopped" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    printerStateChanged(text, printerUri, printerName, printerState, printerStateReasons, printerIsAcceptingJobs);
 }
 
 void PrinterModel::printerRestarted(const QString &text,
@@ -506,7 +476,8 @@ void PrinterModel::printerRestarted(const QString &text,
                                     const QString &printerStateReasons,
                                     bool printerIsAcceptingJobs)
 {
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << "printerRestarted" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    printerStateChanged(text, printerUri, printerName, printerState, printerStateReasons, printerIsAcceptingJobs);
 }
 
 void PrinterModel::printerShutdown(const QString &text,
@@ -516,7 +487,8 @@ void PrinterModel::printerShutdown(const QString &text,
                                    const QString &printerStateReasons,
                                    bool printerIsAcceptingJobs)
 {
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    qCDebug(LIBKCUPS) << "printerShutdown" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    printerStateChanged(text, printerUri, printerName, printerState, printerStateReasons, printerIsAcceptingJobs);
 }
 
 void PrinterModel::printerModified(const QString &text,
@@ -526,14 +498,67 @@ void PrinterModel::printerModified(const QString &text,
                                    const QString &printerStateReasons,
                                    bool printerIsAcceptingJobs)
 {
-    qCDebug(LIBKCUPS) << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
-    updateDisplayHints();
+    qCDebug(LIBKCUPS) << "printerModified" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    insertUpdatePrinter(printerName);
+}
+
+void PrinterModel::printerAdded(const QString &text,
+                                const QString &printerUri,
+                                const QString &printerName,
+                                uint printerState,
+                                const QString &printerStateReasons,
+                                bool printerIsAcceptingJobs)
+{
+    qCDebug(LIBKCUPS) << "printerAdded" << text << printerUri << printerName << printerState << printerStateReasons << printerIsAcceptingJobs;
+    insertUpdatePrinter(printerName);
 }
 
 void PrinterModel::serverChanged(const QString &text)
 {
-    qCDebug(LIBKCUPS) << text;
+    qCDebug(LIBKCUPS) << "serverChanged" << text;
     update();
+}
+
+uint PrinterModel::filterMask() const
+{
+    return m_filterMask;
+}
+
+void PrinterModel::setFilterMask(uint filterMask)
+{
+    if (filterMask == m_filterMask) {
+        return;
+    }
+    m_filterMask = filterMask;
+    Q_EMIT filterMaskChanged();
+}
+
+uint PrinterModel::filterType() const
+{
+    return m_filterType;
+}
+
+void PrinterModel::setFilterType(uint filterType)
+{
+    if (filterType == m_filterType) {
+        return;
+    }
+    m_filterType = filterType;
+    Q_EMIT filterTypeChanged();
+}
+
+uint PrinterModel::searchTimeout() const
+{
+    return m_searchTimeout;
+}
+
+void PrinterModel::setSearchTimeout(uint timeout)
+{
+    if (timeout == m_searchTimeout) {
+        return;
+    }
+    m_searchTimeout = timeout;
+    Q_EMIT searchTimeoutChanged();
 }
 
 #include "moc_PrinterModel.cpp"

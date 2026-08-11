@@ -193,6 +193,11 @@ bool KCupsPrinter::isDefault() const
     return m_attributes[KCUPS_PRINTER_TYPE].toUInt() & KCUPS_PRINTER_DEFAULT;
 }
 
+bool KCupsPrinter::isDiscovered() const
+{
+    return m_attributes[KCUPS_PRINTER_TYPE].toUInt() & KCUPS_PRINTER_DISCOVERED;
+}
+
 bool KCupsPrinter::isShared() const
 {
     return m_attributes[KCUPS_PRINTER_IS_SHARED].toBool();
@@ -370,13 +375,13 @@ QList<int> KCupsPrinter::markerLevels() const
 
 QVariantMap KCupsPrinter::markers() const
 {
-    const auto levels = markerLevels();
-    if (levels.isEmpty()) {
+    const auto names = markerNames();
+    if (names.isEmpty() || names.first().isEmpty()) {
         return {};
     } else {
-        return {{KCUPS_MARKER_LEVELS, QVariant::fromValue(levels)},
+        return {{KCUPS_MARKER_LEVELS, QVariant::fromValue(markerLevels())},
                 {KCUPS_MARKER_COLORS, markerColors()},
-                {KCUPS_MARKER_NAMES, markerNames()},
+                {KCUPS_MARKER_NAMES, names},
                 {KCUPS_MARKER_TYPES, markerTypes()}};
     }
 }
@@ -403,6 +408,9 @@ QString KCupsPrinter::iconName() const
 
 QString KCupsPrinter::iconName(cups_ptype_e type)
 {
+    if (type & KCUPS_PRINTER_DISCOVERED) {
+        return QStringLiteral("dialog-question");
+    }
     if (type & KCUPS_PRINTER_CLASS) {
         return QStringLiteral("folder-print");
     }

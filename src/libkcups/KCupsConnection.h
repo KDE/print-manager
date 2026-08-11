@@ -31,6 +31,8 @@ constexpr QLatin1String KCUPS_DEVICE_URI("device-uri");
 constexpr QLatin1String KCUPS_PRINTER_NAME("printer-name");
 constexpr QLatin1String KCUPS_PRINTER_LOCATION("printer-location");
 constexpr QLatin1String KCUPS_PRINTER_INFO("printer-info");
+constexpr QLatin1String KCUPS_PRINTER_MORE_INFO("printer-more-info");
+constexpr QLatin1String KCUPS_PRINTER_ICONS("printer-icons");
 constexpr QLatin1String KCUPS_PRINTER_URI("printer-uri");
 constexpr QLatin1String KCUPS_PRINTER_MAKE_AND_MODEL("printer-make-and-model");
 constexpr QLatin1String KCUPS_PRINTER_STATE("printer-state");
@@ -57,6 +59,7 @@ constexpr QLatin1String KCUPS_MARKER_LOW_LEVELS("marker-low-levels");
 constexpr QLatin1String KCUPS_MARKER_NAMES("marker-names");
 constexpr QLatin1String KCUPS_MARKER_TYPES("marker-types");
 constexpr QLatin1String KCUPS_MARKER_MESSAGE("marker-message");
+constexpr QLatin1String KCUPS_PRINTER_SUPPLY_INFO_URI("printer-supply-info-uri");
 
 constexpr QLatin1String KCUPS_JOB_ID("job-id");
 constexpr QLatin1String KCUPS_JOB_NAME("job-name");

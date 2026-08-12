@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 02:41+0000\n"
-"PO-Revision-Date: 2026-05-01 15:18+0300\n"
+"PO-Revision-Date: 2026-08-11 16:10+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: src/plasmoid/FullRepresentation.qml:44 src/plasmoid/main.qml:59
 msgid "Printers"
@@ -35,7 +35,7 @@ msgstr "Nėra sukonfigūruota ar atrasta jokių spausdintuvų"
 
 #: src/plasmoid/FullRepresentation.qml:77
 msgid "No matches"
-msgstr "Nėra atitikmenų"
+msgstr "Nėra atitikčių"
 
 #: src/plasmoid/main.qml:64
 msgid "There is one print job in the queue"
@@ -48,7 +48,7 @@ msgstr[3] "Eilėje yra %1 spausdinimo darbas"
 #: src/plasmoid/main.qml:73
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
-msgstr "Spausdinama %1 naudojant %2"
+msgstr "Spausdinamas %1 naudojant %2"
 
 #: src/plasmoid/main.qml:75
 msgctxt "Printing with printer name"

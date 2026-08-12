@@ -124,7 +124,7 @@ msgstr "سري"
 #: src/configure-printer/PrinterBehavior.cpp:224
 #, kde-format
 msgid "Secret"
-msgstr "سريّة جداً"
+msgstr "سريّة جدًا"
 
 #: src/configure-printer/PrinterBehavior.cpp:226
 #, kde-format

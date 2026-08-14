@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:52+0000\n"
-"PO-Revision-Date: 2026-05-28 13:09+0200\n"
+"PO-Revision-Date: 2026-08-13 09:50+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:96
@@ -275,13 +275,14 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Задачата за печат ще завърши, когато принтерът стане наличен."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
-msgstr "Принтер"
+msgstr "Продължаване на печата"
 
 #: src/kded/CupsWatcher.cpp:79
 #, kde-format
@@ -709,7 +710,7 @@ msgstr "%1 (%2) е почти пълно (%3%)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Принтерът е на пауза или спрян."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

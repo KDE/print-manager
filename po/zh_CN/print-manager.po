@@ -272,13 +272,14 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"打印任务将在打印机可用时完成。"
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
-msgstr "打印机"
+msgstr "继续打印"
 
 #: src/kded/CupsWatcher.cpp:79
 #, kde-format
@@ -702,7 +703,7 @@ msgstr "%1 (%2) 即将装满 (%3%)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "打印机已暂停或停止。"
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

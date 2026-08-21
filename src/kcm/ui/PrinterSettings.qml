@@ -82,12 +82,6 @@ KCM.AbstractKCM {
             padding: Kirigami.Units.largeSpacing
         }
 
-        Kirigami.UrlButton {
-            text: i18nc("@action:button", "Printer/Device Admin Page")
-            visible: !root.modelData.isClass && root.modelData.moreInfo !== ""
-            url: root.modelData.moreInfo ?? ""
-        }
-
         Item { Layout.fillWidth: true }
 
         QQC2.Button {
@@ -317,6 +311,19 @@ KCM.AbstractKCM {
                 source: root.modelData.iconUri
                 Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
                 Layout.preferredHeight: Layout.preferredWidth
+
+                QQC2.ToolTip.text: i18nc("@info:tooltip", "Show the printer admin page")
+                QQC2.ToolTip.visible: ma.containsMouse || activeFocus
+                QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+
+                MouseArea {
+                    id: ma
+                    anchors.fill: parent
+                    hoverEnabled: root.modelData.moreInfo
+                    cursorShape: Qt.PointingHandCursor
+
+                    onClicked: Qt.openUrlExternally(root.modelData.moreInfo)
+                }
             }
 
             ColumnLayout {
@@ -360,7 +367,6 @@ KCM.AbstractKCM {
                     }
                 }
 
-
                 PrinterOption {
                     objectName: "printer-is-shared"
                     text: root.modelData.isClass
@@ -380,11 +386,16 @@ KCM.AbstractKCM {
 
         // Marker (ink) status
         QQC2.ScrollView {
+            hoverEnabled: true
             visible: markersView.count > 0
             Layout.fillWidth: true
             Layout.maximumHeight: Math.floor(root.height/4)
             Layout.preferredHeight: contentHeight + Kirigami.Units.smallSpacing
             Kirigami.StyleHints.showFramedBackground: true
+
+            QQC2.ToolTip.text: i18nc("@info:tooltip", "Show the printer consumables/receptacles page")
+            QQC2.ToolTip.visible: hovered || activeFocus
+            QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
 
             MouseArea {
                 anchors.fill: parent
@@ -552,11 +563,12 @@ KCM.AbstractKCM {
                             filterRowCallback: (source_row, source_parent) => {
                                 const ndx = sourceModel.index(source_row, 0, source_parent)
 
+                                const isDiscovered = sourceModel.data(ndx, PM.PrinterModel.DestIsDiscovered)
                                 const isClass = sourceModel.data(ndx, PM.PrinterModel.DestIsClass)
                                 const isRemote = sourceModel.data(ndx, PM.PrinterModel.DestRemote)
 
-                                if (isRemote) {
-                                    return false
+                                if (isDiscovered || isRemote) {
+                                    return false;
                                 }
 
                                 if (!memberList.showClasses) {

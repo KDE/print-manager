@@ -102,6 +102,20 @@ KCM.ScrollViewKCM {
         ]
     }
 
+    footer: RowLayout {
+        QQC2.CheckBox {
+            text: i18nc("@action:button", "Show Discovered Printers")
+            Layout.alignment: Qt.AlignRight
+            checkable: true
+            checked: pmModel.includeDiscovered
+            onToggled: {
+                pmModel.loading = true
+                pmModel.includeDiscovered = checked
+            }
+            Accessible.name: text
+        }
+    }
+
     /**
     * The SCPInstaller type is registered into the PrinterManager namespace when
     * the kcm is compiled with a found PackageKit and the SCP_Install option is
@@ -361,6 +375,7 @@ KCM.ScrollViewKCM {
             required property bool isClass
             required property bool isPaused
             required property bool isDefault
+            required property bool isDiscovered
             required property bool remote
             required property string printerName
             required property string printerUri
@@ -370,7 +385,11 @@ KCM.ScrollViewKCM {
             required property string iconName
             required property string iconUri
 
-            onClicked: configurePrinter()
+            onClicked: {
+                if (!isDiscovered) {
+                    configurePrinter()
+                }
+            }
 
             function configurePrinter() : void {
                 checkServerSettings()
@@ -391,16 +410,50 @@ KCM.ScrollViewKCM {
                           + (location && pmModel.showLocations
                              ? " (%1)".arg(location)
                              : "")
-                    subtitle: stateMessage
+                    subtitle: isDiscovered
+                              ? "[Discovered Printer] -> IPP Capable: %1\n[%2]".arg(kcm.isIPPCapable(printerUri) ? "Yes" : "No").arg(printerUri)
+                              : stateMessage
                     icon.name: iconUri
 
                     font.bold: list.count > 1 & isDefault
                     selected: deviceDelegate.highlighted || deviceDelegate.down
                 }
 
+                QQC2.ToolButton {
+                    text: i18nc("@action:button", "Create permanent print queue")
+                    icon.name: "list-add-symbolic"
+                    display: QQC2.AbstractButton.IconOnly
+                    visible: isDiscovered && kcm.isIPPCapable(printerUri)
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+
+                    Accessible.name: text
+
+                    onClicked: {
+                        checkServerSettings()
+                        newPrinter(true
+                                   , {info: model.info
+                                       , printerName: model.info.replace(/ /g, "_").replace(/[()\[\]]/g, "")
+                                       , printerUri: model.printerUri
+                                       , kind: model.kind
+                                       , "ppd-name": "everywhere"
+                                       , "ppd-type": PM.PrinterCommands.PPDType.Auto}
+                                   // ppd
+                                   , {make: model.kind.split(' ')[0]
+                                       , makeModel: model.kind
+                                       , file: "everywhere"
+                                       , type: PM.PrinterCommands.PPDType.Auto
+                                   })
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered || activeFocus
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                }
+
                 QQC2.Button {
                     text: i18nc("@action:button", "Open Print Queue")
                     icon.name: "view-list-details-symbolic"
+                    visible: !isDiscovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: PM.ProcessRunner.openPrintQueue(printerName)
@@ -420,6 +473,7 @@ KCM.ScrollViewKCM {
 
                     Accessible.name: longText
 
+                    visible: !isDiscovered
                     Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
 
                     onClicked: {

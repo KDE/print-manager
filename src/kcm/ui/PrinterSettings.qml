@@ -551,15 +551,20 @@ KCM.AbstractKCM {
 
                             filterRowCallback: (source_row, source_parent) => {
                                 const ndx = sourceModel.index(source_row, 0, source_parent)
-                                const pn = sourceModel.data(ndx, PM.PrinterModel.DestName)
+
+                                const isDiscovered = sourceModel.data(ndx, PM.PrinterModel.DestIsDiscovered)
+                                const isClass = sourceModel.data(ndx, PM.PrinterModel.DestIsClass)
+                                const isRemote = sourceModel.data(ndx, PM.PrinterModel.DestRemote)
+
+                                if ((isDiscovered || isRemote)) {
+                                    return false;
+                                }
 
                                 if (!memberList.showClasses) {
-                                    const isClass = sourceModel.data(ndx, PM.PrinterModel.DestIsClass)
-                                    const isRemote = sourceModel.data(ndx, PM.PrinterModel.DestRemote)
-                                    if (isClass || isRemote) {
-                                        return false
-                                    }
+                                    return !isClass
                                 }
+
+                                const pn = sourceModel.data(ndx, PM.PrinterModel.DestName)
                                 return pn !== root.modelData.printerName
                             }
                         }

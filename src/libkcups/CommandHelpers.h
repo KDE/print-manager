@@ -12,6 +12,13 @@
 
 #include <KCupsRequest.h>
 
+struct DnssdParts {
+    QString scheme; // "dnssd", "ipp" or "ipps"
+    QString name;
+    QString type; // "_ipp._tcp" or "_ipps._tcp"
+    QString domain;
+};
+
 /**
  * @brief Provide printer commands with helpers
  * setupRequest() helpers provide a callback when the request is
@@ -50,6 +57,13 @@ public:
     Q_INVOKABLE void cleanPrintHeads(const QString &printerName);
 
     Q_INVOKABLE void savePrinter(const QString &printerName, const QVariantMap &saveArgs, bool isClass);
+    /**
+     * Resolve a device uri to a proper ipp uri for ipp-direct device access
+     * @param deviceUri of the printer
+     *
+     * Returns the resolved uri or empty string if it cannot resolve
+     */
+    Q_INVOKABLE static QString resolveToUri(const QString &deviceUri);
 
 Q_SIGNALS:
     void error(int lastError, const QString &errorTitle, const QString &errorMsg);
@@ -66,4 +80,5 @@ Q_SIGNALS:
 private:
     using StdRequestCB = std::function<void(KCupsRequest *)>;
     KCupsRequest *setupRequest(StdRequestCB success_cb, StdRequestCB error_cb = nullptr);
+    static DnssdParts parseUnresolvedUri(const QString &urlStr);
 };

@@ -7,6 +7,10 @@
 #include "CommandHelpers.h"
 #include "kcupslib_log.h"
 #include <KLocalizedString>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QRegularExpression>
 #include <QVersionNumber>
 
 using namespace Qt::StringLiterals;
@@ -183,6 +187,83 @@ KCupsRequest *PrinterCommands::setupRequest(StdRequestCB success_cb, StdRequestC
     });
 
     return request;
+}
+
+DnssdParts PrinterCommands::parseUnresolvedUri(const QString &urlStr)
+{
+    DnssdParts parts;
+
+    const auto rest = urlStr.section(u"://"_s, 1);
+    int end = rest.indexOf(QRegularExpression(u"[/?]"_s));
+    const auto encodedHost = (end == -1) ? rest : rest.left(end);
+    const auto decodedHost = QUrl::fromPercentEncoding(encodedHost.toUtf8());
+
+    static QRegularExpression re(R"(^(.*)\.(_[^.]+\._[^.]+)\.([^.]+)$)"_L1);
+    auto m = re.match(decodedHost);
+    if (m.hasMatch()) {
+        parts.name = m.captured(1);
+        parts.type = m.captured(2); // picks up "_ipps._tcp" automatically
+        parts.domain = m.captured(3);
+        parts.scheme = parts.type.contains(u"ipps"_s) ? u"ipps"_s : u"ipp"_s;
+    }
+    return parts;
+}
+
+QString PrinterCommands::resolveToUri(const QString &deviceUri)
+{
+    if (!deviceUri.startsWith(u"dnssd"_s) && !deviceUri.contains(u"._ipp")) {
+        qCDebug(LIBKCUPS) << "DeviceUri does not need to be resolved:" << deviceUri;
+        return {};
+    }
+
+    DnssdParts parts = parseUnresolvedUri(deviceUri);
+    QDBusInterface avahi(u"org.freedesktop.Avahi"_s, u"/"_s, u"org.freedesktop.Avahi.Server"_s, QDBusConnection::systemBus());
+    if (!avahi.isValid()) {
+        qCWarning(LIBKCUPS) << "Avahi Resolver Service unavailable.  Some IPP-only features may be unavailable.";
+        return {};
+    }
+
+    // ResolveService(interface, protocol, name, type, domain, aprotocol, flags)
+    QDBusMessage reply = avahi.call(u"ResolveService"_s,
+                                    -1,
+                                    -1, // AVAHI_IF_UNSPEC, AVAHI_PROTO_UNSPEC
+                                    parts.name,
+                                    parts.type,
+                                    parts.domain,
+                                    -1, // AVAHI_PROTO_UNSPEC for resolved address
+                                    0u // no flags
+    );
+
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qCWarning(LIBKCUPS) << "ResolveService failed:" << reply.errorMessage();
+        return {};
+    }
+    // Reply args (in order): interface, protocol, name, type, domain,
+    // host_name, aprotocol, address, port, txt, flags
+    QList<QVariant> args = reply.arguments();
+    qCDebug(LIBKCUPS) << "Avahi ResolveService return args:" << args;
+    if (args.size() < 10) {
+        return {};
+    }
+
+    const auto hostName = args[5].toString();
+    const auto port = args[8].toString();
+
+    // txt records come back as array of byte arrays "key=value"
+    QString rp = "ipp/print"_L1;
+    auto txtArg = args[9].value<QDBusArgument>();
+    txtArg.beginArray();
+    while (!txtArg.atEnd()) {
+        QByteArray entry;
+        txtArg >> entry;
+        if (entry.startsWith("rp=")) {
+            rp = QString::fromUtf8(entry.mid(3));
+            break;
+        }
+    }
+    txtArg.endArray();
+
+    return QString(u"%1://%2:%3/%4"_s).arg(parts.scheme, hostName, port, rp);
 }
 
 #include "moc_CommandHelpers.cpp"

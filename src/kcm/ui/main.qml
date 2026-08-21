@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-2.0-or-later
  */
 
-import QtQuick 
-import QtQuick.Layouts 
+import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
@@ -100,6 +100,20 @@ KCM.ScrollViewKCM {
                 onTriggered: scpLoader.active = true
             }
         ]
+    }
+
+    footer: RowLayout {
+        QQC2.CheckBox {
+            text: i18nc("@action:button", "Show Discovered Printers")
+            Layout.alignment: Qt.AlignRight
+            checkable: true
+            checked: pmModel.includeDiscovered
+            onToggled: {
+                pmModel.loading = true
+                pmModel.includeDiscovered = checked
+            }
+            Accessible.name: text
+        }
     }
 
     /**
@@ -268,9 +282,11 @@ KCM.ScrollViewKCM {
         Component {
             id: searchingComp
 
-            Kirigami.PlaceholderMessage {
-                icon.name: "printer"
-                text: i18nc("@info:status", "Searching for printers…")
+            QQC2.BusyIndicator {
+                running: true
+                anchors.centerIn: parent
+                implicitWidth: Math.floor(parent.width/4)
+                implicitHeight: implicitWidth
             }
         }
 
@@ -367,6 +383,7 @@ KCM.ScrollViewKCM {
             required property string info
             required property string stateMessage
             required property string iconName
+            required property string iconUri
 
             onClicked: {
                 if (!isDiscovered) {
@@ -394,13 +411,46 @@ KCM.ScrollViewKCM {
                              ? " (%1)".arg(location)
                              : "")
                     subtitle: isDiscovered
-                              ? "Discovered \"%1\" -> IPP Capable: %2\n[%3]".arg(printerName).arg(kcm.isIPPCapable(printerUri) ? "Yes" : "No").arg(printerUri)
-                              // ? "Discovered Printer"
+                              ? "[Discovered Printer] -> IPP Capable: %1\n[%2]".arg(kcm.isIPPCapable(printerUri) ? "Yes" : "No").arg(printerUri)
                               : stateMessage
-                    icon.name: iconName
+                    icon.name: iconUri
 
                     font.bold: list.count > 1 & isDefault
                     selected: deviceDelegate.highlighted || deviceDelegate.down
+                }
+
+                QQC2.ToolButton {
+                    text: i18nc("@action:button", "Create permanent print queue")
+                    icon.name: "list-add-symbolic"
+                    display: QQC2.AbstractButton.IconOnly
+                    visible: isDiscovered && kcm.isIPPCapable(printerUri)
+                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+
+                    Accessible.name: text
+
+                    onClicked: {
+                        checkServerSettings()
+                        const pname = isDiscovered
+                                    ? model.info.replace(/ /g, "_").replace(/[()\[\]]/g, "")
+                                    : model.printerName.replace(/[()\[\]]/g, "")
+                        newPrinter(true
+                                   , {info: model.info
+                                       , printerName: pname
+                                       , printerUri: model.printerUri
+                                       , kind: model.kind
+                                       , "ppd-name": "everywhere"
+                                       , "ppd-type": PM.PrinterCommands.PPDType.Auto}
+                                   // ppd
+                                   , {make: model.kind.split(' ')[0]
+                                       , makeModel: model.kind
+                                       , file: "everywhere"
+                                       , type: PM.PrinterCommands.PPDType.Auto
+                                   })
+                    }
+
+                    QQC2.ToolTip.text: text
+                    QQC2.ToolTip.visible: hovered || activeFocus
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
                 }
 
                 QQC2.Button {

@@ -13,6 +13,8 @@
 
 #define CUPS_DATADIR QLatin1String("/usr/share/cups")
 
+using namespace Qt::StringLiterals;
+
 KCupsRequest::KCupsRequest(KCupsConnection *connection)
     : m_connection(connection)
 {
@@ -699,6 +701,126 @@ void KCupsRequest::setFinished(bool delayed)
         });
     } else {
         Q_EMIT finished(this);
+    }
+}
+
+// callback for cupsEnumDests
+static int get_dest_cb(void *user_data, [[maybe_unused]] unsigned flags, cups_dest_t *dest)
+{
+    static const QStringList s_attrs({KCUPS_PRINTER_STATE,
+                                      KCUPS_PRINTER_STATE_MESSAGE,
+                                      KCUPS_PRINTER_IS_SHARED,
+                                      KCUPS_PRINTER_IS_ACCEPTING_JOBS,
+                                      KCUPS_PRINTER_LOCATION,
+                                      KCUPS_PRINTER_MAKE_AND_MODEL,
+                                      KCUPS_PRINTER_COMMANDS,
+                                      KCUPS_MARKER_CHANGE_TIME,
+                                      KCUPS_MARKER_COLORS,
+                                      KCUPS_MARKER_LEVELS,
+                                      KCUPS_MARKER_NAMES,
+                                      KCUPS_MARKER_TYPES,
+                                      KCUPS_AUTH_INFO_REQUIRED});
+
+    // get the identifying options
+    auto uriSupported = QString::fromUtf8(cupsGetOption("printer-uri-supported", dest->num_options, dest->options));
+    auto devUri = QString::fromUtf8(cupsGetOption("device-uri", dest->num_options, dest->options));
+    auto pInfo = QString::fromUtf8(cupsGetOption("printer-info", dest->num_options, dest->options));
+    auto type = std::atoi(cupsGetOption("printer-type", dest->num_options, dest->options));
+
+    // determine printer name
+    QString pname;
+    if ((type & KCUPS_PRINTER_DISCOVERED) | uriSupported.isEmpty()) {
+        if (devUri.isEmpty()) {
+            qCDebug(LIBKCUPS) << "Unknown Device:" << uriSupported << type << pInfo;
+            return 1;
+        }
+        // uriSupported is null when discovered
+        pname = QString(u"_discovered_%1"_s).arg(pInfo.replace(u"/ /g"_s, u"_"_s));
+        qCDebug(LIBKCUPS) << "Discovered Device:" << pname << type << pInfo;
+    } else {
+        // configured queue, name is the end string of the uri
+        const auto l = uriSupported.split(QLatin1String("/"));
+        if (l.count() > 0) {
+            pname = l[l.count() - 1];
+            qCDebug(LIBKCUPS) << "Configured printer:" << uriSupported << type << pInfo;
+        } else {
+            qCDebug(LIBKCUPS) << "Unable to determine printer name:" << uriSupported;
+            return 1;
+        }
+    }
+
+    // Build the printer
+    KCupsPrinter printer({{KCUPS_PRINTER_NAME, pname},
+                          {KCUPS_PRINTER_TYPE, type},
+                          {KCUPS_PRINTER_INFO, pInfo},
+                          {KCUPS_DEVICE_URI, devUri},
+                          {KCUPS_PRINTER_URI_SUPPORTED, uriSupported}});
+    for (const auto &k : s_attrs) {
+        printer.setAttribute(k, QString::fromUtf8(cupsGetOption(k.toUtf8().data(), dest->num_options, dest->options)));
+    }
+
+    // Markers: options comma separated strings, for the lists ("3","55")
+    if (auto m = printer.argument(KCUPS_MARKER_NAMES).toString(); !m.isEmpty()) {
+        qCDebug(LIBKCUPS) << "Setting Markers attributes" << pname;
+
+        const auto toList = [](const QString &option) -> QStringList {
+            return option.split(QLatin1String(","));
+        };
+
+        const auto toIntList = [](const QStringList &list) -> QList<int> {
+            QList<int> intList;
+
+            for (const QString &str : list) {
+                bool ok;
+                int value = str.toInt(&ok);
+                if (ok) {
+                    intList.append(value);
+                }
+            }
+            return intList;
+        };
+
+        // convert strings to lists
+        printer.setAttribute(KCUPS_MARKER_NAMES, toList(m.replace(QLatin1String("\\"), QLatin1String(""))));
+        printer.setAttribute(KCUPS_MARKER_LEVELS, QVariant::fromValue(toIntList(toList(printer.argument(KCUPS_MARKER_LEVELS).toString()))));
+        printer.setAttribute(KCUPS_MARKER_COLORS, toList(printer.argument(KCUPS_MARKER_COLORS).toString()));
+        printer.setAttribute(KCUPS_MARKER_TYPES, toList(printer.argument(KCUPS_MARKER_TYPES).toString()));
+    }
+
+    // if Class, get member names
+    if (printer.isClass()) {
+        // since this is a static cb, we have to roll a "raw" request
+        ipp_t *request = ippNewRequest(IPP_OP_GET_PRINTER_ATTRIBUTES);
+
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_URI, "printer-uri", NULL, uriSupported.toUtf8().data());
+        ippAddString(request, IPP_TAG_OPERATION, IPP_TAG_KEYWORD, "requested-attributes", NULL, "member-names");
+
+        ipp_t *response = cupsDoRequest(CUPS_HTTP_DEFAULT, request, "/");
+        ipp_attribute_t *members = ippFindAttribute(response, "member-names", IPP_TAG_NAME);
+
+        int i, count = ippGetCount(members);
+        QStringList memberList;
+        for (i = 0; i < count; i++) {
+            memberList << QString::fromUtf8(ippGetString(members, i, NULL));
+        }
+        printer.setAttribute(KCUPS_MEMBER_NAMES, memberList);
+        ippDelete(response);
+    }
+
+    // "emit" signal with the printer
+    QMetaObject::invokeMethod(static_cast<KCupsRequest *>(user_data), "destination", Qt::QueuedConnection, Q_ARG(KCupsPrinter, printer));
+
+    return (1);
+}
+
+void KCupsRequest::getDestinations(int timeout, uint type, uint mask)
+{
+    if (m_connection->readyToStart()) {
+        cupsEnumDests(CUPS_DEST_FLAGS_NONE, timeout, NULL, type, mask, (cups_dest_cb_t)get_dest_cb, this);
+        setError(httpGetStatus(CUPS_HTTP_DEFAULT), KCupsCompat::kcupsError(), QString::fromUtf8(KCupsCompat::kcupsErrorString()));
+        setFinished(true);
+    } else {
+        invokeMethod("getDestinations", timeout, type, mask);
     }
 }
 

@@ -296,6 +296,17 @@ public:
 
     void authenticateJob(const QString &printerName, const QStringList authInfo, int jobId);
 
+    /**
+     * Alternative to getPrinters() that uses cupsEnumDests() to return
+     * configured/discovered devices. Works with CUPS 2.x/3.x
+     * @param timeout 5000 is the recommended min
+     * @param type filter printer type
+     * @param mask filter printer mask
+     *
+     * Signals destination(printer) for each device found
+     */
+    Q_INVOKABLE void getDestinations(int timeout = 5000, uint type = 0, uint mask = 0);
+
 Q_SIGNALS:
     void device(const QString &device_class,
                 const QString &device_id,
@@ -305,6 +316,7 @@ Q_SIGNALS:
                 const QString &device_location);
 
     void finished(KCupsRequest *);
+    void destination(const KCupsPrinter &printer);
 
 private:
     void invokeMethod(const char *method,

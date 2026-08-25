@@ -1,0 +1,301 @@
+# Copyright (C) 2026 This file is copyright:
+# This file is distributed under the same license as the print-manager package.
+# SPDX-FileCopyrightText: 2026 Tommi Nieminen <translator@legisign.org>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"PO-Revision-Date: 2026-02-25 19:15+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.04.0\n"
+
+#: main.cpp:39
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr "Plasman tulostinjonohallinta"
+
+#: main.cpp:41
+#, kde-format
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
+msgstr "Hallinnoi tulostustyöjonoja"
+
+#: main.cpp:43
+#, kde-format
+msgid "© KDE Community"
+msgstr "© KDE-yhteisö"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr "Mike Noe"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Kehittäjä"
+
+#: main.cpp:49
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen"
+
+#: main.cpp:49
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org"
+
+#: main.cpp:62
+#, kde-format
+msgid "Show printer queue"
+msgstr "Näytä tulostusjono"
+
+#: PrintQueue.cpp:88
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Anna tunnistautumistiedot tulostamiseen: <b>%1</b>"
+
+#: qml/JobView.qml:30
+#, kde-format
+msgctxt "@label Job types currently showing"
+msgid "%1 Jobs"
+msgstr "%1 työtä"
+
+#: qml/JobView.qml:58
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Filter Jobs"
+msgstr "Suodata töitä"
+
+#: qml/JobView.qml:63
+#, kde-format
+msgctxt "option:check Show active Jobs"
+msgid "Active"
+msgstr "Aktiiviset"
+
+#: qml/JobView.qml:71
+#, kde-format
+msgctxt "option:check Show completed jobs"
+msgid "Completed"
+msgstr "Valmiit"
+
+#: qml/JobView.qml:79
+#, kde-format
+msgctxt "option:check Show all jobs"
+msgid "All"
+msgstr "Kaikki"
+
+#: qml/JobView.qml:90
+#, kde-format
+msgctxt "@option:check Hide expanded job view"
+msgid "Hide Job Details"
+msgstr "Piilota työn tiedot"
+
+#: qml/JobView.qml:91
+#, kde-format
+msgctxt "@option:check Show expanded job view"
+msgid "Show Job Details"
+msgstr "Näytä työn tiedot"
+
+#: qml/JobView.qml:98
+#, kde-format
+msgctxt "@action:button Cancel all active jobs"
+msgid "Cancel All Jobs"
+msgstr "Peru kaikki työt"
+
+#: qml/JobView.qml:112
+#, kde-format
+msgctxt "@title:window"
+msgid "Cancel all active print jobs?"
+msgstr "Perutaanko kaikki aktiiviset tulostustyöt?"
+
+#: qml/JobView.qml:139
+#, kde-format
+msgctxt "@info:status Print jobs not found in the print queue"
+msgid "The print queue is empty"
+msgstr "Tulostusjono on tyhjä"
+
+#: qml/JobView.qml:158
+#, kde-format
+msgctxt ""
+"@action:inmenu Move the job to /info/ which is the friendly name of the "
+"other print queue"
+msgid "Move to %1"
+msgstr "Siirrä tulostimeen %1"
+
+#: qml/JobView.qml:246
+#, kde-format
+msgctxt "@action:button This action cancels the job"
+msgid "Cancel"
+msgstr "Peru"
+
+#: qml/JobView.qml:257
+#, kde-format
+msgctxt "@action:button This action holds the job"
+msgid "Hold"
+msgstr "Pidä"
+
+#: qml/JobView.qml:268
+#, kde-format
+msgctxt "@action:button This action releases the job"
+msgid "Release"
+msgstr "Vapauta"
+
+#: qml/JobView.qml:279
+#, kde-format
+msgctxt "@action:button This action reprints the job"
+msgid "Reprint"
+msgstr "Tulosta uudelleen"
+
+#: qml/JobView.qml:289
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Siirrä"
+
+#: qml/JobView.qml:300
+#, kde-format
+msgctxt ""
+"@action:button This action prompts for user/password to authenticate the job"
+msgid "Authenticate"
+msgstr "Tunnistaudu"
+
+#: qml/JobView.qml:321
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1, %2"
+msgstr "Tila: %1, %2"
+
+#: qml/JobView.qml:322
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1"
+msgstr "Tila: %1"
+
+#: qml/JobView.qml:327
+#, kde-format
+msgctxt "@label:info Date created"
+msgid "Created: %1"
+msgstr "Luotu: %1"
+
+#: qml/JobView.qml:338
+#, kde-format
+msgctxt "@label:info Date completed"
+msgid "Completed: %1"
+msgstr "Valmis: %1"
+
+#: qml/JobView.qml:343
+#, kde-format
+msgctxt "@label:info Date processed"
+msgid "Processed: %1"
+msgstr "Käsitelty: %1"
+
+#: qml/JobView.qml:349
+#, kde-format
+msgctxt "@label:info Job page count"
+msgid "Pages: %1"
+msgstr "Sivuja: %1"
+
+#: qml/Main.qml:117
+#, kde-format
+msgctxt "@label:header"
+msgid "Printers"
+msgstr "Tulostimet"
+
+#: qml/Main.qml:123
+#, kde-format
+msgctxt "@action:button about this application"
+msgid "About"
+msgstr "Tietoa"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printers"
+msgstr "Tulostimet"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printer Groups"
+msgstr "Tulostinryhmät"
+
+#: qml/Main.qml:267
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "Jatka"
+
+#: qml/Main.qml:268
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "Tauko"
+
+#: qml/Main.qml:281
+#, kde-format
+msgctxt "@action:button Configure printer in the kcm"
+msgid "Configure…"
+msgstr "Asetukset…"
+
+#: qml/Main.qml:288
+#, kde-format
+msgctxt "@action:button Open additional printer settings"
+msgid "Media Settings…"
+msgstr "Paperiasetukset…"
+
+#: qml/NotAvailablePage.qml:27
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers have been set up"
+msgstr "Tulostimia ei ole asetettu"
+
+#: qml/NotAvailablePage.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "Set Up a Printer…"
+msgstr "Aseta tulostin…"
+
+#: qml/NotAvailablePage.qml:41
+#, kde-format
+msgctxt "@info:status"
+msgid "Printing services not available"
+msgstr "Tulostuspalveluja ei ole käytettävissä"
+
+#: qml/NotAvailablePage.qml:42
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution support URL %2 is the distribution name"
+msgid ""
+"Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+"Support</a>"
+msgstr ""
+"Varmista, että CUPS-järjestelmäpalvelu on aktiivinen, tai tarkista: <a href="
+"\"%1\">%2 – tuki</a>"
+
+#: qml/NotAvailablePage.qml:52
+#, kde-format
+msgctxt "@info:status"
+msgid "Unknown error condition with printing services"
+msgstr "Tuntematon tulostuspalveluvirhe"
+
+#: qml/NotAvailablePage.qml:53
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
+"name"
+msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+msgstr "Etsi ongelmaa täältä: <a href=\"%1\">%2 – ongelmia</a>"

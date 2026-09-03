@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:52+0000\n"
-"PO-Revision-Date: 2026-04-22 16:28+0200\n"
+"PO-Revision-Date: 2026-09-02 16:00+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -274,10 +274,12 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Le carga (job) de imprimer essera completate quando le imprimitor deveni "
+"disponibile."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "Reprende imprimitor"
@@ -709,7 +711,7 @@ msgstr "%1 (%2) es quasi plen(%3%)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Le imprimitor es ponite in pausa o stoppate."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

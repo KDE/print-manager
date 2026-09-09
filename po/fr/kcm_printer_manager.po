@@ -290,7 +290,7 @@ msgstr "Définir une connexion à une imprimante "
 #, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
-msgstr "Rafraîchir"
+msgstr "Rafraichir"
 
 #: ui/FindPrinter.qml:142
 #, kde-format

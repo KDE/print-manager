@@ -135,6 +135,7 @@ Name[sv]=Skrivarstatusvarning
 Name[tr]=Yazıcı Durumu Uyarısı
 Name[uk]=Попередження про стан принтера
 Name[zh_CN]=打印机状态警告
+Name[zh_TW]=印表機狀態警告
 Action=Popup
 IconName=printer-warning
 

@@ -48,7 +48,7 @@ PlasmaExtras.ExpandableListItem {
 
     defaultActionButtonAction: Kirigami.Action {
         icon.name: delegate.isPaused ? "media-playback-start" : "media-playback-pause"
-        text: delegate.isPaused ? i18n("Resume") : i18n("Pause")
+        text: delegate.isPaused ? i18nc("@action:button", "Resume") : i18nc("@action:button", "Pause")
 
         onTriggered: {
             if (delegate.isPaused) {

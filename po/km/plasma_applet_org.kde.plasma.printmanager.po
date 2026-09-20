@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:46+0000\n"
+"POT-Creation-Date: 2026-09-20 00:48+0000\n"
 "PO-Revision-Date: 2012-06-12 10:41+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -63,10 +63,12 @@ msgid "&Configure Printers…"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:51
+msgctxt "@action:button"
 msgid "Resume"
 msgstr ""
 
 #: src/plasmoid/PrinterDelegate.qml:51
+msgctxt "@action:button"
 msgid "Pause"
 msgstr ""
 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:46+0000\n"
+"POT-Creation-Date: 2026-09-20 00:48+0000\n"
 "PO-Revision-Date: 2026-06-18 18:18+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -73,10 +73,16 @@ msgid "&Configure Printers…"
 msgstr "Н&астроить принтеры…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Resume"
+msgctxt "@action:button"
 msgid "Resume"
 msgstr "Возобновить"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Pause"
+msgctxt "@action:button"
 msgid "Pause"
 msgstr "Приостановить"
 

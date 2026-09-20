@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:46+0000\n"
+"POT-Creation-Date: 2026-09-20 00:48+0000\n"
 "PO-Revision-Date: 2024-10-30 10:33+0100\n"
 "Last-Translator: rasmus rosendahl-kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -64,10 +64,16 @@ msgid "&Configure Printers…"
 msgstr "&Konfigurér printere…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Resume"
+msgctxt "@action:button"
 msgid "Resume"
 msgstr "Genoptag"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Pause"
+msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pause"
 

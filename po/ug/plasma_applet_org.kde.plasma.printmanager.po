@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:46+0000\n"
+"POT-Creation-Date: 2026-09-20 00:48+0000\n"
 "PO-Revision-Date: 2026-06-01 18:33-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
@@ -63,10 +63,16 @@ msgid "&Configure Printers…"
 msgstr "باسقۇ سەپلە(&C)…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Resume"
+msgctxt "@action:button"
 msgid "Resume"
 msgstr "داۋاملاشتۇر"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Pause"
+msgctxt "@action:button"
 msgid "Pause"
 msgstr "ۋاقىتلىق توختا"
 

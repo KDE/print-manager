@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:46+0000\n"
+"POT-Creation-Date: 2026-09-20 00:48+0000\n"
 "PO-Revision-Date: 2024-01-01 08:49-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -63,10 +63,16 @@ msgid "&Configure Printers…"
 msgstr "ਪਰਿੰਟਰਾਂ ਦੀ ਸੰਰਚਨਾ(&C)…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Resume"
+msgctxt "@action:button"
 msgid "Resume"
 msgstr "ਬਹਾਲ"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Pause"
+msgctxt "@action:button"
 msgid "Pause"
 msgstr "ਵਿਰਾਮ"
 

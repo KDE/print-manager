@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-16 00:46+0000\n"
+"POT-Creation-Date: 2026-09-20 00:48+0000\n"
 "PO-Revision-Date: 2024-12-13 19:10+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -63,10 +63,16 @@ msgid "&Configure Printers…"
 msgstr "&मुद्रकान् विन्यस्तं कुर्वन्तु..."
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Resume"
+msgctxt "@action:button"
 msgid "Resume"
 msgstr "पुनर्प्रारम्भय"
 
 #: src/plasmoid/PrinterDelegate.qml:51
+#, fuzzy
+#| msgid "Pause"
+msgctxt "@action:button"
 msgid "Pause"
 msgstr "विराम"
 

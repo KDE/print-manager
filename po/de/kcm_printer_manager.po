@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-18 00:47+0000\n"
-"PO-Revision-Date: 2026-02-18 13:40+0100\n"
+"PO-Revision-Date: 2026-09-19 18:07+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -521,13 +521,13 @@ msgstr "Druckerwarteschlange öffnen"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
-msgstr "Drucken wieder fortsetzen"
+msgstr "Drucken fortsetzen"
 
 #: ui/main.qml:385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
-msgstr "Den Drucker anhalten"
+msgstr "Drucken pausieren"
 
 #: ui/main.qml:391
 #, kde-format
@@ -539,7 +539,7 @@ msgstr "Fortsetzen"
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
-msgstr "Anhalten"
+msgstr "Pausieren"
 
 #: ui/MakeModel.qml:91
 #, kde-format

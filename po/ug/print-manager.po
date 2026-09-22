@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:52+0000\n"
-"PO-Revision-Date: 2026-06-01 18:34-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -36,8 +36,6 @@ msgid ""
 "The current page has changes.\n"
 "Do you want to save them?"
 msgstr ""
-"نۆۋەتتىكى بەت ئۆزگەرتىلدى.\n"
-"ئۇلارنى ساقلامسىز؟"
 
 #: src/configure-printer/ConfigureDialog.cpp:184
 #, kde-format
@@ -57,7 +55,7 @@ msgstr "باسقۇ سەپلەش"
 #: src/configure-printer/main.cpp:29
 #, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "(C) 2010-2018 Daniel Nicoletti"
+msgstr ""
 
 #: src/configure-printer/main.cpp:31
 #, kde-format
@@ -223,7 +221,7 @@ msgstr "باسقۇ سەپلە"
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr "IPP Everywhere™"
+msgstr ""
 
 #: src/kcm/printermanager.cpp:352
 #, kde-format
@@ -276,11 +274,10 @@ msgid ""
 msgstr ""
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Remove Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
-msgstr "پرىنتېر چىقىرىۋېتىش"
+msgstr ""
 
 #: src/kded/CupsWatcher.cpp:79
 #, kde-format
@@ -396,7 +393,7 @@ msgstr "ئارقىمۇئارقا ئېغىز"
 #: src/libkcups/DevicesModel.cpp:67
 #, kde-format
 msgid "USB"
-msgstr "USB"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:69
 #, kde-format
@@ -421,7 +418,7 @@ msgstr "قاتتىق دېتال ئابستراكت قاتلىمى (HAL)"
 #: src/libkcups/DevicesModel.cpp:77
 #, kde-format
 msgid "AppSocket/HP JetDirect"
-msgstr "AppSocket/HP JetDirect"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:82
 #, kde-format
@@ -441,17 +438,17 @@ msgstr "SAMBA دىكى Windows باسقۇ"
 #: src/libkcups/DevicesModel.cpp:92
 #, kde-format
 msgid "IPP"
-msgstr "IPP"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:94
 #, kde-format
 msgid "IPP %1"
-msgstr "IPP %1"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:97
 #, kde-format
 msgid "HTTP"
-msgstr "HTTP"
+msgstr ""
 
 #: src/libkcups/DevicesModel.cpp:102
 #, kde-format
@@ -641,7 +638,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr "%1\t%2 [%3]"
+msgstr ""
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -826,7 +823,7 @@ msgstr "© KDE جامائىتى"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr "Mike Noe"
+msgstr ""
 
 #: src/print-queue/main.cpp:48
 #, kde-format

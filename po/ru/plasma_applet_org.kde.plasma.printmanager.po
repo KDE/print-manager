@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 00:46+0000\n"
-"PO-Revision-Date: 2026-06-18 18:18+0200\n"
+"PO-Revision-Date: 2026-09-22 21:43+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -47,7 +47,7 @@ msgid_plural "There are %1 print jobs in the queue"
 msgstr[0] "В очереди печати %1 задание"
 msgstr[1] "В очереди печати %1 задания"
 msgstr[2] "В очереди печати %1 заданий"
-msgstr[3] "В очереди печати %1 задание"
+msgstr[3] "В очереди печати одно задание"
 
 #: src/plasmoid/main.qml:75
 msgctxt "Printing document name with printer name"
@@ -57,7 +57,7 @@ msgstr "Печать %1 на %2"
 #: src/plasmoid/main.qml:77
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
-msgstr "Печать на %2"
+msgstr "Печать на %1"
 
 #: src/plasmoid/main.qml:80
 msgid "Print queue is empty"

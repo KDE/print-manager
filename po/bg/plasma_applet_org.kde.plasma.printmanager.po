@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:48+0000\n"
-"PO-Revision-Date: 2026-05-28 13:09+0200\n"
+"PO-Revision-Date: 2026-09-22 23:03+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:61
@@ -65,15 +65,11 @@ msgid "&Configure Printers…"
 msgstr "&Конфигуриране на принтери…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Resume"
 msgctxt "@action:button"
 msgid "Resume"
-msgstr "Продължаване"
+msgstr "Възобновяване"
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Пауза"

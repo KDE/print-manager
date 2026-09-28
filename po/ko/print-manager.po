@@ -1,21 +1,21 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2018, 2019, 2020, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2013-2015, 2018-2020, 2023-2026 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:52+0000\n"
-"PO-Revision-Date: 2026-04-26 20:24+0200\n"
-"Last-Translator: Shinjo Park <kde@peremen.name>\n"
-"Language-Team: Korean <kde-kr@kde.org>\n"
+"PO-Revision-Date: 2026-09-24 13:47+0200\n"
+"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
+"Language-Team: Korean\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:96
 #: src/configure-printer/ConfigureDialog.cpp:97
@@ -272,10 +272,11 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"프린터를 다시 사용할 수 있게 될 때 인쇄 작업이 완료됩니다."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "프린터 다시 시작"
@@ -702,7 +703,7 @@ msgstr "%1(%2)이(가) 거의 가득 참(%3%)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "프린터가 일시 정지되었거나 정지되었습니다."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format

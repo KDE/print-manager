@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:52+0000\n"
-"PO-Revision-Date: 2026-02-25 19:15+0200\n"
+"PO-Revision-Date: 2026-08-25 10:22+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -268,6 +268,7 @@ msgstr ""
 "Asennusvirhe (paketti: %1)\n"
 "Tarkista todennustiedot ja varmista, että PackageKit on asennettu oikein."
 
+# Tässä on tahallisesti etäännytty alkutekstistä, koska mikäänhän ei takaa valmistumista, vaikka tulostin tulisi käyttöön!
 #: src/kded/CupsWatcher.cpp:55
 #, kde-format
 msgctxt "@info:status %1 is the reason message for the status"
@@ -275,10 +276,11 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Tulostustyö odottaa tulostimen tuloa käyttöön."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "Jatka tulostusta"
@@ -631,7 +633,7 @@ msgstr "Koneelta"
 #, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Käsitellään\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format
@@ -639,7 +641,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -706,7 +708,7 @@ msgstr "%1 (%2) on lähes täysi (%3)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Tulostus on keskeytetty tai pysäytetty."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
@@ -807,31 +809,30 @@ msgstr "Tuntematon - \"%1\""
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Plasman tulostinjonohallinta"
 
 #: src/print-queue/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Näytä tulostinjonot"
+msgstr "Hallinnoi tulostustyöjonoja"
 
 #: src/print-queue/main.cpp:43
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE-yhteisö"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Kehittäjä"
 
 #: src/print-queue/main.cpp:49
 #, kde-format
@@ -846,10 +847,9 @@ msgid "Your emails"
 msgstr "translator@legisign.org, jiri.gronroos+kde@iki.fi"
 
 #: src/print-queue/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Näytä tulostinjonot"
+msgstr "Näytä tulostinjono"
 
 #: src/print-queue/PrintQueue.cpp:88
 #, kde-format

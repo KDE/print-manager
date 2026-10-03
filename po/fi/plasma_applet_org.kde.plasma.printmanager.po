@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:48+0000\n"
-"PO-Revision-Date: 2026-01-05 18:08+0200\n"
+"PO-Revision-Date: 2026-08-25 10:20+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -57,7 +57,7 @@ msgstr "Tulostusjono on tyhjä"
 #: src/plasmoid/main.qml:89 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:119
 msgid "&Configure Printers…"

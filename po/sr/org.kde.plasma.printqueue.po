@@ -1,0 +1,301 @@
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: print-manager\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"PO-Revision-Date: 2026-10-04 12:24+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
+"Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Environment: kde\n"
+
+#: main.cpp:39
+#, kde-format
+msgctxt "@info:credit"
+msgid "Plasma Print Queue Manager"
+msgstr "Менаџер реда за штампање Плазме"
+
+#: main.cpp:41
+#, kde-format
+msgctxt "@info:credit"
+msgid "Manage printer job queues"
+msgstr "Управљање редовима послова штампања"
+
+#: main.cpp:43
+#, kde-format
+msgid "© KDE Community"
+msgstr "© заједница КДЕ‑а"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "@info:credit"
+msgid "Mike Noe"
+msgstr "Mike Noe"
+
+#: main.cpp:48
+#, kde-format
+msgctxt "@info:credit"
+msgid "Developer"
+msgstr "Програмер"
+
+#: main.cpp:49
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Немања Хиршл"
+
+#: main.cpp:49
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "nemhirsl@gmail.com"
+
+#: main.cpp:62
+#, kde-format
+msgid "Show printer queue"
+msgstr "Прикажи ред штампача"
+
+#: PrintQueue.cpp:88
+#, kde-format
+msgid "Enter credentials to print from <b>%1</b>"
+msgstr "Унесите акредитиве за штампање на <b>%1</b>"
+
+#: qml/JobView.qml:30
+#, kde-format
+msgctxt "@label Job types currently showing"
+msgid "%1 Jobs"
+msgstr "%1 послови"
+
+#: qml/JobView.qml:58
+#, kde-format
+msgctxt "@label:listbox"
+msgid "Filter Jobs"
+msgstr "Филтрирај послове"
+
+#: qml/JobView.qml:63
+#, kde-format
+msgctxt "option:check Show active Jobs"
+msgid "Active"
+msgstr "Активни"
+
+#: qml/JobView.qml:71
+#, kde-format
+msgctxt "option:check Show completed jobs"
+msgid "Completed"
+msgstr "Завршени"
+
+#: qml/JobView.qml:79
+#, kde-format
+msgctxt "option:check Show all jobs"
+msgid "All"
+msgstr "Сви"
+
+#: qml/JobView.qml:90
+#, kde-format
+msgctxt "@option:check Hide expanded job view"
+msgid "Hide Job Details"
+msgstr "Сакриј детаље посла"
+
+#: qml/JobView.qml:91
+#, kde-format
+msgctxt "@option:check Show expanded job view"
+msgid "Show Job Details"
+msgstr "Прикажи детаље посла"
+
+#: qml/JobView.qml:98
+#, kde-format
+msgctxt "@action:button Cancel all active jobs"
+msgid "Cancel All Jobs"
+msgstr "Откажи све послове"
+
+#: qml/JobView.qml:112
+#, kde-format
+msgctxt "@title:window"
+msgid "Cancel all active print jobs?"
+msgstr "Отказати све активне послове штампања?"
+
+#: qml/JobView.qml:139
+#, kde-format
+msgctxt "@info:status Print jobs not found in the print queue"
+msgid "The print queue is empty"
+msgstr "Ред за штампање је празан"
+
+#: qml/JobView.qml:158
+#, kde-format
+msgctxt ""
+"@action:inmenu Move the job to /info/ which is the friendly name of the "
+"other print queue"
+msgid "Move to %1"
+msgstr "Премести на %1"
+
+#: qml/JobView.qml:246
+#, kde-format
+msgctxt "@action:button This action cancels the job"
+msgid "Cancel"
+msgstr "Одустани"
+
+#: qml/JobView.qml:257
+#, kde-format
+msgctxt "@action:button This action holds the job"
+msgid "Hold"
+msgstr "Задржи"
+
+#: qml/JobView.qml:268
+#, kde-format
+msgctxt "@action:button This action releases the job"
+msgid "Release"
+msgstr "Пропусти"
+
+#: qml/JobView.qml:279
+#, kde-format
+msgctxt "@action:button This action reprints the job"
+msgid "Reprint"
+msgstr "Штампај поново"
+
+#: qml/JobView.qml:289
+#, kde-format
+msgctxt "@action:button"
+msgid "Move"
+msgstr "Премести"
+
+#: qml/JobView.qml:300
+#, kde-format
+msgctxt ""
+"@action:button This action prompts for user/password to authenticate the job"
+msgid "Authenticate"
+msgstr "Аутентификуј"
+
+#: qml/JobView.qml:321
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1, %2"
+msgstr "Стање: %1, %2"
+
+#: qml/JobView.qml:322
+#, kde-format
+msgctxt "@label:info"
+msgid "Status: %1"
+msgstr "Стање: %1"
+
+#: qml/JobView.qml:327
+#, kde-format
+msgctxt "@label:info Date created"
+msgid "Created: %1"
+msgstr "Направљен: %1"
+
+#: qml/JobView.qml:338
+#, kde-format
+msgctxt "@label:info Date completed"
+msgid "Completed: %1"
+msgstr "Завршен: %1"
+
+#: qml/JobView.qml:343
+#, kde-format
+msgctxt "@label:info Date processed"
+msgid "Processed: %1"
+msgstr "Обрађен: %1"
+
+#: qml/JobView.qml:349
+#, kde-format
+msgctxt "@label:info Job page count"
+msgid "Pages: %1"
+msgstr "Страница: %1"
+
+#: qml/Main.qml:117
+#, kde-format
+msgctxt "@label:header"
+msgid "Printers"
+msgstr "Штампачи"
+
+#: qml/Main.qml:123
+#, kde-format
+msgctxt "@action:button about this application"
+msgid "About"
+msgstr "О програму"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printers"
+msgstr "Штампачи"
+
+#: qml/Main.qml:157
+#, kde-format
+msgctxt "@label:info device description"
+msgid "Printer Groups"
+msgstr "Групе штампача"
+
+#: qml/Main.qml:267
+#, kde-format
+msgctxt "@action:button Resume printing"
+msgid "Resume"
+msgstr "Настави"
+
+#: qml/Main.qml:268
+#, kde-format
+msgctxt "@action:button Pause printing"
+msgid "Pause"
+msgstr "Паузирај"
+
+#: qml/Main.qml:281
+#, kde-format
+msgctxt "@action:button Configure printer in the kcm"
+msgid "Configure…"
+msgstr "Подеси…"
+
+#: qml/Main.qml:288
+#, kde-format
+msgctxt "@action:button Open additional printer settings"
+msgid "Media Settings…"
+msgstr "Поставке медијума…"
+
+#: qml/NotAvailablePage.qml:27
+#, kde-format
+msgctxt "@info:status"
+msgid "No printers have been set up"
+msgstr "Ниједан штампач није постављен"
+
+#: qml/NotAvailablePage.qml:29
+#, kde-format
+msgctxt "@action:button"
+msgid "Set Up a Printer…"
+msgstr "Постави штампач…"
+
+#: qml/NotAvailablePage.qml:41
+#, kde-format
+msgctxt "@info:status"
+msgid "Printing services not available"
+msgstr "Сервиси штампања нису доступни"
+
+#: qml/NotAvailablePage.qml:42
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution support URL %2 is the distribution name"
+msgid ""
+"Verify that the CUPS system service is active or check: <a href=\"%1\">%2 "
+"Support</a>"
+msgstr ""
+"Проверите да ли је системски сервис ЦУПС активан или погледајте: <a href="
+"\"%1\">подршка за %2</a>"
+
+#: qml/NotAvailablePage.qml:52
+#, kde-format
+msgctxt "@info:status"
+msgid "Unknown error condition with printing services"
+msgstr "Непозната грешка у сервисима штампања"
+
+#: qml/NotAvailablePage.qml:53
+#, kde-format
+msgctxt ""
+"@info:usagetip %1 is the distribution bug report URL %2 is the distribution "
+"name"
+msgid "Check for issues here: <a href=\"%1\">%2 Issues</a>"
+msgstr "Проверите пријављене проблеме овде: <a href=\"%1\">проблеми за %2</a>"

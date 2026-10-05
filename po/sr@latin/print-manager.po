@@ -1,12 +1,13 @@
 # Translation of print-manager.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2012, 2013, 2015, 2016.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:52+0000\n"
-"PO-Revision-Date: 2016-03-20 15:25+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 12:24+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -20,10 +21,9 @@ msgstr ""
 
 #: src/configure-printer/ConfigureDialog.cpp:96
 #: src/configure-printer/ConfigureDialog.cpp:97
-#, fuzzy, kde-format
-#| msgid "Print settings"
+#, kde-format
 msgid "Media Settings"
-msgstr "Postavke štampača"
+msgstr "Postavke medijuma"
 
 # >> @title:group
 #: src/configure-printer/ConfigureDialog.cpp:104
@@ -44,7 +44,7 @@ msgstr ""
 #: src/configure-printer/ConfigureDialog.cpp:184
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Sačuvaj"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
@@ -57,10 +57,9 @@ msgid "ConfigurePrinter"
 msgstr "Podešavanje štampača"
 
 #: src/configure-printer/main.cpp:29
-#, fuzzy, kde-format
-#| msgid "(C) 2010-2013 Daniel Nicoletti"
+#, kde-format
 msgid "(C) 2010-2018 Daniel Nicoletti"
-msgstr "© 2010–2013, Danijel Nikoleti"
+msgstr "© 2010–2018, Danijel Nikoleti"
 
 #: src/configure-printer/main.cpp:31
 #, kde-format
@@ -68,10 +67,9 @@ msgid "Port to Qt 5 / Plasma 5"
 msgstr "Prenos na Qt5 i Plasmu 5"
 
 #: src/configure-printer/main.cpp:32
-#, fuzzy, kde-format
-#| msgid "Port to Qt 5 / Plasma 5"
+#, kde-format
 msgid "Port to Qt 6 / Plasma 6"
-msgstr "Prenos na Qt5 i Plasmu 5"
+msgstr "Prenos na Qt 6 i Plasmu 6"
 
 #: src/configure-printer/main.cpp:39
 #, kde-format
@@ -227,57 +225,50 @@ msgid "Add a new printer"
 msgstr "Dodaj novi štampač"
 
 #: src/kcm/printermanager.cpp:102
-#, fuzzy, kde-format
-#| msgid "Add a new printer"
+#, kde-format
 msgid "Add a new printer group"
-msgstr "Dodaj novi štampač"
+msgstr "Dodaj novu grupu štampača"
 
 #: src/kcm/printermanager.cpp:104 src/kcm/printermanager.cpp:106
-#, fuzzy, kde-format
-#| msgid "Configure Printer"
+#, kde-format
 msgid "Configure a printer"
-msgstr "Podešavanje štampača"
+msgstr "Podesi štampač"
 
 #: src/kcm/printermanager.cpp:325
 #, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:352
-#, fuzzy, kde-format
-#| msgid "Driver:"
+#, kde-format
 msgctxt "@list:item"
 msgid "Driverless"
-msgstr "Drajver:"
+msgstr "bez drajvera"
 
 #: src/kcm/printermanager.cpp:355
 #, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "PPD fajl"
 
 #: src/kcm/printermanager.cpp:397
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Ne mogu da dobavim postavke servera"
+msgstr "Ne mogu da dobavim postavke servera: %1"
 
 #: src/kcm/printermanager.cpp:434
 #, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr ""
+msgstr "Postavke servera nisu sačuvane: (%1): %2"
 
 #: src/kcm/printermanager.cpp:441
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to get server settings"
+#, kde-format
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Ne mogu da dobavim postavke servera"
+msgstr "Kobna greška pri pokušaju da se sačuvaju postavke servera: (%1): %2"
 
 #: src/kcm/scpinstaller.cpp:71
 #, kde-format
@@ -287,6 +278,9 @@ msgid ""
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Greška pri instaliranju (paket: %1)\n"
+"Proverite akreditive za autentifikaciju i uverite se da je PackageKit "
+"ispravno instaliran."
 
 #: src/kded/CupsWatcher.cpp:55
 #, kde-format
@@ -295,10 +289,11 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Posao štampanja će se završiti kada štampač postane dostupan."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "Nastavi štampanje"
@@ -307,56 +302,48 @@ msgstr "Nastavi štampanje"
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Proveri nivoe…"
 
 #: src/kded/NewPrinterNotification.cpp:100
-#, fuzzy, kde-format
-#| msgid "The New Printer was Added"
+#, kde-format
 msgid "The New Printer was added"
-msgstr "Dodaj je novi štampač"
+msgstr "Dodat je novi štampač"
 
 #: src/kded/NewPrinterNotification.cpp:102
-#, fuzzy, kde-format
-#| msgid "The New Printer is Missing Drivers"
+#, kde-format
 msgid "The New Printer might have a driver problem"
-msgstr "Novom štampaču nedostaje drajver"
+msgstr "Novi štampač možda ima problem sa drajverom"
 
 #: src/kded/NewPrinterNotification.cpp:150
-#, fuzzy, kde-format
-#| msgid "A New Printer was detected"
+#, kde-format
 msgid "Printer queue was not created"
-msgstr "Otkriven je novi štampač"
+msgstr "Red štampača nije napravljen"
 
 # >> %1 %2 make and model
 #: src/kded/NewPrinterNotification.cpp:152
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1 %2."
+#, kde-format
 msgid "Printer driver not found for %1 %2"
-msgstr "Nema drajvera za štampač %1 %2."
+msgstr "Drajver štampača nije nađen za %1 %2"
 
 #: src/kded/NewPrinterNotification.cpp:154
-#, fuzzy, kde-format
-#| msgid "No printer driver for %1."
+#, kde-format
 msgid "Printer driver not found for %1"
-msgstr "Nema drajvera za štampač %1."
+msgstr "Drajver štampača nije nađen za %1"
 
 #: src/kded/NewPrinterNotification.cpp:156
-#, fuzzy, kde-format
-#| msgid "No driver for this printer."
+#, kde-format
 msgid "Printer driver not found for this printer"
-msgstr "Nema drajvera za ovaj štampač."
+msgstr "Drajver nije nađen za ovaj štampač"
 
 #: src/kded/NewPrinterNotification.cpp:158
-#, fuzzy, kde-format
-#| msgid "Add Printer"
+#, kde-format
 msgid "Add Printer…"
-msgstr "Dodaj štampač"
+msgstr "Dodaj štampač…"
 
 #: src/kded/NewPrinterNotification.cpp:215
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, please check its driver."
+#, kde-format
 msgid "'%1' has been added, please check its driver"
-msgstr "„%1“ je dodat, proverite mu drajver."
+msgstr "„%1“ je dodat, proverite mu drajver"
 
 # >! Contexts.
 #: src/kded/NewPrinterNotification.cpp:216
@@ -366,10 +353,9 @@ msgid "Configure"
 msgstr "Podesi"
 
 #: src/kded/NewPrinterNotification.cpp:221
-#, fuzzy, kde-format
-#| msgid "'%1' has been added, using the '%2' driver."
+#, kde-format
 msgid "'%1' has been added, using the '%2' driver"
-msgstr "„%1“ je dodat, pod drajverom „%2“."
+msgstr "„%1“ je dodat, pod drajverom „%2“"
 
 #: src/kded/NewPrinterNotification.cpp:223
 #: src/kded/NewPrinterNotification.cpp:242
@@ -378,10 +364,9 @@ msgid "Print test page"
 msgstr "Odštampaj probnu stranicu"
 
 #: src/kded/NewPrinterNotification.cpp:228
-#, fuzzy, kde-format
-#| msgid "Choose &the driver from the list"
+#, kde-format
 msgid "Check driver"
-msgstr "Izaberite &drajver sa spiska"
+msgstr "Proveri drajver"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -389,20 +374,16 @@ msgid "'%1' is ready for printing."
 msgstr "„%1“ spreman za štampanje."
 
 #: src/libkcups/CommandHelpers.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure class"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure class: "
-msgstr "Neuspelo podešavanje klase."
+msgstr "Ne mogu da podesim klasu: "
 
 #: src/libkcups/CommandHelpers.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Failed to configure printer"
+#, kde-format
 msgctxt "@info"
 msgid "Failed to configure printer: "
-msgstr "Neuspelo podešavanje štampača."
+msgstr "Ne mogu da podesim štampač: "
 
 #: src/libkcups/CommandHelpers.cpp:138
 #, kde-format
@@ -415,12 +396,10 @@ msgid "Clean Print Heads"
 msgstr "Očisti štamparske glave"
 
 #: src/libkcups/DevicesModel.cpp:51
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Manual URI"
+#, kde-format
 msgctxt "@item"
 msgid "Manual Config"
-msgstr "ručni URI"
+msgstr "ručne postavke"
 
 # >> @item
 #: src/libkcups/DevicesModel.cpp:63
@@ -557,10 +536,7 @@ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)"
 msgstr "Lokalni štampač otkriven preko HAL‑a."
 
 #: src/libkcups/DevicesModel.cpp:126
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a fax machine, or the fax function of a multi-"
@@ -569,10 +545,7 @@ msgstr ""
 "Faks pod HPLIP‑ovim softverom, ili faks funkcija višefunkcijskog uređaja."
 
 #: src/libkcups/DevicesModel.cpp:127
-#, fuzzy, kde-format
-#| msgid ""
-#| "HPLIP software driving a printer, or the printer function of a multi-"
-#| "function device."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid ""
 "HPLIP software driving a printer, or the printer function of a multi-"
@@ -583,11 +556,10 @@ msgstr ""
 
 # >> @item
 #: src/libkcups/DevicesModel.cpp:128
-#, fuzzy, kde-format
-#| msgid "IPP network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr "IPP mrežni štampač preko DNSSD‑a"
+msgstr "IPP mrežni štampač preko IPP‑a"
 
 #: src/libkcups/DevicesModel.cpp:129
 #, kde-format
@@ -602,16 +574,14 @@ msgid "Remote CUPS printer via DNS-SD"
 msgstr "Udaljeni CUPS štampač preko DNSSD‑a."
 
 #: src/libkcups/DevicesModel.cpp:147
-#, fuzzy, kde-format
-#| msgid "Network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Network printer via DNS-SD"
 msgstr "Mrežni štampač preko DNSSD‑a."
 
 # >! Unpuzzle.
 #: src/libkcups/DevicesModel.cpp:149
-#, fuzzy, kde-format
-#| msgid "%1 network printer via DNS-SD"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "%1 network printer via DNS-SD"
 msgstr "%1 mrežni štampač preko DNSSD‑a."
@@ -715,7 +685,7 @@ msgstr "od domaćina"
 #, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Obrađujem\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format
@@ -723,7 +693,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 # >> @item job
 #: src/libkcups/JobModel.cpp:445
@@ -758,7 +728,7 @@ msgstr "obustavljen"
 #: src/libkcups/KCupsConnection.cpp:728
 #, kde-format
 msgid "A CUPS connection requires authentication: \"%1\""
-msgstr ""
+msgstr "CUPS veza zahteva autentifikaciju: „%1“"
 
 #: src/libkcups/KCupsPasswordDialog.cpp:21
 #, kde-format
@@ -774,7 +744,7 @@ msgstr "Pogrešno korisničko ime ili lozinka"
 #, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "%1 (%2): izgleda da je prazno."
 
 #: src/libkcups/KCupsPrinter.cpp:150
 #, kde-format
@@ -782,20 +752,20 @@ msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "%1 (%2): izgleda da je pri kraju (preostalo %3%)."
 
 #: src/libkcups/KCupsPrinter.cpp:157
 #, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2): skoro puno (%3%)"
 
 #: src/libkcups/KCupsPrinter.cpp:309
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Štampač je pauziran ili zaustavljen."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
@@ -825,7 +795,7 @@ msgstr "Ne mogu da pozovem metod: %1"
 #: src/libkcups/PPDModel.cpp:86
 #, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Prazan PPD model"
 
 # >> @title:column
 #: src/libkcups/PrinterModel.cpp:192
@@ -909,675 +879,49 @@ msgstr "nepoznato — %1"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Menadžer reda za štampanje Plasme"
 
 #: src/print-queue/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Prikaži red štampača"
+msgstr "Upravljanje redovima poslova štampanja"
 
 #: src/print-queue/main.cpp:43
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© zajednica KDE‑a"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Programer"
 
 #: src/print-queue/main.cpp:49
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Časlav Ilić"
+msgstr "Časlav Ilić,Nemanja Hiršl"
 
 #: src/print-queue/main.cpp:49
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "caslav.ilic@gmx.net"
+msgstr "caslav.ilic@gmx.net,nemhirsl@gmail.com"
 
 #: src/print-queue/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
 msgstr "Prikaži red štampača"
 
 #: src/print-queue/PrintQueue.cpp:88
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr ""
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "Neuspelo izvršavanje zahteva: %1"
-
-#, fuzzy
-#~| msgid "A New Printer was detected"
-#~ msgid "A new printer was detected"
-#~ msgstr "Otkriven je novi štampač"
-
-#, fuzzy
-#~| msgid "Configure Printer"
-#~ msgctxt "@action:button"
-#~ msgid "Configure new printer…"
-#~ msgstr "Podešavanje štampača"
-
-#~ msgid "Failed to move '%1' to '%2'"
-#~ msgstr "Ne mogu da premestim „%1“ na „%2“."
-
-#~ msgid "Failed"
-#~ msgstr "Neuspeh"
-
-#~ msgid "Print Queue"
-#~ msgstr "Red za štampanje"
-
-#~ msgid "Printer ready"
-#~ msgstr "Štampač spreman"
-
-#~ msgid "Pause Printer"
-#~ msgstr "Pauziraj štampač"
-
-#~ msgid "Printing..."
-#~ msgstr "Štampam..."
-
-# rewrite-msgid: /$/.../
-#~ msgid "Printing '%1'"
-#~ msgstr "Štampam „%1“..."
-
-#~ msgid "Printer paused"
-#~ msgstr "Štampač pauziran"
-
-#~ msgid "Printer state unknown"
-#~ msgstr "Stanje štampača nepoznato"
-
-#~ msgid "Move to"
-#~ msgstr "Premesti na"
-
-# >> @item operation policy
-#, fuzzy
-#~| msgid "Authenticated"
-#~ msgid "Authenticate"
-#~ msgstr "autentifikovano"
-
-#~ msgid "All Printers (%1 Job)"
-#~ msgid_plural "All Printers (%1 Jobs)"
-#~ msgstr[0] "Svi štampači (%1 posao)"
-#~ msgstr[1] "Svi štampači (%1 posla)"
-#~ msgstr[2] "Svi štampači (%1 poslova)"
-#~ msgstr[3] "Svi štampači (%1 posao)"
-
-#~ msgid "%2 (%1 Job)"
-#~ msgid_plural "%2 (%1 Jobs)"
-#~ msgstr[0] "%2 (%1 posao)"
-#~ msgstr[1] "%2 (%1 posla)"
-#~ msgstr[2] "%2 (%1 poslova)"
-#~ msgstr[3] "%2 (%1 posao)"
-
-#~ msgid "All Printers"
-#~ msgstr "Svi štampači"
-
-#~ msgid "Failed to cancel '%1'"
-#~ msgstr "Ne mogu da otkažem „%1“."
-
-#~ msgid "Failed to hold '%1'"
-#~ msgstr "Ne mogu da zadržim „%1“."
-
-#~ msgid "Failed to release '%1'"
-#~ msgstr "Ne mogu da pustim „%1“."
-
-#~ msgid "Failed to reprint '%1'"
-#~ msgstr "Propalo ponovno štampanje „%1“"
-
-#~ msgid "my printer (x jobs)"
-#~ msgstr "Moj štampač (× poslova)"
-
-#~ msgid "Printer Icon"
-#~ msgstr "Ikonica štampača"
-
-#~ msgid "Cancel"
-#~ msgstr "Odustani"
-
-#~ msgid "Hold"
-#~ msgstr "Zadrži"
-
-#~ msgid "Resume"
-#~ msgstr "Nastavi"
-
-#~ msgid "Reprint"
-#~ msgstr "Štampaj ponovo"
-
-#~ msgid "Active Jobs"
-#~ msgstr "aktivni poslovi"
-
-#~ msgid "Completed Jobs"
-#~ msgstr "završeni poslovi"
-
-#~ msgid "All Jobs"
-#~ msgstr "svi poslovi"
-
-#, fuzzy
-#~| msgctxt "@info:tooltip"
-#~| msgid ""
-#~| "HPLIP software driving a fax machine, or the fax function of a multi-"
-#~| "function device"
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "HPLIP software driving a fax machine,\n"
-#~ "or the fax function of a multi-function device"
-#~ msgstr ""
-#~ "Faks pod HPLIP‑ovim softverom, ili faks funkcija višefunkcijskog uređaja."
-
-#, fuzzy
-#~| msgctxt "@info:tooltip"
-#~| msgid ""
-#~| "HPLIP software driving a printer, or the printer function of a multi-"
-#~| "function device"
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "HPLIP software driving a printer,\n"
-#~ "or the printer function of a multi-function device"
-#~ msgstr ""
-#~ "Štampač pod HPLIP‑ovim softverom, ili štampačka funkcija višefunkcijskog "
-#~ "uređaja."
-
-#~ msgid "Recommended Drivers"
-#~ msgstr "Preporučeni drajveri"
-
-#~ msgctxt "@title:window"
-#~ msgid "Add a New Printer"
-#~ msgstr "Dodavanje novog štampača"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select a Printer to Add"
-#~ msgstr "Izbor štampača za dodavanje"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Please describe you printer"
-#~ msgctxt "@title:window"
-#~ msgid "Please describe your printer"
-#~ msgstr "Opis štampača"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure your connection"
-#~ msgstr "Podešavanje veze"
-
-#, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "Pick a Driver"
-#~ msgctxt "@title:window"
-#~ msgid "Pick a Driver for %1"
-#~ msgstr "Izbor drajvera"
-
-#~ msgid "Address:"
-#~ msgstr "Adresa:"
-
-#~ msgid "Queue:"
-#~ msgstr "Red:"
-
-#~ msgid "Detect"
-#~ msgstr "Otkrij"
-
-#~ msgctxt "@title:group"
-#~ msgid "Windows Printer via SAMBA"
-#~ msgstr "Windows štampač preko Sambe"
-
-#~ msgctxt ""
-#~ "@label samba URL markup example, this is preceded by a label containing "
-#~ "smb://"
-#~ msgid "smb://[workgroup/]server[:port]/printer"
-#~ msgstr "smb://[radna_grupa/]server[:port]/stampac"
-
-#~ msgctxt "@action:button"
-#~ msgid "Browse"
-#~ msgstr "Pregledaj"
-
-#~ msgctxt "@title:group"
-#~ msgid "Authentication"
-#~ msgstr "Autentifikacija"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Username:"
-#~ msgstr "Korisničko ime:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Password"
-#~ msgstr "Lozinka"
-
-# >> @item:inlistbox Parity:
-#~ msgctxt "@label:listbox"
-#~ msgid "None"
-#~ msgstr "ništa"
-
-# >> @item:inlistbox Parity:
-#~ msgctxt "@label:listbox"
-#~ msgid "Even"
-#~ msgstr "parno"
-
-# >> @item:inlistbox Parity:
-#~ msgctxt "@label:listbox"
-#~ msgid "Odd"
-#~ msgstr "neparno"
-
-# >> @item:inlistbox Flow control:
-#~ msgctxt "@label:listbox"
-#~ msgid "XON/XOFF (Software)"
-#~ msgstr "XON/XOFF (softverska)"
-
-# >> @item:inlistbox Flow control:
-#~ msgctxt "@label:listbox"
-#~ msgid "RTS/CTS (Hardware)"
-#~ msgstr "RTS/CTS (hardverska)"
-
-# >> @item:inlistbox Flow control:
-#~ msgctxt "@label:listbox"
-#~ msgid "DTR/DSR (Hardware)"
-#~ msgstr "DTR/DSR (hardverska)"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Baud Rate:"
-#~ msgstr "Protok u bodima:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Parity:"
-#~ msgstr "Paritet:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Data Bits:"
-#~ msgstr "Bitova podataka:"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Flow Control:"
-#~ msgstr "Upravljanje tokom:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Address:"
-#~ msgstr "Adresa:"
-
-#~ msgctxt "@label:spinbox"
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Connection:"
-#~ msgstr "Veza:"
-
-# literal-segment: TABLE
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "<TABLE>\n"
-#~ "<TR>\n"
-#~ "<TD>Examples:\n"
-#~ "<PRE>\n"
-#~ "    http://hostname:631/ipp/\n"
-#~ "    http://hostname:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://hostname/ipp/\n"
-#~ "    ipp://hostname/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://hostname/queue\n"
-#~ "\n"
-#~ "    socket://hostname\n"
-#~ "    socket://hostname:9100\n"
-#~ "</PRE>\n"
-#~ "\n"
-#~ "<P>See <A HREF=\"http://localhost:631/help/network.html\" TARGET=\"_blank"
-#~ "\">\"Network\n"
-#~ "Printers\"</A> for the correct URI to use with your printer.</P>\n"
-#~ "</TD>\n"
-#~ "</TR>\n"
-#~ "</TABLE>"
-#~ msgstr ""
-#~ "<table><tr><td>Primeri:<pre>\n"
-#~ "    http://domacin:631/ipp/\n"
-#~ "    http://domacin:631/ipp/port1\n"
-#~ "\n"
-#~ "    ipp://domacin/ipp/\n"
-#~ "    ipp://domacin/ipp/port1\n"
-#~ "\n"
-#~ "    lpd://domacin/queue\n"
-#~ "\n"
-#~ "    socket://domacin\n"
-#~ "    socket://domacin:9100\n"
-#~ "</pre>\n"
-#~ "<p>Tačan URI željenog štampača potražite pod <a href=\"http://"
-#~ "localhost:631/help/network.html\" target=\"_blank\">„Mrežni štampači“</a>."
-#~ "</p>\n"
-#~ "</td>\n"
-#~ "</tr>\n"
-#~ "</table>"
-
-#~ msgid "Tool for adding new printers"
-#~ msgstr "Alatka za dodavanje novih štampača"
-
-#~ msgid "Parent Window ID"
-#~ msgstr "ID roditeljskog prozora"
-
-#~ msgid "Add a new printer class"
-#~ msgstr "Dodaj novu klasu štampača"
-
-#~ msgid "Changes the PPD of a given printer"
-#~ msgstr "Promeni PPD zadatog štampača"
-
-#~ msgid "Changes the PPD of a given printer/deviceid"
-#~ msgstr "Promeni PPD zadatog štampača/ID‑a uređaja"
-
-#, fuzzy
-#~| msgid "Changes the PPD of a given printer/deviceid"
-#~ msgid "The expected input should be printer/deviceid"
-#~ msgstr "Promeni PPD zadatog štampača/ID‑a uređaja"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to add class: '%1'"
-#~ msgstr "Neuspelo dodavanje klase: „%1“"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: '%1'"
-#~ msgstr "Neuspelo podešavanje štampača: „%1“"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Name:"
-#~ msgstr "Ime:"
-
-#~ msgid "May contain any printable characters except \"/\", \"#\", and space"
-#~ msgstr "Može da sadrži bilo koji ispisiv znak osim ‘/’, ‘#’ i razmaka."
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Description:"
-#~ msgstr "Opis:"
-
-#~ msgctxt "@label:textbox"
-#~ msgid "Location:"
-#~ msgstr "Lokacija:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Share this printer"
-#~ msgstr "Deli ovaj štampač"
-
-#~ msgctxt "@label:listbox"
-#~ msgid "Members:"
-#~ msgstr "Članovi:"
-
-#~ msgid "A printer connected to the parallel port."
-#~ msgstr "Štampač povezan na paralelni port."
-
-#~ msgid "A printer connected to a USB port."
-#~ msgstr "Štampač povezan na USB port."
-
-#~ msgid "A printer connected via Bluetooth."
-#~ msgstr "Štampač povezan preko Bluetootha."
-
-# rewrite-msgid: /Hardware Abstraction Layer//
-#~ msgid "Local printer detected by the Hardware Abstraction Layer (HAL)."
-#~ msgstr "Lokalni štampač otkriven preko HAL‑a."
-
-# >! Unpuzzle.
-#~ msgid "%1 network printer via DNS-SD"
-#~ msgstr "%1 mrežni štampač preko DNSSD‑a."
-
-#~ msgid "Connections"
-#~ msgstr "Veze"
-
-#~ msgid "Please choose an item on the list"
-#~ msgstr "Izaberite stavku sa spiska"
-
-#~ msgid "Configuring new printer..."
-#~ msgstr "Podešavam novi štampač..."
-
-#~ msgid "Missing printer driver"
-#~ msgstr "Nema drajvera za štampač"
-
-#~ msgid "Search"
-#~ msgstr "Potraži"
-
-#~ msgid "Find driver"
-#~ msgstr "Nađi drajver"
-
-#, fuzzy
-#~| msgid "Choose &the driver from the list"
-#~ msgid "Choose the driver for %1"
-#~ msgstr "Izaberite &drajver sa spiska"
-
-#~ msgid "Failed to get a list of drivers: '%1'"
-#~ msgstr "Ne mogu da dobavim spisak drajvera: „%1“"
-
-#~ msgid "Failed to search for a recommended driver: '%1'"
-#~ msgstr "Ne mogu da potražim preporučeni drajver: „%1“"
-
-#~ msgid "Select a Driver"
-#~ msgstr "Izbor drajvera"
-
-#~ msgid "Ma&nually Provide a PPD File:"
-#~ msgstr "&Ručno zadajte PPD fajl:"
-
-#, fuzzy
-#~| msgid "Print settings"
-#~ msgid "Printer Settings"
-#~ msgstr "Postavke štampača"
-
-# >> @item:inlistbox
-# >> %1 is printer make and model
-#~ msgid "Current - %1"
-#~ msgstr "trenutni — %1"
-
-# >> @item:inlistbox
-#~ msgid "Select a custom driver"
-#~ msgstr "posebni drajver"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure class"
-#~ msgstr "Neuspelo podešavanje klase."
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer"
-#~ msgstr "Neuspelo podešavanje štampača."
-
-#~ msgctxt "@title:window"
-#~ msgid "Failed"
-#~ msgstr "Neuspeh"
-
-#, fuzzy
-#~| msgid "Description:"
-#~ msgid "&Description:"
-#~ msgstr "Opis:"
-
-#~ msgid "Human-readable description such as \"HP LaserJet with Duplexer\""
-#~ msgstr "Lako prepoznatljiv opis, poput „HP‑ov LaserJet sa duplekserom“."
-
-#, fuzzy
-#~| msgid "Location:"
-#~ msgid "&Location:"
-#~ msgstr "Lokacija:"
-
-#~ msgid "Human-readable location such as \"Lab 1\""
-#~ msgstr "Lako prepoznatljiva lokacija, poput „laboratorija 1“."
-
-#, fuzzy
-#~| msgid "Connection:"
-#~ msgid "Connec&tion:"
-#~ msgstr "Veza:"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; "
-#~ "font-weight:400; font-style:normal;\">\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-"
-#~ "size:10pt;\">Examples:</span></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-#~ "</p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">http://hostname:631/ipp/"
-#~ "port1</p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/</"
-#~ "p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ipp://hostname/ipp/"
-#~ "port1</p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">lpd://hostname/queue</"
-#~ "p>\n"
-#~ "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; "
-#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#~ "\"></p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname</p>\n"
-#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
-#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">socket://hostname:9100</"
-#~ "p></body></html>"
-#~ msgstr ""
-#~ "<html><p>Primeri:</p><p>http://domacin:631/ipp/<br/>http://domacin:631/"
-#~ "ipp/port1</p><p>ipp://domacin/ipp/<br/>ipp://domacin/ipp/port1</"
-#~ "p><p>lpd://domacin/red</p><p>socket://domacin<br/>socket://domacin:9100</"
-#~ "p></html>"
-
-#~ msgid "Members"
-#~ msgstr "Članovi"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure server settings"
-#~ msgstr "Ne mogu da podesim postavke servera"
-
-# >> @title:group
-#~ msgid "Modify Printer"
-#~ msgstr "Izmena štampača"
-
-# >> @title:group
-#~ msgid "Printer Options"
-#~ msgstr "Opcije štampača"
-
-#~ msgid "Set the Default Printer Options"
-#~ msgstr "Postavite podrazumevane opcije štampača"
-
-#~ msgid "Name:"
-#~ msgstr "Ime:"
-
-#~ msgid "*.ppd *.ppd.gz|PostScript Printer Description files"
-#~ msgstr "*.ppd *.ppd.gz|opisni fajlovi PostScript štampača"
-
-#~ msgid "Share this class"
-#~ msgstr "Deli ovu klasu"
-
-#~ msgid "Share this printer"
-#~ msgstr "Deli ovaj štampač"
-
-#~ msgctxt "@title"
-#~ msgid "Printer name or description"
-#~ msgstr "Ime ili opis štampača"
-
-#~ msgid "Current status"
-#~ msgstr "Trenutno stanje"
-
-#~ msgctxt "@option:check"
-#~ msgid "Default printer"
-#~ msgstr "Podrazumevani štampač"
-
-#~ msgid "Reject print jobs"
-#~ msgstr "Odbacuj poslove štampanja"
-
-#~ msgctxt "@label location of printer"
-#~ msgid "Location:"
-#~ msgstr "Lokacija:"
-
-#~ msgctxt ""
-#~ "@label kind of printer, could be driver name or \"local raw socket\""
-#~ msgid "Kind:"
-#~ msgstr "Vrsta:"
-
-#~ msgctxt "@action:button"
-#~ msgid "Maintenance"
-#~ msgstr "Održavanje"
-
-#~ msgctxt "@action:button"
-#~ msgid "Open Print Queue"
-#~ msgstr "Otvori red za štampanje"
-
-#~ msgid "Print Test Page"
-#~ msgstr "Odštampaj probnu stranicu"
-
-#~ msgid "Print Self Test Page"
-#~ msgstr "Odštampaj stranicu za samoprobu"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Add a Printer Class"
-#~ msgstr "Dodaj klasu štampača"
-
-#~ msgid "Add a new printer or a printer class"
-#~ msgstr "Dodaj novi štampač ili klasu štampača"
-
-#~ msgid "Remove Printer"
-#~ msgstr "Ukloni štampač"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Show printers shared by other systems"
-#~ msgstr "Prikaži štampače koje dele drugi sistemi"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Share printers connected to this system"
-#~ msgstr "Podeli štampače povezane na ovaj sistem"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow printing from the Internet"
-#~ msgstr "Dozvoli štampanje preko Interneta"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow remote administration"
-#~ msgstr "Dozvoli udaljeno administriranje"
-
-#~ msgctxt "@action:intoolbar"
-#~ msgid "Allow users to cancel any job (not just their own)"
-#~ msgstr "Dozvoli korisnicima da otkažu bilo koji posao (ne samo sopstveni)"
-
-#~ msgid "Configure the global preferences"
-#~ msgstr "Podesi globalne postavke"
-
-#~ msgid "No printers have been configured or discovered"
-#~ msgstr "Nijedan štampač nije podešen niti otkriven"
-
-# >> @title:window
-#~ msgid "Remove class"
-#~ msgstr "Uklanjanje klase"
-
-#~ msgid "Are you sure you want to remove the class '%1'?"
-#~ msgstr "Želite li zaista da uklonite klasu „%1“?"
-
-# >> @title:window
-#~ msgid "Remove printer"
-#~ msgstr "Uklanjanje štampača"
-
-#~ msgid "Are you sure you want to remove the printer '%1'?"
-#~ msgstr "Želite li zaista da uklonite štampač „%1“?"
-
-#~ msgid "System Preferences"
-#~ msgstr "Sistemske postavke"
-
-#~ msgid "TextLabel"
-#~ msgstr "Tekstualna etiketa"
-
-#~ msgid "Error Title"
-#~ msgstr "Naslov greške"
-
-#~ msgid "Click here to add a new printer"
-#~ msgstr "Kliknite da dodate novi štampač"
+msgstr "Unesite akreditive za štampanje na <b>%1</b>"

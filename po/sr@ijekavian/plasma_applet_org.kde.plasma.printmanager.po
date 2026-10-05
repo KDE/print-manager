@@ -1,12 +1,13 @@
 # Translation of plasma_applet_org.kde.plasma.printmanager.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2013, 2015.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.printmanager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-16 00:46+0000\n"
-"PO-Revision-Date: 2015-03-01 12:45+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-04 12:24+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -23,10 +24,8 @@ msgid "Printers"
 msgstr "Штампачи"
 
 #: src/plasmoid/FullRepresentation.qml:49
-#, fuzzy
-#| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Штампачи"
+msgstr "Групе штампача"
 
 #: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:82
 msgid "No printers have been configured or discovered"
@@ -34,7 +33,7 @@ msgstr "Ниједан штампач није подешен нити откр�
 
 #: src/plasmoid/FullRepresentation.qml:83
 msgid "No matches"
-msgstr ""
+msgstr "Нема поклапања"
 
 #: src/plasmoid/main.qml:66
 msgid "There is one print job in the queue"
@@ -47,12 +46,12 @@ msgstr[3] "Један посао у реду за штампање."
 #: src/plasmoid/main.qml:75
 msgctxt "Printing document name with printer name"
 msgid "Printing %1 with %2"
-msgstr ""
+msgstr "Штампам %1 на %2"
 
 #: src/plasmoid/main.qml:77
 msgctxt "Printing with printer name"
 msgid "Printing with %1"
-msgstr ""
+msgstr "Штампам на %1"
 
 #: src/plasmoid/main.qml:80
 msgid "Print queue is empty"
@@ -61,84 +60,38 @@ msgstr "Ред за штампање празан"
 #: src/plasmoid/main.qml:89 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:119
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "&Configure Printers…"
-msgstr "&Подеси штампаче..."
+msgstr "&Подеси штампаче…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
 msgid "Resume"
-msgstr ""
+msgstr "Настави"
 
 #: src/plasmoid/PrinterDelegate.qml:51
 msgid "Pause"
-msgstr ""
+msgstr "Паузирај"
 
 #: src/plasmoid/PrinterDelegate.qml:77
-#, fuzzy
-#| msgid "&Configure Printers..."
 msgid "Configure Printer…"
-msgstr "&Подеси штампаче..."
+msgstr "Подеси штампач…"
 
 #: src/plasmoid/PrinterDelegate.qml:82
-#, fuzzy
-#| msgid "Open print queue"
 msgid "View Print Queue"
-msgstr "Отвори ред за штампање"
+msgstr "Прикажи ред за штампање"
 
 #: src/plasmoid/PrinterDelegate.qml:157
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Одустани"
 
 #: src/plasmoid/PrinterDelegate.qml:192
-#, fuzzy
-#| msgid "No jobs"
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "Нема послова"
-msgstr[1] "Нема послова"
-msgstr[2] "Нема послова"
-msgstr[3] "Нема послова"
-
-#, fuzzy
-#~| msgid "Configure printer"
-#~ msgid "Configure printer…"
-#~ msgstr "Подеси штампач"
-
-#, fuzzy
-#~| msgid "All jobs"
-#~ msgid "Show All Jobs"
-#~ msgstr "сви послови"
-
-#, fuzzy
-#~| msgid "Completed jobs only"
-#~ msgid "Show Only Completed Jobs"
-#~ msgstr "само завршени послови"
-
-#, fuzzy
-#~| msgid "No active jobs"
-#~ msgid "Show Only Active Jobs"
-#~ msgstr "Нема активних послова"
-
-#~ msgid "General"
-#~ msgstr "Опште"
-
-#~ msgid "Active jobs only"
-#~ msgstr "само активни послови"
-
-#~ msgid "Search for a printer..."
-#~ msgstr "Нађи штампач..."
-
-#, fuzzy
-#~| msgid "No active jobs"
-#~ msgid "%1, %2 active job"
-#~ msgid_plural "%1, %2 active jobs"
-#~ msgstr[0] "Нема активних послова"
-#~ msgstr[1] "Нема активних послова"
-#~ msgstr[2] "Нема активних послова"
-#~ msgstr[3] "Нема активних послова"
+msgstr[0] "Још %1 посао"
+msgstr[1] "Још %1 посла"
+msgstr[2] "Још %1 послова"
+msgstr[3] "Још један посао"

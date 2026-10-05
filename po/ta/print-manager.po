@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Kishore G <kishore96@gmail.com>
+# SPDX-FileCopyrightText: 2022-2026 Kishore G <kishore96@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-13 00:52+0000\n"
-"PO-Revision-Date: 2025-08-03 12:25+0530\n"
+"PO-Revision-Date: 2026-10-04 12:11+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-i18n-doc@kde.org>\n"
 "Language: ta\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:96
 #: src/configure-printer/ConfigureDialog.cpp:97
@@ -272,10 +272,11 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"அச்சுப்பொறி இயங்கத் துவங்கும்போது அச்சுப்பணி முடிவடையும்."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "அச்சுப்பொறியை தொடரசெய்"
@@ -439,37 +440,37 @@ msgstr "SAMBA மூலமான விண்டோஸ் அச்சுப்�
 #: src/libkcups/DevicesModel.cpp:92
 #, kde-format
 msgid "IPP"
-msgstr ""
+msgstr "IPP"
 
 #: src/libkcups/DevicesModel.cpp:94
 #, kde-format
 msgid "IPP %1"
-msgstr ""
+msgstr "%1"
 
 #: src/libkcups/DevicesModel.cpp:97
 #, kde-format
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: src/libkcups/DevicesModel.cpp:102
 #, kde-format
 msgid "Remote CUPS printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான CUPS அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:105
 #, kde-format
 msgid "IPP network printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான IPP இணைய அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:107
 #, kde-format
 msgid "LPD network printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான LPD இணைய அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:109
 #, kde-format
 msgid "AppSocket/JetDirect network printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான AppSocket/JetDirect இணைய அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:111
 #, kde-format
@@ -514,7 +515,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "IPP Network printer via IPP"
-msgstr ""
+msgstr "IPP மூலமான IPP இணைய அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:129
 #, kde-format
@@ -526,7 +527,7 @@ msgstr "USB புறை மூலமாக இணைந்துள்ள அ�
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Remote CUPS printer via DNS-SD"
-msgstr ""
+msgstr "DNS-SD மூலமான CUPS அச்சுப்பொறி"
 
 #: src/libkcups/DevicesModel.cpp:147
 #, kde-format
@@ -627,7 +628,7 @@ msgstr "புரவன் பெயரிலிருந்து"
 #, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "%1 [%2]\tசெயலாக்கப்படுகிறது"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format
@@ -635,7 +636,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1 [%3]\t%2"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -696,13 +697,13 @@ msgstr "%1 (%2) குறைவாக உள்ளதுபோல் தெர�
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) நிரம்பப்போகிறது (%3%)"
 
 #: src/libkcups/KCupsPrinter.cpp:309
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "அச்சுப்பொறி இடைநிறுத்தப்பட்டுள்ளது அல்லது நிறுத்தப்பட்டடுள்ளது"
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
@@ -803,31 +804,30 @@ msgstr "தெரியாதது - '%1'"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "பிளாஸ்மா அச்சுவரிசை மேலாளி"
 
 #: src/print-queue/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "அச்சுவரிசையைக் காட்டு"
+msgstr "அச்சுவரிசைகளை கையாள உதவும்"
 
 #: src/print-queue/main.cpp:43
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© கே.டீ.யீ. சமூகம்"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "மைக் நோ"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "நிரலாளர்"
 
 #: src/print-queue/main.cpp:49
 #, kde-format
@@ -842,8 +842,7 @@ msgid "Your emails"
 msgstr "Kde-l10n-ta@kde.org"
 
 #: src/print-queue/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
 msgstr "அச்சுவரிசையைக் காட்டு"
 

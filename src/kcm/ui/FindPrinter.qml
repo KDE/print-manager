@@ -224,9 +224,9 @@ KCM.AbstractKCM {
         id: noDevicesComp
 
         Kirigami.PlaceholderMessage {
-            icon.name: "edit-none"
+            icon.name: "printer-warning"
             text: i18nc("@info:status", "Unable to automatically discover any printing devices")
-            explanation: i18nc("@info:usagetip", "Choose \"Refresh\" to try again or choose a manual configuration option from the list")
+            explanation: xi18nc("@info:usagetip", "Click <interface>Refresh</interface> to try again, or choose a manual configuration option from the list.<nl/><nl/>Note: Automatic printer discovery requires this system’s firewall to allow through the “mdns” service, or be disabled.")
         }
     }
 

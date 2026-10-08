@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2026-01-26 17:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -303,14 +303,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "Kendiliğinden hiçbir yazdırma aygıtı algılanamadı"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"Yeniden denemek için “Yenile”ye tıklayın veya listeden elle bir yapılandırma "
-"seçin"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -813,6 +813,14 @@ msgstr "Yapım/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Seç…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "Yeniden denemek için “Yenile”ye tıklayın veya listeden elle bir "
+#~ "yapılandırma seçin"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

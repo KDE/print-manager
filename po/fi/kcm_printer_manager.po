@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2026-02-25 19:11+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -306,13 +306,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "Tulostimia ei löytynyt automaattihaulla"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"Yritä uudelleen valitsemalla ”Virkistä” tai käytä käyttäjän asetustoimintoa"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -809,6 +810,14 @@ msgstr "Merkki/malli:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Valitse…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "Yritä uudelleen valitsemalla ”Virkistä” tai käytä käyttäjän "
+#~ "asetustoimintoa"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

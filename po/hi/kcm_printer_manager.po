@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -330,12 +330,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "किसी भी मुद्रण डिवाइस को स्वचालित रूप से खोजने में असमर्थ"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
-msgstr "पुनः प्रयास करने के लिए \"रिफ्रेश\" चुनें या सूची से मैन्युअल कॉन्फ़िगरेशन विकल्प चुनें"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
+msgstr ""
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -831,6 +833,12 @@ msgstr "निर्माता/मॉडल:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "चुनना…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr "पुनः प्रयास करने के लिए \"रिफ्रेश\" चुनें या सूची से मैन्युअल कॉन्फ़िगरेशन विकल्प चुनें"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

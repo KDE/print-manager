@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2026-01-24 04:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -306,13 +306,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "მბეჭდავი მოწყობილობები ავტომატურად ვერ აღმოვაჩინე"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"აირჩიეთ \"განახლება\", რათა თავიდან ვცადო, ან სიიდან ხელით მორგება აირჩიეთ"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -818,6 +819,13 @@ msgstr "მწარმოებელი და მოდელი:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "აირჩიეთ…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "აირჩიეთ \"განახლება\", რათა თავიდან ვცადო, ან სიიდან ხელით მორგება აირჩიეთ"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2025-01-12 08:09+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -331,14 +331,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "Ne eblas aŭtomate malkovri iujn ajn presajn aparatojn"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"Elektu \"Refreŝigi\" por provi denove aŭ elektu man-agordan elekteblon el la "
-"listo"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -839,6 +839,14 @@ msgstr "Faro/Modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Elekti…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "Elektu \"Refreŝigi\" por provi denove aŭ elektu man-agordan elekteblon el "
+#~ "la listo"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

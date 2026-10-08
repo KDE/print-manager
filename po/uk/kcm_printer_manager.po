@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2026-01-24 05:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -307,14 +307,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "Не вдалося автоматично виявити жодного пристрою для друку"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"Виберіть «Оновити», щоб повторити спробу або виберіть параметр "
-"налаштовування вручну зі списку"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -817,6 +817,14 @@ msgstr "Виробник/модель:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Вибрати…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "Виберіть «Оновити», щоб повторити спробу або виберіть параметр "
+#~ "налаштовування вручну зі списку"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

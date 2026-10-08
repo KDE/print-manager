@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2024-11-16 12:58+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -332,14 +332,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "Unable to automatically discover any printing devices"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -836,6 +836,14 @@ msgstr "Make/Model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Select…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

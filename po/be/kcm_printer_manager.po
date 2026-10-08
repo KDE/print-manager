@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2026-04-01 21:31\n"
 "Last-Translator: Antikruk <nashtlumach@gmail.com>\n"
 "Language-Team: Belarusian\n"
@@ -309,14 +309,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "Немагчыма аўтаматычна выявіць прылады для друкавання"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"Абярыце \"Абнавіць\", каб паўтарыць спробу, або ўласнаручна абярыце параметр "
-"канфігурацыі са спіса"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -817,6 +817,14 @@ msgstr "Вытворца/Мадэль:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Абраць…"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "Абярыце \"Абнавіць\", каб паўтарыць спробу, або ўласнаручна абярыце "
+#~ "параметр канфігурацыі са спіса"
 
 #~ msgctxt "@info"
 #~ msgid "Failed to configure class: "

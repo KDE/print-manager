@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-18 00:47+0000\n"
+"POT-Creation-Date: 2026-10-08 00:48+0000\n"
 "PO-Revision-Date: 2026-07-05 16:14+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -306,13 +306,14 @@ msgid "Unable to automatically discover any printing devices"
 msgstr "Fann ikkje nokon utskriftseiningar automatisk"
 
 #: ui/FindPrinter.qml:229
-#, kde-format
+#, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
-"Choose \"Refresh\" to try again or choose a manual configuration option from "
-"the list"
+"Click <interface>Refresh</interface> to try again, or choose a manual "
+"configuration option from the list.<nl/><nl/>Note: Automatic printer "
+"discovery requires this system’s firewall to allow through the “mdns” "
+"service, or be disabled."
 msgstr ""
-"Trykk «Oppdater» for å prøva på nytt, eller vel manuelt oppsett frå lista"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -809,3 +810,10 @@ msgstr "Merke/modell:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Vel …"
+
+#~ msgctxt "@info:usagetip"
+#~ msgid ""
+#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
+#~ "from the list"
+#~ msgstr ""
+#~ "Trykk «Oppdater» for å prøva på nytt, eller vel manuelt oppsett frå lista"

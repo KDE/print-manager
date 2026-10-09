@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2023-2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-08 00:48+0000\n"
-"PO-Revision-Date: 2026-01-25 00:52+0100\n"
+"PO-Revision-Date: 2026-10-08 20:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -315,6 +315,10 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"Klik op <interface>Vernieuwen</interface> om het opnieuw te proberen, of "
+"kies een optie voor handmatige configuratie uit de lijst.<nl/><nl/"
+">Opmerking: Voor het automatisch detecteren van printers moet de firewall "
+"van dit systeem de \"mdns\"-service doorlaten of uitgeschakeld zijn."
 
 #: ui/FindPrinter.qml:238
 #, kde-format

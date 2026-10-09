@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the print-manager package.
 # Automatically generated, 2023.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2023-2026 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-08 00:48+0000\n"
-"PO-Revision-Date: 2026-01-24 11:15+0100\n"
+"PO-Revision-Date: 2026-10-08 13:40+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -317,6 +317,10 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"Pulse <interface>Actualizar</interface> para volver a intentarlo o escoja "
+"una opción de configuración manual de la lista.<nl/><nl/>Nota: la detección "
+"automática de impresoras requiere que el cortafuegos de este sistema lo "
+"permita a través del servicio «mdns» o que esté desactivado."
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -822,28 +826,3 @@ msgstr "Marca/modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Seleccionar…"
-
-#~ msgctxt "@info:usagetip"
-#~ msgid ""
-#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
-#~ "from the list"
-#~ msgstr ""
-#~ "Elija «Actualizar» para volver a intentarlo o escoja una opción de "
-#~ "configuración manual de la lista"
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure class: "
-#~ msgstr "Ha ocurrido un error al configurar la clase: "
-
-#~ msgctxt "@info"
-#~ msgid "Failed to configure printer: "
-#~ msgstr "Ha ocurrido un error al configurar la impresora: "
-
-#~ msgid "Failed to perform request: %1"
-#~ msgstr "No se ha podido realizar la solicitud: %1"
-
-#~ msgid "Print Self-Test Page"
-#~ msgstr "Imprimir página de prueba automática"
-
-#~ msgid "Clean Print Heads"
-#~ msgstr "Limpiar los cabezales de impresión"

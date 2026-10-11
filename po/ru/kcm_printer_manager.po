@@ -294,7 +294,7 @@ msgstr "Показать обнаруженные устройства"
 #, kde-format
 msgctxt "@action:button"
 msgid "Show Manual Options"
-msgstr "Показать параметры для настройки вручную"
+msgstr "Настроить вручную"
 
 #: ui/FindPrinter.qml:219
 #, kde-format

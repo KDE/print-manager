@@ -1,20 +1,20 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2023-2026 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-08 00:48+0000\n"
-"PO-Revision-Date: 2026-01-24 21:22+0200\n"
+"PO-Revision-Date: 2026-10-09 10:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.08.0\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -311,6 +311,9 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"לחיצה על <interface>ריענון</interface> תנסה שוב, או שאפשר לבחור אפשרות תצורה "
+"ידנית מהרשימה.<nl/><nl/>לתשומת ליבך: גילוי מדפסות אוטומטי דורש שחומת האש של "
+"המערכת הזאת תאפשר לשירות ה־„mdns” לעבור, או להשבית אותה."
 
 #: ui/FindPrinter.qml:238
 #, kde-format

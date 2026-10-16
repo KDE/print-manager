@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:52+0000\n"
+"POT-Creation-Date: 2026-10-16 00:50+0000\n"
 "PO-Revision-Date: 2026-08-10 13:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -284,7 +284,7 @@ msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "استأنف الطابعة"
 
-#: src/kded/CupsWatcher.cpp:79
+#: src/kded/CupsWatcher.cpp:89
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"

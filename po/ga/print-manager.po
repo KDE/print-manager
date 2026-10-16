@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: add-printer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:52+0000\n"
+"POT-Creation-Date: 2026-10-16 00:50+0000\n"
 "PO-Revision-Date: 2012-07-31 09:30-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -276,7 +276,7 @@ msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "Printéir"
 
-#: src/kded/CupsWatcher.cpp:79
+#: src/kded/CupsWatcher.cpp:89
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"

@@ -1,14 +1,14 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2025-2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:50+0000\n"
-"PO-Revision-Date: 2025-08-21 12:45+0300\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2026-10-15 14:11+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:96
 #: src/configure-printer/ConfigureDialog.cpp:97
@@ -274,10 +274,11 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Drukāšanas darbs tiks izpildīts, kad būs pieejama drukas ierīce."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
 msgstr "Turpināt printera darbību"
@@ -633,7 +634,7 @@ msgstr "No resursdatora"
 #, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Apstrādā\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format
@@ -641,7 +642,7 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -702,13 +703,13 @@ msgstr "%1 (%2) izskatās, ka sāk beigties (atlikuši %3 %)."
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "%1 (%2) ir gandrīz pilns (%3 %)"
 
 #: src/libkcups/KCupsPrinter.cpp:309
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Printeris ir pauzēts vai apturēts."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
@@ -809,31 +810,30 @@ msgstr "Nezināms — „%1“"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "„Plasma“ printera rindas pārvaldnieks"
 
 #: src/print-queue/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Rādīt printeru rindas"
+msgstr "Pārvaldīt printera uzdevumu rindas"
 
 #: src/print-queue/main.cpp:43
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE kopiena"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Izstrādātājs"
 
 #: src/print-queue/main.cpp:49
 #, kde-format
@@ -848,10 +848,9 @@ msgid "Your emails"
 msgstr "toms.trasuns@posteo.net"
 
 #: src/print-queue/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Rādīt printeru rindas"
+msgstr "Rādīt printera rindu"
 
 #: src/print-queue/PrintQueue.cpp:88
 #, kde-format

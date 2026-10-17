@@ -1,14 +1,14 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2025-2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-08 00:48+0000\n"
-"PO-Revision-Date: 2025-08-21 12:39+0300\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2026-10-15 14:06+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -216,48 +216,40 @@ msgstr ""
 "un spiediet <interface>Meklēt</interface>."
 
 #: ui/components/Smb.qml:16
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Set up a Printer Connection"
+#, kde-format
 msgctxt "@title:group"
 msgid "Set up a printer on a Windows Network"
-msgstr "Iestatīt savienojumu ar printeri"
+msgstr "Iestatīt printeri „Windows“ tīklā"
 
 #: ui/components/Smb.qml:17
-#, fuzzy, kde-format
-#| msgctxt "@info:usagetip"
-#| msgid "Enter the address of the LPD device"
+#, kde-format
 msgctxt "@info:usagetip"
 msgid "Enter the address of the Windows Printer"
-msgstr "Norādīt LPD ierīces adresi"
+msgstr "Norādiet „Windows“ drukas ierīces adresi"
 
 #: ui/components/Smb.qml:45
 #, kde-format
 msgctxt "@label:textbox Authentication user name"
 msgid "Username:"
-msgstr ""
+msgstr "Lietotājvārds:"
 
 #: ui/components/Smb.qml:50
 #, kde-format
 msgctxt "@label:textbox Authentication password"
 msgid "Password:"
-msgstr ""
+msgstr "Parole:"
 
 #: ui/components/Smb.qml:54
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button Accept current values and continue"
 msgid "Save Printer…"
-msgstr "Atlasiet printeri…"
+msgstr "Saglabāt printeri…"
 
 #: ui/components/Smb.qml:76
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Invalid LPD URL: %1"
+#, kde-format
 msgctxt "@info:status"
 msgid "Invalid Printer URL: %1"
-msgstr "Nederīga LPD URL: %1"
+msgstr "Nederīga printera URL adrese: %1"
 
 #: ui/components/Socket.qml:19
 #, kde-format
@@ -321,6 +313,10 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"Klikšķiniet uz <interface>Pārlādēt</interface>, lai mēģinātu vēlreiz, vai "
+"sarakstā izvēlieties manuālas konfigurācijas opciju.<nl/><nl/>Ievērībai: "
+"automātiskai drukas iekārtas atklāšanai nepieciešams, lai sistēmas "
+"ugunsmūris nebloķētu „mdns“ servisu (vai ugunsmūris ir jāizslēdz)."
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -518,12 +514,10 @@ msgid "Printer Groups"
 msgstr "Printeru grupas"
 
 #: ui/main.qml:375
-#, fuzzy, kde-format
-#| msgctxt "@action:button Open print queue"
-#| msgid "Print Queue"
+#, kde-format
 msgctxt "@action:button"
 msgid "Open Print Queue"
-msgstr "Drukāšanas darbu rinda"
+msgstr "Atvērt drukāšanas darbu rindu"
 
 #: ui/main.qml:384
 #, kde-format

@@ -1,14 +1,14 @@
 # Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
 #
-# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
+# SPDX-FileCopyrightText: 2025-2026 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-20 00:48+0000\n"
-"PO-Revision-Date: 2025-05-29 20:17+0300\n"
-"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"PO-Revision-Date: 2026-10-15 14:07+0300\n"
+"Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 25.04.1\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: src/plasmoid/FullRepresentation.qml:49 src/plasmoid/main.qml:61
 msgid "Printers"
@@ -58,37 +58,29 @@ msgstr "Drukāšanas rinda ir tukša"
 #: src/plasmoid/main.qml:89 src/plasmoid/PrinterDelegate.qml:70
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:119
 msgid "&Configure Printers…"
 msgstr "&Konfigurēt printerus…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Resume"
 msgctxt "@action:button"
 msgid "Resume"
 msgstr "Turpināt"
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pauzēt"
 
 #: src/plasmoid/PrinterDelegate.qml:77
-#, fuzzy
-#| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Konfigurēt printerus…"
+msgstr "Konfigurēt printeri…"
 
 #: src/plasmoid/PrinterDelegate.qml:82
-#, fuzzy
-#| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Apskatīt drukāšanas rindu…"
+msgstr "Apskatīt drukāšanas rindu"
 
 #: src/plasmoid/PrinterDelegate.qml:157
 msgctxt "@action:button"

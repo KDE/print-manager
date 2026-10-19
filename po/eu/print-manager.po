@@ -1,7 +1,7 @@
 # Translation for print-manager.po to Euskara/Basque (eu).
 # Copyright (C) 2014-2026 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023-2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Iñigo Salvador Azurmendi <xalba@ni.eus>, 2014, 2017, 2018, 2019, 2022, 2023, 2024, 2025, 2026.
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-16 00:50+0000\n"
-"PO-Revision-Date: 2026-01-24 14:27+0100\n"
+"PO-Revision-Date: 2026-10-18 22:09+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: src/configure-printer/ConfigureDialog.cpp:96
 #: src/configure-printer/ConfigureDialog.cpp:97
@@ -276,19 +276,20 @@ msgid ""
 "%1\n"
 "The print job will complete when the printer becomes available."
 msgstr ""
+"%1\n"
+"Inprimatze-ataza inprimagailua erabilgarri dagoenean osatuko da."
 
 #: src/kded/CupsWatcher.cpp:59
-#, fuzzy, kde-format
-#| msgid "Resume Printer"
+#, kde-format
 msgctxt "@action:button Prompt to resume printer"
 msgid "Resume Printer"
-msgstr "Berrekin inprimagailua"
+msgstr "Inprimagailua berriz martxan jarri"
 
 #: src/kded/CupsWatcher.cpp:89
 #, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr "Egiaztatu mailak..."
+msgstr "Mailak egiaztatu…"
 
 #: src/kded/NewPrinterNotification.cpp:100
 #, kde-format
@@ -323,7 +324,7 @@ msgstr "Ez du aurkitu inprimagailu honen gidaria"
 #: src/kded/NewPrinterNotification.cpp:158
 #, kde-format
 msgid "Add Printer…"
-msgstr "Gehitu inprimagailua..."
+msgstr "Inprimagailua gehitu…"
 
 #: src/kded/NewPrinterNotification.cpp:215
 #, kde-format
@@ -638,7 +639,7 @@ msgstr "Ostalari-izenetik"
 #, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Prozesatzen\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
 #, kde-format
@@ -646,12 +647,12 @@ msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
 msgid "Pending"
-msgstr "Burutu gabe"
+msgstr "Zain"
 
 #: src/libkcups/JobModel.cpp:446
 #, kde-format
@@ -713,7 +714,7 @@ msgstr "%1 (%2) ia beteta dago (%%3)"
 #, kde-format
 msgctxt "@info:status"
 msgid "The printer is paused or stopped."
-msgstr ""
+msgstr "Inprimagailua etenda edo geldituta dago."
 
 #: src/libkcups/KCupsRequest.cpp:31
 #, kde-format
@@ -814,31 +815,30 @@ msgstr "Ezezaguna - '%1'"
 #, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Plasmaren inprimatze-ilararen kudeatzailea"
 
 #: src/print-queue/main.cpp:41
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgctxt "@info:credit"
 msgid "Manage printer job queues"
-msgstr "Erakutsi inprimaketa-ilara(k)"
+msgstr "Inprimagailuen ataza-ilarak kudeatu"
 
 #: src/print-queue/main.cpp:43
 #, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© KDE Komunitatea"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:48
 #, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Garatzailea"
 
 #: src/print-queue/main.cpp:49
 #, kde-format
@@ -853,15 +853,14 @@ msgid "Your emails"
 msgstr "xalba@ni.eus"
 
 #: src/print-queue/main.cpp:62
-#, fuzzy, kde-format
-#| msgid "Show printer queue(s)"
+#, kde-format
 msgid "Show printer queue"
-msgstr "Erakutsi inprimaketa-ilara(k)"
+msgstr "Inprimagailuaren ilara erakutsi"
 
 #: src/print-queue/PrintQueue.cpp:88
 #, kde-format
 msgid "Enter credentials to print from <b>%1</b>"
-msgstr "Sartu egiaztagiriak <b>%1</b>tik inprimatzeko"
+msgstr "<b>%1</b> bidez inprimatzeko egiaztagiriak sartu"
 
 #~ msgid "Failed to perform request: %1"
 #~ msgstr "Huts egin du eskaera gauzatzeak: %1"

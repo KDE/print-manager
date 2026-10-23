@@ -311,6 +311,10 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"Kliknite na <interface>Obnoviť</interface> a skúste to znova alebo vyberte "
+"zo zoznamu možnosť ručnej konfigurácie.<nl/><nl/>Poznámka: Automatické "
+"vyhľadávanie tlačiarní vyžaduje, aby firewall tohto systému prepúšťal službu "
+"„mdns“ alebo aby bol vypnutý."
 
 #: ui/FindPrinter.qml:238
 #, kde-format

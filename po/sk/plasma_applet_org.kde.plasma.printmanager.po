@@ -65,15 +65,11 @@ msgid "&Configure Printers…"
 msgstr "&Nastaviť tlačiarne..."
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Resume"
 msgctxt "@action:button"
 msgid "Resume"
 msgstr "Pokračovať"
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "Pozastaviť"

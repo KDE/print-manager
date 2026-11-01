@@ -1,6 +1,6 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the print-manager package.
-# SPDX-FileCopyrightText: 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024-2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2024.
 #
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-08 00:48+0000\n"
-"PO-Revision-Date: 2026-01-28 20:24+0400\n"
+"PO-Revision-Date: 2026-10-31 17:06+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -312,6 +312,9 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"انقر على <interface>حدّث</interface> للمحاولة مجددًا، أو اختر خيار الإعداد "
+"اليدوي من القائمة.<nl/><nl/>ملاحظة: يتطلب الاكتشاف الآلي للطابعات أن يسمح "
+"جدار الحماية في هذا النظام بمرور خدمة \"mdns\"، أو تعطيل جدار الحماية."
 
 #: ui/FindPrinter.qml:238
 #, kde-format

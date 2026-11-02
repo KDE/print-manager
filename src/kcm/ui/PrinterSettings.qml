@@ -133,7 +133,11 @@ KCM.AbstractKCM {
                 }
 
                 config.hasPending = false
-                msgBanner.text = i18nc("@info:status", "Configuring %1, please wait…", !modelData.isClass ? "printer" : "group")
+                if (modelData.isClass) {
+                    msgBanner.text = i18nc("@info:status Printer class/group", "Configuring group, please wait…")
+                } else {
+                    msgBanner.text = i18nc("@info:status", "Configuring printer, please wait…")
+                }
                 msgBanner.showCloseButton = false
                 msgBanner.type = Kirigami.MessageType.Positive
                 msgBanner.visible = true

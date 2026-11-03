@@ -291,8 +291,7 @@ msgid "Set up a Printer Connection"
 msgstr "Configurar unha conexión de impresora"
 
 #: ui/FindPrinter.qml:132 ui/main.qml:276
-#, fuzzy, kde-format
-#| msgid "Refresh"
+#, kde-format
 msgctxt "@action:button"
 msgid "Refresh"
 msgstr "Actualizar"

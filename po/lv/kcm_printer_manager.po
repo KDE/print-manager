@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-04 01:05+0000\n"
 "PO-Revision-Date: 2026-10-15 14:06+0300\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -680,137 +680,147 @@ msgctxt "@info:status"
 msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Jānorāda ražotājs/modelis. Spiediet uz „Atlasīt“, lai to norādītu"
 
-#: ui/PrinterSettings.qml:136
-#, kde-format
-msgctxt "@info:status"
-msgid "Configuring %1, please wait…"
+#: ui/PrinterSettings.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…"
+msgctxt "@info:status Printer class/group"
+msgid "Configuring group, please wait…"
 msgstr "Konfigurē „%1“, uzgaidiet…"
 
-#: ui/PrinterSettings.qml:178
+#: ui/PrinterSettings.qml:139
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…"
+msgctxt "@info:status"
+msgid "Configuring printer, please wait…"
+msgstr "Konfigurē „%1“, uzgaidiet…"
+
+#: ui/PrinterSettings.qml:182
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Neizdevās noņemt printeri: %1"
 
-#: ui/PrinterSettings.qml:211
+#: ui/PrinterSettings.qml:215
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Vai noņemt grupu?"
 
-#: ui/PrinterSettings.qml:212
+#: ui/PrinterSettings.qml:216
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Vai noņemt printeri?"
 
-#: ui/PrinterSettings.qml:214
+#: ui/PrinterSettings.qml:218
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "„%1“ tiks noņemts."
 
-#: ui/PrinterSettings.qml:221
+#: ui/PrinterSettings.qml:225
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Noņemt grupu"
 
-#: ui/PrinterSettings.qml:222
+#: ui/PrinterSettings.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Noņemt printeri"
 
-#: ui/PrinterSettings.qml:231
+#: ui/PrinterSettings.qml:235
 #, kde-format
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: ui/PrinterSettings.qml:353
+#: ui/PrinterSettings.qml:357
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Noklusējuma printeris"
 
-#: ui/PrinterSettings.qml:368
+#: ui/PrinterSettings.qml:372
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr "Lai mainītu noklusējuma printeri, norādiet jauno noklusējuma printeri."
 
-#: ui/PrinterSettings.qml:377
+#: ui/PrinterSettings.qml:381
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Kopīgot šo grupu"
 
-#: ui/PrinterSettings.qml:378
+#: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Kopīgot šo printeri"
 
-#: ui/PrinterSettings.qml:385
+#: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Pieņem drukāšanas uzdevumus"
 
-#: ui/PrinterSettings.qml:433
+#: ui/PrinterSettings.qml:437
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Drukāt testa lapu"
 
-#: ui/PrinterSettings.qml:439
+#: ui/PrinterSettings.qml:443
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Drukāt paštesta lapu"
 
-#: ui/PrinterSettings.qml:446
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Notīrīt printera galviņas"
 
-#: ui/PrinterSettings.qml:464
+#: ui/PrinterSettings.qml:468
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Rindas nosaukums:"
 
-#: ui/PrinterSettings.qml:489
+#: ui/PrinterSettings.qml:493
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Apraksts:"
 
-#: ui/PrinterSettings.qml:501
+#: ui/PrinterSettings.qml:505
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Vieta:"
 
-#: ui/PrinterSettings.qml:513
+#: ui/PrinterSettings.qml:517
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "Savienojums:"
 
-#: ui/PrinterSettings.qml:527
+#: ui/PrinterSettings.qml:531
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Dalībnieka printeri:"
 
-#: ui/PrinterSettings.qml:663
+#: ui/PrinterSettings.qml:667
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Ražotājs/modelis:"
 
-#: ui/PrinterSettings.qml:678
+#: ui/PrinterSettings.qml:682
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

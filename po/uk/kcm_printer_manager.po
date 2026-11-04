@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-08 00:48+0000\n"
+"POT-Creation-Date: 2026-11-04 01:05+0000\n"
 "PO-Revision-Date: 2026-10-08 17:59+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -686,137 +686,147 @@ msgstr ""
 "Слід вказати виробника і модель. Натисніть «Вибрати», щоб вибрати виробника "
 "і модель"
 
-#: ui/PrinterSettings.qml:136
-#, kde-format
-msgctxt "@info:status"
-msgid "Configuring %1, please wait…"
+#: ui/PrinterSettings.qml:137
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…"
+msgctxt "@info:status Printer class/group"
+msgid "Configuring group, please wait…"
 msgstr "Налаштовуємо %1, будь ласка, зачекайте…"
 
-#: ui/PrinterSettings.qml:178
+#: ui/PrinterSettings.qml:139
+#, fuzzy, kde-format
+#| msgctxt "@info:status"
+#| msgid "Configuring %1, please wait…"
+msgctxt "@info:status"
+msgid "Configuring printer, please wait…"
+msgstr "Налаштовуємо %1, будь ласка, зачекайте…"
+
+#: ui/PrinterSettings.qml:182
 #, kde-format
 msgid "Failed to remove the printer: %1"
 msgstr "Не вдалося вилучити принтер %1"
 
-#: ui/PrinterSettings.qml:211
+#: ui/PrinterSettings.qml:215
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Group?"
 msgstr "Вилучити групу?"
 
-#: ui/PrinterSettings.qml:212
+#: ui/PrinterSettings.qml:216
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Printer?"
 msgstr "Вилучити принтер?"
 
-#: ui/PrinterSettings.qml:214
+#: ui/PrinterSettings.qml:218
 #, kde-format
 msgctxt "@info %1 is the name of a printer or printer group"
 msgid "'%1' will be removed."
 msgstr "«%1» буде вилучено."
 
-#: ui/PrinterSettings.qml:221
+#: ui/PrinterSettings.qml:225
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Group"
 msgstr "Вилучити групу"
 
-#: ui/PrinterSettings.qml:222
+#: ui/PrinterSettings.qml:226
 #, kde-format
 msgctxt "@action:button"
 msgid "Remove Printer"
 msgstr "Вилучити принтер"
 
-#: ui/PrinterSettings.qml:231
+#: ui/PrinterSettings.qml:235
 #, kde-format
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ui/PrinterSettings.qml:353
+#: ui/PrinterSettings.qml:357
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
 msgstr "Типовий принтер"
 
-#: ui/PrinterSettings.qml:368
+#: ui/PrinterSettings.qml:372
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr "Щоб змінити типовий принтер, встановіть типовим інший принтер."
 
-#: ui/PrinterSettings.qml:377
+#: ui/PrinterSettings.qml:381
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this group"
 msgstr "Надати спільний доступ до цієї групи"
 
-#: ui/PrinterSettings.qml:378
+#: ui/PrinterSettings.qml:382
 #, kde-format
 msgctxt "@action:check"
 msgid "Share this printer"
 msgstr "Надати спільний доступ до цього принтера"
 
-#: ui/PrinterSettings.qml:385
+#: ui/PrinterSettings.qml:389
 #, kde-format
 msgctxt "@action:check"
 msgid "Accepting print jobs"
 msgstr "Приймає завдання з друку"
 
-#: ui/PrinterSettings.qml:433
+#: ui/PrinterSettings.qml:437
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Test Page"
 msgstr "Надрукувати пробну сторінку"
 
-#: ui/PrinterSettings.qml:439
+#: ui/PrinterSettings.qml:443
 #, kde-format
 msgctxt "@action:button"
 msgid "Print Self-Test Page"
 msgstr "Надрукувати сторінку самоперевірки"
 
-#: ui/PrinterSettings.qml:446
+#: ui/PrinterSettings.qml:450
 #, kde-format
 msgctxt "@action:button"
 msgid "Clean Print Heads"
 msgstr "Очистити друкарські голівки"
 
-#: ui/PrinterSettings.qml:464
+#: ui/PrinterSettings.qml:468
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Queue Name:"
 msgstr "Назва черги:"
 
-#: ui/PrinterSettings.qml:489
+#: ui/PrinterSettings.qml:493
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Description:"
 msgstr "Опис:"
 
-#: ui/PrinterSettings.qml:501
+#: ui/PrinterSettings.qml:505
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Location:"
 msgstr "Розташування:"
 
-#: ui/PrinterSettings.qml:513
+#: ui/PrinterSettings.qml:517
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Connection:"
 msgstr "З'єднання:"
 
-#: ui/PrinterSettings.qml:527
+#: ui/PrinterSettings.qml:531
 #, kde-format
 msgctxt "@label:listbox"
 msgid "Member Printers:"
 msgstr "Принтери-учасники:"
 
-#: ui/PrinterSettings.qml:663
+#: ui/PrinterSettings.qml:667
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Make/Model:"
 msgstr "Виробник/модель:"
 
-#: ui/PrinterSettings.qml:678
+#: ui/PrinterSettings.qml:682
 #, kde-format
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"

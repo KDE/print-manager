@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:05+0000\n"
-"PO-Revision-Date: 2026-10-08 07:19+0200\n"
+"PO-Revision-Date: 2026-11-04 10:30+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: \n"
 "Language: sl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -679,20 +679,16 @@ msgstr ""
 "Zahtevana je znamka/model. Izberite \"Izberi\", da poberete znamko/model"
 
 #: ui/PrinterSettings.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status Printer class/group"
 msgid "Configuring group, please wait…"
-msgstr "Konfiguriranje %1, prosim počakajte…"
+msgstr "Konfiguriranje skupine, prosim počakajte…"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring printer, please wait…"
-msgstr "Konfiguriranje %1, prosim počakajte…"
+msgstr "Konfiguriranje tiskalnika, prosim počakajte…"
 
 #: ui/PrinterSettings.qml:182
 #, kde-format

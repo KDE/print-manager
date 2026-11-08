@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-04 01:05+0000\n"
-"PO-Revision-Date: 2026-10-08 17:08+0200\n"
+"PO-Revision-Date: 2026-11-07 22:44+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -683,20 +683,16 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Изисква се марка/модел. Изберете „Избор“, за да изберете марка/модел"
 
 #: ui/PrinterSettings.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status Printer class/group"
 msgid "Configuring group, please wait…"
-msgstr "Конфигуриране на %1. Моля, изчакайте…"
+msgstr "Конфигуриране на групата, моля изчакайте…"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring printer, please wait…"
-msgstr "Конфигуриране на %1. Моля, изчакайте…"
+msgstr "Конфигуриране на принтера, моля изчакайте…"
 
 #: ui/PrinterSettings.qml:182
 #, kde-format

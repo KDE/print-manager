@@ -60,7 +60,7 @@ ecm_find_qmlmodule(org.kde.kirigami REQUIRED)
 
 ecm_set_disabled_deprecation_versions(
     QT 6.8
-    KF 6.12.0
+    KF 6.32.0
 )
 
 set_package_properties(KF6Kirigami PROPERTIES

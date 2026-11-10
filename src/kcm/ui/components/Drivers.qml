@@ -7,6 +7,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kirigami.delegates as KD
 import org.kde.plasma.printmanager as PM
 
 pragma ComponentBehavior: Bound
@@ -52,32 +53,8 @@ ColumnLayout {
         implicitHeight: Kirigami.Units.gridUnit * 6
     }
 
-    RowLayout {
-        Layout.alignment: Qt.AlignHCenter
-        visible: !root.busy
-
-        QQC2.Button {
-            text: i18nc("@action:button", "Select Recommended Driver")
-            icon.name: "dialog-ok-symbolic"
-            visible: recmlist.count > 0
-
-            onClicked: root.selectDriver(kcm.recommendedDrivers[recmlist.currentIndex])
-
-            QQC2.ToolTip {
-                text: i18nc("@info:tooltip", "Recommended drivers are based on printer make/model and connection type")
-            }
-        }
-
-        QQC2.Button {
-            text: i18nc("@action:button", "Manual Driver Search…")
-            icon.name: "search-symbolic"
-
-            onClicked: manualDriverSelect()
-
-            QQC2.ToolTip {
-                text: i18nc("@info:tooltip", "Search for and select a driver based on printer make/model")
-            }
-        }
+    QQC2.Label {
+        text: i18nc("@info:label", "Recommended Drivers:" )
     }
 
     QQC2.ScrollView {
@@ -103,29 +80,52 @@ ColumnLayout {
 
             model: kcm.recommendedDrivers
 
-            delegate: Kirigami.SubtitleDelegate {
+            delegate: QQC2.ItemDelegate {
+                id: del
                 width: ListView.view.width
 
                 required property var modelData
                 required property int index
 
                 text: modelData.title
-                subtitle: modelData["ppd-name"]
-                icon.name: {
-                    if (root.ippCapable) {
-                        return modelData.favorite
-                               ? "favorites-symbolic"
-                               : "dialog-question-symbolic"
-                    } else {
-                        return modelData.match.startsWith("exact")
-                               ? "favorites-symbolic"
-                               : "dialog-question-symbolic"
+
+                contentItem: KD.IconTitleSubtitleWithActions {
+                    title: del.text
+                    subtitle: del.modelData["ppd-name"]
+                    icon.name: {
+                        if (root.ippCapable) {
+                            return del.modelData.favorite
+                                   ? "favorites-symbolic"
+                                   : "dialog-question-symbolic"
+                        } else {
+                            return del.modelData.match.startsWith("exact")
+                                   ? "favorites-symbolic"
+                                   : "dialog-question-symbolic"
+                        }
+                    }
+
+                    actions: Kirigami.Action {
+                        text: i18nc("@action:button", "Select Driver…")
+                        icon.name: "dialog-ok-symbolic"
+                        tooltip: i18nc("@info:tooltip", "Select this driver for the printing device")
+
+                        onTriggered: root.selectDriver(kcm.recommendedDrivers[del.index])
                     }
                 }
-
-                highlighted: index === ListView.view.currentIndex
-                onClicked: ListView.view.currentIndex = index
             }
+        }
+    }
+
+    QQC2.Button {
+        text: i18nc("@action:button", "Manual Driver Search…")
+        icon.name: "search-symbolic"
+        visible: !root.busy
+        Layout.alignment: Qt.AlignHCenter
+
+        onClicked: manualDriverSelect()
+
+        QQC2.ToolTip {
+            text: i18nc("@info:tooltip", "Search for and select a driver based on printer make/model")
         }
     }
 

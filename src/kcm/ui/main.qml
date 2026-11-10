@@ -8,9 +8,12 @@ import QtQuick
 import QtQuick.Layouts 
 import QtQuick.Controls as QQC2
 import org.kde.kirigami as Kirigami
+import org.kde.kirigami.delegates as KD
 import org.kde.kcmutils as KCM
 import org.kde.kitemmodels as KItemModels
 import org.kde.plasma.printmanager as PM
+
+pragma ComponentBehavior: Bound
 
 /** Note: CUPS has nomenclature for groups of printers called a "Class".
 * For user-facing elements, we will use the term "Group".
@@ -346,7 +349,7 @@ KCM.ScrollViewKCM {
             onClicked: configurePrinter()
 
             function configurePrinter() : void {
-                checkServerSettings()
+                root.checkServerSettings()
                 kcm.push("PrinterSettings.qml"
                                 , { modelData: model
                                 , addMode: false
@@ -355,58 +358,47 @@ KCM.ScrollViewKCM {
                                 })
             }
 
-            contentItem: RowLayout {
-                spacing: Kirigami.Units.smallSpacing
+            contentItem: KD.IconTitleSubtitleWithActions {
+                title: deviceDelegate.info
+                      + (deviceDelegate.location && pmModel.showLocations
+                         ? " (%1)".arg(deviceDelegate.location)
+                         : "")
+                subtitle: deviceDelegate.stateMessage
+                icon.name: deviceDelegate.iconName
 
-                Kirigami.IconTitleSubtitle {
-                    Layout.fillWidth: true
-                    title: info
-                          + (location && pmModel.showLocations
-                             ? " (%1)".arg(location)
-                             : "")
-                    subtitle: stateMessage
-                    icon.name: iconName
+                font.bold: list.count > 1 & deviceDelegate.isDefault
+                selected: deviceDelegate.highlighted || deviceDelegate.down
 
-                    font.bold: list.count > 1 & isDefault
-                    selected: deviceDelegate.highlighted || deviceDelegate.down
-                }
+                actions: [
+                    Kirigami.Action {
+                        text: i18nc("@action:button", "Open Print Queue")
+                        icon.name: "view-list-details-symbolic"
+                        onTriggered: PM.ProcessRunner.openPrintQueue(deviceDelegate.printerName)
+                    },
+                    Kirigami.Action {
+                        readonly property string longText: deviceDelegate.isPaused
+                            ? i18nc("@info:tooltip", "Resume printing")
+                            : i18nc("@info:tooltip", "Pause printing")
 
-                QQC2.Button {
-                    text: i18nc("@action:button", "Open Print Queue")
-                    icon.name: "view-list-details-symbolic"
-                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
+                        icon.name: deviceDelegate.isPaused
+                                   ? "media-playback-start-symbolic"
+                                   : "media-playback-pause-symbolic"
+                        text: deviceDelegate.isPaused
+                              ? i18nc("@action:button Resume printing", "Resume")
+                              : i18nc("@action:button Pause printing", "Pause")
 
-                    onClicked: PM.ProcessRunner.openPrintQueue(printerName)
-                }
+                        Accessible.name: longText
+                        tooltip: longText
 
-                QQC2.Button {
-                    readonly property string longText: isPaused
-                        ? i18nc("@info:tooltip", "Resume printing")
-                        : i18nc("@info:tooltip", "Pause printing")
-
-                    icon.name: isPaused
-                               ? "media-playback-start-symbolic"
-                               : "media-playback-pause-symbolic"
-                    text: isPaused
-                          ? i18nc("@action:button Resume printing", "Resume")
-                          : i18nc("@action:button Pause printing", "Pause")
-
-                    Accessible.name: longText
-
-                    Layout.alignment: Qt.AlignRight|Qt.AlignVCenter
-
-                    onClicked: {
-                        if (isPaused) {
-                            PM.PrinterCommands.resumePrinter(printerName);
-                        } else {
-                            PM.PrinterCommands.pausePrinter(printerName);
+                        onTriggered: {
+                            if (deviceDelegate.isPaused) {
+                                PM.PrinterCommands.resumePrinter(deviceDelegate.printerName);
+                            } else {
+                                PM.PrinterCommands.pausePrinter(deviceDelegate.printerName);
+                            }
                         }
                     }
-
-                    QQC2.ToolTip.text: longText
-                    QQC2.ToolTip.visible: hovered || activeFocus
-                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
-                }
+                ]
             }
         }
     }

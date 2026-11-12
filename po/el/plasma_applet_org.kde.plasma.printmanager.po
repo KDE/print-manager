@@ -28,15 +28,16 @@ msgstr "Εκτυπωτές"
 #, fuzzy
 #| msgid "Printers"
 msgid "Printer Groups"
-msgstr "Εκτυπωτές"
+msgstr "Ομάδες εκτυπωτών"
 
 #: src/plasmoid/FullRepresentation.qml:83 src/plasmoid/main.qml:82
 msgid "No printers have been configured or discovered"
 msgstr "Δεν έχουν διαμορφωθεί εκτυπωτές ή δεν εντοπίστηκαν"
 
 #: src/plasmoid/FullRepresentation.qml:83
+#, fuzzy
 msgid "No matches"
-msgstr ""
+msgstr "Καμία αντιστοιχία"
 
 #: src/plasmoid/main.qml:66
 msgid "There is one print job in the queue"
@@ -59,9 +60,10 @@ msgid "Print queue is empty"
 msgstr "Η λίστα αναμονής είναι κενή"
 
 #: src/plasmoid/main.qml:89 src/plasmoid/PrinterDelegate.qml:70
+#, fuzzy
 msgctxt "Number of active print jobs"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: src/plasmoid/main.qml:119
 msgid "&Configure Printers…"
@@ -81,18 +83,19 @@ msgstr ""
 #, fuzzy
 #| msgid "&Configure Printers…"
 msgid "Configure Printer…"
-msgstr "&Διαμόρφωση εκτυπωτών…"
+msgstr "Ρύθμιση εκτυπωτή…"
 
 #: src/plasmoid/PrinterDelegate.qml:82
 #, fuzzy
 #| msgid "View print queue…"
 msgid "View Print Queue"
-msgstr "Προβολή λίστας αναμονής εκτύπωσης…"
+msgstr "Προβολή ουράς εκτύπωσης"
 
 #: src/plasmoid/PrinterDelegate.qml:157
+#, fuzzy
 msgctxt "@action:button"
 msgid "Cancel"
-msgstr ""
+msgstr "Ακύρωση"
 
 #: src/plasmoid/PrinterDelegate.qml:192
 #, fuzzy
@@ -100,8 +103,8 @@ msgstr ""
 msgctxt "Number of additional print jobs"
 msgid "%1 more job"
 msgid_plural "%1 more jobs"
-msgstr[0] "%1, καμία εργασία"
-msgstr[1] "%1, καμία εργασία"
+msgstr[0] "%1 ακόμη εργασία"
+msgstr[1] "%1 ακόμη εργασίες"
 
 #~ msgid "Configure printer…"
 #~ msgstr "Διαμόρφωση εκτυπωτή…"

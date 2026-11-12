@@ -44,9 +44,9 @@ msgstr ""
 "Θέλετε να τις αποθηκεύσετε;"
 
 #: src/configure-printer/ConfigureDialog.cpp:184
-#, kde-format
+#, fuzzy, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Αποθήκευση"
 
 #: src/configure-printer/main.cpp:25
 #, kde-format
@@ -227,10 +227,10 @@ msgid "Configure a printer"
 msgstr "Διαμόρφωση εκτυπωτή"
 
 #: src/kcm/printermanager.cpp:325
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@list:item"
 msgid "IPP Everywhere™"
-msgstr ""
+msgstr "IPP Everywhere™"
 
 #: src/kcm/printermanager.cpp:352
 #, fuzzy, kde-format
@@ -240,10 +240,10 @@ msgid "Driverless"
 msgstr "Οδηγός:"
 
 #: src/kcm/printermanager.cpp:355
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@list:item"
 msgid "PPD File"
-msgstr ""
+msgstr "Αρχείο PPD"
 
 #: src/kcm/printermanager.cpp:397
 #, fuzzy, kde-format
@@ -251,13 +251,13 @@ msgstr ""
 #| msgid "Failed to get server settings"
 msgctxt "@info"
 msgid "Failed to get server settings: %1"
-msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
+msgstr "Αποτυχία λήψης ρυθμίσεων διακομιστή: %1"
 
 #: src/kcm/printermanager.cpp:434
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid "Server Settings Not Saved: (%1): %2"
-msgstr ""
+msgstr "Οι ρυθμίσεις διακομιστή δεν αποθηκεύτηκαν: (%1): %2"
 
 #: src/kcm/printermanager.cpp:441
 #, fuzzy, kde-format
@@ -265,16 +265,19 @@ msgstr ""
 #| msgid "Failed to get server settings"
 msgctxt "@info"
 msgid "Fatal Save Server Settings: (%1): %2"
-msgstr "Απέτυχε η λήψη ρυθμίσεων εξυπηρετητή"
+msgstr "Κρίσιμο σφάλμα αποθήκευσης ρυθμίσεων διακομιστή: (%1): %2"
 
 #: src/kcm/scpinstaller.cpp:71
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info"
 msgid ""
 "Install Error (package: %1)\n"
 "Check authentication credentials and make sure PackageKit is installed "
 "properly."
 msgstr ""
+"Σφάλμα εγκατάστασης (πακέτο: %1)\n"
+"Ελέγξτε τα στοιχεία ταυτοποίησης και βεβαιωθείτε ότι το PackageKit είναι "
+"σωστά εγκατεστημένο."
 
 #: src/kded/CupsWatcher.cpp:55
 #, kde-format
@@ -292,10 +295,10 @@ msgid "Resume Printer"
 msgstr "Συνέχεια εκτυπωτή"
 
 #: src/kded/CupsWatcher.cpp:89
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button check printer ink levels"
 msgid "Check Levels…"
-msgstr ""
+msgstr "Έλεγχος επιπέδων…"
 
 #: src/kded/NewPrinterNotification.cpp:100
 #, fuzzy, kde-format
@@ -367,7 +370,7 @@ msgstr "Εκτύπωση δοκιμαστικής σελίδας"
 #, fuzzy, kde-format
 #| msgid "Choose &the driver from the list"
 msgid "Check driver"
-msgstr "Επιλέξτε έναν ο&δηγό από τη λίστα"
+msgstr "Έλεγχος οδηγού"
 
 #: src/kded/NewPrinterNotification.cpp:240
 #, kde-format
@@ -656,18 +659,18 @@ msgid "From Hostname"
 msgstr "Από όνομα υπολογιστή"
 
 #: src/libkcups/JobModel.cpp:167
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:progress The job name (%1) and the printer name (%2)"
 msgid "Processing\t%1 [%2]"
-msgstr ""
+msgstr "Επεξεργασία\t%1 [%2]"
 
 #: src/libkcups/JobModel.cpp:233
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@info:status The processing detail message (%1), the job name (%2) and the "
 "printer name (%3)"
 msgid "%1\t%2 [%3]"
-msgstr ""
+msgstr "%1\t%2 [%3]"
 
 #: src/libkcups/JobModel.cpp:445
 #, kde-format
@@ -710,25 +713,25 @@ msgid "Wrong username or password"
 msgstr "Εσφαλμένο όνομα ή κωδικός"
 
 #: src/libkcups/KCupsPrinter.cpp:147
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:usagetip The name and type of the ink cartridge"
 msgid "%1 (%2) appears to be empty."
-msgstr ""
+msgstr "Το %1 (%2) φαίνεται άδειο."
 
 #: src/libkcups/KCupsPrinter.cpp:150
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@info:usagetip The name and type of the ink cartridge and percent ink "
 "remaining"
 msgid "%1 (%2) appears to be low (%3% remaining)."
-msgstr ""
+msgstr "Το %1 (%2) φαίνεται να τελειώνει (απομένει %3%)."
 
 #: src/libkcups/KCupsPrinter.cpp:157
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "@info:usagetip The name, type, and percentage full of the waste receptacle"
 msgid "%1 (%2) is almost full (%3%)"
-msgstr ""
+msgstr "Το %1 (%2) είναι σχεδόν γεμάτο (%3%)"
 
 #: src/libkcups/KCupsPrinter.cpp:309
 #, kde-format
@@ -762,9 +765,9 @@ msgid "Failed to invoke method: %1"
 msgstr "Απέτυχε  η κλήση της μεθόδου: %1"
 
 #: src/libkcups/PPDModel.cpp:86
-#, kde-format
+#, fuzzy, kde-format
 msgid "Empty ppd model"
-msgstr ""
+msgstr "Κενό μοντέλο ppd"
 
 #: src/libkcups/PrinterModel.cpp:192
 #, kde-format
@@ -832,10 +835,10 @@ msgid "Unknown - '%1'"
 msgstr "Άγνωστη - '%1'"
 
 #: src/print-queue/main.cpp:39
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Plasma Print Queue Manager"
-msgstr ""
+msgstr "Διαχείριση ουράς εκτύπωσης Plasma"
 
 #: src/print-queue/main.cpp:41
 #, fuzzy, kde-format
@@ -845,21 +848,21 @@ msgid "Manage printer job queues"
 msgstr "Εμφάνιση λίστας (λιστών) αναμονής εκτυπωτή"
 
 #: src/print-queue/main.cpp:43
-#, kde-format
+#, fuzzy, kde-format
 msgid "© KDE Community"
-msgstr ""
+msgstr "© Κοινότητα KDE"
 
 #: src/print-queue/main.cpp:48
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Mike Noe"
-msgstr ""
+msgstr "Mike Noe"
 
 #: src/print-queue/main.cpp:48
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@info:credit"
 msgid "Developer"
-msgstr ""
+msgstr "Προγραμματιστής"
 
 #: src/print-queue/main.cpp:49
 #, kde-format

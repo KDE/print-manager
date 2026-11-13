@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 01:05+0000\n"
+"POT-Creation-Date: 2026-11-12 18:30+0000\n"
 "PO-Revision-Date: 2024-12-15 19:31+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
@@ -121,25 +121,37 @@ msgctxt "@info:usagetip"
 msgid "Choose a device connection"
 msgstr "डिवाइस कनेक्शन चुनें"
 
-#: ui/components/Drivers.qml:60
-#, kde-format
-msgctxt "@action:button"
-msgid "Select Recommended Driver"
+#: ui/components/Drivers.qml:57
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Recommended Driver"
+msgctxt "@info:label"
+msgid "Recommended Drivers:"
 msgstr "अनुशंसित ड्राइवर का चयन करें"
 
-#: ui/components/Drivers.qml:67
-#, kde-format
-msgctxt "@info:tooltip"
-msgid "Recommended drivers are based on printer make/model and connection type"
-msgstr "अनुशंसित ड्राइवर प्रिंटर मेक/मॉडल और कनेक्शन प्रकार पर आधारित होते हैं"
+#: ui/components/Drivers.qml:108
+#, fuzzy, kde-format
+#| msgctxt "@action:button"
+#| msgid "Select Printer…"
+msgctxt "@action:button"
+msgid "Select Driver…"
+msgstr "प्रिंटर चुनें…"
 
-#: ui/components/Drivers.qml:72
+#: ui/components/Drivers.qml:110
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Find remote printing devices"
+msgctxt "@info:tooltip"
+msgid "Select this driver for the printing device"
+msgstr "दूरस्थ मुद्रण डिवाइस खोजें"
+
+#: ui/components/Drivers.qml:120
 #, kde-format
 msgctxt "@action:button"
 msgid "Manual Driver Search…"
 msgstr ""
 
-#: ui/components/Drivers.qml:78
+#: ui/components/Drivers.qml:128
 #, fuzzy, kde-format
 #| msgctxt "@info:tooltip"
 #| msgid ""
@@ -296,7 +308,7 @@ msgctxt "@title:window"
 msgid "Set up a Printer Connection"
 msgstr "प्रिंटर कनेक्शन सेट करें"
 
-#: ui/FindPrinter.qml:132 ui/main.qml:276
+#: ui/FindPrinter.qml:132 ui/main.qml:279
 #, fuzzy, kde-format
 #| msgid "Refresh"
 msgctxt "@action:button"
@@ -428,17 +440,17 @@ msgctxt "@info:usagetip"
 msgid "Report this issue to %1"
 msgstr "इस समस्या की रिपोर्ट %1 पर करें"
 
-#: ui/main.qml:35
+#: ui/main.qml:38
 #, kde-format
 msgid "new_queue"
 msgstr "नई_कतार"
 
-#: ui/main.qml:35
+#: ui/main.qml:38
 #, kde-format
 msgid "new_group"
 msgstr "नया_समूह"
 
-#: ui/main.qml:84
+#: ui/main.qml:87
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -452,7 +464,7 @@ msgstr ""
 "विकल्प प्रदान नहीं कर सकते। कृपया <command>system-config-printer</command> पैकेज को "
 "मैन्युअल रूप से स्थापित करने के लिए अपने पैकेज मैनेजर का उपयोग करें।"
 
-#: ui/main.qml:86
+#: ui/main.qml:89
 #, kde-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -461,43 +473,43 @@ msgid ""
 msgstr ""
 "सुविधाजनक सुविधाएं प्रदान करने वाला प्रिंटर समर्थन पैकेज स्थापित नहीं प्रतीत होता है।"
 
-#: ui/main.qml:92
+#: ui/main.qml:95
 #, kde-format
 msgctxt "@action:button Install printer setup helper package"
 msgid "Install It"
 msgstr "इसे स्थापित करें"
 
-#: ui/main.qml:123
+#: ui/main.qml:126
 #, kde-format
 msgctxt "@action:button The thing being added is a printer"
 msgid "Add…"
 msgstr "जोड़ना…"
 
-#: ui/main.qml:124
+#: ui/main.qml:127
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Printer…"
 msgstr "प्रिंटर जोड़ें…"
 
-#: ui/main.qml:130
+#: ui/main.qml:133
 #, kde-format
 msgctxt "@action:button"
 msgid "Add Group…"
 msgstr "समूह जोड़ें…"
 
-#: ui/main.qml:136
+#: ui/main.qml:139
 #, kde-format
 msgctxt "@action:button"
 msgid "Configure Print Server…"
 msgstr "प्रिंट सर्वर कॉन्फ़िगर करें…"
 
-#: ui/main.qml:263
+#: ui/main.qml:266
 #, kde-format
 msgctxt "@info:status"
 msgid "No printers are currently set up"
 msgstr "वर्तमान में कोई प्रिंटर सेट नहीं है"
 
-#: ui/main.qml:264
+#: ui/main.qml:267
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -505,13 +517,13 @@ msgid ""
 msgstr ""
 "इस कंप्यूटर पर नया प्रिंटर सेट अप करने के लिए <interface>Add…</interface> पर क्लिक करें"
 
-#: ui/main.qml:273
+#: ui/main.qml:276
 #, kde-format
 msgctxt "@info:status"
 msgid "Printing services not available"
 msgstr ""
 
-#: ui/main.qml:274
+#: ui/main.qml:277
 #, kde-kuit-format
 msgctxt "@info:usagetip"
 msgid ""
@@ -519,17 +531,17 @@ msgid ""
 "verify that the CUPS system service is active."
 msgstr ""
 
-#: ui/main.qml:314
+#: ui/main.qml:317
 #, kde-format
 msgid "Printers"
 msgstr "प्रिंटर"
 
-#: ui/main.qml:314
+#: ui/main.qml:317
 #, kde-format
 msgid "Printer Groups"
 msgstr "प्रिंटर समूह"
 
-#: ui/main.qml:375
+#: ui/main.qml:374
 #, fuzzy, kde-format
 #| msgctxt "@action:button Open print queue"
 #| msgid "Print Queue"
@@ -537,25 +549,25 @@ msgctxt "@action:button"
 msgid "Open Print Queue"
 msgstr "मुद्रण कतार"
 
-#: ui/main.qml:384
+#: ui/main.qml:380
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Resume printing"
 msgstr "रिज्यूमे प्रिंटिंग"
 
-#: ui/main.qml:385
+#: ui/main.qml:381
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Pause printing"
 msgstr "मुद्रण रोकें"
 
-#: ui/main.qml:391
+#: ui/main.qml:387
 #, kde-format
 msgctxt "@action:button Resume printing"
 msgid "Resume"
 msgstr "फिर शुरू करना"
 
-#: ui/main.qml:392
+#: ui/main.qml:388
 #, kde-format
 msgctxt "@action:button Pause printing"
 msgid "Pause"
@@ -843,6 +855,11 @@ msgstr "निर्माता/मॉडल:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "चुनना…"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid ""
+#~ "Recommended drivers are based on printer make/model and connection type"
+#~ msgstr "अनुशंसित ड्राइवर प्रिंटर मेक/मॉडल और कनेक्शन प्रकार पर आधारित होते हैं"
 
 #~ msgctxt "@info:usagetip"
 #~ msgid ""

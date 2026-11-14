@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-11-05 08:50+0100\n"
+"PO-Revision-Date: 2026-11-13 08:46+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -113,28 +113,22 @@ msgid "Choose a device connection"
 msgstr "Trieu una connexió del dispositiu"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Tria el controlador recomanat"
+msgstr "Controladors recomanats:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Tria la impressora…"
+msgstr "Selecció de controlador…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Busca dispositius remots d'impressió"
+msgstr "Trieu el controlador del dispositiu d'impressió"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -838,10 +832,3 @@ msgstr "Fabricant i model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Tria…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Recommended drivers are based on printer make/model and connection type"
-#~ msgstr ""
-#~ "Els controladors recomanats es basen en el fabricant i el model de la "
-#~ "impressora i el tipus de connexió"

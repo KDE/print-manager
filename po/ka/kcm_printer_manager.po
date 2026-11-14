@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-11-04 04:05+0100\n"
+"PO-Revision-Date: 2026-11-13 03:18+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -111,28 +111,22 @@ msgid "Choose a device connection"
 msgstr "აირჩიეთ მოწყობილობასთან მიერთება"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "რეკომენდებული დრაივერის არჩევა"
+msgstr "რეკომენდებული დრაივერები:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "აირჩიეთ პრინტერი…"
+msgstr "დრაივერის არჩევა…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "დაშორებული მბეჭდავი მოწყობილობების პოვნა"
+msgstr "ამ დრაივერის არჩევა საბეჭდი მოწყობილობისთვის"
 
 #: ui/components/Drivers.qml:120
 #, kde-format

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-11-06 01:41+0200\n"
+"PO-Revision-Date: 2026-11-15 01:58+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -113,28 +113,22 @@ msgid "Choose a device connection"
 msgstr "Pasirinkite sujungimą su įrenginiu"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Pasirinkti rekomenduojamą tvarkyklę"
+msgstr "Rekomenduojamos tvarkyklės:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Pasirinkti spausdintuvą…"
+msgstr "Pasirinkti tvarkyklę…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Rasti nuotolinius spausdinimo įrenginius"
+msgstr "Pasirinkti spausdinimo įrenginiui šią tvarkyklę"
 
 #: ui/components/Drivers.qml:120
 #, kde-format

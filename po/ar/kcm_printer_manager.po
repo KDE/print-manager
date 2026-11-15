@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-11-05 08:55+0400\n"
+"PO-Revision-Date: 2026-11-14 16:53+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -112,28 +112,22 @@ msgid "Choose a device connection"
 msgstr "اختر اتصال جهاز"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "حدد المُشغل المستحسن"
+msgstr "المشغّلات المستحسنة:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "اختر طابعة…"
+msgstr "اختر مشغّلًا…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "اعثر على أجهزة طباعة بعيدة"
+msgstr "اختر هذا المشغل لجهاز الطباعة"
 
 #: ui/components/Drivers.qml:120
 #, kde-format

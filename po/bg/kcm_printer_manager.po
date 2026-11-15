@@ -116,7 +116,7 @@ msgstr "Изберете връзка с устройство"
 #| msgid "Select Recommended Driver"
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Изберете препоръчителен драйвер"
+msgstr "Препоръчителни драйвери:"
 
 #: ui/components/Drivers.qml:108
 #, fuzzy, kde-format
@@ -124,7 +124,7 @@ msgstr "Изберете препоръчителен драйвер"
 #| msgid "Select Printer…"
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Изберете принтер…"
+msgstr "Избор на драйвер…"
 
 #: ui/components/Drivers.qml:110
 #, fuzzy, kde-format
@@ -132,7 +132,7 @@ msgstr "Изберете принтер…"
 #| msgid "Find remote printing devices"
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Намиране на отдалечени устройства за печат"
+msgstr "Избор на този драйвер за устройството за печат"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -834,10 +834,3 @@ msgstr "Марка и модел:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Избиране…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Recommended drivers are based on printer make/model and connection type"
-#~ msgstr ""
-#~ "Препоръчителните драйвери се основават на марката/модела на принтера и "
-#~ "типа на връзката"

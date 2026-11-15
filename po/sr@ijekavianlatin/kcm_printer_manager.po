@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-10-09 10:30+0200\n"
+"PO-Revision-Date: 2026-11-14 16:15+0100\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavianlatin\n"
@@ -113,28 +113,22 @@ msgid "Choose a device connection"
 msgstr "Izaberite vezu uređaja"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Izaberi preporučeni drajver"
+msgstr "Preporučeni drajveri:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Izaberi štampač…"
+msgstr "Izaberi drajver…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Traženje udaljenih uređaja za štampanje"
+msgstr "Izaberi ovaj drajver za uređaj za štampanje"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -700,20 +694,16 @@ msgstr ""
 "proizvođača/model"
 
 #: ui/PrinterSettings.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status Printer class/group"
 msgid "Configuring group, please wait…"
-msgstr "Podešavam %1, sačekajte…"
+msgstr "Podešavam grupu, sačekajte…"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring printer, please wait…"
-msgstr "Podešavam %1, sačekajte…"
+msgstr "Podešavam štampač, sačekajte…"
 
 #: ui/PrinterSettings.qml:182
 #, kde-format
@@ -847,10 +837,3 @@ msgstr "Proizvođač/model:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Izaberi…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Recommended drivers are based on printer make/model and connection type"
-#~ msgstr ""
-#~ "Preporučeni drajveri određuju se prema proizvođaču/modelu štampača i "
-#~ "vrsti veze"

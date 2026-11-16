@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-11-12 21:35+0100\n"
+"PO-Revision-Date: 2026-11-15 09:24+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.3\n"
+"X-Generator: Lokalize 27.03.70\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -112,28 +112,22 @@ msgid "Choose a device connection"
 msgstr "Vel einingstilkopling"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Vil tilrådd drivar"
+msgstr "Tilrådde drivarar:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Vel skrivar …"
+msgstr "Vel drivar …"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Finn eksterne utskriftseiningar"
+msgstr "Vel denne drivaren for skrivaren"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -324,6 +318,10 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"Trykk <interface>Oppdater</interface> for å prøva igjen, eller vel eit "
+"oppsettalternativ manuelt frå lista.<nl/><nl/>Merk: Automatisk oppdaging av "
+"skrivar krev av brannmuren på systemet tillèt data frå «mdns»-tenesta, eller "
+"at han er avslått."
 
 #: ui/FindPrinter.qml:238
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcm_printer_manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-11-05 12:02+0100\n"
+"PO-Revision-Date: 2026-11-17 19:56+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -113,28 +113,22 @@ msgid "Choose a device connection"
 msgstr "Escoja una conexión de dispositivo"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Seleccionar el controlador recomendado"
+msgstr "Controladores recomendados:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Seleccionar impresora…"
+msgstr "Seleccionar controlador…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Localizar dispositivos de impresión remotos"
+msgstr "Seleccionar este controlador para el dispositivo de impresión"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -842,10 +836,3 @@ msgstr "Marca/modelo:"
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "Seleccionar…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Recommended drivers are based on printer make/model and connection type"
-#~ msgstr ""
-#~ "Los controladores recomendados se basan en la marca/modelo de la "
-#~ "impresora y en el tipo de conexión"

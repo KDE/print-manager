@@ -109,28 +109,22 @@ msgid "Choose a device connection"
 msgstr "Vyberte a device connection"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Vyberte Recommended Driver"
+msgstr "Odporúčané ovládače:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Pridať tlačiareň"
+msgstr "Vybrať ovládač…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Find remote printing devices"
+msgstr "Vybrať tento ovládač pre tlačové zariadenie"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -687,20 +681,16 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Make/Model is vyžadované. Vyberte \"Select\" to pick Make/Model"
 
 #: ui/PrinterSettings.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status Printer class/group"
 msgid "Configuring group, please wait…"
-msgstr "Configuring %1, please wait…"
+msgstr "Nastavuje sa skupina, čakajte, prosím…"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring printer, please wait…"
-msgstr "Configuring %1, please wait…"
+msgstr "Nastavuje sa tlačiareň, čakajte, prosím…"
 
 #: ui/PrinterSettings.qml:182
 #, kde-format

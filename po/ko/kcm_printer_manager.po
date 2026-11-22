@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-02-03 22:46+0100\n"
+"PO-Revision-Date: 2026-11-21 21:57+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -110,28 +110,22 @@ msgid "Choose a device connection"
 msgstr "장치 연결 선택"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "추천 드라이버 선택"
+msgstr "추천 드라이버:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "프린터 선택…"
+msgstr "드라이버 선택…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "원격 인쇄 장치 찾기"
+msgstr "인쇄 장치에 이 드라이버 선택"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -322,6 +316,9 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"<interface>새로 고침</interface>을 클릭하여 다시 시도하거나, 목록에서 수동 설"
+"정 옵션을 선택할 수 있습니다.<nl/><nl/>메모: 자동 프린터 발견을 사용하려면 시"
+"스템의 방화벽에서 \"mdns\" 서비스를 허용하거나, 방화벽을 비활성화해야 합니다."
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -682,20 +679,16 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "제조사/모델이 필요합니다. \"선택\"을 눌러서 제조사/모델을 선택하십시오"
 
 #: ui/PrinterSettings.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status Printer class/group"
 msgid "Configuring group, please wait…"
-msgstr "%1 설정 중, 잠시 기다려 주십시오…"
+msgstr "그룹 설정 중. 잠시 기다려 주십시오…"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring printer, please wait…"
-msgstr "%1 설정 중, 잠시 기다려 주십시오…"
+msgstr "프린터 설정 중. 잠시 기다려 주십시오…"
 
 #: ui/PrinterSettings.qml:182
 #, kde-format

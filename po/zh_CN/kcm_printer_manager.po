@@ -110,28 +110,22 @@ msgid "Choose a device connection"
 msgstr "选择设备连接"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "选择推荐的驱动程序"
+msgstr "推荐驱动程序："
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "选择打印机…"
+msgstr "选择驱动…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "搜索远程打印设备"
+msgstr "选择此打印设备的驱动程序"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -321,6 +315,8 @@ msgid ""
 "discovery requires this system’s firewall to allow through the “mdns” "
 "service, or be disabled."
 msgstr ""
+"单击 <interface>刷新</interface> 重试，或从列表中选择手动配置选项。<nl/><nl/>"
+"注意：自动打印机发现需要本系统的防火墙允许“mdns”服务通过，或关闭防火墙。"
 
 #: ui/FindPrinter.qml:238
 #, kde-format
@@ -681,20 +677,16 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "制造商/型号是必需项。请点击“选择”以选择制造商/型号"
 
 #: ui/PrinterSettings.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status Printer class/group"
 msgid "Configuring group, please wait…"
-msgstr "正在配置 %1，请稍候…"
+msgstr "正在配置打印机组，请稍候…"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring printer, please wait…"
-msgstr "正在配置 %1，请稍候…"
+msgstr "正在配置打印机，请稍候…"
 
 #: ui/PrinterSettings.qml:182
 #, kde-format
@@ -825,14 +817,3 @@ msgstr "制造商/型号："
 msgctxt "@action:button Select printer make/model"
 msgid "Select…"
 msgstr "选择…"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid ""
-#~ "Recommended drivers are based on printer make/model and connection type"
-#~ msgstr "推荐的驱动程序是根据打印机的制造商、型号和连接类型确定的"
-
-#~ msgctxt "@info:usagetip"
-#~ msgid ""
-#~ "Choose \"Refresh\" to try again or choose a manual configuration option "
-#~ "from the list"
-#~ msgstr "选择“刷新”重试，或者从选项列表中选择手动配置"

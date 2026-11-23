@@ -63,15 +63,11 @@ msgid "&Configure Printers…"
 msgstr "配置打印机(&C)…"
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Resume"
 msgctxt "@action:button"
 msgid "Resume"
 msgstr "继续"
 
 #: src/plasmoid/PrinterDelegate.qml:51
-#, fuzzy
-#| msgid "Pause"
 msgctxt "@action:button"
 msgid "Pause"
 msgstr "暂停"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-10-15 14:06+0300\n"
+"PO-Revision-Date: 2026-11-20 15:15+0200\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #: printermanager.cpp:100
 #, kde-format
@@ -112,28 +112,22 @@ msgid "Choose a device connection"
 msgstr "Izvēlieties ierīces savienojumu"
 
 #: ui/components/Drivers.qml:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Recommended Driver"
+#, kde-format
 msgctxt "@info:label"
 msgid "Recommended Drivers:"
-msgstr "Atlasiet ieteicamo draiveri"
+msgstr "Ieteicamie draiveri:"
 
 #: ui/components/Drivers.qml:108
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Select Printer…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Select Driver…"
-msgstr "Atlasiet printeri…"
+msgstr "Atlasīt draiveri…"
 
 #: ui/components/Drivers.qml:110
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Find remote printing devices"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Select this driver for the printing device"
-msgstr "Atrast attālas drukas ierīces"
+msgstr "Atlasīt šo draiveri šai drukas ierīcei"
 
 #: ui/components/Drivers.qml:120
 #, kde-format
@@ -692,20 +686,16 @@ msgid "Make/Model is required. Choose \"Select\" to pick Make/Model"
 msgstr "Jānorāda ražotājs/modelis. Spiediet uz „Atlasīt“, lai to norādītu"
 
 #: ui/PrinterSettings.qml:137
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status Printer class/group"
 msgid "Configuring group, please wait…"
-msgstr "Konfigurē „%1“, uzgaidiet…"
+msgstr "Konfigurē grupu, uzgaidiet…"
 
 #: ui/PrinterSettings.qml:139
-#, fuzzy, kde-format
-#| msgctxt "@info:status"
-#| msgid "Configuring %1, please wait…"
+#, kde-format
 msgctxt "@info:status"
 msgid "Configuring printer, please wait…"
-msgstr "Konfigurē „%1“, uzgaidiet…"
+msgstr "Konfigurē printeri, uzgaidiet…"
 
 #: ui/PrinterSettings.qml:182
 #, kde-format

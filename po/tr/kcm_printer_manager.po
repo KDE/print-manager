@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: print-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-12 18:30+0000\n"
-"PO-Revision-Date: 2026-11-13 18:54+0300\n"
+"PO-Revision-Date: 2026-11-23 18:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -742,14 +742,14 @@ msgstr "İptal"
 #, kde-format
 msgctxt "@action:check Set default printer"
 msgid "Default printer"
-msgstr "Öntanımlı yazıcı"
+msgstr "Varsayılan yazıcı"
 
 #: ui/PrinterSettings.qml:372
 #, kde-format
 msgctxt "@info"
 msgid "To change the default printer, set another printer as the default."
 msgstr ""
-"Öntanımlı yazıcıyı değiştirmek için başka bir yazıcıyı öntanımlı olarak "
+"Varsayılan yazıcıyı değiştirmek için başka bir yazıcıyı varsayılan olarak "
 "ayarlayın."
 
 #: ui/PrinterSettings.qml:381
